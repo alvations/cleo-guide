@@ -1,0 +1,6395 @@
+{
+ "meta": {
+  "tool": "tools/location-verify.js 0.1.0",
+  "city": "philadelphia-pa",
+  "generated": "2026-10-16",
+  "scope": [
+   "unverified",
+   "low",
+   "status"
+  ],
+  "sources": [
+   "wikidata",
+   "wikipedia",
+   "nominatim",
+   "overpass",
+   "official",
+   "census"
+  ],
+  "rowsInScope": 78,
+  "rowsChecked": 78,
+  "anchor": {
+   "lat": 39.952,
+   "lng": -75.16034066677094,
+   "radiusM": 59618
+  },
+  "mode": "live",
+  "userAgent": "CleoGuideLocationVerify/0.1.0 (https://github.com/alvations/cleo-guide; location-verify proposals, reviewed by a person) node",
+  "rule": "PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).",
+  "phase2": {
+   "houseFiles": [],
+   "abr": null,
+   "onemap": null
+  },
+  "requests": {
+   "network": 357,
+   "cacheHits": 8,
+   "nominatim": 172,
+   "failures": [
+    "www.hellovietnamasianbistro.com ENOTFOUND",
+    "overpass-api.de HTTP 502",
+    "overpass-api.de HTTP 502",
+    "overpass-api.de HTTP 502",
+    "overpass-api.de HTTP 502"
+   ],
+   "byHost": {
+    "www.wikidata.org": {
+     "requests": 106,
+     "failed": 0
+    },
+    "nominatim.openstreetmap.org": {
+     "requests": 172,
+     "failed": 0
+    },
+    "www.sallyphl.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "johnswaterice.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "antoniosdeliphilly.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "phillypho.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.gildaphilly.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "frankfordhall.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.vientiane-cafe.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.manakeeshcafe.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.nanzhounoodlehouse.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.tingwongrestaurant.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.franklinfountain.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.hellovietnamasianbistro.com": {
+     "requests": 1,
+     "failed": 1
+    },
+    "www.siddiqswaterice.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.libertykitchenphl.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "picas-restaurantwc.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "philygeorgianbread.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.goldiefalafel.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "federaldonuts.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.osteriaama.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "dekesbar-b-que.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.atticbrewing.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.maloogacatering.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "lajefaphilly.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.eatatvietnam.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "thediningcar.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "en.wikipedia.org": {
+     "requests": 1,
+     "failed": 0
+    },
+    "joessteaks.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "philadelphiabrewing.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.theoldebar.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "overpass-api.de": {
+     "requests": 6,
+     "failed": 4
+    },
+    "overpass.private.coffee": {
+     "requests": 4,
+     "failed": 0
+    },
+    "geocoding.geo.census.gov": {
+     "requests": 13,
+     "failed": 0
+    }
+   }
+  },
+  "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
+  "hardFailure": false,
+  "reassisted": "2026-10-16"
+ },
+ "summary": {
+  "pin": 27,
+  "no-match": 31,
+  "confirm": 15,
+  "shared-object": 2,
+  "move": 1,
+  "ambiguous": 2
+ },
+ "rows": [
+  {
+   "name": "Sally",
+   "current": {
+    "address": "2229 Spruce St, Philadelphia, PA 19103",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "MICHELIN Guide 2025 venue page (.../restaurant/sally), current listing",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.94882,
+    "lng": -75.17889,
+    "address": "2229 Spruce Street, Philadelphia, Pennsylvania 19103",
+    "matchedName": "Sally",
+    "sourceUrl": "https://www.openstreetmap.org/node/2247020285",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/2247020285",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Sally",
+     "address": "2229 Spruce Street, Philadelphia, Pennsylvania 19103",
+     "houseNumber": "2229",
+     "tags": {
+      "website": "https://www.sallyphl.com",
+      "check_date": "2023-10-14",
+      "opening_hours": "Mo,We-Fr 16:30-22:00; Tu off; Sa-Su 10:30-13:30,16:30-22:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Sally",
+     "lat": 39.94882,
+     "lng": -75.17889,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/2247020285",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/2247020285",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Hiroki — CLOSED",
+   "current": {
+    "address": "1355 N Front St, Philadelphia, PA 19122",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Philadelphia Inquirer 2026-08-02 'restaurant closings 2026 hiroki cooknsolo': Hiroki posted Aug 8, 2026 would be its last service; owner Method Co. calls it a strategic repositioning, new concept planned for the space",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Wm. Mulherin's Sons",
+     "lat": 39.97172,
+     "lng": -75.13505,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/974767892",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/974767892",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Wm. Mulherin's Sons Hotel",
+     "lat": 39.97169,
+     "lng": -75.13491,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/9423177487",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=hotel",
+     "osm": "node/9423177487",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Honeysuckle",
+   "current": {
+    "address": "631 N Broad St, Philadelphia, PA 19123",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "MICHELIN Guide 2025 venue page (.../restaurant/honeysuckle-1219221), current listing at 631 N Broad St",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Calderwood Gallery",
+     "lat": 39.96456,
+     "lng": -75.16051,
+     "grade": "low",
+     "nameSim": 0.077,
+     "sourceUrl": "https://www.openstreetmap.org/way/1254978483",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=furniture",
+     "osm": "way/1254978483",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Illata",
+   "current": {
+    "address": "2241 Grays Ferry Ave, Philadelphia, PA 19146",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "MICHELIN Guide venue page (guide.michelin.com/.../restaurant/illata), current guide listing",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 39.94482,
+    "lng": -75.18006,
+    "address": "2241 Grays Ferry Avenue, Philadelphia, Pennsylvania 19146",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1125485749",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1125485749",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "2241 Grays Ferry Avenue, Philadelphia, Pennsylvania 19146",
+     "houseNumber": "2241",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.94482,
+     "lng": -75.18006,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1125485749",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1125485749",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.94484,
+     "lng": -75.18012,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1040517672",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/1040517672",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "2241 GRAYS FERRY AVE, PHILADELPHIA, PA, 19146",
+    "lat": 39.94489,
+    "lng": -75.18008,
+    "distanceM": 8,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2241%20Grays%20Ferry%20Ave%2C%20Philadelphia%2C%20PA%2019146&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 8 m away (“2241 GRAYS FERRY AVE, PHILADELPHIA, PA, 19146”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Laurel — CLOSED",
+   "current": {
+    "address": "1617 E Passyunk Ave, Philadelphia, PA 19148",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Philadelphia Inquirer 2025-11-19 'laurel restaurant east passyunk closing': chef Nicholas Elmi announced final service (week before Thanksgiving 2025) after 12 years, lease ending; also on Inquirer 2025 closings list",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 39.92943,
+    "lng": -75.16373,
+    "address": "1617 East Passyunk Avenue, Philadelphia, Pennsylvania 19148",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/439026395",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/439026395",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "1617 East Passyunk Avenue, Philadelphia, Pennsylvania 19148",
+     "houseNumber": "1617",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.92943,
+     "lng": -75.16373,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/439026395",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/439026395",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Laurel",
+     "lat": 39.77355,
+     "lng": -75.51678,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/371540396",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=house",
+     "osm": "way/371540396",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "1617 E PASSYUNK AVE, PHILADELPHIA, PA, 19148",
+    "lat": 39.92958,
+    "lng": -75.1637,
+    "distanceM": 17,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1617%20E%20Passyunk%20Ave%2C%20Philadelphia%2C%20PA%2019148&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "Little Water",
+   "current": {
+    "address": "261 S 20th St, Philadelphia, PA 19103",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "MICHELIN Guide venue page (guide.michelin.com/.../restaurant/little-water), current guide listing",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "20 Manning",
+     "lat": 39.94861,
+     "lng": -75.17402,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/341092941",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/341092941",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.94842,
+     "lng": -75.17416,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/195815859",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/195815859",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "George's Sandwich Shop",
+   "current": {
+    "address": "900 S 9th St, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Inquirer 2018-11-05: reopened after 2017 closure/renovation; PhillyVoice feature; no 2025-26 confirmation found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.93889,
+     "lng": -75.15797,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1446008085",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/1446008085",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Sarcone's Bakery",
+   "current": {
+    "address": "758 S 9th St, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Inquirer 2017-08-05 covers only the deli closing; bakery status unconfirmed",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.94013,
+     "lng": -75.15785,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1122240293",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1122240293",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "John's Water Ice",
+   "current": {
+    "address": "701 Christian St, Philadelphia, PA 19147",
+    "lat": 39.938275,
+    "lng": -75.154867,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '701 Christian St': restaurantji.com/pa/philadelphia/johns-water-ice-/ · wanderlog.com/place/details/8966466",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "not checked - WebSearch budget (28) exhausted; needs closure-check wave",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.93828,
+    "lng": -75.1549,
+    "address": "701 Christian Street, Philadelphia, Pennsylvania 19147",
+    "matchedName": "John's Water Ice",
+    "sourceUrl": "https://www.openstreetmap.org/node/2876251700",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 3,
+    "osmObject": {
+     "id": "node/2876251700",
+     "class": "shop=dessert",
+     "addresstype": "shop",
+     "name": "John's Water Ice",
+     "address": "701 Christian Street, Philadelphia, Pennsylvania 19147",
+     "houseNumber": "701",
+     "tags": {
+      "website": "https://johnswaterice.com/",
+      "opening_hours": "Mo-Sa 11:00-22:00; Su 13:00-22:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "John's Water Ice",
+     "lat": 39.93828,
+     "lng": -75.1549,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/2876251700",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=dessert",
+     "osm": "node/2876251700",
+     "addresstype": "shop",
+     "distanceFromCurrentM": 3
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Antonio's Deli",
+   "current": {
+    "address": "1014 Federal St, Philadelphia, PA 19147",
+    "lat": 39.9345112,
+    "lng": -75.1610494,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '1014 Federal St': restaurantji.com/pa/philadelphia/antonios-deli-/ · restaurantguru.com/Antonios-Deli-Philadelphia",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Inquirer (took over former Chickie's Deli, 1014 Federal St); current operating status not confirmed in search",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.93449,
+    "lng": -75.16105,
+    "address": "1014 Federal Street, Philadelphia, Pennsylvania 19147",
+    "matchedName": "Antonio's Deli",
+    "sourceUrl": "https://www.openstreetmap.org/way/457057271",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 2,
+    "osmObject": {
+     "id": "way/457057271",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Antonio's Deli",
+     "address": "1014 Federal Street, Philadelphia, Pennsylvania 19147",
+     "houseNumber": "1014",
+     "tags": {
+      "website": "https://antoniosdeliphilly.com/",
+      "building": "yes",
+      "opening_hours": "Mo-Sa 09:00-16:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Antonio's Deli",
+     "lat": 39.93449,
+     "lng": -75.16105,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/457057271",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/457057271",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 2
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Paesano's",
+   "current": {
+    "address": "1017 S 9th St, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Inquirer/Philly Mag (Italian Market location opened 2010; 2022 Inquirer feature); no 2025-26 confirmation found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.93716,
+    "lng": -75.1581,
+    "address": "1017 South 9th Street, Philadelphia, Pennsylvania 19147",
+    "matchedName": "Paesano's Philly Style Sandwiches",
+    "sourceUrl": "https://www.openstreetmap.org/node/2492627051",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/2492627051",
+     "class": "amenity=fast_food",
+     "addresstype": "amenity",
+     "name": "Paesano's Philly Style Sandwiches",
+     "address": "1017 South 9th Street, Philadelphia, Pennsylvania 19147",
+     "houseNumber": "1017",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Paesano's Philly Style Sandwiches",
+     "lat": 39.93716,
+     "lng": -75.1581,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/2492627051",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=fast_food",
+     "osm": "node/2492627051",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 0.9, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Pho 75",
+   "current": {
+    "address": "1122 Washington Ave, Unit F, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Philly Mag Washington Avenue restaurants guide (listing-level; no closure reported)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.93718,
+    "lng": -75.16286,
+    "address": "Washington Avenue, Philadelphia, Pennsylvania 19147",
+    "matchedName": "Pho 75",
+    "sourceUrl": "https://www.openstreetmap.org/node/6556404860",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6556404860",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Pho 75",
+     "address": "Washington Avenue, Philadelphia, Pennsylvania 19147",
+     "houseNumber": null,
+     "tags": {
+      "website": "https://phillypho.com/",
+      "opening_hours": "Mo-Su 09:00-20:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Pho 75",
+     "lat": 39.93718,
+     "lng": -75.16286,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6556404860",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/6556404860",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number null, street true)"
+    ]
+   }
+  },
+  {
+   "name": "Nam Phuong",
+   "current": {
+    "address": "1100 Washington Ave, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "The Infatuation current review page + Philly Mag Washington Ave guide (listing-level; no closure reported)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.93648,
+    "lng": -75.16191,
+    "address": "South 11th Street, Philadelphia, Pennsylvania 19147",
+    "matchedName": "Nam Phuong",
+    "sourceUrl": "https://www.openstreetmap.org/node/12363561554",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/12363561554",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Nam Phuong",
+     "address": "South 11th Street, Philadelphia, Pennsylvania 19147",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Pho Ga Thanh Thanh",
+     "lat": 39.93678,
+     "lng": -75.16191,
+     "grade": "low",
+     "nameSim": 0.091,
+     "sourceUrl": "https://www.openstreetmap.org/way/334264447",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/334264447",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Red Lounge",
+     "lat": 39.93627,
+     "lng": -75.16219,
+     "grade": "low",
+     "nameSim": 0.125,
+     "sourceUrl": "https://www.openstreetmap.org/way/334264446",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=bar",
+     "osm": "way/334264446",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Nam Phuong",
+     "lat": 39.93648,
+     "lng": -75.16191,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/12363561554",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/12363561554",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "1100 WASHINGTON AVE, PHILADELPHIA, PA, 19147",
+    "lat": 39.93711,
+    "lng": -75.16149,
+    "distanceM": 79,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1100%20Washington%20Ave%2C%20Philadelphia%2C%20PA%2019147&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "med: needs a second independent source within 50 m (Census point is 79 m away)"
+    ]
+   }
+  },
+  {
+   "name": "Casa Mexico",
+   "current": {
+    "address": "1134 S 9th St, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "OpenTable 'Casa Mexico - South Philly Barbacoa' listing (Chef Cristina Martinez)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.93551,
+     "lng": -75.15876,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/457906355",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/457906355",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Loco Pez",
+   "current": {
+    "address": "2401 E Norris St, Philadelphia, PA 19125",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found; Infatuation review https://www.theinfatuation.com/philadelphia/reviews/loco-pez (undated) lists 2401 E Norris St; no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.97683,
+    "lng": -75.12723,
+    "address": "Cedar Street, Philadelphia, Pennsylvania 19125",
+    "matchedName": "Loco Pez",
+    "sourceUrl": "https://www.openstreetmap.org/node/6302597108",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6302597108",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Loco Pez",
+     "address": "Cedar Street, Philadelphia, Pennsylvania 19125",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.97687,
+     "lng": -75.12713,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1217625700",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1217625700",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Loco Pez",
+     "lat": 39.97683,
+     "lng": -75.12723,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6302597108",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/6302597108",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "2401 E NORRIS ST, PHILADELPHIA, PA, 19125",
+    "lat": 39.97685,
+    "lng": -75.1273,
+    "distanceM": 6,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2401%20E%20Norris%20St%2C%20Philadelphia%2C%20PA%2019125&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 6 m away (“2401 E NORRIS ST, PHILADELPHIA, PA, 19125”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Gilda Cafe and Market",
+   "current": {
+    "address": "300 E Girard Ave, Philadelphia, PA 19125",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Inquirer \"Perfect Philly Day\" (2 May 2026) https://www.inquirer.com/food/gilda-perfect-philly-day-brian-mattera-20260502.html ; address per 6abc https://6abc.com/post/gilda-philadelphia-cafes-breakfast-where-to-eat/12933981/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.96956,
+    "lng": -75.13138,
+    "address": "300 East Girard Avenue, Philadelphia, Pennsylvania 19125",
+    "matchedName": "Gilda Cafe & Market",
+    "sourceUrl": "https://www.openstreetmap.org/way/1108628074",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1108628074",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Gilda Cafe & Market",
+     "address": "300 East Girard Avenue, Philadelphia, Pennsylvania 19125",
+     "houseNumber": "300",
+     "tags": {
+      "website": "https://www.gildaphilly.com/",
+      "building": "apartments"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Gilda Cafe & Market",
+     "lat": 39.96956,
+     "lng": -75.13138,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1108628074",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/1108628074",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.9697,
+     "lng": -75.13159,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/829388238",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/829388238",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Front Street Cafe",
+   "current": {
+    "address": "1253 N Front St, Philadelphia, PA 19122",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "OpenTable live listing (885 reviews, 4.6) seen in 2026 search results https://www.opentable.com/cuisine/best-global-restaurants-society-hill-pa ; no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.96976,
+     "lng": -75.13584,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/626091330",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/626091330",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Frankford Hall",
+   "current": {
+    "address": "1210 Frankford Ave, Philadelphia, PA 19125",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found (only 2011 opening coverage, Inquirer https://www.inquirer.com/philly/food/20110821_Frankford_Hall.html); no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.96949,
+    "lng": -75.13468,
+    "address": "1210 Frankford Avenue, Philadelphia, Pennsylvania 19125",
+    "matchedName": "Frankford Hall",
+    "sourceUrl": "https://www.openstreetmap.org/node/3306921057",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/3306921057",
+     "class": "amenity=pub",
+     "addresstype": "amenity",
+     "name": "Frankford Hall",
+     "address": "1210 Frankford Avenue, Philadelphia, Pennsylvania 19125",
+     "houseNumber": "1210",
+     "tags": {
+      "website": "https://frankfordhall.com/"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Frankford Hall",
+     "lat": 39.96949,
+     "lng": -75.13468,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/3306921057",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=pub",
+     "osm": "node/3306921057",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Vientiane Cafe",
+   "current": {
+    "address": "4728 Baltimore Ave, Philadelphia, PA 19143",
+    "lat": 39.9483778,
+    "lng": -75.2179398,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '4728 Baltimore Ave' (two listings agree): restaurantji.com/pa/philadelphia/vientiane-caf-/ · restaurantguru.com/Vientiane-Cafe-Philadelphia",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found; Infatuation mention (undated); no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.94829,
+    "lng": -75.2179,
+    "address": "4728 Baltimore Avenue, Philadelphia, Pennsylvania 19143",
+    "matchedName": "Vientiane Café",
+    "sourceUrl": "https://www.openstreetmap.org/way/155794904",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 10,
+    "osmObject": {
+     "id": "way/155794904",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Vientiane Café",
+     "address": "4728 Baltimore Avenue, Philadelphia, Pennsylvania 19143",
+     "houseNumber": "4728",
+     "tags": {
+      "website": "https://www.vientiane-cafe.com/",
+      "building": "commercial",
+      "opening_hours": "Mo off; Tu-Sa 16:00-21:00; Su off"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Vientiane Café",
+     "lat": 39.94829,
+     "lng": -75.2179,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/155794904",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/155794904",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 10
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Manakeesh Cafe Bakery & Grill",
+   "current": {
+    "address": "4420 Walnut St, Philadelphia, PA 19104",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Zabihah listing (record created Sep 2024) https://www.zabihah.com/biz/Philadelphia/Manakeesh-Cafe-Bakery/rXnLzCA3v8 ; Visit Philly halal guide https://www.visitphilly.com/?p=86033 ; no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "shared-object",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.95509,
+    "lng": -75.21153,
+    "address": "4420 Walnut Street, Philadelphia, Pennsylvania 19104",
+    "matchedName": "Manakeesh Cafe & Bakery",
+    "sourceUrl": "https://www.openstreetmap.org/node/2108022395",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "low",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/2108022395",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Manakeesh Cafe & Bakery",
+     "address": "4420 Walnut Street, Philadelphia, Pennsylvania 19104",
+     "houseNumber": "4420",
+     "tags": {
+      "website": "https://www.manakeeshcafe.com/",
+      "check_date": "2024-07-26",
+      "opening_hours": "Mo-Th,Su 09:00-21:00; Fr 09:00-13:00,14:00-21:30; Sa 09:00-21:30"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "shared object: OSM node/2108022395 also matched Manakeesh Cafe Bakery & Grill — CLOSED; graded low"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Manakeesh Cafe & Bakery",
+     "lat": 39.95509,
+     "lng": -75.21153,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/2108022395",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/2108022395",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.95497,
+     "lng": -75.21153,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/567070788",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/567070788",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "low / shared OSM object"
+    ]
+   }
+  },
+  {
+   "name": "Fu-Wah Mini Market",
+   "current": {
+    "address": "810 S 47th St, Philadelphia, PA 19143",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no dated 2025-2026 source found; West Philly Local tag page https://www.westphillylocal.com/tag/fu-wah/ and Penn Today confirm 810 S 47th St; no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.94833,
+     "lng": -75.21701,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1354057849",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1354057849",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Nan Zhou Hand Drawn Noodle House",
+   "current": {
+    "address": "1022 Race St, Philadelphia, PA 19107",
+    "lat": 39.9552012,
+    "lng": -75.1568535,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '1022 Race St': restaurantji.com/pa/philadelphia/nan-zhou-hand-drawn-noodle-house-/ · wanderlog.com/place/details/394543",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no dated 2025-2026 source found; Philly Mag (2014) notes move from original location to 1022 Race St; no closing article for current location found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.95539,
+    "lng": -75.1568,
+    "address": "1022 Race Street, Philadelphia, Pennsylvania 19107",
+    "matchedName": "Nan Zhou Hand Drawn Noodle House",
+    "sourceUrl": "https://www.openstreetmap.org/node/7098783385",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 22,
+    "osmObject": {
+     "id": "node/7098783385",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Nan Zhou Hand Drawn Noodle House",
+     "address": "1022 Race Street, Philadelphia, Pennsylvania 19107",
+     "houseNumber": "1022",
+     "tags": {
+      "website": "https://www.nanzhounoodlehouse.com",
+      "check_date": "2026-09-07",
+      "opening_hours": "Mo-Th,Su 11:00-22:00; Fr-Sa 11:00-22:30",
+      "check_date:opening_hours": "2026-09-07"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Nan Zhou Hand Drawn Noodle House",
+     "lat": 39.95539,
+     "lng": -75.1568,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7098783385",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/7098783385",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 22
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Tom's Dim Sum",
+   "current": {
+    "address": "59 N 11th St, Philadelphia, PA 19107",
+    "lat": 39.95332,
+    "lng": -75.157771,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '59 N 11th St': restaurantji.com/pa/philadelphia/toms-dim-sum-/ · wanderlog.com/place/details/536871",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found; Inquirer opening note (undated) https://www.inquirer.com/philly/blogs/the-insider/Toms-Dim-Sum-opens-in-Chinatown.html lists 59 N 11th St; no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.9535,
+     "lng": -75.15781,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/335828093",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/335828093",
+     "addresstype": "place",
+     "distanceFromCurrentM": 20
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Ting Wong",
+   "current": {
+    "address": "138 N 10th St, Philadelphia, PA 19107",
+    "lat": 39.9547955,
+    "lng": -75.1563093,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '138 N 10th St': restaurantji.com/pa/philadelphia/ting-wong-/ · restaurantguru.com/Ting-Wong-Philadelphia",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found; Inquirer \"Duck! Ting Wong has reopened\" (older) https://www.inquirer.com/philly/blogs/the-insider/Duck-Ting-Wong-has-reopened.html; no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.95477,
+    "lng": -75.15619,
+    "address": "North 10th Street, Philadelphia, Pennsylvania 19107",
+    "matchedName": "Ting Wong Restaurant",
+    "sourceUrl": "https://www.openstreetmap.org/node/6556417044",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 11,
+    "osmObject": {
+     "id": "node/6556417044",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Ting Wong Restaurant",
+     "address": "North 10th Street, Philadelphia, Pennsylvania 19107",
+     "houseNumber": null,
+     "tags": {
+      "website": "http://www.tingwongrestaurant.com/",
+      "opening_hours": "Su-Th 08:00-22:00; Fr-Sa 08:00-23:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.95478,
+     "lng": -75.15632,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/345167231",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/345167231",
+     "addresstype": "building",
+     "distanceFromCurrentM": 2
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Ting Wong Restaurant",
+     "lat": 39.95477,
+     "lng": -75.15619,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/6556417044",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/6556417044",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 11
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number null, street true)"
+    ]
+   }
+  },
+  {
+   "name": "The Franklin Fountain",
+   "current": {
+    "address": "116 Market St, Philadelphia, PA 19106",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.94965,
+    "lng": -75.1429,
+    "address": "116 Market Street, Philadelphia, Pennsylvania 19106",
+    "matchedName": "The Franklin Fountain",
+    "sourceUrl": "https://www.openstreetmap.org/node/988833934",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/988833934",
+     "class": "amenity=ice_cream",
+     "addresstype": "amenity",
+     "name": "The Franklin Fountain",
+     "address": "116 Market Street, Philadelphia, Pennsylvania 19106",
+     "houseNumber": "116",
+     "tags": {
+      "shop": "yes",
+      "website": "http://www.franklinfountain.com/",
+      "opening_hours": "Mo-Th 12:00-23:00; Fr-Su 11:00-24:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "The Franklin Fountain",
+     "lat": 39.94965,
+     "lng": -75.1429,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/988833934",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=ice_cream",
+     "osm": "node/988833934",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Di Bruno Bros. (Italian Market)",
+   "current": {
+    "address": "930 S 9th St, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.93804,
+    "lng": -75.15826,
+    "address": "930 South 9th Street, Philadelphia, Pennsylvania 19147",
+    "matchedName": "Di Bruno Bros.",
+    "sourceUrl": "https://www.openstreetmap.org/way/338982855",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/338982855",
+     "class": "shop=deli",
+     "addresstype": "shop",
+     "name": "Di Bruno Bros.",
+     "address": "930 South 9th Street, Philadelphia, Pennsylvania 19147",
+     "houseNumber": "930",
+     "tags": {
+      "building": "yes",
+      "opening_hours": "Mo 09:00-18:00; Tu-Th 09:00-18:00; Fr,Sa 08:00-18:00; Su 08:00-18:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Di Bruno Bros.",
+     "lat": 39.93804,
+     "lng": -75.15826,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/338982855",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=deli",
+     "osm": "way/338982855",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Ray's Happy Birthday Bar",
+   "current": {
+    "address": "1200 E Passyunk Ave, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.9341,
+     "lng": -75.15849,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/334890737",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/334890737",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.92848,
+     "lng": -75.16511,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/4175104198",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=bar",
+     "osm": "node/4175104198",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Ray's Happy Birthday Bar",
+     "lat": 39.93411,
+     "lng": -75.15849,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/4267167928",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=bar",
+     "osm": "node/4267167928",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Mike's BBQ",
+   "current": {
+    "address": "1703 S 11th St, Philadelphia, PA 19148",
+    "lat": 39.9284176,
+    "lng": -75.1632139,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '1703 S 11th St': restaurantji.com/pa/philadelphia/mikes-bbq-/ · restaurantguru.com/Mikes-BBQ-Philadelphia",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 39.92842,
+    "lng": -75.16321,
+    "address": "1703 South 11th Street, Philadelphia, Pennsylvania 19148",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/487724117",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 1,
+    "osmObject": {
+     "id": "way/487724117",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "1703 South 11th Street, Philadelphia, Pennsylvania 19148",
+     "houseNumber": "1703",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.92842,
+     "lng": -75.16321,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/487724117",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/487724117",
+     "addresstype": "building",
+     "distanceFromCurrentM": 1
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "1703 S 11TH ST, PHILADELPHIA, PA, 19148",
+    "lat": 39.92845,
+    "lng": -75.16333,
+    "distanceM": 11,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1703%20S%2011th%20St%2C%20Philadelphia%2C%20PA%2019148&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current med pin (1 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Los Cuatro Soles",
+   "current": {
+    "address": "1801 S Chadwick St, Philadelphia, PA 19145",
+    "lat": 39.92849731,
+    "lng": -75.17314148,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '1801 S Chadwick St': restaurantji.com/pa/philadelphia/los-cuatro-soles-/ · wanderlog.com/place/details/3976144",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; Philly Mag \"Where to eat Mexican food in Philly right now\" https://www.phillymag.com/restaurants/mexican-food-philadelphia/ (undated)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.9285,
+    "lng": -75.17305,
+    "address": "1801 South Chadwick Street, Philadelphia, Pennsylvania 19145",
+    "matchedName": "Los Cuatro Soles",
+    "sourceUrl": "https://www.openstreetmap.org/way/440985151",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 8,
+    "osmObject": {
+     "id": "way/440985151",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Los Cuatro Soles",
+     "address": "1801 South Chadwick Street, Philadelphia, Pennsylvania 19145",
+     "houseNumber": "1801",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Los Cuatro Soles",
+     "lat": 39.9285,
+     "lng": -75.17305,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/440985151",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/440985151",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 8
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Mole Poblano",
+   "current": {
+    "address": "1144 S 9th St, Philadelphia, PA 19147",
+    "lat": 39.935129,
+    "lng": -75.1588268,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '1144 S 9th St': restaurantji.com/pa/philadelphia/mole-poblano-/ · restaurantguru.com/Mole-Poblano-Philadelphia",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; Al Dia profile https://aldianews.com/culture/heritage-and-history/mole-poblano (undated)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.93513,
+     "lng": -75.15883,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/457942108",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/457942108",
+     "addresstype": "building",
+     "distanceFromCurrentM": 0
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Hello Vietnam",
+   "current": {
+    "address": "722 N 2nd St, Philadelphia, PA 19123",
+    "lat": 39.9626294,
+    "lng": -75.1412539,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '722 N 2nd St': restaurantji.com/pa/philadelphia/hello-vietnam-/ · restaurantguru.com/Hello-Vietnam-Philadelphia",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; address per Inquirer (11 Dec 2019) https://inquirer.com/food/michael-klein/hello-vietnam-northern-liberties-new-restaurants-philadephia-20191211.html",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.96264,
+    "lng": -75.1413,
+    "address": "722 North 2nd Street, Philadelphia, Pennsylvania 19123",
+    "matchedName": "Hello Vietnam",
+    "sourceUrl": "https://www.openstreetmap.org/way/1253749738",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 5,
+    "osmObject": {
+     "id": "way/1253749738",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Hello Vietnam",
+     "address": "722 North 2nd Street, Philadelphia, Pennsylvania 19123",
+     "houseNumber": "722",
+     "tags": {
+      "website": "https://www.hellovietnamasianbistro.com/",
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high",
+    "robots.txt unreachable (ENOTFOUND); official site skipped (RFC 9309: assume disallow on server error)",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Hello Vietnam",
+     "lat": 39.96264,
+     "lng": -75.1413,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1253749738",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/1253749738",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 5
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "McNally's Tavern",
+   "current": {
+    "address": "8634 Germantown Ave, Philadelphia, PA 19118",
+    "lat": 40.07710266,
+    "lng": -75.20886993,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '8634 Germantown Ave': restaurantji.com/pa/philadelphia/mcnallys-tavern-/ · wanderlog.com/place/details/2106600",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; Philly Mag Chestnut Hill guide (undated) https://www.phillymag.com/restaurants/restaurants-chestnut-hill/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 40.07712,
+    "lng": -75.20884,
+    "address": "8634 Germantown Avenue, Philadelphia, Pennsylvania 19118",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1056075594",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 3,
+    "osmObject": {
+     "id": "way/1056075594",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "8634 Germantown Avenue, Philadelphia, Pennsylvania 19118",
+     "houseNumber": "8634",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 40.07712,
+     "lng": -75.20884,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1056075594",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1056075594",
+     "addresstype": "building",
+     "distanceFromCurrentM": 3
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "8634 GERMANTOWN AVE, PHILADELPHIA, PA, 19118",
+    "lat": 40.07707,
+    "lng": -75.20843,
+    "distanceM": 35,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=8634%20Germantown%20Ave%2C%20Philadelphia%2C%20PA%2019118&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current med pin (3 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Cake",
+   "current": {
+    "address": "8501 Germantown Ave, Philadelphia, PA 19118",
+    "lat": 40.0763031,
+    "lng": -75.2062924,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '8501 Germantown Ave': restaurantji.com/pa/philadelphia/cake-/ · restaurantguru.com/Cake-Philadelphia",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; Visit Philly Chestnut Hill/Mount Airy neighborhood guide (undated) https://www.visitphilly.com/media-center/press-releases/neighborhood-guide-chestnut-hill-germantown-mount-airy/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.07615,
+     "lng": -75.20648,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/288695287",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/288695287",
+     "addresstype": "place",
+     "distanceFromCurrentM": 23
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Siddiqs Water Ice & Funnel Cake",
+     "lat": 39.9512,
+     "lng": -75.15653,
+     "grade": "low",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/333831772",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=ice_cream",
+     "osm": "way/333831772",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 14542
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Cake Life",
+     "lat": 39.97047,
+     "lng": -75.13456,
+     "grade": "low",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/8439601864",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=bakery",
+     "osm": "node/8439601864",
+     "addresstype": "shop",
+     "distanceFromCurrentM": 13258
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "El Poquito",
+   "current": {
+    "address": "8201 Germantown Ave, Philadelphia, PA 19118",
+    "lat": 40.0735403,
+    "lng": -75.2027238,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '8201 Germantown Ave': restaurantji.com/pa/philadelphia/el-poquito-/ · wanderlog.com/place/details/1418034",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; Visit Philly Chestnut Hill neighborhood guide (undated)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.07365,
+    "lng": -75.20264,
+    "address": "8201 Germantown Avenue, Philadelphia, Pennsylvania 19118",
+    "matchedName": "El Poquito",
+    "sourceUrl": "https://www.openstreetmap.org/node/2356275983",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 14,
+    "osmObject": {
+     "id": "node/2356275983",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "El Poquito",
+     "address": "8201 Germantown Avenue, Philadelphia, Pennsylvania 19118",
+     "houseNumber": "8201",
+     "tags": {
+      "opening_hours": "Mo-Th 16:00-21:00; Fr 16:00-22:00; Sa 11:00-22:00; Su 11:00-20:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "El Poquito",
+     "lat": 40.07365,
+     "lng": -75.20264,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/2356275983",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/2356275983",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 14
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Töska",
+   "current": {
+    "address": "7136 Germantown Ave, Philadelphia, PA 19119",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.0592,
+    "lng": -75.19035,
+    "address": "7136 Germantown Avenue, Philadelphia, Pennsylvania 19119",
+    "matchedName": "Töska",
+    "sourceUrl": "https://www.openstreetmap.org/node/596245658",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/596245658",
+     "class": "craft=brewery",
+     "addresstype": "craft",
+     "name": "Töska",
+     "address": "7136 Germantown Avenue, Philadelphia, Pennsylvania 19119",
+     "houseNumber": "7136",
+     "tags": {
+      "amenity": "restaurant",
+      "check_date": "2026-03-16"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Töska",
+     "lat": 40.0592,
+     "lng": -75.19035,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/596245658",
+     "retrieved": "2026-10-16",
+     "osmClass": "craft=brewery",
+     "osm": "node/596245658",
+     "addresstype": "craft",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Night Kitchen Bakery",
+   "current": {
+    "address": "7725 Germantown Ave, Philadelphia, PA 19118",
+    "lat": 40.06835175,
+    "lng": -75.19781494,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '7725 (7723-25) Germantown Ave': restaurantji.com/pa/philadelphia/the-night-kitchen-bakery-/ · wanderlog.com/place/details/1431123",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; Visit Philly Chestnut Hill neighborhood guide (undated)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 40.06832,
+    "lng": -75.19792,
+    "address": "7725 Germantown Avenue, Philadelphia, Pennsylvania 19118",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1198839792",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 10,
+    "osmObject": {
+     "id": "way/1198839792",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "7725 Germantown Avenue, Philadelphia, Pennsylvania 19118",
+     "houseNumber": "7725",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 40.06832,
+     "lng": -75.19792,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1198839792",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1198839792",
+     "addresstype": "building",
+     "distanceFromCurrentM": 10
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "7725 GERMANTOWN AVE, PHILADELPHIA, PA, 19118",
+    "lat": 40.068,
+    "lng": -75.19768,
+    "distanceM": 41,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=7725%20Germantown%20Ave%2C%20Philadelphia%2C%20PA%2019118&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current med pin (10 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "White Yak",
+   "current": {
+    "address": "Ridge Ave, Roxborough, Philadelphia, PA 19128",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; street number not verified",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.03382,
+    "lng": -75.21576,
+    "address": "Ridge Avenue, Philadelphia, Pennsylvania 19127",
+    "matchedName": "White Yak",
+    "sourceUrl": "https://www.openstreetmap.org/node/11069315584",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name + address agree",
+     "postcode disagrees"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": true,
+     "postcode": false
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/11069315584",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "White Yak",
+     "address": "Ridge Avenue, Philadelphia, Pennsylvania 19127",
+     "houseNumber": null,
+     "tags": {
+      "check_date": "2025-12-06",
+      "opening_hours": "Tu-Su 11:30-15:00,16:30-21:30; Mo off"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "White Yak",
+     "lat": 40.03382,
+     "lng": -75.21576,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/11069315584",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/11069315584",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": false,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=Ridge%20Ave%2C%20Roxborough%2C%20Philadelphia%2C%20PA%2019128&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "note": "no address match"
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "med: needs a second independent source within 50 m (Census: no match)"
+    ]
+   }
+  },
+  {
+   "name": "Liberty Kitchen (Market at the Fairway)",
+   "current": {
+    "address": "Market at the Fairway, Chestnut Hill, Philadelphia, PA 19118",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; street number not verified",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Liberty Kitchen",
+     "lat": 39.97197,
+     "lng": -75.13542,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/9423177488",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/9423177488",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Lark",
+   "current": {
+    "address": "611 Righters Ferry Rd, Bala Cynwyd, PA 19004",
+    "lat": 40.0156625,
+    "lng": -75.2143742,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '611 Righters Ferry Rd (Ironworks at Pencoyd Landing)': restaurantguru.com/Lark-Bala-Cynwyd · restaurantji.com/pa/bala-cynwyd/lark-/",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.01551,
+     "lng": -75.21512,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/881103276",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/881103276",
+     "addresstype": "place",
+     "distanceFromCurrentM": 66
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Ripplewood Whiskey & Craft",
+   "current": {
+    "address": "29 E Lancaster Ave, Ardmore, PA 19003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; named in Philly Mag 50 Best Bars (date not shown)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.00741,
+     "lng": -75.28988,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/627037167",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/627037167",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.98894,
+     "lng": -75.25527,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/37977756",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/37977756",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Eshkol",
+   "current": {
+    "address": "Lancaster Ave, Ardmore, PA 19003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; street number not verified",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Little Blue Owl Baking Company",
+   "current": {
+    "address": "Haverford Ave & Essex Ave, Narberth, PA 19072",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.0053,
+    "lng": -75.2618,
+    "address": "Haverford Avenue, Narberth, Pennsylvania 19072",
+    "matchedName": "Little Blue Owl Baking Company",
+    "sourceUrl": "https://www.openstreetmap.org/node/11738825357",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/11738825357",
+     "class": "shop=bakery",
+     "addresstype": "shop",
+     "name": "Little Blue Owl Baking Company",
+     "address": "Haverford Avenue, Narberth, Pennsylvania 19072",
+     "houseNumber": null,
+     "tags": {
+      "check_date": "2026-07-09",
+      "opening_hours": "We-Fr 07:00-16:00; Sa 08:00-16:00; Su 08:00-14:00",
+      "check_date:opening_hours": "2026-07-09"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Little Blue Owl Baking Company",
+     "lat": 40.0053,
+     "lng": -75.2618,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/11738825357",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=bakery",
+     "osm": "node/11738825357",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number null, street true)"
+    ]
+   }
+  },
+  {
+   "name": "Teresa's Next Door",
+   "current": {
+    "address": "126 N Wayne Ave, Wayne, PA 19087",
+    "lat": 40.0450677,
+    "lng": -75.3881724,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '126 N Wayne Ave': restaurantji.com/pa/wayne/teresas-next-door-bar-/ · restaurantguru.com/Teresas-Next-Door-Wayne-Pennsylvania",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; named in Philly Mag 50 Best Bars (date not shown)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.04456,
+     "lng": -75.38799,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/12157588",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/12157588",
+     "addresstype": "place",
+     "distanceFromCurrentM": 58
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Malooga (Narberth)",
+   "current": {
+    "address": "203 Haverford Ave, Narberth, PA 19072",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Patch Bala Cynwyd \"Popular Middle Eastern restaurant expanding to Main Line\" (date not shown) https://patch.com/pennsylvania/balacynwyd/popular-middle-eastern-restaurant-expanding-main-line — planned opening at 203 Haverford Ave, Narberth; opening not confirmed",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.0053,
+    "lng": -75.26197,
+    "address": "203 Haverford Avenue, Narberth, Pennsylvania 19072",
+    "matchedName": "Malooga",
+    "sourceUrl": "https://www.openstreetmap.org/node/13794360703",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/13794360703",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Malooga",
+     "address": "203 Haverford Avenue, Narberth, Pennsylvania 19072",
+     "houseNumber": "203",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Malooga",
+     "lat": 40.0053,
+     "lng": -75.26197,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/13794360703",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/13794360703",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Pica's Restaurant (West Chester)",
+   "current": {
+    "address": "1233 West Chester Pike, West Chester, PA 19382",
+    "lat": 39.9686111,
+    "lng": -75.5572222,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'Pica's Restaurant, West Chester, 1233 West Chester Pike (West Goshen)' — DMS-rounded (~30 m): restaurantji.com/pa/west-chester/picas-restaurant-west-chester-/ · restaurantguru.com/Picas-Restaurant-West-Chester-West-Goshen",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "no 2025-2026 source found within search budget; no closing article found; street address not verified",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "move",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.96889,
+    "lng": -75.55728,
+    "address": "1233 West Chester Pike, West Chester, Pennsylvania 19382",
+    "matchedName": "Pica's Restaurant",
+    "sourceUrl": "https://www.openstreetmap.org/node/8344642592",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 31,
+    "osmObject": {
+     "id": "node/8344642592",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Pica's Restaurant",
+     "address": "1233 West Chester Pike, West Chester, Pennsylvania 19382",
+     "houseNumber": "1233",
+     "tags": {
+      "website": "https://picas-restaurantwc.com/",
+      "check_date": "2024-09-15",
+      "website:menu": "https://picas-restaurantwc.com/west-chester-pica-s-restaurant-west-chester-food-menu",
+      "opening_hours": "We,Th 11:00-21:00; Fr 11:00-21:30; Sa 12:00-21:30; Su 12:00-20:30"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Pica's Restaurant",
+     "lat": 39.96889,
+     "lng": -75.55728,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/8344642592",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/8344642592",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 31
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Tony's Place — CLOSED",
+   "current": {
+    "address": "6300 block Frankford Ave, Philadelphia, PA 19135",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Philly Grub 2026-03-30 (Mayfair location closed 2022; Ivyland outpost separate) https://phillygrub.blog/2026/03/30/pace-family-pizza-tribute-to-tonys-place-mayfair/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Georgian Bread",
+   "current": {
+    "address": "10865 Bustleton Ave, Philadelphia, PA 19116",
+    "lat": 40.11061859,
+    "lng": -75.02393341,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '10865 Bustleton Ave': restaurantji.com/pa/philadelphia/georgian-bread-/ · wanderlog.com/place/details/3851685",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Slice listing (undated) https://slicelife.com/restaurants/pa/philadelphia/19116/georgian-bread/menu",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "official",
+    "lat": 40.11062,
+    "lng": -75.02394,
+    "address": "10865 Bustleton Avenue, Philadelphia, PA 19116",
+    "matchedName": "Georgian Bread",
+    "sourceUrl": "https://philygeorgianbread.com/",
+    "retrieved": "2026-10-16",
+    "licence": "the place's own website (fact read from its schema.org markup / page; robots.txt honoured)",
+    "grade": "high",
+    "gradeWhy": [
+     "official published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 0,
+    "osmObject": null,
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "osm-poi",
+      "sourceUrl": "https://www.openstreetmap.org/way/1011542359",
+      "distanceM": 6
+     }
+    ]
+   },
+   "notes": [
+    "upgrade confidence med → high",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Georgian Bread",
+     "lat": 40.11063,
+     "lng": -75.02387,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1011542359",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/1011542359",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 6
+    },
+    {
+     "kind": "official",
+     "name": "Georgian Bread",
+     "lat": 40.11062,
+     "lng": -75.02394,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://philygeorgianbread.com/",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 0
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "official site's schema.org geo"
+    ]
+   }
+  },
+  {
+   "name": "Picanha Brazilian Steakhouse",
+   "current": {
+    "address": "6501 Castor Ave, Philadelphia, PA 19149",
+    "lat": 40.0406837,
+    "lng": -75.0758624,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '6501 Castor Ave': restaurantji.com/pa/philadelphia/picanha-brazilian-steakhouse-/ · restaurantguru.com/Picanha-Brazilian-Grill-Philadelphia",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "6abc (undated feature) https://6abc.com/post/picanha-brazilian-steakhouse-south-american-food-philadelphia-restaurants-where-to-eat/12065271/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 40.04066,
+     "lng": -75.07584,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1057261022",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=commercial",
+     "osm": "way/1057261022",
+     "addresstype": "building",
+     "distanceFromCurrentM": 3
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Goldie",
+   "current": {
+    "address": "1911 Sansom St, Philadelphia, PA 19103",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Inquirer 2026-07-14 (Goldie shrank from four shops to one; 1218 Sansom, Franklin's Table, Whole Foods closed) https://www.inquirer.com/food/restaurants/federal-donuts-goldie-closing-locations-mike-solomonov-20260714.html ; relocated 1526->1911 Sansom per NBC10 https://www.nbcphiladelphia.com/news/business/goldie-federal-donuts-flagships-center-city/3164949",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.95121,
+     "lng": -75.17235,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/571008368",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/571008368",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Goldie",
+     "lat": 39.96305,
+     "lng": -75.1743,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6100332166",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/6100332166",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Goldie",
+     "lat": 39.95304,
+     "lng": -75.19251,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6100313802",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/6100313802",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Federal Donuts & Chicken",
+   "current": {
+    "address": "Philadelphia, PA (Fairmount Ave and South St locations remain; several others closed July 2026)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Inquirer 2026-07-14: CookNSolo closed 1909 Sansom, 21 S 12th and 1776 Ben Franklin Pkwy shops; Fairmount Ave and South St stores remain open https://www.inquirer.com/food/restaurants/federal-donuts-goldie-closing-locations-mike-solomonov-20260714.html",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "ambiguous",
+   "proposal": null,
+   "notes": [
+    "candidates disagree by 19450 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Federal Donuts & Chicken",
+     "lat": 39.95114,
+     "lng": -75.15991,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/12623469001",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=cafe",
+     "osm": "node/12623469001",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Federal Donuts & Chicken",
+     "lat": 40.09533,
+     "lng": -75.2892,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/13610744348",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=fast_food",
+     "osm": "node/13610744348",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Kiko's Peruvian Kitchen",
+   "current": {
+    "address": "624 W Collings Ave, Collingswood, NJ",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Toast ordering page (live, undated) https://www.toasttab.com/kiko-s-peruvian-kitchen-624-collings-ave ; NJ Pen opening story https://www.njpen.com/collingswood-welcomes-kikos-peruvian-kitchen/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "Collings Avenue",
+     "lat": 39.91359,
+     "lng": -75.07682,
+     "grade": "low",
+     "nameSim": 0.063,
+     "sourceUrl": "https://www.openstreetmap.org/way/310896073",
+     "retrieved": "2026-10-16",
+     "osmClass": "highway=secondary",
+     "osm": "way/310896073",
+     "addresstype": "road",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "Collings Avenue",
+     "lat": 39.9118,
+     "lng": -75.08203,
+     "grade": "low",
+     "nameSim": 0.063,
+     "sourceUrl": "https://www.openstreetmap.org/way/424814779",
+     "retrieved": "2026-10-16",
+     "osmClass": "highway=secondary",
+     "osm": "way/424814779",
+     "addresstype": "road",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Norma's Eastern Mediterranean",
+   "current": {
+    "address": "145 Barclay Farms Shopping Center, Route 70 E, Cherry Hill, NJ 08034",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "6abc feature (undated) https://6abc.com/post/normas-eastern-mediterranean-cuisine-cherry-hill-restaurants-where-to-eat-diners/13418380/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Indeblue",
+   "current": {
+    "address": "65 Barclay Farms Shopping Center, Cherry Hill, NJ 08034",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "NJ Monthly / Philly Mag (2022-23 move to Cherry Hill, former Pho Barclay space) https://njmonthly.com/?p=309286",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Radin's Delicatessen",
+   "current": {
+    "address": "486 E Evesham Rd, Cherry Hill, NJ 08003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Inquirer 2026-01-21 James Beard 2026 semifinalists (Best Chef: Russ Cowan, Radin's Delicatessen, Cherry Hill) https://www.inquirer.com/food/restaurants/james-beard-semifinalists-2026-philadelphia-20260121.html",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Short Hills Restaurant & Deli",
+     "lat": 39.86457,
+     "lng": -74.96498,
+     "grade": "low",
+     "nameSim": 0.233,
+     "sourceUrl": "https://www.openstreetmap.org/way/439444052",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/439444052",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Cleaners",
+     "lat": 39.86463,
+     "lng": -74.96478,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/439444051",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=dry_cleaning",
+     "osm": "way/439444051",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Love on a Hanger",
+     "lat": 39.86466,
+     "lng": -74.96466,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/439443556",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=beauty",
+     "osm": "way/439443556",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.86074,
+     "lng": -74.97449,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1340209990",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/1340209990",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Steak 38",
+   "current": {
+    "address": "515 NJ-38 E, Cherry Hill, NJ 08002",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "The Infatuation South Jersey review (undated) https://www.theinfatuation.com/south-jersey/reviews/steak-38",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Steak 38 Cafe",
+     "lat": 39.93558,
+     "lng": -75.05121,
+     "grade": "low",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/585527137",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/585527137",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Gass & Main",
+   "current": {
+    "address": "7 Kings Ct, Haddonfield, NJ 08033",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Tock reservations page (live, undated) https://www.exploretock.com/gassandmain/ ; Inquirer 2023-01-24 https://www.inquirer.com/food/restaurants/gass-and-main-haddonfield-byob-restaurant-20230124.html",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "Kings Court",
+     "lat": 39.89747,
+     "lng": -75.03219,
+     "grade": "low",
+     "nameSim": 0.105,
+     "sourceUrl": "https://www.openstreetmap.org/way/40166559",
+     "retrieved": "2026-10-16",
+     "osmClass": "highway=pedestrian",
+     "osm": "way/40166559",
+     "addresstype": "road",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Amá",
+   "current": {
+    "address": "101 W Oxford St, Philadelphia, PA 19122",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Inquirer 2026-08-16 https://www.inquirer.com/news/ama-philadelphia-greatest-mexican-restaurants-times-20260816.html ; Northeast Times 2026-08-23 https://northeasttimes.com/2026/08/23/eater-38-summer-update-spotlights-fishtown-kensington-dining-boom/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.97436,
+     "lng": -75.1347,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/240539255",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/240539255",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Osteria Ama",
+     "lat": 39.952,
+     "lng": -75.17215,
+     "grade": "low",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/13608402621",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/13608402621",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Osteria Ama Artisan Kitchen",
+     "lat": 39.91975,
+     "lng": -75.57434,
+     "grade": "low",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/11140130713",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/11140130713",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "official",
+     "name": "Osteria Ama",
+     "lat": 39.95206,
+     "lng": -75.17216,
+     "grade": "low",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.osteriaama.com/",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Denise's Delicacies",
+   "current": {
+    "address": "2916 N 22nd St, Philadelphia, PA 19132",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "City of Philadelphia 2026-07-23 Small Business Catalyst Fund spotlight https://www.phila.gov/2026-07-23-small-business-catalyst-fund-spotlight-denises-delicacies/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 39.99918,
+    "lng": -75.16706,
+    "address": "2916 North 22nd Street, Philadelphia, Pennsylvania 19132",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1330178795",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1330178795",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "2916 North 22nd Street, Philadelphia, Pennsylvania 19132",
+     "houseNumber": "2916",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.99918,
+     "lng": -75.16706,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1330178795",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1330178795",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "2916 N 22ND ST, PHILADELPHIA, PA, 19132",
+    "lat": 39.99898,
+    "lng": -75.16691,
+    "distanceM": 26,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2916%20N%2022nd%20St%2C%20Philadelphia%2C%20PA%2019132&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 26 m away (“2916 N 22ND ST, PHILADELPHIA, PA, 19132”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Le Caveau",
+   "current": {
+    "address": "614 S 7th St, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Inquirer 2019-10-22 (above Good King Tavern, South St area) https://www.inquirer.com/food/le-caveau-good-king-tavern-french-bar-south-street-philadelphia-20191022.html",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 39.94174,
+    "lng": -75.15421,
+    "address": "614 South 7th Street, Philadelphia, Pennsylvania 19147",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1121917897",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1121917897",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "614 South 7th Street, Philadelphia, Pennsylvania 19147",
+     "houseNumber": "614",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.94174,
+     "lng": -75.15421,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1121917897",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1121917897",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "614 S 7TH ST, PHILADELPHIA, PA, 19147",
+    "lat": 39.94173,
+    "lng": -75.1541,
+    "distanceM": 10,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=614%20S%207th%20St%2C%20Philadelphia%2C%20PA%2019147&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 10 m away (“614 S 7TH ST, PHILADELPHIA, PA, 19147”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Phil & Jim's Steaks & Hoagies",
+   "current": {
+    "address": "2905 Edgmont Ave, Brookhaven, PA 19015",
+    "lat": 39.8677352,
+    "lng": -75.378,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'Phil & Jim's Steaks & Hoagies, 2905 Edgmont Ave, Brookhaven PA 19015' (Parkside/Brookhaven line, same ZIP as record): restaurantji.com/pa/brookhaven/phil-and-jims-delicatessen-/ · restaurantguru.com/Phil-and-Jims-Delicatessen-Chester-Pennsylvania",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Visit Delco (undated) https://visitdelcopa.com/phil-jims-steaks-hoagies",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 39.86753,
+     "lng": -75.37783,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/269758981",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/269758981",
+     "addresstype": "place",
+     "distanceFromCurrentM": 27
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Deke's Bar-B-Que",
+   "current": {
+    "address": "137 W Berkley St, Philadelphia, PA 19144",
+    "lat": 40.0230896,
+    "lng": -75.1617834,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '137 W Berkley St Suite B': wanderlog.com/place/details/4500803 · restaurantji.com/pa/philadelphia/dekes-garage-roadhouse-bbq-/",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "The Infatuation (undated) https://www.theinfatuation.com/philadelphia/reviews/dekes-bar-b-que ; 6abc https://6abc.com/11870774",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.02311,
+    "lng": -75.1618,
+    "address": "137 Berkley Street, Philadelphia, Pennsylvania 19144",
+    "matchedName": "Deke's Bar-B-Que",
+    "sourceUrl": "https://www.openstreetmap.org/node/14225588026",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 3,
+    "osmObject": {
+     "id": "node/14225588026",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Deke's Bar-B-Que",
+     "address": "137 Berkley Street, Philadelphia, Pennsylvania 19144",
+     "houseNumber": "137",
+     "tags": {
+      "website": "https://dekesbar-b-que.com",
+      "opening_hours": "Mo-We 15:00-21:00; Th 15:00-22:00; Fr,Sa 11:00-22:00; Su 11:00-21:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.02307,
+     "lng": -75.16106,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/423941990",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/423941990",
+     "addresstype": "place",
+     "distanceFromCurrentM": 61
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Deke's Bar-B-Que",
+     "lat": 40.02311,
+     "lng": -75.1618,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/14225588026",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/14225588026",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 3
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Malelani Cafe",
+   "current": {
+    "address": "6734 Germantown Ave, Philadelphia, PA 19119",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Spotted by Locals 2025-04-04 https://spottedbylocals.com/philadelphia/malelani-cafe ; address via Chestnut Hill Local https://chestnuthilllocal.com/stories/vibrant-new-mt-airy-cafe-with-a-touch-of-south-africa,7370",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.05304,
+     "lng": -75.18612,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/49990189",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/49990189",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Attic Brewing Company",
+   "current": {
+    "address": "137 W Berkley St, Philadelphia, PA 19144",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Inquirer 2026-04-23 https://www.inquirer.com/food/restaurants/attic-new-ridge-brewery-world-beer-cup-philadelphia-20260423.html ; address via Patch/Chestnut Hill Local https://chestnuthilllocal.com/stories/wayne-junction-brewery,18936",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.02298,
+    "lng": -75.16165,
+    "address": "137 Berkley Street, Philadelphia, Pennsylvania 19144",
+    "matchedName": "Attic Brewing Company",
+    "sourceUrl": "https://www.openstreetmap.org/node/7515828914",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7515828914",
+     "class": "craft=brewery",
+     "addresstype": "craft",
+     "name": "Attic Brewing Company",
+     "address": "137 Berkley Street, Philadelphia, Pennsylvania 19144",
+     "houseNumber": "137",
+     "tags": {
+      "website": "https://www.atticbrewing.com/",
+      "opening_hours": "Mo-Th 04:00-10:00,16:00-22:00; Fr 15:00-00:00; Sa 13:00-00:00; Su 13:00-22:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.02307,
+     "lng": -75.16106,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/423941990",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/423941990",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Attic Brewing Company",
+     "lat": 40.02298,
+     "lng": -75.16165,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7515828914",
+     "retrieved": "2026-10-16",
+     "osmClass": "craft=brewery",
+     "osm": "node/7515828914",
+     "addresstype": "craft",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Malooga (Old City)",
+   "current": {
+    "address": "134 Chestnut St, Philadelphia, PA 19106",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "6abc FYI Philly 2026-01-24 https://6abc.com/post/fyi-philly-january-24-2026/18449228/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.94827,
+    "lng": -75.14383,
+    "address": "134 Chestnut Street, Philadelphia, Pennsylvania 19106",
+    "matchedName": "Malooga",
+    "sourceUrl": "https://www.openstreetmap.org/node/12229584185",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/12229584185",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Malooga",
+     "address": "134 Chestnut Street, Philadelphia, Pennsylvania 19106",
+     "houseNumber": "134",
+     "tags": {
+      "website": "https://www.maloogacatering.com/",
+      "opening_hours": "Mo-Su 11:00-22:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Malooga",
+     "lat": 39.94827,
+     "lng": -75.14383,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/12229584185",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/12229584185",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Kostas Bar",
+   "current": {
+    "address": "15 W Girard Ave, Philadelphia, PA 19123",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "ma.to venue listing (undated) https://ma.to/venue/fishtownkostas ; Philly Mag best dive bar food (undated) https://www.phillymag.com/restaurants/best-dive-bar-food/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 39.96895,
+    "lng": -75.13496,
+    "address": "15 West Girard Avenue, Philadelphia, Pennsylvania 19123",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/908938984",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/908938984",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "15 West Girard Avenue, Philadelphia, Pennsylvania 19123",
+     "houseNumber": "15",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Kostas Restaurant",
+     "lat": 39.96886,
+     "lng": -75.13495,
+     "grade": "low",
+     "nameSim": 0.45,
+     "sourceUrl": "https://www.openstreetmap.org/node/12068420900",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/12068420900",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.96895,
+     "lng": -75.13496,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/908938984",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/908938984",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Kostas Restaurant",
+     "lat": 39.96886,
+     "lng": -75.13495,
+     "grade": "low",
+     "nameSim": 0.45,
+     "sourceUrl": "https://www.openstreetmap.org/node/12068420900",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/12068420900",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "15 W GIRARD AVE, PHILADELPHIA, PA, 19123",
+    "lat": 39.96876,
+    "lng": -75.13501,
+    "distanceM": 21,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=15%20W%20Girard%20Ave%2C%20Philadelphia%2C%20PA%2019123&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 21 m away (“15 W GIRARD AVE, PHILADELPHIA, PA, 19123”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Domani Star",
+   "current": {
+    "address": "57 W State St, Doylestown, PA 18901",
+    "lat": 40.3093708,
+    "lng": -75.1319578,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '57 W State St': restaurantji.com/pa/doylestown/domani-star-/ · restaurantguru.com/Domani-Star-Doylestown",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Inquirer suburbs Italian guide (undated) https://inquirer.com/food/italian-restaurants-philadelphia-suburbs-bucks-chester.html ; wanderlog https://wanderlog.com/place/details/2780747/domani-star",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.3094,
+    "lng": -75.132,
+    "address": "57 West State Street, Doylestown, Pennsylvania 18901",
+    "matchedName": "Domani Star",
+    "sourceUrl": "https://www.openstreetmap.org/way/338681061",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 5,
+    "osmObject": {
+     "id": "way/338681061",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Domani Star",
+     "address": "57 West State Street, Doylestown, Pennsylvania 18901",
+     "houseNumber": "57",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Domani Star",
+     "lat": 40.3094,
+     "lng": -75.132,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/338681061",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/338681061",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 5
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "La Jefa",
+   "current": {
+    "address": "1605 Latimer St, Philadelphia, PA 19103",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Inquirer Tasties winners 2026-02-02 https://www.inquirer.com/food/tasties-award-winners-restaurants-philadelphia-2026-20260202.html ; address via Inquirer 2025-05-20 https://www.inquirer.com/food/restaurants/new-restaurants-ama-lajefa-may-2025-20250520.html",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.94824,
+    "lng": -75.16807,
+    "address": "1605 Latimer Street, Philadelphia, Pennsylvania 19103",
+    "matchedName": "La Jefa",
+    "sourceUrl": "https://www.openstreetmap.org/node/13888886401",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/13888886401",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "La Jefa",
+     "address": "1605 Latimer Street, Philadelphia, Pennsylvania 19103",
+     "houseNumber": "1605",
+     "tags": {
+      "website": "https://lajefaphilly.com/nuevo/",
+      "check_date": "2026-05-27",
+      "opening_hours": "Mo-Tu 08:00-15:00; We-Su 08:00-15:00, 17:00-22:00",
+      "check_date:opening_hours": "2026-05-27"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "La Jefa",
+     "lat": 39.94824,
+     "lng": -75.16807,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/13888886401",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/13888886401",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Vietnam Cafe",
+   "current": {
+    "address": "814 S 47th St, Philadelphia, PA 19143",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "The Infatuation (undated) https://www.theinfatuation.com/philadelphia/reviews/vietnam-cafe ; Time Out https://www.timeout.com/philadelphia/restaurants/vietnam-restaurant-cafe (no 2025-26 source)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "official site https://www.eatatvietnam.com/cafe/ answered HTTP 403 — NOT closure evidence (sites move, break and block bots)"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Hayashi Sushi",
+     "lat": 39.94826,
+     "lng": -75.21685,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/2129708001",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/2129708001",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.94825,
+     "lng": -75.21696,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1354057851",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1354057851",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Vietnam Cafe",
+     "lat": 39.94818,
+     "lng": -75.21684,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/2129707999",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/2129707999",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "The Dining Car",
+   "current": {
+    "address": "8826 Frankford Ave, Philadelphia, PA 19136",
+    "lat": 40.05015183,
+    "lng": -75.0111618,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '8826 Frankford Ave': restaurantji.com/pa/philadelphia/the-dining-car-/ · wanderlog.com/place/details/831256",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "The Infatuation (undated) https://www.theinfatuation.com/philadelphia/reviews/the-dining-car ; Dinerville https://www.dinerville.info/pa/philadelphia/dining-car (no 2025-26 source)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "official",
+    "lat": 40.05015,
+    "lng": -75.01116,
+    "address": "8826 Frankford Avenue, Philadelphia, PA 19136",
+    "matchedName": "The Dining Car & Market",
+    "sourceUrl": "https://thediningcar.com/",
+    "retrieved": "2026-10-16",
+    "licence": "the place's own website (fact read from its schema.org markup / page; robots.txt honoured)",
+    "grade": "high",
+    "gradeWhy": [
+     "official published coordinate"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 0,
+    "osmObject": null,
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "osm-poi",
+      "sourceUrl": "https://www.openstreetmap.org/node/5534091526",
+      "distanceM": 2
+     }
+    ]
+   },
+   "notes": [
+    "upgrade confidence med → high",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Dining Car",
+     "lat": 40.05015,
+     "lng": -75.01118,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/5534091526",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=cafe",
+     "osm": "node/5534091526",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 2
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 40.05016,
+     "lng": -75.01117,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1125520282",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1125520282",
+     "addresstype": "building",
+     "distanceFromCurrentM": 1
+    },
+    {
+     "kind": "official",
+     "name": "The Dining Car & Market",
+     "lat": 40.05015,
+     "lng": -75.01116,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://thediningcar.com/",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 0
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "official site's schema.org geo"
+    ]
+   }
+  },
+  {
+   "name": "Dock Street Brewing Company — CLOSED",
+   "current": {
+    "address": "701 S 50th St, Philadelphia, PA 19143",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Billy Penn 2022-05-06 https://billypenn.com/2022/05/06/dock-street-brewing-west-philadelphia-closing-rosemarie-certo/ ; Philly Mag 2022-05-10 https://www.phillymag.com/foobooz/2022/05/10/farewell-dock-street-west/ (West Philly firehouse brewpub closed May 31 2022; space taken over by Carbon Copy; Dock Street South/Fishtown taproom separate)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "The Fire Works",
+     "lat": 39.94778,
+     "lng": -75.22277,
+     "grade": "low",
+     "nameSim": 0.194,
+     "sourceUrl": "https://www.openstreetmap.org/node/10003086738",
+     "retrieved": "2026-10-16",
+     "osmClass": "office=coworking",
+     "osm": "node/10003086738",
+     "addresstype": "office",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "The Satellite Cafe",
+     "lat": 39.94785,
+     "lng": -75.22262,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/1407271286",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=cafe",
+     "osm": "node/1407271286",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Carbon Copy",
+     "lat": 39.94776,
+     "lng": -75.22283,
+     "grade": "low",
+     "nameSim": 0.063,
+     "sourceUrl": "https://www.openstreetmap.org/node/2419063592",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=bar",
+     "osm": "node/2419063592",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.94769,
+     "lng": -75.22273,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1354023671",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1354023671",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Joe's Steaks + Soda Shop",
+   "current": {
+    "address": "1 W Girard Ave, Philadelphia, PA 19123",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Star News Philly 2022-07-07 (Fishtown location kept as flagship) https://starnewsphilly.com/2022/07/07/joes-steaks-keeping-fishtown-location-plans-to-close-wissinoming-shop/ ; Torresdale original closed Sept 2022 (Inquirer 2022-07-01)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "ambiguous",
+   "proposal": null,
+   "notes": [
+    "candidates disagree by 8520 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Joe's Steaks + Soda Shop",
+     "lat": 40.01844,
+     "lng": -75.05808,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q24259835",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Joe's Steaks + Soda Shop",
+     "lat": 40.01844,
+     "lng": -75.05808,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Joe's_Steaks_%2B_Soda_Shop",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "official",
+     "name": "Joe's Steaks + Soda Shop",
+     "lat": 39.96905,
+     "lng": -75.13454,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "http://joessteaks.com/",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Kensington Quarters — CLOSED",
+   "current": {
+    "address": "1310 Frankford Ave, Philadelphia, PA 19125",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "PhillyVoice \"Kensington Quarters closing March 16\" https://www.phillyvoice.com/kensington-quarters-closing-march-16-fishtown ; Philly Mag https://www.phillymag.com/restaurants/2024/03/12/kensington-quarters-closing/ (closed 2024-03-16)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.97058,
+    "lng": -75.13456,
+    "address": "1310 Frankford Avenue, Philadelphia, Pennsylvania 19125",
+    "matchedName": "Kensington Quarters",
+    "sourceUrl": "https://www.openstreetmap.org/node/6377043003",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6377043003",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Kensington Quarters",
+     "address": "1310 Frankford Avenue, Philadelphia, Pennsylvania 19125",
+     "houseNumber": "1310",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Kensington Quarters",
+     "lat": 39.97058,
+     "lng": -75.13456,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6377043003",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/6377043003",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "Ogawa Sushi & Kappo",
+   "current": {
+    "address": "310 Market St, Philadelphia, PA 19106",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Inquirer \"The 76\" 2025 (2025-10-15) https://www.inquirer.com/food/76-phillys-best-restaurants-2025-20251015.html",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 39.95001,
+    "lng": -75.14627,
+    "address": "310 Market Street, Philadelphia, Pennsylvania 19106",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/335703456",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/335703456",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "310 Market Street, Philadelphia, Pennsylvania 19106",
+     "houseNumber": "310",
+     "tags": {
+      "building:levels": "5"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.95001,
+     "lng": -75.14627,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/335703456",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/335703456",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "310 MARKET ST, PHILADELPHIA, PA, 19106",
+    "lat": 39.95015,
+    "lng": -75.14594,
+    "distanceM": 32,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=310%20Market%20St%2C%20Philadelphia%2C%20PA%2019106&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 32 m away (“310 MARKET ST, PHILADELPHIA, PA, 19106”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Philadelphia Brewing Company",
+   "current": {
+    "address": "2440 Frankford Ave, Philadelphia, PA 19125",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.98235,
+    "lng": -75.12716,
+    "address": "2440 Frankford Avenue, Philadelphia, Pennsylvania 19125",
+    "matchedName": "Philadelphia Brewing Company",
+    "sourceUrl": "https://www.openstreetmap.org/way/789715197",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/789715197",
+     "class": "shop=alcohol",
+     "addresstype": "shop",
+     "name": "Philadelphia Brewing Company",
+     "address": "2440 Frankford Avenue, Philadelphia, Pennsylvania 19125",
+     "houseNumber": "2440",
+     "tags": {
+      "website": "https://philadelphiabrewing.com/",
+      "building": "yes",
+      "opening_hours": "Mo,Tu,Su 11:00-23:00; We-Sa 11:00-24:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Philadelphia Brewing Company",
+     "lat": 39.98235,
+     "lng": -75.12716,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/789715197",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=alcohol",
+     "osm": "way/789715197",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Philadelphia Brewing Company",
+     "lat": 39.98267,
+     "lng": -75.12724,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/2615076537",
+     "retrieved": "2026-10-16",
+     "osmClass": "craft=brewery",
+     "osm": "node/2615076537",
+     "addresstype": "craft",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Tired Hands Brewing Company — CLOSED",
+   "current": {
+    "address": "16 Ardmore Ave, Ardmore, PA 19003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Philadelphia Inquirer, 2026-02-20: Ardmore Brew Cafe (renamed Ardmore Brewing Company spring 2025) shifted to private events only, no public taproom hours https://www.inquirer.com/food/tired-hands-ardmore-brewing-company-20260220.html",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 40.00858,
+    "lng": -75.29368,
+    "address": "16 Ardmore Avenue, Lower Merion Township, Pennsylvania 19003",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/node/13665364377",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/13665364377",
+     "class": "place=house",
+     "addresstype": "place",
+     "name": "",
+     "address": "16 Ardmore Avenue, Lower Merion Township, Pennsylvania 19003",
+     "houseNumber": "16",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.0086,
+     "lng": -75.29369,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/2327714714",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=vacant",
+     "osm": "node/2327714714",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 40.00858,
+     "lng": -75.29368,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/13665364377",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "node/13665364377",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.0088,
+     "lng": -75.29325,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1343951267",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/1343951267",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "16 ARDMORE AVE, ARDMORE, PA, 19003",
+    "lat": 40.00863,
+    "lng": -75.29348,
+    "distanceM": 18,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=16%20Ardmore%20Ave%2C%20Ardmore%2C%20PA%2019003&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "Conshohocken Brewing Company",
+   "current": {
+    "address": "739 E Elm St, Conshohocken, PA 19428",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.07369,
+    "lng": -75.2925,
+    "address": "739 East Elm Street, Conshohocken, Pennsylvania 19428",
+    "matchedName": "Conshohocken Brewing Company",
+    "sourceUrl": "https://www.openstreetmap.org/way/367270682",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/367270682",
+     "class": "craft=brewery",
+     "addresstype": "craft",
+     "name": "Conshohocken Brewing Company",
+     "address": "739 East Elm Street, Conshohocken, Pennsylvania 19428",
+     "houseNumber": "739",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Conshohocken Brewing Company",
+     "lat": 40.07369,
+     "lng": -75.2925,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/367270682",
+     "retrieved": "2026-10-16",
+     "osmClass": "craft=brewery",
+     "osm": "way/367270682",
+     "addresstype": "craft",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number + street equal the registry address, within the guide region, distinct OSM objects (Deke's and Attic Brewing share a building), not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Manakeesh Cafe Bakery & Grill — CLOSED",
+   "current": {
+    "address": "4420 Walnut St, Philadelphia, PA 19104",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "West Philly Local (westphillylocal.com/tag/manakeesh): the Lebanese cafe at 45th & Walnut permanently closed after 15 years, last day Tue 17 Feb 2026 (rent increase); operating only as a cloud kitchen while it seeks a new location. Apple Maps listing marked permanently closed. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "shared-object",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.95509,
+    "lng": -75.21153,
+    "address": "4420 Walnut Street, Philadelphia, Pennsylvania 19104",
+    "matchedName": "Manakeesh Cafe & Bakery",
+    "sourceUrl": "https://www.openstreetmap.org/node/2108022395",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "low",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/2108022395",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Manakeesh Cafe & Bakery",
+     "address": "4420 Walnut Street, Philadelphia, Pennsylvania 19104",
+     "houseNumber": "4420",
+     "tags": {
+      "website": "https://www.manakeeshcafe.com/",
+      "check_date": "2024-07-26",
+      "opening_hours": "Mo-Th,Su 09:00-21:00; Fr 09:00-13:00,14:00-21:30; Sa 09:00-21:30"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "shared object: OSM node/2108022395 also matched Manakeesh Cafe Bakery & Grill; graded low"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Manakeesh Cafe & Bakery",
+     "lat": 39.95509,
+     "lng": -75.21153,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/2108022395",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/2108022395",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 39.95497,
+     "lng": -75.21153,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/567070788",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/567070788",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "low / shared OSM object"
+    ]
+   }
+  },
+  {
+   "name": "The Olde Bar — CLOSED",
+   "current": {
+    "address": "125 Walnut St, Philadelphia, PA 19106",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Inquirer 2024-11-11 + PhillyVoice: Jose Garces closed the Olde Bar bar/restaurant on 9 Nov 2024 (events-only); Inquirer 2025-06-17: the events venue closed by 9 Aug 2025 https://www.inquirer.com/food/restaurants/olde-bar-philadelphia-closing-20250617.html — Apple Maps listing marked permanently closed. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.9469,
+    "lng": -75.14414,
+    "address": "125 Walnut Street, Philadelphia, Pennsylvania 19106",
+    "matchedName": "The Olde Bar",
+    "sourceUrl": "https://www.openstreetmap.org/node/6625360703",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6625360703",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "The Olde Bar",
+     "address": "125 Walnut Street, Philadelphia, Pennsylvania 19106",
+     "houseNumber": "125",
+     "tags": {
+      "check_date": "2023-04-12",
+      "opening_hours": "Mo-Fr 16:00-22:00; Sa-Su 12:00-15:00,16:00-22:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "official site https://www.theoldebar.com/ answered HTTP 403 — NOT closure evidence (sites move, break and block bots)"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "The Olde Bar",
+     "lat": 39.9469,
+     "lng": -75.14414,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6625360703",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=bar",
+     "osm": "node/6625360703",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  }
+ ]
+}

@@ -6,12 +6,26 @@ test-views-b.js). Report to the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx) 
 
 ## Task
 
-From FE-A (orchestrator, 2026-10-16): (1) the view switcher QC-09 + QC-06 (§v2.11) — pushed, see Done;
-(2) the B-04 / B-20 sweep (R7 gap 5): metrics.js per page in batches → design/beta/eval/w8/metrics-all/, list failures,
-fix FE-B surfaces, send FE-A / Atlas the rest with page + node.
+Idle after D-42 (QC-19 + QC-20) and QC-18. Waiting for QC re-verification.
 
 ## Done
 
+- D-42 = QC-19 + QC-20: eb231ff0a (merged 6583673c2). lib/quoted.js adds POPULARITY + HOURS to PRICE_RATING; pq on 510
+  records; note "Prices, ratings and times are quoted…"; sheet gap line "We don’t track opening hours or prices" (one
+  string in FE-A's sheet.js; en + ja catalogue); both honesty greps allow exactly the new sentences.
+- QC-18: the switcher thumb (.v-ind) sat 114 px off on desktop Atlas (parked in the header, outside <main>, where the
+  thumb CSS did not apply and offsetLeft measured against another box) and the fonts.ready re-measure had been commented
+  out by an i18n edit. city.js now places it from bounding rects against its own containing block and re-measures on
+  fonts.ready, cleo:locale, resize (ResizeObserver) and re-parenting (MutationObserver); fe-a.css thumb rules unscoped.
+  Probe tools/beta/feb-ind.js (fonts held back 1.2 s; fresh loads into each view; en + ja): 0 px everywhere.
+- QC-09 at 200 % (designer's corrected §v2.11): < 300 px is a 2 x 2 glyph-only grid (61 x 44 at 195 px DPR 2), --cbar-h
+  98 px there; on phones with a sheet open the switcher row is pinned under the header (a deep link can land past
+  <main>, where the sticky bar had left). Probes: tools/beta/feb-switcher.js (incl. 195 px + fresh #p=senso-ji),
+  tools/beta/feb-p03.js (focus to the h1 after each switch).
+- QC-10 (reopened): a user switch to Guidebook / Insights focuses a placeholder h1 named for the view at once (views.js),
+  then the module's own h1 once drawn (ctx.user, used once). Probe: H1 at 700 ms on all 4 switches, cold load untouched.
+- B-04 / B-20 sweep (R7 gap 5): all 180 pages, design/beta/eval/w8/metrics-all/ + REPORT.md. B-04: 0 of 84 place pages
+  fail. B-20: 9 pages, one node only: the card tier link a.tier.t1 "Must see" 91x28 (FE-A's render/city.js tier()).
 - QC-09 + QC-06 (switcher): see the commit "beta QC-09 + QC-06 (FE-B for FE-A)". div.views[role=group][aria-label=View]
   with 4 pressed toggles at every width (city.js), no phone collapse (views.js; a tap with a sheet open closes it and
   switches; focus to the view's h1), fe-a.css `.views[data-cleo-views]` rules (sand track, surface thumb, >= 44 px,
@@ -27,21 +41,21 @@ fix FE-B surfaces, send FE-A / Atlas the rest with page + node.
 
 ## Next
 
-1. B-04/B-20 sweep: `tools/beta/feb-metrics-batch.sh 4` (resumable: skips pages whose JSON exists). Commit
-   design/beta/eval/w8/metrics-all/*.json in batches as they land.
-2. When all 180 pages are measured: list every page failing B-04 (rail on the first phone screen) or B-20 (taps < 44)
-   from the JSONs, fix FE-B surfaces, send FE-A / Atlas the rest with page + node.
-3. Atlas FE-1 has the phone-Atlas switcher placement (parked last in .ms-bar) — told 2026-10-16.
+1. Pull, read this file, run the gates; read notifications.
+2. Follow up: FE-A has the a.tier B-20 finding (all 9 pages); Atlas FE-1 has the phone-Atlas switcher placement.
+3. Re-run one page after either fix: `tools/beta/feb-metrics-batch.sh 1 <page-regex>` (delete that page's JSON first).
 
 ## In flight
 
-The metrics sweep runs in the background (about 40 s per page, 4 in parallel); JSONs land per page and are committed in
-batches. If stopped, re-run step 1: done pages are skipped.
+Nothing unpushed.
 
 ## Notes
 
 - Gates before every push, fail-fast: `cd tools && npm run validate && npm test && npm run beta:check`, plus
   `node beta/test-beta.js`, `node beta/qa/test-honesty.js`, `node beta/imagery/test-imagery.js`.
+- FE-A follow-up: a fresh Tokyo deep link #p=senso-ji at 195 px leaves the page scrolled past <main> (scrollY 13018,
+  card off-screen) — reported to FE-A.
+- Thumb probe: `tools/beta/feb-ind.js [page]`.
 - Switcher probe: `tools/beta/feb-switcher.js [page]` (same static server).
 - B-05 probe: `tools/beta/feb-b05.js` (needs `python3 -m http.server 8765 -d <repo>`; ≥ 2 on landing + every hub).
 - Push with `tools/beta/feb-push.sh` (merges origin, regenerates beta/ on generated conflicts, stops on any source

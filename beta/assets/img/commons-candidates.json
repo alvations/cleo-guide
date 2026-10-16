@@ -22,10 +22,10 @@
   "candidates[].flags": "people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it"
  },
  "summary": {
-  "targets": 1419,
+  "targets": 1420,
   "byType": {
    "hero": 89,
-   "landmark": 1330
+   "landmark": 1331
   },
   "heroes": {
    "targets": 89,
@@ -37,17 +37,17 @@
    "withHigh": 103
   },
   "otherLandmarks": {
-   "targets": 1150,
-   "skipped": 223,
-   "withArticle": 631
+   "targets": 1151,
+   "skipped": 229,
+   "withArticle": 627
   },
   "candidates": {
-   "total": 393,
-   "high": 379,
+   "total": 444,
+   "high": 430,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 182,
+  "targetsWithHigh": 222,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -2818,7 +2818,24 @@
    "article": "https://en.wikipedia.org/wiki/Odori_Park",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Odori Park Sapporo.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Odori_Park_Sapporo.JPG",
+     "depicts": "Ōdōri Park in Sapporo in summer (Aug 2006)",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Odori Park, Sapporo; own work, Daigaku2051"
+    },
+    {
+     "file": "File:Odori Park (15982613668).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Odori_Park_(15982613668).jpg",
+     "depicts": "Ōdōri Park, Sapporo",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Odori Park; Flickr import"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#kyoto-international-manga-museum",
@@ -2893,7 +2910,25 @@
    "article": "https://en.wikipedia.org/wiki/Uluwatu_Temple",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Uluwatu temple, Bali.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Uluwatu_temple,_Bali.jpg",
+     "depicts": "Uluwatu Temple on its clifftop, Bali",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Uluwatu temple, Bali",
+     "refused": "refused by visual review (W8, run #54, R7-g1): cliff and sea; the temple is barely visible (wrong subject)"
+    },
+    {
+     "file": "File:Uluwatu Temple Cliff, Bali.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Uluwatu_Temple_Cliff,_Bali.jpg",
+     "depicts": "Uluwatu Temple on its cliff above the sea, Bali",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Uluwatu Temple; in Category:Pura Luhur Uluwatu"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/bangkok#grand-palace-and-wat-phra-kaew",
@@ -2958,7 +2993,24 @@
    "article": "https://en.wikipedia.org/wiki/Bas%C3%ADlica_Minore_del_Santo_Ni%C3%B1o",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Basilica Minore del Santo Niño de Cebu facade (Osmeña Boulevard, Cebu City; 01-14-2023).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Basilica_Minore_del_Santo_Ni%C3%B1o_de_Cebu_facade_(Osme%C3%B1a_Boulevard,_Cebu_City;_01-14-2023).jpg",
+     "depicts": "The façade of the Basilica Minore del Santo Niño, Cebu City",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Basilica Minore del Santo Niño façade"
+    },
+    {
+     "file": "File:Basilica Minore del Santo Niño in Cebu City 02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Basilica_Minore_del_Santo_Ni%C3%B1o_in_Cebu_City_02.jpg",
+     "depicts": "Basilica Minore del Santo Niño, Cebu City",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Basilica Minore del Santo Niño"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/changi#jewel-changi-airport-and-hsbc-rain-vortex",
@@ -3033,7 +3085,24 @@
    "article": "https://en.wikipedia.org/wiki/Petronas_Towers",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Petronas Twin Towers in Kuala Lumpur (2) (10498382174).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Petronas_Twin_Towers_in_Kuala_Lumpur_(2)_(10498382174).jpg",
+     "depicts": "The Petronas Twin Towers, Kuala Lumpur",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Petronas Twin Towers"
+    },
+    {
+     "file": "File:The Petronas Twin Towers & KLCC Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Petronas_Twin_Towers_&_KLCC_Park.jpg",
+     "depicts": "The Petronas Twin Towers over KLCC Park",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Petronas Twin Towers"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/luang-prabang#luang-prabang-old-town-wat-xieng-thong",
@@ -3076,8 +3145,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Singapore_Zoo",
+   "skip": "candidate wave 1: Commons holds animal close-ups and the (refused) entrance sign, no view of the zoo itself — calm cover (stated)",
    "priority": "lead",
-   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -3177,8 +3246,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Coney_Island,_Singapore",
+   "skip": "candidate wave 1: no Commons file of Coney Island Park, Singapore turned up — calm cover (stated)",
    "priority": "lead",
-   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3238,6 +3307,20 @@
      "confidence": "high",
      "reason": "lead image (run #35)",
      "refused": "refused (W8): an information board — signage is the subject"
+    },
+    {
+     "file": "File:MacRitchie Reservoir.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:MacRitchie_Reservoir.jpg",
+     "depicts": "MacRitchie Reservoir, Singapore",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names MacRitchie Reservoir"
+    },
+    {
+     "file": "File:Sunset at Macritchie Reservoir (8128197465).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Macritchie_Reservoir_(8128197465).jpg",
+     "depicts": "MacRitchie Reservoir at sunset",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names MacRitchie Reservoir"
     }
    ]
   },
@@ -3587,8 +3670,8 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E9%B0%8A%E5%BE%A1%E6%AE%BF",
+   "skip": "candidate wave 1: no Commons file of the Former Aoyama Villa / Otaru Kihinkan turned up (searched English and Japanese) — calm cover (stated)",
    "priority": "row",
-   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3619,7 +3702,24 @@
    "article": "https://en.wikipedia.org/wiki/Historical_Village_of_Hokkaido",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:北海道開拓の村(Historical Village of Hokkaido) - panoramio (4).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%B5%B7%E9%81%93%E9%96%8B%E6%8B%93%E3%81%AE%E6%9D%91(Historical_Village_of_Hokkaido)_-_panoramio_(4).jpg",
+     "depicts": "Historical Village of Hokkaido, open-air museum buildings",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Historical Village of Hokkaido (北海道開拓の村)"
+    },
+    {
+     "file": "File:220722 Historical Village of Hokkaido Sapporo Hokkaido Japan44s5.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:220722_Historical_Village_of_Hokkaido_Sapporo_Hokkaido_Japan44s5.jpg",
+     "depicts": "Historical Village of Hokkaido",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Historical Village of Hokkaido"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#jozankei-onsen",
@@ -3819,7 +3919,24 @@
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kozanji Kyoto Kyoto09s5s4592.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kozanji_Kyoto_Kyoto09s5s4592.jpg",
+     "depicts": "Kōzan-ji temple, Kyoto",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Kozanji, Kyoto; in Category:Kōzan-ji (Kyoto)"
+    },
+    {
+     "file": "File:Kozanji Kyoto Kyoto11s5s4592.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kozanji_Kyoto_Kyoto11s5s4592.jpg",
+     "depicts": "Kōzan-ji temple, Kyoto",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Kozanji, Kyoto; in Category:Kōzan-ji (Kyoto)"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#marufukuro-former-nintendo-headquarters",
@@ -3863,8 +3980,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Nintendo_Museum",
+   "skip": "candidate wave 1: a brand venue; its exterior photos carry the brand, the branding is the subject — calm cover (stated)",
    "priority": "row",
-   "wikiLead": true,
    "candidates": []
   },
   {
@@ -4140,8 +4257,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Nipponbashi",
+   "skip": "candidate wave 1: a shop street whose every photo is dominated by signage (the lead image was refused for it) — calm cover (stated)",
    "priority": "row",
-   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -4294,7 +4411,24 @@
    "article": "https://en.wikipedia.org/wiki/Cantor_Arts_Center",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Cantor Arts Center Halperin Family Wing.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cantor_Arts_Center_Halperin_Family_Wing.JPG",
+     "depicts": "The Cantor Arts Center at Stanford (Halperin Family Wing)",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Cantor Arts Center"
+    },
+    {
+     "file": "File:B. Gerald Cantor Rodin Sculpture Garden at Stanford University; north entrance.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:B._Gerald_Cantor_Rodin_Sculpture_Garden_at_Stanford_University;_north_entrance.JPG",
+     "depicts": "The Rodin Sculpture Garden at Stanford",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Cantor Rodin Sculpture Garden (Rodin, d. 1917: public domain)"
+    }
+   ]
   },
   {
    "key": "landmark:siliconvalley#elizabeth-f-gamble-garden",
@@ -4306,6 +4440,7 @@
     "Gamble Garden"
    ],
    "pilot": false,
+   "skip": "candidate wave 1: Commons holds only flower close-ups of Gamble Garden — calm cover (stated)",
    "priority": "row",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
@@ -4350,7 +4485,24 @@
    "article": "https://en.wikipedia.org/wiki/Stanford_Memorial_Church",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Stanford Memorial Church (2025)-L1007381.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Stanford_Memorial_Church_(2025)-L1007381.jpg",
+     "depicts": "Stanford Memorial Church seen from the Main Quad",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Stanford Memorial Church; north façade from the Main Quad"
+    },
+    {
+     "file": "File:Stanford MainQuad.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Stanford_MainQuad.JPG",
+     "depicts": "Stanford University Main Quad",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Stanford Main Quad"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/bangkok#wat-arun",
@@ -4408,7 +4560,24 @@
    "article": "https://en.wikipedia.org/wiki/Kuang_Si_Falls",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kuang Si Falls and its turquoise tiered water pools in Luang Prabang province Laos.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kuang_Si_Falls_and_its_turquoise_tiered_water_pools_in_Luang_Prabang_province_Laos.jpg",
+     "depicts": "Kuang Si Falls and its turquoise tiered pools",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Kuang Si Falls; Basile Morin"
+    },
+    {
+     "file": "File:Main Cascade - Kuang Si Falls, Luang Prabang, Laos.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Main_Cascade_-_Kuang_Si_Falls,_Luang_Prabang,_Laos.jpg",
+     "depicts": "The main cascade of Kuang Si Falls",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Kuang Si Falls"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/mandai#night-safari",
@@ -4789,7 +4958,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Gotokuji_Temple_(Cat_Temple).jpg",
      "depicts": "Gōtoku-ji temple grounds",
      "confidence": "high",
-     "reason": "title names Gotokuji Temple (QA-63 re-lead)"
+     "reason": "title names Gotokuji Temple (QA-63 re-lead)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): an altar interior, not the temple or its cats (wrong subject)"
     },
     {
      "file": "File:Dedicated Maneki-nekos (招き猫) in Gotoku-ji (豪徳寺) - panoramio.jpg",
@@ -6521,7 +6691,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Cleveland_Museum_of_Art_-_south_facade.jpg",
      "depicts": "The south façade of the Cleveland Museum of Art",
      "confidence": "high",
-     "reason": "title names the Cleveland Museum of Art south façade (copied from the exterior category; QA-63)"
+     "reason": "title names the Cleveland Museum of Art south façade (copied from the exterior category; QA-63)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): big OPEN banners across the facade (signage rule)"
     },
     {
      "file": "File:Cleveland Museum of Art.jpg",
@@ -10715,6 +10886,31 @@
    "candidates": []
   },
   {
+   "key": "landmark:chicago#national-a-philip-randolph-pullman-porter-museum",
+   "type": "landmark",
+   "depicts": "chicago#national-a-philip-randolph-pullman-porter-museum",
+   "label": "National A. Philip Randolph Pullman Porter Museum",
+   "names": [
+    "National A. Philip Randolph Pullman Porter Museum",
+    "Pullman, Chicago"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Pullman,_Chicago",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Pullman Chicago Clock Tower.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pullman_Chicago_Clock_Tower.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #52)",
+     "refused": "refused by visual review (W8, all run #52, R7-g1): the Pullman factory clock tower, not the Porter museum building (wrong subject)"
+    }
+   ]
+  },
+  {
    "key": "landmark:chicago#national-museum-of-mexican-art",
    "type": "landmark",
    "depicts": "chicago#national-museum-of-mexican-art",
@@ -12585,7 +12781,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/High_Water_Mark_of_the_Rebellion_Monument",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gettysburg mon High Water Mark.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gettysburg_mon_High_Water_Mark.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a bronze book-monument close-up, not the field (close-up rule)"
+    }
+   ]
   },
   {
    "key": "landmark:harrisburg#indian-echo-caverns",
@@ -12628,7 +12835,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Little_Round_Top",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:The Twentieth Maine.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Twentieth_Maine.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a battle painting, not a photo of the place (artwork rule)"
+    }
+   ]
   },
   {
    "key": "landmark:harrisburg#middle-creek-wildlife-management-area",
@@ -12816,7 +13034,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Asahiyama_Zoo",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Asahiyama zoo entrance.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Asahiyama_zoo_entrance.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the entrance with taxis in front (vehicles rule)"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#banei-tokachi-obihiro-racecourse",
@@ -13547,7 +13776,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Indianapolis_Zoo",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Indianapolis Zoo Entrance.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Indianapolis_Zoo_Entrance.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the entrance arch sign is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:indianapolis#indy-art-center-and-artspark",
@@ -14927,7 +15167,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/International_Crane_Foundation",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Anthropoides paradiseus -International Crane Foundation, Baraboo, Wisconsin, USA-8a.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Anthropoides_paradiseus_-International_Crane_Foundation,_Baraboo,_Wisconsin,_USA-8a.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a close-up of a crane, not the place (close-up rule)"
+    }
+   ]
   },
   {
    "key": "landmark:madison#jacobs-house-wrights-first-usonian",
@@ -15121,7 +15372,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Bay_of_Pigs_Museum",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Fred Thompson at Bay of Pigs Museum (2105194759).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fred_Thompson_at_Bay_of_Pigs_Museum_(2105194759).jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): historical-marker text is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:miami#bayfront-park",
@@ -15219,7 +15481,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Bonnet_House",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bonnet-house-gate.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bonnet-house-gate.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a closed gate only (wrong subject)"
+    }
+   ]
   },
   {
    "key": "landmark:miami#calle-ocho-sw-8th-street",
@@ -15391,7 +15664,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Haulover_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Haulover-beach-2.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Haulover-beach-2.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a crowd of bathers is the subject (people rule)"
+    }
+   ]
   },
   {
    "key": "landmark:miami#hialeah-park-race-track",
@@ -15629,7 +15913,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Pinecrest_Gardens",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Pinecrest Gardens FL park entr02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pinecrest_Gardens_FL_park_entr02.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the entrance sign is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:miami#rubell-museum",
@@ -15790,7 +16085,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Zoo_Miami",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:ZooMiamiAugust2010.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:ZooMiamiAugust2010.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): giant ZOO MIAMI letters are the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#17end-shimoji-island",
@@ -16489,7 +16795,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Avatar_Flight_of_Passage",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Avatar Flight of Passage (33825577724).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Avatar_Flight_of_Passage_(33825577724).jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a dark interior queue with the character figure (character art / interior)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#big-thunder-mountain-railroad-magic-kingdom",
@@ -16516,7 +16833,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Disney's_Blizzard_Beach",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:WDW Blizzard Beach entrance.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:WDW_Blizzard_Beach_entrance.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the entrance sign is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#blue-spring-state-park",
@@ -16610,7 +16938,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Disney's_Grand_Floridian_Resort_&_Spa",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Grand Floridian Resort - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Grand_Floridian_Resort_-_panoramio.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a resort hotel (venue rule)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#disneys-wilderness-lodge",
@@ -16623,7 +16962,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Disney's_Wilderness_Lodge",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Disney's Wilderness Lodge at dusk.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Disney's_Wilderness_Lodge_at_dusk.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a resort hotel (venue rule)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#dr-phillips-center-for-the-performing-arts",
@@ -16714,7 +17064,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Gatorland",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gatorland entrance -Florida-23Feb2006.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gatorland_entrance_-Florida-23Feb2006.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the lettered gator-mouth entrance is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#guardians-of-the-galaxy-cosmic-rewind",
@@ -16836,7 +17197,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/International_Drive",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:IDrive Street View.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:IDrive_Street_View.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a street with billboards and traffic; the wheel barely shows (wrong subject)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#japan-pavilion-at-epcot",
@@ -17208,7 +17580,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/SeaWorld_Orlando",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:SeaWorld Orlando 001.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:SeaWorld_Orlando_001.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the orca-logo lighthouse is the subject (signage / logo rule)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#seven-dwarfs-mine-train",
@@ -17360,7 +17743,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Tinker_Field",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Tinkerafterreconstruction.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tinkerafterreconstruction.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a black-and-white historic aerial of the old ballpark (outdated)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#tree-of-life-disney",
@@ -17402,7 +17796,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Disney's_Typhoon_Lagoon",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Walt Disney World Typhoon Lagoon Entrance.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Walt_Disney_World_Typhoon_Lagoon_Entrance.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the WELCOME entrance sign is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#universal-volcano-bay",
@@ -17845,7 +18250,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Universal_Studios_Japan",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:USJ 5years.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:USJ_5years.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the globe logo entrance arch is the subject (signage / logo rule)"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#30th-street-station",
@@ -18100,7 +18516,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Fort_Mifflin",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Fort Mifflin - Eastman.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fort_Mifflin_-_Eastman.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a painting, not a photo of the place (artwork rule)"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#glen-foerd-on-the-delaware",
@@ -18262,7 +18689,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Love_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Love Statue, Philadelphia.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Love_Statue,_Philadelphia.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the LOVE sculpture dominates (modern sculpture; the US has no freedom of panorama for sculpture)"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#mercer-museum",
@@ -18439,7 +18877,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Philadelphia_Zoo",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Philadelphia Zoo Welcome Gate 2832px.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Philadelphia_Zoo_Welcome_Gate_2832px.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the gate lettering is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#philadelphias-magic-gardens",
@@ -20555,7 +21004,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Exploratorium",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Main Entrance to the Exploratorium at Pier 15.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Main_Entrance_to_the_Exploratorium_at_Pier_15.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the logo lettering at the door is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#fairmont-san-francisco",
@@ -20701,7 +21161,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Harvey_Milk_Plaza",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Harvey Milk Plaza, February 2025.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Harvey_Milk_Plaza,_February_2025.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a Muni entrance under a grey sky (gloom / weak subject)"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#herons-head-park",
@@ -20757,7 +21228,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Sutro_Baths",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sutro Baths in San Francisco.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sutro_Baths_in_San_Francisco.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a black-and-white photo of the demolished baths (outdated)"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#legion-of-honor",
@@ -20814,7 +21296,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mus%C3%A9e_M%C3%A9canique",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Musée Mécanique 003.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_M%C3%A9canique_003.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the entrance sign is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#national-aids-memorial-grove",
@@ -21062,7 +21555,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Sweeney_Ridge",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sweeney Ridge, Portola Discovery Site marker. \"From this ridge the Portola expedition discovered San Francisco Bay November 4, 1769\" - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sweeney_Ridge,_Portola_Discovery_Site_marker._%22From_this_ridge_the_Portola_expedition_discovered_San_Francisco_Bay_November_4,_1769%22_-_panoramio.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): a monument plaque stone is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#the-fillmore",
@@ -21442,7 +21946,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mavericks_Beach",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mavericks wave breaks.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mavericks_wave_breaks.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): surf waves only; neither the harbor nor the point shows (wrong subject)"
+    }
+   ]
   },
   {
    "key": "landmark:siliconvalley#rancho-san-antonio-preserve",
@@ -21722,7 +22237,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Joo_Chiat_Road",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Joo Chiat Road, Apr 06.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Joo_Chiat_Road,_Apr_06.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #48)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): the file shows Joo Chiat Road, not Koon Seng Road (wrong subject)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/newton-novena#bukit-brown-cemetery",

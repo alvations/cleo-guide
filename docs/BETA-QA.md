@@ -1072,3 +1072,79 @@ Also recorded:
 **Ratification:** the QA-66 probe fix to `metrics.js` `bgOf` measures what is actually painted under text, and nothing is exempted. A `pointer-events:none` layer above text now counts as covering it, so the change is stricter where it applies.
 
 QA sign-off: NO
+
+## 2026-10-16 · QA · R7 delta re-sign on 2bfff3fe · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `2bfff3fe9886d1939e5b3994fb0bc329d2b62175`** (be74c82f + FE-B 68b442c0), in a clean worktree.
+
+Gates:
+- validate ✅.
+- `npm test` ✅.
+- `beta:check` ✅: 8,577 places, beta == live.
+
+`git diff --stat be74c82f..2bfff3fe` touches `atlas.js`/`atlas.css`, `fe-a.css`, `insights.js` and `guidebook.js`, and rebuilds `beta/`. So every re-sign row was re-run. Evidence is in `design/beta/eval/w7/qa/resign-2bfff3fe/`.
+
+| Row | Result |
+|---|---|
+| G1 Gallery + Atlas | ✅ 5/5 + 5/5 |
+| B-02 / B-04 (Tokyo, Wheeling) / B-05 | ✅ / ✅ 482, 458 / ✅ |
+| QA-50, QA-52, QA-54, QA-65, casing | ✅ |
+| B-23 (QA-66 probe) | ✅ 0/0 light + night, Gallery and Atlas |
+| B-20 Atlas (QA-61) | ✅ 0 on 5/5 (fixed) |
+| QC-01 | ✅ Tokyo 154/154 and Cleveland 53/53 Insights links open exactly their count; the canon bars are not links and carry the note |
+| **Gallery B-07 (QA-69)** | ❌ Cleveland, Chinatown, Wheeling: "toggle none". The phone map pill is hidden at load. |
+
+`metrics.js` scores: Gallery 22–23/25, Atlas 24/25 on every pilot.
+
+Open High/Blocker: **0**.
+
+**Why NO:** QA-69 regresses B-07, which was ✅ on dd2125e3 and b5f0afa1. It is FE-A's, at the top of its queue.
+
+QA-68 probe fix: B-08 now cuts each title by its clipping panes before testing overlap. It extends the W6-ratified "clipped by its own pane" rule from wholly to partly clipped titles. Measured B-08 is unchanged on this SHA (✅ 0, both views).
+
+QA sign-off: NO
+
+## 2026-10-16 · QA · Ratification: Atlas FE-1 measurement changes (SPEC-v3 rev 4) · session_017FLWXa5zgGWvqNo4C3UsvH
+
+| Change | Verdict | Reason |
+|---|---|---|
+| `qa/w7.js` atlasd: "N more outside" may give way to a "Show all <N>" control in `.ms-more` (SPEC §2.3: at most two count strings) | **Ratified, as implemented by QA** | Same user outcome: the reader is told more places exist outside the map area, and every place is one tap away. QA's check accepts either signal only when the Show-all total **exceeds** the area count shown, and the count must still change on zoom and pan. Nothing else in the check changes. |
+| `metrics.js --view atlas` B-01 on phones: the first phone screen becomes map plus a 64 px list peek ("288 places here · Show list"), with no card | **Not exempted in code. Recorded as ❌ by design in phone Atlas, as D-36 did for B-04**, with conditions | B-01 keeps grading the default view (Gallery), where it passes. In phone Atlas QA accepts the peek as the first-card affordance only when all of these hold: (1) the peek is on the first screen, ≥ 44 px tall and states the count; (2) one tap on it puts a card wholly on screen; (3) a pin tap still brings that place's own card into view (B-07 W7 path, `w7.js atlasm`); (4) the Atlas list pages and G1 stay ✅. QA checks (1)–(3) with `w7.js` and `page-eval.js` on the head that ships it. |
+
+**Conformance note for the orchestrator and the evaluator.** W7-BRIEFS Amendment 2 and checklist row D2 call for "a swipeable card carousel … at the bottom, synced to the pins" on phones. A first phone screen with no card visible changes that design. QA doesn't block on it, since condition (3) keeps pin → card. The D2 row should record the SPEC-v3 change and its owner decision.
+
+## 2026-10-16 · QA · R7 delta re-sign on 530dc83b · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `530dc83b6e45c88afe764779b1451f201a883410`** (2bfff3fe + FE-A QA-69 69ca3690, QC-08, Atlas FE-2 fdc0bae3 and fb71fc52, FE-C W9-7, FE-B QC-09/06, Chicago pins, imagery runs). Clean worktree.
+
+Gates:
+- validate ✅.
+- `npm test` ✅.
+- `beta:check` ✅: 8,627 places, beta == live.
+
+**Test edits since 2bfff3fe** (read, none weakens a gate):
+- `metrics.js` changed only by QA's own probe fixes.
+- `test-imagery` adds a D-40 check that only reports while imagery's 720w copies are pending (flag labelled).
+- The i18n edits add a strict 0-English-strings check, and they relax the unused-key hygiene check only for keys built by concatenation.
+
+Evidence is in `design/beta/eval/w7/qa/resign-530dc83b/`.
+
+| Row | Result |
+|---|---|
+| G1 Gallery + Atlas | ✅ 5/5 + 5/5 |
+| B-02 / B-04 / B-05 | ✅ 473 max / ✅ 449–473 / ✅ |
+| B-08, B-20, B-23 (both views) | ✅ |
+| QA-69: map pill visible at load | ✅ 5/5 (`.mappill` visible, 48 px); B-07 toggle 137×48 on 5/5 |
+| QA-50/52/54/65, casing, reach | ✅ |
+| Atlas B-07 (direct load) | ✅ 5/5 |
+| **Gallery B-07, pin step** | ❌ Tokyo and New York in 2/2 runs, Cleveland in 1/2: no reachable pin in the probe's window. **QA-70**: time from the map-pill tap to the first pin rose from 2.45 / 2.72 s (be74c82f) to 3.93 / 4.20 s. |
+| **Carousel swipe after a detail round trip** | ❌ **QA-71** on New York, Chinatown and Wheeling: after `#p=` + Back the selection no longer follows the swipe (be74c82f ✅) |
+| QA-67 detail matte | still present (Low, decided: by layout) |
+
+Ruling on FE-A's question: Tokyo and New York's "pin sheet none" is **not** the expected wording of the map-search layout. That row passes when the pin opens its own card, as Chinatown and Wheeling do. Here no pin is reachable in time, and the cause is the slower map open (QA-70). It is a regression against be74c82f.
+
+Open High/Blocker: **0**.
+
+**Why NO:** QA-70 and QA-71 regress rows that were ✅ on be74c82f.
+
+QA sign-off: NO

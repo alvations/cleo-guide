@@ -455,9 +455,9 @@ const F = [
 {t:1,a:"OAK",cz:["AM"],n:"Tessaro's",ad:"4601 Liberty Ave, Bloomfield",la:40.4620,ln:-79.9490,
  w:"Since 1985, in-house-ground burgers cooked over local hardwood coals on a cast-iron grill — voted the city's Best Burger by Pittsburgh Magazine readers.",
  k:"Popular; the hardwood grill is the whole point. Approximate pin.",s:[["DTB",""],["PGHMAG",""]]},
-{t:2,a:"DT",cz:["CAF","AM"],n:"Pamela's Diner (Strip)",ad:"60 21st St, Strip District",la:40.4510,ln:-79.9750,
+{t:2,a:"DT",cz:["CAF","AM"],n:"Pamela's Diner",ad:"60 21st St, Strip District",la:40.4510,ln:-79.9750,
  w:"The classic Pittsburgh breakfast: crepe-thin, crispy-edged 'hotcakes' rolled around fruit or chocolate. Obama liked them enough to fly the cooks to the White House.",
- k:"Cash only at some locations; breakfast/brunch. Expect a wait on weekends.",s:[["GFP",""],["DTB",""]]},
+ k:"Cash only at some locations; breakfast/brunch. Expect a wait on weekends.",s:[["GFP","Best Diners"],["DTB",""],["VP","Favorite Diners"]]},
 {t:3,a:"OAK",cz:["AM"],n:"The Original Hot Dog Shop \u2014 CLOSED",ad:"3901 Forbes Ave, Oakland",la:40.4425,ln:-79.9600,
  w:"'The O' — a beloved, grubby Oakland institution since 1960 famous for a mountain of fresh-cut fries with every order and cheap beer, feeding Pitt students at 2am.",
  k:"CLOSED April 2020 (Covid), never reopened \u2014 the O\u2019s corner at Forbes &amp; Bouquet is now other restaurants. Kept for the record.",warn:1,s:[["FADD",""],["CP",""]]},
@@ -533,9 +533,9 @@ const F = [
 {t:3,a:"DT",cz:["IT"],n:"Papa J's Twin Plaza",ad:"2200 Penn Ave, Strip District",la:40.4515,ln:-79.9790,
  w:"A revived Italian kitchen in the Strip — veal meatballs in marinara and two-day-proofed Roman-style pizza.",
  k:"The Carnegie original is closed; this is the Strip relocation. Approximate pin.",s:[["CP",""]]},
-{t:2,a:"DT",cz:["CAF","AM"],n:"De Luca's Diner",ad:"2015 Penn Ave, Strip District",la:40.4515,ln:-79.9800,
+{t:2,a:"DT",cz:["CAF","AM"],n:"DeLuca's Diner",ad:"2015 Penn Ave, Strip District",la:40.4515,ln:-79.9800,
  w:"A Strip District breakfast institution slinging enormous omelettes and hotcakes to a weekend line down the block — old-school diner energy at full volume.",
- k:"Cash-friendly; weekend waits. Breakfast/lunch. Approximate pin.",s:[["GFP",""]]},
+ k:"Cash-friendly; weekend waits. Breakfast/lunch.",s:[["GFP","Best Diners"],["VP","Strip District dining"]]},
 {t:3,a:"DT",cz:["CAF"],n:"La Prima Espresso",ad:"205 21st St, Strip District",la:40.4510,ln:-79.9820,
  w:"An old-school Italian espresso bar in the Strip where the men play cards in the back and the espresso is the real thing — a Pittsburgh coffee landmark.",
  k:"Cash; standing-room mornings. Approximate pin.",s:[["NP",""]]},
@@ -681,8 +681,6 @@ const F = [
 {t:3,a:"OAK",cz:["IN"],n:"Tamarind Flavor of India",ad:"257 N Craig St, Oakland",la:0.0,ln:0.0,w:"No-frills South Indian house on North Craig Street in Oakland, a go-to for crisp paper and mysore masala dosas, idli and vegetarian thalis.",s:[["PGHMAG","Indian restaurants feature"]]},
 {t:1,a:"OAK",cz:["AM","POL"],n:"Butterjoint",ad:"208 N Craig St, North Oakland",la:0.0,ln:0.0,w:"North Oakland bar from the Legume team where light-as-air pierogi and a cult bar burger share the menu with French-bistro plates — a Post-Gazette pierogi-project favorite and an Infatuation pick.",s:[["PGHMAG","Now Open"],["INF",""],["PGPG","pierogi project"]]},
 {t:2,a:"OAK",cz:["IT","AM"],n:"Spak Brothers",ad:"5107 Penn Ave, Garfield",la:0.0,ln:0.0,w:"Garfield pizza-and-sub shop beloved for giant hoagies and one of the city's best vegan-friendly menus — seitan wings, soy-cheese pies and locally sourced ingredients alongside the classic steak hoagie.",s:[["CP","review"],["DTB","review"]]},
-{t:2,a:"DT",cz:["AM"],n:"Pamela's Diner",ad:"60 21st St, Strip District",la:0.0,ln:0.0,w:"The Strip's cash-only griddle famous for crisp-edged, crêpe-thin banana or blueberry hotcakes and Lyonnaise potatoes — President Obama ate here, and it's a Pittsburgh breakfast rite. Cash only.",s:[["VP","Favorite Diners"],["GFP","Best Diners"]]},
-{t:2,a:"DT",cz:["AM"],n:"DeLuca's Diner",ad:"2015 Penn Ave, Strip District",la:0.0,ln:0.0,w:"Since 1950, the Strip District's line-out-the-door breakfast institution — huge skillets, hotcakes and eggs off a busy open griddle in the heart of the market district. Cash only.",s:[["VP","Strip District dining"],["GFP","Best Diners"]]}
 ];
 '''
 

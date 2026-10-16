@@ -262,6 +262,28 @@ async function finish(page, s0, opener, close) {
     if (errors.length) chk(`#3 tokyo ${vn}: 0 page errors`, false, errors.slice(0, 2));
     await ctx.close();
   }
+  // QA-71: after a place is opened and closed (card → detail → Back), swiping the phone carousel still moves the selection,
+  // as it does before the round-trip: two swipes, the card in the middle is the selected one each time (QA's 5 pilots)
+  for (const url of ['beta/cleveland.html', 'beta/cities/tokyo.html', 'beta/cities/newyork.html', 'beta/Singapore/chinatown.html', 'beta/cities/wheeling.html']) {
+    if (ONLY && !ONLY.split(',').some(k => url.includes(k))) continue;
+    const key = url.replace(/^.*\//, '').replace('.html', ''), { ctx, page, errors } = await open(browser, M, url + '#view=atlas');
+    const mid = () => page.evaluate(() => { const lp = document.querySelector('.listpane'), m = lp.getBoundingClientRect().left + lp.clientWidth / 2;
+      const c = [...lp.querySelectorAll('li.pl')].filter(x => x.offsetWidth && !x.hidden).sort((x, y) => { const a = x.getBoundingClientRect(), b = y.getBoundingClientRect(); return Math.abs(a.left + a.width / 2 - m) - Math.abs(b.left + b.width / 2 - m); })[0];
+      return { mid: c && c.id, sel: (document.querySelector('li.pl.is-sel') || {}).id || null, left: Math.round(lp.scrollLeft) }; });
+    const swipe = () => page.evaluate(async () => { const lp = document.querySelector('.listpane'); lp.scrollBy({ left: lp.clientWidth * 0.86 }); await new Promise(r => setTimeout(r, 900)); });
+    const id = await pickCard(page); let r = { id };
+    if (id) {
+      await page.click(`#${id} .pl-n a`); await sleep(1000); r.sheet = await page.evaluate(() => !!document.querySelector('#cleo-sheet:not([hidden])'));
+      await page.goBack(); await sleep(300); r.back = await mid();
+      await swipe(); r.s1 = await mid(); await swipe(); r.s2 = await mid();
+    }
+    const okSw = x => !!x && !!x.mid && x.sel === x.mid;
+    chk(`QA-71 ${key} 390: card → detail → Back, then two carousel swipes: the selection follows the card in the middle each time`,
+      !!id && r.sheet && okSw(r.s1) && okSw(r.s2) && r.s1.mid !== r.back.mid && r.s2.mid !== r.s1.mid, r);
+    if (errors.length) chk(`QA-71 ${key}: 0 page errors`, false, errors.slice(0, 2));
+    await ctx.close();
+  }
+
   // W9-5 the walking ring from your base (Tokyo, base = Nonbei Yokochō, Shibuya): 10 min → the circle, the lens, the count
   if (PAGES.some(p => p[0] === 'tokyo')) for (const [vk, vp] of [['d', D], ['m', M]]) {
     const vn = vk === 'd' ? '1440' : '390', base = 'nonbei-yokocho-shibuya';

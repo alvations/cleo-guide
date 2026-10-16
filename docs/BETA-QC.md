@@ -247,3 +247,128 @@ Severity rules and lanes as in "How QC measures". All are **open**; each is mirr
 - P-26 reads `textContent`.
 - J-07 and S-15 re-measure off-screen focus after smooth scrolling.
 - S-11 skips visually hidden text and documents the sliding-indicator limit.
+
+## Re-verify 2026-10-16 · 2bfff3fe (FE-B claims for QC-01, 02, 03, 10)
+
+**Pinned:** `2bfff3fe9886d1939e5b3994fb0bc329d2b62175`, the deploy candidate containing FE-B's 68b442c0. Clean worktree,
+harness = `tools/beta/qa/qc.js` at bb887a7f. Ran patterns on the 5 pilots × 390 / 1440 and journeys on the 5 pilots ×
+390 / 1440 in light. Outputs are in `design/beta/eval/qc/2bfff3fe/{patterns,journeys}/`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-01 | **verified** | P-18: no bar opens a lens that differs from its value. The canon bars are now plain, and the footnote says why ("Each dish is named inside a place's write-up and no filter selects it, so these bars count without opening places"). Wrong places are no longer reachable. |
+| QC-02 | **verified** | P-18: 0 count mismatches on 74 charts. Every remaining plain bar is stated in its chart's footnote ("Plain bars have no filter that opens exactly the places they count; linked bars open exactly theirs"). |
+| QC-03 | **verified** | P-14: Insights reads "43 of all 488 places match this lens. Every number below is computed from the 43 places in this lens" for `a=`, `mode=` and `t=` on 5/5 pilots × 2 widths. J-05: the Insights count friction is 0/10. |
+| QC-10 | **open** | P-03 is still 2/4 on 10/10: after a switch to Guidebook or Insights, focus is on BODY or the button, not the view heading. |
+
+**Notes:**
+- The raw P-18 FAILs in this run (42) are the plain bars above; the harness predates the plain-bar rule. P-18 now accepts an unlinked bar only when the chart's footnote states why (harness change in this push), so the next run grades them PASS.
+- Deviation for the designer to ratify: SPEC §3.4 lists "How far you walk → Atlas `a=`", but those bars are now plain ("Distances are measures, not lists of places"). Not a defect, because the reason is stated, but SPEC and build now differ. The same goes for the new "Recognised places by area" chart (W9-1).
+- P-24 (first run): 35 PASS, 5 N/A (phone Atlas list not shown at load), 0 silent caps.
+
+## Pass 2026-10-16 · 530dc83b (re-verify + new features)
+
+**Pinned:** `530dc83b6e45c88afe764779b1451f201a883410`, the orchestrator's QC pin and deploy candidate (gates green), in a
+clean worktree. Harness: `qc.js` at 91fb6634, which adds P-10 `at=` and fixes the place-link clicks (a card's first
+link is now the tier badge to `#how-we-choose`, so J-02, J-06 and J-07 click the place link). Ran:
+- patterns: 5 pilots × 390 / 1440;
+- journeys: 5 pilots × 390 / 1440, light;
+- sweep: 91 pages × 768 / 1440, light;
+- exploration of the features that landed since the first pass, at 390 and 1440.
+
+**Supplementary:** FE-B's QC-10 fix (78e4ab74) and the QC-09 200 % follow-up (639d2b1b) are **not** in 530dc83b. So
+patterns also ran on `639d2b1b` (Tokyo, Cleveland, Chinatown × 390 / 1440). Outputs are in
+`design/beta/eval/qc/{530dc83b,639d2b1b}/`, with evidence in `530dc83b/evidence/`.
+
+### Re-verification
+
+| Id | 530dc83b | Probe · result |
+|---|---|---|
+| QC-01 | **verified** (holds) | P-18 74/74 PASS; canon bars plain with a stated footnote |
+| QC-02 | **verified** (holds) | P-18 74/74 PASS. The designer ratified the plain-bar rule (SPEC §3.4, f0497626 / 49bb7f4c), which closes the "How far you walk" deviation noted on 2bfff3fe. |
+| QC-03 | **verified** (holds) | P-14: Insights states "n of all N" under every lens; J-05 0 Insights count friction |
+| QC-04 | open (no claim) | P-17 FAIL 2/2 Cleveland: no "without a verified pin" badge |
+| QC-05 | open (no claim) | S-05: `q=` with no match still shows no message and no clear on 5/5 pilots × 2 |
+| QC-06 | **verified** | S-10 at 768: 91/91 PASS; switcher segments ≥ 44 px |
+| QC-07 | **verified** | J-07: 0/10 runs lose focus after Esc (was 20/20) |
+| QC-08 | **verified** | J-02: 3 steps on Tokyo, New York and Wheeling (both widths); the lead card steps aside under the lens (`qc-08-food-lens-top.jpg`); the sheet opens on a food place in the area. Chinatown has one area, so there is no area step. Residue (not a defect of the claim): the Cleveland UC food grid is ordered by rank 2, 3, 6, 13, 15, 42, 43, 45, 16, 44. |
+| QC-09 | **verified** | P-01 10/10 (four segments in a `role=group`, ≥ 44 px); J-05 0/10 "switcher not reachable with the sheet open", 0/10 extra taps; J-08 (200 %) 10/10 |
+| QC-10 | **open on 530dc83b**, **verified on 639d2b1b** | 530dc83b: P-03 3/4 (Guidebook leaves focus on BODY). 639d2b1b: P-03 4/4 on 6/6 runs (Atlas, Guidebook, Insights and Gallery each focus their h1). |
+| QC-11 | open (no claim) | S-12 at 768: 11 pages > 0.1, max 0.48 (`.toolbar`, `.split`) |
+| QC-12 | open | S-12 at 1440: 9 pages > 0.1, max 0.29; `.topnav` among the shifted nodes on 5 |
+| QC-13 | open (no claim) | P-14: Atlas under a lens still reads "All 43 places", not "43 of all 488" |
+| QC-14 | open (no claim) | S-03 WARN 168/182 |
+
+Also passing on 530dc83b:
+- P-10, the map view round-trip via `at=`, 10/10 (FE-2 closed PANEL-R1-#13);
+- P-24, no silent caps, 35 PASS and 5 N/A;
+- J-01, J-03, J-04 and J-08…J-11, 100 %;
+- S-11, S-13 and S-14, 0 FAIL.
+
+The J-06 desktop "partial" results (5) are a harness artefact: the step-3 card click hit a non-link part of the card,
+and clicking the name link opens the sheet (checked by hand). J-06 at 390 is 5/5 yes.
+
+### New features: melon-seek pass
+
+Exploration at 390 and 1440, with off-origin requests aborted and 0 off-origin requests observed:
+- **Trips** (`trip.html`): four saved Tokyo places fill one day, with stated limits ("more days than that stay empty rather than padded"). The `#trip=` link round-trips in a fresh context. Share this trip, Share as an image, Print as a booklet, Export KML and the "check opening times" honesty line are all present. ✅
+- **Set as my base:**
+  - every card reads "620 m from Kanda Myōjin · 8 min walk", with the assumption stated once ("straight-line, about 80 m a minute — an estimate, not a route");
+  - `base=` sits in the hash and survives a view switch;
+  - a cold `#base=` link reproduces it;
+  - the Atlas shows the 5 / 10 / 15 min ring;
+  - "Nearest to my base" and "Clear my base" are present;
+  - it works in memory with storage blocked. ✅ But see QC-15 and QC-17.
+- **Near me:**
+  - granted: distances on cards, `#sort=near`, and "Using your location for this visit only — never stored or sent";
+  - denied: "Location is off for this site, so nothing changed. Every place is still listed." ✅
+- **Share cards** (place): a 1080 × 1920 PNG drawn on the device, alt text naming the place, sources, check date and photo credit; Download PNG works (`cleo-kanda-myojin.png`); 0 network requests. ✅
+- **View switcher:** QC-06 and QC-09 are verified above. ✅ Under `ja`, see QC-18.
+- **Japanese locale** (`?lang=ja`):
+  - `html[lang=ja]` is set, with the bilingual banner;
+  - the chrome is translated (switcher, chips, crumbs, "Show map");
+  - there is no overflow at either width. ✅ See QC-16 and QC-18.
+
+### New findings
+
+| Id | Sev | Lane | Finding | Steps | Expected | Actual | Evidence |
+|---|---|---|---|---|---|---|---|
+| **QC-15** | Med | FE-C | "Set as my base" drops focus to `<body>`, so Esc no longer closes the sheet. | Open `#p=kanda-myojin`, press **Set as my base**, press Esc. | Focus stays in the sheet (on the button, now "Your base"); Esc closes the sheet. | Focus moves to BODY; the sheet stays open with `p=` in the hash. 390 and 1440. "Mark as been there" and "Add to your day" keep focus and close normally. | `530dc83b/evidence/qc-15-base-esc.jpg` |
+| **QC-16** | Med | i18n | Under `?lang=ja` the whole Insights view stays in English, though the banner says only place write-ups do. | `cities/tokyo.html?lang=ja#view=insights`. | The view's chrome is translated, or the banner names Insights as English. | "Tokyo in numbers", all chart titles, captions, tiles, footnotes and "Show as a table" are in English (17 untranslated UI strings on the Tokyo page); the method section's headings are in English too. | `qc-16-ja-insights.jpg` |
+| **QC-17** | Med | Atlas FE-1 (+ FE-C base line) | The phone Atlas carousel card clips the base distance line. | 390, `#base=kanda-myojin&view=atlas`. | The full "1.9 km from Kanda Myōjin · 23 min walk" line is visible. | The line's box ends at 840 px and the card (`li.pl`, overflow hidden) at 832, so the line is cut through its middle on every carousel card. | `qc-17-base-card-clip.jpg` |
+| **QC-18** | Low | FE-B (switcher §v2.11) | Under `?lang=ja` at 1440 the sliding indicator is not under the selected segment. | `cities/tokyo.html?lang=ja#view=insights`. | The white pill sits under the pressed segment. | The indicator is at x 1133 (width 111), the pressed button at x 1189 (width 127): it straddles ガイドブック and インサイト and stays put after 1.5 s. It is correct in English. | `qc-18-ja-switcher.jpg` |
+| **QC-19** | Med | FE-B (D-39) + FE-A (sheet) | Rating and popularity wording in record prose appears **without** the D-39 dated note. | Guidebook or the sheet for `cleveland.html#p=barroco-arepa-bar`; Tokyo `kamo-to-negi-ueno-okachimachi`; Chinatown `best-satay-7-and-8-lau-pa-sat-satay-street`. | D-39: quoted prices and ratings carry "quoted from the source at the time of research (date)". | Barroco: "3,300 reviews at 4.6" with no note, in the Guidebook and the sheet. "One of Ueno's most popular ramen counters" and "The most popular stalls" have no note. Other entries do carry it (Slyman's). The note is keyed too narrowly. | `qc-19-rating-no-note.jpg` |
+| **QC-20** | Med | owner decision (FE-B D-39 owner) | Opening hours are quoted in records' "Look for" text while the sheet says "Hours and prices aren't in our data". D-39 covers prices and ratings, not hours. | Guidebook: New York `central-park` ("6am"), `empire-state-building` ("11pm"); Cleveland `slymans-restaurant-and-deli` ("Monday to Friday, 7am–2:30pm"), `rockefeller-park-greenhouse` ("Closes at 4pm"). | Hours carry a dated note like D-39, or the "Hours … aren't in our data" line is reworded. SPEC §1.4 says no hours. | Hours wording without a note on 5/5 New York matches and 14 of 19 Cleveland matches (prices and hours together), plus Tokyo ("7am", "4pm"). | `qc-20-hours-in-text.jpg` |
+
+**Totals after this pass:**
+- **Open:** 13. Med 9 (QC-04, 05, 11, 12, 15, 16, 17, 19, 20) · Low 4 (QC-10 on the pin, 13, 14, 18) · High 0 · Blocker 0.
+- **Verified:** QC-01, 02, 03, 06, 07, 08, 09; QC-10 on 639d2b1b (it will verify on the next pin that contains 78e4ab74).
+
+## Re-verify 2026-10-16 · f7fa616d (i18n claim for QC-16)
+
+Clean worktree at `f7fa616d`. The QC ja probe (`?lang=ja`, 1440) lists every visible UI text node with no kana or kanji
+outside card entries. Output: `design/beta/eval/qc/f7fa616d/ja-probe.json`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-16 | **verified** | Tokyo and Cleveland Insights: only 3 English nodes each, all data or stated (city name, tagline, the method intro sentence). Titles, captions, tiles, footnotes and "Show as a table" are in Japanese (`qc-16-ja-insights.jpg`). The banner now says the method pages' longer explanations stay in English. In the Guidebook only data remains English (area names, neighbourhood lines). |
+| QC-18 | observed fixed, **not yet claimed** | The switcher indicator sits under インサイト in `qc-16-ja-insights.jpg`; it will be verified on the next pin. |
+| **QC-21** (new, Low, i18n) | open | how-we-choose.html under `ja`: the stats table headers (Country, Guides, Places, Pins at high confidence, Closed, kept) and the h2 "Added by the guide" are English UI labels. The long paragraphs are stated English and not counted. `qc-21-ja-method-table.jpg`. |
+
+## Re-verify 2026-10-16 · a498adf5 (i18n claim for QC-21)
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-21 | **verified** | The QC ja probe on how-we-choose.html at 390 and 1440 (`design/beta/eval/qc/a498adf5/ja-probe-how-we-choose.json`, `qc-21-ja-method-table.jpg`): the five column headers and the h2 "Added by the guide" are now in Japanese. Still in English: the stated long paragraphs, and the country names used as row labels (proper nouns, not UI labels). |
+
+## Re-verify 2026-10-16 · 995e2529 (FE-B claims for QC-18, QC-19, QC-20)
+
+Clean worktree at `995e25294`, which contains 6583673c. Outputs are in `design/beta/eval/qc/995e2529/`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-18 | **verified** | Indicator vs the pressed segment: dx 0, dw 0 in ja Insights, en Atlas, ja Atlas and en Guidebook at 1440 (`qc-18-ja-indicator.png`). |
+| QC-19 | **open** | D-42 scan of the 5 pilot Guidebooks for price, rating, popularity or time wording without the note. Tokyo 0/5, New York 0/5, Chinatown 0/2 and Wheeling 0/1 are missing it; the named records (Barroco, kamo-to-negi, best-satay) now carry it. **Cleveland: 2/19 still lack it:** `cain-park` ("nationally top-rated juried outdoor art fair") and `tita-floras` ("the highest-rated Asian …", closed). |
+| QC-20 | **verified** | Hours wording carries "Prices, ratings and times are quoted from the source at the time of research (date)". The sheet's gap line now reads "We don’t track opening hours or prices · Check before you go." |
+| **QC-22** (new, Low) | open | Every city page's "How we choose" section (`section#how-we-choose p.sm`) still reads "No ratings, prices or opening hours are shown, because the guide doesn’t hold verified ones", which contradicts the D-42 quotes now shown with a dated note. Lane: FE-A (city page copy) with FE-B (D-42). `qc-22-method-copy.json`. |
+

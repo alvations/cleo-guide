@@ -152,7 +152,8 @@
    }
   },
   "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
-  "hardFailure": false
+  "hardFailure": false,
+  "reassisted": "2026-10-16"
  },
  "summary": {
   "pin": 87,
@@ -390,10 +391,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -478,10 +479,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -665,10 +666,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -746,10 +747,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -827,15 +828,15 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "no-change",
     "why": [
-     "OSM POI, name 1, house number + street match"
+     "confirms the current high pin (5 m); nothing to review"
     ]
    }
   },
@@ -910,10 +911,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -1046,9 +1047,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "review",
     "why": [
-     "OSM POI, name 1, house number + street match"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -1122,10 +1123,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -1205,10 +1206,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -1335,10 +1336,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -1419,10 +1420,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -1503,10 +1504,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -1585,10 +1586,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -1706,10 +1707,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -1961,7 +1962,7 @@
    "assist": {
     "verdict": "review",
     "why": [
-     "med + second source: US Census point 27 m away (“1520 N DAMEN AVE, CHICAGO, IL, 60622”; interpolated, read it)"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -2036,10 +2037,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -2137,9 +2138,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "review",
     "why": [
-     "OSM POI, name 1, house number + street match"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -2327,10 +2328,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -2408,10 +2409,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -2552,10 +2553,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -2723,10 +2724,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -2807,10 +2808,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -2888,10 +2889,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -2976,10 +2977,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -3059,10 +3060,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -3144,10 +3145,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -3229,10 +3230,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -3317,15 +3318,15 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "no-change",
     "why": [
-     "official site's schema.org geo"
+     "confirms the current high pin (29 m); nothing to review"
     ]
    }
   },
@@ -3401,10 +3402,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -3779,10 +3780,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -4158,10 +4159,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -4326,10 +4327,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -4619,9 +4620,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -4731,10 +4732,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -5013,10 +5014,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -5319,10 +5320,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -5589,7 +5590,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -5657,7 +5658,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -5800,9 +5801,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "official site's schema.org geo"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -5881,7 +5882,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -5965,10 +5966,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (wikidata coordinate with an independent source within 40 m); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -6770,10 +6771,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -6972,10 +6973,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -7298,10 +7299,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -7384,10 +7385,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -7469,10 +7470,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -7557,10 +7558,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -7955,7 +7956,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikipedia coordinate only: needs the address or a second source"
+     "wikipedia coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -8032,10 +8033,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -8116,10 +8117,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -8194,7 +8195,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikipedia coordinate only: needs the address or a second source"
+     "wikipedia coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -8416,10 +8417,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -8564,10 +8565,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -8850,10 +8851,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -9178,10 +9179,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -9263,10 +9264,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -9474,10 +9475,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.957, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -9672,7 +9673,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "OSM POI without an exact address match (house number null, street true)"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -9745,10 +9746,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: house number equals the registry address (official/Wikidata rows: second source within 30 m), within 40 km of the city anchor, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",

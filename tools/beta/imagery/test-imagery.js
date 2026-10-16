@@ -120,7 +120,9 @@ ok(/^<p class="hero-credit"[^>]*>Photo: A\. Photographer · <a [^>]*rel="license
   ok(/ sizes="\(min-resolution: 2\.5dppx\) and \(max-width: 1023px\) 166px, \(max-width: 639px\) 92vw, \(max-width: 1023px\) 45vw, 25vw"/.test(photos.figureHtml(cph, '../')) && / sizes="120px"/.test(photos.figureHtml(cph, '../', 'photo', { sizes: '120px' })), 'card sizes default: a ≥ 2.5 dppx phone takes 500 w (166px), else 92vw phones, 45vw tablets, 25vw desktop; callers can pass a smaller sizes (thumbnails)');
   // D-40 condition: a 500w + 720w card asks for 240px on a 3× phone (resolves to the 720w copy); a 500w + 960w card keeps 166px
   ok(photos.cardSizes({ widths: [{ w: 500 }, { w: 720 }] }) === photos.CARD_SIZES_720 && /2\.5dppx\) and \(max-width: 1023px\) 240px,/.test(photos.CARD_SIZES_720)
-    && photos.cardSizes({ widths: [{ w: 500 }, { w: 960 }] }) === photos.CARD_SIZES, 'card sizes by copy: 720w cards cap 3× phones at 240px (the 720w copy); 960w cards keep 166px');
+    && photos.cardSizes({ widths: [{ w: 500 }, { w: 960 }] }) === photos.CARD_SIZES
+    && photos.cardSizes({ widths: [{ w: 500 }, { w: 720 }, { w: 960 }] }) === photos.CARD_SIZES_720 && photos.cardSizes({ widths: [{ w: 500 }, { w: 640 }, { w: 960 }] }) === photos.CARD_SIZES_720,
+    'card sizes by copy: a card with a ~720w copy (600–799, D-40a; with or without a 960) caps 3× phones at 240px; 500 + 960 cards keep 166px');
 }
 ok(imagery.heroFor({ imagery: { hero: hph } }) === hph && imagery.heroFor({ imagery: { slots: r.bySlot } }, 'tokyo') === hph && imagery.heroFor({ imagery: { slots: r.bySlot } }, 'kyoto') === null && imagery.heroFor({ imagery: {} }) === null && imagery.heroFor(null) === null, 'heroFor(row) / heroFor(reg, key): the credited hero, else null (renderer keeps the motif)');
 ok(/^<figure class="photo hero-media"><img [^>]*srcset=[^>]*fetchpriority="high"[^>]*><figcaption>Photo: /.test(hph ? photos.heroHtml(hph, '../', 'photo hero-media') : ''), 'heroHtml with a media-slot class: in-flow, eager, with its TASL figcaption (FE-B hub hero)');
@@ -248,15 +250,16 @@ ok(!fc.RESCAN_KEPT['File:Meadowcroft Rockshelter 07.jpg'], 'R7 QA-63: Meadowcrof
 { // recompress.js: size targets per copy, Commons JPEGs only, once per row; the card credit still says "(resized)"
   const rc = require('./recompress');
   const card = { provider: 'wikimedia-commons', file: 'x-960.jpg', width: 960, record: {} }, hero = Object.assign({}, card, { slot: { type: 'hero', key: 'tokyo' } });
-  ok(rc.targetOf({ provider: 'wikimedia-commons', file: 'x-960.jpg', width: 960, variants: [{ file: 'x-500.jpg', width: 500 }, { file: 'x-720.jpg', width: 720 }], record: {} }, 720, false) === 55 * 1024 && rc.targetOf({ provider: 'wikimedia-commons', file: 'x-720.jpg', width: 720, variants: [{ file: 'x-500.jpg', width: 500 }], record: {} }, 720, true) === 75 * 1024, 'D-40 option a: a 720 w copy beside a 960 (lead / first row, first screen) ≤ 55 KB; a 500 + 720 card\'s 720 ≤ 75 KB');
+  ok(rc.targetOf({ provider: "wikimedia-commons", file: "x-960.jpg", width: 960, variants: [{ file: "x-500.jpg", width: 500 }, { file: "x-720.jpg", width: 720 }], record: {} }, 720, false) === rc.P720_KB * 1024 && rc.P720_KB <= 45 && rc.targetOf({ provider: 'wikimedia-commons', file: 'x-720.jpg', width: 720, variants: [{ file: 'x-500.jpg', width: 500 }], record: {} }, 720, true) === 75 * 1024, 'D-40 option a: a 720 w copy beside a 960 (lead / first row, first screen) ≤ 45 KB; a 500 + 720 card\'s 720 ≤ 75 KB');
   { // D-40 option a over the committed photos: every lead / first-row Commons card with a 960 also carries its ≤ 55 KB 720 copy
     const rows = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits;
     const prio = new Set(JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'commons-candidates.json'), 'utf8')).targets.filter(t => t.priority && t.type !== 'hero').map(t => t.depicts));
     const missing = rows.filter(r => rc.needs720(r, prio)).map(r => r.file);
     const heavy = rows.filter(rc.hasLarge).flatMap(r => rc.filesOf(r)).filter(f => /-7\d\d\.jpe?g$/i.test(f.file) && fs.statSync(path.join(BETA, 'assets', 'img', 'photos', f.file)).size > rc.P720_KB * 1024).map(f => f.file);
-    // PENDING (imagery, 2026-10-16): the 45 copies land right after the `all` run #48 commits (to avoid a CREDITS conflict
-    // with it); until then a missing copy is reported, not failed. An over-cap copy always fails. Remove D40A_PENDING then.
-    const D40A_PENDING = true;
+    ok(Object.keys(rc.NO720).every(f => rows.some(r => r.file === f) && rows.find(r => r.file === f).variants.every(v => !/-(4|5)\d\d\.jpe?g$/i.test(v.file) || /-500\./.test(v.file))) && Object.values(rc.NO720).every(Boolean), 'D-40 option a: each NO720 exception is a credited 500 + 960 card with its reason, never a shrunken sub-600 copy');
+    // Landed 2026-10-16 (run #50 + local recompress). Set D40A_PENDING to report rather than fail a missing copy, e.g.
+    // while a run that adds lead / first-row cards is in flight. An over-cap copy always fails.
+    const D40A_PENDING = false;
     ok(!heavy.length && (D40A_PENDING || !missing.length), `D-40 option a: every lead / first-row card has a 720 w copy ≤ ${rc.P720_KB} KB${heavy.length ? '; over: ' + heavy.join(', ') : ''}`);
     if (D40A_PENDING && missing.length) console.log(`  pending  D-40 option a: ${missing.length} lead / first-row card(s) still without their 720 w copy (land after run #48)`);
   }
@@ -303,6 +306,12 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
 }
 const refusedC = cm.targets.flatMap(t => t.candidates.filter(c => c.refused).map(c => [t, c]));
 ok(refusedC.every(([, c]) => c.refused.length > 10) && fc.plan(cm, { credits: [] }, { keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip).every(p => p.cands.every(c => !c.refused)), `fetch-commons: candidates refused after visual review carry a reason and are never fetched (${refusedC.length})`);
+{ // run #52: a refusal appended to cands.tsv was dropped when the same file had an earlier vetted line — every refusal must reach the manifest
+  const tsv = path.join(__dirname, 'manifest', 'cands.tsv');
+  const lost = !fs.existsSync(tsv) ? [] : fs.readFileSync(tsv, 'utf8').split('\n').map(l => l.split('\t')).filter(p => p.length >= 7 && p[6].trim())
+    .filter(([key, f]) => !(cm.targets.find(t => t.key === key) || { candidates: [] }).candidates.some(c => c.file === 'File:' + f && c.refused)).map(([key, f]) => `${key} ${f}`);
+  ok(!lost.length, `manifest: every refusal in manifest/cands.tsv reaches commons-candidates.json, even when the file was vetted on an earlier line${lost.length ? ': ' + lost.join('; ') : ''}`);
+}
 ok(fc.fileBase({ type: 'landmark', depicts: 'singapore/chinatown#sri-mariamman-temple' }) === 'singapore--chinatown--sri-mariamman-temple' && fc.fileBase({ type: 'hero', depicts: 'hub:singapore/chinatown' }) === 'hero--singapore--chinatown', 'fetch-commons: file names follow the photos/ convention');
 const fplan = fc.plan(cm, { credits: [] }, { scope: 'all', keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip);
 ok(fplan.length > 100 && fplan.every(p => (p.cands.length || p.lead) && p.cands.every(c => c.confidence === 'high' && !(c.flags || []).length) && !p.t.skip), `fetch-commons default plan: ${fplan.length} targets, high-confidence unflagged candidates (or a cited article's lead image), never a skipped (venue/food/closed/Vietnam) target`);

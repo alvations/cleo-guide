@@ -140,13 +140,13 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     // ---- D-39 · price/rating prose is labelled, not stripped: the note on exactly the records whose own prose quotes one
     for (const p of d.places) {
       const q = quoted.quotes(p), li = (h.match(new RegExp('<li class="ge" id="gb-' + p.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"[\\s\\S]*?</li>')) || [''])[0];
-      const shown = /<p class="gq sm muted">Prices and ratings are quoted from the source at the time of research \(/.test(li);
+      const shown = /<p class="gq sm muted">Prices, ratings and times are quoted from the source at the time of research \(/.test(li);
       if (q) nQuoted++;
       if (q !== !!p.pq || q !== shown) bad.quoted.push(`${f} ${p.id}: prose quotes=${q} pq=${p.pq || '-'} note=${shown}`);
     }
     // ---- 3 · honesty (write-ups and notes are the record's own words; the view's chrome must add none)
     // D-39: the dated-quote label is a stated limit of the record's own prose (exact sentence only), not view copy
-    let chrome = textOf(h.replace(/<p class="ge-w">[\s\S]*?<\/p>|<p class="gk">[\s\S]*?<\/p>|<p class="gq sm muted">Prices and ratings are quoted from the source at the time of research \((?:\d{4}-\d{2}-\d{2}|undated)\)\.<\/p>|<section class="gb-appendix"[\s\S]*$/g, '') + ir.html.replace(/<li class="ixi"[\s\S]*?<\/li>/g, ''));
+    let chrome = textOf(h.replace(/<p class="ge-w">[\s\S]*?<\/p>|<p class="gk">[\s\S]*?<\/p>|<p class="gq sm muted">Prices, ratings and times are quoted from the source at the time of research \((?:\d{4}-\d{2}-\d{2}|undated)\)\.<\/p>|<section class="gb-appendix"[\s\S]*$/g, '') + ir.html.replace(/<li class="ixi"[\s\S]*?<\/li>/g, ''));
     for (const nm of names.concat(d.places.map(p => p.ad || ''), d.places.map(p => p.n)).filter(Boolean).sort((a, b) => b.length - a.length)) chrome = chrome.split(nm.replace(/&/g, '&')).join(' ');
     const hit = HONESTY.exec(chrome); if (hit) bad.honest.push(f + ': ' + chrome.slice(Math.max(0, hit.index - 40), hit.index + 30));
   }
@@ -187,7 +187,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     const N = load(file + '.json').places.length;
     let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
       (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
-    html = html.replace('</body>', ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
+    html = html.replace('</body>', () => ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
     const errs = [];
     const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page,
       beforeParse(w) {
@@ -297,7 +297,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     const tj = load('tokyo.json'), pq = tj.places.find(pl => pl.id === 'tempura-abe-honten'), plain = tj.places.find(pl => !pl.pq && !pl.closed);
     const [open1, t1] = await sheetNote('cities/tokyo.html', pq.id), [open2, t2] = await sheetNote('cities/tokyo.html', plain.id);
     chk(`QA-65: the detail of tempura-abe-honten carries the D-39 note with its date (${pq.pq}); ${plain.id} carries none`,
-      open1 && t1 === `Prices and ratings are quoted from the source at the time of research (${pq.pq}).` && open2 && t2 === null, [open1, t1, open2, t2]);
+      open1 && t1 === `Prices, ratings and times are quoted from the source at the time of research (${pq.pq}).` && open2 && t2 === null, [open1, t1, open2, t2]);
   }
   // ---- QC-01 / QC-02: an Insights mark links only to a lens that shows exactly the places it counts (independent
   // re-statement of Cleo.lens.match over the record fields); QC-03: under a lens every number is the lensed set's
@@ -348,7 +348,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     const boot = (page, hash) => {
       let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
         (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
-      html = html.replace('</body>', ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
+      html = html.replace('</body>', () => ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
       const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + hash,
         beforeParse(w) { w.Element.prototype.scrollIntoView = function () {}; w.matchMedia = () => ({ matches: false, addListener() {}, removeListener() {} }); w.scrollTo = () => {};
           w.fetch = u => { const p = path.join(BETA, /data\/places\//.test(u) ? 'data/places/' + u.split('data/places/')[1] : new URL(u, w.location.href).pathname.replace(/^\/beta\//, ''));
@@ -365,10 +365,13 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
       dom = boot('cities/tokyo.html', ''); await sleep(500);
       const b = dom.window.document.querySelector(`[data-cleo-views] button[data-view="${v}"]`);
       if (b) { b.focus(); b.click(); await sleep(900); }
-      const ae = dom.window.document.activeElement;
-      got.push([v, !!b, ae && ae.tagName, ae && ae.closest && !!ae.closest('.vw')]); dom.window.close();
+      const ae0 = dom.window.document.activeElement, ae = { tagName: ae0 && ae0.tagName, inView: !!(ae0 && ae0.closest && ae0.closest('.vw')) };
+      // a locale remount (i18n D-41, same ctx) must not move focus again: focus the switcher, fire cleo:locale, it stays
+      let kept = null;
+      if (b) { b.focus(); dom.window.document.dispatchEvent(new dom.window.Event('cleo:locale')); await sleep(900); kept = dom.window.document.activeElement === b; }
+      got.push([v, !!b, ae.tagName, ae.inView, kept]); dom.window.close();
     }
-    chk('QC-10 (jsdom): a keyboard switch to Guidebook / Insights moves focus to the view\'s h1', got.every(x => x[1] && x[2] === 'H1' && x[3]), got);
+    chk('QC-10 (jsdom): a keyboard switch to Guidebook / Insights moves focus to the view\'s h1, and a locale remount does not move it again', got.every(x => x[1] && x[2] === 'H1' && x[3] && x[4] === true), got);
   }
   // ---- QC-09 / QC-06 (DESIGN-SYSTEM §v2.11): the switcher is a labelled group of 4 pressed toggles on every city page, never
   // collapsed, and no shipped rule shrinks a segment under 44 px (layout probe: tools/beta/feb-switcher.js)

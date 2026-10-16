@@ -90,7 +90,7 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.ok(LV.robotsAllows('User-agent: *\nDisallow: /private', '/menu'));
     assert.ok(LV.robotsAllows('User-agent: *\nDisallow: /\nAllow: /contact', '/contact'), 'longest match');
     assert.ok(!LV.robotsAllows('User-agent: CleoGuideLocationVerify\nDisallow: /\n\nUser-agent: *\nAllow: /', '/'), 'our group wins');
-    assert.ok(LV.robotsAllows('User-agent: Googlebot\nDisallow: /\n', '/'), 'other bots’ rules do not bind us');
+    assert.ok(LV.robotsAllows('User-agent: OtherBot\nDisallow: /\n', '/'), 'other bots’ rules do not bind us');
     assert.ok(LV.robotsAllows('User-agent: *\nDisallow:\n', '/x'), 'empty Disallow allows');
     assert.ok(!LV.robotsAllows('User-agent: *\nDisallow: /*.php$\n', '/index.php'));
   });
@@ -227,7 +227,7 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.ok(row('Example Museum').statusProposal.evidence.some(e => e.type === 'wikidata-P576'), 'a linked QID still counts');
   });
   await t('review assist holds official JSON-LD that names something else (the venue)', () => {
-    const v = LV.reviewAssist({ outcome: 'pin', proposal: { grade: 'high', kind: 'official', nameSim: 0.2, matchedName: 'Disney Springs' } });
+    const v = LV.reviewAssist({ outcome: 'pin', proposal: { grade: 'high', kind: 'official', nameSim: 0.2, matchedName: 'Example Springs Shopping District' } });
     assert.strictEqual(v.verdict, 'hold');
   });
   await t('optional-source failures never fail the run; core-source failures do', async () => {
@@ -260,9 +260,9 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.strictEqual(wd({ coordDecimals: 3 }).verdict, 'hold', '3 decimals is coarse even with a second source');
     assert.strictEqual(wd({ coordDecimals: 6 }).verdict, 'pass');
     assert.strictEqual(LV.coordDecimals(28.595, -81.511), 3); assert.strictEqual(LV.coordDecimals(28.5, -81.5, 0.0001), 4);
-    const part = LV.reviewAssist({ ...base, name: "Disney's Coronado Springs Resort (Gran Destino Tower)", proposal: { grade: 'high', kind: 'wikidata', nameSim: 1, coordDecimals: 5, corroboratedBy: [{}], matchedName: "Disney's Coronado Springs Resort", addressAgreement: {} } });
+    const part = LV.reviewAssist({ ...base, name: "Example Springs Resort (North Tower)", proposal: { grade: 'high', kind: 'wikidata', nameSim: 1, coordDecimals: 5, corroboratedBy: [{}], matchedName: "Example Springs Resort", addressAgreement: {} } });
     assert.strictEqual(part.verdict, 'hold');
-    const sys = LV.reviewAssist({ ...base, name: 'Disney Skyliner', proposal: { grade: 'high', kind: 'wikidata', nameSim: 1, coordDecimals: 5, corroboratedBy: [{}], addressAgreement: {} } });
+    const sys = LV.reviewAssist({ ...base, name: 'Example Skyliner', proposal: { grade: 'high', kind: 'wikidata', nameSim: 1, coordDecimals: 5, corroboratedBy: [{}], addressAgreement: {} } });
     assert.strictEqual(sys.verdict, 'hold');
     const ent = LV.reviewAssist({ outcome: 'conflict', name: 'Big State Park', current: { confidence: 'med' }, proposal: { grade: 'high', kind: 'osm-poi', entrance: true, distanceM: 1870, matchedName: 'Big State Park (Main Entrance)' } });
     assert.strictEqual(ent.verdict, 'review');
@@ -274,6 +274,82 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const c = (lat, kind, name, extra = {}) => Object.assign({ lat, lng: 1, grade: 'high', kind, source: kind, nameSim: 1, why: [], sourceUrl: kind, retrieved: 'd', name }, extra);
     const d = LV.decide({ name: 'Big State Park', current: { lat: null, lng: null } }, [c(1, 'wikidata', 'Big State Park'), c(1.003, 'osm-poi', 'Big State Park (Main Entrance)')]);
     assert.ok(d.proposal.entrance && d.proposal.kind === 'osm-poi');
+  });
+  await t('a re-run carries review decisions; a moved proposal makes the review stale; vanished rows are kept in meta', () => {
+    const prev = { rows: [
+      { name: 'Fictional Fish Market', proposal: { lat: 0.5031, lng: -30.5012 }, review: { decision: 'accept', by: 'r', why: 'ok', date: 'd' } },
+      { name: 'Schema Grill', proposal: { lat: 0.4, lng: -30.4 }, review: { decision: 'accept', by: 'r', why: 'ok' } },
+      { name: 'Gone Place', proposal: null, review: { decision: 'reject', by: 'r', why: 'x' } } ] };
+    const next = JSON.parse(JSON.stringify(rep)); next.meta = { ...next.meta };
+    LV.carryReviews(prev, next);
+    const fish = next.rows.find(r => r.name === 'Fictional Fish Market'); assert.strictEqual(fish.review.decision, 'accept'); assert.ok(!fish.review.stale);
+    const grill = next.rows.find(r => r.name === 'Schema Grill'); assert.ok(grill.review.stale);
+    assert.strictEqual(next.meta.reviewsCarried, 1); assert.deepStrictEqual(next.meta.reviewsStale, ['Schema Grill']);
+    assert.strictEqual(next.meta.reviewsOrphaned[0].name, 'Gone Place');
+    // --accept refuses a stale review
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lv-st-')); const geo = path.join(dir, 'g.json'); fs.writeFileSync(geo, JSON.stringify(fx.registry));
+    const rp = path.join(dir, 'r.json'); fs.writeFileSync(rp, JSON.stringify(next));
+    const out = LV.accept(rp, { geocodes: geo, ledger: path.join(dir, 'L.md'), today: '2026-10-16', allowCi: true });
+    assert.ok(out.refused.some(x => /Schema Grill: review is stale/.test(x)));
+  });
+  await t('generic signals only: ordering-shaped hosts, source URLs must resemble the place, JSON-LD url on another host', () => {
+    for (const h of ['orderexamplemenu.com', 'www.orderxyzmenu.com', 'order.examplecafe.com', 'menu.example.com', 'examplecafe-online-order.com', 'exampledelivery.net', 'examplemenu.com'])
+      assert.ok(LV.isOrderingHost(h), h);
+    for (const h of ['www.zymarium.com', 'politepig.com', 'www.weaselboybrewing.com', 'mendocinofarms.com'])
+      assert.ok(!LV.isOrderingHost(h), h);
+    assert.ok(LV.hostResemblesName('www.zymarium.com', 'Zymarium Meadery'));
+    assert.ok(LV.hostResemblesName('politepig.com', 'The Polite Pig'));
+    assert.ok(!LV.hostResemblesName('www.examplereviews.com', 'Zymarium Meadery'), 'a review/map site URL in `source` is not the place\'s site');
+    assert.strictEqual(LV.siteLabel('www.example.co.uk'), 'example');
+    const c = { kind: 'official', unofficial: 'JSON-LD url points to orderexamplemenu.com', name: 'Pizza Example' };
+    assert.strictEqual(LV.gradeCandidate(c, { name: 'Pizza Example', address: '', current: {} }).grade, 'med');
+  });
+  await t('Wikipedia does not corroborate Wikidata (one source); OSM/official/Census does', () => {
+    const base = { outcome: 'pin', name: 'X Museum', current: { confidence: 'UNVERIFIED' } };
+    const p = k => ({ grade: 'high', kind: 'wikidata', nameSim: 1, coordDecimals: 6, addressAgreement: {}, corroboratedBy: [{ kind: k }] });
+    assert.strictEqual(LV.reviewAssist({ ...base, proposal: p('wikipedia') }).verdict, 'hold');
+    assert.strictEqual(LV.reviewAssist({ ...base, proposal: p('osm-poi') }).verdict, 'pass');
+    const c = (kind) => ({ lat: 1, lng: 1, grade: 'med', kind, source: kind, nameSim: 1, why: [], sourceUrl: kind, retrieved: 'd' });
+    const d = LV.decide({ name: 'X', current: { lat: null, lng: null } }, [c('wikidata'), Object.assign(c('wikipedia'), { lat: 1.00001 })]);
+    assert.strictEqual(d.proposal.grade, 'med', 'wikipedia agreeing with wikidata does not upgrade');
+  });
+  await t('moved-place guard: registry address far from a Wikidata coordinate → hold "possible old location"', async () => {
+    const r4 = await LV.run({ city: 'testville-zz', registry: fx.registry, scope: ['unverified'], sources: ['wikidata', 'census'], fixtures: fx.responses, mode: 'fixtures', today: '2026-10-16' });
+    const g = r4.rows.find(r => r.name === 'Moved Gallery');
+    assert.strictEqual(g.proposal.kind, 'wikidata'); assert.ok(g.addressCheck && g.addressCheck.distanceM > 1000, JSON.stringify(g.addressCheck));
+    assert.strictEqual(g.assist.verdict, 'hold'); assert.ok(/possible old location/.test(g.assist.why[0]));
+  });
+  await t('extended features without an entrance object are held', () => {
+    const v = LV.reviewAssist({ outcome: 'pin', name: 'Ocean Boulevard Park', current: { confidence: 'UNVERIFIED' }, proposal: { grade: 'high', kind: 'osm-poi', nameSim: 1, addressAgreement: { houseNumber: true, street: true } } });
+    assert.strictEqual(v.verdict, 'hold');
+  });
+  await t('business names that borrow place words are not extended features; closed places go to review', () => {
+    for (const n of ['Thai Square', 'One Lake Brewing', 'Square Pie Guys (SoMa)', 'Hayes Valley Bakeworks']) assert.ok(!LV.isExtended(n), n);
+    assert.ok(!LV.isExtended("Mama's on Washington Square", 'amenity=restaurant'), 'the OSM class decides when the name cannot');
+    assert.ok(LV.isExtended('Salt Fork State Park')); assert.ok(!LV.isExtended('Italian Village', 'amenity=restaurant'));
+    const v = LV.reviewAssist({ outcome: 'pin', name: 'Old Diner — CLOSED', current: { confidence: 'UNVERIFIED', status: 'closed' }, proposal: { grade: 'high', kind: 'osm-poi', nameSim: 1, addressAgreement: { houseNumber: true, street: true } } });
+    assert.strictEqual(v.verdict, 'review');
+  });
+  await t('recheck verdicts: corroborated within 40 m of the current pin / moved / none found', () => {
+    const reg = { cities: { c: { A: { lat: 1, lng: 1 }, B: { lat: 1, lng: 1 }, C: { lat: 1, lng: 1 } } } };
+    const v1 = LV.recheckVerdict({ name: 'A', candidates: [{ kind: 'osm-poi', grade: 'high', lat: 1.0002, lng: 1, sourceUrl: 'osm', name: 'A' }] }, reg, 'c');
+    assert.strictEqual(v1.verdict, 'corroborated'); assert.ok(v1.by[0].distanceM <= 40);
+    const v2 = LV.recheckVerdict({ name: 'B', candidates: [{ kind: 'official', grade: 'high', lat: 1.01, lng: 1, sourceUrl: 'site', name: 'B' }] }, reg, 'c');
+    assert.strictEqual(v2.verdict, 'moved'); assert.ok(v2.distanceM > 1000);
+    const v3 = LV.recheckVerdict({ name: 'C', candidates: [{ kind: 'wikidata', grade: 'high', lat: 1, lng: 1 }] }, reg, 'c');
+    assert.strictEqual(v3.verdict, 'none found', 'a Wikidata candidate is not independent');
+  });
+  await t('--duplicates finds open+CLOSED twins, one-OSM-object pairs and same-spot near-names', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lv-dup-'));
+    const e = (lat, lng, status = 'open') => ({ lat, lng, confidence: 'high', status, statusSource: 'synthetic', statusChecked: '2026-01-01', address: 'x' });
+    const cities = { zz: { 'Cafe Uno': e(1, 1), 'Cafe Uno — CLOSED': e(1, 1, 'closed'), 'Hut Grill': e(2, 2), 'Hut Grill Indian Cuisine': e(2.0001, 2), 'Far Apart': e(3, 3), 'Far Apart Too': e(3.5, 3), 'Town Market': e(4, 4), 'Stall Ten — Town Market': e(4, 4), 'Bell Tavern': e(5, 5), 'The Bell Tavern': e(5.0001, 5) } };
+    fs.writeFileSync(path.join(dir, 'zz.json'), JSON.stringify({ rows: [{ name: 'Hut Grill', proposal: { osmObject: { id: 'node/1' } } }, { name: 'Hut Grill Indian Cuisine', proposal: { osmObject: { id: 'node/1' } } }] }));
+    const d = LV.findDuplicates(cities, dir);
+    assert.ok(d.some(x => x.kind === 'open + CLOSED' && x.a.name === 'Cafe Uno'));
+    assert.ok(d.some(x => x.kind === 'one OSM object'));
+    assert.ok(!d.some(x => /Far Apart/.test(x.a.name + x.b.name)));
+    assert.ok(!d.some(x => /Stall Ten/.test(x.a.name + x.b.name)), 'a stall inside a market is not a duplicate');
+    assert.ok(d.some(x => x.kind === 'similar names, same spot' && /Bell Tavern/.test(x.a.name)), '"The X" vs "X" at one spot is');
   });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);

@@ -41,8 +41,9 @@ function targetOf(row, width, isMain) {
   return row.slot && isMain ? 120 * KB : 110 * KB;
 }
 /** A lead / first-row card (500 + 720 + 960) is on the first screen: its 720 w copy, what a 3× phone loads, is capped
- *  tighter so Tokyo phone@3× stays ≤ 700 KB (D-40 option a, orchestrator 2026-10-16). */
-const P720_KB = 55;
+ *  tighter so Tokyo phone@3× stays ≤ 700 KB (D-40 option a, orchestrator 2026-10-16). 55 KB measured 703 KB with the
+ *  720-aware `sizes`, so the cap is 45 KB (the orchestrator's rule: tighten the cap rather than exceed the budget). */
+const P720_KB = 45;
 /** Does the row carry a ≥ 800 w copy (960) — a hero or a lead / first-row card? */
 const hasLarge = row => filesOf(row).some(f => classWidth(f) >= 800);
 /** The files of a credit row with their widths: the main file last. */
@@ -114,7 +115,19 @@ function priorityIds() {
 }
 /** A lead / first-row Commons card with a 960 w copy and no 720 w one: derive the 720 locally from the committed 960 (no
  *  download), at ≤ 55 KB. Returns the rows to give one. */
-const needs720 = (row, prio) => row.provider === 'wikimedia-commons' && row.record && prio.has(`${row.record.page}#${row.record.id}`) &&
+/** Lead / first-row cards whose 720 copy cannot meet 55 KB without shrinking below ~520 px (busy or tall photos; a copy that
+ *  small is no sharper than the 500): they keep 500 + 960. Main file → reason. Found by priority720 (it skips and logs them). */
+const NO720 = {
+  'singapore--bangkok--wat-pho-960.jpg': 'tall photo; a 55 KB copy shrinks to 439 px wide',
+  'singapore--kuala-lumpur--batu-caves-960.jpg': 'busy photo; a 55 KB copy shrinks to 518 px wide',
+  'singapore--manila--san-agustin-church-960.jpg': 'tall photo; a 55 KB copy shrinks to 518 px wide',
+  'singapore--bukit-timah--singapore-botanic-gardens-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
+  'hokkaido--sapporo-beer-museum-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
+  'kyoto--uji-bridge-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
+  'singapore--southern-ridges--haw-par-villa-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
+  'singapore--cebu--basilica-minore-del-santo-nino-and-magellans-cross-960.jpg': 'busy photo (festival crowd); the runner\'s 45 KB copy shrank to 518 px wide',
+};
+const needs720 = (row, prio) => row.provider === 'wikimedia-commons' && row.record && !NO720[row.file] && prio.has(`${row.record.page}#${row.record.id}`) &&
   filesOf(row).some(f => /-960\.jpe?g$/i.test(f.file)) && !filesOf(row).some(f => classWidth(f) >= 600 && classWidth(f) < 800);
 async function priority720(sharp, rows, dry) {
   let n = 0;
@@ -124,6 +137,8 @@ async function priority720(sharp, rows, dry) {
     const small = await sharp(fs.readFileSync(p)).resize({ width: 720 }).toBuffer();
     const meta = await sharp(small).metadata();
     const { out, q, w, h, scaled } = await encode(sharp, small, P720_KB * KB, meta);
+    // a copy that only fits by shrinking is no sharper than the 500: skip it (add the row to NO720 so it is not re-tried)
+    if (scaled) { console.log(`  skip  ${big.file}: a ${P720_KB} KB copy shrinks to ${w} px wide — keeps 500 + 960; add it to NO720`); continue; }
     const file = big.file.replace(/-960\.jpe?g$/i, `-${w}.jpg`);
     console.log(`  ${dry ? 'would add' : 'added'} ${file} ${Math.round(out.length / KB)} KB (q${q}${scaled ? `, scaled to ${w}×${h}` : ''}, from the committed 960, target ${P720_KB} KB)`);
     n++;
@@ -165,6 +180,15 @@ async function main() {
       if (marked(row) && buf.length <= target) continue;          // already recompressed and within its target
       if ((meta.orientation || 1) !== 1) { console.log(`  skip  ${f.file}: EXIF orientation ${meta.orientation} (stripping it would turn the photo)`); continue; }
       const { out, q, w: nw, h: nh, scaled } = await encode(sharp, buf, target, meta);
+      if (scaled && !f.main && hasLarge(row) && classWidth(f) >= 600 && classWidth(f) < 800 && nw < 600) {
+        // a lead / first-row 720 copy that only fits by shrinking below 600 px is no sharper than the 500: drop it (NO720)
+        console.log(`  drop  ${f.file}: a ${Math.round(target / KB)} KB copy shrinks to ${nw} px wide — the card keeps 500 + 960; add ${row.file} to NO720`);
+        if (!dry) {
+          fs.unlinkSync(p); row.variants = row.variants.filter(v => v.file !== f.file);
+          row.modified = String(row.modified || '').replace(/^resized to 500, \d+ and (\d+) px wide/, 'resized to 500 and $1 px wide');
+        }
+        continue;
+      }
       const m2 = await sharp(out).metadata();
       if (m2.width !== nw || m2.height !== nh || (!scaled && (nw !== meta.width || nh !== meta.height))) throw new Error(`${f.file}: size changed ${meta.width}×${meta.height} → ${m2.width}×${m2.height}`);
       before += buf.length;
@@ -189,4 +213,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => { console.error(`recompress: ${e.stack || e}`); process.exit(4); });
-module.exports = { P720_KB, needs720, hasLarge, targetOf, filesOf, eligible, needsWork, notJpeg, jpgName, dominantOf, MARK, QUALITIES };
+module.exports = { NO720, P720_KB, needs720, hasLarge, targetOf, filesOf, eligible, needsWork, notJpeg, jpgName, dominantOf, MARK, QUALITIES };

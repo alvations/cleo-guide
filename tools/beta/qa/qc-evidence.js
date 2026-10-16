@@ -23,6 +23,7 @@ const VP = { 390: { viewport: { width: 390, height: 844 }, isMobile: true, hasTo
   1440: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 } };
 
 // [file, page, viewport, hash, what to do before the shot (returns a selector to crop to, or null for the viewport)]
+const ONLY = (argv[argv.indexOf('--only') + 1] || '').split(',').filter(x => argv.includes('--only') && x);
 const SHOTS = [
   ['qc-01-canon-bars', 'cities/tokyo.html', 1440, '#view=insights', async p => cardOf(p, /signature canon/i)],
   ['qc-02-kind-bars', 'cities/tokyo.html', 1440, '#view=insights', async p => cardOf(p, /what each area is for/i)],
@@ -33,6 +34,12 @@ const SHOTS = [
   ['qc-08-food-lens-top', 'cities/tokyo.html', 390, '#view=gallery&mode=food&a=CHUO', async () => null],
   ['qc-09-sheet-covers-switcher', 'cities/tokyo.html', 390, '#p=kanda-myojin', async () => null],
   ['qc-13-atlas-lens-count', 'cities/tokyo.html', 1440, '#view=atlas&a=CYD', async () => '.ms-head'],
+  ['qc-15-base-esc', 'cities/tokyo.html', 390, '#p=kanda-myojin', async p => { await p.locator('[role=dialog] [data-cleo-base=set]').first().click(); await p.waitForTimeout(600); await p.keyboard.press('Escape'); await p.waitForTimeout(600); return null; }],
+  ['qc-16-ja-insights', 'cities/tokyo.html?lang=ja', 1440, '#view=insights', async () => null],
+  ['qc-17-base-card-clip', 'cities/tokyo.html', 390, '#base=kanda-myojin&view=atlas', async p => { await p.waitForTimeout(1500); return 'main li.pl'; }],
+  ['qc-18-ja-switcher', 'cities/tokyo.html?lang=ja', 1440, '#view=insights', async () => '[data-cleo-views]'],
+  ['qc-19-rating-no-note', 'cleveland.html', 1440, '#view=guidebook', async p => { await p.evaluate(() => { if (window.Cleo && Cleo.defer) Cleo.defer.all(); const e = document.querySelector('.ge[data-id="barroco-arepa-bar"]'); if (e) { e.setAttribute('data-qc-shot', ''); e.scrollIntoView({ block: 'center', behavior: 'instant' }); } }); await p.waitForTimeout(500); return '[data-qc-shot]'; }],
+  ['qc-20-hours-in-text', 'cities/newyork.html', 1440, '#view=guidebook', async p => { await p.evaluate(() => { if (window.Cleo && Cleo.defer) Cleo.defer.all(); const e = document.querySelector('.ge[data-id="central-park"]'); if (e) { e.setAttribute('data-qc-shot', ''); e.scrollIntoView({ block: 'center', behavior: 'instant' }); } }); await p.waitForTimeout(500); return '[data-qc-shot]'; }],
 ];
 async function cardOf(p, rx) {
   await p.evaluate(src => { const r = new RegExp(src, 'i'); const c = [...document.querySelectorAll('.icard')].find(x => r.test(x.textContent));
@@ -50,7 +57,7 @@ async function cardOf(p, rx) {
   await new Promise(r => srv.on('listening', r));
   const base = `http://127.0.0.1:${srv.address().port}/`;
   const browser = await chromium.launch();
-  for (const [name, rel, vp, hash, prep] of SHOTS) {
+  for (const [name, rel, vp, hash, prep] of SHOTS.filter(x => !ONLY.length || ONLY.some(o => x[0].startsWith(o)))) {
     const ctx = await browser.newContext({ ...VP[vp], serviceWorkers: 'block' });
     await ctx.route('**/*', route => { const u = route.request().url(); if (u.startsWith(base)) return route.continue();
       if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u)) return route.fulfill({ status: 200, contentType: 'image/png', body: PNG1 }); return route.abort(); });

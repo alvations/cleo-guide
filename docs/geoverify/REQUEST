@@ -1,6 +1,8 @@
-city=washington-dc
-scope=unverified,low,status
+city=san-francisco-ca
+scope=all
 limit=0
-nominatim_max=300
+nominatim_max=50
+names=Koi Palace|Hotel Utah Saloon|Wild Side West
+sources=nominatim,official,overpass,census
 commit=true
-# queue: next after chicago-il
+# re-check Wikidata-only accepts against independent sources

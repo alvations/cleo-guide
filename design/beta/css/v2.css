@@ -104,7 +104,7 @@
    One look for every place without a photo (Gallery cards, list covers, sheet heroes, hub tiles): --sand ground, the
    kind glyph at 22 px in --ink-3, the native-script or initial name small and upright. The pin-art locator, plates,
    motifs, area edge bars and vertical scripts are not drawn. Real photos (imagery lane) sit in the same rounded box. */
-:root :is(.cover, .pl-cover, .plate-box, .detail .hero-plate, .tile .art) { background: var(--sand) !important; background-image: none !important; box-shadow: none !important;
+:root :is(.cover, .pl-cover, .plate-box, .detail .hero-plate, .tile .art) { background: var(--cover-sight, var(--sand)) !important; background-image: none !important; box-shadow: none !important;
   border: 0 !important; color: var(--ink-3); }
 :root :is(.cover, .pl-cover, .detail .hero-plate, .tile .art)::after { display: none !important; }
 /* the kind glyph (generated kind-motif mask): one small, centred, ink-3 mark — never a large illustration */
@@ -266,3 +266,6 @@ html:root[data-view=atlas] #cleo-grid li.pl:not(.w7-cards li) > figure.pl-photo 
 
 /* ---------- V2.20 Focus rings never clip (Atlas SPEC-v3 §5, PANEL-R2-#12): inside overflow/scroll containers the ring is drawn inset ---------- */
 :root :is(.card, .cc, .chips, .list, .rail, .carousel) :is(a, button, input, select, textarea, [tabindex]):focus-visible { outline-offset: -2px; }
+
+/* ---------- V2.21 No-photo covers by kind (FE-A food-cover review): eat & drink covers take --cover-food; lanes need no !important ---------- */
+:root :is(.pl[data-k=f] > .pl-cover, .cover.food, li.pl[data-k=f] .pl-cover):not(:has(img)) { background: var(--cover-food) !important; }

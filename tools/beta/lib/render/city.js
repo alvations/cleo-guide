@@ -23,6 +23,7 @@ function offlineStrings(city, n) {
 const { head, siteBar, footer, BETA_BASE } = require('./common');
 const { rowsOf: galleryRows } = require('../gallery');
 const { sentence, ownWords } = require('../casing');
+const { dishOf } = require('../dish');
 const COUNTRIES = (() => { try { return JSON.parse(require('fs').readFileSync(require('path').resolve(__dirname, '../../../../data/countries.json'), 'utf8')).countries; } catch (e) { return []; } })();
 
 const shortArea = n => String(n || '').split(/\s+[(—–]\s*|\s+\(/)[0].trim();
@@ -152,7 +153,7 @@ function card(r, num, ctx) {
   const { page, srcById, areaName } = ctx;
   const aName = areaName(r.a);
   const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
-  const dish = r.kind === 'food' && czN[0] ? (ctx.SC || String)(czN[0].split(/ & |, | \(/)[0]) : '';
+  const dish = r.kind === 'food' ? (ctx.SC || String)(dishOf(czN, ctx.srcNames)) : '';   // food covers (c): the dish or cuisine, never a source or award
   const gl = glyphOf(r, page), mg = mapGlyphOf(r, gl, ctx.japan);
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
@@ -275,7 +276,7 @@ function render(row, recs, ctx) {
   // home modules (M2-11, M2-05, M2-06, M3-02, M2-10) — only from fields that exist; they sit right after ★ in the rail
   const firstDay = areas.find(a => days[a.id]);
   const mods = [`<button type="button" class="rail-i door fy" data-cleo-foryou aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span class="k">${tr('city.door.guide.k')}</span><span class="t">${tr('city.door.guide.t')}</span><span class="d">${tr('city.door.guide.d')}</span></button>`];   // i18n D-41: the rail's doors
-  if (firstDay) mods.push(`<button type="button" class="rail-i door" data-cleo-day=""><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span class="k">${tr('city.door.day.k')}</span><span class="t">${esc(tr('city.door.day.t', { area: areaSplit(firstDay.n)[0] }))}</span><span class="d">${tr('city.door.day.d', { n: days[firstDay.id].length, areas: tn('city.areas', Object.keys(days).length) })}</span></button>`);
+  if (firstDay) mods.push(`<button type="button" class="rail-i door" data-cleo-day=""><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span class="k">${tr('city.door.day.k')}</span><span class="t">${esc(tr('city.door.day.t', { area: areaSplit(firstDay.n)[0] }))}</span><span class="d">${tr(Object.keys(days).length === 1 ? 'city.door.day.d.one' : 'city.door.day.d', { n: days[firstDay.id].length, a: Object.keys(days).length })}</span></button>`);
   const iFree = tiles.findIndex(t => t.key === 'c' && t.id === 'FREE');
   const free = iFree >= 0 ? tiles.splice(iFree, 1)[0] : null;
   if (free) free.cls = 'door';
@@ -292,7 +293,7 @@ function render(row, recs, ctx) {
 
   /* -- area chapters -- */
   const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
-  const cardCtx = { japan: row.country === 'japan', page, srcById, areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
+  const cardCtx = { japan: row.country === 'japan', page, srcById, srcNames: Object.values(srcById || {}).map(x => x && (x.name || x.n)).filter(Boolean), areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : [tr('city.elsewhere'), ''];   // i18n D-41: chapter strings
@@ -322,7 +323,8 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   byArea.forEach(l => ordered.push(...l)); ordered.push(...orderArea(orphan));
   // W8 (R6 gap #8): the lead is ONE pick, lib/gallery.js rowsOf().lead — the record the lead card draws — so "Start with"
   // can never name a different place from the card under it (two near-identical pickers had drifted on 17 of 21 pages)
-  const leadId = (galleryRows({ areas: areasAll, collections: page.CATS || [], cuisines: page.CUISINES || [], guide: row.guide, places: recs }, name).lead || {}).id;
+  const gRows = galleryRows({ areas: areasAll, collections: page.CATS || [], cuisines: page.CUISINES || [], guide: row.guide, places: recs }, name);
+  const leadId = (gRows.lead || {}).id;
   const leadR = recs.find(r => r.id === leadId) || ordered.find(r => !r.closed) || ordered[0];
   // W7 (owner: full UI/UX overhaul): a quiet hero — the city name, one line and the count line, with the imagery lane's
   // credited city photo when there is one. The night-sky art and the action pair are retired; the grid, the category bar
@@ -432,8 +434,11 @@ ${gapHtml.join('\n')}${closedTile ? '\n' + closedTile : ''}
 </nav>
 <div class="railbar" data-cleo-rail hidden><button type="button" class="btn btn-icon btn-ghost" data-rail="-1" aria-label="${tr('city.rail.prev')}">${ico('chev-l')}</button><button type="button" class="btn btn-icon btn-ghost" data-rail="1" aria-label="${tr('city.rail.next')}">${ico('chev-r')}</button></div>
 <!-- QA-48 / QA-60 (B-04): the category bar sits above the phone lead card, so it is on the first screen on every page, not only where the hero is short -->
-<div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">${tr('city.lead.k')}</p></div>
-<div class="g-rows vw view-gallery" id="cleo-rows-host"></div>
+<!-- PERF-06 (platform, marked block): data-lead / data-rows say the client WILL draw a lead card / N rows here, so fe-a.css
+     reserves their space on phones before the fetch lands (Gallery phone CLS); absent where the guide has none -->
+<div class="g-lead-slot vw view-gallery" id="cleo-lead"${gRows.lead ? ' data-lead' : ''}><p class="g-lead-k">${tr('city.lead.k')}</p></div>
+<div class="g-rows vw view-gallery" id="cleo-rows-host"${gRows.rows.length ? ` data-rows="${gRows.rows.length}"` : ''}></div>
+<!-- /PERF-06 -->
 <div class="toolbar" data-cleo-toolbar hidden>
 ${seg}
 <button type="button" class="btn btn-ghost area-btn" data-cleo-tray="area" aria-haspopup="dialog">${ico('pin')}<span class="lbl">${tr('city.tray.area')}</span></button>

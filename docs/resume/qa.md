@@ -4,7 +4,7 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
 
 ## Task
 
-- R7 re-sign and YES/NO for deploy. The current candidate is `2bfff3fe9886d1939e5b3994fb0bc329d2b62175` (be74c82f + FE-B's QC-01/02/03/10).
+- R7 re-sign and YES/NO for deploy. 530dc83b was NO: QA-69 is fixed, but QA-70 (map open about 1.5 s slower, Gallery B-07 pin step) and QA-71 (carousel swipe after a detail round trip) are new regressions. Open High 0.
 - Keep `docs/BETA-ISSUES.md` current: verify every claimed fix on a pinned SHA, with the probe and the result.
 - Rule on measurement-rule changes that lanes propose.
 
@@ -17,6 +17,8 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
   - 387f1306: pre-measure on b5f0afa1;
   - f00f2312: pre-measure on 0ecf62aa;
   - c5dbeef3: QC rows, QC-01 reproduced.
+- The 530dc83b delta re-sign: NO on QA-70 and QA-71; QA-69 verified.
+- The 2bfff3fe delta re-sign: NO on QA-69 only; QC-01 and QA-61 verified; QA-68 probe fix in `metrics.js`.
 - 3480f399: re-sign on be74c82f. All R7 rows pass. **NO** on QA-69 (Gallery B-07 regression: the phone map pill is hidden at load, FE-A 7c70e821) and on QC-01. The QA-66 B-23 probe fix (`metrics.js` `bgOf`) landed here.
 - Rulings:
   - D-40 ratified with a 720w condition; the orchestrator later chose option (a);
@@ -25,12 +27,11 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
 
 ## Next
 
-1. Finish the delta re-sign on `2bfff3fe`. Run the commands below; compare with `design/beta/eval/w7/qa/resign-be74c82f/`.
-2. Verify QC-01 there: every Insights link opens exactly its count; the canon bars are not links and carry the note.
-3. Re-check QA-69 (`page-eval.js m cleveland.html` → `.mappill` must be visible at load) and Gallery B-07.
+1. On the next pin (with QA-70 and QA-71): run the delta re-sign (`git diff --stat 530dc83b..<pin>`; re-run the touched rows; always Gallery B-07 on 5/5, run twice because it depends on scroll state). Run the commands below; compare with `design/beta/eval/w7/qa/resign-be74c82f/`.
+2. QC-01 is verified on 2bfff3fe; re-check it only if `insights.js` changed. Verify QC-01 there: every Insights link opens exactly its count; the canon bars are not links and carry the note.
+3. Re-check QA-70 (time to first pin after the pill tap: page-eval expression in `resign-530dc83b`, compare with be74c82f's 2.45 s / 2.72 s) and QA-71 (`w7.js --only atlasm` swipe, plus the open + Back + swipe probe). Run Gallery B-07 twice.
 4. Reply YES/NO to the orchestrator with the open High/Blocker count. YES needs: 0 open High/Blocker, every R7 row ✅, and no regression versus be74c82f.
 5. Then:
-   - QA-68: fix the B-08 probe so it cuts each title by its clipping pane before the overlap test;
    - PERF-08: re-run reach once platform flips `selective`;
    - D-40 (a): Tokyo phone@3× must stay ≤ 700 KB;
    - QA-67: by layout, the slot takes the source width.
@@ -55,10 +56,11 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## In flight
 
-- Delta re-sign runs on `2bfff3fe`: gates, `metrics-qa.js` Gallery and Atlas, `w7.js`, reach.
+- Nothing. Waiting on QA-70 (platform) and QA-71 (Atlas FE-2), then the orchestrator's pin.
 
 ## Notes
 
 - Before any re-sign, check every claimed SHA with `git merge-base --is-ancestor <sha> <pin>`. FE-A's commits once never reached origin.
-- Probe artefacts: QA-66 (fixed), QA-68 (open). Fix the probe to measure what is painted; never exempt an element.
+- Probe artefacts: QA-66 (fixed), QA-68 (probe fixed; re-check if the straddling state recurs).
+- D-42 (hours, label don't strip): when FE-B lands it, both honesty greps must allow exactly the new sentence. Fix the probe to measure what is painted; never exempt an element.
 - `/home/user/cleo-guide` has a local backup branch `backup/peaceful-goodall-local-2026-10-03` holding a stale October 3 history, intentionally not pushed.

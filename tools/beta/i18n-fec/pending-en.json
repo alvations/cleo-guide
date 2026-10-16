@@ -1,0 +1,8 @@
+{
+  "_doc": "FE-C batch 3: trip.html's server strings (lib/render/trip.js), waiting for their ja. Batches 1 and 2 are merged (1: FE-C, d1d476cbc; 2: the i18n lane with the client patch, 50eb108c2).",
+  "strings": {
+    "trip.page.title": "Trips · Cleo",
+    "trip.page.desc": "Make a trip of several days from places you saved: one area a day, nearest next, walking estimates, closed places left out with the reason. One link, a printable booklet and KML.",
+    "trip.page.nojs": "Trips are made in your browser from places you saved, so this page needs its script. Every guide and your saved list work without it."
+  }
+}

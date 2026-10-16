@@ -276,9 +276,10 @@
      *  metres ÷ 80 m a minute. Metres round to 10 under 1 km, one decimal of a km above. Callers state ASSUME once per view. */
     MPM: 80, ASSUME: 'Walk times are straight-line, about 80 m a minute — an estimate, not a route',
     walk: function (km) {
+      var T = function (k, e, v) { return Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
       var m = km * 1000, r = Math.round(m / 10) * 10, min = Math.round(m / 80);
       var dist = r < 1000 ? r + ' m' : (m / 1000).toFixed(1) + ' km';
-      return { m: m, min: min, dist: dist, text: dist + ' · ' + (min < 1 ? 'under 1 min walk' : min + ' min walk') };
+      return { m: m, min: min, dist: dist, text: dist + ' · ' + (min < 1 ? T('geo.walk.under', 'under 1 min walk') : T('geo.walk.min', '{n} min walk', { n: min })) };   // i18n D-41: Cleo.t (head snippet)
     },
     ll: function (el) { var v = (el && el.getAttribute('data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; }
   };
@@ -414,9 +415,10 @@
       var ids = new Set(D.peek({ lens: L }).map(function (s) { return s.id; }));
       return ids.size ? D.stampIds(ids) : [];
     },
-    /** PERF-08 switch: when true, a lens route stamps only its matching cards (stampLens) instead of every card. Off until
-     *  every consumer that reads stubs (pins, counts, pager) reads them through peek({lens}) — see BETA-PERF-AUDIT PERF-08. */
-    selective: false,
+    /** PERF-08 switch: when true, a lens route stamps only its matching cards (stampLens) instead of every card. On since
+     *  every consumer that reads stubs (pins, counts, pager, Atlas) reads them through peek({lens}) / Cleo.lens.shows —
+     *  see BETA-PERF-AUDIT PERF-08. */
+    selective: true,
     /** Every card in document (= view) order, stamped or not, WITHOUT stamping: [{id:'p-…', a, el|null, ns|null}].
      *  Lets the Gallery pager place a deep link on its page and stamp only that page (platform W7, R6 gap #5). */
     order: function () {
@@ -528,9 +530,12 @@
     var q = quiet();
     if (q === 'p') { stampPlace(); emit('cleo:route', {}); }
     else if (!q) {
-      D.all();
+      var lr = D.selective && lensOnly();
+      // PERF-08: a lens link builds only what the lens shows (+ its #p= place); the rest stay lazy for when it clears
+      if (lr) lensNow(lr);
+      else D.all();
       emit('cleo:route', {});                          // page scripts that already routed (inline/jsdom order) route again
-      return;
+      if (!lr) return;
     }
     // hold each deferred list's height so the scrollbar and anchors don't jump while it is unstamped
     var live = document.querySelector('ol.pls'), cards = live ? live.querySelectorAll(':scope > li.pl') : [];
@@ -543,7 +548,7 @@
     };
     io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
-        if (!e.isIntersecting || !io || (D.hold && D.hold())) return;   // held: the view stamps its own page (Gallery pager)
+        if (!e.isIntersecting || !io || (D.hold && D.hold()) || lensed()) return;   // held: the view stamps its own page (Gallery pager) / a selective lens is on
         io.unobserve(e.target); watched.splice(watched.indexOf(e.target) >>> 0, 1);
         var ns = e.target._cleoNext; e.target._cleoNext = null;
         // the watched chunk may have been split by stampIds since: stamp what is now the list's first chunk
@@ -562,6 +567,7 @@
       }
       watch(ol);
     });
+    gaps();
   }
   var allNow = function () { if (D.pending().length || VC.length) D.all(); };
   // a place link (card, pin, shared #p=, Back/Forward between sheets) needs only its own card (R-32, gap #6); anything
@@ -569,14 +575,22 @@
   // stamped cards are adopted before the page routes.
   // PERF-08: a route whose only non-quiet keys are lens keys stamps just what the lens shows (when D.selective is on)
   var lensOnly = function () { var r = Cleo.route.parse(), ks = Object.keys(r); return Cleo.lens.on(r) && ks.every(function (k) { return QUIET.indexOf(k) >= 0 || Cleo.lens.KEYS.indexOf(k) >= 0; }) ? r : null; };
-  var routed = function () { if (!D.pending().length && !VC.length) return; var q = quiet(); if (q === 'p') stampPlace(); else if (!q) { var lr = D.selective && lensOnly(); if (lr) D.stampLens(lr); else allNow(); } };
+  // under a selective lens the cards it leaves unstamped are outside it: their lists' height spacers fold away and the lazy
+  // observer waits; when the lens clears both come back (scrolling then builds every card, as with no lens)
+  // a selective lens: its matching cards, its #p= place, and every view chunk (a view's own list must meet the lens too)
+  var lensNow = function (lr) { D.stampLens(lr); if (lr.p) stampPlace(); VC.slice().forEach(function (c) { c.all(); }); };
+  var lensed = function () { return !!D.selective && D.pending().length > 0 && Cleo.lens.on(Cleo.lens.current()); };
+  var gaps = function () { var off = lensed(); [].forEach.call(document.querySelectorAll('.cleo-defer-gap[data-est]'), function (g) { g.style.display = off ? 'none' : ''; }); };
+  var routed = function () { if (!D.pending().length && !VC.length) return; var q = quiet(); if (q === 'p') stampPlace();
+    else if (!q) { var lr = D.selective && lensOnly(); if (lr) lensNow(lr); else allNow(); }
+    if (D.selective) { gaps(); if (!lensed()) D.resume(); } };
   window.addEventListener('hashchange', routed);
   document.addEventListener('cleo:route', routed);
   window.addEventListener('beforeprint', allNow);
   var NEEDS_ALL = '[data-mode],[data-cleo-all],.rail-i,.pl-s button.src,[data-cleo-tray],[data-cleo-map],[data-unset],[data-tr],[data-cleo-day],[data-cleo-near],[data-cleo-foryou],[data-cleo-mine]';
   // a lens control (.rail-i collection, [data-mode]) routes through the hash: with D.selective on, routed() stamps only
   // what that lens shows, so the click itself no longer stamps everything (PERF-08)
-  var LENS_CTL = '.rail-i:not([data-cleo-foryou]):not([data-cleo-day]):not([data-cleo-near]):not([data-cleo-mine]),[data-mode]';
+  var LENS_CTL = '.rail-i:not([data-cleo-all]):not([data-cleo-foryou]):not([data-cleo-day]):not([data-cleo-near]):not([data-cleo-mine]),[data-mode]';
   document.addEventListener('click', function (e) { var t = e.target.closest && e.target.closest(NEEDS_ALL); if (!t) return; if (D.selective && t.matches(LENS_CTL)) return; allNow(); }, true);
   document.addEventListener('focusin', function (e) { if (e.target.matches && e.target.matches('#cleo-filter,main input[type=search]')) allNow(); }, true);
   document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && (e.key === 'f' || e.key === 'F' || e.key === 'g')) allNow(); }, true);

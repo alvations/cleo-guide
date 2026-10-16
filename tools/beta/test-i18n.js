@@ -129,6 +129,13 @@ chk('no dead catalogue strings', unused, []);
 chk('placeholders survive the pseudo transform', i18n.pseudoText('{n} places'), '⟦{n} ｐｌａｃｅｓ⟧');
 chk('a missing key throws (no silent English fallback)', (() => { try { i18n.t('nope.missing'); return false; } catch (e) { return true; } })(), true);
 
+// i18n D-41: swapSkip keys are browser-only (Cleo.t); a server render that used one would stay English on ja pages
+const skipK = k => (en.swapSkip || []).some(x => k === x || k.indexOf(x) === 0);
+chk('no server-rendered catalogue string is in swapSkip (those stay out of the page-wide swap)', [...i18n.used].filter(skipK), []);
+// QC-21: and statically — every t()/tr()/tn() key named in a server renderer (lib/render/*.js), fixtures or not
+const RENDER = fs.readdirSync(path.join(__dirname, 'lib', 'render')).filter(f => f.endsWith('.js')).map(f => [f, fs.readFileSync(path.join(__dirname, 'lib', 'render', f), 'utf8')]);
+chk('no server renderer names a swapSkip key (a ja page would leave it English)', RENDER.flatMap(([f, src]) => [...src.matchAll(/\b(?:t|tr|tn)\(\s*'([^']+)'/g)].map(m => m[1]).filter(skipK).map(k => f + ': ' + k)), []);
+
 console.log('\n== hreflang + lang ==');
 i18n.setLocale('en');
 const h = common.head({ page: 'x', title: 'x', description: 'x', rel: 'cities/testville.html', depth: 1, assetsV: ctx.assetsV });
@@ -153,7 +160,7 @@ const byEn = {};
 Object.keys(en.strings).forEach(k => (byEn[en.strings[k]] = byEn[en.strings[k]] || new Set()).add(ja.strings[k]));
 chk('identical en strings → identical ja (the runtime swap matches by text)', Object.keys(byEn).filter(e => byEn[e].size > 1), []);
 chk('land.month.names: 12 names', ja.strings['land.month.names'].split(',').length, 12);
-chk('ja carries the AI-tier note (ja + en sentence + report label)', [!!ja.note.text, /machine-translated and checked by a second AI review\. Place write-ups stay in English\./.test(ja.note.en), /Report a wrong phrase/.test(ja.note.report)], [true, true, true]);
+chk('ja carries the AI-tier note (ja + en sentence + report label)', [!!ja.note.text, /machine-translated and checked by a second AI review\. Place write-ups (and [^.]+ )?stay in English\./.test(ja.note.en), /Report a wrong phrase/.test(ja.note.report)], [true, true, true]);
 chk('catalogue published at beta/assets/i18n/ja.json', fs.existsSync(path.join(BETA, 'assets', 'i18n', 'ja.json')), true);
 
 console.log('\n== D-41: SWITCHER + hreflang on every page ==');
@@ -208,7 +215,7 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     const dj = await runtime(html, `https://example.test/beta/${rel}`, CATS, 'ja');
     const note = dj.querySelector('.l10n-note');
     chk(`${rel} in ja: <html lang="ja">, AI note shown (ja + en sentence + report link), ja button pressed`,
-      [dj.documentElement.lang, !!note, note && note.getAttribute('lang'), !!(note && note.querySelector('span[lang="en"]') && /Place write-ups stay in English/.test(note.textContent)), !!(note && note.querySelector('a[href^="https://github.com/alvations/cleo-guide/issues/new"]')), dj.querySelector('[data-cleo-locale="ja"]').getAttribute('aria-pressed')],
+      [dj.documentElement.lang, !!note, note && note.getAttribute('lang'), !!(note && note.querySelector('span[lang="en"]') && /Place write-ups (and [^.]+ )?stay in English/.test(note.textContent)), !!(note && note.querySelector('a[href^="https://github.com/alvations/cleo-guide/issues/new"]')), dj.querySelector('[data-cleo-locale="ja"]').getAttribute('aria-pressed')],
       ['ja', true, 'ja', true, true, 'true']);
     chk(`${rel} in ja: the shell is Japanese (skip link, nav label, footer heading)`, [dj.querySelector('.skip').textContent, dj.querySelector('.footer .fh') && dj.querySelector('.footer .fh').textContent], [ja.strings['shell.skip'], ja.strings['foot.destinations']]);
     chk(`${rel} in ja: counts take the numeric template ("21 guides" → 21件のガイド, never "{country} guides")`, (dj.body.textContent.match(/\d+のガイド/g) || []).slice(0, 3), []);
@@ -235,12 +242,12 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     const bad = [];
     for (const f of fs.readdirSync(path.join(__dirname, 'client')).filter(f => f.endsWith('.js'))) {
       const src = fs.readFileSync(path.join(__dirname, 'client', f), 'utf8');
-      for (const m of src.matchAll(/Cleo\.t\(\s*'([^']+)'\s*,\s*'((?:\\.|[^'\\])*)'/g)) {
+      for (const m of src.matchAll(/(?:Cleo\.t|\btt)\(\s*'([^']+)'\s*,\s*'((?:\\.|[^'\\])*)'/g)) {
         const enS = m[2].replace(/\\'/g, "'");
         if (en.strings[m[1]] !== enS) bad.push(`${f}: ${m[1]}`);
       }
     }
-    chk('client Cleo.t calls: key exists and English default == en.json', bad, []);
+    chk(`client Cleo.t / tt calls: key exists and English default == en.json`, bad, []);
   }
   // i18n D-41 (city pages): the built Tokyo page, swapped at runtime with the PSEUDO catalogue, has 0 English interface
   // strings. Data is exempt: a record's own words (DATA containers, as locale.js skips them) and any text that is a
@@ -259,6 +266,32 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     for (let n; (n = tw.nextNode());) { const pe = n.parentElement, t = n.nodeValue.trim(); if ((pe.closest(DATA) && !pe.matches('.lbl')) || !/[A-Za-z]{2,}/.test(t) || /⟦/.test(t) || isData(t)) continue; leftT.push(t.slice(0, 60)); }
     dT.querySelectorAll('[aria-label], [title], [placeholder], [alt]').forEach(el => ['aria-label', 'title', 'placeholder', 'alt'].forEach(a => { const v = el.getAttribute(a); if (v && /[A-Za-z]{2,}/.test(v) && !/⟦/.test(v) && !el.closest(DATA) && !isData(v)) leftT.push('@' + a + ' ' + v.slice(0, 60)); }));
     chk('Tokyo city page, runtime pseudo swap: 0 English interface strings (data exempt)', [...new Set(leftT)].slice(0, 12), []);
+  }
+  // FE-C (W9-4): trip.html draws its whole trip in the browser through Cleo.t. With the PSEUDO catalogue loaded (as
+  // locale.js leaves it in window.CleoL10n), a built trip (days, legs, a closed place left out, an unknown id) has 0
+  // English interface strings. Data passes: place, area, guide and source names, ids and dates.
+  {
+    const rel = 'trip.html', B = path.join(BETA);
+    let html = fs.readFileSync(path.join(B, rel), 'utf8').replace(/<script src="(assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
+      (m, src) => '<script>' + fs.readFileSync(path.join(B, src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+    html = html.replace('</head>', () => '<script>window.Cleo.root = "https://example.test/beta/";</script></head>');
+    const hash = '#trip=tokyo:senso-ji,asakusa-shrine,kappabashi-dogu-gai~tokyo:shibuya-scramble-crossing,hachiko-statue~!tokyo:unicorn-gundam-statue-divercity-tokyo-plaza,no-such-place&n=T';
+    const dom = new JSDOM(html, { url: 'https://example.test/beta/' + rel + hash, runScripts: 'dangerously', pretendToBeVisual: true, beforeParse(w) {
+      w.CleoL10n = PSEUDO.strings; w.Element.prototype.scrollIntoView = () => {};
+      w.fetch = u => { const f = path.join(B, new URL(u, w.location.href).pathname.replace(/^\/beta\//, ''));
+        return fs.existsSync(f) ? Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(f, 'utf8'))) }) : Promise.resolve({ ok: false, status: 404 }); };
+    } });
+    await new Promise(r => setTimeout(r, 300));
+    const dT = dom.window.document, box = dT.getElementById('cleo-trip');
+    const tj = JSON.parse(fs.readFileSync(path.join(B, 'data/places/tokyo.json'), 'utf8')), names = new Set(['tokyo', 't']);
+    tj.places.forEach(p => { const n = p.n.replace(/\s+[—–-]+\s*CLOSED\b.*$/, ''); [p.n, n, n.replace(/\s*\([^)]*\)$/, '')].forEach(x => names.add(x.toLowerCase())); });
+    tj.areas.forEach(a => names.add(String(a.n).split(/\s+[(—–]\s*|\s+\(/)[0].toLowerCase())); (tj.sourceIndex || []).forEach(x => names.add(String(x.name).split(' · ')[0].toLowerCase()));
+    const leftTrip = [];
+    box.querySelectorAll('svg text').forEach(n => n.remove());
+    const tw = dT.createTreeWalker(box, 4);
+    for (let n; (n = tw.nextNode());) { const t = n.nodeValue.trim(); if (!/[A-Za-z]{2,}/.test(t) || /⟦/.test(t) || names.has(t.toLowerCase())) continue; leftTrip.push(t.slice(0, 60)); }
+    box.querySelectorAll('[aria-label]').forEach(el => { const v = el.getAttribute('aria-label'); if (/[A-Za-z]{2,}/.test(v) && !/⟦/.test(v)) leftTrip.push('@' + v.slice(0, 50)); });
+    chk('trip.html, runtime pseudo catalogue: the trip has 0 English interface strings (data exempt)', [box.querySelectorAll('.tday').length > 0, !!box.querySelector('.tp-left'), [...new Set(leftTrip)].slice(0, 12)], [true, true, []]);
   }
   // storage that throws (sandboxes): the runtime still runs and stays in English
   const dT = new JSDOM(fs.readFileSync(path.join(BETA, 'index.html'), 'utf8'), { url: 'https://example.test/beta/index.html', runScripts: 'outside-only' }).window;

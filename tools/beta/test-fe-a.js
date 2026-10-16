@@ -240,7 +240,7 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     d.querySelector('#cleo-sheet [data-sh="go"][aria-label^="Next"]').click(); await sleep(60);
     chk('next walks the view order', /p=/.test(w.location.hash) && w.location.hash.indexOf(set[2].id.slice(2)) > 0 && d.querySelector('#cleo-sheet [data-sh-pos]').textContent.startsWith('3 of '), w.location.hash);
     chk('Gallery sheet = experience page (Plan your visit, one primary link, Close by)', !!d.querySelector('#cleo-sheet .sheet.exp .plan') && d.querySelectorAll('#cleo-sheet .primary-link').length <= 1 && !!d.querySelector('#cleo-sheet .closeby'));
-    const st = d.querySelector('#cleo-sheet').textContent.replace(/Hours and prices aren’t in our data/g, '');
+    const st = d.querySelector('#cleo-sheet').textContent.replace(/We don’t track opening hours or prices/g, '');
     chk('no price / booking / rating / availability on the sheet', !/(\$|¥|€|£)\s?\d|\bbook(ing| now)\b|\breserv|\bavailab|\brating|\bstars?\b|\bprice/i.test(st));
     const hrefs = [...d.querySelectorAll('#cleo-sheet a[href]')].map(a => a.getAttribute('href')).filter(h => !h.startsWith('#'));
     chk('every outbound sheet link is absolute https', hrefs.every(h => /^https:\/\//.test(h)), hrefs.filter(h => !/^https:/.test(h)).slice(0, 3));
@@ -362,6 +362,17 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
       }
       chk(`sheet ${file}#p=${id}: "Recommended by" names a source under the name`, /^Recommended by \S|^Added by the guide/.test((d.querySelector('#cleo-sheet .sh-by') || {}).textContent || ''));
     }
+  }
+
+  console.log('# food covers (designer sign-off c): the word a food card names is a dish or cuisine, never a source or award');
+  {
+    const { AWARD } = require('./lib/dish');
+    const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []);
+    const bad = []; let n = 0;
+    for (const f of walk(BETA)) { const h = fs.readFileSync(f, 'utf8'); if (!/data-cleo-page="city"/.test(h)) continue;
+      for (const m of h.matchAll(/class="in-d"><span class="sep"> · <\/span>([^<]*)/g)) { n++; if (AWARD.test(m[1])) bad.push([path.relative(BETA, f), m[1]]); } }
+    for (const g of fs.readdirSync(path.join(BETA, 'data/gallery'))) for (const r of JSON.parse(fs.readFileSync(path.join(BETA, 'data/gallery', g), 'utf8')).rows) for (const x of r[6]) if (x.d) { n++; if (AWARD.test(x.d)) bad.push([g, x.id, x.d]); }
+    chk(`${n} food card dish words: none is an award or source ("Michelin" falls through to the cuisine, else the area)`, n > 500 && !bad.length, bad.slice(0, 4));
   }
 
   console.log(failures ? `\n>>> FAIL — ${failures} FE-A check(s) failed` : '\n>>> PASS — FE-A: for-you reorders only, days honest, near-me in memory, pin sheet Esc, shared lists, views (switcher, pager, Atlas, sheet n of N)');
