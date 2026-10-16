@@ -362,6 +362,17 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     }
   }
 
+  console.log('# food covers (designer sign-off c): the word a food card names is a dish or cuisine, never a source or award');
+  {
+    const { AWARD } = require('./lib/dish');
+    const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []);
+    const bad = []; let n = 0;
+    for (const f of walk(BETA)) { const h = fs.readFileSync(f, 'utf8'); if (!/data-cleo-page="city"/.test(h)) continue;
+      for (const m of h.matchAll(/class="in-d"><span class="sep"> · <\/span>([^<]*)/g)) { n++; if (AWARD.test(m[1])) bad.push([path.relative(BETA, f), m[1]]); } }
+    for (const g of fs.readdirSync(path.join(BETA, 'data/gallery'))) for (const r of JSON.parse(fs.readFileSync(path.join(BETA, 'data/gallery', g), 'utf8')).rows) for (const x of r[6]) if (x.d) { n++; if (AWARD.test(x.d)) bad.push([g, x.id, x.d]); }
+    chk(`${n} food card dish words: none is an award or source ("Michelin" falls through to the cuisine, else the area)`, n > 500 && !bad.length, bad.slice(0, 4));
+  }
+
   console.log(failures ? `\n>>> FAIL — ${failures} FE-A check(s) failed` : '\n>>> PASS — FE-A: for-you reorders only, days honest, near-me in memory, pin sheet Esc, shared lists, views (switcher, pager, Atlas, sheet n of N)');
   process.exit(failures ? 1 : 0);
 })();
