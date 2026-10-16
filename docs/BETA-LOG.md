@@ -2050,3 +2050,17 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - fec4f90b, QC-32;
   - a46f6ec7, W8-I18N-SEARCH.
 - **Budget:** Cleveland eager JS is at 39.97/40 KB. Platform is moving the offline-pack UI behind Cleo.need (about 1 KB).
+
+## 2026-10-16 21:00Z · orchestrator check-in
+
+- **Deploy pin b54b3745:** QC PASS. QA's suite is running.
+- **Dev-only landings (all SHAs verified on origin):**
+  - QC-33, the deep-link CLS fix, CLS 0.42–0.58 → 0 (86318253c);
+  - M3-06, Tokyo desktop DOM 3,082 → 2,821, with w2 dom now in npm test (87f814ad);
+  - QC-30, casing (0dc9dabb), which also fixes the chip overflow;
+  - W9-2 (b2), "Status checked" as real text with data-nosearch (86b7558e4);
+  - platform's data-nosearch (f03b03cf).
+- **Platform's queue:**
+  1. the offline-pack UI behind Cleo.need (eager JS is at 39.97/40 KB);
+  2. Tokyo phone LCP at 2.9 s against the 2.0 s target.
+- **FE-1:** button.src B-20, one QC-05 empty state, and the designer's dark-dot contrast fix. Then the R4 re-shoot.

@@ -21,4 +21,6 @@ NODE_PATH=$(npm root -g 2>/dev/null) node tools/beta/atlas-nav-ms.js --only toky
 # FE-2's QC-26 probe (3 pilots × 390/1440), the second area (default) and the first area (AREA_IDX=0)
 NODE_PATH=$(npm root -g 2>/dev/null) node tools/beta/fe2/qc26.js || F=1
 AREA_IDX=0 NODE_PATH=$(npm root -g 2>/dev/null) node tools/beta/fe2/qc26.js || F=1
-[ $F = 0 ] && echo ">>> PASS — PERF-08 regressions (QA-75, QA-76, QC-26) clear" || { echo ">>> FAIL — a PERF-08 regression is back"; exit 1; }
+# FE-B QC-33: deep-linked Guidebook / Insights load CLS < 0.1 (3 cities x 390 / 1440 x 4 views; ~2 min)
+node tools/beta/feb-cls.js || F=1
+[ $F = 0 ] && echo ">>> PASS — PERF-08 regressions (QA-75, QA-76, QC-26) + QC-33 clear" || { echo ">>> FAIL — a PERF-08 regression is back"; exit 1; }
