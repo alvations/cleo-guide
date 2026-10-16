@@ -25,19 +25,20 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
   - QC-07 (Esc → opener): c54e55d1
   - QC-06 (switcher 44 px; FE-B now owns the switcher): a5900fbc
   - QC-08 (area chips in the Gallery toolbar; the lead card hides under a lens): 5b1074f9
+- **Food covers (designer sign-off a/b/c):** `--cover-food` token, word capped at `--fs-d2`, word from `tools/beta/lib/dish.js` (never a source or award; area fallback), the grid kind line drops the duplicate dish; test in test-fe-a. SHA: see the commit titled "food covers per the designer's sign-off"
 - **Copy:** dropped "— numbered to match the map" in client/city.js: 99e78046
 
 ## Next (in order)
-1. **Food covers** (designer sign-off, docs/resume/designer.md "Food-cover review", DESIGN-SYSTEM §v2.11):
+1. ~~**Food covers**~~ DONE (this push; see Done) (designer sign-off, docs/resume/designer.md "Food-cover review", DESIGN-SYSTEM §v2.11):
    - (a) `background: var(--cover-food)` for food and `var(--cover-sight)` for sights; drop the literal sun mix and its `!important`;
    - (b) word `font-size: clamp(var(--fs-ui), 9cqi, var(--fs-d2))`;
    - (c) the cover word is the dish or cuisine, never a source or award ("Michelin" → the next cuisine, e.g. Kaiseki or French). When it equals the card's kind line, the kind line shows the area. Fallback: the area.
    - Code: `client/city.js` `dishOf`, `client/gallery.js` gcard `.dish`, `lib/gallery.js` `dishOf` (slim `d`), fe-a.css section 17.
-2. **B-20, 9 pages** (FE-B sweep 78e4ab74, design/beta/eval/w8/metrics-all/REPORT.md): the card tier link `a.tier.t1` "Must see" is 91×28 at 390.
+2. ~~**B-20, 9 pages**~~ DONE ("Must see" sticker 44 px tap box; commit "B-20 …") (FE-B sweep 78e4ab74, design/beta/eval/w8/metrics-all/REPORT.md): the card tier link `a.tier.t1` "Must see" is 91×28 at 390.
    - Fix: a 44 px tap area via vertical padding and a negative margin (`render/city.js` `tier()`, fe-a.css card eyebrow).
    - Re-measure: `tools/beta/feb-metrics-batch.sh 1 '<page-regex>'`.
-3. **Dark-mode contrast** (Atlas FE-1 report): the cover plate's Japanese line `.food … > .v.plate[lang=ja]` is 4.14 (#a69e97 on #463b2a, 13 px). Use `--ink-2` or lighter in dark mode.
-4. **Copy** (designer, PANEL-R3 #2): drop "Numbers on the cards match the pins on the map" in the render/city.js "How we choose" paragraph.
+3. ~~**Dark-mode contrast**~~ RESOLVED by the --cover-food tint (dark: all cover words/plates ≥ 4.5 on Tokyo 390/1440) (Atlas FE-1 report): the cover plate's Japanese line `.food … > .v.plate[lang=ja]` is 4.14 (#a69e97 on #463b2a, 13 px). Use `--ink-2` or lighter in dark mode.
+4. ~~**Copy**~~ DONE (en.json + ja.json city.how.order) (designer, PANEL-R3 #2): drop "Numbers on the cards match the pins on the map" in the render/city.js "How we choose" paragraph.
 5. **PANEL-R2 #11 / SPEC-v3 rev 4 §3.6, "one numbering in the detail"** (FE-2 report):
    - drop " · pin N" from the badges line;
    - the nav row becomes plain previous/next, keeping the neighbours' names as labels;

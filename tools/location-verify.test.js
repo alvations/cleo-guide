@@ -339,6 +339,18 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const v3 = LV.recheckVerdict({ name: 'C', candidates: [{ kind: 'wikidata', grade: 'high', lat: 1, lng: 1 }] }, reg, 'c');
     assert.strictEqual(v3.verdict, 'none found', 'a Wikidata candidate is not independent');
   });
+  await t('--duplicates finds open+CLOSED twins, one-OSM-object pairs and same-spot near-names', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lv-dup-'));
+    const e = (lat, lng, status = 'open') => ({ lat, lng, confidence: 'high', status, statusSource: 'synthetic', statusChecked: '2026-01-01', address: 'x' });
+    const cities = { zz: { 'Cafe Uno': e(1, 1), 'Cafe Uno — CLOSED': e(1, 1, 'closed'), 'Hut Grill': e(2, 2), 'Hut Grill Indian Cuisine': e(2.0001, 2), 'Far Apart': e(3, 3), 'Far Apart Too': e(3.5, 3), 'Town Market': e(4, 4), 'Stall Ten — Town Market': e(4, 4), 'Bell Tavern': e(5, 5), 'The Bell Tavern': e(5.0001, 5) } };
+    fs.writeFileSync(path.join(dir, 'zz.json'), JSON.stringify({ rows: [{ name: 'Hut Grill', proposal: { osmObject: { id: 'node/1' } } }, { name: 'Hut Grill Indian Cuisine', proposal: { osmObject: { id: 'node/1' } } }] }));
+    const d = LV.findDuplicates(cities, dir);
+    assert.ok(d.some(x => x.kind === 'open + CLOSED' && x.a.name === 'Cafe Uno'));
+    assert.ok(d.some(x => x.kind === 'one OSM object'));
+    assert.ok(!d.some(x => /Far Apart/.test(x.a.name + x.b.name)));
+    assert.ok(!d.some(x => /Stall Ten/.test(x.a.name + x.b.name)), 'a stall inside a market is not a duplicate');
+    assert.ok(d.some(x => x.kind === 'similar names, same spot' && /Bell Tavern/.test(x.a.name)), '"The X" vs "X" at one spot is');
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });

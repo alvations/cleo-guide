@@ -104,7 +104,7 @@
       '<p class="ge-m">' + tier + (p.ad ? '<span class="ad">' + esc(p.ad) + '</span>' : '') + '</p>' +
       (p.w ? '<p class="ge-w">' + esc(p.w) + '</p>' : '') + (p.k ? '<p class="gk">' + tt('sheet.look', 'Look for:') + ' ' + esc(p.k) + '</p>' : '') +
       // D-39 (proposed): prose that quotes a price or a rating is labelled as a dated quote, never edited (`pq` from build)
-      (p.pq ? '<p class="gq sm muted">' + esc(tt('sheet.quoted', 'Prices and ratings are quoted from the source at the time of research ({d}).', { d: p.pq })) + '</p>' : '') +
+      (p.pq ? '<p class="gq sm muted">' + esc(tt('sheet.quoted', 'Prices, ratings and times are quoted from the source at the time of research ({d}).', { d: p.pq })) + '</p>' : '') +
       '<p class="recby"><span>' + tt('card.recby', 'Recommended by') + '</span> ' + rec + '</p>' +
       '<button type="button" class="heart ge-save" data-cleo-ref="' + esc(ref) + '" aria-pressed="false" aria-label="' + esc(tt('gal.save', 'Save {name}', { name: x.name })) + '">' + tt('sheet.save', 'Save') + '</button></li>';
   }
@@ -271,7 +271,7 @@
   function areaOf(id) { var hit = null; (book ? book.order : []).some(function (x) { if (x.p.id === id) { hit = x.p.a; return true; } }); return hit; }
   var lastCtx = null;
   // i18n D-41: a book drawn before the ja catalogue arrived is drawn again in it
-  if (typeof document !== 'undefined') document.addEventListener('cleo:locale', function () { var el = host, c = lastCtx; if (!el) return; unmount(); mount(el, c); });
+  if (typeof document !== 'undefined') document.addEventListener('cleo:locale', function () { var el = host, c = Object.assign({}, lastCtx, { user: false }); if (!el) return; unmount(); mount(el, c); });   // a redraw never moves focus (QC-10)
   function mount(el, ctx) {
     host = el; ctx = ctx || {}; lastCtx = ctx;
     var C = window.Cleo || {}, main = document.getElementById('main'), key = ctx.key || (main && main.getAttribute('data-city'));
@@ -291,8 +291,9 @@
       syncSaved(el); syncLens(el);
       // QC-10 (SPEC §5): after a switch by the user (ctx.user from views.js, or focus still on the switcher / its placeholder
       // heading), focus moves to the book's heading; never on the initial load
-      var fa = document.activeElement, h1 = el.querySelector('h1');
-      if (h1 && (ctx.user || (fa && fa.closest && fa.closest('[data-cleo-views]')))) h1.focus({ preventScroll: true });
+      var h1 = el.querySelector('h1');
+      if (h1 && ctx.user) h1.focus({ preventScroll: true });
+      ctx.user = false;   // once per user switch: a locale or lens remount (same ctx) never moves focus
       var on = function (t, ev, f) { t.addEventListener(ev, f); off.push(function () { t.removeEventListener(ev, f); }); };
       on(el, 'click', function (e) {
         var b = e.target.closest('[data-cleo-print]'); if (b) { printAll(); return; }

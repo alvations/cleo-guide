@@ -157,7 +157,7 @@ const byEn = {};
 Object.keys(en.strings).forEach(k => (byEn[en.strings[k]] = byEn[en.strings[k]] || new Set()).add(ja.strings[k]));
 chk('identical en strings → identical ja (the runtime swap matches by text)', Object.keys(byEn).filter(e => byEn[e].size > 1), []);
 chk('land.month.names: 12 names', ja.strings['land.month.names'].split(',').length, 12);
-chk('ja carries the AI-tier note (ja + en sentence + report label)', [!!ja.note.text, /machine-translated and checked by a second AI review\. Place write-ups stay in English\./.test(ja.note.en), /Report a wrong phrase/.test(ja.note.report)], [true, true, true]);
+chk('ja carries the AI-tier note (ja + en sentence + report label)', [!!ja.note.text, /machine-translated and checked by a second AI review\. Place write-ups (and [^.]+ )?stay in English\./.test(ja.note.en), /Report a wrong phrase/.test(ja.note.report)], [true, true, true]);
 chk('catalogue published at beta/assets/i18n/ja.json', fs.existsSync(path.join(BETA, 'assets', 'i18n', 'ja.json')), true);
 
 console.log('\n== D-41: SWITCHER + hreflang on every page ==');
@@ -212,7 +212,7 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     const dj = await runtime(html, `https://example.test/beta/${rel}`, CATS, 'ja');
     const note = dj.querySelector('.l10n-note');
     chk(`${rel} in ja: <html lang="ja">, AI note shown (ja + en sentence + report link), ja button pressed`,
-      [dj.documentElement.lang, !!note, note && note.getAttribute('lang'), !!(note && note.querySelector('span[lang="en"]') && /Place write-ups stay in English/.test(note.textContent)), !!(note && note.querySelector('a[href^="https://github.com/alvations/cleo-guide/issues/new"]')), dj.querySelector('[data-cleo-locale="ja"]').getAttribute('aria-pressed')],
+      [dj.documentElement.lang, !!note, note && note.getAttribute('lang'), !!(note && note.querySelector('span[lang="en"]') && /Place write-ups (and [^.]+ )?stay in English/.test(note.textContent)), !!(note && note.querySelector('a[href^="https://github.com/alvations/cleo-guide/issues/new"]')), dj.querySelector('[data-cleo-locale="ja"]').getAttribute('aria-pressed')],
       ['ja', true, 'ja', true, true, 'true']);
     chk(`${rel} in ja: the shell is Japanese (skip link, nav label, footer heading)`, [dj.querySelector('.skip').textContent, dj.querySelector('.footer .fh') && dj.querySelector('.footer .fh').textContent], [ja.strings['shell.skip'], ja.strings['foot.destinations']]);
     chk(`${rel} in ja: counts take the numeric template ("21 guides" → 21件のガイド, never "{country} guides")`, (dj.body.textContent.match(/\d+のガイド/g) || []).slice(0, 3), []);
@@ -281,7 +281,7 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     await new Promise(r => setTimeout(r, 300));
     const dT = dom.window.document, box = dT.getElementById('cleo-trip');
     const tj = JSON.parse(fs.readFileSync(path.join(B, 'data/places/tokyo.json'), 'utf8')), names = new Set(['tokyo', 't']);
-    tj.places.forEach(p => { names.add(p.n.toLowerCase()); names.add(p.n.replace(/\s*\([^)]*\)$/, '').toLowerCase()); });
+    tj.places.forEach(p => { const n = p.n.replace(/\s+[—–-]+\s*CLOSED\b.*$/, ''); [p.n, n, n.replace(/\s*\([^)]*\)$/, '')].forEach(x => names.add(x.toLowerCase())); });
     tj.areas.forEach(a => names.add(String(a.n).split(/\s+[(—–]\s*|\s+\(/)[0].toLowerCase())); (tj.sourceIndex || []).forEach(x => names.add(String(x.name).split(' · ')[0].toLowerCase()));
     const leftTrip = [];
     box.querySelectorAll('svg text').forEach(n => n.remove());

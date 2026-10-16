@@ -117,4 +117,24 @@ These keys came in when the i18n lane catalogued `client/guidebook.js` and `clie
 | `ins.src.t` | 各エリアを推薦しているのは | 各エリアを推薦している出典 | A heading should be a noun phrase. |
 | `ins.rec.cited` | 3件以上の出典が掲載 | 3件以上の出典に掲載 | "Cited by" is passive. |
 
-**Total: 45 changes over seven rounds.**
+## Round 8: FE-C's second batch (43 new keys: `base.*`, `geo.walk.*`, `share.*`; 4 changes, applied)
+
+FE-C's pending list grew to 122 keys: the round-6 strings plus 43 new ones. At FE-C's request the i18n lane merged all 122 into en.json and ja.json together with FE-C's prepared client patch, in one commit. A fresh independent subagent reviewed the 43 new strings under the same brief.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `base.from` | 起点: | 拠点: | The から word order doesn't fit between distance and name, so it must be a label, and the catalogue's term is 拠点. |
+| `base.cleared.why` | 拠点を解除しました: {why}。 | 拠点が解除されました: {why}。 | The English is passive (the guide cleared it, not the user). |
+| `share.checked.to` | {date}まで営業状況を確認 | 営業状況は{date}時点で確認済み | まで read as "will check until"; the meaning is "checked as of". |
+| `share.more` | ほか{n}か所はリンクで | ほか{n}か所はリンク先に | リンクで read unfinished. |
+
+## Round 9: method, accessibility and 404 headings (`m.*`, `a.*`, `nf.*`), the updated banner, and FE-C's `trip.page.*` (2 changes, applied)
+
+QC-16: the method pages' headings, labels and buttons moved to the catalogue. The banner now says the method pages' longer explanations stay in English too, which matches what a visitor sees. A fresh independent subagent reviewed the strings under the same brief.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `note.text` | 日本語の画面表示: 機械翻訳し、別のAIによるレビューで確認したものです。各場所の解説と、方法のページの詳しい説明は英語のままです。 | 日本語の画面表示: 機械翻訳し、別のAIによるレビューで確認したものです。各場所の解説と、選定方法のページの詳しい説明は英語のままです。 | The catalogue translates "Method" as 選定方法. |
+| `trip.page.desc` | 保存した場所から数日間の旅程を作ります。1日1エリア、近い順、徒歩時間の目安つきで、閉店した場所は理由を添えて除外します。リンク1つ、印刷できる冊子、KMLに対応しています。 | 保存した場所から数日間の旅程を作ります。1日1エリア、近い順、徒歩時間の目安つきで、閉店した場所は理由を添えて除外します。リンク1つ、印刷できる冊子、KMLで使えます。 | 対応しています read like a spec sheet. |
+
+**Total: 51 changes over nine rounds.**

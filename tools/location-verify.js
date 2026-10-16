@@ -1007,6 +1007,65 @@ function recheckMarkdown(rep) {
   return L.join('\n') + '\n';
 }
 
+/**
+ * Registry hygiene (offline, report only): (1) a bare name and its "— CLOSED" twin in one city; (2) two registry names
+ * that resolved to one OSM object in a committed report; (3) near-identical names (≥ 0.9) pinned within 50 m.
+ * Each entry shows the status evidence so a research pass can decide which one is current.
+ */
+function findDuplicates(cities, reportsDir) {
+  const out = [];
+  const ev = e => ({ status: e.status || null, statusSource: e.statusSource || '', statusChecked: e.statusChecked || null, address: e.address || '',
+    pin: e.lat == null ? 'UNVERIFIED' : `${e.lat}, ${e.lng} (${e.confidence})` });
+  for (const [city, entries] of Object.entries(cities).sort()) {
+    const names = Object.keys(entries);
+    const seen = new Set();
+    const add = (kind, a, b, why) => { const k = [kind, ...[a, b].sort()].join('|'); if (seen.has(k)) return; seen.add(k);
+      out.push({ city, kind, a: { name: a, ...ev(entries[a]) }, b: { name: b, ...ev(entries[b]) }, why }); };
+    // 1. bare + CLOSED
+    const bare = new Map(names.filter(n => !/[—–-]\s*CLOSED\b/i.test(n)).map(n => [normName(n), n]));
+    for (const n of names.filter(n => /[—–-]\s*CLOSED\b/i.test(n))) { const twin = bare.get(normName(n)); if (twin) add('open + CLOSED', twin, n, 'the same name exists bare and with the closed marker'); }
+    // 2. one OSM object, two names (from the committed report, if any)
+    const rp = path.join(reportsDir, `${city}.json`);
+    if (fs.existsSync(rp)) {
+      const by = new Map();
+      for (const r of JSON.parse(fs.readFileSync(rp, 'utf8')).rows || []) {
+        const id = r.proposal && r.proposal.osmObject && r.proposal.osmObject.id; if (!id || !entries[r.name]) continue;
+        if (!by.has(id)) by.set(id, []); by.get(id).push(r.name);
+      }
+      for (const [id, ns] of by) for (let i = 0; i < ns.length; i++) for (let j = i + 1; j < ns.length; j++) add('one OSM object', ns[i], ns[j], `both resolved to OSM ${id} in docs/geoverify/${city}.json`);
+    }
+    // 3. near-identical names pinned close together
+    const pinned = names.filter(n => entries[n].lat != null);
+    for (let i = 0; i < pinned.length; i++) for (let j = i + 1; j < pinned.length; j++) {
+      const a = entries[pinned[i]], b = entries[pinned[j]];
+      if (Math.abs(a.lat - b.lat) > 0.001 || Math.abs(a.lng - b.lng) > 0.0015) continue;
+      const d = haversineM(a.lat, a.lng, b.lat, b.lng);
+      if (d > 50 || nameSim(pinned[i], pinned[j]) < 0.9) continue;
+      // "Jeni's — North Market" / "Klostergastronomie Abtei Mariawald": the longer name ENDS with the shorter one = a
+      // stall or venue inside it, not a duplicate. "Tandoori Hut" + " Indian Cuisine" (starts with) or equal = duplicate.
+      const [x, y] = [normName(pinned[i]), normName(pinned[j])].sort((p, q) => p.length - q.length);
+      if (x !== y && y.endsWith(x)) continue;
+      add('similar names, same spot', pinned[i], pinned[j], `name similarity ${nameSim(pinned[i], pinned[j])}, ${d} m apart`);
+    }
+  }
+  return out;
+}
+function duplicatesMarkdown(list, today) {
+  const L = ['# Registry duplicates (location-verify --duplicates)', '', `_Generated ${today} from data/geocodes.json and the committed docs/geoverify/<city>.json reports. Report only: fixing is a research / data job. For each pair the status evidence is shown so the current one can be decided against a real source (CLAUDE.md 4c)._`, ''];
+  const kinds = ['open + CLOSED', 'one OSM object', 'similar names, same spot'];
+  L.push(`**${list.length} pair(s)** — ${kinds.map(k => `${k}: ${list.filter(x => x.kind === k).length}`).join(' · ')}`, '');
+  const esc = s => String(s == null ? '' : s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  for (const k of kinds) {
+    const rows = list.filter(x => x.kind === k); if (!rows.length) continue;
+    L.push(`## ${k}`, '');
+    if (k === 'similar names, same spot') L.push('_Candidates only: a stall in a hawker centre, a sub-temple or a restaurant on a named street can look alike. Check each by hand._', '');
+    L.push('| city | name A | A: status · checked · source | name B | B: status · checked · source | why |', '|---|---|---|---|---|---|');
+    for (const x of rows) L.push(`| ${x.city} | ${esc(x.a.name)} | ${x.a.status} · ${x.a.statusChecked} · ${esc(x.a.statusSource).slice(0, 140)} | ${esc(x.b.name)} | ${x.b.status} · ${x.b.statusChecked} · ${esc(x.b.statusSource).slice(0, 140)} | ${esc(x.why)} |`);
+    L.push('');
+  }
+  return L.join('\n') + '\n';
+}
+
 function toMarkdown(rep) {
   const m = rep.meta, L = [];
   L.push(`# Location-verify report — ${m.city}`, '');
@@ -1136,6 +1195,7 @@ function parseArgs(argv) {
     else if (a === '--abr-file') o.abrFile = path.resolve(v());
     else if (a === '--status-sweep') { o.scope = ['all']; o.sources = ['wikidata', 'overpass', 'official']; o.nominatimMax = 0; o.city = o.city || 'all'; o.statusSweep = true; }
     else if (a === '--backlog') o.backlog = true;
+    else if (a === '--duplicates') o.duplicates = true;
     else if (a === '--accept') o.accept = path.resolve(v());
     else if (a === '--names') o.names = v().split('|').map(x => x.trim()).filter(Boolean); // re-check these rows only
     else if (a === '--recheck-out') o.recheckOut = path.resolve(v());
@@ -1169,6 +1229,14 @@ async function main() {
     console.log('| city | entries | unverified | low | med | status unchecked | closed |\n|---|---|---|---|---|---|---|');
     rows.forEach(r => console.log(`| ${r.city} | ${r.entries} | ${r.unverified} | ${r.low} | ${r.med} | ${r.statusUnchecked} | ${r.closed} |`));
     console.log(`| **total** | **${t('entries')}** | **${t('unverified')}** | **${t('low')}** | **${t('med')}** | **${t('statusUnchecked')}** | **${t('closed')}** |`);
+    return 0;
+  }
+  if (o.duplicates) {
+    const today = o.today || new Date().toISOString().slice(0, 10);
+    const list = findDuplicates(JSON.parse(fs.readFileSync(o.geocodes || GEOCODES, 'utf8')).cities, path.join(ROOT, 'docs', 'geoverify'));
+    const outp = path.join(ROOT, 'docs', 'geoverify', 'DUPLICATES.md');
+    fs.writeFileSync(outp, duplicatesMarkdown(list, today));
+    console.log(`wrote ${path.relative(ROOT, outp)} — ${list.length} pair(s)`);
     return 0;
   }
   if (o.reassist) {
@@ -1249,4 +1317,4 @@ if (require.main === module) {
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, recheckVerdict, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, findDuplicates, recheckVerdict, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
