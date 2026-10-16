@@ -628,10 +628,6 @@ html main[data-city] li.pl[data-k=f]>.pl-cover .pl-vert{display:none}
 /* the ratified Gallery card (QA W7): no write-up / look-for / address on the card face. v2's clamp rule
    (.pls .pl:not(.is-target):not(:target):not(:focus-within) .pl-w, 0-6-0) re-showed the write-up on phones, above the name */
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-w,.pl-k,.pl-ad){display:none!important}
-/* B-08: the map pill steps aside (scrolling down, or a card title under it); it fades, then stops being hit-testable */
-html main[data-city] .mappill:not([hidden]){transition:opacity var(--dur-2) var(--ease-out),transform var(--dur-2) var(--ease-out),visibility 0s}
-html main[data-city] .mappill.away:not([hidden]){opacity:0;visibility:hidden;transform:translate(-50%,12px);transition:opacity var(--dur-2) var(--ease-out),transform var(--dur-2) var(--ease-out),visibility 0s var(--dur-2)}
-@media (prefers-reduced-motion:reduce){html main[data-city] .mappill:not([hidden]),html main[data-city] .mappill.away:not([hidden]){transition:none}}
 /* R7 gap 5: no blank band beside the desktop hero — the photo takes the height of the text column (name, line, start,
    facts) instead of a fixed 4:3 that ran ~170 px past it; never shorter than 300 px (object-fit crops, never stretches) */
 @media (min-width:1024px){
@@ -683,6 +679,13 @@ html main[data-city] .views[data-cleo-views] .v-ind{display:none}
    and the mask is dropped while the link has keyboard focus so the focus ring is whole */
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{-webkit-mask:linear-gradient(#000,#000) top/100% calc(100% - 12px) no-repeat;mask:linear-gradient(#000,#000) top/100% calc(100% - 12px) no-repeat}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a:focus-visible{-webkit-mask:none;mask:none}
+/* ---- 20. QC-08: "best food near X" in three taps — Eat & drink, an area chip, the first card. In Gallery the area chips
+   (drawn by views.js for every view) are a sideways row in the toolbar instead of behind the Area tray, and once a lens
+   is on the lead card steps aside, so the first card on screen is inside the lens ---- */
+html[data-view=gallery] main[data-city] .toolbar>.area-chips:not([hidden]){display:flex;flex:1 0 100%;order:9;gap:8px;margin:2px 0 0;padding:2px 0 4px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none}
+html[data-view=gallery] main[data-city] .toolbar>.area-chips::-webkit-scrollbar{display:none}
+html[data-view=gallery] main[data-city] .toolbar>.area-btn{display:none}
+html.lens-on.g-lead-on[data-view=gallery] .g-lead-slot{display:none}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
