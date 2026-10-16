@@ -87,10 +87,14 @@
     var gs = [].map.call(c.querySelectorAll('.pl-s button.src'), function (b) { return b.getAttribute('data-src'); }), og = gs.filter(function (g) { return /official/.test(g); })[0];
     var pg = og || gs.filter(function (g) { return ((info.src || {})[g] || [])[4]; })[0], ps = pg && (info.src || {})[pg];
     var primary = pg ? '<a class="btn btn-primary primary-link" data-g="' + esc(pg) + '"' + (ps && ps[4] ? ' href="' + esc(ps[4]) + '"' : ' hidden') + NT + '>' + (og ? tt('sheet.official', 'Visit the official site') : esc(tt('sheet.readwhat', 'Read what {source} says', { source: ps[0] }))) + ' ' + icon('external') + '</a>' : '';
+    // QA-67: the detail media fits its photo. A photo with a wide copy (≥ 800 w) sets the slot's width (no sand band beside
+    // a 960 w file in a 1,024 px slot); a narrower one sits at its own width in a frame of its dominant colour (--ph)
+    var phI = q('.pl-photo img', c), phF = q('.pl-photo', c), phW = phI ? Math.max.apply(0, (phI.getAttribute('srcset') || '').split(',').map(function (z) { return parseInt((/\s(\d+)w\s*$/.exec(z) || [])[1], 10) || 0; }).concat([+phI.getAttribute('width') || 0])) : 0;
+    var phC = phF && /^#[0-9a-f]{6}$/i.test(phF.style.getPropertyValue('--ph').trim()) ? phF.style.getPropertyValue('--ph').trim() : '';
     var exp = vw === 'gallery';    // A-04: in Gallery the sheet is the experience page
     return '<div class="sheet detail' + (exp ? ' exp' : '') + '" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
       '<button class="btn btn-icon close" data-sh="x" aria-label="' + tt('sheet.close', 'Close') + '">' + icon('close') + '</button>' + navRow +
-      '<div class="hero-plate' + (q('.pl-photo', c) ? ' has-photo' : '') + (closed ? ' is-closed' : '') + '" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + '">' + (q('.pl-photo', c) ? fullCap(q('.pl-photo', c)) : '') + loc + '<div class="plate-art" aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
+      '<div class="hero-plate' + (q('.pl-photo', c) ? ' has-photo' + (phW >= 800 ? ' ph-fit' : ' ph-frame') : '') + (closed ? ' is-closed' : '') + '" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + (phW ? ';--ph-max:' + phW + 'px' : '') + (phC ? ';--ph:' + phC : '') + '">' + (q('.pl-photo', c) ? fullCap(q('.pl-photo', c)) : '') + loc + '<div class="plate-art" aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
       '<div class="content">' + shut + '<div class="badges">' + (closed ? '' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
       '<span class="sm">' + esc(tt('sheet.badge', 'in {area} · pin {n}', { area: C.label('a', a), n: c.getAttribute('data-n') })) + '</span></div><h2 class="d2" id="sh-t">' + (q('.pl-vert', c) && q('.pl-n .nat', c) ? esc(C.name(c)) + ' <span class="vh">' + esc(q('.pl-n .nat', c).textContent) + '</span>' : q('.pl-n a', c).innerHTML) + '</h2>' +
       byline + rank + (w ? (exp ? '<h3 class="section-t">' + tt('sheet.why', 'Why it’s here') + '</h3>' : '') + '<p class="why">' + w.innerHTML + '</p>' : '') + note +

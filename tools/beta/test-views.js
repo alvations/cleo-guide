@@ -130,7 +130,7 @@ function boot(page, { hash = '', storage = 'ok', io = false, views = false } = {
   let html = rd('beta/' + page).replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
     (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
   // views: the lane view modules too (until FE-A's registry loads them on first switch), with fetch served from disk
-  if (views) html = html.replace('</body>', VIEW_JS.filter(f => !html.includes(`assets/js/${f}.js`) || f !== 'views')
+  if (views) html = html.replace('</body>', () => VIEW_JS.filter(f => !html.includes(`assets/js/${f}.js`) || f !== 'views')
     .map(f => '<script>' + fs.readFileSync(path.join(__dirname, 'client', f + '.js'), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>').join('') + '</body>');
   const errs = [];
   const dom = new JSDOM(html, {

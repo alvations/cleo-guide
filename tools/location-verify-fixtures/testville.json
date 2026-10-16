@@ -269,6 +269,17 @@
      "status": "open",
      "statusSource": "synthetic test fixture — not a real place",
      "statusChecked": "2026-01-01"
+    },
+    "Moved Gallery": {
+     "address": "500 New St, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
     }
    }
   }
@@ -838,6 +849,76 @@
      "extratags": {}
     }
    ]
+  },
+  {
+   "host": "www.wikidata.org",
+   "params": {
+    "action": "wbsearchentities",
+    "search": "Moved Gallery"
+   },
+   "body": {
+    "search": [
+     {
+      "id": "Q999003"
+     }
+    ]
+   }
+  },
+  {
+   "host": "www.wikidata.org",
+   "params": {
+    "action": "wbgetentities",
+    "ids": "Q999003"
+   },
+   "body": {
+    "entities": {
+     "Q999003": {
+      "id": "Q999003",
+      "labels": {
+       "en": {
+        "value": "Moved Gallery"
+       }
+      },
+      "claims": {
+       "P625": [
+        {
+         "rank": "normal",
+         "mainsnak": {
+          "snaktype": "value",
+          "datavalue": {
+           "value": {
+            "latitude": 0.50012,
+            "longitude": -30.52011,
+            "precision": 1e-05
+           }
+          }
+         }
+        }
+       ]
+      },
+      "sitelinks": {}
+     }
+    }
+   }
+  },
+  {
+   "host": "geocoding.geo.census.gov",
+   "params": {
+    "address": "500 New St, Testville, ZZ 99901"
+   },
+   "body": {
+    "result": {
+     "addressMatches": [
+      {
+       "matchedAddress": "500 NEW ST, TESTVILLE, ZZ, 99901",
+       "coordinates": {
+        "x": -30.5,
+        "y": 0.515
+       }
+      }
+     ]
+    }
+   }
   }
  ]
 }

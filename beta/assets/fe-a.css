@@ -196,10 +196,18 @@ html main[data-city] .views[data-cleo-views] button .ico{width:17px;height:17px}
   /* every phone sheet (place detail, filters, list) stops below the switcher, scrim included: it stays visible and hit-testable */
   html body main[data-city]:has(.views[data-cleo-views]:not([hidden]))>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side){top:calc(var(--bar-h) + var(--cbar-h))}
   html body main[data-city]:has(.views[data-cleo-views]:not([hidden]))>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side) :is(.sheet,.tray){max-height:calc(100dvh - var(--bar-h) - var(--cbar-h))}
+  /* ...and wherever the page is scrolled (a deep link can land past the list, where the sticky bar has left with <main>),
+     the row is pinned under the header while a sheet is open; its bar keeps its height, so nothing shifts behind the sheet */
+  html body main[data-city]:has(>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not([hidden]):not(.side))>.cbar{min-height:var(--cbar-h)}
+  html body main[data-city]:has(>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not([hidden]):not(.side))>.cbar>.cbar-in{position:fixed;top:var(--bar-h);left:0;right:0;z-index:61;background:var(--paper);border-bottom:1px solid var(--line)}
 }
 @media (max-width:399px){html main[data-city] .views[data-cleo-views] button .ico{display:none}}
-/* < 300 px (200 % zoom on a phone): the glyph only; the label stays the accessible name and shows as a tooltip on focus / press */
+/* < 300 px (200 % zoom on a phone, DESIGN-SYSTEM §v2.11 corrected): a 2 x 2 grid of glyph-only segments, each >= 60 x 44 (a
+   single row leaves 29 px at 195); the label stays the accessible name and shows as a tooltip on focus / press */
 @media (max-width:299px){
+  html main[data-city]{--cbar-h:98px}
+  html main[data-city] .views[data-cleo-views]{grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}
+  html main[data-city] .views[data-cleo-views] button{min-width:60px}
   html main[data-city] .views[data-cleo-views] button .ico{display:inline-block}
   html main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   html main[data-city] .views[data-cleo-views] button{position:relative}
@@ -686,6 +694,15 @@ html[data-view=gallery] main[data-city] .toolbar>.area-chips:not([hidden]){displ
 html[data-view=gallery] main[data-city] .toolbar>.area-chips::-webkit-scrollbar{display:none}
 html[data-view=gallery] main[data-city] .toolbar>.area-btn{display:none}
 html.lens-on.g-lead-on[data-view=gallery] .g-lead-slot{display:none}
+/* ---- 21. QA-67 (R7-g2e follow-up): the detail media fits its photo. A wide copy (≥ 800 w) sets the slot's width, centred,
+   so a 960 w file never sits in a 1,024 px slot with a sand band beside it. A narrower file shows at its own width with
+   side bands in its dominant colour (--ph), at the image's height only, so the caption keeps its own ground and contrast */
+html body #cleo-sheet .detail .hero-plate.has-photo{background:transparent!important}
+html body #cleo-sheet .detail .hero-plate.has-photo.ph-fit{max-width:min(var(--ph-max),calc(100% - 32px));margin-left:auto;margin-right:auto}
+@media (min-width:1024px){html body #cleo-sheet .detail .hero-plate.has-photo.ph-fit{max-width:min(var(--ph-max),calc(100% - 56px))}}
+html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{overflow:hidden;border-radius:var(--r-l)}
+html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{--ph-band:color-mix(in srgb,var(--ph,var(--sand)) 45%,var(--sand))}
+html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame>.photo img{border-radius:0;box-shadow:calc(-1 * var(--ph-max)) 0 0 0 var(--ph-band),var(--ph-max) 0 0 0 var(--ph-band)}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
