@@ -58,8 +58,7 @@ em.it, .it { font-style: italic; }
 
 /* ---------- Top bar ---------- */
 .topbar { position: sticky; top: 0; z-index: 40; height: var(--bar-h);
-  background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: saturate(1.4) blur(14px);
-  -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
+  background: var(--paper); border-bottom: 1px solid var(--line); }   /* opaque (R8 D12: content ghosted through at 88 %) */
 .topbar .wrap { height: 100%; display: flex; align-items: center; gap: var(--s-3); }
 .topbar.on-night { background: transparent; border-color: transparent; color: var(--on-night); position: absolute; left: 0; right: 0; }
 .brand { display: inline-flex; align-items: center; gap: var(--s-2); text-decoration: none; min-height: var(--tap); }
@@ -86,8 +85,8 @@ em.it, .it { font-style: italic; }
 
 /* ---------- Mobile tab bar ---------- */
 .tabbar { position: fixed; z-index: 45; left: 0; right: 0; bottom: 0; height: calc(var(--tab-h) + env(safe-area-inset-bottom));
-  padding-bottom: env(safe-area-inset-bottom); background: color-mix(in srgb, var(--surface) 94%, transparent);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom); background: var(--surface);
+  border-top: 1px solid var(--line);
   display: grid; grid-template-columns: repeat(4, 1fr); }
 .tabbar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s-1); text-decoration: none;
   font-size: var(--fs-xs); font-weight: 600; color: var(--ink-3); min-height: var(--tap); }
@@ -165,8 +164,7 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 .pill[aria-pressed="true"] .n { color: color-mix(in srgb, var(--paper) 70%, transparent); }
 
 /* ---------- Toolbar (search + area + filters + map) ---------- */
-.toolbar { position: sticky; top: var(--bar-h); z-index: 30; background: color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.toolbar { position: sticky; top: var(--bar-h); z-index: 30; background: var(--paper); border-bottom: 1px solid var(--line); }
 .toolbar .row { display: flex; gap: var(--s-2); align-items: center; padding: var(--s-3) 0; }
 .toolbar .search { flex: 1; max-width: none; }
 .toolbar .btn-ghost { padding: 0 var(--s-4); }
@@ -325,7 +323,7 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 .sheet .grab { width: 40px; height: 5px; border-radius: var(--r-pill); background: var(--line-strong); margin: var(--s-2) auto 0; }
 .sheet .close { position: absolute; top: 10px; right: 10px; z-index: 3; background: var(--surface); border: 1px solid var(--line); }
 .sheet .actions { position: sticky; bottom: 0; display: grid; grid-template-columns: auto 1fr 1fr; gap: var(--s-2); padding: 12px var(--gutter) calc(12px + env(safe-area-inset-bottom));
-  background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
+  background: var(--surface); border-top: 1px solid var(--line); }
 .detail .hero-plate { position: relative; height: 220px; background: var(--city-wash); overflow: hidden; isolation: isolate; }
 .detail .hero-plate .vert { position: absolute; right: 28px; top: 22px; writing-mode: vertical-rl; font: 600 var(--fs-d1)/1 var(--font-native); letter-spacing: var(--track-vert); }
 .detail .hero-plate .ini { position: absolute; right: 24px; top: 0; font: italic 500 var(--fs-hero)/1 var(--font-display); color: var(--area, var(--city)); opacity: .85; }
