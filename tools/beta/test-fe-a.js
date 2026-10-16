@@ -210,6 +210,21 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     const lastA = [...d.querySelectorAll('section.area')].pop(); w.location.hash = '#' + lastA.id; await sleep(60);
     chk('Gallery #area-<A> anchor shows that area', !lastA.classList.contains('pg-empty') && !!lastA.querySelector('li.pl:not(.pg-off):not([hidden])'), lastA.id);
     chk('no js errors', errs.length === 0, errs.slice(0, 2));
+    // D-46 prep: legacy pager links (no view=) open Gallery, the only view with pages, whatever the default
+    for (const hh of ['#pg=2', '#all=1']) { ({ d, w, errs } = boot(page, { hash: hh })); await sleep(120);
+      chk(`legacy ${hh} (no view=) opens Gallery`, view() === 'gallery' && errs.length === 0, [view(), w.location.hash]); }
+    // FE-B finding: the route is the search's source of truth — typing writes q=, a link without q= clears it, Back restores it
+    ({ d, w, errs } = boot(page)); await sleep(120);
+    { const fq = d.getElementById('cleo-filter'), shownN = () => [...d.querySelectorAll('li.pl')].filter(c => !c.hidden).length;
+      if (w.Cleo.defer) w.Cleo.defer.all(); await sleep(20); const all0 = shownN();
+      fq.value = 'temple'; fq.dispatchEvent(new w.Event('input')); await sleep(250);
+      const n1 = shownN(), h1 = w.location.hash;
+      chk('typing a search writes q= into the URL and filters', /(^#|&)q=temple/.test(h1) && n1 < all0, [h1, n1, all0]);
+      w.location.hash = '#view=gallery'; await sleep(80);
+      chk('a link without q= clears the search (box and filter)', fq.value === '' && !w.Cleo.city.S.q && !/q=/.test(w.location.hash) && [...d.querySelectorAll('li.pl')].every(c => !c.hidden), [fq.value, w.Cleo.city.S.q]);
+      w.history.back(); await sleep(120);
+      chk('Back restores the search', fq.value === 'temple' && w.Cleo.city.S.q === 'temple' && /q=temple/.test(w.location.hash), [fq.value, w.location.hash]);
+      chk('no js errors (search route)', errs.length === 0, errs.slice(0, 2)); }
     ({ d, w, errs } = boot(page, { hash: '#view=bogus' })); await sleep(100);
     chk('#view=bogus → the default (Gallery), the bad key dropped, no error', view() === 'gallery' && !/view=/.test(w.location.hash) && errs.length === 0, [view(), w.location.hash]);
     // W5: a lens link with no view= (hub / landing rails) opens Atlas, the unpaged list, so the promised count shows

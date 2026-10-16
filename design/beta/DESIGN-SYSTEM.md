@@ -202,6 +202,39 @@ Wrapping: headings and short hero lines use `text-wrap: balance`, deks and subti
   - with the place-detail sheet open, `document.elementFromPoint` at each segment's centre returns that segment;
   - axe reports no `aria-allowed-role`.
 
+## v2.12 Overlays and fixed chrome: budgets and behaviour (OV-00, owner directive 2026-10-16)
+
+> Owner, on a phone screenshot of live Punggol Atlas: "some layers are not moving and taking up all the space. Improve it but don't just fix this. Audit the whole beta site properly for these instances."
+
+These rules apply to every page and view. Atlas has its own numbers in [`atlas/SPEC-v3.md` §2.0](atlas/SPEC-v3.md). QC's S-17 measures them and QA's B-25 gates every pin; the instances are logged in [`docs/BETA-OVERLAY-LEDGER.md`](../../docs/BETA-OVERLAY-LEDGER.md).
+
+**Viewports measured** (CSS px): **P1** 390×844 · **P2** 390×664 (a real phone with its browser bars, the owner's case) · **L** 844×390 (phone landscape) · **T1** 768×1024 · **T2** 1024×768 · **D** 1440×900.
+
+**1. Only the header is always there.** The site or city header (≤ 52 px on phones, 56 px from 1024) is the one bar that never hides, because it is the way out (back, search, saved). Every *other* fixed or sticky layer is a guest and compacts:
+- a second sticky row (the view switch, a toolbar, a chip row, a filter tray) **hides when the reader scrolls down ≥ 24 px**, by sliding up under the header;
+- it **comes back** on a scroll up of ≥ 24 px, when keyboard focus enters it, or when a sheet opens;
+- the motion is `transform` only (no reflow, no layout shift) at `--dur-2` (200 ms) ease-out. Under `prefers-reduced-motion` it swaps instantly, with the same behaviour and no movement;
+- hidden rows stay in the tab order (not `inert`): focusing one reveals it.
+
+**2. Chrome-share budget on scrolling pages** (Gallery, Guidebook, Insights, detail, hubs, landing, trip, saved, method). This is the fixed or sticky top plus bottom chrome as a % of the viewport height:
+
+| | P1 | P2 | L | T1 | T2 / D |
+|---|---|---|---|---|---|
+| At rest (top of page) | ≤ 13 % | ≤ 16 % | ≤ 13 % | ≤ 11 % | ≤ 8 % |
+| After a scroll down | ≤ 7 % | ≤ 8 % | ≤ 13 % | ≤ 6 % | ≤ 8 % |
+
+At 52 + 52 px, P1 at rest is 12.3 % and after a scroll is 6.2 %. **In landscape (height < 500 px)** the view switch moves into the header row, so only one 48 px bar remains (12.3 % at L), and nothing else is sticky.
+
+**3. Floating things:**
+- **At most one floating button per screen edge** (for example, the phone Gallery's map pill). It is never a duplicate of a visible control.
+- **Toasts** leave by themselves within 4 s unless they carry an action. They sit above the bottom edge and never cover the header, the view switch or a sheet's buttons.
+- **Banners** (storage blocked, offline, map unavailable) show once, are dismissible, and are never repeated in a second place on the same screen.
+- **One control per action per screen.** For example, "Near me" appears once.
+
+**4. Edges that scroll sideways** (chip rows, rails) show it: a 24 px fade on each overflowing edge (`mask-image` with `var(--mask)`), scroll-snap to chip starts, and full keyboard reach. A chip is never cut mid-word with no fade.
+
+**5. How QC measures it:** at load, after a 600 px scroll and after a scroll back up, on every viewport above, in light and dark.
+
 ## v2.10 Reproduce and probe
 
 ```bash
