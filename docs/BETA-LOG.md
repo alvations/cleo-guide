@@ -1478,7 +1478,7 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 - **PANEL-R1 #2 (phone map top):** the OSM credit on phones is one line that cannot wrap, "© OpenStreetMap · Esri ⓘ" (≤ 20 px, bottom LEFT); the ⓘ (44 px hit area) opens the full credit with its links (Esc / map tap closes). Locate, map style and Key sit bottom RIGHT above the cards — no corner is shared. Probe made stricter (`atlas-ms.js`): the credit check now also requires one line ≤ 20 px, clear of "Search this area", and that a real tap on EVERY map control (locate first) hits that control (`locateCoveredBy` null) — the old check passed while locate was covered.
 - **PANEL-R1 #15:** a source entry that is not a physical place (name says "not a place", e.g. Cleveland's @neorsd) renders `data-np`; it stays listed with its note (source count untouched) and never draws on the map. NOTE for the designer: SPEC rev 3 keys this on `warn: 1`, but `warn` marks *planning hazards* (26 Cleveland places incl. West Side Market) — keying on it would wipe real places off the map, so it is keyed on "not a place" instead. New probe check.
 - **PANEL-R1 #4 / #6, SPEC §1.1–1.3:** dots are kind-by-shape (sight 7 px circle, eat & drink 6 px rounded square; dark-mode alphas 30 % / 50 %); a non-featured Must-see is a `--sun` dot with an `--on-sun-wash` ring; a closed dot is hollow with a diagonal slash at every zoom; canvas tolerance 19 (44 px hit circle). Pins are 32 px pills with 14 px labels and a 44 px hit area; each pin IS a link (`<a href="#view=atlas&p=id">`, the marker element itself — `keyboard: true`, one Tab stop, no role=button) with `data-kind` and aria-label "full name, sight|eat and drink, [Must see], [Closed], [saved]". Labels try four anchors (above with stem, right, left, below) before a place stays a dot; no two labels overlap. Sight pins with no collection glyph take the type noun in the place's own name (museum → columns, park → leaf, lake → wave, tower/bridge → tower, theatre → ticket, market → awning, memorial → flag, church/temple → lantern; torii on Japan pages) — map only (`data-mg`), card covers unchanged.
-- **Default view:** the fit is centred on the top places' own median point (their busiest spot) when that widens the frame by ≤ 1 zoom step and the town isn't already at street zoom — so two zoom steps in land among places (Cleveland phone: 1 → 4 named pins).
+- **Default view (phones; desktop since 2nd push keeps the bounds' middle, so its wide map pans between neighbourhoods — QA w7 atlasd Wheeling):** the fit is centred on the top places' own median point (their busiest spot) when that widens the frame by ≤ 1 zoom step and the town isn't already at street zoom — so two zoom steps in land among places (Cleveland phone: 1 → 4 named pins).
 - New probe checks (atlas-ms): pins are links with "name, kind" labels, 14 px / 32 px / ≥ 44 × 44, no overlaps; two zoom steps on phone → ≥ 4 named pins (a ≤ 40-place town: every place in the band, since Chinatown holds 1–2 places in the band at z18).
 
 - 2026-10-11 21:55Z · **Orchestrator** · check-in · commit: this entry's commit
@@ -1621,3 +1621,30 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Atlas CLS:** 0.000/0.003 on this head, so my earlier 0.511 no longer reproduces.
   - **Shots re-taken:** `design/beta/eval/i18n/`. Switching en → ja → en works in a real browser with 0 JS errors.
   - validate, npm test (all suites) and beta:check PASS.
+### FE Atlas (FE-1) — SPEC-v3 §2.1 desktop chrome (PANEL-R1 #5) · PERF-08 lens hooks
+- **One bar, map 108 px from the top** (was 208): in desktop Atlas the site header is 56 px (`--bar-h`) and carries the view switch (Gallery · Atlas · Guidebook · Insights) on its right; the city bar steps aside from first paint and its search pill rides in the one 52 px Atlas bar with the kind chips (no counts on them — the count line has the numbers), Area, Filters, Must see, Saved and the sort. Split 64 / 36 (list ≥ 420 px): map box 56 % of 1440×900.
+- **The document doesn't scroll in Atlas:** map and list fill the screen; the about notes, the method notes and the footer sit at the end of the list column (moved back on leaving Atlas).
+- CLS stays ≤ 0.003 (the held bar space uses `main{display:flow-root}` so it never collapses through main).
+- New atlas-ms check: chrome ≤ 120 px, map box ≥ 55 %, document scroll 0 — on Tokyo, Cleveland, Chinatown.
+- **PERF-08 (Platform):** atlas.js asks `Cleo.lens.shows(c)` / `Cleo.defer.peek({ lens })` for unstamped stubs (featured pins, msArea, the count) — no-ops until Platform turns `selective` on.
+- B-20: the phone search pill's input now fills the 44 px pill, border included (it measured 52 × 42).
+- B-08 (Wheeling phone, pre-existing on origin): with tiles blocked the phone opens the list; tabbing scrolled a card title half under the list's top edge at the chip row. The phone list now has `scroll-padding-block: 56px 24px`, so focus scrolling keeps context above the focused item (B-08 ✅ 0).
+
+- 2026-10-16 13:40Z · **Orchestrator** · resumed after the seven-day usage-limit pause (Oct 11 22:55 → Oct 16 13:00Z, when the limit reset) · commit: this entry's commit
+  - **The owner:** "Continue and complete towards the goals. Continue on the agents too."
+  - **State on resume:**
+    - The head was green on validate and beta:check.
+    - npm test had 2 failing suites. Both came from the casing helper rendering data labels in sentence case: the landing rail tile titles, and i18n data stripping ("Testville gazette").
+    - The tests now match data labels case-insensitively; FE-B and the i18n lane landed the same fixes in parallel. ALL SUITES PASS.
+  - **FE-A's last re-sign fixes are on origin:** dbd6d87d (QA-50: the rank comes from the data; QA-48/60: the category bar sits above the phone lead).
+  - **R7 re-sign pinned at `be74c82f2680009c726ac8ac54731ef97773dfb8`:** validate, npm test and beta:check all ✅. QA is re-signing.
+  - **QC pass, melon-seek style:** 14 findings, all reproducing on today's head.
+    - By severity: High 1 (QC-01: a canon chart's bars open the wrong set), Med 9, Low 4.
+    - Routed: FE-B QC-01/02/03/10; Atlas FE-1 QC-04/05/13; FE-A QC-06/07/08/09/11; i18n plus platform QC-12; designer QC-14.
+  - **Atlas panel round 2: 70.9** (R0 56.1, R1 63.8).
+    - The top open items, in recoverable points: #1 detail round-trip and deep link (6.8), #2 phone first screen (3.8), #3 counts (3.3), #4 near me (3.2), #5 desktop chrome (3.1).
+    - The designer folded these into SPEC-v3 rev 4.
+  - **Released now that the re-sign head is pinned:** platform's PERF-06 (phone CLS ~0.3 → ≤ 0.002 in the prototype) and the PERF-08 FE parts; the i18n lane's city-page Japanese strings.
+  - **Imagery:** `all` dispatched at budget 1200.
+  - **Location verification:** reports will now be committed per city for review (Orlando, Chicago, DC, Miami, Erie, Philadelphia next).
+  - **FE-C** was found on a stray local branch `work-fec`. It was told to merge onto the designated branch and verify the push.
