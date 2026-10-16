@@ -11,20 +11,23 @@
   if (Cleo.recog) return;
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var words = function (el, a) { return (el.getAttribute(a) || '').split(' ').filter(Boolean); };
-  function row(c) {
+  // R8 gap #2e: a card never shows both "Cited by N sources" and "+N more" (they say the same thing): the card row leaves
+  // "Cited by" out (full=false); the detail, which lists every source, and the Guidebook entry (no "+N more") keep it.
+  function row(c, full) {
     var closed = c.hasAttribute('data-rec0'), k = words(c, closed ? 'data-rec0' : 'data-rec'); if (!k.length) return '';
     var id = c.id.replace(/^p-/, ''), out = [];
     var name = function (s) { var b = c.querySelector('.pl-s button.src[data-src="' + s + '"]'); return b ? b.textContent.trim() : s; };
     words(c, 'data-ra').forEach(function (s) { out.push('<a class="rb rb-award" href="#src=' + esc(s) + '">' + esc(Cleo.t('rec.award', 'Award · {src}', { src: name(s) })) + '</a>'); });
     words(c, 'data-rv').forEach(function (s) { out.push('<a class="rb rb-video" href="#src=' + esc(s) + '">' + esc(Cleo.t('rec.video', 'Creator video · {src}', { src: name(s) })) + '</a>'); });
-    if (k.indexOf('cited') >= 0) out.push('<a class="rb rb-cited" href="#p=' + encodeURIComponent(id) + '">' + esc(Cleo.t('rec.cited', 'Cited by {n} sources', { n: words(c, 'data-src').filter(function (s) { return s !== 'guide'; }).length })) + '</a>');
+    if (full !== false && k.indexOf('cited') >= 0) out.push('<a class="rb rb-cited" href="#p=' + encodeURIComponent(id) + '">' + esc(Cleo.t('rec.cited', 'Cited by {n} sources', { n: words(c, 'data-src').filter(function (s) { return s !== 'guide'; }).length })) + '</a>');
+    if (!out.length) return '';
     return closed ? '<p class="pl-rec closed"><span class="lbl">' + esc(Cleo.t('rec.before', 'Before it closed:')) + '</span> ' + out.join(' ') + '</p>'
       : '<p class="pl-rec"><span class="vh">' + esc(Cleo.t('rec.label', 'Recognition')) + '</span> ' + out.join(' ') + '</p>';
   }
   function paint(cards) {
     [].forEach.call(cards, function (c) {
       if (!c.matches || !c.matches('li.pl[data-rec], li.pl[data-rec0]')) return;
-      var old = c.querySelector(':scope > .pl-rec'), h = row(c); if (old) old.remove(); if (h) c.insertAdjacentHTML('beforeend', h);
+      var old = c.querySelector(':scope > .pl-rec'), h = row(c, false); if (old) old.remove(); if (h) c.insertAdjacentHTML('beforeend', h);
     });
   }
   // Gallery row cards (li.gc), Guidebook entries (li.ge) and the Atlas map preview get the same badges as the place's own
@@ -50,7 +53,7 @@
     var nm = names(), out = [], one = function (cls, href, text) { out.push(links ? '<a class="rb ' + cls + '" href="' + esc(href) + '">' + esc(text) + '</a>' : '<span class="rb ' + cls + '">' + esc(text) + '</span>'); };
     words(c, 'data-ra').forEach(function (s) { one('rb-award', '#src=' + s, Cleo.t('rec.award', 'Award · {src}', { src: nm[s] || s })); });
     words(c, 'data-rv').forEach(function (s) { one('rb-video', '#src=' + s, Cleo.t('rec.video', 'Creator video · {src}', { src: nm[s] || s })); });
-    if (k.indexOf('cited') >= 0) { var id = String(c.id || '').replace(/^p-/, '');
+    if (links && k.indexOf('cited') >= 0) { var id = String(c.id || '').replace(/^p-/, '');   // links = a Guidebook entry (no "+N more" there)
       one('rb-cited', '#p=' + encodeURIComponent(id), Cleo.t('rec.cited', 'Cited by {n} sources', { n: words(c, 'data-src').filter(function (s) { return s !== 'guide'; }).length })); }
     return out.join(' ');
   }
@@ -77,11 +80,11 @@
   // and the row goes in before the share fact. A closed card's row is hidden by CSS on the card (.pl > .pl-rec.closed), not by
   // a hidden attribute, so the copy is visible in the detail.
   function sheet(c, ico) {
-    var sh = d.querySelector('#cleo-sheet .sheet'); if (!sh || !c || sh.querySelector('.fact .pl-rec')) return;
+    var sh = d.querySelector('#cleo-sheet .sheet'); if (!sh || !c) return;
     var share = sh.querySelector('[data-cleo-card="place"]'); if (share && 'p-' + share.getAttribute('data-id') !== c.id) return;   // another place's sheet
-    if (!c.querySelector(':scope > .pl-rec')) paint([c]);
-    var r = c.querySelector(':scope > .pl-rec'); if (!r) return;
-    var html = '<div class="fact">' + (ico || '') + '<div>' + r.outerHTML + '</div></div>', at = share && share.closest('.fact');
+    var full = row(c, true); if (!full) return;
+    var have = sh.querySelector('.fact .pl-rec'); if (have) { if (have.outerHTML !== full) have.outerHTML = full; return; }   // the card's copy lacks "Cited by"
+    var html = '<div class="fact">' + (ico || '') + '<div>' + full + '</div></div>', at = share && share.closest('.fact');
     if (at) at.insertAdjacentHTML('beforebegin', html); else (sh.querySelector('.content') || sh).insertAdjacentHTML('beforeend', html);
   }
   Cleo.recog = { paint: paint, row: row, views: paintViews, sheet: sheet };

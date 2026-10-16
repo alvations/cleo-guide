@@ -28,7 +28,7 @@
 :root :is(.masthead .dek, .g-lead, .lead, .note p, .pl-k.note p, .pl-k .note-t, .lens > p:first-of-type, .gk, .gap .d3, em.it, .it, .stamp,
   .view-gallery .note, .view-gallery .ghero .lead, .gcover .lead) { font-style: normal; font-family: var(--font-ui); }
 :root .d-hero em { color: inherit; font-style: normal; font-family: inherit; }
-:root :is(.note p, .pl-k.note p, .pl-k .note-t, .view-gallery .note) { font-size: var(--fs-body); line-height: 1.55; color: var(--ink-2); }
+:root :is(.note p, .pl-k.note p, .pl-k .note-t, .view-gallery .note) { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--ink-2); }
 :root .num, :root :is(.n, .pl-num, .area-c, .dest-c) { font-variant-numeric: var(--num); }
 /* one line-icon weight everywhere (design/beta/style/v2/icons) */
 :root .ico { stroke-width: var(--icon-stroke); }
@@ -234,7 +234,7 @@
 :root .masthead { --hero-scrim: var(--paper); }
 :root figure.photo:not(.hero-photo) { overflow: visible; background: transparent; border-radius: 0; }
 :root figure.photo:not(.hero-photo) > img { border-radius: var(--r-l); display: block; width: 100%; }
-:root figure.photo:not(.hero-photo) figcaption { position: static; background: none; color: var(--ink-3); padding: var(--s-2) 2px 0; font-size: var(--fs-xs); line-height: 1.4; text-wrap: pretty; }
+:root figure.photo:not(.hero-photo) figcaption { position: static; background: none; color: var(--ink-3); padding: var(--s-2) 2px 0; font-size: var(--fs-xs); line-height: var(--lh-sm); text-wrap: pretty; }
 :root figure.photo figcaption a, :root .hero-credit a, :root .cover .credit a { color: inherit; text-decoration-color: var(--line-strong); }
 :root .hero-credit { color: var(--ink-3); font-size: var(--fs-xs); text-shadow: none; }
 :root .masthead:has(.hero-photo) .g-lead-card .gc, html:root[data-view=gallery] .masthead:has(.hero-photo) .g-lead-card .gc {
@@ -242,7 +242,7 @@
 :root :is(.cover, .pl-cover) .credit { background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink-2); }
 /* phones: the hero text spans the full width, so the photo wash is flat (no fade under the text) */
 @media (max-width: 899px) { :root .masthead .hero-scrim { background: color-mix(in srgb, var(--paper) 86%, transparent) !important; } }
-:root .masthead .hero-credit { line-height: 1.4; margin-block: var(--s-2); }
+:root .masthead .hero-credit { line-height: var(--lh-sm); margin-block: var(--s-2); }
 :root :is(.hero-credit, figure.photo figcaption, .cover .credit) a { display: inline; min-height: 0; min-width: 0; padding: 0; }
 
 /* V2.17b Atlas list photos: the TASL credit is a caption under the (in-flow) media — not an overlay pill, not ellipsised.
@@ -269,3 +269,11 @@ html:root[data-view=atlas] #cleo-grid li.pl:not(.w7-cards li) > figure.pl-photo 
 
 /* ---------- V2.21 No-photo covers by kind (FE-A food-cover review): eat & drink covers take --cover-food; lanes need no !important ---------- */
 :root :is(.pl[data-k=f] > .pl-cover, .cover.food, li.pl[data-k=f] .pl-cover):not(:has(img)) { background: var(--cover-food) !important; }
+
+/* V2.22 Display face only at ≥ 24 px (one opsz-72 cut; R8 T7). Below that: the UI face. DESIGN-SYSTEM §v2.4 */
+:root :is(.d3, .card h3, .stamp, .srclist .mono, .note p, .detail .why, .section-t, .interest b, .trust .t b, .rail-i,
+  .pl-n, .pl-k.note p, .leaflet-popup-content b, .leaflet-popup-content strong, #saved li a, .lens > p:first-of-type,
+  .modules .mod b, .view-gallery .gc-n, .view-gallery .note, .view-gallery .srclist .mono, .view-gallery .near b) ,
+:root :is(.vw, [data-cleo-book], [data-cleo-insights]) .d3,
+:root :is(.view-guidebook, [data-cleo-book]) :is(.gcover .lead, .ch-intro, .ge h4, .gk) {
+  font-family: var(--font-ui); font-weight: var(--fw-ui-strong); letter-spacing: var(--track-tight); font-style: normal; }

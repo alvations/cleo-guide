@@ -356,6 +356,37 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     ok(closed > 50 && !leak.length && !/· per /.test(html), `QC-25: no status note is printed on a city page for any of ${closed} closed places (only a source URL, in the detail)`, leak.slice(0, 2));
     ok(/We don’t add ratings, prices or opening hours of our own; any quoted are the source’s, dated\./.test(fs.readFileSync(path.join(ROOT, 'beta/cities/tokyo.html'), 'utf8')), 'colophon: the D-42 line in the footer');
   }
+  console.log('# OV-01 (DESIGN-SYSTEM §v2.12): only the header stays; guest bars compact on scroll / pan; landscape is one bar');
+  {
+    const bars = () => { const vh = innerHeight, rows = new Set(), out = [];
+      for (const e of document.querySelectorAll('body *')) { const cs = getComputedStyle(e); if (cs.position !== 'fixed' && cs.position !== 'sticky') continue;
+        const r = e.getBoundingClientRect(); if (!r.width || !r.height || r.bottom <= 0 || r.top >= vh || r.width < innerWidth * 0.5 || e.matches('.mappane') || cs.visibility === 'hidden') continue;
+        out.push(String(e.className).split(' ')[0]); for (let y = Math.max(0, Math.round(r.top)); y < Math.min(vh, Math.round(r.bottom)); y++) rows.add(y); }
+      return { pct: Math.round(rows.size / vh * 1000) / 10, out }; };
+    for (const [w, h, cap] of [[390, 664, 8], [844, 390, 13], [1440, 900, 8]]) {
+      const ctx = await b.newContext({ viewport: { width: w, height: h }, isMobile: w < 500, hasTouch: w < 500, serviceWorkers: 'block' }), page = await ctx.newPage();
+      await ctx.route('**/*', r => { const u = r.request().url(); if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u)) return r.fulfill({ status: 200, contentType: 'image/png', body: TILE });
+        if (!u.startsWith(BASE)) return r.abort('blockedbyclient'); const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname));
+        if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' }); return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
+      await page.goto(BASE + 'beta/Singapore/punggol.html#view=gallery', { waitUntil: 'load' }); await page.waitForTimeout(1200);
+      const hb = await page.evaluate(() => Math.round(document.querySelector('.topbar').getBoundingClientRect().height));
+      await page.evaluate(() => window.scrollTo(0, 700)); await page.waitForTimeout(500);
+      const down = await page.evaluate(bars);
+      await page.evaluate(() => window.scrollTo(0, 600)); await page.waitForTimeout(500);
+      const up = await page.evaluate(() => ({ c: document.documentElement.classList.contains('ov-c'), cb: Math.round(document.querySelector('main>.cbar').getBoundingClientRect().bottom) }));
+      ok(down.pct <= cap && !up.c && hb <= (w >= 1024 ? 56 : h < 500 ? 48 : 52), `@${w}×${h} Gallery: header ${hb} px; after a scroll down chrome ${down.pct}% (≤ ${cap}%); a scroll up brings the switch row back`, [down, up]);
+      if (w < 500) {   // phone Atlas: the switch row slides under the header while compact (the Atlas lane hides its own bars)
+        await page.goto(BASE + 'beta/Singapore/punggol.html#view=atlas', { waitUntil: 'load' }); await page.waitForTimeout(1500);
+        const r0 = await page.evaluate(() => Math.round(document.querySelector('main>.cbar').getBoundingClientRect().bottom));
+        await page.evaluate(() => Cleo.chrome.compact(true)); await page.waitForTimeout(400);
+        const r1 = await page.evaluate(() => Math.round(document.querySelector('main>.cbar').getBoundingClientRect().bottom));
+        await page.evaluate(() => Cleo.chrome.idle(50)); await page.waitForTimeout(400);
+        const r2 = await page.evaluate(() => [Math.round(document.querySelector('main>.cbar').getBoundingClientRect().bottom), document.documentElement.classList.contains('ov-c')]);
+        ok(r1 <= 53 && r2[0] === r0 && !r2[1], `@${w}×${h} Atlas: compact slides the switch row under the header (bottom ${r0} → ${r1}), idle brings it back`, [r0, r1, r2]);
+      }
+      await ctx.close();
+    }
+  }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
   process.exit(fails ? 1 : 0);
