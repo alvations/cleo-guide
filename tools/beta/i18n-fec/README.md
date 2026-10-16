@@ -3,11 +3,12 @@
 test-i18n needs en.json and ja.json to match key for key, and FE-C never writes ja. So a new FE-C string waits here
 until the i18n lane supplies its Japanese. Then en and ja land in one commit together with the code that uses them.
 
-**All four batches are merged:**
+**All five batches are merged:**
 - batch 1 (trip.js + rec.*): FE-C, d1d476cbc;
 - batch 2 (base.js, share-card.js, the core walk helper): the i18n lane with FE-C's patch, 50eb108c2;
 - batch 3 (trip.html server strings, `page.trip.*`; server keys avoid `swapSkip` prefixes such as `trip.`): FE-C.
 - batch 4 (W9-9 `lf.*` + W9-2 `fresh.feed`): FE-C with the i18n lane's ja; W9-9 lens and the "Follow changes" line are live.
+- batch 5 (QC-05 empty state, `city.empty.*`, browser-only): FE-C with the i18n lane's ja.
 
 **For new FE-C strings:**
 1. write them to `pending-en.json` and ask the i18n lane for `pending-ja.json`;

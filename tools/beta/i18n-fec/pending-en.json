@@ -1,9 +1,9 @@
 {
-  "_doc": "FE-C batch 5 (QC-05: the stated empty state when a search or filters match nothing, in Gallery and Atlas). Browser-only (Cleo.t, client/empty.js); under the swapSkip prefix city.empty. {q} is the visitor's search text, shown in curly quotes; {n} is the guide's place count.",
+  "_doc": "FE-C batch 6 (QC-04 per D-43: a low-confidence pin, pv.pin 'low', stays on the map and is labelled honestly). Browser-only (Cleo.t): the card label (client/fresh.js), the detail fact (sheet.js FE-C hook) and the Atlas badge (views.js FE-C hook), under the swapSkip prefixes sheet. and views.; {n} is a count of places.",
   "strings": {
-    "city.empty.q": "No places match “{q}”.",
-    "city.empty.qnote": "Try another spelling, or search for a dish or an area.",
-    "city.empty.search": "Clear search",
-    "city.empty.f": "No places match these filters."
+    "sheet.pin.approx": "Approximate pin",
+    "sheet.pin.approx.d": "Approximate map pin: the coordinate we hold is not yet verified to the door",
+    "views.approx": "{n} approximate pins",
+    "views.approx.one": "1 approximate pin"
   }
 }
