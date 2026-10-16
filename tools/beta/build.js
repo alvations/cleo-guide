@@ -260,20 +260,35 @@ for (const r of cityRows) {
 }
 const totalLive = cityRows.reduce((s, r) => s + r.counts.P + r.counts.F, 0);
 if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.length} != live total ${totalLive}`);
-// W9-6 (FE-B "paste a link"): host → the publishers whose cited URLs live there, with the guides and place counts each
-// recommends. Search reads it when a query is a URL; the pasted URL is only parsed, never fetched. From each page's own
-// source index (lib/sources.js domains), so a host maps only to sources the guides actually cite.
+// W9-6 (FE-B "paste a link"): a pasted URL is normalised (host + path; no query, no hash) and matched — never fetched.
+// data/source-hosts.json: host → the publishers cited there, per guide (from each guide's source domains AND every URL its
+// records cite, so e.g. gotokyo.org maps to GO Tokyo even with no domain listed). data/source-urls/<0..31>.json, sharded
+// by a hash of the host (the client computes the same): normalised URL → the places citing exactly that page.
 {
-  const hosts = {};
-  for (const r of cityRows) for (const s of (r.sources && r.sources.list) || []) {
-    if (s.id === 'guide') continue;
-    for (const dom of new Set((s.domains || []).map(d => String(d).toLowerCase().replace(/^www\./, '')).filter(Boolean)))
-      (hosts[dom] = hosts[dom] || []).push([r.beta, r.name, s.id, s.name, s.n]);   // that guide's own id + name for the source
+  const normURL = u => { try { const x = new URL(u); const h = x.hostname.toLowerCase().replace(/^www\./, '');
+    return { h, key: h + x.pathname.replace(/\/index\.html?$/i, '/').replace(/\/+$/, '') }; } catch (e) { return null; } };
+  const bucket = h => { let v = 5381; for (let i = 0; i < h.length; i++) v = ((v * 33) ^ h.charCodeAt(i)) >>> 0; return v % 32; };
+  const hosts = {}, urls = Array.from({ length: 32 }, () => ({}));
+  for (const r of cityRows) {
+    const list = (r.sources && r.sources.list) || [], byId = Object.fromEntries(list.map(s => [s.id, s])), g = {}, per = {};
+    for (const s of list) for (const e of s.entries || []) g[e.key] = s.id;
+    const addH = (h, sid) => { if (h && sid && sid !== 'guide' && byId[sid]) (per[h] = per[h] || new Set()).add(sid); };
+    for (const s of list) for (const dom of s.domains || []) addH(String(dom).toLowerCase().replace(/^www\./, ''), s.id);
+    for (const x of r.recs) for (const [k, u] of x.s || []) {
+      const sid = g[k], nu = /^https?:\/\//.test(u || '') && normURL(u); if (!nu || !sid || sid === 'guide' || !byId[sid]) continue;
+      addH(nu.h, sid);
+      const b = urls[bucket(nu.h)], rows = (b[nu.key] = b[nu.key] || []);
+      if (!rows.some(y => y[0] === r.beta && y[2] === x.id)) rows.push([r.beta, r.name, x.id, x.n, sid, byId[sid].name]);
+    }
+    for (const [h, set] of Object.entries(per)) for (const sid of set) { const s = byId[sid]; (hosts[h] = hosts[h] || []).push([r.beta, r.name, s.id, s.name, s.n]); }
   }
   for (const h of Object.keys(hosts)) hosts[h].sort((x, y) => y[4] - x[4] || (x[0] < y[0] ? -1 : 1));
-  emit('data/source-hosts.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
-    _doc: 'W9-6 paste a link: host (lowercase, no www.) → [[beta page, guide name, that page\'s source id, its name there, places it recommends there]…], most places first. Built from the guides\' own cited URLs; nothing is fetched from a pasted URL.',
+  emit('data/source-hosts.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 2,
+    _doc: 'W9-6 paste a link: host (lowercase, no www.) → [[beta page, guide name, that page\'s source id, its name there, places it recommends there]…], most places first. From the guides\' source domains and every URL their records cite. Exact pages: data/source-urls/<bucket>.json (djb2-xor of the host, mod 32).',
     hosts: Object.fromEntries(Object.keys(hosts).sort().map(h => [h, hosts[h]])) }));
+  urls.forEach((b, i) => emit(`data/source-urls/${i}.json`, JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
+    _doc: 'W9-6: normalised URL (host without www. + path, no query/hash/trailing slash/index.html) → [[beta page, guide name, place id, place name, source id, source name]…] for the places citing exactly that page.',
+    urls: Object.fromEntries(Object.keys(b).sort().map(k => [k, b[k]])) })));
 }
 emit('data/sources.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
   _doc: 'Every publisher cited on any beta place page: id, display name, text authority mark, total records citing it, and [pageKey, n] per page. Per-page detail (entries, place ids) is in data/places/<page>.json sourceIndex.',

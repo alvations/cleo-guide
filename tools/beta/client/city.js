@@ -25,7 +25,7 @@
     if (e.key === 'Escape') { e.preventDefault(); close(); return; }
     if (e.key !== 'Tab') return;
     const f = $$('a[href],button', host).filter(x => x.offsetParent !== null), l = f[f.length - 1];
-    if (e.shiftKey && d.activeElement === f[0]) { e.preventDefault(); l.focus(); } else if (!e.shiftKey && d.activeElement === l) { e.preventDefault(); f[0].focus(); }
+    if (e.shiftKey && (d.activeElement === f[0] || !f.includes(d.activeElement))) { e.preventDefault(); l.focus(); } else if (!e.shiftKey && d.activeElement === l) { e.preventDefault(); f[0].focus(); }
   });
   // hooks for foryou.js / day.js: rank(card) → sort key (lower first) and why(card) → 'First because' text; lens[k](n) → html;
   // after[] run once per apply (map overlays); dist {id: km} while Near me is on (never stored)

@@ -735,6 +735,9 @@ html body .topbar .crumbs a>.sh{display:none}
 @media (max-width:899px){html body .topbar .crumbs a>.sh{display:inline}html body .topbar .crumbs a>.lg{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 /* QA-55 (Guidebook part): the cover facts and the ★ signature line are prose; they read at the body size, not 14 px */
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) :is(.gfacts,.gsig){font-size:var(--fs-body);line-height:1.5}
+/* Designer nit: a tap or deep link focuses the dialog itself (tabindex -1), which shows no ring; a keyboard open still
+   focuses ✕ with its ring */
+html body #cleo-sheet .sheet.detail:focus{outline:none}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
@@ -925,14 +928,24 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
 @media (max-width:1023px){
   /* the method notes and the footer sit under the full-screen map on phones: kept out of the Atlas screen (no shift, no hidden Tab stops); every other view shows them */
   html.atlas-m[data-view=atlas] body>:is(.method,.footer){display:none}
-  html.atlas-m[data-view=atlas]{--car-h:150px;--cbar-o:0px;--row-top:calc(var(--bar-h) + 8px)}   /* FE-A hides its city bar here; the chip row carries search + switcher */
+  /* phones: the view switch is FE-A's own 52 px row under the header (the city bar, as in every other view — QC-09,
+     DESIGN-SYSTEM §v2.11: four segments visible, one tap per switch), fixed over the map; the chip row sits under it */
+  html.atlas-m[data-view=atlas]{--car-h:150px;--cbar-o:var(--cbar-h,52px);--row-top:calc(var(--bar-h) + var(--cbar-o) + 8px)}
+  html.atlas-m[data-view=atlas] main[data-city]>.cbar{display:block;position:fixed;z-index:31;top:var(--bar-h);left:0;right:0;margin:0;background:var(--paper);border-bottom:1px solid var(--line)}
+  html.atlas-m[data-view=atlas] main[data-city]>.cbar>.cbar-in{box-sizing:border-box;height:var(--cbar-o);min-height:0;padding-top:0;padding-bottom:0;display:flex;align-items:center}   /* exactly the offset the chip row and the map use */
   html.atlas-m[data-view=atlas] main>.masthead{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);min-height:0;padding:0;margin:0}
   html.atlas-m[data-view=atlas] :is(.about,.site-footer,body>footer){display:none}
-  html.atlas-m[data-view=atlas] .split .mappane{display:block;position:fixed;z-index:20;inset:var(--bar-h) 0 0 0;height:auto;padding:0;border:0;border-radius:0;background:var(--sand)}
+  html.atlas-m[data-view=atlas] .split .mappane{display:block;position:fixed;z-index:20;inset:calc(var(--bar-h) + var(--cbar-o)) 0 0 0;height:auto;padding:0;border:0;border-radius:0;background:var(--sand)}
   html.atlas-m[data-view=atlas] .split .mappane .map,html.atlas-m[data-view=atlas] #cleo-map{border-radius:0;border:0;min-height:0;height:100%}
   /* the chip row */
   html.atlas-m[data-view=atlas] .ms-bar{position:fixed;z-index:30;left:0;right:0;top:var(--row-top);padding:0 12px 6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   html.atlas-m[data-view=atlas] .ms-bar::-webkit-scrollbar{display:none}
+  html.atlas-m[data-view=atlas] .ms-bar :is(.toolbar,.ms-x){display:contents}
+  html.atlas-m[data-view=atlas] .ms-bar .toolbar>.spill{order:0;position:sticky;left:0;z-index:2}
+  html.atlas-m[data-view=atlas] .ms-bar .modes{order:1}html.atlas-m[data-view=atlas] .ms-bar .ms-top{order:2}
+  html.atlas-m[data-view=atlas] .ms-bar .area-btn{order:3}html.atlas-m[data-view=atlas] .ms-bar [data-cleo-tray]:not(.area-btn){order:4}
+  html.atlas-m[data-view=atlas] .ms-bar .applied{order:5}
+  html.atlas-m[data-view=atlas] .ms-bar :is(.ms-mine,.ms-sort,.map-toggle){display:none}   /* Saved is the header's heart; sort is in Filters */
   html.atlas-m[data-view=atlas] .ms-bar :is(.chip,.ms-sort select,.views,.modes,.area-btn,[data-cleo-tray],#cleo-filter){box-shadow:var(--e-2)}
   html.atlas-m[data-view=atlas] .ms-bar>.views{flex:none;margin:0;width:auto;position:static}
   html.atlas-m[data-view=atlas] .ms-bar #cleo-filter{flex:0 0 150px;min-height:var(--tap);padding:0 14px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:inherit}

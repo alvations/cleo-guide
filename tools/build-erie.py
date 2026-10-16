@@ -190,10 +190,14 @@ new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></
 assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>", "", new)), "literal \\uXXXX escape leaked into visible HTML — use real characters in page prose, not \\u escapes"
 import engine_guard  # no map may ship the Google "API key" base-map surface
 new = engine_guard.fix_basemap_tiles(engine_guard.strip_google(new)); engine_guard.assert_no_google(new, OUT)
-open(OUT, "w", encoding="utf-8").write(new)
 assert "P.forEach((p,i)=>{p.id='s'+i" in new
 _leakseg = new[new.index("const S = {"):new.index("const AC =")]
-assert "Cleveland" not in re.sub(r"Cleveland Ave(?:nue)?", "", _leakseg), "Cleveland leaked into data"
+# Exempt a sourced write-up that names Cleveland in passing (Saigon Nights: "the nearest pho had been in Cleveland or
+# Pittsburgh"); still fire on a genuine template-data leak (a Cleveland engine place or a "Cleveland, OH" address).
+_ok = r"Cleveland Ave(?:nue)?|in Cleveland or Pittsburgh"
+assert "Cleveland" not in re.sub(_ok, "", _leakseg), "Cleveland leaked into data"
+# checks pass before anything is written (CLAUDE.md rule 2: refuse to write on a failed check)
+open(OUT, "w", encoding="utf-8").write(new)
 # A must-see per area is ideal, but a sparse new corridor area (e.g. the wine belt before its tier-1
 # winery is geocoded) shouldn't fail the build — warn instead so the map still ships what's verified.
 for a in DS["areas"]:
