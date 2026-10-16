@@ -424,7 +424,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
   :is(.view-guidebook, [data-cleo-book]) .toc { display: none !important; }
   /* the mounted guidebook is the one printed copy: its own cover replaces the masthead, and the canonical list (same
      places, already printed as entries) is left out — only when the book is actually mounted, so JS-off still prints it */
-  html[data-view="guidebook"]:has([data-cleo-book]) :is(main > .masthead, .split, .lens, .shown) { display: none !important; }
+  html[data-cleo-page="city"][data-view="guidebook"] :is(main > .masthead, .split, .lens, .shown) { display: none !important; }
   .gb-appendix { break-before: page; }
   /* W9-10 booklet: the edition cover and "Since the last edition" each take a page of their own */
   :is(.view-guidebook, [data-cleo-book]) .gcover { break-after: page; border: 0; }
@@ -505,7 +505,6 @@ html[data-view="gallery"] .split .pl-cover[data-comp="4"] .g-art { width: 62%; r
   /* save heart + stamp: pop on the tap only (the W3 rules popped every saved heart on load) */
   .heart[aria-pressed="true"]:not(:focus) .ico, .pl-save[aria-pressed="true"]:not(:focus)::before, .sv-heart[aria-pressed="true"]:not(:focus)::before { animation: none; }
   :is(.view-guidebook, [data-cleo-book]) .ge-save[aria-pressed="true"]:focus { animation: w3-pop 340ms var(--ease-spring, cubic-bezier(.34,1.56,.64,1)) 1; }
-  html:not(:has(button:focus)) .stamp:not([hidden]) { animation: none; }
   .sheet [data-sh="been"][aria-pressed="true"]:focus { animation: w3-pop 340ms var(--ease-spring, cubic-bezier(.34,1.56,.64,1)) 1; }
   /* rail doors press in: collection doors, Gallery row cards, the lead card */
   .rail-i, .vw .gc-a { transition: transform var(--dur-1, 100ms) var(--ease-out, ease-out), box-shadow var(--dur-2, 160ms); }
@@ -513,11 +512,12 @@ html[data-view="gallery"] .split .pl-cover[data-comp="4"] .g-art { width: 62%; r
   .vw .gc-a:active .cover { transform: none; box-shadow: inset 0 -5px 0 var(--ac); }
   /* sheet rise: the place sheet and the Gallery sheet come up from the foot (side sheets keep their slide) */
   .overlay:not(.side) .sheet, .sheet.detail:not(.side .sheet) { animation: w4-rise var(--dur-3, 240ms) var(--ease-out, ease-out) 1; }
-  /* view switch cross-fade: plays when the reader picks a view (the switcher holds focus), never on first paint */
-  html[data-view="gallery"]:has(.views[data-cleo-views] :focus) :is(main > .masthead, .split, .vw:not([hidden])) { animation: w4-xf-g 220ms var(--ease-out, ease-out) 1; }
-  html[data-view="atlas"]:has(.views[data-cleo-views] :focus) :is(main > .masthead, .split) { animation: w4-xf-a 220ms var(--ease-out, ease-out) 1; }
-  html[data-view="guidebook"]:has(.views[data-cleo-views] :focus) :is([data-cleo-book], .vw:not([hidden])) { animation: w4-xf-b 220ms var(--ease-out, ease-out) 1; }
-  html[data-view="insights"]:has(.views[data-cleo-views] :focus) :is([data-cleo-insights], .vw:not([hidden])) { animation: w4-xf-i 220ms var(--ease-out, ease-out) 1; }
+  /* view switch cross-fade: plays when the reader picks a view, never on first paint. PERF-16: keyed on html[data-vx], which views.js sets for ~300 ms
+     on a switch (no :has() on html); browsers with view transitions use the ::view-transition rules below */
+  html[data-view="gallery"][data-vx] :is(main > .masthead, .split, .vw:not([hidden])) { animation: w4-xf-g 220ms var(--ease-out, ease-out) 1; }
+  html[data-view="atlas"][data-vx] :is(main > .masthead, .split) { animation: w4-xf-a 220ms var(--ease-out, ease-out) 1; }
+  html[data-view="guidebook"][data-vx] :is([data-cleo-book], .vw:not([hidden])) { animation: w4-xf-b 220ms var(--ease-out, ease-out) 1; }
+  html[data-view="insights"][data-vx] :is([data-cleo-insights], .vw:not([hidden])) { animation: w4-xf-i 220ms var(--ease-out, ease-out) 1; }
   ::view-transition-old(root) { animation: 160ms ease-out both w4-fade-out; }
   ::view-transition-new(root) { animation: 220ms ease-out both w4-xf-g; }
   /* Insights bars grow as their chart enters the screen (a scroll-driven timeline: scrolled, never timed). Each chart is

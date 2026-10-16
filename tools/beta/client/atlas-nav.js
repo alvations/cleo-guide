@@ -133,13 +133,21 @@
       if (m && s && s.c && (Math.abs(m.getZoom() - s.z) > 1e-9 || m.getCenter().distanceTo(s.c) > 0.01)) { C.auto(); m.setView(s.c, s.z, { animate: false }); }
       const res = close0.apply(this, arguments);
       // the list follows the restored map once the route settles (the route change re-applies the lenses)
+      // the restore re-applies while the route settles, but it stops the moment anything else moves the page, the list or
+      // the carousel (QA-71: a swipe right after Back was put back; the carousel kept the place just opened)
+      let gone = false, put = null;
+      const moved = l => put && ((window.scrollY || 0) !== put[0] || (l && (l.scrollTop !== put[1] || l.scrollLeft !== put[2])));
       const fix = () => {
-        if (userAt > t0) return;
-        if (s) { if ((window.scrollY || 0) !== s.y) window.scrollTo(0, s.y); const l = lp(); if (l) { if (l.scrollTop !== s.t) l.scrollTop = s.t; if (l.scrollLeft !== s.x) l.scrollLeft = s.x; } }
+        const l = lp(); if (gone || userAt > t0 || moved(l)) { gone = true; return; }
+        if (s) { if ((window.scrollY || 0) !== s.y) window.scrollTo(0, s.y); if (l) { if (l.scrollTop !== s.t) l.scrollTop = s.t; if (l.scrollLeft !== s.x) l.scrollLeft = s.x; } }
+        put = [window.scrollY || 0, l ? l.scrollTop : 0, l ? l.scrollLeft : 0];
         back(st.opener);
       };
       if (st.moved && C.msArea) setTimeout(() => { if (userAt <= t0) { C.msArea(); fix(); } }, 30);
       fix(); [30, 160, 450, 800].forEach(t => setTimeout(fix, t));
+      // the carousel's own "the card in the middle is the selected one" stood still during the hold: once it lifts, let it
+      // look again, so a swipe made meanwhile still selects its card (and an untouched carousel keeps the open place)
+      setTimeout(() => { const l = lp(); if (l && !C.navHold()) l.dispatchEvent(new Event('scroll')); }, Math.max(0, holdTo - Date.now()) + 30);
       return res;
     };
   };

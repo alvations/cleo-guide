@@ -16113,93 +16113,6 @@
    "color": "#b8d8f8"
   },
   {
-   "file": "tokyo--gotoku-ji-720.jpg",
-   "record": {
-    "page": "tokyo",
-    "id": "gotoku-ji"
-   },
-   "title": "Gotokuji Temple (Cat Temple)",
-   "depicts": "Gōtoku-ji temple grounds",
-   "author": "Emma Brick",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gotokuji_Temple_(Cat_Temple).jpg",
-   "licence": "CC BY-SA 4.0",
-   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-   "provider": "wikimedia-commons",
-   "commonsTitle": "File:Gotokuji Temple (Cat Temple).jpg",
-   "sha1": "916642feff8a7a0eda1942da648cd08e8a3a04a8",
-   "width": 720,
-   "height": 604,
-   "variants": [
-    {
-     "file": "tokyo--gotoku-ji-500.jpg",
-     "width": 500,
-     "height": 419
-    }
-   ],
-   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
-   "fetched": "2026-10-16",
-   "confidence": "high",
-   "color": "#480828"
-  },
-  {
-   "file": "cleveland--cleveland-museum-of-art-720.jpg",
-   "record": {
-    "page": "cleveland",
-    "id": "cleveland-museum-of-art"
-   },
-   "title": "Cleveland Museum of Art - south facade",
-   "depicts": "The south façade of the Cleveland Museum of Art",
-   "author": "Daderot",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cleveland_Museum_of_Art_-_south_facade.jpg",
-   "licence": "Public domain",
-   "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-   "provider": "wikimedia-commons",
-   "commonsTitle": "File:Cleveland Museum of Art - south facade.jpg",
-   "sha1": "c41c5f165c7880aa0845545e03baa83b42f3e164",
-   "width": 720,
-   "height": 540,
-   "variants": [
-    {
-     "file": "cleveland--cleveland-museum-of-art-500.jpg",
-     "width": 500,
-     "height": 375
-    }
-   ],
-   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
-   "fetched": "2026-10-16",
-   "confidence": "high",
-   "color": "#b8a888"
-  },
-  {
-   "file": "chicago--national-a-philip-randolph-pullman-porter-museum-720.jpg",
-   "record": {
-    "page": "chicago",
-    "id": "national-a-philip-randolph-pullman-porter-museum"
-   },
-   "title": "Pullman Chicago Clock Tower",
-   "depicts": "National A. Philip Randolph Pullman Porter Museum",
-   "author": "Boven",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pullman_Chicago_Clock_Tower.jpg",
-   "licence": "CC0 1.0",
-   "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-   "provider": "wikimedia-commons",
-   "commonsTitle": "File:Pullman Chicago Clock Tower.jpg",
-   "sha1": "4ba49e7470bfa638aecb9fa19f4c9941bcab2f66",
-   "width": 720,
-   "height": 854,
-   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
-   "fetched": "2026-10-16",
-   "confidence": "lead",
-   "variants": [
-    {
-     "file": "chicago--national-a-philip-randolph-pullman-porter-museum-500.jpg",
-     "width": 500,
-     "height": 593
-    }
-   ],
-   "color": "#7898c8"
-  },
-  {
    "file": "singapore--toa-payoh--lian-shan-shuang-lin-monastery-720.jpg",
    "record": {
     "page": "singapore/toa-payoh",
@@ -16372,6 +16285,346 @@
    "fetched": "2026-10-16",
    "confidence": "lead",
    "color": "#4878a8"
+  },
+  {
+   "file": "hokkaido--odori-park-960.jpg",
+   "record": {
+    "page": "hokkaido",
+    "id": "odori-park"
+   },
+   "title": "Odori Park Sapporo",
+   "depicts": "Ōdōri Park in Sapporo in summer (Aug 2006)",
+   "author": "Daigaku2051",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Odori_Park_Sapporo.JPG",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Odori Park Sapporo.JPG",
+   "sha1": "fd4c6afa9a6401637bf7de30f2ba27228acf0a5c",
+   "width": 960,
+   "height": 720,
+   "variants": [
+    {
+     "file": "hokkaido--odori-park-500.jpg",
+     "width": 500,
+     "height": 375
+    },
+    {
+     "file": "hokkaido--odori-park-720.jpg",
+     "width": 720,
+     "height": 540
+    }
+   ],
+   "modified": "resized to 500, 720 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-16",
+   "confidence": "high",
+   "color": "#4878b8"
+  },
+  {
+   "file": "singapore--bali--uluwatu-temple-pura-luhur-uluwatu-960.jpg",
+   "record": {
+    "page": "singapore/bali",
+    "id": "uluwatu-temple-pura-luhur-uluwatu"
+   },
+   "title": "Uluwatu temple, Bali",
+   "depicts": "Uluwatu Temple on its clifftop, Bali",
+   "author": "Tiya20",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uluwatu_temple,_Bali.jpg",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Uluwatu temple, Bali.jpg",
+   "sha1": "155d6fceb9248bf6be44fd71f2e6d5ce5f46a2ef",
+   "width": 960,
+   "height": 720,
+   "variants": [
+    {
+     "file": "singapore--bali--uluwatu-temple-pura-luhur-uluwatu-500.jpg",
+     "width": 500,
+     "height": 375
+    },
+    {
+     "file": "singapore--bali--uluwatu-temple-pura-luhur-uluwatu-720.jpg",
+     "width": 720,
+     "height": 540
+    }
+   ],
+   "modified": "resized to 500, 720 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-16",
+   "confidence": "high",
+   "color": "#4878a8"
+  },
+  {
+   "file": "singapore--cebu--basilica-minore-del-santo-nino-and-magellans-cross-960.jpg",
+   "record": {
+    "page": "singapore/cebu",
+    "id": "basilica-minore-del-santo-nino-and-magellans-cross"
+   },
+   "title": "Basilica Minore del Santo Niño de Cebu facade (Osmeña Boulevard, Cebu City; 01-14-2023)",
+   "depicts": "The façade of the Basilica Minore del Santo Niño, Cebu City",
+   "author": "Patrickroque01",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Basilica_Minore_del_Santo_Ni%C3%B1o_de_Cebu_facade_(Osme%C3%B1a_Boulevard,_Cebu_City%3B_01-14-2023).jpg",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Basilica Minore del Santo Niño de Cebu facade (Osmeña Boulevard, Cebu City; 01-14-2023).jpg",
+   "sha1": "9e9de7ae87c1876c06defefba089bbad4fa2533a",
+   "width": 960,
+   "height": 720,
+   "variants": [
+    {
+     "file": "singapore--cebu--basilica-minore-del-santo-nino-and-magellans-cross-500.jpg",
+     "width": 500,
+     "height": 375
+    },
+    {
+     "file": "singapore--cebu--basilica-minore-del-santo-nino-and-magellans-cross-720.jpg",
+     "width": 518,
+     "height": 388
+    }
+   ],
+   "modified": "resized to 500, 720 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-16",
+   "confidence": "high",
+   "color": "#d8e8f8"
+  },
+  {
+   "file": "singapore--kuala-lumpur--petronas-twin-towers-960.jpg",
+   "record": {
+    "page": "singapore/kuala-lumpur",
+    "id": "petronas-twin-towers"
+   },
+   "title": "Petronas Twin Towers in Kuala Lumpur (2) (10498382174)",
+   "depicts": "The Petronas Twin Towers, Kuala Lumpur",
+   "author": "V. Epiney",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Petronas_Twin_Towers_in_Kuala_Lumpur_(2)_(10498382174).jpg",
+   "licence": "CC BY-SA 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Petronas Twin Towers in Kuala Lumpur (2) (10498382174).jpg",
+   "sha1": "d503e7f59df293fd9b8c7a1ba031cd5197d0c6d8",
+   "width": 960,
+   "height": 641,
+   "variants": [
+    {
+     "file": "singapore--kuala-lumpur--petronas-twin-towers-500.jpg",
+     "width": 500,
+     "height": 334
+    },
+    {
+     "file": "singapore--kuala-lumpur--petronas-twin-towers-720.jpg",
+     "width": 720,
+     "height": 481
+    }
+   ],
+   "modified": "resized to 500, 720 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-16",
+   "confidence": "high",
+   "color": "#78a8e8"
+  },
+  {
+   "file": "singapore--upper-thomson--macritchie-reservoir-and-treetop-walk-960.jpg",
+   "record": {
+    "page": "singapore/upper-thomson",
+    "id": "macritchie-reservoir-and-treetop-walk"
+   },
+   "title": "Sunset at Macritchie Reservoir (8128197465)",
+   "depicts": "MacRitchie Reservoir at sunset",
+   "author": "Erwin Soo from Singapore, Singapore",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Macritchie_Reservoir_(8128197465).jpg",
+   "licence": "CC BY 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Sunset at Macritchie Reservoir (8128197465).jpg",
+   "sha1": "5446106a04b08f6fa1a6d4402c4483750f0e1a4e",
+   "width": 960,
+   "height": 640,
+   "variants": [
+    {
+     "file": "singapore--upper-thomson--macritchie-reservoir-and-treetop-walk-500.jpg",
+     "width": 500,
+     "height": 333
+    },
+    {
+     "file": "singapore--upper-thomson--macritchie-reservoir-and-treetop-walk-720.jpg",
+     "width": 720,
+     "height": 480
+    }
+   ],
+   "modified": "resized to 500, 720 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-16",
+   "confidence": "high",
+   "color": "#080808"
+  },
+  {
+   "file": "hokkaido--historical-village-of-hokkaido-960.jpg",
+   "record": {
+    "page": "hokkaido",
+    "id": "historical-village-of-hokkaido"
+   },
+   "title": "北海道開拓の村(Historical Village of Hokkaido) - panoramio (4)",
+   "depicts": "Historical Village of Hokkaido, open-air museum buildings",
+   "author": "t-konno",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%B5%B7%E9%81%93%E9%96%8B%E6%8B%93%E3%81%AE%E6%9D%91(Historical_Village_of_Hokkaido)_-_panoramio_(4).jpg",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:北海道開拓の村(Historical Village of Hokkaido) - panoramio (4).jpg",
+   "sha1": "d925df7bb08c80a4e2779f5d2e9aee2c58ecc812",
+   "width": 960,
+   "height": 640,
+   "variants": [
+    {
+     "file": "hokkaido--historical-village-of-hokkaido-500.jpg",
+     "width": 500,
+     "height": 333
+    },
+    {
+     "file": "hokkaido--historical-village-of-hokkaido-720.jpg",
+     "width": 720,
+     "height": 480
+    }
+   ],
+   "modified": "resized to 500, 720 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-16",
+   "confidence": "high",
+   "color": "#b8d8f8"
+  },
+  {
+   "file": "kyoto--kozan-ji-960.jpg",
+   "record": {
+    "page": "kyoto",
+    "id": "kozan-ji"
+   },
+   "title": "Kozanji Kyoto Kyoto09s5s4592",
+   "depicts": "Kōzan-ji temple, Kyoto",
+   "author": "663highland",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kozanji_Kyoto_Kyoto09s5s4592.jpg",
+   "licence": "CC BY 2.5",
+   "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Kozanji Kyoto Kyoto09s5s4592.jpg",
+   "sha1": "fe5b7c9e4f8adc9c589712e0c3125b97b94ecea2",
+   "width": 960,
+   "height": 639,
+   "variants": [
+    {
+     "file": "kyoto--kozan-ji-500.jpg",
+     "width": 500,
+     "height": 333
+    },
+    {
+     "file": "kyoto--kozan-ji-720.jpg",
+     "width": 720,
+     "height": 479
+    }
+   ],
+   "modified": "resized to 500, 720 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-16",
+   "confidence": "high",
+   "color": "#282818"
+  },
+  {
+   "file": "siliconvalley--cantor-arts-center-and-rodin-sculpture-garden-960.jpg",
+   "record": {
+    "page": "siliconvalley",
+    "id": "cantor-arts-center-and-rodin-sculpture-garden"
+   },
+   "title": "Cantor Arts Center Halperin Family Wing",
+   "depicts": "The Cantor Arts Center at Stanford (Halperin Family Wing)",
+   "author": "BrokenSphere",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cantor_Arts_Center_Halperin_Family_Wing.JPG",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Cantor Arts Center Halperin Family Wing.JPG",
+   "sha1": "38a97742e3eccfada2d331afed3654f075ffa42b",
+   "width": 960,
+   "height": 720,
+   "variants": [
+    {
+     "file": "siliconvalley--cantor-arts-center-and-rodin-sculpture-garden-500.jpg",
+     "width": 500,
+     "height": 375
+    },
+    {
+     "file": "siliconvalley--cantor-arts-center-and-rodin-sculpture-garden-720.jpg",
+     "width": 720,
+     "height": 540
+    }
+   ],
+   "modified": "resized to 500, 720 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-16",
+   "confidence": "high",
+   "color": "#f8f8f8"
+  },
+  {
+   "file": "siliconvalley--stanford-main-quad-and-memorial-church-960.jpg",
+   "record": {
+    "page": "siliconvalley",
+    "id": "stanford-main-quad-and-memorial-church"
+   },
+   "title": "Stanford MainQuad",
+   "depicts": "Stanford University Main Quad",
+   "author": "Vgane",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stanford_MainQuad.JPG",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Stanford MainQuad.JPG",
+   "sha1": "2dda5044a1b28d38dbff209ffebaa7337a1756eb",
+   "width": 960,
+   "height": 640,
+   "variants": [
+    {
+     "file": "siliconvalley--stanford-main-quad-and-memorial-church-500.jpg",
+     "width": 500,
+     "height": 333
+    },
+    {
+     "file": "siliconvalley--stanford-main-quad-and-memorial-church-720.jpg",
+     "width": 720,
+     "height": 480
+    }
+   ],
+   "modified": "resized to 500, 720 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-16",
+   "confidence": "high",
+   "color": "#f8f8f8"
+  },
+  {
+   "file": "singapore--luang-prabang--kuang-si-falls-960.jpg",
+   "record": {
+    "page": "singapore/luang-prabang",
+    "id": "kuang-si-falls"
+   },
+   "title": "Kuang Si Falls and its turquoise tiered water pools in Luang Prabang province Laos",
+   "depicts": "Kuang Si Falls and its turquoise tiered pools",
+   "author": "Basile Morin",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuang_Si_Falls_and_its_turquoise_tiered_water_pools_in_Luang_Prabang_province_Laos.jpg",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Kuang Si Falls and its turquoise tiered water pools in Luang Prabang province Laos.jpg",
+   "sha1": "15003b6f3bb46996a09a585bea72005ea8d79ce8",
+   "width": 960,
+   "height": 600,
+   "variants": [
+    {
+     "file": "singapore--luang-prabang--kuang-si-falls-500.jpg",
+     "width": 500,
+     "height": 313
+    },
+    {
+     "file": "singapore--luang-prabang--kuang-si-falls-720.jpg",
+     "width": 720,
+     "height": 450
+    }
+   ],
+   "modified": "resized to 500, 720 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-16",
+   "confidence": "high",
+   "color": "#080808"
   }
  ]
 }

@@ -629,8 +629,8 @@ html:root body .topbar,html:root body .topbar.on-night{background:var(--paper)}
 html body .tabbar{background:var(--surface)}
 /* ---- 17. R7 gap 5: food covers read as intentional — the dish in display type on the eat-and-drink tint, under the
    kind glyph (food places never get photos; a blank sand box read as "not loaded") ---- */
-html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover,html .view-gallery .gc .cover.food{background:color-mix(in srgb,var(--sun) 16%,var(--sand))!important;container-type:inline-size;align-content:center;gap:8px}
-html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{display:block;max-width:86%;margin:0;color:var(--ink);font:500 clamp(14px,10cqi,28px)/1.08 var(--font-display);letter-spacing:-.01em;text-align:center;text-wrap:balance;overflow-wrap:anywhere}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover,html .view-gallery .gc .cover.food{background:var(--cover-food)!important;container-type:inline-size;align-content:center;gap:8px}
+html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{display:block;max-width:86%;margin:0;color:var(--ink);font:500 clamp(var(--fs-ui),9cqi,var(--fs-d2))/1.08 var(--font-display);letter-spacing:-.01em;text-align:center;text-wrap:balance;overflow-wrap:anywhere}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover .pl-glyph,html .view-gallery .gc .cover.food .gl,html .view-gallery .gc .cover.food .gl .ico{width:24px;height:24px;color:var(--ink-2)}
 html main[data-city] li.pl[data-k=f]>.pl-cover .pl-vert{display:none}
 /* the ratified Gallery card (QA W7): no write-up / look-for / address on the card face. v2's clamp rule
@@ -703,6 +703,9 @@ html body #cleo-sheet .detail .hero-plate.has-photo.ph-fit{max-width:min(var(--p
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{overflow:hidden;border-radius:var(--r-l)}
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{--ph-band:color-mix(in srgb,var(--ph,var(--sand)) 45%,var(--sand))}
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame>.photo img{border-radius:0;box-shadow:calc(-1 * var(--ph-max)) 0 0 0 var(--ph-band),var(--ph-max) 0 0 0 var(--ph-band)}
+/* food covers (c), designer sign-off: the cover names the dish, so a food card's kind line drops its duplicate dish (the
+   area line stays where the card is not under its own area header) */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-e .in-d{display:none}
 /* PERF-06 (platform, marked block): reserve the phone lead card and the category rows before gallery.js draws them from
    data/gallery/<page>.json, so the grid below does not jump (Gallery phone CLS 0.29–0.34 → ≤ 0.01). Keyed on the
    template's data-lead / data-rows, which the build sets only where the guide has a lead / rows. */
@@ -712,3 +715,7 @@ html[data-view=gallery]:not(.lens-on) #cleo-rows-host[data-rows]:empty{min-heigh
    script has set data-view) its box is kept, invisible, so the lead under it does not drop (phone CLS 0.105 → 0) */
 @media (max-width:1023px){html[data-view=gallery] main[data-city]>nav.rail#cleo-rail[hidden]{display:flex!important;visibility:hidden}}
 /* /PERF-06 */
+/* B-20 (FE-B sweep, 9 pages): the "Must see" sticker is a link (to How we choose) and was 91 × 28. Its tap box is now
+   44 px tall through 8 px transparent borders, with the pill painted inside them (background-clip) and the sticker
+   moved up 8 px, so it looks and sits exactly as before; the shadow follows the painted pill (drop-shadow) */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier.t1{box-sizing:border-box;min-height:44px;top:2px;border-block:8px solid transparent;background-clip:padding-box;box-shadow:none;filter:drop-shadow(0 1px 2px color-mix(in srgb,var(--ink) 18%,transparent))}

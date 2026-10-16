@@ -2792,10 +2792,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: within the guide region, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -4075,10 +4075,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo with the exact street address (1101 NW 23rd St)); orchestrator checks: within the guide region, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
