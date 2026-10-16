@@ -304,6 +304,32 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const c = { kind: 'official', unofficial: 'JSON-LD url points to orderexamplemenu.com', name: 'Pizza Example' };
     assert.strictEqual(LV.gradeCandidate(c, { name: 'Pizza Example', address: '', current: {} }).grade, 'med');
   });
+  await t('Wikipedia does not corroborate Wikidata (one source); OSM/official/Census does', () => {
+    const base = { outcome: 'pin', name: 'X Museum', current: { confidence: 'UNVERIFIED' } };
+    const p = k => ({ grade: 'high', kind: 'wikidata', nameSim: 1, coordDecimals: 6, addressAgreement: {}, corroboratedBy: [{ kind: k }] });
+    assert.strictEqual(LV.reviewAssist({ ...base, proposal: p('wikipedia') }).verdict, 'hold');
+    assert.strictEqual(LV.reviewAssist({ ...base, proposal: p('osm-poi') }).verdict, 'pass');
+    const c = (kind) => ({ lat: 1, lng: 1, grade: 'med', kind, source: kind, nameSim: 1, why: [], sourceUrl: kind, retrieved: 'd' });
+    const d = LV.decide({ name: 'X', current: { lat: null, lng: null } }, [c('wikidata'), Object.assign(c('wikipedia'), { lat: 1.00001 })]);
+    assert.strictEqual(d.proposal.grade, 'med', 'wikipedia agreeing with wikidata does not upgrade');
+  });
+  await t('moved-place guard: registry address far from a Wikidata coordinate → hold "possible old location"', async () => {
+    const r4 = await LV.run({ city: 'testville-zz', registry: fx.registry, scope: ['unverified'], sources: ['wikidata', 'census'], fixtures: fx.responses, mode: 'fixtures', today: '2026-10-16' });
+    const g = r4.rows.find(r => r.name === 'Moved Gallery');
+    assert.strictEqual(g.proposal.kind, 'wikidata'); assert.ok(g.addressCheck && g.addressCheck.distanceM > 1000, JSON.stringify(g.addressCheck));
+    assert.strictEqual(g.assist.verdict, 'hold'); assert.ok(/possible old location/.test(g.assist.why[0]));
+  });
+  await t('extended features without an entrance object are held', () => {
+    const v = LV.reviewAssist({ outcome: 'pin', name: 'Ocean Boulevard Park', current: { confidence: 'UNVERIFIED' }, proposal: { grade: 'high', kind: 'osm-poi', nameSim: 1, addressAgreement: { houseNumber: true, street: true } } });
+    assert.strictEqual(v.verdict, 'hold');
+  });
+  await t('business names that borrow place words are not extended features; closed places go to review', () => {
+    for (const n of ['Thai Square', 'One Lake Brewing', 'Square Pie Guys (SoMa)', 'Hayes Valley Bakeworks']) assert.ok(!LV.isExtended(n), n);
+    assert.ok(!LV.isExtended("Mama's on Washington Square", 'amenity=restaurant'), 'the OSM class decides when the name cannot');
+    assert.ok(LV.isExtended('Salt Fork State Park')); assert.ok(!LV.isExtended('Italian Village', 'amenity=restaurant'));
+    const v = LV.reviewAssist({ outcome: 'pin', name: 'Old Diner — CLOSED', current: { confidence: 'UNVERIFIED', status: 'closed' }, proposal: { grade: 'high', kind: 'osm-poi', nameSim: 1, addressAgreement: { houseNumber: true, street: true } } });
+    assert.strictEqual(v.verdict, 'review');
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });
