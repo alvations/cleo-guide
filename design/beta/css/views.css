@@ -78,12 +78,12 @@ html :is(.vw) .gc-a { display: grid; grid-template-columns: minmax(0, 1fr); }   
 /* the night hero: one sky (FE-A's g-sky draws the verified pins at full size, so the platform's ::before art steps back),
    calmer behind the text, and on phones ≈ 0.8 screen instead of 1.7 */
 html[data-view="gallery"] main > .masthead::before { display: none; }
-html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.35) 0 30%, #000 62%); mask-image: linear-gradient(90deg, rgba(0,0,0,.35) 0 30%, #000 62%); }
+html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-gradient(90deg, color-mix(in srgb, var(--mask) 35%, transparent) 0 30%, var(--mask) 62%); mask-image: linear-gradient(90deg, color-mix(in srgb, var(--mask) 35%, transparent) 0 30%, var(--mask) 62%); }
 @media (max-width: 639px) {
   html[data-view="gallery"] main > .masthead { min-height: 0; padding-top: var(--s-5); padding-bottom: var(--s-5); }
   html[data-view="gallery"] main > .masthead > .motif { display: none; }
   html[data-view="gallery"] main > .masthead .facts { font-size:var(--fs-meta); line-height: 1.5; }
-  html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-gradient(180deg, #000 0 20%, rgba(0,0,0,.3) 55%); mask-image: linear-gradient(180deg, #000 0 20%, rgba(0,0,0,.3) 55%); }
+  html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-gradient(180deg, var(--mask) 0 20%, color-mix(in srgb, var(--mask) 30%, transparent) 55%); mask-image: linear-gradient(180deg, var(--mask) 0 20%, color-mix(in srgb, var(--mask) 30%, transparent) 55%); }
   html[data-view="gallery"] .g-lead { font-size: var(--fs-lead); margin-top: var(--s-2); max-width: none; }   /* W6: was 19 px / 30ch; Playfair's wide "0" made 30ch a 2-line dek — keeps the W5 masthead height */
   html[data-view="gallery"] .g-acts { margin-top: var(--s-3); gap: var(--s-2); }
   html[data-view="gallery"] .g-acts .btn { padding: 0 var(--s-4); font-size:var(--fs-ui); }
@@ -104,7 +104,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 /* photo path (imagery lane hook): the credited photo replaces tint + pin art; plate stays; credit sits on the cover */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo { background: var(--sand); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo > img.ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo .plate { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo .plate { color: var(--on-photo); text-shadow: 0 1px 8px var(--shade-text); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .credit { position: absolute; left: 0; right: 0; top: calc(100% + 6px); margin: 0; padding: 0;
   background: none; color: var(--ink-3); font-size: var(--fs-xs); line-height: 1.4; white-space: normal; overflow: visible; text-overflow: clip; }   /* W7: the credit sits UNDER the media, never over it, never clipped */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover:has(> .credit) { overflow: visible; margin-bottom: calc(2 * 1.4 * var(--fs-xs) + 10px); }
@@ -145,7 +145,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .nat{font-family:var(--font-native);font-weight:500}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);min-height:44px;padding:0 var(--s-5);border-radius:var(--r-pill);border:1px solid var(--ink);background:var(--ink);color:var(--paper);font:600 var(--fs-ui) var(--font-ui);text-decoration:none;cursor:pointer;white-space:nowrap}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .btn.on-night{color:var(--on-night);border-color:rgba(245,238,223,.4)}
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .btn.on-night{color:var(--on-night);border-color:color-mix(in srgb, var(--star) 40%, transparent)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chip{display:inline-flex;align-items:center;gap:var(--s-2);min-height:44px;padding:0 var(--s-4);border-radius:var(--r-pill);border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font:500 var(--fs-sm) var(--font-ui);white-space:nowrap;cursor:pointer}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chip i{width:10px;height:10px;border-radius:50%}
@@ -334,11 +334,11 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-guidebook, [data-cleo-book]) .urls a{display:inline-flex;align-items:center;min-height:44px;overflow-wrap:anywhere}
 :is(.view-guidebook, [data-cleo-book]) .gk{display:block;font:italic 400 var(--fs-ui) var(--font-display);color:var(--ink-2)}
 @media print{:is(.view-guidebook, [data-cleo-book]) .top, :is(.view-guidebook, [data-cleo-book]) .toc, :is(.view-guidebook, [data-cleo-book]) .tools, :is(.view-guidebook, [data-cleo-book]) .foot, :is(.view-guidebook, [data-cleo-book]) .heart {display:none!important}
-.view-guidebook{background:#fff;color:#000;font-size:var(--fs-sm)}
+.view-guidebook{background:var(--print-paper);color:var(--print-ink);font-size:var(--fs-sm)}
 .view-guidebook .bk,.bk[data-cleo-book]{display:block}
 :is(.view-guidebook, [data-cleo-book]) .ch{break-before:page;border:0}
 :is(.view-guidebook, [data-cleo-book]) .gl{columns:2}
-:is(.view-guidebook, [data-cleo-book]) .ge{border-color:#ccc}
+:is(.view-guidebook, [data-cleo-book]) .ge{border-color:var(--print-rule)}
 :is(.view-guidebook, [data-cleo-book]) .src{border:0;padding:0}
 :is(.view-guidebook, [data-cleo-book]) .src::after{content:none}
 :is(.view-guidebook, [data-cleo-book]) .facts-box{position:static;break-inside:avoid}
@@ -435,7 +435,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
   :is(.view-guidebook, [data-cleo-book]) .gc-photo img { max-height: 55vh; object-fit: cover; }
   :is(.view-guidebook, [data-cleo-book]) .ch:first-of-type { break-before: auto; }
   :is(.view-guidebook, [data-cleo-book]) .ge, :is(.view-guidebook, [data-cleo-book]) .facts-box { break-inside: avoid; }
-  :is(.vw, [data-cleo-book], [data-cleo-insights]) .src { border: 0; padding: 0; min-height: 0; background: none; color: #000; }
+  :is(.vw, [data-cleo-book], [data-cleo-insights]) .src { border: 0; padding: 0; min-height: 0; background: none; color: var(--print-ink); }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .src::after { content: none; }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .tbl[open] table, :is(.vw, [data-cleo-book], [data-cleo-insights]) .tbl table { display: table; }
 }
@@ -535,10 +535,10 @@ html[data-view="gallery"] .split .pl-cover[data-comp="4"] .g-art { width: 62%; r
    and quiet the pin sky under the text column (desktop: left; phone: the whole column) so no dot sits on a word */
 html[data-view="gallery"] main > .masthead .title h1 { padding-bottom: .16em; }
 html[data-view="gallery"] main > .masthead .g-kick { margin-top: var(--s-2); }
-html[data-view="gallery"] main > .masthead :is(.title, .g-kick, .g-lead, .facts) { text-shadow: 0 0 10px var(--night, #12141f), 0 0 2px var(--night, #12141f); }
-html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.1) 0 38%, #000 66%); mask-image: linear-gradient(90deg, rgba(0,0,0,.1) 0 38%, #000 66%); }
+html[data-view="gallery"] main > .masthead :is(.title, .g-kick, .g-lead, .facts) { text-shadow: 0 0 10px var(--night), 0 0 2px var(--night); }
+html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-gradient(90deg, color-mix(in srgb, var(--mask) 10%, transparent) 0 38%, var(--mask) 66%); mask-image: linear-gradient(90deg, color-mix(in srgb, var(--mask) 10%, transparent) 0 38%, var(--mask) 66%); }
 @media (max-width: 639px) {
-  html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.1) 0 50%, rgba(0,0,0,.55) 100%); mask-image: linear-gradient(90deg, rgba(0,0,0,.1) 0 50%, rgba(0,0,0,.55) 100%); }
+  html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-gradient(90deg, color-mix(in srgb, var(--mask) 10%, transparent) 0 50%, color-mix(in srgb, var(--mask) 55%, transparent) 100%); mask-image: linear-gradient(90deg, color-mix(in srgb, var(--mask) 10%, transparent) 0 50%, color-mix(in srgb, var(--mask) 55%, transparent) 100%); }
 }
 /* Guidebook on phones: the italic lead and the stat line wrap, never clip */
 :is(.view-guidebook, [data-cleo-book]) :is(.lead, .gfacts, .gsig, .hoods, .ge-m) { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: break-word; min-width: 0; max-width: 100%; }
