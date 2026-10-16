@@ -1937,3 +1937,13 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **QC:** 27 rows, 21 verified, 6 open (Med 2, Low 4, High 0). QC-27 (a ja tier term) went to i18n.
   - **Imagery:** wave 4 (Belgium, Saarland, Dayton, State College). Leads 25/25, first row 51/51.
   - **Gates on f3f597a6:** validate, npm test (alone) and beta:check green.
+
+## 2026-10-16 18:52Z · orchestrator check-in
+
+- Head `edf94546` is gated green (validate, npm test alone, beta:check) and matches origin.
+- **Deploy pin `4aba38b3`:** QA's delta re-sign is still running.
+  - The w7 no-CDN storage row passes 20/20 on the pin and on 3ba696e8 once the harness accepts "Top picks". That failure was a harness artefact.
+  - QA is now checking the fix claims QA-72, QA-73, QA-59b and QA-55.
+- **QC register:** verified 24, open 3 (QC-04 Med; QC-13, QC-14 Low), High 0. QC-05 verified on e353df08.
+- **Location lane:** QC-25 closure sources batches 1 and 2 landed. Sokolowski's corrected to closed 2020. Decisions sent for batch 2; batches 3–4 next.
+- **FE-1:** sent a note asking it to confirm the desktop list never waits on `.ms-ready` when the map can't mount (rule 4).
