@@ -665,13 +665,19 @@ async function keyboard(page, maxTabs = 60) {
   const stops = [];
   for (let i = 0; i < maxTabs; i++) {
     await page.keyboard.press('Tab');
-    const st = await page.evaluate(() => { const a = document.activeElement; const prev = window.__qcPrev; window.__qcPrev = null;
+    const st = await page.evaluate(async () => { const a = document.activeElement; const prev = window.__qcPrev; window.__qcPrev = null;
       const sig1 = e => { const s = getComputedStyle(e); return [s.outlineStyle + s.outlineWidth + s.outlineColor, s.boxShadow, s.borderColor, s.backgroundColor, s.color, s.textDecorationLine].join('|'); };
       const sig = e => sig1(e) + '//' + (e.parentElement ? sig1(e.parentElement) : '') + '//' + (e.parentElement && e.parentElement.parentElement ? sig1(e.parentElement.parentElement) : '');
       let prevChanged = null; if (prev && prev.el !== a && prev.el.isConnected) prevChanged = sig(prev.el) !== prev.sig;   // the previous stop, now blurred: did its look change?
       if (!a || a === document.body) return { tag: 'BODY', prevChanged };
       const s = getComputedStyle(a); const r = a.getBoundingClientRect();
-      const ring = (s.outlineStyle !== 'none' && parseFloat(s.outlineWidth) > 0) || (s.boxShadow && s.boxShadow !== 'none');
+      let ring = (s.outlineStyle !== 'none' && parseFloat(s.outlineWidth) > 0) || (s.boxShadow && s.boxShadow !== 'none');
+      if (!ring) {   // a ring drawn on a :focus-within wrapper (e.g. the search field) is a valid indicator: it must appear on focus and go on blur
+        const rp = e => { const c = getComputedStyle(e); return (c.outlineStyle !== 'none' && parseFloat(c.outlineWidth) > 0 ? c.outlineStyle + c.outlineWidth + c.outlineColor : '') + '|' + c.boxShadow + '|' + c.borderColor; };
+        const wait = ms => new Promise(r => setTimeout(r, ms));   // wrapper rings often transition in: measure settled styles
+        let anc = []; for (let e = a.parentElement, k = 0; e && k < 3; e = e.parentElement, k++) if (e.matches(':focus-within')) anc.push(e);
+        if (anc.length) { await wait(400); anc = anc.map(e => [e, rp(e)]); a.blur(); await wait(400); const changed = anc.find(([e, f]) => rp(e) !== f && /solid|auto|dashed|dotted|rgb/.test(f)); a.focus({ preventScroll: true }); if (changed) ring = 'wrapper'; }
+      }
       window.__qcPrev = { el: a, sig: sig(a) };
       return { tag: a.tagName, t: (a.getAttribute('aria-label') || a.textContent || a.value || '').replace(/\s+/g, ' ').trim().slice(0, 40), view: a.getAttribute('data-view'), ring, onscreen: r.bottom > 0 && r.top < innerHeight && r.width > 0,
         inDialog: !!a.closest('[role=dialog]'), skip: /skip/i.test(a.textContent || ''), prevChanged }; });
@@ -828,7 +834,9 @@ async function journeysHub(rel, vp, theme) {
 const ALLOW = JSON.parse(fs.readFileSync(path.join(ROOT, 'design', 'beta', 'casing', 'allowlist.json'), 'utf8'));
 // Proper nouns the QC lane exempts on top of the casing allowlist: the product name, languages, and every collection,
 // cuisine, area and source name in any guide (a hub or the landing page quotes them). Reported separately if used.
-const QC_EXEMPT = ['Cleo', 'English', 'Japanese', 'French', 'German', 'Dutch', 'Vietnamese', 'Chinese', 'Malay', 'Thai', 'Korean', 'Tamil', 'Indonesian', 'Khmer', 'Burmese', 'Lao', 'Filipino'];
+const QC_EXEMPT = ['Cleo', 'English', 'Japanese', 'French', 'German', 'Dutch', 'Vietnamese', 'Chinese', 'Malay', 'Thai', 'Korean', 'Tamil', 'Indonesian', 'Khmer', 'Burmese', 'Lao', 'Filipino',
+  // place names that appear inside group labels (S-08 on r7: these are proper nouns, not casing slips)
+  'South Dade', 'Ohio Valley', 'Cambodia', 'Laos', 'Myanmar', 'Milk District', 'Audubon Park', 'SoDo', 'Mills 50'];
 const GLOBAL_EXEMPT = (() => { const x = new Set(QC_EXEMPT); Object.values(JSON_BY_BETA).forEach(d => {
   (d.collections || []).forEach(c => x.add(c.n.replace(/^★\s*/, ''))); (d.cuisines || []).forEach(c => x.add(c.n)); (d.areas || []).forEach(a => { x.add(a.n); x.add(a.n.split(' (')[0]); });
   if (d.name) x.add(d.name); Object.values(d.sources || {}).forEach(g => Object.values(g).forEach(s => { [s.t, s.l, s.k].forEach(v => v && x.add(v)); })); }); return [...x]; })();
@@ -1009,7 +1017,11 @@ function staticCensus() {
   const py = path.join(ROOT, 'design', 'beta', 'eval', 'r7', 'tools', 'probe-css.py');
   try {
     const out = JSON.parse(execFileSync('python3', [py, ROOT, LABEL], { encoding: 'utf8' }));
-    R.census = out; const raw = Object.fromEntries(['font-size', 'border-radius', 'letter-spacing', 'box-shadow'].map(k => [k, out[k] ? out[k].raw : null]));
+    // Not raw for token discipline (2026-10-16, stated in BETA-QC.md): a 50% circle radius, an em-relative font size, and a
+    // shadow whose every colour is a var() token (its geometry is structure, not palette). Everything else counts.
+    const notRaw = { 'border-radius': v => v === '50%', 'font-size': v => /^[\d.]+em$/.test(v), 'box-shadow': v => !/#[0-9a-f]{3,8}\b|rgba?\(|hsla?\(/i.test(v), 'letter-spacing': () => false };
+    R.census = out; const raw = Object.fromEntries(Object.keys(notRaw).map(k => [k, out[k] ? out[k].raw - (out[k].top_raw || []).filter(([v]) => notRaw[k](v)).reduce((n, [, c]) => n + c, 0) : null]));
+    R.census.rawValues = Object.fromEntries(Object.keys(notRaw).map(k => [k, out[k] ? (out[k].top_raw || []).filter(([v]) => !notRaw[k](v)) : []]));
     // raw colours outside tokens.css
     let css = ''; for (const f of fs.readdirSync(path.join(BETA, 'assets'))) if (f.endsWith('.css') && f !== 'tokens.css') css += fs.readFileSync(path.join(BETA, 'assets', f), 'utf8');
     css = css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/--[\w-]+\s*:[^;}]+/g, '');

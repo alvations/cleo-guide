@@ -47,7 +47,12 @@ never weakens a gate.
 
 ## In flight
 
-Nothing unpushed and no long run. The deploy pin is the **release branch `beta-deploy-r7`**, not the dev head. When the orchestrator sends the release SHA, run a clean worktree with `qc.js --only sweep --vps 1440` (S-16), the leak greps over `beta/{changes,feeds,data/places}` and the how-we-choose m.not.p browser check (`ex28.js` logic in BETA-QC.md). Set QC-29 to verified if S-16 is 0. QC-04 and Atlas rev 5 go in the next release. QC-13 and QC-14 are open (Low).
+A sweep runs at 1440 on release head **33a44d16** (scratch worktree `qc-33a44d16`) with the old probe; leak greps there are already 0. Harness change pushed in this commit:
+- S-15 accepts a settled `:focus-within` wrapper ring (the search field draws a 2px ring that transitions in; the probe read it before the transition);
+- S-08 exempts place names in group labels (South Dade, Ohio Valley, Laos…);
+- S-01 no longer counts a 50% radius, em font sizes or all-token shadows.
+
+Next: re-run S-01/S-08/S-15 with the new probe on 33a44d16. File QC-30 (S-08: casing.js `ownWords` keeps Park/River/Yokochō mid-label; designer + FE-A), QC-31 (data/prov sidecar raw notes; FE-B) and QC-32 (S-01: 66 raw colours and 11 px radii outside tokens: cleo.css 49/5, constellation.css 5/4, fe-a.css 12/2; designer + FE-B). Close QC-29 if S-16 is 0. QC-13 and QC-14 are open (Low).
 
 Next harness work:
 - P-25 and P-26 must discount entries that carry the D-42 note.
