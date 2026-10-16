@@ -15,7 +15,7 @@
  * idle; clear map % (map + pin points of the map pane); label coverage % of the map pane, widest label % of the map width,
  * label↔label and label↔control overlaps; control collisions (fixed / overlay controls over each other or over a pin);
  * "Search this area" on the first screen; toasts still up at idle; duplicate controls on one screen; compaction during a
- * move. Until the designer's OV-00 budgets land, the summary flags the worst 10 % per metric (plus every binary instance).
+ * move. Graded against the designer's OV-00 budgets (bb2af873); the distributions are kept for trend.
  *
  * Usage (from tools/): NODE_PATH=$(npm root -g) node beta/qa/qc-overlay.js --label <sha> [--root <checkout>]
  *   [--pages punggol,tokyo] [--vps 390x844,390x664,844x390,768x1024,1024x768,1440x900] [--themes light,dark]
@@ -38,7 +38,7 @@ const ctxOpts = (vp, theme) => { const v = VPS[vp]; return { viewport: { width: 
 
 // In-page measurement (string-built so qc.js can reuse it). Returns the metrics for the current screen.
 const MEASURE = new Function(`
-  const W = innerWidth, H = innerHeight, STEP = 8;
+  const W = innerWidth, H = innerHeight, STEP = W >= 1000 ? 16 : W >= 700 ? 12 : 8;   // ~5k points per sample at any size
   const cs = e => getComputedStyle(e);
   const shown = e => { if (!e || !e.isConnected) return false; const s = cs(e); if (s.display === 'none' || s.visibility === 'hidden' || +s.opacity === 0) return false;
     const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < H && r.right > 0 && r.left < W && !e.closest('[hidden]'); };
@@ -76,7 +76,9 @@ const MEASURE = new Function(`
   const out = { W, H, scrolls, map: !!mapC, sheet: !!dlg,
     chromeArea: pct(((n.chrome || 0) + (n.overlay || 0) + (n['sheet-chrome'] || 0)) / tot), bandTop: pct(top / rows.length), bandBottom: pct(bot / rows.length) };
   out.band = Math.round((out.bandTop + out.bandBottom) * 10) / 10;
-  if (mapC) { const a = inMap.all || 1; out.mapPane = pct(inMap.all / tot); out.clearMap = pct((inMap.map + inMap.pin) / a); out.labelCov = pct(inMap.label / a); out.overMap = pct((inMap.overlay + inMap.other) / a); }
+  if (mapC) { const a = inMap.all || 1; out.mapPane = pct(inMap.all / tot); out.clearMap = pct((inMap.map + inMap.pin) / a); out.labelCov = pct(inMap.label / a); out.overMap = pct((inMap.overlay + inMap.other) / a);
+    // OV-00 clear map excludes labels (they have their own caps): phones and T1 as % of the viewport, T2 and D as % of the map pane
+    out.clearVP = pct((inMap.map + inMap.pin + inMap.label) / tot); out.clearPane = pct((inMap.map + inMap.pin + inMap.label) / a); }
   // labels: widest, overlaps with each other and with controls
   const ctrlSel = 'button, a[href], input, select, [role=button], summary';
   const controls = [...document.querySelectorAll(ctrlSel)].filter(e => shown(e) && !e.closest('.leaflet-marker-pane') && !e.closest(CONTENT) && (fixedAnc(e) || (mapC && !mapC.contains(e) && mr && (() => { const r = e.getBoundingClientRect(); return r.left < mr.right && r.right > mr.left && r.top < mr.bottom && r.bottom > mr.top; })()) || (mapC && mapC.contains(e)) || (dlg && dlg.contains(e) && fixedAnc(e))));
@@ -92,6 +94,10 @@ const MEASURE = new Function(`
     out.widestLabel = labs.length ? pct(Math.max(...labs.map(e => tb(e).width)) / mr.width) : 0;
     out.widestLabelText = labs.length ? labs.reduce((a, b) => (tb(b).width > tb(a).width ? b : a)).textContent.trim().slice(0, 50) : '';
     let ll = 0; labs.forEach((a, i) => labs.slice(i + 1).forEach(b => { if (hit(tb(a), tb(b))) ll++; })); out.labelOverlaps = ll;
+    out.labelMaxPx = labs.length ? Math.round(Math.max(...labs.map(e => tb(e).width))) : 0;
+    const near = (a, b) => !(a.right + 4 <= b.left || b.right + 4 <= a.left || a.bottom + 4 <= b.top || b.bottom + 4 <= a.top);
+    let lg = 0; labs.forEach((a, i) => labs.slice(i + 1).forEach(b => { if (near(tb(a), tb(b))) lg++; })); out.labelGap = lg;
+    const at = [...mapC.querySelectorAll('.leaflet-control-attribution')].find(shown); out.attrW = at ? Math.round(R(at).width) : 0;
     let lc = 0; labs.forEach(a => controls.forEach(c => { if (!c.contains(a) && !a.contains(c) && hit(tb(a), R(c))) lc++; })); out.labelControl = lc;
     let cp = []; controls.forEach(c => pins.forEach(p => { if (!c.contains(p) && !p.contains(c) && hit(R(c), R(p), 2) && document.elementFromPoint((Math.max(R(c).left, R(p).left) + Math.min(R(c).right, R(p).right)) / 2, (Math.max(R(c).top, R(p).top) + Math.min(R(c).bottom, R(p).bottom)) / 2) !== p) cp.push(name(c) + ' / ' + ((p.textContent || '').trim().slice(0, 20) || 'pin')); }));
     out.controlPin = cp.length; out.controlPinSample = [...new Set(cp)].slice(0, 4);
@@ -109,6 +115,7 @@ const MEASURE = new Function(`
   const searches = [...document.querySelectorAll('button, a[href], input, [role=button]')].filter(e => shown(e) && onTop(e) && !e.closest(CONTENT) &&
     (/search/i.test(name(e)) || e.type === 'search' || /search/i.test(e.getAttribute('placeholder') || '')));
   if (searches.length > 1) out.duplicates.push('search ×' + searches.length + ' (' + searches.map(e => (name(e) || e.getAttribute('placeholder') || '').slice(0, 24)).join(' + ') + ')');
+  out.mapControl = controls.filter(e => name(e) === 'map').length; out.nearMe = controls.filter(e => /near me/.test(name(e))).length;
   out.view = document.documentElement.getAttribute('data-view') || null;
   return out;`);
 
@@ -155,43 +162,66 @@ async function main() {
       // the move: pan the map (drag from the middle of the map pane), else scroll the sheet's scroller, else the page
       const { W, H } = r.load;
       const mb = r.load.map ? await page.locator('.leaflet-container').filter({ visible: true }).first().boundingBox().catch(() => null) : null;
-      if (mb && !r.load.sheet) {
-        const cx = mb.x + mb.width / 2, cy = mb.y + mb.height / 2; await page.mouse.move(cx, cy); await page.mouse.down();
-        await page.mouse.move(cx - Math.min(140, mb.width / 4), cy - Math.min(90, mb.height / 4), { steps: 8 });
+      if (mb && !r.load.sheet) {   // OV-00: sample 300 ms into a 200 px pan (pointer still down), then 1.5 s after release
+        const cx = mb.x + mb.width / 2, cy = mb.y + mb.height / 2, dx = -Math.min(160, mb.width / 3), dy = -Math.min(120, mb.height / 3), k = 200 / Math.hypot(dx, dy);
+        await page.mouse.move(cx, cy); await page.mouse.down();
+        for (let i = 1; i <= 10; i++) { await page.mouse.move(cx + dx * k * i / 10, cy + dy * k * i / 10); await page.waitForTimeout(30); }
         r.during = await page.evaluate(MEASURE); await page.mouse.up(); r.move = 'pan';
       } else if (r.load.sheet) {
         r.move = await page.evaluate(() => { const d = [...document.querySelectorAll('[role=dialog]')].find(e => e.getBoundingClientRect().height > 80);
           const s = d && [d, ...d.querySelectorAll('*')].filter(e => e.scrollHeight > e.clientHeight + 40 && /auto|scroll/.test(getComputedStyle(e).overflowY)).sort((a, b) => b.clientHeight - a.clientHeight)[0];
-          if (!s) return 'none'; s.scrollTop += Math.round(s.clientHeight * 0.7); return 'sheet-scroll'; });
-        await page.waitForTimeout(150); r.during = await page.evaluate(MEASURE);
-      } else if (r.load.scrolls) { await page.mouse.wheel(0, Math.round(H * 0.8)); await page.waitForTimeout(200); r.during = await page.evaluate(MEASURE); r.move = 'scroll'; }
+          if (!s) return 'none'; s.scrollTop += 600; return 'sheet-scroll'; });
+        await page.waitForTimeout(300); r.during = await page.evaluate(MEASURE);
+      } else if (r.load.scrolls) { await page.mouse.wheel(0, 600); await page.waitForTimeout(300); r.during = await page.evaluate(MEASURE); r.move = 'scroll'; }   // OV-00: after a 600 px scroll
       else r.move = 'none';
-      await page.waitForTimeout(2200); r.idle = await page.evaluate(MEASURE);
+      await page.waitForTimeout(1500); r.idle = await page.evaluate(MEASURE);
+      if (r.idle.toasts && r.idle.toasts.length) { await page.waitForTimeout(1500); r.toastLate = (await page.evaluate(MEASURE)).toasts; }   // still up ≥ 4 s after load
     } catch (e) { r.error = e.message.slice(0, 160); }
     await ctx.close(); return r;
   };
   const queue = jobs.slice();
   await Promise.all(Array.from({ length: JOBS }, async () => { while (queue.length) { const j = queue.shift(); const r = await run(j); results.push(r);
     if (++done % 50 === 0) console.log(`  ${done}/${jobs.length}`); } }));
-  // flags: the worst 10 % per metric (until OV-00 budgets), plus every binary instance
-  const M = [['band', x => x.load && x.load.band, 'high'], ['chromeArea', x => x.load && x.load.chromeArea, 'high'], ['clearMap', x => x.load && x.load.clearMap, 'low'],
-    ['labelCov', x => x.load && x.load.labelCov, 'high'], ['widestLabel', x => x.load && x.load.widestLabel, 'high']];
-  const flags = [];
-  for (const [k, get, dir] of M) { const v = results.map(get).filter(x => x != null).sort((a, b) => a - b); if (v.length < 5) continue;
-    const cut = dir === 'high' ? v[Math.floor(v.length * 0.9)] : v[Math.floor(v.length * 0.1)];
-    results.forEach(r => { const x = get(r); if (x == null) return; if ((dir === 'high' && x >= cut && x > 0) || (dir === 'low' && x <= cut)) flags.push({ kind: k, value: x, cut, r }); }); }
-  results.forEach(r => { if (!r.load) return;
-    if (r.load.searchHere) flags.push({ kind: 'searchHereOnLoad', value: 1, r });
-    if (r.idle && r.idle.toasts && r.idle.toasts.length) flags.push({ kind: 'toastAtIdle', value: r.idle.toasts.join(' | '), r });
-    if (r.load.duplicates && r.load.duplicates.length) flags.push({ kind: 'duplicates', value: r.load.duplicates.join('; '), r });
-    if (r.load.controlCollisions) flags.push({ kind: 'controlCollision', value: r.load.controlCollisionSample.join('; '), r });
-    if (r.load.controlPin) flags.push({ kind: 'controlOverPin', value: r.load.controlPin, r });
-    if (r.load.labelOverlaps || r.load.labelControl) flags.push({ kind: 'labelOverlap', value: `label↔label ${r.load.labelOverlaps || 0}, label↔control ${r.load.labelControl || 0}`, r });
-    if (r.during && (r.move === 'pan' || r.move === 'scroll') && r.load.band >= 10 && r.during.band >= r.load.band - 2) flags.push({ kind: 'noCompact', value: `${r.load.band} → ${r.during.band} % (${r.move})`, r });
-    if (r.error) flags.push({ kind: 'error', value: r.error, r }); });
+  // OV-00 budgets (designer, bb2af873: SPEC-v3 §2.0 for Atlas, DESIGN-SYSTEM §v2.12 for every other view)
+  const VK = { '390x844': 'P1', '390x664': 'P2', '844x390': 'L', '768x1024': 'T1', '1024x768': 'T2', '1440x900': 'D' };
+  const ATLAS = { P1: [25, 8, 72, 90, 8, 8], P2: [32, 10, 64, 87, 7, 8], L: [13, 13, 80, 80, 10, 8], T1: [18, 8, 78, 90, 12, 7], T2: [15, 15, 90, 90, 16, 6], D: [12, 12, 92, 92, 16, 6] };   // chrome rest/pan, clear rest/pan, label count, label cover
+  const OTHER = { P1: [13, 7], P2: [16, 8], L: [13, 13], T1: [11, 6], T2: [8, 8], D: [8, 8] };                                                                 // chrome rest / after a 600 px scroll
+  const PHONE = { P1: 1, P2: 1, L: 1, T1: 1 };
+  const city = r => r.view !== 'page';
+  const owner = (kind, r) => {
+    if (r.view === 'atlas') return /^chrome/.test(kind) ? 'FE-A (header, switch) + Atlas FE-1 (chip row, peek)' : /^label/.test(kind) ? 'Atlas FE-1 + FE-2' : kind === 'duplicates' ? 'FE-B (search.js) + FE-A (city search) + designer' : 'Atlas FE-1';
+    if (kind === 'duplicates') return 'FE-B (search.js) + FE-A (city search) + designer';
+    if (r.view === 'sheet') return 'FE-C (sheet)';
+    if (r.view === 'gallery') return 'FE-A';
+    if (r.view === 'guidebook' || r.view === 'insights') return 'FE-B';
+    return 'FE-B (hubs, landing, trip, saved, method)'; };
+  const flags = [], push = (kind, value, budget, r) => flags.push({ kind, value, budget, r, owner: owner(kind, r) });
+  results.forEach(r => { if (!r.load) { if (r.error) push('error', r.error, '—', r); return; } const v = VK[r.vp], L = r.load, D = r.during, map = r.view === 'atlas' && L.map;
+    if (map) { const [cr, cp, kr, kp, lc, lv] = ATLAS[v]; const clear = x => (v === 'T2' || v === 'D' ? x.clearPane : x.clearVP);
+      if (L.band > cr) push('chromeRest', L.band, '≤ ' + cr + ' %', r);
+      if (D && D.band > cp) push('chromePan', D.band, '≤ ' + cp + ' % at 300 ms into a pan', r);
+      if (clear(L) < kr) push('clearRest', clear(L), '≥ ' + kr + ' %', r);
+      if (D && clear(D) < kp) push('clearPan', clear(D), '≥ ' + kp + ' % during a pan', r);
+      if (L.labels > lc) push('labelCount', L.labels, '≤ ' + lc, r);
+      if (L.labelCov > lv) push('labelCov', L.labelCov, '≤ ' + lv + ' % of the map', r);
+      if (PHONE[v] ? L.widestLabel > 40 : L.labelMaxPx > 220) push('labelWidth', PHONE[v] ? L.widestLabel + ' % (' + L.widestLabelText + ')' : L.labelMaxPx + ' px (' + L.widestLabelText + ')', PHONE[v] ? '≤ 40 % of the map width' : '≤ 220 px', r);
+      if (L.labelGap) push('labelGap', L.labelGap + ' pairs < 4 px', '≥ 4 px apart', r);
+      if (L.searchHere) push('searchHereOnLoad', 'shown at load', 'absent at load', r);
+      if (r.idle && r.idle.attrW > 60) push('attribution', r.idle.attrW + ' px wide 1.5 s after a pan', 'collapses to ⓘ on the first pan or after 5 s', r);
+      if (PHONE[v] && L.mapControl) push('mapControl', 'a control named "Map"', 'none on phone', r);
+      if (PHONE[v] && L.nearMe > 1) push('nearMeTwice', L.nearMe, 'once per screen', r); }
+    else if (city(r) || r.view === 'page') { const [cr, ca] = OTHER[v];
+      if (L.band > cr) push('chromeRest', L.band, '≤ ' + cr + ' %', r);
+      if (D && r.move !== 'none' && D.band > ca) push('chromeScroll', D.band, '≤ ' + ca + ' % after a 600 px scroll', r); }
+    if (r.toastLate && r.toastLate.length) push('toast', r.toastLate.join(' | '), 'leaves within 4 s', r);
+    if (L.duplicates && L.duplicates.length) push('duplicates', L.duplicates.join('; '), 'one control per action', r);
+    if (L.controlCollisions) push('controlCollision', L.controlCollisionSample.join('; '), 'none', r);
+    if (L.controlPin) push('controlOverPin', L.controlPin + ': ' + (L.controlPinSample || []).join('; '), 'none', r);
+    if (L.labelControl) push('labelOverControl', L.labelControl, 'none', r);
+    if (r.error) push('error', r.error, '—', r); });
   // shots for the worst instance of each (kind, view, vp) group, up to --shots
-  const groups = {}; flags.forEach(f => { const g = [f.kind, f.r.view, f.r.vp].join('|'); (groups[g] = groups[g] || []).push(f); });
-  const gl = Object.entries(groups).map(([g, l]) => ({ g, l, worst: l.slice().sort((a, b) => (typeof b.value === 'number' ? b.value : 0) - (typeof a.value === 'number' ? a.value : 0))[0] }));
+  const groups = {}; flags.forEach(f => { const g = [f.kind, f.r.view === 'page' ? 'page' : f.r.view, f.r.vp].join('|'); (groups[g] = groups[g] || []).push(f); });
+  const gl = Object.entries(groups).map(([g, l]) => ({ g, l, worst: l.slice().sort((a, b) => (typeof b.value === 'number' ? b.value : parseFloat(b.value) || 0) * (/clear/.test(b.kind) ? -1 : 1) - (typeof a.value === 'number' ? a.value : parseFloat(a.value) || 0) * (/clear/.test(a.kind) ? -1 : 1))[0] }));
   let s = 0; for (const x of gl) { if (s >= NSHOTS) break; const w = x.worst.r; const name = [x.worst.kind, w.view, w.vp, w.theme, w.page.replace(/[^a-z0-9]+/gi, '-')].join('_');
     await run({ ...w }, name); x.shot = path.relative(OUTROOT, path.join(SHOTS, name + '.jpg')); s++; }
   await browser.close(); srv.close();
@@ -199,11 +229,11 @@ async function main() {
   const pctl = (k, get) => { const v = results.map(get).filter(x => x != null).sort((a, b) => a - b); if (!v.length) return '—'; const q = p => v[Math.min(v.length - 1, Math.floor(v.length * p))]; return `${q(0.5)} / ${q(0.9)} / ${v[v.length - 1]}`; };
   const md = [`# S-17 overlay and chrome · ${LABEL}`, '', `${results.length} runs (${new Set(results.map(r => r.page)).size} pages; viewports ${vps.join(', ')}; themes ${themes.join(', ')}; views ${views.join(', ')}). Errors: ${results.filter(r => r.error).length}.`, '',
     '## Distributions (median / p90 / max)', '', '| Metric | All | Atlas | Sheet |', '|---|---|---|---|'];
-  for (const [k, lab] of [['band', 'chrome bands % of height (load)'], ['chromeArea', 'chrome area % (load)'], ['clearMap', 'clear map %'], ['labelCov', 'label coverage % of map'], ['widestLabel', 'widest label % of map width']])
+  for (const [k, lab] of [['band', 'chrome bands % of height (load)'], ['chromeArea', 'chrome area % (load)'], ['clearVP', 'clear map % of viewport (labels excluded)'], ['clearPane', 'clear map % of pane'], ['labels', 'label count'], ['labelCov', 'label coverage % of map'], ['widestLabel', 'widest label % of map width']])
     md.push(`| ${lab} | ${pctl(k, r => r.load && r.load[k])} | ${pctl(k, r => r.view === 'atlas' && r.load ? r.load[k] : null)} | ${pctl(k, r => r.view === 'sheet' && r.load ? r.load[k] : null)} |`);
-  md.push('', '## Instance groups (kind · view · viewport): runs, worst, screenshot', '', '| Kind | View | Viewport | Runs (pages) | Worst | Page · theme | Shot |', '|---|---|---|---|---|---|---|');
-  gl.sort((a, b) => b.l.length - a.l.length).forEach(x => { const w = x.worst.r; md.push(`| ${x.worst.kind} | ${w.view} | ${w.vp} | ${x.l.length} (${new Set(x.l.map(f => f.r.page)).size}) | ${String(x.worst.value).replace(/\|/g, '\\|').slice(0, 90)} | ${w.page} · ${w.theme} | ${x.shot ? '`' + x.shot + '`' : '—'} |`); });
+  md.push('', '## Instance groups (kind · view · viewport): runs, worst, screenshot', '', '| Kind | View | Viewport | Failing runs / of (pages) | Budget | Worst | Page · theme | Owner | Shot |', '|---|---|---|---|---|---|---|---|---|');
+  gl.sort((a, b) => b.l.length - a.l.length).forEach(x => { const w = x.worst.r; const of = results.filter(r => r.view === w.view && r.vp === w.vp).length; md.push(`| ${x.worst.kind} | ${w.view} | ${w.vp} | ${x.l.length} / ${of} (${new Set(x.l.map(f => f.r.page)).size}) | ${x.worst.budget} | ${String(x.worst.value).replace(/\|/g, '\\|').slice(0, 90)} | ${w.page} · ${w.theme} | ${x.worst.owner} | ${x.shot ? '`' + x.shot + '`' : '—'} |`); });
   fs.writeFileSync(path.join(OUT, 'summary.md'), md.join('\n') + '\n');
-  fs.writeFileSync(path.join(OUT, 'groups.json'), JSON.stringify(gl.map(x => ({ kind: x.worst.kind, view: x.worst.r.view, vp: x.worst.r.vp, runs: x.l.length, pages: [...new Set(x.l.map(f => f.r.page))], themes: [...new Set(x.l.map(f => f.r.theme))], worst: x.worst.value, cut: x.worst.cut, worstPage: x.worst.r.page, worstTheme: x.worst.r.theme, shot: x.shot || null })), null, 1));
+  fs.writeFileSync(path.join(OUT, 'groups.json'), JSON.stringify(gl.map(x => ({ kind: x.worst.kind, view: x.worst.r.view, vp: x.worst.r.vp, runs: x.l.length, pages: [...new Set(x.l.map(f => f.r.page))], themes: [...new Set(x.l.map(f => f.r.theme))], worst: x.worst.value, budget: x.worst.budget, owner: x.worst.owner, of: results.filter(r => r.view === x.worst.r.view && r.vp === x.worst.r.vp).length, worstPage: x.worst.r.page, worstTheme: x.worst.r.theme, shot: x.shot || null })), null, 1));
   console.log('wrote', path.relative(OUTROOT, OUT), results.length, 'runs,', flags.length, 'flags,', gl.length, 'groups');
 }

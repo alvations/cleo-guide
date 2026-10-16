@@ -37,6 +37,9 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
    with them. Tighten the check once FE-1 picks a wording or a live count.
 3. QA-70 flake ruling is QA's (FE-B's switcher probe races the sheet's view transition).
 ## In flight
+- 3e28007f (origin after OV-01 / OV-00 / S-17): full atlas-ms + atlas-nav-ms 268 PASS, 0 FAIL; beta == live; D-46 still
+  SKIP (DV gallery). Asked FE-1 to split R8 gap 3 (map motion: card ↔ pin hover, preview grow); OV-03 labels and
+  gap 4 are FE-1's (pins/chrome).
 - Nothing unpushed. QA-70 flake counts were sent to the orchestrator (feb-switcher Tokyo, 10 runs per head):
   be74c82f 0/10, 530dc83b 10/10 (195/260 expected there; 390 click 2/10), a3da0b4b 4/10 (390 click). The probe races
   the sheet's view transition at a fixed 600 ms; QA rules.

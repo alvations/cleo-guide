@@ -30,7 +30,7 @@
   // hooks for foryou.js / day.js: rank(card) → sort key (lower first) and why(card) → 'First because' text; lens[k](n) → html;
   // after[] run once per apply (map overlays); dist {id: km} while Near me is on (never stored)
   const nameOf = c => { const a = $('.pl-n a', c); if (!a) return ''; const x = a.cloneNode(true); if (c.querySelector('.pl-vert')) $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };
-  const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, lens: {}, after: [], rank: null, why: null, dist: null };
+  const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, LENS /* atlas.js: the map's first view is predicted only with no lens on (D-46) */, lens: {}, after: [], rank: null, why: null, dist: null };
   $$('[data-cleo-rail],[data-cleo-toolbar],[data-cleo-search],[data-cleo-mappill]').forEach(el => { el.hidden = false; });
   // QA-69: the floating "Show map" pill stays visible at load and at rest — the first screen's way to the map. (The W8
   // step-aside hid it at load whenever a card title sat under it; B-08 passes under the ratified .mappill exemption.)
@@ -192,8 +192,9 @@
         // FE-B QC-18: measured against the indicator's own containing block, not the button's offsetParent — the Atlas parks
         // the switcher in the header, where the two differ and offsetLeft put the thumb 114 px off the pressed segment
         const op = ind.offsetParent || nav, o = op.getBoundingClientRect(), r = b.getBoundingClientRect();
-        ind.style.opacity = ''; ind.style.left = (r.left - o.left - op.clientLeft + op.scrollLeft) + 'px'; ind.style.width = r.width + 'px';
-        ind.style.top = (r.top - o.top - op.clientTop + op.scrollTop) + 'px'; ind.style.height = r.height + 'px'; };
+        // moved by transform, not left/top: a re-placed indicator (boot, the Atlas header park) is never a layout shift (D-46)
+        ind.style.opacity = ''; ind.style.transform = 'translate(' + (r.left - o.left - op.clientLeft + op.scrollLeft) + 'px,' + (r.top - o.top - op.clientTop + op.scrollTop) + 'px)';
+        ind.style.width = r.width + 'px'; ind.style.height = r.height + 'px'; };
       nav.classList.add('has-ind'); place(); on(window, 'resize', place); if (d.fonts && d.fonts.ready) d.fonts.ready.then(place);
       // i18n D-41: the labels changed width. FE-B QC-18: re-measure after the swap lays out, and whenever the switcher or a
       // segment changes size (a late font, a locale, a breakpoint) — the fonts.ready line above had been commented out
@@ -358,8 +359,8 @@
   const el0 = () => d.getElementById('cleo-map') || main;
   // phones: the chip row (top) and the card carousel (bottom) float over the full-bleed map, so a fit that ignores them
   // parks pins underneath. Fit inside the uncovered band (QA-34; the day route sits above the carousel too).
-  const overMap = C.overMap = () => { const m = el0().getBoundingClientRect(), lp = $('.listpane'), bar = $('.ms-bar'), H = d.documentElement; let t = 0, b = 0;
-    if (!desk() && H.classList.contains('atlas-m') && !H.classList.contains('ms-list')) {
+  const overMap = C.overMap = () => { const lp = $('.listpane'), bar = $('.ms-bar'), H = d.documentElement; let t = 0, b = 0;
+    if (!desk() && H.classList.contains('atlas-m') && !H.classList.contains('ms-list')) { const m = el0().getBoundingClientRect();   // phones only: desktop pads are fixed, so no layout read (INP)
       // the bottom overlay: the carousel after a selection, else the 56 px list peek (SPEC-v3 §2.2 rev 5a)
       const pk = $('.ms-toggle'), bo = lp && lp.offsetHeight ? lp : pk && pk.offsetHeight ? pk : null; if (bo) b = Math.max(0, m.bottom - bo.getBoundingClientRect().top);
       if (bar && bar.offsetHeight) t = Math.max(0, bar.getBoundingClientRect().bottom - m.top); }

@@ -41,7 +41,7 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | W9-2 (a): "Status checked <d Mon>" also on Gallery row cards (li.gc) and the Atlas preview (a.ms-pv), dated from the place's card/stub (fresh.js views()); test-fe-c FRESH (Cleveland 71/71 rows) + probe rec-pv. Next (b2): when platform lands `data-nosearch` in Cleo.lens.text, switch .pl-chk lines to real text with data-nosearch, drop attr(); test "oct" / 10月 matches no card by the line | 1074d90c1 | — |
 | W9-2 (b2): the line is real text with `data-nosearch` (platform f03b03cf) on li.pl, li.gc, a.ms-pv; attr() rendering dropped; test-fe-c: Cleveland #q=aug shows only cards matching by their own text (181 lines read "… Aug"), #q=8月 none; eager JS unchanged (39.97/40 KB, fresh.js lazy) | 86b7558e4 | — |
 | QC-05 one state per view: Atlas uses FE-1's list-head state (ec71a4ad, my city.empty.* keys), so `html[data-view=atlas] [data-cleo-empty]{display:none}`; probe `empty` checks FE-1's head in Atlas (opens the phone list) | 70ddc1c9e | — |
-| Overlay audit (owner directive; docs/BETA-OVERLAY-LEDGER.md): tools/beta/qa/overlay/fe-c-overlay.js over all FE-C surfaces × 6 viewports × light/dark; OV-08 (share preview cut off in landscape) fixed in share-card.js + probe `card-fit`; OV-09..11 (place sheet: FE-A/FE-1) and OV-12 (base note height, awaiting OV-00) logged | this push | — |
+| Overlay audit (owner directive; docs/BETA-OVERLAY-LEDGER.md): tools/beta/qa/overlay/fe-c-overlay.js over all FE-C surfaces × 6 viewports × light/dark; OV-08 (share preview cut off in landscape) fixed in share-card.js + probe `card-fit`; OV-09..11 (place sheet: FE-A/FE-1) and OV-12 (base note height, awaiting OV-00) logged | 7f88a5ab2 | — |
 
 ## Next
 

@@ -93,6 +93,15 @@ Current rows:
     - The notes have gone to the orchestrator; FE-A, FE-1 and FE-2 build it.
 15. **R4b (ffbb225a): dark dots signed off.** Circles measure 2.2:1 and squares 4.9:1. D-43 is a clear no (FE-1 0a4e5751, "Approximate pin"). **Blocker for round 4:** the R4b phone peek lost its word spaces. It's with FE-1; a local shot of the fix is enough, then round 4 is ready.
 16. **OV-00** (owner directive, Punggol screenshot): written into SPEC-v3 §2.0 (Atlas budgets per viewport, at rest and while panning; auto-compact; icon-only control stack; collapsing attribution; label caps, count and coverage; the "Search this area" slot; chip-row fade; landscape) and DESIGN-SYSTEM §v2.12 (site-wide: only the header always stays; second rows compact on scroll; scroll-page budgets; floating, toast and banner rules; sideways edges). QC and the orchestrator have the numbers. The ledger is docs/BETA-OVERLAY-LEDGER.md (orchestrator and QC's), where my row is OV-00.
+17. **OV-00 addition, one search per screen** (DESIGN-SYSTEM §v2.12 3a): on city pages, desktop uses the city field (no header icon); phone uses the header icon, which opens the city search. The last result row is always "Search all guides for q". FE-B and FE-A have been told.
+18. **R8 (90.7) designer gaps:**
+    - **Map motion:** SPEC §3.7 has the two moments, select → grow (200 ms) and hover (120 ms), with zero animations under reduced motion.
+    - **D-43 re-ruled:** approximate pins get a soft 20 px uncertainty halo (an area cue, not an outline). The 235 low pins are R8's evidence.
+    - **Gap #7:**
+      - line-heights tokenised; designer raw values are down to {1, 22px, 1.9}. FE-A and FE-B have the map.
+      - `--fs-d2` is now 24 px, and V2.22 moves the display face below 24 px to the UI face.
+      - build-css strips whitespace after ':' and ',', taking cleo.css to 194.8 KB (it was 200.2 KB, over the budget).
+    - **D12/D13 notes:** sent to the orchestrator.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight
