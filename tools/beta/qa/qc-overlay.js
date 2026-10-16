@@ -38,7 +38,7 @@ const ctxOpts = (vp, theme) => { const v = VPS[vp]; return { viewport: { width: 
 
 // In-page measurement (string-built so qc.js can reuse it). Returns the metrics for the current screen.
 const MEASURE = new Function(`
-  const W = innerWidth, H = innerHeight, STEP = 8;
+  const W = innerWidth, H = innerHeight, STEP = W >= 1000 ? 16 : W >= 700 ? 12 : 8;   // ~5k points per sample at any size
   const cs = e => getComputedStyle(e);
   const shown = e => { if (!e || !e.isConnected) return false; const s = cs(e); if (s.display === 'none' || s.visibility === 'hidden' || +s.opacity === 0) return false;
     const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < H && r.right > 0 && r.left < W && !e.closest('[hidden]'); };

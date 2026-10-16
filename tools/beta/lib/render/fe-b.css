@@ -316,3 +316,7 @@
   body.has-tabbar>.tabbar{display:none}
   body.has-tabbar .topnav{display:flex}
 }
+
+/* R8 gap #5b (B-20): the What changed "Status source" link is a stand-alone control after the sentence, not prose — a
+   44 px tap area (min-height --tap), the text unchanged */
+.chg a.chg-src{display:inline-flex;align-items:center;min-height:var(--tap);min-width:var(--tap)}

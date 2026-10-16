@@ -130,13 +130,36 @@ When a label lowercases a proper noun, add the noun to `allowlist.json`, never t
   - The credit always sits under the media, never over it, and is never clipped.
   - Short form (imagery `captionHtml`): "Photo: ⟨author⟩ · ⟨licence⟩ · Wikimedia Commons (resized)".
   - The licence and the source are links. The work's title sits in the source link's accessible name and title, which satisfies CC 2.0/3.0 "title if supplied".
-  - The credit is one sentence in ink-3 at `--fs-xs`, line-height 1.6. Its links get a 44 px hit area from inline padding, so the line box doesn't grow.
+  - The credit is one sentence in ink-3 at `--fs-xs` (`--lh-body`), **on one line under a card** (R8 trust: 2–3 line credits read as clutter). The author ellipsises first, with the full credit in `title`; under a hero it may wrap. Its links get a 44 px hit area from inline padding, so the line box doesn't grow.
 - **Inside a link:** a card that is itself one link puts the credit *after* the link (`li > a.card + p.credit`), because a credit's own links may not nest inside an `<a>`.
 - **Loading and weight:**
   - Lazy and `decoding="async"` everywhere except a hub's hero, which is eager with `fetchpriority="high"`.
   - `srcset` comes from the imagery widths (500 / 960 for cards, 640 / 1280 for heroes). `sizes` matches the real column width, so a 3× phone takes the 500 w copy for a ~170 px card.
   - Budget (D-38): a page's default first load stays ≤ 2.0 MB on desktop and on a 390 px phone at 3×.
 - **No repeats:** a hub card never repeats its hub's hero photo (render guard plus `test-hubs.js`).
+
+## v2.7a Designed food covers (R8 D13 "food-led first rows are sand")
+
+Food places are never photographed (§v2.7). So a food cover has to be *designed*, not left blank. Imagery builds the art in `tools/beta/imagery/motifs.js`; FE-A only places it in the existing cover box (orchestrator, 2026-10-16).
+
+**Anatomy** (the same box as a photo: `--r-l`, no frame):
+1. **Ground:** `--cover-food`, with the **city's own ground pattern** from `motifs.js` (`t`: seigaiha for Tokyo, the grid for New York, waves for Cleveland …) laid over it at `--ink` 5 % (light) / 7 % (dark). Food rows then look like the city, not like sand.
+2. **The dish glyph, large:** the cuisine's line glyph from the kit (`icons.json`: bowl, noodles, sushi, dumpling, bread, cup, cocktail, cake, ice, fish, sandwich, steam, dango; `forkknife` only as a last resort). It's drawn at **56 % of the cover height**, anchored bottom-right, and bleeds off the edge by about 15 %. The stroke is `--ink` at 22 % (light) / 28 % (dark), with a 1.5 px non-scaling stroke. It's decoration (`aria-hidden`): an editorial illustration, not a stamp.
+3. **The dish word**, bottom-left at a 16 px inset:
+   - FE-A's cover word: never the area, never a source name, never a repeat of the kind line.
+   - Display face 600 at `--fs-d2` (24 px, the display floor), `--ink`, at most 2 lines, `text-wrap: balance`.
+4. **The native dish name,** when the record has one (ラーメン, phở, 小笼包): just above the dish word, in `--font-native` 500 at `--fs-sm`, `--ink-2`, with the right `lang`. Vietnamese keeps its diacritics. It's never machine-transliterated.
+
+**Rules:**
+- Adjacent cards in a row never repeat the same glyph twice running. If two dishes share one, the second uses the next-best glyph from its cuisine set.
+- No colour beyond the tokens: no sun, no oxblood.
+- **Weight:** the art is inline SVG or a CSS custom property, adding no request. The glyph set is shared, so it costs under 1 KB per city skin.
+- AA: the dish word is about 15:1 on `--cover-food` in both themes.
+
+**Acceptance:**
+- On New York ("New York classics") and Chinatown ("The hawker canon"), every no-photo food card in the first row shows the city pattern, a glyph and the dish word, plus the native name where the data has one.
+- No two adjacent covers repeat a glyph.
+- `test-imagery.js` still refuses food photos.
 
 ## v2.8 Page patterns
 
