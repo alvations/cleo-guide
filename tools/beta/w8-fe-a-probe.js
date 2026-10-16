@@ -243,6 +243,15 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
       await page.close();
     }
     await ctx.close(); }
+  console.log('# B-20 (FE-B sweep): the card "Must see" link is a ≥ 44 × 44 tap target on phones');
+  { const ctx = await ctxFor(b, 390);
+    for (const u of ['cities/akron.html#all=1', 'cities/ghent.html#all=1', 'cities/okinawa.html#all=1', 'cities/tokyo.html#all=1']) {
+      const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u, { waitUntil: 'load' }); await page.waitForTimeout(1300);
+      const r = await page.evaluate(() => { const t = [...document.querySelectorAll('li.pl .pl-e a.tier')].filter(e => e.getClientRects().length && getComputedStyle(e).position !== 'absolute' || (e.getClientRects().length && e.getBoundingClientRect().width > 2));
+        const small = t.map(e => e.getBoundingClientRect()).filter(r => r.width > 2 && (r.width < 44 || r.height < 44)).map(r => [Math.round(r.width), Math.round(r.height)]); return { n: t.length, small: small.slice(0, 3) }; });
+      ok(r.n > 0 && !r.small.length, `@390 ${u}: ${r.n} tier links, none under 44 × 44`, r.small); await page.close();
+    }
+    await ctx.close(); }
   console.log('# QC-07: Esc returns focus to the control that opened the sheet');
   for (const w of [390, 1440]) {
     const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);
