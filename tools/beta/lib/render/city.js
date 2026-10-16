@@ -24,6 +24,7 @@ function offlineStrings(city, n) {
 }
 const { head, siteBar, footer, BETA_BASE } = require('./common');
 const { rowsOf: galleryRows } = require('../gallery');
+const { leadCardHtml, ENABLED: SSR_LEAD } = require('../lead-card');   // PERF-18 (platform)
 const { sentence, ownWords } = require('../casing');
 // QC-25: the first http(s) URL in a geocodes statusSource note, or '' (the note itself is never shown)
 const statusUrl = n => ((/https?:\/\/[^\s;,'"()<>]+/.exec(String(n || '')) || [])[0] || '').replace(/[.]+$/, '');
@@ -67,8 +68,8 @@ const ICONS = {
   wave: '<path d="M2.5 8.5c2.4 0 2.4-2 4.75-2S9.6 8.5 12 8.5s2.4-2 4.75-2 2.35 2 4.75 2M2.5 13.5c2.4 0 2.4-2 4.75-2s2.35 2 4.75 2 2.4-2 4.75-2 2.35 2 4.75 2M2.5 18.5c2.4 0 2.4-2 4.75-2s2.35 2 4.75 2 2.4-2 4.75-2 2.35 2 4.75 2"/>',   // design/beta/tools/build-css.py NEW
   flag: '<path d="M5 21V3.5M5 4h12l-2.5 4L17 12H5"/>',
   frame: '<rect x="3.5" y="4.5" width="17" height="15" rx="1"/><path d="M6.5 16.5l4-5 3 3.5 2-2.2 2 3.7"/><circle cx="15.5" cy="8.5" r="1.3"/>',   // design/beta/tools/build-css.py NEW
-  bag: '<path d="M5.5 8h13l-1 12.5h-11z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/>',   // FE-1, original: a shopping bag (markets, arcades, shopping streets)
-  spire: '<path d="M12 2.5v3M10.5 4h3"/><path d="M12 5.5l-4.5 6.5v8.5h9V12z"/><path d="M10.5 20.5v-4a1.5 1.5 0 0 1 3 0v4"/>',   // FE-1, original: a church spire (worship outside Japan)
+  bag: '<path d="M5 8h14l-1 12.5H6z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/>',   // the kit's bag (design/beta/style/v2/icons): markets, arcades, shopping streets
+  spire: '<path d="M12 2.5l3.5 6.5v11.5h-7V9z"/><path d="M5 20.5h14M10.5 20.5v-4a1.5 1.5 0 0 1 3 0v4M12 9.5v2.5"/>',   // the kit's spire, no faith mark: churches only (SPEC-v3 §1.2 rev 5a)
   awning: '<path d="M3 9l2-5h14l2 5"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v8.5h14V12M10 20.5v-5h4v5"/>',
   moon: '<path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/><path d="M17 4l.5 1.3 1.3.5-1.3.5L17 7.6l-.5-1.3-1.3-.5 1.3-.5z"/>',
   bubble: '<path d="M4 4.5h16v11.5H10.5L5.5 20v-4H4z"/><path d="M12 6.8l1.1 2.4 2.6.3-1.9 1.7.5 2.5-2.3-1.3-2.3 1.3.5-2.5-1.9-1.7 2.6-.3z"/>',
@@ -143,11 +144,12 @@ const orderArea = list => list.map((r, i) => [r, i]).sort(([x, i], [y, j]) =>
 // the map pin's glyph for a sight (SPEC-v3 §1.2, rev 5): step 0 a per-place override (design/beta/atlas/glyph-overrides.json,
 // designer-owned, each with its reason), then the type noun in the place's OWN NAME, then its collection's glyph, then the
 // compass — a pictogram, never a category or cuisine tag. Japanese place-name suffixes count as nouns (Sensō-ji, Meiji
-// Jingū, Kabuki-za, Rikugi-en, Takeshita-dōri). Worship: the torii for a shrine, the lantern for a temple on Japan pages,
-// the spire elsewhere (the torii is Shinto-specific)
+// Jingū, Kabuki-za, Rikugi-en, Takeshita-dōri). Worship (rev 5a): the torii for a shrine and the lantern for a temple on
+// Japan pages; the spire for a church, cathedral, chapel or basilica; any other house of worship (and a temple or shrine
+// off Japan) takes no noun glyph and falls through to its collection's
 const GLYPH_OVR = (() => { try { return JSON.parse(require('fs').readFileSync(require('path').resolve(__dirname, '../../../../design/beta/atlas/glyph-overrides.json'), 'utf8')); } catch (e) { return {}; } })();
 const NOUN = [[/-(?:jinja|gū|gu|taisha)\b|\b(?:jinja|jingū|jingu|taisha|myōjin|shrine)\b/i, 'torii'], [/-(?:ji|dera|in)\b|\btemple\b/i, 'temple'],
-  [/\b(?:church|cathedral|chapel|synagogue|basilica|mosque)\b/i, 'church'],
+  [/\b(?:church|cathedral|chapel|basilica)\b/i, 'church'],
   [/-jō\b|\b(?:castle|palace)\b/i, 'castle'], [/-za\b|\b(?:theat(?:re|er)|playhouse|stadium|arena)\b/i, 'ticket'],
   [/\b(?:brewing|brewery|distillery|winery|taproom)\b/i, 'bottle'], [/\b(?:statue|sculpture)\b/i, 'frame'],
   [/\b(?:museum|gallery|library|hall|institute)\b/i, 'columns'], [/-(?:en|teien)\b|\b(?:park|gardens?|reservation|preserve|arboretum|conservatory|trail)\b/i, 'leaf'],
@@ -155,7 +157,7 @@ const NOUN = [[/-(?:jinja|gū|gu|taisha)\b|\b(?:jinja|jingū|jingu|taisha|myōji
   [/yokoch[oō]\b|-d[oō]ri\b|-gai\b|sh[oō]tengai\b|\b(?:market|shop|bookstore|arcade)\b/i, 'bag'], [/\b(?:cemetery|memorial|monument)\b/i, 'flag']];
 const mapGlyphOf = (r, gl, japan, key) => { if (r.kind === 'food') return '';
   const o = GLYPH_OVR[key + '/' + r.id], hit = !o && NOUN.find(([re]) => re.test(r.n));
-  const g = o ? o.gl : !hit ? gl : hit[1] === 'temple' ? (japan ? 'lantern' : 'spire') : hit[1] === 'church' ? 'spire' : hit[1] === 'torii' && !japan ? 'spire' : hit[1];
+  const g = o ? o.gl : !hit ? gl : hit[1] === 'temple' ? (japan ? 'lantern' : gl) : hit[1] === 'church' ? 'spire' : hit[1] === 'torii' && !japan ? gl : hit[1];
   return g && g !== gl ? g : ''; };
 const glyphOf = (r, page) => { const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
   return r.kind === 'food' ? glyphFor(r.cz[0], czN[0], true) : glyphFor(r.g.find(g => g !== 'ICON' && g !== 'FREE') || r.g[0], '', false); };
@@ -338,7 +340,8 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   byArea.forEach(l => ordered.push(...l)); ordered.push(...orderArea(orphan));
   // W8 (R6 gap #8): the lead is ONE pick, lib/gallery.js rowsOf().lead — the record the lead card draws — so "Start with"
   // can never name a different place from the card under it (two near-identical pickers had drifted on 17 of 21 pages)
-  const gRows = galleryRows({ areas: areasAll, collections: page.CATS || [], cuisines: page.CUISINES || [], guide: row.guide, places: recs }, name);
+  // PERF-18 (platform): photos too, as data/gallery/<page>.json is built, so the server-rendered lead card carries its photo
+  const gRows = galleryRows({ areas: areasAll, collections: page.CATS || [], cuisines: page.CUISINES || [], guide: row.guide, places: recs, photos: (row.imagery && row.imagery.photos) || {} }, name);
   const leadId = (gRows.lead || {}).id;
   const leadR = recs.find(r => r.id === leadId) || ordered.find(r => !r.closed) || ordered[0];
   // W7 (owner: full UI/UX overhaul): a quiet hero — the city name, one line and the count line, with the imagery lane's
@@ -390,7 +393,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
-    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition, fresh: ctx.assetsV.fresh, empty: ctx.assetsV.empty /* FE-C W9-5 / W9-7 / W9-1 / W9-2 / QC-05 hook */ },  // loaded on first use (C.need / views.js), precached by the SW
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition, fresh: ctx.assetsV.fresh, empty: ctx.assetsV.empty /* FE-C W9-5 / W9-7 / W9-1 / W9-2 / QC-05 hook */, pack: ctx.assetsV.pack /* platform W9-8: lazy offline pack */ },  // loaded on first use (C.need / views.js), precached by the SW
     views: VIEWS, dv: DV,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
@@ -398,6 +401,9 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     // area locator art (lib/art.js): [src, w, h, pad, minLat, minLng, maxLat, maxLng, kx, ky] → the sheet's inset
     art: Object.fromEntries(Object.entries((row.art && row.art.areas) || {}).map(([a, x]) => [a, [up + x.src, x.w, x.h, x.proj.pad].concat(x.proj.box, [+x.proj.kx.toFixed(4), +x.proj.ky.toFixed(4)])])),
   };
+  // PERF-18 (platform, marked): the phone lead card rendered here, in the reserved slot, so it paints with the HTML (Tokyo
+  // phone LCP); gallery.js adopts it. Same template as gallery.js gcard(lead, 1, true) — test-beta compares them.
+  const leadSSR = SSR_LEAD && gRows.lead ? leadCardHtml(gRows.lead, blob, cardsHtml, up) : '';
 
   /* -- filter tray (M1-07), server-rendered so it costs no client JS; city.js only opens it and applies it -- */
   const pill = (k, v, t, n) => `<button type="button" class="pill" data-f="${k}" data-v="${esc(v)}" aria-pressed="false">${esc(t)}${n != null ? ` <span class="n">${n}</span>` : ''}</button>`;
@@ -453,7 +459,7 @@ ${gapHtml.join('\n')}${closedTile ? '\n' + closedTile : ''}
 <!-- QA-48 / QA-60 (B-04): the category bar sits above the phone lead card, so it is on the first screen on every page, not only where the hero is short -->
 <!-- PERF-06 (platform, marked block): data-lead / data-rows say the client WILL draw a lead card / N rows here, so fe-a.css
      reserves their space on phones before the fetch lands (Gallery phone CLS); absent where the guide has none -->
-<div class="g-lead-slot vw view-gallery" id="cleo-lead"${gRows.lead ? ' data-lead' : ''}><p class="g-lead-k">${tr('city.lead.k')}</p></div>
+<div class="g-lead-slot vw view-gallery" id="cleo-lead"${gRows.lead ? ' data-lead' : ''}><p class="g-lead-k">${tr('city.lead.k')}</p>${leadSSR}</div>
 <div class="g-rows vw view-gallery" id="cleo-rows-host"${gRows.rows.length ? ` data-rows="${gRows.rows.length}"` : ''}></div>
 <!-- /PERF-06 -->
 <div class="toolbar" data-cleo-toolbar hidden>

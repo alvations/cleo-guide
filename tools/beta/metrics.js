@@ -608,8 +608,13 @@ async function sheetFlow(page) {
       const ms = !!document.querySelector('.ms-toggle'), top = ms ? 200 : 80, bot = ms ? 260 : 80;
       const ps = [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon:not(.pin-cl)')].filter(p => { const b = lab(p).getBoundingClientRect(); if (!(b.width > 0 && b.top > top && b.bottom < innerHeight - bot && b.left > 10 && b.right < innerWidth - 10)) return false;
         const t = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2); return !!t && (t === p || p.contains(t)); });
-      if (!ps.length) return false; const pk = ps[Math.floor(ps.length / 2)]; lab(pk).setAttribute('data-qa-pin', '1');
-      const C = window.Cleo && Cleo.city; if (C && C.markers) for (const id of Object.keys(C.markers)) { const e = C.markers[id].getElement && C.markers[id].getElement(); if (e === pk) pk.setAttribute('data-qa-pin-id', id); }
+      // QA R7 (b54b3745): only a place marker is a pin; a decorative layer that hit-tests (no entry in Cleo.city.markers)
+      // is skipped, so the probe never taps something that cannot open a place
+      const C = window.Cleo && Cleo.city, idOf = new Map();
+      if (C && C.markers) for (const id of Object.keys(C.markers)) { const e = C.markers[id].getElement && C.markers[id].getElement(); if (e) idOf.set(e, id); }
+      const pins = idOf.size ? ps.filter(p => idOf.has(p)) : ps;
+      if (!pins.length) return false; const pk = pins[Math.floor(pins.length / 2)]; lab(pk).setAttribute('data-qa-pin', '1');
+      if (idOf.has(pk)) { pk.setAttribute('data-qa-pin-id', idOf.get(pk)); window.__qaPinId = idOf.get(pk); }   // kept on window too: selecting a pin can re-render its element
       return true;
     });
     // QA R7 (3ba696e8 re-sign; ratified by QA): the first label pin can take 1–1.5 s to draw after the toggle on either
@@ -617,7 +622,8 @@ async function sheetFlow(page) {
     // (settled state); the rule itself, the bubble zoom-in and the W6/W7 paths are unchanged.
     let pinSel = await findPin();
     for (let t = 0; t < 3000 && !pinSel && !await page.evaluate(() => !!document.querySelector('.leaflet-marker-icon')); t += 150) { await page.waitForTimeout(150); pinSel = await findPin(); }
-    if (!pinSel) pinSel = await findPin();
+    // … then let the first fit settle (markers can be re-added once right after they first appear) before the final look
+    if (!pinSel) { await page.waitForTimeout(600); pinSel = await findPin(); }
     // W7 (QA R7, additive): on the map-search phone, pins below zoom 15 gather into count bubbles; when no single pin is
     // in reach, a real tap on a bubble zooms in (up to 3 times), as a reader would, then the pin rule above applies
     for (let i = 0; i < 3 && !pinSel && await page.evaluate(() => !!document.querySelector('.ms-toggle')); i++) {
@@ -682,7 +688,7 @@ async function sheetFlow(page) {
 // Atlas on the same page.
 async function msPinFlow(page) {
   const r = {};
-  r.card = await page.evaluate(() => { const id = (document.querySelector('[data-qa-pin-id]') || { getAttribute: () => null }).getAttribute('data-qa-pin-id'), c = id && document.getElementById('p-' + id);
+  r.card = await page.evaluate(() => { const id = (document.querySelector('[data-qa-pin-id]') || { getAttribute: () => null }).getAttribute('data-qa-pin-id') || window.__qaPinId || null, c = id && document.getElementById('p-' + id);
     const sel = document.querySelectorAll('li.pl.is-sel'), b = c && c.getBoundingClientRect();
     if (c) { const a = c.querySelector('.pl-n a, .pl-n button'); if (a) a.setAttribute('data-qa-mscard', '1'); }
     return { id, own: !!c && c.classList.contains('is-sel') && sel.length === 1, inView: !!b && b.left >= -1 && b.right <= innerWidth + 1 && b.top >= 0 && b.bottom <= innerHeight + 1 }; });

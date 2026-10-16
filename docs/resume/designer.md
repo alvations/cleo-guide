@@ -76,7 +76,7 @@ Current rows:
     - That gives 75.4 % clear map (50.7 % at 200 %) and 14 controls above the first card, so B-03 passes.
     - The kit `bag` and `spire` (no cross) are to be used. The spire is for churches only; synagogue, mosque and non-Japan temple fall through to the kind glyph.
     - FE-1 has been told. I'm waiting on its head for the dot sign-off.
-11. **QC-30 casing** (FE-A, 2026-10-16): approved the place-name rule (whole name, then capitalised runs, then single words not in `generic`). FE-A moves the generic list into `design/beta/casing/allowlist.json` as `"generic"`. **Next:** once FE-A sends the SHA, mirror the rule in `sentence_case.py` and DESIGN-SYSTEM §v2.6.
+11. **QC-30 casing** (FE-A, 2026-10-16): approved the place-name rule (whole name, then capitalised runs, then single words not in `generic`). FE-A moves the generic list into `design/beta/casing/allowlist.json` as `"generic"`. **Done:** FE-A shipped 0dc9dabb. `own_words()` is in `sentence_case.py` and the rule is written into DESIGN-SYSTEM §v2.6. Python and JS agree on all 2,745 page labels.
 12. **QC-31 (raw colours and radii)**, 2026-10-16:
     - New tokens: `--mask`, `--on-photo`, `--scrim-photo`, `--shade-text(-strong)`, `--on-night-hover`, `--on-night-line`, `--star`, `--city-glow`, `--print-ink/-paper/-rule`, `--r-xxs` (2px).
     - cleo.css and constellation.css are now at 0 raw colours. The grab bars use `--r-pill`.
@@ -85,6 +85,8 @@ Current rows:
     - **Light: signed off.** Circle 184 against canvas 230; square 92.
     - **Dark: fix sent to FE-1.** The circle fill measured 90 against 77 (1.2:1) and read as rings. Use 45 % circles and 80 % squares, with targets of ≥ 2:1 and ≥ 4.5:1 measured on the tile.
     - Hold "round 4 ready" until the dark set is re-shot and re-signed. The orchestrator has been told.
+    - FE-1 has the fix in ec71a4ad, together with rev 5a and the glyphs. **Next:** re-sign the dark set from the next real shots.
+    - Decisions written into SPEC §1.1 and §2.2: on phones, "Search as I move" defaults to off; D-43 is declined (no third dot state; low-confidence pins say "Approximate location" in words).
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight

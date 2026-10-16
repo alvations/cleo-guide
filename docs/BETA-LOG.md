@@ -2059,3 +2059,52 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - `rgba(0,0,0,.7)` text-shadow → `--shade-text-strong`;
   - the `.ms-handle` 2 px radius and a 1 px radius → `--r-xxs`.
 - Gate note: `qa/offline-pack.js`'s desktop "Map unavailable" check is timing-flaky after any fe-a.css change (a no-op rule fails 2/6, HEAD 10/10). It reads after a fixed 4 s sleep, and the first runs after a rebuild start cold. Reported to platform with a condition-wait suggestion. npm test was green on this tree before the push.
+## 2026-10-16 · FE-1 · Atlas pre-R4: B-20 source chip, one QC-05 empty state, chip overflow, rev 5a chrome, glyphs, dark dots
+
+- **B-20 (orchestrator 1):** my rev 5 16 px source rule set `line-height:1.4` on `button.src`, which overrode FE-A's 28 px line and made the chip 38–40 px tall. Atlas now keeps the 28 px line (28 + 2 × 8 px padding = 44 px; the painted chip is unchanged). Measured at 390 on Tokyo: every source chip is 44 px.
+- **Long source chips (orchestrator 3):** FE-A's rule (fe-a.css, `.w7-cards` / Gallery, from 303e1eda) already ends the chip in an ellipsis on desktop Atlas. Mine uses the same values, adds phone Atlas cards (no `.w7-cards` there) and the 28 px line, and doesn't redo theirs. `button.src` in Atlas cards is `max-width:100%` with an ellipsis, and a chip that is cut gets a `title` with its whole name, set in atlas.js only on cut chips. A `title` on every chip from the renderer pushed Tokyo to 830 KB, over the 820 KB page budget.
+- **QC-05, one empty state (orchestrator 2):** Atlas's empty state now uses the catalogue strings through `Cleo.t` (`city.empty.q`, `city.empty.f`, `city.empty.search`, `city.showall`), with no hard-coded English. FE-C hides their `[data-cleo-empty]` in Atlas, so each view shows one empty state.
+- **Rev 5a phone chrome (designer):**
+  - The chip row has no search chip. The header's search icon is the phone search: in Atlas it opens FE-A's in-page search as a 44 px row over the chip row. When empty and unfocused, that row folds to a 1 px transparent box with no hit area, so it is neither counted nor tappable. B-03 is therefore 14, and **no harness limit changed**: the orchestrator's alternative of raising B-03 to 15 was not needed.
+  - The chip row is 48 px (2 + 44 + 2), flush under the switcher.
+  - The peek is 56 px: 8 px top, a 4 px handle, and a 44 px tap row. The pills sit 28 px above it.
+  - "Search this area" sits at page top 160 px.
+- **"Search this area" on phones (designer's question):** it is hidden on the first screen, and a new probe check asserts that. It appears only after the reader pans or zooms. "Search as I move the map" stays off on phones by design (§2.2/§3): a live refresh re-ranks the carousel under the reader's thumb while they swipe it.
+- **Glyphs (designer):**
+  - `bag` and `spire` are now the kit's paths (design/beta/style/v2/icons).
+  - The spire is for church, cathedral, chapel and basilica only; synagogue and mosque are out of the regex.
+  - A temple or shrine off Japan gets no noun glyph and falls through to its collection's glyph.
+- **Dark dots (designer):** in dark mode only, sights are `--ink` 45 % and food is `--ink` 80 %, with the same surface halo. Light mode is unchanged (signed off).
+- **Probe:** `atlas-ms.js` adds `"Search this area" is hidden on the first screen` (phone, light and dark). No check was loosened.
+- **Probe wording:** the peek check now reads "a 56 px list peek" with a 55–58 px band (it was 64 px, 60–72), following rev 5a. The band is narrower than before, not wider.
+- **Measured** (`metrics.js --view atlas`, mobile, on the 5 pilots: Cleveland, Tokyo, New York, Chinatown, Wheeling):
+  - B-20: 0 targets under 44 px on every page;
+  - B-03: 13–14 controls above the first card;
+  - B-08: 0.
+  - Gates: `npm run validate`, `npm test` and `beta:check` pass; `atlas-ms.js` on Cleveland passes in full, including the B-08 list-scrolled check.
+## 2026-10-16 21:00Z · orchestrator check-in
+
+- **Deploy pin b54b3745:** QC PASS. QA's suite is running.
+- **Dev-only landings (all SHAs verified on origin):**
+  - QC-33, the deep-link CLS fix, CLS 0.42–0.58 → 0 (86318253c);
+  - M3-06, Tokyo desktop DOM 3,082 → 2,821, with w2 dom now in npm test (87f814ad);
+  - QC-30, casing (0dc9dabb), which also fixes the chip overflow;
+  - W9-2 (b2), "Status checked" as real text with data-nosearch (86b7558e4);
+  - platform's data-nosearch (f03b03cf).
+- **Platform's queue:**
+  1. the offline-pack UI behind Cleo.need (eager JS is at 39.97/40 KB);
+  2. Tokyo phone LCP at 2.9 s against the 2.0 s target.
+- **FE-1:** button.src B-20, one QC-05 empty state, and the designer's dark-dot contrast fix. Then the R4 re-shoot.
+
+## 2026-10-16 21:36Z · orchestrator: r7 deployed
+
+- QA: NO on b54b3745 (only QA-79, the Tokyo desktop DOM 3,074 vs 3,000, a regression on be74c82f's 2,879), then YES under D-45 (943d1ce8). QC PASS (7c5ea616).
+- PR alvations/cleo-guide#9 merged b54b3745 into the Pages branch with expectedHeadSha (merge 4382a187), and the Pages build started 21:33Z.
+- beta-deploy-r7 merged back into dev with `-s ours` (beef84ec): every ported commit is already on dev.
+- The changelog entry is added. Next: the R8 evaluator, and the PERF-08 "go" to platform.
+
+## 2026-10-16 21:46Z · orchestrator: owner decision D-46
+
+- The owner said: "Let's make atlas the default view then the list. That will differentiate us from our competitors."
+- Recorded as D-46 (2c44f676). Atlas becomes the default; the switcher order is Atlas, Gallery, Guidebook, Insights.
+- Routed to FE-A (lead), platform, FE-1/FE-2, QA, QC and the designer. It ships in the next release with Atlas rev 5.

@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 20:38Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 21:46Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -30,44 +30,22 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- **QA said NO on pin 4aba38b3** (18:56Z, 025bac06), with 0 open High or Blocker. Every row passed except two small regressions:
-  - **QA-77 (Med, FE-C):** the recognition badges `a.rb` are only 32 px tall, so B-20 fails on phone in Gallery and Atlas. Fix: a 44 px hit area.
-  - **QA-78 (Low, imagery):** the Duquesne Incline credit author is a Flickr URL (CREDITS.json, from 6c007a0d5). Fix: the creator as credited, and a fetcher guard plus a test.
-- **Deploy pin (20:16Z): `b54b3745ce28166bd072808f3e5f3fdbf05b9d49`** on the release branch `beta-deploy-r7` (worktree `/home/user/rel-r7`; `tools/node_modules` there is a symlink, so never commit it). QA (delta re-sign) and QC (final-pin pass) were asked at 20:16Z.
-  - It is 4aba38b3 plus ported fixes only:
-    - QA-77, the badge 44 px hit area (from d2cc5400a, its fe-c.css rules only);
-    - QA-78, the Duquesne credit, with the guard and the test;
-    - QA-74, the motion tokens and the drift test;
-    - FE-B's leak fixes and the m.not.p ja;
-    - QC-25's closed-card line and the D-42 colophon (from 5d3dc985, without its focus-ring CSS);
-    - the trip.html source link (cf0218a1b);
-    - dev's 8 post-pin data commits (closure sources, Sokolowski's, the Erie, Orlando and DC prose).
-  - My checks on b54b3745:
-    - validate, npm test alone and beta:check pass;
-    - w8p passes (Tokyo 621 KB, Atlas 392 KB);
-    - B-20 mobile is 0 on 5 pilots (newyork's metrics run hung here, so QA covers NY);
-    - merge-tree into the Pages branch is clean.
-  - **QC: PASS on b54b3745** (20:35Z, 7c5ea616). Sweep 2236 PASS; the 4 FAILs are the filed Low QC-30 and QC-31. S-16 91/91, leak greps 0, and the QA-77 hit areas are ≥ 44 px with 0 overlaps and no CLS. A new Med, QC-33 (pre-existing CLS 0.42–0.53 on a guidebook/insights deep link at 1440), went to FE-B and platform for the next release.
-  - **Waiting on QA's verdict.**
-  - Not in it: QC-04, Atlas rev 5, PERF-08, W8-I18N-SEARCH. They ship next, from the dev head.
-- **On YES:**
-  1. open a PR from `beta-deploy-r7` into `claude/cleveland-page-creation-pant4l` (live is still 9f54587d; check with merge-tree first);
-  2. merge with `expectedHeadSha` = the full SHA;
-  3. merge `beta-deploy-r7` back into claude/peaceful-goodall-i0hsrt (generated beta/ conflicts: take ours, regenerate);
-  4. add a `docs/BETA-CHANGELOG.md` entry;
-  5. give the owner https://alvations.github.io/cleo-guide/beta/;
-  6. launch the R8 evaluator (`design/beta/eval/r8/README.md`, R8 = the deploy SHA, baseline R7 badcc20d).
+- **r7 is DEPLOYED (21:33Z).** PR alvations/cleo-guide#9 merged `b54b3745` into `claude/cleveland-page-creation-pant4l` (merge `4382a187`), and the Pages build started at 21:33Z. QA YES at 943d1ce8 under D-45 (QA-79 waived); QC PASS at 7c5ea616. beta-deploy-r7 was merged back into the dev branch with `-s ours` (beef84ec), since every ported change is already on dev. The changelog entry is in docs/BETA-CHANGELOG.md.
+- **Next:**
+  1. **The R8 independent evaluator is running:** session_01KmzDV95S6cTa7gLfep3bsq, launched 21:36Z. It measures b54b3745 against R7 badcc20d with the r8 kit, writes design/beta/eval/ROUND-8.md and reports to the orchestrator. Never tell it a target.
+  2. **PERF-08 flip: GO sent to platform at 21:37Z** (beta:perf before, the flip, perf08-regress.sh, beta:perf after). The SHA goes to QA.
+  3. The next release pin from the dev head once Atlas rev 5 reaches panel R4. QA verifies QA-79's fix there.
 - **History:**
-  - 530dc83b NO (QA-70/71);
-  - 3ba696e8 NO (QC-26, QA-75, QA-76, all from PERF-08);
-  - 4aba38b3 NO (QA-77, QA-78). On 4aba38b3, QA verified QC-26, QA-70 (Tokyo first pin 697 ms vs 2,253), QA-71, QA-72, QA-73, QA-75, QA-76, QA-59b, QA-55, R7-g6, W9-6, B-07 5/5, G1 5/5 and w8p.
-- **PERF-08 re-lands after the deploy,** behind tools/beta/qa/perf08-regress.sh. FE-A's QA-75 prep (752a77fc9) is on the dev branch only.
-- **Not blocking:** W9-2 (no "Checked" line on the first 24 Cleveland cards; QA is still checking), QA-61 and QA-68.
+  - 530dc83b NO;
+  - 3ba696e8 NO;
+  - 4aba38b3 NO (QA-77, QA-78);
+  - b54b3745 NO (QA-79), then YES under D-45, **deployed**.
 
 ## In flight
 
 | What | State | Next |
 |---|---|---|
+| **D-46 Atlas default (owner, 21:45Z)** | Owner: "make atlas the default view then the list". The order is Atlas, Gallery, Guidebook, Insights; precedence stays hash → stored → default. Assigned: FE-A leads (core.js DEFAULT, city.js VIEWS and viewHead, hero preload, test-fe-a); platform (atlas.js boot and budgets, before/after perf); FE-1/FE-2 (the list never waits on the map, the phone first screen, CLS 0); QA and QC (re-point their default-view harnesses, an Atlas first-screen criterion); designer (SPEC, first impression, switcher sign-off) | Ships in the next release with Atlas rev 5. Panel R4 then scores Atlas as the default |
 | Imagery | All 32 run #48 refusals applied. Run #52 (`all`) yield collapsed to about 4%, so no more plain `all` runs (orchestrator, 15:27Z). Candidate wave 1 (cb5dfd79): 20 vetted titles for 10 empty leads and first-row slots, and 6 stated gaps. Push run #54 is running. D-40a: the 720w leads are capped at 45 KB; Tokyo phone@3× is 607 KB | Imagery contact-sheets #54 and sends only the "?" rows. Wave 2 is about 40 targets from the guides with the lowest tier-1 share |
 | Location verification | Accepted today: Wheeling 7, SF 112, Orlando 7, Chicago 48, DC 38, Miami 2, Erie 27, Philadelphia 25. Beta is at 8,704 places. The assist rules now treat Wikipedia as not independent of Wikidata, add a moved-place guard, hold extended features, and send closed places to review. Singapore (run 22) is in flight. QC-25 closure sources are done: 55 of 60 closed rows have a URL (batches 1–5, last 9338a4ce). D-44 settles the evidence classes. Sokolowski's corrected to closed 2020 (04026e9d). Decisions sent: Hot Sauce Williams Lee Rd gets one more search to replace a map-listing URL; Uncle Liu's goes UNVERIFIED-status (review sites alone fail 4c) | Batches 3–4 (31 rows). Review Singapore when it commits. Then the 4-row Wikidata re-check (the workflow's re-check mode, a74735f4: SF then Orlando), then `--duplicates` (open plus CLOSED pairs in 4 cities), then Saarland, Okinawa, Rhineland, Aachen |
 | Atlas panel | **R3 80.7** (min 74.0, SD 2.86) at 537cfb8c; R0 56.1 → R1 63.8 → R2 70.9 → R3 80.7. SPEC-v3 rev 5 (46f4abe3). Rev 5 work landing: FE-1 R3 #4 dots and glyphs (f51bb0a4); FE-2 #7, the 108 px shift (in progress) | FE-1 and FE-2 finish rev 5, plus R7-g4. The designer signs off the dots on real shots before "round 4 ready". **With the R4 announcement, the orchestrator sends the panel one method note:** the card focus ring is drawn on the parent card (`.pl:has(.pl-n a:focus-visible)`), so a probe that reads only the focused link's own outline will report "no ring". |
@@ -87,6 +65,7 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 | Atlas FE-1 | session_01Cuvo7DWhwbWjLpFicvaF5E | SPEC-v3 rev 5 (#1–#6), QC-17, the .ms-bar switcher, QC-04/05/13, atlas.css snap | docs/resume/atlas-fe1.md |
 | Atlas FE-2 | session_011SQNDyJMGzR5K32A4y9Udd | **QA-70 + QA-71 (deploy blockers)**, then rev 5 #7 (the 108 px shift) and #8 (stale counts) | docs/resume/atlas-fe2.md |
 | Designer | session_011YjA2jku166RJrUyCiQV6B | dot sign-off on R4 real shots, FE-C re-review, FE-A frame sign-off, PERF-16 | docs/resume/designer.md |
+| R8 evaluator (independent; never tell it a target) | session_01KmzDV95S6cTa7gLfep3bsq | scoring the r7 deploy b54b3745 against R7 badcc20d | design/beta/eval/ROUND-8.md |
 | Panel (scores only; never tell it a target) | session_01EKzwLjqF1Z1gwXWgbrrr2S | waiting for "round 4 ready at <sha>" | docs/resume/panel.md |
 | Imagery | session_011rg9RMooGaKrmENvBZ7MvX | vetted-candidate waves (WebSearch, about 40 per wave); run #54 review | docs/resume/imagery.md |
 | i18n | session_01HB7igqdcuhrau7mUWSauDL | all lanes catalogued; review rounds on new keys; QC-16 | docs/resume/i18n.md |

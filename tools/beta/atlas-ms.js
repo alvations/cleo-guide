@@ -230,6 +230,8 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
           return { c: e.className.toString().replace('am-ctl ', '').slice(0, 20), hitOwn: !!h && e.contains(h), coveredBy: h && !e.contains(h) ? h.className.toString().slice(0, 30) : null, overlaps: hit(e) }; });
         return { box: [Math.round(r.top), Math.round(r.bottom)], h: Math.round(r.height), pill: hit(document.querySelector('.ms-toggle')), carousel: hit(document.querySelector('.listpane')), bar: hit(document.querySelector('.ms-bar')),
           here: hit(document.querySelector('.ms-here:not([hidden])')), ctl, locateCoveredBy: (ctl.find(c => /m-locate/.test(c.c)) || {}).coveredBy || null }; });
+      // designer (R4): "Search this area" is never on the phone first screen — it is offered only after the reader moves the map
+      chk(`${key} phone${t}: "Search this area" is hidden on the first screen`, await page.evaluate(() => { const b = document.querySelector('.ms-here'); return !b || b.hidden || !b.offsetHeight; }));
       chk(`${key} phone${t}: the OSM credit is visible and clear of the pill, the carousel and the chip row`, att && !att.pill && !att.carousel && !att.bar, att);
       chk(`${key} phone${t}: the OSM credit is one line ≤ 20 px, clear of "Search this area" and every map control; a real tap on each control (locate first) hits it`,
         !!att && att.h <= 20 && !att.here && att.ctl.length >= 2 && att.ctl.every(c => c.hitOwn && !c.overlaps) && !att.locateCoveredBy, att);
@@ -273,7 +275,7 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
           return { seen, covered: cov.length, eg: cov.slice(0, 3) }; });
         // SPEC-v3 §2.2: the first screen is map + peek, no carousel; a pin tap brings the carousel — its titles are checked there
         const car0 = await page.evaluate(() => { const L = document.querySelector('.listpane'), pk = document.querySelector('.ms-toggle'), r = pk.getBoundingClientRect(); return { carousel: !!L.offsetWidth, peek: Math.round(r.height), peekBottom: Math.round(innerHeight - r.bottom), text: pk.textContent.trim() }; });
-        chk(`${key} phone: first screen is map + a 64 px list peek ("N places here · Show list"), no carousel`, !car0.carousel && car0.peek >= 60 && car0.peek <= 72 && car0.peekBottom <= 1 && /places? here( · checked [^·]+)? · Show list/.test(car0.text), car0);
+        chk(`${key} phone: first screen is map + a 56 px list peek ("N places here · Show list"; SPEC-v3 rev 5a), no carousel`, !car0.carousel && car0.peek >= 55 && car0.peek <= 58 && car0.peekBottom <= 1 && /places? here( · checked [^·]+)? · Show list/.test(car0.text), car0);
         await page.evaluate(() => { const e = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].find(x => { const r = x.getBoundingClientRect(); return r.top > 140 && r.bottom < innerHeight - 120; }); if (e) e.click(); });
         await sleep(900);
         const cvMap = await cover();
