@@ -196,7 +196,13 @@ console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed l
   const sum = k => act.reduce((t, p) => t + p.month[k], 0), n = x => x.toLocaleString('en-US');
   chk('module present, for the newest month on record', !!sec && sec.querySelector('.month-lede').dataset.month === C.month, true);
   const lede = sec ? sec.querySelector('.month-lede').textContent : '';
-  chk('lede numbers == changes.json sums (re-checked, closed, pins, guides)', [n(sum('checked')), n(sum('closed')), n(sum('pins')), String(act.length)].every(x => lede.includes(x)), true);
+  chk('lede numbers == changes.json sums (re-checked, closed, retiring, pins, guides)', [n(sum('checked')), n(sum('closed')), n(sum('retiring')) + ' of them retiring', n(sum('pins')), String(act.length)].every(x => lede.includes(x)), true);
+  // retiring is recomputed here from the closure notes themselves (lib/changes.js RETIRING), never typed
+  const { RETIRING } = require('./lib/changes');
+  const rt = C.pages.reduce((t, p) => t + JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.filter(e => e.kind === 'closed' && e.d.slice(0, 7) === C.month && RETIRING.test(e.note || '')).length, 0);
+  chk(`retiring (${rt}) == closures this month whose sourced note announces a retirement or a last day`, sum('retiring') === rt, true);
+  const mName = JSON.parse(rd('assets/i18n/en.json')).strings['land.month.names'].split(',')[+C.month.slice(5, 7) - 1] + ' ' + C.month.slice(0, 4);
+  chk(`heading reads "This month in Cleo"; the lede names the month (${mName})`, !!sec && sec.querySelector('#month-h').textContent === 'This month in Cleo' && lede.startsWith('In ' + mName + ':'), true);
   const rows = sec ? [...sec.querySelectorAll('.month-list a')] : [];
   const bad = rows.filter(a => { const p = C.pages.find(x => x.changesPage === a.getAttribute('href'));
     return !p || !fs.existsSync(path.join(BETA, a.getAttribute('href'))) || +a.dataset.checked !== p.month.checked || +a.dataset.closed !== p.month.closed; }).map(a => a.getAttribute('href'));
