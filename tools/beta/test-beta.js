@@ -241,11 +241,12 @@ console.log('\n== DATA: computed counts, source index, map art (every place page
 const TOKYO = 'cities/tokyo.html';
 const live = extractPage(rd(TOKYO));
 const total = live.P.length + live.F.length;
-function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO, io = false } = {}) {
+function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO, io = false, edit = null } = {}) {
   // Inline the page's own same-origin scripts (what a browser would fetch from beta/); every other
   // request is impossible in this harness, i.e. the network — and any CDN — is gone.
   let html = rd('beta/' + page).replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z]+\.js)\?v=[^"]*" defer><\/script>/g,
     (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+  if (edit) html = edit(html);
   if (leaflet) html = html.replace('</head>', '<script>' + fs.readFileSync(path.join(BETA, 'assets/vendor/leaflet/leaflet.js'), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script></head>');
   const errs = [];
   const dom = new JSDOM(html, {
@@ -330,6 +331,25 @@ const lensOutcome = (b, label) => {
     chk('rail button applies its cuisine lens', shown(d), live.F.filter(r => (r.cz || []).includes(rb.getAttribute('data-cz'))).length);
     chk('rail tile count == result count', +rb.querySelector('.n').textContent, shown(d));
     chk('no js errors after interaction', errs, e => e.length === 0);
+  }
+  console.log('\n== SEARCH: [data-nosearch] text is real text but not searched (W9-2 "Status checked") ==');
+  {
+    // every card (live and deferred) gets FE-C's line; q=oct must match only what it matched before, a name still matches
+    const tag = '<span data-nosearch>Status checked 2 Oct</span>';
+    const b = boot({ edit: h => h.replace(/(<li class="pl[ "][^>]*>)/g, '$1' + tag) }); await sleep(300);
+    b.w.Cleo.defer.all(); await sleep(30);
+    const fold = b.w.Cleo.fold, cards = [...b.d.querySelectorAll('li.pl')];
+    const own = c => { const x = c.cloneNode(true); x.querySelectorAll('[data-nosearch]').forEach(n => n.remove()); return fold(x.textContent); };
+    const want = cards.filter(c => own(c).includes('oct')).length;
+    chk('every card carries the [data-nosearch] line (real text in the DOM)', cards.filter(c => /Status checked 2 Oct/.test(c.textContent)).length, total);
+    b.w.location.hash = '#q=oct'; await sleep(60);
+    chk('q=oct matches only cards whose OWN text has "oct" (not the Status checked line)', shown(b.d) + ' of ' + total, `${want} of ${total}`);
+    const c0 = cards.find(c => !own(c).includes('oct')), word = (c0.querySelector('.pl-n').textContent.trim().split(/\s+/).find(w => w.length > 3) || '').replace(/[^\p{L}\p{N}]/gu, '');
+    b.w.location.hash = '#q=' + encodeURIComponent(word); await sleep(60);
+    chk(`… and a card is still found by its name ("${word}")`, !c0.hidden, true);
+    const el = b.d.createElement('li'); el.innerHTML = '<span class="pl-n">Kanda Myojin</span>' + tag;
+    chk('Cleo.lens.match: a card with only the nosearch line does not match q=oct; it matches its name', [b.w.Cleo.lens.match(el, { q: 'oct' }), b.w.Cleo.lens.match(el, { q: 'kanda' })].join(), 'false,true');
+    chk('… no js errors (nosearch)', b.errs, e => e.length === 0);
   }
   console.log('\n== PROGRESSIVE RENDERING (M3-06): deferred cards stay reachable ==');
   {

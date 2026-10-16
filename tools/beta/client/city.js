@@ -9,7 +9,7 @@
   const pid = c => c.id.slice(2);
   let info = {}; try { info = JSON.parse(d.getElementById('cleo-city').textContent); } catch (e) {}
   const fold = Cleo.fold || (s => String(s || '').toLowerCase());
-  cards.forEach(c => { byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
+  cards.forEach(c => { byId[pid(c)] = c; text[pid(c)] = Cleo.lens.text(c); });   // platform: the search haystack skips [data-nosearch]
   const desk = () => !window.matchMedia || matchMedia('(min-width: 1024px)').matches;
   const LENS = ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day', 'rec', 'lf'], RAIL = ['sig', 'c', 'cz', 't', 'src', 'gap', 'closed', 'rec', 'lf'],   // 'rec': FE-C W9-1 hook, 'lf': W9-9
   S = { mode: 'all', q: '', sort: '' };
@@ -289,7 +289,7 @@
   // Cleo.defer.all()) used to add them unfiltered — "180 shown for 47 must-sees". Without selective, a lens route stamps
   // every card before apply() runs, so this changes nothing there.
   on(d, 'cleo:stamped', e => { const got = ((e.detail || {}).cards || []).filter(c => byId[pid(c)] !== c);
-    got.forEach(c => { cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
+    got.forEach(c => { cards.push(c); byId[pid(c)] = c; text[pid(c)] = Cleo.lens.text(c); });   // platform: skips [data-nosearch]
     $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); });
     if (got.length && Cleo.lens.on(Cleo.lens.current())) { got.forEach(c => { c.hidden = !visible(c); });
       sections.forEach(s => { if (!s.querySelector('li.pl:not([hidden])') && !s.querySelector('noscript[data-cleo-defer]')) s.hidden = true; }); }
