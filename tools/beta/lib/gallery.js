@@ -16,7 +16,8 @@ const { sentence, ownWords } = require('./casing');
 const capText = c => captionHtml(c).replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
 const phOf = r => { const p = !r.closed && PH[r.id]; return p ? [p.src, p.w, p.h, p.credit.depicts, capText(p.credit), (p.widths || []).map(x => [x.src, x.w])].concat(/^#[0-9a-f]{6}$/i.test(p.color || '') ? [p.color] : []) : null; };
 let CZ = {}, OWN = null;                       // W8: cuisine names by id, for a food card's dish line (sentence case)
-const dishOf = r => { const n = r.kind === 'food' && (r.cz || []).map(id => CZ[id]).filter(Boolean)[0]; return n ? sentence(n.split(/ & |, | \(/)[0], OWN) : ''; };
+const { dishOf: pickDish } = require('./dish');
+const dishOf = r => { const n = r.kind === 'food' ? pickDish((r.cz || []).map(id => CZ[id]).filter(Boolean)) : ''; return n ? sentence(n, OWN) : ''; };   // food covers (c): never a source or award
 const slim = r => Object.assign(Object.fromEntries(SLIM.filter(k => r[k] != null && r[k] !== '' && r[k] !== false).map(k => [k, r[k]])), phOf(r) ? { ph: phOf(r) } : {}, dishOf(r) ? { d: dishOf(r) } : {});
 const pl = n => n + (n === 1 ? ' place' : ' places');
 

@@ -1,0 +1,4523 @@
+{
+ "label": "530dc83b-journeys2",
+ "sha": "530dc83b",
+ "started": "2026-10-16T14:57:58.131Z",
+ "rig": "chromium; tiles stubbed 1×1; off-origin aborted; SW blocked",
+ "checks": [
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 5,
+    "friction": [],
+    "shared": "http://127.0.0.1:37005/beta/cities/tokyo.html#view=gallery&p=kanda-myojin",
+    "reopen": {
+     "view": "gallery",
+     "sheet": "Kanda Myōjin (神田明神)",
+     "same": true
+    },
+    "savedList": 6,
+    "errors": []
+   }
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 5,
+    "friction": [],
+    "shared": "http://127.0.0.1:37005/beta/cities/tokyo.html#view=gallery&p=kanda-myojin",
+    "reopen": {
+     "view": "gallery",
+     "sheet": "Kanda Myōjin (神田明神)",
+     "same": true
+    },
+    "savedList": 6,
+    "errors": []
+   }
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "area": "CHUO",
+    "want": 36,
+    "route": {
+     "view": "gallery",
+     "mode": "food",
+     "a": "CHUO"
+    },
+    "sheet": "Pokémon Café Tokyo, Nihonbashi (ポケモンカフェ 日本橋)"
+   }
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "area": "CHUO",
+    "want": 36,
+    "route": {
+     "view": "gallery",
+     "mode": "food",
+     "a": "CHUO"
+    },
+    "sheet": "Pokémon Café Tokyo, Nihonbashi (ポケモンカフェ 日本橋)"
+   }
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 1,
+    "friction": [],
+    "place": "unicorn-gundam-statue-divercity-tokyo-plaza",
+    "per": {
+     "gallery": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "atlas": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "guidebook": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "insights": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     }
+    }
+   }
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "rb": {
+     "heading": true,
+     "links": 7,
+     "lens": 16
+    },
+    "src": "wikipedia",
+    "want": 218,
+    "promised": 218,
+    "stated": [
+     "Showing 218 of 488 places in 13 areas. Ordered by tier, then by number of named sources.",
+     "Showing 1–48 of 218 (all 488 places in the guide)"
+    ]
+   }
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 4,
+    "friction": [],
+    "area": "CYD",
+    "per": {
+     "atlas": {
+      "a": "CYD",
+      "p": "imperial-palace-east-gardens",
+      "sheet": true,
+      "stated": [
+       43,
+       40
+      ]
+     },
+     "guidebook": {
+      "a": "CYD",
+      "sheet": false,
+      "stated": [
+       43
+      ]
+     },
+     "insights": {
+      "a": "CYD",
+      "sheet": false,
+      "stated": [
+       43,
+       0,
+       43
+      ]
+     },
+     "gallery": {
+      "a": "CYD",
+      "sheet": false,
+      "stated": [
+       43,
+       43
+      ]
+     }
+    },
+    "scroll": [
+     1400,
+     1400
+    ]
+   }
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 1,
+    "friction": [],
+    "place": "unicorn-gundam-statue-divercity-tokyo-plaza",
+    "per": {
+     "gallery": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "atlas": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "guidebook": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "insights": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     }
+    }
+   }
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 3,
+    "friction": [
+     "Back 1: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+     "Back 2: got {\"view\":\"gallery\",\"sheet\":false}, want {\"view\":\"atlas\",\"sheet\":false}",
+     "Back 3: got {\"view\":null,\"mode\":null,\"sheet\":false}, want {\"view\":\"gallery\",\"sheet\":false}",
+     "Forward 2: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+     "no sheet opened from a card (step 3)"
+    ],
+    "seq": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     }
+    ],
+    "back": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "gallery",
+      "sheet": false
+     },
+     {
+      "view": null,
+      "mode": null,
+      "sheet": false
+     }
+    ],
+    "fwd": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "rb": {
+     "heading": true,
+     "links": 7,
+     "lens": 16
+    },
+    "src": "wikipedia",
+    "want": 218,
+    "promised": 218,
+    "stated": [
+     "Showing 218 of 488 places in 13 areas. Ordered by tier, then by number of named sources.",
+     "Showing 1–24 of 218 (all 488 places in the guide)"
+    ]
+   }
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 4,
+    "friction": [
+     "atlas: count ≠ 43",
+     "close returned to scrollY 1409, was 1400"
+    ],
+    "area": "CYD",
+    "per": {
+     "atlas": {
+      "a": "CYD",
+      "p": "imperial-palace-east-gardens",
+      "sheet": true,
+      "stated": []
+     },
+     "guidebook": {
+      "a": "CYD",
+      "sheet": false,
+      "stated": [
+       43
+      ]
+     },
+     "insights": {
+      "a": "CYD",
+      "sheet": false,
+      "stated": [
+       43,
+       0,
+       43
+      ]
+     },
+     "gallery": {
+      "a": "CYD",
+      "sheet": false,
+      "stated": [
+       43,
+       43
+      ]
+     }
+    },
+    "scroll": [
+     1400,
+     1409
+    ]
+   }
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 40,
+    "friction": [
+     "1 of 40 stops show no focus ring: INPUT "
+    ],
+    "firstStops": [
+     "A:Skip to content",
+     "A:Cleo — all destinations",
+     "A:Japan",
+     "A:Destinations",
+     "A:How we choose",
+     "BUTTON:English"
+    ],
+    "tabsToSwitcher": 12,
+    "opener": "神田明神Photo: Yoshikazu TAKADA from Tokyo, ",
+    "after": {
+     "sheet": false,
+     "focus": "神田明神Photo: Yoshikazu TAKADA from Tokyo, ",
+     "same": true,
+     "sameCard": true
+    }
+   }
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "overflow": {
+     "sw": 720,
+     "w": 720
+    },
+    "errors": []
+   }
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "seq": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": true
+     }
+    ],
+    "back": [
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "gallery",
+      "sheet": false
+     }
+    ],
+    "fwd": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 40,
+    "friction": [],
+    "firstStops": [
+     "A:Skip to content",
+     "A:Cleo — all destinations",
+     "A:Japan",
+     "BUTTON:日本語",
+     "A:Search every place",
+     "A:Your list"
+    ],
+    "tabsToSwitcher": 7,
+    "opener": "神田明神Photo: Yoshikazu TAKADA from Tokyo, ",
+    "after": {
+     "sheet": false,
+     "focus": "神田明神Photo: Yoshikazu TAKADA from Tokyo, ",
+     "same": true,
+     "sameCard": true
+    }
+   }
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "overflow": {
+     "sw": 720,
+     "w": 720
+    },
+    "errors": []
+   }
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "bad": [],
+    "count": 0,
+    "smooth": "auto"
+   }
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "errors": [],
+    "listed": 488,
+    "atlasVisible": 43,
+    "msg": true
+   }
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "saved": 1,
+    "notice": "Storage is blocked here, so saves last until you close the tab",
+    "errors": []
+   }
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "bad": [],
+    "count": 0,
+    "smooth": "auto"
+   }
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 6,
+    "friction": [],
+    "shared": "http://127.0.0.1:37005/beta/cleveland.html#view=gallery&p=slymans-restaurant-and-deli",
+    "reopen": {
+     "view": "gallery",
+     "sheet": "Slyman's Restaurant and Deli",
+     "same": true
+    },
+    "savedList": 6,
+    "errors": []
+   }
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "errors": [],
+    "listed": 488,
+    "atlasVisible": 43,
+    "msg": true
+   }
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "group": "J",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "saved": 1,
+    "notice": "Storage is blocked here, so saves last until you close the tab",
+    "errors": []
+   }
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 3,
+    "friction": [
+     "visible food cards are not in rank order"
+    ],
+    "area": "UC",
+    "want": 15,
+    "route": {
+     "view": "gallery",
+     "mode": "food",
+     "a": "UC"
+    },
+    "sheet": "Superior Phở"
+   }
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 6,
+    "friction": [],
+    "shared": "http://127.0.0.1:37005/beta/cleveland.html#view=gallery&p=slymans-restaurant-and-deli",
+    "reopen": {
+     "view": "gallery",
+     "sheet": "Slyman's Restaurant and Deli",
+     "same": true
+    },
+    "savedList": 6,
+    "errors": []
+   }
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 3,
+    "friction": [
+     "visible food cards are not in rank order"
+    ],
+    "area": "UC",
+    "want": 15,
+    "route": {
+     "view": "gallery",
+     "mode": "food",
+     "a": "UC"
+    },
+    "sheet": "Superior Phở"
+   }
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 1,
+    "friction": [],
+    "place": "heinens-downtown",
+    "per": {
+     "gallery": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "atlas": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "guidebook": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "insights": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     }
+    }
+   }
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "rb": {
+     "heading": true,
+     "links": 6,
+     "lens": 10
+    },
+    "src": "news-5",
+    "want": 103,
+    "promised": 103,
+    "stated": [
+     "Showing 103 of 194 places in 4 areas. Ordered by tier, then by number of named sources.",
+     "Showing 1–48 of 103 (all 194 places in the guide)"
+    ]
+   }
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 1,
+    "friction": [],
+    "place": "heinens-downtown",
+    "per": {
+     "gallery": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "atlas": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "guidebook": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "insights": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     }
+    }
+   }
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 4,
+    "friction": [
+     "close returned to scrollY 2335, was 1400"
+    ],
+    "area": "DT",
+    "per": {
+     "atlas": {
+      "a": "DT",
+      "p": "soldiers-and-sailors-monument",
+      "sheet": true,
+      "stated": [
+       42,
+       40
+      ]
+     },
+     "guidebook": {
+      "a": "DT",
+      "sheet": false,
+      "stated": [
+       42
+      ]
+     },
+     "insights": {
+      "a": "DT",
+      "sheet": false,
+      "stated": [
+       42,
+       4,
+       42
+      ]
+     },
+     "gallery": {
+      "a": "DT",
+      "sheet": false,
+      "stated": [
+       42,
+       42
+      ]
+     }
+    },
+    "scroll": [
+     1400,
+     2335
+    ]
+   }
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "rb": {
+     "heading": true,
+     "links": 6,
+     "lens": 10
+    },
+    "src": "news-5",
+    "want": 103,
+    "promised": 103,
+    "stated": [
+     "Showing 103 of 194 places in 4 areas. Ordered by tier, then by number of named sources.",
+     "Showing 1–24 of 103 (all 194 places in the guide)"
+    ]
+   }
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 4,
+    "friction": [
+     "atlas: count ≠ 42",
+     "close returned to scrollY 1471, was 1400"
+    ],
+    "area": "DT",
+    "per": {
+     "atlas": {
+      "a": "DT",
+      "p": "soldiers-and-sailors-monument",
+      "sheet": true,
+      "stated": []
+     },
+     "guidebook": {
+      "a": "DT",
+      "sheet": false,
+      "stated": [
+       42
+      ]
+     },
+     "insights": {
+      "a": "DT",
+      "sheet": false,
+      "stated": [
+       42,
+       4,
+       42
+      ]
+     },
+     "gallery": {
+      "a": "DT",
+      "sheet": false,
+      "stated": [
+       42,
+       42
+      ]
+     }
+    },
+    "scroll": [
+     1400,
+     1471
+    ]
+   }
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 3,
+    "friction": [
+     "Back 1: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+     "Back 2: got {\"view\":\"gallery\",\"sheet\":false}, want {\"view\":\"atlas\",\"sheet\":false}",
+     "Back 3: got {\"view\":null,\"mode\":null,\"sheet\":false}, want {\"view\":\"gallery\",\"sheet\":false}",
+     "Forward 2: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+     "no sheet opened from a card (step 3)"
+    ],
+    "seq": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     }
+    ],
+    "back": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "gallery",
+      "sheet": false
+     },
+     {
+      "view": null,
+      "mode": null,
+      "sheet": false
+     }
+    ],
+    "fwd": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "seq": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": true
+     }
+    ],
+    "back": [
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "gallery",
+      "sheet": false
+     }
+    ],
+    "fwd": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 40,
+    "friction": [],
+    "firstStops": [
+     "A:Skip to content",
+     "A:Cleo — all destinations",
+     "A:United States",
+     "BUTTON:日本語",
+     "A:Search every place",
+     "A:Your list"
+    ],
+    "tabsToSwitcher": 7,
+    "opener": "Unique AmericanMust see Downtown & The F",
+    "after": {
+     "sheet": false,
+     "focus": "Unique AmericanMust see Downtown & The F",
+     "same": true,
+     "sameCard": true
+    }
+   }
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 40,
+    "friction": [
+     "1 of 40 stops show no focus ring: INPUT "
+    ],
+    "firstStops": [
+     "A:Skip to content",
+     "A:Cleo — all destinations",
+     "A:United States",
+     "A:Destinations",
+     "A:How we choose",
+     "BUTTON:English"
+    ],
+    "tabsToSwitcher": 12,
+    "opener": "Unique AmericanMust see Downtown & The F",
+    "after": {
+     "sheet": false,
+     "focus": "Unique AmericanMust see Downtown & The F",
+     "same": true,
+     "sameCard": true
+    }
+   }
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "overflow": {
+     "sw": 720,
+     "w": 720
+    },
+    "errors": []
+   }
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "overflow": {
+     "sw": 720,
+     "w": 720
+    },
+    "errors": []
+   }
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "bad": [],
+    "count": 0,
+    "smooth": "auto"
+   }
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "errors": [],
+    "listed": 194,
+    "atlasVisible": 42,
+    "msg": true
+   }
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "bad": [],
+    "count": 0,
+    "smooth": "auto"
+   }
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "saved": 1,
+    "notice": "Storage is blocked here, so saves last until you close the tab",
+    "errors": []
+   }
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "errors": [],
+    "listed": 194,
+    "atlasVisible": 42,
+    "msg": true
+   }
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "group": "J",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "saved": 1,
+    "notice": "Storage is blocked here, so saves last until you close the tab",
+    "errors": []
+   }
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 5,
+    "friction": [],
+    "shared": "http://127.0.0.1:37005/beta/cities/newyork.html#view=gallery&p=katzs-delicatessen",
+    "reopen": {
+     "view": "gallery",
+     "sheet": "Katz's Delicatessen",
+     "same": true
+    },
+    "savedList": 6,
+    "errors": []
+   }
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 5,
+    "friction": [],
+    "shared": "http://127.0.0.1:37005/beta/cities/newyork.html#view=gallery&p=katzs-delicatessen",
+    "reopen": {
+     "view": "gallery",
+     "sheet": "Katz's Delicatessen",
+     "same": true
+    },
+    "savedList": 6,
+    "errors": []
+   }
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "area": "BK",
+    "want": 47,
+    "route": {
+     "view": "gallery",
+     "mode": "food",
+     "a": "BK"
+    },
+    "sheet": "Peter Luger Steak House"
+   }
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "N/A",
+   "evidence": {
+    "success": "n/a",
+    "steps": 0,
+    "friction": [
+     "no closed place on this page"
+    ],
+    "closed": 0
+   }
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "rb": {
+     "heading": true,
+     "links": 5,
+     "lens": 12
+    },
+    "src": "official-site",
+    "want": 13,
+    "promised": 13,
+    "stated": [
+     "Showing 13 of 508 places in 2 areas. Ordered by tier, then by number of named sources.",
+     "Showing 1–13 of 13 (all 508 places in the guide)"
+    ]
+   }
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "area": "BK",
+    "want": 47,
+    "route": {
+     "view": "gallery",
+     "mode": "food",
+     "a": "BK"
+    },
+    "sheet": "Peter Luger Steak House"
+   }
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "N/A",
+   "evidence": {
+    "success": "n/a",
+    "steps": 0,
+    "friction": [
+     "no closed place on this page"
+    ],
+    "closed": 0
+   }
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "rb": {
+     "heading": true,
+     "links": 5,
+     "lens": 12
+    },
+    "src": "official-site",
+    "want": 13,
+    "promised": 13,
+    "stated": [
+     "Showing 13 of 508 places in 2 areas. Ordered by tier, then by number of named sources.",
+     "Showing 1–13 of 13 (all 508 places in the guide)"
+    ]
+   }
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 4,
+    "friction": [
+     "atlas: count ≠ 264",
+     "close returned to scrollY 1500, was 1400"
+    ],
+    "area": "MAN",
+    "per": {
+     "atlas": {
+      "a": "MAN",
+      "p": "the-metropolitan-museum-of-art",
+      "sheet": true,
+      "stated": []
+     },
+     "guidebook": {
+      "a": "MAN",
+      "sheet": false,
+      "stated": [
+       264
+      ]
+     },
+     "insights": {
+      "a": "MAN",
+      "sheet": false,
+      "stated": [
+       264,
+       0,
+       264
+      ]
+     },
+     "gallery": {
+      "a": "MAN",
+      "sheet": false,
+      "stated": [
+       264,
+       264
+      ]
+     }
+    },
+    "scroll": [
+     1400,
+     1500
+    ]
+   }
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "seq": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": true
+     }
+    ],
+    "back": [
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "gallery",
+      "sheet": false
+     }
+    ],
+    "fwd": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 4,
+    "friction": [],
+    "area": "MAN",
+    "per": {
+     "atlas": {
+      "a": "MAN",
+      "p": "the-metropolitan-museum-of-art",
+      "sheet": true,
+      "stated": [
+       264,
+       40
+      ]
+     },
+     "guidebook": {
+      "a": "MAN",
+      "sheet": false,
+      "stated": [
+       264
+      ]
+     },
+     "insights": {
+      "a": "MAN",
+      "sheet": false,
+      "stated": [
+       264,
+       0,
+       264
+      ]
+     },
+     "gallery": {
+      "a": "MAN",
+      "sheet": false,
+      "stated": [
+       264,
+       264
+      ]
+     }
+    },
+    "scroll": [
+     1400,
+     1400
+    ]
+   }
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 40,
+    "friction": [],
+    "firstStops": [
+     "A:Skip to content",
+     "A:Cleo — all destinations",
+     "A:United States",
+     "BUTTON:日本語",
+     "A:Search every place",
+     "A:Your list"
+    ],
+    "tabsToSwitcher": 7,
+    "opener": "Jewish deliMust see Manhattan · Eat & dr",
+    "after": {
+     "sheet": false,
+     "focus": "Jewish deliMust see Manhattan · Eat & dr",
+     "same": true,
+     "sameCard": true
+    }
+   }
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "overflow": {
+     "sw": 720,
+     "w": 720
+    },
+    "errors": []
+   }
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 3,
+    "friction": [
+     "Back 1: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+     "Back 2: got {\"view\":\"gallery\",\"sheet\":false}, want {\"view\":\"atlas\",\"sheet\":false}",
+     "Back 3: got {\"view\":null,\"mode\":null,\"sheet\":false}, want {\"view\":\"gallery\",\"sheet\":false}",
+     "Forward 2: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+     "no sheet opened from a card (step 3)"
+    ],
+    "seq": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     }
+    ],
+    "back": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "gallery",
+      "sheet": false
+     },
+     {
+      "view": null,
+      "mode": null,
+      "sheet": false
+     }
+    ],
+    "fwd": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 40,
+    "friction": [
+     "1 of 40 stops show no focus ring: INPUT "
+    ],
+    "firstStops": [
+     "A:Skip to content",
+     "A:Cleo — all destinations",
+     "A:United States",
+     "A:Destinations",
+     "A:How we choose",
+     "BUTTON:English"
+    ],
+    "tabsToSwitcher": 12,
+    "opener": "Jewish deliMust see Manhattan · Eat & dr",
+    "after": {
+     "sheet": false,
+     "focus": "Jewish deliMust see Manhattan · Eat & dr",
+     "same": true,
+     "sameCard": true
+    }
+   }
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "overflow": {
+     "sw": 720,
+     "w": 720
+    },
+    "errors": []
+   }
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "bad": [],
+    "count": 0,
+    "smooth": "auto"
+   }
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "errors": [],
+    "listed": 508,
+    "atlasVisible": 264,
+    "msg": true
+   }
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "saved": 1,
+    "notice": "Storage is blocked here, so saves last until you close the tab",
+    "errors": []
+   }
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 6,
+    "friction": [],
+    "shared": "http://127.0.0.1:37005/beta/Singapore/chinatown.html#view=gallery&p=tian-tian-hainanese-chicken-rice",
+    "reopen": {
+     "view": "gallery",
+     "sheet": "Tian Tian Hainanese Chicken Rice",
+     "same": true
+    },
+    "savedList": 6,
+    "errors": []
+   }
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "FAIL",
+   "evidence": {
+    "success": "no",
+    "steps": 4,
+    "friction": [
+     "no area control on the page: opened Filters",
+     "not found: area Chinatown & CBD"
+    ],
+    "area": "CHINATOWN",
+    "want": 12,
+    "route": {
+     "view": "gallery",
+     "mode": "food"
+    },
+    "sheet": "Tian Tian Hainanese Chicken Rice"
+   }
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "N/A",
+   "evidence": {
+    "success": "n/a",
+    "steps": 0,
+    "friction": [
+     "no closed place on this page"
+    ],
+    "closed": 0
+   }
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "rb": {
+     "heading": true,
+     "links": 7,
+     "lens": 14
+    },
+    "src": "roots",
+    "want": 3,
+    "promised": 3,
+    "stated": [
+     "Showing 3 of 16 places in 1 area. Ordered by tier, then by number of named sources.",
+     "Showing 1–3 of 3 (all 16 places in the guide)"
+    ]
+   }
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 4,
+    "friction": [
+     "atlas: count ≠ 16"
+    ],
+    "area": "CHINATOWN",
+    "per": {
+     "atlas": {
+      "a": "CHINATOWN",
+      "p": "sri-mariamman-temple",
+      "sheet": true,
+      "stated": []
+     },
+     "guidebook": {
+      "a": "CHINATOWN",
+      "sheet": false,
+      "stated": [
+       16
+      ]
+     },
+     "insights": {
+      "a": "CHINATOWN",
+      "sheet": false,
+      "stated": [
+       16,
+       0,
+       16
+      ]
+     },
+     "gallery": {
+      "a": "CHINATOWN",
+      "sheet": false,
+      "stated": [
+       16
+      ]
+     }
+    },
+    "scroll": [
+     1400,
+     1400
+    ]
+   }
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "bad": [],
+    "count": 0,
+    "smooth": "auto"
+   }
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "errors": [],
+    "listed": 508,
+    "atlasVisible": 264,
+    "msg": true
+   }
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "seq": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": true
+     }
+    ],
+    "back": [
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "gallery",
+      "sheet": false
+     }
+    ],
+    "fwd": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "group": "J",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "saved": 1,
+    "notice": "Storage is blocked here, so saves last until you close the tab",
+    "errors": []
+   }
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 40,
+    "friction": [],
+    "firstStops": [
+     "A:Skip to content",
+     "A:Cleo — all destinations",
+     "A:Singapore",
+     "BUTTON:日本語",
+     "A:Search every place",
+     "A:Your list"
+    ],
+    "tabsToSwitcher": 7,
+    "opener": "Hainanese chicken riceMust see Chinatown",
+    "after": {
+     "sheet": false,
+     "focus": "Hainanese chicken riceMust see Chinatown",
+     "same": true,
+     "sameCard": true
+    }
+   }
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "overflow": {
+     "sw": 720,
+     "w": 720
+    },
+    "errors": []
+   }
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 6,
+    "friction": [],
+    "shared": "http://127.0.0.1:37005/beta/Singapore/chinatown.html#view=gallery&p=tian-tian-hainanese-chicken-rice",
+    "reopen": {
+     "view": "gallery",
+     "sheet": "Tian Tian Hainanese Chicken Rice",
+     "same": true
+    },
+    "savedList": 6,
+    "errors": []
+   }
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "FAIL",
+   "evidence": {
+    "success": "no",
+    "steps": 4,
+    "friction": [
+     "no area control on the page: opened Filters",
+     "not found: area Chinatown & CBD"
+    ],
+    "area": "CHINATOWN",
+    "want": 12,
+    "route": {
+     "view": "gallery",
+     "mode": "food"
+    },
+    "sheet": "Tian Tian Hainanese Chicken Rice"
+   }
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "N/A",
+   "evidence": {
+    "success": "n/a",
+    "steps": 0,
+    "friction": [
+     "no closed place on this page"
+    ],
+    "closed": 0
+   }
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "rb": {
+     "heading": true,
+     "links": 7,
+     "lens": 14
+    },
+    "src": "roots",
+    "want": 3,
+    "promised": 3,
+    "stated": [
+     "Showing 3 of 16 places in 1 area. Ordered by tier, then by number of named sources.",
+     "Showing 1–3 of 3 (all 16 places in the guide)"
+    ]
+   }
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 4,
+    "friction": [
+     "atlas: count ≠ 16"
+    ],
+    "area": "CHINATOWN",
+    "per": {
+     "atlas": {
+      "a": "CHINATOWN",
+      "p": "sri-mariamman-temple",
+      "sheet": true,
+      "stated": [
+       15
+      ]
+     },
+     "guidebook": {
+      "a": "CHINATOWN",
+      "sheet": false,
+      "stated": [
+       16
+      ]
+     },
+     "insights": {
+      "a": "CHINATOWN",
+      "sheet": false,
+      "stated": [
+       16,
+       0,
+       16
+      ]
+     },
+     "gallery": {
+      "a": "CHINATOWN",
+      "sheet": false,
+      "stated": [
+       16
+      ]
+     }
+    },
+    "scroll": [
+     1400,
+     1400
+    ]
+   }
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 3,
+    "friction": [
+     "Back 1: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+     "Back 2: got {\"view\":\"gallery\",\"sheet\":false}, want {\"view\":\"atlas\",\"sheet\":false}",
+     "Back 3: got {\"view\":null,\"mode\":null,\"sheet\":false}, want {\"view\":\"gallery\",\"sheet\":false}",
+     "Forward 2: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+     "no sheet opened from a card (step 3)"
+    ],
+    "seq": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     }
+    ],
+    "back": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "gallery",
+      "sheet": false
+     },
+     {
+      "view": null,
+      "mode": null,
+      "sheet": false
+     }
+    ],
+    "fwd": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "bad": [],
+    "count": 0,
+    "smooth": "auto"
+   }
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "errors": [],
+    "listed": 16,
+    "atlasVisible": 16,
+    "msg": true
+   }
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 40,
+    "friction": [],
+    "firstStops": [
+     "A:Skip to content",
+     "A:Cleo — all destinations",
+     "A:Singapore",
+     "A:Destinations",
+     "A:How we choose",
+     "BUTTON:English"
+    ],
+    "tabsToSwitcher": 12,
+    "opener": "Hainanese chicken riceMust see Chinatown",
+    "after": {
+     "sheet": false,
+     "focus": "Hainanese chicken riceMust see Chinatown",
+     "same": true,
+     "sameCard": true
+    }
+   }
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "saved": 1,
+    "notice": "Storage is blocked here, so saves last until you close the tab",
+    "errors": []
+   }
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "overflow": {
+     "sw": 720,
+     "w": 720
+    },
+    "errors": []
+   }
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 6,
+    "friction": [],
+    "shared": "http://127.0.0.1:37005/beta/cities/wheeling.html#view=gallery&p=wheeling-suspension-bridge",
+    "reopen": {
+     "view": "gallery",
+     "sheet": "Wheeling Suspension Bridge",
+     "same": true
+    },
+    "savedList": 6,
+    "errors": []
+   }
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "area": "WHL",
+    "want": 5,
+    "route": {
+     "view": "gallery",
+     "mode": "food",
+     "a": "WHL"
+    },
+    "sheet": "DiCarlo's Pizza"
+   }
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "bad": [],
+    "count": 0,
+    "smooth": "auto"
+   }
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "errors": [],
+    "listed": 16,
+    "atlasVisible": 16,
+    "msg": true
+   }
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "group": "J",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "saved": 1,
+    "notice": "Storage is blocked here, so saves last until you close the tab",
+    "errors": []
+   }
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 6,
+    "friction": [],
+    "shared": "http://127.0.0.1:37005/beta/cities/wheeling.html#view=gallery&p=wheeling-suspension-bridge",
+    "reopen": {
+     "view": "gallery",
+     "sheet": "Wheeling Suspension Bridge",
+     "same": true
+    },
+    "savedList": 6,
+    "errors": []
+   }
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 1,
+    "friction": [],
+    "place": "wheeling-brewing-company",
+    "per": {
+     "gallery": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "atlas": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "guidebook": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "insights": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     }
+    }
+   }
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "area": "WHL",
+    "want": 5,
+    "route": {
+     "view": "gallery",
+     "mode": "food",
+     "a": "WHL"
+    },
+    "sheet": "DiCarlo's Pizza"
+   }
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "rb": {
+     "heading": true,
+     "links": 8,
+     "lens": 15
+    },
+    "src": "wvencyclopedia",
+    "want": 1,
+    "promised": 1,
+    "stated": [
+     "Showing 1 of 42 places in 1 area. Ordered by tier, then by number of named sources.",
+     "Showing 1–1 of 1 (all 42 places in the guide)"
+    ]
+   }
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 4,
+    "friction": [
+     "atlas: count ≠ 15"
+    ],
+    "area": "WHL",
+    "per": {
+     "atlas": {
+      "a": "WHL",
+      "p": "wheeling-suspension-bridge",
+      "sheet": true,
+      "stated": []
+     },
+     "guidebook": {
+      "a": "WHL",
+      "sheet": false,
+      "stated": [
+       15
+      ]
+     },
+     "insights": {
+      "a": "WHL",
+      "sheet": false,
+      "stated": [
+       15,
+       1,
+       15
+      ]
+     },
+     "gallery": {
+      "a": "WHL",
+      "sheet": false,
+      "stated": [
+       15,
+       15
+      ]
+     }
+    },
+    "scroll": [
+     1400,
+     1400
+    ]
+   }
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 1,
+    "friction": [],
+    "place": "wheeling-brewing-company",
+    "per": {
+     "gallery": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "atlas": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "guidebook": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     },
+     "insights": {
+      "found": true,
+      "visible": true,
+      "closed": true,
+      "tier": false
+     }
+    }
+   }
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "rb": {
+     "heading": true,
+     "links": 8,
+     "lens": 15
+    },
+    "src": "wvencyclopedia",
+    "want": 1,
+    "promised": 1,
+    "stated": [
+     "Showing 1 of 42 places in 1 area. Ordered by tier, then by number of named sources.",
+     "Showing 1–1 of 1 (all 42 places in the guide)"
+    ]
+   }
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 3,
+    "friction": [],
+    "seq": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": true
+     }
+    ],
+    "back": [
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "gallery",
+      "sheet": false
+     }
+    ],
+    "fwd": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 40,
+    "friction": [],
+    "firstStops": [
+     "A:Skip to content",
+     "A:Cleo — all destinations",
+     "A:United States",
+     "BUTTON:日本語",
+     "A:Search every place",
+     "A:Your list"
+    ],
+    "tabsToSwitcher": 7,
+    "opener": "Photo: Unknown author · Public domain · ",
+    "after": {
+     "sheet": false,
+     "focus": "Photo: Unknown author · Public domain · ",
+     "same": true,
+     "sameCard": true
+    }
+   }
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 4,
+    "friction": [],
+    "area": "WHL",
+    "per": {
+     "atlas": {
+      "a": "WHL",
+      "p": "wheeling-suspension-bridge",
+      "sheet": true,
+      "stated": [
+       15
+      ]
+     },
+     "guidebook": {
+      "a": "WHL",
+      "sheet": false,
+      "stated": [
+       15
+      ]
+     },
+     "insights": {
+      "a": "WHL",
+      "sheet": false,
+      "stated": [
+       15,
+       1,
+       15
+      ]
+     },
+     "gallery": {
+      "a": "WHL",
+      "sheet": false,
+      "stated": [
+       15,
+       15
+      ]
+     }
+    },
+    "scroll": [
+     1400,
+     1400
+    ]
+   }
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "overflow": {
+     "sw": 720,
+     "w": 720
+    },
+    "errors": []
+   }
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 3,
+    "friction": [
+     "Back 1: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+     "Back 2: got {\"view\":\"gallery\",\"sheet\":false}, want {\"view\":\"atlas\",\"sheet\":false}",
+     "Back 3: got {\"view\":null,\"mode\":null,\"sheet\":false}, want {\"view\":\"gallery\",\"sheet\":false}",
+     "Forward 2: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+     "no sheet opened from a card (step 3)"
+    ],
+    "seq": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     }
+    ],
+    "back": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "gallery",
+      "sheet": false
+     },
+     {
+      "view": null,
+      "mode": null,
+      "sheet": false
+     }
+    ],
+    "fwd": [
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "sheet": false
+     },
+     {
+      "view": "atlas",
+      "mode": "sights",
+      "sheet": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "success": "partial",
+    "steps": 40,
+    "friction": [
+     "1 of 40 stops show no focus ring: INPUT "
+    ],
+    "firstStops": [
+     "A:Skip to content",
+     "A:Cleo — all destinations",
+     "A:United States",
+     "A:Destinations",
+     "A:How we choose",
+     "BUTTON:English"
+    ],
+    "tabsToSwitcher": 12,
+    "opener": "Photo: Unknown author · Public domain · ",
+    "after": {
+     "sheet": false,
+     "focus": "Photo: Unknown author · Public domain · ",
+     "same": true,
+     "sameCard": true
+    }
+   }
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "overflow": {
+     "sw": 720,
+     "w": 720
+    },
+    "errors": []
+   }
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "bad": [],
+    "count": 0,
+    "smooth": "auto"
+   }
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "errors": [],
+    "listed": 42,
+    "atlasVisible": 42,
+    "msg": true
+   }
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "saved": 1,
+    "notice": "Storage is blocked here, so saves last until you close the tab",
+    "errors": []
+   }
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "bad": [],
+    "count": 0,
+    "smooth": "auto"
+   }
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 0,
+    "friction": [],
+    "errors": [],
+    "listed": 42,
+    "atlasVisible": 42,
+    "msg": true
+   }
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "group": "J",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "success": "yes",
+    "steps": 2,
+    "friction": [],
+    "saved": 1,
+    "notice": "Storage is blocked here, so saves last until you close the tab",
+    "errors": []
+   }
+  }
+ ],
+ "journeys": [
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 5,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j01-tokyo-390-light.jpg"
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 5,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j01-tokyo-1440-light.jpg"
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j02-tokyo-390-light.jpg"
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j02-tokyo-1440-light.jpg"
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 1,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j03-tokyo-1440-light.jpg"
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j04-tokyo-1440-light.jpg"
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 4,
+   "friction": []
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 1,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j03-tokyo-390-light.jpg"
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 3,
+   "friction": [
+    "Back 1: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+    "Back 2: got {\"view\":\"gallery\",\"sheet\":false}, want {\"view\":\"atlas\",\"sheet\":false}",
+    "Back 3: got {\"view\":null,\"mode\":null,\"sheet\":false}, want {\"view\":\"gallery\",\"sheet\":false}",
+    "Forward 2: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+    "no sheet opened from a card (step 3)"
+   ]
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j04-tokyo-390-light.jpg"
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "partial",
+   "steps": 4,
+   "friction": [
+    "atlas: count ≠ 43",
+    "close returned to scrollY 1409, was 1400"
+   ]
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 40,
+   "friction": [
+    "1 of 40 stops show no focus ring: INPUT "
+   ]
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "page": "cities/tokyo.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j08-tokyo-1440-light.jpg"
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": []
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 40,
+   "friction": []
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "page": "cities/tokyo.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j08-tokyo-390-light.jpg"
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": []
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j10-tokyo-1440-light.jpg"
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "page": "cities/tokyo.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": []
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": []
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 6,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j01-cleveland-390-light.jpg"
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j10-tokyo-390-light.jpg"
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "page": "cities/tokyo.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": []
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "partial",
+   "steps": 3,
+   "friction": [
+    "visible food cards are not in rank order"
+   ],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j02-cleveland-390-light.jpg"
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 6,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j01-cleveland-1440-light.jpg"
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 3,
+   "friction": [
+    "visible food cards are not in rank order"
+   ],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j02-cleveland-1440-light.jpg"
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 1,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j03-cleveland-1440-light.jpg"
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j04-cleveland-1440-light.jpg"
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 1,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j03-cleveland-390-light.jpg"
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 4,
+   "friction": [
+    "close returned to scrollY 2335, was 1400"
+   ]
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j04-cleveland-390-light.jpg"
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "partial",
+   "steps": 4,
+   "friction": [
+    "atlas: count ≠ 42",
+    "close returned to scrollY 1471, was 1400"
+   ]
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 3,
+   "friction": [
+    "Back 1: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+    "Back 2: got {\"view\":\"gallery\",\"sheet\":false}, want {\"view\":\"atlas\",\"sheet\":false}",
+    "Back 3: got {\"view\":null,\"mode\":null,\"sheet\":false}, want {\"view\":\"gallery\",\"sheet\":false}",
+    "Forward 2: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+    "no sheet opened from a card (step 3)"
+   ]
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": []
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 40,
+   "friction": []
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 40,
+   "friction": [
+    "1 of 40 stops show no focus ring: INPUT "
+   ]
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "page": "cleveland.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j08-cleveland-390-light.jpg"
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "page": "cleveland.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j08-cleveland-1440-light.jpg"
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": []
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j10-cleveland-390-light.jpg"
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": []
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "page": "cleveland.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": []
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j10-cleveland-1440-light.jpg"
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "page": "cleveland.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": []
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 5,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j01-newyork-390-light.jpg"
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 5,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j01-newyork-1440-light.jpg"
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j02-newyork-390-light.jpg"
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "n/a",
+   "steps": 0,
+   "friction": [
+    "no closed place on this page"
+   ]
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j04-newyork-390-light.jpg"
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j02-newyork-1440-light.jpg"
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "n/a",
+   "steps": 0,
+   "friction": [
+    "no closed place on this page"
+   ]
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j04-newyork-1440-light.jpg"
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "partial",
+   "steps": 4,
+   "friction": [
+    "atlas: count ≠ 264",
+    "close returned to scrollY 1500, was 1400"
+   ]
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": []
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 4,
+   "friction": []
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 40,
+   "friction": []
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "page": "cities/newyork.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j08-newyork-390-light.jpg"
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 3,
+   "friction": [
+    "Back 1: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+    "Back 2: got {\"view\":\"gallery\",\"sheet\":false}, want {\"view\":\"atlas\",\"sheet\":false}",
+    "Back 3: got {\"view\":null,\"mode\":null,\"sheet\":false}, want {\"view\":\"gallery\",\"sheet\":false}",
+    "Forward 2: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+    "no sheet opened from a card (step 3)"
+   ]
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 40,
+   "friction": [
+    "1 of 40 stops show no focus ring: INPUT "
+   ]
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "page": "cities/newyork.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j08-newyork-1440-light.jpg"
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": []
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j10-newyork-390-light.jpg"
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "page": "cities/newyork.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": []
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 6,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j01-singapore-chinatown-390-light.jpg"
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "no",
+   "steps": 4,
+   "friction": [
+    "no area control on the page: opened Filters",
+    "not found: area Chinatown & CBD"
+   ],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j02-singapore-chinatown-390-light.jpg"
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "n/a",
+   "steps": 0,
+   "friction": [
+    "no closed place on this page"
+   ]
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j04-singapore-chinatown-390-light.jpg"
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "partial",
+   "steps": 4,
+   "friction": [
+    "atlas: count ≠ 16"
+   ]
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": []
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j10-newyork-1440-light.jpg"
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": []
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "page": "cities/newyork.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": []
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 40,
+   "friction": []
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "page": "Singapore/chinatown.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j08-singapore-chinatown-390-light.jpg"
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 6,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j01-singapore-chinatown-1440-light.jpg"
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "no",
+   "steps": 4,
+   "friction": [
+    "no area control on the page: opened Filters",
+    "not found: area Chinatown & CBD"
+   ],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j02-singapore-chinatown-1440-light.jpg"
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "n/a",
+   "steps": 0,
+   "friction": [
+    "no closed place on this page"
+   ]
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j04-singapore-chinatown-1440-light.jpg"
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 4,
+   "friction": [
+    "atlas: count ≠ 16"
+   ]
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 3,
+   "friction": [
+    "Back 1: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+    "Back 2: got {\"view\":\"gallery\",\"sheet\":false}, want {\"view\":\"atlas\",\"sheet\":false}",
+    "Back 3: got {\"view\":null,\"mode\":null,\"sheet\":false}, want {\"view\":\"gallery\",\"sheet\":false}",
+    "Forward 2: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+    "no sheet opened from a card (step 3)"
+   ]
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": []
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j10-singapore-chinatown-390-light.jpg"
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 40,
+   "friction": []
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "page": "Singapore/chinatown.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": []
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "page": "Singapore/chinatown.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j08-singapore-chinatown-1440-light.jpg"
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 6,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j01-wheeling-390-light.jpg"
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j02-wheeling-390-light.jpg"
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": []
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j10-singapore-chinatown-1440-light.jpg"
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "page": "Singapore/chinatown.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": []
+  },
+  {
+   "id": "J-01",
+   "title": "Discover → shortlist → plan a day → share → reopen",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 6,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j01-wheeling-1440-light.jpg"
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 1,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j03-wheeling-390-light.jpg"
+  },
+  {
+   "id": "J-02",
+   "title": "Best food near X",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j02-wheeling-1440-light.jpg"
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j04-wheeling-390-light.jpg"
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "partial",
+   "steps": 4,
+   "friction": [
+    "atlas: count ≠ 15"
+   ]
+  },
+  {
+   "id": "J-03",
+   "title": "Is it still open? (closure honesty)",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 1,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j03-wheeling-1440-light.jpg"
+  },
+  {
+   "id": "J-04",
+   "title": "Who recommends this and why?",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j04-wheeling-1440-light.jpg"
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 3,
+   "friction": []
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 40,
+   "friction": []
+  },
+  {
+   "id": "J-05",
+   "title": "Switch views without losing context",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 4,
+   "friction": []
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "page": "cities/wheeling.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j08-wheeling-390-light.jpg"
+  },
+  {
+   "id": "J-06",
+   "title": "Back and Forward",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 3,
+   "friction": [
+    "Back 1: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+    "Back 2: got {\"view\":\"gallery\",\"sheet\":false}, want {\"view\":\"atlas\",\"sheet\":false}",
+    "Back 3: got {\"view\":null,\"mode\":null,\"sheet\":false}, want {\"view\":\"gallery\",\"sheet\":false}",
+    "Forward 2: got {\"view\":\"atlas\",\"sheet\":false}, want {\"view\":\"atlas\",\"mode\":\"sights\",\"sheet\":false}",
+    "no sheet opened from a card (step 3)"
+   ]
+  },
+  {
+   "id": "J-07",
+   "title": "Keyboard only",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "partial",
+   "steps": 40,
+   "friction": [
+    "1 of 40 stops show no focus ring: INPUT "
+   ]
+  },
+  {
+   "id": "J-08",
+   "title": "200 % zoom",
+   "page": "cities/wheeling.html",
+   "vp": "1440@200%",
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j08-wheeling-1440-light.jpg"
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": []
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j10-wheeling-390-light.jpg"
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "page": "cities/wheeling.html",
+   "vp": 390,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": []
+  },
+  {
+   "id": "J-09",
+   "title": "Reduced motion",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": []
+  },
+  {
+   "id": "J-10",
+   "title": "Map library blocked",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 0,
+   "friction": [],
+   "shot": "design/beta/eval/qc/530dc83b-journeys2/shots/j10-wheeling-1440-light.jpg"
+  },
+  {
+   "id": "J-11",
+   "title": "Storage blocked",
+   "page": "cities/wheeling.html",
+   "vp": 1440,
+   "theme": "light",
+   "success": "yes",
+   "steps": 2,
+   "friction": []
+  }
+ ],
+ "census": {},
+ "byCheck": {
+  "J-01": {
+   "PASS": 10,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "J-02": {
+   "PASS": 6,
+   "FAIL": 2,
+   "WARN": 2,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "J-03": {
+   "PASS": 6,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 4
+  },
+  "J-04": {
+   "PASS": 10,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "J-05": {
+   "PASS": 3,
+   "FAIL": 0,
+   "WARN": 7,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "J-06": {
+   "PASS": 5,
+   "FAIL": 0,
+   "WARN": 5,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "J-07": {
+   "PASS": 6,
+   "FAIL": 0,
+   "WARN": 4,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "J-08": {
+   "PASS": 10,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "J-09": {
+   "PASS": 10,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "J-10": {
+   "PASS": 10,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "J-11": {
+   "PASS": 10,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  }
+ },
+ "finished": "2026-10-16T15:07:30.872Z"
+}
