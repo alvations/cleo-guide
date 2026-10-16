@@ -13,6 +13,11 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- R8 gap #5b (B-20): What changed "Status source" links are a.chg-src 44 px controls (beat `.chg a` 24 px); metrics.js
+  B-20 = 0 on all 31 pages that carry one (sweep in scratch, 31/31). test-hubs guards the class + rule.
+- R8 gap #2d: landing + hub "Recommended by" use lib/model.js recommender(): research parentheticals dropped
+  ("Wikipedia (published facts/coords)" → "Wikipedia"), a place's own site ("Official … site") never named; W9-6 source
+  index uses publicName(). Left on 4 city pages (FE-A's render/city.js): siliconvalley, statecollege, madison, cincinnati.
 - Overlay audit (owner directive, docs/BETA-OVERLAY-LEDGER.md; FE-B scope Guidebook / Insights / What changed / method):
   probe tools/beta/feb-ov.js (7 pages x 6 viewports x 2 themes; OV_ONLY=<regex>). Rows OV-30..OV-35. Fixed OV-30
   (Contents strip under the city bar) + OV-31 (strip scrolls away < 500 px tall). Open: OV-32/33/34 FE-A; OV-35 FE-B shell
