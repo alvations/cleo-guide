@@ -55,7 +55,7 @@
   }
   function unmount(v) { const m = reg[v]; if (m && m.on) { m.on = 0; try { m.unmount && m.unmount(host); } catch (e) {} } if (host && !(reg[cur] && reg[cur].on)) host.hidden = true; }
 
-  function paintNav() { if (!nav) return; qa('button[data-view]', nav).forEach(b => { const p = at(b, 'data-view') === cur; b.setAttribute('aria-pressed', String(p)); if (p) b.setAttribute('aria-expanded', String(nav.classList.contains('open'))); else b.removeAttribute('aria-expanded'); }); }
+  function paintNav() { if (!nav) return; qa('button[data-view]', nav).forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-view') === cur))); }   // FE-B QC-09: pressed state only (no menu)
   function show(v, o) {
     if (!ok(v)) v = DEF;
     const prev = cur, changed = v !== prev || o.first;
@@ -81,11 +81,13 @@
   on(nav, 'click', e => {
     const b = e.target.closest && e.target.closest('button[data-view]'); if (!b) return;
     const v = at(b, 'data-view');
-    // phones (< 640 px): the switcher is one "current view" button that opens the four (B-03 controls budget)
-    if (v === cur) { if (window.matchMedia && matchMedia('(max-width: 639px)').matches) { const o = !nav.classList.contains('open'); nav.classList.toggle('open', o); b.setAttribute('aria-expanded', String(o)); } return; }
-    nav.classList.remove('open');
+    // FE-B QC-09 (§v2.11): four segments at every width, one tap per switch; a tap with a sheet open closes it and switches
+    const wasOpen = !!(Cleo.sheet && Cleo.sheet.isOpen && Cleo.sheet.isOpen());
+    if (wasOpen) { try { Cleo.sheet.close(true); } catch (x) {} try { b.focus({ preventScroll: true }); } catch (x) {} }   // focus leaves the closed sheet for the segment; the new view then takes it to its heading
+    if (Cleo.tray && Cleo.tray.close) { try { Cleo.tray.close(true); } catch (x) {} }
+    if (v === cur) { if (wasOpen) { const r0 = Cleo.route.parse(); if (r0.p) { delete r0.p; location.hash = Cleo.route.href(r0); } } return; }
     store.set('view', v);
-    const r = Cleo.route.parse(); delete r.pg; delete r.all; r.view = v;
+    const r = Cleo.route.parse(); delete r.pg; delete r.all; if (wasOpen) delete r.p; r.view = v;
     const h = Cleo.route.href(r);
     const go = () => {
       show(v, { user: 1 });                                        // first, so the hashchange below sees no change to undo

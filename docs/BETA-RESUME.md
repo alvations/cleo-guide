@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 13:55Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 14:55Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -30,10 +30,11 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- **Deploy candidate: `2bfff3fe9886d1939e5b3994fb0bc329d2b62175`.** It is be74c82f plus FE-B's QC-01/02/03/10 (68b442c0).
-  validate, npm test and beta:check are green on it.
-  - QA (asked 13:55Z): R7 rows, QC-01, and a delta check of be74c82f..2bfff3fe, then YES/NO on 2bfff3fe.
-  - QC is verifying QC-02/03/10 in parallel.
+- **R7 re-sign on be74c82f: NO** (QA 3480f399). Every R7 row passes. Two things block the YES:
+  - **QC-01** (High), already fixed in **2bfff3fe** (FE-B 68b442c0);
+  - **QA-69**, a regression from FE-A 7c70e821: the phone Gallery map pill is hidden at load (B-07 "toggle none" on 4 pilots). It was routed to FE-A first at 14:07Z; the fix keeps the pill visible at load.
+- **Next:** when QA-69 lands, pin a head containing 2bfff3fe and the QA-69 fix, and gate it. QA then re-runs B-07 Gallery, QC-01 and the regression rows, and gives YES/NO on that head.
+- Not blocking: QA-67 (detail matte), QA-61 (phone Atlas search box size), QA-68 (B-08 probe artefact; QA fixes the probe).
 - **On YES:**
   1. `git push origin <sha>:refs/heads/beta-deploy-r7`;
   2. a PR into `claude/cleveland-page-creation-pant4l`;
@@ -50,9 +51,9 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 | What | State | Next |
 |---|---|---|
-| Imagery `all` | dispatched 13:36Z, budget 1200; about 500 targets left before this run | Contact-sheet every new photo, send refusals, then dispatch again |
-| Location verification | Wheeling 7 and SF 112 accepted; Orlando run (22 pins); Chicago REQUEST queued | The lane commits each city's report; the orchestrator reviews and runs `--accept`, rebuild and gates |
-| Atlas panel | R2 70.9; the designer's SPEC-v3 rev 4 (e08a64b2) | FE-1 and FE-2 agree the R3 head, then "round 3 ready at <sha>" to the panel |
+| Imagery `all` | Run #48 committed (tier-1 487/1017). The orchestrator decided the 17 open rows at 14:30Z: 32 refusals in total, recorded in `design/beta/imagery-runs/run-48.md` | The imagery lane applies the refusals and then dispatches the next `all` at budget 1200 (236 targets left). D-40a 720w leads follow from push run #50 |
+| Location verification | Accepted: Wheeling 7, SF 112, Orlando 7, **Chicago 48** (14:50Z). Five Chicago pass rows are held: 2 closed, 1 park, 1 street stretch, 1 with no registry address. Beta is at 8,627 places. DC is in flight (commit=true) | The lane commits each city's report; the orchestrator reviews, runs `--accept`, rebuilds and gates. Order after DC: Miami, Erie, Philadelphia, then Singapore (about 3 runs), Saarland, Okinawa, Rhineland, Aachen |
+| Atlas panel | R3 declared at 537cfb8c; real shots are in `design/beta/atlas/real/R3` (SHOTS-REQUEST pins the SHA) | The panel scores R3; relay the score to the owner. Then the open items: the W9-5 base ring (FE-2), §3.6, and the phone switcher in .ms-bar (FE-1) |
 | QC | 14 findings (QC-01 High), routed | QC re-verifies as fixes land |
 | Perf | PERF-01/03/04/05/13 fixed; PERF-06 released 13:36Z; PERF-08 core inert | Platform applies PERF-06, then the PERF-08 FE parts |
 
@@ -62,9 +63,9 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 |---|---|---|---|
 | QA, register keeper | session_017FLWXa5zgGWvqNo4C3UsvH | R7 re-sign at be74c82f | docs/resume/qa.md |
 | QC | session_01MYsz5PHtY39stLxc8rMmqj | re-verify QC-NN | docs/resume/qc.md |
-| FE-A | session_0192s7fEFwRUZrw5ocAEJn9G | QA-59a, QA-61, QC-06/07/08/09/11 | docs/resume/fe-a.md |
+| FE-A | session_0192s7fEFwRUZrw5ocAEJn9G | **QA-69 first (blocks the deploy)**, then QC-08, QA-67, the food cover, QC-11 after PERF-06, fe-a.css snap-spacing | docs/resume/fe-a.md |
 | FE-B | session_01BpzJesL1sQZFU5ZfBQtcNG | QC-01 (High), QC-02/03/10 | docs/resume/fe-b.md |
-| FE-C | session_01SxU3Mdpo1UAQyJQJmnMFtG | recover `work-fec` onto the branch; W9-5, W9-7 | docs/resume/fe-c.md |
+| FE-C | session_01SxU3Mdpo1UAQyJQJmnMFtG | W9-4/5/7 done; now Cleo.t on its strings, then W9-1 card and detail UI, then the W9-9 lens (moved from FE-A, 14:45Z) | docs/resume/fe-c.md |
 | Platform | session_01USPS1inq7bUDfyw89evKMA | PERF-06, then the PERF-08 FE parts | docs/resume/platform.md |
 | Atlas FE-1 | session_01Cuvo7DWhwbWjLpFicvaF5E | SPEC-v3 rev 4 §2.1–2.4, QC-04/05/13 | docs/resume/atlas-fe1.md |
 | Atlas FE-2 | session_011SQNDyJMGzR5K32A4y9Udd | PANEL #1 round-trip and deep link, #4 near me | docs/resume/atlas-fe2.md |

@@ -342,7 +342,9 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const DV = 'gallery';
   const VIEWS = ['gallery', 'atlas'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
   const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'sliders'] };   // i18n D-41: views, tray, masthead
-  const switcher = `<nav class="views" data-cleo-views aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}">${ico(VLBL[v][1])}<span>${VLBL[v][0]}</span></button>`).join('')}</nav>`;
+  // FE-B QC-09 (DESIGN-SYSTEM §v2.11): a labelled group of four pressed-state toggles, never a <nav> (axe: no group role on
+  // nav); four segments at every width, one tap per switch; data-label = the visible tooltip when only the glyph shows
+  const switcher = `<div class="views" data-cleo-views role="group" aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}" data-label="${VLBL[v][0]}">${ico(VLBL[v][1])}<span class="l">${VLBL[v][0]}</span></button>`).join('')}</div>`;
   const areaChips = areas.length > 1 ? `<div class="area-chips" role="group" aria-label="${tr('city.areas.label')}" data-cleo-toolbar hidden></div>` : '';   // views.js draws the chips (page weight)
   // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
   const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
@@ -367,7 +369,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
-    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base /* FE-C W9-5 hook */ },  // loaded on first use (C.need / views.js), precached by the SW
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'] /* FE-C W9-5 / W9-7 hook */ },  // loaded on first use (C.need / views.js), precached by the SW
     views: VIEWS, dv: DV,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,

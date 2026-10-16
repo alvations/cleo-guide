@@ -183,11 +183,11 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
       ok(ph && ph.fade && hex(ph.bg) === ph.ph.toLowerCase() && ph.dur > 0 && ph.dur <= 300, 'a photo\'s placeholder is its dominant colour, fading ≤ 300 ms', ph);
       ok(ph && ph.inn && +ph.op === 0, 'once the image has loaded the placeholder is gone', ph && [ph.inn, ph.op]);
     } else ok(ph && ph.dur === 0, 'reduced motion: the placeholder clears with no transition', ph && ph.dur);
-    const ind = () => page.evaluate(() => { const i = document.querySelector('nav.views .v-ind'), b = document.querySelector('nav.views button[aria-pressed="true"]');
+    const ind = () => page.evaluate(() => { const i = document.querySelector('.views[data-cleo-views] .v-ind'), b = document.querySelector('.views[data-cleo-views] button[aria-pressed="true"]');
       return i && b ? { left: Math.round(i.getBoundingClientRect().left), on: Math.round(b.getBoundingClientRect().left), w: Math.round(i.getBoundingClientRect().width), bw: Math.round(b.getBoundingClientRect().width), dur: parseFloat(getComputedStyle(i).transitionDuration) * 1000 } : null; });
     const i0 = await ind();
     await page.evaluate(() => { window.__an = []; const t0 = performance.now(); const tick = () => { document.getAnimations().forEach(a => { const e = a.effect && a.effect.target; if (e && e.parentElement && e.parentElement.id === 'main') window.__an.push(Math.round(a.effect.getComputedTiming().duration)); }); if (performance.now() - t0 < 350) requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
-    await page.click('nav.views button[data-view="guidebook"]'); await page.waitForTimeout(500);
+    await page.click('.views[data-cleo-views] button[data-view="guidebook"]'); await page.waitForTimeout(500);
     const i1 = await ind(), an = await page.evaluate(() => window.__an);
     ok(i0 && i1 && i1.left !== i0.left && Math.abs(i1.left - i1.on) <= 1 && Math.abs(i1.w - i1.bw) <= 1, `${rm}: the switcher's selection moves onto the new view`, [i0, i1]);
     if (rm === 'no-preference') ok(i1.dur > 0 && i1.dur <= 300 && an.length > 0 && Math.max(...an) <= 300, 'the selection slides and the content cross-fades, each ≤ 300 ms', [i1.dur, [...new Set(an)]]);
@@ -201,6 +201,35 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(600);
     const c = await page.evaluate(() => { const f = document.querySelector('main figure.photo[style*="--ph"]'); return f ? getComputedStyle(f, '::before').content : 'no photo'; });
     ok(c === 'none' || c === 'normal', 'without JS no placeholder ever covers a photo', c); await ctx.close(); }
+  console.log('# QC-06: every visible view-switcher segment is ≥ 44 px tall, at every width');
+  for (const w of [390, 768, 1024, 1440]) {
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(900);
+    const hs = await page.evaluate(() => [...document.querySelectorAll('nav[data-cleo-views] button')].filter(e => e.getClientRects().length).map(e => Math.round(e.getBoundingClientRect().height)));
+    ok(hs.length && hs.every(h => h >= 44), `@${w}: ${hs.length} switcher segment(s) ≥ 44 px`, hs); await ctx.close();
+  }
+  console.log('# QC-08: best food near X in three taps; the first card on screen is inside the lens');
+  for (const w of [390, 1440]) {
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1300);
+    await page.click('button[data-mode="food"]'); await page.waitForTimeout(500);
+    const chip = await page.$('.toolbar .area-chips button[data-cleo-area="TAITO"]'), vis = !!chip && await chip.isVisible();
+    ok(vis, `@${w}: an area chip is one tap away in Gallery (no tray)`);
+    if (vis) { await chip.scrollIntoViewIfNeeded(); await chip.click(); await page.waitForTimeout(700); }
+    const r = await page.evaluate(() => { const v = e => e.getClientRects().length && getComputedStyle(e).display !== 'none';
+      const first = [...document.querySelectorAll('li.pl, li.gc')].filter(v).sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
+      return { lead: !!v(document.getElementById('cleo-lead')), k: first && first.getAttribute('data-k'), a: first && first.getAttribute('data-a'), id: first && first.id }; });
+    ok(!r.lead && r.k === 'f' && r.a === 'TAITO', `@${w}: under Eat & drink + Taitō-ku the lead card steps aside and the first card is a Taitō-ku food place`, r);
+    await ctx.close();
+  }
+  console.log('# QA-69: the phone Gallery\'s "Show map" pill is visible at load and at rest (the first screen\'s way to the map)');
+  { const ctx = await ctxFor(b, 390);
+    for (const u of ['cleveland.html', 'cities/tokyo.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html']) {
+      const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u, { waitUntil: 'load' }); await page.waitForTimeout(1500);
+      const at = async () => page.evaluate(() => { const p = document.querySelector('[data-cleo-mappill]'); if (!p) return 'none'; const c = getComputedStyle(p), r = p.getBoundingClientRect();
+        return !p.hidden && c.display !== 'none' && c.visibility === 'visible' && +c.opacity > 0.9 && r.bottom <= innerHeight && r.top >= 0 ? 'visible' : [c.display, c.visibility, c.opacity, Math.round(r.top)].join(' '); });
+      const v0 = await at(); await page.evaluate(() => scrollBy(0, 900)); await page.waitForTimeout(800); const v1 = await at();
+      ok(v0 === 'visible' && v1 === 'visible', `@390 ${u}: the pill is visible at load and after scrolling down`, [v0, v1]); await page.close();
+    }
+    await ctx.close(); }
   console.log('# QC-07: Esc returns focus to the control that opened the sheet');
   for (const w of [390, 1440]) {
     const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);

@@ -76,6 +76,7 @@
       '<div class="daysum"><div><b>' + ids.length + '</b><span>' + tt('day.stops', 'stops') + '</span></div><div><b>' + fmt(tot) + '</b><span>' + tt('day.total', 'straight-line total') + '</span></div><div><b>' + food + '</b><span>' + (food === 1 ? tt('day.eat.one', 'place to eat') : tt('day.eat', 'places to eat')) + '</span></div></div>' +
       '<p class="caveat">' + (shared(a) ? tt('day.shared', 'A day shared with you as a link — edit it to keep your own copy on this device. ') : edited(a) ? tt('day.yours', 'Your version of the guide’s day. ') : '') + esc(info.dl && info.dl !== DL ? info.dl : tt('day.note', DL)) + '</p>' +
       '<div class="sharebar"><button type="button" class="btn btn-primary" data-dy="share">' + icon('share') + '<span>' + tt('day.share', 'Share this day') + '</span></button>' +
+      /* FE-C W9-7 hook */ '<button type="button" class="btn btn-ghost" data-cleo-card="day">' + icon('share') + '<span>' + tt('card.share.image', 'Share as an image') + '</span></button>' +
       '<a class="btn btn-ghost" href="' + g + '"' + NT + '>' + icon('directions') + '<span>' + tt('day.maps', 'Open in maps') + '</span></a>' +
       '<button type="button" class="btn btn-ghost" data-dy="print">' + tt('day.print', 'Print') + '</button>' +
       '<button type="button" class="btn btn-ghost" data-dy="kml">' + tt('day.kml', 'Export KML') + '</button>' + useSaved +

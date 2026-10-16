@@ -255,6 +255,31 @@ async function finish(page, s0, opener, close) {
     if (errors.length) chk(`#3 tokyo ${vn}: 0 page errors`, false, errors.slice(0, 2));
     await ctx.close();
   }
+  // W9-5 the walking ring from your base (Tokyo, base = Nonbei Yokochō, Shibuya): 10 min → the circle, the lens, the count
+  if (PAGES.some(p => p[0] === 'tokyo')) for (const [vk, vp] of [['d', D], ['m', M]]) {
+    const vn = vk === 'd' ? '1440' : '390', base = 'nonbei-yokocho-shibuya';
+    const { ctx, page, errors } = await open(browser, vp, 'beta/cities/tokyo.html#view=atlas&base=' + base, { wait: 2600 });
+    const has = await page.waitForSelector('.ms-ring button[data-ring="10"]', { timeout: 6000 }).then(() => true, () => false);
+    let r = { ring: has };
+    if (has) {
+      const total = await page.evaluate(() => [...document.querySelectorAll('li.pl')].filter(c => !c.hidden).length + (Cleo.defer && Cleo.defer.peek ? Cleo.defer.peek().length : 0));
+      await page.evaluate(() => document.querySelector('.ms-ring button[data-ring="10"]').click()); await sleep(1500);
+      r = Object.assign(r, await page.evaluate(() => { const C = Cleo.city, m = C.map(), o = Cleo.base.ll(), G = Cleo.geo;
+        const mins = c => { const ll = G.ll(c); return ll ? G.walk(G.km(o, ll)).min : null; };
+        const all = [...document.querySelectorAll('li.pl')], vis = all.filter(c => !c.hidden), hid = all.filter(c => c.hidden);
+        const circ = document.querySelector('#cleo-map path.ms-ring-c'), b = m.getBounds(), R = 10 * 80 / 111320;
+        return { hash: location.hash, pressed: (document.querySelector('.ms-ring [aria-pressed="true"]') || {}).textContent, circle: !!circ, inView: b.contains([o[0] + R * 0.95, o[1]]) && b.contains([o[0] - R * 0.95, o[1]]),
+          outside: vis.filter(c => mins(c) !== null && mins(c) > 10).map(c => c.id).slice(0, 3), hiddenInside: hid.filter(c => mins(c) !== null && mins(c) <= 10 && Cleo.lens.match(c, {})).map(c => c.id).slice(0, 3),
+          shown: vis.length, stubs: Cleo.defer && Cleo.defer.peek ? Cleo.defer.peek().length : 0, said: /straight-line/i.test((document.querySelector('.ms-ring') || {}).textContent || '') }; }));
+      chk(`W9-5 tokyo ${vn}: "10 min" from your base draws the ring on the map, fits it, and the list holds exactly the places ≤ 10 min (the minutes the cards print), the assumption stated`,
+        r.circle && r.inView && /ring=10/.test(r.hash) && r.outside.length === 0 && r.hiddenInside.length === 0 && r.shown > 0 && r.shown < total && r.stubs === 0 && r.said, Object.assign({ total }, r));
+      await page.evaluate(() => { const b = document.querySelector('.ms-ring button[data-ring=""]'); if (b) b.click(); }); await sleep(1200);
+      const back = await page.evaluate(() => ({ hash: location.hash, shown: [...document.querySelectorAll('li.pl')].filter(c => !c.hidden).length, circle: !!document.querySelector('#cleo-map path.ms-ring-c') }));
+      chk(`W9-5 tokyo ${vn}: "Any" lifts the ring — every place back, no circle`, !/ring=/.test(back.hash) && back.shown === total && !back.circle, Object.assign({ total }, back));
+    } else chk(`W9-5 tokyo ${vn}: the ring control shows when a base is set`, false, r);
+    if (errors.length) chk(`W9-5 tokyo ${vn}: 0 page errors`, false, errors.slice(0, 2));
+    await ctx.close();
+  }
   await browser.close();
   if (OUT) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, 'nav-probe.json'), JSON.stringify(R, null, 1) + '\n'); }
   console.log(fails ? `\n>>> FAIL — ${fails} Atlas interaction-state check(s)` : '\n>>> PASS — Atlas interaction state');

@@ -48,7 +48,23 @@ Wait for "round 3 ready at `<sha>`" from the front-end lane or the orchestrator.
 
 ## In flight
 
-Nothing. The R2 report is pushed, and the panel is waiting for the R3 head.
+Round 3 is running on head `537cfb8c` (from session_011SQNDyJMGzR5K32A4y9Udd at 2026-10-16 14:06Z).
+
+Done this round:
+- worktree `../panel-r3`;
+- probe, views and ms evidence in `design/beta/atlas/panel/R3/` (pushed);
+- `EVIDENCE.md`;
+- `PANELIST-BRIEF.txt`;
+- real/R3 exists, shot on exactly this head (`real/R3/SHOT-SHA.txt`).
+
+Eight panelists were launched at about 14:45Z (Agent tool). Their agent ids are lost if the session stops.
+
+If the session stops before every return is saved, re-run each missing panelist with:
+- the brief `panel/R3/PANELIST-BRIEF.txt`, copied to the scratchpad;
+- its persona card;
+- `panel/R2/panelists/<id>.md`, whose last section is the "Prev".
+
+Returns saved so far, in `panel/R3/panelists/`: none.
 
 ## Notes
 
