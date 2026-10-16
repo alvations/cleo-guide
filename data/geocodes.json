@@ -11928,7 +11928,8 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "Wikipedia/Atlas Obscura; outdoor installation still on site next to Google Visitor Center",
-    "statusChecked": "2026-08-14"
+    "statusChecked": "2026-08-14",
+    "note": "merged alias 'Google Android Lawn Statues & Visitor Experience' 2026-10-16 (its source: WIKIPEDIA; pin 37.42064,-122.08339 high; status src: Public installation next to Google Visitor Center; Wikipedia/Atlas Obscura active listings)"
    },
    "Computer History Museum": {
     "address": "1401 N Shoreline Blvd, Mountain View, CA 94043",
@@ -12973,17 +12974,6 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "Operating major museum; official site & Visit San Jose listing active (Yelp shows only a temporary, not permanent, closure)",
-    "statusChecked": "2026-08-14"
-   },
-   "Google Android Lawn Statues & Visitor Experience": {
-    "address": "Charleston Rd & Huff Ave, Mountain View, CA 94043",
-    "lat": 37.42064,
-    "lng": -122.08339,
-    "source": "WIKIPEDIA",
-    "verified": "2026-08-14",
-    "confidence": "high",
-    "status": "open",
-    "statusSource": "Public installation next to Google Visitor Center; Wikipedia/Atlas Obscura active listings",
     "statusChecked": "2026-08-14"
    },
    "NASA Ames Exploration Center": {
@@ -29039,7 +29029,8 @@
     "confidence": "UNVERIFIED",
     "status": "closed",
     "statusSource": "EdgeProp / Yahoo News SG: freehold corner shophouse sold S$8.55M, ceased operations 31 Aug 2025 (relocated to 9007 Tampines)",
-    "statusChecked": "2026-09-02"
+    "statusChecked": "2026-09-02",
+    "note": "stale 2026-10-16: no page, dataset or research row (ORPHANS.md)"
    },
    "United Temple (United Five Temples of Toa Payoh)": {
     "address": "177 Lorong 7 Toa Payoh, Singapore 319318",
@@ -30051,7 +30042,8 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "Discovered open in 2025-2026 research; The Hudson Rooms (Hanoi) active on Asia's 50 Best 2024; HCMC venue unconfirmed",
-    "statusChecked": "2026-09-02"
+    "statusChecked": "2026-09-02",
+    "note": "stale 2026-10-16: no page, dataset or research row (ORPHANS.md)"
    },
    "Chè Kỳ Đồng": {
     "address": "Kỳ Đồng, District 3, Ho Chi Minh City, Vietnam",
@@ -39764,7 +39756,8 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "opened 25 Jul 2025 (Time Out / Eatbook / Little Day Out); named in 2025 guides",
-    "statusChecked": "2026-10-03"
+    "statusChecked": "2026-10-03",
+    "note": "stale 2026-10-16: no page, dataset or research row (ORPHANS.md)"
    },
    "One Soy (Punggol Coast)": {
     "address": "#02-K88 Punggol Coast Hawker Centre, 84 Punggol Way, Singapore 829911",
@@ -40415,7 +40408,8 @@
     "confidence": "UNVERIFIED",
     "status": "closed",
     "statusSource": "NEW CLOSURE — Yelp 'Z Bar Deli Restaurant - CLOSED' + Foursquare 'Now Closed' + for-lease sign (2025). Not marked closed in worklist.",
-    "statusChecked": "2026-08-27"
+    "statusChecked": "2026-08-27",
+    "note": "stale 2026-10-16: no page, dataset or research row (ORPHANS.md)"
    },
    "Allen Street Grill": {
     "address": "100 W College Ave (2nd floor, Hotel State College), State College, PA 16801",
@@ -42399,7 +42393,8 @@
     "confidence": "UNVERIFIED",
     "status": "closed",
     "statusSource": "",
-    "statusChecked": "2026-08-30"
+    "statusChecked": "2026-08-30",
+    "note": "stale 2026-10-16: no page, dataset or research row (ORPHANS.md)"
    },
    "Fine Restaurant & Bar": {
     "address": "2330 E 38th St, Erie, PA 16510",
@@ -61417,7 +61412,7 @@
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/edzos-burger-shop (current listing with hours, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "SUB"
+    "note": "SUB · stale 2026-10-16: no page, dataset or research row (ORPHANS.md)"
    },
    "Don Pedro Carnitas": {
     "address": "1113 W 18th St, Chicago, IL 60608",
@@ -99928,7 +99923,7 @@
     "status": "closed",
     "statusSource": "https://en.wikipedia.org/wiki/Wet_'n_Wild_Orlando",
     "statusChecked": "2026-10-03",
-    "note": "Closed January 1, 2017 per Wikipedia; site now Volcano Bay area/Universal"
+    "note": "Closed January 1, 2017 per Wikipedia; site now Volcano Bay area/Universal · not in dataset by design 2026-10-16: a closed lead caught before publishing, never added (AUDIT.md l.67 'closed 2017, not added'); kept here with its sourced pin (ORPHANS.md)"
    },
    "Orange County Convention Center": {
     "address": "9860 Universal Blvd, Orlando, FL 32819",
@@ -100345,7 +100340,7 @@
     "status": "closed",
     "statusSource": "https://www.atlasobscura.com/places/skeletons-museum-of-osteology",
     "statusChecked": "2026-10-03",
-    "note": "Atlas Obscura marks it permanently closed"
+    "note": "Atlas Obscura marks it permanently closed · not in dataset by design 2026-10-16: a closed lead caught before publishing, never added (AUDIT.md l.96 + l.330 + _w6a_add.py l.63 'dropped: Atlas Obscura lists it permanently closed'); kept here with its sourced pin (ORPHANS.md)"
    },
    "Randall Knife Museum": {
     "address": "4857 South Orange Blossom Trail, Orlando, FL",
@@ -100379,7 +100374,7 @@
     "status": "closed",
     "statusSource": "https://www.atlasobscura.com/places/singing-runway-at-the-abandoned-disney-world-airport",
     "statusChecked": "2026-10-03",
-    "note": "Atlas Obscura: musical grooves removed in 2008; runway strip remains but no longer 'sings'"
+    "note": "Atlas Obscura: musical grooves removed in 2008; runway strip remains but no longer 'sings' · not in dataset by design 2026-10-16: a closed lead caught before publishing, never added (AUDIT.md l.96 'grooves removed 2008 … none added as pins'); kept here with its sourced pin (ORPHANS.md)"
    },
    "Curse of the Werewolf (Epic Universe)": {
     "address": "",
@@ -106434,7 +106429,8 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "Songkick venue page lists 2026 shows (e.g. WOODZ 31 Jul 2026) https://www.songkick.com/venues/244628-fillmore-miami-beach-at-jackie-gleason-theater",
-    "statusChecked": "2026-10-02"
+    "statusChecked": "2026-10-02",
+    "note": "stale 2026-10-16: no page, dataset or research row (ORPHANS.md)"
    },
    "Miami Beach Bandshell": {
     "address": "7275 Collins Ave, Miami Beach, FL 33141",
@@ -117023,7 +117019,8 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "W3a 2026-10-03: two current Visit Canton listings (Canton + North Canton); no closure found",
-    "statusChecked": "2026-10-03"
+    "statusChecked": "2026-10-03",
+    "note": "stale 2026-10-16: no page, dataset or research row (ORPHANS.md)"
    },
    "Canal Boat Lounge": {
     "address": "119 S Canal St, Canal Fulton, OH 44614",

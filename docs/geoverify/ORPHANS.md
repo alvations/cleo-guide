@@ -2,7 +2,7 @@
 
 _Generated 2026-10-16. Report only, except class (a), whose merges are logged below. Classes: **(a)** alias of an on-page name (merge, keeping source / pin / status in `note`) · **(b)** in the dataset but not rendered (held for a pin, or a gate drop) — keep · **(c)** only in research files (merit bar / editorial) — keep · **(d)** none of these — stale, listed for a decision (archive with a reason, never silent deletion)._
 
-**Totals:** (a) 0 · (b) 1771 · (c) 55 · (d) 12
+**Totals:** (a) 0 · (b) 1771 · (c) 55 · (d) 11
 
 | city | (a) alias | (b) dataset, held | (c) research only | (d) stale |
 |---|---|---|---|---|
@@ -34,7 +34,7 @@ _Generated 2026-10-16. Report only, except class (a), whose merges are logged be
 | rhineland | 0 | 2 | 7 | 0 |
 | saarland | 0 | 117 | 2 | 0 |
 | san-francisco-ca | 0 | 71 | 0 | 0 |
-| silicon-valley-ca | 0 | 18 | 1 | 1 |
+| silicon-valley-ca | 0 | 18 | 1 | 0 |
 | singapore | 0 | 374 | 6 | 3 |
 | state-college-pa | 0 | 31 | 0 | 1 |
 | tokyo | 0 | 64 | 1 | 0 |
@@ -53,7 +53,6 @@ _Generated 2026-10-16. Report only, except class (a), whose merges are logged be
 | orlando-fl | Wet 'n Wild Orlando (former site) — CLOSED | 28.460943, -81.464841 (high) | closed | https://en.wikipedia.org/wiki/Wet_'n_Wild_Orlando |
 | orlando-fl | Skeletons: Museum of Osteology (Orlando) — CLOSED | 28.442597, -81.469102 (high) | closed | https://www.atlasobscura.com/places/skeletons-museum-of-osteology |
 | orlando-fl | Singing Runway (Walt Disney World STOLport) — CLOSED | 28.398693, -81.571021 (high) | closed | https://www.atlasobscura.com/places/singing-runway-at-the-abandoned-disney-world-airport |
-| silicon-valley-ca | Google Android Lawn Statues & Visitor Experience | 37.42064, -122.08339 (high) | open | Public installation next to Google Visitor Center; Wikipedia/Atlas Obscura active listings |
 | singapore | Eng Seng Restaurant — CLOSED (Joo Chiat) | UNVERIFIED | closed | EdgeProp / Yahoo News SG: freehold corner shophouse sold S$8.55M, ceased operations 31 Aug 2025 (rel |
 | singapore | Hudson Rooms | UNVERIFIED | open | Discovered open in 2025-2026 research; The Hudson Rooms (Hanoi) active on Asia's 50 Best 2024; HCMC  |
 | singapore | 75 Ah Balling Peanut Soup (Punggol Coast) | UNVERIFIED | open | opened 25 Jul 2025 (Time Out / Eatbook / Little Day Out); named in 2025 guides |
@@ -128,3 +127,6 @@ _(b) rows are not listed one by one: they are the dataset rows the geocode backl
 | 2026-10-16 | saarland | Villa Majorelle (Nancy) · Porte de la Craffe (Nancy) · Palais des ducs de Lorraine – Musée Lorrain (Nancy) · Parc de la Pépinière (Nancy) | **(a) alias merged** into the on-page records (consolidate.py already shows one record each). Each alias's source, pin and status source are kept in the canonical `note`. Registry count asserted -4. | identical pins (the 4 pairs are 0 m apart) |
 | 2026-10-16 | pittsburgh-pa / youngstown-oh / aachen | 5 aliases | **(a) merged** earlier today (see DUPLICATES.md Decisions) | — |
 | 2026-10-16 | all | (d) list above (12) | **listed for the orchestrator**: archive with a reason, or keep; nothing deleted | — |
+| 2026-10-16 | silicon-valley-ca | Google Android Lawn Statues & Visitor Experience | **(a) alias merged** into the on-page "Android Lawn Statues" (10 m apart; the alias rule missed it because the longer name starts with "Google"). Source/pin/status kept in `note`; count -1. | cities/siliconvalley.html record "Android Lawn Statues" |
+| 2026-10-16 | orlando-fl | Wet 'n Wild Orlando (former site) — CLOSED · Skeletons: Museum of Osteology (Orlando) — CLOSED · Singing Runway (Walt Disney World STOLport) — CLOSED | **leave, by design.** These are closed leads caught *before* publishing and never added, so they are not published closed places being dropped. Cited: data/orlando-research/AUDIT.md l.67 (Wet 'n Wild "closed 2017, not added"), l.96 (Skeletons; Singing Runway "grooves removed 2008 … none added as pins"), l.330 + `_w6a_add.py` l.63 (Skeletons "dropped: … permanently closed"). The registry keeps their sourced pins, with this reason in `note`. | AUDIT.md lines cited |
+| 2026-10-16 | akron · chicago · erie · miami · singapore ×3 · state-college | the 8 UNVERIFIED (d) rows | **kept in the registry**, `note` tagged "stale 2026-10-16: no page, dataset or research row (ORPHANS.md)". No research spend. | — |
