@@ -312,6 +312,8 @@
     get: function (k) { k = k || pageKey(); var id = k && Cleo.base.all()[k]; return id && ID.test(id) ? { key: k, id: id, ref: k + '/' + id } : null; },
     set: function (k, id) { fromUrl(); var a = mine(); if (id) { a[k] = visit[k] = id; } else { delete a[k]; delete visit[k]; } Cleo.store.set('mybase', a); emit('cleo:base', { key: k, id: id || null }); }
   };
+  // FE-C W9-7: any [data-cleo-card] button (place sheet, day, list, trip) draws a share image; share-card.js loads on the first tap
+  document.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('[data-cleo-card]'); if (!b) return; e.preventDefault(); Cleo.need('share-card', function () { if (Cleo.shareCard) Cleo.shareCard(b); }); });
   document.addEventListener('DOMContentLoaded', function () {
     if (Object.keys(Cleo.base.all()).length && (Cleo.base.get() || document.getElementById('cleo-saved'))) Cleo.need('base');
   });
