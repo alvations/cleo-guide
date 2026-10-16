@@ -28,7 +28,8 @@
     "beta:probe:fe-a": "node beta/w7-fe-a-probe.js",
     "beta:qa:w8p": "node beta/qa/w8-platform.js",
     "beta:perf": "node beta/qa/perf.js",
-    "beta:qa:pack": "node beta/qa/offline-pack.js"
+    "beta:qa:pack": "node beta/qa/offline-pack.js",
+    "beta:probe:fe-b": "node beta/feb-probes.js"
   },
   "dependencies": {
     "jsdom": "^24.0.0",

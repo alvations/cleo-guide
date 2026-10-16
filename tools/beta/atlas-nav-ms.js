@@ -73,7 +73,15 @@ const active = page => page.evaluate(() => { const a = document.activeElement; i
   const li = a.closest('li.pl'); if (li) return 'card ' + li.id; const pin = a.closest('.leaflet-marker-icon'); if (pin) return 'pin p-' + pin.getAttribute('data-id'); return a.tagName.toLowerCase() + '.' + String(a.className).split(' ')[0]; });
 
 // a card (desktop: in the list pane; phone: the carousel card nearest the middle) whose name link is fully on screen
-const pickCard = page => page.evaluate(() => {
+// FE-1 (SPEC-v3 §2.2, rev 4): the phone's first screen is map + a list peek — the carousel (and its cards) appears after a
+// selection, so on a phone with no card on screen a pin tap opens it first, as a reader would
+const pickCard = async page => { let id = await pickCard0(page);
+  if (!id && await page.evaluate(() => innerWidth < 1024 && !document.documentElement.classList.contains('ms-car'))) {
+    await page.evaluate(() => { const e = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].find(x => { const r = x.getBoundingClientRect(); return r.top > 160 && r.bottom < innerHeight - 140 && r.left > 0 && r.right < innerWidth; }); if (e) e.click(); });
+    // the tapped place may join the page as its last card: start from the carousel's first card, as a reader swiping back would
+    await sleep(900); await page.evaluate(() => { const l = document.querySelector('.listpane'); if (l) l.scrollLeft = 0; }); await sleep(600); id = await pickCard0(page); }
+  return id; };
+const pickCard0 = page => page.evaluate(() => {
   const ok = a => { const r = a.getBoundingClientRect(), hit = r.width && document.elementFromPoint(r.left + Math.min(10, r.width / 2), r.top + r.height / 2); return r.width && r.top > 0 && r.bottom < innerHeight && r.left >= 0 && r.right <= innerWidth && hit && a.contains(hit); };
   const a = [...document.querySelectorAll('li.pl:not([hidden]):not(.ms-out) .pl-n a')].find(ok); return a ? a.closest('li.pl').id : null; });
 // a labelled pin well inside the uncovered map

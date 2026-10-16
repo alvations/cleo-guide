@@ -1,0 +1,12 @@
+{
+  "_doc": "FE-C batch 4 (W9-9 local favourites lens), waiting for the ja (i18n lane). lf.rule and lf.gap carry platform's wording exactly (lib/recognition.js LF_RULE and its gap sentence); the numbers in lf.gap come from the page data.",
+  "strings": {
+    "lf.label": "Local favourites",
+    "lf.f": "Local favourites only",
+    "lf.tile.t": "Local press, writers and creators",
+    "lf.tile.d": "None official, every source typed",
+    "lf.h": "Local favourites ({n})",
+    "lf.rule": "Open places recommended only by local press, local writers or vetted creators — none by an official or tourism source, and every source typed in our registry.",
+    "lf.gap": "Fewer than {min} places here qualify ({n}), with {typed} of {total} sources typed in our registry, so the lens is not shown rather than padded."
+  }
+}
