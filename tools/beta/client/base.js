@@ -18,7 +18,8 @@
   var short = function (p) { var n = String(p.n).replace(/\s+[—–-]+\s*CLOSED\b.*$/, ''), nat = p.nat && n.slice(-p.nat.length - 2) === '(' + p.nat + ')' ? p.nat : ''; return nat ? n.slice(0, -nat.length - 2).trim() : n; };
   var isClosed = function (p) { return !!p.closed || /\bclosed\b/i.test((p.pv || {}).status || '') || / [—–-]+ CLOSED\b/.test(p.n); };
   /** Can this place be a base? '' when yes, otherwise the reason. */
-  var refuse = function (p) { return !p ? 'it is no longer listed in the guide' : isClosed(p) ? 'it is closed' : p.la == null ? 'it has no verified pin' : ''; };
+  if (!Cleo.t) Cleo.t = function (k, e, v) { return v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };   // i18n D-41
+  var refuse = function (p) { return !p ? Cleo.t('base.why.gone', 'it is no longer listed in the guide') : isClosed(p) ? Cleo.t('base.why.closed', 'it is closed') : p.la == null ? Cleo.t('base.why.nopin', 'it has no verified pin') : ''; };
 
   function load(k) {
     if (data[k] !== undefined) return Promise.resolve(data[k]);
@@ -33,13 +34,13 @@
   B.from = function (ll, k) {
     var o = B.ll(k); if (!o || !ll) return null;
     var km = Cleo.geo.km(o, ll), w = Cleo.geo.walk(km);
-    return { km: km, m: w.m, min: w.min, dist: w.dist, text: w.dist + ' from ' + B.name(k) + ' · ' + (w.min < 1 ? 'under 1 min walk' : w.min + ' min walk') };
+    return { km: km, m: w.m, min: w.min, dist: w.dist, text: w.dist + ' ' + Cleo.t('base.from', 'from') + ' ' + B.name(k) + ' · ' + (w.min < 1 ? Cleo.t('geo.walk.under', 'under 1 min walk') : Cleo.t('geo.walk.min', '{n} min walk', { n: w.min })) };   // not a {template}: one would match prose on other pages (runtime swap)
   };
   /** The line a card carries for place p of guide k (exported for tests): '' when there is nothing to say. */
   B.line = function (p, k) {
     var b = cur(k); if (!b || !p || p.la == null) return '';
-    if (p.id === b.id) return 'Your base';
-    var f = B.from([+p.la, +p.ln], k); return f ? (isClosed(p) ? 'Where it was: ' : '') + f.text : '';
+    if (p.id === b.id) return Cleo.t('base.yours', 'Your base');
+    var f = B.from([+p.la, +p.ln], k); return f ? (isClosed(p) ? Cleo.t('base.wasat', 'Where it was: {line}', { line: f.text }) : f.text) : '';
   };
   B.load = load;
   B.ready = function (cb) { var k = B.page() || ''; if (ready[k]) cb(); else waiters.push(cb); };
@@ -52,15 +53,15 @@
   }
   B.choose = function (k, id) {
     var D = data[k], p = D && D.by[id], why = refuse(p);
-    if (why) { toast('That place can’t be your base: ' + why + '.'); return false; }
+    if (why) { toast(Cleo.t('base.refuse', 'That place can’t be your base: {why}.', { why: why })); return false; }
     B.set(k, id); if (k === B.page()) hash(id);
-    toast('Your base is ' + short(p) + '. Every card now shows how far it is.');
+    toast(Cleo.t('base.set.toast', 'Your base is {base}. Every card now shows how far it is.', { base: short(p) }));
     return true;
   };
   B.clear = function (k) {
     k = k || B.page(); var was = B.name(k); B.set(k, null); if (k === B.page()) hash(null);
     if (C && C.S && C.S.sort === 'base') { var r = Cleo.route.parse(); delete r.sort; delete r.base; C.go(r, true); }
-    if (was) toast('Base cleared. The guide’s own order is back.');
+    if (was) toast(Cleo.t('base.cleared', 'Base cleared. The guide’s own order is back.'));
   };
 
   /* ---- the cards ---- */
@@ -115,17 +116,17 @@
     else { var at = [d.getElementById('cleo-lead'), d.getElementById('cleo-view'), d.querySelector('main .split')].filter(vis)[0] || (main && main.querySelector('section.area'));
       if (at && at.previousSibling !== el) at.parentNode.insertBefore(el, at); else if (!at && main && !el.parentNode) main.appendChild(el); }
     var on = C && C.S && C.S.sort === 'base';
-    var h = '<p><span class="eyebrow">Your base</span> <b>' + esc(short(b.p)) + '</b>. Every card shows how far it is. ' + esc(Cleo.geo.ASSUME) + '.</p><p class="base-acts">' +
-      (C ? '<button type="button" class="btn btn-ghost" data-cleo-base="sort" aria-pressed="' + on + '">' + (on ? 'Nearest to my base ✓' : 'Nearest to my base') + '</button>' : '') +
-      '<button type="button" class="btn btn-quiet" data-cleo-base="clear">Clear my base</button></p>';
+    var h = '<p><span class="eyebrow">' + esc(Cleo.t('base.yours', 'Your base')) + '</span> <b>' + esc(short(b.p)) + '</b>. ' + esc(Cleo.t('base.note', 'Every card shows how far it is.')) + ' ' + esc(Cleo.t('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route')) + '.</p><p class="base-acts">' +
+      (C ? '<button type="button" class="btn btn-ghost" data-cleo-base="sort" aria-pressed="' + on + '">' + esc(on ? Cleo.t('base.sort.on', 'Nearest to my base ✓') : Cleo.t('city.sort.base', 'Nearest to my base')) + '</button>' : '') +
+      '<button type="button" class="btn btn-quiet" data-cleo-base="clear">' + esc(Cleo.t('base.clear', 'Clear my base')) + '</button></p>';
     if (el._h !== h) { el.innerHTML = h; el._h = h; }
   }
   function savedNote(sv) {
     var all = B.all(), ks = Object.keys(all).filter(function (g) { return cur(g); }), el = d.getElementById('cleo-basenote');
     if (!ks.length) { if (el) el.remove(); return; }
-    var h = '<p><span class="eyebrow">Your base</span> ' + ks.map(function (g) { return '<b>' + esc(B.name(g)) + '</b> in ' + esc(data[g].name); }).join(', ') +
-      '. Cards in ' + (ks.length === 1 ? 'that guide' : 'those guides') + ' show how far they are. ' + esc(Cleo.geo.ASSUME) + '.</p><p class="base-acts">' +
-      ks.map(function (g) { return '<button type="button" class="btn btn-quiet" data-cleo-base="clear" data-k="' + esc(g) + '">Clear my ' + esc(data[g].name) + ' base</button>'; }).join('') + '</p>';
+    var h = '<p><span class="eyebrow">' + esc(Cleo.t('base.yours', 'Your base')) + '</span> ' + ks.map(function (g) { return '<b>' + esc(B.name(g)) + '</b> ' + esc(Cleo.t('base.in', 'in {guide}', { guide: data[g].name })); }).join(', ') +
+      '. ' + esc(ks.length === 1 ? Cleo.t('base.saved.one', 'Cards in that guide show how far they are.') : Cleo.t('base.saved', 'Cards in those guides show how far they are.')) + ' ' + esc(Cleo.t('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route')) + '.</p><p class="base-acts">' +
+      ks.map(function (g) { return '<button type="button" class="btn btn-quiet" data-cleo-base="clear" data-k="' + esc(g) + '">' + esc(Cleo.t('base.clear.in', 'Clear my {guide} base', { guide: data[g].name })) + '</button>'; }).join('') + '</p>';
     if (!el) { el = d.createElement('div'); el.id = 'cleo-basenote'; el.className = 'base-note'; el.setAttribute('role', 'status'); }
     var top = sv.querySelector('.sv-top'); if (top && el.parentNode !== top) top.appendChild(el);
     if (el._h !== h) { el.innerHTML = h; el._h = h; }
@@ -142,9 +143,9 @@
         if (why && !mineB) return;                            // a closed or unpinned place is never offered as a base
         var f = b && !mineB ? B.from([+p.la, +p.ln], k) : null;
         var html = '<div class="fact" data-cleo-base-fact><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div>' +
-          (f ? '<p class="sm">' + esc(f.text) + ' <span class="muted">(straight-line)</span></p>' : '') +
-          (mineB ? '<p><b>Your base</b> <button type="button" class="btn btn-quiet" data-cleo-base="clear">Clear my base</button></p>'
-            : '<button type="button" class="btn btn-ghost" data-cleo-base="set" data-id="' + esc(id) + '">' + (b ? 'Make this my base instead' : 'Set as my base') + '</button>') + '</div></div>';
+          (f ? '<p class="sm">' + esc(f.text) + ' <span class="muted">' + esc(Cleo.t('base.sl', '(straight-line)')) + '</span></p>' : '') +
+          (mineB ? '<p><b>' + esc(Cleo.t('base.yours', 'Your base')) + '</b> <button type="button" class="btn btn-quiet" data-cleo-base="clear">' + esc(Cleo.t('base.clear', 'Clear my base')) + '</button></p>'
+            : '<button type="button" class="btn btn-ghost" data-cleo-base="set" data-id="' + esc(id) + '">' + esc(b ? Cleo.t('base.instead', 'Make this my base instead') : Cleo.t('base.make', 'Set as my base')) + '</button>') + '</div></div>';
         var at = sh.querySelector('.fact:last-of-type'), facts = at ? at.parentNode : sh.querySelector('.actions');
         if (at) at.insertAdjacentHTML('afterend', html); else if (facts) facts.insertAdjacentHTML('beforebegin', html);
       });
@@ -183,7 +184,7 @@
     keys.forEach(function (k) {
       var b = B.get(k); if (!b || !data[k]) return;
       var why = refuse(data[k].by[b.id]);
-      if (why) { B.set(k, null); if (k === k0) { hash(null); toast('Your base was cleared: ' + why + '.'); } }
+      if (why) { B.set(k, null); if (k === k0) { hash(null); toast(Cleo.t('base.cleared.why', 'Your base was cleared: {why}.', { why: why })); } }
     });
     ready[k0 || ''] = true; waiters.splice(0).forEach(function (f) { try { f(); } catch (e) {} });
     if (Cleo.emit) Cleo.emit('cleo:base-ready', { key: k0 });

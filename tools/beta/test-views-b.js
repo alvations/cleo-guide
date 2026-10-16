@@ -365,10 +365,13 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
       dom = boot('cities/tokyo.html', ''); await sleep(500);
       const b = dom.window.document.querySelector(`[data-cleo-views] button[data-view="${v}"]`);
       if (b) { b.focus(); b.click(); await sleep(900); }
-      const ae = dom.window.document.activeElement;
-      got.push([v, !!b, ae && ae.tagName, ae && ae.closest && !!ae.closest('.vw')]); dom.window.close();
+      const ae0 = dom.window.document.activeElement, ae = { tagName: ae0 && ae0.tagName, inView: !!(ae0 && ae0.closest && ae0.closest('.vw')) };
+      // a locale remount (i18n D-41, same ctx) must not move focus again: focus the switcher, fire cleo:locale, it stays
+      let kept = null;
+      if (b) { b.focus(); dom.window.document.dispatchEvent(new dom.window.Event('cleo:locale')); await sleep(900); kept = dom.window.document.activeElement === b; }
+      got.push([v, !!b, ae.tagName, ae.inView, kept]); dom.window.close();
     }
-    chk('QC-10 (jsdom): a keyboard switch to Guidebook / Insights moves focus to the view\'s h1', got.every(x => x[1] && x[2] === 'H1' && x[3]), got);
+    chk('QC-10 (jsdom): a keyboard switch to Guidebook / Insights moves focus to the view\'s h1, and a locale remount does not move it again', got.every(x => x[1] && x[2] === 'H1' && x[3] && x[4] === true), got);
   }
   // ---- QC-09 / QC-06 (DESIGN-SYSTEM §v2.11): the switcher is a labelled group of 4 pressed toggles on every city page, never
   // collapsed, and no shipped rule shrinks a segment under 44 px (layout probe: tools/beta/feb-switcher.js)
