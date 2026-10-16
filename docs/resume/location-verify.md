@@ -23,8 +23,9 @@ The orchestrator does the review, `--accept`, rebuild and gates (§ Owner decisi
 | orlando-fl | **committed** 270d4f7a: pin 66 · confirm 7 · no-match 71 · ambiguous 4 · conflict 1 (Silver Springs: OSM main-entrance node 1.87 km off) — assist pass 13 · review 2 · hold 59 · reject 75 | **7** (78c2fc29) |
 | chicago-il | **committed** 548362d9: pin 87 · confirm 5 · no-match 28 · ambiguous 2 — assist pass 53 · review 8 · hold 31 · reject 30 | **48** (49c26d50) |
 | washington-dc | **committed** 6bfe353b: pin 58 · move 1 · no-match 31 — assist pass 40 · review 1 · hold 18 · reject 31 | **38** (orchestrator) |
-| miami-fl | **committed** 4f73fb2a: pin 33 · confirm 5 · move 1 · ambiguous 3 · shared 2 (registry duplicate: Fillmore open + CLOSED) · no-match 41 — assist pass 11 · hold 27 · no-change 1 · reject 46 | — (sent) |
-| erie-pa | commit run in flight | — |
+| miami-fl | **committed** 4f73fb2a (re-scored 855a21bc → pass 2): registry duplicate Fillmore open + CLOSED | **2** (orchestrator) |
+| erie-pa | **committed** 0929302d (re-scored): pin 39 · confirm 17 · move 1 · ambiguous 2 · shared 6 (registry dups Tandoori Hut ×2, Enrique's open+CLOSED) · no-match 14 — assist pass 27 · review 9 · hold 5 · no-change 12 · reject 26 | — (sent) |
+| philadelphia-pa | commit run in flight | — |
 
 Tool SHAs:
 
@@ -41,26 +42,27 @@ Tool SHAs:
 | c2306ba1 | name-only Nominatim fallback |
 | (git log: "circuit breaker") | per-host circuit breaker; 502 handled as a back-off |
 
-Tests: `node tools/location-verify.test.js`, 52 tests (latest: 72885b05 ordering-host filter; Overpass fallback overpass.private.coffee).
+Tests: `node tools/location-verify.test.js`, 56 tests. Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
 
 ## Next
 
-1. When "Location-verify report: erie-pa" lands, send the orchestrator its assist summary. Helper:
+1. When "Location-verify report: philadelphia-pa" lands, send the orchestrator its assist summary. Helper:
    `next.sh <prev> <next>` waits for prev's report commit, then pushes the next REQUEST (recreate it from this file's Notes
    if the scratchpad is gone).
-2. Then philadelphia-pa, singapore (≈3 resumable runs): one REQUEST each, all `commit=true`, `nominatim_max=300`.
+2. Then singapore (≈3 resumable runs): one REQUEST each, all `commit=true`, `nominatim_max=300`.
    Wait for each report commit before pushing the next REQUEST: concurrency keeps only the latest *pending* run.
 4. Remaining large non-US backlogs: singapore (OneMap needs the owner's secrets), saarland, okinawa, rhineland, aachen.
    Phase-2 file URLs are still unconfirmed (see the doc § 2.2).
 
 ## In flight
 
-- erie-pa `commit=true` run (REQUEST on the branch); next.sh erie-pa → philadelphia-pa running in this session.
+- philadelphia-pa `commit=true` run (REQUEST on the branch); next.sh philadelphia-pa → singapore running in this session.
 - Nothing unpushed.
 
 ## Notes
 
 - **Never re-run a reviewed city without need**: re-runs now CARRY review.* (18d11e6d), but don't review a city while its run is in flight.
+- **Re-score without network:** `node tools/location-verify.js --reassist docs/geoverify/<city>.json` (assist column only; reviews untouched). Never on a city whose run is in flight.
 - **Queue step:** fetch until `git log origin/<branch>` shows "Location-verify report: <prev>", pull, write REQUEST
   (`city=<next>` with scope `unverified,low,status`, limit 0, nominatim_max 300, `commit=true`), commit, push, verify
   with ls-remote.
