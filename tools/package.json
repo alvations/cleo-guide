@@ -15,6 +15,7 @@
     "beta": "node beta/build.js",
     "beta:probe:fe-c": "node beta/w9-fe-c-probe.js",
     "beta:check": "node beta/build.js --check",
+    "checkpoint": "bash checkpoint.sh",
     "beta:og": "node beta/og.js",
     "beta:offline": "node beta/offline-check.js",
     "test:beta": "node beta/test-beta.js",
