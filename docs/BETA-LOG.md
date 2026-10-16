@@ -1920,3 +1920,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - Measured at 1024 and 1280 on Tokyo, Cleveland, New York and Chinatown: no header overflow, the switch is inside the header, and the breadcrumb is whole ("United States › New York City" at 1280).
 - **No rank badges (rev 5 §2.3, R3 #2):** FE-A's `.pl-num` card number is hidden on Atlas cards in every sort.
 - **QC-05 (empty search):** a search or lens with no match reads "No places match "…"" with "Clear search" and "Show all N" (the phone peek: "No places match · Show the list"). It's never a blank map with "List · 0". Clear search restores the list. New atlas-ms check on 3 pages × 2 viewports.
+- **One ranked list (§2.3, R3 #2):**
+  - Beside the map, desktop and in the phone list, the list follows the bounds ranked by map priority and is not grouped by area. Each card takes its rank as its CSS `order` (atlas.js `flat()`); the sections and lists step aside (`display: contents`), so no card moves in the DOM. msOut clears the orders, so the other views are untouched.
+  - There are no area headings, no "N places · area n of N" and no area-chip row. Area lives in the bar's Area button and in Filters. A chosen sort (Most sources, A–Z, Nearest) keeps its own order.
+  - The page msArea builds is the top 40 by map priority in view.
+  - The count strings above the first card are the count line and "Show all N", nothing else.
+- **B-21 (0 px text):** the "‹" breadcrumb (phone, and desktop below 1280) no longer sets `font-size:0`. The link keeps its text at its real size (it stays the accessible name) and shows as a chevron (text-indent with a pseudo-element).
+- **Raised, not changed:**
+  - metrics B-20 on the phone counts FE-C's "Cited by N sources" badges (`a.rb-cited`, 32 px tall) in the Atlas list. Reported to FE-C.
+  - metrics B-03 reads 15 controls on 3 pilots against a limit of 14. The spec's phone chrome is header 4 + switcher 4 + chips 7 = 15, and the switcher row is required (QC-09). Raised with QA and the designer.
