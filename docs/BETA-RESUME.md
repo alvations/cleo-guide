@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 18:52Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 19:12Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -30,34 +30,36 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- **The deploy candidate is pinned at `4aba38b3e15c83d40aafbed5f569aa30da5a074b`** (17:58Z). QA is running the delta re-sign (asked 17:58Z).
-  - It carries the fixes for QA's NO on 3ba696e8:
-    - PERF-08 switched off (platform afb09e74b), which clears QA-75, QA-76 and QC-26;
-    - QC-26 fixed forward (FE-2 13b9b6f2e/3929ad4b) and QA-76 fixed forward (FE-2 927c6b011);
-    - the w8p fixes (FE-C b8a3a6ae, FE-A 8b06f542);
-    - QA-70 and QA-71.
-  - Orchestrator checks on the pin: validate ✅, npm test (alone) ✅, beta:check ✅; w8p ✅ (Tokyo 620 KB, Atlas 392 KB); `views.js --only links` 140 PASS / 0 FAIL.
-  - It merges into `claude/cleveland-page-creation-pant4l` as before; check with merge-tree before the PR.
-- **Since pinning:** QC verified QC-26 and QC-22 on the pin (1d973acc). FE-2 re-gated it green, including atlas-ms and the QC-26/QA-76 probes. QA's delta suite (18:47Z): the w7 no-CDN storage row passes 20/20 on the pin and on 3ba696e8 once the harness accepts "Top picks". That failure was a harness artefact of the ratified spec change. QA is now checking the fix claims QA-72, QA-73, QA-59b and QA-55. No verdict yet.
-- **History:** 530dc83b NO (QA-70/71). 3ba696e8 NO (QC-26/QA-75/QA-76, all from PERF-08), though B-07 5/5 on 3ba696e8 beat be74c82f's 1/5.
-- **PERF-08 re-lands after the deploy,** behind tests covering QA-75/76 and QC-26.
-- Not blocking: QA-61 and QA-68. QA-67 is fixed (f08f892d).
+- **QA said NO on pin 4aba38b3** (18:56Z, 025bac06), with 0 open High or Blocker. Every row passed except two small regressions:
+  - **QA-77 (Med, FE-C):** the recognition badges `a.rb` are only 32 px tall, so B-20 fails on phone in Gallery and Atlas. Fix: a 44 px hit area.
+  - **QA-78 (Low, imagery):** the Duquesne Incline credit author is a Flickr URL (CREDITS.json, from 6c007a0d5). Fix: the creator as credited, and a fetcher guard plus a test.
+- **The next pin is the release branch `beta-deploy-r7`**, not the dev head. It holds 4aba38b3 plus ported fixes only, so QA's delta stays short and the Atlas rev 5 work that landed since the pin stays out.
+  - Worktree: `/home/user/rel-r7` (`tools/node_modules` is a symlink; never commit it).
+  - a48d7f6e5 ports QA-74 (the shipped motion tokens, from af1a0e2a) and QC-28 (the Erie prose, from 2bbae5ac). Gates are green: validate, npm test alone, beta:check.
+  - Port QA-77 and QA-78 when FE-C and imagery send their SHAs: `git diff <sha>^ <sha> -- <source files> | git apply` in the worktree, then `npm run beta`, the gates, commit, push and ls-remote. Then send QA the full SHA.
+  - QA's delta: B-20 on the pilots (Gallery and Atlas), w7-photos and the QA-74 motion tokens, plus the regression sweep (metrics ×2, Atlas, w7, views, w8p, the QC-26 A/B).
 - **On YES:**
-  1. `git push origin <sha>:refs/heads/beta-deploy-r7`;
-  2. a PR into `claude/cleveland-page-creation-pant4l`. The live branch is still 9f54587d (R5 follow-up), and the pin merges cleanly (merge-tree checked on 530dc83b);
-  3. merge with `expectedHeadSha` = the full SHA;
-  4. a `docs/BETA-CHANGELOG.md` entry;
-  5. give the owner https://alvations.github.io/cleo-guide/beta/.
-- **After the deploy:** launch the R8 independent evaluator (template: the R7 evaluator brief; baseline R7 badcc20d).
+  1. open a PR from `beta-deploy-r7` into `claude/cleveland-page-creation-pant4l` (live is still 9f54587d; check with merge-tree first);
+  2. merge with `expectedHeadSha` = the full SHA;
+  3. merge `beta-deploy-r7` back into claude/peaceful-goodall-i0hsrt (generated beta/ conflicts: take ours, regenerate);
+  4. add a `docs/BETA-CHANGELOG.md` entry;
+  5. give the owner https://alvations.github.io/cleo-guide/beta/;
+  6. launch the R8 evaluator (`design/beta/eval/r8/README.md`, R8 = the deploy SHA, baseline R7 badcc20d).
+- **History:**
+  - 530dc83b NO (QA-70/71);
+  - 3ba696e8 NO (QC-26, QA-75, QA-76, all from PERF-08);
+  - 4aba38b3 NO (QA-77, QA-78). On 4aba38b3, QA verified QC-26, QA-70 (Tokyo first pin 697 ms vs 2,253), QA-71, QA-72, QA-73, QA-75, QA-76, QA-59b, QA-55, R7-g6, W9-6, B-07 5/5, G1 5/5 and w8p.
+- **PERF-08 re-lands after the deploy,** behind tools/beta/qa/perf08-regress.sh. FE-A's QA-75 prep (752a77fc9) is on the dev branch only.
+- **Not blocking:** W9-2 (no "Checked" line on the first 24 Cleveland cards; QA is still checking), QA-61 and QA-68.
 
 ## In flight
 
 | What | State | Next |
 |---|---|---|
 | Imagery | All 32 run #48 refusals applied. Run #52 (`all`) yield collapsed to about 4%, so no more plain `all` runs (orchestrator, 15:27Z). Candidate wave 1 (cb5dfd79): 20 vetted titles for 10 empty leads and first-row slots, and 6 stated gaps. Push run #54 is running. D-40a: the 720w leads are capped at 45 KB; Tokyo phone@3× is 607 KB | Imagery contact-sheets #54 and sends only the "?" rows. Wave 2 is about 40 targets from the guides with the lowest tier-1 share |
-| Location verification | Accepted today: Wheeling 7, SF 112, Orlando 7, Chicago 48, DC 38, Miami 2, Erie 27, Philadelphia 25. Beta is at 8,704 places. The assist rules now treat Wikipedia as not independent of Wikidata, add a moved-place guard, hold extended features, and send closed places to review. Singapore (run 22) is in flight. QC-25 closure sources: batch 1 (15 URLs) and batch 2 (14) landed. Sokolowski's corrected to closed 2020 (04026e9d). Decisions sent: Hot Sauce Williams Lee Rd gets one more search to replace a map-listing URL; Uncle Liu's goes UNVERIFIED-status (review sites alone fail 4c) | Batches 3–4 (31 rows). Review Singapore when it commits. Then the 4-row Wikidata re-check (the workflow's re-check mode, a74735f4: SF then Orlando), then `--duplicates` (open plus CLOSED pairs in 4 cities), then Saarland, Okinawa, Rhineland, Aachen |
+| Location verification | Accepted today: Wheeling 7, SF 112, Orlando 7, Chicago 48, DC 38, Miami 2, Erie 27, Philadelphia 25. Beta is at 8,704 places. The assist rules now treat Wikipedia as not independent of Wikidata, add a moved-place guard, hold extended features, and send closed places to review. Singapore (run 22) is in flight. QC-25 closure sources are done: 55 of 60 closed rows have a URL (batches 1–5, last 9338a4ce). D-44 settles the evidence classes. Sokolowski's corrected to closed 2020 (04026e9d). Decisions sent: Hot Sauce Williams Lee Rd gets one more search to replace a map-listing URL; Uncle Liu's goes UNVERIFIED-status (review sites alone fail 4c) | Batches 3–4 (31 rows). Review Singapore when it commits. Then the 4-row Wikidata re-check (the workflow's re-check mode, a74735f4: SF then Orlando), then `--duplicates` (open plus CLOSED pairs in 4 cities), then Saarland, Okinawa, Rhineland, Aachen |
 | Atlas panel | **R3 80.7** (min 74.0, SD 2.86) at 537cfb8c; R0 56.1 → R1 63.8 → R2 70.9 → R3 80.7. SPEC-v3 rev 5 (46f4abe3). Rev 5 work landing: FE-1 R3 #4 dots and glyphs (f51bb0a4); FE-2 #7, the 108 px shift (in progress) | FE-1 and FE-2 finish rev 5, plus R7-g4. The designer signs off the dots on real shots before "round 4 ready". **With the R4 announcement, the orchestrator sends the panel one method note:** the card focus ring is drawn on the parent card (`.pl:has(.pl-n a:focus-visible)`), so a probe that reads only the focused link's own outline will report "no ring". |
-| QC | 27 rows: verified 24; open 3 (Med 1: QC-04; Low 2: QC-13, QC-14); High 0. QC-05 verified on e353df08 (3bc6e602). The P-17 harness follows D-43: "n without a verified pin" plus "n approximate pin(s)" | QC-04: FE-C sends its SHA once i18n's ja batch 6 lands (staged e08d33ec). QC-13 → FE-1, QC-14 → designer |
+| QC | 28 rows: verified 25 (QC-28 verified on cc127fb1, 1f0c09e3); open 3 (Med 1: QC-04; Low 2: QC-13, QC-14); High 0. S-16 (internal editorial phrases) is in the sweep. The P-17 harness follows D-43 | QC-04: FE-C sends its SHA once i18n's ja batch 6 lands (staged e08d33ec). QC-13 → FE-1, QC-14 → designer. QC verifies FE-B's leak fixes (b6e0c2b0e) on the next pin |
 | Perf | PERF-06 landed (bcf94510). QA-70 is the `:has()` cause; PERF-16 is the designer's cleo.css selectors | Platform: re-measure QA-70, the `:has()` lint, then the PERF-08 FE parts, PERF-14, and the "1 closed places" plural |
 
 ## Lanes
