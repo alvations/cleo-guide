@@ -39,7 +39,7 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
    - Re-measure: `tools/beta/feb-metrics-batch.sh 1 '<page-regex>'`.
 3. ~~**Dark-mode contrast**~~ RESOLVED by the --cover-food tint (dark: all cover words/plates ≥ 4.5 on Tokyo 390/1440) (Atlas FE-1 report): the cover plate's Japanese line `.food … > .v.plate[lang=ja]` is 4.14 (#a69e97 on #463b2a, 13 px). Use `--ink-2` or lighter in dark mode.
 4. ~~**Copy**~~ DONE (en.json + ja.json city.how.order) (designer, PANEL-R3 #2): drop "Numbers on the cards match the pins on the map" in the render/city.js "How we choose" paragraph.
-5. **(NEXT — waiting on the designer's answer)** **PANEL-R2 #11 / SPEC-v3 rev 4 §3.6, "one numbering in the detail"** (FE-2 report):
+5. ~~DONE~~ (designer confirmed 2026-10-16; commit "one visible number in the detail") **PANEL-R2 #11 / SPEC-v3 rev 4 §3.6, "one numbering in the detail"** (FE-2 report):
    - drop " · pin N" from the badges line;
    - the nav row becomes plain previous/next, keeping the neighbours' names as labels;
    - keep "No. k of n in {area}".
@@ -49,6 +49,9 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
    - run `python3 design/beta/tools/snap-spacing.py tools/beta/lib/render/fe-a.css`;
    - **leave the `.views[data-cleo-views]` lines (FE-B QC-09 / QC-10) alone** until FE-B lands its 200 % fix;
    - check Gallery and the detail at 390 and 1440.
+
+8. **FE-B finding: fresh `#view=gallery&p=senso-ji` at 195×422** lands scrollY past main's end (card off-screen). Investigate the deep-link scrollIntoView vs deferred chunks growing (client/city.js onRoute).
+9. Designer: QA-67 narrow-photo fit + cover-word fallback done in 8427064e — confirm sign-off.
 
 ## In flight
 Nothing unpushed. No long runs.
