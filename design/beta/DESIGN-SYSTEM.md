@@ -231,6 +231,14 @@ At 52 + 52 px, P1 at rest is 12.3 % and after a scroll is 6.2 %. **In landscape 
 - **Banners** (storage blocked, offline, map unavailable) show once, are dismissible, and are never repeated in a second place on the same screen.
 - **One control per action per screen.** For example, "Near me" appears once.
 
+**3a. One search per screen** (QC S-17, 9a2a10c8: search appeared twice on every city view):
+- **City pages have one search control, scoped to the city first.**
+  - **Desktop (≥ 1024):** the visible city field ("Search Tokyo · place, dish, area") is the search. The header's site-wide search icon is not drawn on city pages.
+  - **Phone and tablet:** the header's search icon is the search. It opens the in-page city search (a 44 px field row over the chip row, which folds away when empty). There is no second search chip or field.
+- **Results:** the city's places, dishes and areas come first. The **last row is always "Search all guides for “⟨q⟩”"**, which runs the site-wide search. With zero city hits, that row is the first and only result, and Enter runs it.
+- **Hubs, landing, trip, saved and method** keep the header search, site-wide.
+- `/` focuses the one search on every page. The accessible name says its scope: "Search Tokyo" or "Search all guides".
+
 **4. Edges that scroll sideways** (chip rows, rails) show it: a 24 px fade on each overflowing edge (`mask-image` with `var(--mask)`), scroll-snap to chip starts, and full keyboard reach. A chip is never cut mid-word with no fade.
 
 **5. How QC measures it:** at load, after a 600 px scroll and after a scroll back up, on every viewport above, in light and dark.
