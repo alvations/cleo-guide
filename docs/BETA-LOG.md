@@ -1648,3 +1648,15 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Imagery:** `all` dispatched at budget 1200.
   - **Location verification:** reports will now be committed per city for review (Orlando, Chicago, DC, Miami, Erie, Philadelphia next).
   - **FE-C** was found on a stray local branch `work-fec`. It was told to merge onto the designated branch and verify the push.
+
+- 2026-10-16 · **FE-C** · closes **W9-5** (FE-C part: "Set as my base") · f70222d9f (head 517142af7)
+  - `tools/beta/client/base.js` (new, lazy):
+    - any open, pinned place's sheet offers "Set as my base";
+    - every card in Gallery, the list and Atlas (and its map preview), Guidebook and Saved then reads "650 m from <base> · 8 min walk", with the assumption (straight-line, about 80 m a minute) stated once per view;
+    - "Nearest to my base" sort; clearing restores the guide's order exactly;
+    - a closed or unpinned place can't be a base; one closed since is cleared with the reason;
+    - Atlas FE-2 ring API: `Cleo.base.ll/from/ready`, `cleo:base`, `cleo:base-ready`.
+  - core.js (platform told): route key `base`, `Cleo.base` state (`&base=` for the visit, `Cleo.store` 'mybase'), and the `Cleo.need` lazy loader.
+  - FE-A files: marked `FE-C W9-5 hook` blocks in city.js, render/city.js and render/saved.js (FE-A told).
+  - Tests: test-fe-c.js BASE (84 guides × 5 bases = 42,885 card lines equal to haversine; storage throwing; closed refused; sort and restore; sheet; Saved; lazy). Probe base-keys / base-lazy (keyboard, 390/1440, light and dark, every view, 0 off-origin requests). Shots: `design/beta/eval/w9/fe-c/base-*`.
+  - Open: the Atlas 5/10/15-min ring (W9-5 acceptance 5–6) is Atlas FE-2's, after their round 3.
