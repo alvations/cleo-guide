@@ -169,6 +169,16 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
       if (D.stops.length !== ps.length || D.stops.some(s => !/^(Recommended by |Added by the guide)/.test(s.source)) || ((ps.some(p => (p.pv || {}).checked)) && !/^Status checked to \d{4}-\d\d-\d\d$/.test(D.checked))) bad.push([j.key, 'day spec']);
     }
     chk(`${n} places (${nClosed} closed): every card names its source and checked date; closed ones say so, with no write-up; a photo carries its credit`, bad.length === 0, bad);
+    // the card palette is the LIGHT tokens, copied exactly (designer review): no drift from beta/assets/tokens.css
+    { const tok = fs.readFileSync(path.join(BETA, 'assets/tokens.css'), 'utf8'), root = tok.slice(tok.indexOf(':root'), tok.indexOf('}', tok.indexOf(':root')));
+      const v = n => ((new RegExp('--' + n + '\\s*:\\s*(#[0-9A-Fa-f]{6})').exec(root) || [])[1] || '').toUpperCase();
+      const src = fs.readFileSync(path.join(__dirname, 'client/share-card.js'), 'utf8'), COL = {};
+      (/var COL = \{([^}]*)\}/.exec(src) || ['', ''])[1].replace(/(\w+): '(#[0-9A-Fa-f]{6})'/g, (m, k, c) => { COL[k] = c.toUpperCase(); });
+      const map = { paper: 'paper', surface: 'surface', sand: 'sand', ink: 'ink', ink2: 'ink-2', ink3: 'ink-3', line: 'line', accent: 'accent', sunWash: 'sun-wash', onSunWash: 'on-sun-wash', closed: 'closed', coverSight: 'sand' };
+      const drift = Object.keys(map).filter(k => COL[k] !== v(map[k])).map(k => k + ' ' + COL[k] + ' ≠ --' + map[k] + ' ' + v(map[k]));
+      const mix = (a, b, t) => '#' + [1, 3, 5].map(i => Math.round(parseInt(a.substr(i, 2), 16) * t + parseInt(b.substr(i, 2), 16) * (1 - t)).toString(16).padStart(2, '0')).join('').toUpperCase();
+      if (COL.coverFood !== mix(v('sun'), v('sand'), 0.07)) drift.push('coverFood ' + COL.coverFood + ' ≠ mix ' + mix(v('sun'), v('sand'), 0.07));
+      chk('share-card palette = the light tokens (tokens.css :root), no off-palette fallback', drift.length === 0 && !/#C23A1C/i.test(src) && !/initial/.test(src.replace(/no initials/, '')), drift); }
     const T = SC.spec('trip', { guide: {}, places: [], title: 'T', days: [{ area: 'A', guide: { src: { s1: 'One' }, colors: {} }, places: [{ id: 'a', n: 'A', src: ['s1'], la: 1, ln: 1, pv: { checked: '2026-10-01' } }, { id: 'b', n: 'B', src: ['guide'], la: 1.001, ln: 1 }] }], url: 'x' });
     const LC = SC.spec('list', { guide: { src: {}, colors: {} }, places: [{ id: 'z', n: 'Z — CLOSED', closed: true, src: ['guide'], la: 1, ln: 1 }], title: 'L', url: 'x' });
     chk('a closed stop is flagged on the card and in its alt text, and kept out of the route', LC.stops[0].closed && /Z \(closed, kept for the record\)/.test(LC.alt) && LC.route.length === 0 && LC.closedNote);
