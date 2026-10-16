@@ -113,7 +113,7 @@ function insights(row, recs) {
     // 6 · tier ladder per area: open places only
     tiers: { of: open.length,
       rows: order.map(a => { const rs = inArea(a).filter(r => !r.closed); return { a, n: rs.length, 1: rs.filter(r => r.t === 1).length, 2: rs.filter(r => r.t === 2).length, 3: rs.filter(r => r.t === 3).length }; }),
-      note: `${closed.length} closed places carry no tier and are counted in the closures chart instead.` },
+      note: closed.length === 1 ? '1 closed place carries no tier and is counted in the closures chart instead.' : `${closed.length} closed places carry no tier and are counted in the closures chart instead.` },
   };
 }
 

@@ -11,7 +11,11 @@
   var Cleo = window.Cleo || {}, d = document;
   if (!Cleo.geo || Cleo.shareCard) return;
   var W = 1080, H = 1920, P = 80;
-  var COL = { paper: '#F7F4EE', ink: '#1C1A17', ink2: '#4A453E', ink3: '#6F685F', line: '#DDD6CA', wash: '#EFE9DF' };
+  // the LIGHT tokens, copied exactly from beta/assets/tokens.css :root (test-fe-c fails on drift): a card is always light,
+  // whatever the viewer's theme. coverFood = color-mix(in srgb, --sun 7%, --sand), worked out.
+  var COL = { paper: '#F9F7F3', surface: '#FFFFFF', sand: '#F1EDE7', ink: '#1C1917', ink2: '#4A4440', ink3: '#68615B', line: '#E7E2DB',
+    accent: '#7A2A2A', sunWash: '#FBEBC8', onSunWash: '#3D2A06', closed: '#8E3B2E', coverSight: '#F1EDE7', coverFood: '#F0E8DB' };
+  var STAR = 'M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z';   // the wordmark's star (render/shell.js MARK)
   var FD = '"Bricolage Grotesque", "Inter", system-ui, sans-serif', FU = '"Inter", system-ui, sans-serif';
   if (!Cleo.t) Cleo.t = function (k, e, v) { return v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };   // i18n D-41
   var TIER = function (t) { return t === 1 ? Cleo.t('tier.1', 'Must see') : t === 2 ? Cleo.t('tier.2', 'Worth the detour') : t === 3 ? Cleo.t('tier.3', 'Deep cut') : ''; };
@@ -35,10 +39,10 @@
     var G = I.guide || { src: {}, areas: {}, colors: {} }, out = { kind: kind, lines: [], stops: [], route: [], url: I.url || '' };
     if (kind === 'place') {
       var p = I.places[0], closed = isClosed(p), pv = p.pv || {};
-      out.accent = G.colors[p.a] || '#C23A1C';
+      out.food = p.kind === 'food'; out.tier = closed ? 0 : p.t; out.glyph = I.glyph || '';
       out.eyebrow = (G.name || '') + (G.areas[p.a] ? ' · ' + shortArea(G.areas[p.a]) : '');
       out.title = label(p); out.nat = p.nat || '';
-      out.photo = I.photo || null; out.initial = (out.title.replace(/^(The|La|Le|El|Il)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || [out.title.charAt(0) || '·'])[0];
+      out.photo = I.photo || null;
       out.closed = closed; out.status = closed ? Cleo.t('gal.closed', 'Closed · kept for the record') : TIER(p.t);
       out.source = srcLine(p, G.src);
       out.checked = pv.checked ? (closed ? Cleo.t('share.checked.closed', 'Closed when checked · {date}', { date: pv.checked }) : Cleo.t('trip.checked', 'Open when last checked · {date}', { date: pv.checked })) : '';
@@ -46,7 +50,7 @@
       out.credit = out.photo && out.photo.credit ? out.photo.credit : '';
     } else {
       var days = I.days || [{ area: null, guide: G, places: I.places }], all = [];
-      out.accent = (G.colors && I.places && I.places[0] && G.colors[I.places[0].a]) || '#C23A1C';
+      out.num = kind === 'list' ? COL.ink2 : COL.accent;           // the accent marks a day route only (v2); a list's numbers are ink
       out.title = I.title || '';
       out.eyebrow = kind === 'trip' ? Cleo.t('share.eb.trip', 'Your trip · {days}', { days: N.day(days.length) }) : kind === 'day' ? (G.name ? Cleo.t('share.eb.day.in', 'Your day · {guide}', { guide: G.name }) : Cleo.t('day.k', 'Your day'))
         : (G.name ? Cleo.t('share.eb.list.in', 'A list · {guide}', { guide: G.name }) : Cleo.t('share.eb.list', 'A list'));
@@ -55,7 +59,7 @@
         dy.places.forEach(function (q, i) {
           all.push(q);
           out.stops.push({ day: kind === 'trip' ? di + 1 : 0, n: i + 1, name: label(q), source: srcLine(q, g.src || {}), closed: isClosed(q), dayLabel: kind === 'trip' && i === 0 ? (dy.area ? Cleo.t('trip.day.chip', 'Day {n} · {area}', { n: di + 1, area: dy.area }) : Cleo.t('share.day', 'Day {n}', { n: di + 1 })) : '' });
-          if (q.la != null && !isClosed(q)) out.route.push({ ll: [+q.la, +q.ln], n: i + 1, day: di, col: (g.colors || {})[q.a] || out.accent });
+          if (q.la != null && !isClosed(q)) out.route.push({ ll: [+q.la, +q.ln], n: i + 1, day: di, col: out.num });
         });
       });
       var km = 0; days.forEach(function (dy) { var pts = dy.places.filter(function (q) { return q.la != null && !isClosed(q); }); for (var i = 1; i < pts.length; i++) km += Cleo.geo.km([pts[i - 1].la, pts[i - 1].ln], [pts[i].la, pts[i].ln]); });
@@ -93,15 +97,15 @@
     var y0 = Math.min.apply(0, la), y1 = Math.max.apply(0, la), x0 = Math.min.apply(0, ln), x1 = Math.max.apply(0, ln), cx = Math.cos((y0 + y1) / 2 * Math.PI / 180);
     var sx = (x1 - x0) * cx || 1e-6, sy = (y1 - y0) || 1e-6, pad = 40, k = Math.min((bw - 2 * pad) / sx, (bh - 2 * pad) / sy);
     var ox = bx + (bw - sx * k) / 2, oy = by + (bh - sy * k) / 2, xy = function (r) { return [ox + (r.ll[1] - x0) * cx * k, oy + (y1 - r.ll[0]) * k]; };
-    x.fillStyle = COL.wash; x.fillRect(bx, by, bw, bh);
+    x.fillStyle = COL.sand; x.fillRect(bx, by, bw, bh);
     x.setLineDash([2, 16]); x.lineCap = 'round'; x.lineWidth = 6;
     for (var i = 1; i < route.length; i++) { if (route[i].day !== route[i - 1].day) continue; var a = xy(route[i - 1]), b = xy(route[i]); x.strokeStyle = route[i].col; x.beginPath(); x.moveTo(a[0], a[1]); x.lineTo(b[0], b[1]); x.stroke(); }
     x.setLineDash([]);
     route.forEach(function (r) { var q = xy(r); x.beginPath(); x.arc(q[0], q[1], 24, 0, 2 * Math.PI); x.fillStyle = r.col; x.fill(); x.lineWidth = 5; x.strokeStyle = COL.paper; x.stroke();
-      x.fillStyle = '#fff'; x.font = '700 24px ' + FU; x.textAlign = 'center'; x.fillText(String(r.n), q[0], q[1] + 8); x.textAlign = 'left'; });
+      x.fillStyle = COL.paper; x.font = '700 24px ' + FU; x.textAlign = 'center'; x.fillText(String(r.n), q[0], q[1] + 8); x.textAlign = 'left'; });
     return true;
   }
-  function draw(S, img, lean) {
+  function draw(S, img, lean, gimg) {
     var c = d.createElement('canvas'); c.width = W; c.height = H;
     var x = c.getContext('2d'); x.textBaseline = 'alphabetic';
     x.fillStyle = COL.paper; x.fillRect(0, 0, W, H);
@@ -109,22 +113,22 @@
     if (S.kind === 'place') {
       lean = lean || 0; var ph = lean ? 960 : 1060;
       if (img) cover(x, img, 0, 0, W, ph);
-      else {                                                   // the calm cover: the area's colour and the name's first letter
-        x.fillStyle = S.accent; x.fillRect(0, 0, W, ph); x.fillStyle = 'rgba(255,255,255,.9)'; x.font = '600 520px ' + FD; x.textAlign = 'center'; x.fillText(S.initial, W / 2, ph / 2 + 190); x.textAlign = 'left';
+      else {                                                   // the calm cover (DESIGN-SYSTEM v2): the kind's wash and its glyph, no initials
+        x.fillStyle = S.food ? COL.coverFood : COL.coverSight; x.fillRect(0, 0, W, ph);
+        if (gimg) x.drawImage(gimg, (W - 140) / 2, (ph - 140) / 2, 140, 140);
       }
-      if (S.closed) { x.fillStyle = 'rgba(28,26,23,.55)'; x.fillRect(0, 0, W, ph); }
+      if (img && S.closed) { x.fillStyle = 'rgba(28,25,23,.55)'; x.fillRect(0, 0, W, ph); }   // closed: dimmed, only over a real photo
       y = ph + 34;
       if (S.credit) { y = text(x, S.credit, y + 4, { font: '400 26px ' + FU, color: COL.ink3, lh: 34, lines: 2 }); }
       y += 44;
       y = text(x, S.eyebrow, y, { font: '600 32px ' + FU, color: COL.ink3, lh: 42, lines: 1 });
       y = text(x, S.title, y + 66, { font: '600 84px ' + FD, lh: 92, lines: 3 });
-      if (S.status) { y += 14; x.font = '600 34px ' + FU; var tw = x.measureText(S.status).width + 44; x.fillStyle = S.closed ? COL.ink : S.accent; x.beginPath(); x.roundRect ? x.roundRect(P, y, tw, 58, 29) : x.rect(P, y, tw, 58); x.fill(); x.fillStyle = '#fff'; x.fillText(S.status, P + 22, y + 40); y += 58; }
+      if (S.status) { y += 14; x.font = '600 34px ' + FU; var tw = x.measureText(S.status).width + 44; var pill = S.closed ? [COL.sand, COL.closed] : S.tier === 1 ? [COL.sunWash, COL.onSunWash] : [COL.sand, COL.ink]; x.fillStyle = pill[0]; x.beginPath(); x.roundRect ? x.roundRect(P, y, tw, 58, 29) : x.rect(P, y, tw, 58); x.fill(); x.fillStyle = pill[1]; x.fillText(S.status, P + 22, y + 40); y += 58; }
       if (S.why && lean < 2) y = text(x, S.why, y + 64, { font: '400 34px ' + FU, color: COL.ink2, lh: 46, lines: lean ? 2 : 3 });
       y = text(x, S.source, y + 60, { font: '600 34px ' + FU, lh: 44, lines: 2 });
       if (S.checked) y = text(x, S.checked, y + 14, { font: '400 30px ' + FU, color: COL.ink2, lh: 40, lines: 1 });
-      if (y > H - 200 && lean < 2) return draw(S, img, lean + 1);   // too tall: a shorter photo, then less write-up — never a clipped source or date
+      if (y > H - 200 && lean < 2) return draw(S, img, lean + 1, gimg);   // too tall: a shorter photo, then less write-up — never a clipped source or date
     } else {
-      x.fillStyle = S.accent; x.fillRect(0, 0, W, 16);
       y = text(x, S.eyebrow, 120, { font: '600 34px ' + FU, color: COL.ink3, lh: 44, lines: 1 });
       y = text(x, S.title, y + 60, { font: '600 80px ' + FD, lh: 88, lines: 2 });
       y = text(x, S.status, y + 22, { font: '400 32px ' + FU, color: COL.ink2, lh: 42, lines: 2 });
@@ -135,7 +139,7 @@
       for (var i = 0; i < S.stops.length; i++) {
         var s = S.stops[i], need = (s.dayLabel ? 56 : 0) + rh; if (y + need > room) break;
         if (s.dayLabel) { y = text(x, s.dayLabel, y + 40, { font: '700 30px ' + FU, color: COL.ink3, lh: 40, lines: 1 }) - 10; }
-        x.fillStyle = s.closed ? COL.ink3 : S.accent; x.beginPath(); x.arc(P + 22, y + 32, 22, 0, 2 * Math.PI); x.fill(); x.fillStyle = '#fff'; x.font = '700 22px ' + FU; x.textAlign = 'center'; x.fillText(String(s.n), P + 22, y + 40); x.textAlign = 'left';
+        x.fillStyle = s.closed ? COL.ink3 : S.num; x.beginPath(); x.arc(P + 22, y + 32, 22, 0, 2 * Math.PI); x.fill(); x.fillStyle = COL.paper; x.font = '700 22px ' + FU; x.textAlign = 'center'; x.fillText(String(s.n), P + 22, y + 40); x.textAlign = 'left';
         text(x, s.name, y + 42, { x: P + 64, max: W - 2 * P - 64, font: '600 ' + (tr ? 32 : 36) + 'px ' + FU, lh: 44, lines: 1 });
         // a closed stop says so on its own line, which is never cut: the name may be ellipsised, the flag may not
         text(x, (s.closed ? Cleo.t('gal.closed', 'Closed · kept for the record') + ' · ' : '') + s.source, y + (tr ? 78 : 84), { x: P + 64, max: W - 2 * P - 64, font: '400 ' + (tr ? 26 : 28) + 'px ' + FU, color: s.closed ? COL.ink : COL.ink2, lh: 36, lines: 1 });
@@ -147,7 +151,11 @@
     }
     // the foot: the wordmark and where it lives (same on every card)
     x.fillStyle = COL.line; x.fillRect(P, H - 170, W - 2 * P, 2);
-    text(x, Cleo.t('share.foot', 'Cleo · sourced city guides'), H - 104, { font: '600 34px ' + FD, lh: 40, lines: 1 });
+    // the wordmark as in the site bar: the star and a lowercase "cleo", then the tagline (share.foot is "Cleo · <tagline>" in every locale)
+    var tag = Cleo.t('share.foot', 'Cleo · sourced city guides').split(' · ').slice(1).join(' · '), wm = Cleo.t('shell.brand.word', 'cleo');
+    x.save(); x.translate(P - 4, H - 140); x.scale(40 / 24, 40 / 24); x.fillStyle = COL.accent; x.fill(new Path2D(STAR)); x.restore();
+    x.font = '600 40px ' + FD; x.fillStyle = COL.ink; x.fillText(wm, P + 44, H - 104); var wx = P + 44 + x.measureText(wm).width;
+    if (tag) text(x, '· ' + tag, H - 104, { x: wx + 14, max: W - P - wx - 14, font: '400 32px ' + FU, color: COL.ink2, lh: 40, lines: 1 });
     text(x, S.url, H - 58, { font: '400 26px ' + FU, color: COL.ink3, lh: 32, lines: 1 });
     return c;
   }
@@ -174,7 +182,7 @@
     if (kind === 'place' && C) {
       var id = b.getAttribute('data-id');
       return guide(C.key).then(function (G) { var p = G.by[id]; if (!p) throw new Error('unknown place');
-        return { kind: kind, name: label(p), I: { guide: G, places: [p], photo: photoOf(C.byId[id]), url: shortUrl(location.href.split('#')[0] + '#p=' + id) } }; });
+        return { kind: kind, name: label(p), I: { guide: G, places: [p], photo: photoOf(C.byId[id]), glyph: C.byId[id] ? C.byId[id].getAttribute('data-gl') || '' : '', url: shortUrl(location.href.split('#')[0] + '#p=' + id) } }; });
     }
     if (kind === 'day' && C) {
       var ids = [].map.call(d.querySelectorAll('.day .stops .go'), function (a) { return decodeURIComponent((a.getAttribute('href') || '').replace(/^#p-/, '')); });
@@ -210,6 +218,15 @@
     if (!d.fonts || !d.fonts.load) return Promise.resolve();
     return Promise.all(['600 84px "Bricolage Grotesque"', '400 32px "Inter"', '600 32px "Inter"', '700 24px "Inter"'].map(function (f) { return d.fonts.load(f).catch(function () {}); }));
   }
+  /** The kind glyph from this page's own icon sprite (#i-<name>), drawn in --ink-3: an SVG blob URL, no network. */
+  function glyphImg(name) {
+    var sym = name && d.getElementById('i-' + name);
+    if (!sym || !window.Blob || !URL.createObjectURL) return Promise.resolve(null);
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + (sym.getAttribute('viewBox') || '0 0 24 24') + '" width="280" height="280" fill="none" stroke="' + COL.ink3 +
+      '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' + sym.innerHTML + '</svg>';
+    var u = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
+    return loadImg(u).then(function (i) { URL.revokeObjectURL(u); return i; });
+  }
   function loadImg(src) {
     return new Promise(function (ok) { if (!src) return ok(null); var i = new Image(); i.decoding = 'async'; i.onload = function () { ok(i); }; i.onerror = function () { ok(null); }; i.src = src; });
   }
@@ -217,10 +234,11 @@
   function make(b) {
     return input(b).then(function (r) {
       var S = spec(r.kind, r.I);
+      var finish = function (c) { return new Promise(function (ok) { c.toBlob(function (blob) { ok({ S: S, blob: blob, name: 'cleo-' + slug(r.name) + '.png', canvas: c }); }, 'image/png'); }); };
       return Promise.all([fonts(), loadImg(S.photo && S.photo.src)]).then(function (z) {
         if (S.photo && !z[1]) { var cr = S.credit; S.photo = null; S.credit = ''; S.lines = S.lines.filter(function (l) { return l !== cr; }); S.alt = S.alt.replace('. ' + cr, ''); }   // no photo: the calm cover, no orphan credit
-        var c = draw(S, z[1]);
-        return new Promise(function (ok) { c.toBlob(function (blob) { ok({ S: S, blob: blob, name: 'cleo-' + slug(r.name) + '.png', canvas: c }); }, 'image/png'); });
+        // no photo: the calm cover carries the kind glyph
+        return (S.kind === 'place' && !z[1] ? glyphImg(S.glyph) : Promise.resolve(null)).then(function (g) { return finish(draw(S, z[1], 0, g)); });
       });
     });
   }
