@@ -2209,3 +2209,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - QA files them as R8-g rows.
 - QC's S-17 overlay probe is in (9a2a10c8); the r7 audit is running (about 2.5 h).
 - D-46: FE-A's part 1 is in (678f9939). The flip waits on platform's Atlas initial-stamp budget (Tokyo is 3,587 nodes with Atlas first).
+
+## FE-A — chrome pass: OV-09, OV-10, OV-11, OV-32, OV-33, OV-34 (2026-10-16)
+- **OV-09:** from 1024 px the Atlas side sheet takes the list column, never the map, so the selected pin stays in view.
+- **OV-10 / OV-11:** outside Atlas, a modal sheet on phones and tablets owns the screen under its own back/close bar. This supersedes FE-B's QC-10 "below the switcher" rule there; phone Atlas is unchanged.
+- **OV-32:** landscape has one 48 px bar.
+- **OV-33 / OV-34:** no Map pill and no Gallery toolbar in Guidebook or Insights.
+- **Phone switch row:** 53 px, down from 61 (no row padding), so P2 at rest is 16 %.
+- **Measured** with feb-ov.js on Tokyo Insights: P1 12 → 6 %, P2 16 → 8 %, L 12 %, T2/D 7 % / 6 % (at load → after a scroll).
+- **Guidebook's Contents strip** (FE-B) still needs its OV-01 compact rule.
