@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 13:45Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 13:50Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -30,8 +30,12 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- The R7 re-sign is pinned at **`be74c82f2680009c726ac8ac54731ef97773dfb8`**. validate, npm test and beta:check are
-  green on it. QA (session_017FLWXa5zgGWvqNo4C3UsvH) was asked at 13:35Z.
+- **Step 1:** QA runs the R7 re-sign rows on the pinned **`be74c82f2680009c726ac8ac54731ef97773dfb8`**. validate, npm
+  test and beta:check are green on it.
+- **Step 2:** **QC-01 (High, FE-B)** is the only open High, and it blocks a YES. When FE-B pushes the fix:
+  1. pin a new head that contains it;
+  2. QA verifies QC-01 plus a delta check (the gates, plus any re-sign row whose files changed between the SHAs);
+  3. YES/NO on that head.
 - **On YES:**
   1. `git push origin <sha>:refs/heads/beta-deploy-r7`;
   2. a PR into `claude/cleveland-page-creation-pant4l`;
@@ -39,6 +43,10 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
   4. a `docs/BETA-CHANGELOG.md` entry;
   5. give the owner https://alvations.github.io/cleo-guide/beta/.
 - **After the deploy:** launch the R8 independent evaluator (template: the R7 evaluator brief; baseline R7 badcc20d).
+- **Decided 13:50Z:**
+  - D-40 option (a): lead and first-row cards get a 720w copy, ≤ 55 KB, with Tokyo phone@3× staying ≤ 700 KB;
+  - QA-67: fixed in layout (the detail slot takes the source width), with no 1280w fetch;
+  - the grandfathered PNG leads are kept.
 
 ## In flight
 

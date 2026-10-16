@@ -68,38 +68,38 @@ body:has(main[data-city]) { background: var(--paper); }
 a.tier, .tier { color: var(--ink-2); }
 .tier.t1, .tier[data-t="1"] { color: var(--gilt); }
 .tier.t3, .tier[data-t="3"] { color: var(--ink-3); }
-a.tier { text-decoration: none; min-height: var(--tap); display: inline-flex; align-items: center; gap: 6px; }
+a.tier { text-decoration: none; min-height: var(--tap); display: inline-flex; align-items: center; gap: var(--s-2); }
 a.tier:hover span { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- 3b. FE-B shell: top bar, crumbs, hub tiles, search panel, banners, method page (folded from render/shell.js TOPBAR_CSS + SHELL_CSS, W1) ---------- */
 [data-cleo-shell=topbar]{position:sticky;top:0;z-index:40;height:var(--bar-h,60px)}
 :where([data-cleo-shell=topbar]){background:var(--paper,var(--bg,#F7F4EE));border-bottom:1px solid var(--line,#DDD6CA)}
-[data-cleo-shell=topbar]>.wrap{height:100%;display:flex;align-items:center;gap:12px;max-width:var(--maxw,1360px);margin:0 auto;padding:0 var(--gutter,16px);border:0;position:static;background:none}
-[data-cleo-shell=topbar] .brand{display:inline-flex;align-items:center;gap:8px;text-decoration:none;min-height:44px;letter-spacing:0;font:inherit}
+[data-cleo-shell=topbar]>.wrap{height:100%;display:flex;align-items:center;gap:var(--s-3);max-width:var(--maxw,1360px);margin:0 auto;padding:0 var(--gutter,var(--s-4));border:0;position:static;background:none}
+[data-cleo-shell=topbar] .brand{display:inline-flex;align-items:center;gap:var(--s-2);text-decoration:none;min-height:44px;letter-spacing:0;font:inherit}
 [data-cleo-shell=topbar] .brand b{font:italic 500 var(--fs-d2)/1 var(--font-display,Georgia,serif)}
 [data-cleo-shell=topbar] .brand small,[data-cleo-shell=topbar] .topnav{display:none}
-[data-cleo-shell=topbar] .spacer{flex:1}[data-cleo-shell=topbar] .top-actions{display:flex;gap:4px}
+[data-cleo-shell=topbar] .spacer{flex:1}[data-cleo-shell=topbar] .top-actions{display:flex;gap:var(--s-1)}
 [data-cleo-shell=topbar] .btn-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%}
 [data-cleo-shell=topbar] svg{flex:none}
 .topbar .crumbs{display:flex;align-items:center;min-width:0;overflow:hidden;white-space:nowrap;font-size:var(--fs-sm);color:var(--ink-3)}
-.topbar .crumbs a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;border-radius:var(--r-pill);text-decoration:none;color:var(--ink-2);font-weight:600}
+.topbar .crumbs a{display:inline-flex;align-items:center;min-height:44px;padding:0 var(--s-2);border-radius:var(--r-pill);text-decoration:none;color:var(--ink-2);font-weight:600}
 .topbar .crumbs a:hover{background:var(--sand)}
-.topbar .crumbs .here{padding:0 8px;color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis}
+.topbar .crumbs .here{padding:0 var(--s-2);color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis}
 .topbar .crumbs .sep{color:var(--ink-3)}
 .on-night .crumbs a,.on-night .crumbs .here{color:var(--on-night)}
 @media(max-width:639px){.topbar .brand b{font-size:var(--fs-d2)}}
 /* FE-B 2252f7a (review B5): phones show only the parent crumb ("‹ Japan"); the night toggle lives in the footer below 900 px */
-@media(max-width:899px){.topbar .crumbs a~.sep,.topbar .crumbs a~.here{display:none}.topbar .crumbs a::before{content:"\2039";margin-right:4px}[data-cleo-shell=topbar] .theme-toggle{display:none}}
-.footer .theme-toggle{color:var(--on-night);width:auto;padding:0 12px;border-radius:var(--r-pill);gap:8px;display:inline-flex}
-@media(min-width:900px){.topbar .crumbs{margin-left:8px}}
+@media(max-width:899px){.topbar .crumbs a~.sep,.topbar .crumbs a~.here{display:none}.topbar .crumbs a::before{content:"\2039";margin-right:var(--s-1)}[data-cleo-shell=topbar] .theme-toggle{display:none}}
+.footer .theme-toggle{color:var(--on-night);width:auto;padding:0 var(--s-3);border-radius:var(--r-pill);gap:var(--s-2);display:inline-flex}
+@media(min-width:900px){.topbar .crumbs{margin-left:var(--s-2)}}
 [data-cleo-shell=topbar] .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 [data-cleo-shell=topbar] .crumbs a{white-space:nowrap}[data-cleo-shell=topbar] .crumbs{flex:0 1 auto}
 @media(min-width:900px){[data-cleo-shell=topbar] .topnav{display:flex}[data-cleo-shell=topbar] .brand small{display:inline}}
 .topnav a.on{color:var(--ink);background:var(--sand)}
-.tiles.hub2{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-@media(min-width:640px){.tiles.hub2{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}
+.tiles.hub2{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-2)}
+@media(min-width:640px){.tiles.hub2{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-4)}}
 @media(min-width:1100px){.tiles.hub2{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.tiles.hub2 .tile{grid-template-rows:84px auto}.tiles.hub2 .tile .txt{padding:10px 12px 12px;gap:3px}
+.tiles.hub2 .tile{grid-template-rows:84px auto}.tiles.hub2 .tile .txt{padding:var(--s-3) var(--s-3) var(--s-3);gap:var(--s-1)}
 .tiles.hub2 .tile .txt h3{font-size:var(--fs-lead)}.tiles.hub2 .tile .art .native{font-size:var(--fs-lead);right:10px;top:8px}
 .tiles.hub2 .tile .canon{font-size:var(--fs-meta);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 @media(min-width:640px){.tiles.hub2 .tile{grid-template-rows:120px auto}.tiles.hub2 .tile .txt h3{font-size:var(--fs-d2)}}
@@ -108,39 +108,39 @@ a.tier:hover span { text-decoration: underline; text-underline-offset: 3px; }
 .tile .dest-c{display:block}
 .dest a.tile::before{content:none}.dest a.tile>*{padding-inline:0}.dest a.tile>:last-child{padding-bottom:0}.tile .dest-c{padding:0;grid-row:auto;align-self:auto}
 .tile .art{background:var(--motif,none),radial-gradient(130% 160% at 100% 0,color-mix(in srgb,var(--city) 40%,transparent),transparent 62%),var(--night)}
-.feb .search input,.searchpanel .search input{border:0;background:transparent;box-shadow:none;padding:0 4px;border-radius:0}
+.feb .search input,.searchpanel .search input{border:0;background:transparent;box-shadow:none;padding:0 var(--s-1);border-radius:0}
 @media(min-width:900px){.feb .hero .d-hero{font-size:var(--fs-hero)}.feb .hero .inner{padding-top:calc(var(--bar-h) + 40px);padding-bottom:36px}}
 html[data-cleo-page] main.feb{padding:0;max-width:none}html[data-cleo-page] main.feb>*{max-width:none;margin-inline:0}
 html[data-cleo-page] main.feb>.masthead{padding:0}html[data-cleo-page] main.feb>.wrap{max-width:var(--maxw);margin-inline:auto}
 ul.tiles{list-style:none;margin:0;padding:0}ul.tiles>li{display:grid;min-width:0}
 .footer a{min-width:var(--tap)}.banner .btn-icon{min-height:var(--tap);width:var(--tap)}
 .searchpanel input::-webkit-search-cancel-button{display:none}
-.morelist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr))}
-.morelist a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:var(--tap);padding:8px 14px;border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface);text-decoration:none}
+.morelist{list-style:none;margin:var(--s-2) 0 0;padding:0;display:grid;gap:var(--s-2);grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr))}
+.morelist a{display:flex;justify-content:space-between;align-items:center;gap:var(--s-3);min-height:var(--tap);padding:var(--s-2) var(--s-4);border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface);text-decoration:none}
 .morelist .dest-n{font-weight:600}.morelist .dest-c{font-size:var(--fs-meta);color:var(--ink-3);white-space:nowrap}
 .csec{scroll-margin-top:calc(var(--bar-h) + 8px)}.csec+.csec{margin-top:36px}
-.csec .rail-head .d2 .n{font:500 var(--fs-ui)/1 var(--font-ui);color:var(--ink-3);margin-left:8px}
-.csec .blurb{color:var(--ink-2);margin:-4px 0 14px;max-width:70ch;font-size:var(--fs-ui)}
-.hero .search{margin-top:6px}.hero .inner{padding-bottom:22px}
-@media(max-width:639px){.hero .d-hero{font-size:var(--fs-d2)}.hero .sub{font-size:var(--fs-ui);margin:8px 0 14px}.hero .kicker{margin-bottom:6px}.hero .inner{padding-top:calc(var(--bar-h) + 6px);padding-bottom:16px}.hero .search{min-height:50px}}
-.searchpanel{position:fixed;left:0;right:0;top:var(--bar-h);z-index:50;max-height:calc(100vh - var(--bar-h));overflow:auto;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:var(--e-2);padding:12px 0 16px}
-.results{margin:16px 0}.results h2{margin:0 0 6px}.results .grp{margin:14px 0 0}.results .grp h3{margin:0 0 4px;font:600 var(--fs-ui)/1.3 var(--font-ui)}
-.results ol{list-style:none;margin:0;padding:0;display:grid;gap:4px}
-.results li a{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;min-height:var(--tap);padding:6px 12px;border-radius:var(--r-s);background:var(--surface);border:1px solid var(--line);text-decoration:none}
+.csec .rail-head .d2 .n{font:500 var(--fs-ui)/1 var(--font-ui);color:var(--ink-3);margin-left:var(--s-2)}
+.csec .blurb{color:var(--ink-2);margin:-4px 0 var(--s-4);max-width:70ch;font-size:var(--fs-ui)}
+.hero .search{margin-top:var(--s-2)}.hero .inner{padding-bottom:var(--s-6)}
+@media(max-width:639px){.hero .d-hero{font-size:var(--fs-d2)}.hero .sub{font-size:var(--fs-ui);margin:var(--s-2) 0 var(--s-4)}.hero .kicker{margin-bottom:var(--s-2)}.hero .inner{padding-top:calc(var(--bar-h) + 6px);padding-bottom:var(--s-4)}.hero .search{min-height:50px}}
+.searchpanel{position:fixed;left:0;right:0;top:var(--bar-h);z-index:50;max-height:calc(100vh - var(--bar-h));overflow:auto;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:var(--e-2);padding:var(--s-3) 0 var(--s-4)}
+.results{margin:var(--s-4) 0}.results h2{margin:0 0 var(--s-2)}.results .grp{margin:var(--s-4) 0 0}.results .grp h3{margin:0 0 var(--s-1);font:600 var(--fs-ui)/1.3 var(--font-ui)}
+.results ol{list-style:none;margin:0;padding:0;display:grid;gap:var(--s-1)}
+.results li a{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-1) var(--s-2);min-height:var(--tap);padding:var(--s-2) var(--s-3);border-radius:var(--r-s);background:var(--surface);border:1px solid var(--line);text-decoration:none}
 .results li a:hover{border-color:var(--ink)}.results .meta{font-size:var(--fs-meta);color:var(--ink-3)}
-.results .state{margin-top:8px}
+.results .state{margin-top:var(--s-2)}
 .banners{position:sticky;top:var(--bar-h);z-index:35}.banners .banner{border-radius:0;justify-content:center}
-.stats:not(p){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;margin:18px 0}
+.stats:not(p){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;margin:var(--s-4) 0}
 @media(min-width:900px){.stats:not(p){grid-template-columns:repeat(4,minmax(0,1fr))}}
-.stats:not(p) div{background:var(--surface);padding:14px 16px}.stats:not(p) b{display:block;font:500 var(--fs-d2)/1.1 var(--font-display)}.stats:not(p) span{font-size:var(--fs-meta);color:var(--ink-3)}
-.prose{max-width:68ch}.prose h2{margin:36px 0 8px}.prose p,.prose li{color:var(--ink-2)}.prose li{margin:6px 0}
+.stats:not(p) div{background:var(--surface);padding:var(--s-4) var(--s-4)}.stats:not(p) b{display:block;font:500 var(--fs-d2)/1.1 var(--font-display)}.stats:not(p) span{font-size:var(--fs-meta);color:var(--ink-3)}
+.prose{max-width:68ch}.prose h2{margin:36px 0 var(--s-2)}.prose p,.prose li{color:var(--ink-2)}.prose li{margin:var(--s-2) 0}
 .prose a{color:var(--ink);text-underline-offset:3px}
-.toc{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
-.ladder{display:grid;gap:10px;margin:12px 0}.ladder div{display:flex;gap:12px;align-items:baseline}
+.toc{display:flex;flex-wrap:wrap;gap:var(--s-2);margin:var(--s-2) 0 0}
+.ladder{display:grid;gap:var(--s-2);margin:var(--s-3) 0}.ladder div{display:flex;gap:var(--s-3);align-items:baseline}
 
 /* ---------- 4. Masthead: the night-sky band (city / hub). Motif = the city skin (M1-14) ---------- */
 .masthead { position: relative; isolation: isolate; color: var(--on-night); background: var(--motif), var(--night); overflow: hidden; }
-main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 18px var(--bleed) 20px; }
+main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: var(--s-5) var(--bleed) var(--s-5); }
 /* the city's own constellation: platform's verified-pin schematic (assets/art/<key>/map.svg) as the night sky, right side,
    faded under the text. Rules per city are generated into cleo.css by build-css.py ("masthead art"). */
 .masthead::before { content: ""; position: absolute; inset: -6% -4% -6% 34%; z-index: -2; background: none center / contain no-repeat; opacity: .92;
@@ -156,19 +156,19 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
 .masthead .eyebrow { color: var(--on-night-2); font: 500 var(--fs-sm)/1.4 var(--font-ui); letter-spacing: 0; text-transform: none; margin: 0 0 2px; }
 .masthead h1 { font: 500 var(--fs-d1)/var(--lh-d1) var(--font-display); letter-spacing: var(--track-tight); margin: 0; color: var(--on-night); }
 .masthead h1 .native, .masthead .native { font: 400 .5em/1 var(--font-native); color: var(--on-night-2); margin-left: .3em; letter-spacing: var(--track-eyebrow); }
-.masthead .dek { margin: 6px 0 0; color: var(--on-night-2); font-size: var(--fs-sm); line-height: 1.45;
+.masthead .dek { margin: var(--s-2) 0 0; color: var(--on-night-2); font-size: var(--fs-sm); line-height: 1.45;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; max-width: 62ch; }
-.masthead .stats, .masthead .facts { margin: 8px 0 0; color: var(--on-night-2); font-size: var(--fs-sm); line-height: 1.5; max-width: 84ch; }
+.masthead .stats, .masthead .facts { margin: var(--s-2) 0 0; color: var(--on-night-2); font-size: var(--fs-sm); line-height: 1.5; max-width: 84ch; }
 .masthead time, .masthead .nw { white-space: nowrap; }
 .masthead .stats strong, .masthead .stats b, .masthead .facts b { color: var(--on-night); font-weight: 600; }
 .masthead a { color: var(--on-night); text-underline-offset: 3px; }
 .masthead a:not(.btn) { min-height: var(--tap); display: inline-flex; align-items: center; }
-@media (min-width: 900px) { main > .masthead { padding-top: 34px; padding-bottom: 34px; } .masthead .dek { -webkit-line-clamp: 3; } }
+@media (min-width: 900px) { main > .masthead { padding-top: 36px; padding-bottom: 36px; } .masthead .dek { -webkit-line-clamp: 3; } }
 
 /* ---------- 5. Collection rail (.rail / .rail-i buttons): the front door (M1-02 visual) ---------- */
-.rail { margin-inline: calc(var(--gutter) * -1); padding-inline: var(--bleed); gap: 10px; margin-top: 14px; padding-top: 2px; padding-bottom: 8px; align-items: stretch; scroll-padding-inline: var(--gutter); }
+.rail { margin-inline: calc(var(--gutter) * -1); padding-inline: var(--bleed); gap: var(--s-2); margin-top: var(--s-4); padding-top: 2px; padding-bottom: var(--s-2); align-items: stretch; scroll-padding-inline: var(--gutter); }
 .rail-i { position: relative; flex: none; display: grid; grid-template-rows: auto auto; align-content: end; justify-items: start; gap: 2px;
-  min-height: 64px; min-width: 112px; max-width: 220px; padding: 10px 14px; text-align: left; white-space: normal;
+  min-height: 64px; min-width: 112px; max-width: 220px; padding: var(--s-3) var(--s-4); text-align: left; white-space: normal;
   border-radius: var(--r-m); border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: var(--e-1);
   font: 500 var(--fs-body)/1.15 var(--font-display); cursor: pointer; transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2); }
 .rail-i:hover { transform: translateY(-2px); box-shadow: var(--e-2); }
@@ -182,9 +182,9 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
 .rail-i.sig::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--motif); opacity: 1.6; }
 .rail-i.sig .n { color: color-mix(in srgb, var(--city-on) 84%, transparent); }
 .rail-i.sig[aria-current], .rail-i.sig[aria-pressed="true"] { box-shadow: var(--ring-select-halo); }
-.rail-i .g, .rail-i .ico { width: 22px; height: 22px; margin-bottom: 4px; }
+.rail-i .g, .rail-i .ico { width: 22px; height: 22px; margin-bottom: var(--s-1); }
 /* every collection tile carries its glyph with no markup change (glyphs.json → --g); FE-A's own .g child replaces it */
-.rail-i:not(.rail-all) { padding-right: 40px; }
+.rail-i:not(.rail-all) { padding-right: var(--s-8); }
 .rail-i:not(.rail-all)::after { content: ""; position: absolute; top: 11px; right: 11px; width: 22px; height: 22px; background: var(--ink-2);
   -webkit-mask: var(--g, var(--g-star4)) center / contain no-repeat; mask: var(--g, var(--g-star4)) center / contain no-repeat; }
 .rail-i.sig::after { background: var(--city-on); width: 26px; height: 26px; }
@@ -196,16 +196,16 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
 @media (min-width: 900px) { .rail-i { min-height: 76px; min-width: 132px; font-size: var(--fs-lead); } .rail-i.sig { min-width: 232px; min-height: 92px; font-size: var(--fs-lead); } }
 
 /* ---------- 6. Toolbar (filled by city.js: .modes · #cleo-filter · .shown) ---------- */
-.toolbar { position: relative; top: auto; z-index: 30; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 0 6px;
+.toolbar { position: relative; top: auto; z-index: 30; display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; padding: var(--s-3) 0 var(--s-2);
   background: transparent; border: 0; backdrop-filter: none; -webkit-backdrop-filter: none; }
 @media (min-width: 1024px) { .toolbar { position: sticky; top: var(--bar-h); background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: var(--hairline-below); } }
-.modes { display: flex; gap: 4px; padding: 3px; background: var(--sand); border-radius: var(--r-pill); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
-.modes button { display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap); padding: 0 14px; border: 0; border-radius: var(--r-pill);
+.modes { display: flex; gap: var(--s-1); padding: var(--s-1); background: var(--sand); border-radius: var(--r-pill); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.modes button { display: inline-flex; align-items: center; gap: var(--s-2); min-height: var(--tap); padding: 0 var(--s-4); border: 0; border-radius: var(--r-pill);
   background: transparent; color: var(--ink-2); font-weight: 600; font-size:var(--fs-sm); white-space: nowrap; }
 .modes button[aria-pressed="true"], .modes button[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--e-1); }
 .modes button .n { font-weight: 500; color: var(--ink-3); font-size:var(--fs-meta); }
-#cleo-filter, .toolbar input[type="search"] { flex: 1 1 200px; min-width: 0; min-height: var(--tap); padding: 0 14px 0 40px; border-radius: var(--r-pill);
+#cleo-filter, .toolbar input[type="search"] { flex: 1 1 200px; min-width: 0; min-height: var(--tap); padding: 0 var(--s-4) 0 var(--s-8); border-radius: var(--r-pill);
   border: 1px solid var(--line-strong); color: var(--ink); font-size:var(--fs-body); appearance: none; -webkit-appearance: none;
   background: var(--surface) var(--ico-search-bg, none) no-repeat 14px 50% / 18px; }
 .toolbar { --ico-search-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23675E54' stroke-width='1.9' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M15.5 15.5L20 20'/%3E%3C/svg%3E"); }
@@ -222,23 +222,23 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
 .area:nth-of-type(8n+4) { --area-f: #B25C86; } .area:nth-of-type(8n+5) { --area-f: #7E62C2; } .area:nth-of-type(8n+6) { --area-f: #D07A5C; }
 .area:nth-of-type(8n+7) { --area-f: #2F9A93; } .area:nth-of-type(8n+8) { --area-f: #4E8F62; }
 .area { --area-c: var(--area, var(--area-f, var(--city))); content-visibility: auto; contain-intrinsic-size: auto 1400px; }
-.area > h2, .area .area-h { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 30px 0 2px; padding-top: 22px; border-top: 1px solid var(--line);
+.area > h2, .area .area-h { display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap; margin: var(--s-7) 0 2px; padding-top: var(--s-6); border-top: 1px solid var(--line);
   font: 500 var(--fs-d2)/var(--lh-d2) var(--font-display); letter-spacing: var(--track-tight); color: var(--ink); }
-.area:first-of-type > h2 { border-top: 0; margin-top: 10px; padding-top: 8px; }
+.area:first-of-type > h2 { border-top: 0; margin-top: var(--s-2); padding-top: var(--s-2); }
 .area > h2::before { content: ""; align-self: center; width: 11px; height: 11px; border-radius: 50%; background: var(--area-c); flex: none; }
 .area-c { font: 500 var(--fs-sm)/1 var(--font-ui); color: var(--ink-3); }
-.area-sub { margin: 4px 0 14px; color: var(--ink-3); font-size:var(--fs-sm); }
+.area-sub { margin: var(--s-1) 0 var(--s-4); color: var(--ink-3); font-size:var(--fs-sm); }
 .area .shape { float: right; width: 72px; height: 56px; color: var(--area-c); }
 
 /* ---------- 8. M1-11 place card: typographic cover → eyebrow → name → write-up → Recommended by → save ----------
    Cover = the area colour field (15 % tint + 5 px edge + a dot motif) with the tier glyph, and the NAME set large on it.
    With FE-A's .pl-cover element (spec M1-visual.md) the cover also carries the native-script plate / initial and the
    pin number; without it this pure-CSS cover still gives every card its anchor (B-14). */
-.pls { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 640px) { .pls { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
+.pls { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-3); grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 640px) { .pls { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); } }
 @media (min-width: 1024px) and (max-width: 1279px) { .split .pls { grid-template-columns: minmax(0, 1fr); } }
 .pl { --area-c: var(--area, var(--area-f, var(--city))); position: relative; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start;
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-m); overflow: hidden; padding: 0 0 6px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-m); overflow: hidden; padding: 0 0 var(--s-2);
   box-shadow: var(--e-1); transition: box-shadow var(--dur-2), transform var(--dur-2) var(--ease-out); }
 .pl:hover { box-shadow: var(--e-2); }
 .pl::before { content: ""; grid-row: 1 / span 2; grid-column: 1; min-height: 104px;          /* the cover field */
@@ -247,19 +247,19 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
     linear-gradient(90deg, var(--area-c) 0 5px, transparent 5px),
     color-mix(in srgb, var(--area-c) 15%, var(--surface));
   -webkit-mask: none; }
-.pl > * { margin: 0; padding-inline: 16px 16px; min-width: 0; }
-.pl-e { grid-row: 1; grid-column: 1; align-self: start; display: block; padding: 12px 16px 0 21px;
-  font: 600 var(--fs-meta)/1.45 var(--font-ui); color: var(--ink-2); letter-spacing: 0; text-transform: none; z-index: 1; padding-right: 96px; min-height: 44px; }
-.pl-n { grid-row: 2; grid-column: 1; align-self: end; padding: 6px 16px 14px 21px; z-index: 1;
+.pl > * { margin: 0; padding-inline: var(--s-4) var(--s-4); min-width: 0; }
+.pl-e { grid-row: 1; grid-column: 1; align-self: start; display: block; padding: var(--s-3) var(--s-4) 0 var(--s-5);
+  font: 600 var(--fs-meta)/1.45 var(--font-ui); color: var(--ink-2); letter-spacing: 0; text-transform: none; z-index: 1; padding-right: var(--s-11); min-height: 44px; }
+.pl-n { grid-row: 2; grid-column: 1; align-self: end; padding: var(--s-2) var(--s-4) var(--s-4) var(--s-5); z-index: 1;
   font: 500 var(--fs-d3)/var(--lh-d3) var(--font-display); letter-spacing: var(--track-tight); color: var(--ink); font-size: var(--fs-lead); text-wrap: balance; }
 .pl-n a { display: block; min-height: var(--tap); text-decoration: none; }
 .pl-w a, .pl-k a, .pl-ad a { position: relative; z-index: 2; }
 .pl-n a::after { content: ""; position: absolute; inset: 0; z-index: 0; }                     /* whole card is the target */
 .pl-n a:focus-visible { outline: none; }
 .pl:has(.pl-n a:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
-.pl-n .native, .pl-n .nat { display: block; font: 400 var(--fs-ui)/1.3 var(--font-native); color: var(--ink-2); margin-top: 3px; letter-spacing: var(--track-eyebrow); }
+.pl-n .native, .pl-n .nat { display: block; font: 400 var(--fs-ui)/1.3 var(--font-native); color: var(--ink-2); margin-top: var(--s-1); letter-spacing: var(--track-eyebrow); }
 /* tier glyph on the eyebrow, keyed on data-t — closed cards never get one (M1-08) */
-.pl:not([data-closed]):not(.pl--closed) .pl-e::before { content: ""; display: inline-block; width: 18px; height: 18px; margin-right: 6px; vertical-align: -4px; background: var(--ink-2);
+.pl:not([data-closed]):not(.pl--closed) .pl-e::before { content: ""; display: inline-block; width: 18px; height: 18px; margin-right: var(--s-2); vertical-align: -4px; background: var(--ink-2);
   -webkit-mask: var(--tg-3) center / contain no-repeat; mask: var(--tg-3) center / contain no-repeat; }
 .pl[data-t="1"]:not([data-closed]) .pl-e { color: var(--gilt); }
 .pl[data-t="1"]:not([data-closed]) .pl-e::before { background: var(--gilt); -webkit-mask-image: var(--tg-1); mask-image: var(--tg-1); }
@@ -269,20 +269,20 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
 .pl-e:has(.tg, .tier)::before { display: none !important; }           /* FE-A's explicit glyph replaces the fallback */
 .pl-e .tier, .pl-e a { position: relative; z-index: 2; }
 /* body rows */
-.pl-w { padding-top: 12px; font-size:var(--fs-ui); line-height: 1.5; color: var(--ink-2); }
+.pl-w { padding-top: var(--s-3); font-size:var(--fs-ui); line-height: 1.5; color: var(--ink-2); }
 /* density (M1-11: ≥ 2 cards per phone screen): the write-up previews 3 lines in the list; the whole text stays in the DOM
    (search, print, screen readers) and opens when the card is the target (tap → #p-id) or holds focus. Know-before is never
    clamped — corrections such as Cleveland's 325-not-525 note must stay visible on the card. */
 @media (max-width: 639px) {
   .pls .pl:not(.is-target):not(:target):not(:focus-within) .pl-w { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 }
-.pl-k { padding-top: 10px; font-size:var(--fs-sm); line-height: 1.45; color: var(--ink-2); }
+.pl-k { padding-top: var(--s-3); font-size:var(--fs-sm); line-height: 1.45; color: var(--ink-2); }
 /* know-before: neutral (D-06 keeps the accent for actions); FE-A's .pl-k.note (prose "Your guide's note") gets the italic voice */
 .pl-k .lbl { display: block; font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-3); margin-bottom: 2px; }
-.pl-k:has(.lbl) { margin: 10px 16px 0; padding: 8px 12px; border-left: 3px solid var(--area-c); background: var(--sand); border-radius: var(--r-s); }
+.pl-k:has(.lbl) { margin: var(--s-2) var(--s-4) 0; padding: var(--s-2) var(--s-3); border-left: 3px solid var(--area-c); background: var(--sand); border-radius: var(--r-s); }
 .pl-k.note p { font: italic 400 var(--fs-body)/1.45 var(--font-display); color: var(--ink); }
-.pl-ad { padding-top: 8px; font-size:var(--fs-meta); color: var(--ink-3); }
-.pl-s { position: relative; z-index: 2; padding-top: 8px; font-size:var(--fs-meta); line-height: 1.3; color: var(--ink-2); }
+.pl-ad { padding-top: var(--s-2); font-size:var(--fs-meta); color: var(--ink-3); }
+.pl-s { position: relative; z-index: 2; padding-top: var(--s-2); font-size:var(--fs-meta); line-height: 1.3; color: var(--ink-2); }
 .pl-s .lbl { display: block; font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-3); margin: 0 0 0; }
 .pl-s a { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); min-width: var(--tap); padding: 0 2px; font-weight: 600; color: var(--ink);
   text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; text-decoration-thickness: 1px; }
@@ -290,8 +290,8 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
 .pl-s .src { position: relative; z-index: 2; }
 .pl-s .src:not(a) { min-height: var(--tap); }
 .lbl { font-size:var(--fs-meta); color: var(--ink-3); }
-.pl-x { position: absolute; z-index: 3; top: 6px; right: 6px; padding: 0 !important; display: flex; gap: 6px; }
-.pl-save, .pl-x button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: var(--tap); min-width: var(--tap); padding: 0 12px;
+.pl-x { position: absolute; z-index: 3; top: 6px; right: 6px; padding: 0 !important; display: flex; gap: var(--s-2); }
+.pl-save, .pl-x button { display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2); min-height: var(--tap); min-width: var(--tap); padding: 0 var(--s-3);
   border-radius: var(--r-pill); border: 0; background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink); box-shadow: var(--e-1);
   font-weight: 600; font-size:var(--fs-sm); }
 .pl-save::before { content: ""; width: 18px; height: 18px; background: currentColor; -webkit-mask: var(--ico-heart) center / contain no-repeat; mask: var(--ico-heart) center / contain no-repeat; }
@@ -310,7 +310,7 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
 .pl-cover { grid-row: 1 / span 2; grid-column: 1; position: relative; padding: 0 !important; pointer-events: none; overflow: hidden; }
 .pl:has(.pl-cover)::before { min-height: 120px; }
 .pl-cover .pl-num { position: absolute; left: 21px; bottom: 12px; display: none; }
-.pl-num { min-width: 26px; height: 26px; border-radius: var(--r-m); display: grid; place-items: center; padding: 0 7px; background: var(--surface); color: var(--ink);
+.pl-num { min-width: 26px; height: 26px; border-radius: var(--r-m); display: grid; place-items: center; padding: 0 var(--s-2); background: var(--surface); color: var(--ink);
   font: 700 var(--fs-xs)/1 var(--font-ui); box-shadow: var(--e-1); }
 .pl-cover .pl-vert { position: absolute; top: 14px; right: 62px; writing-mode: vertical-rl; font: 600 var(--fs-d2)/1 var(--font-native); letter-spacing: var(--track-vert);
   color: color-mix(in srgb, var(--area-c) 55%, var(--ink)); max-height: calc(100% - 22px); overflow: hidden; white-space: nowrap; opacity: .9; }
@@ -318,7 +318,7 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
 .pl-cover .pl-ini { position: absolute; right: 58px; top: -14px; font: italic 500 var(--fs-hero)/1 var(--font-display); letter-spacing: var(--track-hero);
   color: color-mix(in srgb, var(--area-c) 40%, transparent); }
 .pl-cover .pl-glyph { position: absolute; right: 14px; bottom: 12px; width: 26px; height: 26px; color: color-mix(in srgb, var(--area-c) 70%, var(--ink)); }
-.pl:has(.pl-cover) .pl-n { padding-right: 96px; }
+.pl:has(.pl-cover) .pl-n { padding-right: var(--s-11); }
 .pl[data-closed] .pl-cover .pl-vert, .pl[data-closed] .pl-cover .pl-ini { color: color-mix(in srgb, var(--ink) 18%, transparent); }
 @media (min-width: 640px) { .pl::before { min-height: 120px; } .pl-n { font-size: var(--fs-d2); } }
 
@@ -331,16 +331,16 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
     linear-gradient(color-mix(in srgb, var(--ink) 5%, transparent) 1px, transparent 1px) 0 0 / 88px 88px,
     linear-gradient(90deg, color-mix(in srgb, var(--ink) 5%, transparent) 1px, transparent 1px) 0 0 / 88px 88px,
     var(--sand); }
-.map-fallback { max-width: 34ch; margin: 0; padding: 12px 16px; border-radius: var(--r-m); background: color-mix(in srgb, var(--surface) 90%, transparent);
+.map-fallback { max-width: 34ch; margin: 0; padding: var(--s-3) var(--s-4); border-radius: var(--r-m); background: color-mix(in srgb, var(--surface) 90%, transparent);
   color: var(--ink-2); font-size:var(--fs-sm); line-height: 1.45; text-align: center; box-shadow: var(--e-1); }
 /* platform's verified-pin schematic (lib/art.js): <figure class="map-art map-fallback"><img …><figcaption>…</figcaption></figure> */
 #cleo-map figure.map-art { position: absolute; inset: 0; margin: 0; max-width: none; padding: 0; border-radius: 0; background: none; box-shadow: none; display: block; }
 #cleo-map figure.map-art img { position: absolute; inset: 16px 16px 56px; width: calc(100% - 32px) !important; height: calc(100% - 72px) !important; max-width: none !important; object-fit: contain; }
 #cleo-map figure.map-art figcaption { position: absolute; left: 12px; right: 12px; bottom: 12px; margin: 0 auto; width: max-content; max-width: calc(100% - 24px);
-  padding: 8px 14px; border-radius: var(--r-pill); background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: var(--e-1);
+  padding: var(--s-2) var(--s-4); border-radius: var(--r-pill); background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: var(--e-1);
   font-size:var(--fs-meta); line-height: 1.35; color: var(--ink-2); text-align: center; }
 /* area silhouettes from verified pins (assets/art/<city>/<AREA>.svg) on area heads */
-.area .shape, .area-shape { float: right; width: 84px; height: 64px; object-fit: contain; margin: 0 0 4px 12px; opacity: .9; }
+.area .shape, .area-shape { float: right; width: 84px; height: 64px; object-fit: contain; margin: 0 0 var(--s-1) var(--s-3); opacity: .9; }
 .mappane .credit { font-size: var(--fs-xs); color: var(--ink-3); }
 @media (max-width: 1023px) {
   /* mobile/tablet: list first (M1-05). FE-A's Map toggle sets data-view="map" on .split → full-screen map. */
@@ -355,23 +355,23 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
 /* Leaflet chrome in the house style (tiles stay OSM/Esri; the credit stays visible and ≥ 12 px) */
 .leaflet-container, .leaflet-container .leaflet-bar a, .leaflet-control-zoom span { font-family: var(--font-ui) !important; }
 .leaflet-container { font: 500 var(--fs-meta)/1.4 var(--font-ui) !important; background: var(--sand) !important; }
-.leaflet-container .leaflet-control-attribution { font-size: var(--fs-xs); line-height: 1.5; color: var(--ink-2); background: color-mix(in srgb, var(--surface) 86%, transparent); padding: 2px 8px; border-radius: var(--r-xs) 0 0 0; }
-.leaflet-container .leaflet-control-attribution a { color: var(--ink); min-height: 0; display: inline-block; padding: 6px 0; }
+.leaflet-container .leaflet-control-attribution { font-size: var(--fs-xs); line-height: 1.5; color: var(--ink-2); background: color-mix(in srgb, var(--surface) 86%, transparent); padding: 2px var(--s-2); border-radius: var(--r-xs) 0 0 0; }
+.leaflet-container .leaflet-control-attribution a { color: var(--ink); min-height: 0; display: inline-block; padding: var(--s-2) 0; }
 .leaflet-bar { border: 1px solid var(--line) !important; box-shadow: var(--e-1) !important; border-radius: var(--r-s) !important; overflow: hidden; }
 .leaflet-bar a { width: var(--tap) !important; height: var(--tap) !important; line-height: var(--tap) !important; color: var(--ink) !important; background: var(--surface) !important; }
 .leaflet-popup-content-wrapper { border-radius: var(--r-m) !important; box-shadow: var(--e-2) !important; font: 500 var(--fs-sm)/1.4 var(--font-ui); }
 .leaflet-popup-content b, .leaflet-popup-content strong { font: 500 var(--fs-lead)/1.2 var(--font-display); }
 
 /* ---------- 10. About, footer, method notes ---------- */
-.about { max-width: 72ch; margin: 40px auto 0; padding: 22px 0 0; border-top: 1px solid var(--line); color: var(--ink-2); font-size: var(--fs-lead); line-height: var(--lh-lead); }
+.about { max-width: 72ch; margin: var(--s-8) auto 0; padding: var(--s-6) 0 0; border-top: 1px solid var(--line); color: var(--ink-2); font-size: var(--fs-lead); line-height: var(--lh-lead); }
 .about p { font-family: var(--font-display); }
 .method h2 { font: 500 var(--fs-d2)/1.15 var(--font-display); color: var(--ink); margin: 0; }
 :is(.sitefoot, .footer) .method h2 { color: var(--on-night); }
-.method h3 { font: 600 var(--fs-ui)/1.3 var(--font-ui); color: var(--ink); margin: 0 0 4px; }
+.method h3 { font: 600 var(--fs-ui)/1.3 var(--font-ui); color: var(--ink); margin: 0 0 var(--s-1); }
 :is(.sitefoot, .footer) .method h3 { color: var(--on-night); }
 .method p { color: var(--ink-2); } :is(.sitefoot, .footer) .method p { color: var(--on-night-2); }
 .method .note p { margin: 0; }
-.colophon { margin: 0; padding-top: 18px; border-top: 1px solid color-mix(in srgb, var(--on-night) 14%, transparent); font-size:var(--fs-meta); }
+.colophon { margin: 0; padding-top: var(--s-5); border-top: 1px solid color-mix(in srgb, var(--on-night) 14%, transparent); font-size:var(--fs-meta); }
 
 /* FE-B's shell footer (.footer, library) + crumbs: every link a full target (B-20) */
 .footer ul a, .footer .cols a { display: inline-flex; align-items: center; min-height: var(--tap); min-width: var(--tap); }
@@ -381,13 +381,13 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 1
 /* ---------- 11. Landing + country hubs (FE-B: .country / .dests / .dest / .hits) ---------- */
 html[data-cleo-page="landing"] main > .masthead:first-child h1, .masthead.hero h1 { font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: var(--track-display); }
 .country { margin: 36px 0 0; }
-.country > h2, .country h2 { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font: 500 var(--fs-d2)/var(--lh-d2) var(--font-display); margin: 0 0 4px; }
+.country > h2, .country h2 { display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap; font: 500 var(--fs-d2)/var(--lh-d2) var(--font-display); margin: 0 0 var(--s-1); }
 .country-c { font: 500 var(--fs-sm)/1 var(--font-ui); color: var(--ink-3); }
-.country > p { color: var(--ink-2); margin: 4px 0 0; max-width: 64ch; }
+.country > p { color: var(--ink-2); margin: var(--s-1) 0 0; max-width: 64ch; }
 .dest-c strong { color: var(--ink); }
-.hits { list-style: none; padding: 0; margin: 12px 0; display: grid; gap: 2px; }
+.hits { list-style: none; padding: 0; margin: var(--s-3) 0; display: grid; gap: 2px; }
 .hits li { margin: 0; }
-.hits a { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; min-height: 52px; padding: 8px 12px; border-radius: var(--r-s); text-decoration: none; }
+.hits a { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-1) var(--s-2); min-height: 52px; padding: var(--s-2) var(--s-3); border-radius: var(--r-s); text-decoration: none; }
 .hits a:hover { background: var(--sand); }
 .hits mark, mark { background: var(--gilt-soft); color: inherit; border-radius: 3px; padding: 0 1px; }
 
@@ -413,7 +413,7 @@ html[data-cleo-page="landing"] main > .masthead:first-child h1, .masthead.hero h
 /* 15.2 Card cover. Icon-only heart (44 × 44; the word stays in the DOM, clipped, and in FE-A's aria-label),
    so the native plate gets the full cover height again and never needs to start below the button. */
 html .pl-x { top: 8px; right: 8px; }
-html .pl-save { width: var(--tap); padding: 0 0 0 12px; justify-content: flex-start; gap: 32px; overflow: hidden; white-space: nowrap; background: color-mix(in srgb, var(--surface) 94%, transparent); }  /* word clipped out of view, kept at 14 px (B-21) */
+html .pl-save { width: var(--tap); padding: 0 0 0 var(--s-3); justify-content: flex-start; gap: var(--s-7); overflow: hidden; white-space: nowrap; background: color-mix(in srgb, var(--surface) 94%, transparent); }  /* word clipped out of view, kept at 14 px (B-21) */
 html .pl-save::before { flex: none; width: 20px; height: 20px; }
 html .pl-e { padding-right: 60px; }
 /* vertical native plate: FIT, never clip (ROUND-1 #4). The cover is a size container; glyphs scale with its height and
@@ -423,7 +423,7 @@ html .pl-cover .pl-vert { top: 14px; right: 62px; bottom: 14px; max-height: none
   font-size: var(--fs-lead); font-size: var(--fs-d2); letter-spacing: var(--track-eyebrow); }
 html .pl-cover .pl-vert.long { font-size: var(--fs-lead); font-size: var(--fs-d2); }
 html .pl-cover .pl-glyph { right: 18px; bottom: 14px; width: 24px; height: 24px; }
-html .pl:has(.pl-cover) .pl-n { padding-right: 96px; }
+html .pl:has(.pl-cover) .pl-n { padding-right: var(--s-11); }
 html .pl:has(.pl-vert.long) .pl-n { padding-right: 112px; }
 /* the plate's field: the city's own motif in ink (skins.py --motif-ink) instead of generic dots, and a two-accent edge */
 html .pl::before {
@@ -437,7 +437,7 @@ html .pl[data-closed]::before { background: repeating-linear-gradient(135deg, tr
 
 /* upstreamed from FE-A's inline GLUE (W1 ask) so the card renders the same anywhere the stylesheet is linked */
 .pl-e .in { font-weight: 500; color: var(--ink-3); }
-.pl-e .pl-num { display: inline-grid; vertical-align: 1px; margin-right: 4px; }
+.pl-e .pl-num { display: inline-grid; vertical-align: 1px; margin-right: var(--s-1); }
 .pl-s .src { position: relative; z-index: 2; display: inline-flex; align-items: center; min-height: var(--tap); min-width: var(--tap); border: 0; background: none; border-radius: 0;
   font-weight: 600; color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; cursor: pointer; }
 
@@ -445,19 +445,19 @@ html .pl[data-closed]::before { background: repeating-linear-gradient(135deg, tr
    in the DOM (screen readers, copy-paste) but render at 0; each source draws its own comma, glued to its name. */
 html .pl-s { font-size: 0; line-height: 0; }
 html .pl-s > * { font-size:var(--fs-meta); line-height: 1.3; }
-html .pl-s .lbl { font-size:var(--fs-meta); margin-right: 6px; }
-html .pl-s .src { justify-content: flex-start; gap: 0; padding: 0; margin-right: 7px; text-align: left; line-height: 1.25; }
+html .pl-s .lbl { font-size:var(--fs-meta); margin-right: var(--s-2); }
+html .pl-s .src { justify-content: flex-start; gap: 0; padding: 0; margin-right: var(--s-2); text-align: left; line-height: 1.25; }
 html .pl-s .src:not(:last-child)::after { content: ","; display: inline-block; color: var(--ink-3); font-weight: 500; text-decoration: none; }
 html .pl-s .added { font-size:var(--fs-xs); vertical-align: middle; }
 /* label inline on phones too: one flowing line "Recommended by Wikipedia, GO Tokyo, Time Out" (+ density, B-16) */
 html .pl-s .lbl { display: inline; }
-@media (max-width: 639px) { html .pl:has(.pl-cover)::before { min-height: 108px; } html .pl-n { padding-bottom: 12px; } html .pls { gap: 10px; } }
+@media (max-width: 639px) { html .pl:has(.pl-cover)::before { min-height: 108px; } html .pl-n { padding-bottom: var(--s-3); } html .pls { gap: var(--s-2); } }
 
 /* 15.4 Detail sheet (gap #4): Close lives in its own header row, never on the plate; the plate is an inset card in the
    area colour with the city motif; the generic glyph is styled (was an unstyled black fill); body copy in Figtree. */
 html .sheet.detail { padding-top: 0; }
 html .sheet.detail > .close { top: 10px; right: 12px; width: var(--tap); height: var(--tap); border-radius: 50%; z-index: 4; }
-html .detail .hero-plate { margin: 58px 16px 0; height: 168px; border-radius: var(--r-m);
+html .detail .hero-plate { margin: var(--s-9) var(--s-4) 0; height: 168px; border-radius: var(--r-m);
   background: var(--motif-ink), color-mix(in srgb, var(--area, var(--city)) 16%, var(--surface)); container-type: size; }
 html .detail .hero-plate::before { width: 6px; background: linear-gradient(180deg, var(--area, var(--city)) 0 70%, var(--city-2) 70%); }
 html .detail .hero-plate .pl-vert { top: 18px; right: 26px; bottom: 18px; max-height: none; white-space: normal; line-height: 1.04;
@@ -466,17 +466,17 @@ html .detail .hero-plate .pl-vert.long { font-size: var(--fs-d2); font-size: var
 html .detail .hero-plate .pl-ini { color: color-mix(in srgb, var(--area, var(--city)) 55%, transparent); }
 html .detail .hero-plate .pl-glyph { left: 22px; bottom: 18px; width: 36px; height: 36px; fill: none; stroke: color-mix(in srgb, var(--area, var(--city)) 60%, var(--ink));
   stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-html .detail .content { padding-top: 18px; }
+html .detail .content { padding-top: var(--s-5); }
 html .detail .why { font: 400 var(--fs-lead)/1.62 var(--font-ui); color: var(--ink-2); max-width: 62ch; }
 html .detail .why b, html .detail .why strong { color: var(--ink); font-weight: 600; }
 html .detail h2.d2 { font-size: var(--fs-d2); line-height: 1.12; letter-spacing: var(--track-tight); text-wrap: balance; }
-html .detail .section-t, html .detail h3.section-t { font: 600 var(--fs-sm)/1.3 var(--font-ui); color: var(--ink-3); letter-spacing: var(--track-eyebrow); margin: 0 0 8px; }
+html .detail .section-t, html .detail h3.section-t { font: 600 var(--fs-sm)/1.3 var(--font-ui); color: var(--ink-3); letter-spacing: var(--track-eyebrow); margin: 0 0 var(--s-2); }
 html .detail .pills .pill { min-height: var(--tap); font-size:var(--fs-sm); }
 html .detail .hero-plate:has(.loc) .pl-glyph { display: none; }   /* FE-A's locator inset (.loc) replaces the generic glyph */
 html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-height: 1.35; }
 @media (min-width: 1024px) {
-  html .detail .hero-plate { height: 200px; margin: 58px 24px 0; }
-  html .detail .content { padding-inline: 24px; }
+  html .detail .hero-plate { height: 200px; margin: var(--s-9) var(--s-6) 0; }
+  html .detail .content { padding-inline: var(--s-6); }
   html .detail h2.d2 { font-size: var(--fs-d2); }
 }
 
@@ -488,7 +488,7 @@ html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-
    and the scroller ends with room so the final tile can be read clear of the buttons. */
 @media (min-width: 900px) {
   html .rail { padding-inline-end: 132px; -webkit-mask: linear-gradient(90deg, #000 calc(100% - 150px), transparent calc(100% - 40px)); mask: linear-gradient(90deg, #000 calc(100% - 150px), transparent calc(100% - 40px)); }
-  html .rail-i { min-width: 0; padding: 12px 40px 12px 14px; }
+  html .rail-i { min-width: 0; padding: var(--s-3) var(--s-8) var(--s-3) var(--s-4); }
   html .rail-i.sig { min-width: 220px; padding-right: 48px; }
   html .railbar [data-rail="-1"] { right: 2px; } html .railbar [data-rail="1"] { right: -50px; }
 }
@@ -497,15 +497,15 @@ html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-
 .tile .art .bar { background: linear-gradient(90deg, var(--city) 0 72%, var(--city-2) 72%); }   /* the landing top bar rides the hero (absolute), so nothing sits above the pills */
 
 /* 15.7 Saved page baseline (until FE-A ships the mockups/saved.html markup): no default browser controls, a designed list */
-#saved { margin-top: 20px; }
-#saved h2 { font: 500 var(--fs-d2)/1.15 var(--font-display); margin: 28px 0 8px; display: flex; align-items: baseline; gap: 10px; }
+#saved { margin-top: var(--s-5); }
+#saved h2 { font: 500 var(--fs-d2)/1.15 var(--font-display); margin: 28px 0 var(--s-2); display: flex; align-items: baseline; gap: var(--s-2); }
 #saved h2::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--city); align-self: center; }
-#saved ol, #saved ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; counter-reset: sv; }
-#saved li { counter-increment: sv; display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-m); box-shadow: var(--e-1); }
+#saved ol, #saved ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-2); counter-reset: sv; }
+#saved li { counter-increment: sv; display: flex; align-items: center; gap: var(--s-3); min-height: 56px; padding: var(--s-2) var(--s-4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-m); box-shadow: var(--e-1); }
 #saved li::before { content: counter(sv); flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--city-wash); color: var(--city-ink); font: 700 var(--fs-meta)/1 var(--font-ui); }
 #saved li a { font: 500 var(--fs-lead)/1.25 var(--font-display); text-decoration: none; color: var(--ink); min-height: var(--tap); display: inline-flex; align-items: center; }
 #saved li a:hover { color: var(--city-ink); }
-#saved > button, #saved p > button, #saved .shared button { display: inline-flex; align-items: center; gap: 8px; min-height: var(--tap); padding: 0 20px; border-radius: var(--r-pill);
+#saved > button, #saved p > button, #saved .shared button { display: inline-flex; align-items: center; gap: var(--s-2); min-height: var(--tap); padding: 0 var(--s-5); border-radius: var(--r-pill);
   border: 0; background: var(--ink); color: var(--paper); font: 600 var(--fs-ui)/1 var(--font-ui); box-shadow: var(--e-1); }
 #saved > button:hover, #saved p > button:hover { background: var(--city); color: var(--city-on); }
 #saved > p { color: var(--ink-2); }
@@ -552,26 +552,26 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
 
 /* (b) "For you" — the interest picker reorders, never hides. Picker = .interests grid of the library .interest buttons
    (in a .sheet.picker or inline); the result line .because sits above the list; promoted cards carry .pl-why. */
-.interests { display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; list-style: none; }
+.interests { display: grid; gap: var(--s-2); grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; list-style: none; }
 @media (min-width: 640px) { .interests { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .interest { width: 100%; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-m); color: var(--ink); }
 .interest .glyph .g { width: 30px; height: 30px; }
 .interest[aria-pressed="true"] .tick::after { content: "✓"; font: 700 var(--fs-sm)/1 var(--font-ui); }
-.because { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 10px 0 4px; padding: 12px 16px; border-radius: var(--r-m);
+.because { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-2); margin: var(--s-2) 0 var(--s-1); padding: var(--s-3) var(--s-4); border-radius: var(--r-m);
   background: var(--city-wash); color: var(--ink); font-size:var(--fs-sm); line-height: 1.45; }
 .because::before { content: ""; width: 20px; height: 20px; flex: none; background: var(--city-ink); -webkit-mask: var(--g-star4) center / contain no-repeat; mask: var(--g-star4) center / contain no-repeat; }
 .because b { font-weight: 600; }
 .because .n { color: var(--ink-2); }
-.because button, .because a { margin-left: auto; min-height: var(--tap); padding: 0 14px; border-radius: var(--r-pill); border: 1px solid var(--line-strong); background: var(--surface); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; }
-.pl-why { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; padding: 2px 8px; border-radius: var(--r-pill); background: var(--surface);
+.because button, .because a { margin-left: auto; min-height: var(--tap); padding: 0 var(--s-4); border-radius: var(--r-pill); border: 1px solid var(--line-strong); background: var(--surface); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; }
+.pl-why { display: inline-flex; align-items: center; gap: var(--s-1); margin-left: var(--s-2); padding: 2px var(--s-2); border-radius: var(--r-pill); background: var(--surface);
   color: var(--city-ink); font: 600 var(--fs-xs)/1.4 var(--font-ui); vertical-align: 1px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--city) 40%, transparent); }
 
 /* (c) home modules (M2-11): Your list · ★ Signature · Free to visit — three doors above the rail on the city page */
-.modules .modules { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 10px; overflow-x: auto; scrollbar-width: none; margin: 12px 0 0; padding: 2px 0 6px; }
+.modules .modules { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: var(--s-2); overflow-x: auto; scrollbar-width: none; margin: var(--s-3) 0 0; padding: 2px 0 var(--s-2); }
 .modules .modules::-webkit-scrollbar { display: none; }
-.modules .mod { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 12px; align-items: center; min-height: 84px; padding: 12px 14px;
+.modules .mod { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: var(--s-1) var(--s-3); align-items: center; min-height: 84px; padding: var(--s-3) var(--s-4);
   border-radius: var(--r-m); border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; text-align: left; box-shadow: var(--e-1); }
-.modules .mod .g { grid-row: span 2; width: 44px; height: 44px; padding: 10px; border-radius: var(--r-m); background: var(--city-wash); color: var(--city-ink); -webkit-mask: none; mask: none; }
+.modules .mod .g { grid-row: span 2; width: 44px; height: 44px; padding: var(--s-3); border-radius: var(--r-m); background: var(--city-wash); color: var(--city-ink); -webkit-mask: none; mask: none; }
 .modules .mod .g::before { content: ""; display: block; width: 100%; height: 100%; background: currentColor; -webkit-mask: var(--g, var(--g-star4)) center / contain no-repeat; mask: var(--g, var(--g-star4)) center / contain no-repeat; }
 .modules .mod b { font: 500 var(--fs-lead)/1.15 var(--font-display); }
 .modules .mod span { font-size:var(--fs-meta); color: var(--ink-3); }
@@ -582,8 +582,8 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
 
 /* (d) "Your day" (M2-06): .day wraps summary → caveat → actions → ol.stops; stops reuse the card in .row density.
    Map: FE-A draws the route as L.polyline(..., {className: 'day-route'}) and numbered stop pins .pin-n.day. */
-.day { display: grid; gap: 14px; margin: 12px 0 0; padding: 18px; border-radius: var(--r-l); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--e-1); }
-.day > header { display: grid; gap: 4px; }
+.day { display: grid; gap: var(--s-4); margin: var(--s-3) 0 0; padding: var(--s-5); border-radius: var(--r-l); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--e-1); }
+.day > header { display: grid; gap: var(--s-1); }
 .day > header .eyebrow { font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--city-ink); }
 .day > header h2 { margin: 0; font: 500 var(--fs-d2)/1.1 var(--font-display); }
 .daysum b { font-variant-numeric: lining-nums tabular-nums; }
@@ -591,7 +591,7 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
 .stop { padding-bottom: 0; }
 .stop .n { background: var(--city); color: var(--city-on); font: 700 var(--fs-ui)/1 var(--font-ui); box-shadow: var(--ring-surface); }
 .stop .pl { margin: 0; }
-.stop .leg { margin: 8px 0 12px; font: 500 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-2); }
+.stop .leg { margin: var(--s-2) 0 var(--s-3); font: 500 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-2); }
 .stop .leg::before { content: ""; width: 16px; height: 16px; flex: none; background: var(--ink-3); -webkit-mask: var(--g-route, var(--g-star4)) center / contain no-repeat; mask: var(--g-route, var(--g-star4)) center / contain no-repeat; }
 .day .total { font: 500 var(--fs-ui)/1.4 var(--font-ui); color: var(--ink-2); }
 .leaflet-overlay-pane path.day-route { stroke: var(--city); stroke-width: 3.5; stroke-dasharray: 1 9; stroke-linecap: round; fill: none; }
@@ -599,26 +599,26 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
 
 /* (e) Saved page (mockups/saved.html, M2-03/04): named lists, Been-there stamps, export, shared read-only view */
 .saved-page .listhead h1 { margin: 0; }
-.listtabs .pill .n { color: var(--ink-3); font-weight: 500; margin-left: 4px; }
+.listtabs .pill .n { color: var(--ink-3); font-weight: 500; margin-left: var(--s-1); }
 .listtabs .pill[aria-pressed="true"] .n { color: color-mix(in srgb, var(--paper) 75%, transparent); }
 .listtabs .new { border-style: dashed; }
-.listmenu { display: inline-flex; gap: 6px; }
+.listmenu { display: inline-flex; gap: var(--s-2); }
 .listmenu .btn { min-height: var(--tap); }
 .listmenu .danger { color: var(--closed); }
-.exportbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-radius: var(--r-m); background: var(--sand); }
-.exportbar .lbl { font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-2); margin-right: 4px; }
+.exportbar { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; padding: var(--s-3) var(--s-4); border-radius: var(--r-m); background: var(--sand); }
+.exportbar .lbl { font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-2); margin-right: var(--s-1); }
 .banner.shared { background: var(--night); color: var(--on-night); }
 .banner.shared .btn { background: var(--on-night); color: var(--night); }
-.saved-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+.saved-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-3); grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 640px) { .saved-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.saved-cards .gone { padding: 14px 16px; border: 1px dashed var(--line-strong); border-radius: var(--r-m); color: var(--ink-2); }
-.pl .stamp, .card .stamp { transform: rotate(-8deg); border: 2px solid currentColor; border-radius: var(--r-s); padding: 4px 6px; background: color-mix(in srgb, var(--surface) 80%, transparent); text-align: center; }
-.pl-dist { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; font: 600 var(--fs-xs)/1.4 var(--font-ui); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.saved-cards .gone { padding: var(--s-4) var(--s-4); border: 1px dashed var(--line-strong); border-radius: var(--r-m); color: var(--ink-2); }
+.pl .stamp, .card .stamp { transform: rotate(-8deg); border: 2px solid currentColor; border-radius: var(--r-s); padding: var(--s-1) var(--s-2); background: color-mix(in srgb, var(--surface) 80%, transparent); text-align: center; }
+.pl-dist { display: inline-flex; align-items: center; gap: var(--s-1); margin-left: var(--s-2); font: 600 var(--fs-xs)/1.4 var(--font-ui); color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .pl-dist::before { content: ""; width: 12px; height: 12px; background: currentColor; -webkit-mask: var(--g-pin, var(--g-star4)) center / contain no-repeat; mask: var(--g-pin, var(--g-star4)) center / contain no-repeat; }
 
 /* (g) sheet locator inset (ROUND-1 #1/#6): the area's own pins with this place lit — drawn by FE-A from data-ll or
    platform's assets/art/<page>/<AREA>.svg; sits bottom-left of the sheet plate in place of the generic glyph */
-.detail .hero-plate .locator { position: absolute; left: 16px; bottom: 14px; width: 116px; height: 86px; padding: 6px; border-radius: var(--r-m);
+.detail .hero-plate .locator { position: absolute; left: 16px; bottom: 14px; width: 116px; height: 86px; padding: var(--s-2); border-radius: var(--r-m);
   background: color-mix(in srgb, var(--surface) 82%, transparent); box-shadow: var(--e-1); }
 .detail .hero-plate .locator svg, .detail .hero-plate .locator img { width: 100%; height: 100%; }
 .detail .hero-plate .locator circle { fill: color-mix(in srgb, var(--area, var(--city)) 55%, var(--ink-3)); }
@@ -641,13 +641,13 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
    (ROUND-2: "hero skyline motif runs through the facts text", Tokyo + Cleveland). The art is decoration; its inline
    geometry comes from the generator, so these overrides need !important. */
 @media (max-width: 639px) {
-  main:not(.feb) > .masthead { padding-bottom: 58px; }
+  main:not(.feb) > .masthead { padding-bottom: 60px; }
   main > .masthead > .motif { top: auto !important; bottom: 0 !important; height: 62px !important;
     -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 30%) !important; mask-image: linear-gradient(90deg, transparent 0, #000 30%) !important; }
 }
 /* 16.3 Day lens "More days" links were 17 px tall (B-20): each is a 44 px pill row */
-.day .more { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
-.day .more a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 14px; border-radius: var(--r-pill); border: 1px solid var(--line-strong);
+.day .more { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-2); }
+.day .more a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 var(--s-4); border-radius: var(--r-pill); border: 1px solid var(--line-strong);
   background: var(--surface); color: var(--ink); text-decoration: none; font-weight: 600; }
 .day .more a:hover { border-color: var(--ink); }
 /* 16.4 Desktop map labels carry their area colour (ROUND-2: "bare white number boxes"). FE-A hook: the tooltip element
@@ -686,7 +686,7 @@ html[data-cleo-page="landing"] main > .hero::before { content: ""; position: abs
   --hm: linear-gradient(180deg, #000 0 42%, transparent 60%, rgba(0,0,0,.55) 74%, #000 90%);   /* stars on top; the drawings' ground fades in, no hard tile edge */
   -webkit-mask-image: var(--hm); mask-image: var(--hm); }
 @media (max-width: 639px) {
-  html[data-cleo-page="landing"] main > .hero .inner { padding-bottom: 96px; }
+  html[data-cleo-page="landing"] main > .hero .inner { padding-bottom: var(--s-11); }
   html[data-cleo-page="landing"] main > .hero::before { background-size: auto 78px, auto 70px, auto 66px, auto 72px, auto 76px, auto 82px, auto, auto, auto, auto, auto, auto, auto, auto, auto;
     background-position: -20% 100%, 18% 100%, 42% 100%, 62% 100%, 86% 100%, 118% 100%, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
     --hm: linear-gradient(180deg, #000 0 74%, transparent 84%, rgba(0,0,0,.6) 91%, #000 97%); }
@@ -695,11 +695,11 @@ html[data-cleo-page="landing"] main > .hero::before { content: ""; position: abs
 /* 16.7 QA-24 (axe link-in-text-block, every page): footer links inside text are underlined, not told apart by colour alone */
 .footer .legal a, .footer .colophon a, .footer p a, .sitefoot p a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 /* 16.8 QA-25 (saved page, night): the map note sat on the light map/tile ground at 1.37:1 — it gets its own surface chip */
-html .sv-map .note, html .map-note { background: var(--surface); color: var(--ink-2); padding: 6px 10px; border-radius: var(--r-s); box-shadow: var(--e-1); }
+html .sv-map .note, html .map-note { background: var(--surface); color: var(--ink-2); padding: var(--s-2) var(--s-3); border-radius: var(--r-s); box-shadow: var(--e-1); }
 
 /* 16.9 QA-30 (night contrast on place pages): the map fallback's "Try again" was an unstyled button — browser-grey
    face under night ink. It is a real control: surface pill, ink text, 44 px, in both themes. */
-.map-retry { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 16px; margin-left: 6px; border-radius: var(--r-pill);
+.map-retry { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 var(--s-4); margin-left: var(--s-2); border-radius: var(--r-pill);
   border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); font: 600 var(--fs-sm) var(--font-ui); cursor: pointer; }
 .map-retry:hover { border-color: var(--ink); }
 
