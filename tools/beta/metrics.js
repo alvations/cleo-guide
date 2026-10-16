@@ -746,7 +746,21 @@ const ATLAS_FIRST = () => {
   const cards = [...document.querySelectorAll('li.pl')].filter(c => !c.hidden && inView(c.getBoundingClientRect()) && hits(c)).map(c => norm((c.querySelector('.pl-n') || c).textContent)).filter(real);
   const tray = [...document.querySelectorAll('.ms-toggle, .mapclose')].find(e => inView(e.getBoundingClientRect()) && getComputedStyle(e).visibility !== 'hidden');
   const tr = tray && tray.getBoundingClientRect(), named = [...new Set(pins.concat(cards))];
-  return { leaflet: !!map, mapPct: Math.round(100 * mapH / vh), tray: tray ? { text: norm(tray.textContent).slice(0, 60), w: Math.round(tr.width), h: Math.round(tr.height) } : null,
+  // clear map (SPEC-v3 §1.7): the share of the screen's height where the map is what you see (no chrome over it), the
+  // median of three columns sampled every 4 px
+  const colClear = x => { let n = 0, m = 0; for (let y = 2; y < vh; y += 4) { n++; const t = document.elementFromPoint(x, y); if (t && map && map.contains(t)) m++; } return n ? m / n : 0; };
+  const cols = [0.25, 0.5, 0.75].map(f => colClear(Math.round(vw * f))).sort((x, y) => x - y), clearPct = Math.round(100 * cols[1]);
+  // a place photo on the first screen: a loaded raster (not a map tile, not a glyph), wholly on screen, ≥ 32 px
+  const photos = [...document.querySelectorAll('img')].filter(i => !i.closest('.leaflet-tile-pane') && !i.classList.contains('leaflet-tile') && i.complete && i.naturalWidth > 1 && /\.(jpe?g|webp|avif|png)(\?|$)/i.test(i.currentSrc || i.src)
+    && (r => r.width >= 32 && r.height >= 32 && inView(r))(i.getBoundingClientRect()));
+  // desktop intro (§1.7): in the list column, above its fold — the city name (as the h1 reads), a dek line, the lead photo
+  const first = document.querySelector('li.pl'), col = first && (first.closest('.listpane, [data-cleo-list], .pls, ul, ol') || first.parentElement), cr = col && col.getBoundingClientRect();
+  const inCol = r => !!cr && r.left >= cr.left - 2 && r.right <= cr.right + 2;
+  const h1 = document.querySelector('h1'), city = h1 && norm(h1.textContent);
+  const cityShown = !!city && [...document.querySelectorAll('h1, h2, .intro *, [class*=intro] *, [class*=dek] *')].concat([...document.querySelectorAll('div, p, span')]).some(e => e.childElementCount === 0 && norm(e.textContent) === city && parseFloat(getComputedStyle(e).fontSize) >= 20 && inView(e.getBoundingClientRect()) && inCol(e.getBoundingClientRect()) && getComputedStyle(e).visibility !== 'hidden');
+  const dek = [...document.querySelectorAll('p, [class*=dek]')].some(e => norm(e.textContent).split(' ').length >= 6 && inView(e.getBoundingClientRect()) && inCol(e.getBoundingClientRect()) && !e.closest('li.pl'));
+  const leadPhoto = photos.some(i => { const r = i.getBoundingClientRect(); return r.width >= 200 && inCol(r); });
+  return { leaflet: !!map, mapPct: Math.round(100 * mapH / vh), clearPct, photos: photos.length, intro: { city: cityShown, dek, leadPhoto }, tray: tray ? { text: norm(tray.textContent).slice(0, 60), w: Math.round(tr.width), h: Math.round(tr.height) } : null,
     named: named.length, namedEg: named.slice(0, 5), pinsNamed: pins.length, cardsNamed: cards.length };
 };
 
@@ -852,9 +866,14 @@ function grade(m) {
     // recorded only; the Atlas first screen is graded by B-01a instead (phone: map-first with a peek tray naming real places)
     const atlasNow = !!(mo.view && mo.view.now === 'atlas'), af = mo.atlasFirst || {}, afd = de.atlasFirst || {};
     rows['B-01 screens to first card ≤1.0'] = atlasNow ? P(null, (mo.screensToFirstCard == null ? '—' : mo.screensToFirstCard) + ' (Atlas: recorded; see B-01a)') : P(mo.screensToFirstCard != null && mo.screensToFirstCard <= 1.0, mo.screensToFirstCard);
-    if (atlasNow) rows['B-01a Atlas first screen: map + peek tray + ≥3 real places named (D-46)'] = F(
-      (af.leaflet ? af.mapPct >= 50 && af.tray && af.tray.h >= 44 && /\d/.test(af.tray.text) && af.named >= 3 : af.cardsNamed >= 1) && (!de.view || de.view.now !== 'atlas' || afd.named >= 3),
-      `phone map ${af.mapPct}% · tray ${af.tray ? '"' + af.tray.text + '" ' + af.tray.w + '×' + af.tray.h : 'none'} · named ${af.named} (${(af.namedEg || []).slice(0, 3).join(', ')}) · desktop named ${afd.named == null ? '—' : afd.named}`);
+    // B-01a / B-01b ratified 2026-10-16 with the designer's acceptance (atlas/SPEC-v3 §1.7)
+    if (atlasNow) rows['B-01a Atlas first screen: clear map ≥ 75 %, peek tray, ≥ 3 real places named (D-46, §1.7)'] = F(
+      (af.leaflet ? af.clearPct >= 75 && af.tray && af.tray.h >= 44 && /\d/.test(af.tray.text) && /list/i.test(af.tray.text) && af.named >= 3 : af.cardsNamed >= 1) && (!de.view || de.view.now !== 'atlas' || afd.named >= 3),
+      `phone clear ${af.clearPct}% (box ${af.mapPct}%) · tray ${af.tray ? '"' + af.tray.text + '" ' + af.tray.w + '×' + af.tray.h : 'none'} · named ${af.named} (${(af.namedEg || []).slice(0, 3).join(', ')}) · desktop named ${afd.named == null ? '—' : afd.named}`);
+    if (atlasNow) { const G = require('./qa/default-view').GATES, ph = !af.leaflet || af.photos >= 1, di = !de.view || de.view.now !== 'atlas' || !!(afd.intro && afd.intro.city && afd.intro.dek && afd.intro.leadPhoto);
+      const ok = (ph || G.PEEK_PHOTO !== 'fail') && (di || G.DESKTOP_INTRO !== 'fail');
+      rows['B-01b first-screen art: phone photo; desktop city name, dek, lead photo (§1.7)'] = { pass: ph && di ? true : ok ? null : false,
+        val: `${ph && di ? '' : ok ? 'WARN · ' : ''}phone photos ${af.photos == null ? '—' : af.photos} (gate ${G.PEEK_PHOTO}) · desktop intro ${afd.intro ? ['city', 'dek', 'leadPhoto'].map(k => k + (afd.intro[k] ? ' ✓' : ' ✗')).join(' ') : '—'} (gate ${G.DESKTOP_INTRO})` }; }
     rows['B-24 first load: CLS < 0.01, view set before first paint (D-46)'] = F(mo.view && de.view && mo.view.cls < 0.01 && de.view.cls < 0.01 && mo.view.paint === mo.view.now && de.view.paint === de.view.now,
       `CLS ${mo.view ? mo.view.cls : '?'} / ${de.view ? de.view.cls : '?'} · view at paint ${mo.view ? mo.view.paint + '→' + mo.view.now : '?'} / ${de.view ? de.view.paint + '→' + de.view.now : '?'}`);
     rows['B-02 masthead ≤0.6 screen'] = P(mo.mastheadPx != null && mo.mastheadPx <= 0.6 * 844, mo.mastheadPx);

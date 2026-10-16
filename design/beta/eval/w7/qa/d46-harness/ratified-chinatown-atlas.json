@@ -1,0 +1,601 @@
+{
+ "generated": "2026-10-16T22:16:11.866Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "Singapore/chinatown.html",
+   "gen": "new",
+   "expected": {
+    "total": 16,
+    "sights": 4,
+    "food": 12,
+    "live": "Singapore/chinatown.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Chinatown & CBD — 16 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 16,
+    "cardsVisible": 16,
+    "legacy": false,
+    "firstCardTop": 319,
+    "screensToFirstCard": 0.38,
+    "mastheadPx": 0,
+    "controlsAbove": 14,
+    "controlsAboveOnScreen": 14,
+    "controlsAboveList": [
+     "a.c0 \"Singapore\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-09-02\"",
+     "button \"All 16\"",
+     "button \"Sights 4\"",
+     "button \"Eat & drink 12\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.btn.btn-primary \"Keep Chinatown & CBD off\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 161,
+    "upperNodes": 2,
+    "upperPct": 1.2,
+    "minFontPx": 12,
+    "minFontEl": "button.pl-save.heart \"Save\"",
+    "contrastChecked": 148,
+    "contrastUnknown": 10,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"GalleryAtlasGuidebookIns\"",
+     "div.ms-bar \"Search Chinatown & CBDpl\"",
+     "div#cleo-grid.listpane.w7-cards \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 349,
+    "cardsPerScreen": 2.42,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1320,
+    "fcp": 172,
+    "fontSampleN": 158,
+    "fontsDeclared": {
+     "Inter": 225,
+     "Bricolage Grotesque": 15
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Inter": 3191,
+      "IPAGothic": 3,
+      "Bricolage Grotesque 96pt ExtraBold": 183
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 935180,
+    "bytesAllResponses": 935180,
+    "initial": {
+     "bytes": 935180,
+     "gz": 362663
+    },
+    "session": {
+     "bytes": 935180
+    },
+    "offOriginBlocked": 24,
+    "night": {
+     "contrastChecked": 148,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 86,
+     "clearPct": 74,
+     "photos": 0,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": {
+      "text": "13 places here · checked 2 Sept · Show list",
+      "w": 390,
+      "h": 56
+     },
+     "named": 6,
+     "namedEg": [
+      "Tian Tian Hainanese Chicken Rice",
+      "Song Fa Bak Kut Teh",
+      "Sri Mariamman Temple",
+      "Famous Sungei Road Trishaw Laksa",
+      "Ah Tai Hainanese Chicken Rice"
+     ],
+     "pinsNamed": 6,
+     "cardsNamed": 0
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 390,
+      "h": 56,
+      "name": "map-first: 13 places here · checked 2 Sept · Show list",
+      "mapFirst": true,
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "famous-sungei-road-trishaw-laksa",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 490,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 490,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Chinatown & CBD — 16 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 16,
+    "cardsVisible": 16,
+    "legacy": false,
+    "firstCardTop": 280,
+    "screensToFirstCard": 0.31,
+    "mastheadPx": null,
+    "controlsAbove": 25,
+    "controlsAboveOnScreen": 25,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Singapore\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"All 16\"",
+     "button \"Sights 4\"",
+     "button \"Eat & drink 12\"",
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.chip.ms-mine \"Saved\"",
+     "select \"Top rankedMost sourcesA–\"",
+     "button.btn.btn-quiet \"For you\"",
+     "button.btn.btn-quiet \"Your day\"",
+     "button.btn.btn-quiet \"Near me\""
+    ],
+    "tapSmall": 5,
+    "tapSmallKinds": {
+     "button": 4,
+     "input#cleo-filter 286x25": 1
+    },
+    "tapSmallList": [
+     "button \"Gallery\" 113x36",
+     "button \"Atlas\" 113x36",
+     "button \"Guidebook\" 113x36",
+     "button \"Insights\" 113x36",
+     "input#cleo-filter 286x25"
+    ],
+    "textNodes": 200,
+    "upperNodes": 2,
+    "upperPct": 1,
+    "minFontPx": 12,
+    "minFontEl": "button.pl-save.heart \"Save\"",
+    "contrastChecked": 187,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.ms-head \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 338,
+    "cardsPerScreen": 2.67,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1294,
+    "fcp": 196,
+    "fontSampleN": 195,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 22,
+     "Inter": 285
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 442,
+      "Inter": 4369,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 28,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 16,
+     "scrolled": 16,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 16,
+      "ok": 16,
+      "bad": []
+     },
+     "search": {
+      "n": 16,
+      "ok": 16,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 16 places",
+     "groups": [
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byDaniel",
+      "Recommended by",
+      "CollectionHeritage &",
+      "Collection",
+      "CuisineHainanese chi",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "RecognitionHas an aw",
+      "Recognition"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1196135,
+    "bytesAllResponses": 1196135,
+    "initial": {
+     "bytes": 935180,
+     "gz": 362663
+    },
+    "session": {
+     "bytes": 1196135
+    },
+    "offOriginBlocked": 40,
+    "night": {
+     "contrastChecked": 187,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0.0066
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 88,
+     "clearPct": 88,
+     "photos": 1,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": null,
+     "named": 11,
+     "namedEg": [
+      "Tian Tian Hainanese Chicken Rice",
+      "Song Fa Bak Kut Teh",
+      "JUMBO Seafood",
+      "Sri Mariamman Temple",
+      "Buddha Tooth Relic Temple & Museum"
+     ],
+     "pinsNamed": 11,
+     "cardsNamed": 2
+    },
+    "sync": {
+     "mounted": true,
+     "mapWidthPct": 64,
+     "split": true,
+     "sticky": true,
+     "markers": 11,
+     "pinned": 16,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 11,
+     "hoverHighlights": true,
+     "pinClick": {
+      "cardHighlighted": true,
+      "cardInView": true,
+      "sheet": true
+     },
+     "orderingStated": true
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 16,
+    "text": 6772
+   },
+   "cpu4x": {
+    "fcp": 304,
+    "dcl": 571,
+    "loadMs": 880
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": null,
+      "val": "0.38 (Atlas: recorded; see B-01a)"
+     },
+     "B-01a Atlas first screen: clear map ≥ 75 %, peek tray, ≥ 3 real places named (D-46, §1.7)": {
+      "pass": false,
+      "val": "phone clear 74% (box 86%) · tray \"13 places here · checked 2 Sept · Show list\" 390×56 · named 6 (Tian Tian Hainanese Chicken Rice, Song Fa Bak Kut Teh, Sri Mariamman Temple) · desktop named 11"
+     },
+     "B-01b first-screen art: phone photo; desktop city name, dek, lead photo (§1.7)": {
+      "pass": null,
+      "val": "WARN · phone photos 0 (gate warn) · desktop intro city ✗ dek ✗ leadPhoto ✗ (gate warn)"
+     },
+     "B-24 first load: CLS < 0.01, view set before first paint (D-46)": {
+      "pass": true,
+      "val": "CLS 0 / 0.0066 · view at paint atlas→atlas / atlas→atlas"
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 0
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "14 on-screen / 14 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": null,
+      "val": "Atlas (D-36, D-46): recorded — no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": true,
+      "val": "split true, sticky true, map 64%, hover→pin true, pin→card true"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 390×56, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": true,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 11, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 16 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.42
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 16 · DOM 16 · scrolled 16 · deep 16/16 · search 16/16 · no-JS 16"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Inter, Bricolage Grotesque · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "1.2% (2/161)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px button.pl-save.heart \"Save\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 64"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1168 KB · 1294 nodes · 196 ms · 304 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "354 KB (913 KB) · 354 KB (913 KB)"
+     }
+    },
+    "passed": 24,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}

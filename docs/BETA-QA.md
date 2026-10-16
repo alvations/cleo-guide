@@ -1339,3 +1339,30 @@ On the current dev head (Gallery default, Tokyo forced to `--view atlas`):
 **What doesn't change:** G1 (every place reachable), the budgets (D-38 first load, eager JS, W2 DOM), B-07, B-08, B-20, B-23 and no-CDN, all on the default view.
 
 Ratification: QA proposes these changes. The orchestrator ratifies them, or amends the thresholds: the map share ≥ 50 %, ≥ 3 named places, and CLS < 0.01.
+
+### Ratified 2026-10-16 (orchestrator): B-01a and B-24, amended to the designer's acceptance (atlas/SPEC-v3 §1.7, 92362b7c1)
+
+**B-01a** (graded when the page opens in Atlas). Phone (390):
+- **clear map ≥ 75 %**: the SPEC-v3 measure. It is the share of the screen's height where the map is what you see, with no chrome over it, taken as the median of three columns sampled every 4 px. This replaces "box ≥ 50 % of height".
+- the peek tray is wholly on screen, ≥ 44 px tall, and shows the count and "Show list";
+- ≥ 3 real places are named;
+- with no map library, ≥ 1 real card is wholly on screen.
+
+Desktop (1440): ≥ 3 real places named, and B-06 still applies.
+
+**B-01b**, new and split out so that it can WARN:
+- phone: ≥ 1 place photo on the first screen (FE-1's peek thumbnails);
+- desktop: the city name (as the h1 reads), a dek line and the lead place's photo (≥ 200 px wide) sit in the list column above its fold (FE-A's intro and lead card).
+
+Each half is a WARN until its feature lands, then a FAIL. The switches are `GATES.PEEK_PHOTO` and `GATES.DESKTOP_INTRO` in `tools/beta/qa/default-view.js` (env `QA_GATE_PEEK_PHOTO` / `QA_GATE_DESKTOP_INTRO=fail`). QA flips each to `fail` on the first pin that carries the feature.
+
+**B-24:** CLS < 0.01, and the view at first paint == the view after load. Ratified as written.
+
+**On today's dev head with `--view atlas`, on the §1.7 acceptance pages (Tokyo, Cleveland, Chinatown):**
+- B-01a ❌ on all three: clear map **74 %** (624 of 844 px rows). The phone chrome is header 64 + switcher 52 + chips 48 + peek 56. §1.7's 75.4 % assumes a 52 px header, so this is a true reading that rev 5's header must close. The tray, the named places (≥ 3) and desktop pass.
+- B-01b WARN on all three: phone photos 0; desktop city ✗ dek ✗ lead photo ✗. These features haven't landed yet.
+- B-24 ✅: CLS 0 / 0.005–0.007.
+
+Evidence: `design/beta/eval/w7/qa/d46-harness/ratified-*`.
+
+**Next on the r8 pin:** INP on the desktop switch → Atlas and on the filters (`beta:perf --only inp`), because platform reports a 21 s switch → Atlas INP on dev b61fda89.
