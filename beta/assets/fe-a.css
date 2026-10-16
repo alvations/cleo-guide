@@ -194,12 +194,12 @@ html main[data-city] .views[data-cleo-views] button .ico{width:17px;height:17px}
   html main[data-city] .views[data-cleo-views]{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;padding:0}
   html main[data-city] .views[data-cleo-views] button{min-width:0;padding:0 var(--s-1)}
   /* every phone sheet (place detail, filters, list) stops below the switcher, scrim included: it stays visible and hit-testable */
-  html body main[data-city]:has(.views[data-cleo-views]:not([hidden]))>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side){top:calc(var(--bar-h) + var(--cbar-h))}
-  html body main[data-city]:has(.views[data-cleo-views]:not([hidden]))>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side) :is(.sheet,.tray){max-height:calc(100dvh - var(--bar-h) - var(--cbar-h))}
+  html body main[data-city][data-views-on]:not([data-views-on=off]):not([hidden])>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side){top:calc(var(--bar-h) + var(--cbar-h))}
+  html body main[data-city][data-views-on]:not([data-views-on=off]):not([hidden])>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side) :is(.sheet,.tray){max-height:calc(100dvh - var(--bar-h) - var(--cbar-h))}
   /* ...and wherever the page is scrolled (a deep link can land past the list, where the sticky bar has left with <main>),
      the row is pinned under the header while a sheet is open; its bar keeps its height, so nothing shifts behind the sheet */
-  html body main[data-city]:has(>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not([hidden]):not(.side))>.cbar{min-height:var(--cbar-h)}
-  html body main[data-city]:has(>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not([hidden]):not(.side))>.cbar>.cbar-in{position:fixed;top:var(--bar-h);left:0;right:0;z-index:61;background:var(--paper);border-bottom:1px solid var(--line)}
+  html body main#main[data-city][data-overlay-on]:not([data-overlay-on=off]):not([hidden])>.cbar{min-height:var(--cbar-h)}
+  html body main#main[data-city][data-overlay-on]:not([data-overlay-on=off]):not([hidden])>.cbar>.cbar-in{position:fixed;top:var(--bar-h);left:0;right:0;z-index:61;background:var(--paper);border-bottom:1px solid var(--line)}
 }
 @media (max-width:399px){html main[data-city] .views[data-cleo-views] button .ico{display:none}}
 /* < 300 px (200 % zoom on a phone, DESIGN-SYSTEM §v2.11 corrected): a 2 x 2 grid of glyph-only segments, each >= 60 x 44 (a
