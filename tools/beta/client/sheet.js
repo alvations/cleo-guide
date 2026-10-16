@@ -58,7 +58,10 @@
     if (i < 0) { set = [c]; i = 0; }
     // W7: with no lens on, "n of N" counts the whole view order, stamped or not (Cleo.defer.order, platform W7), so a far
     // #p= reads "k of 488", not "k of the cards stamped so far"; an unstamped neighbour is reached through its #p= route
-    var ord = Cleo.defer && Cleo.defer.order && set.length === d.querySelectorAll('li.pl').length ? Cleo.defer.order() : null, oi = ord ? ord.map(function (x) { return x.id; }).indexOf(c.id) : -1;
+    // QC-26 (Atlas FE-2, with PERF-08's lens-only stamping): "every card is visible" means "no lens" only when no lens,
+    // search or kind filter is on; a cold #a=<first area>&p= link stamps exactly the lens's cards, which are all visible
+    var S0 = C.S || {}, lensOn = !!S0.q || (!!S0.mode && S0.mode !== 'all') || ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day', 'rec'].some(function (k) { return !!S0[k]; });   // city.js LENS
+    var ord = Cleo.defer && Cleo.defer.order && !lensOn && set.length === d.querySelectorAll('li.pl').length ? Cleo.defer.order() : null, oi = ord ? ord.map(function (x) { return x.id; }).indexOf(c.id) : -1;
     if (ord && ord.length > set.length && oi >= 0) {
       var stub = function (x) { return x.el || { id: x.id, stub: 1 }; };
       set = ord.map(stub); i = oi;
@@ -95,7 +98,7 @@
     var phI = q('.pl-photo img', c), phF = q('.pl-photo', c), phW = phI ? Math.max.apply(0, (phI.getAttribute('srcset') || '').split(',').map(function (z) { return parseInt((/\s(\d+)w\s*$/.exec(z) || [])[1], 10) || 0; }).concat([+phI.getAttribute('width') || 0])) : 0;
     var phC = phF && /^#[0-9a-f]{6}$/i.test(phF.style.getPropertyValue('--ph').trim()) ? phF.style.getPropertyValue('--ph').trim() : '';
     var exp = vw === 'gallery';    // A-04: in Gallery the sheet is the experience page
-    return '<div class="sheet detail' + (exp ? ' exp' : '') + '" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
+    return '<div class="sheet detail' + (exp ? ' exp' : '') + '" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
       '<button class="btn btn-icon close" data-sh="x" aria-label="' + tt('sheet.close', 'Close') + '">' + icon('close') + '</button>' + navRow +
       '<div class="hero-plate' + (q('.pl-photo', c) ? ' has-photo' + (phW >= 800 ? ' ph-fit' : ' ph-frame') : '') + (closed ? ' is-closed' : '') + '" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + (phW ? ';--ph-max:' + phW + 'px' : '') + (phC ? ';--ph:' + phC : '') + '">' + (q('.pl-photo', c) ? fullCap(q('.pl-photo', c)) : '') + loc + '<div class="plate-art" aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
       '<div class="content">' + shut + '<div class="badges">' + (closed ? '' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
@@ -176,7 +179,7 @@
     return x.outerHTML; };
   var grow = null, opener = null, tap = null;   // tap: the link or button just activated (mouse, touch or Enter), the sheet's opener
   d.addEventListener('click', function (e) {
-    var o = e.target.closest && e.target.closest('a[href], button'); if (o && !host.contains(o)) tap = [o, Date.now()];
+    var o = e.target.closest && e.target.closest('a[href], button'); if (o && !host.contains(o)) tap = [o, Date.now(), e.detail === 0];   // [2]: activated by keyboard (a key's click has detail 0)
     var t = e.target.closest && e.target.closest('li.pl .pl-n a, li.pl > .pl-cover, li.pl > .pl-photo, li.gc .gc-a'); if (!t) return;
     var li = t.closest('li.pl, li.gc'), m = li && (q('.pl-photo img', li) || q('.pl-cover', li) || q('.cover', li));
     if (m && m.getBoundingClientRect().height > 0) grow = [m, Date.now()];
@@ -186,14 +189,15 @@
     open: function (c) {
       // QC-07: remember the control that opened the sheet (a row card, a grid card, a pin, a search hit), so Esc / Close
       // returns focus to it, not to some other card for the same place; a stepped-through sheet keeps the first opener
-      var ae = tap && Date.now() - tap[1] < 1500 && tap[0].isConnected ? tap[0] : d.activeElement; tap = null;
+      var ae = tap && Date.now() - tap[1] < 1500 && tap[0].isConnected ? tap[0] : d.activeElement, kb = !!(tap && Date.now() - tap[1] < 1500 && tap[2]); tap = null;
       if (host.hidden && ae && ae !== d.body && !host.contains(ae)) opener = ae;
       if (Cleo.tray) Cleo.tray.close(true);
       // W8 (R7 2d): a side panel only beside the Atlas map; elsewhere a centred dialog over a scrim
       var show = function () {
         card = c; byNav = navs > 0; host.innerHTML = build(c); host.hidden = false; host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
         if (!host.classList.contains('side')) d.body.style.overflow = 'hidden';
-        q('[data-sh="x"]', host).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c);
+        // designer: ✕ (with its ring) on a keyboard open; the dialog itself, ringless, on a tap or a deep link
+        (kb ? q('[data-sh="x"]', host) : q('.sheet', host)).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c);
       };
       // W7 gap #1, the signature moment (design/beta/style/v2/MOTION.md): the tapped card media grows into the sheet's media.
       // Only on a real tap of that card (≤ 1 s ago), only where view transitions exist and motion is allowed; otherwise as before.

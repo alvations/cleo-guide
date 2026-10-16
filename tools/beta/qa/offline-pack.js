@@ -26,12 +26,14 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
   const html = fs.readFileSync(path.join(ROOT, 'beta', pg), 'utf8'), total = (html.match(/<li class="pl[ "]/g) || []).length;
   const first = (/<li class="pl[ "][^>]*id="p-([^"]+)"/.exec(html.split('data-cleo-defer')[1] || html) || [])[1];
   const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'beta/data/packs', fileKey + '.json'), 'utf8'));
-  const browser = await PW.chromium.launch(); let port = 8930;
-  const server = () => { const p = ++port; const s = spawn('python3', ['-m', 'http.server', String(p), '--bind', '127.0.0.1'], { cwd: ROOT, stdio: 'ignore' }); return { s, U: `http://127.0.0.1:${p}/beta/` }; };
+  const browser = await PW.chromium.launch();
+  // a free port from the OS each time (it runs inside the parallel `npm test`, so never a fixed one)
+  const freePort = () => new Promise(res => { const t = require('net').createServer(); t.listen(0, '127.0.0.1', () => { const p = t.address().port; t.close(() => res(p)); }); });
+  const server = async () => { const p = await freePort(); const s = spawn('python3', ['-m', 'http.server', String(p), '--bind', '127.0.0.1'], { cwd: ROOT, stdio: 'ignore' }); return { s, U: `http://127.0.0.1:${p}/beta/` }; };
 
   for (const [w, h, tag] of [[390, 844, 'phone'], [1440, 900, 'desktop']]) {
     console.log(`== ${pg} · ${tag} ==`);
-    const { s: srv, U } = server(); await sleep(900);
+    const { s: srv, U } = await server(); await sleep(900);
     const ctx = await browser.newContext({ viewport: { width: w, height: h }, serviceWorkers: 'allow', reducedMotion: 'reduce' });
     const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 160)));
     await ctx.route(u => u.hostname !== '127.0.0.1', r => r.abort());   // nothing off-origin, ever (any local port is ours)
@@ -68,7 +70,7 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
     chk(new RegExp('Map unavailable · all ' + total + ' places listed').test(at.text) && at.cards === total, 'offline Atlas: "Map unavailable · all N places listed", every place listed', at);
     chk(errs.length === 0, 'no page errors offline', errs.slice(0, 3));
     // Remove frees it (back online, a fresh server)
-    await ctx.setOffline(false); const { s: srv2, U: U2 } = server(); await sleep(900);
+    await ctx.setOffline(false); const { s: srv2, U: U2 } = await server(); await sleep(900);
     await p.goto(U2 + pg, { waitUntil: 'load' }); await p.evaluate(() => navigator.serviceWorker.ready); await sleep(800);
     // (a new port is a new origin: the pack lives on the first origin, so check Remove on THIS origin after keeping it)
     await p.click('[data-pack="keep"]'); await p.waitForFunction(() => !document.querySelector('[data-pack-done]').hidden, null, { timeout: 120000 });
@@ -80,7 +82,7 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
 
   console.log('== storage failures leave the page working ==');
   {
-    const { s: srv, U } = server(); await sleep(900);
+    const { s: srv, U } = await server(); await sleep(900);
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'allow' });
     const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 160)));
     await ctx.route(u => u.hostname !== '127.0.0.1', r => r.abort());

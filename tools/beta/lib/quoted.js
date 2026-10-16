@@ -19,7 +19,7 @@
 const PRICE_RATING = /(?:[$€£¥₫₩]\s?\d|\b\d+\s?(?:usd|eur|sgd|jpy|vnd|dollars?|yen)\b|(?<![A-Z][a-z]+ )\bprices?\b|\bpriced\b|\bcheap\b|\bratings?\b|\brated \d|\b\d(?:\.\d)?\s?(?:\/\s?5|stars?)\b|\bstar[- ]score\b)/i;
 
 const POPULARITY = /(?:\b\d[\d,.]*\s?k?\+?\s?(?:reviews?|ratings?|votes?)\b|\b(?:at|scores?|scored|averages?|averaging)\s\d\.\d\b|\bmost[- ]popular\b|\bbest[- ]?sell(?:er|ing)\b|\b(?:top|highest|best|higher|lowest|well|most|un|five[- ]star)[- ]rated\b)/i;
-const HOURS = /(?:\b\d{1,2}(?::\d{2})?\s?(?:am|pm|a\.m\.|p\.m\.)(?![a-z])|\b\d{1,2}[:.]\d{2}\s?[-–—]\s?\d{1,2}[:.]\d{2}\b|\bopen (?:daily|every day|late|until|till|from)\b|\bopens? (?:at|from|daily)\b|\bcloses? (?:at|early|by|on)\b|\bopen(?:ing)? hours\b|\b24\/7\b|\b24 hours\b)/i;
+const HOURS = /(?:\b\d{1,2}(?::\d{2})?\s?(?:am|pm|a\.m\.|p\.m\.)(?![a-z])|\b\d{1,2}[:.]\d{2}\s?[-–—]\s?\d{1,2}[:.]\d{2}\b|\bopen (?:daily|every day|late|until|till|from)\b|\bopens? (?:at|from|daily)\b|\bcloses? (?:at|early|by|on)\b|\bopen(?:ing)? hours\b|\b24\/7\b|\b24 hours\b|\b(?:open )?24 ?h(?:rs?)?\b|\bopen(?:s)? (?:later|earlier|till late|until late)\b)/i;
 /** D-42: any of the three groups. */
 const QUOTE = new RegExp([PRICE_RATING, POPULARITY, HOURS].map(r => r.source).join('|'), 'i');
 

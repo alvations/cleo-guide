@@ -15,6 +15,8 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
 
 ## Done
 - PANEL-R1 #1, #13, #11, #3 + probe honesty: 537cfb8c (round 3 head), BETA-LOG 03678da1.
+- QC-26 (cold lens deep link "1 of 488"; bisected to PERF-08 1538974d): sheet.js shortcut only with no lens on, in the
+  push carrying this line. Probe tools/beta/fe2/qc26.js (in atlas-nav-ms).
 - PANEL-R3 #7 (108 px layout shift): e7986460 (full gates green on the pushed head).
 - W9-5 walking ring from your base: 417da6aa. Phone 58vh detail above the QC-09 cap: ecae30b3.
 - QA-71 (swipe after Back): fd54b823; hardening (carousel holds only against the restore's own scroll): a3da0b4b.
@@ -22,6 +24,9 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
   views.js): a3da0b4b.
 
 ## Next
+0. QA-76 (transient "N more outside… Show all" during the first map fit, PERF-08), co-owned with platform
+   (session_01USPS1inq7bUDfyw89evKMA): asked them whether they take it; if not, msArea publishes no ms-more until the
+   first fit settles. Timebox ~18:20Z (otherwise platform reverts 1538974d's FE parts).
 1. R3 #8 guards are in atlas-nav-ms.js: a fresh `at=` (Asakusa z15) load lists only in-bounds places on both viewports
    (passes on today's head: Sensō-ji first, 0 outside); after a phone zoom the pill and count equal the places in view
    OR "Search this area" is offered. The pill still reads "351 places here" with 43 in view. FE-1's copy, raised with

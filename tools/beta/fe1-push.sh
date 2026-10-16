@@ -18,7 +18,7 @@ s = re.sub(r'<<<<<<< [^\n]*\n(.*?)=======\n(.*?)>>>>>>> [^\n]*\n', lambda m: m.g
 open(p, 'w').write(s)
 EOF
   fi
-  node tools/beta/build.js >/dev/null 2>&1
+  node tools/beta/build.js 2>&1 | grep -q 'FAIL' && { echo "build refused to write (a source error)"; exit 1; }
   git add -A
   git diff --cached --quiet || git commit -qm "Merge origin; beta/ regenerated
 

@@ -25,7 +25,7 @@
     if (e.key === 'Escape') { e.preventDefault(); close(); return; }
     if (e.key !== 'Tab') return;
     const f = $$('a[href],button', host).filter(x => x.offsetParent !== null), l = f[f.length - 1];
-    if (e.shiftKey && d.activeElement === f[0]) { e.preventDefault(); l.focus(); } else if (!e.shiftKey && d.activeElement === l) { e.preventDefault(); f[0].focus(); }
+    if (e.shiftKey && (d.activeElement === f[0] || !f.includes(d.activeElement))) { e.preventDefault(); l.focus(); } else if (!e.shiftKey && d.activeElement === l) { e.preventDefault(); f[0].focus(); }
   });
   // hooks for foryou.js / day.js: rank(card) → sort key (lower first) and why(card) → 'First because' text; lens[k](n) → html;
   // after[] run once per apply (map overlays); dist {id: km} while Near me is on (never stored)
@@ -45,6 +45,8 @@
   { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need) Cleo.need('base', () => C.baseSheet && C.baseSheet(c)); }; }
   // FE-C W9-1 hook: the recognition badges are drawn by recognition.js (lazy) on pages that have recognised places
   if (Cleo.need && d.querySelector('.rail-i[data-rec]')) Cleo.need('recognition');
+  // FE-C W9-2 hook: the quiet "Status checked <d Mon>" card line is drawn by fresh.js (lazy) from each card's data-checked
+  if (Cleo.need) Cleo.need('fresh');
   need.q = {};
   const rail = $('#cleo-rail'), shown = $('#cleo-shown'), lens = $('#cleo-lens'), applied = $('[data-cleo-applied]'), fi = $('#cleo-filter'), split = $('.split');
   // R7 gap 2(c): the placeholder is never clipped mid-letter — "Search {city}" where it fits, else "Search" (a narrow
