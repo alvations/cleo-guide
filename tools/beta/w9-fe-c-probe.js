@@ -85,7 +85,7 @@ async function tabTo(page, test, n = 80) {
   { const s = await open(b, link, { w: 1440 }); const days = await s.page.evaluate(DAYS);
     ok(JSON.stringify(days) === JSON.stringify(ref), 'the link reopens identical days and order', days);
     const lo = await s.page.evaluate(() => [...document.querySelectorAll('.tp-left li')].map(li => li.textContent));
-    ok(lo.some(t => /CLOSED[\s\S]*Closed — kept for the record/.test(t)) && lo.every(t => /Closed —|Didn’t fit|No verified pin/.test(t)), 'every left-out place is named with its reason', lo.length);
+    ok(lo.some(t => /Closed[\s\S]*Closed — kept for the record/.test(t)) && !lo.some(t => /— CLOSED/.test(t)) && lo.every(t => /Closed —|Didn’t fit|No verified pin/.test(t)), 'every left-out place is named with its reason (a Closed chip, not the raw marker)', lo.length);
 
     console.log('# trip-print');
     await s.page.emulateMedia({ media: 'print' });
@@ -117,7 +117,10 @@ async function tabTo(page, test, n = 80) {
     const set = await s.page.evaluate(() => Cleo.base.get() && Cleo.base.get().id);
     ok(k && set === 'senso-ji', `${tag}: "Set as my base" reached and pressed by keyboard`, [k, set]);
     await s.page.screenshot({ path: path.join(SHOTS, `base-sheet-${tag}.png`) });
+    const fin = await s.page.evaluate(() => { const a = document.activeElement; return !!(a && a.closest('#cleo-sheet')) && a.getAttribute('data-cleo-base'); });
+    ok(fin === 'clear', `${tag}: QC-15 focus stays in the sheet, on "Clear my base"`, fin);
     await s.page.keyboard.press('Escape'); await s.page.waitForTimeout(500);
+    ok(await s.page.evaluate(() => document.getElementById('cleo-sheet').hidden), `${tag}: QC-15 Escape closes the sheet after the action`);
     for (const v of ['gallery', 'atlas', 'guidebook']) {
       await s.page.evaluate(v => { location.hash = '#view=' + v + '&base=senso-ji'; }, v); await s.page.waitForTimeout(1600);
       await s.page.evaluate(v => { const sel = { gallery: 'li.gc[data-id]', atlas: 'li.pl[id^="p-"]', guidebook: 'li.ge[data-id]' }[v];
