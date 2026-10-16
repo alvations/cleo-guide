@@ -252,6 +252,17 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
       ok(r.n > 0 && !r.small.length, `@390 ${u}: ${r.n} tier links, none under 44 × 44`, r.small); await page.close();
     }
     await ctx.close(); }
+  console.log('# deep link (FE-B finding): a fresh #view=gallery&p= keeps its card in view once the page settles');
+  for (const [w, h] of [[195, 422], [390, 844], [1440, 900]]) {
+    const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: 2, isMobile: w < 500, hasTouch: w < 500, serviceWorkers: 'block' });
+    await ctx.route('**/*', r => { const u = r.request().url(); if (!u.startsWith(BASE)) return r.abort('blockedbyclient');
+      const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname)); if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
+      return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
+    const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html#view=gallery&p=senso-ji', { waitUntil: 'load' }); await page.waitForTimeout(3000);
+    const r = await page.evaluate(() => { const c = document.getElementById('p-senso-ji'), m = document.getElementById('main'), cr = c.getBoundingClientRect();
+      return { top: Math.round(cr.top), bottom: Math.round(cr.bottom), mainB: Math.round(m.getBoundingClientRect().bottom), vh: innerHeight }; });
+    ok(r.top < r.vh && r.bottom > 0 && r.mainB > 0, `@${w}×${h}: after 3 s the Sensō-ji card is on screen and the page is inside <main>`, r); await ctx.close();
+  }
   console.log('# QC-07: Esc returns focus to the control that opened the sheet');
   for (const w of [390, 1440]) {
     const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);

@@ -243,6 +243,10 @@
   PASS  @390 cities/ghent.html#all=1: 27 tier links, none under 44 × 44 = []
   PASS  @390 cities/okinawa.html#all=1: 122 tier links, none under 44 × 44 = []
   PASS  @390 cities/tokyo.html#all=1: 177 tier links, none under 44 × 44 = []
+# deep link (FE-B finding): a fresh #view=gallery&p= keeps its card in view once the page settles
+  PASS  @195×422: after 3 s the Sensō-ji card is on screen and the page is inside <main> = {"top":272,"bottom":518,"mainB":6132,"vh":606}
+  PASS  @390×844: after 3 s the Sensō-ji card is on screen and the page is inside <main> = {"top":263,"bottom":580,"mainB":5269,"vh":844}
+  PASS  @1440×900: after 3 s the Sensō-ji card is on screen and the page is inside <main> = {"top":282,"bottom":619,"mainB":2820,"vh":900}
 # QC-07: Esc returns focus to the control that opened the sheet
   PASS  @390 .g-rows li.gc .gc-a #p-kanda-myojin: Enter opens the sheet, Esc returns focus to that same control = "gc-a #p-kanda-myojin"
   PASS  @390 #cleo-lead li.gc .gc-a #p-kanda-myojin: Enter opens the sheet, Esc returns focus to that same control = "gc-a #p-kanda-myojin"
