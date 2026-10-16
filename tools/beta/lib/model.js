@@ -77,7 +77,12 @@ function normalise(row) {
       if (g.confidence) rec.pv.pin = g.confidence;
       if (g.source) rec.pv.src = g.source;                         // pin source + date (sheet "Pinned to the door: …")
       if (g.verified) rec.pv.verified = g.verified;
-      if (closed && g.statusSource) rec.pv.ss = g.statusSource;    // why we say it closed
+      // FE-B QC-25: statusSource is internal research text (some notes name review sites) — only its first URL ships
+      // (pv.ss); the note stays build-side, non-enumerable, for the W9-2 retiring count (never serialised)
+      if (closed && g.statusSource) {
+        const u = statusUrl(g.statusSource); if (u) rec.pv.ss = u;
+        Object.defineProperty(rec.pv, 'note', { value: String(g.statusSource), enumerable: false });
+      }
     }
     recs.push(rec);
   };
@@ -113,4 +118,7 @@ function sourceHref(reg, key, ref) {
   return { href: regUrl, note: r || null };
 }
 
-module.exports = { sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
+// QC-25: the first http(s) URL in a geocodes statusSource note, or '' (same rule as render/city.js statusUrl)
+const statusUrl = n => ((/https?:\/\/[^\s;,'"()<>]+/.exec(String(n || '')) || [])[0] || '').replace(/[.]+$/, '');
+
+module.exports = { statusUrl, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
