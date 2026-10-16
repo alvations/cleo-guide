@@ -1912,3 +1912,28 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - The honesty allowlists already carry this sentence's prefix. `qa/w4.js` now also accepts the ";" ending. No other loosening.
 - **R3 #9/#14 (designer):** inside `.w7-cards` and the Gallery split, the card name link and its `::after` draw no outline. The card's own ring (cleo.css) is the only one.
 - **Probe:** w8-fe-a-probe.js adds one-ring checks at 390 and 1440 in Gallery and Atlas, a numberless Atlas nav row, no status note on any city page, and the colophon line.
+- **Desktop header (rev 5 §2.1, R3 #5, High 8/8):**
+  - The view switch sits inside the 56 px header: a 40 px segmented control (top 10, bottom 46), each segment with a 44 px tall hit area. It never meets the bar.
+  - Header links never wrap, and the wordmark drops its "field guides" tagline in Atlas.
+  - Below 1440 the switch drops its icons; "Destinations" leaves the header (the wordmark goes to the destinations); the language switch shows only the language to switch to.
+  - Below 1280 the top links leave the header (they're in the footer at the end of the list), and the breadcrumb is "‹ City" (whole, never clipped).
+  - Measured at 1024 and 1280 on Tokyo, Cleveland, New York and Chinatown: no header overflow, the switch is inside the header, and the breadcrumb is whole ("United States › New York City" at 1280).
+- **No rank badges (rev 5 §2.3, R3 #2):** FE-A's `.pl-num` card number is hidden on Atlas cards in every sort.
+- **QC-05 (empty search):** a search or lens with no match reads "No places match "…"" with "Clear search" and "Show all N" (the phone peek: "No places match · Show the list"). It's never a blank map with "List · 0". Clear search restores the list. New atlas-ms check on 3 pages × 2 viewports.
+
+
+- 2026-10-16 18:26Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Deploy pin 4aba38b3:** QA's delta suite is running. QC verified QC-26 and QC-22 on the pin; FE-2 re-gated it green.
+  - **D-43** (low-confidence pins): they stay on the map, labelled "Approximate pin", while the location lane re-verifies them under 4b, Okinawa's 195 first, chaining small cities within the 300-a-day ledger. FE-C builds the labels (QC-04) after QC-05. FE-1 adds a hollow marker in rev 5.
+  - **Platform:**
+    - every build-*.py now writes after its checks, and tools/test-builds.js is in npm test (c03f7811);
+    - W9-8 pack test and W9-9 publisher typing (2,183/2,552);
+    - perf08-regress.sh is the re-land gate.
+  - **FE-B:** W9-6 acc1/acc4 (paste a link matches cited URLs and hosts; Suggest this source).
+  - **FE-C:**
+    - QC-23/24 fixed and verified;
+    - W9-9 live (8 guides, 304 places);
+    - W9-2 Follow changes live on 84 pages.
+  - **QC:** 27 rows, 21 verified, 6 open (Med 2, Low 4, High 0). QC-27 (a ja tier term) went to i18n.
+  - **Imagery:** wave 4 (Belgium, Saarland, Dayton, State College). Leads 25/25, first row 51/51.
+  - **Gates on f3f597a6:** validate, npm test (alone) and beta:check green.
