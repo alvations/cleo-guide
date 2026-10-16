@@ -275,6 +275,23 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const d = LV.decide({ name: 'Big State Park', current: { lat: null, lng: null } }, [c(1, 'wikidata', 'Big State Park'), c(1.003, 'osm-poi', 'Big State Park (Main Entrance)')]);
     assert.ok(d.proposal.entrance && d.proposal.kind === 'osm-poi');
   });
+  await t('a re-run carries review decisions; a moved proposal makes the review stale; vanished rows are kept in meta', () => {
+    const prev = { rows: [
+      { name: 'Fictional Fish Market', proposal: { lat: 0.5031, lng: -30.5012 }, review: { decision: 'accept', by: 'r', why: 'ok', date: 'd' } },
+      { name: 'Schema Grill', proposal: { lat: 0.4, lng: -30.4 }, review: { decision: 'accept', by: 'r', why: 'ok' } },
+      { name: 'Gone Place', proposal: null, review: { decision: 'reject', by: 'r', why: 'x' } } ] };
+    const next = JSON.parse(JSON.stringify(rep)); next.meta = { ...next.meta };
+    LV.carryReviews(prev, next);
+    const fish = next.rows.find(r => r.name === 'Fictional Fish Market'); assert.strictEqual(fish.review.decision, 'accept'); assert.ok(!fish.review.stale);
+    const grill = next.rows.find(r => r.name === 'Schema Grill'); assert.ok(grill.review.stale);
+    assert.strictEqual(next.meta.reviewsCarried, 1); assert.deepStrictEqual(next.meta.reviewsStale, ['Schema Grill']);
+    assert.strictEqual(next.meta.reviewsOrphaned[0].name, 'Gone Place');
+    // --accept refuses a stale review
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lv-st-')); const geo = path.join(dir, 'g.json'); fs.writeFileSync(geo, JSON.stringify(fx.registry));
+    const rp = path.join(dir, 'r.json'); fs.writeFileSync(rp, JSON.stringify(next));
+    const out = LV.accept(rp, { geocodes: geo, ledger: path.join(dir, 'L.md'), today: '2026-10-16', allowCi: true });
+    assert.ok(out.refused.some(x => /Schema Grill: review is stale/.test(x)));
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });
