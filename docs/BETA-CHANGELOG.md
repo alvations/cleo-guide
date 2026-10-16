@@ -140,3 +140,43 @@ PR alvations/cleo-guide#8 merged the QA-signed `63932912` (merge `9f54587d`). It
 - photographs (blocked by the network policy);
 - the price and rating record prose;
 - a reviewed second locale.
+
+## R7 fix round (deployed 2026-10-16 21:33Z)
+
+PR alvations/cleo-guide#9 merged the QA-signed `b54b3745` into the Pages branch (merge `4382a187`). QA signed YES at 943d1ce8, with QA-79 waived under D-45. QC passed it at 7c5ea616. The release branch `beta-deploy-r7` is the R7 build (`4aba38b3`) plus ported fixes only.
+
+**Speed.** The first map pin on the Tokyo phone page appears in 701 ms, down from 2,261 ms on the R7 baseline `be74c82f`. New York's takes 1,054 ms, down from 2,438. PERF-08 selective stamping is off; it re-lands next, behind its regression tests.
+
+**Accessibility.**
+- Recognition badges are 44 px tap targets that still paint a 32 px pill (QA-77).
+- Each card has one focus ring.
+- A view switch moves focus to that view's heading.
+
+**Honesty.**
+- Closed cards read "Closed — kept for the record", and the detail links the closure source (QC-25).
+- What changed pages, feeds and place data carry only the source URL (FE-B).
+- The method line and the footer follow D-42.
+- Five Erie, Orlando and DC write-ups no longer read like internal notes (QC-28, QC-29).
+
+**Data.**
+- Closure-source URLs for 55 of 60 closed places.
+- Sokolowski's closed in 2020.
+- Verified coordinates from today's location-verify accepts, in 8 cities.
+
+**Photos and motion.**
+- The Duquesne Incline credit names its Flickr account, and the fetcher refuses a URL or HTML author (QA-78).
+- The motion tokens are within the 300 ms cap and match the design tokens; a test fails on drift (QA-74).
+
+**Waived (D-45).** QA-79: Tokyo desktop's initial DOM is 3,074 nodes against a 3,000 budget. The fix, 87f814ad (2,821 nodes, with w2 dom in npm test), ships next.
+
+**Next release, from the dev branch:**
+- Atlas SPEC-v3 rev 5 (panel R4);
+- the D-43 "Approximate pin" copy;
+- the Japanese search panel (W8-I18N-SEARCH);
+- the W9-2 "Status checked" lines;
+- QC-30, QC-32 and QC-33;
+- the M3-06 DOM fix;
+- the lazy offline pack;
+- PERF-08.
+
+The R8 independent evaluation scores this deploy.

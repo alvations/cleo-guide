@@ -2087,3 +2087,10 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   1. the offline-pack UI behind Cleo.need (eager JS is at 39.97/40 KB);
   2. Tokyo phone LCP at 2.9 s against the 2.0 s target.
 - **FE-1:** button.src B-20, one QC-05 empty state, and the designer's dark-dot contrast fix. Then the R4 re-shoot.
+
+## 2026-10-16 21:36Z · orchestrator: r7 deployed
+
+- QA: NO on b54b3745 (only QA-79, the Tokyo desktop DOM 3,074 vs 3,000, a regression on be74c82f's 2,879), then YES under D-45 (943d1ce8). QC PASS (7c5ea616).
+- PR alvations/cleo-guide#9 merged b54b3745 into the Pages branch with expectedHeadSha (merge 4382a187), and the Pages build started 21:33Z.
+- beta-deploy-r7 merged back into dev with `-s ours` (beef84ec): every ported commit is already on dev.
+- The changelog entry is added. Next: the R8 evaluator, and the PERF-08 "go" to platform.
