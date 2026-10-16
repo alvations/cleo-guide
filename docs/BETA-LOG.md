@@ -1690,3 +1690,47 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - preview with matching alt text, then Web Share with files where supported, a PNG download otherwise.
   - Hooks: "Share as an image" as marked `FE-C W9-7 hook` lines in sheet.js, day.js and saved.js (FE-A told); core.js delegated tap (platform told).
   - Tests: test-fe-c.js CARD (8,577 places: source and date on every card, closed stated, credit with photo; specs; every share action; lazy at the page version). Probe card section: six cases, including the map library blocked, all 1080×1920; 0 off-origin requests from tap to preview; Web Share image/png; download fallback; preview at 390/1440, light and dark. Cards: `design/beta/eval/w9/fe-c/cards/`.
+
+- 2026-10-16 14:55Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Imagery run #48:** the orchestrator decided the 17 open rows from the contact sheets, kept 11 and refused 6:
+    - CMA (the OPEN banners, SIGNAGE);
+    - Asahiyama (VEHICLES);
+    - Gotoku-ji, ICON Park and Bonnet House (WRONG SUBJECT);
+    - Harvey Milk Plaza (GLOOM).
+
+    With the lane's 15 REFUSE and 11 SIGNAGE rows, that makes 32 refusals (e716d941). The imagery lane applies them, then dispatches the next `all` at budget 1200.
+  - **Chicago location verify:** 48 of the 53 pass rows were accepted (`--accept`; ACCEPTED.md has one line per row).
+    - Held: Dear Margaret and Les Nomades (closed), Big Marsh Park (a park), Paseo Boricua (a street stretch), Chief O'Neill's (no registry address).
+    - Rebuilt `cities/chicago.html`: 412 places, 0 missing. `--geocheck chicago-il` PASS; `--statuscheck` consistent, with 5 places not yet closure-checked.
+    - Beta is at 8,627 places. validate, npm test and beta:check all pass.
+  - **FE-C:** next work is Cleo.t on its strings, then the W9-1 card and detail UI, then the W9-9 lens. Both W9 items moved from FE-A, who keeps QA-69 first because it blocks the deploy.
+  - **Deploy gate:** still waiting for FE-A's QA-69. Then pin a head with 2bfff3fe and the fix; QA re-runs B-07 Gallery, QC-01 and the regression rows.
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · D-41 city pages in Japanese (W8-I18N-JA gap 1) and QC-12.
+  - **QC-12 (`79bc6d73`):** the desktop top bar no longer shifts after load.
+    - The switcher sits right of the spacer (CSS order, so tab order is unchanged), and the hidden night toggle keeps its space.
+    - The top bar has dropped out of every QC shift list.
+  - **City server render (`46dc887b`):** every interface string in `lib/render/city.js` now comes from the catalogue: 90 keys plus FE-C's `city.sort.base`.
+    - The English is byte-identical: all 180 pages are unchanged.
+  - **City client modules (this commit):** sheet, city, views, gallery, day and foryou use `Cleo.t` (`tt`). The English passed to each call equals en.json, and test-i18n checks it.
+    - Each module redraws on `cleo:locale`. locale.js fires that event while the page is still held, then reveals it two frames later.
+    - The page-wide swap skips browser-drawn containers and data (record names, write-ups, sources, photos, collection, cuisine and area names).
+    - Japanese CLS is 0–0.007 on the landing, Gallery, Atlas and place detail. A deep-link sheet was 0.655 before the redraw moved inside the hold.
+  - **Catalogue:** 419 keys. Independent review rounds 4 and 5 made 9 + 8 changes (`design/beta/i18n/ja-REVIEW.md`).
+  - **Harness note:** test-views inlines scripts with `String.replace`, so client code must not contain `$&` or `$'`. A `$&` in gallery.js broke 24 checks once; both are now avoided.
+  - **Left English (data or other lanes):** dish, area and source names are data. "Set as my base" is FE-C's base.js, flagged to them. Guidebook and Insights are FE-B's views, not yet catalogued.
+  - validate, npm test (all suites) and beta:check PASS.
+
+- 2026-10-16 15:15Z · **Orchestrator** · deploy candidate pinned; DC pins; location-verify commit step · commit: this entry's commit
+  - **Deploy candidate `530dc83b6e45c88afe764779b1451f201a883410`:**
+    - It carries 2bfff3fe (QC-01, which QA verified in 90c6c65a: NO on QA-69 only, open High 0) and FE-A's QA-69 fix 69ca3690.
+    - validate, npm test and beta:check are green. QA is re-signing it.
+    - It merges cleanly into `claude/cleveland-page-creation-pant4l` (merge-tree clean).
+    - Tokyo and NY Gallery B-07 "pin sheet none" went to Atlas FE-2 to reproduce. QA rules on it against be74c82f.
+  - **Washington DC location verify:** 38 of the 40 pass rows were accepted, including the 59 m move of Chả Lụa Ngọc Hưng off a low pin.
+    - Held: Four Sisters (closed) and Pizza Mart (its "official" geo is a third-party ordering site).
+    - Rebuilt `cities/washingtondc.html`: 171 places, 0 missing. geocheck PASS, statuscheck consistent. Beta is at 8,664 places.
+  - **location-verify.yml commit step:** if the branch changed the city's report during the run (review decisions committed mid-run), the step now takes the branch's copy and re-runs from the response cache, so the tool carries every review forward. Before this, it kept the runner's copy and would have dropped those decisions.
+    - It was simulated in a scratch repo in two cases. With a mid-run review, the review is carried and the re-run output kept. With only an unrelated push, the fresh run wins.
+    - The sweep mode keeps ours, as before.
+  - **QC** (2ed1ddce): QC-01/02/03 verified on 2bfff3fe; QC-10 is still open and went back to FE-B. The designer ratifies the SPEC §3.4 plain-bar wording.
+  - **FE-A** got the designer's three food-cover changes. QC and the designer were given 530dc83b to work on.

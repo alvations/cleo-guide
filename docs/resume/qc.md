@@ -16,11 +16,12 @@ never weakens a gate.
   - 14 findings (High 1, Med 9, Low 4), with QC rows in the register after QA-66 / QA-67.
   - Outputs in `design/beta/eval/qc/{f2c39d69,b5f0afa1}/`.
   - `tools/beta/qa/qc-evidence.js` for the evidence shots.
-- P-24 probe (no silent caps) plus the P-26 probe fix: this push.
+- `bb887a7f`: P-24 probe (no silent caps) plus the P-26 probe fix.
+- This push: re-verify on `2bfff3fe`. QC-01, 02 and 03 are **verified**; QC-10 stays **open**. P-18 accepts plain bars that are stated in the footnote.
 
 ## Next
 
-1. P-24 is done (see Done). It is first measured for real on the next pass.
+1. Open QC rows: 04, 05, 06, 07, 08, 09, 10, 11, 12, 13 and 14. Re-verify each when its lane claims a fix (only the relevant groups: patterns for P-xx, journeys for J-xx, sweep for S-xx).
 2. **Re-pass**, when the orchestrator pins "QC pass at <sha>" or a lane claims a QC fix:
    - check out the SHA in a clean worktree (`git worktree add --detach <dir> <sha>`, symlink `tools/node_modules`);
    - run `NODE_PATH=$(npm root -g) node beta/qa/qc.js --label <sha>` (≈ 70 min for all groups; `--only` narrows it);
@@ -30,7 +31,12 @@ never weakens a gate.
 
 ## In flight
 
-Nothing unpushed. No long run in progress. Waiting on the lanes' QC fix claims and the orchestrator's next pinned head.
+- **QC pass at `530dc83b`** (orchestrator, 2026-10-16 14:38Z). The worktree is in the scratchpad (`qc-530dc83b`); the harness is the current `qc.js`.
+  - Running: patterns (5 pilots × 390/1440), journeys (5 pilots × 390/1440 light), sweep (91 pages × 768/1440 light).
+- **Then:**
+  1. Re-verify the claimed rows: QC-01, 02, 03, 10 (FE-B); 06, 09 (7e746d9b); 07, 08 (5b1074f9); 12 (i18n). FE-1 has not logged a claim for 04, 05 or 13, so re-measure them only.
+  2. A melon-seek pass on the new features: trip.html, "Set as my base" and the walk ring, near me, share cards, the switcher, `?lang=ja`. New findings go to QC-15 onward; send the orchestrator the list (route nothing).
+  3. Commit `qc.json`, `summary.md` and the evidence shots, plus this file.
 
 ## Notes
 
@@ -41,7 +47,7 @@ Nothing unpushed. No long run in progress. Waiting on the lanes' QC fix claims a
   - `content-visibility` cards (read `textContent`);
   - smooth scroll during Tab.
 - An S-11 FAIL needs a look at a screenshot before it is filed.
-- Map view not in the hash is **PANEL-R1-#13**, and data-label casing is **OWNER-casing**: reference them, don't re-file.
+- The map view is now in the hash as `at=` (FE-2 closed **PANEL-R1-#13**; P-10 accepts `at=`). Before that it was PANEL-R1-#13, and data-label casing is **OWNER-casing**: reference them, don't re-file.
 - `QC-11` extends PERF-06.
 - The QA lane (`session_017FLWXa5zgGWvqNo4C3UsvH`) keeps the register: append only QC rows, 7 columns, escape `|`
   as `\|`.

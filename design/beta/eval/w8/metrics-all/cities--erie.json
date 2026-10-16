@@ -1,0 +1,534 @@
+{
+ "generated": "2026-10-16T14:33:23.585Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "cities/erie.html",
+   "gen": "new",
+   "expected": {
+    "total": 59,
+    "sights": 41,
+    "food": 18,
+    "live": "cities/erie.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Erie — 59 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 24,
+    "cardsVisible": 24,
+    "legacy": false,
+    "firstCardTop": 592,
+    "screensToFirstCard": 0.7,
+    "mastheadPx": 473,
+    "controlsAbove": 17,
+    "controlsAboveOnScreen": 17,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-08-30\"",
+     "a \"CC BY-SA 3.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.sig \"★ SignatureErie classics\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i.door \"Free to visit11\"",
+     "button.rail-i \"Must see21\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 264,
+    "upperNodes": 5,
+    "upperPct": 1.9,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: AndreCarrotflower\"",
+    "contrastChecked": 255,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Erieplace · dish \"",
+     "button.mappill \"Show map\""
+    ],
+    "railVisible": true,
+    "railTop": 473,
+    "railOnFirstScreen": true,
+    "railItems": 5,
+    "railFirst": "★ SignatureErie classicsGreek sauce · sp",
+    "cityCardsAbove": 0,
+    "cardMedianH": 309,
+    "cardsPerScreen": 2.73,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1859,
+    "fcp": 220,
+    "fontSampleN": 256,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 28,
+     "Inter": 381
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 678,
+      "Inter": 5603,
+      "IPAGothic": 3,
+      "Inter SemiBold": 1
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1011044,
+    "bytesAllResponses": 1154957,
+    "initial": {
+     "bytes": 991395,
+     "gz": 510121
+    },
+    "session": {
+     "bytes": 1011044
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 255,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 137,
+      "h": 48,
+      "name": "Show map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "erie-maritime-museum-and-u-s-brig-niagara",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 728,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 728,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Erie — 59 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 48,
+    "cardsVisible": 48,
+    "legacy": false,
+    "firstCardTop": 737,
+    "screensToFirstCard": 0.82,
+    "mastheadPx": 540,
+    "controlsAbove": 31,
+    "controlsAboveOnScreen": 31,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-08-30\"",
+     "a \"How we choose\"",
+     "a \"Start with New York Lunc\"",
+     "a \"CC BY-SA 3.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.sig \"★ SignatureErie classics\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i.door \"Free to visit11\"",
+     "button.rail-i \"Must see21\"",
+     "button.rail-i \"Iconic & must-see15\"",
+     "button.rail-i \"History & heritage15\"",
+     "button.rail-i \"Bayfront & maritime11\"",
+     "button.rail-i \"Museums & galleries8\"",
+     "button.rail-i \"Wine, glass & craft3\"",
+     "button.rail-i \"Parks & outdoors25\"",
+     "button.btn.btn-ghost \"See all 6\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 470,
+    "upperNodes": 9,
+    "upperPct": 1.9,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 461,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Erieplace · dish \"",
+     "button.mappill \"Show map\"",
+     "nav#cleo-rail.rail \"★ SignatureErie classics\""
+    ],
+    "railVisible": true,
+    "railTop": 540,
+    "railOnFirstScreen": true,
+    "railItems": 11,
+    "railFirst": "★ SignatureErie classicsGreek sauce · sp",
+    "cityCardsAbove": 0,
+    "cardMedianH": 334,
+    "cardsPerScreen": 2.69,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2429,
+    "fcp": 236,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 42,
+     "Inter": 624
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 202,
+      "Inter": 5228,
+      "IPAGothic": 3,
+      "Inter SemiBold": 2
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 12,
+     "where": [
+      "rail over Schaefer's Auto Art",
+      "rail over Presque Isle State Park",
+      "rail over Erie Maritime Museum & U.S. Br",
+      "rail over New York Lunch (The Original)",
+      "rail over Erie Brewing Company"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 59,
+     "scrolled": 59,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 59,
+      "ok": 59,
+      "bad": []
+     },
+     "search": {
+      "n": 30,
+      "ok": 30,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 59 places",
+     "groups": [
+      "AreaErie, PA 34North",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionIconic & m",
+      "Collection",
+      "CuisineItalian & piz",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1139260,
+    "bytesAllResponses": 1364954,
+    "initial": {
+     "bytes": 858834,
+     "gz": 377560
+    },
+    "session": {
+     "bytes": 1139260
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 461,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 48,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 59,
+    "text": 17447
+   },
+   "cpu4x": {
+    "fcp": 448,
+    "dcl": 998,
+    "loadMs": 1606
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.7
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 473
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "17 on-screen / 17 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": true,
+      "val": "top 473, 5 tiles, first \"★ SignatureErie classicsGreek sauce · sp\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 137×48, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 0, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 59 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.73
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 59 · DOM 59 · scrolled 59 · deep 59/59 · search 30/30 · no-JS 59"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic, Inter SemiBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "1.9% (5/264)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: AndreCarrotflower\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1113 KB · 2429 nodes · 236 ms · 448 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "369 KB (839 KB) · 498 KB (968 KB)"
+     }
+    },
+    "passed": 22,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}
