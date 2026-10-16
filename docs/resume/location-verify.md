@@ -50,11 +50,27 @@ Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` 
 1. **Nominatim pace is per UTC day (≤ 300 across ALL runs).**
    - It was breached on 2026-10-16 (~1,570), and the ledger was added in c59aca30. Check
      docs/geoverify/NOMINATIM-LEDGER.json before any REQUEST.
-   - The orchestrator still has to make the workflow commit the ledger file.
-2. **Singapore:** push REQUEST `city=singapore … commit=true` once per day, until 0 skipped. Then send the final SHA for
-   the batch accept.
-3. **Then** saarland, okinawa, rhineland, aachen, at the same daily pace.
-4. **Done today:**
+   - The workflow now commits the ledger in every mode.
+2. **Daily queue (D-43, orchestrator 2026-10-16).** Each 03:17 UTC wake pushes exactly one REQUEST for the queue head,
+   with `nominatim_max` ≤ the ledger's remaining allowance for the day:
+   1. `city=singapore`, scope `unverified,low,status`, until 0 skipped. Then send the final SHA for the batch accept.
+   2. `city=okinawa`, **scope `low`**: 195 low pins of 425, which the beta labels "Approximate pin".
+   3. The other low pins, scope `low`, one city per REQUEST, in this order:
+      youngstown-oh 5, dayton-oh 5, cincinnati-oh 4, orlando-fl 4, indianapolis-in 3, columbus-oh 2, ghent 2,
+      bruges 2, miami-fl 2, cleveland-oh 1, pittsburgh-pa 1, washington-dc 1, state-college-pa 1, antwerp 1, brussels 1.
+      These are registry `confidence: low` counts from 2026-10-16. Singapore's 4 are covered by step 1.
+   4. Then saarland, rhineland, aachen, with scope `unverified,low,status`.
+   - Accept rules are unchanged:
+     - upgrade a pin only to an exact place coordinate;
+     - never fabricate;
+     - when nothing better exists, the low label stays.
+   - Tell the orchestrator when the queue is empty, so it can disable the daily trigger.
+   - **This checkpoint queue is authoritative**; the orchestrator updated the scheduled-task prompt to say so.
+   - **Step 3 is chained within one wake** (orchestrator, 2026-10-16):
+     - push one REQUEST at a time and wait for each report;
+     - stop when the day's remaining allowance can't cover the next city.
+   - Big cities stay at one REQUEST per wake. Send the orchestrator each report's SHA; it accepts in batches.
+3. **Done today:**
    - re-check (4573ae25) and the Hotel Utah settle: OSM wins, Census 13 m vs 58 m;
    - duplicates and orphans (DUPLICATES.md, ORPHANS.md; (d) decided, b8926d86);
    - page ∪ dataset scope (385f6189).
