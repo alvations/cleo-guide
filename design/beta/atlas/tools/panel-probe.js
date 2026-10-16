@@ -396,7 +396,7 @@ async function pinTarget(page, phone) {
     if (share && share.clip && /^https?:/.test(share.clip)) { const u = share.clip.replace(/^https?:\/\/[^/]+\/(cleo-guide\/)?/, ''); const r = await open(browser, vk, u.startsWith('beta/') ? u : 'beta/cities/tokyo.html' + (u.includes('#') ? u.slice(u.indexOf('#')) : ''), { tiles: 'stub', wait: 1600 });
       reopen = await r.page.evaluate(() => ({ hash: location.hash, sheet: !!document.querySelector('#cleo-sheet:not([hidden])'), title: (document.querySelector('#sh-t') || {}).textContent, atlas: document.documentElement.classList.contains('ms-on') })); reopen.sharedUrl = share.clip; await r.ctx.close(); }
     { const r = await open(browser, vk, viewHash, { tiles: 'stub', wait: 1400 }); reopenView = { url: viewHash, view: await view(r.page), wanted: { lat: 35.7148, lng: 139.7967, z: 15 } }; await snap(r.page, `T5-tokyo-${vk === 'd' ? 1440 : 390}-reopen-view`, 'T5: reopening the URL copied while looking at Asakusa'); await r.ctx.close(); }
-    T[`T5-${vk}`] = { share, reopen, reopenView, mapViewInUrl: /[@&](ll|c|center|z)=/.test(viewHash), errors };
+    T[`T5-${vk}`] = { share, reopen, reopenView, mapViewInUrl: /[@&](ll|c|center|z|at)=/.test(viewHash), errors };
     await ctx.close();
   }
 
