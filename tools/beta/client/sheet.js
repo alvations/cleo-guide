@@ -89,7 +89,7 @@
     // one honest primary deep link: the official site only when a source IS the official site; else the first source's own page
     var gs = [].map.call(c.querySelectorAll('.pl-s button.src'), function (b) { return b.getAttribute('data-src'); }), og = gs.filter(function (g) { return /official/.test(g); })[0];
     var pg = og || gs.filter(function (g) { return ((info.src || {})[g] || [])[4]; })[0], ps = pg && (info.src || {})[pg];
-    var primary = pg ? '<a class="btn btn-primary primary-link" data-g="' + esc(pg) + '"' + (ps && ps[4] ? ' href="' + esc(ps[4]) + '"' : ' hidden') + NT + '>' + (og ? tt('sheet.official', 'Visit the official site') : esc(tt('sheet.readwhat', 'Read what {source} says', { source: ps[0] }))) + ' ' + icon('external') + '</a>' : '';
+    var primary = pg ? '<a class="btn btn-primary primary-link" data-g="' + esc(pg) + '"' + (ps && ps[4] ? ' href="' + esc(ps[4]) + '"' : ' hidden') + NT + '><span class="lbl">' + glue(og ? tt('sheet.official', 'Visit the official site') : tt('sheet.readwhat', 'Read what {source} says', { source: ps[0] }), 'external') + '</span></a>' : ''; // QA-72: the label wraps, the icon rides its last word
     // QA-67: the detail media fits its photo. A photo with a wide copy (≥ 800 w) sets the slot's width (no sand band beside
     // a 960 w file in a 1,024 px slot); a narrower one sits at its own width in a frame of its dominant colour (--ph)
     var phI = q('.pl-photo img', c), phF = q('.pl-photo', c), phW = phI ? Math.max.apply(0, (phI.getAttribute('srcset') || '').split(',').map(function (z) { return parseInt((/\s(\d+)w\s*$/.exec(z) || [])[1], 10) || 0; }).concat([+phI.getAttribute('width') || 0])) : 0;

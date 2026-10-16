@@ -22,7 +22,7 @@
 .pl-cover .pl-glyph{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .overlay[hidden]{display:none}.overlay .sheet{width:100%;max-height:92vh;overflow:auto;overscroll-behavior:contain}.overlay .tray{width:100%}
 @media (min-width:1024px){.overlay.side{background:transparent;pointer-events:none;justify-content:flex-start;align-items:stretch;top:var(--bar-h)}.overlay.side .sheet{pointer-events:auto;width:min(560px,52vw);max-height:none;border-radius:var(--r-l);box-shadow:var(--e-4)}}
-.sheet .grab{display:block;border:0;padding:0}.detail .hero-plate .pl-vert{position:absolute;writing-mode:vertical-rl;font-family:var(--font-native);font-weight:600;letter-spacing:.1em}.detail .hero-plate .pl-ini{position:absolute;right:26px;top:-8px;font:500 var(--fs-hero)/1 var(--font-display);color:color-mix(in srgb,var(--area) 60%,transparent)}.detail .hero-plate .pl-glyph{position:absolute;left:22px;bottom:16px;width:30px;height:30px}
+.sheet .grab{display:block;border:0;padding:0}.detail .hero-plate .pl-vert{position:absolute;writing-mode:vertical-rl;font-family:var(--font-native);font-weight:600;letter-spacing:var(--track-vert)}.detail .hero-plate .pl-ini{position:absolute;right:26px;top:-8px;font:500 var(--fs-hero)/1 var(--font-display);color:color-mix(in srgb,var(--area) 60%,transparent)}.detail .hero-plate .pl-glyph{position:absolute;left:22px;bottom:16px;width:30px;height:30px}
 .detail h2{margin:0}.detail .pills{display:flex;flex-wrap:wrap;gap:var(--s-2)}.srclist li{grid-template-columns:36px minmax(0,1fr)}.srclist .acts{grid-column:2;display:flex;gap:var(--s-4);flex-wrap:wrap}.srclist .go{background:none;border:0;padding:0;cursor:pointer;min-height:var(--tap)}.srclist a.out{display:inline-flex;align-items:center;gap:var(--s-1);min-height:var(--tap);font-size:var(--fs-meta);font-weight:600;color:var(--ink-2)}
 .sheet .actions{grid-template-columns:repeat(3,1fr)}.sheet .actions .btn{padding:0 var(--s-3)}.tray .scroll{max-height:calc(88vh - 140px)}.tray footer .btn-primary{width:100%}
 .mappane .poi-sheet{z-index:700}.poi-sheet .pl{margin:0 var(--gutter) var(--s-2)}.poi-sheet .grab{display:block;border:0;padding:0;cursor:pointer;width:100%;height:var(--tap);margin:0;background:none;position:relative}.poi-sheet .grab::before{content:"";position:absolute;left:50%;top:10px;width:40px;height:5px;margin-left:-20px;border-radius:var(--r-s);background:var(--line-strong)}.mapclose{display:none}
@@ -70,7 +70,7 @@ html .pls .pl-s .src,html .poi-sheet .pl-s .src{display:inline-block;min-height:
 html .pls .pl-s{padding-top:var(--s-3);padding-bottom:var(--s-2)}
 @media (max-width:639px){.pls .pl-e .in{display:inline-block;max-width:calc(100% - 150px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom}}
 .pin-n.clash{display:none!important}
-.day>header .eyebrow,.lens .eyebrow{text-transform:none;letter-spacing:.01em}
+.day>header .eyebrow,.lens .eyebrow{text-transform:none;letter-spacing:0}
 .day:not(.editing) .stop .ops{display:none}.day [data-dy=edit][aria-pressed=true]{background:var(--ink);color:var(--paper)}
 /* ---- W3 views (FE-A A-01…A-05): structural base keyed on html[data-view]; DES layers the look in views.css ---- */
 .views{display:flex;gap:var(--s-1);margin:var(--s-2) auto 0;max-width:var(--maxw);padding:var(--s-1);background:var(--surface,#fff);border:1px solid var(--line);border-radius:var(--r-pill);position:relative;z-index:30}
@@ -97,7 +97,7 @@ html.lens-on[data-view=gallery] .g-rows{display:none}
 .g-row .row-h .btn{flex:none}.gc .pl-e{display:flex;gap:var(--s-2);align-items:center;font-size:var(--fs-xs);color:var(--ink-3)}.gc .pl-s{margin:var(--s-1) 0 0}
 .gc .heart[aria-pressed=true] .ico{fill:var(--city);color:var(--city)}.g-lead-card{list-style:none}.g-lead-card .cover{height:clamp(160px,17vw,240px);aspect-ratio:auto}.g-lead-card .gc{background:var(--surface);color:var(--ink);border-radius:var(--r-l);padding:var(--s-3) var(--s-3) var(--s-4);box-shadow:var(--e-4)}
 .pl-cover .g-art{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:66%;display:none}.pl-cover .g-art img{display:block;width:100%;height:auto;opacity:.9}
-.pl-cover .g-ring{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border:3px solid var(--surface,#fff);border-radius:50%;background:var(--city);box-shadow:0 0 0 2px var(--city)}
+.pl-cover .g-ring{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border:3px solid var(--surface,#fff);border-radius:50%;background:var(--city);box-shadow:var(--ring-select)}
 /* the All N grid: the canonical list, no map, 1 / 2 / 4 columns, paged by views.js */
 html[data-view=gallery] .split{display:block}html[data-view=gallery] .mappane{display:none!important}
 html[data-view=gallery] .split .pls{grid-template-columns:minmax(0,1fr)}
@@ -218,7 +218,7 @@ html main[data-city]>.masthead{background:none;color:var(--ink);min-height:0;dis
 html main[data-city]>.masthead::before,html main[data-city]>.masthead::after,html main[data-city]>.masthead>svg,html main[data-city]>.masthead .accentbar,html main[data-city]>.masthead .g-sky{display:none}
 html main[data-city]>.masthead .eyebrow{color:var(--ink-3);font:500 var(--fs-sm)/1.4 var(--font-ui);margin:0 0 var(--s-2);letter-spacing:0;text-transform:none}
 html main[data-city]>.masthead h1{color:var(--ink);font-family:var(--font-display);font-weight:500;font-size:var(--fs-hero);line-height:1;letter-spacing:var(--track-display,-.02em);margin:0}
-html main[data-city]>.masthead h1 .native{color:var(--ink-3);font-size:.42em;letter-spacing:.02em}
+html main[data-city]>.masthead h1 .native{color:var(--ink-3);font-size:.42em;letter-spacing:0}
 html main[data-city]>.masthead .title{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s-2) var(--s-4)}
 html main[data-city]>.masthead .dek,html main[data-city]>.masthead .g-lead{font:400 var(--fs-lead)/1.45 var(--font-ui);font-style:normal;color:var(--ink-2);margin:var(--s-3) 0 0;max-width:46ch;-webkit-line-clamp:unset}
 html main[data-city]>.masthead .g-hero-x{display:block;position:static;order:2}
@@ -265,7 +265,7 @@ html[data-view=gallery] main[data-city]>.toolbar>.area-btn{margin-left:auto}
 html[data-view=gallery] main[data-city] .g-rows{margin-top:clamp(20px,3vw,36px);padding:0}
 html[data-view=gallery] .g-row{margin:0 0 clamp(32px,4vw,48px)}
 html[data-view=gallery] .g-row .row-h{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s-4);margin:0 0 var(--s-4);padding:0;border:0}
-html[data-view=gallery] .g-row .row-h h2{font:600 var(--fs-d2)/1.2 var(--font-display);letter-spacing:-.01em;color:var(--ink);margin:0}
+html[data-view=gallery] .g-row .row-h h2{font:600 var(--fs-d2)/1.2 var(--font-display);letter-spacing:var(--track-tight);color:var(--ink);margin:0}
 html[data-view=gallery] .g-row .row-h h2 [aria-hidden]{color:var(--city-ink)}
 html[data-view=gallery] .g-row .row-h .sub{margin:var(--s-1) 0 0;color:var(--ink-3);font-size:var(--fs-sm)}
 html[data-view=gallery] .g-row .row-h .btn{min-height:44px;padding:0 var(--s-2);border:0;background:none;color:var(--ink);font:600 var(--fs-sm)/1 var(--font-ui);text-decoration:underline;text-underline-offset:4px;box-shadow:none}
@@ -282,7 +282,7 @@ html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl::before
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>*{padding:0;margin:0;grid-row:auto}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:hover{box-shadow:none;transform:none}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl.is-target,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:target{box-shadow:none;outline:0}
-html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl.is-target>.pl-cover,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:target>.pl-cover{box-shadow:0 0 0 3px var(--city)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl.is-target>.pl-cover,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:target>.pl-cover{box-shadow:var(--ring-select-halo)}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl{position:relative}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover{order:0;position:relative;display:grid;place-items:center;width:auto;height:auto;min-height:0;padding:0;border:0;aspect-ratio:4/3;margin:0 0 var(--s-2);border-radius:var(--w7-media);overflow:hidden;background:var(--w7-cover);transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n{order:1;font:600 var(--fs-body)/1.3 var(--font-ui);letter-spacing:0;color:var(--ink);padding:0}
@@ -310,7 +310,7 @@ html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cov
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .g-art{display:none}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-glyph{position:static;display:block;width:30px;height:30px;padding:var(--s-4);box-sizing:content-box;border-radius:50%;background:var(--surface);color:var(--ink-2);stroke-width:1.4;opacity:1;transform:none;box-shadow:var(--e-1)}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-ini{display:none}
-html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-vert{position:absolute;left:14px;bottom:12px;top:auto;right:auto;writing-mode:horizontal-tb;font:500 var(--fs-sm)/1 var(--font-native,var(--font-ui));letter-spacing:.08em;color:var(--ink-2);opacity:1}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-vert{position:absolute;left:14px;bottom:12px;top:auto;right:auto;writing-mode:horizontal-tb;font:500 var(--fs-sm)/1 var(--font-native,var(--font-ui));letter-spacing:var(--track-vert);color:var(--ink-2);opacity:1}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo{position:absolute;left:0;right:0;top:0;aspect-ratio:4/3;margin:0;border-radius:var(--w7-media);overflow:hidden;z-index:1;transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
 html main[data-city] li.pl>.pl-photo img{display:block;width:100%;height:100%;object-fit:cover}
 html main[data-city] li.pl>.pl-photo figcaption{position:absolute;left:8px;bottom:8px;right:56px;max-width:max-content;padding:var(--s-1) var(--s-2);border-radius:var(--r-pill);background:color-mix(in srgb,var(--ink) 62%,transparent);color:var(--paper);font:400 var(--fs-xs)/1.3 var(--font-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:2}
@@ -332,7 +332,7 @@ html main[data-city] button.pl-save.heart:focus-visible,html .view-gallery .gc .
   html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:active>:is(.pl-cover,.pl-photo),html .view-gallery .gc:active .cover{transform:scale(.985);box-shadow:none}
 }
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-closed]>.pl-cover,html .view-gallery .gc.gc--closed .cover{filter:grayscale(1);opacity:.78}
-html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-closed]>.pl-cover::after,html .view-gallery .gc.gc--closed .cover::after{content:"Closed";position:absolute;left:10px;top:10px;z-index:2;padding:var(--s-1) var(--s-3);border-radius:var(--r-pill);background:var(--closed);color:var(--surface);font:600 var(--fs-xs)/1 var(--font-ui);letter-spacing:.02em}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-closed]>.pl-cover::after,html .view-gallery .gc.gc--closed .cover::after{content:"Closed";position:absolute;left:10px;top:10px;z-index:2;padding:var(--s-1) var(--s-3);border-radius:var(--r-pill);background:var(--closed);color:var(--surface);font:600 var(--fs-xs)/1 var(--font-ui);letter-spacing:0}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-closed]>.pl-e{color:var(--closed)}
 /* row and lead cards (li.gc): the same anatomy */
 html .view-gallery li.gc{position:relative;list-style:none;margin:0;padding:0;background:none;border:0;box-shadow:none}
@@ -342,7 +342,7 @@ html .view-gallery .gc .cover{position:relative;display:grid;place-items:center;
 html .view-gallery .gc .cover::before{content:none;display:none}
 html .view-gallery .gc .cover>:is(.pinart,.g-art,.me){display:none}
 html .view-gallery .gc .cover .plate.i{display:none}
-html .view-gallery .gc .cover .plate.v{position:absolute;left:14px;bottom:12px;top:auto;right:auto;writing-mode:horizontal-tb;font:500 var(--fs-sm)/1 var(--font-native,var(--font-ui));letter-spacing:.08em;color:var(--ink-2);opacity:1;transform:none}
+html .view-gallery .gc .cover .plate.v{position:absolute;left:14px;bottom:12px;top:auto;right:auto;writing-mode:horizontal-tb;font:500 var(--fs-sm)/1 var(--font-native,var(--font-ui));letter-spacing:var(--track-vert);color:var(--ink-2);opacity:1;transform:none}
 html .view-gallery .gc .cover .gl{position:static;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--surface);color:var(--ink-2);box-shadow:var(--e-1);transform:none;opacity:1}
 html .view-gallery .gc .cover .gl .ico{width:30px;height:30px;stroke-width:1.4}
 html .view-gallery .gc .gc-b{display:flex;flex-direction:column;gap:var(--s-1)}
@@ -393,7 +393,7 @@ html body #cleo-sheet .detail .hero-plate .plate-art{display:contents}
 html body #cleo-sheet .detail .hero-plate .pl-ini{display:none}
 html body #cleo-sheet .detail .hero-plate .pl-glyph{position:static;display:block;width:40px;height:40px;padding:var(--s-6);box-sizing:content-box;border-radius:50%;background:var(--surface);color:var(--ink-2);fill:none;stroke:currentColor;stroke-width:1.3;box-shadow:var(--e-1)}
 html body #cleo-sheet .detail .hero-plate:has(.locator) .pl-glyph{display:block}
-html body #cleo-sheet .detail .hero-plate .pl-vert{position:absolute;left:18px;bottom:16px;top:auto;right:auto;max-height:none;writing-mode:horizontal-tb;font:500 var(--fs-lead)/1 var(--font-native,var(--font-ui));letter-spacing:.08em;color:var(--ink-2);opacity:1}
+html body #cleo-sheet .detail .hero-plate .pl-vert{position:absolute;left:18px;bottom:16px;top:auto;right:auto;max-height:none;writing-mode:horizontal-tb;font:500 var(--fs-lead)/1 var(--font-native,var(--font-ui));letter-spacing:var(--track-vert);color:var(--ink-2);opacity:1}
 html body #cleo-sheet .detail .hero-plate .locator{left:auto;right:14px;bottom:14px;width:112px;height:84px;padding:var(--s-2);border-radius:var(--r-m);background:var(--surface);box-shadow:var(--e-1);z-index:2}
 html body #cleo-sheet .detail .hero-plate>.photo{position:absolute;inset:0;margin:0;z-index:0}
 html body #cleo-sheet .detail .hero-plate>.photo img{display:block;width:100%;height:100%;object-fit:cover}
@@ -408,7 +408,7 @@ html body #cleo-sheet .detail .content{padding:var(--s-6) var(--s-5) 28px}
 html body #cleo-sheet .detail .badges{gap:var(--s-2) var(--s-2);color:var(--ink-3);font-size:var(--fs-sm)}
 html body #cleo-sheet .detail .badges .tier{display:inline-flex;align-items:center;gap:var(--s-2);min-height:30px;padding:0 var(--s-3) 0 var(--s-2);border-radius:var(--r-pill);background:var(--sand);color:var(--ink);font:600 var(--fs-sm)/1 var(--font-ui);text-decoration:none}
 html body #cleo-sheet .detail .badges .tier.t1{background:var(--gilt-soft);color:var(--ink)}
-html body #cleo-sheet .detail #sh-t{margin:var(--s-3) 0 var(--s-1);font:500 var(--fs-d1)/1.1 var(--font-display);letter-spacing:-.015em;color:var(--ink)}
+html body #cleo-sheet .detail #sh-t{margin:var(--s-3) 0 var(--s-1);font:500 var(--fs-d1)/1.1 var(--font-display);letter-spacing:var(--track-tight);color:var(--ink)}
 html body #cleo-sheet .detail .sh-rank{margin:0;color:var(--ink-3);font-size:var(--fs-sm)}
 html body #cleo-sheet .detail .why{margin:var(--s-4) 0 0;font:400 var(--fs-lead)/1.6 var(--font-ui);color:var(--ink);max-width:62ch}
 html body #cleo-sheet .detail .section-t{margin:0 0 var(--s-3);font:600 var(--fs-lead)/1.3 var(--font-ui);letter-spacing:0;text-transform:none;color:var(--ink)}
@@ -445,7 +445,7 @@ html main[data-city] :is(.view-guidebook,[data-cleo-book]) .gcover .lead{font:40
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch{padding:clamp(32px,4vw,48px) 0 8px}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch-h{border-left:0;padding-left:0}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch-h .eyebrow{font:500 var(--fs-sm)/1.4 var(--font-ui);letter-spacing:0;text-transform:none;color:var(--ink-3)}
-html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch-h .d1,html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch-h h2{font-family:var(--font-display);font-weight:500;letter-spacing:-.015em}
+html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch-h .d1,html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch-h h2{font-family:var(--font-display);font-weight:500;letter-spacing:var(--track-tight)}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch-intro{font:400 var(--fs-lead)/1.65 var(--font-ui);color:var(--ink-2)}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch-intro::first-letter{float:none;font:inherit;color:inherit;margin:0;line-height:inherit}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .facts-box{border-radius:var(--r-l);box-shadow:none;padding:var(--s-5)}
@@ -457,7 +457,7 @@ html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ge-save{border:1px s
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc a{font-size:var(--fs-sm)}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc .eyebrow{font:600 var(--fs-sm)/1.3 var(--font-ui);letter-spacing:0;text-transform:none;color:var(--ink)}
 html main[data-city] .view-insights :is(.tile,.icard){border:1px solid var(--line);border-radius:var(--r-l);box-shadow:none;background:var(--surface)}
-html main[data-city] .view-insights .ins-h h2,html main[data-city] .view-insights .icard .d3{font-family:var(--font-display);font-weight:500;font-style:normal;letter-spacing:-.01em}
+html main[data-city] .view-insights .ins-h h2,html main[data-city] .view-insights .icard .d3{font-family:var(--font-display);font-weight:500;font-style:normal;letter-spacing:var(--track-tight)}
 html main[data-city] .view-insights :is(.sub,.cw,.fn){font-style:normal}
 .g-start{display:none}
 @media (min-width:1024px){html[data-view=gallery] main[data-city]>.masthead .g-start{display:block;margin:var(--s-4) 0 0}
@@ -630,7 +630,7 @@ html body .tabbar{background:var(--surface)}
 /* ---- 17. R7 gap 5: food covers read as intentional — the dish in display type on the eat-and-drink tint, under the
    kind glyph (food places never get photos; a blank sand box read as "not loaded") ---- */
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover,html .view-gallery .gc .cover.food{background:var(--cover-food)!important;container-type:inline-size;align-content:center;gap:var(--s-2)}
-html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{display:block;max-width:86%;margin:0;color:var(--ink);font:500 clamp(var(--fs-ui),9cqi,var(--fs-d2))/1.08 var(--font-display);letter-spacing:-.01em;text-align:center;text-wrap:balance;overflow-wrap:anywhere}
+html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{display:block;max-width:86%;margin:0;color:var(--ink);font:500 clamp(var(--fs-ui),9cqi,var(--fs-d2))/1.08 var(--font-display);letter-spacing:var(--track-tight);text-align:center;text-wrap:balance;overflow-wrap:anywhere}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover .pl-glyph,html .view-gallery .gc .cover.food .gl,html .view-gallery .gc .cover.food .gl .ico{width:24px;height:24px;color:var(--ink-2)}
 html main[data-city] li.pl[data-k=f]>.pl-cover .pl-vert{display:none}
 /* the ratified Gallery card (QA W7): no write-up / look-for / address on the card face. v2's clamp rule
@@ -725,6 +725,16 @@ html[data-view=gallery]:not(.lens-on) #cleo-rows-host[data-rows]:empty{min-heigh
    44 px tall through 8 px transparent borders, with the pill painted inside them (background-clip) and the sticker
    moved up 8 px, so it looks and sits exactly as before; the shadow follows the painted pill (drop-shadow) */
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier.t1{box-sizing:border-box;min-height:44px;top:2px;border-block:8px solid transparent;background-clip:padding-box;box-shadow:none;filter:drop-shadow(0 1px 2px color-mix(in srgb,var(--ink) 18%,transparent))}
+/* QA-72: "Read what <source> says" wraps inside its button (was nowrap, 455 px in a 350 px column); the icon stays on the
+   label's last line (QA-59d) and the button keeps a 44 px tap height */
+html body #cleo-sheet .detail .plan .primary-link{max-width:100%;min-width:0;height:auto;min-height:44px;white-space:normal;text-align:left;line-height:1.3;padding-block:var(--s-2)}
+html body #cleo-sheet .detail .plan .primary-link>.lbl{min-width:0;overflow-wrap:anywhere}
+/* QA-73: the phone crumb "‹ United States" clipped on US city pages; phones show "‹ US" and keep the full name for
+   assistive tech (the short form is aria-hidden; the long one is visually hidden, not removed) */
+html body .topbar .crumbs a>.sh{display:none}
+@media (max-width:899px){html body .topbar .crumbs a>.sh{display:inline}html body .topbar .crumbs a>.lg{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+/* QA-55 (Guidebook part): the cover facts and the ★ signature line are prose; they read at the body size, not 14 px */
+html main[data-city] :is(.view-guidebook,[data-cleo-book]) :is(.gfacts,.gsig){font-size:var(--fs-body);line-height:1.5}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
