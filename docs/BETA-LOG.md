@@ -1937,3 +1937,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **QC:** 27 rows, 21 verified, 6 open (Med 2, Low 4, High 0). QC-27 (a ja tier term) went to i18n.
   - **Imagery:** wave 4 (Belgium, Saarland, Dayton, State College). Leads 25/25, first row 51/51.
   - **Gates on f3f597a6:** validate, npm test (alone) and beta:check green.
+
+## FE-A — QA-75 root cause and fix, ahead of the PERF-08 re-land (2026-10-16)
+- **Root cause:** not the remembered view. Under `Cleo.defer.selective`, a lens builds only its own cards. When anything later stamped the rest (find-in-page, print, search focus via core's `allNow`, or the QA probe's `Cleo.defer.all()`), client/city.js's `cleo:stamped` handler adopted those cards without applying the lens, so they showed unfiltered: "180 shown for 47 must-sees". The QA matrix always gives the receiver a different stored view (gallery→guidebook, atlas→insights), which made the bug look pref-related.
+- **Fix:** client/city.js. Cards adopted while a lens is on get `hidden = !visible(c)` at once, and a section left with no visible card and no stub hides. With selective off (the shipped state), a lens route stamps every card before apply(), so nothing changes.
+- **Proof, with `selective: true` forced locally and not committed:**
+  - `views.js --only links`: 124 / 16 FAIL → **140 / 140**;
+  - `tools/beta/qa/perf08-regress.sh`: **PASS**, covering QA-75, QA-76 (`w7.js --only lens`), QC-26 (43 | 1 of 43) and FE-2's qc26 at both areas.
+- The flag is not flipped; platform owns the re-land.

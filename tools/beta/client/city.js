@@ -283,8 +283,16 @@
   on(d, 'cleo:locale', () => { $$('.stamp').forEach(x => x.remove()); paint(); apply(); });   // i18n D-41: redraw labels, lens and counts in the loaded catalogue
   // Platform hook (M3-06): later cards arrive from Cleo.defer (core.js) as their area nears the viewport, or all at
   // once before any lens/route. Adopt them so every lens, count and pin sees every place; stubs' pins become cards.
-  on(d, 'cleo:stamped', e => { ((e.detail || {}).cards || []).forEach(c => { if (byId[pid(c)] === c) return; cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
-    $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); }); paint(); });
+  // QA-75 (PERF-08 re-land): cards stamped while a lens is on meet that lens at once. Under Cleo.defer.selective a lens
+  // builds only its own cards; anything that later stamps the rest (Show all's neighbours, find-in-page, print, a probe's
+  // Cleo.defer.all()) used to add them unfiltered — "180 shown for 47 must-sees". Without selective, a lens route stamps
+  // every card before apply() runs, so this changes nothing there.
+  on(d, 'cleo:stamped', e => { const got = ((e.detail || {}).cards || []).filter(c => byId[pid(c)] !== c);
+    got.forEach(c => { cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
+    $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); });
+    if (got.length && Cleo.lens.on(Cleo.lens.current())) { got.forEach(c => { c.hidden = !visible(c); });
+      sections.forEach(s => { if (!s.querySelector('li.pl:not([hidden])') && !s.querySelector('noscript[data-cleo-defer]')) s.hidden = true; }); }
+    paint(); });
 
   const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been', 'rec', 'lf'];   // 'rec': FE-C W9-1 hook, 'lf': W9-9
   let P = {}, opener = null, pushed = 0, after = null;
