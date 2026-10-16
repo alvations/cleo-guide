@@ -77,6 +77,8 @@
     var acts = (S.list ? '<div class="listmenu"><button type="button" class="btn btn-ghost" data-sv="rename">' + ico('edit') + 'Rename</button><button type="button" class="btn btn-quiet danger" data-sv="delete">Delete list</button></div>' : '') +
       '<div class="sv-acts exportbar"><span class="lbl">Take it with you</span>' + (S.shared ? ''
       : '<button type="button" class="btn btn-primary" data-sv="share"' + (S.refs.length ? '' : ' disabled') + '>' + ico('share') + 'Share link</button>') +
+      // FE-C W9-7 hook: a portrait share image of this list (share-card.js, loaded on tap by core)
+      (S.refs.length ? '<button type="button" class="btn btn-ghost" data-cleo-card="list" data-refs="' + esc(Cleo.listCodec.encode(S.refs)) + '" data-name="' + esc(S.name) + '">' + ico('share') + 'Share as an image</button>' : '') +
       (S.refs.length ? '<details class="exp"><summary class="btn btn-ghost">' + ico('download') + 'Export</summary><div class="pop"><button type="button" class="btn btn-quiet" data-sv="kml">KML (Google Earth, My Maps)</button>' +
         '<button type="button" class="btn btn-quiet" data-sv="geojson">GeoJSON</button>' + (S.shared ? '' : '<button type="button" class="btn btn-quiet" data-sv="json">Backup of all lists (JSON)</button>') + '</div></details>' : '') +
       // FE-C W9-4 hook: "Make a trip" from this list (trip.html builds it; nothing here is written)

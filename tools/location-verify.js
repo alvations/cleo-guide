@@ -56,6 +56,10 @@ const ENDPOINT = {
   wikipedia: 'https://en.wikipedia.org/w/api.php',
   nominatim: 'https://nominatim.openstreetmap.org/search',
   overpass: 'https://overpass-api.de/api/interpreter',
+  // Fallback for the retry (the main server is often overloaded; its wiki says "use alternatives if possible").
+  // overpass.private.coffee: no rate limit; asks for a meaningful UA, POST, and notice before > 10 req/s or > 10
+  // parallel — we send one sequential query per 10 rows.
+  overpassAlt: 'https://overpass.private.coffee/api/interpreter',
   census: 'https://geocoding.geo.census.gov/geocoder/locations/onelineaddress',
 };
 const LICENCE = {
@@ -65,7 +69,7 @@ const LICENCE = {
   official: "the place's own website (fact read from its schema.org markup / page; robots.txt honoured)",
 };
 // Per-host minimum spacing between requests (ms). Every source is queried single-threaded.
-const SPACING = { 'geocoding.geo.census.gov': 1000, 'www.onemap.gov.sg': 500, 'nominatim.openstreetmap.org': 1100, 'overpass-api.de': 5000, 'www.wikidata.org': 300, 'en.wikipedia.org': 300, default: 2000 };
+const SPACING = { 'overpass.private.coffee': 5000, 'geocoding.geo.census.gov': 1000, 'www.onemap.gov.sg': 500, 'nominatim.openstreetmap.org': 1100, 'overpass-api.de': 5000, 'www.wikidata.org': 300, 'en.wikipedia.org': 300, default: 2000 };
 
 // ───────────────────────────────────────────────────────── pure helpers (unit-tested) ──
 
@@ -193,7 +197,11 @@ function decide(place, graded) {
   const good = graded.filter(c => GRADE_RANK[c.grade] >= 2);
   if (!good.length) return { outcome: 'no-match', proposal: null, notes };
   const pref = { official: 5, onemap: 4.5, wikidata: 4, wikipedia: 3, 'osm-poi': 2, 'gov-address': 1.5, 'osm-address': 1 };
-  good.sort((a, b) => GRADE_RANK[b.grade] - GRADE_RANK[a.grade] || (pref[b.kind] || 0) - (pref[a.kind] || 0) || b.nameSim - a.nameSim);
+  // Parks, reserves and other extended features are pinned at the main entrance: an OSM object named "… (Main Entrance)"
+  // or tagged entrance=* outranks a centroid of the same grade.
+  const ext0 = isExtended(place.name);
+  good.forEach(c => { c.entrance = ext0 && /\bentrance\b/i.test(c.name || '') || !!(c.tags && c.tags.entrance); });
+  good.sort((a, b) => GRADE_RANK[b.grade] - GRADE_RANK[a.grade] || (ext0 ? (b.entrance - a.entrance) : 0) || (pref[b.kind] || 0) - (pref[a.kind] || 0) || b.nameSim - a.nameSim);
   const best = good[0];
   const ext = isExtended(place.name);
   const spread = ext ? 1500 : 150;
@@ -210,6 +218,7 @@ function decide(place, graded) {
     matchedName: best.name || null, sourceUrl: best.sourceUrl, retrieved: best.retrieved, licence: best.licence,
     grade, gradeWhy: best.why, nameSim: best.nameSim, addressAgreement: best.addr, distanceM: null,
     osmObject: best.osm ? osmEvidence(best) : null,
+    coordDecimals: best.coordDecimals == null ? null : best.coordDecimals, multiSite: !!best.multiSite, entrance: !!best.entrance,
     corroboratedBy: agree.map(c => ({ kind: c.kind, sourceUrl: c.sourceUrl, distanceM: haversineM(c.lat, c.lng, best.lat, best.lng) })) };
   const cur = place.current;
   if (cur.lat == null || cur.lng == null) return { outcome: 'pin', proposal, notes };
@@ -261,11 +270,28 @@ function demoteSharedObjects(rows) {
  *         an OSM POI without an exact address match) — logged in review.why when found.
  *   reject low, shared-object, conflict, ambiguous, or no proposal.
  */
+const SYSTEM_NAME = /\b(skyliner|gondola|monorail|railway|rail line|line|system|network|route|cruise|tour|trolley|ferry|shuttle)\b/i;
+/** The registry record names a PART ("Resort (Gran Destino Tower)") that the matched name does not carry. */
+function namesAPart(placeName, matched) {
+  const q = (String(placeName).match(/\(([^)]+)\)/) || [])[1];
+  if (!q || !matched) return false;
+  const words = normName(q).split(' ').filter(w => w.length > 3);
+  const m = normName(matched);
+  return words.length > 0 && !words.some(w => m.includes(w)) && /\b(tower|wing|building|hall|terminal|pavilion|lodge|station|gate|entrance|annex|center|centre)\b/i.test(q);
+}
 function reviewAssist(row) {
   const p = row.proposal;
+  const conf = String((row.current && row.current.confidence) || '').toLowerCase();
+  if (p && row.outcome === 'confirm' && GRADE_RANK[conf] >= GRADE_RANK[p.grade]) return { verdict: 'no-change', why: [`confirms the current ${conf} pin (${p.distanceM} m); nothing to review`] };
   if (!p || ['no-match', 'ambiguous', 'planned', 'skipped'].includes(row.outcome)) return { verdict: 'reject', why: ['no proposal'] };
   if (row.outcome === 'shared-object' || p.grade === 'low') return { verdict: 'reject', why: ['low / shared OSM object'] };
-  if (row.outcome === 'conflict') return { verdict: 'hold', why: [`conflict: ${p.distanceM} m from the current pin — look at both`] };
+  if (row.outcome === 'conflict') return p.entrance
+    ? { verdict: 'review', why: [`entrance object “${p.matchedName}” is ${p.distanceM} m from the current pin — parks are pinned at the main entrance; check which is right`] }
+    : { verdict: 'hold', why: [`conflict: ${p.distanceM} m from the current pin — look at both`] };
+  const coarse = (p.kind === 'wikidata' || p.kind === 'wikipedia') && p.coordDecimals != null && p.coordDecimals < 4;
+  if (coarse) return { verdict: 'hold', why: [`${p.kind} coordinate has ${p.coordDecimals} decimals (≈ ${p.coordDecimals <= 2 ? '1 km' : '100 m'} coarse) — needs a precise source`] };
+  if (p.multiSite || ((p.kind === 'wikidata' || p.kind === 'wikipedia') && SYSTEM_NAME.test(row.name))) return { verdict: 'hold', why: ['a multi-site system or route, not one place — pick the stop/point by hand'] };
+  if (namesAPart(row.name, p.matchedName)) return { verdict: 'hold', why: [`the record names a part (“${(row.name.match(/\(([^)]+)\)/) || [])[1]}”) but the match is the whole (“${p.matchedName}”)`] };
   const ag = p.addressAgreement || {};
   const exactAddr = ag.houseNumber === true && ag.street === true;
   const corroborated = (p.corroboratedBy || []).length > 0;
@@ -369,6 +395,13 @@ function claimValues(entity, pid) {
   return (pref.length ? pref : cl.filter(c => c.rank !== 'deprecated')).map(c => c.mainsnak)
     .filter(s => s && s.snaktype === 'value' && s.datavalue).map(s => s.datavalue.value);
 }
+/** Decimal places of a coordinate as published (28.595 → 3). Fewer than 4 is ≈ 100 m coarse. */
+function decimals(x) { const m = String(x).match(/\.(\d+)/); return m ? m[1].replace(/0+$/, '').length : 0; }
+/** Wikidata precision (degrees) → decimal places; else count the published digits. */
+function coordDecimals(lat, lng, precisionDeg) {
+  if (precisionDeg && precisionDeg > 0) return Math.max(0, Math.round(-Math.log10(precisionDeg)));
+  return Math.min(decimals(lat), decimals(lng));
+}
 function wikidataFacts(entity) {
   const coord = claimValues(entity, 'P625')[0];
   const t = v => (v && v.time ? v.time.replace(/^\+/, '').slice(0, 10).replace(/-00/g, '') : null);
@@ -376,6 +409,8 @@ function wikidataFacts(entity) {
     qid: entity.id,
     label: (entity.labels && (entity.labels.en || Object.values(entity.labels)[0]) || {}).value || null,
     lat: coord ? coord.latitude : null, lng: coord ? coord.longitude : null,
+    coordDecimals: coord ? coordDecimals(coord.latitude, coord.longitude, coord.precision) : null,
+    coordCount: ((entity.claims || {}).P625 || []).filter(c => c.rank !== 'deprecated').length,
     website: claimValues(entity, 'P856')[0] || null,
     street: (claimValues(entity, 'P6375')[0] || {}).text || null,
     postcode: claimValues(entity, 'P281')[0] || null,
@@ -462,6 +497,9 @@ class Http {
     }
     if (this.count >= this.max) return { status: 0, body: '', error: 'request budget exhausted', budget: true };
     if (h === 'nominatim.openstreetmap.org' && this.nomCount >= this.nomMax) return { status: 0, body: '', error: 'nominatim budget exhausted', budget: true };
+    // Circuit breaker: a host that failed 2 times in a row (timeouts, TLS, DNS) is skipped for the rest of the run —
+    // an official site that never answers must not cost 30 s per row (Orlando: disneyworld.disney.go.com 32/32).
+    if ((this.streak || {})[h] >= 2 && !/wikidata|wikipedia|nominatim|overpass/.test(h)) return { status: 0, body: '', error: `${h} skipped after repeated failures` };
     if (this.backoffUntil[h] && Date.now() < this.backoffUntil[h]) {
       const w = this.backoffUntil[h] - Date.now();
       if (w > 120000) return { status: 0, body: '', error: `${h} backing off after 429/503` };
@@ -473,20 +511,23 @@ class Http {
     const bh = this.byHost[h] = this.byHost[h] || { requests: 0, failed: 0 }; bh.requests++;
     this.last[h] = Date.now();
     // Overpass queries carry their own [timeout:60|90]; the client must wait longer than the server does.
-    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), h === 'overpass-api.de' ? 120000 : 30000);
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), /overpass/.test(h) ? 120000 : 30000);
     try {
       const r = await fetch(url, { method, body, signal: ctl.signal, redirect: 'follow',
         headers: Object.assign({ 'User-Agent': UA, 'Api-User-Agent': UA, Accept: accept }, body ? { 'Content-Type': 'application/x-www-form-urlencoded' } : {}, extra || {}) });
       let text = await r.text(); if (text.length > 2000000) text = text.slice(0, 2000000);
       const res = { url, status: r.status, body: text, retrieved: new Date().toISOString().slice(0, 10) };
-      if (r.status === 429 || r.status === 503 || r.status === 504) {
+      this.streak = this.streak || {};
+      if (r.status === 429 || r.status === 502 || r.status === 503 || r.status === 504) {
         this.backoffUntil[h] = Date.now() + (h === 'overpass-api.de' ? 60000 : 30000); this.failures.push(`${h} HTTP ${r.status}`); bh.failed++;
         return res; // not cached
       }
+      this.streak[h] = 0;
       if (file && (r.ok || r.status === 404)) fs.writeFileSync(file, JSON.stringify(res));
       return res;
     } catch (e) {
       this.failures.push(`${h} ${e.name === 'AbortError' ? 'timeout' : (e.cause && e.cause.code) || e.message}`); bh.failed++;
+      this.streak = this.streak || {}; this.streak[h] = (this.streak[h] || 0) + 1;
       return { status: 0, body: '', error: (e.cause && e.cause.code) || e.message };
     } finally { clearTimeout(t); }
   }
@@ -531,7 +572,7 @@ async function fromWikidata(http, place, anchor) {
     if (!linked && nameSim(place.name, f.label || '') < 0.8) continue;
     const url = `https://www.wikidata.org/wiki/${f.qid}`;
     cands.push({ kind: 'wikidata', source: 'wikidata', name: f.label, lat: f.lat, lng: f.lng, street: f.street, postcode: f.postcode,
-      address: f.street, sourceUrl: url, retrieved: g.retrieved, licence: LICENCE.wikidata, linked });
+      address: f.street, sourceUrl: url, retrieved: g.retrieved, licence: LICENCE.wikidata, linked, coordDecimals: f.coordDecimals, multiSite: f.coordCount > 1 });
     // Closure statements belong to THIS item; they count only if the item is the place (linked QID, or the chosen
     // proposal, or within 150 m of the current pin) — a same-name item (the 1868 lighthouse) is not evidence.
     const ev = { linked, lat: f.lat, lng: f.lng, sourceUrl: url, retrieved: g.retrieved };
@@ -557,7 +598,7 @@ async function fromWikipedia(http, place, anchor, enwikiTitle) {
   if (anchor && haversineM(anchor.lat, anchor.lng, c.lat, c.lon) > anchor.radiusM) return { cands: [] };
   const url = `https://en.wikipedia.org/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`;
   return { cands: [{ kind: 'wikipedia', source: 'wikipedia', name: page.title.replace(/\s*\([^)]*\)$/, ''), lat: c.lat, lng: c.lon,
-    sourceUrl: url, retrieved: r.retrieved, licence: LICENCE.wikipedia, linked: !!(enwikiTitle || raw) }] };
+    sourceUrl: url, retrieved: r.retrieved, licence: LICENCE.wikipedia, linked: !!(enwikiTitle || raw), coordDecimals: coordDecimals(c.lat, c.lon) }] };
 }
 
 const OSM_PLACE_CLASSES = /^(amenity|shop|tourism|leisure|historic|craft|office|building|man_made|club|healthcare|natural|waterway|bridge|railway|aeroway)$/;
@@ -592,6 +633,25 @@ async function fromNominatim(http, place, anchor) {
     }
     if (cands.some(c => c.kind === 'osm-poi' && nameSim(place.name, c.name) >= 0.85)) break; // no need for the address query
   }
+  // Fallback: the bare name inside the city box. Generic or descriptive addresses ("Magic Kingdom, Bay Lake, FL") make
+  // the name+address query miss POIs that OSM does have. A name-only hit has no address corroboration, so it grades
+  // med at best (hold until a second source agrees) — unless its own address matches the registry's.
+  if (!cands.some(c => nameSim(place.name, c.name || '') >= 0.85) && anchor) {
+    const dLat = anchor.radiusM / 111000, dLng = dLat / Math.cos(anchor.lat * Math.PI / 180);
+    const params = { q: bare, format: 'jsonv2', addressdetails: 1, extratags: 1, namedetails: 1, limit: 5, bounded: 1,
+      viewbox: [anchor.lng - dLng, anchor.lat + dLat, anchor.lng + dLng, anchor.lat - dLat].map(round5).join(',') };
+    const r = await http.json(`${ENDPOINT.nominatim}?${qs(params)}`);
+    for (const x of (Array.isArray(r.json) ? r.json : [])) {
+      const lat = parseFloat(x.lat), lng = parseFloat(x.lon); const nm = (x.namedetails && x.namedetails.name) || x.name || '';
+      const cls = x.category || x.class; const a = x.address || {};
+      if (!isFinite(lat) || !nm || !OSM_PLACE_CLASSES.test(cls) || nameSim(place.name, nm) < 0.85) continue;
+      cands.push({ kind: 'osm-poi', source: 'nominatim', name: nm, lat, lng, houseNumber: a.house_number || null, street: a.road || null, postcode: a.postcode || null,
+        address: [[a.house_number, a.road].filter(Boolean).join(' '), a.city || a.town || a.village || a.hamlet, [a.state, a.postcode].filter(Boolean).join(' ')].filter(Boolean).join(', '),
+        osmClass: `${cls}=${x.type}`, osm: x.osm_type && x.osm_id ? `${x.osm_type}/${x.osm_id}` : null, addresstype: x.addresstype || null, nameOnly: true,
+        sourceUrl: x.osm_type && x.osm_id ? `https://www.openstreetmap.org/${x.osm_type}/${x.osm_id}` : 'https://nominatim.openstreetmap.org/',
+        retrieved: r.retrieved, licence: LICENCE.osm, tags: x.extratags || {} });
+    }
+  }
   return { cands, statusCodes: urls };
 }
 
@@ -601,7 +661,8 @@ async function fromOverpassBatch(http, rows, retry = false) {
   if (!pts.length) return {};
   const parts = pts.map(r => `nwr(around:80,${r.point.lat},${r.point.lng})[~"^(name|old_name|was:name|disused:name)$"~"."];`).join('\n');
   const q = `[out:json][timeout:${retry ? 90 : 60}];\n(\n${parts}\n);\nout tags center 400;`;
-  const res = await http.json(ENDPOINT.overpass, { method: 'POST', body: qs({ data: q }), host: 'overpass-api.de' });
+  const url = retry ? ENDPOINT.overpassAlt : ENDPOINT.overpass;
+  const res = await http.json(url, { method: 'POST', body: qs({ data: q }), host: new URL(url).host });
   const els = (res.json && res.json.elements) || [];
   const out = {};
   for (const r of pts) {
@@ -817,6 +878,31 @@ function estimate(n, sources) {
   return { requests: Math.round(req), nominatimRequests: sources.has('nominatim') ? Math.round(1.5 * n) : 0, minutes: Math.ceil(sec / 60) };
 }
 
+/**
+ * A committed report is the review record: its review.* decisions must survive a re-run. Carry every reviewed row's
+ * review into the new report by place name. If the proposal moved (> 5 m) or vanished, keep the review but mark it
+ * stale so --accept refuses it until a person looks again. Names that left the report are listed in meta.
+ */
+function carryReviews(prev, rep) {
+  if (!prev || !Array.isArray(prev.rows)) return rep;
+  const byName = new Map(rep.rows.map(r => [r.name, r]));
+  const carried = [], stale = [], orphaned = [];
+  for (const old of prev.rows) {
+    if (!old.review || !old.review.decision) continue;
+    const r = byName.get(old.name);
+    if (!r) { orphaned.push({ name: old.name, review: old.review, proposal: old.proposal || null }); continue; }
+    r.review = { ...old.review };
+    const a = old.proposal, b = r.proposal;
+    const moved = a && a.lat != null && (!b || b.lat == null || haversineM(a.lat, a.lng, b.lat, b.lng) > 5);
+    if (moved) { r.review.stale = true; r.review.staleWhy = `proposal changed since review (${a.lat},${a.lng} → ${b ? b.lat + ',' + b.lng : 'none'})`; stale.push(old.name); }
+    else carried.push(old.name);
+  }
+  rep.meta.reviewsCarried = carried.length;
+  if (stale.length) rep.meta.reviewsStale = stale;
+  if (orphaned.length) rep.meta.reviewsOrphaned = orphaned;
+  return rep;
+}
+
 function toMarkdown(rep) {
   const m = rep.meta, L = [];
   L.push(`# Location-verify report — ${m.city}`, '');
@@ -825,9 +911,12 @@ function toMarkdown(rep) {
   if (m.note) L.push(`> **${m.note}**`, '');
   if (m.estimate) L.push(`Estimate for a live run of these rows: ~${m.estimate.requests} requests (${m.estimate.nominatimRequests} to Nominatim), ~${m.estimate.minutes} min.`, '');
   if (m.anchor) L.push(`City anchor (median of high-confidence pins): ${round5(m.anchor.lat)}, ${round5(m.anchor.lng)} · candidates farther than ${(m.anchor.radiusM / 1000).toFixed(0)} km are discarded as same-name-elsewhere.`, '');
+  if (m.reviewsCarried || m.reviewsStale || m.reviewsOrphaned) L.push(`Reviews carried from the previous report: ${m.reviewsCarried || 0}${m.reviewsStale ? ` · STALE (proposal changed, re-review): ${m.reviewsStale.join(', ')}` : ''}${m.reviewsOrphaned ? ` · rows no longer in scope (decisions kept in meta.reviewsOrphaned): ${m.reviewsOrphaned.map(x => x.name).join(', ')}` : ''}`, '');
   if (m.requests) L.push(`Requests: ${m.requests.network} network · ${m.requests.cacheHits} cache hits · ${m.requests.nominatim} Nominatim${m.requests.failures.length ? ` · failures: ${m.requests.failures.slice(0, 5).join('; ')}` : ''}`, '');
   const bad = Object.entries((m.requests && m.requests.byHost) || {}).filter(([, b]) => b.failed);
-  if (bad.length) L.push(`Failed requests by host: ${bad.map(([h, b]) => `${h} ${b.failed}/${b.requests}`).join(' · ')}${bad.some(([h]) => h === 'overpass-api.de') ? ' — Overpass failures mean OSM lifecycle (closure) evidence is incomplete for some rows' : ''}`, '');
+  if (bad.length) L.push(`Failed requests by host: ${bad.map(([h, b]) => `${h} ${b.failed}/${b.requests}`).join(' · ')}}`, '');
+  const noOv = rep.rows.filter(r => (r.notes || []).some(n => /^overpass:/.test(n))).length;
+  if (noOv) L.push(`OSM lifecycle (closure) evidence missing for ${noOv} row(s): both Overpass instances failed for their batch. Coordinates are unaffected.`, '');
   L.push('## Summary', '', '| outcome | rows |', '|---|---|');
   for (const [k, v] of Object.entries(rep.summary)) L.push(`| ${k} | ${v} |`);
   L.push('');
@@ -876,6 +965,7 @@ function accept(reportPath, o = {}) {
     const rv = r.review || {};
     if (!rv.decision) continue;
     if (!rv.by || !rv.why) { refused.push(`${r.name}: review needs by + why`); continue; }
+    if (rv.stale) { refused.push(`${r.name}: review is stale (${rv.staleWhy}); look again`); continue; }
     const e = city[r.name];
     if (!e) { refused.push(`${r.name}: no longer in the registry (renamed?)`); continue; }
     if (rv.decision === 'accept') {
@@ -1001,6 +1091,7 @@ async function main1(o) {
   const rep = await run({ ...o, fixtures, mode });
   fs.mkdirSync(o.out, { recursive: true });
   const base = path.join(o.out, o.city);
+  if (fs.existsSync(base + '.json')) { try { carryReviews(JSON.parse(fs.readFileSync(base + '.json', 'utf8')), rep); } catch (e) { throw new Error(`existing ${base}.json is unreadable (${e.message}); refusing to overwrite reviewed decisions`); } }
   fs.writeFileSync(base + '.json', JSON.stringify(rep, null, 1) + '\n');
   fs.writeFileSync(base + '.md', toMarkdown(rep));
   console.log(`wrote ${path.relative(ROOT, base)}.json/.md — ${JSON.stringify(rep.summary)}`);
@@ -1028,4 +1119,4 @@ if (require.main === module) {
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };

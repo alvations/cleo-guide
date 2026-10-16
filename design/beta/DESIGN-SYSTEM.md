@@ -157,6 +157,38 @@ Wrapping: headings and short hero lines use `text-wrap: balance`, deks and subti
 - `localStorage` always goes in try/catch; the storage-blocked banner is the fallback copy.
 - Targets are ≥ 44 px, and text pairs are AA in light and dark. Nothing moves under `prefers-reduced-motion`. Content never depends on a CDN.
 
+## v2.11 The view switcher on phones (QC-09; FE-A builds it)
+
+**Today:** under 640 px the four views collapse into one "View: Gallery ▾" control, so every switch takes two taps, and an open sheet covers it. `nav[data-cleo-views]` holds toggle buttons, so it has no valid group role (axe rejects `role=group` on `<nav>`).
+
+**Spec:**
+- **Markup:** `<div class="views" data-cleo-views role="group" aria-label="View">` holding four `<button type="button" data-view="…" aria-pressed="true|false">` (glyph + label).
+  - The four are mutually exclusive toggles, not links, so a labelled group of pressed buttons is the right pattern; the `<nav>` element goes.
+  - The base CSS (`views.css`, `v2.css`) now targets `.views[data-cleo-views]` whatever the element, so the swap needs no CSS change.
+  - FE-A's own `nav.views…` selectors in `fe-a.css` need the same change.
+- **Always four segments, never collapsed:** one tap per switch at every width. Drop the `:not(.open)` single-column collapse and the "View:" prefix.
+  - **≥ 400 px:** glyph + label.
+  - **< 400 px:** label only, 14 px (`--fs-sm`), four equal columns. At 390, a segment is 87 px and "Guidebook" fits in 70 px.
+  - **< 300 px (200 % zoom on a 390 phone):** a **2 × 2 grid** of glyph-only segments (each at least 60 × 44 px). The label stays as the button's accessible name, with a visible tooltip on focus and press. It is still one tap per switch. *(Corrected 2026-10-16: a single row cannot work here. The 195 px viewport less the 16 px main gutters leaves 163 px, and four 44 px segments plus the track need 180 px. The build measured 29 × 44 px segments.)*
+  - The track is `--sand` with a `--surface` thumb on the pressed segment (v2 §v2.5). The thumb slides (`--dur-2`), and there's no slide under reduced motion.
+- **Placement on phones:** a 52 px row directly under the 52 px header. It is sticky with the header, so the switcher is always at `top: 52px`.
+  - The search pill doesn't share this row on phones: search is the header's search icon (which opens the search sheet). The row is the switcher alone, full width less the 16 px gutters.
+- **Reachable with a sheet open:**
+  - Every phone sheet (place detail, filters, list) stops below the switcher: `max-height: calc(100dvh - 104px)`, with its top edge at ≥ 104 px. Its scrim also starts at 104 px, so header and switcher stay visible and hit-testable.
+  - Tapping a segment while a sheet is open closes the sheet and switches view in the same tap.
+  - Focus moves to the new view's heading.
+  - The sheet's own close button and Escape still work.
+- **Verification on 2026-10-16, head 055e2e6d (FE-B's build 7e746d9bc):**
+  - **390 px: PASS.** `div[role=group][aria-label=View]`, 4 buttons each 78 × 44, one pressed. With `#p=senso-ji` open (sheet top at 116 px), `elementFromPoint` returns each segment.
+  - **200 % (195 px): FAIL.** There are 4 segments in one row, each 29 × 44, which is under the 44 px target, and the labels still render. Sheet reachability passes.
+  - The fix belongs in `fe-a.css` (the `html main[data-city] .views[data-cleo-views]` rules near lines 194–203): add the < 300 px 2 × 2 glyph-only grid above.
+- **Acceptance (qc.js P-01, J-05):**
+  - at 390 and at 200 % zoom, four segments are visible and each switch is 1 tap;
+  - every segment is ≥ 44 × 44 px;
+  - `role="group"` with `aria-label="View"`, exactly one `aria-pressed="true"`;
+  - with the place-detail sheet open, `document.elementFromPoint` at each segment's centre returns that segment;
+  - axe reports no `aria-allowed-role`.
+
 ## v2.10 Reproduce and probe
 
 ```bash

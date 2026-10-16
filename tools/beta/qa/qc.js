@@ -390,7 +390,7 @@ async function patterns(rel, vp) {
       const unlinked = [...c.querySelectorAll('svg rect.bar, svg .seg')].filter(r => !r.closest('a')).length;
       const fn = [...c.querySelectorAll('.fn')].map(f => f.textContent.trim()).join(' '); const table = /show as a table/i.test(c.textContent) && !!c.querySelector('table');
       const rows = [...c.querySelectorAll('table tbody tr')].map(tr => [...tr.children].map(x => x.textContent.trim()));
-      return { title: t.trim().slice(0, 60), links, marks, unlinked, fn: fn.trim().slice(0, 200), table, rows: rows.slice(0, 40) }; });`));
+      return { title: t.trim().slice(0, 60), links, marks, unlinked, fn: fn.trim().slice(0, 600), table, rows: rows.slice(0, 40) }; });`));
   if (!ins.length) { check('P-18', C, 'FAIL', 'no chart rendered in Insights'); }
   for (const c of ins) {
     const sample = c.links.filter((l, i) => i % Math.max(1, Math.ceil(c.links.length / 6)) === 0).slice(0, 6); const res = [];
@@ -404,7 +404,8 @@ async function patterns(rel, vp) {
         ok: Object.keys(lens).some(k => k !== 'view') && (isNaN(val) || val === want || citations) && pageLens === want, statedOk: cl.some(x => x.n === want) });
       await o.ctx.close();
     }
-    check('P-18', { ...C, chart: c.title }, !c.links.length || c.unlinked ? 'FAIL' : res.every(x => x.ok) ? (res.every(x => x.statedOk) ? 'PASS' : 'WARN') : 'FAIL', { links: c.links.length, unlinked: c.unlinked, sample: res });
+    const plainStated = /plain bars|not lists of places|no filter (that opens|selects)|without opening places/i.test(c.fn);   // unlinked bars are allowed when the footnote says why
+    check('P-18', { ...C, chart: c.title, plainStated }, (!c.links.length || c.unlinked) && !plainStated ? 'FAIL' : !c.links.length ? 'PASS' : res.every(x => x.ok) ? (res.every(x => x.statedOk) ? 'PASS' : 'WARN') : 'FAIL', { links: c.links.length, unlinked: c.unlinked, sample: res });
     check('P-19', { ...C, chart: c.title }, ok(c.table), { table: c.table, rows: c.rows.length });
     const m = /from ([\d,]+) of ([\d,]+) places/i.exec(c.fn);
     check('P-20', { ...C, chart: c.title }, !c.fn ? 'FAIL' : m ? ok(+m[2].replace(/,/g, '') === T.N) : 'PASS', { fn: c.fn });
@@ -444,6 +445,23 @@ async function patterns(rel, vp) {
       ev.route = t2.route; ev.lines = (await o2.page.evaluate(COUNTS)).map(x => x.text).slice(0, 2); }
     check('P-28', C, ok(ev.route && !['a', 'mode', 't'].some(k => ev.route[k])), ev); await o2.ctx.close();
   }
+  // P-24 no silent caps: every container that states "n places" shows n items or a visible control to reach the rest
+  for (const v of VIEWS) {
+    const o24 = await open(rel, vp, { hash: '#view=' + v, settle: 1200 });
+    const caps = await o24.page.evaluate(new Function(`${P_VIS} if (window.Cleo && Cleo.defer && Cleo.defer.all) Cleo.defer.all();
+      let measured = 0; const ITEM = 'li.pl, .gc, .ge, .ixi, .rail-i'; const MORE = /see all|show all|show [\\d,]+ more|all [\\d,]+ places|next|›/i; const out = [];
+      document.querySelectorAll('main section, main .g-row, main .ch, main .ms-head, main .rail, main [class*=row]').forEach(c => {
+        if (!vis(c) || c.closest('[role=dialog]')) return;
+        const head = [...c.querySelectorAll('h2,h3,.row-h,.sub,.count,.ms-count,p')].slice(0, 4).map(h => h.textContent).join(' ');
+        const m = /\\b([\\d,]+) places?\\b/.exec(head); if (!m) return;
+        const n = +m[1].replace(/,/g, ''); const items = c.querySelectorAll(ITEM).length; if (!items) return; measured++;
+        const ctl = [...c.querySelectorAll('button, a')].some(b => vis(b) && MORE.test(b.textContent)) || [...(c.parentElement ? c.parentElement.querySelectorAll(':scope > .pager, :scope > .ms-pager, :scope > [class*=pager]') : [])].some(vis);
+        if (items < n && !ctl) out.push({ stated: n, rendered: items, head: head.replace(/\\s+/g, ' ').trim().slice(0, 80), cls: String(c.className).slice(0, 40) });
+      });
+      return { out, measured };`));
+    check('P-24', { ...C, view: v }, caps.measured ? ok(!caps.out.length) : 'N/A', { measured: caps.measured, silentCaps: caps.out.slice(0, 6) });
+    await o24.ctx.close();
+  }
   // P-25 value-led ranking, P-26 invented data (all four views, visible text + sort options)
   const o = await open(rel, vp, { hash: '#p=' + top.id, settle: 900 });
   const texts = {};
@@ -455,7 +473,7 @@ async function patterns(rel, vp) {
   const vh = hits(VALUE), ih = hits(INVENT);
   check('P-25', C, ok(VIEWS.every(v => !vh[v].length) && !sorts.some(s => VALUE.test(s) || /rating|popular/i.test(s))), { hits: vh, sortOptions: sorts });
   const photos = await o.page.evaluate(new Function(`${P_VIS} return [...document.querySelectorAll('main img')].filter(i => vis(i) && !/\\.svg(\\?|$)/.test(i.currentSrc || i.src) && i.naturalWidth > 64)
-    .map(i => { const f = i.closest('figure, .gc, .cover, .photo, [class*=img], li, article') || i.parentElement; return { src: (i.currentSrc || i.src).split('/').slice(-1)[0], credit: /photo|©|cc |public domain|wikimedia|courtesy/i.test(f ? f.textContent + (i.getAttribute('title') || '') + (i.alt || '') : '') };   // textContent: content-visibility:auto cards report no innerText off-screen }).slice(0, 80);`));
+    .map(i => { const f = i.closest('figure, .gc, .cover, .photo, [class*=img], li, article') || i.parentElement; return { src: (i.currentSrc || i.src).split('/').slice(-1)[0], credit: /photo|©|cc |public domain|wikimedia|courtesy/i.test(f ? f.textContent + (i.getAttribute('title') || '') + (i.alt || '') : '') };  /* textContent: content-visibility:auto cards report no innerText off-screen */ }).slice(0, 80);`));
   check('P-26', C, ok(VIEWS.every(v => !ih[v].length) && photos.every(p => p.credit)), { hits: ih, photos: photos.length, uncredited: photos.filter(p => !p.credit).slice(0, 5) });
   P_TEXT_CACHE[rel] = texts.gallery;
   await o.ctx.close();

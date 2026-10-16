@@ -51,8 +51,12 @@
     Promise.all([get('en'), get(want)]).then(function (cats) {
       window.CleoL10n = cats[1].strings;                   // Cleo.t (head snippet) answers from it from now on
       apply(cats[0], cats[1], want);
-      reveal();
+      // modules redraw what they drew before the catalogue arrived — while the page is still held, so nothing shifts
       try { document.dispatchEvent(new CustomEvent('cleo:locale', { detail: { locale: want } })); } catch (e) {}
+      // their follow-up work (route re-apply, pager, rows) lands in the next frames: reveal once it has (the head's 1.5 s
+      // failsafe still bounds the wait)
+      var raf = window.requestAnimationFrame || function (f) { return setTimeout(f, 16); };
+      raf(function () { raf(function () { setTimeout(reveal, 30); }); });
     }).catch(function () { d.lang = 'en'; reveal(); });
     window.CleoLocale = { build: build, apply: apply, locale: want };
   }
@@ -61,7 +65,7 @@
   /* ---- the swap ---- */
   var NUM = { n: 1, places: 1, guides: 1, countries: 1, checked: 1, closed: 1, pins: 1 };
   var MK = '', MK2 = '';                     // private-use markers standing for child elements
-  function reEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function reEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, function (c) { return '\\' + c; }); }   // no '$&' (test harnesses inline scripts with String.replace)
 
   function build(en, to) {
     var exact = {}, tpl = [];
@@ -76,7 +80,8 @@
         names.push(v[1]);
         return NUM[v[1]] ? '(\\d[\\d,.]*)' : '([\\s\\S]+?)';
       }).join('');
-      tpl.push({ k: k, re: new RegExp('^' + src + '$'), pre: /:$/.test(a) ? new RegExp('^' + src + '(\\s[\\s\\S]*)$') : null, names: names, to: b, len: a.replace(/\{[a-z]+\}/g, '').length,
+      var lit = a.split(/\{[a-z]+\}/).map(function (x) { return x.trim(); }).sort(function (x, y) { return y.length - x.length; })[0];
+      tpl.push({ k: k, lit: lit, re: new RegExp('^' + src + '$'), pre: /:$/.test(a) ? new RegExp('^' + src + '(\\s[\\s\\S]*)$') : null, names: names, to: b, len: a.replace(/\{[a-z]+\}/g, '').length,
         num: names.filter(function (n) { return NUM[n]; }).length });
     });
     // most literal text first; on a tie the numeric template wins ("21 guides" is {n} guides, not {country} guides)
@@ -93,11 +98,15 @@
       if (t.k === 'land.month.h' && vars.month) vars.month = month(vars.month);
       return t.to.replace(/\{([a-z]+)\}/g, function (x, n) { return n in vars ? vars[n] : x; }) + (tail || '');
     }
+    // a placeholder holds plain text or exactly one element, never an element plus text ("{source}" ≠ "<b>X</b> + 1 more")
+    var ONE = new RegExp('^' + MK + '\\d+' + MK2 + '$');
+    function clean(m) { for (var j = 1; j < m.length; j++) if (m[j] && m[j].indexOf(MK) >= 0 && !ONE.test(m[j])) return false; return true; }
     function whole(core) {
       if (Object.prototype.hasOwnProperty.call(exact, core)) return exact[core];
       for (var i = 0; i < tpl.length; i++) {               // longest template first; a "…:" label may lead a data run
-        var mt = tpl[i].re.exec(core); if (mt) return fill(tpl[i], mt);
-        var mp = tpl[i].pre && tpl[i].pre.exec(core); if (mp) return fill(tpl[i], mp.slice(0, -1), mp[mp.length - 1]);
+        if (tpl[i].lit && core.indexOf(tpl[i].lit) < 0) continue;   // cheap prefilter: a city page has ~10k text runs
+        var mt = tpl[i].re.exec(core); if (mt && clean(mt)) return fill(tpl[i], mt);
+        var mp = tpl[i].pre && tpl[i].pre.exec(core); if (mp && clean(mp.slice(0, -1))) return fill(tpl[i], mp.slice(0, -1), mp[mp.length - 1]);
       }
       // "203 pins verified." — a catalogue phrase closed by a full stop the template doesn't carry
       if (/[^.]\.$/.test(core)) { var r = whole(core.slice(0, -1)); if (r != null) return r + (to.locale === 'ja' ? '。' : '.'); }
@@ -120,7 +129,9 @@
       if (lv >= CUT.length) return x;
       var ps = CUT[lv](x);
       if (ps.length < 2) return cut(x, lv + 1, st);
-      return ps.map(function (p) { return p ? cut(p, lv + 1, st) : p; }).join('');
+      var sub = { hit: false }, out = ps.map(function (p) { return p ? cut(p, lv + 1, sub) : p; }).join('');
+      if (sub.hit) { st.hit = true; return out; }
+      return cut(x, lv + 1, st);                             // this cut found nothing: try the next cut on the whole run
     }
     return function tr(s) {
       var st = { hit: false }, out = cut(s, 0, st);
@@ -129,6 +140,12 @@
   }
 
   var SKIP = { SCRIPT: 1, STYLE: 1, TEMPLATE: 1, NOSCRIPT: 1, TIME: 1, svg: 1, SVG: 1 };
+  // DATA: a record's own words (name, write-up, note, address, source names, credits, the city's standfirst). Their own
+  // text never goes through the swap; a label element inside them (e.g. .pl-k .lbl) still does.
+  // CLIENT: what city.js, sheet.js, views.js, gallery.js, day.js and foryou.js draw in the browser. Those modules ask Cleo.t
+  // and redraw on cleo:locale, so the page-wide swap leaves them alone (it would only guess at their composed phrases).
+  var CLIENT = '#cleo-sheet, #cleo-fy, #cleo-rows-host, .g-lead-card, #cleo-view, #cleo-lens, #cleo-shown, [data-cleo-applied], .area-chips, #cleo-poi, .toast, .pager, #cleo-fyline, #cleo-nearline, .pl-why, .pl-dist, .stamp, .pl-dish, .pl-x, .nopin, .day-chip';
+  var DATA = '.rail-i[data-c] .t, .rail-i[data-cz] .t, .rail-i[data-src] .t, .rail-i[data-sig] .t, .rail-i[data-gap] .t, .rail-i[data-c] .d, .rail-i[data-sig] .d, .pill[data-f="c"], .pill[data-f="cz"], .pill[data-f="src"], .pill[data-f="a"], .pl-n, .pl-w, .pl-k, .pl-ad, .pl-s, button.src, figure.photo, figcaption, .credit, .about, .method .note, h1, .dek, .g-lead, .area-sub, .area-n, [translate="no"]';
   function translateEl(el, tr) {
     var kids = [].slice.call(el.childNodes);
     if (!kids.some(function (n) { return n.nodeType === 3 && /[A-Za-z]/.test(n.nodeValue); })) return;
@@ -155,17 +172,20 @@
   function apply(en, to, l) {
     var tr = build(en, to);
     var page = d.getAttribute('data-cleo-page');
-    // Landing, hubs and What changed are catalogue-built end to end; elsewhere only the shared shell is.
-    var scopes = /^(landing|hub|changes)$/.test(page) ? [document.body]
+    // Landing, hubs, What changed and city pages are catalogue-built end to end (data excepted); elsewhere only the shell.
+    var scopes = /^(landing|hub|changes|city)$/.test(page) ? [document.body]
       : [].slice.call(document.querySelectorAll('[data-cleo-shell=topbar], .tabbar, .footer, .skip'));
     scopes.forEach(function (sc) {
       [sc].concat([].slice.call(sc.querySelectorAll('*'))).forEach(function (el) {
         if (SKIP[el.nodeName] || el.closest('svg,script,style,[data-cleo-l10n-skip]')) return;
+        // a browser-drawn container keeps its own label swapped (aria-label on the host), never its drawn contents
+        var host = page === 'city' && el.matches(CLIENT);
+        if (page === 'city' && el.parentElement && el.parentElement.closest(CLIENT)) return;
         ['aria-label', 'title', 'placeholder', 'alt'].forEach(function (a) {
           if (!el.hasAttribute(a)) return;
           var r = tr(el.getAttribute(a)); if (r != null) el.setAttribute(a, r);
         });
-        translateEl(el, tr);
+        if (!host && (page !== 'city' || !el.matches(DATA))) translateEl(el, tr);
       });
     });
     var tt = tr(document.title); if (tt != null) document.title = tt;

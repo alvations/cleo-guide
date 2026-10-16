@@ -278,15 +278,19 @@ async function reachable() {
 
 /**
  * Widths per class (W8 repo-size decision): heroes take --hero-widths; a guide's lead card and first-row sights (what a
- * visitor sees first) take --widths (500 + 960); every other card takes only the smallest card width (≈ 35 KB each).
+ * visitor sees first) take --widths plus the derived 720 (500 + 720 + 960, D-40 option a); every other card takes the
+ * smallest card width plus the derived 720 (500 + 720).
  */
 function widthsFor(t, o) {
   if (t.type === 'hero') return o.heroWidths;
-  return t.priority ? o.widths : [Math.min(...o.widths), DERIVED_W];
+  // a lead / first-row card also takes the 720 copy (D-40 option a): what a 3× phone loads, capped ≤ 55 KB by recompress
+  return t.priority ? [...new Set([...o.widths, DERIVED_W])].sort((a, b) => a - b) : [Math.min(...o.widths), DERIVED_W];
 }
 /** A card's ≈ 2× copy (D-40, ratified by QA): Commons serves no 720 px thumbnail, so it is derived on the runner from
  *  the 960 one (sharp), never kept at 960. Without sharp the card stays 500 w only. */
 const DERIVED_W = 720;
+/** "500", "500 and 960", "500, 720 and 960". */
+const widthList = ws => ws.length < 3 ? ws.join(' and ') : `${ws.slice(0, -1).join(', ')} and ${ws[ws.length - 1]}`;
 function loadSharp() {
   for (const base of [path.join(ROOT, 'tools'), process.cwd()]) { try { return require(require.resolve('sharp', { paths: [base] })); } catch (e) { /* next */ } }
   try { return require('sharp'); } catch (e) { return null; }
@@ -560,7 +564,7 @@ async function main() {
       sha1: ii.sha1,
       width: main.w, height: main.h,
       ...(variants.length ? { variants } : {}),
-      modified: `resized to ${out.map(v => v.w).join(' and ')} px wide${info.derived ? `; ${info.derived}` : ''}`,
+      modified: `resized to ${widthList(out.map(v => v.w))} px wide${info.derived ? `; ${info.derived}` : ''}`,
       fetched: today,
       confidence: c.confidence,
     });
@@ -609,4 +613,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { suspectFormat, DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { widthList, suspectFormat, DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
