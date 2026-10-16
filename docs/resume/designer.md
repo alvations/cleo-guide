@@ -71,6 +71,11 @@ Current rows:
    - Insights `.fn` footnotes are now `--fs-sm` (14 px).
    - QA has been told.
 9. **R3 #9/#14 focus rings** (2026-10-16): ruled one ring per card, from contract.css `.pl:has(.pl-n a:focus-visible)`, at −2 px in clipping containers. Asked FE-2 to drop the li tabindex ring inside Atlas, and asked FE-A to drop fe-a.css:291–292 (link plus `::after` rings) and the sheet.js "pin N" text (R3 #2). FE-2 fixed R3 #7 in e7986460 and is working on #8 next. **Closed:** FE-A's a3fd2d68 leaves the card ring as the only ring, and ad23309d (sheet.js) removes the pin numbers; both signed off. FE-A's detail focus change ba6bcc0f3 is signed off too. An optional nit, "All places" instead of "All 488 places", rides FE-A's next push.
+10. **SPEC-v3 rev 5a** (FE-1 conflicts, 2026-10-16):
+    - Phone search lives only in the header. The chip row is 48 px, the peek 56 px.
+    - That gives 75.4 % clear map (50.7 % at 200 %) and 14 controls above the first card, so B-03 passes.
+    - The kit `bag` and `spire` (no cross) are to be used. The spire is for churches only; synagogue, mosque and non-Japan temple fall through to the kind glyph.
+    - FE-1 has been told. I'm waiting on its head for the dot sign-off.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight
