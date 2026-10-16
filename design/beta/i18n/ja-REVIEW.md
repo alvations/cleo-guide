@@ -174,4 +174,30 @@ A fresh independent subagent kept all four drafts:
 - 検索をクリア follows 絞り込みをクリア;
 - この絞り込み follows `gb.count.m`.
 
-**Total: 55 changes over fourteen rounds.**
+## Round 15: QC-27, the guide's tiers are not ratings (19 keys changed, applied)
+
+**The problem:** QC found that ja called the guide's own tiers 評価, which reads as "rating". That contradicts the guide itself: the order line says "never by popularity", and the method page says "our own marks. They are not ratings".
+
+**The fix:**
+- Every place the tier is named now uses **ランク** (ランク付け, ランク順).
+  - 区分 was avoided because ins.mix.* already uses it for chart segments.
+  - 格付け was avoided because it means "rating".
+- Review-site star ratings stay **星評価**.
+- Keys changed to ランク: city.tray.tier, city.tray.tier.note, city.sort.guide, city.facts.order, city.how.t1, city.how.order, gal.sub.top, city.across.t, ins.cls.s, ins.tier.t, ins.tier.s, ins.tier.note, ins.tier.note.one, ins.p.cls, ins.p.tier, m.tiers.h and m.tiers.
+- foot.colophon now says "No ratings" as 星評価.
+
+**Review:** a fresh independent subagent confirmed that ランク reads as the guide's own grade and does not clash with 順位/番目. It found no remaining tier still called 評価, and it proposed the refinements below, all applied.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `gal.sub.top` | 最上位(エリアごとにランク付け) | 最上位ランク(エリアごとに判定) | 最上位 alone doesn't say "top tier". |
+| `ins.tier.t` | エリアごとのランクの段階 | エリア別のランク内訳 | The card counts places per tier; 段階 was stiff. |
+| `ins.tier.s` | …ランク別の数…ランクはエリアごとなので… | …ランク別の件数…ランクはエリアごとに付けているので… | Says "graded within each area" precisely. |
+| `ins.tier.note`, `.one`, `ins.p.tier` | …にはランクがなく… | …にはランクを付けておらず… | More natural for "carry no tier". |
+| `land.trust.src.p` | ミシュランかジェームズ・ビアードの評価が1つ | …のお墨付きが1つ | "Nod" means an endorsement; 評価 beside Michelin suggests a star rating. |
+
+**Result:** 評価 now appears in the ja interface only as 星評価.
+
+**FE-A's D-42 colophon (5d3dc985), reviewed in the same round and accepted as is:** `foot.colophon` reads …星評価・価格・営業時間を独自に付け加えることはありません。引用しているものは出典のもので、日付を添えています。 It mirrors the reviewed `city.how.order`, and it uses 星評価 for ratings.
+
+**Total: 74 changes over fifteen rounds.**

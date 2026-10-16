@@ -338,6 +338,14 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
       chk(`${key} ${vk}: #view=atlas&p= opens the detail with the place on the map`, r.sheet && r.inView, r);
       chk(`${key} ${vk} deep link: 0 page errors`, errors.length === 0, errors.slice(0, 2)); await ctx.close();
     }
+    // QC-05: a search with no match says so and offers "Clear search" / "Show all N"; clearing brings the places back
+    for (const [vk, vp] of [['390', M], ['1440', D]]) {
+      const { ctx, page, errors } = await open(browser, vp, url + '#view=atlas&q=zzqxjv', { tiles: 'stub', wait: 1500 });
+      const r = await page.evaluate(async () => { const t = () => document.querySelector('.ms-head .ms-count').textContent.trim(), b0 = !!document.querySelector('[data-ms-clear="q"]') && !!document.querySelector('[data-ms-clear="all"]'), t0 = t();
+        const b = document.querySelector('[data-ms-clear="q"]'); if (b) b.click(); await new Promise(r => setTimeout(r, 900)); return { t0, buttons: b0, t1: t() }; });
+      chk(`${key} ${vk}: a search with no match says so ("No places match …", Clear search, Show all N); Clear search restores the places`, /^No places match/.test(r.t0) && r.buttons && /\d+ places? here/.test(r.t1), r);
+      if (errors.length) chk(`${key} ${vk} empty search: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
+    }
   }
   await browser.close();
   fs.writeFileSync(path.join(OUT, 'probe.json'), JSON.stringify({ ok, states: R }, null, 1) + '\n');
