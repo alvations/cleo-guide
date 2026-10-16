@@ -13,6 +13,10 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- QC-33 (Med): deep-linked Guidebook / Insights load CLS 0.42–0.58 at 1440 → 0 (all 24 runs < 0.006; 390 stays 0). One
+  marked FE-B rule in fe-a.css: under html[data-view=guidebook|insights], #cleo-view:is([hidden],:empty) holds 100vh, so
+  the method section + footer first paint below the fold. Gate: tools/beta/feb-cls.js (wraps QC's qa/qc-view-cls.js,
+  exits 1 on CLS >= 0.1), in `npm run beta:probe:fe-b` and qa/perf08-regress.sh (platform told).
 - QC-32: lib/model.js pinSource() — a geocodes `source` carrying research notes (worklist, "verify before publish",
   UNVERIFIED, NOTE, ADDRESS CORRECTED) ships only its first URL or the publisher/method clause (21 of 8,702; the rest
   unchanged); the full note stays in data/geocodes.json. test-hubs scans all 466 shipped JSON files for the markers.

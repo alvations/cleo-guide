@@ -671,6 +671,10 @@ html.ph-fade main[data-city] figure.photo.in::before{opacity:0}
 html.ph-fade .view-gallery li.gc .cover.has-ph[style*="--ph"]::before{content:"";display:block;position:absolute;inset:0;z-index:2;background:var(--ph);pointer-events:none;transition:opacity 280ms var(--ease-out)}
 html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
 /* 2. Switching views: the switcher's selection slides to the new view (desktop pill row), and the page content fades in */
+/* FE-B QC-33: a deep link into Guidebook / Insights painted the About + method section and the footer first, then the view
+   mounted above them and pushed them down (load CLS 0.42–0.58 at 1440). Until the view host has content, it holds one
+   viewport of room (data-view is set from the hash in <head>, before first paint), so they first paint below the fold. */
+html:is([data-view=guidebook],[data-view=insights]) main[data-city]>#cleo-view:is([hidden],:empty){display:block!important;min-height:100vh}
 /* FE-B QC-18: the thumb works wherever the switcher lives (the Atlas parks it in the header, outside <main>): it is
    positioned against its containing block by city.js, and the switcher is its own stacking context so it paints above the track */
 html .views[data-cleo-views] .v-ind{display:none}
