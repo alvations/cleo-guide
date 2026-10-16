@@ -46,6 +46,7 @@ const CHECKS = {
   'P-17': 'No-place badge', 'P-18': 'Charts as filters', 'P-19': 'Chart table', 'P-20': 'Every chart accounts for all records',
   'P-21': 'Drawer n of N', 'P-22': 'Drawer prev / next', 'P-23': 'Pages, numbers, all N, show-all', 'P-24': 'No silent caps',
   'P-25': 'No value-led ranking', 'P-26': 'No invented data', 'P-27': 'Lens yields to a deep link', 'P-28': 'Show all N clears every lens',
+  'P-29': 'Cold load opens Atlas, switcher Atlas first (D-46)', 'P-30': 'A stored Gallery choice still wins (D-46)', 'P-31': 'Map library blocked: the Atlas list shows at once (D-46)',
   'J-01': 'Discover → shortlist → plan a day → share → reopen', 'J-01h': 'Discover from a hub', 'J-02': 'Best food near X',
   'J-03': 'Is it still open? (closure honesty)', 'J-04': 'Who recommends this and why?', 'J-05': 'Switch views without losing context',
   'J-06': 'Back and Forward', 'J-07': 'Keyboard only', 'J-08': '200 % zoom', 'J-09': 'Reduced motion', 'J-10': 'Map library blocked',
@@ -123,6 +124,23 @@ const NO_STORAGE = () => {
   }
 };
 const PREF = v => { try { localStorage.setItem('cleo:v1:view', JSON.stringify(v)); } catch (e) { /* ignore */ } };
+// D-46 probes. FIRSTPAINT: the view the document carries at its first animation frame (before the first paint) and at
+// DOMContentLoaded. FIRSTCARD: when the first place card is on screen in the list (Atlas list, peek tray or Gallery).
+const FIRSTPAINT = () => { requestAnimationFrame(() => { window.__v0 = document.documentElement.getAttribute('data-view'); });
+  document.addEventListener('DOMContentLoaded', () => { window.__vDCL = document.documentElement.getAttribute('data-view'); }); };
+const FIRSTCARD = () => { const tick = () => { const c = [...document.querySelectorAll('li.pl[id], li[data-id]')].find(e => { const r = e.getBoundingClientRect();
+    return r.height > 0 && r.width > 0 && r.top < innerHeight && r.bottom > 0 && getComputedStyle(e).visibility !== 'hidden' && !e.closest('[hidden]'); });
+  if (c) { window.__card = { t: Math.round(performance.now()), view: document.documentElement.getAttribute('data-view'), id: c.id || c.getAttribute('data-id'), name: (c.querySelector('.pl-n, h3, h2') || c).textContent.trim().slice(0, 40) }; return; }
+  if (performance.now() < 8000) requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
+const ORDER = ['atlas', 'gallery', 'guidebook', 'insights'];
+// phone Atlas (D-36 map-first): the list sits behind .ms-toggle ("Show list"); open it before measuring the list (html.ms-list)
+async function atlasList(page) {
+  if (await page.evaluate(() => document.documentElement.classList.contains('ms-list')).catch(() => true)) return false;
+  const t = page.locator('.ms-toggle').filter({ visible: true }).first();
+  if (!(await t.count())) return false; await t.click().catch(() => {}); await page.waitForTimeout(700); return true;
+}   // D-46 switcher order
+// D-46: the page's declared default view (views.js: info.dv, else Atlas). Probes compare against it instead of assuming one.
+const declared = page => page.evaluate(() => (window.Cleo && Cleo.city && Cleo.city.info && Cleo.city.info.dv) || 'atlas').catch(() => 'atlas');
 const SHARE_STUB = () => {
   window.__shared = [];
   const cap = d => { window.__shared.push(typeof d === 'string' ? d : (d && d.url) || ''); return Promise.resolve(); };
@@ -149,6 +167,7 @@ async function open(rel, vp, o = {}) {
   await ctx.addInitScript(CLS);
   if (o.noStorage) await ctx.addInitScript(NO_STORAGE);
   if (o.pref) await ctx.addInitScript(PREF, o.pref);
+  if (o.init) await ctx.addInitScript(o.init);
   const page = await ctx.newPage();
   const st = { errors: [] };
   const origin = new URL(base).origin;
@@ -255,11 +274,12 @@ async function patterns(rel, vp) {
   const otherPref = 'insights';
   // P-01 … P-04 on a cold load
   let { ctx, page, st } = await open(rel, vp);
-  let s = await page.evaluate(STATE);
-  check('P-01', C, ok(s.nav && s.nav.vis && /group/.test(s.nav.role || '') && JSON.stringify(s.nav.labels) === JSON.stringify(LABELS) && s.nav.pressed.length === 1 && s.nav.h.every(h => h >= 44)), s.nav);
+  let s = await page.evaluate(STATE); const DEF = await declared(page);
+  // P-01: the four segments, one pressed (their ORDER is D-46's, checked in P-29)
+  check('P-01', C, ok(s.nav && s.nav.vis && /group/.test(s.nav.role || '') && JSON.stringify([...s.nav.labels].sort()) === JSON.stringify([...LABELS].sort()) && s.nav.pressed.length === 1 && s.nav.h.every(h => h >= 44)), s.nav);
   check('P-04', { ...C, sub: 'cold' }, ok(!s.hash || s.hash === '#'), { hash: s.hash });
   const sw = []; let focusOk = 0, announce = 0;
-  for (const v of ['atlas', 'guidebook', 'insights', 'gallery']) {
+  for (const v of VIEWS.filter(x => x !== DEF).concat(DEF)) {   // end on the default: its hash must omit view=
     const did = await switchTo(page, v); const t = await page.evaluate(STATE); if (did > 1) sw.taps = (sw.taps || 0) + 1;
     const focus = await page.evaluate(() => { const a = document.activeElement; const live = [...document.querySelectorAll('[aria-live]')].map(l => l.textContent.trim()).filter(Boolean).join(' | ');
       return { tag: a && a.tagName, heading: !!(a && (/^H[1-3]$/.test(a.tagName) || a.matches('[tabindex="-1"]'))), live: live.slice(0, 200) }; });
@@ -268,7 +288,33 @@ async function patterns(rel, vp) {
   }
   check('P-02', C, ok(sw.every(x => x.did && x.view === x.v && x.pressed === x.v)), { switches: sw, collapsedNeedsExtraTap: sw.taps || 0 });
   check('P-03', C, focusOk === 4 && announce === 4 ? 'PASS' : focusOk + announce >= 4 ? 'WARN' : 'FAIL', { focusOnHeading: focusOk + '/4', announced: announce + '/4', sw: sw.map(x => x.focus + ':' + x.live) });
-  check('P-04', { ...C, sub: 'back to gallery' }, ok(!/view=/.test(sw[3].hash)), { hash: sw[3].hash });
+  check('P-04', { ...C, sub: 'back to ' + DEF }, ok(!/view=/.test(sw[3].hash)), { hash: sw[3].hash, declared: DEF });
+  // P-29 / P-30 / P-31 (D-46, owner 2026-10-16): Atlas is the default; a stored choice still wins; the list never waits on the map
+  {
+    const o = await open(rel, vp, { init: FIRSTPAINT, noStorage: false, settle: 1500 });
+    const r = await o.page.evaluate(() => ({ v0: window.__v0, vDCL: window.__vDCL, view: document.documentElement.getAttribute('data-view'), hash: location.hash, cls: window.__cls,
+      orders: [...document.querySelectorAll('[data-cleo-views]')].map(n => [...n.querySelectorAll('button[data-view]')].map(b => b.getAttribute('data-view'))),
+      pressed: [...document.querySelectorAll('[data-cleo-views] button[aria-pressed=true]')].map(b => b.getAttribute('data-view')) }));
+    r.declared = await declared(o.page); if (o.st.errors.length) r.errors = o.st.errors.slice(0, 2);
+    const orderOk = r.orders.length > 0 && r.orders.every(x => JSON.stringify(x.filter(v => ORDER.includes(v))) === JSON.stringify(ORDER.filter(v => x.includes(v))) && x[0] === 'atlas');
+    check('P-29', C, ok(r.v0 === 'atlas' && r.view === 'atlas' && !r.hash && orderOk && r.pressed.length && r.pressed.every(v => v === 'atlas') && !(r.cls > 0.001) && !o.st.errors.length), r);
+    await o.ctx.close();
+    // P-30: the reader picks Gallery with the switcher, then comes back with no hash: the stored choice wins over the default
+    const o2 = await open(rel, vp, { settle: 1200 }); const did = await switchTo(o2.page, 'gallery'); await o2.page.waitForTimeout(500);
+    await o2.page.goto(base + 'beta/' + rel, { waitUntil: 'load' }).catch(() => {}); await o2.page.waitForTimeout(1200);
+    const t2 = await o2.page.evaluate(STATE);
+    check('P-30', C, ok(did && t2.view === 'gallery' && !(t2.hash || '').includes('view=') && !o2.st.errors.length), { switched: !!did, back: t2.view, hash: t2.hash, declared: r.declared });
+    await o2.ctx.close();
+    // P-31: map library (and fonts, tiles) blocked: a place card is on screen in the Atlas list within 1.5 s, cold and by link
+    const runs = [];
+    for (const h of ['', '#view=atlas']) {
+      const o3 = await open(rel, vp, { hash: h, hard: true, init: FIRSTCARD, settle: 2500 });
+      const c = await o3.page.evaluate(() => ({ card: window.__card || null, view: document.documentElement.getAttribute('data-view') }));
+      runs.push({ hash: h || '(none)', ...c, errors: o3.st.errors.filter(e => !/leaflet|L is not defined/i.test(e)).slice(0, 2) });
+      await o3.ctx.close();
+    }
+    check('P-31', C, ok(runs.every(x => x.view === 'atlas' && x.card && x.card.view === 'atlas' && x.card.t <= 1500 && !x.errors.length)), { runs, declared: r.declared });
+  }
   // P-23 / P-24 Gallery pager
   const pager = await page.evaluate(new Function(`${P_VIS} const p = [...document.querySelectorAll('.g-pager, [class*=pager]')].find(vis); if (!p) return null;
     const nums = [...p.querySelectorAll('a,button')].map(b => ({ t: b.textContent.trim(), dis: b.disabled || b.getAttribute('aria-disabled') === 'true', cur: b.getAttribute('aria-current') }));
@@ -286,6 +332,7 @@ async function patterns(rel, vp) {
   const reach = {}; const lines = {};
   for (const v of VIEWS) {
     await page.evaluate(h => { location.hash = h; }, v === 'gallery' ? 'view=gallery&all=1' : 'view=' + v); await page.waitForTimeout(900);
+    if (v === 'atlas') await atlasList(page);
     if (v === 'atlas') { const b = page.locator('.ms-pager button, .ms-more button').filter({ hasText: /show all|all \d/i }).first(); if (await b.count()) { await b.click().catch(() => {}); await page.waitForTimeout(700); } }
     const ids = await page.evaluate(REACH, v); const extra = ids.filter(i => !T.P.some(p => p.id === i));
     reach[v] = { n: ids.length, extra: extra.slice(0, 5) };
@@ -302,11 +349,11 @@ async function patterns(rel, vp) {
     const want = T.count(L); const per = {};
     for (const v of VIEWS) {
       const h = Object.entries({ ...L, view: v }).filter(([, x]) => x).map(([k, x]) => k + '=' + x).join('&');
-      await page.evaluate(x => { location.hash = x; }, h); await page.waitForTimeout(800);
+      await page.evaluate(x => { location.hash = x; }, h); await page.waitForTimeout(800); if (v === 'atlas') await atlasList(page);
       const cl = (await page.evaluate(COUNTS)).filter(x => x.kind !== 'pos');
       per[v] = cl.map(x => x.n + (x.total != null ? '/' + x.total : '') + ' ' + x.kind);
       per[v].ok = cl.length > 0 && cl.some(x => x.n === want);
-      per[v].bad = cl.filter(x => x.n !== want && x.kind !== 'mapArea').map(x => x.text);
+      per[v].bad = cl.filter(x => x.n !== want && x.kind !== 'mapArea' && !(x.kind === 'nOfN' && x.total === want)).map(x => x.text);   // "4 of 42 places have closed" with 42 = the lens: a subset, consistent
       per[v].map = cl.filter(x => x.kind === 'mapArea').map(x => x.text);
     }
     const allOk = VIEWS.every(v => per[v].ok && !per[v].bad.length);
@@ -317,8 +364,8 @@ async function patterns(rel, vp) {
   await ctx.close();
   ({ ctx, page, st } = await open(rel, vp, { hash: '#view=zzz&t=9&a=NOPE&pg=0&mode=x&closed=2&all=yes&src=%3Cscript%3E' }));
   s = await page.evaluate(STATE);
-  check('P-05', C, ok(!st.errors.length && s.view === 'gallery' && !/zzz|t=9|NOPE|pg=0|mode=x|closed=2|all=yes|script/i.test(s.hash) && s.histLen <= 2),
-    { view: s.view, hash: s.hash, histLen: s.histLen, errors: st.errors.slice(0, 3) });
+  check('P-05', C, ok(!st.errors.length && s.view === DEF && !/zzz|t=9|NOPE|pg=0|mode=x|closed=2|all=yes|script/i.test(s.hash) && s.histLen <= 2),
+    { view: s.view, declared: DEF, hash: s.hash, histLen: s.histLen, errors: st.errors.slice(0, 3) });
   await ctx.close();
   ({ ctx, page, st } = await open(rel, vp, { hash: '#p=no-such-place-zz' }));
   s = await page.evaluate(STATE); const r6 = (await page.evaluate(REACH, s.view)).length;
@@ -327,14 +374,16 @@ async function patterns(rel, vp) {
   // P-07 … P-11 round trips in a fresh context whose stored view preference differs
   const top = T.P.find(p => !T.isClosed(p)) || T.P[0];
   const trips = [];
-  for (const v of VIEWS) trips.push({ id: 'P-07', hash: v === 'gallery' ? '' : '#view=' + v, pref: v === 'gallery' ? otherPref : 'gallery', expect: { view: v } });
+  for (const v of VIEWS) trips.push({ id: 'P-07', hash: v === DEF ? '' : '#view=' + v, pref: v === DEF ? otherPref : DEF, expect: { view: v } });
   const lensKeys = { a: firstArea, t: '1', mode: 'food', c: (T.d.collections || [])[0] && T.d.collections[0].id, cz: (T.d.cuisines || [])[0] && T.d.cuisines[0].id,
     src: (top.src || [])[0], closed: T.closed.length ? '1' : null, q: (top.n || '').split(/[\s(]/)[0] };
   for (const [k, x] of Object.entries(lensKeys)) if (x) trips.push({ id: 'P-08', hash: '#view=atlas&' + k + '=' + encodeURIComponent(x), pref: 'gallery', expect: { view: 'atlas', lens: { [k]: x } } });
-  for (const v of VIEWS) trips.push({ id: 'P-09', hash: '#view=' + v + '&p=' + top.id, pref: v === 'gallery' ? otherPref : 'gallery', expect: { view: v, p: top.id } });
+  for (const v of VIEWS) trips.push({ id: 'P-09', hash: '#view=' + v + '&p=' + top.id, pref: v === DEF ? otherPref : DEF, expect: { view: v, p: top.id } });
   const pages = Math.ceil(T.N / (vp === 390 ? 24 : 48));
-  if (pages > 1) trips.push({ id: 'P-11', hash: '#pg=' + pages, pref: null, expect: { view: 'gallery', range: true } });
-  trips.push({ id: 'P-11', hash: '#all=1', pref: null, expect: { view: 'gallery', shown: T.N } });
+  if (pages > 1) trips.push({ id: 'P-11', hash: '#view=gallery&pg=' + pages, pref: null, expect: { view: 'gallery', range: true } });
+  trips.push({ id: 'P-11', hash: '#view=gallery&all=1', pref: null, expect: { view: 'gallery', shown: T.N } });
+  // the pre-D-46 address-bar forms (Gallery was the default, so view= was omitted): reported, WARN if they no longer open the Gallery
+  if (DEF !== 'gallery') { if (pages > 1) trips.push({ id: 'P-11', hash: '#pg=' + pages, pref: null, legacy: true, expect: { view: 'gallery', range: true } }); trips.push({ id: 'P-11', hash: '#all=1', pref: null, legacy: true, expect: { view: 'gallery', shown: T.N } }); }
   for (const tr of trips) {
     const o = await open(rel, vp, { hash: tr.hash, pref: tr.pref, settle: 1000 });
     const t = await o.page.evaluate(STATE); const ev = { hash: tr.hash, got: { view: t.view, hash: t.hash, sheet: t.sheet && t.sheet.title } };
@@ -351,7 +400,8 @@ async function patterns(rel, vp) {
     if (tr.expect.range) { const cl = await o.page.evaluate(COUNTS); ev.stated = cl.map(c => c.text).slice(0, 2); good = good && cl.some(c => c.kind === 'range'); }
     if (tr.expect.shown) { const n = (await o.page.evaluate(REACH, 'gallery')).length; ev.shown = n; good = good && n === tr.expect.shown; }
     if (o.st.errors.length) ev.errors = o.st.errors.slice(0, 2);
-    if (tr.id === 'P-07' && !tr.hash && !good) { ev.note = 'the address-bar URL of the default view omits view=, so the receiver\'s stored view wins; Share writes view= (P-12)'; check(tr.id, { ...C, sub: '(gallery, no hash)' }, 'WARN', ev); }
+    if (tr.id === 'P-07' && !tr.hash && !good) { ev.note = 'the address-bar URL of the default view omits view=, so the receiver\'s stored view wins; Share writes view= (P-12)'; check(tr.id, { ...C, sub: '(' + DEF + ', no hash)' }, 'WARN', ev); }
+    else if (tr.legacy && !good) { ev.note = 'a pre-D-46 Gallery address-bar link (no view=) now opens ' + t.view; check(tr.id, { ...C, sub: tr.hash + ' (legacy)' }, 'WARN', ev); }
     else check(tr.id, { ...C, sub: tr.hash }, ok(good), ev);
     await o.ctx.close();
   }
@@ -419,7 +469,7 @@ async function patterns(rel, vp) {
   for (const [v, L] of [['gallery', {}], ['atlas', { a: firstArea }], ['guidebook', {}], ['insights', { mode: 'food' }]]) {
     const want = T.count(L); const inLens = T.P.filter(p => T.count({ ...L }) && (!L.a || p.a === L.a) && (!L.mode || (L.mode === 'food') === (p.kind === 'food')));
     const first = inLens[0] || top;
-    const hash = '#' + Object.entries({ view: v === 'gallery' ? '' : v, ...L, p: first.id }).filter(([, x]) => x).map(([k, x]) => k + '=' + x).join('&');
+    const hash = '#' + Object.entries({ view: v === DEF ? '' : v, ...L, p: first.id }).filter(([, x]) => x).map(([k, x]) => k + '=' + x).join('&');
     const o = await open(rel, vp, { hash, settle: 1000 }); const t = await o.page.evaluate(STATE);
     const m = t.sheet && /(\d+)\s+of\s+(\d+)/.exec(t.sheet.pos || '');
     check('P-21', { ...C, view: v, lens: JSON.stringify(L) }, ok(m && +m[2] === want), { pos: t.sheet && t.sheet.pos, want });
@@ -428,10 +478,10 @@ async function patterns(rel, vp) {
     if (await nx.count()) { const before = t.route && t.route.p; await nx.click().catch(() => {}); await o.page.waitForTimeout(600); const t2 = await o.page.evaluate(STATE);
       const m2 = t2.sheet && /(\d+)\s+of/.exec(t2.sheet.pos || ''); p22 = { before, after: t2.route && t2.route.p, pos: t2.sheet && t2.sheet.pos, next: !!(m && m2 && +m2[1] === +m[1] + 1 && t2.route.p !== before) }; }
     check('P-22', { ...C, view: v }, ok(p22.next), p22);
-    if (v === 'gallery') {
+    if (v === DEF) {   // Share from the default view still writes view= (links stay stable if the default changes again)
       const sh = o.page.locator('[role=dialog] [data-sh=share]').filter({ visible: true }).first(); const openP = (await o.page.evaluate(STATE)).route.p;
       if (await sh.count()) { await sh.click().catch(() => {}); await o.page.waitForTimeout(400); const got = await o.page.evaluate(() => window.__shared.slice(-1)[0] || '');
-        check('P-12', C, ok(/[#&]view=gallery/.test(got) && got.includes('p=' + openP)), { shared: got, open: openP }); }
+        check('P-12', C, ok(new RegExp('[#&]view=' + DEF).test(got) && got.includes('p=' + openP)), { shared: got, open: openP, declared: DEF }); }
       else check('P-12', C, 'FAIL', 'no Share in the sheet');
     }
     await o.ctx.close();
@@ -575,7 +625,7 @@ async function journeysCity(rel, vp, theme) {
   else {
     const cp = T.closed[0]; const fr = []; const per = {};
     for (const v of VIEWS) {
-      const o = await open(rel, vp, { theme, hash: (v === 'gallery' ? '#all=1' : '#view=' + v), settle: 900 });
+      const o = await open(rel, vp, { theme, hash: (v === 'gallery' ? '#view=gallery&all=1' : '#view=' + v), settle: 900 });
       if (v === 'atlas') { const b = o.page.locator('.ms-pager button, .ms-more button').filter({ hasText: /show all|all \d/i }).first(); if (await b.count()) await b.click().catch(() => {}); }
       per[v] = await o.page.evaluate(new Function('id', `${P_VIS} if (window.Cleo && Cleo.defer) Cleo.defer.all();
         const all = [...document.querySelectorAll('#p-' + CSS.escape(id) + ', [data-id="' + id + '"], #gb-' + CSS.escape(id))]; const el = all.find(vis) || all[0];
@@ -639,8 +689,8 @@ async function journeysCity(rel, vp, theme) {
   }
   // J-06 Back and Forward
   {
-    const fr = []; const { ctx, page } = await open(rel, vp, { theme }); const seq = [];
-    await switchTo(page, 'atlas'); seq.push(await page.evaluate(STATE));
+    const fr = []; const { ctx, page } = await open(rel, vp, { theme }); const seq = []; const DEF = await declared(page);
+    await switchTo(page, DEF === 'atlas' ? 'gallery' : 'atlas'); seq.push(await page.evaluate(STATE));
     const chip = page.locator('[data-mode=sights]').filter({ visible: true }).first();
     if (await chip.count()) await chip.click().catch(() => {}); else await page.evaluate(() => { location.hash = location.hash + '&mode=sights'; });
     await page.waitForTimeout(600); seq.push(await page.evaluate(STATE));
@@ -651,7 +701,7 @@ async function journeysCity(rel, vp, theme) {
     const fwd = [];
     for (let i = 0; i < 3; i++) { await page.goForward({ timeout: 4000 }).catch(() => {}); await page.waitForTimeout(600); fwd.push(await page.evaluate(STATE).catch(() => ({ view: 'LEFT PAGE' }))); }
     const sum = x => ({ view: x.view, mode: x.route && x.route.mode, sheet: !!x.sheet });
-    const ex = [sum(seq[1]), sum(seq[0]), { view: 'gallery', mode: undefined, sheet: false }];
+    const ex = [sum(seq[1]), sum(seq[0]), { view: DEF, mode: undefined, sheet: false }];
     back.forEach((b, i) => { const s = sum(b); if (s.view !== ex[i].view || s.mode !== ex[i].mode || s.sheet !== ex[i].sheet) fr.push(`Back ${i + 1}: got ${JSON.stringify(s)}, want ${JSON.stringify(ex[i])}`); });
     const exf = [sum(seq[0]), sum(seq[1]), sum(seq[2])];
     fwd.forEach((b, i) => { const s = sum(b); if (s.view !== exf[i].view || s.mode !== exf[i].mode || s.sheet !== exf[i].sheet) fr.push(`Forward ${i + 1}: got ${JSON.stringify(s)}, want ${JSON.stringify(exf[i])}`); });
@@ -994,12 +1044,20 @@ async function componentStates(rel, vp) {
   ['hover', 'focus', 'pressed'].forEach(k => { if (ev[k] === false) fr.push(k + ' style identical to rest'); });
   if (ev.disabled && ev.disabled.focusable) fr.push('disabled pager control is focusable');
   await ctx.close();
-  // empty
-  const o1 = await open(rel, vp, { hash: '#q=zzqxjv' }); ev.empty = await o1.page.evaluate(new Function(`${P_VIS} const t = document.body.innerText; const m = /no (places|matches|results)[^\\n]{0,80}|nothing (matches|found)[^\\n]{0,80}/i.exec(t);
-    const host = [...document.querySelectorAll('.view-host, .g-rows, .pager, .ms-head, main')].find(vis);
-    return { said: host ? host.innerText.replace(/\\s+/g, ' ').slice(0, 160) : '', msg: m ? m[0].slice(0, 100) : null, action: [...document.querySelectorAll('button,a')].filter(vis).some(b => /show all|clear|reset/i.test(b.textContent)) };`));
-  if (!ev.empty.msg) fr.push('no empty-state message for q= with no match'); if (!ev.empty.action) fr.push('empty state offers no clear / show-all');
-  await o1.ctx.close();
+  // empty: every view, since each has its own empty state (Gallery [data-cleo-empty], Atlas .ms-head, Guidebook's summary
+  // line "0 of all N places match"). On a phone the Atlas says so in the peek tray and offers "Show the list" first: follow it.
+  ev.empty = {};
+  for (const v of ['gallery', 'atlas', 'guidebook']) {
+    const o1 = await open(rel, vp, { hash: '#view=' + v + '&q=zzqxjv' });
+    const probe = new Function(`${P_VIS} const t = document.body.innerText; const m = /no (places|matches|results)[^\\n]{0,80}|nothing (matches|found)[^\\n]{0,80}|\\b0 of (all )?\\d+ places? match[^\\n]{0,40}/i.exec(t);
+      const host = [...document.querySelectorAll('.view-host, .g-rows, .pager, .ms-head, main')].find(vis);
+      return { said: host ? host.innerText.replace(/\\s+/g, ' ').slice(0, 160) : '', msg: m ? m[0].slice(0, 100) : null, action: [...document.querySelectorAll('button,a')].filter(vis).some(b => /show all|clear|reset/i.test(b.textContent)) };`);
+    let e = await o1.page.evaluate(probe);
+    if (!e.action) { const s = o1.page.getByText(/show the list/i).first(); if (await s.isVisible().catch(() => false)) { await s.click(); await o1.page.waitForTimeout(800); e = { ...(await o1.page.evaluate(probe)), via: 'Show the list' }; } }
+    ev.empty[v] = e;
+    if (!e.msg) fr.push(v + ': no empty-state message for q= with no match'); if (!e.action) fr.push(v + ': empty state offers no clear / show-all');
+    await o1.ctx.close();
+  }
   // loading: delay the page JSON 2.5 s and look at Insights at 600 ms
   const o2 = await open(rel, vp, { hash: '#view=insights', settle: 600, route: async (route, u) => { if (/\/data\/places\//.test(u)) { await new Promise(r => setTimeout(r, 2500)); await route.continue().catch(() => {}); return true; } return false; } });
   ev.loading = await o2.page.evaluate(() => ({ busy: !!document.querySelector('[aria-busy=true]'), text: (/loading|counting|drawing|one moment/i.exec(document.body.innerText) || [null])[0] }));

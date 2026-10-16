@@ -27,6 +27,10 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
   views.js): a3da0b4b.
 
 ## Next
+0. D-46 (Atlas becomes the default view; FE-A flips `DV` in lib/render/city.js): atlas-nav-ms "D-46" checks are in and SKIP
+   until the page's dv is atlas. Simulated in a worktree (DV='atlas' on origin 7954c6eb): 28/28 PASS (bare URL lands in
+   Atlas with only #at= written; card → detail → Esc/Back from a bare URL keeps the view; a #at= link without view= reopens
+   ≤ 1 px), and the rest of atlas-nav-ms passes. Re-run on the real flip and on FE-1's R4 head.
 1. Round 4: FE-1 declares it on a head that carries everything below (66c2a8e1 does; atlas-nav-ms PASS there) once the
    designer signs off the dots. If the SHA moves, re-run `node tools/beta/atlas-nav-ms.js` on it first.
 2. R3 #8: the guards pass; the phone pill after a zoom reads "351 places here" with 43 in view. That's FE-1's copy, raised

@@ -2051,6 +2051,14 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - a46f6ec7, W8-I18N-SEARCH.
 - **Budget:** Cleveland eager JS is at 39.97/40 KB. Platform is moving the offline-pack UI behind Cleo.need (about 1 KB).
 
+## FE-A — QC-31, fe-a.css raw colours to tokens (2026-10-16)
+- fe-a.css source has no raw colours left:
+  - 4 × `var(--surface,#fff)` → `var(--surface)` and 3 × `var(--paper,#fff)` → `var(--paper)` (tokens.css defines both, in both themes);
+  - the QA-59a name mask `linear-gradient(#000,#000)` → `linear-gradient(var(--mask),var(--mask))`, on both the mask and -webkit-mask declarations.
+- The rest of the census is in atlas.css, which is Atlas's (off-limits to FE-A); reported to Atlas FE-1:
+  - `rgba(0,0,0,.7)` text-shadow → `--shade-text-strong`;
+  - the `.ms-handle` 2 px radius and a 1 px radius → `--r-xxs`.
+- Gate note: `qa/offline-pack.js`'s desktop "Map unavailable" check is timing-flaky after any fe-a.css change (a no-op rule fails 2/6, HEAD 10/10). It reads after a fixed 4 s sleep, and the first runs after a rebuild start cold. Reported to platform with a condition-wait suggestion. npm test was green on this tree before the push.
 ## 2026-10-16 · FE-1 · Atlas pre-R4: B-20 source chip, one QC-05 empty state, chip overflow, rev 5a chrome, glyphs, dark dots
 
 - **B-20 (orchestrator 1):** my rev 5 16 px source rule set `line-height:1.4` on `button.src`, which overrode FE-A's 28 px line and made the chip 38–40 px tall. Atlas now keeps the 28 px line (28 + 2 × 8 px padding = 44 px; the painted chip is unchanged). Measured at 390 on Tokyo: every source chip is 44 px.
@@ -2094,9 +2102,28 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - PR alvations/cleo-guide#9 merged b54b3745 into the Pages branch with expectedHeadSha (merge 4382a187), and the Pages build started 21:33Z.
 - beta-deploy-r7 merged back into dev with `-s ours` (beef84ec): every ported commit is already on dev.
 - The changelog entry is added. Next: the R8 evaluator, and the PERF-08 "go" to platform.
+- **D-43 (designer declined a third dot state):** at 7 px an outlined dot reads as the closed hollow dot, so a low-confidence pin draws like any other dot. The Atlas preview now carries FE-C's card label "Approximate pin" (`sheet.pin.approx`), so there is one string; the detail already says so (sheet.js). Low pins per pilot, from data/geocodes.json: Cleveland 1, Tokyo 0, New York 0, Chinatown 0, Wheeling 0 (Singapore as a whole: 4). Sent to the orchestrator for the 4b re-verify pass.
 
 ## 2026-10-16 21:46Z · orchestrator: owner decision D-46
 
 - The owner said: "Let's make atlas the default view then the list. That will differentiate us from our competitors."
 - Recorded as D-46 (2c44f676). Atlas becomes the default; the switcher order is Atlas, Gallery, Guidebook, Insights.
 - Routed to FE-A (lead), platform, FE-1/FE-2, QA, QC and the designer. It ships in the next release with Atlas rev 5.
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · PERF-18: the ja side of Platform's build-rendered lead card (option (c), proposed to Platform and the orchestrator).
+  - **locale.js:** re-says every `[data-l10n]` phrase (key, plus `data-l10n-v` JSON values) in the loaded catalogue at the start of the swap, inside the paint hold. It works even inside a client-drawn container such as `.g-lead-card`. Values fill in as text, never as HTML. An unknown key or bad JSON leaves the English in place.
+  - **Helper:** `common.l10nSpan(key, vars, tag)` renders the English with those attributes.
+  - **Inert for now:** nothing emits `data-l10n` yet. Platform's card (`tools/beta/lib/lead-card.js`) stays OFF until it uses `l10nSpan` and passes the Tokyo runtime pseudo check.
+  - **Tests:** test-i18n covers the helper output and the runtime re-say, including the unknown-key and bad-JSON cases.
+
+## 2026-10-16 21:52Z · orchestrator check-in
+
+- The dev head b1a7fc6e is gated green (validate, npm test alone, beta:check; w2 dom 12/12).
+- The r7 deploy is live (4382a187). The R8 evaluator is running.
+- Atlas: real shots R4b committed on ffbb225a. R4 is held for D-46 and the dark-dot re-sign.
+- Platform: Tokyo phone LCP diagnosed (the Gallery lead card, 3.1 s). A build-time card brings it to 0.98 s; it's off pending i18n's (c) hook. Under D-46 the LCP target moves to the Atlas default, and platform measures that next.
+
+## 2026-10-16 22:10Z · orchestrator
+
+- **INP regression on dev:** desktop switch → Atlas is 21 s (it was 0.7 s), and filters are about 2× slower. The suspect is 797258c2, Atlas rev 5's one ranked list. It is not in the live r7.
+- FE-1/FE-2 are fixing it at top priority. Platform is bisecting and adding a regression guard. It blocks the r8 pin and D-46.
+- QC-34 is fixed (76957fa1). FE-A got the stale-search item, where clearing the hash keeps the S.q search.
