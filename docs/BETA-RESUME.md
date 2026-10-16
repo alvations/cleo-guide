@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 13:50Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 13:55Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -30,12 +30,10 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- **Step 1:** QA runs the R7 re-sign rows on the pinned **`be74c82f2680009c726ac8ac54731ef97773dfb8`**. validate, npm
-  test and beta:check are green on it.
-- **Step 2:** **QC-01 (High, FE-B)** is the only open High, and it blocks a YES. When FE-B pushes the fix:
-  1. pin a new head that contains it;
-  2. QA verifies QC-01 plus a delta check (the gates, plus any re-sign row whose files changed between the SHAs);
-  3. YES/NO on that head.
+- **Deploy candidate: `2bfff3fe9886d1939e5b3994fb0bc329d2b62175`.** It is be74c82f plus FE-B's QC-01/02/03/10 (68b442c0).
+  validate, npm test and beta:check are green on it.
+  - QA (asked 13:55Z): R7 rows, QC-01, and a delta check of be74c82f..2bfff3fe, then YES/NO on 2bfff3fe.
+  - QC is verifying QC-02/03/10 in parallel.
 - **On YES:**
   1. `git push origin <sha>:refs/heads/beta-deploy-r7`;
   2. a PR into `claude/cleveland-page-creation-pant4l`;
