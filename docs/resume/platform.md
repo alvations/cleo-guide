@@ -21,6 +21,8 @@ plural (i18n).
 - D-40a `cardSizes()` (600–799 w copy → 240px on 3× phones): 3a0ecfec. w8p Tokyo phone 651 KB, Atlas 567 KB.
 - QC-12 (1440 top-bar CLS): 91/91 S-12 PASS on 3a0ecfec, max 0.0044 (evidence design/beta/eval/qc/qc12-3a0ecfec/).
 - Lint tools/beta/test-css-has.js committed unwired (7110b59b); no allowlist (designer eddbb7b0 removed theirs).
+- sync-push.sh: a clean merge's rebuilt beta/ is committed; dirty beta/ never pushes (exit 6); test-sync-push.js: a9ed1e0f.
+- R8 measurement kit: design/beta/eval/r8/README.md (+ r8/tools/pair.py).
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).
 
 ## Next
