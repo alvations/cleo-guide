@@ -37,7 +37,12 @@ Current rows:
 
 ## Next
 
-1. **QC-14 follow-up.** FE-B is done: fe-b.css 38f57e81, and a re-run of the tool finds 0. FE-A (fe-a.css, 118) and FE-1 (atlas.css, 42) were asked to run `python3 design/beta/tools/snap-spacing.py <file>` *after* their priority rows. Re-measure each lane's file when it pushes. Once all three are at 0, tell the R7 QA lane (session_017FLWXa5zgGWvqNo4C3UsvH) that QC-14 is ready to verify.
+1. **QC-14 follow-up.** Re-measured on 2026-10-16 with snap-spacing.py:
+   - fe-a.css: 0 off-scale (287240c2).
+   - fe-b.css: 0.
+   - fe-c-trip.css: 0.
+   - designer CSS: 0.
+   - **Only atlas.css is left: 43 off-scale** (FE-1, after rev 5). When it's 0, tell R7 QA (session_017FLWXa5zgGWvqNo4C3UsvH) that QC-14 is ready.
 2. **PANEL-R3 (80.7) folded into SPEC-v3 rev 5:**
    - no sun on dots or pills;
    - light circle vs dark square, with a sign-off on real shots;

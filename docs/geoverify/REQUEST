@@ -1,8 +1,6 @@
-city=orlando-fl
-scope=all
+city=singapore
+scope=unverified,low,status
 limit=0
-nominatim_max=50
-names=ABC Commissary
-sources=nominatim,official,overpass,census
+nominatim_max=300
 commit=true
-# re-check a Wikidata-only accept against independent sources
+# re-run 1: per-region anchors + budget rows skipped (3490e42a)
