@@ -64,11 +64,11 @@ ${editorial.join('\n')}
   // Every number is a sum of changes.json rows. No "new openings": records carry no first-seen date.
   const ch = reg.changes || [], mo = ch.month;
   const act = ch.filter(x => x.month && (x.month.checked || x.month.closed)).sort((a, b) => b.month.checked - a.month.checked || (a.name < b.name ? -1 : 1));
-  const sum = k => act.reduce((t, x) => t + x.month[k], 0);
+  const sum = k => act.reduce((t, x) => t + (x.month[k] || 0), 0);
   const monthName = mo ? t('land.month.names').split(',')[+mo.slice(5, 7) - 1] + ' ' + mo.slice(0, 4) : '';   // names from the catalogue
-  const monthHtml = mo && act.length ? `<section class="section month-s" id="month" aria-labelledby="month-h"><div class="rail-head"><h2 class="d2" id="month-h">${esc(t('land.month.h', { month: monthName }))}</h2>
+  const monthHtml = mo && act.length ? `<section class="section month-s" id="month" aria-labelledby="month-h"><div class="rail-head"><h2 class="d2" id="month-h">${esc(t('land.month.h'))}</h2>
 <a class="more" href="feeds/all.xml" type="application/atom+xml">${esc(t('land.month.follow'))} ${icon('chevr', 'ico sm')}</a></div>
-<p class="month-lede" data-month="${esc(mo)}">${esc(t('land.month.lede', { checked: fmt(sum('checked')), closed: fmt(sum('closed')), pins: fmt(sum('pins')), n: act.length }))}</p>
+<p class="month-lede" data-month="${esc(mo)}">${esc(t('land.month.lede', { month: monthName, checked: fmt(sum('checked')), closed: fmt(sum('closed')), retiring: fmt(sum('retiring')), pins: fmt(sum('pins')), n: act.length }))}</p>
 <ul class="morelist month-list">${act.map(x => `<li><a href="${esc(x.changesPage)}" data-checked="${x.month.checked}" data-closed="${x.month.closed}"><span class="dest-n">${esc(x.name)}</span><span class="dest-c">${esc(t('land.month.row', { checked: fmt(x.month.checked), closed: fmt(x.month.closed) }))}</span></a></li>`).join('')}</ul>
 <p class="sm muted month-feed">${esc(t('land.month.feed'))}</p></section>` : '';
 

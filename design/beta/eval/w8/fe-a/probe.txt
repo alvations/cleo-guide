@@ -106,7 +106,7 @@
   PASS  @390 light cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @390 light cities/tokyo.html: no photo shown wider than its file = []
   PASS  @390 light cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @390 light cities/tokyo.html#all=1: 55 credits, none overflow their box = []
+  PASS  @390 light cities/tokyo.html#all=1: 54 credits, none overflow their box = []
   PASS  @390 light cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @390 light cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @390 light cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -119,7 +119,7 @@
   PASS  @390 light cities/tokyo.html#day=TAITO: top bar / city bar / tab bar fully opaque = []
   PASS  @390 light cities/tokyo.html#day=TAITO: the search placeholder fits unclipped = null
   PASS  @390 light cities/tokyo.html#day=TAITO: no photo shown wider than its file = []
-  PASS  @390 light Singapore/chinatown.html: 7 credits, none overflow their box = []
+  PASS  @390 light Singapore/chinatown.html: 5 credits, none overflow their box = []
   PASS  @390 light Singapore/chinatown.html: top bar / city bar / tab bar fully opaque = []
   PASS  @390 light Singapore/chinatown.html: the search placeholder fits unclipped = null
   PASS  @390 light Singapore/chinatown.html: no photo shown wider than its file = []
@@ -134,7 +134,7 @@
   PASS  @390 dark cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @390 dark cities/tokyo.html: no photo shown wider than its file = []
   PASS  @390 dark cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @390 dark cities/tokyo.html#all=1: 55 credits, none overflow their box = []
+  PASS  @390 dark cities/tokyo.html#all=1: 54 credits, none overflow their box = []
   PASS  @390 dark cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @390 dark cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @390 dark cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -147,7 +147,7 @@
   PASS  @390 dark cities/tokyo.html#day=TAITO: top bar / city bar / tab bar fully opaque = []
   PASS  @390 dark cities/tokyo.html#day=TAITO: the search placeholder fits unclipped = null
   PASS  @390 dark cities/tokyo.html#day=TAITO: no photo shown wider than its file = []
-  PASS  @390 dark Singapore/chinatown.html: 7 credits, none overflow their box = []
+  PASS  @390 dark Singapore/chinatown.html: 5 credits, none overflow their box = []
   PASS  @390 dark Singapore/chinatown.html: top bar / city bar / tab bar fully opaque = []
   PASS  @390 dark Singapore/chinatown.html: the search placeholder fits unclipped = null
   PASS  @390 dark Singapore/chinatown.html: no photo shown wider than its file = []
@@ -162,7 +162,7 @@
   PASS  @1440 light cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @1440 light cities/tokyo.html: no photo shown wider than its file = []
   PASS  @1440 light cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @1440 light cities/tokyo.html#all=1: 58 credits, none overflow their box = []
+  PASS  @1440 light cities/tokyo.html#all=1: 57 credits, none overflow their box = []
   PASS  @1440 light cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @1440 light cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @1440 light cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -190,7 +190,7 @@
   PASS  @1440 dark cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @1440 dark cities/tokyo.html: no photo shown wider than its file = []
   PASS  @1440 dark cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @1440 dark cities/tokyo.html#all=1: 58 credits, none overflow their box = []
+  PASS  @1440 dark cities/tokyo.html#all=1: 57 credits, none overflow their box = []
   PASS  @1440 dark cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @1440 dark cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @1440 dark cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -261,5 +261,8 @@
   PASS  QA-73 @390: the crumb reads "‹ US", unclipped, and keeps "United States" for assistive tech = {"txt":"US","lgW":1,"sw":45,"cw":45,"right":133,"vw":390,"name":"United States"}
   PASS  QA-55 @390: Guidebook .gfacts and .gsig at ≥ 16 px = [16,16]
   PASS  QA-73 @1440: the desktop crumb keeps the full name = "United States"
+# designer nit: a tap opens the detail with focus on the dialog (no ring); a keyboard open focuses ✕
+  PASS  @390: tap → the dialog has focus with no ring, Tab stays inside; Enter → ✕ = [{"sheet":true,"ring":false},true,"x"]
+  PASS  @1440: tap → the dialog has focus with no ring, Tab stays inside; Enter → ✕ = [{"sheet":true,"ring":false},true,"x"]
 
 >>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard

@@ -38,7 +38,7 @@
   },
   "otherLandmarks": {
    "targets": 1151,
-   "skipped": 239,
+   "skipped": 240,
    "withArticle": 627
   },
   "candidates": {
@@ -9634,7 +9634,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Brugge_-_Basiliek_van_het_Heilig_Bloed_1504.jpg",
      "depicts": "The Basiliek van het Heilig Bloed on the Burg",
      "confidence": "high",
-     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Basiliek van het Heilig Bloed"
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Basiliek van het Heilig Bloed",
+     "refused": "refused by visual review (W8, run #60, R7-g1): a painted triptych inside, not the basilica (artwork rule)"
     },
     {
      "file": "File:Brugge - Basiliek van het Heilig Bloed 1448.jpg",
@@ -9817,7 +9818,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Groeningemuseum.001_-_Brugge.jpg",
      "depicts": "The Groeningemuseum, Bruges",
      "confidence": "high",
-     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Groeningemuseum"
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Groeningemuseum",
+     "refused": "refused by visual review (W8, run #60, R7-g1): a lake view; the museum is not in the photo (wrong subject)"
     }
    ]
   },
@@ -19554,6 +19556,7 @@
     "Mattress Factory"
    ],
    "pilot": false,
+   "skip": "run #58/60: the only large Commons photo was refused (an aerial); every other Commons photo of the Mattress Factory is 400 px wide, under the 640 px floor — calm cover (stated)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -19562,7 +19565,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Mattress_Factory_Museum.jpg",
      "depicts": "The Mattress Factory museum building, Pittsburgh",
      "confidence": "high",
-     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Mattress Factory Museum"
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Mattress Factory Museum",
+     "refused": "refused by visual review (W8, run #60, R7-g1): an aerial over the Central Northside where the museum cannot be picked out (wrong subject; orchestrator)"
     }
    ]
   },
@@ -23174,7 +23178,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Great_Falls_Park_Potomac_River_02.jpg",
      "depicts": "The Great Falls of the Potomac at Great Falls Park",
      "confidence": "high",
-     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Great Falls Park"
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Great Falls Park",
+     "refused": "refused by visual review (W8, run #60, R7-g1): a bronze plaque is the subject (signage rule)"
     },
     {
      "file": "File:Great Falls of the Potomac River - NPS.jpg",
@@ -23418,7 +23423,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Natural_History_-_IMG_1966.JPG",
      "depicts": "The National Museum of Natural History, Washington",
      "confidence": "high",
-     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the National Museum of Natural History"
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the National Museum of Natural History",
+     "refused": "refused by visual review (W8, run #60, R7-g1): an exhibit interior (fossils), not the museum (wrong subject)"
     },
     {
      "file": "File:National Museum of Natural History.jpg",
@@ -23487,7 +23493,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Smithsonian_American_Art_Museum_exterior.jpg",
      "depicts": "The Smithsonian American Art Museum and National Portrait Gallery (Old Patent Office Building)",
      "confidence": "high",
-     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Smithsonian American Art Museum"
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Smithsonian American Art Museum",
+     "refused": "refused by visual review (W8, run #60, R7-g1): a lettering sign is the subject (signage rule)"
     },
     {
      "file": "File:Old Patent Office, Washington, D.C. 2011.jpg",
@@ -23601,7 +23608,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Jefferson_Memorial_front.jpg",
      "depicts": "The Thomas Jefferson Memorial, front",
      "confidence": "high",
-     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Thomas Jefferson Memorial"
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Thomas Jefferson Memorial",
+     "refused": "refused by visual review (W8, run #60, R7-g1): a close-up of the statue inside, not the memorial (close-up rule)"
     }
    ]
   },

@@ -735,6 +735,9 @@ html body .topbar .crumbs a>.sh{display:none}
 @media (max-width:899px){html body .topbar .crumbs a>.sh{display:inline}html body .topbar .crumbs a>.lg{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 /* QA-55 (Guidebook part): the cover facts and the ★ signature line are prose; they read at the body size, not 14 px */
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) :is(.gfacts,.gsig){font-size:var(--fs-body);line-height:1.5}
+/* Designer nit: a tap or deep link focuses the dialog itself (tabindex -1), which shows no ring; a keyboard open still
+   focuses ✕ with its ring */
+html body #cleo-sheet .sheet.detail:focus{outline:none}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
@@ -842,7 +845,7 @@ html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{margin:10px 0
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n a{display:inline;min-height:0;padding:0;color:var(--ink);text-decoration:none}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n a::after{content:"";position:absolute;inset:0;z-index:1}   /* the whole card opens the place */
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n .nat{display:none}
-html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.ms-k,.ms-rec){margin:0;padding:0;min-height:0;font-size:var(--fs-sm);line-height:1.35;color:var(--ink-2);white-space:normal;overflow:visible}
+html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.ms-k,.ms-rec){margin:0;padding:0;font-size:var(--fs-sm);line-height:1.35;color:var(--ink-2);white-space:normal;overflow:visible}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-rec b{font-weight:600;color:var(--ink)}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl :is(.stamp,.pl-why){display:none}
 
@@ -925,14 +928,24 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
 @media (max-width:1023px){
   /* the method notes and the footer sit under the full-screen map on phones: kept out of the Atlas screen (no shift, no hidden Tab stops); every other view shows them */
   html.atlas-m[data-view=atlas] body>:is(.method,.footer){display:none}
-  html.atlas-m[data-view=atlas]{--car-h:150px;--cbar-o:0px;--row-top:calc(var(--bar-h) + 8px)}   /* FE-A hides its city bar here; the chip row carries search + switcher */
+  /* phones: the view switch is FE-A's own 52 px row under the header (the city bar, as in every other view — QC-09,
+     DESIGN-SYSTEM §v2.11: four segments visible, one tap per switch), fixed over the map; the chip row sits under it */
+  html.atlas-m[data-view=atlas]{--car-h:150px;--cbar-o:var(--cbar-h,52px);--row-top:calc(var(--bar-h) + var(--cbar-o) + 8px)}
+  html.atlas-m[data-view=atlas] main[data-city]>.cbar{display:block;position:fixed;z-index:31;top:var(--bar-h);left:0;right:0;margin:0;background:var(--paper);border-bottom:1px solid var(--line)}
+  html.atlas-m[data-view=atlas] main[data-city]>.cbar>.cbar-in{box-sizing:border-box;height:var(--cbar-o);min-height:0;padding-top:0;padding-bottom:0;display:flex;align-items:center}   /* exactly the offset the chip row and the map use */
   html.atlas-m[data-view=atlas] main>.masthead{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);min-height:0;padding:0;margin:0}
   html.atlas-m[data-view=atlas] :is(.about,.site-footer,body>footer){display:none}
-  html.atlas-m[data-view=atlas] .split .mappane{display:block;position:fixed;z-index:20;inset:var(--bar-h) 0 0 0;height:auto;padding:0;border:0;border-radius:0;background:var(--sand)}
+  html.atlas-m[data-view=atlas] .split .mappane{display:block;position:fixed;z-index:20;inset:calc(var(--bar-h) + var(--cbar-o)) 0 0 0;height:auto;padding:0;border:0;border-radius:0;background:var(--sand)}
   html.atlas-m[data-view=atlas] .split .mappane .map,html.atlas-m[data-view=atlas] #cleo-map{border-radius:0;border:0;min-height:0;height:100%}
   /* the chip row */
   html.atlas-m[data-view=atlas] .ms-bar{position:fixed;z-index:30;left:0;right:0;top:var(--row-top);padding:0 12px 6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   html.atlas-m[data-view=atlas] .ms-bar::-webkit-scrollbar{display:none}
+  html.atlas-m[data-view=atlas] .ms-bar :is(.toolbar,.ms-x){display:contents}
+  html.atlas-m[data-view=atlas] .ms-bar .toolbar>.spill{order:0;position:sticky;left:0;z-index:2}
+  html.atlas-m[data-view=atlas] .ms-bar .modes{order:1}html.atlas-m[data-view=atlas] .ms-bar .ms-top{order:2}
+  html.atlas-m[data-view=atlas] .ms-bar .area-btn{order:3}html.atlas-m[data-view=atlas] .ms-bar [data-cleo-tray]:not(.area-btn){order:4}
+  html.atlas-m[data-view=atlas] .ms-bar .applied{order:5}
+  html.atlas-m[data-view=atlas] .ms-bar :is(.ms-mine,.ms-sort,.map-toggle){display:none}   /* Saved is the header's heart; sort is in Filters */
   html.atlas-m[data-view=atlas] .ms-bar :is(.chip,.ms-sort select,.views,.modes,.area-btn,[data-cleo-tray],#cleo-filter){box-shadow:var(--e-2)}
   html.atlas-m[data-view=atlas] .ms-bar>.views{flex:none;margin:0;width:auto;position:static}
   html.atlas-m[data-view=atlas] .ms-bar #cleo-filter{flex:0 0 150px;min-height:var(--tap);padding:0 14px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:inherit}
@@ -958,7 +971,7 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   /* the carousel: the same card face, side by side — media left, text right (sections and lists step aside) */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:0 0 min(282px,78vw);scroll-snap-align:center;display:grid;grid-template-columns:72px minmax(0,1fr);grid-template-rows:auto auto auto;align-content:center;column-gap:12px;
     height:var(--car-h);padding:10px 12px 10px 10px;overflow:hidden;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--e-2);container-type:normal}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-cover,figure.pl-photo){grid-column:1;grid-row:1/span 3;width:72px;height:72px;align-self:start;aspect-ratio:auto;border-radius:var(--r-m)}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-cover,figure.pl-photo){grid-column:1;grid-row:1/span 2;width:72px;height:72px;align-self:start;aspect-ratio:auto;border-radius:var(--r-m)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-n,.ms-k,.ms-rec){grid-column:2;padding:0}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{grid-row:1}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-k{grid-row:2;margin-right:30px}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-rec{grid-row:3}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{margin:0 30px 2px 0;font-size:var(--fs-body);line-height:1.25;overflow:visible;white-space:normal;-webkit-line-clamp:unset;display:block}
@@ -969,12 +982,17 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   /* the photo credit is never clipped: the thumbnail's figure steps aside and its credit runs the card's full width
      under the thumb and text (author · licence · source in full); the © shortcut is then redundant */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo{display:contents!important;overflow:visible!important}   /* a contents box clips nothing; say so in its style too */
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo img{grid-column:1;grid-row:1/span 3;width:72px;height:72px;align-self:start;object-fit:cover;border-radius:var(--r-m)}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo img{grid-column:1;grid-row:1/span 2;width:72px;height:72px;align-self:start;object-fit:cover;border-radius:var(--r-m)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo figcaption{grid-column:1/-1;grid-row:4;position:static!important;width:auto!important;height:auto!important;max-width:none!important;clip:auto!important;overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important;white-space:normal!important;margin:6px 0 0!important;padding:0!important;background:none!important;font:400 var(--fs-xs)/1.3 var(--font-ui)!important;color:var(--ink-3)!important;position:relative;z-index:2}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo figcaption a{color:var(--ink-2)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-cr{display:none}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:has(>figure.pl-photo){align-content:start}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-x{top:2px;right:2px}
+  /* QC-17 (with FE-C): the base line ("1.9 km from … · 23 min walk") has its own full-width row and wraps, never clips;
+     the carousel grows to the tallest card on show (atlas.js fitCar). Recognition stays in the detail and the preview */
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-n,.ms-k,.ms-rec,.pl-base,figure.pl-photo>figcaption){min-height:auto}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-base{grid-column:1/-1;grid-row:5;order:0;margin:6px 0 0;font-size:var(--fs-sm);line-height:1.35;color:var(--ink-2);white-space:normal;overflow-wrap:anywhere}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-rec{display:none}
   /* R2 #8: a carousel card with no photo has no media block — no empty frame; its text takes the width */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:not(:has(>figure.pl-photo))>.pl-cover{display:none}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:not(:has(>figure.pl-photo)){grid-template-columns:minmax(0,1fr)}
