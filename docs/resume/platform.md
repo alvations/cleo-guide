@@ -26,8 +26,8 @@ plural (i18n).
 ## Next
 
 0. Pushing: `cd tools && npm run checkpoint -- -m "<msg + trailers>" <paths…>` then `npm run checkpoint -- --verify`
-   (tools/checkpoint.sh: full gate → commit explicit paths → merge origin, regenerating beta/ on generated-only
-   conflicts, stopping on a source conflict → fast gate → push → ls-remote check).
+   (tools/checkpoint.sh: full gate → commit explicit paths → FE-A's tools/beta/sync-push.sh for merge / beta/
+   regeneration / push / ls-remote check).
 
 1. QA-70: FE-2's fix a7b4a980; first-pin on 3ba696e8 = be74c82f level (Tokyo 1,653 vs 1,564; NY 1,807 vs 1,760 ms). With QA.
 2. `:has()` lint wired into npm test (test:serial); no allowlist.
