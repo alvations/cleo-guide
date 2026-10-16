@@ -739,6 +739,10 @@ html main[data-city] :is(.view-guidebook,[data-cleo-book]) :is(.gfacts,.gsig){fo
 /* Designer nit: a tap or deep link focuses the dialog itself (tabindex -1), which shows no ring; a keyboard open still
    focuses ✕ with its ring */
 html body #cleo-sheet .sheet.detail:focus{outline:none}
+/* W7 face check (Cleveland Atlas @1440): a long publisher name ("Fox 8 Cleveland (WJW) — NE Ohio fish-fry guide", 375 px)
+   ran past a 219 px card column. On the compact card faces the one visible chip fits its line, ending in an ellipsis;
+   its full name is still its accessible text and the detail lists every source in full */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s .src{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).

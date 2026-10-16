@@ -32,6 +32,9 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
 
 - **QA-75 (PERF-08 re-land prep):** root cause in city.js cleo:stamped adoption (not views.js); fixed; perf08-regress.sh PASS with selective forced on locally. Commit "QA-75 …". Platform owns flipping the flag.
 
+- **QC-30** casing rule (designer-approved; generic list in allowlist.json) + W7 card chip fit: commit "QC-30 …".
+- **Next:** QC-31 — fe-a.css raw colours/radii → designer tokens (--surface/--paper without fallbacks, --mask, --shade-text-strong, --r-xxs) once the designer's tokens.css lands.
+
 ## Next (in order)
 0. ~~W9-2 card part~~ built by FE-C through hooks (fresh.js, 38228322b) — nothing for FE-A.
    - ~~QC-25, colophon, R3 #9/#14 one ring~~ DONE (commit "QC-25 …"). Leak left on FE-B's changes/ pages ("Status source: <note>", lib/changes.js) — reported.

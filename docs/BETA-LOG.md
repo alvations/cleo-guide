@@ -2010,3 +2010,13 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Test:** test-i18n renders every path under the pseudo catalogue and requires 0 English. It fails against the old file.
   - **Review:** round 18 made 5 changes. Total: 84 changes over eighteen rounds.
   - **Also flagged:** FE-1's Atlas list head (client/atlas.js:420-436) hard-codes its QC-05 empty state. FE-C pointed FE-1 at `city.empty.*`, and the orchestrator knows.
+
+## FE-A — QC-30 casing of a page's own place names; W7 card chip fit (2026-10-16)
+- **QC-30 (designer-approved rule):** a page's own place names keep their capitals in three ways:
+  - as whole names (the area name, and the area name without its parenthetical);
+  - as runs of capitalised words inside a name ("Ohio City", "Omoide Yokochō");
+  - as single words, but only words not in the designer's new `generic` list in `design/beta/casing/allowlist.json` (park, river, yokochō, compass and position words…).
+  - **Changes:** "Theme-park rides & attractions", "Theme-park signature eats" (Orlando), "Lakefront, river & water" (Chicago), "Izakaya, yakitori & yokochō", "Nightlife, yokochō & districts" (Tokyo). Nothing else changes on the 84 pages.
+  - test-casing.js gains 7 cases.
+  - The designer will mirror the rule in sentence_case.py and DESIGN-SYSTEM §v2.6.
+- **W7 face check (red on origin):** a long publisher name ran past a 219 px Atlas card column (Cleveland @1440, Prosperity Social Club). On the compact card faces the one visible source chip now fits its line, ending in an ellipsis; the full name is its accessible text and is listed in the detail.
