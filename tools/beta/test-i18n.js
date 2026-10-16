@@ -129,6 +129,10 @@ chk('no dead catalogue strings', unused, []);
 chk('placeholders survive the pseudo transform', i18n.pseudoText('{n} places'), '⟦{n} ｐｌａｃｅｓ⟧');
 chk('a missing key throws (no silent English fallback)', (() => { try { i18n.t('nope.missing'); return false; } catch (e) { return true; } })(), true);
 
+// i18n D-41: swapSkip keys are browser-only (Cleo.t); a server render that used one would stay English on ja pages
+const skipK = k => (en.swapSkip || []).some(x => k === x || k.indexOf(x) === 0);
+chk('no server-rendered catalogue string is in swapSkip (those stay out of the page-wide swap)', [...i18n.used].filter(skipK), []);
+
 console.log('\n== hreflang + lang ==');
 i18n.setLocale('en');
 const h = common.head({ page: 'x', title: 'x', description: 'x', rel: 'cities/testville.html', depth: 1, assetsV: ctx.assetsV });

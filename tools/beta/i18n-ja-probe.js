@@ -22,8 +22,8 @@ const hashes = process.argv.length > 3 ? process.argv.slice(3) : ['#view=gallery
     p.on('pageerror', e => errs.push(String(e)));
     await p.goto(base + page + '?lang=ja' + h); await p.waitForTimeout(2500);
     const left = await p.evaluate(() => {
-      const H = '#cleo-sheet, #cleo-fy, #cleo-rows-host, .g-lead-card, #cleo-lens, #cleo-shown, [data-cleo-applied], .area-chips, .pager, #cleo-fyline, .pl-x, .nopin, .day-chip, .toolbar, .masthead .facts, .rail';
-      const DATA = '.pl-n, .pl-w, .pl-k > :not(.lbl), .pl-ad, button.src, figure, figcaption, .credit, .gc-n, .gc-w, .gc-cred, .rail-i .t, .chip, h1, .sub, .srclist .nm, .srclist .ttl, .pills .pill, .closeby a, .sh-by b, #sh-t, .why, .tag, h2.d2, .g-row h2';
+      const H = '#cleo-view, #cleo-sheet, #cleo-fy, #cleo-rows-host, .g-lead-card, #cleo-lens, #cleo-shown, [data-cleo-applied], .area-chips, .pager, #cleo-fyline, .pl-x, .nopin, .day-chip, .toolbar, .masthead .facts, .rail';
+      const DATA = '.ge h4, .ge-w, .ad, .hoods, .gk, .urls, .srclist b, .note, .ixi a, .tl + b, h1, .legend li, .gsig, .ch-intro, .meta, .ch-h h2, .toc .t, .pl-n, .pl-w, .pl-k > :not(.lbl), .pl-ad, button.src, figure, figcaption, .credit, .gc-n, .gc-w, .gc-cred, .rail-i .t, .chip, h1, .sub, .srclist .nm, .srclist .ttl, .pills .pill, .closeby a, .sh-by b, #sh-t, .why, .tag, h2.d2, .g-row h2';
       const out = new Set();
       document.querySelectorAll(H).forEach(el => { if (el.hidden) return; const tw = document.createTreeWalker(el, 4);
         for (let n; (n = tw.nextNode());) { const pe = n.parentElement; if (pe.closest(DATA) || pe.closest('svg,script')) continue; const t = n.nodeValue.trim(); if (/[A-Za-z]{3,}/.test(t)) out.add(t.slice(0, 70)); } });

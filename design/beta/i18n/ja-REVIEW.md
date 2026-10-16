@@ -99,4 +99,22 @@ FE-C staged these English strings in `tools/beta/i18n-fec/pending-en.json`. The 
 | `rec.label` | 評価・受賞 | 受賞・注目 | 評価 means tiers and star ratings in the catalogue; the site shows no ratings. |
 | `rec.tile.k` | 評価 | 注目 | Same clash with 評価; consistent with rec.label. |
 
-**Total: 34 changes over six rounds.**
+## Round 7: FE-B's Guidebook and Insights views (`gb.*`, `ins.*`; 11 changes, applied)
+
+These keys came in when the i18n lane catalogued `client/guidebook.js` and `client/insights.js` (approved by the orchestrator, FE-B told first). The Insights footnotes the platform writes into the page data are re-said from `ins.p.*` only when the catalogue's English equals the data text exactly. A fresh independent subagent reviewed the keys under the same brief, with access only to the two catalogues.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `gb.intro.t1` | 必見はまず{a}です。 | 必見の筆頭は{a}です。 | まず〜です read unnaturally for "start with"; 筆頭 says the list begins with {a}. |
+| `gb.intro.t2` | 必見はまず{a}と{b}です。 | 必見の筆頭は{a}と{b}です。 | Parallel to t1. |
+| `gb.intro.pop` | ここの{places}は、ポップカルチャーの巡礼ルートに含まれます。 | このエリアの{places}は、ポップカルチャーの巡礼ルートに含まれます。 | ここの was colloquial; "here" means this area. |
+| `gb.intro.closed.one` | ここの{places}は閉店しました。表示を付けて章の最後に残しています。 | このエリアの{places}は閉店しました。表示を付けて章の最後に残しています。 | Same as gb.intro.pop. |
+| `gb.intro.closed` | ここの{places}は閉店しました。表示を付けて章の最後に残しています。 | このエリアの{places}は閉店しました。表示を付けて章の最後に残しています。 | Same; identical to the .one form. |
+| `gb.dt.closed` | 閉店(掲載継続) | 閉店(記録として掲載) | "kept" is 記録として掲載 everywhere else. |
+| `gb.src.h` | 出典と方法 | 出典と調査方法 | 方法 alone was vague as an appendix heading. |
+| `gb.count.m` |  がこの絞り込みに一致します。 | がこの絞り込みに一致します。 | The English leading space left a stray space after Japanese text. |
+| `ins.spr.absent` |  そのようなピンが2件未満のエリアは、0で埋めずに省いています。 | そのようなピンが2件未満のエリアは、0で埋めずに省いています。 | Same stray-space fix (it follows a 。). |
+| `ins.src.t` | 各エリアを推薦しているのは | 各エリアを推薦している出典 | A heading should be a noun phrase. |
+| `ins.rec.cited` | 3件以上の出典が掲載 | 3件以上の出典に掲載 | "Cited by" is passive. |
+
+**Total: 45 changes over seven rounds.**
