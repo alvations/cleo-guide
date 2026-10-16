@@ -2135,3 +2135,14 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - On the INP regression: FE-2 has a first step in (5491ea13), and QC's P-32 reads about 1 s unthrottled.
 - QA ratified B-01a and B-24 (52245d25). Phone clear map reads 74 %, so FE-1 takes the 52 px header.
 - The R8 evaluator's metrics sweep is at 54/180.
+
+## 2026-10-16 22:47Z · orchestrator: owner directive, the overlay and chrome audit
+
+- The owner sent a screenshot of live Punggol Atlas on phone, in dark mode. In the owner's words: "some layers are not moving and taking up all the space. Improve it but don't just fix this. Audit the whole beta site… keep a ledger… check them doing the QC QA checks and patches."
+- The ledger is docs/BETA-OVERLAY-LEDGER.md, seeded with OV-01..07 from the screenshot.
+- Routed:
+  - the designer sets the OV-00 budgets and rules;
+  - QC builds the S-17 probe and runs the full audit;
+  - FE-1/FE-2, FE-A, FE-B and FE-C fix and claim rows;
+  - QA adds the B-25 pin gate.
+- r8 ships with no open High/Med OV rows.
