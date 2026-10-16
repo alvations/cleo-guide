@@ -2041,3 +2041,27 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - fec4f90b, QC-32;
   - a46f6ec7, W8-I18N-SEARCH.
 - **Budget:** Cleveland eager JS is at 39.97/40 KB. Platform is moving the offline-pack UI behind Cleo.need (about 1 KB).
+
+## 2026-10-16 · FE-1 · Atlas pre-R4: B-20 source chip, one QC-05 empty state, chip overflow, rev 5a chrome, glyphs, dark dots
+
+- **B-20 (orchestrator 1):** my rev 5 16 px source rule set `line-height:1.4` on `button.src`, which overrode FE-A's 28 px line and made the chip 38–40 px tall. Atlas now keeps the 28 px line (28 + 2 × 8 px padding = 44 px; the painted chip is unchanged). Measured at 390 on Tokyo: every source chip is 44 px.
+- **Long source chips (orchestrator 3):** `button.src` in Atlas cards is `max-width:100%` with an ellipsis, and a chip that is cut gets a `title` with its whole name, set in atlas.js only on cut chips. A `title` on every chip from the renderer pushed Tokyo to 830 KB, over the 820 KB page budget.
+- **QC-05, one empty state (orchestrator 2):** Atlas's empty state now uses the catalogue strings through `Cleo.t` (`city.empty.q`, `city.empty.f`, `city.empty.search`, `city.showall`), with no hard-coded English. FE-C hides their `[data-cleo-empty]` in Atlas, so each view shows one empty state.
+- **Rev 5a phone chrome (designer):**
+  - The chip row has no search chip. The header's search icon is the phone search: in Atlas it opens FE-A's in-page search as a 44 px row over the chip row. When empty and unfocused, that row folds to a 1 px transparent box with no hit area, so it is neither counted nor tappable. B-03 is therefore 14, and **no harness limit changed**: the orchestrator's alternative of raising B-03 to 15 was not needed.
+  - The chip row is 48 px (2 + 44 + 2), flush under the switcher.
+  - The peek is 56 px: 8 px top, a 4 px handle, and a 44 px tap row. The pills sit 28 px above it.
+  - "Search this area" sits at page top 160 px.
+- **"Search this area" on phones (designer's question):** it is hidden on the first screen, and a new probe check asserts that. It appears only after the reader pans or zooms. "Search as I move the map" stays off on phones by design (§2.2/§3): a live refresh re-ranks the carousel under the reader's thumb while they swipe it.
+- **Glyphs (designer):**
+  - `bag` and `spire` are now the kit's paths (design/beta/style/v2/icons).
+  - The spire is for church, cathedral, chapel and basilica only; synagogue and mosque are out of the regex.
+  - A temple or shrine off Japan gets no noun glyph and falls through to its collection's glyph.
+- **Dark dots (designer):** in dark mode only, sights are `--ink` 45 % and food is `--ink` 80 %, with the same surface halo. Light mode is unchanged (signed off).
+- **Probe:** `atlas-ms.js` adds `"Search this area" is hidden on the first screen` (phone, light and dark). No check was loosened.
+- **Probe wording:** the peek check now reads "a 56 px list peek" with a 55–58 px band (it was 64 px, 60–72), following rev 5a. The band is narrower than before, not wider.
+- **Measured** (`metrics.js --view atlas`, mobile, on the 5 pilots: Cleveland, Tokyo, New York, Chinatown, Wheeling):
+  - B-20: 0 targets under 44 px on every page;
+  - B-03: 13–14 controls above the first card;
+  - B-08: 0.
+  - Gates: `npm run validate`, `npm test` and `beta:check` pass; `atlas-ms.js` on Cleveland passes in full, including the B-08 list-scrolled check.
