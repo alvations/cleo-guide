@@ -207,6 +207,19 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     const hs = await page.evaluate(() => [...document.querySelectorAll('nav[data-cleo-views] button')].filter(e => e.getClientRects().length).map(e => Math.round(e.getBoundingClientRect().height)));
     ok(hs.length && hs.every(h => h >= 44), `@${w}: ${hs.length} switcher segment(s) ≥ 44 px`, hs); await ctx.close();
   }
+  console.log('# QC-08: best food near X in three taps; the first card on screen is inside the lens');
+  for (const w of [390, 1440]) {
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1300);
+    await page.click('button[data-mode="food"]'); await page.waitForTimeout(500);
+    const chip = await page.$('.toolbar .area-chips button[data-cleo-area="TAITO"]'), vis = !!chip && await chip.isVisible();
+    ok(vis, `@${w}: an area chip is one tap away in Gallery (no tray)`);
+    if (vis) { await chip.scrollIntoViewIfNeeded(); await chip.click(); await page.waitForTimeout(700); }
+    const r = await page.evaluate(() => { const v = e => e.getClientRects().length && getComputedStyle(e).display !== 'none';
+      const first = [...document.querySelectorAll('li.pl, li.gc')].filter(v).sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
+      return { lead: !!v(document.getElementById('cleo-lead')), k: first && first.getAttribute('data-k'), a: first && first.getAttribute('data-a'), id: first && first.id }; });
+    ok(!r.lead && r.k === 'f' && r.a === 'TAITO', `@${w}: under Eat & drink + Taitō-ku the lead card steps aside and the first card is a Taitō-ku food place`, r);
+    await ctx.close();
+  }
   console.log('# QC-07: Esc returns focus to the control that opened the sheet');
   for (const w of [390, 1440]) {
     const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);

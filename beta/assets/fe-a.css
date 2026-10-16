@@ -679,6 +679,13 @@ html main[data-city] nav.views .v-ind{display:none}
    and the mask is dropped while the link has keyboard focus so the focus ring is whole */
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{-webkit-mask:linear-gradient(#000,#000) top/100% calc(100% - 12px) no-repeat;mask:linear-gradient(#000,#000) top/100% calc(100% - 12px) no-repeat}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a:focus-visible{-webkit-mask:none;mask:none}
+/* ---- 20. QC-08: "best food near X" in three taps — Eat & drink, an area chip, the first card. In Gallery the area chips
+   (drawn by views.js for every view) are a sideways row in the toolbar instead of behind the Area tray, and once a lens
+   is on the lead card steps aside, so the first card on screen is inside the lens ---- */
+html[data-view=gallery] main[data-city] .toolbar>.area-chips:not([hidden]){display:flex;flex:1 0 100%;order:9;gap:8px;margin:2px 0 0;padding:2px 0 4px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none}
+html[data-view=gallery] main[data-city] .toolbar>.area-chips::-webkit-scrollbar{display:none}
+html[data-view=gallery] main[data-city] .toolbar>.area-btn{display:none}
+html.lens-on.g-lead-on[data-view=gallery] .g-lead-slot{display:none}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
