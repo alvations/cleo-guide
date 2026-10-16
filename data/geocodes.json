@@ -44756,7 +44756,8 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "",
-    "statusChecked": "2026-08-31"
+    "statusChecked": "2026-08-31",
+    "note": "merged alias 'Villa Majorelle (Nancy)' 2026-10-16 (its source: Wikidata Q16964856 (Villa Majorelle); pin 48.68549,6.16388 high; status src: )"
    },
    "Palais des Ducs de Lorraine – Musée Lorrain": {
     "address": "64 Grande Rue, 54000 Nancy, France",
@@ -44767,7 +44768,8 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "",
-    "statusChecked": "2026-08-31"
+    "statusChecked": "2026-08-31",
+    "note": "merged alias 'Palais des ducs de Lorraine – Musée Lorrain (Nancy)' 2026-10-16 (its source: Wikidata Q2081177 (Palace of the Dukes of Lorraine); pin 48.69694,6.18028 high; status src: )"
    },
    "Musée des Beaux-Arts de Nancy": {
     "address": "3 Place Stanislas, 54000 Nancy, France",
@@ -44789,7 +44791,8 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "",
-    "statusChecked": "2026-08-31"
+    "statusChecked": "2026-08-31",
+    "note": "merged alias 'Porte de la Craffe (Nancy)' 2026-10-16 (its source: FR Wikipedia/Wikidata Q659783 (Porte de la Craffe); pin 48.69892,6.17778 high; status src: )"
    },
    "Basilique Saint-Epvre": {
     "address": "Place Saint-Epvre, 54000 Nancy, France",
@@ -44811,7 +44814,8 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "",
-    "statusChecked": "2026-08-31"
+    "statusChecked": "2026-08-31",
+    "note": "merged alias 'Parc de la Pépinière (Nancy)' 2026-10-16 (its source: Wikidata Q3364226 (Parc de la Pépinière); pin 48.69806,6.185 high; status src: )"
    },
    "Muséum-Aquarium de Nancy": {
     "address": "34 Rue Sainte-Catherine, 54000 Nancy, France",
@@ -45572,55 +45576,11 @@
     "statusSource": "",
     "statusChecked": "2026-08-31"
    },
-   "Villa Majorelle (Nancy)": {
-    "address": "1 Rue Louis Majorelle, 54000 Nancy, France",
-    "lat": 48.68549,
-    "lng": 6.16388,
-    "source": "Wikidata Q16964856 (Villa Majorelle)",
-    "verified": "2026-08-31",
-    "confidence": "high",
-    "status": "open",
-    "statusSource": "",
-    "statusChecked": "2026-08-31"
-   },
    "Basilique Saint-Epvre & Ville Vieille (Nancy)": {
     "address": "Place Saint-Epvre, 54000 Nancy, France",
     "lat": 48.69589,
     "lng": 6.17993,
     "source": "EN Wikipedia infobox (Saint-Epvre Basilica)",
-    "verified": "2026-08-31",
-    "confidence": "high",
-    "status": "open",
-    "statusSource": "",
-    "statusChecked": "2026-08-31"
-   },
-   "Porte de la Craffe (Nancy)": {
-    "address": "Grande Rue, 54000 Nancy, France",
-    "lat": 48.69892,
-    "lng": 6.17778,
-    "source": "FR Wikipedia/Wikidata Q659783 (Porte de la Craffe)",
-    "verified": "2026-08-31",
-    "confidence": "high",
-    "status": "open",
-    "statusSource": "",
-    "statusChecked": "2026-08-31"
-   },
-   "Palais des ducs de Lorraine – Musée Lorrain (Nancy)": {
-    "address": "64 Grande Rue, 54000 Nancy, France",
-    "lat": 48.69694,
-    "lng": 6.18028,
-    "source": "Wikidata Q2081177 (Palace of the Dukes of Lorraine)",
-    "verified": "2026-08-31",
-    "confidence": "high",
-    "status": "open",
-    "statusSource": "",
-    "statusChecked": "2026-08-31"
-   },
-   "Parc de la Pépinière (Nancy)": {
-    "address": "Rue Sainte-Catherine, 54000 Nancy, France",
-    "lat": 48.69806,
-    "lng": 6.185,
-    "source": "Wikidata Q3364226 (Parc de la Pépinière)",
     "verified": "2026-08-31",
     "confidence": "high",
     "status": "open",
