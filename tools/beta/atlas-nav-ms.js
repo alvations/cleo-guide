@@ -322,6 +322,13 @@ async function finish(page, s0, opener, close) {
     await ctx.close();
   }
 
+  // QC-26: a cold #view=atlas&a=<area>&p=<id> applies the lens on load — the detail reads "1 of <lens n>" and no card
+  // outside the lens shows — for the page's first area (the PERF-08 case) and its second, on 3 pilots × 390 / 1440
+  for (const ai of ['0', '1']) { const q = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'fe2', 'qc26.js')].concat(ONLY ? PAGES.filter(p => ['tokyo', 'cleveland', 'newyork'].includes(p[0])).map(p => p[1].replace(/^beta\//, '')) : []), { env: Object.assign({}, process.env, { AREA_IDX: ai }), encoding: 'utf8' });
+    if (ONLY && !PAGES.some(p => ['tokyo', 'cleveland', 'newyork'].includes(p[0]))) continue;
+    String(q.stdout || '').split('\n').filter(l => /^(PASS|FAIL)  QC-26/.test(l)).forEach(l => chk(l.replace(/^(PASS|FAIL)  /, '').replace(/  \{.*$/, '') + (ai === '0' ? ' [first area]' : ' [second area]'), /^PASS/.test(l), l.replace(/^.*?  \{/, '{').slice(0, 300)));
+    if (q.status !== 0 && !/QC-26/.test(String(q.stdout))) chk(`QC-26 probe ran (area ${ai})`, false, String(q.stderr || '').slice(0, 300)); }
+
   // QA-71: after a place is opened and closed (card → detail → Back), swiping the phone carousel still moves the selection,
   // as it does before the round-trip: two swipes, the card in the middle is the selected one each time (QA's 5 pilots)
   for (const url of ['beta/cleveland.html', 'beta/cities/tokyo.html', 'beta/cities/newyork.html', 'beta/Singapore/chinatown.html', 'beta/cities/wheeling.html']) {
