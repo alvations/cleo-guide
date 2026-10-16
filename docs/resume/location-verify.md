@@ -65,8 +65,11 @@ Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` 
      - never fabricate;
      - when nothing better exists, the low label stays.
    - Tell the orchestrator when the queue is empty, so it can disable the daily trigger.
-   - **This list overrides the order in the scheduled-task prompt**, which still reads "saarland, okinawa, rhineland, aachen".
-     The task is the orchestrator's.
+   - **This checkpoint queue is authoritative**; the orchestrator updated the scheduled-task prompt to say so.
+   - **Step 3 is chained within one wake** (orchestrator, 2026-10-16):
+     - push one REQUEST at a time and wait for each report;
+     - stop when the day's remaining allowance can't cover the next city.
+   - Big cities stay at one REQUEST per wake. Send the orchestrator each report's SHA; it accepts in batches.
 3. **Done today:**
    - re-check (4573ae25) and the Hotel Utah settle: OSM wins, Census 13 m vs 58 m;
    - duplicates and orphans (DUPLICATES.md, ORPHANS.md; (d) decided, b8926d86);
