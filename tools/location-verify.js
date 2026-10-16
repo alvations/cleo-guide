@@ -462,6 +462,9 @@ class Http {
     }
     if (this.count >= this.max) return { status: 0, body: '', error: 'request budget exhausted', budget: true };
     if (h === 'nominatim.openstreetmap.org' && this.nomCount >= this.nomMax) return { status: 0, body: '', error: 'nominatim budget exhausted', budget: true };
+    // Circuit breaker: a host that failed 2 times in a row (timeouts, TLS, DNS) is skipped for the rest of the run —
+    // an official site that never answers must not cost 30 s per row (Orlando: disneyworld.disney.go.com 32/32).
+    if ((this.streak || {})[h] >= 2 && !/wikidata|wikipedia|nominatim|overpass/.test(h)) return { status: 0, body: '', error: `${h} skipped after repeated failures` };
     if (this.backoffUntil[h] && Date.now() < this.backoffUntil[h]) {
       const w = this.backoffUntil[h] - Date.now();
       if (w > 120000) return { status: 0, body: '', error: `${h} backing off after 429/503` };
@@ -479,14 +482,17 @@ class Http {
         headers: Object.assign({ 'User-Agent': UA, 'Api-User-Agent': UA, Accept: accept }, body ? { 'Content-Type': 'application/x-www-form-urlencoded' } : {}, extra || {}) });
       let text = await r.text(); if (text.length > 2000000) text = text.slice(0, 2000000);
       const res = { url, status: r.status, body: text, retrieved: new Date().toISOString().slice(0, 10) };
-      if (r.status === 429 || r.status === 503 || r.status === 504) {
+      this.streak = this.streak || {};
+      if (r.status === 429 || r.status === 502 || r.status === 503 || r.status === 504) {
         this.backoffUntil[h] = Date.now() + (h === 'overpass-api.de' ? 60000 : 30000); this.failures.push(`${h} HTTP ${r.status}`); bh.failed++;
         return res; // not cached
       }
+      this.streak[h] = 0;
       if (file && (r.ok || r.status === 404)) fs.writeFileSync(file, JSON.stringify(res));
       return res;
     } catch (e) {
       this.failures.push(`${h} ${e.name === 'AbortError' ? 'timeout' : (e.cause && e.cause.code) || e.message}`); bh.failed++;
+      this.streak = this.streak || {}; this.streak[h] = (this.streak[h] || 0) + 1;
       return { status: 0, body: '', error: (e.cause && e.cause.code) || e.message };
     } finally { clearTimeout(t); }
   }
