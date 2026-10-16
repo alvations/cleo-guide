@@ -715,3 +715,7 @@ html[data-view=gallery]:not(.lens-on) #cleo-rows-host[data-rows]:empty{min-heigh
    script has set data-view) its box is kept, invisible, so the lead under it does not drop (phone CLS 0.105 → 0) */
 @media (max-width:1023px){html[data-view=gallery] main[data-city]>nav.rail#cleo-rail[hidden]{display:flex!important;visibility:hidden}}
 /* /PERF-06 */
+/* B-20 (FE-B sweep, 9 pages): the "Must see" sticker is a link (to How we choose) and was 91 × 28. Its tap box is now
+   44 px tall through 8 px transparent borders, with the pill painted inside them (background-clip) and the sticker
+   moved up 8 px, so it looks and sits exactly as before; the shadow follows the painted pill (drop-shadow) */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier.t1{box-sizing:border-box;min-height:44px;top:2px;border-block:8px solid transparent;background-clip:padding-box;box-shadow:none;filter:drop-shadow(0 1px 2px color-mix(in srgb,var(--ink) 18%,transparent))}
