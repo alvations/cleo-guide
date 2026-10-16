@@ -2010,3 +2010,16 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Test:** test-i18n renders every path under the pseudo catalogue and requires 0 English. It fails against the old file.
   - **Review:** round 18 made 5 changes. Total: 84 changes over eighteen rounds.
   - **Also flagged:** FE-1's Atlas list head (client/atlas.js:420-436) hard-codes its QC-05 empty state. FE-C pointed FE-1 at `city.empty.*`, and the orchestrator knows.
+
+## 2026-10-16 20:17Z · orchestrator check-in
+
+- **Deploy pin `b54b3745` (beta-deploy-r7):** 33a44d16 plus QA-77 (FE-C's badge hit area, fe-c.css rules only) and the trip.html source link.
+  - Gates are green, w8p 621/392 KB, B-20 0 on 5 pilots.
+  - QA and QC asked for the final pass.
+- **QC pre-check on 33a44d16:** S-16 91/91 PASS; QC-29 verified. The known FAILs were explained:
+  - S-15 was a probe bug;
+  - S-08 is split, with QC-30 filed;
+  - S-01 is split, with QC-31 filed;
+  - QC-32 (raw notes in data/prov) filed.
+  - QC-30 went to FE-A, and QC-31 and QC-32 to FE-B.
+- **Dev only:** i18n W8-I18N-SEARCH (a46f6ec7). FE-1 has 3 items: the 235649e51 button.src at 38 px (B-20), QC-05 rendered twice on desktop Atlas with hard-coded English, and the chip overflow.
