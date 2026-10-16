@@ -54,14 +54,15 @@ Current rows:
    FE-1 and FE-2 have been briefed. **Next:** when a new head lands, the designer signs off on `real/R4/tokyo-390-light-1-default.jpg` dots; then send the panel "round 4 ready" through FE or the orchestrator. Remind FE-A about the "Numbers on the cards match the pins" copy.
 3. **QC-09: closed.** R7 QA verified it independently on adfb052d. QC-06 (768 px, 44 px segments) was verified with it.
 5. **FE-C review (W9-4/5/7): signed off** on 70060b332. All ten findings are fixed. The base `.caveat` is now sand, `--ink-3` icon, 14 px, so the estimate note reads as a note, not a warning.
-6. **FE-A reviews (2026-10-16):**
-   - **QA-67 detail media:** ≥ 800 w approved. Narrow copies drop the colour-mix bands, and the plate is image-width, centred.
-   - **Detail numbering confirmed:** drop "pin N" and the nav "k of N"; keep "No. k of n". FE-A logs the spec change in BETA-LOG.
-   - **Food covers (6edb6acb):** OK, except the fallback. The area is not a cover word, so use the cuisine, else a glyph-only cover. V2.21 applies `--cover-food` in the base layer.
+6. **FE-A reviews: all signed off** (ad23309d).
+   - QA-67: image-width plates, no bands (Ueno Park 720 = 720).
+   - Food covers: the area is never the cover word; glyph-only fallback; Rokurinsha reads "Ramen".
+   - Detail: one visible rank number; the view position is for screen readers only.
+   - `data-vx` is set in views.js.
 7. **PERF-16:** all 8 html-, body- and :root-anchored `:has()` rules in the designer CSS are replaced.
    - `html[data-cleo-page=city]` for the backgrounds and the guidebook hide.
    - `.stamp.stamp-in` for the stamp.
-   - `html[data-vx]` for the view cross-fade, which needs views.js (FE-A) to set `data-vx` for about 300 ms on a switch.
+   - `html[data-vx]` for the view cross-fade; views.js sets it on a reader's switch only (FE-A, ad23309d).
    - Platform: remove the 7 entries from the allowlist.
 8. **QA-74 and QA-55** (2026-10-16):
    - Motion: `--dur-3` is 280 ms; `--dur-grow` and `--dur-pop` are 300 ms.

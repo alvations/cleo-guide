@@ -5,7 +5,7 @@
  * exists exactly when the data says so, and each one links to its source (#src=<id>), or, for "Cited by n sources", to
  * the place's detail, where every source is listed. A closed place carries none on its card (never a live
  * recommendation); its detail shows them under "Before it closed" (client/sheet.js FE-C hook reads the hidden copy).
- * The card gains data-rec="award video cited" (open places only) for the "Recognised" lens (client/city.js FE-C hook).
+ * The card carries compact attributes only (attr()); client/recognition.js draws the row. data-rec feeds the lens.
  * ON gates the whole layer, so it can land switched off.
  */
 const { esc } = require('../html');
@@ -17,21 +17,17 @@ const KINDS = ['award', 'video', 'cited'];
 /** The kinds a record has, in a fixed order ([] when none, or when switched off). */
 const kinds = r => (ON && r.rec ? KINDS.filter(k => r.rec[k] && (k === 'cited' ? r.rec.cited >= 3 : r.rec[k].length)) : []);
 
-/** data-rec="…" for the card's attribute list (open places only), or ''. */
-function attr(r) { const k = kinds(r); return k.length && !r.closed ? `data-rec="${k.join(' ')}"` : ''; }
-
-/** The badge row: one link per award / video source, one "Cited by n sources" link. '' when there are none. */
-function html(r, srcById) {
+/** The card's recognition, as compact attributes (the page-weight budget: no badge markup is sent). client/recognition.js
+ *  draws the badge row from them: data-rec = the kinds (open places; the "Recognised" lens filters on it), data-rec0 = the
+ *  same for a closed place (its detail only), data-ra / data-rv = the award / creator-video source ids. "Cited by n" is
+ *  the card's own data-src count (platform's rec.cited is exactly that, n ≥ 3). '' when there is nothing. */
+function attr(r) {
   const k = kinds(r); if (!k.length) return '';
-  const name = id => String((srcById[id] || { name: id }).name || id).split(' · ')[0];
-  const out = [];
-  for (const id of (r.rec.award || [])) out.push(`<a class="rb rb-award" href="#src=${esc(id)}">${esc(tr('rec.award', { src: name(id) }))}</a>`);
-  for (const id of (r.rec.video || [])) out.push(`<a class="rb rb-video" href="#src=${esc(id)}">${esc(tr('rec.video', { src: name(id) }))}</a>`);
-  if (r.rec.cited >= 3) out.push(`<a class="rb rb-cited" href="#p=${encodeURIComponent(r.id)}">${esc(tr('rec.cited', { n: r.rec.cited }))}</a>`);
-  // a closed place: kept for the detail only (hidden on the card), labelled as history
-  return r.closed ? `<p class="pl-rec closed" hidden><span class="lbl">${esc(tr('rec.before'))}</span> ${out.join(' ')}</p>`
-    : `<p class="pl-rec"><span class="vh">${esc(tr('rec.label'))}</span> ${out.join(' ')}</p>`;
+  return [`data-rec${r.closed ? '0' : ''}="${k.join(' ')}"`, (r.rec.award || []).length && `data-ra="${esc(r.rec.award.join(' '))}"`,
+    (r.rec.video || []).length && `data-rv="${esc(r.rec.video.join(' '))}"`].filter(Boolean).join(' ');
 }
+/** Server-side badge markup: none (drawn in the browser, see attr()). Kept as a no-op so the card hook stays one line. */
+function html() { return ''; }
 
 /** The tray fieldset and the rail tile (render/city.js FE-C hooks); '' when the page has no badges. */
 function trayPills(recs, pill) {
