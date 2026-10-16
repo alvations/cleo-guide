@@ -13,10 +13,16 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- R8 gap #5b (B-20): What changed "Status source" links are a.chg-src 44 px controls (beat `.chg a` 24 px); metrics.js
+  B-20 = 0 on all 31 pages that carry one (sweep in scratch, 31/31). test-hubs guards the class + rule.
+- R8 gap #2d: landing + hub "Recommended by" use lib/model.js recommender(): research parentheticals dropped
+  ("Wikipedia (published facts/coords)" → "Wikipedia"), a place's own site ("Official … site") never named; W9-6 source
+  index uses publicName(). Left on 4 city pages (FE-A's render/city.js): siliconvalley, statecollege, madison, cincinnati.
 - Overlay audit (owner directive, docs/BETA-OVERLAY-LEDGER.md; FE-B scope Guidebook / Insights / What changed / method):
   probe tools/beta/feb-ov.js (7 pages x 6 viewports x 2 themes; OV_ONLY=<regex>). Rows OV-30..OV-35. Fixed OV-30
   (Contents strip under the city bar) + OV-31 (strip scrolls away < 500 px tall). Open: OV-32/33/34 FE-A; OV-35 FE-B shell
-  (header + tab bar 33 % in landscape) — fix to OV-00 when the designer sets the budgets.
+  (header + tab bar 33 % in landscape). OV-00 applied (c84fe342c): Cleo.compact in search.js (tab bar, Contents strip),
+  landscape shell = one 48 px bar; OV-35/36 claimed; OV-37 (64/72 px header vs 52/56) is designer + FE-A.
 - QC-34: Guidebook Contents follow the lens — syncLens (client/guidebook.js) recounts each chapter's Contents entry from
   the model's visible set on every lens change and drops chapters with 0 (as the chapters do). test-views-b: mode=food,
   q=, a= on 3 guides (counts == visible entries, total == "s of all N", a= keeps 1 chapter; cleared → full). Note for

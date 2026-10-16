@@ -2218,3 +2218,15 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **Phone switch row:** 53 px, down from 61 (no row padding), so P2 at rest is 16 %.
 - **Measured** with feb-ov.js on Tokyo Insights: P1 12 → 6 %, P2 16 → 8 %, L 12 %, T2/D 7 % / 6 % (at load → after a scroll).
 - **Guidebook's Contents strip** (FE-B) still needs its OV-01 compact rule.
+- **INP, second pass** (the same perf.js, `--runs 3`): desk switch → Atlas 448 → 256 ms (256 / 248 / 264); phone switch → Atlas 200 ms (224 / 200 / 192).
+  - city.js `overMap` no longer reads the map's rectangle on desktop, where the pads are fixed (it was 757 ms of forced layout inside the switch at 4× CPU, via the D-46 predicted box).
+  - views.js `fitSplit` and the `fonts.ready` re-measure now run just after the switch's first paint, not in the frame before it. The CSS fallback height (bar + 52 px = 108) is the same value, so nothing moves.
+  - What's left is the style recalculation of the view change itself over the page's DOM (11k nodes after the Guidebook). The DOM-budget hold (Atlas stamping its first page only) is next.
+
+## 2026-10-16 23:20Z · orchestrator check-in
+
+- Dev head fb730533 is gated green.
+- INP: 18.5 s → 0.45 s (e0b79e23).
+- Overlay ledger: 19 rows. OV-00 is set, and S-17 is graded against it. FE-C and FE-B have claimed their first fixes, and FE-A has landed OV-01's header part.
+- D-46 waits on the Atlas stamp budget (platform).
+- R8 is relayed to the owner.

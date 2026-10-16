@@ -47,7 +47,7 @@
 - **Five steps between 12 and 17 px:** 12 · 13 · 14 · 16 · 17. Only weights 400 / 500 / 600 / 700 render, and there is no 13.5 px.
   - `style/v2/tools/normalize-v2.py` snaps every raw size and radius in the designer's sources onto tokens, and has a `--check` mode.
   - The probes confirm it: `eval/r6/tools/probe-type.js` and `probe-css.py`. In the designer's CSS the only raw font size left is `.5em` (the native script after a city name), and the only raw radii are `50%` and `3px`.
-- **Optical size:** Bricolage ships as one pinned opsz-72 instance (wght axis only, 54.5 KB). That is deliberate: the display face only sets 22 px and up, where opsz 72 is the right cut, and keeping the opsz axis would roughly double the files for no visible gain. Do not set `font-optical-sizing` or `font-variation-settings: 'opsz'` on it. Headlines, deks and subtitles use `text-wrap: balance / pretty`.
+- **Optical size:** Bricolage ships as one pinned opsz-72 instance (wght axis only, 54.5 KB). That is deliberate: **the display face only sets 24 px and up** (R8 T7 found it at 16–22 px; now enforced: `--fs-d2` is 24 px, and V2.22 moves every sub-24 px display rule in the base layer to the UI face at 600, with lanes doing the same in their files). opsz 72 is the right cut at 24 px and up, and keeping the opsz axis would roughly double the files for no visible gain. Do not set `font-optical-sizing` or `font-variation-settings: 'opsz'` on it. Headlines, deks and subtitles use `text-wrap: balance / pretty`.
 - Tabular figures appear wherever we count (`--num`).
 - CJK falls back to the system sans.
 - Fonts are self-hosted OFL subsets (vi, latin-ext, latin), with `font-display: swap`.
@@ -130,13 +130,36 @@ When a label lowercases a proper noun, add the noun to `allowlist.json`, never t
   - The credit always sits under the media, never over it, and is never clipped.
   - Short form (imagery `captionHtml`): "Photo: ⟨author⟩ · ⟨licence⟩ · Wikimedia Commons (resized)".
   - The licence and the source are links. The work's title sits in the source link's accessible name and title, which satisfies CC 2.0/3.0 "title if supplied".
-  - The credit is one sentence in ink-3 at `--fs-xs`, line-height 1.6. Its links get a 44 px hit area from inline padding, so the line box doesn't grow.
+  - The credit is one sentence in ink-3 at `--fs-xs` (`--lh-body`), **on one line under a card** (R8 trust: 2–3 line credits read as clutter). The author ellipsises first, with the full credit in `title`; under a hero it may wrap. Its links get a 44 px hit area from inline padding, so the line box doesn't grow.
 - **Inside a link:** a card that is itself one link puts the credit *after* the link (`li > a.card + p.credit`), because a credit's own links may not nest inside an `<a>`.
 - **Loading and weight:**
   - Lazy and `decoding="async"` everywhere except a hub's hero, which is eager with `fetchpriority="high"`.
   - `srcset` comes from the imagery widths (500 / 960 for cards, 640 / 1280 for heroes). `sizes` matches the real column width, so a 3× phone takes the 500 w copy for a ~170 px card.
   - Budget (D-38): a page's default first load stays ≤ 2.0 MB on desktop and on a 390 px phone at 3×.
 - **No repeats:** a hub card never repeats its hub's hero photo (render guard plus `test-hubs.js`).
+
+## v2.7a Designed food covers (R8 D13 "food-led first rows are sand")
+
+Food places are never photographed (§v2.7). So a food cover has to be *designed*, not left blank. Imagery builds the art in `tools/beta/imagery/motifs.js`; FE-A only places it in the existing cover box (orchestrator, 2026-10-16).
+
+**Anatomy** (the same box as a photo: `--r-l`, no frame):
+1. **Ground:** `--cover-food`, with the **city's own ground pattern** from `motifs.js` (`t`: seigaiha for Tokyo, the grid for New York, waves for Cleveland …) laid over it at `--ink` 5 % (light) / 7 % (dark). Food rows then look like the city, not like sand.
+2. **The dish glyph, large:** the cuisine's line glyph from the kit (`icons.json`: bowl, noodles, sushi, dumpling, bread, cup, cocktail, cake, ice, fish, sandwich, steam, dango; `forkknife` only as a last resort). It's drawn at **56 % of the cover height**, anchored bottom-right, and bleeds off the edge by about 15 %. The stroke is `--ink` at 22 % (light) / 28 % (dark), with a 1.5 px non-scaling stroke. It's decoration (`aria-hidden`): an editorial illustration, not a stamp.
+3. **The dish word**, bottom-left at a 16 px inset:
+   - FE-A's cover word: never the area, never a source name, never a repeat of the kind line.
+   - Display face 600 at `--fs-d2` (24 px, the display floor), `--ink`, at most 2 lines, `text-wrap: balance`.
+4. **The native dish name,** when the record has one (ラーメン, phở, 小笼包): just above the dish word, in `--font-native` 500 at `--fs-sm`, `--ink-2`, with the right `lang`. Vietnamese keeps its diacritics. It's never machine-transliterated.
+
+**Rules:**
+- Adjacent cards in a row never repeat the same glyph twice running. If two dishes share one, the second uses the next-best glyph from its cuisine set.
+- No colour beyond the tokens: no sun, no oxblood.
+- **Weight:** the art is inline SVG or a CSS custom property, adding no request. The glyph set is shared, so it costs under 1 KB per city skin.
+- AA: the dish word is about 15:1 on `--cover-food` in both themes.
+
+**Acceptance:**
+- On New York ("New York classics") and Chinatown ("The hawker canon"), every no-photo food card in the first row shows the city pattern, a glyph and the dish word, plus the native name where the data has one.
+- No two adjacent covers repeat a glyph.
+- `test-imagery.js` still refuses food photos.
 
 ## v2.8 Page patterns
 
@@ -230,6 +253,8 @@ At 52 + 52 px, P1 at rest is 12.3 % and after a scroll is 6.2 %. **In landscape 
 - **Toasts** leave by themselves within 4 s unless they carry an action. They sit above the bottom edge and never cover the header, the view switch or a sheet's buttons.
 - **Banners** (storage blocked, offline, map unavailable) show once, are dismissible, and are never repeated in a second place on the same screen.
 - **One control per action per screen.** For example, "Near me" appears once.
+
+**3b. Line-heights are tokens** (R8 D7, gap #7: ≤ 6 distinct raw values site-wide). Use `--lh-hero` 1.06 · `--lh-d1` 1.08 · `--lh-d2` 1.2 · `--lh-d3` 1.3 · `--lh-xs` 1.35 · `--lh-sm` 1.45 · `--lh-lead` 1.5 · `--lh-body` 1.55. Snap others to the nearest token (1.4 → `--lh-sm`, 1.6 → `--lh-body`, 1.25 → `--lh-d2`). Only `1` (single-line controls) and pixel heights that centre text in a fixed box (22, 28, 44 px) stay raw. Radii: `--r-*` tokens plus `50%` for circles, nothing else.
 
 **3a. One search per screen** (QC S-17, 9a2a10c8: search appeared twice on every city view):
 - **City pages have one search control, scoped to the city first.**

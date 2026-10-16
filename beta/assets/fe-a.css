@@ -676,6 +676,11 @@ html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
 @media (max-width:1023px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{top:var(--gb-toc-top,105px)}}
 /* …and on a short screen (phone landscape) it scrolls away with the page instead of stacking a third bar (52 % chrome) */
 @media (max-width:1023px) and (max-height:500px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{position:static}}
+/* FE-B OV-00 (§v2.12 rule 1): below the desktop side column the Contents strip is a guest row — on a scroll down it slides
+   up behind the header (transform only, --dur-2), on a scroll up / focus it returns (Cleo.compact in search.js) */
+@media (max-width:1023px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transition:transform var(--dur-2) var(--ease-out)}
+  html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc.is-away{transform:translateY(calc(-1 * var(--gb-toc-top,105px) - 100%))}}
+@media (prefers-reduced-motion:reduce){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transition:none}}
 /* FE-B QC-33: a deep link into Guidebook / Insights painted the About + method section and the footer first, then the view
    mounted above them and pushed them down (load CLS 0.42–0.58 at 1440). Until the view host has content, it holds one
    viewport of room (data-view is set from the hash in <head>, before first paint), so they first paint below the fold. */
@@ -1259,3 +1264,5 @@ a.rb.rb-award{background:none}a.rb.rb-award::before{background:var(--sun-wash)}
 .gc-chk,.pv-chk{margin-top:var(--s-1)}.gc-b>.gc-chk{order:98}.gc-b>.gc-rec{order:99}
 /* QC-05: in Atlas the list head states it (atlas.js, FE-1, from the same city.empty.* keys): one empty state per view */
 html[data-view=atlas] [data-cleo-empty]{display:none}
+/* R8 gap #2c: "last checked <date>" never breaks inside (the masthead stat line, render/city.js + build.js link) */
+.masthead .facts a[data-cleo-changes]{white-space:nowrap}

@@ -211,6 +211,14 @@ console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed l
   // "verify before publish", UNVERIFIED (upper case: the catalogue's lower-case "unverified" label is a UI word)
   const JSONS = []; (function walk(dir) { fs.readdirSync(dir, { withFileTypes: true }).forEach(e => { const f = path.join(dir, e.name); if (e.isDirectory()) walk(f); else if (/\.json$/.test(e.name)) JSONS.push(f); }); })(path.join(__dirname, '..', '..', 'beta'));
   chk(`no worklist / "verify before publish" / UNVERIFIED in any of ${JSONS.length} shipped JSON files (QC-32)`, JSONS.filter(f => { const t = fs.readFileSync(f, 'utf8'); return /worklist|verify before publish/i.test(t) || /UNVERIFIED/.test(t); }).map(f => path.relative(path.join(__dirname, '..', '..'), f)), a => a.length === 0);
+  // R8 gap #5b (B-20): every "Status source" link is the 44 px control (a.chg-src, min-height --tap, specific enough to beat `.chg a`)
+  const SRC = CHG.reduce((t, [, h]) => t + (h.match(/>Status source<\/a>/g) || []).length, 0), SRCOK = CHG.reduce((t, [, h]) => t + (h.match(/<a class="chg-src" href="https?:[^"]*"[^>]*>Status source<\/a>/g) || []).length, 0);
+  chk(`"Status source" links are 44 px controls (${SRC} on ${CHG.filter(([, h]) => />Status source</.test(h)).length} pages; B-20)`, [SRC === SRCOK && SRC > 0, /\.chg a\.chg-src\{[^}]*min-height:var\(--tap\)/.test(rd('assets/fe-b.css'))], a => a[0] && a[1]);
+  // R8 gap #2d: landing + hubs show public source names only — no research parenthetical, never a place's own site
+  const HUBP = ['index.html', ...fs.readdirSync(BETA).filter(d => fs.existsSync(path.join(BETA, d, 'index.html')) && /^[A-Z]/.test(d)).map(d => d + '/index.html')];
+  const INTERNAL = /Official (?:company|institution|site)|published facts|published coord|notability \+/i;
+  chk(`landing + ${HUBP.length - 1} hubs: "Recommended by" names are public (no "(published facts/coords)", no "Official … site")`,
+    HUBP.filter(f => [...rd(f).matchAll(/Recommended by <b>([^<]*)<\/b>/g)].some(m => INTERNAL.test(m[1]))), a => a.length === 0);
   // QC-25: no closure note text in any shipped JSON — only its URL (src)
   chk('no closure note text ships in data/places/*.json (QC-25)', C.pages.filter(p => JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.some(e => 'note' in e || (e.src && !/^https?:\/\//.test(e.src)))).map(p => p.key), a => a.length === 0);
   chk(`retiring (${rt}) == closures this month whose sourced note announces a retirement or a last day`, sum('retiring') === rt, true);
