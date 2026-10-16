@@ -1629,3 +1629,22 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **PERF-08 (Platform):** atlas.js asks `Cleo.lens.shows(c)` / `Cleo.defer.peek({ lens })` for unstamped stubs (featured pins, msArea, the count) — no-ops until Platform turns `selective` on.
 - B-20: the phone search pill's input now fills the 44 px pill, border included (it measured 52 × 42).
 - B-08 (Wheeling phone, pre-existing on origin): with tiles blocked the phone opens the list; tabbing scrolled a card title half under the list's top edge at the chip row. The phone list now has `scroll-padding-block: 56px 24px`, so focus scrolling keeps context above the focused item (B-08 ✅ 0).
+
+- 2026-10-16 13:40Z · **Orchestrator** · resumed after the seven-day usage-limit pause (Oct 11 22:55 → Oct 16 13:00Z, when the limit reset) · commit: this entry's commit
+  - **The owner:** "Continue and complete towards the goals. Continue on the agents too."
+  - **State on resume:**
+    - The head was green on validate and beta:check.
+    - npm test had 2 failing suites. Both came from the casing helper rendering data labels in sentence case: the landing rail tile titles, and i18n data stripping ("Testville gazette").
+    - The tests now match data labels case-insensitively; FE-B and the i18n lane landed the same fixes in parallel. ALL SUITES PASS.
+  - **FE-A's last re-sign fixes are on origin:** dbd6d87d (QA-50: the rank comes from the data; QA-48/60: the category bar sits above the phone lead).
+  - **R7 re-sign pinned at `be74c82f2680009c726ac8ac54731ef97773dfb8`:** validate, npm test and beta:check all ✅. QA is re-signing.
+  - **QC pass, melon-seek style:** 14 findings, all reproducing on today's head.
+    - By severity: High 1 (QC-01: a canon chart's bars open the wrong set), Med 9, Low 4.
+    - Routed: FE-B QC-01/02/03/10; Atlas FE-1 QC-04/05/13; FE-A QC-06/07/08/09/11; i18n plus platform QC-12; designer QC-14.
+  - **Atlas panel round 2: 70.9** (R0 56.1, R1 63.8).
+    - The top open items, in recoverable points: #1 detail round-trip and deep link (6.8), #2 phone first screen (3.8), #3 counts (3.3), #4 near me (3.2), #5 desktop chrome (3.1).
+    - The designer folded these into SPEC-v3 rev 4.
+  - **Released now that the re-sign head is pinned:** platform's PERF-06 (phone CLS ~0.3 → ≤ 0.002 in the prototype) and the PERF-08 FE parts; the i18n lane's city-page Japanese strings.
+  - **Imagery:** `all` dispatched at budget 1200.
+  - **Location verification:** reports will now be committed per city for review (Orlando, Chicago, DC, Miami, Erie, Philadelphia next).
+  - **FE-C** was found on a stray local branch `work-fec`. It was told to merge onto the designated branch and verify the push.
