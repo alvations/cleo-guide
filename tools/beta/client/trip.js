@@ -137,10 +137,16 @@
     if (!s.length) return Cleo.t('city.card.added', 'Added by the guide (general knowledge)');
     return s.length > 1 ? Cleo.t('src.recby.more', 'Recommended by {src} + {n} more', { src: D.src[s[0]] || s[0], n: s.length - 1 }) : Cleo.t('card.recby', 'Recommended by') + ' ' + (D.src[s[0]] || s[0]);
   }
+  // a closed place's status source (pv.ss: the URL platform's model takes from the geocodes status note) as a link named by its host
+  function srcLink(l) {
+    var u = l.why === 'closed' && ((l.x.p || {}).pv || {}).ss; if (!u || !/^https?:\/\//.test(u)) return '';
+    var host = u.replace(/^https?:\/\/(www\.)?/, '').split(/[/?#]/)[0];
+    return ' ' + esc(Cleo.t('trip.why.source', 'Source: {src}', { src: '\u0000' })).replace('\u0000', '<a href="' + esc(u) + '" rel="noopener" target="_blank" translate="no">' + esc(host) + '</a>');
+  }
   function reason(l, asked) {
     var p = l.x.p || {}, pv = p.pv || {};
     if (l.why === 'closed') return (pv.checked ? Cleo.t('trip.why.closed.at', 'Closed — kept for the record, never planned (checked {date})', { date: pv.checked }) : Cleo.t('trip.why.closed', 'Closed — kept for the record, never planned')) +
-      (pv.ss ? ' ' + Cleo.t('trip.why.source', 'Source: {src}', { src: pv.ss }) : '');
+      '';   // its status source is a link, drawn after the escaped text (srcLink)
     if (l.why === 'nopin') return Cleo.t('trip.why.nopin', 'No verified pin, so it can’t be put in walking order');
     if (l.why === 'fit') return Cleo.t('trip.why.fit', 'Didn’t fit in {days} — choose more days to include it', { days: N.day(asked) });
     return Cleo.t('trip.why.gone', 'No longer listed in a guide');
@@ -267,7 +273,7 @@
       var tw = Cleo.geo.walk(tot);
       var lo = left.length ? '<section class="tp-left" aria-labelledby="tp-left-h"><h2 id="tp-left-h">' + esc(Cleo.t('trip.left', 'Left out ({n})', { n: left.length })) + '</h2><ul>' + left.map(function (l) {
         var D = data[l.x.key], p = l.x.p;
-        return '<li' + (l.why === 'closed' ? ' class="closed"' : '') + '><a href="' + esc(Cleo.root + D.href + '#p=' + encodeURIComponent(p.id)) + '">' + esc(label(p)) + '</a>' + (l.x.closed ? '<span class="tp-closed">' + esc(Cleo.t('sheet.closed', 'Closed')) + '</span>' : '') + ' <span class="sm">' + esc(D.name) + '</span><p>' + esc(reason(l, asked)) + '</p></li>';
+        return '<li' + (l.why === 'closed' ? ' class="closed"' : '') + '><a href="' + esc(Cleo.root + D.href + '#p=' + encodeURIComponent(p.id)) + '">' + esc(label(p)) + '</a>' + (l.x.closed ? '<span class="tp-closed">' + esc(Cleo.t('sheet.closed', 'Closed')) + '</span>' : '') + ' <span class="sm">' + esc(D.name) + '</span><p>' + esc(reason(l, asked)) + srcLink(l) + '</p></li>';
       }).join('') + '</ul></section>' : '';
       var gone = unknown.length ? '<p class="tp-gone" role="note">' + esc(unknown.length === 1 ? Cleo.t('trip.gone.one', '1 place in this link is no longer listed in a guide: {ids}. The link may be older than the guide.', { ids: unknown.map(idOf).join(', ') })
         : Cleo.t('trip.gone', '{n} places in this link are no longer listed in a guide: {ids}. The link may be older than the guide.', { n: unknown.length, ids: unknown.map(idOf).join(', ') })) + '</p>' : '';

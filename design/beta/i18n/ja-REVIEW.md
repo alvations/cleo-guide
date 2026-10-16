@@ -221,4 +221,20 @@ A fresh independent subagent proposed a change to each of the four drafts, and a
 |---|---|---|---|
 | `m.not.p` | 評価、レビュー件数、価格、営業時間を独自に付け加えることはありません。紹介記事に引用されているものは出典側の情報で、日付を添えています。推測はしません。お出かけ前に営業時間をご確認ください。 | 星評価・レビュー件数・価格・営業時間を独自に付け加えることはありません。解説で引用しているものは出典のもので、日付を添えています。推測はしません。お出かけ前に営業時間をご確認ください。 | Bare 評価 is gone (QC-27: ratings are 星評価, never the guide's ランク). 紹介記事 → 解説, the catalogue's word for write-up. 出典側の情報 → 出典のもの, as in the sister strings. |
 
-**Total: 79 changes over seventeen rounds.**
+## Round 18: W8-I18N-SEARCH, the site-wide search (FE-B's client/search.js; 27 new `srch.*` keys; 5 changes, applied)
+
+**Scope:** the top-bar search panel on every page and the landing's results had about 25 hard-coded English strings. They are now catalogued.
+- Existing keys reused: `city.empty.q`, `shell.search`, `land.search.ph`, `city.mode.food`.
+- The GitHub issue title and body for "Suggest this source" stay in English: they go to the maintainers.
+
+**Review:** a fresh independent subagent checked all 27 ja strings, including how the composed headings read, and kept 22.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `srch.in` | {n}件のガイド内 | {n}件のガイドから | …1件のガイド内 read like a stray location note beside the heading; から says where the matches come from. |
+| `srch.in.one` | 1件のガイド内 | 1件のガイドから | Same as srch.in. |
+| `srch.src.all` | {source}が{guides}で推薦するすべての場所 | {guides}に載っている、{source}推薦の場所すべて | The draft said the source recommends things "in" the guides; it's the guides that cite the source. |
+| `srch.fail.p` | サイトの索引が必要ですが、今は接続できません。どのガイドも一覧に載っていて、どのページも使えます。 | 検索にはサイトの索引が必要ですが、現在読み込めません。ガイドの一覧と各ページはそのままご利用いただけます。 | 接続できません suggests the visitor's own connection failed; the second sentence was a clumsy literal. |
+| `srch.src.none.p` | ガイドが名前を挙げている出典(新聞、ガイドブック、クリエイターなど)のリンクを貼り付けると、その出典が推薦する場所を表示します。読む価値のある出典なら提案してください。リンクから、このプロジェクトのGitHubで記入済みのissue作成画面が開きます。 | ガイドが名前を挙げている出典(新聞、ガイドブック、クリエイターなど)のリンクを貼り付けると、その出典が推薦する場所を表示します。読む価値のある出典なら提案してください。提案のリンクを開くと、このプロジェクトのGitHubで入力済みのissue作成画面が開きます。 | リンクから didn't say which link; it now names the suggest link. 入力済み is the natural word for a form. |
+
+**Total: 84 changes over eighteen rounds.**

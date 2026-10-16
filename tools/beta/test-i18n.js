@@ -289,9 +289,31 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     const leftTrip = [];
     box.querySelectorAll('svg text').forEach(n => n.remove());
     const tw = dT.createTreeWalker(box, 4);
-    for (let n; (n = tw.nextNode());) { const t = n.nodeValue.trim(); if (!/[A-Za-z]{2,}/.test(t) || /⟦/.test(t) || names.has(t.toLowerCase())) continue; leftTrip.push(t.slice(0, 60)); }
+    for (let n; (n = tw.nextNode());) { const t = n.nodeValue.trim(); if (!/[A-Za-z]{2,}/.test(t) || /⟦/.test(t) || names.has(t.toLowerCase()) || (n.parentElement && n.parentElement.closest('[translate="no"]'))) continue; leftTrip.push(t.slice(0, 60)); }   // [translate=no]: data (a source's host), as on city pages
     box.querySelectorAll('[aria-label]').forEach(el => { const v = el.getAttribute('aria-label'); if (/[A-Za-z]{2,}/.test(v) && !/⟦/.test(v)) leftTrip.push('@' + v.slice(0, 50)); });
     chk('trip.html, runtime pseudo catalogue: the trip has 0 English interface strings (data exempt)', [box.querySelectorAll('.tday').length > 0, !!box.querySelector('.tp-left'), [...new Set(leftTrip)].slice(0, 12)], [true, true, []]);
+  }
+  // W8-I18N-SEARCH: the site-wide search (client/search.js: the top-bar panel and the landing's results) under the PSEUDO
+  // catalogue: every output path has 0 English interface words. Data here is Japanese, so any ASCII word is interface.
+  {
+    const sw = new JSDOM('<!doctype html><body><header data-cleo-shell="topbar"></header><div id="o"></div><a data-cleo-search-open href="#">s</a></body>', { runScripts: 'outside-only', url: 'https://example.test/beta/' }).window;
+    const fillP = (k, e, v) => { const t = PSEUDO.strings[k]; if (t == null) throw new Error('no key ' + k); return v ? t.replace(/\{([a-z]+)\}/g, (m, n) => n in v ? v[n] : m) : t; };
+    const D = { items: [], pages: [['t', '東京', 'cities/t.html', '日本', 1], ['k', '京都', 'cities/k.html', '日本', 0]] };
+    for (let i = 0; i < 10; i++) D.items.push(['t', 'p' + i, '場所' + i, i % 2 ? 'f' : 's', 0, i === 3 ? 1 : 0, i % 3 ? 'エリア' : '']);
+    D.items.push(['k', 'k1', '神社', 's', 0, 0, '東山']);
+    sw.Cleo = { root: '', t: fillP, fold: x => x.toLowerCase(), search: (d, q) => d.items.filter(it => it[2].includes(q) || q === '全').map(it => ({ it, pg: d.pages.find(pg => pg[0] === it[0]) })) };
+    sw.eval(fs.readFileSync(path.join(__dirname, 'client', 'search.js'), 'utf8'));
+    const C = sw.Cleo, el = sw.document.getElementById('o'), left = [];
+    const scan = (tag, root) => { const tw = sw.document.createTreeWalker(root, 4); for (let n; (n = tw.nextNode());) if (/[A-Za-z]{3,}/.test(n.nodeValue)) left.push(tag + ': ' + n.nodeValue.trim().slice(0, 50));
+      root.querySelectorAll('[aria-label],[placeholder]').forEach(e => ['aria-label', 'placeholder'].forEach(x => { const v = e.getAttribute(x); if (v && /[A-Za-z]{3,}/.test(v)) left.push(tag + ' @' + x + ': ' + v); })); };
+    for (const q of ['場所', '神社', '全', '無', '日本', '京都 日本']) { C.renderHits(el, D, q, () => {}); scan('hits ' + q, el); }
+    C.indexFailed(el); scan('index failed', el);
+    const IX = { hosts: { 'ab.cd': [['cities/t.html', '東京', 's1', '雑誌', 1], ['cities/k.html', '京都', 's1', '雑誌', 3]] } };
+    C.renderSource(el, IX, 'ab.cd', [['cities/t.html', '東京', 'p1', '場所1', 0, 'エリア']], 'ab.cd'); scan('source', el);
+    C.renderSource(el, IX, 'xy.zz', null, 'xy.zz'); scan('no source', el);
+    sw.document.querySelector('[data-cleo-search-open]').dispatchEvent(new sw.MouseEvent('click', { bubbles: true }));
+    const panel = sw.document.querySelector('.searchpanel'); if (panel) { scan('panel', panel); if (/[A-Za-z]{3,}/.test(panel.getAttribute('aria-label'))) left.push('panel @aria-label'); }
+    chk('search.js (top-bar panel, results, empty, failed, paste-a-link) under the pseudo catalogue: 0 English interface strings', [!!panel, left.slice(0, 12)], [true, []]);
   }
   // W8-I18N-MAPRACE: tiles that never load drop the map (client/city.js fail()); a canvas redraw queued as it went threw
   // "reading 'save'" on ja pages. Real browser, tile hosts blocked, the atlas with a lens on, phone and desktop, ja and en.
