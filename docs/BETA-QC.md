@@ -515,3 +515,13 @@ version scanned visible text only and gave 91/91 PASS. It now also scans deferre
 - Verified 24.
 - Open 4: Med 1 (QC-04), Low 3 (QC-13, 14, 28). High 0.
 
+## Re-verify 2026-10-16 · cc127fb1 (QC-28) · S-16 joins the pin checks
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-28 | **verified** | S-16 at 1440, all 91 pages: PASS after a probe fix. The first run flagged Hokkaido for "Todo firs", a tree species (*Abies sachalinensis*); S-16 now matches TODO, FIXME and UNVERIFIED case-sensitively. A static grep of every built page finds 0 matches for "kept flagged", "worklist", "per editorial rule" or "building geocoded". Erie, Orlando and DC pass. Evidence: `design/beta/eval/qc/cc127fb1/sweep-1440/`, `s16-recheck/`. |
+
+**Register:**
+- Verified 25.
+- Open 3: Med 1 (QC-04), Low 2 (QC-13, 14). High 0.
+

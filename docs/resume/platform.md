@@ -40,7 +40,7 @@ plural (i18n).
    selective on: views.js links (QA-75), w7 lens (QA-76), my sheet check + FE-2's fe2/qc26.js first/second area (QC-26).
    QA-75 root cause (FE-A): city.js's cleo:stamped adopted cards later stamped by Cleo.defer.all()/allNow without applying
    the lens; FE-A's marked block fixes it (links 140/140 with the flag forced on; SHA pending). On re-land add a jsdom check:
-   selective on → lens → Cleo.defer.all() → shown == lens count. No product pushes until QA rules on 4aba38b3. PERF-14 re-checked (w8p 608/651 KB).
+   selective on → lens → Cleo.defer.all() → shown == lens count: in test-beta ("QA-75 guard"), fails without 752a77fc. No product pushes until QA rules on 4aba38b3. PERF-14 re-checked (w8p 608/651 KB).
 
 ## In flight
 

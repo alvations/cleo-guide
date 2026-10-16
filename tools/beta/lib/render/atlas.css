@@ -184,6 +184,16 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   html.atlas-d[data-view=atlas] .listpane section.area>h2 .area-n{font:inherit;color:var(--ink)}
   html.atlas-d[data-view=atlas] .listpane .pls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}
   html.atlas-d[data-view=atlas] .listpane .area-end{margin:12px 0 0}
+  /* §2.3 (R3 #2): ONE ranked list beside the map — the sections and lists step aside (display: contents) and every card
+     takes its rank as its CSS order (atlas.js flat); no area headings, no "area n of N", no area-chip row (area lives in the
+     bar's Area button and in Filters) */
+  html.atlas-d[data-view=atlas] .split>.listpane{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;align-content:start}
+  html.atlas-d[data-view=atlas] .split>.listpane>*{grid-column:1/-1;order:999999}
+  html.atlas-d[data-view=atlas] .split>.listpane>.ms-head{order:-2;margin-bottom:-8px}html.atlas-d[data-view=atlas] .split>.listpane>.lens{order:-1}
+  html.atlas-d[data-view=atlas] .listpane :is(section.area,section.area>ol.pls){display:contents}
+  html.atlas-d[data-view=atlas] .listpane section.area>:not(ol){display:none}
+  html.atlas-d[data-view=atlas] .listpane li.pl{grid-column:auto}
+  html.atlas-d[data-view=atlas] .ms-head .area-chips{display:none}
   html.atlas-d[data-view=atlas] .leaflet-top.leaflet-left{top:4px}
 }
 
@@ -285,6 +295,11 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   html.atlas-m.ms-list[data-view=atlas] .listpane section.area>:not(ol):not(h2):not(.area-end){display:none}
   html.atlas-m.ms-list[data-view=atlas] .listpane section.area>h2{margin:18px 0 10px;font:600 var(--fs-sm)/1.3 var(--font-ui);letter-spacing:0;color:var(--ink-2)}
   html.atlas-m.ms-list[data-view=atlas] .listpane .pls{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+  /* the phone list is the same ONE ranked list (§2.3) */
+  html.atlas-m.ms-list[data-view=atlas] .listpane{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-content:start}
+  html.atlas-m.ms-list[data-view=atlas] .listpane>*{order:999999}html.atlas-m.ms-list[data-view=atlas] .listpane>.ms-head{order:-2}
+  html.atlas-m.ms-list[data-view=atlas] .listpane :is(section.area,section.area>ol.pls){display:contents}
+  html.atlas-m.ms-list[data-view=atlas] .listpane section.area>:not(ol){display:none}
   html.atlas-m.ms-nomap[data-view=atlas] .split .mappane{display:none}
   /* "Search this area" after a pan */
   html.atlas-m[data-view=atlas] .ms-here{display:inline-flex;align-items:center;gap:6px;position:absolute;z-index:690;left:50%;top:calc(var(--cbar-o) + 112px);transform:translateX(-50%);min-height:var(--tap);padding:0 18px;border:0;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:600 var(--fs-ui)/1 var(--font-ui);box-shadow:var(--e-4);white-space:nowrap}
@@ -309,8 +324,8 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   html.atlas-m[data-view=atlas] .topbar .crumbs{display:flex;align-items:center;min-width:0;flex:1 1 auto;margin-left:-12px}
   html.atlas-m[data-view=atlas] .topbar .crumbs .sep{display:none!important}
   html.atlas-m[data-view=atlas] .topbar .crumbs>a:not(:last-of-type){display:none}
-  html.atlas-m[data-view=atlas] .topbar .crumbs>a:last-of-type{display:inline-grid;place-items:center;flex:none;width:var(--tap);height:var(--tap);font-size:0;color:var(--ink)}
-  html.atlas-m[data-view=atlas] .topbar .crumbs>a:last-of-type::before{content:"‹";font:400 28px/1 var(--font-ui)}
+  html.atlas-m[data-view=atlas] .topbar .crumbs>a:last-of-type{position:relative;display:inline-block;flex:none;width:var(--tap);height:var(--tap);overflow:hidden;white-space:nowrap;text-indent:var(--tap);color:var(--ink)}   /* the link keeps its text (accessible name, real size), shown as a chevron */
+  html.atlas-m[data-view=atlas] .topbar .crumbs>a:last-of-type::before{content:"‹";position:absolute;inset:0;display:grid;place-items:center;text-indent:0;font:400 28px/1 var(--font-ui)}
   html.atlas-m[data-view=atlas] .topbar .crumbs .here{font:600 var(--fs-lead)/1.2 var(--font-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   html.atlas-m[data-view=atlas] .topbar .brand{display:none}   /* phones: back + the city name (SPEC-v3 §2.2) */
   html.atlas-m[data-view=atlas] .nopin{bottom:calc(var(--car-h) + 80px);right:auto;left:12px}
@@ -324,8 +339,8 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
 @media (min-width:1024px) and (max-width:1279px){
   html.atlas-d[data-view=atlas] .topbar .topnav{display:none}
   html.atlas-d[data-view=atlas] .topbar .crumbs .sep,html.atlas-d[data-view=atlas] .topbar .crumbs>a:not(:last-of-type){display:none}
-  html.atlas-d[data-view=atlas] .topbar .crumbs>a:last-of-type{display:inline-grid;place-items:center;width:var(--tap);height:var(--tap);font-size:0;color:var(--ink)}
-  html.atlas-d[data-view=atlas] .topbar .crumbs>a:last-of-type::before{content:"‹";font:400 24px/1 var(--font-ui)}
+  html.atlas-d[data-view=atlas] .topbar .crumbs>a:last-of-type{position:relative;display:inline-block;width:var(--tap);height:var(--tap);overflow:hidden;white-space:nowrap;text-indent:var(--tap);color:var(--ink)}
+  html.atlas-d[data-view=atlas] .topbar .crumbs>a:last-of-type::before{content:"‹";position:absolute;inset:0;display:grid;place-items:center;text-indent:0;font:400 24px/1 var(--font-ui)}
 }
 /* rev 5 §2.3 (R3 #2): no rank badges on Atlas cards in any sort — the order is the ranking; ranks stay in the Guidebook */
 html[data-view=atlas] #cleo-grid li.pl .pl-num{display:none}
