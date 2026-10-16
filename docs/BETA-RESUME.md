@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 20:17Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 20:38Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -47,7 +47,8 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
     - w8p passes (Tokyo 621 KB, Atlas 392 KB);
     - B-20 mobile is 0 on 5 pilots (newyork's metrics run hung here, so QA covers NY);
     - merge-tree into the Pages branch is clean.
-  - QC's pre-check on 33a44d16 passed: S-16 91/91, the leak greps 0, and QC-29 verified.
+  - **QC: PASS on b54b3745** (20:35Z, 7c5ea616). Sweep 2236 PASS; the 4 FAILs are the filed Low QC-30 and QC-31. S-16 91/91, leak greps 0, and the QA-77 hit areas are ≥ 44 px with 0 overlaps and no CLS. A new Med, QC-33 (pre-existing CLS 0.42–0.53 on a guidebook/insights deep link at 1440), went to FE-B and platform for the next release.
+  - **Waiting on QA's verdict.**
   - Not in it: QC-04, Atlas rev 5, PERF-08, W8-I18N-SEARCH. They ship next, from the dev head.
 - **On YES:**
   1. open a PR from `beta-deploy-r7` into `claude/cleveland-page-creation-pant4l` (live is still 9f54587d; check with merge-tree first);
