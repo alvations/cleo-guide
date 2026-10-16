@@ -1,0 +1,395 @@
+{
+ "meta": {
+  "tool": "tools/location-verify.js 0.1.0",
+  "city": "san-francisco-ca",
+  "generated": "2026-10-16",
+  "scope": [
+   "unverified",
+   "low",
+   "status"
+  ],
+  "sources": [
+   "nominatim",
+   "official",
+   "overpass",
+   "census"
+  ],
+  "rowsInScope": 3,
+  "rowsChecked": 3,
+  "anchor": {
+   "lat": 37.77919,
+   "lng": -122.420646,
+   "radiusM": 26202
+  },
+  "mode": "live",
+  "userAgent": "CleoGuideLocationVerify/0.1.0 (https://github.com/alvations/cleo-guide; location-verify proposals, reviewed by a person) node",
+  "rule": "PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).",
+  "phase2": {
+   "houseFiles": [],
+   "abr": null,
+   "onemap": null
+  },
+  "requests": {
+   "network": 8,
+   "cacheHits": 4,
+   "nominatim": 4,
+   "failures": [],
+   "byHost": {
+    "nominatim.openstreetmap.org": {
+     "requests": 4,
+     "failed": 0
+    },
+    "overpass-api.de": {
+     "requests": 1,
+     "failed": 0
+    },
+    "geocoding.geo.census.gov": {
+     "requests": 3,
+     "failed": 0
+    }
+   }
+  },
+  "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
+  "hardFailure": false,
+  "recheck": {
+   "names": [
+    "Koi Palace",
+    "Hotel Utah Saloon",
+    "Wild Side West"
+   ],
+   "sources": [
+    "nominatim",
+    "official",
+    "overpass",
+    "census"
+   ]
+  }
+ },
+ "summary": {
+  "confirm": 2,
+  "move": 1
+ },
+ "rows": [
+  {
+   "name": "Koi Palace",
+   "current": {
+    "address": "Serramonte Center, Daly City, CA 94015",
+    "lat": 37.66611,
+    "lng": -122.46667,
+    "source": "https://www.wikidata.org/wiki/Q124474822 (wikidata, retrieved 2026-10-11; location-verify proposal accepted by orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx: Meets LOCATION-VERIFY §8 rule 2 (wikidata coordinate with an independent source within 40 m); orchestrator checks: house number equals the registry address, within 40 km of the city anchor, no shared coordinate, not a closed place; 14-row sample read by eye)",
+    "confidence": "high",
+    "verified": "2026-10-11",
+    "status": "open",
+    "statusSource": "Relocation reports 2026 (new Serramonte Center flagship opened 2026-09-18 per whatnow.com / Bay Area Own) — confirm exact unit",
+    "statusChecked": "2026-10-02"
+   },
+   "scope": [
+    "recheck"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 37.66606,
+    "lng": -122.46664,
+    "address": "Junipero Serra Freeway, Daly City, California 94015",
+    "matchedName": "Koi Palace",
+    "sourceUrl": "https://www.openstreetmap.org/node/1573655496",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": true
+    },
+    "distanceM": 6,
+    "osmObject": {
+     "id": "node/1573655496",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Koi Palace",
+     "address": "Junipero Serra Freeway, Daly City, California 94015",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Koi Palace",
+     "lat": 37.66606,
+     "lng": -122.46664,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/1573655496",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/1573655496",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 6
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": false,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=Serramonte%20Center%2C%20Daly%20City%2C%20CA%2094015&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "note": "no address match"
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (6 m); nothing to review"
+    ]
+   },
+   "recheck": {
+    "verdict": "corroborated",
+    "by": [
+     {
+      "kind": "osm-poi",
+      "name": "Koi Palace",
+      "distanceM": 6,
+      "sourceUrl": "https://www.openstreetmap.org/node/1573655496"
+     }
+    ]
+   }
+  },
+  {
+   "name": "Hotel Utah Saloon",
+   "current": {
+    "address": "500 4th St, San Francisco, CA 94107",
+    "lat": 37.78001,
+    "lng": -122.39796,
+    "source": "https://www.wikidata.org/wiki/Q115147944 (wikidata, retrieved 2026-10-11; location-verify proposal accepted by orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx: Meets LOCATION-VERIFY §8 rule 2 (wikidata coordinate with an independent source within 40 m); orchestrator checks: house number equals the registry address, within 40 km of the city anchor, no shared coordinate, not a closed place; 14-row sample read by eye)",
+    "confidence": "high",
+    "verified": "2026-10-11",
+    "status": "open",
+    "statusSource": "https://www.sfgate.com/food/article/san-francisco-dive-bar-loves-bay-bridge-21216819.php",
+    "statusChecked": "2026-10-02"
+   },
+   "scope": [
+    "recheck"
+   ],
+   "outcome": "move",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 37.77938,
+    "lng": -122.39811,
+    "address": "500 4th Street, San Francisco, California 94107",
+    "matchedName": "Hotel Utah Saloon",
+    "sourceUrl": "https://www.openstreetmap.org/node/10245940482",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 71,
+    "osmObject": {
+     "id": "node/10245940482",
+     "class": "amenity=pub",
+     "addresstype": "amenity",
+     "name": "Hotel Utah Saloon",
+     "address": "500 4th Street, San Francisco, California 94107",
+     "houseNumber": "500",
+     "tags": {
+      "website": "https://hotelutah.com/",
+      "opening_hours": "Mo-Su 11:30-24:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Hotel Utah Saloon",
+     "lat": 37.77938,
+     "lng": -122.39811,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/10245940482",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=pub",
+     "osm": "node/10245940482",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 71
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "500 4TH ST, SAN FRANCISCO, CA, 94107",
+    "lat": 37.77949,
+    "lng": -122.39806,
+    "distanceM": 12,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=500%204th%20St%2C%20San%20Francisco%2C%20CA%2094107&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   },
+   "recheck": {
+    "verdict": "moved",
+    "distanceM": 71,
+    "candidate": {
+     "kind": "osm-poi",
+     "name": "Hotel Utah Saloon",
+     "lat": 37.77938,
+     "lng": -122.39811,
+     "grade": "high",
+     "sourceUrl": "https://www.openstreetmap.org/node/10245940482"
+    }
+   }
+  },
+  {
+   "name": "Wild Side West",
+   "current": {
+    "address": "424 Cortland Ave, San Francisco, CA 94110",
+    "lat": 37.73919,
+    "lng": -122.41714,
+    "source": "https://www.wikidata.org/wiki/Q107371268 (wikidata, retrieved 2026-10-11; location-verify proposal accepted by orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx: Meets LOCATION-VERIFY §8 rule 2 (wikidata coordinate with an independent source within 40 m); orchestrator checks: house number equals the registry address, within 40 km of the city anchor, no shared coordinate, not a closed place; 14-row sample read by eye)",
+    "confidence": "high",
+    "verified": "2026-10-11",
+    "status": "open",
+    "statusSource": "https://www.sfgate.com/sf-culture/article/wild-side-west-bar-21350302.php (2025-26 feature)",
+    "statusChecked": "2026-10-02"
+   },
+   "scope": [
+    "recheck"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 37.73903,
+    "lng": -122.41715,
+    "address": "424 Cortland Avenue, San Francisco, California 94110",
+    "matchedName": "Wild Side West",
+    "sourceUrl": "https://www.openstreetmap.org/node/3214153061",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 18,
+    "osmObject": {
+     "id": "node/3214153061",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "Wild Side West",
+     "address": "424 Cortland Avenue, San Francisco, California 94110",
+     "houseNumber": "424",
+     "tags": {
+      "website": "https://www.wildsidewest.com/",
+      "opening_hours": "Mo-Su 14:00-02:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Wild Side West",
+     "lat": 37.73903,
+     "lng": -122.41715,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/3214153061",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=bar",
+     "osm": "node/3214153061",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 18
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "424 CORTLAND AVE, SAN FRANCISCO, CA, 94110",
+    "lat": 37.73907,
+    "lng": -122.41722,
+    "distanceM": 8,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=424%20Cortland%20Ave%2C%20San%20Francisco%2C%20CA%2094110&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (18 m); nothing to review"
+    ]
+   },
+   "recheck": {
+    "verdict": "corroborated",
+    "by": [
+     {
+      "kind": "census",
+      "name": "424 CORTLAND AVE, SAN FRANCISCO, CA, 94110",
+      "distanceM": 15,
+      "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=424%20Cortland%20Ave%2C%20San%20Francisco%2C%20CA%2094110&benchmark=Public_AR_Current&format=json"
+     },
+     {
+      "kind": "osm-poi",
+      "name": "Wild Side West",
+      "distanceM": 18,
+      "sourceUrl": "https://www.openstreetmap.org/node/3214153061"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -33,18 +33,6 @@
     "statusSource": "active hours + Aug 2026 Yelp reviews; official site active",
     "statusChecked": "2026-08-10"
    },
-   "Pamela's Diner (Strip)": {
-    "address": "60 21st St, Strip District, Pittsburgh, PA 15222",
-    "lat": 40.45195,
-    "lng": -79.98362,
-    "source": "Apple Maps",
-    "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "Apple Maps geocode 21st St",
-    "status": "open",
-    "statusSource": "Yelp updated Aug 2026 with current hours; official pamelasdiner.com lists Strip District location",
-    "statusChecked": "2026-08-10"
-   },
    "Gaucho Parrilla Argentina": {
     "address": "146 Sixth St, Pittsburgh, PA 15222",
     "lat": 40.44278,
@@ -91,18 +79,6 @@
     "note": "2016 is ~54% of the way from 1916 to 2101 along the block; both bracketing points are real rooftop pins, so target uncertainty ~40-60m. No exact 2016 pin surfaced.",
     "status": "open",
     "statusSource": "Yelp updated Jun 2026 with current hours; official papajs.com active",
-    "statusChecked": "2026-08-10"
-   },
-   "De Luca's Diner": {
-    "address": "2015 Penn Ave, Pittsburgh, PA 15222",
-    "lat": 40.45167,
-    "lng": -79.98389,
-    "source": "mapcarta W646470037 DMS",
-    "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Strip District, coarse DMS",
-    "status": "open",
-    "statusSource": "active hours + Jul 2026 Yelp reviews; Jan 2026 Post-Gazette story on its 75th anniversary",
     "statusChecked": "2026-08-10"
    },
    "La Prima Espresso": {
@@ -2527,7 +2503,7 @@
     "status": "open",
     "statusSource": "Yelp 'Updated August 2026' + active official site; classic-PGH Mode C fact-check 2026-08-13",
     "statusChecked": "2026-08-13",
-    "note": ""
+    "note": "merged alias 'De Luca's Diner' 2026-10-16 (its source: mapcarta W646470037 DMS; its pin 40.45167,-79.98389 med; status src: active hours + Jul 2026 Yelp reviews; Jan 2026 Post-Gazette story on its 75th anniversary)"
    },
    "Butterjoint": {
     "address": "208 N Craig St, North Oakland",
@@ -2551,7 +2527,7 @@
     "status": "open",
     "statusSource": "Yelp 'Updated 2026' + active official site; classic-PGH Mode C fact-check 2026-08-13",
     "statusChecked": "2026-08-13",
-    "note": ""
+    "note": "merged alias 'Pamela's Diner (Strip)' 2026-10-16 (its source: Apple Maps; its pin 40.45195,-79.98362 high; status src: Yelp updated Aug 2026 with current hours; official pamelasdiner.com lists Strip District location)"
    }
   },
   "youngstown-oh": {
@@ -2826,7 +2802,7 @@
     "source": "Wikipedia — Youngstown Historical Center of Industry and Labor (41°6.147′N 80°39.047′W)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "W Wood St, Youngstown; Owned by Ohio History Connection, operated by YSU",
+    "note": "W Wood St, Youngstown; Owned by Ohio History Connection, operated by YSU · merged alias 'Youngstown Historical Center of Industry and Labor (the \"Steel Museum\")' 2026-10-16 (its source: https://en.wikipedia.org/wiki/Youngstown_Historical_Center_of_Industry_and_Labor; its pin 41.1025,-80.65111 high; status src: Ohio History Connection site + yhcil.org list current 2026 hours (Wed–Sat) and admission; Yelp updated April 2026)",
     "status": "open",
     "statusSource": "Official yhcil.org; Ohio History Connection; Yelp 'Updated May 2026' with current hours",
     "statusChecked": "2026-08-10"
@@ -3054,7 +3030,7 @@
     "source": "published Central Square coord (near Metropolitan Tower)",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "Youngstown; pinned to Central Square (OH WOW); branded 'OH WOW!'",
+    "note": "Youngstown; pinned to Central Square (OH WOW); branded 'OH WOW!' · merged alias 'Roger & Gloria Jones Children's Center for Science & Technology (OH WOW!)' 2026-10-16 (its source: https://ohwowkids.org/; its pin 41.09975,-80.6501 med; status src: Official site ohwowkids.org + WFMJ news of April 2026 exhibit; 2026 free-admission Wednesdays program)",
     "status": "open",
     "statusSource": "OH WOW! official site + WFMJ news; new exhibit hosted Apr 2026, operating in downtown Youngstown",
     "statusChecked": "2026-08-10"
@@ -3297,30 +3273,6 @@
     "note": "Youngstown; downtown market",
     "status": "open",
     "statusSource": "Official site youngstownflea.com announced Season Nine with 2026 dates at 365 E Boardman St; Yelp updated Dec 2025",
-    "statusChecked": "2026-08-10"
-   },
-   "Youngstown Historical Center of Industry and Labor (the \"Steel Museum\")": {
-    "address": "151 W Wood St, Youngstown, OH 44503",
-    "lat": 41.1025,
-    "lng": -80.65111,
-    "source": "https://en.wikipedia.org/wiki/Youngstown_Historical_Center_of_Industry_and_Labor",
-    "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "Wikipedia DMS coord 41-6-9N 80-39-4W",
-    "status": "open",
-    "statusSource": "Ohio History Connection site + yhcil.org list current 2026 hours (Wed–Sat) and admission; Yelp updated April 2026",
-    "statusChecked": "2026-08-10"
-   },
-   "Roger & Gloria Jones Children's Center for Science & Technology (OH WOW!)": {
-    "address": "11 W Federal St, Youngstown, OH 44503",
-    "lat": 41.09975,
-    "lng": -80.6501,
-    "source": "https://ohwowkids.org/",
-    "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "downtown Federal St; coord approx",
-    "status": "open",
-    "statusSource": "Official site ohwowkids.org + WFMJ news of April 2026 exhibit; 2026 free-admission Wednesdays program",
     "statusChecked": "2026-08-10"
    }
   },

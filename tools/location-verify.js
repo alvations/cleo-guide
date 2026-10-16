@@ -1235,7 +1235,10 @@ async function main() {
     const today = o.today || new Date().toISOString().slice(0, 10);
     const list = findDuplicates(JSON.parse(fs.readFileSync(o.geocodes || GEOCODES, 'utf8')).cities, path.join(ROOT, 'docs', 'geoverify'));
     const outp = path.join(ROOT, 'docs', 'geoverify', 'DUPLICATES.md');
-    fs.writeFileSync(outp, duplicatesMarkdown(list, today));
+    // The decisions log (audit trail of resolved pairs) is hand-maintained below the generated part: keep it.
+    const prev = fs.existsSync(outp) ? fs.readFileSync(outp, 'utf8') : '';
+    const i = prev.indexOf('\n## Decisions');
+    fs.writeFileSync(outp, duplicatesMarkdown(list, today) + (i >= 0 ? prev.slice(i) : ''));
     console.log(`wrote ${path.relative(ROOT, outp)} — ${list.length} pair(s)`);
     return 0;
   }
