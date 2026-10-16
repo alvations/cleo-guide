@@ -2154,3 +2154,18 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - FE-1/FE-2, FE-A, FE-B and FE-C fix and claim rows;
   - QA adds the B-25 pin gate.
 - r8 ships with no open High/Med OV rows.
+
+## 2026-10-16 23:05Z · orchestrator: R8 is in
+
+- R8 scored the live r7 (b54b3745) at **90.7**, up from R7's 88.5: A 87 (+4), B 92, C 97, D 90.
+- **The top gaps are routed:**
+  1. sight photos, to imagery;
+  2. polish, to FE-A, FE-B, FE-C and FE-1;
+  3. map motion, to FE-1 and the designer;
+  4. Atlas residuals, to FE-1/FE-2, with the D-43 marker re-ruling going to the designer;
+  5. accessibility regressions, to FE-C (axe 2.87:1 on the sheet), FE-B (Status source links) and QA (B-03);
+  6. DOM and CSS weight, to platform;
+  7. token residue, to the designer and FE-B.
+- QA files them as R8-g rows.
+- QC's S-17 overlay probe is in (9a2a10c8); the r7 audit is running (about 2.5 h).
+- D-46: FE-A's part 1 is in (678f9939). The flip waits on platform's Atlas initial-stamp budget (Tokyo is 3,587 nodes with Atlas first).
