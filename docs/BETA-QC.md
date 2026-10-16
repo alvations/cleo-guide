@@ -553,3 +553,28 @@ The deploy pin is the release branch: 4aba38b3 plus ported fixes. The orchestrat
 | other sweep FAILs | known, as on dev | S-15 ×24: the search ring sits on its wrapper (harness artefact). S-08 ×6: OWNER-casing. S-01: token census. |
 
 The orchestrator has been asked to port 9fa622096 and 5d3dc9850 into r7. Re-check them on the release SHA.
+
+## Release pass 2026-10-16 · `beta-deploy-r7` @ 33a44d16 (QC-29 ported) · every known sweep FAIL accounted for
+
+Outputs are in `design/beta/eval/qc/r7-33a44d16/`. The sweep ran with `qc.js --only sweep --vps 1440` and the harness at 6a93f81d: 2236 PASS · 4 FAIL · 28 WARN · 18 N/A.
+
+| Check | Result | Evidence |
+|---|---|---|
+| S-16 | **PASS 91/91** → QC-29 **verified** | The orchestrator ported 9fa622096 (Orlando/DC prose) and the city-page half of 5d3dc9850. Closed cards on statecollege and toa-payoh now read "Closed — kept for the record, checked <d>". |
+| FE-B leaks | **PASS** | Shipped html, xml and json, excluding `data/prov`: 0 "verify before publish", "worklist", "kept flagged", "per editorial rule", `statusSource` and `UNVERIFIED`. "Status source:" appears 132 times, always followed by a URL. |
+| m.not.p en / ja | PASS on 19af6d81 (previous section) | This line wasn't touched by the port; re-confirm it on the final pin. |
+| S-12 | PASS (the Cebu FAIL from the first run doesn't reproduce) | The first run read CLS 0.33 on Singapore/cebu while my probe tests ran in parallel. The clean re-run reads CLS 0. It was CPU contention and isn't filed. |
+
+**Every sweep FAIL class from the previous runs, with where it now stands:**
+
+| Class | Verdict | Change |
+|---|---|---|
+| S-15 ×24–27 "INPUT has no ring" | **The probe was wrong** | The search field draws a 2px ring on its `.spill` wrapper via `:focus-within`. It transitions in, and `keyboard()` read it before the transition ended. The probe now waits 400 ms, compares the wrapper's settled style focused and blurred, and accepts a ring that appears on focus and goes on blur. Result: 0 FAIL. Retires the "S-15 search ring on its wrapper" artefact note. |
+| S-08: South Dade, Ohio Valley, Cambodia/Laos/Myanmar, Mills 50/Milk District/Audubon Park/SoDo | **The probe was wrong** (proper nouns) | Added to `QC_EXEMPT`. |
+| S-08: "Theme-Park …" ×2 (Orlando), "Lakefront, River & water" (Chicago), "… Yokochō …" ×2 (Tokyo) | **The page is wrong** → **QC-30** | `tools/beta/lib/casing.js` `ownWords` keeps any capitalised word from an area name, so generic words (Park, River, Yokochō) stay capitalised mid-label. |
+| S-01 token census | Partly **the probe was wrong**; the rest → **QC-31** | The probe no longer counts a `50%` radius (circles), em-relative font sizes, or box-shadows whose every colour is a `var()` token. What's left is real: 66 raw colours and 11 px radii outside `tokens.css` (cleo.css 49/5, constellation.css 5/4, fe-a.css 12/2). R7-g6 covered letter-spacing and shadow counts, not these. |
+| Raw coordinate notes in `beta/data/prov/*.json` | **The data is wrong** → **QC-32** | Raised by the orchestrator; confirmed: 7 of 84 sidecars, 21 "worklist" mentions. Not shipped UI, but `data/places/*.json` links to them, so they're public open data. |
+
+**Register:**
+- Verified 27.
+- Open 5: Low 5 (QC-13 FE-1, QC-14 designer, QC-30 designer + FE-A, QC-31 designer + FE-B, QC-32 FE-B). Med 0 · High 0 · Blocker 0.
