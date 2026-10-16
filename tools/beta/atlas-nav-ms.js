@@ -78,7 +78,8 @@ const active = page => page.evaluate(() => { const a = document.activeElement; i
 const pickCard = async page => { let id = await pickCard0(page);
   if (!id && await page.evaluate(() => innerWidth < 1024 && !document.documentElement.classList.contains('ms-car'))) {
     await page.evaluate(() => { const e = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].find(x => { const r = x.getBoundingClientRect(); return r.top > 160 && r.bottom < innerHeight - 140 && r.left > 0 && r.right < innerWidth; }); if (e) e.click(); });
-    await sleep(900); id = await pickCard0(page); }
+    // the tapped place may join the page as its last card: start from the carousel's first card, as a reader swiping back would
+    await sleep(900); await page.evaluate(() => { const l = document.querySelector('.listpane'); if (l) l.scrollLeft = 0; }); await sleep(600); id = await pickCard0(page); }
   return id; };
 const pickCard0 = page => page.evaluate(() => {
   const ok = a => { const r = a.getBoundingClientRect(), hit = r.width && document.elementFromPoint(r.left + Math.min(10, r.width / 2), r.top + r.height / 2); return r.width && r.top > 0 && r.bottom < innerHeight && r.left >= 0 && r.right <= innerWidth && hit && a.contains(hit); };
