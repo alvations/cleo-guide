@@ -20,8 +20,8 @@ The orchestrator does the review, `--accept`, rebuild and gates (§ Owner decisi
 |---|---|---|
 | wheeling-wv | committed (run #9) | **7** (c727e196) |
 | san-francisco-ca | committed (run #12) | **112** (pass rows); 29 hold remain |
-| orlando-fl | dry runs #11/#13/#14 clean: pass 12, review 2, hold 14, reject 121 | — (commit run queued, c2306ba1) |
-| chicago-il | dry run in flight (ac737c14) | — |
+| orlando-fl | **committed** 270d4f7a: pin 66 · confirm 7 · no-match 71 · ambiguous 4 · conflict 1 (Silver Springs: OSM main-entrance node 1.87 km off) — assist pass 13 · review 2 · hold 59 · reject 75 | — (sent to orchestrator) |
+| chicago-il | dry run clean: pin 73 · confirm 5 · no-match 43 · ambiguous 1 — assist pass 52 · review 8 · hold 18 · reject 44; **commit run pushed** | — |
 
 Tool SHAs:
 
@@ -41,18 +41,15 @@ Tests: `node tools/location-verify.test.js`, 47 tests.
 
 ## Next
 
-1. When Orlando's commit run lands ("Location-verify report: orlando-fl" on origin), send the orchestrator its assist
-   summary.
-2. Push REQUEST `city=chicago-il … commit=true` (cache warm, ~2 min). Send its summary when it lands.
-3. Then washington-dc, miami-fl, erie-pa, philadelphia-pa: one REQUEST each, all `commit=true`, `nominatim_max=300`.
+1. When "Location-verify report: chicago-il" lands, send the orchestrator its assist summary.
+2. Then washington-dc, miami-fl, erie-pa, philadelphia-pa: one REQUEST each, all `commit=true`, `nominatim_max=300`.
    Wait for each report commit before pushing the next REQUEST: concurrency keeps only the latest *pending* run.
 4. Remaining large non-US backlogs: singapore (OneMap needs the owner's secrets), saarland, okinawa, rhineland, aachen.
    Phase-2 file URLs are still unconfirmed (see the doc § 2.2).
 
 ## In flight
 
-- Chicago dry run (from ac737c14).
-- Orlando `commit=true` run (from c2306ba1), queued behind Chicago.
+- Chicago `commit=true` run (REQUEST on the branch).
 - Nothing unpushed.
 
 ## Notes

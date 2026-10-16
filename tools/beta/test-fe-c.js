@@ -11,6 +11,9 @@
  *         identical days and order; every stop shows its first source; the walking assumption is printed once;
  *         a closed place is left out with its reason; an unknown id is reported, never dropped silently.
  *  PRINT  the booklet puts each day on its own page.
+ *  CARD   (W9-7) every place of every guide: the share-card spec carries the source line and the checked date, a closed
+ *         place reads "Closed · kept for the record" with no write-up, a photo's credit rides with it; day / list / trip name
+ *         every stop's source; each share action offers "Share as an image", which loads share-card.js lazily.
  *  BASE   (W9-5) 84 guides × 5 bases: every card line = haversine from the base, rounded by Cleo.geo.walk; the assumption
  *         once per view; a closed place can't be a base; Nearest to my base sorts by it and clearing restores the order
  *         exactly; storage throwing, &base= still works; the sheet offers it only for open, pinned places; Saved shows it.
@@ -141,6 +144,52 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     chk(`${label}: no js errors`, !sv.errs.length && !tp.errs.length, sv.errs.concat(tp.errs).slice(0, 2));
   }
 
+  console.log('\n== CARD (W9-7): share-card specs and the share actions ==');
+  {
+    const g = boot('trip.html', { mods: ['share-card'] }); await sleep(50);
+    const SC = g.w.Cleo.shareCard, bad = [];
+    let n = 0, nClosed = 0;
+    for (const f of files) {
+      const j = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', f), 'utf8'));
+      const G = { name: j.name, src: Object.fromEntries((j.sourceIndex || []).map(s => [s.id, String(s.name || s.id).split(' · ')[0]])), areas: Object.fromEntries(j.areas.map(a => [a.id, a.n])), colors: j.colors || {} };
+      for (const p of j.places) { n++;
+        const closed = !!p.closed || / [—–-]+ CLOSED\b/.test(p.n) || /\bclosed\b/i.test((p.pv || {}).status || '');
+        const S = SC.spec('place', { guide: G, places: [p], photo: n % 3 ? null : { src: '/x.jpg', credit: 'Photo: A · CC BY 4.0 · Wikimedia Commons (resized)' }, url: 'x' });
+        const why = [];
+        if (!S.lines.some(l => /^(Recommended by .+|Added by the guide \(general knowledge\))$/.test(l))) why.push('no source line');
+        if ((p.pv || {}).checked && !S.lines.some(l => l.endsWith('· ' + p.pv.checked))) why.push('no checked date');
+        if (closed) { nClosed++; if (S.status !== 'Closed · kept for the record' || S.why) why.push('closed not stated, or a write-up'); }
+        if (!closed && S.status === 'Closed · kept for the record') why.push('open place marked closed');
+        if (S.photo && S.lines.indexOf(S.credit) < 0) why.push('photo without its credit');
+        if (S.alt.indexOf(S.source) < 0) why.push('alt text misses the source');
+        if (why.length && bad.length < 4) bad.push([j.key, p.id, why]);
+      }
+      const ps = j.places.slice(0, 8), D = SC.spec('day', { guide: G, places: ps, title: 'A day', url: 'x' });
+      if (D.stops.length !== ps.length || D.stops.some(s => !/^(Recommended by |Added by the guide)/.test(s.source)) || ((ps.some(p => (p.pv || {}).checked)) && !/^Status checked to \d{4}-\d\d-\d\d$/.test(D.checked))) bad.push([j.key, 'day spec']);
+    }
+    chk(`${n} places (${nClosed} closed): every card names its source and checked date; closed ones say so, with no write-up; a photo carries its credit`, bad.length === 0, bad);
+    const T = SC.spec('trip', { guide: {}, places: [], title: 'T', days: [{ area: 'A', guide: { src: { s1: 'One' }, colors: {} }, places: [{ id: 'a', n: 'A', src: ['s1'], la: 1, ln: 1, pv: { checked: '2026-10-01' } }, { id: 'b', n: 'B', src: ['guide'], la: 1.001, ln: 1 }] }], url: 'x' });
+    const LC = SC.spec('list', { guide: { src: {}, colors: {} }, places: [{ id: 'z', n: 'Z — CLOSED', closed: true, src: ['guide'], la: 1, ln: 1 }], title: 'L', url: 'x' });
+    chk('a closed stop is flagged on the card and in its alt text, and kept out of the route', LC.stops[0].closed && /Z \(closed, kept for the record\)/.test(LC.alt) && LC.route.length === 0 && LC.closedNote);
+    chk('trip spec: day labels, every stop sourced, walking estimate labelled straight-line', T.stops[0].dayLabel === 'Day 1 · A' && T.stops[1].source === 'Added by the guide (general knowledge)' && /straight-line$/.test(T.status), T.status);
+
+    // the share actions: each offers "Share as an image"; a tap asks core for share-card.js at this page's version
+    const c1 = boot('cities/tokyo.html', { hash: '#p=senso-ji' }); await sleep(400);
+    const pb = c1.d.querySelector('#cleo-sheet [data-cleo-card="place"]');
+    chk('place sheet: "Share as an image"', !!pb && pb.getAttribute('data-id') === 'senso-ji' && pb.textContent === 'Share as an image');
+    pb.click(); await sleep(20);
+    const v = JSON.parse(c1.d.getElementById('cleo-city').textContent).js['share-card'], sc = [...c1.d.querySelectorAll('script[src*="share-card.js"]')];
+    chk('a tap loads share-card.js once, at the page’s version (lazy, never on first load)', sc.length === 1 && v && sc[0].getAttribute('src').endsWith('assets/js/share-card.js?v=' + v) && !/share-card\.js/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8').replace(/"share-card":"[0-9a-f]+"/, '')), sc.map(x => x.getAttribute('src')));
+    const c2 = boot('cities/tokyo.html', { hash: '#day=TAITO', mods: ['day'] }); await sleep(400);
+    chk('day mode: "Share as an image" beside "Share this day"', !!c2.d.querySelector('.day .sharebar [data-cleo-card="day"]'));
+    const c3 = boot('saved.html', { seed: { saved } }); await sleep(300);
+    const lb = c3.d.querySelector('[data-cleo-card="list"]');
+    chk('Saved: "Share as an image" carries the list', !!lb && g.w.Cleo.listCodec.decode(lb.getAttribute('data-refs')).length === ids.length && lb.getAttribute('data-name') === 'All saved');
+    const c4 = boot('trip.html', { hash: url }); await sleep(200);
+    chk('trip: "Share as an image" in the trip’s share bar', !!c4.d.querySelector('.sharebar [data-cleo-card="trip"]'));
+    chk('no js errors (share actions)', [c1, c2, c3, c4].every(x => !x.errs.length), [].concat(c1.errs, c2.errs, c3.errs, c4.errs).slice(0, 2));
+  }
+
   console.log('\n== BASE (W9-5): every card, every guide, 5 bases each ==');
   {
     const R = Math.PI / 180, hav = (a, b) => { const h = Math.sin((b[0] - a[0]) * R / 2) ** 2 + Math.cos(a[0] * R) * Math.cos(b[0] * R) * Math.sin((b[1] - a[1]) * R / 2) ** 2; return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h))); };
@@ -219,6 +268,6 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
   const css = require('./lib/render/trip').CSS;
   chk('booklet: each day breaks to a new page, actions hidden', /@media print\{[^]*\.tday\{break-before:page;break-inside:avoid/.test(css) && /@media print\{[^]*\.sharebar/.test(css));
 
-  console.log(failures ? `\n>>> FAIL — ${failures} check(s) failed` : '\n>>> PASS — FE-C gate: trips (W9-4), base (W9-5)');
+  console.log(failures ? `\n>>> FAIL — ${failures} check(s) failed` : '\n>>> PASS — FE-C gate: trips (W9-4), base (W9-5), share cards (W9-7)');
   process.exit(failures ? 1 : 0);
 })();
