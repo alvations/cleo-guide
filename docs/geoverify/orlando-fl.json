@@ -230,10 +230,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "hold",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Wikidata coordinate at 3-decimal precision (~100 m); hold for a place-pin source",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -314,10 +314,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: place-specific item, not closed, within the guide region",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -656,10 +656,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "hold",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Wikidata item is the whole resort, not the Gran Destino Tower — not place-specific; hold",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -1711,10 +1711,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "hold",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "registry pin already high; confirm needs no change",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -1967,10 +1967,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "hold",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Wikidata coordinate at 3-decimal precision (park centroid); parks pin the main entrance — hold",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -2334,10 +2334,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: place-specific item, not closed, within the guide region",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -3678,10 +3678,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo); orchestrator checks: place-specific item, not closed, within the guide region",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -5190,10 +5190,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "hold",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "a multi-station gondola system; one coordinate is not a place pin — hold",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -5644,10 +5644,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: place-specific item, not closed, within the guide region",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -7185,10 +7185,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: place-specific item, not closed, within the guide region",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -7827,10 +7827,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (wikidata coordinate with an independent source within 40 m); orchestrator checks: place-specific item, not closed, within the guide region",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -9145,10 +9145,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 0.9, house number + street match); orchestrator checks: place-specific item, not closed, within the guide region",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",
@@ -9232,10 +9232,10 @@
     }
    ],
    "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
+    "decision": "hold",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Wikidata coordinate at 3-decimal precision (~100 m); hold for a place-pin source",
+    "date": "2026-10-16"
    },
    "assist": {
     "verdict": "pass",

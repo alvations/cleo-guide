@@ -10,8 +10,9 @@
 
 **In flight:**
 - The `all` budget-1200 run was dispatched by the orchestrator at about 13:36Z on 2026-10-16. **NOT YET REVIEWED.** The baseline before it: CREDITS 309 rows at f47945e9, coverage heroes 76 + 8 stated, leads 20/27, first row 42/56, tier-1 216/1017, 507 targets to try.
-- **Run #48** (Actions id 38908975560, `all` budget 1200) is in progress and NOT YET REVIEWED.
-- D-40 (a) data is NOT yet landed: the 45 lead/first-row 720 copies wait for #48 to commit, to avoid a CREDITS conflict. A dry run shows all 45 at ≤ 55 KB; Tokyo is about +30 KB → ≈ 676 KB.
+- **Run #48** (`all` budget 1200) committed d2d40ef3: 271 new rows, tier-1 216 → 487/1017, 236 targets left. REVIEWED: flags are in `design/beta/imagery-runs/run-48.md` (15 refuse, 10 signage, 23 '?'). Sent to the orchestrator. **Waiting on its refusal list; nothing applied yet.**
+- Run #50 (push on d36f7b49, scope priority) is running. Its recompress uses the new D-40a code, so it should add the 45 lead/first-row 720 copies on the runner.
+- D-40 (a) data is NOT yet landed. Run #50 should add it; if it doesn't, run the local recompress after #50 lands. A dry run shows all 45 at ≤ 55 KB; Tokyo is about +30 KB → ≈ 676 KB.
 - Asked platform (session_01USPS1inq7bUDfyw89evKMA) to make `cardSizes()` return `CARD_SIZES_720` whenever a 720 copy exists. Waiting on its SHA.
 
 **Next:**
@@ -23,7 +24,7 @@
    - remove the CREDITS rows and their files with a count-asserted script;
    - `cd tools && npm run beta && npm run validate && npm test && npm run beta:check`;
    - push and verify with ls-remote.
-3. After #48 lands:
+3. After #50 lands (if it didn't add the 720s, add them locally):
    - run `NODE_PATH=<sharp> node tools/beta/imagery/recompress.js` to add the 45 copies;
    - set `D40A_PENDING = false` in test-imagery.js;
    - run the gates plus `npm run beta:qa:w8p`;
