@@ -308,6 +308,14 @@
         if ((b = e.target.closest('a[data-gb-ch]'))) { e.preventDefault(); open(b.getAttribute('data-gb-ch')); var h = document.getElementById('gb-ch-' + b.getAttribute('data-gb-ch')); if (h) { h.scrollIntoView({ block: 'start' }); h.focus({ preventScroll: true }); } }
       });
       on(document, 'cleo:saved', function () { syncSaved(el); });
+      // OV (FE-B, overlay ledger): the phone / tablet Contents strip sticks right under the city bar, measured — the shared
+      // `top:105px` sat 20–36 px under a 125–141 px bar, which covered it. Desktop keeps its side-column rule.
+      var cbar = main && main.querySelector('.cbar'), pin = function () {
+        if (!cbar) return; var cs = getComputedStyle(cbar), top = cs.position === 'sticky' || cs.position === 'fixed' ? (parseFloat(cs.top) || 0) + cbar.getBoundingClientRect().height : 0;
+        el.style.setProperty('--gb-toc-top', Math.round(top) + 'px');
+      };
+      pin(); on(window, 'resize', pin);
+      if (window.ResizeObserver && cbar) { var ro = new ResizeObserver(pin); ro.observe(cbar); off.push(function () { ro.disconnect(); }); }
       // the city page sets `hidden` on its cards when a lens changes; follow those attribute flips (coalesced)
       var t = 0, later = function () { if (!t) t = setTimeout(function () { t = 0; if (host === el) syncLens(el); }, 0); };
       if (window.MutationObserver && main) {

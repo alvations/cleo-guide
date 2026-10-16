@@ -82,6 +82,10 @@ def strip_comments(css):
         if ch in '"\'': q = ch; o.append(ch); i += 1; continue
         if css.startswith('/*', i):
             j = css.find('*/', i + 2); i = n if j < 0 else j + 2; continue
+        if ch in ':,':    # nor after these (a space BEFORE ':' can be a descendant combinator, so only after)
+            o.append(ch); i += 1
+            while i < n and css[i] in ' \t': i += 1
+            continue
         if ch in '{};':   # whitespace around these is never significant outside a string
             while o and o[-1] in ' \t\n': o.pop()
             o.append(ch); i += 1

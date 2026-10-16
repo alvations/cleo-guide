@@ -40,6 +40,8 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
   - Blocker: `w2 --only dom` with Atlas default = Tokyo 3,587 / 3,543 nodes (> 3,000): Atlas stamps 59 cards at ~42 nodes. Asked FE-1/FE-2/platform to hold Atlas's initial stamping to its first page (≤ 36 cards). Platform OK for core.js edits was requested.
   - Lead card: asked FE-1 to add `.pl-lead` on the first card of their order on a cold unfiltered load (before .ms-ready).
 
+- **OV-01 FE-A part** (commit "OV-01 …"): Cleo.chrome / html.ov-c (views.js), header 52/56/48, compact CSS for .cbar + rail, landscape one bar, desktop only-header sticky; probe rows. Waiting: FE-1 wires pan → Cleo.chrome.compact(true,'pan') + idle(1200) and hides .ms-bar / peek under html.ov-c; landscape chip row + peek.
+
 ## Next (in order)
 0. ~~W9-2 card part~~ built by FE-C through hooks (fresh.js, 38228322b) — nothing for FE-A.
    - ~~QC-25, colophon, R3 #9/#14 one ring~~ DONE (commit "QC-25 …"). Leak left on FE-B's changes/ pages ("Status source: <note>", lib/changes.js) — reported.
