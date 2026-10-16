@@ -91,6 +91,7 @@ Current rows:
     - Updated in views/SPEC.md, DESIGN-SYSTEM §v2.11, and SPEC-v3 status and §1.7.
     - §1.7 covers the cold first screen: 3 photo thumbnails in the phone peek, a city intro opening the list, and a lead card at 3:2. It also has the no-map fixes: neutral dots, no edge-stacked rings, one notice.
     - The notes have gone to the orchestrator; FE-A, FE-1 and FE-2 build it.
+15. **R4b (ffbb225a): dark dots signed off.** Circles measure 2.2:1 and squares 4.9:1. D-43 is a clear no (FE-1 0a4e5751, "Approximate pin"). **Blocker for round 4:** the R4b phone peek lost its word spaces. It's with FE-1; a local shot of the fix is enough, then round 4 is ready.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight
