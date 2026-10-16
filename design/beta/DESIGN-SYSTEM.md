@@ -47,7 +47,7 @@
 - **Five steps between 12 and 17 px:** 12 · 13 · 14 · 16 · 17. Only weights 400 / 500 / 600 / 700 render, and there is no 13.5 px.
   - `style/v2/tools/normalize-v2.py` snaps every raw size and radius in the designer's sources onto tokens, and has a `--check` mode.
   - The probes confirm it: `eval/r6/tools/probe-type.js` and `probe-css.py`. In the designer's CSS the only raw font size left is `.5em` (the native script after a city name), and the only raw radii are `50%` and `3px`.
-- **Optical size:** Bricolage ships as one pinned opsz-72 instance (wght axis only, 54.5 KB). That is deliberate: the display face only sets 22 px and up, where opsz 72 is the right cut, and keeping the opsz axis would roughly double the files for no visible gain. Do not set `font-optical-sizing` or `font-variation-settings: 'opsz'` on it. Headlines, deks and subtitles use `text-wrap: balance / pretty`.
+- **Optical size:** Bricolage ships as one pinned opsz-72 instance (wght axis only, 54.5 KB). That is deliberate: **the display face only sets 24 px and up** (R8 T7 found it at 16–22 px; now enforced: `--fs-d2` is 24 px, and V2.22 moves every sub-24 px display rule in the base layer to the UI face at 600, with lanes doing the same in their files). opsz 72 is the right cut at 24 px and up, and keeping the opsz axis would roughly double the files for no visible gain. Do not set `font-optical-sizing` or `font-variation-settings: 'opsz'` on it. Headlines, deks and subtitles use `text-wrap: balance / pretty`.
 - Tabular figures appear wherever we count (`--num`).
 - CJK falls back to the system sans.
 - Fonts are self-hosted OFL subsets (vi, latin-ext, latin), with `font-display: swap`.
@@ -230,6 +230,8 @@ At 52 + 52 px, P1 at rest is 12.3 % and after a scroll is 6.2 %. **In landscape 
 - **Toasts** leave by themselves within 4 s unless they carry an action. They sit above the bottom edge and never cover the header, the view switch or a sheet's buttons.
 - **Banners** (storage blocked, offline, map unavailable) show once, are dismissible, and are never repeated in a second place on the same screen.
 - **One control per action per screen.** For example, "Near me" appears once.
+
+**3b. Line-heights are tokens** (R8 D7, gap #7: ≤ 6 distinct raw values site-wide). Use `--lh-hero` 1.06 · `--lh-d1` 1.08 · `--lh-d2` 1.2 · `--lh-d3` 1.3 · `--lh-xs` 1.35 · `--lh-sm` 1.45 · `--lh-lead` 1.5 · `--lh-body` 1.55. Snap others to the nearest token (1.4 → `--lh-sm`, 1.6 → `--lh-body`, 1.25 → `--lh-d2`). Only `1` (single-line controls) and pixel heights that centre text in a fixed box (22, 28, 44 px) stay raw. Radii: `--r-*` tokens plus `50%` for circles, nothing else.
 
 **3a. One search per screen** (QC S-17, 9a2a10c8: search appeared twice on every city view):
 - **City pages have one search control, scoped to the city first.**

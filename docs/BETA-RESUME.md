@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 23:05Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 23:20Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -45,6 +45,7 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 | What | State | Next |
 |---|---|---|
+| Check-in 23:20Z | Dev head fb730533 is gated green (validate, npm test alone, beta:check, w2 dom 12/12). **INP:** FE-1's e0b79e23 takes the desktop switch → Atlas from 18.5 s to 0.45 s at 4× CPU, against a ≤ 200 ms target; FE-1 continues on the forced layouts. **Overlay ledger:** 19 OV rows; OV-00 is set (bb2af873); the one-search rule (98a39437); FE-C OV-08 claimed; FE-B OV-30/31 claimed; FE-A OV-01, its header part, landed (1d652d65); QC's S-17 is graded against OV-00 (92094c78), and the r7 audit is running. **R8 axe fix:** FE-C is landing `.btn .lbl` inherit. **D-46:** waits on platform's Atlas initial-stamp budget, after which FE-A flips | r8 pin needs: D-46 flipped, INP ≤ 200 ms, no open High/Med OV rows, panel R4 scored |
 | **Owner directive: overlay and chrome audit (22:45Z)** | The owner's live Punggol Atlas phone screenshot shows fixed layers that don't move with the map and take up most of the space. The ledger is **docs/BETA-OVERLAY-LEDGER.md** (d880d025), seeded OV-01..07. Routed: the designer (OV-00 budgets and auto-compact rules, first); QC (the S-17 probe, a full-site audit of live and dev, keeping the ledger); FE-1/FE-2 (OV-02..07 on the Atlas map); FE-A (OV-01 header, switch and chips, Gallery sticky bars, landscape); FE-B (Guidebook and Insights); FE-C (sheet, trip, saved, toasts, pack banner); QA (B-25 gate on pins) | OV-00, then the S-17 audit, then fixes claimed per row. r8 ships only with no open High/Med OV rows |
 | Check-in 22:37Z | Dev head d8369d2f is gated green (validate, npm test alone, beta:check, w2 dom 12/12). **PERF-08 re-landed** at 447d97c5 (selective = true, perf08-regress green); platform reports INP before and after. FE-2 is coalescing the round-trip scroll snapshots (5491ea13) as a first INP step. QC P-32 (unthrottled): Gallery→Atlas ~1 s. QA's B-01a (52245d25) reads phone clear map 74 %; FE-1 lands the 52 px header. The R8 evaluator's metrics sweep is at 54/180 | INP fix head → QC P-32/P-33 plus the platform guard. Then FE-A's D-46 flip, the R4 re-shoot, and the r8 pin |
 | **INP regression on dev (22:07Z, top priority)** | Platform's beta:perf on b61fda89 (PERF-08 OFF): desktop switch → Atlas **21,016 ms** (was 672–792), desktop filter 1,344 (was ~824), phone filter 1,136 (was ~544); the phone switch is fine (296). Suspect 797258c2 (Atlas §2.3, one list ranked by map priority), or 648aa9c3 / 82f3d199. **Not in the live r7.** | FE-1/FE-2 fix (target ≤ 200 ms). Platform bisects and adds an INP guard to perf08-regress.sh or npm test. The PERF-08 flip lands only if it doesn't worsen INP. Blocks the r8 pin and D-46 |
