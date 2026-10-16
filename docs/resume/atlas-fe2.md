@@ -15,6 +15,9 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
 
 ## Done
 - PANEL-R1 #1, #13, #11, #3 + probe honesty: 537cfb8c (round 3 head), BETA-LOG 03678da1.
+- R3 #9/#14 one focus ring per card stop (atlas-nav.css; probe tools/beta/fe2/rings.js in atlas-nav-ms) and R7-g4 (c)
+  deep-link ancestor scroll check: in the push carrying this line.
+- QA-76 (pre-fit "Show all" transient): 4aba38b3, re-gated green on the pushed head.
 - QC-26 (cold lens deep link "1 of 488"; bisected to PERF-08 1538974d): sheet.js shortcut only with no lens on, in the
   push carrying this line. Probe tools/beta/fe2/qc26.js (in atlas-nav-ms).
 - PANEL-R3 #7 (108 px layout shift): e7986460 (full gates green on the pushed head).
@@ -45,4 +48,5 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
 - Pushing: `tools/beta/fe2/fast-sync.sh` (resume rule 8). Timing probe for the map open: `tools/beta/fe2/first-pin.js`.
 - FE-1 owns pins, chrome, list and atlas.css, and parks `.mappane` before `.listpane` on desktop; atlas-nav.js
   `order()` does the same idempotently (both kept).
-- Known red on origin, not this lane's: atlas-ms "cleveland phone: two zoom steps → ≥ 4 named pins" (FE-1).
+- Known red on origin, not this lane's: atlas-ms "cleveland phone: independent B-08 … list scrolled" sees 0 titles
+  (FE-1's check; red with and without this lane's CSS, 16 Oct 18:40Z).
