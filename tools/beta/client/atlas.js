@@ -37,12 +37,12 @@
   const isT1 = c => at(c, 'data-t') === '1' && !c.hasAttribute('data-closed');
   // dots (SPEC-v3 §1.1, refined): ONE quiet neutral — ink at 38 % for sights, 62 % for eat & drink (mixed into the page
   // ground so the canvas needs no alpha), hollow when closed, a thin surface halo. Area colour only under an area filter.
-  // Kind by shape (R1 #4): a sight is a 7 px circle, eat & drink a 6 px rounded square; dark mode drops to 30 % / 50 %.
+  // Kind by shape (R1 #4, R2 #6): a sight is an 8 px circle, eat & drink an 8 px rounded square; dark mode drops to 30 % / 50 %.
   // A Must-see that isn't featured is a --sun dot with an --on-sun-wash ring; a closed dot is hollow with a diagonal slash.
   const darkOn = () => { const t = H.getAttribute('data-theme'); return t === 'dark' || (t !== 'light' && !!window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches); };
   C.dotStyle = c => { const cl = c.hasAttribute('data-closed'), f = at(c, 'data-k') === 'f', dk = darkOn(), t1 = isT1(c) && !S.a;
     const a = S.a ? areaC(c) : t1 ? tok.sun : mix(tok.ink, tok.paper, f ? (dk ? 0.5 : 0.62) : (dk ? 0.3 : 0.38));
-    return { radius: f ? 3 : t1 ? 4.5 : 3.5, shape: f ? 'sq' : '', slash: cl, weight: cl ? 1.5 : 1, color: cl ? a : t1 ? tok.onSun : tok.surface, opacity: 1, fillColor: a, fillOpacity: cl ? 0 : 1 }; };
+    return { radius: f ? 4 : t1 ? 5 : 4, shape: f ? 'sq' : '', slash: cl, weight: cl ? 1.5 : 1, color: cl ? a : t1 ? tok.onSun : tok.surface, opacity: 1, fillColor: a, fillOpacity: cl ? 0 : 1 }; };
   let lastA = S.a;   // an area filter turns its area colour on for the dots (and off again)
   C.after.push(() => { if (S.a !== lastA) { lastA = S.a; restyle(); } });
   const restyle = () => { readTok(); Object.keys(C.markers).forEach(id => { const c = rec(id); if (c) C.markers[id].setStyle(C.dotStyle(c)); }); if (C.feature) C.feature(); };
@@ -157,18 +157,35 @@
   // the list pages like listing results: the first 40 places in the area (guide order: area, then rank), "Show 40 more"
   // after them; only the cards on show are stamped, so a city-wide view never builds every card (DOM stays small)
   const PER = 40; let lim = PER, pager = null;
+  // SPEC-v3 §2.4: ONE best-places control — "Top picks", the first N places by map priority (30 desktop / 12 phones), the
+  // same set as the default fit; mp round-robins across areas, so it covers the city. Must see stays information (the
+  // sun-wash pill, the card sticker, the Tier section in Filters) — never a second bar control
+  if (Cleo.route && Cleo.route.KEYS && !Cleo.route.KEYS.top) Cleo.route.KEYS.top = /^1$/;
+  const topOn = () => atlas() && !S.day && !!Cleo.route.parse().top;
+  const topSet = () => { const o = {}; Object.keys(C.markers).filter(id => { const c = rec(id); return c && shows(c) && !c.hasAttribute('data-closed'); })
+    .sort((x, y) => MP[x] - MP[y]).slice(0, desk() ? 30 : 12).forEach(id => { o[id] = 1; }); return o; };
+  C.topSet = () => (topOn() ? topSet() : null);
+  let topHid = [], topWas = false, topV = null, lastShow = null;
+  const topMap = T => { const map = C.map(); if (!map) return;
+    topHid.forEach(id => { const k = C.markers[id]; if (k && !C.dots.hasLayer(k)) k.addTo(C.dots); }); topHid = [];
+    if (T) Object.keys(C.markers).forEach(id => { const k = C.markers[id]; if (!T[id] && C.dots.hasLayer(k)) { C.dots.removeLayer(k); topHid.push(id); } });
+    // on: fit the picks (remembering the reader's view); off: back to that view
+    if (!!T !== topWas) { topWas = !!T; C.auto();
+      if (T) { topV = [map.getCenter(), map.getZoom()]; const ll = Object.keys(T).map(id => C.markers[id].getLatLng()); if (ll.length) map.fitBounds(window.L.latLngBounds(ll), Object.assign(C.overMap(), { maxZoom: 16, animate: !C.still() })); }
+      else if (topV) { map.setView(topV[0], topV[1], { animate: !C.still() }); topV = null; } } };
   const msArea = C.msArea = more => {
     const map = C.map();
     // the list always pages by 48 in Atlas (a day route excepted): filtered to the map area while the map is up and
     // "Search as I move" is on; the whole lens when there is no map (or "Show all") — never every card at once
     // QA-45 (G1): "Show all N in one list" — one tap puts every place in one scrollable list (all stamped, unpaged), as
     // the Gallery pager's "Show all on one page" does; "Only show this map area" / a pan of the map pages it again
-    if (!atlas() || S.day || C.msOne) { if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
-    const area = !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
+    if (!atlas() || S.day || C.msOne) { topMap(null); C.msTop = null; if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
+    const T = topOn() ? topSet() : null; topMap(T);
+    const area = !T && !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
     if (more !== true && C.navKeep && C.navKeep()) { if (C.msPaint) C.msPaint(); return; }   // a round-trip keeps the list it left (atlas-nav.js)
     if (more !== true) lim = PER;
     // a place without a verified pin has no "outside": it is always listed (last), so no lens count ever loses it
-    const b = area ? box() : null, keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { const ll = llOf(c); return !b || !ll || b.contains(ll) || keep(c); };
+    const b = area ? box() : null, keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { if (T) return !!T[C.pid(c)] || keep(c); const ll = llOf(c); return !b || !ll || b.contains(ll) || keep(c); };
     // which places make each page: the guide's own order (area, then rank within it — tiers are graded per area), the
     // order the list is shown in; page 1 reuses the cards the page already rendered, so a first fit builds ≤ 1 page
     const ord = {}; C.sections.forEach((s, i) => { ord[at(s, 'data-area')] = i; });
@@ -178,7 +195,7 @@
     const show = {}, need = new Set(); inn.slice(0, lim).concat(inn.filter(keep)).forEach(c => { show[C.pid(c)] = 1; if (!C.byId[C.pid(c)]) need.add('p-' + C.pid(c)); });   // the selected / open place always shows
     // while the map is still on its way, page what is already built: its own first fit picks the page to build
     if (need.size && Cleo.defer && (map || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
-    qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
+    lastShow = show; qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
     // the first map-area pass has picked the page (or there is no map / the reader asked for all): the list can be drawn
     if (area || C.msAll || H.classList.contains('ms-nomap') || !C.loadMap) H.classList.add('ms-ready');
@@ -187,7 +204,7 @@
       on(pager, 'click', e => { const b = e.target.closest('button'); if (!b) return; if (at(b, 'data-pg') === 'all') { C.msAll = C.msOne = true; msArea(); } else { lim += PER; msArea(true); } }); }
     const left = inn.length - lim;
     if (pager) { pager.hidden = left <= 0; pager.innerHTML = left > 0 ? '<button type="button" class="btn btn-ghost">Show ' + Math.min(PER, left) + ' more</button> <button type="button" class="btn btn-quiet" data-pg="all">Show all ' + inn.length.toLocaleString('en-US') + ' in one list</button> <span>' + lim.toLocaleString('en-US') + ' of ' + pl(inn.length) + (area ? ' in this area' : '') + '</span>' : ''; }
-    deco(); face(); C.msN = area ? [inn.length, all.length - inn.length] : null; H.classList.add('ms-on'); held(); here(false);
+    deco(); face(); C.msN = area ? [inn.length, all.length - inn.length] : null; C.msTop = T ? [inn.length, all.length] : null; H.classList.add('ms-on'); held(); here(false);
     if (C.msPaint) C.msPaint();
   };
   // while the map-area filter is on, Atlas stamps exactly its page (like the Gallery pager): the lazy scroll stamping
@@ -209,15 +226,22 @@
   /* ---- selection: pin → card, card (swipe) → pin ---- */
   const pinSel = () => { if (C.feature) C.feature(); };   // the selected place is always a labelled pin (ink) — feature() decides
   let quiet = 0;
+  // phones (SPEC-v3 §2.2): the first screen is the map + a 64 px list peek; the carousel appears only after a selection
+  // (a pin, a dot, a card, a search result) or Near me, and Escape or a tap on empty map brings the peek back
+  const car = o => { const was = H.classList.contains('ms-car'); H.classList.toggle('ms-car', !!o && !desk()); if (was !== H.classList.contains('ms-car')) { if (C.msPaint) C.msPaint(); if (C.feature) C.feature(); } };
+  C.car = car;
   const select = C.select = (c, how) => {
     if (!c) return;
+    if (!desk()) car(true);
     if (selC && selC !== c) { selC.classList.remove('is-sel', 'is-focus'); pinSel(selC, false); }
     const again = selC === c; selC = c; c.classList.add('is-sel', 'is-focus'); pinSel(c, true);
     if (c.classList.contains('ms-out')) msArea(true);
     if (desk()) {
       // the list pane scrolls, the page never does; once more after late stamping above it settles
       const into = sm => { if (!lp || !lp.scrollTo || selC !== c) return; const r = c.getBoundingClientRect(), pr = lp.getBoundingClientRect(), hd = $('.ms-head', lp), top = pr.top + (hd ? hd.offsetHeight : 0);
-        if (r.top < top || r.bottom > pr.bottom) lp.scrollTo({ top: lp.scrollTop + r.top - pr.top - (pr.height - r.height) / 2, behavior: sm && !C.still() ? 'smooth' : 'auto' }); };
+        if (!r.height) return;   // not laid out yet (being stamped): the second pass places it
+        const dy = r.top < top ? r.top - top - 12 : r.bottom > pr.bottom ? r.bottom - pr.bottom + 12 : 0;   // nearest edge, only when off-screen (R2 #13)
+        if (dy) lp.scrollTo({ top: lp.scrollTop + dy, behavior: sm && !C.still() ? 'smooth' : 'auto' }); };
       into(1); setTimeout(() => into(0), 650);
       if (how === 'pin') preview(c);
       return;
@@ -227,18 +251,29 @@
       quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.35 })); } catch (e) {}
       return;
     }
-    if (lp && lp.scrollTo && !H.classList.contains('ms-list')) { qSwipe = Date.now(); lp.scrollTo({ left: c.offsetLeft - (lp.clientWidth - c.offsetWidth) / 2, behavior: C.still() ? 'auto' : 'smooth' }); }
+    // a near card glides into place; a far one (more than two widths away) jumps — a long glide is slow and reads as noise
+    if (lp && lp.scrollTo && !H.classList.contains('ms-list')) { qSwipe = Date.now(); const x = c.offsetLeft - (lp.clientWidth - c.offsetWidth) / 2;
+      lp.scrollTo({ left: x, behavior: C.still() || Math.abs(x - lp.scrollLeft) > 2 * lp.clientWidth ? 'auto' : 'smooth' }); }
+    // the carousel now covers the bottom: keep the selected place in the uncovered band (no move when it already is)
+    const map = C.map(), k = C.markers[C.pid(c)];
+    // (not for a #p= route or under an open detail: atlas-nav.js places those, out from under the sheet)
+    if (map && k && how !== 'route' && !H.classList.contains('ms-list') && !(Cleo.sheet && Cleo.sheet.isOpen()) && !(C.navHold && C.navHold())) { quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.35 })); } catch (e) {} }
   };
   // the carousel: the card nearest the middle after a swipe settles is the selected one
   let st = 0, qSwipe = 0;
-  on(lp, 'scroll', () => {
-    if (desk() || !atlas() || H.classList.contains('ms-list') || (C.navScrollHold ? C.navScrollHold() : C.navHold && C.navHold())) return;
+  // while atlas-nav.js restores the carousel (its own restore only, C.navScrollHold), a scroll waits; once the hold ends the
+  // card in the middle is read again — a swipe made during the hold still selects, a restore lands back on the same card
+  const held2 = () => (C.navScrollHold ? C.navScrollHold() : !!(C.navHold && C.navHold()));
+  const swiped = () => {
+    if (desk() || !atlas() || H.classList.contains('ms-list')) return;
+    if (held2()) { clearTimeout(st); st = setTimeout(swiped, 300); return; }
     clearTimeout(st); st = setTimeout(() => {
       const mid = lp.getBoundingClientRect().left + lp.clientWidth / 2;
       const c = qa('li.pl', lp).filter(x => x.offsetWidth && !x.hidden).sort((x, y) => { const a = x.getBoundingClientRect(), b = y.getBoundingClientRect(); return Math.abs(a.left + a.width / 2 - mid) - Math.abs(b.left + b.width / 2 - mid); })[0];
       if (c && c !== selC) select(c, Date.now() - qSwipe < 900 ? 'pinned' : 'swipe');
     }, 140);
-  }, { passive: true });
+  };
+  on(lp, 'scroll', swiped, { passive: true });
 
   /* ---- the preview card on the map (desktop): photo or calm cover, name, one line, sources → the place ---- */
   const poi = $('#cleo-poi');
@@ -255,11 +290,13 @@
     if (!poi) return; pvC = c;
     const ph = $('.pl-photo img, figure.photo img', c), cov = $('.pl-cover', c), nm = $('.pl-n a', c), w = $('.pl-w', c), s = $('.pl-s', c);
     const r = Cleo.route.parse(); delete r.pg; delete r.all; r.p = C.pid(c);
-    const media = ph ? '<img src="' + C.esc(ph.currentSrc || ph.src) + '" alt="" loading="lazy" decoding="async">' : cov ? '<div class="pl-cover" aria-hidden="true">' + cov.innerHTML + '</div>' : '';
+    // R2 #8 (SPEC-v3 §2.3): a photo, or NO media block — a text card led by a 40 px glyph chip beside the name
+    const media = ph ? '<img src="' + C.esc(ph.currentSrc || ph.src) + '" alt="" loading="lazy" decoding="async">' : '';
+    const chip = ph ? '' : '<span class="ms-pv-g" aria-hidden="true"><svg class="ico"><use href="#i-' + C.esc(glyph(c)) + '"/></svg></span>';
     const nmT = nm ? (C.name(c) || nm.textContent) : '';
-    poi.innerHTML = '<a class="ms-pv" href="' + C.esc(Cleo.route.href(r)) + '">' + '<span class="ms-pv-m' + (ph ? ' ph' : '') + '">' + media + '</span>' +
+    poi.innerHTML = '<a class="ms-pv' + (ph ? '' : ' ms-pv-t') + '" href="' + C.esc(Cleo.route.href(r)) + '">' + (ph ? '<span class="ms-pv-m ph">' + media + '</span>' : '') +
       '<span class="ms-pv-b"><span class="ms-pv-e">' + ($('.pl-e', c) ? C.esc($('.pl-e', c).textContent.replace(/\s+/g, ' ').trim()) : '') + '</span>' +
-      '<span class="ms-pv-n">' + C.esc(nmT) + '</span>' + (w ? '<span class="ms-pv-w">' + C.esc(w.textContent.trim()) + '</span>' : '') +
+      '<span class="ms-pv-n">' + chip + C.esc(nmT) + '</span>' + (w ? '<span class="ms-pv-w">' + C.esc(w.textContent.trim()) + '</span>' : '') +
       (s ? '<span class="ms-pv-s">' + C.esc(s.textContent.replace(/\s+/g, ' ').replace(/\s+,/g, ',').trim()) + '</span>' : '') + '</span></a>' +
       (ph && $('figcaption', ph.closest('figure') || c) ? '<p class="ms-pv-c">' + $('figcaption', ph.closest('figure')).innerHTML + '</p>' : '') +
       '<button type="button" class="btn btn-icon ms-pv-x" aria-label="Close the preview">' + C.icon('close') + '</button>';
@@ -279,16 +316,16 @@
   const info = C.info;
   const deco = () => qa('li.pl').forEach(c => {
     if (c.hasAttribute('data-ms')) return; c.setAttribute('data-ms', '');
-    const t1 = at(c, 'data-t') === '1', cl = c.hasAttribute('data-closed'), n = at(c, 'data-n'), a = ((info.areas || {})[at(c, 'data-a')] || {}).n || '';
+    const t1 = at(c, 'data-t') === '1', cl = c.hasAttribute('data-closed'), a = ((info.areas || {})[at(c, 'data-a')] || {}).n || '';
     const inT = ($('.pl-e .in', c) || {}).textContent || '', dish = inT.split(' · ').slice(1).join(' · ').trim();
     const g = (at(c, 'data-g') || '').split(' ').filter(x => x && x !== 'FREE' && x !== 'ICON')[0], kind = dish || (at(c, 'data-k') === 'f' ? 'Eat & drink' : ((info.cats || {})[g] || 'Sight'));
-    const ss = (at(c, 'data-src') || '').split(' ').filter(x => x && x !== 'guide'), s0 = ss[0] && ((info.src || {})[ss[0]] || [ss[0]])[0];
+    const ss = (at(c, 'data-src') || '').split(' ').filter(x => x && x !== 'guide'), s0 = ss[0];
     const fig = $('figure.pl-photo', c), cap = fig && $('figcaption', fig), cl0 = cap && [].slice.call(cap.querySelectorAll('a')).pop();
-    c.insertAdjacentHTML('afterbegin', '<span class="ms-bd"><b class="ms-rk" aria-hidden="true">' + (t1 && !cl ? '★ ' : '') + C.esc(n) + '</b>' +
+    c.insertAdjacentHTML('afterbegin', '<span class="ms-bd">' +
       (cl ? '<span class="sticker ms-cl">Closed</span>' : t1 ? '<span class="sticker ms-st">Must see</span>' : '') + '</span>' +
       (cl0 ? '<a class="ms-cr" href="' + C.esc(cl0.href) + '" target="_blank" rel="noopener" title="' + C.esc(cap.textContent.trim()) + '" aria-label="Photo credit: ' + C.esc(cap.textContent.trim()) + '">©</a>' : ''));
     const nm = $('.pl-n', c); if (nm) nm.insertAdjacentHTML('afterend', '<p class="ms-k"><span class="ms-a">' + C.esc(a) + ' · </span>' + C.esc(kind) + '</p>' +
-      '<p class="ms-rec">' + (s0 ? 'Recommended by <b>' + C.esc(s0) + '</b>' + (ss.length > 1 ? ' +' + (ss.length - 1) : '') : 'Added by the guide') + '</p>');
+      '<p class="ms-rec">' + (s0 ? 'Recommended by <b>' + ss.slice(0, 2).map(x => C.esc(((info.src || {})[x] || [x])[0])).join('</b>, <b>') + '</b>' + (ss.length > 2 ? ' +' + (ss.length - 2) + ' more' : '') : 'Added by the guide') + '</p>');
     const im = fig && $('img', fig); if (im && !im.hasAttribute('data-sizes0')) im.setAttribute('data-sizes0', im.getAttribute('sizes') || '');
   });
   const undeco = () => { qa('li.pl img[data-sizes0]').forEach(im => { im.setAttribute('sizes', at(im, 'data-sizes0')); im.removeAttribute('data-sizes0'); });
@@ -304,7 +341,7 @@
   function build() {
     if (bar || !split) return;
     bar = d.createElement('div'); bar.className = 'ms-bar'; bar.setAttribute('role', 'search'); bar.setAttribute('aria-label', 'Search and filter the map');
-    bar.innerHTML = '<div class="ms-x"><button type="button" class="chip ms-must" aria-pressed="false"><i class="tg t1" aria-hidden="true"></i><span>Must see</span></button>' +
+    bar.innerHTML = '<div class="ms-x"><button type="button" class="chip ms-top" aria-pressed="false">' + C.icon('star4') + '<span>Top picks</span></button>' +
       '<button type="button" class="chip ms-mine" aria-pressed="false">' + C.icon('heart') + '<span>Saved</span> <span class="n"></span></button>' +
       '<label class="ms-sort"><span class="vh">Sort places</span><select>' + SORT.map(x => '<option value="' + x[0] + '">' + x[1] + '</option>').join('') + '</select></label></div>';
     split.parentNode.insertBefore(bar, split); H.classList.add('ms-built');   // the bar takes the space held for it, in the same frame
@@ -317,11 +354,12 @@
     tog = d.createElement('button'); tog.type = 'button'; tog.className = 'btn btn-primary ms-toggle'; split.appendChild(tog);
     on(tog, 'click', () => listMode(!listOn, true));
     on(bar, 'click', e => { const b = e.target.closest('button'); if (!b) return; const r = Cleo.route.parse(); delete r.p; delete r.pg; delete r.all;
-      if (b.classList.contains('ms-must')) { if (r.t === '1') delete r.t; else r.t = '1'; C.go(r); }
+      if (b.classList.contains('ms-top')) { if (r.top) delete r.top; else r.top = '1'; C.msOne = C.msAll = false; C.go(r); }
       else if (b.classList.contains('ms-mine')) { if (r.mine) delete r.mine; else r.mine = '1'; C.go(r); } });
     on($('select', bar), 'change', e => { const v = e.target.value, r = Cleo.route.parse(); delete r.p; if (v) r.sort = v; else delete r.sort; C.go(r);
       if (v === 'near' && !C.dist) C.need('foryou', () => C.near()); });
-    on(head, 'click', e => { const b = e.target.closest('[data-ms]'); if (!b) return; C.msAll = C.msOne = at(b, 'data-ms') === 'all'; msArea(); });   // "Show all N" = one list (QA-45)
+    on(head, 'click', e => { const b = e.target.closest('[data-ms]'); if (!b) return; C.msAll = C.msOne = at(b, 'data-ms') === 'all';
+      const r = Cleo.route.parse(); if (C.msOne && r.top) { delete r.top; C.go(r); } else msArea(); });   // "Show all N" = one list (QA-45)
   }
   // the results line: "86 places in this map area · Top ranked" + "12 more outside this area. Show all"; without the
   // map it is simply every place in the lens
@@ -329,19 +367,24 @@
     if (!head) return;
     const pend = lensStubs().length, N = qa('li.pl').filter(c => !c.hidden).length + pend, n = C.msN, onA = !!n && H.classList.contains('ms-on'), all = !!C.msOne || (!!C.msAll && !!C.map());
     const tot = '<span class="ms-sortby" title="Ordered by tier within each area, then by number of named sources">' + (SORT.filter(x => x[0] === (S.sort || ''))[0] || SORT[0])[1] + '</span>';
-    $('.ms-count', head).innerHTML = onA ? '<b>' + n[0].toLocaleString('en-US') + '</b> ' + (n[0] === 1 ? 'place' : 'places') + ' in this map area · ' + tot
+    const tp = C.msTop;
+    $('.ms-count', head).innerHTML = tp ? 'Top <b>' + tp[0].toLocaleString('en-US') + '</b> picks · ' + tot
+      : onA ? '<b>' + n[0].toLocaleString('en-US') + '</b> ' + (n[0] === 1 ? 'place' : 'places') + ' here · ' + tot
       : (all ? 'Showing all <b>' : 'All <b>') + N.toLocaleString('en-US') + '</b> ' + (N === 1 ? 'place' : 'places') + ' · ' + tot;
-    $('.ms-more', head).innerHTML = onA && n[1] ? n[1].toLocaleString('en-US') + ' more outside this area. <button type="button" class="btn btn-quiet" data-ms="all">Show all ' + (n[0] + n[1]).toLocaleString('en-US') + '</button>'
+    $('.ms-more', head).innerHTML = tp ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + tp[1].toLocaleString('en-US') + '</button>'
+      : onA && n[1] ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + (n[0] + n[1]).toLocaleString('en-US') + '</button>'
       : all ? '<button type="button" class="btn btn-quiet" data-ms="area">' + (C.map() ? 'Only show this map area' : 'Show 40 at a time') + '</button>' : '';
     $('.ms-live', head).hidden = !C.map() || !desk();
-    $('.ms-must', bar).setAttribute('aria-pressed', String(S.t === '1')); $('.ms-mine', bar).setAttribute('aria-pressed', String(!!S.mine));
+    $('.ms-top', bar).setAttribute('aria-pressed', String(!!C.msTop)); $('.ms-mine', bar).setAttribute('aria-pressed', String(!!S.mine));
     const sv = Cleo.saved ? Object.keys(Cleo.saved.all()).filter(r => r.slice(0, r.lastIndexOf('/')) === C.key).length : 0; $('.ms-mine .n', bar).textContent = sv || '';
     $('select', bar).value = S.sort || '';
     const k = onA ? n[0] : N;
-    tog.innerHTML = listOn ? C.icon('map') + '<span>Map</span>' : C.icon('list') + '<span>List · ' + k.toLocaleString('en-US') + '</span>';
+    tog.innerHTML = listOn ? C.icon('map') + '<span>Map</span>' : desk() || H.classList.contains('ms-car') ? C.icon('list') + '<span>List · ' + k.toLocaleString('en-US') + '</span>'
+      : '<i class="ms-handle" aria-hidden="true"></i><span><b>' + k.toLocaleString('en-US') + '</b> ' + (k === 1 ? 'place' : 'places') + ' here · Show list</span>';   // the phone peek
     tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k));
   };
-  C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (atlas()) requestAnimationFrame(paintMs); }); on(d, 'cleo:saved', paintMs);
+  // cards stamped later (a deep link, a route that builds more) join the page only if it shows them: a kept list stays the list
+  C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (!atlas()) return; if (lastShow && H.classList.contains('ms-on')) qa('li.pl:not(.ms-out)').forEach(c => { if (!c.hidden && !lastShow[C.pid(c)] && c !== selC && !c.classList.contains('is-target')) c.classList.add('ms-out'); }); requestAnimationFrame(paintMs); }); on(d, 'cleo:saved', paintMs);
   // phones: List ⇄ Map. The list is the full-screen image-first list of the places in the map area (Back closes it).
   // FE-A's shared card face, except the carousel; phone thumbs ask for the 500w copy (carousel 120px, list 240px)
   const face = () => { const car = atlas() && !desk() && !listOn; if (lp) lp.classList.toggle('w7-cards', atlas() && !car);
@@ -355,7 +398,9 @@
     paintMs(); const m = C.map(); if (m) setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 60);
   };
   on(window, 'popstate', () => { if (pushedList) { pushedList = 0; if (listOn) listMode(false); } });
-  on(d, 'keydown', e => { if (e.key !== 'Escape' || !atlas() || !listOn || (Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])')) return; listMode(false, true); });
+  // capture phase: decided before the sheet / tray handle the same Escape, so closing the detail never also drops the carousel
+  d.addEventListener('keydown', e => { if (e.key !== 'Escape' || !atlas() || (Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])') || $('.m-attr-pop:not([hidden])')) return;
+    if (listOn) listMode(false, true); else if (H.classList.contains('ms-car')) { unselect(); car(false); } }, true);
   C.onNoMap = () => { C.msN = null; if (atlas() && !desk()) listMode(true); msArea(); };
   // a typed search keeps the phone search pill open (it collapses to a 44 px button when empty)
   const fq = $('#cleo-filter'), sq = () => { const s = fq && fq.closest('.spill'); if (s) s.classList.toggle('has-q', !!fq.value); };
@@ -372,7 +417,8 @@
       // the footer go to the end of the list column, since the document does not scroll in Atlas
       const sp = $('[data-cleo-search]'); park(tb, bar, x); if (sp && tb) park(sp, tb, tb.firstChild); const tw = $('.topbar .wrap'); park(nav, tw || bar, tw ? $('.top-actions', tw) : null);   // the view switch: the header's right
       if (achips) park(achips, head, $('.ms-more', head).nextSibling);
-      [$('main>.about'), $('body>.method'), $('body>.footer')].forEach(el => park(el, lp, null)); }
+      [$('main>.about'), $('body>.method'), $('body>.footer')].forEach(el => park(el, lp, null));
+      if (mp && lp && split && mp.parentNode === split) park(mp, split, lp); }   // Tab reaches the map (its pins) before the list; columns are explicit
     if (desk() && listOn) listMode(false);
     if (H.classList.contains('ms-nomap')) C.onNoMap();
     msArea();
@@ -392,7 +438,7 @@
       if (!meL) meL = window.L.layerGroup().addTo(m); meL.clearLayers();
       if (p.coords.accuracy) window.L.circle(me, { radius: p.coords.accuracy, className: 'me-acc', weight: 1, interactive: false }).addTo(meL);
       window.L.circleMarker(me, { radius: 7, weight: 2, fillOpacity: 1, interactive: false, className: 'me' }).addTo(meL);
-      say('You are here — shown on this device only, never stored, gone when you reload.'); if (!(C.onLocate && C.onLocate(me))) C.fly(me);   // atlas-nav.js: nearest first
+      say('You are here — shown on this device only, never stored, gone when you reload.'); car(true); if (!(C.onLocate && C.onLocate(me))) C.fly(me);   // atlas-nav.js: nearest first
     }, err => { b.classList.remove('busy'); say(err && err.code === 1 ? 'Location permission was declined. Nothing was stored.' : 'Couldn’t get your location.'); },
     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
   };
@@ -415,16 +461,18 @@
       on(box, 'click', e => { if (e.target.closest('.m-attr-i')) tog($('.m-attr-pop', box).hidden); });
       on(d, 'keydown', e => { if (e.key === 'Escape') tog(false); });
       map.on('click dragstart', () => tog(false)); }
-    ctl(dk ? 'topleft' : 'bottomright', () => { const b = btn('m-locate', 'Show my location on the map (stays on this device)', C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
+    ctl(dk ? 'topleft' : 'bottomright', () => { const b = btn('m-locate', 'Near me: show my location on the map (stays on this device)', C.icon('locate') + (dk ? '' : '<span>Near me</span>')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
     ctl(dk ? 'topright' : 'bottomright', () => {
       const s = btn('m-base', '', C.icon('grid') + '<span></span>');
       // one button: Map ⇄ Satellite (SPEC-v3 §4; street detail lives in the Key)
-      const lab = () => { const sat = store.get('base', 'map') === 'satellite', n = sat ? 'Satellite' : 'Map'; $('span', s).textContent = sat ? 'Map' : 'Satellite';
+      // desktop names the switch's target ("Satellite"); the phone pill names the style on show ("Map" / "Satellite") — SPEC-v3 §2.2
+      const lab = () => { const sat = store.get('base', 'map') === 'satellite', n = sat ? 'Satellite' : 'Map'; $('span', s).textContent = dk ? (sat ? 'Map' : 'Satellite') : n;
         s.setAttribute('aria-label', 'Map style: ' + n + '. Switch to ' + (sat ? 'the map' : 'satellite')); s.title = 'Map style: ' + n; s.setAttribute('aria-pressed', String(sat)); };
       on(s, 'click', () => { C.setBase(store.get('base', 'map') === 'satellite' ? 'map' : 'satellite'); lab(); }); lab(); C.after.push(lab); return s;
     });
-    ctl(dk ? 'bottomleft' : 'bottomright', () => {
-      const g = d.createElement('details'); g.className = 'am-ctl m-legend';
+    // the Key: a map control on desktop; on phones it is never on the map — it is the last section of Filters (SPEC-v3 §2.2)
+    const keyBox = () => {
+      const g = d.createElement(dk ? 'details' : 'fieldset'); g.className = dk ? 'am-ctl m-legend' : 'ms-key'; if (!dk) g.setAttribute('data-fs', 'key');
       const k = (cls, gl, t) => '<b class="pp ' + cls + '"><span><svg class="ico" aria-hidden="true"><use href="#i-' + gl + '"/></svg><b>' + t + '</b></span></b>';
       const fk = d.getElementById('i-forkknife') ? 'forkknife' : 'bowl';
       const paint = () => { const ar = S.a ? [S.a] : []; g.querySelector('ul').innerHTML = '<li>' + k('pp-s', 'columns', 'Sight') + '</li><li>' + k('pp-f', fk, 'Eat &amp; drink') + '</li>' +
@@ -432,17 +480,18 @@
         '<li class="k"><i class="kd"></i><i class="kd f"></i>More places · zoom in to see their names</li>' +
         ar.map(a => '<li class="k"><i class="kd" style="background:' + areaC({ getAttribute: () => a, hasAttribute: () => false }) + '"></i>' + C.esc(((C.info.areas || {})[a] || {}).n || a) + '</li>').join('') +
         '<li class="k">' + (store.get('base', 'map') === 'street!' ? '<button type="button" class="btn btn-quiet" data-base="map">Back to the calm map</button>' : '<button type="button" class="btn btn-quiet" data-base="street">Show street detail</button>') + '</li>'; };
-      g.innerHTML = '<summary aria-label="Map key">' + C.icon('info') + '<span>Key</span></summary><ul></ul>'; paint();
+      g.innerHTML = (dk ? '<summary aria-label="Map key">' + C.icon('info') + '<span>Key</span></summary>' : '<legend>Map key</legend>') + '<ul class="m-legend-l"></ul>'; paint();
       on(g, 'click', e => { const b = e.target.closest('[data-base]'); if (!b) return; C.setBase(at(b, 'data-base')); paint(); });
       C.after.push(paint);
       return g;
-    });
+    };
+    if (dk) ctl('bottomleft', keyBox); else { const sc = $('#cleo-tray .scroll'); if (sc && !$('.ms-key', sc)) sc.appendChild(keyBox()); }
     // map moves → the list follows (desktop, live) / "Search this area" (phones, after the reader moves the map)
     let user = 0, mt = 0;
     map.on('dragstart', () => { user = 1; closePoi(); });
     map.on('zoomstart', () => { if (Date.now() - C.autoAt() > 1500 && Date.now() - quiet > 1500) user = 1; });
     map.on('move zoom', place);
-    map.on('click', () => { closePoi(); unselect(); });   // an empty-map click clears the selection
+    map.on('click', () => { closePoi(); unselect(); car(false); });   // an empty-map click clears the selection (phones: back to the peek)
     map.on('moveend zoomend', () => C.feature());
     map.on('moveend', () => {
       const u = user; user = 0; place(); if (!atlas() || (C.navHold && C.navHold())) return; keepView();   // a detail is open or closing (atlas-nav.js)
