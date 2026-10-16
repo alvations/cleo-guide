@@ -75,7 +75,7 @@ function normalise(row) {
       if (g.statusChecked) rec.pv.checked = g.statusChecked;
       if (g.status) rec.pv.status = g.status;
       if (g.confidence) rec.pv.pin = g.confidence;
-      if (g.source) rec.pv.src = g.source;                         // pin source + date (sheet "Pinned to the door: …")
+      if (g.source) rec.pv.src = pinSource(g.source);              // pin source + date; FE-B QC-32: research notes stay in data/geocodes.json
       if (g.verified) rec.pv.verified = g.verified;
       // FE-B QC-25: statusSource is internal research text (some notes name review sites) — only its first URL ships
       // (pv.ss); the note stays build-side, non-enumerable, for the W9-2 retiring count (never serialised)
@@ -121,4 +121,18 @@ function sourceHref(reg, key, ref) {
 // QC-25: the first http(s) URL in a geocodes statusSource note, or '' (same rule as render/city.js statusUrl)
 const statusUrl = n => ((/https?:\/\/[^\s;,'"()<>]+/.exec(String(n || '')) || [])[0] || '').replace(/[.]+$/, '');
 
-module.exports = { statusUrl, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
+// QC-32 (FE-B): a geocodes `source` that carries research notes (the worklist, "verify before publish", UNVERIFIED, NOTE:,
+// ADDRESS CORRECTED) ships only its published-coordinate source: the first URL, else the clause naming the publisher /
+// method. Sources without such notes ship unchanged. The full note stays in data/geocodes.json (build-side).
+const RESEARCH = /worklist|verify before publish|\bUNVERIFIED\b|\bNOTE\b|ADDRESS CORRECTED|may be a relocation/i;
+const pinSource = src => {
+  const s = String(src || ''); if (!RESEARCH.test(s)) return s;
+  const url = (/https?:\/\/[^\s;,'"()<>]+/.exec(s) || [])[0];
+  if (url) return url.replace(/[.]+$/, '');
+  const t = s.replace(/\s*\([^()]*\)/g, m => (RESEARCH.test(m) ? '' : m));
+  const parts = t.split(/\s+[—–]\s+|;\s+|\.\s+(?=[A-Z])/).map(x => x.trim().replace(/[.,;:]+$/, ''))
+    .map(x => (x.split('(').length > x.split(')').length ? x.slice(0, x.lastIndexOf('(')).trim() : x)).filter(x => x && !RESEARCH.test(x));   // no half-open paren
+  return parts.find(x => /coord|lat\/lng|geocod|OneMap|official site|directory|Michelin/i.test(x)) || parts[0] || 'Coordinate source on file';
+};
+
+module.exports = { statusUrl, pinSource, RESEARCH, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };

@@ -13,6 +13,11 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- QC-32: lib/model.js pinSource() — a geocodes `source` carrying research notes (worklist, "verify before publish",
+  UNVERIFIED, NOTE, ADDRESS CORRECTED) ships only its first URL or the publisher/method clause (21 of 8,702; the rest
+  unchanged); the full note stays in data/geocodes.json. test-hubs scans all 466 shipped JSON files for the markers.
+- Next: QC-31 (raw colours / px radii in fe-a.css + constellation.css parts that are FE-B's; agree token names with the
+  designer). Leave client/search.js strings alone until i18n's W8-I18N-SEARCH lands.
 - QC-25 leftovers (from FE-A): closure statusSource notes no longer ship anywhere — What changed pages, Atom feeds and
   data/places/*.json carry only the note's first URL (pv.ss / changes src; "Status source" link). The note stays
   build-side (non-enumerable) for the retiring count; test-hubs recounts it from data/geocodes.json and checks no note
