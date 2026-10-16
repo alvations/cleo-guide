@@ -64,7 +64,7 @@ let misses = 0; const out = { load: [], inp: [] };
       const mark = async (label, fn) => { await p.evaluate(() => { __ev = []; }); try { await fn(); } catch (e) { return; } await p.waitForTimeout(1500);
         const ev = await p.evaluate(() => __ev); const by = {}; ev.forEach(e => { by[e.id] = Math.max(by[e.id] || 0, e.d); });
         const k = vn + '|' + label; (acts[k] = acts[k] || []).push(Object.values(by).length ? Math.max(...Object.values(by)) : 0); };
-      const view = async v => { const b = p.locator(`nav.views button[data-view="${v}"]`); if (!(await b.isVisible())) { await tap(p.locator('nav.views button[aria-pressed="true"]')); await p.waitForTimeout(400); } await tap(b); };
+      const view = async v => { const b = p.locator(`.views[data-cleo-views] button[data-view="${v}"]`); if (!(await b.isVisible())) { await tap(p.locator('.views[data-cleo-views] button[aria-pressed="true"]')); await p.waitForTimeout(400); } await tap(b); };
       await mark('collection filter (Gallery)', () => tap(p.locator('.rail-i', { hasText: 'Must see' }).first()));
       await p.evaluate(() => { location.hash = ''; }); await p.waitForTimeout(1500); await p.evaluate(() => scrollTo(0, 0));
       await mark('open a place', () => tap(p.locator('li.pl .pl-n a').first()));

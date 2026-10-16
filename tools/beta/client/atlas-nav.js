@@ -217,9 +217,10 @@
   // "Nearest to me" in Atlas is one list, nearest first, across areas (the guide's area grouping would put a farther
   // place first): the cards move into one list while it is on, and back to their own areas after
   let nearSec = null;
-  const far = c => { const v = C.dist && C.dist[C.pid(c)]; return v == null ? 1e9 : v; };
+  const byBase = () => (C.S || {}).sort === 'base' && !!C.baseKm;
+  const far = c => { if (byBase()) return C.baseKm(c); const v = C.dist && C.dist[C.pid(c)]; return v == null ? 1e9 : v; };
   const flat = () => {
-    const S = C.S || {}, want = atlas() && S.sort === 'near' && !!C.dist, pane = lp(); if (!pane) return;
+    const S = C.S || {}, want = atlas() && ((S.sort === 'near' && !!C.dist) || byBase()), pane = lp(); if (!pane) return;
     if (want) {
       if (!nearSec) { nearSec = d.createElement('section'); nearSec.className = 'ms-near'; nearSec.setAttribute('aria-label', 'Nearest first'); nearSec.innerHTML = '<ol class="pls"></ol>'; }
       const ol = nearSec.firstChild, s0 = $('section.area', pane);
@@ -236,22 +237,61 @@
       Promise.resolve().then(() => C.apply());   // the guide's own order inside each area again
     }
   };
-  // the distance on every card, first on its kind line: "450 m · about 6 min walk" (metres to the nearest 10 under 1 km,
-  // else one decimal of a km; walking at 80 m a minute — an estimate, said so in the count line)
-  const fmtD = km => { const m = km * 1000, t = Math.max(1, Math.round(m / 80)); return (m < 1000 ? Math.max(10, Math.round(m / 10) * 10) + ' m' : (Math.round(km * 10) / 10).toFixed(1) + ' km') + ' · about ' + t + ' min walk'; };
+  // the distance on every card, first on its kind line, from THE walking estimate (core.js Cleo.geo.walk: straight-line,
+  // 80 m a minute; metres to 10 under 1 km, one decimal above) — its assumption (Cleo.geo.ASSUME) is stated once
+  const G = Cleo.geo || null;
+  const fmtD = km => G && G.walk ? G.walk(km).text : (Math.round(km * 100) * 10) + ' m · ' + Math.max(1, Math.round(km * 1000 / 80)) + ' min walk';
   const dists = () => {
     const on1 = atlas() && !!C.dist;
     [].slice.call(d.querySelectorAll('.listpane li.pl')).forEach(c => { const k = $('.ms-k', c), sp = $('.ms-d', c), v = on1 && C.dist[C.pid(c)];
       if (v == null || v === false) { if (sp) sp.remove(); return; }
       if (!k) return; const t = fmtD(v) + ' · ';
-      if (!sp) { k.insertAdjacentHTML('afterbegin', '<span class="ms-d" title="Straight-line distance; the walking time is an estimate at 80 m a minute"></span>'); }
+      if (!sp) { k.insertAdjacentHTML('afterbegin', '<span class="ms-d" title="' + C.esc(G && G.ASSUME || 'Walk times are straight-line, about 80 m a minute') + '"></span>'); }
       $('.ms-d', c).textContent = t; });
     const head = $('.ms-head'); if (!head) return; let n = $('.ms-near-n', head);
     if (on1 && (C.S || {}).sort === 'near') { if (!n) { n = d.createElement('p'); n.className = 'ms-near-n'; const ref = $('.ms-more', head); head.insertBefore(n, ref ? ref.nextSibling : null); }
-      n.textContent = 'Nearest first, from where you are. Distances are straight-line; walking times are estimates at 80 m a minute. Your location stays on this device and is gone when you reload.'; }
+      n.textContent = 'Nearest first, from where you are. ' + ((G && G.ASSUME) || 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') + '. Your location stays on this device and is gone when you reload.'; }
     else if (n) n.remove();
   };
   C.after.unshift(flat); C.after.push(dists); on(d, 'cleo:stamped', () => setTimeout(() => { if (C.dist) { flat(); dists(); } }, 0));
+
+  /* ---- the walking ring from your base (W9-5, with FE-C's Cleo.base): 5, 10 or 15 minutes ---- */
+  // With a base set, Atlas offers "Within a walk of <base>: 5 · 10 · 15 min". A choice draws the ring on the map (radius =
+  // minutes × 80 m, straight-line, the stated assumption), fits the map to it and lenses the list to the places inside
+  // (#…&ring=10, a lens like any other: "Any" or clearing the base lifts it; nothing is removed). Base marker included.
+  const RING = [5, 10, 15];
+  if (Cleo.route.KEYS) Cleo.route.KEYS.ring = /^(5|10|15)$/;
+  const baseLL = () => (Cleo.base && Cleo.base.ll ? Cleo.base.ll() : null);
+  const ringMin = () => { const r = +route().ring; return RING.indexOf(r) >= 0 && atlas() && baseLL() ? r : 0; };
+  // city.js visible() hook: inside the ring (straight-line minutes from the base ≤ the ring), or no ring at all
+  C.ringKeep = c => { const n = ringMin(); if (!n) return true; const o = baseLL(), ll = llOf(c); if (!ll) return true;   // unpinned places stay listed
+    const km = G && G.km ? G.km(o, ll) : kmTo(o, ll); return (G && G.walk ? G.walk(km).min : Math.round(km * 1000 / 80)) <= n; };   // the minutes the card prints
+  let ringL = null, ringBox = null, lastRing = 0;
+  const drawRing = () => {
+    const m = C.map(), L = window.L, n = ringMin(), o = baseLL(); if (!m || !L) return;
+    if (!ringL) ringL = L.layerGroup().addTo(m); ringL.clearLayers();
+    if (o) L.circleMarker(o, { radius: 7, weight: 3, color: tok('--surface', '#fff'), fillColor: tok('--ink', '#1C1917'), fillOpacity: 1, interactive: false, className: 'ms-base' }).addTo(ringL);
+    if (n && o) { const c = L.circle(o, { radius: n * 80, weight: 2, dashArray: '6 6', color: tok('--ink', '#1C1917'), fill: true, fillOpacity: 0.04, interactive: false, className: 'ms-ring-c' }).addTo(ringL);
+      if (n !== lastRing) { C.auto(); try { m.fitBounds(c.getBounds(), Object.assign(C.overMap ? C.overMap() : {}, { animate: false })); } catch (e) {} } }
+    lastRing = n;
+  };
+  const tok = (v, x) => (getComputedStyle(H).getPropertyValue(v) || '').trim() || x;
+  const paintRing = () => {
+    const bar = $('.ms-bar .ms-x'), o = baseLL(); let g = $('.ms-ring');
+    if (!atlas() || !bar || !o) { if (g) g.remove(); if (ringL) ringL.clearLayers(); lastRing = 0; return; }
+    if (!g) { g = d.createElement('div'); g.className = 'ms-ring'; g.setAttribute('role', 'group'); bar.appendChild(g);
+      on(g, 'click', e => { const b = e.target.closest('button[data-ring]'); if (!b) return; const r = route(); delete r.p; delete r.pg; delete r.all;
+        const v = b.getAttribute('data-ring'); if (v && r.ring !== v) r.ring = v; else delete r.ring; C.go(r); }); }
+    const n = ringMin(), nm = Cleo.base.name ? Cleo.base.name() : 'your base';
+    if (n && Cleo.defer && Cleo.defer.all && Cleo.defer.peek && Cleo.defer.peek().length) { Cleo.defer.all(); setTimeout(() => C.apply(), 0); }   // every place is judged, stamped or not
+    g.setAttribute('aria-label', 'Walking distance from your base, ' + nm);
+    g.innerHTML = '<span class="ms-ring-l">Within a walk of ' + C.esc(nm) + '</span>' + RING.map(x => '<button type="button" class="chip" data-ring="' + x + '" aria-pressed="' + (n === x) + '">' + x + ' min</button>').join('') +
+      (n ? '<button type="button" class="chip" data-ring="" aria-label="Any distance">Any</button>' : '') +
+      '<span class="vh">' + C.esc((G && G.ASSUME) || 'Walk times are straight-line, about 80 m a minute') + '</span>';
+    g.title = (G && G.ASSUME) || '';
+    drawRing();
+  };
+  C.after.push(paintRing); on(d, 'cleo:base', () => setTimeout(() => { if (C.apply) C.apply(); }, 0)); on(d, 'cleo:base-ready', () => setTimeout(() => { if (C.apply) C.apply(); }, 0));
 
   /* ---- the share toast says what the link opens (§3.5) ---- */
   const share0 = Cleo.share;
