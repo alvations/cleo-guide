@@ -371,11 +371,11 @@ async function patterns(rel, vp) {
   if (mapBox) { await page.mouse.move(mapBox.x + mapBox.width / 2, mapBox.y + mapBox.height / 2); await page.mouse.wheel(0, -400); await page.waitForTimeout(500);
     await page.mouse.down(); await page.mouse.move(mapBox.x + mapBox.width / 2 + 80, mapBox.y + mapBox.height / 2 + 40, { steps: 6 }); await page.mouse.up(); await page.waitForTimeout(900); }
   const h10 = await page.evaluate(() => location.hash);
-  const m10 = /(?:^|[#&])map=([^&]+)/.exec(h10);
-  if (!m10) check('P-10', C, 'FAIL', { note: 'panning and zooming the Atlas map wrote no map= to the hash', hash: h10 });
+  const m10 = /(?:^|[#&])((?:map|at)=[^&]+)/.exec(h10);   // the map view key is at= since Atlas FE-2 round 3
+  if (!m10) check('P-10', C, 'FAIL', { note: 'panning and zooming the Atlas map wrote no map= / at= to the hash', hash: h10 });
   else {
     const o = await open(rel, vp, { hash: h10, settle: 1500 }); const back = await o.page.evaluate(() => location.hash);
-    check('P-10', C, ok(back.includes('map=' + m10[1])), { sent: h10, fresh: back }); await o.ctx.close();
+    check('P-10', C, ok(back.includes(m10[1])), { sent: h10, fresh: back }); await o.ctx.close();
   }
   await shot(page, `p-atlas-${pageKey(rel)}-${vp}`);
   await ctx.close();
