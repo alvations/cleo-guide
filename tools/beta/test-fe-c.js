@@ -360,6 +360,24 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     chk('no js errors (local favourites)', !g.errs.length, g.errs.slice(0, 2));
   }
 
+  console.log('\n== EMPTY (QC-05): a search with no match states it and offers a way out ==');
+  {
+    const g = boot('cities/tokyo.html', { hash: '#q=zzqxjv', mods: ['empty'] }); await sleep(300);
+    const box = g.d.querySelector('#cleo-lens [data-cleo-empty]'), lens = g.d.getElementById('cleo-lens');
+    chk('the lens states it, naming the search', !!box && !lens.hidden && box.querySelector('h2').textContent === 'No places match “zzqxjv”.', box && box.textContent);
+    chk('it offers "Clear search" and "Show all 488"', !!box && (box.querySelector('[data-unset="q"]') || {}).textContent === 'Clear search' && (box.querySelector('[data-cleo-all]') || {}).textContent === 'Show all 488');
+    chk('the map carries the same state (Atlas)', !!g.d.querySelector('.mappane [data-cleo-empty][role="status"]'));
+    chk('no "All N" mode chip stays pressed while nothing is shown', !g.d.querySelector('button[data-mode][aria-pressed="true"]'));
+    chk('no card is shown', ![...g.d.querySelectorAll('li.pl')].some(c => !c.hidden));
+    box.querySelector('[data-unset="q"]').click(); await sleep(150);
+    chk('"Clear search" clears the search and the state, and every place is back', !/[#&]q=/.test(g.w.location.hash) && !g.d.querySelector('[data-cleo-empty]') && g.d.querySelectorAll('li.pl:not([hidden])').length > 0 && !!g.d.querySelector('button[data-mode][aria-pressed="true"]'));
+    const g2 = boot('cities/tokyo.html', { hash: '#q=senso', mods: ['empty'] }); await sleep(300);
+    chk('a search that matches draws no empty state', !g2.d.querySelector('[data-cleo-empty]'));
+    const g3 = boot('cities/tokyo.html', { hash: '#q=zzqxjv' }); await sleep(300);
+    chk('empty.js is lazy: requested only on an empty result', !/<script[^>]+empty\.js/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')) && !!g3.d.querySelector('script[src*="assets/js/empty.js"]'));
+    chk('no js errors (empty)', !g.errs.length && !g2.errs.length, g.errs.concat(g2.errs).slice(0, 2));
+  }
+
   console.log('\n== BASE (W9-5): every card, every guide, 5 bases each ==');
   {
     const R = Math.PI / 180, hav = (a, b) => { const h = Math.sin((b[0] - a[0]) * R / 2) ** 2 + Math.cos(a[0] * R) * Math.cos(b[0] * R) * Math.sin((b[1] - a[1]) * R / 2) ** 2; return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h))); };
