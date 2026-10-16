@@ -363,6 +363,8 @@
     const c2d = (() => { try { return !!d.createElement('canvas').getContext('2d'); } catch (e) { return false; } })();   // no 2D canvas → SVG dots, same API
     // tolerance 19: every dot gets a 44 px hit circle (SPEC-v3 §1.1)
     const cv = C.canvas = c2d ? L.canvas({ padding: 0.3, tolerance: 19 }) : L.svg({ padding: 0.3 });
+    // i18n D-41 / W8-I18N-MAPRACE: a redraw queued as fail() removes the map finds no 2D context (Leaflet throws 'save')
+    if (c2d) { const rd = cv._redraw; cv._redraw = function () { if (this._ctx) rd.call(this); }; }
     // a dot draws its kind by shape on the canvas: options.shape 'sq' (eat & drink), options.slash (closed); SVG keeps the circle
     const Dot = L.CircleMarker.extend({ _updatePath: function () { const r = this._renderer, o = this.options;
       if (!r._ctx || !r._fillStroke || (!o.shape && !o.slash)) return L.CircleMarker.prototype._updatePath.call(this);

@@ -1797,3 +1797,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - exactly one "No. k of n in {area}".
   - It is a spec change, not a weakened test.
   - It applies to the Gallery and Atlas detail alike, since both use one component.
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · W8-I18N-MAPRACE: the orchestrator assigned it to i18n, and FE-A was told.
+  - **Symptom:** when map tiles never load, `fail()` in client/city.js removes the map. A canvas redraw that Leaflet had already queued then runs with no 2D context and throws `TypeError … reading 'save'` at `Canvas._clear`. Nothing is visible, because the schematic has already replaced the map.
+  - **Scope, corrected:** this is not ja-only. The new test reproduces it in English at 390 px too; the ja probe had only ever looked at ja.
+  - **Fix:** one guard in `mountMap`, marked `// i18n D-41 / W8-I18N-MAPRACE`. The canvas renderer's `_redraw` does nothing once it has no context. `fail()`, atlas.js and the rest of the map path are unchanged.
+  - **Test:** test-i18n runs a real browser with the tile hosts blocked, on `#view=atlas&t=1`, ja and en, at 390 and 1440. It requires errors=0.
+    - Against the old city.js it fails: `ja @390` and `en @390` each throw the error.
+    - With the fix it passes.
+    - It prints SKIP where playwright is missing.
