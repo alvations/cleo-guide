@@ -1871,6 +1871,9 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **QA-55 (Guidebook):** `.gfacts` and `.gsig` use `--fs-body` (16 px).
 - **R7-g6:** fe-a.css has no raw letter-spacing left (12 → `--track-tight` / `--track-vert` / 0) and no raw `var(--city)` rings (→ `--ring-select` / `--ring-select-halo`).
 - **D-40 (a):** Gallery cards ask for 240 px on 3× phones when they have a 600–799 w copy, matching `cardSizes()`. Kanda Myōjin loads once. `beta:qa:w8p` Tokyo phone: 617 KB.
+- **QC-17 (with FE-C, whose half is 70060b332):** on the phone carousel, FE-C's base line ("1.9 km from … · 23 min walk") gets its own full-width row and wraps; the distance and the walk time are never cut. The carousel grows to the tallest card on show (`fitCar`: name, kind, sources, the credit inside the display:contents figure, and the base line; floor 196 px, cap 45 % of the screen), and the pin labels re-place clear of it. The card's text rows no longer carry `min-height:0`, which had let the grid squeeze them below their content inside the fixed-height card, so the wrapped kind and sources lines overlapped. The recognition row stays in the detail and the preview, not the carousel.
+- **atlas-ms:** the carousel credit check now reports the credit and card rectangles when it fails.
+
 
 - 2026-10-16 17:38Z · **Orchestrator** · check-in; QA NO on 3ba696e8 · commit: this entry's commit
   - **QA verdict on 3ba696e8: NO.** Open High is 0; QA-70 and QA-71 are fixed.

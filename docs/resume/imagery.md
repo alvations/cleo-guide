@@ -22,6 +22,8 @@
 - This push: run #58 reviewed (design/beta/imagery-runs/run-58.md). 11 kept, 5 refused (Cebu per the orchestrator; CMoA banners; Duquesne skyline; Grandview street; Gotoku-ji figurines, so CLOSEUP now names maneki-neko). Mattress Factory is '?'. DC got 0 rows because the budget ran out; the next run (budget 600) covers DC + wave 3 + the retries.
 - FE-A asked (16:10Z) to switch gallery.js `sizes` to 240px for cards with a 600–799 copy (platform's cardSizes landed 3a0ecfec). Re-run w8p when FE-A pushes.
 
+- This push: the dispatch run reviewed (design/beta/imagery-runs/run-60.md): 24 kept, 6 refused, Zwin '?', Mattress Factory refused and stated. Leads 25/25, first row 51/51, tier-1 503/1003. w8p is green again at 618 KB (FE-C b8a3a6ae took the page JSON off the first screen; FE-A 8b06f542 fixed the gallery 720 sizes).
+
 **In flight:**
 - Run #48's 32 refusals are APPLIED in this push (orchestrator's final list, recorded in design/beta/imagery-runs/run-48.md). CREDITS 580 → 548.
 - D-40a data has LANDED: 38 lead/first-row cards have a 720 copy ≤ 45 KB. 7 are in `NO720` in recompress.js (busy or tall photos that only fit by shrinking below 600 px) and keep 500 + 960. The cap went from 55 to 45 KB because 55 measured Tokyo phone@3× at 703 KB once the 720-aware `sizes` was applied; 45 measures 691 KB. Platform still has to switch `cardSizes()` to the 720 copy (asked); until then phones load the 500 and Tokyo is 649 KB.
@@ -41,6 +43,7 @@
 5. Review any dispatched run as in step 1. Write `design/beta/imagery-runs/run-<N>.md` and send the flagged rows to the orchestrator.
 
 **Notes:**
+- `npm run beta:qa:w8p` is a BLOCKING pre-push check for imagery: Tokyo phone@3× ≤ 700 KB. Run it with the gates and do not push on FAIL; instrument the transfer list to find the cause.
 - Closed gap: recompress now DROPS a lead/first-row `-720` copy that would only fit by shrinking below 600 px, and logs it ("add … to NO720"). Add the logged row to `NO720` at review so `needs720` stops re-trying it.
 - sharp for local runs is at `NODE_PATH=<scratch>/sh/node_modules`. In a fresh session: `cd tools && npm install --no-save sharp`.
 - The Actions workflow `beta-fetch-unsplash.yml` belongs to the orchestrator; never edit it. Runs: push → scope priority; dispatch → `scope` + `budget`. The image hosts are blocked in this sandbox, so all fetching happens on Actions.

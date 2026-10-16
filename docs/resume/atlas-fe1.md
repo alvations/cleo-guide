@@ -3,7 +3,7 @@
 ## Task
 SPEC-v3 rev 5 for panel round 4 (R3 scored 80.7), plus QC / QA items. In order:
 1. The `atlas-ms` check "cleveland phone: two zoom steps in → ≥ 4 named pins" is red on origin (reads 3). Find the commit that turned it red; fix the band or the label density. Never loosen the check without the designer's sign-off.
-2. QC-17: the phone carousel card clips FE-C's base line. FE-C wraps it (70060b332); the carousel card must allow the extra line.
+2. QC-17: done (this push).
 3. Rev 5 (`design/beta/atlas/SPEC-v3.md`, 46f4abe3), in this order:
    - #1 phone first screen: Area chip, no counts on chips, search icon always visible, two labelled pills, Key in Filters;
    - #2 counts: no rank badges, one Must-see indicator, no "Filters 1" echo for Top picks;
