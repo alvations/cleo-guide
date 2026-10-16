@@ -1,0 +1,1081 @@
+{
+ "verdict": "WARN",
+ "gate": "warn",
+ "budgetsSet": false,
+ "ledgerHasSeverity": false,
+ "openHighMed": [],
+ "overBudget": [],
+ "searchThisAreaOnLoad": [],
+ "collisions": [],
+ "cells": [
+  {
+   "page": "cities/tokyo.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 26,
+     "topPct": 20,
+     "bottomPct": 6,
+     "midChrome": true,
+     "mapPaneVisPct": 86,
+     "clearMapPct": 81,
+     "labelPct": 14,
+     "widestLabelPct": 63,
+     "labels": 8,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 26,
+     "topPct": 20,
+     "bottomPct": 6,
+     "midChrome": true,
+     "mapPaneVisPct": 86,
+     "clearMapPct": 81,
+     "labelPct": 14,
+     "widestLabelPct": 63,
+     "labels": 8,
+     "labelOverlaps": 0,
+     "labelOverControl": 3,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 26,
+     "topPct": 20,
+     "bottomPct": 6,
+     "midChrome": true,
+     "mapPaneVisPct": 86,
+     "clearMapPct": 78,
+     "labelPct": 16,
+     "widestLabelPct": 63,
+     "labels": 8,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": true
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 15,
+     "topPct": 15,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 15,
+     "topPct": 15,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 15,
+     "topPct": 15,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 20,
+     "topPct": 20,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 5,
+     "collisionEg": [
+      "Gallery × 1Chiyoda-ku43",
+      "Atlas × 1Chiyoda-ku43",
+      "Guidebook × 2Chūō-ku49",
+      "Insights × 2Chūō-ku49"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 22,
+     "topPct": 14,
+     "bottomPct": 9,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 22,
+     "topPct": 14,
+     "bottomPct": 9,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 57,
+     "topPct": 42,
+     "bottomPct": 15,
+     "midChrome": false,
+     "mapPaneVisPct": 70,
+     "clearMapPct": 56,
+     "labelPct": 14,
+     "widestLabelPct": 31,
+     "labels": 5,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 57,
+     "topPct": 42,
+     "bottomPct": 15,
+     "midChrome": false,
+     "mapPaneVisPct": 70,
+     "clearMapPct": 56,
+     "labelPct": 12,
+     "widestLabelPct": 31,
+     "labels": 5,
+     "labelOverlaps": 0,
+     "labelOverControl": 11,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 57,
+     "topPct": 42,
+     "bottomPct": 15,
+     "midChrome": false,
+     "mapPaneVisPct": 70,
+     "clearMapPct": 53,
+     "labelPct": 6,
+     "widestLabelPct": 21,
+     "labels": 3,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": true
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 36,
+     "topPct": 36,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 62,
+     "topPct": 62,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 36,
+     "topPct": 36,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 42,
+     "topPct": 42,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 9,
+     "collisionEg": [
+      " × 1Chiyoda-ku43",
+      " × 2Chūō-ku49",
+      " × 3Minato-ku54",
+      "Gallery × 3Minato-ku54"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 18,
+     "topPct": 0,
+     "bottomPct": 18,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 18,
+     "topPct": 0,
+     "bottomPct": 18,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "mapPaneVisPct": 56,
+     "clearMapPct": 96,
+     "labelPct": 12,
+     "widestLabelPct": 27,
+     "labels": 16,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "mapPaneVisPct": 56,
+     "clearMapPct": 96,
+     "labelPct": 11,
+     "widestLabelPct": 27,
+     "labels": 16,
+     "labelOverlaps": 0,
+     "labelOverControl": 3,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "mapPaneVisPct": 56,
+     "clearMapPct": 96,
+     "labelPct": 12,
+     "widestLabelPct": 27,
+     "labels": 16,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 17,
+     "topPct": 17,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 28,
+     "topPct": 28,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 23,
+     "topPct": 23,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 17,
+     "topPct": 17,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 4,
+     "collisionEg": [
+      " × Eat & drink 225",
+      " × Area",
+      " × Filters",
+      " × 1Chiyoda-ku43"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 10,
+     "topPct": 6,
+     "bottomPct": 3,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 10,
+     "topPct": 6,
+     "bottomPct": 3,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 26,
+     "topPct": 20,
+     "bottomPct": 6,
+     "midChrome": true,
+     "mapPaneVisPct": 86,
+     "clearMapPct": 81,
+     "labelPct": 10,
+     "widestLabelPct": 56,
+     "labels": 4,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 26,
+     "topPct": 20,
+     "bottomPct": 6,
+     "midChrome": true,
+     "mapPaneVisPct": 86,
+     "clearMapPct": 81,
+     "labelPct": 9,
+     "widestLabelPct": 56,
+     "labels": 4,
+     "labelOverlaps": 0,
+     "labelOverControl": 6,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 26,
+     "topPct": 20,
+     "bottomPct": 6,
+     "midChrome": true,
+     "mapPaneVisPct": 86,
+     "clearMapPct": 78,
+     "labelPct": 8,
+     "widestLabelPct": 73,
+     "labels": 3,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": true
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 15,
+     "topPct": 15,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 15,
+     "topPct": 15,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 15,
+     "topPct": 15,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 20,
+     "topPct": 20,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 2,
+     "collisionEg": [
+      "Gallery × 1Punggol48",
+      "Atlas × 1Punggol48"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 22,
+     "topPct": 14,
+     "bottomPct": 9,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 22,
+     "topPct": 14,
+     "bottomPct": 9,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 57,
+     "topPct": 42,
+     "bottomPct": 15,
+     "midChrome": false,
+     "mapPaneVisPct": 70,
+     "clearMapPct": 56,
+     "labelPct": 7,
+     "widestLabelPct": 34,
+     "labels": 2,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 57,
+     "topPct": 42,
+     "bottomPct": 15,
+     "midChrome": false,
+     "mapPaneVisPct": 70,
+     "clearMapPct": 56,
+     "labelPct": 7,
+     "widestLabelPct": 34,
+     "labels": 2,
+     "labelOverlaps": 0,
+     "labelOverControl": 3,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 57,
+     "topPct": 42,
+     "bottomPct": 15,
+     "midChrome": false,
+     "mapPaneVisPct": 70,
+     "clearMapPct": 53,
+     "labelPct": 11,
+     "widestLabelPct": 25,
+     "labels": 4,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": true
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 36,
+     "topPct": 36,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 58,
+     "topPct": 58,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 36,
+     "topPct": 36,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 42,
+     "topPct": 42,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 1,
+     "collisionEg": [
+      " × 1Punggol48"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 18,
+     "topPct": 0,
+     "bottomPct": 18,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 18,
+     "topPct": 0,
+     "bottomPct": 18,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "mapPaneVisPct": 56,
+     "clearMapPct": 96,
+     "labelPct": 11,
+     "widestLabelPct": 31,
+     "labels": 12,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "mapPaneVisPct": 56,
+     "clearMapPct": 96,
+     "labelPct": 10,
+     "widestLabelPct": 31,
+     "labels": 11,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "mapPaneVisPct": 56,
+     "clearMapPct": 96,
+     "labelPct": 11,
+     "widestLabelPct": 31,
+     "labels": 12,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 17,
+     "topPct": 17,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 26,
+     "topPct": 26,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 23,
+     "topPct": 23,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 17,
+     "topPct": 17,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 4,
+     "collisionEg": [
+      " × Eat & drink 33",
+      " × Area",
+      " × Filters",
+      " × 1Punggol48"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "Singapore/punggol.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 10,
+     "topPct": 6,
+     "bottomPct": 3,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 10,
+     "topPct": 6,
+     "bottomPct": 3,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  }
+ ]
+}
