@@ -60,7 +60,9 @@ D-46 (owner, 2c44f676: Atlas is the default; switcher Atlas, Gallery, Guidebook,
 - Tested on Tokyo and Cleveland at 390 and 1440, on dev before D-46 is implemented. P-29 FAILs as expected (dv=gallery); P-30 passes; P-31 `#view=atlas` gives a card in 377–481 ms.
 - Tokyo 390 re-test: P-13, P-14 and P-15 PASS with the phone Atlas list opened (reach 488/488, Atlas "Showing all 488 places"); P-30 PASS; P-31 `#view=atlas` card in 396 ms.
 
-Next: send the orchestrator the harness SHA, then re-run patterns once the D-46 implementation lands. Re-verify QC-13, 14, 30, 31, 32, 33 and 34 as lanes claim fixes.
+- P-32 (platform 22:07Z, desktop switch → Atlas INP 21 s on b61fda89, suspect FE-1 797258c2): at 1440, Gallery → Atlas → Gallery → Atlas, timed from pointerdown `event.timeStamp` to the target view's first card painted; WARN > 500 ms, FAIL > 2 s. P-33: cold `#view=atlas` with the map allowed, time to the first list card; WARN > 1 s, FAIL > 2 s. Baseline on dev 6cfe7b9c (contains 797258c2 and b61fda89), Tokyo 1440, this rig (no CPU throttle, tiles stubbed): P-32 WARN, Gallery → Atlas 1024 / 925 ms, Atlas → Gallery 379 ms (not 21 s here); P-33 PASS, first Atlas card at 801 ms. Fixed in-session: P-32 looked for li.pl in the Gallery, whose rows are .gc cards.
+
+Next: run P-32/P-33 on the head that claims FE-1's fix and send the SHA; re-run patterns once the D-46 implementation lands. Re-verify QC-13, 14, 30, 31, 32, 33 and 34 as lanes claim fixes.
 
 Next harness work:
 - Add a Contents-vs-lens count check to the COUNTS probe (QC-34 class) once FE-B fixes it.

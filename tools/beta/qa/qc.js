@@ -47,6 +47,7 @@ const CHECKS = {
   'P-21': 'Drawer n of N', 'P-22': 'Drawer prev / next', 'P-23': 'Pages, numbers, all N, show-all', 'P-24': 'No silent caps',
   'P-25': 'No value-led ranking', 'P-26': 'No invented data', 'P-27': 'Lens yields to a deep link', 'P-28': 'Show all N clears every lens',
   'P-29': 'Cold load opens Atlas, switcher Atlas first (D-46)', 'P-30': 'A stored Gallery choice still wins (D-46)', 'P-31': 'Map library blocked: the Atlas list shows at once (D-46)',
+  'P-32': 'Switch Gallery → Atlas → Gallery responds (input to list painted)', 'P-33': 'Cold Atlas link: first list card, map allowed',
   'J-01': 'Discover → shortlist → plan a day → share → reopen', 'J-01h': 'Discover from a hub', 'J-02': 'Best food near X',
   'J-03': 'Is it still open? (closure honesty)', 'J-04': 'Who recommends this and why?', 'J-05': 'Switch views without losing context',
   'J-06': 'Back and Forward', 'J-07': 'Keyboard only', 'J-08': '200 % zoom', 'J-09': 'Reduced motion', 'J-10': 'Map library blocked',
@@ -139,6 +140,15 @@ async function atlasList(page) {
   const t = page.locator('.ms-toggle').filter({ visible: true }).first();
   if (!(await t.count())) return false; await t.click().catch(() => {}); await page.waitForTimeout(700); return true;
 }   // D-46 switcher order
+// P-32: time from the switcher input (event.timeStamp, so a blocked main thread is counted) to the target view's first
+// place card painted (two frames after it is on screen; Gallery rows are .gc cards, the Atlas list li.pl). Armed before the click; resolves in the page.
+const ARM_SWITCH = new Function('target', `window.__sw = null;
+  const vis = e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.top < innerHeight && r.bottom > 0 && getComputedStyle(e).visibility !== 'hidden' && !e.closest('[hidden]'); };
+  document.addEventListener('pointerdown', ev => { const b = ev.target.closest('[data-cleo-views] button[data-view="' + target + '"]'); if (!b) return; const t0 = ev.timeStamp;
+    const tick = () => { if (document.documentElement.getAttribute('data-view') === target && [...document.querySelectorAll(target === 'gallery' ? '.gc, li.pl[id]' : 'li.pl[id]')].some(vis))
+        requestAnimationFrame(() => requestAnimationFrame(() => { window.__sw = { ms: Math.round(performance.now() - t0) }; }));
+      else if (performance.now() - t0 < 30000) requestAnimationFrame(tick); else window.__sw = { ms: null, timeout: true }; };
+    requestAnimationFrame(tick); }, { capture: true, once: true });`);
 // D-46: the page's declared default view (views.js: info.dv, else Atlas). Probes compare against it instead of assuming one.
 const declared = page => page.evaluate(() => (window.Cleo && Cleo.city && Cleo.city.info && Cleo.city.info.dv) || 'atlas').catch(() => 'atlas');
 const SHARE_STUB = () => {
@@ -314,6 +324,23 @@ async function patterns(rel, vp) {
       await o3.ctx.close();
     }
     check('P-31', C, ok(runs.every(x => x.view === 'atlas' && x.card && x.card.view === 'atlas' && x.card.t <= 1500 && !x.errors.length)), { runs, declared: r.declared });
+  }
+  // P-32 / P-33 (platform 22:07Z: desktop switch → Atlas INP regressed to 21 s): desktop only
+  if (vp >= 1024) {
+    const o = await open(rel, vp, { hash: '#view=gallery', settle: 1500 }); const runs = [];
+    for (const target of ['atlas', 'gallery', 'atlas']) {
+      await o.page.evaluate(ARM_SWITCH, target);
+      await o.page.locator('[data-cleo-views] button[data-view="' + target + '"]').filter({ visible: true }).first().click({ timeout: 5000 }).catch(e => runs.push({ target, err: e.message.slice(0, 80) }));
+      await o.page.waitForFunction(() => window.__sw, null, { timeout: 35000 }).catch(() => {});
+      runs.push({ target, ...(await o.page.evaluate(() => window.__sw) || { ms: null }) }); await o.page.waitForTimeout(400);
+    }
+    const worst = Math.max(...runs.map(r => r.ms == null ? Infinity : r.ms));
+    check('P-32', C, worst > 2000 ? 'FAIL' : worst > 500 ? 'WARN' : 'PASS', { runs, worstMs: worst === Infinity ? null : worst, bar: 'WARN > 500 ms, FAIL > 2 s' });
+    await o.ctx.close();
+    const o2 = await open(rel, vp, { hash: '#view=atlas', init: FIRSTCARD, settle: 3000 });
+    const c = await o2.page.evaluate(() => window.__card || null);
+    check('P-33', C, !c ? 'FAIL' : c.t > 2000 ? 'FAIL' : c.t > 1000 ? 'WARN' : 'PASS', { card: c, bar: 'from navigation start: WARN > 1 s, FAIL > 2 s', errors: o2.st.errors.slice(0, 2) });
+    await o2.ctx.close();
   }
   // P-23 / P-24 Gallery pager
   const pager = await page.evaluate(new Function(`${P_VIS} const p = [...document.querySelectorAll('.g-pager, [class*=pager]')].find(vis); if (!p) return null;
