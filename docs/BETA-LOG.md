@@ -1848,3 +1848,17 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - After placing by estimate, `feature()` measures the real rendered pills. A pill nearer than 4 px to one already kept goes back to a dot; the selected and saved places stay labelled.
 - **FE-B R7-g6:** `.pp .pp-h` now uses `var(--ring-quiet)`, and the `.pp-1.sel` sun ring is removed (no sun on pills). The Key dots drop their 1 px surface halo rather than take the 4 px `--ring-surface`, which would swamp a 7 px dot. That leaves 3 fewer raw shadows in atlas.css.
 - The duplicate map-pane DOM move in msIn is dropped: atlas-nav.js (FE-2) owns the map-first Tab order.
+
+- 2026-10-16 17:02Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Deploy pin 3ba696e8:** QA's suite is running; B-07 is being A/B-tested against be74c82f with the same probe. Platform's first-pin shows the pin is back at the be74c82f level (Tokyo 1,653 vs 1,564 ms; NY 1,807 vs 1,760 ms).
+  - **Landed since 16:22Z:**
+    - platform: the `:has()` lint in npm test (cf6e0357), `npm run checkpoint` wrapping sync-push.sh (eedeac35), the sync-push fix for an uncommitted beta/ regeneration plus a test (43d9a895), and the R8 measurement kit draft (5f977955);
+    - FE-B: R7-g6 (letter-spacing 6, tabular 100 %, chart tokens), R7-g2 g/h, R7-g5 hubs/landing at 0 failing, QC-19 complete, QA-55 for hubs, and the switcher probe waiting for the transition;
+    - FE-A: §3.6 one visible number, designer follow-ups, and the deep-link keep-in-view;
+    - FE-C: W9-1 badges on every card type and the Recognised filter; W9-9 parked for ja;
+    - i18n: QC-21 and W8-I18N-MAPRACE;
+    - designer: QA-74 (motion ≤ 300 ms) and QA-55 footnotes at 14 px;
+    - QC: QC-11 and QC-12 verified;
+    - location: the Hotel Utah accept, orphans classified, and the daily Nominatim ledger, with a scheduled task at 03:17 UTC (trig_01P2RWA4kn9SKwApTwLdtSrm);
+    - imagery: waves 2 and 3 (Pittsburgh, DC, Bruges, Youngstown).
+  - **Gates on 7c280435:** validate, npm test (alone) and beta:check are all green.
