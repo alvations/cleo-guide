@@ -323,6 +323,39 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     ok(t.sheet && !t.ring && inside && k === 'x', `@${w}: tap → the dialog has focus with no ring, Tab stays inside; Enter → ✕`, [t, inside, k]);
     await ctx.close();
   }
+  console.log('# R3 #9/#14: one focus ring per card; R3 #2 in Atlas: no numbers in the nav row; QC-25: closed cards never print the status note');
+  for (const w of [390, 1440]) {
+    const ctx = await ctxFor(b, w), page = await ctx.newPage();
+    for (const v of ['gallery', 'atlas']) {
+      await page.goto(BASE + 'beta/cities/tokyo.html#view=' + v, { waitUntil: 'load' }); await page.waitForTimeout(1800);
+      const sel = v === 'atlas' ? '.w7-cards li.pl>.pl-n a' : 'li.pl>.pl-n a';
+      const has = await page.evaluate(s => { const a = [...document.querySelectorAll(s)].find(x => x.getClientRects().length); if (!a) return false; a.scrollIntoView({ block: 'center' }); return true; }, sel);
+      if (!has) { console.log(`  (skip @${w} ${v}: no visible card)`); continue; }
+      await page.keyboard.press('Tab'); await page.keyboard.press('Shift+Tab');
+      await page.evaluate(s => { const a = [...document.querySelectorAll(s)].find(x => x.getClientRects().length); a.focus(); }, sel);
+      await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');   // a keyboard move, so :focus-visible holds
+      const rings = await page.evaluate(() => { const a = document.activeElement, li = a && a.closest('li.pl'); if (!li) return null;
+        const on = (e, p) => { const cs = getComputedStyle(e, p); return cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0; };
+        return { card: on(li), link: on(a), after: on(a, '::after'), tag: a.className || a.tagName }; });
+      ok(rings && rings.card && !rings.link && !rings.after, `@${w} ${v}: a focused card name shows one ring (the card's)`, rings);
+    }
+    await page.goto(BASE + 'beta/cities/tokyo.html#view=atlas&p=senso-ji', { waitUntil: 'load' }); await page.waitForTimeout(2200);
+    const nav = await page.evaluate(() => { const n = document.querySelector('#cleo-sheet .sh-nav'); if (!n) return null; const c = n.cloneNode(true); c.querySelectorAll('.vh').forEach(e => e.remove()); return c.textContent.replace(/\s+/g, ' ').trim(); });
+    ok(nav !== null && !/\d+\s+of\s+\d+/.test(nav) && !/pin \d/i.test(nav), `@${w} Atlas detail: the nav row is plain previous/next (no "k of N", no pin)`, nav);
+    await ctx.close();
+  }
+  {
+    const closedNotes = []; let closed = 0;
+    for (const f of fs.readdirSync(path.join(ROOT, 'beta/data/places'))) {
+      const j = JSON.parse(fs.readFileSync(path.join(ROOT, 'beta/data/places', f), 'utf8'));
+      for (const p of j.places || []) if (p.closed) { closed++; const n = String((p.pv || {}).ss || ''); if (n && n.length > 12) closedNotes.push(n); }
+    }
+    const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (['data', 'assets', 'changes'].includes(e.name) ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []);
+    const html = walk(path.join(ROOT, 'beta')).map(f => fs.readFileSync(f, 'utf8')).join('\n');
+    const leak = closedNotes.filter(n => !/^https?:\/\//.test(n) && html.includes(n.slice(0, 40).replace(/&/g, '&amp;')));
+    ok(closed > 50 && !leak.length && !/· per /.test(html), `QC-25: no status note is printed on a city page for any of ${closed} closed places (only a source URL, in the detail)`, leak.slice(0, 2));
+    ok(/We don’t add ratings, prices or opening hours of our own; any quoted are the source’s, dated\./.test(fs.readFileSync(path.join(ROOT, 'beta/cities/tokyo.html'), 'utf8')), 'colophon: the D-42 line in the footer');
+  }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
   process.exit(fails ? 1 : 0);
