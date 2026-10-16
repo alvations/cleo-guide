@@ -18,6 +18,7 @@
  * Usage: cd tools && node beta/qa/w5.js   Output: qa/beta-w5/w5.json (+ screenshots)
  */
 'use strict';
+const { DEFAULT_VIEW } = require('./default-view');   // D-46
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -96,10 +97,12 @@ const clean = n => String(n).replace(/\s*[—–-]+\s*CLOSED\b.*$/i, '').replace
     const d = DATA[rel], N = d.places.length, ids = d.places.map(p => p.id);
     console.log(`\n# ${rel} (${N} places)`);
     for (const vp of ['mobile', 'desktop']) {
-      // default + show-all
-      const { ctx, page, st } = await open(rel, vp, { settle: 1200 });
+      // the default view (D-46: Atlas; QA_DEFAULT_VIEW for older pins), then the Gallery itself, pinned by #view=gallery
+      { const dv = await open(rel, vp, { settle: 1200 }); const v0 = await dv.page.evaluate(() => document.documentElement.getAttribute('data-view'));
+        check('gallery', `${rel} ${vp}: default view is ${DEFAULT_VIEW} (D-46)`, v0 === DEFAULT_VIEW, v0); await dv.ctx.close(); }
+      const { ctx, page, st } = await open(rel, vp, { hash: '#view=gallery', settle: 1200 });
       const v = await page.evaluate(() => document.documentElement.getAttribute('data-view'));
-      check('gallery', `${rel} ${vp}: default view is Gallery`, v === 'gallery', v);
+      check('gallery', `${rel} ${vp}: #view=gallery opens the Gallery`, v === 'gallery', v);
       if (vp === 'mobile') {
         const first = await page.evaluate(() => {
           const vis = el => { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el); return r.height > 60 && r.bottom > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && !el.closest('[hidden]'); };
@@ -125,23 +128,23 @@ const clean = n => String(n).replace(/\s*[—–-]+\s*CLOSED\b.*$/i, '').replace
       check('gallery', `${rel} ${vp}: 0 JS errors`, !st.errors.length, st.errors.slice(0, 3));
       await ctx.close();
     }
-    // deep link EVERY id, Gallery as the view
+    // deep link EVERY id, the default view kept (D-46)
     { const { ctx, page, st } = await open(rel, 'mobile', { settle: 900 });
-      const miss = await page.evaluate(async (list) => {
+      const miss = await page.evaluate(async ({ list, want0 }) => {
         const bad = [];
         for (const p of list) {
           location.hash = '#p=' + encodeURIComponent(p.id);
           await new Promise(r => setTimeout(r, 60));
           const t = document.getElementById('sh-t'); const dlg = t && t.closest('[role=dialog]');
           const want = p.n.split(/\s+/)[0].toLowerCase();
-          if (!dlg || dlg.hidden || !t.textContent.toLowerCase().includes(want) || document.documentElement.getAttribute('data-view') !== 'gallery') bad.push(p.id);
+          if (!dlg || dlg.hidden || !t.textContent.toLowerCase().includes(want) || document.documentElement.getAttribute('data-view') !== want0) bad.push(p.id);
         }
         return bad;
-      }, d.places.map(p => ({ id: p.id, n: clean(p.n) })));
-      check('deeplink', `${rel}: #p= opens the sheet for every one of ${N} places, Gallery kept`, !miss.length, { missing: miss.length, e: miss.slice(0, 4), err: st.errors.slice(0, 2) });
+      }, { list: d.places.map(p => ({ id: p.id, n: clean(p.n) })), want0: DEFAULT_VIEW });
+      check('deeplink', `${rel}: #p= opens the sheet for every one of ${N} places, the default view (${DEFAULT_VIEW}) kept`, !miss.length, { missing: miss.length, e: miss.slice(0, 4), err: st.errors.slice(0, 2) });
       await ctx.close(); }
-    // search: 25 spread samples via the page filter
-    { const { ctx, page, st } = await open(rel, 'mobile', { settle: 900 });
+    // search: 25 spread samples via the page filter (the Gallery list, pinned)
+    { const { ctx, page, st } = await open(rel, 'mobile', { hash: '#view=gallery', settle: 900 });
       const step = Math.max(1, Math.floor(N / 25)), sample = d.places.filter((p, i) => i % step === 0).slice(0, 25);
       const box = page.locator('#cleo-filter').first();
       const bad = [];
@@ -188,7 +191,7 @@ const clean = n => String(n).replace(/\s*[—–-]+\s*CLOSED\b.*$/i, '').replace
       counts[rel] = { sights: cards.length, motif: withM.length, kindKeyed: keyed.length, kinds: new Set(withM.map(c => c.match(/data-m="([^"]*)"/)[1])).size }; }
     check('motif', 'sight cards carry a motif keyed on collection ids (coverage, informational)', Object.values(counts).every(c => c.motif === c.sights), counts); }
   for (const vp of ['mobile', 'desktop']) {
-    const { ctx, page } = await open('cities/tokyo.html', vp, { settle: 1200 });
+    const { ctx, page } = await open('cities/tokyo.html', vp, { hash: '#view=gallery', settle: 1200 });
     const m = await page.evaluate(() => { const a = document.querySelector('[data-cleo-changes]'); if (!a) return null; const r = a.getBoundingClientRect(), cs = getComputedStyle(a);
       return { h: Math.round(r.height), w: Math.round(r.width), lh: cs.lineHeight, display: cs.display }; });
     check('mast', `${vp}: "last checked" link target ≥ 44 px tall`, m && m.h >= 44, m);
@@ -208,7 +211,7 @@ const clean = n => String(n).replace(/\s*[—–-]+\s*CLOSED\b.*$/i, '').replace
   }
   { const { ctx, page, st } = await open('cities/tokyo.html', 'mobile', { weigh: true, settle: 2000 });
     const maps = st.urls.filter(u => /\/art\/[^/]+\/map\.svg/.test(u)), dupes = maps.filter((u, i) => maps.findIndex(x => x.split('?')[0].replace(/\.[0-9a-f]{6,}\./, '.') === u.split('?')[0].replace(/\.[0-9a-f]{6,}\./, '.')) !== i);
-    check('weight', 'Tokyo default (Gallery) transfer (gzip est.) < 2.0 MB', st.gz < 2.0e6, { gzipMB: +(st.gz / 1e6).toFixed(2), rawMB: +(st.raw / 1e6).toFixed(2) });
+    check('weight', `Tokyo default view (${DEFAULT_VIEW}) transfer (gzip est.) < 2.0 MB`, st.gz < 2.0e6, { gzipMB: +(st.gz / 1e6).toFixed(2), rawMB: +(st.raw / 1e6).toFixed(2) });
     check('weight', 'no duplicate art/<key>/map.svg fetch (one map per page)', !dupes.length, { maps, dupes });
     const i = await page.evaluate(() => ({ hreflang: [...document.querySelectorAll('link[rel=alternate][hreflang]')].map(l => l.getAttribute('hreflang')),
       sw: [...document.querySelectorAll('[data-cleo-lang], [data-cleo-locale], select[name=lang]')].filter(e => e.offsetParent).length }));

@@ -2109,3 +2109,21 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - The owner said: "Let's make atlas the default view then the list. That will differentiate us from our competitors."
 - Recorded as D-46 (2c44f676). Atlas becomes the default; the switcher order is Atlas, Gallery, Guidebook, Insights.
 - Routed to FE-A (lead), platform, FE-1/FE-2, QA, QC and the designer. It ships in the next release with Atlas rev 5.
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · PERF-18: the ja side of Platform's build-rendered lead card (option (c), proposed to Platform and the orchestrator).
+  - **locale.js:** re-says every `[data-l10n]` phrase (key, plus `data-l10n-v` JSON values) in the loaded catalogue at the start of the swap, inside the paint hold. It works even inside a client-drawn container such as `.g-lead-card`. Values fill in as text, never as HTML. An unknown key or bad JSON leaves the English in place.
+  - **Helper:** `common.l10nSpan(key, vars, tag)` renders the English with those attributes.
+  - **Inert for now:** nothing emits `data-l10n` yet. Platform's card (`tools/beta/lib/lead-card.js`) stays OFF until it uses `l10nSpan` and passes the Tokyo runtime pseudo check.
+  - **Tests:** test-i18n covers the helper output and the runtime re-say, including the unknown-key and bad-JSON cases.
+
+## 2026-10-16 21:52Z · orchestrator check-in
+
+- The dev head b1a7fc6e is gated green (validate, npm test alone, beta:check; w2 dom 12/12).
+- The r7 deploy is live (4382a187). The R8 evaluator is running.
+- Atlas: real shots R4b committed on ffbb225a. R4 is held for D-46 and the dark-dot re-sign.
+- Platform: Tokyo phone LCP diagnosed (the Gallery lead card, 3.1 s). A build-time card brings it to 0.98 s; it's off pending i18n's (c) hook. Under D-46 the LCP target moves to the Atlas default, and platform measures that next.
+
+## 2026-10-16 22:10Z · orchestrator
+
+- **INP regression on dev:** desktop switch → Atlas is 21 s (it was 0.7 s), and filters are about 2× slower. The suspect is 797258c2, Atlas rev 5's one ranked list. It is not in the live r7.
+- FE-1/FE-2 are fixing it at top priority. Platform is bisecting and adding a regression guard. It blocks the r8 pin and D-46.
+- QC-34 is fixed (76957fa1). FE-A got the stale-search item, where clearing the hash keeps the S.q search.

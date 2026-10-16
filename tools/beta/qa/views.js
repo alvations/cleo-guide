@@ -17,6 +17,7 @@
  * Output: qa/beta-w3/views.json (+ screenshots in qa/beta-w3/).
  */
 'use strict';
+const { DEFAULT_VIEW, SWITCH_ORDER } = require('./default-view');   // D-46
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -193,6 +194,17 @@ async function links() {
       await page.goForward(); await page.waitForTimeout(400); const c = (await page.evaluate(STATE)).view;
       check('links', `${rel} ${vp} Back/Forward across a switch`, a === 'atlas' && b === 'gallery' && c === 'atlas' && !st.errors.length, { a, b, c, err: st.errors.slice(0, 2) });
       await ctx.close();
+    }
+    // D-46 precedence: the view= hash, then the reader's stored choice, then the default (Atlas); the switcher in D-46 order
+    for (const vp of ['mobile', 'desktop']) {
+      for (const [pref, want] of [[null, DEFAULT_VIEW], ['guidebook', 'guidebook']]) {
+        const { ctx, page, st } = await open(rel, vp, pref ? { pref } : {});
+        const s = await page.evaluate(STATE);
+        const order = await page.evaluate(() => [...document.querySelectorAll('[data-cleo-views] [data-view]')].map(b => b.getAttribute('data-view')).filter((v, i, a) => a.indexOf(v) === i));
+        check('links', `${rel} ${vp}: no hash, ${pref ? 'stored ' + pref : 'nothing stored'} → ${want}${pref ? '' : '; switcher order ' + SWITCH_ORDER.join(', ')}`,
+          s.view === want && (pref || order.join() === SWITCH_ORDER.join()) && !st.errors.length, { view: s.view, order, err: st.errors.slice(0, 2) });
+        await ctx.close();
+      }
     }
   }
 }
