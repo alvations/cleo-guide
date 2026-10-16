@@ -1,0 +1,529 @@
+{
+ "generated": "2026-10-16T22:30:45.564Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "cities/tokyo.html",
+   "gen": "new",
+   "expected": {
+    "total": 488,
+    "sights": 263,
+    "food": 225,
+    "live": "cities/tokyo.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 40,
+    "cardsVisible": 40,
+    "legacy": false,
+    "firstCardTop": 345,
+    "screensToFirstCard": 0.41,
+    "mastheadPx": 0,
+    "controlsAbove": 14,
+    "controlsAboveOnScreen": 14,
+    "controlsAboveList": [
+     "a.c0 \"Japan\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "input#cleo-filter",
+     "button \"All 488\"",
+     "button \"Sights 263\"",
+     "button \"Eat & drink 225\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.btn.btn-primary \"Keep Tokyo offline\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 326,
+    "upperNodes": 4,
+    "upperPct": 1.2,
+    "minFontPx": 0,
+    "minFontEl": "a.c0 \"Japan\"",
+    "contrastChecked": 307,
+    "contrastUnknown": 11,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"GalleryAtlasGuidebookIns\"",
+     "div.ms-bar \"Search Tokyoplace · dish\"",
+     "div#cleo-grid.listpane.w7-cards \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 349,
+    "cardsPerScreen": 2.42,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2604,
+    "fcp": 144,
+    "fontSampleN": 318,
+    "fontsDeclared": {
+     "Inter": 478,
+     "Bricolage Grotesque": 19,
+     "Hiragino Sans": 12
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Inter": 4683,
+      "IPAGothic": 479,
+      "Bricolage Grotesque 96pt ExtraBold": 145
+     },
+     "primary": [
+      "Inter",
+      "IPAGothic",
+      "Bricolage Grotesque 96pt ExtraBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1851994,
+    "bytesAllResponses": 1851994,
+    "initial": {
+     "bytes": 1851994,
+     "gz": 630938
+    },
+    "session": {
+     "bytes": 1851994
+    },
+    "offOriginBlocked": 40,
+    "night": {
+     "contrastChecked": 307,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 390,
+      "h": 64,
+      "name": "map-first: 351 places here · Show list",
+      "mapFirst": true,
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "tsukiji-hongan-ji",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 490,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 490,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 40,
+    "cardsVisible": 40,
+    "legacy": false,
+    "firstCardTop": 313,
+    "screensToFirstCard": 0.35,
+    "mastheadPx": null,
+    "controlsAbove": 26,
+    "controlsAboveOnScreen": 26,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"All 488\"",
+     "button \"Sights 263\"",
+     "button \"Eat & drink 225\"",
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.chip.ms-mine \"Saved\"",
+     "select \"Top rankedMost sourcesA–\"",
+     "button.chip \"Chiyoda-ku 43\"",
+     "button.chip \"Chūō-ku 49\"",
+     "button.chip \"Minato-ku 54\"",
+     "button.chip \"Shinjuku-ku 44\""
+    ],
+    "tapSmall": 1,
+    "tapSmallKinds": {
+     "input#cleo-filter 286x25": 1
+    },
+    "tapSmallList": [
+     "input#cleo-filter 286x25"
+    ],
+    "textNodes": 373,
+    "upperNodes": 4,
+    "upperPct": 1.1,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 353,
+    "contrastUnknown": 10,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.ms-head \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 310,
+    "cardsPerScreen": 2.91,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2591,
+    "fcp": 188,
+    "fontSampleN": 363,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 25,
+     "Inter": 546,
+     "Hiragino Sans": 12
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 833,
+      "Inter": 6865,
+      "IPAGothic": 479
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 28,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 488,
+     "scrolled": 488,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 488,
+      "ok": 488,
+      "bad": []
+     },
+     "search": {
+      "n": 26,
+      "ok": 26,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 488 places",
+     "groups": [
+      "AreaChiyoda-ku 43Chū",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionAnime, man",
+      "Collection",
+      "CuisineSushi & kaise",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 8016275,
+    "bytesAllResponses": 8016275,
+    "initial": {
+     "bytes": 1863838,
+     "gz": 642782
+    },
+    "session": {
+     "bytes": 8016275
+    },
+    "offOriginBlocked": 72,
+    "night": {
+     "contrastChecked": 353,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": true,
+     "mapWidthPct": 64,
+     "split": true,
+     "sticky": true,
+     "markers": 16,
+     "pinned": 40,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 16,
+     "hoverHighlights": true,
+     "pinClick": {
+      "cardHighlighted": true,
+      "cardInView": true,
+      "sheet": true
+     },
+     "orderingStated": true
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 488,
+    "text": 18912
+   },
+   "cpu4x": {
+    "fcp": 344,
+    "dcl": 682,
+    "loadMs": 1023
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.41
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 0
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "14 on-screen / 14 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": true,
+      "val": "split true, sticky true, map 64%, hover→pin true, pin→card true"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 390×64, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": true,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 16, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 488 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.42
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 488 · DOM 488 · scrolled 488 · deep 488/488 · search 26/26 · no-JS 488"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Inter, Bricolage Grotesque · rendered here: Inter, IPAGothic, Bricolage Grotesque 96pt ExtraBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "1.2% (4/326)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": false,
+      "val": "0px a.c0 \"Japan\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 112"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "7828 KB · 2591 nodes · 188 ms · 344 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "628 KB (1,820 KB) · 616 KB (1,809 KB)"
+     }
+    },
+    "passed": 23,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}
