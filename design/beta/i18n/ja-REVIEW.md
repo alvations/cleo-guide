@@ -82,4 +82,21 @@ These came in when FE-A's client modules (sheet, city, views, gallery, day, fory
 | `city.mine.all` | すべてのリスト | すべてのマイリスト | Glossary term マイリスト. |
 | `city.src.entries` | 番号付きの{n}項目すべてがここにあります。 | この出典の番号付き{n}項目すべてを掲載しています。 | "its" (this source's) had been dropped; 掲載 aligns with other strings. |
 
-**Total: 24 changes over five rounds.**
+## Round 6: FE-C's 84 keys (`trip.*`, `geo.*`, `src.*`, `share.*`, `rec.*`; 10 changes, applied)
+
+FE-C staged these English strings in `tools/beta/i18n-fec/pending-en.json`. The i18n lane wrote `pending-ja.json`, and FE-C's `merge.py` merges both into the catalogue. A fresh independent subagent reviewed them under the same brief, with access only to the pending files and the catalogue.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `trip.why.gone` | どのガイドにも掲載されていません | ガイドに掲載されなくなりました | "no longer" had been dropped; the place was removed after the link was made. |
+| `trip.gone.one` | このリンクの1か所は、どのガイドにも掲載されていません: {ids}。リンクがガイドより古い可能性があります。 | このリンクの1か所は、ガイドに掲載されなくなりました: {ids}。リンクがガイドより古い可能性があります。 | Keeps "no longer listed" (the next sentence depends on it); matches trip.why.gone. |
+| `trip.gone` | このリンクの{n}か所は、どのガイドにも掲載されていません: {ids}。リンクがガイドより古い可能性があります。 | このリンクの{n}か所は、ガイドに掲載されなくなりました: {ids}。リンクがガイドより古い可能性があります。 | Same fix as the singular. |
+| `trip.noday` | このリンクからは1日プランを作れません。どの場所も閉店、ピンなし、またはガイドに掲載されていません。 | このリンクからは1日プランを作れません。どの場所も閉店、ピンなし、またはガイドに掲載されなくなっています。 | Same "no longer listed". |
+| `trip.all` | 保存したすべて | 保存したすべての場所 | An incomplete noun phrase as a selector label. |
+| `trip.from` | 元にするもの | 作成元 | A concise noun label. |
+| `trip.b.fit` | {places}を1日プランに入れられます。最大{days}です。 | {places}を1日プランに入れられます(最大{days}分)。 | "最大{days}です" was unclear; the places fill at most that many days. |
+| `geo.assume` | 徒歩時間は直線距離で、分速約80 mの目安です。経路ではありません | 徒歩時間は直線距離と分速約80 mから出した目安で、経路ではありません | The times are estimated from straight-line distance; they are not distances. |
+| `rec.label` | 評価・受賞 | 受賞・注目 | 評価 means tiers and star ratings in the catalogue; the site shows no ratings. |
+| `rec.tile.k` | 評価 | 注目 | Same clash with 評価; consistent with rec.label. |
+
+**Total: 34 changes over six rounds.**
