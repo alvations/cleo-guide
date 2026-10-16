@@ -175,7 +175,7 @@
     var tr = build(en, to);
     var page = d.getAttribute('data-cleo-page');
     // Landing, hubs, What changed and city pages are catalogue-built end to end (data excepted); elsewhere only the shell.
-    var scopes = /^(landing|hub|changes|city)$/.test(page) ? [document.body]
+    var scopes = /^(landing|hub|changes|city|method|notfound)$/.test(page) ? [document.body]
       : [].slice.call(document.querySelectorAll('[data-cleo-shell=topbar], .tabbar, .footer, .skip'));
     scopes.forEach(function (sc) {
       [sc].concat([].slice.call(sc.querySelectorAll('*'))).forEach(function (el) {
