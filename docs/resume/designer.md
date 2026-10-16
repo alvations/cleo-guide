@@ -85,6 +85,8 @@ Current rows:
     - **Light: signed off.** Circle 184 against canvas 230; square 92.
     - **Dark: fix sent to FE-1.** The circle fill measured 90 against 77 (1.2:1) and read as rings. Use 45 % circles and 80 % squares, with targets of ≥ 2:1 and ≥ 4.5:1 measured on the tile.
     - Hold "round 4 ready" until the dark set is re-shot and re-signed. The orchestrator has been told.
+    - FE-1 has the fix in ec71a4ad, together with rev 5a and the glyphs. **Next:** re-sign the dark set from the next real shots.
+    - Decisions written into SPEC §1.1 and §2.2: on phones, "Search as I move" defaults to off; D-43 is declined (no third dot state; low-confidence pins say "Approximate location" in words).
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight

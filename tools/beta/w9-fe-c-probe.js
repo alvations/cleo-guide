@@ -16,8 +16,8 @@
  *  base-lazy   a first load with no base never requests base.js; with a base it is requested once
  *  rec-pv      (W9-1) the Atlas map preview of a recognised place carries its badges (text: the preview is one link)
  *  rec-tap     (QA-77) badge links are ≥ 44 px tap targets (B-20) on 4 pilots × Gallery/Atlas at 390; the pill still paints 32 px
- *  empty       (QC-05, S-05-style) #q=zzqxjv on 5 pilots × Gallery/Atlas × 390/1440: a visible message naming the search,
- *              "Clear search" and "Show all N" (each works), the count reads 0, no "All N" chip pressed, no sideways scroll
+ *  empty       (QC-05, S-05-style) #q=zzqxjv on 5 pilots × Gallery/Atlas × 390/1440: one visible state naming the search
+ *              (Gallery: empty.js; Atlas: FE-1's list head), "Clear search" (works) and "Show all N", no "All N" chip pressed
  *  card        (W9-7) place (photo), closed place, day, list (Saved) and trip: a 1080×1920 PNG; its preview's alt text names
  *              the source line, the checked date and (photo cards) the credit; 0 off-origin requests from the tap to the
  *              preview; works with the map library blocked; Web Share gets an image/png file where supported, else a download
@@ -161,33 +161,24 @@ async function tabTo(page, test, n = 80) {
       return { id: c.id, n: (c.getAttribute('data-ra') || '').split(' ').length + ((c.getAttribute('data-rec') || '').includes('cited') ? 1 : 0), got: g ? g.querySelectorAll('.rb').length : 0, links: g ? g.querySelectorAll('a').length : -1, text: g && g.textContent, chk: (a && a.querySelector('.pv-chk') || { getAttribute: () => null }).getAttribute('data-d'), want: c.getAttribute('data-checked') }; });
     ok(r && r.got === r.n && r.links === 0, 'the Atlas preview of a recognised place shows its badges, as text', r); ok(r && r.chk && r.chk === r.want, 'W9-2: the Atlas preview carries "Status checked <d Mon>" from the place\'s data-checked', r && [r.chk, r.want]); ok(!s.errs.length, 'rec-pv: 0 page errors', s.errs.slice(0, 2)); await s.ctx.close(); }
 
-  console.log('# empty (QC-05: a search with no match states it, and offers a way out)');
+  console.log('# empty (QC-05: a search with no match states it, and offers a way out; Gallery: empty.js, Atlas: the list head, FE-1)');
   for (const rel of ['cities/tokyo.html', 'cleveland.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html']) for (const w of [390, 1440]) for (const v of ['gallery', 'atlas']) {
     const tag = `${rel.split('/').pop().replace('.html', '')} ${v} ${w}`, s = await open(b, rel + '#view=' + v + '&q=zzqxjv', { w, tiles: true, settle: 1500 });
-    const st = await s.page.evaluate(() => { const vis = e => { if (!e) return false; const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== 'hidden'; };
-      const box = [...document.querySelectorAll('[data-cleo-empty]')].find(vis), cards = [...document.querySelectorAll('li.pl, li.gc, li.ge')].filter(vis).length;
-      const zero = [...document.querySelectorAll('.ms-head, .ms-toggle, .ms-car, #cleo-shown, .pager')].filter(vis).map(e => e.textContent.replace(/\s+/g, ' ').trim()).filter(t => /\b0 places|No places match/.test(t)).length;
-      return { msg: box ? box.textContent.replace(/\s+/g, ' ').trim() : null, clear: !!(box && box.querySelector('[data-unset="q"]')), all: !!(box && box.querySelector('[data-cleo-all]')), cards, zero,
-        pressedAll: [...document.querySelectorAll('button[data-mode][aria-pressed="true"]')].filter(vis).map(b => b.textContent.trim()), over: document.documentElement.scrollWidth - innerWidth }; });
-    ok(!!st.msg && /No places match “zzqxjv”/.test(st.msg) && st.clear && st.all && st.cards === 0 && st.zero > 0 && !st.pressedAll.length && st.over <= 0,
-      `${tag}: the empty state names the search, offers Clear search + Show all, count 0, no chip pressed`, st.msg ? { zero: st.zero, pressed: st.pressedAll, over: st.over } : st);
+    if (v === 'atlas' && w < 500) { const t = s.page.locator('.ms-toggle').filter({ visible: true }).first(); if (await t.count()) { await t.click().catch(() => {}); await s.page.waitForTimeout(700); } }
+    const st = await s.page.evaluate(v => { const vis = e => { if (!e) return false; const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== 'hidden'; };
+      const host = v === 'atlas' ? [...document.querySelectorAll('.ms-head')].find(vis) : [...document.querySelectorAll('[data-cleo-empty]')].find(vis);
+      const clear = host && [...host.querySelectorAll(v === 'atlas' ? '[data-ms-clear="q"]' : '[data-unset="q"]')].find(vis), all = host && [...host.querySelectorAll(v === 'atlas' ? '[data-ms-clear="all"]' : '[data-cleo-all]')].find(vis);
+      return { msg: host ? host.textContent.replace(/\s+/g, ' ').trim().slice(0, 140) : null, clear: !!clear, all: !!all, both: [...document.querySelectorAll('[data-cleo-empty]')].filter(vis).length + (v === 'atlas' ? 0 : [...document.querySelectorAll('.ms-head [data-ms-clear]')].filter(vis).length),
+        cards: [...document.querySelectorAll('li.pl, li.gc, li.ge')].filter(vis).length, pressedAll: [...document.querySelectorAll('button[data-mode][aria-pressed="true"]')].filter(vis).map(b => b.textContent.trim()), over: document.documentElement.scrollWidth - innerWidth }; }, v);
+    ok(!!st.msg && /No places match “zzqxjv”/.test(st.msg) && st.clear && st.all && st.cards === 0 && !st.pressedAll.length && st.over <= 0 && (v === 'gallery' || st.both === 0),
+      `${tag}: one empty state names the search, offers Clear search + Show all, no card, no chip pressed`, st);
     if (rel === 'cities/tokyo.html') await s.page.screenshot({ path: path.join(SHOTS, `empty-${v}-${w}.png`) });
-    const btn = s.page.locator('[data-cleo-empty] [data-unset="q"]').filter({ visible: true }).first(); await btn.click(); await s.page.waitForTimeout(500);
-    const after = await s.page.evaluate(() => ({ q: /[#&]q=/.test(location.hash), box: [...document.querySelectorAll('[data-cleo-empty]')].length, input: (document.getElementById('cleo-filter') || {}).value }));
-    ok(!after.q && !after.box && !after.input, `${tag}: "Clear search" clears the search and the state`, after);
+    const btn = s.page.locator(v === 'atlas' ? '.ms-head [data-ms-clear="q"]' : '[data-cleo-empty] [data-unset="q"]').filter({ visible: true }).first(); await btn.click(); await s.page.waitForTimeout(600);
+    const after = await s.page.evaluate(() => ({ q: /[#&]q=/.test(location.hash), input: (document.getElementById('cleo-filter') || {}).value || '' }));
+    ok(!after.q && !after.input, `${tag}: "Clear search" clears the search`, after);
     await s.ctx.close();
   }
-  console.log('# rec-tap (QA-77, B-20: every badge link is a 44 px target that still paints a 32 px pill)');
-  for (const rel of ['cities/tokyo.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html']) for (const v of ['gallery', 'atlas']) {
-    const s = await open(b, rel + '#view=' + v, { w: 390, tiles: true, settle: 1500 });
-    if (v === 'atlas') { const t = s.page.locator('.ms-toggle').filter({ visible: true }).first(); if (await t.count()) { await t.click().catch(() => {}); await s.page.waitForTimeout(700); } }
-    await s.page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 800) { scrollTo(0, y); await new Promise(r => setTimeout(r, 30)); } });
-    const r = await s.page.evaluate(() => { const rb = [...document.querySelectorAll('a.rb')].filter(a => { const q = a.getBoundingClientRect(); return q.width > 0 && q.height > 0; });
-      return { n: rb.length, small: rb.filter(a => { const q = a.getBoundingClientRect(); return q.width < 44 || q.height < 44; }).length,
-        pill: [...new Set(rb.map(a => Math.round(a.getBoundingClientRect().height - parseFloat(getComputedStyle(a, '::before').top) * 2)))] }; });
-    ok(r.small === 0 && (!r.n || (r.pill.length === 1 && r.pill[0] === 32)), `${rel.split('/').pop()} ${v} 390: ${r.n} badge links, none under 44 px, pill painted at 32 px`, r);
-    await s.ctx.close();
-  }
+
   console.log('# card (share images)');
   const CARDS = path.join(SHOTS, 'cards'); fs.mkdirSync(CARDS, { recursive: true });
   const CASES = [

@@ -39,12 +39,12 @@
   // dots (SPEC-v3 §1.1, refined): ONE quiet neutral — ink at 38 % for sights, 62 % for eat & drink (mixed into the page
   // ground so the canvas needs no alpha), hollow when closed, a thin surface halo. Area colour only under an area filter.
   // Kind by shape (SPEC-v3 §1.1 rev 5): a sight is a light 7 px circle (--ink at 30 %), eat & drink a dark 8 px square
-  // (--ink at 72 %; dark mode 30 % / 50 %), both with a 1.5 px surface halo. No tier colour on dots: must-sees are a
+  // (--ink at 72 %; dark mode 45 % / 80 %), both with a 1.5 px surface halo. No tier colour on dots: must-sees are a
   // third of the places, so sun dots read as confetti. A closed dot is hollow with a diagonal slash. Area colour only
   // under an area filter.
   const darkOn = () => { const t = H.getAttribute('data-theme'); return t === 'dark' || (t !== 'light' && !!window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches); };
   C.dotStyle = c => { const cl = c.hasAttribute('data-closed'), f = at(c, 'data-k') === 'f', dk = darkOn();
-    const a = S.a ? areaC(c) : mix(tok.ink, tok.paper, f ? (dk ? 0.5 : 0.72) : 0.3);
+    const a = S.a ? areaC(c) : mix(tok.ink, tok.paper, f ? (dk ? 0.8 : 0.72) : (dk ? 0.45 : 0.3));   // dark (designer, R4): circle 45 % ≥ 2:1, square 80 % ≥ 4.5:1 on the dark tile
     return { radius: f ? 4 : 3.5, shape: f ? 'sq' : '', slash: cl, weight: 1.5, color: cl ? a : tok.surface, opacity: 1, fillColor: a, fillOpacity: cl ? 0 : 1 }; };
   let lastA = S.a;   // an area filter turns its area colour on for the dots (and off again)
   C.after.push(() => { if (S.a !== lastA) { lastA = S.a; restyle(); } });
@@ -201,7 +201,7 @@
     // "Search as I move" is on; the whole lens when there is no map (or "Show all") — never every card at once
     // QA-45 (G1): "Show all N in one list" — one tap puts every place in one scrollable list (all stamped, unpaged), as
     // the Gallery pager's "Show all on one page" does; "Only show this map area" / a pan of the map pages it again
-    if (!atlas() || S.day || C.msOne) { topMap(null); C.msTop = null; flat(); if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
+    if (!atlas() || S.day || C.msOne) { topMap(null); C.msTop = null; flat(); if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); if (atlas()) H.classList.add('ms-ready'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
     const T = topOn() ? topSet() : null; topMap(T);
     const area = !T && !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
     if (more !== true && C.navKeep && C.navKeep()) { if (C.msPaint) C.msPaint(); return; }   // a round-trip keeps the list it left (atlas-nav.js)
@@ -252,7 +252,7 @@
   /* ---- selection: pin → card, card (swipe) → pin ---- */
   const pinSel = () => { if (C.feature) C.feature(); };   // the selected place is always a labelled pin (ink) — feature() decides
   let quiet = 0;
-  // phones (SPEC-v3 §2.2): the first screen is the map + a 64 px list peek; the carousel appears only after a selection
+  // phones (SPEC-v3 §2.2): the first screen is the map + a 56 px list peek (rev 5a); the carousel appears only after a selection
   // (a pin, a dot, a card, a search result) or Near me, and Escape or a tap on empty map brings the peek back
   // the selected-state carousel is as tall as the tallest card on show needs (wrapped names, sources, credit, the base
   // line) — never clipped (§3.3, QC-17); 196 px is the floor
@@ -425,8 +425,10 @@
     const tp = C.msTop, total = (C.info && C.info.total) || 0, lensOn = !!(Cleo.lens && Cleo.lens.on && Cleo.lens.on(Cleo.lens.current()));
     // QC-05: a search (or lens) that matches nothing says so and offers the way back — never a blank map and "0"
     const none = !tp && N === 0 && total > 0;
-    if (none) { $('.ms-count', head).innerHTML = S.q ? 'No places match “' + C.esc(S.q) + '”' : 'No places match these filters';
-      $('.ms-more', head).innerHTML = (S.q ? '<button type="button" class="btn btn-quiet" data-ms-clear="q">Clear search</button> ' : '') + '<button type="button" class="btn btn-quiet" data-ms-clear="all">Show all ' + total.toLocaleString('en-US') + '</button>'; }
+    // one empty state per view, in the catalogue's strings (FE-C hides theirs in Atlas) — never hard-coded English
+    if (none) { const T = (k, e, v) => C.esc(Cleo.t ? Cleo.t(k, e, v) : e);
+      $('.ms-count', head).innerHTML = S.q ? T('city.empty.q', 'No places match “{q}”.', { q: S.q }) : T('city.empty.f', 'No places match these filters.');
+      $('.ms-more', head).innerHTML = (S.q ? '<button type="button" class="btn btn-quiet" data-ms-clear="q">' + T('city.empty.search', 'Clear search') + '</button> ' : '') + '<button type="button" class="btn btn-quiet" data-ms-clear="all">' + T('city.showall', 'Show all {n}', { n: total.toLocaleString('en-US') }) + '</button>'; }
     else $('.ms-count', head).innerHTML = tp ? 'Top <b>' + tp[0].toLocaleString('en-US') + '</b> picks · ' + tot
       : onA ? '<b>' + n[0].toLocaleString('en-US') + '</b> ' + (n[0] === 1 ? 'place' : 'places') + ' here' + (lensOn && total ? ', of all ' + total.toLocaleString('en-US') : '') + ' · ' + tot
       // QC-13: under a lens the line keeps the total — "43 of all 488 places"
@@ -446,6 +448,9 @@
     tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k));
   };
   // cards stamped later (a deep link, a route that builds more) join the page only if it shows them: a kept list stays the list
+  // a source chip the card's width cuts (ellipsis) carries its whole name as a title — only those, so pages stay lean
+  const cut = () => requestAnimationFrame(() => qa('#cleo-grid li.pl:not(.ms-out) .pl-s .src:not([title])').forEach(b => { if (b.scrollWidth > b.clientWidth + 1) b.title = b.textContent.trim(); }));
+  C.after.push(cut); on(d, 'cleo:stamped', cut);
   C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (!atlas()) return; if (lastShow && H.classList.contains('ms-on')) qa('li.pl:not(.ms-out)').forEach(c => { if (!c.hidden && !lastShow[C.pid(c)] && c !== selC && !c.classList.contains('is-target')) c.classList.add('ms-out'); }); flat(); requestAnimationFrame(() => { paintMs(); fitCar(); }); }); on(d, 'cleo:saved', paintMs);
   // phones: List ⇄ Map. The list is the full-screen image-first list of the places in the map area (Back closes it).
   // FE-A's shared card face, except the carousel; phone thumbs ask for the 500w copy (carousel 120px, list 240px)
@@ -461,12 +466,16 @@
   };
   on(window, 'popstate', () => { if (pushedList) { pushedList = 0; if (listOn) listMode(false); } });
   // capture phase: decided before the sheet / tray handle the same Escape, so closing the detail never also drops the carousel
-  d.addEventListener('keydown', e => { if (e.key !== 'Escape' || !atlas() || (Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])') || $('.m-attr-pop:not([hidden])')) return;
+  d.addEventListener('keydown', e => { if (e.key !== 'Escape' || !atlas() || e.target.id === 'cleo-filter' || (Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])') || $('.m-attr-pop:not([hidden])')) return;
     if (listOn) listMode(false, true); else if (H.classList.contains('ms-car')) { unselect(); car(false); } }, true);
   C.onNoMap = () => { C.msN = null; if (atlas() && !desk()) listMode(true); msArea(); };
-  // a typed search keeps the phone search pill open (it collapses to a 44 px button when empty)
+  // rev 5a §2.2: on phones the header's search icon is the search — in Atlas it opens the in-page search row over the
+  // chip row (and keeps the reader on the map) instead of the site search panel; a typed search keeps the row open
   const fq = $('#cleo-filter'), sq = () => { const s = fq && fq.closest('.spill'); if (s) s.classList.toggle('has-q', !!fq.value); };
   on(fq, 'input', sq);
+  d.addEventListener('click', e => { const a = e.target.closest && e.target.closest('[data-cleo-search-open]'); if (!a || !fq || !atlas() || desk() || !fq.closest('.ms-bar')) return;
+    e.preventDefault(); e.stopPropagation(); fq.focus(); }, true);
+  on(fq, 'keydown', e => { if (e.key === 'Escape' && !fq.value && !desk()) { e.stopPropagation(); fq.blur(); } });
   // a #p= that routed before this file arrived: select it now (selected + labelled on the map, SPEC-v3 §1.4)
   const routeSel = () => { const p = Cleo.route.parse().p, c = p && C.byId[p]; if (c && selC !== c) select(c, 'route'); };
   C.msIn = () => {

@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 21:00Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 21:36Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -30,40 +30,16 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- **QA said NO on pin 4aba38b3** (18:56Z, 025bac06), with 0 open High or Blocker. Every row passed except two small regressions:
-  - **QA-77 (Med, FE-C):** the recognition badges `a.rb` are only 32 px tall, so B-20 fails on phone in Gallery and Atlas. Fix: a 44 px hit area.
-  - **QA-78 (Low, imagery):** the Duquesne Incline credit author is a Flickr URL (CREDITS.json, from 6c007a0d5). Fix: the creator as credited, and a fetcher guard plus a test.
-- **Deploy pin (20:16Z): `b54b3745ce28166bd072808f3e5f3fdbf05b9d49`** on the release branch `beta-deploy-r7` (worktree `/home/user/rel-r7`; `tools/node_modules` there is a symlink, so never commit it). QA (delta re-sign) and QC (final-pin pass) were asked at 20:16Z.
-  - It is 4aba38b3 plus ported fixes only:
-    - QA-77, the badge 44 px hit area (from d2cc5400a, its fe-c.css rules only);
-    - QA-78, the Duquesne credit, with the guard and the test;
-    - QA-74, the motion tokens and the drift test;
-    - FE-B's leak fixes and the m.not.p ja;
-    - QC-25's closed-card line and the D-42 colophon (from 5d3dc985, without its focus-ring CSS);
-    - the trip.html source link (cf0218a1b);
-    - dev's 8 post-pin data commits (closure sources, Sokolowski's, the Erie, Orlando and DC prose).
-  - My checks on b54b3745:
-    - validate, npm test alone and beta:check pass;
-    - w8p passes (Tokyo 621 KB, Atlas 392 KB);
-    - B-20 mobile is 0 on 5 pilots (newyork's metrics run hung here, so QA covers NY);
-    - merge-tree into the Pages branch is clean.
-  - **QC: PASS on b54b3745** (20:35Z, 7c5ea616). Sweep 2236 PASS; the 4 FAILs are the filed Low QC-30 and QC-31. S-16 91/91, leak greps 0, and the QA-77 hit areas are ≥ 44 px with 0 overlaps and no CLS. A new Med, QC-33 (pre-existing CLS 0.42–0.53 on a guidebook/insights deep link at 1440), went to FE-B and platform for the next release.
-  - **Waiting on QA's verdict.** QA's suite is running in its container; it also wants a be74c82f w2 dom baseline before ruling.
-  - **If QA says NO, port these with the fix** (small, already gated on dev): QC-33's 4-line CSS reserve rule (86318253c: tools/beta/lib/render/fe-a.css, plus feb-cls.js), QC-32's prov sidecar sources (fec4f90bf) and platform's M3-06 gallery-row deferral (87f814ad). If QA says YES, they ship in the next release.
-  - Not in it: QC-04, Atlas rev 5, PERF-08, W8-I18N-SEARCH. They ship next, from the dev head.
-- **On YES:**
-  1. open a PR from `beta-deploy-r7` into `claude/cleveland-page-creation-pant4l` (live is still 9f54587d; check with merge-tree first);
-  2. merge with `expectedHeadSha` = the full SHA;
-  3. merge `beta-deploy-r7` back into claude/peaceful-goodall-i0hsrt (generated beta/ conflicts: take ours, regenerate);
-  4. add a `docs/BETA-CHANGELOG.md` entry;
-  5. give the owner https://alvations.github.io/cleo-guide/beta/;
-  6. launch the R8 evaluator (`design/beta/eval/r8/README.md`, R8 = the deploy SHA, baseline R7 badcc20d).
+- **r7 is DEPLOYED (21:33Z).** PR alvations/cleo-guide#9 merged `b54b3745` into `claude/cleveland-page-creation-pant4l` (merge `4382a187`), and the Pages build started at 21:33Z. QA YES at 943d1ce8 under D-45 (QA-79 waived); QC PASS at 7c5ea616. beta-deploy-r7 was merged back into the dev branch with `-s ours` (beef84ec), since every ported change is already on dev. The changelog entry is in docs/BETA-CHANGELOG.md.
+- **Next:**
+  1. The R8 independent evaluator on the deploy (kit: design/beta/eval/r8/README.md, R8 = 4382a187 / b54b3745, baseline R7 badcc20d).
+  2. Tell platform "go" for the PERF-08 flip on dev (beta:perf before, the flip, perf08-regress.sh, beta:perf after).
+  3. The next release pin from the dev head once Atlas rev 5 reaches panel R4. QA verifies QA-79's fix there.
 - **History:**
-  - 530dc83b NO (QA-70/71);
-  - 3ba696e8 NO (QC-26, QA-75, QA-76, all from PERF-08);
-  - 4aba38b3 NO (QA-77, QA-78). On 4aba38b3, QA verified QC-26, QA-70 (Tokyo first pin 697 ms vs 2,253), QA-71, QA-72, QA-73, QA-75, QA-76, QA-59b, QA-55, R7-g6, W9-6, B-07 5/5, G1 5/5 and w8p.
-- **PERF-08 re-lands after the deploy,** behind tools/beta/qa/perf08-regress.sh. FE-A's QA-75 prep (752a77fc9) is on the dev branch only.
-- **Not blocking:** W9-2 (no "Checked" line on the first 24 Cleveland cards; QA is still checking), QA-61 and QA-68.
+  - 530dc83b NO;
+  - 3ba696e8 NO;
+  - 4aba38b3 NO (QA-77, QA-78);
+  - b54b3745 NO (QA-79), then YES under D-45, **deployed**.
 
 ## In flight
 
