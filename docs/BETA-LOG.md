@@ -2051,6 +2051,14 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - a46f6ec7, W8-I18N-SEARCH.
 - **Budget:** Cleveland eager JS is at 39.97/40 KB. Platform is moving the offline-pack UI behind Cleo.need (about 1 KB).
 
+## FE-A — QC-31, fe-a.css raw colours to tokens (2026-10-16)
+- fe-a.css source has no raw colours left:
+  - 4 × `var(--surface,#fff)` → `var(--surface)` and 3 × `var(--paper,#fff)` → `var(--paper)` (tokens.css defines both, in both themes);
+  - the QA-59a name mask `linear-gradient(#000,#000)` → `linear-gradient(var(--mask),var(--mask))`, on both the mask and -webkit-mask declarations.
+- The rest of the census is in atlas.css, which is Atlas's (off-limits to FE-A); reported to Atlas FE-1:
+  - `rgba(0,0,0,.7)` text-shadow → `--shade-text-strong`;
+  - the `.ms-handle` 2 px radius and a 1 px radius → `--r-xxs`.
+- Gate note: `qa/offline-pack.js`'s desktop "Map unavailable" check is timing-flaky after any fe-a.css change (a no-op rule fails 2/6, HEAD 10/10). It reads after a fixed 4 s sleep, and the first runs after a rebuild start cold. Reported to platform with a condition-wait suggestion. npm test was green on this tree before the push.
 ## 2026-10-16 · FE-1 · Atlas pre-R4: B-20 source chip, one QC-05 empty state, chip overflow, rev 5a chrome, glyphs, dark dots
 
 - **B-20 (orchestrator 1):** my rev 5 16 px source rule set `line-height:1.4` on `button.src`, which overrode FE-A's 28 px line and made the chip 38–40 px tall. Atlas now keeps the 28 px line (28 + 2 × 8 px padding = 44 px; the painted chip is unchanged). Measured at 390 on Tokyo: every source chip is 44 px.
@@ -2094,6 +2102,7 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - PR alvations/cleo-guide#9 merged b54b3745 into the Pages branch with expectedHeadSha (merge 4382a187), and the Pages build started 21:33Z.
 - beta-deploy-r7 merged back into dev with `-s ours` (beef84ec): every ported commit is already on dev.
 - The changelog entry is added. Next: the R8 evaluator, and the PERF-08 "go" to platform.
+- **D-43 (designer declined a third dot state):** at 7 px an outlined dot reads as the closed hollow dot, so a low-confidence pin draws like any other dot. The Atlas preview now carries FE-C's card label "Approximate pin" (`sheet.pin.approx`), so there is one string; the detail already says so (sheet.js). Low pins per pilot, from data/geocodes.json: Cleveland 1, Tokyo 0, New York 0, Chinatown 0, Wheeling 0 (Singapore as a whole: 4). Sent to the orchestrator for the 4b re-verify pass.
 
 ## 2026-10-16 21:46Z · orchestrator: owner decision D-46
 
