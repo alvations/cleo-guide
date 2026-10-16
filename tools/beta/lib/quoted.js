@@ -11,13 +11,14 @@
  * PRICE_RATING is the price / rating half of the QA honesty grep (qa/test-honesty.js HONESTY): currency + amount,
  * amount + currency word, price/priced/cheap, rating(s)/rated N, N(.n)/5 and N(.n) stars, star-score. Booking wording is
  * NOT labelled here (the note would not describe it).
- * D-42 adds POPULARITY (QC-19: review counts "3,300 reviews", a score "at 4.6", "most popular") and HOURS (QC-20: clock
+ * D-42 adds POPULARITY (QC-19: review counts "3,300 reviews", a score "at 4.6", "most popular", "top-/highest-/best-rated")
+ * and HOURS (QC-20: clock
  * times "6am" / "7am–2:30pm" / "11:00–14:00", "open daily", "opens / closes at", "open until", "24/7", "24 hours").
  * Erring wide is safe here: a label on a record that did not need it states a true limit; a missing one is the bug.
  */
 const PRICE_RATING = /(?:[$€£¥₫₩]\s?\d|\b\d+\s?(?:usd|eur|sgd|jpy|vnd|dollars?|yen)\b|(?<![A-Z][a-z]+ )\bprices?\b|\bpriced\b|\bcheap\b|\bratings?\b|\brated \d|\b\d(?:\.\d)?\s?(?:\/\s?5|stars?)\b|\bstar[- ]score\b)/i;
 
-const POPULARITY = /(?:\b\d[\d,.]*\s?k?\+?\s?(?:reviews?|ratings?|votes?)\b|\b(?:at|scores?|scored|averages?|averaging)\s\d\.\d\b|\bmost[- ]popular\b|\bbest[- ]?sell(?:er|ing)\b)/i;
+const POPULARITY = /(?:\b\d[\d,.]*\s?k?\+?\s?(?:reviews?|ratings?|votes?)\b|\b(?:at|scores?|scored|averages?|averaging)\s\d\.\d\b|\bmost[- ]popular\b|\bbest[- ]?sell(?:er|ing)\b|\b(?:top|highest|best|higher|lowest|well|most|un|five[- ]star)[- ]rated\b)/i;
 const HOURS = /(?:\b\d{1,2}(?::\d{2})?\s?(?:am|pm|a\.m\.|p\.m\.)(?![a-z])|\b\d{1,2}[:.]\d{2}\s?[-–—]\s?\d{1,2}[:.]\d{2}\b|\bopen (?:daily|every day|late|until|till|from)\b|\bopens? (?:at|from|daily)\b|\bcloses? (?:at|early|by|on)\b|\bopen(?:ing)? hours\b|\b24\/7\b|\b24 hours\b)/i;
 /** D-42: any of the three groups. */
 const QUOTE = new RegExp([PRICE_RATING, POPULARITY, HOURS].map(r => r.source).join('|'), 'i');

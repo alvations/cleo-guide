@@ -13,6 +13,11 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- QC-19 rest: lib/quoted.js POPULARITY adds top-/highest-/best-/well-/most-/five-star-rated (cain-park, tita-floras).
+- QA-55 (FE-B): hub .theme-w and landing .archive at --fs-body (16 px).
+- feb-switcher.js waits for running animations (2 s cap) instead of 600 ms; + a reduced-motion control run.
+- R7-g6 letter-spacing: the 6 distinct raw values left are all in fe-a.css (sent to FE-A with token mappings); QA's
+  count of 11 is from another method — asked QA which.
 - R7-g2 (g) + (h): tools/beta/feb-g2.js — 0 single-word last lines on 91 pages (84 city + 6 hubs + landing) at 390 and
   1440; 84/84 phone "Start with" = desktop link (also a static test in test-views-b). All FE-B browser probes: `npm run
   beta:probe:fe-b` (tools/beta/feb-probes.js starts its own server).
