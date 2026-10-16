@@ -785,6 +785,7 @@ html body main[data-city]>.cbar,html body main[data-city]>nav.rail#cleo-rail{tra
 html.ov-c body main[data-city]>.cbar{transform:translateY(calc(-100% - 1px));pointer-events:none}
 html.ov-c body main[data-city]>.cbar:focus-within{transform:none;pointer-events:auto}
 html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail{transform:translateY(calc(-1 * (var(--cbar-h) + 100%)));pointer-events:none}
+html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail:focus-within{transform:none;pointer-events:auto}
 @media (prefers-reduced-motion:reduce){html body main[data-city]>.cbar,html body main[data-city]>nav.rail#cleo-rail{transition:none}}
 /* landscape phones (height < 500): one 48 px bar. The view switch rides in the header row (as on desktop) and nothing
    else is sticky; in phone Atlas the switch row's band is given back to the map (--cbar-o: 0) */
