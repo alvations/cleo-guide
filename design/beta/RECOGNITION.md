@@ -11,7 +11,7 @@ In `beta/data/places/<page>.json` (and on the build model, `row.recog` and `rec.
   "id": "michelin", "name": "Michelin", …,              // as before (lib/sources.js)
   "type": "editorial",                                  // the registry's raw type string (data/sources.json), or null
   "group": "press",                                     // official | press | local | creator | institution | encyclopaedia | other | null
-  "typedFrom": "city",                                  // "city" (page's registry city) | "registry" (unambiguous registry-wide key) | "key" (award mark) | null (untyped)
+  "typedFrom": "city",                                  // "city" | "registry" | "registry-host" | "registry-domain" | "guide-key" | "host-pattern" | "key" (award mark) | null (untyped) — see "Typing" below
   "reg": "MICHELIN (tokyo)",                            // the registry entry it was typed from
   "award": true,                                        // institutional-award source (award / michelin / james_beard type, or the Michelin / James Beard key mark)
   "video": false                                        // vetted creator whose registry entry is a video channel
@@ -24,11 +24,26 @@ In `beta/data/places/<page>.json` (and on the build model, `row.recog` and `rec.
 "recognition": {
   "regCities": ["tokyo"],                               // registry cities the page is typed from ([] = none: registry-wide matches only)
   "typed": { "sources": 28, "of": 33 },                 // publishers typed / all (the guide's own excluded)
+  "untyped": [{ "k": "…", "name": "…", "hosts": ["…"], "places": 3 }],   // the stated gap on this page (all pages: data/recognition-untyped.json)
   "counts": { "award": 147, "video": 0, "cited": 104 }, // places with each badge
   "byArea": { "<areaId>": { "places": 49, "award": 12, "video": 0, "cited": 9, "any": 18 } },   // for "Recognised places by area"
   "localFavourites": { "rule": "Open places recommended only by …", "n": 0, "gap": "Fewer than 5 places here qualify …" }
 }
 ```
+
+## Typing (W9-9 acc1, 2026-10-16)
+
+A publisher is typed by the **first** route that answers; `typedFrom` names it and the test re-proves it:
+
+1. `city`: the page's own registry city has the publisher key, or one of its entries' registry keys.
+2. `registry`: the same keys registry-wide, when every matching entry agrees on the raw type or on the group (`reg` = the entry cited).
+3. `registry-host` / `registry-domain`: a registry entry whose URL host (or registrable domain) is one of the publisher's hosts (same agreement rule).
+4. `guide-key`: every entry is the guide's own `OFFICIAL…` key ("Official site of the place") → `official`.
+5. `host-pattern`: an explicit host rule (`HOST_RULES` in lib/recognition.js): encyclopaedia, government, tourism-board or UNESCO host.
+
+Nothing is typed from a name or a dish. The guide's own request entries (`REQ`, "Asked for by name") are never typed by host.
+Everything else stays **untyped** and is listed in `beta/data/recognition-untyped.json` (the stated gap): 2,183 of 2,552 page
+publishers are typed, 369 listed (was 1,814 typed). Typing the rest needs registry entries in `data/sources.json` (owner).
 
 ## Badges (W9-1)
 

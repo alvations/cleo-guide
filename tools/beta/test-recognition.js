@@ -34,7 +34,14 @@ for (const f of files) {
   const src = Object.fromEntries((d.sourceIndex || []).map(s => [s.id, s]));
   for (const s of d.sourceIndex || []) {
     if (!s.group || s.typedFrom === 'key') continue;
-    const e = regEntry[s.reg];
+    if (s.typedFrom === 'guide-key') {        // the guide's own "Official site of the place" key, every entry
+      if (s.group !== 'official' || !(s.entries || []).length || !s.entries.every(e => /^OFFICIAL/.test(R.norm(e.key)))) untraced.push(f + ':' + s.id);
+      continue; }
+    if (s.typedFrom === 'host-pattern') {     // an explicit HOST rule matches one of the publisher's own hosts
+      const rule = R.HOST_RULES.find(x => x[1] === s.type);
+      if (!rule || rule[0] !== s.group || !R.hostsOf(s).some(h => rule[2].test(h))) untraced.push(f + ':' + s.id);
+      continue; }
+    const e = regEntry[s.reg];                // city / registry / registry-host / registry-domain: a real registry entry
     if (!e || e.type !== s.type || R.groupOf(e.type) !== s.group) untraced.push(f + ':' + s.id);
   }
   let awardPlaces = 0;
@@ -56,7 +63,16 @@ for (const f of files) {
   if (lf.n !== n || lf.rule !== R.LF_RULE || (n < R.LF_MIN) !== !!lf.gap) gapBad.push(`${f}: n ${lf.n}/${n}, gap ${!!lf.gap}`);
 }
 chk(`every place dataset carries a recognition block (${files.length} pages)`, missing);
-chk('every typed source is traceable to its data/sources.json entry (same type, same group)', untraced);
+chk('every typed source is traceable: a data/sources.json entry (same type, same group), the guide\'s OFFICIAL key, or an explicit host rule on its own host', untraced);
+{ // the stated gap (W9-9 acc1): every untyped publisher is listed, and nothing typed is listed
+  const gap = JSON.parse(fs.readFileSync(path.join(ROOT, 'beta', 'data', 'recognition-untyped.json'), 'utf8')), bad = [];
+  let nUnt = 0, nTyped = 0, nAll = 0;
+  for (const f of files) { const d = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8')), srcs = (d.sourceIndex || []).filter(s => s.id !== 'guide');
+    const un = srcs.filter(s => !s.group); nUnt += un.length; nTyped += srcs.length - un.length; nAll += srcs.length;
+    const row = gap.pages.find(p => p.page === d.key), listed = row ? row.untyped.map(u => u.k) : [];
+    if (listed.length !== un.length || un.some(s => !listed.includes(s.k))) bad.push(f); }
+  chk(`stated gap: data/recognition-untyped.json lists exactly the untyped publishers (${nTyped} of ${nAll} typed, ${nUnt} listed)`, bad.concat(gap.typed === nTyped && gap.of === nAll ? [] : ['totals']));
+}
 chk(`every badge is backed by a source id on its record, and every backed badge is present (${places} places, ${badges} badges)`, unbacked);
 chk('cited = distinct publishers (guide excluded) when ≥ 3, else absent', citedBad);
 chk('award count per page == places citing an award source in the page source index', awardCount);
