@@ -292,6 +292,12 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const out = LV.accept(rp, { geocodes: geo, ledger: path.join(dir, 'L.md'), today: '2026-10-16', allowCi: true });
     assert.ok(out.refused.some(x => /Schema Grill: review is stale/.test(x)));
   });
+  await t('ordering / aggregator hosts are never "official"', () => {
+    for (const h of ['orderpizzamenu.com', 'www.orderxyzmenu.com', 'order.examplecafe.com', 'examplecafe.square.site', 'www.toasttab.com', 'menu.example.com', 'examplecafe-online-order.com'])
+      assert.ok(LV.isOrderingHost(h), h);
+    for (const h of ['www.zymarium.com', 'politepig.com', 'www.weaselboybrewing.com', 'menudo-house.com'.replace('menudo-house', 'mendocinofarms')])
+      assert.ok(!LV.isOrderingHost(h), h);
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });
