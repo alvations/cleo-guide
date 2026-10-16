@@ -16,3 +16,12 @@ html.atlas-m[data-view=atlas]:not(.ms-list) .ms-head .ms-near-n{display:none}
 html[data-view=atlas] .ms-ring{display:inline-flex;align-items:center;gap:6px;flex:none}
 html[data-view=atlas] .ms-ring .ms-ring-l{font:500 var(--fs-sm)/1.2 var(--font-ui);color:var(--ink-2);white-space:nowrap}
 html[data-view=atlas] .ms-ring .chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+/* one focus ring per card stop in Atlas (PANEL-R3 #9 / #14, designer 16 Oct). The name link's stop is drawn by the CARD
+ * (cleo.css .pl:has(.pl-n a:focus-visible)), inset 2 px so the scrolling list and the carousel never clip an edge; the
+ * link itself and its ::after (fe-a.css) draw nothing. Another control in the card (heart, photo credit) keeps its own
+ * ring, and the card draws none then. #cleo-grid + !important: above atlas.css's .w7-cards is-focus reset. */
+html[data-view=atlas] main[data-city] #cleo-grid li.pl .pl-n a:focus-visible,
+html[data-view=atlas] main[data-city] #cleo-grid li.pl .pl-n a:focus-visible::before,
+html[data-view=atlas] main[data-city] #cleo-grid li.pl .pl-n a:focus-visible::after{outline:none!important;box-shadow:none!important}
+html[data-view=atlas] main[data-city] #cleo-grid li.pl:has(.pl-n a:focus-visible){outline:2px solid var(--focus)!important;outline-offset:-2px!important}
+html[data-view=atlas] main[data-city] #cleo-grid li.pl:not(:has(.pl-n a:focus-visible)){outline:none!important}
