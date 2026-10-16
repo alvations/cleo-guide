@@ -12,6 +12,7 @@
  * Nothing here is invented: every word is the record's, the live page's, or VOICE.md's.
  */
 const { esc, prose, jsonInline } = require('../html');
+const RU = require('./recognition-ui');            // FE-C W9-1 hook: recognition badges (platform data only)
 const { TIER } = require('../model');
 const { t: tr, tn } = require('../i18n');   // platform W9-8: the offline-pack strings come from the catalogue; i18n D-41: every interface string
 /** Every catalogue string the W9-8 offline pack and the offline map line use (test-i18n renders it in `pseudo`). */
@@ -176,14 +177,14 @@ function card(r, num, ctx) {
    
     r.g.length && `data-g="${esc(r.g.join(' '))}"`, r.cz.length && `data-cz="${esc(r.cz.join(' '))}"`,
     r.src && r.src.length && `data-src="${esc(r.src.join(' '))}"`,
-    r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', r.warn && 'data-warn', r.np && 'data-np', r.pq && `data-pq="${esc(r.pq)}"`].filter(Boolean).join(' ');   // data-pq: FE-B D-39 (QA-65)
+    r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', RU.attr(r) /* FE-C W9-1 hook */, r.warn && 'data-warn', r.np && 'data-np', r.pq && `data-pq="${esc(r.pq)}"`].filter(Boolean).join(' ');   // data-pq: FE-B D-39 (QA-65)
   // W7 media slot (contract in docs/BETA-LOG.md): the calm cover (.pl-cover), a credited photo laid over it when the imagery
   // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
   return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span>` : `<span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${tr(isNote ? 'city.card.note' : 'city.card.look')}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
-<p class="pl-s"${ids.length > 1 ? ` data-more="${ids.length - 1}"` : ''}><span class="lbl">${tr('card.recby')}</span> ${rec}</p></li>`;   // i18n D-41: the card's labels
+<p class="pl-s"${ids.length > 1 ? ` data-more="${ids.length - 1}"` : ''}><span class="lbl">${tr('card.recby')}</span> ${rec}</p>${RU.html(r, srcById) /* FE-C W9-1 hook */}</li>`;   // i18n D-41: the card's labels
 }
 
 /* ---- "For you" (M2-05): interests → collection / cuisine IDS only (Wenwen rule: never a dish or name keyword).
@@ -277,6 +278,7 @@ function render(row, recs, ctx) {
   const free = iFree >= 0 ? tiles.splice(iFree, 1)[0] : null;
   if (free) free.cls = 'door';
   mods.push(`<button type="button" class="rail-i door mine" data-cleo-mine aria-pressed="false" hidden><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span class="k">${tr('shell.saved')}</span><span class="t">${tr('city.door.mine.t')}</span><span class="n" data-cleo-mine-n>0</span></button>`);
+  if (RU.railTile(recs)) mods.push(RU.railTile(recs));   // FE-C W9-1 hook: the "Recognised" door
   if (recs.some(r => r.la != null)) mods.push(`<button type="button" class="rail-i door" data-cleo-near aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-locate"/></svg><span class="k">${tr('city.door.near.k')}</span><span class="t">${tr('city.door.near.t')}</span><span class="d">${tr('city.door.near.d')}</span></button>`);
   const nClosed = cnt(r => r.closed);
   const closedTile = nClosed ? `<button type="button" class="rail-i gap" data-closed="1" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-archive"/></svg><span class="k">${tr('city.door.closed.k')}</span><span class="t">${tr('city.door.closed.t')}</span><span class="n${nClosed === 1 ? ' one' : ''}">${nClosed}</span></button>` : '';
@@ -371,7 +373,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
-    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'] /* FE-C W9-5 / W9-7 hook */ },  // loaded on first use (C.need / views.js), precached by the SW
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition /* FE-C W9-5 / W9-7 / W9-1 hook */ },  // loaded on first use (C.need / views.js), precached by the SW
     views: VIEWS, dv: DV,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
@@ -391,6 +393,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     fs('c', tr('city.tray.c'), cats.filter(c => cnt(r => r.g.includes(c.id))).map(c => pill('c', c.id, c.n.replace(/^★\s*/, ''), cnt(r => r.g.includes(c.id)))).join('')) +
     fs('cz', tr('city.tray.cz'), cuis.filter(c => cnt(r => r.cz.includes(c.id))).map(c => pill('cz', c.id, c.n, cnt(r => r.cz.includes(c.id)))).join('')) +
     fs('sort', tr('city.tray.sort'), pill('sort', '', tr('city.sort.guide')) + pill('sort', 'src', tr('city.sort.src')) + pill('sort', 'az', 'A–Z') + pill('sort', 'near', tr('city.sort.near')) + pill('sort', 'base', tr('city.sort.base')).replace('<button', '<button hidden') /* FE-C W9-5 hook: base.js shows it */) +
+    fs('rec', tr('rec.label'), RU.trayPills(recs, pill)) +   // FE-C W9-1 hook: the recognition filter
     fs('been', tr('city.been'), pill('been', '', tr('city.been.all')) + pill('been', 'hide', tr('city.been.hide')) + pill('been', 'only', tr('city.been.only'))) +
     fs('base', tr('city.base'), pill('base', 'street', tr('city.base.street')) + pill('base', 'light', tr('city.base.light')) + pill('base', 'satellite', tr('city.base.satellite'))) +
     `</div><footer><button type="button" class="btn btn-quiet" data-tr="clear">${tr('city.tray.clear')}</button><button type="button" class="btn btn-primary" data-tr="go">${tr('city.tray.go', { n: recs.length })}</button></footer></div></div>`;
