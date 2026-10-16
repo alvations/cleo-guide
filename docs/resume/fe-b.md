@@ -6,12 +6,14 @@ test-views-b.js). Report to the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx) 
 
 ## Task
 
-From FE-A (orchestrator, 2026-10-16): (1) the view switcher QC-09 + QC-06 (§v2.11) — pushed, see Done;
-(2) the B-04 / B-20 sweep (R7 gap 5): metrics.js per page in batches → design/beta/eval/w8/metrics-all/, list failures,
-fix FE-B surfaces, send FE-A / Atlas the rest with page + node.
+Idle after QC-10 (reopened by QC) and the B-04 / B-20 sweep. Waiting for QC re-verification of QC-09 / QC-10.
 
 ## Done
 
+- QC-10 (reopened): a user switch to Guidebook / Insights focuses a placeholder h1 named for the view at once (views.js),
+  then the module's own h1 once drawn (ctx.user, used once). Probe: H1 at 700 ms on all 4 switches, cold load untouched.
+- B-04 / B-20 sweep (R7 gap 5): all 180 pages, design/beta/eval/w8/metrics-all/ + REPORT.md. B-04: 0 of 84 place pages
+  fail. B-20: 9 pages, one node only: the card tier link a.tier.t1 "Must see" 91x28 (FE-A's render/city.js tier()).
 - QC-09 + QC-06 (switcher): see the commit "beta QC-09 + QC-06 (FE-B for FE-A)". div.views[role=group][aria-label=View]
   with 4 pressed toggles at every width (city.js), no phone collapse (views.js; a tap with a sheet open closes it and
   switches; focus to the view's h1), fe-a.css `.views[data-cleo-views]` rules (sand track, surface thumb, >= 44 px,
@@ -27,16 +29,13 @@ fix FE-B surfaces, send FE-A / Atlas the rest with page + node.
 
 ## Next
 
-1. B-04/B-20 sweep: `tools/beta/feb-metrics-batch.sh 4` (resumable: skips pages whose JSON exists). Commit
-   design/beta/eval/w8/metrics-all/*.json in batches as they land.
-2. When all 180 pages are measured: list every page failing B-04 (rail on the first phone screen) or B-20 (taps < 44)
-   from the JSONs, fix FE-B surfaces, send FE-A / Atlas the rest with page + node.
-3. Atlas FE-1 has the phone-Atlas switcher placement (parked last in .ms-bar) — told 2026-10-16.
+1. Pull, read this file, run the gates; read notifications.
+2. Follow up: FE-A has the a.tier B-20 finding (all 9 pages); Atlas FE-1 has the phone-Atlas switcher placement.
+3. Re-run one page after either fix: `tools/beta/feb-metrics-batch.sh 1 <page-regex>` (delete that page's JSON first).
 
 ## In flight
 
-The metrics sweep runs in the background (about 40 s per page, 4 in parallel); JSONs land per page and are committed in
-batches. If stopped, re-run step 1: done pages are skipped.
+Nothing unpushed.
 
 ## Notes
 
