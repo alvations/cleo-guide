@@ -56,7 +56,7 @@ platform (core.js, route, store, build, tokens) · designer (tokens, type, spaci
 
 ## Checklist
 
-55 checks in three groups (28 pattern, 12 journey, 15 sweep), run as roughly 7,000 measurements per full pass (91 pages × 6 sweep loads, 10 pattern runs, 28 journey runs). Each id below is what `qc.js --list` prints and what `qc.json` records. **Auto** = measured
+56 checks in three groups (28 pattern, 12 journey, 16 sweep), run as roughly 7,000 measurements per full pass (91 pages × 6 sweep loads, 10 pattern runs, 28 journey runs). Each id below is what `qc.js --list` prints and what `qc.json` records. **Auto** = measured
 by the harness; **auto + look** = measured, with screenshots a human reads before filing; **manual** = recorded by the
 QC reviewer from the screenshots and noted in the pass section.
 
@@ -137,6 +137,7 @@ Run on all 91 pages at 390, 768, 1024 and 1440 in light, plus 390 and 1440 in da
 | **S-13** | No horizontal overflow | `scrollWidth ≤ innerWidth` at every width; offenders named. | auto |
 | S-14 | No errors | 0 page errors and 0 console errors (blocked-network noise excluded) on every load. | auto |
 | S-15 | Focus visible | The first 30 Tab stops each show an outline or a box shadow. | auto |
+| S-16 | No internal editorial phrases | No visible or deferred card text contains pipeline or editorial jargon ("kept flagged", "worklist", "per editorial rule", "geocoded", "UNVERIFIED", TODO/FIXME, placeholder text). Added 2026-10-16 at the orchestrator's suggestion. | auto |
 
 ## Pass log
 
@@ -464,4 +465,53 @@ Clean worktree at `4aba38b3e15c83d40aafbed5f569aa30da5a074b`. Outputs are in `de
 **Register:**
 - Verified 21: QC-01–03, 06–12, 15–24, 26.
 - Open 6: Med 2 (QC-04, 05), Low 4 (QC-13, 14, 25, 27). High 0.
+
+## Re-verify 2026-10-16 · 9fba196e (i18n claim for QC-27)
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-27 | **verified** | The catalogue has 0 strings with 評価 other than 星評価. Tokyo and Cleveland `?lang=ja` (Gallery and Insights): How we choose reads 「各エリアでは、ランク順、…」; the tray reads 「ランク — エリアごとにランク付け」 and 「ガイドの順(ランク、次に出典数)」; no rendered 評価 outside 星評価. `design/beta/eval/qc/9fba196e/qc-27-ja-tier.json`. |
+
+**Register:**
+- Verified 22.
+- Open 5: Med 2 (QC-04, 05), Low 3 (QC-13, 14, 25). High 0.
+
+## Re-verify 2026-10-16 · e1503766 (FE-A claim for QC-25)
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-25 | **verified** | A static scan of all 71 closed cards on the built city pages (excluding `changes/`) finds no status-source jargon after "Closed — kept for the record". Rendered: Toa Payoh `kim-keat-hokkien-mee`, Cleveland `barroco-arepa-bar` and Orlando `dinosaur` read "Closed — kept for the record, checked <date>" (`qc-25-closed-card.jpg`, `qc-25-closed-status.json`). Note: Orlando `dinosaur`'s own write-up says "kept flagged so it never reads as open". That is verbatim record prose (SPEC §1.4), not the status line, and is not filed. The "What changed" pages (FE-B) are re-checked when FE-B sends its SHA. |
+
+**Register:**
+- Verified 23.
+- Open 4: Med 2 (QC-04, 05), Low 2 (QC-13, 14). High 0.
+
+## Re-verify 2026-10-16 · e353df08 (FE-C claim for QC-05); harness P-17 follows D-43
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-05 | **verified** | QC probe on `#view={gallery,atlas}&q=zzqxjv`, 5 pilots × 390 / 1440, 20 cases. Every case shows "No places match “zzqxjv”", plus "Clear search" and "Show all N". The only pressed controls are the view (and the language); no "All N" chip stays pressed. "Clear search" removes `q=` and keeps the view. Evidence: `qc-05-empty-*.json`, `qc-05-empty-gallery-390.jpg`, `qc-05-empty-atlas-1440.jpg`. |
+
+**Harness:** P-17 now follows D-43 (ratified 2026-10-16). Records with no coordinate need "n without a verified pin";
+low-confidence pins need "n approximate pin(s)". Both counts come from the JSON. QC-04 is re-run with it when FE-C
+sends its SHA.
+
+**Register:**
+- Verified 24.
+- Open 3: Med 1 (QC-04), Low 2 (QC-13, 14). High 0.
+
+## Sweep S-16 (new) · edf94546 · internal editorial phrases
+
+The orchestrator fixed 6 Orlando and DC write-ups that said "kept flagged …" (after QC's QC-25 note) and suggested a
+sweep for this class, which is now **S-16**. Run: `qc.js --only sweep --vps 1440 --themes light` on `edf94546`. The first
+version scanned visible text only and gave 91/91 PASS. It now also scans deferred card markup
+(`noscript[data-cleo-defer]`), and the re-check finds 1:
+
+| Id | Sev | Lane | Finding | Evidence |
+|---|---|---|---|---|
+| **QC-28** | Low | data (orchestrator) | Erie: a record write-up still carries the editorial phrase "… was destroyed by fire on May 2, 2017. **Kept flagged:** the site now hosts the Riverside Brewi…", the same class as the 6 fixed in Orlando and DC. The source is `beta/data/places/erie.json` and its research dataset. | `design/beta/eval/qc/edf94546/s16-recheck/qc.json` (S-16 FAIL, cities/erie.html); a static grep of `beta/**/*.html` finds 1 page. |
+
+**Register:**
+- Verified 24.
+- Open 4: Med 1 (QC-04), Low 3 (QC-13, 14, 28). High 0.
 

@@ -16,3 +16,19 @@
 .pl-chk::before{content:attr(data-t)}
 .feedline a{font-weight:600}
 .lf-gap{margin:0;font-size:var(--fs-sm);color:var(--ink-2);max-width:62ch}.lf-gap .lbl{display:block;font-weight:600;color:var(--ink);margin-bottom:var(--s-1)}.lf-rule{max-width:62ch;color:var(--ink-2)}
+/* FE-C (QC-05) the stated empty state (client/empty.js): in the lens slot, and a calm card on the map (Atlas) */
+.lens .empty-st{display:grid;gap:var(--s-2)}.lens .empty-st h2{margin:0;font:500 var(--fs-d2)/1.15 var(--font-display)}.lens .empty-st p{margin:0;color:var(--ink-2)}
+.map-empty{position:absolute;z-index:660;top:50%;left:50%;transform:translate(-50%,-50%);width:min(360px,calc(100% - 32px));box-sizing:border-box;padding:var(--s-4);border-radius:var(--r-m);background:var(--paper);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-lg);display:grid;gap:var(--s-2)}
+.map-empty .h{margin:0;font-weight:600}.map-empty p{margin:0;color:var(--ink-2);font-size:var(--fs-sm)}.map-empty .row{display:flex;gap:var(--s-2);flex-wrap:wrap}
+html:not([data-view=atlas]) .map-empty{display:none}
+@media (min-width:1024px){html[data-view=atlas] .map-empty{display:none}}   /* the list pane beside the map states it */
+/* the Atlas desktop list pane is held hidden until .ms-ready (atlas.js); a stated empty state is final, so it shows at once */
+html.atlas-d[data-view=atlas]:not(.ms-ready) .split>.listpane>#cleo-lens:has(>[data-cleo-empty]){visibility:visible;animation:none}
+/* FE-C (QC-04, D-43) "Approximate pin" on a card whose pin is graded low (client/fresh.js): a quiet outlined tag */
+.pl .pl-approx{order:96;grid-column:1/-1;justify-self:start;align-self:flex-start;width:max-content;max-width:100%}
+.pl-approx{display:inline-flex;align-items:center;min-height:24px;margin:var(--s-1) 0 0;padding:0 var(--s-2);border:1px solid var(--line);border-radius:var(--r-pill);font-size:var(--fs-xs);color:var(--ink-2)}
+/* the map badge ("N without a verified pin · …", "N approximate pins", views.js) had no base position, so it fell below
+   the map, out of sight (QC-04): float it on the map. atlas.css places it per layout; desktop clears the attribution. */
+.mappane>.nopin{position:absolute;z-index:650;margin:0;padding:var(--s-1) var(--s-3);border-radius:var(--r-pill);background:var(--paper);color:var(--ink);border:1px solid var(--line);font-size:var(--fs-xs);line-height:1.5;box-shadow:var(--shadow-sm);pointer-events:none;max-width:calc(100% - 24px)}
+@media (min-width:1024px){html[data-view=atlas] .mappane>.nopin{bottom:36px}}
+@media (max-width:1023px){html[data-view=atlas] .mappane>.nopin{top:60px;bottom:auto;left:12px;right:auto}}   /* phone: clear of the attribution and the carousel */

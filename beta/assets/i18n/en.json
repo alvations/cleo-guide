@@ -99,7 +99,7 @@
     "chg.lede": "Every entry is a dated check on record — nothing here is estimated.",
     "chg.feed": "Follow this page as a feed",
     "chg.closed": "{place} has closed — it stays in the guide, flagged.",
-    "chg.closed.src": "Status source: {src}",
+    "chg.closed.src": "Status source",
     "chg.checked": "Open/closed status re-checked against a real source for {n} places.",
     "chg.checked.one": "Open/closed status re-checked against a real source for 1 place.",
     "chg.checked.closed": "{n} of them closed, kept and flagged",
@@ -730,6 +730,7 @@
     "m.pins.h": "Pins, checked to the door",
     "m.gaps": "Stated gaps",
     "m.not": "What we don't show",
+    "m.not.p": "We don’t add ratings, review counts, prices or opening hours of our own; any quoted in a write-up are the source’s, dated. We don’t guess — check hours before you go.",
     "m.stats": "The guide in numbers",
     "m.st.places": "places in {n} guides",
     "m.st.src": "named sources, {n} citations",
@@ -762,6 +763,14 @@
     "lf.h": "Local favourites ({n})",
     "lf.rule": "Open places recommended only by local press, local writers or vetted creators — none by an official or tourism source, and every source typed in our registry.",
     "lf.gap": "Fewer than {min} places here qualify ({n}), with {typed} of {total} sources typed in our registry, so the lens is not shown rather than padded.",
-    "fresh.feed": "an RSS feed of every closure and status check in this guide, for any feed reader."
+    "fresh.feed": "an RSS feed of every closure and status check in this guide, for any feed reader.",
+    "city.empty.q": "No places match “{q}”.",
+    "city.empty.qnote": "Try another spelling, or search for a dish or an area.",
+    "city.empty.search": "Clear search",
+    "city.empty.f": "No places match these filters.",
+    "sheet.pin.approx": "Approximate pin",
+    "sheet.pin.approx.d": "Approximate map pin: the coordinate we hold is not yet verified to the door",
+    "views.approx": "{n} approximate pins",
+    "views.approx.one": "1 approximate pin"
   }
 }

@@ -30,6 +30,8 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
 
 - **Bundle (16:00Z/16:17Z/16:43Z orders):** QA-72, QC-22, QA-73, QA-59b (confirmed), QA-55 Guidebook, R7-g6 tracking + shadows, D-40 (a) Gallery sizes. SHA: the commit titled "QA-72 …". Probe rows in w8-fe-a-probe.js.
 
+- **QA-75 (PERF-08 re-land prep):** root cause in city.js cleo:stamped adoption (not views.js); fixed; perf08-regress.sh PASS with selective forced on locally. Commit "QA-75 …". Platform owns flipping the flag.
+
 ## Next (in order)
 0. ~~W9-2 card part~~ built by FE-C through hooks (fresh.js, 38228322b) — nothing for FE-A.
    - ~~QC-25, colophon, R3 #9/#14 one ring~~ DONE (commit "QC-25 …"). Leak left on FE-B's changes/ pages ("Status source: <note>", lib/changes.js) — reported.

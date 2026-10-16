@@ -1920,6 +1920,40 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - Measured at 1024 and 1280 on Tokyo, Cleveland, New York and Chinatown: no header overflow, the switch is inside the header, and the breadcrumb is whole ("United States › New York City" at 1280).
 - **No rank badges (rev 5 §2.3, R3 #2):** FE-A's `.pl-num` card number is hidden on Atlas cards in every sort.
 - **QC-05 (empty search):** a search or lens with no match reads "No places match "…"" with "Clear search" and "Show all N" (the phone peek: "No places match · Show the list"). It's never a blank map with "List · 0". Clear search restores the list. New atlas-ms check on 3 pages × 2 viewports.
+
+
+- 2026-10-16 18:26Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Deploy pin 4aba38b3:** QA's delta suite is running. QC verified QC-26 and QC-22 on the pin; FE-2 re-gated it green.
+  - **D-43** (low-confidence pins): they stay on the map, labelled "Approximate pin", while the location lane re-verifies them under 4b, Okinawa's 195 first, chaining small cities within the 300-a-day ledger. FE-C builds the labels (QC-04) after QC-05. FE-1 adds a hollow marker in rev 5.
+  - **Platform:**
+    - every build-*.py now writes after its checks, and tools/test-builds.js is in npm test (c03f7811);
+    - W9-8 pack test and W9-9 publisher typing (2,183/2,552);
+    - perf08-regress.sh is the re-land gate.
+  - **FE-B:** W9-6 acc1/acc4 (paste a link matches cited URLs and hosts; Suggest this source).
+  - **FE-C:**
+    - QC-23/24 fixed and verified;
+    - W9-9 live (8 guides, 304 places);
+    - W9-2 Follow changes live on 84 pages.
+  - **QC:** 27 rows, 21 verified, 6 open (Med 2, Low 4, High 0). QC-27 (a ja tier term) went to i18n.
+  - **Imagery:** wave 4 (Belgium, Saarland, Dayton, State College). Leads 25/25, first row 51/51.
+  - **Gates on f3f597a6:** validate, npm test (alone) and beta:check green.
+
+## FE-A — QA-75 root cause and fix, ahead of the PERF-08 re-land (2026-10-16)
+- **Root cause:** not the remembered view. Under `Cleo.defer.selective`, a lens builds only its own cards. When anything later stamped the rest (find-in-page, print, search focus via core's `allNow`, or the QA probe's `Cleo.defer.all()`), client/city.js's `cleo:stamped` handler adopted those cards without applying the lens, so they showed unfiltered: "180 shown for 47 must-sees". The QA matrix always gives the receiver a different stored view (gallery→guidebook, atlas→insights), which made the bug look pref-related.
+- **Fix:** client/city.js. Cards adopted while a lens is on get `hidden = !visible(c)` at once, and a section left with no visible card and no stub hides. With selective off (the shipped state), a lens route stamps every card before apply(), so nothing changes.
+- **Proof, with `selective: true` forced locally and not committed:**
+  - `views.js --only links`: 124 / 16 FAIL → **140 / 140**;
+  - `tools/beta/qa/perf08-regress.sh`: **PASS**, covering QA-75, QA-76 (`w7.js --only lens`), QC-26 (43 | 1 of 43) and FE-2's qc26 at both areas.
+- The flag is not flipped; platform owns the re-land.
+## 2026-10-16 18:52Z · orchestrator check-in
+
+- Head `edf94546` is gated green (validate, npm test alone, beta:check) and matches origin.
+- **Deploy pin `4aba38b3`:** QA's delta re-sign is still running.
+  - The w7 no-CDN storage row passes 20/20 on the pin and on 3ba696e8 once the harness accepts "Top picks". That failure was a harness artefact.
+  - QA is now checking the fix claims QA-72, QA-73, QA-59b and QA-55.
+- **QC register:** verified 24, open 3 (QC-04 Med; QC-13, QC-14 Low), High 0. QC-05 verified on e353df08.
+- **Location lane:** QC-25 closure sources batches 1 and 2 landed. Sokolowski's corrected to closed 2020. Decisions sent for batch 2; batches 3–4 next.
+- **FE-1:** sent a note asking it to confirm the desktop list never waits on `.ms-ready` when the map can't mount (rule 4).
 - **One ranked list (§2.3, R3 #2):**
   - Beside the map, desktop and in the phone list, the list follows the bounds ranked by map priority and is not grouped by area. Each card takes its rank as its CSS `order` (atlas.js `flat()`); the sections and lists step aside (`display: contents`), so no card moves in the DOM. msOut clears the orders, so the other views are untouched.
   - There are no area headings, no "N places · area n of N" and no area-chip row. Area lives in the bar's Area button and in Filters. A chosen sort (Most sources, A–Z, Nearest) keeps its own order.

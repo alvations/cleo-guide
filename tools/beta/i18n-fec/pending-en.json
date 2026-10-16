@@ -1,9 +1,4 @@
 {
-  "_doc": "FE-C batch 5 (QC-05: the stated empty state when a search or filters match nothing, in Gallery and Atlas). Browser-only (Cleo.t, client/empty.js); under the swapSkip prefix city.empty. {q} is the visitor's search text, shown in curly quotes; {n} is the guide's place count.",
-  "strings": {
-    "city.empty.q": "No places match “{q}”.",
-    "city.empty.qnote": "Try another spelling, or search for a dish or an area.",
-    "city.empty.search": "Clear search",
-    "city.empty.f": "No places match these filters."
-  }
+  "_doc": "Empty: batch 6 (QC-04 approximate pins) merged with its ja. New FE-C strings go here, then ask the i18n lane for pending-ja.json.",
+  "strings": {}
 }

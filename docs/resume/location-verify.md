@@ -77,6 +77,31 @@ Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` 
    - duplicates and orphans (DUPLICATES.md, ORPHANS.md; (d) decided, b8926d86);
    - page ∪ dataset scope (385f6189).
 
+## QC-25 closure-URL job (orchestrator) — done 2026-10-16
+
+55 of the 60 rows in docs/qc25-closed-no-source-url.txt now carry a closure URL. Commits:
+
+| batch | content | head |
+|---|---|---|
+| 1 | ff3ce0bf | c2bcdf62 |
+| 2 | 278c8ace | a66e72ea |
+| 3 | 3415c063 | e2f86c03 |
+| 4 | ad151e8e | b49e5d13 |
+
+**No URL found (5), left unchanged:**
+- Uncle Liu's Hot Pot;
+- Frituur De Gouden Saté: its closed status may be stale;
+- Wheeling Brewing Company;
+- Old Market House Inn;
+- Oriental Delight: no permanent-closure evidence.
+
+**Flags for the orchestrator:**
+- Hot Sauce Williams (Lee Rd): the only source is a map listing.
+- Sokolowski's: the page says "closed 2023", but sources say Oct 2020.
+- The RainForest has been replaced by the Primate Forest, which has opened.
+- De Vagant: an unconfirmed report says it reopened.
+- These are temporary closures to re-check: Thurman, The Mill, the PA Military Museum and Schiffchen.
+
 ## In flight
 
 - Nothing. Nominatim allowance for 2026-10-16 is spent.
