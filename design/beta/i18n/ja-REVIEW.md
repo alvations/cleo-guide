@@ -200,4 +200,15 @@ A fresh independent subagent kept all four drafts:
 
 **FE-A's D-42 colophon (5d3dc985), reviewed in the same round and accepted as is:** `foot.colophon` reads …星評価・価格・営業時間を独自に付け加えることはありません。引用しているものは出典のもので、日付を添えています。 It mirrors the reviewed `city.how.order`, and it uses 星評価 for ratings.
 
-**Total: 74 changes over fifteen rounds.**
+## Round 16: FE-C batch 6, approximate pins (QC-04 / D-43; 4 browser-only keys staged in `tools/beta/i18n-fec/pending-ja.json`; 4 changes, applied)
+
+A fresh independent subagent proposed a change to each of the four drafts, and all were applied.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `sheet.pin.approx` | おおよその位置 | ピンはおおよその位置 | Without ピン it reads as "the place's location is vague". It now pairs with `sheet.pinned` (ピンは入口の位置). |
+| `sheet.pin.approx.d` | おおよその位置のピン: 当ガイドの座標は、まだ入口の位置まで検証していません | 地図のピンはおおよその位置: 当ガイドが持つ座標は、まだ入口の位置まで検証されていません | 地図のピン is the catalogue's term for "map pin". The draft's active verb made the coordinate the one doing the verifying, so it is now passive. |
+| `views.approx` | おおよその位置のピン {n}か所 | ピンがおおよその位置の場所 {n}か所 | {n} counts places (か所). It now matches its neighbour `views.nopin` (…場所 {n}か所), where pins elsewhere count in 件. |
+| `views.approx.one` | おおよその位置のピン 1か所 | ピンがおおよその位置の場所 1か所 | Same as `views.approx`. |
+
+**Total: 78 changes over sixteen rounds.**
