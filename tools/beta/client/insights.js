@@ -360,12 +360,12 @@
     var ids = {}; d.places.forEach(function (p) { var c = document.getElementById('p-' + p.id) || stubs[p.id]; if (c && C.lens.match(c, L)) ids[p.id] = 1; });
     return { lens: L, ids: ids };
   }
-  // QC-10 (SPEC §5): after a switch by the user — ctx.user from views.js (used once: a lens redraw never moves focus), or focus
-  // still on the switcher — focus moves to the view's h1. Never on the initial load.
+  // QC-10 (SPEC §5): after a switch by the user — ctx.user from views.js, used once (a lens or locale redraw never moves
+  // focus) — focus moves to the view's h1. Never on the initial load.
   function focusHead(el, ctx) {
-    var a = document.activeElement, sw = a && a.closest && a.closest('[data-cleo-views]'), user = !!(ctx && ctx.user);
+    var user = !!(ctx && ctx.user);
     if (ctx) ctx.user = false;
-    var h = el.querySelector('h1'); if ((user || sw) && h) { if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+    var h = el.querySelector('h1'); if (user && h) { if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
   }
   var lastCtx = null;
   // i18n D-41: numbers drawn before the ja catalogue arrived are drawn again in it
