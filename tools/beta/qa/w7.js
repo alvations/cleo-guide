@@ -17,7 +17,7 @@
  *   lens     every landing editorial-rail deep link: the results header total == the promise == the cards a reader can
  *            page through (Show all + pager), and every one of them matches the lens
  *   nocdn    Leaflet blocked: "Map unavailable", every place pageable, a card on screen, 0 JS errors (phone + desktop)
- *   storage  localStorage/sessionStorage throw: Atlas renders, map, base switch, Must see, List pill work, 0 JS errors
+ *   storage  localStorage/sessionStorage throw: Atlas renders, map, base switch, Must see (or Top picks, SPEC-v3 rev 4 §2.4), List pill work, 0 JS errors
  *   cluster  phone, default zoom: drawn .pp ∪ bubble members == pinned places, no overlap, bubble sums match
  *   tiles    every tile request in the run went to tile.openstreetmap.org or server.arcgisonline.com
  *   b08      FE-A's proposed B-08 exemption (.cbar, .mappill): every Gallery title scrolled to reading position (centre)
@@ -400,9 +400,10 @@ async function nocdn(rel) {
     const { ctx, page, st } = await open(rel, vp, { hash: '#view=atlas', settle: 2000, noStorage: true });
     const s0 = await page.evaluate(() => ({ view: document.documentElement.getAttribute('data-view'), leaflet: !!document.querySelector('.leaflet-pane'), count: __count() }));
     const acts = [];
-    for (const sel of ['.m-base', '.ms-must', vp === 'mobile' ? '.ms-toggle' : null]) { if (!sel) continue; const l = page.locator(sel).first(); if (await l.count()) { await l.click({ timeout: 3000 }).then(() => acts.push(sel)).catch(e => acts.push(sel + ' ✗ ' + e.message.slice(0, 40))); await page.waitForTimeout(600); } else acts.push(sel + ' missing'); }
+    // SPEC-v3 rev 4 §2.4 (Atlas, 39e218e68): "Top picks" (.ms-top) replaces the Must see chip; whichever the page has is tapped
+    for (const sel of ['.m-base', '.ms-must, .ms-top', vp === 'mobile' ? '.ms-toggle' : null]) { if (!sel) continue; const l = page.locator(sel).first(); if (await l.count()) { await l.click({ timeout: 3000 }).then(() => acts.push(sel)).catch(e => acts.push(sel + ' ✗ ' + e.message.slice(0, 40))); await page.waitForTimeout(600); } else acts.push(sel + ' missing'); }
     const s1 = await page.evaluate(() => ({ hash: location.hash, base: (document.querySelector('.m-base') || {}).getAttribute && document.querySelector('.m-base').getAttribute('aria-label'), list: document.documentElement.classList.contains('ms-list') }));
-    check('storage', `${rel} ${vp}: storage throws — Atlas + map render, base switch, Must see${vp === 'mobile' ? ', List pill' : ''} work, 0 JS errors`, s0.view === 'atlas' && s0.leaflet && /t=1/.test(s1.hash) && /Satellite/.test(s1.base || '') && (vp !== 'mobile' || s1.list) && !acts.some(a => /✗|missing/.test(a)) && !st.errors.length, { ...s0, ...s1, acts, err: st.errors.slice(0, 2) });
+    check('storage', `${rel} ${vp}: storage throws — Atlas + map render, base switch, Must see / Top picks${vp === 'mobile' ? ', List pill' : ''} work, 0 JS errors`, s0.view === 'atlas' && s0.leaflet && /[#&](?:t|top)=1(?:&|$)/.test(s1.hash) && /Satellite/.test(s1.base || '') && (vp !== 'mobile' || s1.list) && !acts.some(a => /✗|missing/.test(a)) && !st.errors.length, { ...s0, ...s1, acts, err: st.errors.slice(0, 2) });
     await ctx.close();
   }
 }

@@ -17,6 +17,7 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
   - 387f1306: pre-measure on b5f0afa1;
   - f00f2312: pre-measure on 0ecf62aa;
   - c5dbeef3: QC rows, QC-01 reproduced.
+- The 4aba38b3 delta re-sign: NO on QA-77 (W9-1 badges, 32 px links, B-20) and QA-78 (credit author is a URL). QC-26, QA-75, QA-76, QA-72, QA-73, QA-59b, QA-55 and R7-g6 are verified; QA-74 is not in the shipped CSS. The w7 storage row now accepts Top picks (§2.4).
 - The 3ba696e8 delta re-sign: NO on QC-26, QA-75 and QA-76 (the last two from PERF-08, 1538974d). QA-70 verified. B-07 probe fix (3 s pin wait) ratified; on the same probe the pin is 5/5 twice, and be74c82f fails 4/5 (QA-69).
 - Register hygiene on 995e2529: every "claim not on origin" SHA is on origin. Verified QA-59c, QA-59d, QA-71 and R7-g3. New: QA-72, QA-73, QA-74. The open R7 gap list and owners were sent to the orchestrator.
 - The 530dc83b delta re-sign: NO on QA-70 and QA-71; QA-69 verified.
@@ -58,8 +59,7 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## In flight
 
-- Nothing running. Waiting on the next pin, which should carry QC-26 (FE-2), QA-75/76 (platform), the w8p fix (FE-C/FE-A) and the claims made after the pin: QA-74, QA-55 parts, R7-g6 (0 raw letter-spacings, 7 shadows), R7-g2 (g)/(h), R7-g5 hubs and landing, and the W9 audit rows.
-- On the next pin, re-run `views.js --only links`, `w7.js --only lens`, the QC-26 probe (`resign-3ba696e8/qc26-ab.log` method), `motion-probe.js`, the font probe for QA-55, metrics with B-07, and w8p.
+- Nothing running. Next pin: verify QA-77 (B-20 = 0 on the pilots, Gallery and Atlas) and QA-78 (`w7-photos.js` 13/13), then a short regression pass (metrics Gallery ×2 + Atlas, `w7.js` atlasd/atlasm/detail/nocdn/lens, `views.js`, w8p, the QC-26 A/B). Also still to do: QA-74 in the shipped CSS, R7-g2 (g) widows and R7-g5 `--all`, the W9-2 lede/HOURS.
 
 ## Notes
 
