@@ -24,6 +24,8 @@ SPEC-v3 rev 5 for panel round 4 (R3 scored 80.7), plus QC / QA items. In order:
 7. QC-14: run `python3 design/beta/tools/snap-spacing.py tools/beta/lib/render/atlas.css`, then check 390 and 1440.
 
 ## Done (pushed)
+- d2b6ead3 — checkpoint + push script; FE-2 QA-71 merge (verified).
+- (this push) rev 5 #4 part: no sun on dots/pills, sight 7 px circle @30 % / food 8 px square @72 %, glyph overrides (step 0) + new nouns (bottle, frame, bag) + spire, location dot as a placed box, measured pill gaps ≥ 4 px; FE-B shadows → tokens.
 - 7fef2dec: QA-45 (Show all in one list), QA-54, QA-52.
 - 40e15601: R2 panel round (PANEL-R1 #2, #4, #6, #15; CLS 1.57 → 0.003).
 - 7831b0c5: PERF-08 lens hooks.
@@ -31,7 +33,7 @@ SPEC-v3 rev 5 for panel round 4 (R3 scored 80.7), plus QC / QA items. In order:
 - Rev 4 phone first screen (peek, labelled pills, Key in Filters), Top picks, count line, 8 px dots, noun-first glyphs. Merged with FE-2 slices 1–2: the paged list survives late stamping, a swipe after Back, preview with no media, nearest-edge scroll. See BETA-LOG "SPEC-v3 rev 4" and the merge notes.
 
 ## Next
-- After this push: drop my `park(mp, split, lp)` in `msIn`. FE-2 owns the map-first DOM order in atlas-nav.js, and two movers must not both restore it.
+- Dropped my duplicate map-pane move (FE-2's atlas-nav.js owns the map-first DOM order).
 - Then items 1 → 7 above. Push every 20–30 min, verified with ls-remote.
 
 ## In flight
