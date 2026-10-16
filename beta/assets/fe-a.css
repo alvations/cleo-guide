@@ -1152,3 +1152,11 @@ html.atlas-d[data-view=atlas]:not(.ms-ready) .split>.listpane>#cleo-lens:has(>[d
 .mappane>.nopin{position:absolute;z-index:650;margin:0;padding:var(--s-1) var(--s-3);border-radius:var(--r-pill);background:var(--paper);color:var(--ink);border:1px solid var(--line);font-size:var(--fs-xs);line-height:1.5;box-shadow:var(--shadow-sm);pointer-events:none;max-width:calc(100% - 24px)}
 @media (min-width:1024px){html[data-view=atlas] .mappane>.nopin{bottom:36px}}
 @media (max-width:1023px){html[data-view=atlas] .mappane>.nopin{top:60px;bottom:auto;left:12px;right:auto}}   /* phone: clear of the attribution and the carousel */
+/* QA-77 (B-20): a badge link is a 44 px tap target that still looks like a 32 px pill. The box grows 6 px above and below
+   (negative block margins keep the layout), the pill is painted 6 px in from it. Wrapped rows get a 12 px row gap so two
+   rows' hit areas never overlap. Span badges (the Gallery card / Atlas preview, inside one link) are not targets: unchanged. */
+a.rb{min-height:44px;margin-block:-6px;background:none;isolation:isolate}
+a.rb::before{content:"";position:absolute;inset:6px 0;z-index:-1;border-radius:inherit;background:var(--sand)}
+a.rb.rb-award{background:none}a.rb.rb-award::before{background:var(--sun-wash)}
+.pl-rec:has(>a.rb){row-gap:12px;margin-top:14px}.ge-rec:has(>a.rb){margin-bottom:10px}
+.sheet .fact .pl-rec:has(>a.rb){margin:6px 0}

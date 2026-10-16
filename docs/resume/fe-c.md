@@ -35,7 +35,8 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | W9-2 card line "Status checked <d Mon>" (client/fresh.js, lazy; text in a CSS attr() so search never matches it) + "Follow changes" line (lib/render/fresh-ui.js, OFF until fresh.feed's ja lands; key in pending-en.json) | 38228322b | — |
 | batch 4 ja merged: W9-9 local favourites LIVE (patch applied, removed), "Follow changes" LIVE on 84 pages; QC-23 closed "Before it closed" row visible in the detail (CSS-hidden on the card; city.js onSheet hook for deep links); QC-24 rec/lf chips named | 9c1331525 (QC verified at f96a1e94) | — |
 | QC-05 empty state: client/empty.js (lazy, city.js hook after the mode-chip line) — names the search, Clear search + Show all N, in the lens slot and on the Atlas map (phone; desktop states it in the list), no mode chip pressed; batch 5 ja merged; probe `empty` (5 pilots × Gallery/Atlas × 390/1440) + test-fe-c EMPTY | e353df08e | — |
-| QC-04 (D-43): fresh.js "Approximate pin" card tag; sheet.js hook (detail fact); views.js hook (badge counts low pins); fe-c.css gives `.nopin` its missing base position (it sat below the map, unseen); test-fe-c APPROX. Waits for batch 6 ja (pending-en at af4c106fd) | this push | — |
+| QC-04 (D-43): fresh.js "Approximate pin" card tag; sheet.js hook (detail fact); views.js hook (badge counts low pins); fe-c.css gives `.nopin` its missing base position (it sat below the map, unseen); test-fe-c APPROX. Batch 6 ja merged | 7857f8855 | — |
+| QA-77 (deploy blocker, B-20): `a.rb` badge links are 44 px targets (−6 px block margins, pill painted by an inset ::before at 32 px; wrapped rows 12 px apart); metrics B-20 = 0 on the pilots, Gallery + Atlas, mobile; probe `rec-tap`; probe base-keys waits for `.ms-ready` on desktop Atlas | this push | — |
 
 ## Next
 

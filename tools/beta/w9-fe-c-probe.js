@@ -15,6 +15,7 @@
  *              Guidebook each show the assumption once and the line on every visible card; Saved too
  *  base-lazy   a first load with no base never requests base.js; with a base it is requested once
  *  rec-pv      (W9-1) the Atlas map preview of a recognised place carries its badges (text: the preview is one link)
+ *  rec-tap     (QA-77) badge links are ≥ 44 px tap targets (B-20) on 4 pilots × Gallery/Atlas at 390; the pill still paints 32 px
  *  empty       (QC-05, S-05-style) #q=zzqxjv on 5 pilots × Gallery/Atlas × 390/1440: a visible message naming the search,
  *              "Clear search" and "Show all N" (each works), the count reads 0, no "All N" chip pressed, no sideways scroll
  *  card        (W9-7) place (photo), closed place, day, list (Saved) and trip: a 1080×1920 PNG; its preview's alt text names
@@ -126,6 +127,8 @@ async function tabTo(page, test, n = 80) {
     ok(await s.page.evaluate(() => document.getElementById('cleo-sheet').hidden), `${tag}: QC-15 Escape closes the sheet after the action`);
     for (const v of ['gallery', 'atlas', 'guidebook']) {
       await s.page.evaluate(v => { location.hash = '#view=' + v + '&base=senso-ji'; }, v); await s.page.waitForTimeout(1600);
+      // desktop Atlas holds its list until .ms-ready (atlas.js, ≤ 3 s): read it once it is shown, as a reader would
+      if (v === 'atlas') await s.page.waitForFunction(() => document.documentElement.classList.contains('ms-ready'), null, { timeout: 4000 }).catch(() => {});
       // phone Atlas opens map-first (the "n places here · Show list" peek): open the list, as a reader would
       if (v === 'atlas' && w < 500) { const t = await s.page.$('.ms-toggle[aria-pressed="false"]'); if (t) { await t.click(); await s.page.waitForTimeout(700); } }
       await s.page.evaluate(v => { const sel = { gallery: 'li.gc[data-id]', atlas: 'li.pl[id^="p-"]', guidebook: 'li.ge[data-id]' }[v];
@@ -172,6 +175,17 @@ async function tabTo(page, test, n = 80) {
     const btn = s.page.locator('[data-cleo-empty] [data-unset="q"]').filter({ visible: true }).first(); await btn.click(); await s.page.waitForTimeout(500);
     const after = await s.page.evaluate(() => ({ q: /[#&]q=/.test(location.hash), box: [...document.querySelectorAll('[data-cleo-empty]')].length, input: (document.getElementById('cleo-filter') || {}).value }));
     ok(!after.q && !after.box && !after.input, `${tag}: "Clear search" clears the search and the state`, after);
+    await s.ctx.close();
+  }
+  console.log('# rec-tap (QA-77, B-20: every badge link is a 44 px target that still paints a 32 px pill)');
+  for (const rel of ['cities/tokyo.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html']) for (const v of ['gallery', 'atlas']) {
+    const s = await open(b, rel + '#view=' + v, { w: 390, tiles: true, settle: 1500 });
+    if (v === 'atlas') { const t = s.page.locator('.ms-toggle').filter({ visible: true }).first(); if (await t.count()) { await t.click().catch(() => {}); await s.page.waitForTimeout(700); } }
+    await s.page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 800) { scrollTo(0, y); await new Promise(r => setTimeout(r, 30)); } });
+    const r = await s.page.evaluate(() => { const rb = [...document.querySelectorAll('a.rb')].filter(a => { const q = a.getBoundingClientRect(); return q.width > 0 && q.height > 0; });
+      return { n: rb.length, small: rb.filter(a => { const q = a.getBoundingClientRect(); return q.width < 44 || q.height < 44; }).length,
+        pill: [...new Set(rb.map(a => Math.round(a.getBoundingClientRect().height - parseFloat(getComputedStyle(a, '::before').top) * 2)))] }; });
+    ok(r.small === 0 && (!r.n || (r.pill.length === 1 && r.pill[0] === 32)), `${rel.split('/').pop()} ${v} 390: ${r.n} badge links, none under 44 px, pill painted at 32 px`, r);
     await s.ctx.close();
   }
   console.log('# card (share images)');
