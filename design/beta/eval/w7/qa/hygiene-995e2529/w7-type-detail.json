@@ -1,0 +1,1222 @@
+{
+ "head": "995e25294c45762cd0b4864fb0a8b803bf1e91d4",
+ "checks": [
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "A Christmas Story House & Museum",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“A Christmas Story house” · Photo: J. Miers · CC BY-SA 1.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 3 of 52 in West Side, Ohio City & Tremont"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 3 of 52 in West Side, Ohio City & Tremont",
+    "data": [
+     3,
+     52
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cleveland.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "A Christmas Story House & Museum",
+    "img": true,
+    "media": [
+     960,
+     360
+    ],
+    "slot": [
+     960,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“A Christmas Story house” · Photo: J. Miers · CC BY-SA 1.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 960,
+    "rank": "No. 3 of 52 in West Side, Ohio City & Tremont"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 960
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 3 of 52 in West Side, Ohio City & Tremont",
+    "data": [
+     3,
+     52
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cleveland.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Asukayama Park (飛鳥山公園)",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Asukayama Park” · Photo: ↑ＰＯＮ · CC BY-SA 3.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 2 of 37 in Jōhoku"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 2 of 37 in Jōhoku",
+    "data": [
+     2,
+     37
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/tokyo.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Asukayama Park (飛鳥山公園)",
+    "img": true,
+    "media": [
+     960,
+     360
+    ],
+    "slot": [
+     960,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Asukayama Park” · Photo: ↑ＰＯＮ · CC BY-SA 3.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 960,
+    "rank": "No. 2 of 37 in Jōhoku"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 960
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 2 of 37 in Jōhoku",
+    "data": [
+     2,
+     37
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/tokyo.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "American Museum of Natural History",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Facade of the American museum of natural history NYC (1)” · Photo: Ferfive · CC BY 4.0 · ",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 15 of 264 in Manhattan"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 15 of 264 in Manhattan",
+    "data": [
+     15,
+     264
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/newyork.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": false,
+   "evidence": {
+    "title": "American Museum of Natural History",
+    "img": true,
+    "media": [
+     691,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": true,
+    "credit": "“Facade of the American museum of natural history NYC (1)” · Photo: Ferfive · CC BY 4.0 · ",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 691,
+    "rank": "No. 15 of 264 in Manhattan"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 691
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 15 of 264 in Manhattan",
+    "data": [
+     15,
+     264
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/newyork.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Buddha Tooth Relic Temple & Museum",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Buddha Tooth Relic Temple and Museum” · Photo: Riction · CC BY 3.0 · Wikimedia Commons (r",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 5 of 16 in Chinatown & CBD"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 5 of 16 in Chinatown & CBD",
+    "data": [
+     5,
+     16
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/Singapore/chinatown.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Buddha Tooth Relic Temple & Museum",
+    "img": true,
+    "media": [
+     960,
+     360
+    ],
+    "slot": [
+     960,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Buddha Tooth Relic Temple and Museum” · Photo: Riction · CC BY 3.0 · Wikimedia Commons (r",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 960,
+    "rank": "No. 5 of 16 in Chinatown & CBD"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 960
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 5 of 16 in Chinatown & CBD",
+    "data": [
+     5,
+     16
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/Singapore/chinatown.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "West Virginia Independence Hall",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     284
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“West Virginia Independence Hall” · Photo: WeaponizingArchitecture · CC BY-SA 4.0 · Wikime",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 2 of 15 in Wheeling, WV"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 2 of 15 in Wheeling, WV",
+    "data": [
+     2,
+     15
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/wheeling.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "West Virginia Independence Hall",
+    "img": true,
+    "media": [
+     960,
+     360
+    ],
+    "slot": [
+     960,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“West Virginia Independence Hall” · Photo: WeaponizingArchitecture · CC BY-SA 4.0 · Wikime",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 960,
+    "rank": "No. 2 of 15 in Wheeling, WV"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 960
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 2 of 15 in Wheeling, WV",
+    "data": [
+     2,
+     15
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/wheeling.html"
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/hanoi.html: Bricolage + Inter draw every letter (79 chars, 1 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:78"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:78"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/hanoi.html: CJK (3 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:3"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/ho-chi-minh-city.html: Bricolage + Inter draw every letter (150 chars, 47 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:2",
+     "Bricolage Grotesque 96pt ExtraBold:148"
+    ],
+    "ui": [
+     "Inter:2",
+     "Inter:148"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/ho-chi-minh-city.html: CJK (3 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:3"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/hoi-an.html: Bricolage + Inter draw every letter (77 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:76"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:76"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/hoi-an.html: CJK (3 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:3"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/index.html: Bricolage + Inter draw every letter (75 chars, 2 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Bricolage Grotesque 96pt ExtraBold:75"
+    ],
+    "ui": [
+     "Inter:75"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/index.html: CJK (3 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:3"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "cleveland.html: Bricolage + Inter draw every letter (107 chars, 8 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:106"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:106"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cleveland.html: CJK (3 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:3"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "cities/tokyo.html: Bricolage + Inter draw every letter (105 chars, 2 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:108"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:104"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cities/tokyo.html: CJK (604 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:604"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "cities/newyork.html: Bricolage + Inter draw every letter (88 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:87"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:87"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cities/newyork.html: CJK (3 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:3"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "Singapore/chinatown.html: Bricolage + Inter draw every letter (81 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:80"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:80"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Singapore/chinatown.html: CJK (3 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:3"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "cities/wheeling.html: Bricolage + Inter draw every letter (84 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Bricolage Grotesque 96pt ExtraBold:84"
+    ],
+    "ui": [
+     "Inter:84"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cities/wheeling.html: CJK (3 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:3"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "index.html: Bricolage + Inter draw every letter (93 chars, 3 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:93"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:92"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "index.html: CJK (11 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:8",
+    "WenQuanYi Zen Hei:3"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "Japan/index.html: Bricolage + Inter draw every letter (72 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Bricolage Grotesque 96pt ExtraBold:73"
+    ],
+    "ui": [
+     "Inter:72"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Japan/index.html: CJK (5 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:5"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 18 px, var(--font-display): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 422,
+    "b": 389
+   }
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 24 px, var(--font-display): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 530,
+    "b": 493
+   }
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 18 px, var(--font-ui): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 417,
+    "b": 389
+   }
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 24 px, var(--font-ui): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 537,
+    "b": 501
+   }
+  }
+ ],
+ "info": {}
+}
