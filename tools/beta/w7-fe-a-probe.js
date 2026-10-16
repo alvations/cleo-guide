@@ -8,7 +8,8 @@
  *
  *  credits   no photo credit (cards, rows, hero, place detail) is ellipsised, line-clamped or cut: author + licence show
  *  nodes     a phone #p= deep link stays ≤ 3,000 DOM nodes for 3 s after load; rows resume once the sheet closes
- *  count     the sheet's "n of N" counts the whole view order (a far #p= reads "k of 488" on Tokyo, never "k of 25")
+ *  count     one visible number in the detail ("No. k of n in {area}"; no "k of N", no "pin N" — SPEC-v3 §3.6); the hidden
+ *            assistive-tech position still counts the whole view order (a far #p= reads "k of 488" on Tokyo, never "k of 25")
  *  face      the card eyebrow hides its area only under a header for that area; Recommended by never ends on a dangling comma
  *  motion    a card tap grows into the sheet through one view transition; under reduced motion: none, 0 animations
  */
@@ -60,8 +61,13 @@ const CLIP = () => [...document.querySelectorAll('figcaption, .gc-cred, .hero-cr
     ok(!s.errs.length, `${url}: 0 page errors`, s.errs.slice(0, 2)); await s.ctx.close();
   }
   console.log('# sheet "n of N"');
-  { const s = await open(b, 'cities/tokyo.html#p=isegen'); const t = await s.page.evaluate(() => (document.querySelector('#cleo-sheet [data-sh-pos]') || {}).textContent || '');
-    ok(/^\d+ of 488\b/.test(t), 'Tokyo far #p=: the count is the whole view (… of 488)', t); await s.ctx.close(); }
+  // SPEC-v3 §3.6 (rev 4/5), PANEL-R3 #2 (designer, 2026-10-16) supersedes the R6/W7 visible "k of 488": the detail shows ONE
+  // number, "No. k of n in {area}"; the view position is kept for assistive tech only (visually hidden), still the whole view
+  for (const w of [390, 1440]) { const s = await open(b, 'cities/tokyo.html#p=isegen', { w }); const t = await s.page.evaluate(() => { const h = document.getElementById('cleo-sheet'), p = h.querySelector('[data-sh-pos]');
+      return { sr: p ? p.textContent : '', srHidden: !!p && (p.getBoundingClientRect().width <= 1 || getComputedStyle(p).clip !== 'auto'), vis: h.querySelector('.sheet').innerText.replace(p ? p.innerText : '\u0000', '') }; });   // innerText keeps clipped text: drop the assistive-only span
+    ok(/^\d+ of 488\b/.test(t.sr) && t.srHidden, `@${w} Tokyo far #p=: the assistive-tech position counts the whole view (… of 488) and is not shown`, t.sr);
+    ok(!/\b\d+ of 488\b/.test(t.vis) && !/\bpin \d+/i.test(t.vis) && (t.vis.match(/No\. \d+ of \d+ in /g) || []).length === 1, `@${w} one visible number: no "k of N", no "pin N", exactly one "No. k of n in {area}"`, (t.vis.match(/No\. \d+ of \d+ in [^\n]*/g) || []).concat((t.vis.match(/\b(pin \d+|\d+ of 488)/gi) || [])));
+    await s.ctx.close(); }
   console.log('# card face (shared W7 card: Gallery grid, Atlas .w7-cards)');
   // the eyebrow area hides only under a header for the same area; "Recommended by" never ends on a dangling separator
   const FACE = () => { const vis = e => e && e.getClientRects().length && getComputedStyle(e).display !== 'none' && getComputedStyle(e).visibility !== 'hidden';
