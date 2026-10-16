@@ -271,7 +271,7 @@
   function areaOf(id) { var hit = null; (book ? book.order : []).some(function (x) { if (x.p.id === id) { hit = x.p.a; return true; } }); return hit; }
   var lastCtx = null;
   // i18n D-41: a book drawn before the ja catalogue arrived is drawn again in it
-  if (typeof document !== 'undefined') document.addEventListener('cleo:locale', function () { var el = host, c = lastCtx; if (!el) return; unmount(); mount(el, c); });
+  if (typeof document !== 'undefined') document.addEventListener('cleo:locale', function () { var el = host, c = Object.assign({}, lastCtx, { user: false }); if (!el) return; unmount(); mount(el, c); });   // a redraw never moves focus (QC-10)
   function mount(el, ctx) {
     host = el; ctx = ctx || {}; lastCtx = ctx;
     var C = window.Cleo || {}, main = document.getElementById('main'), key = ctx.key || (main && main.getAttribute('data-city'));
