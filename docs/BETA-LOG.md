@@ -1827,3 +1827,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **Keyboard (FE-2's (b)):** on desktop, msIn puts the map pane before the list in the DOM, so Tab reaches the map and its pins before the list. The explicit grid columns keep the layout; msOut restores the order.
 - **R2 #8:** the desktop preview and the phone carousel have no media block when there's no photo. The preview leads with a 40 px `--sand` glyph chip beside the name.
 - **R2 #7:** the phone ⓘ is itself a 44 × 44 button (no pseudo hit area), inside the one-line 20 px strip; attribution links get a ≥ 24 px tall hit box. Photo-credit links in cards are unchanged: padding them made the credit's scrollHeight exceed its box (QA "credits are whole").
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · W8-I18N-MAPRACE: the orchestrator assigned it to i18n, and FE-A was told.
+  - **Symptom:** when map tiles never load, `fail()` in client/city.js removes the map. A canvas redraw that Leaflet had already queued then runs with no 2D context and throws `TypeError … reading 'save'` at `Canvas._clear`. Nothing is visible, because the schematic has already replaced the map.
+  - **Scope, corrected:** this is not ja-only. The new test reproduces it in English at 390 px too; the ja probe had only ever looked at ja.
+  - **Fix:** one guard in `mountMap`, marked `// i18n D-41 / W8-I18N-MAPRACE`. The canvas renderer's `_redraw` does nothing once it has no context. `fail()`, atlas.js and the rest of the map path are unchanged.
+  - **Test:** test-i18n runs a real browser with the tile hosts blocked, on `#view=atlas&t=1`, ja and en, at 390 and 1440. It requires errors=0.
+    - Against the old city.js it fails: `ja @390` and `en @390` each throw the error.
+    - With the fix it passes.
+    - It prints SKIP where playwright is missing.
