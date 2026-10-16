@@ -39,13 +39,13 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
    - Re-measure: `tools/beta/feb-metrics-batch.sh 1 '<page-regex>'`.
 3. ~~**Dark-mode contrast**~~ RESOLVED by the --cover-food tint (dark: all cover words/plates ≥ 4.5 on Tokyo 390/1440) (Atlas FE-1 report): the cover plate's Japanese line `.food … > .v.plate[lang=ja]` is 4.14 (#a69e97 on #463b2a, 13 px). Use `--ink-2` or lighter in dark mode.
 4. ~~**Copy**~~ DONE (en.json + ja.json city.how.order) (designer, PANEL-R3 #2): drop "Numbers on the cards match the pins on the map" in the render/city.js "How we choose" paragraph.
-5. **PANEL-R2 #11 / SPEC-v3 rev 4 §3.6, "one numbering in the detail"** (FE-2 report):
+5. **(NEXT — waiting on the designer's answer)** **PANEL-R2 #11 / SPEC-v3 rev 4 §3.6, "one numbering in the detail"** (FE-2 report):
    - drop " · pin N" from the badges line;
    - the nav row becomes plain previous/next, keeping the neighbours' names as labels;
    - keep "No. k of n in {area}".
    - The W7 probe asserts "… of 488" in `[data-sh-pos]`. Confirm with the designer/orchestrator, then update that check in w7-fe-a-probe.js and log it in BETA-LOG (a spec change, not a weakened test).
-6. **QC-11:** CLS on phone and tablet, after platform's PERF-06 lands. Fix only what remains (the rail and toolbar at 768).
-7. **QC-14 snap-spacing:**
+6. ~~**QC-11:**~~ NO CODE NEEDED — qc.js S-12 = 0 at 390/768, light+dark, on Tokyo, Cleveland, New York, Chinatown, Wheeling, Ho Chi Minh City after PERF-06 (reported). CLS on phone and tablet, after platform's PERF-06 lands. Fix only what remains (the rail and toolbar at 768).
+7. ~~**QC-14 snap-spacing:**~~ DONE (commit "QC-14 …"; FE-B's .views lines untouched; the .pl-s .src chip went to line-height 28 to keep 44 px)
    - run `python3 design/beta/tools/snap-spacing.py tools/beta/lib/render/fe-a.css`;
    - **leave the `.views[data-cleo-views]` lines (FE-B QC-09 / QC-10) alone** until FE-B lands its 200 % fix;
    - check Gallery and the detail at 390 and 1440.
