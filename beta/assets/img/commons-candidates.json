@@ -38,7 +38,7 @@
   },
   "otherLandmarks": {
    "targets": 1151,
-   "skipped": 242,
+   "skipped": 244,
    "withArticle": 625
   },
   "candidates": {
@@ -9653,6 +9653,7 @@
     "Basilica of the Holy Blood"
    ],
    "pilot": false,
+   "skip": "both vetted Commons files refused (run #60 close-up, run #64 a painted triptych) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -9669,7 +9670,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Brugge_-_Basiliek_van_het_Heilig_Bloed_1448.jpg",
      "depicts": "The Basiliek van het Heilig Bloed",
      "confidence": "high",
-     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Basiliek van het Heilig Bloed"
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Basiliek van het Heilig Bloed",
+     "refused": "refused by visual review (W8, run #64): a painted triptych inside, not the basilica (artwork rule)"
     }
    ]
   },
@@ -10013,6 +10015,7 @@
     "Zwin"
    ],
    "pilot": false,
+   "skip": "both vetted Commons files refused (a plain beach; a housing estate) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -10029,7 +10032,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Het_Zwin.JPG",
      "depicts": "The Zwin nature reserve",
      "confidence": "high",
-     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Het Zwin"
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Het Zwin",
+     "refused": "refused by visual review (W8, run #64): a housing estate and road, not the Zwin reserve (wrong subject)"
     }
    ]
   },

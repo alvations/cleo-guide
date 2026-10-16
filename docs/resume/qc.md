@@ -37,6 +37,8 @@ never weakens a gate.
 - `9c133152`: QC-23 and QC-24 verified.
 - `4aba38b3` (deploy pin): QC-26 and QC-22 verified; new QC-27 (Low, i18n: tier translated as 評価).
 - `9fba196e`: QC-27 verified.
+- `7857f885`: QC-04 verified (D-43 approximate pins).
+- `cc127fb1`: QC-28 verified (S-16 91/91; TODO/FIXME now case-sensitive).
 - `edf94546`: new sweep check S-16 (internal editorial phrases, incl. deferred cards); QC-28 (Low, data: Erie "Kept flagged").
 - `e353df08`: QC-05 verified. P-17 follows D-43 (approximate pins); QC-04 waits on FE-C's SHA.
 - `e1503766`: QC-25 verified (city pages). Pending: FE-B's "What changed" pages and how-we-choose D-42 line, to re-check when FE-B sends the SHA.
@@ -44,7 +46,7 @@ never weakens a gate.
 
 ## In flight
 
-Nothing unpushed and no long run. Waiting on lane claims and the next pin.
+Nothing unpushed and no long run. On the next orchestrator pin, verify FE-B's honesty-leak fixes (712e746f, aee184d3): the What changed pages, Atom feeds and `data/places/*.json` carry only a "Status source" link, never the raw note; how-we-choose has the m.not.p line in en and ja. Re-run S-16 there too. QC-13 and QC-14 are open (Low).
 
 Next harness work:
 - P-25 and P-26 must discount entries that carry the D-42 note.

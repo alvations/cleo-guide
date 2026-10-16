@@ -146,8 +146,16 @@ const strip = h => String(h || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, '
 function authorOf(html) {
   const h = String(html || '').replace(/<(table|div|ul|ol|style|sup|small)\b[\s\S]*?<\/\1>/gi, ' ').replace(/<img\b[^>]*>/gi, ' ');
   const links = [...h.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi)].map(m => cleanAuthor(strip(m[1]))).filter(Boolean);
-  const s = cleanAuthor(strip(h));
-  return authorProblems(s).length && links.length && !authorProblems(links[0]).length ? links[0] : s;
+  const s = accountOf(cleanAuthor(strip(h)));
+  return authorProblems(s).length && links.length && !authorProblems(accountOf(links[0])).length ? accountOf(links[0]) : s;
+}
+/**
+ * A credit that is only a profile link ("https://www.flickr.com/photos/arne_heggestad/") names the account the link
+ * shows: "arne_heggestad (Flickr)". Any other bare URL stays a URL, so authorProblems refuses the photo (R7 QA-78).
+ */
+function accountOf(s) {
+  const m = /^https?:\/\/(?:www\.)?flickr\.com\/(?:photos|people)\/([^/?#\s]+)\/?$/i.exec(String(s || '').trim());
+  return m ? `${decodeURIComponent(m[1])} (Flickr)` : s;
 }
 function cleanAuthor(s) {
   s = String(s || '').replace(FILE_PREFIX, '').replace(DERIVATIVE, '')
@@ -181,7 +189,8 @@ function authorOrUploader(artistHtml, creditHtml, uploader) {
 const authorProblems = a => [!a && 'empty', a && a.length > 60 && 'longer than 60 characters',
   /flag of|userbox|legal disclaimer|\(\s*talk\s*\)|uploader was|this image shows/i.test(a || '') && 'template or notice text',
   /^(.+?) \1$/.test(a || '') && 'name said twice', /\bUser:|wikipedia|wikivoyage|WT-shared/i.test(a || '') && 'a wiki user-page or project aside (R7 QA-56)', /derivative/i.test(a || '') && 'a derivative note (belongs in modified)',
-  /\.(?:jpe?g|png|tiff?|gif|svg|webp)\b/i.test(a || '') && 'a file name'].filter(Boolean);
+  /\.(?:jpe?g|png|tiff?|gif|svg|webp)\b/i.test(a || '') && 'a file name',
+  /^https?:\/\/|^www\./i.test(a || '') && 'a URL, not a name (R7 QA-78)', /[<>]|&(?:lt|gt|amp|quot|#\d+);/i.test(a || '') && 'HTML in the name (R7 QA-78)'].filter(Boolean);
 
 /** Corporate signage, logos, lettering or advertising as the subject (owner review, W7): such a file is refused —
  * unless the sign IS the place (the target's own names say so, e.g. Sign Hill, the Glico Running Man sign). */
@@ -613,4 +622,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { widthList, suspectFormat, DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { accountOf, widthList, suspectFormat, DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };

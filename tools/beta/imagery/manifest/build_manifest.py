@@ -60,6 +60,10 @@ SKIP = {
 BRAND_STORE = re.compile(r"Mandarake|Pok[eé]mon Center|Nintendo KYOTO|Animate |Jump Shop|Kiddy Land|Gashapon|Capcom Store|PARCO Character|Kotobukiya|Character Street|Super Potato|Anime Center|Characters World", re.I)
 VENUE_NAME = re.compile(r"\b(Theat(?:re|er)|Opera House|Playhouse|Ballpark|Arena|Stadium|Concert Hall)\b", re.I)
 SKIP.update({
+ 'bruges#basiliek-van-het-heilig-bloed': 'both vetted Commons files refused (run #60 close-up, run #64 a painted triptych) — calm cover (stated, W8)',
+ 'bruges#zwin-natuurpark': 'both vetted Commons files refused (a plain beach; a housing estate) — calm cover (stated, W8)',
+})
+SKIP.update({
  'dayton#eastwood-metropark': 'no Commons file of the park found (wave 4 search) — calm cover (stated, W8)',
  'dayton#englewood-metropark': 'no Commons file of the park found (wave 4 search) — calm cover (stated, W8)',
 })

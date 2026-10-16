@@ -927,10 +927,10 @@ const SWEEP = new Function('cfg', `${P_VIS}
   segs.forEach(t => { const fixed = sc(t); if (fixed !== t) cas.push({ t: t.slice(0, 60), want: fixed.slice(0, 60) }); });
   out.casing = { n: cas.length, sample: cas.slice(0, 10) };
   // S-16 internal pipeline / editorial phrases that must never reach a reader (orchestrator, 2026-10-16)
-  const JARGON = /\\b(kept flagged|worklist|per editorial rule|editorial rule|geocoded|geocod(e|ing) (pass|backlog)|statusSource|UNVERIFIED|TODO|FIXME|lorem ipsum)\\b/i;
+  const JARGON = { exec: t => /\\b(kept flagged|worklist|per editorial rule|editorial rule|geocoded|geocod(e|ing) (pass|backlog)|statusSource|lorem ipsum)\\b/i.exec(t) || /\\b(UNVERIFIED|TODO|FIXME)\\b/.exec(t) };   // markers are case-sensitive: "Todo firs" is a tree
   const jt = []; const tw3 = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   for (let n; (n = tw3.nextNode());) { const pe = n.parentElement; if (!pe || pe.closest('script,style,noscript,template')) continue; const m = JARGON.exec(n.textContent); if (m && (vis(pe) || pe.closest('li.pl'))) jt.push({ t: n.textContent.replace(/\\s+/g, ' ').trim().slice(0, 90), m: m[0], el: (pe.closest('li.pl') || pe).id || pe.className.toString().slice(0, 30) }); }
-  document.querySelectorAll('noscript[data-cleo-defer]').forEach(ns => { const txt = (ns.textContent || '').replace(/<[^>]+>/g, ' '); const m = JARGON.exec(txt); if (m) { const i = txt.search(JARGON); jt.push({ t: txt.slice(Math.max(0, i - 60), i + 40).replace(/\\s+/g, ' ').trim(), m: m[0], el: 'deferred card' }); } });   // cards not yet stamped
+  document.querySelectorAll('noscript[data-cleo-defer]').forEach(ns => { const txt = (ns.textContent || '').replace(/<[^>]+>/g, ' '); const m = JARGON.exec(txt); if (m) { const i = m.index; jt.push({ t: txt.slice(Math.max(0, i - 60), i + 40).replace(/\\s+/g, ' ').trim(), m: m[0], el: 'deferred card' }); } });   // cards not yet stamped
   out.jargon = { n: jt.length, sample: jt.slice(0, 6) };
   out.cls = { cls: +(window.__cls || 0).toFixed(4), shifts: (window.__shifts || []).slice(0, 5) };
   return out;`);
