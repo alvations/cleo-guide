@@ -32,8 +32,8 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 - **r7 is DEPLOYED (21:33Z).** PR alvations/cleo-guide#9 merged `b54b3745` into `claude/cleveland-page-creation-pant4l` (merge `4382a187`), and the Pages build started at 21:33Z. QA YES at 943d1ce8 under D-45 (QA-79 waived); QC PASS at 7c5ea616. beta-deploy-r7 was merged back into the dev branch with `-s ours` (beef84ec), since every ported change is already on dev. The changelog entry is in docs/BETA-CHANGELOG.md.
 - **Next:**
-  1. The R8 independent evaluator on the deploy (kit: design/beta/eval/r8/README.md, R8 = 4382a187 / b54b3745, baseline R7 badcc20d).
-  2. Tell platform "go" for the PERF-08 flip on dev (beta:perf before, the flip, perf08-regress.sh, beta:perf after).
+  1. **The R8 independent evaluator is running:** session_01KmzDV95S6cTa7gLfep3bsq, launched 21:36Z. It measures b54b3745 against R7 badcc20d with the r8 kit, writes design/beta/eval/ROUND-8.md and reports to the orchestrator. Never tell it a target.
+  2. **PERF-08 flip: GO sent to platform at 21:37Z** (beta:perf before, the flip, perf08-regress.sh, beta:perf after). The SHA goes to QA.
   3. The next release pin from the dev head once Atlas rev 5 reaches panel R4. QA verifies QA-79's fix there.
 - **History:**
   - 530dc83b NO;
@@ -64,6 +64,7 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 | Atlas FE-1 | session_01Cuvo7DWhwbWjLpFicvaF5E | SPEC-v3 rev 5 (#1–#6), QC-17, the .ms-bar switcher, QC-04/05/13, atlas.css snap | docs/resume/atlas-fe1.md |
 | Atlas FE-2 | session_011SQNDyJMGzR5K32A4y9Udd | **QA-70 + QA-71 (deploy blockers)**, then rev 5 #7 (the 108 px shift) and #8 (stale counts) | docs/resume/atlas-fe2.md |
 | Designer | session_011YjA2jku166RJrUyCiQV6B | dot sign-off on R4 real shots, FE-C re-review, FE-A frame sign-off, PERF-16 | docs/resume/designer.md |
+| R8 evaluator (independent; never tell it a target) | session_01KmzDV95S6cTa7gLfep3bsq | scoring the r7 deploy b54b3745 against R7 badcc20d | design/beta/eval/ROUND-8.md |
 | Panel (scores only; never tell it a target) | session_01EKzwLjqF1Z1gwXWgbrrr2S | waiting for "round 4 ready at <sha>" | docs/resume/panel.md |
 | Imagery | session_011rg9RMooGaKrmENvBZ7MvX | vetted-candidate waves (WebSearch, about 40 per wave); run #54 review | docs/resume/imagery.md |
 | i18n | session_01HB7igqdcuhrau7mUWSauDL | all lanes catalogued; review rounds on new keys; QC-16 | docs/resume/i18n.md |
