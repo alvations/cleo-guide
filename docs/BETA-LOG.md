@@ -2127,3 +2127,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **INP regression on dev:** desktop switch → Atlas is 21 s (it was 0.7 s), and filters are about 2× slower. The suspect is 797258c2, Atlas rev 5's one ranked list. It is not in the live r7.
 - FE-1/FE-2 are fixing it at top priority. Platform is bisecting and adding a regression guard. It blocks the r8 pin and D-46.
 - QC-34 is fixed (76957fa1). FE-A got the stale-search item, where clearing the hash keeps the S.q search.
+
+## 2026-10-16 22:37Z · orchestrator check-in
+
+- The dev head d8369d2f is gated green.
+- PERF-08 re-landed (447d97c5).
+- On the INP regression: FE-2 has a first step in (5491ea13), and QC's P-32 reads about 1 s unthrottled.
+- QA ratified B-01a and B-24 (52245d25). Phone clear map reads 74 %, so FE-1 takes the 52 px header.
+- The R8 evaluator's metrics sweep is at 54/180.
