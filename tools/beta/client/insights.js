@@ -369,7 +369,7 @@
   }
   var lastCtx = null;
   // i18n D-41: numbers drawn before the ja catalogue arrived are drawn again in it
-  if (typeof document !== 'undefined') document.addEventListener('cleo:locale', function () { if (!host) return; if (ix) { ix.cancel(); ix = null; } mount(host, lastCtx); });
+  if (typeof document !== 'undefined') document.addEventListener('cleo:locale', function () { if (!host) return; if (ix) { ix.cancel(); ix = null; } mount(host, Object.assign({}, lastCtx, { user: false })); });   // a redraw never moves focus (QC-10)
   function mount(el, ctx) {
     host = el; ctx = ctx || {}; lastCtx = ctx;
     var C = window.Cleo || {}, main = document.getElementById('main'), key = ctx.key || (main && main.getAttribute('data-city'));
