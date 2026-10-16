@@ -1,0 +1,67 @@
+{
+ "head": "537cfb8c65524a8da72a5fb4f2824bb084cfe399",
+ "page": "tokyo",
+ "note": "lead re-run of the revised probe (layout check + pin on-screen fix), round 3",
+ "d-roundtrip": {
+  "viewKept": true,
+  "layoutKept": false,
+  "layoutBefore": {
+   "mapTop": 108,
+   "searchTop": 69,
+   "ancestorScroll": 0,
+   "winScroll": 0
+  },
+  "layoutAfterEscape": {
+   "mapTop": 0,
+   "searchTop": -39,
+   "ancestorScroll": 108,
+   "winScroll": 0
+  },
+  "layoutAfterBack": {
+   "mapTop": 0,
+   "searchTop": -39,
+   "ancestorScroll": 108,
+   "winScroll": 0
+  }
+ },
+ "m-roundtrip": {
+  "viewKept": true,
+  "layoutKept": true,
+  "layoutBefore": {
+   "mapTop": 64,
+   "searchTop": 74,
+   "ancestorScroll": 0,
+   "winScroll": 0
+  },
+  "layoutAfterEscape": {
+   "mapTop": 64,
+   "searchTop": 74,
+   "ancestorScroll": 0,
+   "winScroll": 0
+  },
+  "layoutAfterBack": {
+   "mapTop": 64,
+   "searchTop": 74,
+   "ancestorScroll": 0,
+   "winScroll": 0
+  }
+ },
+ "keyboard-tokyo.pinStops": [
+  "a.leaflet-marker-icon Edo-Tokyo Museum, sight, Must ",
+  "a.leaflet-marker-icon Imperial Palace East Gardens, ",
+  "a.leaflet-marker-icon Tsukiji Hongan-ji, sight, Must",
+  "a.leaflet-marker-icon Toraya Akasaka flagship, eat a",
+  "a.leaflet-marker-icon Suga Shrine stairs, Yotsuya, s",
+  "a.leaflet-marker-icon Takeshita-dōri, sight, Must se",
+  "a.leaflet-marker-icon Tokyo National Museum, sight, ",
+  "a.leaflet-marker-icon Udatsu Sushi, Nakameguro, eat ",
+  "a.leaflet-marker-icon Yasukuni Shrine, sight, Must s",
+  "a.leaflet-marker-icon Pokémon Café Tokyo, Nihonbashi",
+  "a.leaflet-marker-icon Bar Benfiddich, eat and drink,",
+  "a.leaflet-marker-icon Usagiya, eat and drink, Must s",
+  "a.leaflet-marker-icon Tonki, Meguro, eat and drink, ",
+  "a.leaflet-marker-icon Zōjō-ji, sight, Must see",
+  "a.leaflet-marker-icon Shimokitazawa, sight, Must see",
+  "a.leaflet-marker-icon Nonbei Yokochō, Shibuya, eat a"
+ ]
+}

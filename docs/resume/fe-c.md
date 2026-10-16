@@ -5,32 +5,41 @@ pre-force-update local history is kept as `backup/pre-force-update-2026-10-11`, 
 
 ## Task
 
-W9 FE-C lane (`design/beta/eval/W9-BRIEFS.md`, acceptances in `ONE-UP.md` §7):
-- **W9-4** Trips: done.
-- **W9-5** "Set as my base", FE-C part: done. The Atlas 5/10/15-min ring is Atlas FE-2's, after their round 3.
-- **W9-7** Share cards: done.
+Orchestrator 2026-10-16, in order:
+1. i18n of FE-C strings (D-41).
+2. W9-1 recognition: the card and detail UI, the filter.
+3. W9-9 local favourites lens.
+
+Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 
 ## Done
 
 | Item | Feature SHA | Log |
 |---|---|---|
-| W9-4 trips (`beta/trip.html`, `client/trip.js`, `lib/render/trip.js`, `Cleo.geo.walk` in core) | ce4c6a7c | 0498bdc7 |
-| W9-4 "Make a trip" hook in saved.js | 3686baa5 | — |
-| W9-5 base (`client/base.js`, `Cleo.base` + `Cleo.need` in core, hooks in city.js / render/city.js / render/saved.js) | f70222d9f | 65d061aed |
-| W9-7 share cards (`client/share-card.js`, hooks in sheet.js / day.js / saved.js, core delegated tap) | 0f8598c0b | 9f503f9ff |
+| W9-4 trips | ce4c6a7c (+ saved.js hook 3686baa5) | 0498bdc7 |
+| W9-5 base | f70222d9f | 65d061aed |
+| W9-7 share cards | 0f8598c0b | 9f503f9ff |
+| i18n prep: tools/beta/i18n-fec/ (pending-en.json, merge.py, trip-i18n.patch), W9-1 render helper (unwired) | this push | — |
 
 ## Next
 
-1. Wait for the orchestrator's next FE-C item (asked 2026-10-16).
-2. i18n (D-41, i18n lane `session_01HB7igqdcuhrau7mUWSauDL`): browser strings in `trip.js`, `base.js` and
-   `share-card.js` are English literals. Move them to `Cleo.t('key', 'English', vars)` once `Cleo.t` is on origin
-   (it isn't in `tools/beta/client/*.js` as of 2026-10-16 14:20Z). Server strings in `lib/render/trip.js` go to an
-   en.json key + `tr()`. test-i18n currently checks only the Tokyo page.
-3. When FE-2 builds the ring: check that the ring uses `Cleo.base.from(ll).min` (no second walk formula).
+1. **i18n (blocked on the i18n lane's ja):**
+   - when `tools/beta/i18n-fec/pending-ja.json` exists, follow `tools/beta/i18n-fec/README.md`;
+   - then convert base.js and share-card.js in the same way: new keys → pending-en.json → ask i18n for ja;
+   - add a test-i18n case for trip.html (runtime pseudo swap: 0 English outside data).
+2. **W9-1:** `lib/render/recognition-ui.js` is written but not wired. Its strings are in pending-en.json, so wiring it waits for the ja too.
+   - Wiring = FE-C W9-1 hook lines:
+     - render/city.js card(): `${RU.attr(r)}` in attrs, `${RU.html(r, srcById)}` after `.pl-s`;
+     - tray fieldset `RU.trayPills(recs, pill)`, rail tile `RU.railTile(recs)`;
+     - city.js: 'rec' in LENS / RAIL / TK, plus a visible() line on data-rec and a lens header;
+     - sheet.js: a fact that shows the card's `.pl-rec` (or the hidden closed copy).
+   - CSS: a new lib/render/fe-c.css concatenated into fe-a.css (a build.js line, platform).
+   - Tell FE-A before pushing hooks into their files.
+3. W9-9 local favourites lens after W9-1, on `rec.lf` / `recognition.localFavourites` (rule printed, gap stated).
 
 ## In flight
 
-Nothing unpushed. No long runs.
+Nothing unpushed. Waiting on: the i18n lane (`session_01HB7igqdcuhrau7mUWSauDL`) for pending-ja.json.
 
 ## Notes
 
