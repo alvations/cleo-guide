@@ -260,6 +260,12 @@
     [].forEach.call(el.querySelectorAll('article.ch'), function (a) {
       a.hidden = !(book.by[a.getAttribute('data-area')] || []).some(function (x) { return !hid[x.p.id]; });
     });
+    // QC-34: Contents counts what each chapter shows under the lens (not the build-time total); a chapter with nothing
+    // under the lens leaves the Contents, as the chapter itself does
+    [].forEach.call(el.querySelectorAll('a[data-gb-ch]'), function (a) {
+      var n = (book.by[a.getAttribute('data-gb-ch')] || []).filter(function (x) { return !hid[x.p.id]; }).length, m = a.querySelector('.meta'), li = a.closest('li');
+      if (m) m.textContent = n; if (li) li.hidden = !n;
+    });
     var line = el.querySelector('[data-gb-count]');
     if (line) line.innerHTML = shown === all ? '<b>' + tt('gb.count.all', 'All {n} places', { n: all }) + '</b>' : '<b>' + tt('gb.count', '{s} of all {n} places', { s: shown, n: all }) + '</b>' + tt('gb.count.m', ' match this lens.') + ' <button type="button" class="btn btn-quiet" data-cleo-all>' + tt('city.showall', 'Show all {n}', { n: all }) + '</button>';
   }
