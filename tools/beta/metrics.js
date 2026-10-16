@@ -132,6 +132,9 @@ const ALLOWED_TILES = /^(tile\.openstreetmap\.org|[abc]\.tile\.openstreetmap\.or
 async function open(browser, base, rel, vpName, o = {}) {
   const ctx = await browser.newContext({ ...VP[vpName], serviceWorkers: 'block', colorScheme: o.scheme || 'light',
     javaScriptEnabled: o.js !== false, reducedMotion: 'reduce' });
+  // D-46 (QA): first-load CLS and the view set before first paint, recorded on every load
+  await ctx.addInitScript(() => { try { window.__qaCls = 0; new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__qaCls += e.value; }).observe({ type: 'layout-shift', buffered: true }); } catch (e) { /* no observer */ }
+    try { requestAnimationFrame(() => { window.__qaViewPaint = document.documentElement.getAttribute('data-view'); }); } catch (e) { /* none */ } });
   const page = await ctx.newPage();
   // session (bytes) = the whole session: load + every probe, focus walk, reachability stress and tray flow, which scroll
   // every card and so load every lazy photo — INFORMATIONAL. initial = the default view at first load, no user scroll,
@@ -728,6 +731,25 @@ async function trayFlow(page) {
 }
 
 // ---------- per page ----------
+// D-46 (QA, proposed for ratification in BETA-QA.md): the Atlas first screen at first load, no scroll. The map's share of
+// the viewport, the peek tray (its text and size), and how many REAL places are named on screen: label pins that are
+// wholly on screen and hit-test to themselves, plus cards wholly on screen, each matched to a card name in the page.
+const ATLAS_FIRST = () => {
+  const vh = innerHeight, vw = innerWidth, norm = t => (t || '').trim().replace(/\s+/g, ' ');
+  const inView = r => r.width > 0 && r.height > 0 && r.top >= 0 && r.left >= -1 && r.bottom <= vh + 1 && r.right <= vw + 1;
+  const hits = el => { const r = el.getBoundingClientRect(), t = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !!t && (t === el || el.contains(t)); };
+  const names = [...new Set([...document.querySelectorAll('li.pl .pl-n')].map(n => norm(n.textContent)).filter(Boolean))];
+  const real = t => !!t && names.some(n => n === t || (t.length >= 6 && n.startsWith(t.replace(/…$/, ''))));
+  const map = document.querySelector('.leaflet-container'), mr = map && map.getBoundingClientRect();
+  const mapH = mr ? Math.max(0, Math.min(mr.bottom, vh) - Math.max(mr.top, 0)) : 0;
+  const pins = [...document.querySelectorAll('.leaflet-marker-icon.pp')].map(p => p.firstElementChild || p).filter(l => inView(l.getBoundingClientRect()) && hits(l)).map(l => norm(l.textContent)).filter(real);
+  const cards = [...document.querySelectorAll('li.pl')].filter(c => !c.hidden && inView(c.getBoundingClientRect()) && hits(c)).map(c => norm((c.querySelector('.pl-n') || c).textContent)).filter(real);
+  const tray = [...document.querySelectorAll('.ms-toggle, .mapclose')].find(e => inView(e.getBoundingClientRect()) && getComputedStyle(e).visibility !== 'hidden');
+  const tr = tray && tray.getBoundingClientRect(), named = [...new Set(pins.concat(cards))];
+  return { leaflet: !!map, mapPct: Math.round(100 * mapH / vh), tray: tray ? { text: norm(tray.textContent).slice(0, 60), w: Math.round(tr.width), h: Math.round(tr.height) } : null,
+    named: named.length, namedEg: named.slice(0, 5), pinsNamed: pins.length, cardsNamed: cards.length };
+};
+
 async function measure(browser, base, rel) {
   const exp = expected(rel);
   const out = { page: rel, gen: exp ? exp.gen : ((MAN.generated || []).includes(rel) ? 'new' : 'mirror'), expected: exp && { total: exp.total, sights: exp.sights, food: exp.food, live: exp.live } };
@@ -768,6 +790,19 @@ async function measure(browser, base, rel) {
       s = await open(browser, base, rel, vp, { scheme: 'dark' });
       try { const d = await s.page.evaluate(PROBE); v.night = { contrastChecked: d.contrastChecked, contrastFails: d.contrastFails, contrastFailList: d.contrastFailList.slice(0, 10) }; }
       catch (e) { v.night = { err: String(e).slice(0, 120) }; }
+      await s.ctx.close();
+    }
+    // D-46 (QA): the first screen as a reader gets it — tiles answered (stubbed), first load, no scroll, network idle + 2 s:
+    // CLS, the view at first paint, and (when the page opens in Atlas) the Atlas first screen once its first pins are drawn
+    if (v.cards && !v.legacy) {
+      s = await open(browser, base, rel, vp, { tiles: true, initial: true });
+      try {
+        v.view = await s.page.evaluate(() => ({ now: document.documentElement.getAttribute('data-view'), paint: window.__qaViewPaint || null, cls: +(window.__qaCls || 0).toFixed(4) }));
+        if (v.view.now === 'atlas') {
+          await s.page.waitForFunction(() => document.querySelector('.leaflet-marker-icon') || document.documentElement.classList.contains('ms-nomap'), null, { timeout: 3000 }).catch(() => {});
+          v.atlasFirst = await s.page.evaluate(ATLAS_FIRST);
+        }
+      } catch (e) { v.view = v.view || { err: String(e).slice(0, 120) }; }
       await s.ctx.close();
     }
     // interactive map flows (tiles stubbed; never real network)
@@ -813,10 +848,18 @@ function grade(m) {
   const P = (ok, val) => ({ pass: ok === null ? null : !!ok, val });
   const F = (ok, val) => ({ pass: !!ok, val });
   if (city) {
-    rows['B-01 screens to first card ≤1.0'] = P(mo.screensToFirstCard != null && mo.screensToFirstCard <= 1.0, mo.screensToFirstCard);
+    // D-46 (QA, proposed): when the page opens in Atlas, B-01 (first card) and B-04 (rail) are Gallery criteria and are
+    // recorded only; the Atlas first screen is graded by B-01a instead (phone: map-first with a peek tray naming real places)
+    const atlasNow = !!(mo.view && mo.view.now === 'atlas'), af = mo.atlasFirst || {}, afd = de.atlasFirst || {};
+    rows['B-01 screens to first card ≤1.0'] = atlasNow ? P(null, (mo.screensToFirstCard == null ? '—' : mo.screensToFirstCard) + ' (Atlas: recorded; see B-01a)') : P(mo.screensToFirstCard != null && mo.screensToFirstCard <= 1.0, mo.screensToFirstCard);
+    if (atlasNow) rows['B-01a Atlas first screen: map + peek tray + ≥3 real places named (D-46)'] = F(
+      (af.leaflet ? af.mapPct >= 50 && af.tray && af.tray.h >= 44 && /\d/.test(af.tray.text) && af.named >= 3 : af.cardsNamed >= 1) && (!de.view || de.view.now !== 'atlas' || afd.named >= 3),
+      `phone map ${af.mapPct}% · tray ${af.tray ? '"' + af.tray.text + '" ' + af.tray.w + '×' + af.tray.h : 'none'} · named ${af.named} (${(af.namedEg || []).slice(0, 3).join(', ')}) · desktop named ${afd.named == null ? '—' : afd.named}`);
+    rows['B-24 first load: CLS < 0.01, view set before first paint (D-46)'] = F(mo.view && de.view && mo.view.cls < 0.01 && de.view.cls < 0.01 && mo.view.paint === mo.view.now && de.view.paint === de.view.now,
+      `CLS ${mo.view ? mo.view.cls : '?'} / ${de.view ? de.view.cls : '?'} · view at paint ${mo.view ? mo.view.paint + '→' + mo.view.now : '?'} / ${de.view ? de.view.paint + '→' + de.view.now : '?'}`);
     rows['B-02 masthead ≤0.6 screen'] = P(mo.mastheadPx != null && mo.mastheadPx <= 0.6 * 844, mo.mastheadPx);
     rows['B-03 controls above first card ≤14'] = P(mo.controlsAboveOnScreen != null && mo.controlsAboveOnScreen <= 14, mo.controlsAboveOnScreen + ' on-screen / ' + mo.controlsAbove + ' total');
-    rows['B-04 rail on first screen'] = P(mo.railOnFirstScreen, mo.railVisible ? 'top ' + mo.railTop + ', ' + mo.railItems + ' tiles, first "' + mo.railFirst + '"' : 'no rail');
+    rows['B-04 rail on first screen'] = atlasNow ? P(null, 'Atlas (D-36, D-46): recorded — ' + (mo.railVisible ? 'top ' + mo.railTop : 'no rail')) : P(mo.railOnFirstScreen, mo.railVisible ? 'top ' + mo.railTop + ', ' + mo.railItems + ' tiles, first "' + mo.railFirst + '"' : 'no rail');
     rows['B-06 split view + sticky map + sync'] = de.sync ? F(de.sync.split && de.sync.sticky && de.sync.mapWidthPct >= 40 && de.sync.hoverHighlights && de.sync.pinClick && de.sync.pinClick.cardInView,
       `split ${de.sync.split}, sticky ${de.sync.sticky}, map ${de.sync.mapWidthPct}%, hover→pin ${de.sync.hoverHighlights}, pin→card ${de.sync.pinClick && de.sync.pinClick.cardInView}`) : P(false, 'map did not mount');
     const sf = mo.sheetFlow || {}, ps = sf.pinSheet, dt = sf.detail;

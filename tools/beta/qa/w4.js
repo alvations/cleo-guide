@@ -19,6 +19,7 @@
  * Usage: cd tools && node beta/qa/w4.js   Output: qa/beta-w4/w4.json (+ screenshots)
  */
 'use strict';
+const { DEFAULT_VIEW } = require('./default-view');   // D-46
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -101,7 +102,7 @@ const tokyoData = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'places', f
       glyph: (document.querySelector('[data-cleo-views] button[data-view="gallery"] use') || { getAttribute: () => null }).getAttribute('href'),
       hreflang: [...document.querySelectorAll('link[rel=alternate][hreflang]')].map(l => l.getAttribute('hreflang')),
       langSwitch: [...document.querySelectorAll('[data-cleo-lang], [data-cleo-locale], select[name=lang]')].filter(e => e.offsetParent).length }));
-    check('default', `${vp}: Atlas is the default (no hash, no stored preference)`, s.view === 'atlas' && s.def === 'atlas', s);
+    check('default', `${vp}: ${DEFAULT_VIEW} is the default (no hash, no stored preference; D-46)`, s.view === DEFAULT_VIEW && s.def === DEFAULT_VIEW, s);
     check('glyph', `${vp}: Gallery switcher glyph is not the heart`, s.glyph && !/heart/.test(s.glyph), s.glyph);
     if (vp === 'mobile') {
       check('i18n', 'hreflang en + x-default; no language switcher shown', s.hreflang.includes('en') && s.hreflang.includes('x-default') && !s.langSwitch, s);
@@ -113,7 +114,7 @@ const tokyoData = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'places', f
 
   console.log('\n# names with diacritics (one name field everywhere)');
   const kanda = tokyoData.places.find(p => /kanda-myojin/.test(p.id));
-  for (const [where, hash] of [['atlas', ''], ['sheet', '#p=' + kanda.id], ['guidebook', '#view=guidebook&p=' + kanda.id], ['gallery', '#view=gallery']]) {
+  for (const [where, hash] of [['atlas', '#view=atlas'], ['sheet', '#p=' + kanda.id], ['guidebook', '#view=guidebook&p=' + kanda.id], ['gallery', '#view=gallery']]) {
     const { ctx, page, st } = await open(TOKYO, 'desktop', { hash, settle: 1500 });
     const t = await page.evaluate(visText);
     check('names', `${where}: "Kanda Myōjin" shown, folded spelling never`, /Kanda Myōjin/.test(t) && !/Kanda Myojin/.test(t) && !st.errors.length, { accented: (t.match(/Kanda Myōjin/g) || []).length, folded: (t.match(/Kanda Myojin/g) || []).length, err: st.errors.slice(0, 2) });

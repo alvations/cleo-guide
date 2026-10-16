@@ -1290,3 +1290,52 @@ QA sign-off: NO
 The orchestrator recorded **D-45** in `docs/BETA-DECISIONS.md` (c6f0f9f3), which waives QA-79 (Tokyo desktop DOM 3,074 > 3,000) for the r7 deploy only. The fix is claimed on dev at 87f814ad and will be verified on the next release pin. QA-79 was the only row that failed on `b54b3745ce28166bd072808f3e5f3fdbf05b9d49`. With it waived, every re-sign row passes and Open High/Blocker is 0. No re-test is needed: nothing in the pin changed.
 
 QA sign-off: YES (b54b3745, under D-45)
+
+## 2026-10-16 · QA · D-46 (Atlas as the default view): harness changes and the Atlas first-screen criterion, for ratification · session_017FLWXa5zgGWvqNo4C3UsvH
+
+D-46 (owner, 2c44f676) makes Atlas the default city view. The switcher order becomes Atlas, Gallery, Guidebook, Insights. This reverses W5's Gallery default, which QA ratified on f2bf7610. The pass rules otherwise stay the same: G1 reachability, the budgets and no-CDN. Below is every QA check that assumed a Gallery default, and what it does now.
+
+**One source for the expected default:** `tools/beta/qa/default-view.js` exports `DEFAULT_VIEW = 'atlas'` (D-46) and the matching `SWITCH_ORDER`. A pin from before D-46 is tested with `QA_DEFAULT_VIEW=gallery`. Checks that test the Gallery itself pin `#view=gallery` and do not read this module.
+
+| Harness | Was | Now |
+|---|---|---|
+| `metrics.js` default run | measured the default (Gallery) | measures the default view, which is Atlas after D-46. Run `--view gallery` for the Gallery rows (B-01 lead card, B-02, B-04). The re-sign commands become: the default run, `--view gallery`, and `--view atlas` until they coincide |
+| `metrics.js` B-01 / B-04 | always graded | graded when the page opens in Gallery. When it opens in Atlas they are recorded only (B-04 was already "by design" under D-36), and **B-01a** grades the Atlas first screen |
+| `metrics.js` B-07 | — | unchanged: it already handles map-first ("map-first: N places here · Show list") |
+| `metrics.js` new **B-24** | — | first-load CLS < 0.01 at 390 and 1440, and `data-view` at first paint == the view after load (set before paint) |
+| `w4.js` default | "Atlas is the default" (stale since W5) | `DEFAULT_VIEW is the default`: passes again once D-46 lands. The names check pins `#view=atlas` |
+| `w5.js` | "default view is Gallery"; Gallery checks on the default | "default view is DEFAULT_VIEW" (its own load); the Gallery checks (lead card, show-all, filter search, the "last checked" target) pin `#view=gallery`; "#p= keeps the default view" reads DEFAULT_VIEW; the weight label reads the default view |
+| `w7.js` | b08 and gallery on the default; perf row "Tokyo Gallery (default)" | b08 and gallery pin `#view=gallery`; perf has "Tokyo Gallery" (pinned) **and** "Tokyo default view" |
+| `views.js` | — | new precedence rows per pilot × 390/1440: no hash and nothing stored → DEFAULT_VIEW, with the switcher in SWITCH_ORDER; nothing in the hash and Guidebook stored → Guidebook |
+| `first-pin.sh`, `page-eval.js` QA-69 example | the default page | `#view=gallery` (they test the Gallery's map pill) |
+| `w2.js`, `w7.js` atlasd/atlasm/lens/reach/nocdn | — | unchanged: they already pin `#view=atlas` or are view-agnostic |
+
+Not QA's files, flagged to their owners: `test-fe-a.js` (FE-A) and QC P-07 (QC) also assume a Gallery default (D-46 names them).
+
+### Proposed: B-01a, the Atlas first screen (D-46 under D-36)
+
+Measured at first load as a reader gets it: tiles answered (stubbed), no scroll, network idle + 2 s, on 390×844 and 1440×900.
+
+**Phone (390), map-first with a peek tray naming real places. All four must hold:**
+1. The map covers **≥ 50 %** of the viewport height. Today's Atlas measures 86 % on Tokyo.
+2. The **peek tray** is wholly on screen and **≥ 44 px** tall. Its text carries the place count and the way to the list, e.g. "351 places here · … · Show list".
+3. **≥ 3 real places are named** on the first screen. A named place is either a label pin wholly on screen that hit-tests to itself, or a card wholly on screen. Each name must match a place card's name in the page, so decoration and area names don't count.
+4. With no map library, rule 4 applies: the list renders instead and **≥ 1** real place card is wholly on screen.
+
+**Desktop (1440):** ≥ 3 real places named on the first screen. B-06 (split view, sticky map, sync) still applies.
+
+**B-24 (all views, the default load):**
+- CLS **< 0.01**: D-46 says "0", and < 0.01 is 0 at two decimals.
+- The view at first paint equals the view after load.
+
+Today, desktop CLS reads 0.002–0.005 on both Gallery and Atlas, so a literal 0 would fail the current default too. QC's `qc-view-cls.js` uses the looser 0.1.
+
+On the current dev head (Gallery default, Tokyo forced to `--view atlas`):
+- B-01a ✅: phone map 86 %, tray "351 places here · checked 2 Oct · Show list" 390×56, 7 real places named (all label pins); desktop 16 named (15 pins + 2 cards).
+- B-24 ✅: CLS 0 / 0.0051, view at paint atlas → atlas.
+- The default (Gallery) run: B-01 0.73 ✅; B-24 CLS 0 / 0.0056 ✅.
+- Evidence: `design/beta/eval/w7/qa/d46-harness/`.
+
+**What doesn't change:** G1 (every place reachable), the budgets (D-38 first load, eager JS, W2 DOM), B-07, B-08, B-20, B-23 and no-CDN, all on the default view.
+
+Ratification: QA proposes these changes. The orchestrator ratifies them, or amends the thresholds: the map share ≥ 50 %, ≥ 3 named places, and CLS < 0.01.
