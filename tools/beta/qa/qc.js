@@ -994,12 +994,20 @@ async function componentStates(rel, vp) {
   ['hover', 'focus', 'pressed'].forEach(k => { if (ev[k] === false) fr.push(k + ' style identical to rest'); });
   if (ev.disabled && ev.disabled.focusable) fr.push('disabled pager control is focusable');
   await ctx.close();
-  // empty
-  const o1 = await open(rel, vp, { hash: '#q=zzqxjv' }); ev.empty = await o1.page.evaluate(new Function(`${P_VIS} const t = document.body.innerText; const m = /no (places|matches|results)[^\\n]{0,80}|nothing (matches|found)[^\\n]{0,80}/i.exec(t);
-    const host = [...document.querySelectorAll('.view-host, .g-rows, .pager, .ms-head, main')].find(vis);
-    return { said: host ? host.innerText.replace(/\\s+/g, ' ').slice(0, 160) : '', msg: m ? m[0].slice(0, 100) : null, action: [...document.querySelectorAll('button,a')].filter(vis).some(b => /show all|clear|reset/i.test(b.textContent)) };`));
-  if (!ev.empty.msg) fr.push('no empty-state message for q= with no match'); if (!ev.empty.action) fr.push('empty state offers no clear / show-all');
-  await o1.ctx.close();
+  // empty: every view, since each has its own empty state (Gallery [data-cleo-empty], Atlas .ms-head, Guidebook's summary
+  // line "0 of all N places match"). On a phone the Atlas says so in the peek tray and offers "Show the list" first: follow it.
+  ev.empty = {};
+  for (const v of ['gallery', 'atlas', 'guidebook']) {
+    const o1 = await open(rel, vp, { hash: '#view=' + v + '&q=zzqxjv' });
+    const probe = new Function(`${P_VIS} const t = document.body.innerText; const m = /no (places|matches|results)[^\\n]{0,80}|nothing (matches|found)[^\\n]{0,80}|\\b0 of (all )?\\d+ places? match[^\\n]{0,40}/i.exec(t);
+      const host = [...document.querySelectorAll('.view-host, .g-rows, .pager, .ms-head, main')].find(vis);
+      return { said: host ? host.innerText.replace(/\\s+/g, ' ').slice(0, 160) : '', msg: m ? m[0].slice(0, 100) : null, action: [...document.querySelectorAll('button,a')].filter(vis).some(b => /show all|clear|reset/i.test(b.textContent)) };`);
+    let e = await o1.page.evaluate(probe);
+    if (!e.action) { const s = o1.page.getByText(/show the list/i).first(); if (await s.isVisible().catch(() => false)) { await s.click(); await o1.page.waitForTimeout(800); e = { ...(await o1.page.evaluate(probe)), via: 'Show the list' }; } }
+    ev.empty[v] = e;
+    if (!e.msg) fr.push(v + ': no empty-state message for q= with no match'); if (!e.action) fr.push(v + ': empty state offers no clear / show-all');
+    await o1.ctx.close();
+  }
   // loading: delay the page JSON 2.5 s and look at Insights at 600 ms
   const o2 = await open(rel, vp, { hash: '#view=insights', settle: 600, route: async (route, u) => { if (/\/data\/places\//.test(u)) { await new Promise(r => setTimeout(r, 2500)); await route.continue().catch(() => {}); return true; } return false; } });
   ev.loading = await o2.page.evaluate(() => ({ busy: !!document.querySelector('[aria-busy=true]'), text: (/loading|counting|drawing|one moment/i.exec(document.body.innerText) || [null])[0] }));

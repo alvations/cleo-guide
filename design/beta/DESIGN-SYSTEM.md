@@ -169,6 +169,7 @@ Wrapping: headings and short hero lines use `text-wrap: balance`, deks and subti
 **Today:** under 640 px the four views collapse into one "View: Gallery ▾" control, so every switch takes two taps, and an open sheet covers it. `nav[data-cleo-views]` holds toggle buttons, so it has no valid group role (axe rejects `role=group` on `<nav>`).
 
 **Spec:**
+- **Order and default (D-46, 2026-10-16):** Atlas, Gallery, Guidebook, Insights. Atlas is the default view, so it's the pressed segment on a cold load. The labels stay as they are. "Gallery" keeps its name rather than "List", because phone Atlas already has a "Show list" peek, and two different things called "list" one tap apart would confuse readers. Gallery says what that view is: the photo-led grid.
 - **Markup:** `<div class="views" data-cleo-views role="group" aria-label="View">` holding four `<button type="button" data-view="…" aria-pressed="true|false">` (glyph + label).
   - The four are mutually exclusive toggles, not links, so a labelled group of pressed buttons is the right pattern; the `<nav>` element goes.
   - The base CSS (`views.css`, `v2.css`) now targets `.views[data-cleo-views]` whatever the element, so the swap needs no CSS change.
