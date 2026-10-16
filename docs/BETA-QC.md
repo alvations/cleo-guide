@@ -485,3 +485,17 @@ Clean worktree at `4aba38b3e15c83d40aafbed5f569aa30da5a074b`. Outputs are in `de
 - Verified 23.
 - Open 4: Med 2 (QC-04, 05), Low 2 (QC-13, 14). High 0.
 
+## Re-verify 2026-10-16 · e353df08 (FE-C claim for QC-05); harness P-17 follows D-43
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-05 | **verified** | QC probe on `#view={gallery,atlas}&q=zzqxjv`, 5 pilots × 390 / 1440, 20 cases. Every case shows "No places match “zzqxjv”", plus "Clear search" and "Show all N". The only pressed controls are the view (and the language); no "All N" chip stays pressed. "Clear search" removes `q=` and keeps the view. Evidence: `qc-05-empty-*.json`, `qc-05-empty-gallery-390.jpg`, `qc-05-empty-atlas-1440.jpg`. |
+
+**Harness:** P-17 now follows D-43 (ratified 2026-10-16). Records with no coordinate need "n without a verified pin";
+low-confidence pins need "n approximate pin(s)". Both counts come from the JSON. QC-04 is re-run with it when FE-C
+sends its SHA.
+
+**Register:**
+- Verified 24.
+- Open 3: Med 1 (QC-04), Low 2 (QC-13, 14). High 0.
+

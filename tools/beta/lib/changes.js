@@ -20,7 +20,8 @@ function pageChanges(recs) {
   const out = [], checked = {}, pins = {}, shut = new Set(recs.filter(r => r.closed).map(r => r.id));
   for (const r of recs) {
     const pv = r.pv || {}, c = day(pv.checked), v = day(pv.verified);
-    if (r.closed && c) out.push({ d: c, kind: 'closed', n: 1, id: r.id, name: baseName(r.n), note: pv.ss || null });
+    if (r.closed && c) out.push(Object.defineProperty({ d: c, kind: 'closed', n: 1, id: r.id, name: baseName(r.n), src: pv.ss || null },
+      'note', { value: pv.note || '', enumerable: false }));   // QC-25: the note is build-side only (RETIRING), never emitted
     if (c) (checked[c] = checked[c] || []).push(r.id);
     if (v) (pins[v] = pins[v] || []).push(r.id);
   }
@@ -33,7 +34,7 @@ function pageChanges(recs) {
 function entryOf(row, e) {
   const url = `${BETA_BASE}/${row.beta}`;
   if (e.kind === 'closed') return { id: `${row.key}/${e.d}/closed/${e.id}`, d: e.d, title: `${row.name}: ${e.name} has closed — kept for the record`,
-    link: `${url}#p=${e.id}`, text: e.note ? `Status source: ${e.note}` : 'Closed per the status check; the place stays in the guide, flagged.' };
+    link: `${url}#p=${e.id}`, text: 'Closed per the status check; the place stays in the guide, flagged.' + (e.src ? ` Status source: ${e.src}` : '') };
   if (e.kind === 'checked') return { id: `${row.key}/${e.d}/checked`, d: e.d, title: `${row.name}: open/closed status checked for ${e.n} place${e.n === 1 ? '' : 's'}`,
     link: url, text: `${e.n} place${e.n === 1 ? '' : 's'} re-checked against a real source on ${e.d}; ${e.closed} of them closed (kept, flagged).` };
   return { id: `${row.key}/${e.d}/pins`, d: e.d, title: `${row.name}: ${e.n} map pin${e.n === 1 ? '' : 's'} verified`, link: url,
