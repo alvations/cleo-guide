@@ -1979,6 +1979,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **QC-04:** already met by FE-C's D-43 hook in views.js ("1 approximate pin" on Cleveland, both viewports).
 - **R7-g4 (d):** the phone peek reads "351 places here · checked 2 Oct · Show list". The date is the earliest open/closed check across the guide's places, so it's true of every place.
 - **R7-g4 (e):** desktop Atlas has For you, Your day and Near me as quiet buttons in the list head (city.js handles them by attribute), so they're reachable without horizontal scroll at 1024 and 1440. "For you" opens its dialog.
+- **R7-g4 (b):** a pin or dot whose card is off the shown page brings that card into the list, in view and selected. It worked already; there's now a new atlas-ms check on 3 pages × 2 viewports, which passes when no place is off the page (small towns).
+- **R7-g4 (a):** each pin's hit box is already 44 px tall (the 32 px pill plus a 6 px transparent ::before above and below). The `<a>` marker element itself is 0 × 0 (Leaflet's divIcon with `iconSize: null`); probes should measure the pill.
+- **QC-14:** ran `design/beta/tools/snap-spacing.py` on atlas.css: 52 values snapped to the 4-pt scale, 109 turned into `var(--s-N)`. Checked at 390 and 1440.
+- Phone carousel cards align their content to the top whatever height the carousel grew to (a no-photo card had floated mid-card).
+- **Not mine, red on origin 6a93f81d too:** w2 `[dom]` "cities/tokyo.html desktop: initial DOM ≤ 3,000" reads 3,082. Atlas's share of the initial DOM is about 15 nodes (five map-glyph icons in the page sprite and one inline script). Reported.
 
 ## 2026-10-16 19:40Z · orchestrator check-in
 
