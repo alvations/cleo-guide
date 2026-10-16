@@ -110,7 +110,8 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     [...a.d.querySelectorAll('.leg')].every(l => /^\d[\d.]* k?m · (\d+ min|under 1 min) walk to stop \d/.test(l.textContent)));
   chk('the walking assumption is printed once', a.d.querySelectorAll('[data-tp-assume]').length === 1 && (a.d.getElementById('cleo-trip').textContent.match(/80 m a minute/g) || []).length === 1);
   const left = a.d.querySelector('.tp-left');
-  chk('the closed place is left out with its reason', !!left && /Unicorn Gundam[\s\S]*CLOSED[\s\S]*Closed — kept for the record, never planned \(checked/.test(left.textContent));
+  chk('the closed place is left out with its reason, a Closed chip, never the raw "— CLOSED" marker', !!left && /Unicorn Gundam[\s\S]*Closed — kept for the record, never planned \(checked/.test(left.textContent) &&
+    !!left.querySelector('.tp-closed') && left.querySelector('.tp-closed').textContent === 'Closed' && !/— CLOSED/.test(left.textContent));
   chk('places that did not fit are named with the reason', /Didn’t fit in 3 days/.test(left ? left.textContent : ''));
   chk('the unknown id is reported, not dropped', /no-such-place/.test((a.d.querySelector('.tp-gone') || {}).textContent || ''));
   chk('no closed place in any day', [...a.d.querySelectorAll('.tday')].every(s => !/CLOSED/.test(s.textContent)));
