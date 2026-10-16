@@ -57,14 +57,20 @@ Done this round:
 - `PANELIST-BRIEF.txt`;
 - real/R3 exists, shot on exactly this head (`real/R3/SHOT-SHA.txt`).
 
-Eight panelists were launched at about 14:45Z (Agent tool). Their agent ids are lost if the session stops.
+Eight panelists were launched at about 14:45Z (Agent tool). Agent ids (lost if the session stops): UX a891540831655c1a5,
+FE a990b3d740535eebd, Z1 a67e3560222c7cb11, Z2 a6b9f8b4b21ff139f, X1 a775c43a0279b5bfa, X2 a7c411538165ceef7,
+B1 a50eacd18cedf3ccb, B2 a37aa51d6b699d028.
+
+**Erratum issued** (about 15:00Z) to all eight: the 108 px inner-container layout shift after card focus or detail open.
+It is appended to `panel/R3/EVIDENCE.md`. Each panelist re-scores only affected rows and adds an "Erratum changes:" line.
+
+All eight returns are final and saved in `panel/R3/panelists/` (after the erratum): UX 79, FE 80.5, Z1 83, Z2 82,
+X1 83, X2 81, B1 74, B2 83. Next: write `PANEL-R3.md`, run the gates, push, send the results.
 
 If the session stops before every return is saved, re-run each missing panelist with:
-- the brief `panel/R3/PANELIST-BRIEF.txt`, copied to the scratchpad;
+- the brief `panel/R3/PANELIST-BRIEF.txt`, copied to the scratchpad, plus the erratum section of `EVIDENCE.md`;
 - its persona card;
 - `panel/R2/panelists/<id>.md`, whose last section is the "Prev".
-
-Returns saved so far, in `panel/R3/panelists/`: none.
 
 ## Notes
 
