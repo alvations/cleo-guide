@@ -27,15 +27,16 @@ fix FE-B surfaces, send FE-A / Atlas the rest with page + node.
 
 ## Next
 
-1. Tell Atlas FE-1 (session_01Cuvo7DWhwbWjLpFicvaF5E): on phone Atlas the switcher is parked LAST in the scrolling
-   .ms-bar chip row (atlas.js park(nav, bar, null); atlas.css .ms-bar>.views) — four segments can sit off-screen; it
-   should be its own row (Atlas files are off-limits to FE-B).
-2. B-04/B-20 sweep: read tools/beta/metrics.js (how to run one page), run per page in batches with the static server,
-   commit each batch JSON under design/beta/eval/w8/metrics-all/, then list failures.
+1. B-04/B-20 sweep: `tools/beta/feb-metrics-batch.sh 4` (resumable: skips pages whose JSON exists). Commit
+   design/beta/eval/w8/metrics-all/*.json in batches as they land.
+2. When all 180 pages are measured: list every page failing B-04 (rail on the first phone screen) or B-20 (taps < 44)
+   from the JSONs, fix FE-B surfaces, send FE-A / Atlas the rest with page + node.
+3. Atlas FE-1 has the phone-Atlas switcher placement (parked last in .ms-bar) — told 2026-10-16.
 
 ## In flight
 
-Nothing unpushed.
+The metrics sweep runs in the background (about 40 s per page, 4 in parallel); JSONs land per page and are committed in
+batches. If stopped, re-run step 1: done pages are skipped.
 
 ## Notes
 
