@@ -244,6 +244,16 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const r = row('Park Pavilion Grill'); assert.strictEqual(r.outcome, 'pin'); assert.strictEqual(r.proposal.kind, 'osm-poi');
     assert.strictEqual(r.proposal.grade, 'med'); assert.strictEqual(r.assist.verdict, 'hold');
   });
+  await t('circuit breaker: a dead official host is skipped after 2 failures; core hosts are never skipped', async () => {
+    const http = new LV.Http({ cacheDir: null, maxRequests: 100 });
+    const realFetch = global.fetch; let calls = 0;
+    global.fetch = async () => { calls++; const e = new Error('x'); e.cause = { code: 'ETIMEDOUT' }; throw e; };
+    try {
+      for (let i = 0; i < 5; i++) await http.request('https://dead.example/x' + i);
+      assert.strictEqual(calls, 2, 'only two real attempts');
+      const r = await http.request('https://dead.example/y'); assert.ok(/skipped after repeated failures/.test(r.error));
+    } finally { global.fetch = realFetch; }
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });

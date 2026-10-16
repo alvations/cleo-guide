@@ -23,3 +23,11 @@ container, a new session) with little loss. The orchestrator's checkpoint is [`.
 7. **Nothing you need lives only in a scratchpad.** Any script you rely on to continue goes under `tools/`, committed:
    push/sync scripts, generators, candidate lists, probes, review helpers. Scratchpads and containers can vanish during
    a stop. Imagery found its manifest generator scratchpad-only and committed it (`tools/beta/imagery/manifest/`).
+8. **When origin moves faster than your full gate** (it takes a push every 1–2 min, and the full gate about 10):
+   1. run the full gate on your own commit;
+   2. merge origin;
+   3. if the merge conflicts only in generated `beta/` files, regenerate with `npm run beta`;
+   4. run the fast gate (validate + beta:check), then push and verify;
+   5. run the full gate again on the pushed head at once, and fix forward immediately if it's red.
+
+   A source-file conflict is resolved by hand, never by a script. Atlas FE-2 used this pattern for 537cfb8c.

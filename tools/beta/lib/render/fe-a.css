@@ -178,7 +178,7 @@ html main[data-city] .spill input#cleo-filter{border-radius:0;height:auto;flex:1
 /* the switcher: an understated segmented control (desktop) — the page's own nav, no longer pinned into the site bar */
 html main[data-city] nav.views[data-cleo-views]{position:relative;top:auto;right:auto;flex:none;display:flex;gap:2px;margin:0;width:auto;max-width:none;padding:3px;background:transparent;border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:none;z-index:46}
 html main[data-city] nav.views[data-cleo-views][hidden]{display:none}
-html main[data-city] nav.views[data-cleo-views] button{flex:0 0 auto;min-height:40px;padding:0 14px;gap:7px;border-radius:var(--r-pill);background:transparent;color:var(--ink-2);font:500 var(--fs-sm)/1 var(--font-ui);box-shadow:none}
+html main[data-city] nav.views[data-cleo-views] button{flex:0 0 auto;min-height:44px;padding:0 14px;gap:7px;border-radius:var(--r-pill);background:transparent;color:var(--ink-2);font:500 var(--fs-sm)/1 var(--font-ui);box-shadow:none}
 html main[data-city] nav.views[data-cleo-views] button:hover{color:var(--ink);background:var(--sand)}
 html main[data-city] nav.views[data-cleo-views] button[aria-pressed=true]{background:var(--ink);color:var(--paper);font-weight:600}
 html main[data-city] nav.views[data-cleo-views] button[aria-pressed=true] .ico{color:inherit}

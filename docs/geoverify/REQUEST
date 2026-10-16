@@ -1,6 +1,6 @@
-city=orlando-fl
+city=chicago-il
 scope=unverified,low,status
 limit=0
 nominatim_max=300
 commit=true
-# re-run + commit: Overpass timeout fix, name-only Nominatim fallback for descriptive addresses
+# commit run (dry run was clean: pass 52, review 8, hold 18, reject 44)
