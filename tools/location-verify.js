@@ -454,6 +454,27 @@ function cityAnchor(entries) {
   return { lat, lng, radiusM: Math.min(150000, Math.max(25000, Math.round(p95 * 1.5))) };
 }
 
+/** Country-ish token of a free-text address: its last part, postcode stripped ("Singapore 229495", "S555945" → singapore). */
+function regionOf(address) {
+  const parts = String(address || '').split(',').map(x => x.trim()).filter(Boolean);
+  let last = (parts[parts.length - 1] || '').replace(/\b[A-Z]?\d{4,6}\b/g, '').trim().toLowerCase();
+  if (!last || /^s$/.test(last)) last = 'singapore';
+  return stripDiacritics(last);
+}
+/**
+ * One anchor per region for keys that span several countries (the 'singapore' key covers SE Asia); a single-region
+ * city keeps one anchor. A region needs ≥ 5 high pins of its own, else the row falls back to the city anchor.
+ */
+function regionAnchors(entries) {
+  const by = {};
+  for (const e of Object.values(entries)) { const r = regionOf(e.address); (by[r] = by[r] || {})[Object.keys(by[r]).length] = e; }
+  const out = {};
+  for (const [r, es] of Object.entries(by)) {
+    const highs = Object.values(es).filter(e => e && e.lat != null && String(e.confidence).toLowerCase() === 'high');
+    if (highs.length >= 5) out[r] = cityAnchor(Object.fromEntries(highs.map((e, i) => [i, e])));
+  }
+  return Object.keys(out).length >= 2 ? out : null;
+}
 function isUnverified(e) { return !e || e.lat == null || e.lng == null || String(e.source || '').toUpperCase() === 'UNVERIFIED'; }
 function statusUnchecked(e) { return !e || !['open', 'closed'].includes(e.status) || !String(e.statusSource || '').trim(); }
 
@@ -507,6 +528,7 @@ class Http {
   async request(url, { method = 'GET', body = null, accept = 'application/json', host, headers: extra = null } = {}) {
     const h = host || new URL(url).host;
     if (this.fixtures) {
+      if (h === 'nominatim.openstreetmap.org' && this.nomCount >= this.nomMax) return { status: 0, body: '', error: 'nominatim budget exhausted', budget: true };
       const f = matchFixture(this.fixtures, method, url, body);
       this.count++; if (h === 'nominatim.openstreetmap.org') this.nomCount++;
       if (!f) return { status: 599, body: '', retrieved: this.today, error: 'not in fixtures' };
@@ -838,13 +860,14 @@ async function run(opts) {
   const entries = (reg.cities || {})[opts.city];
   if (!entries) throw Object.assign(new Error(`unknown city key "${opts.city}" (keys: ${Object.keys(reg.cities || {}).join(', ')})`), { code: 1 });
   const anchor = cityAnchor(entries);
+  const regional = regionAnchors(entries);
   let rows = Object.entries(entries).map(([name, e]) => ({ name, e, why: opts.names ? (opts.names.includes(name) ? ['recheck'] : []) : scopeReasons(e, opts.scope) })).filter(r => r.why.length);
   if (opts.names) { const miss = opts.names.filter(n => !entries[n]); if (miss.length) throw Object.assign(new Error(`--names not in ${opts.city}: ${miss.join(' | ')}`), { code: 1 }); }
   const inScope = rows.length;
   if (opts.limit) rows = rows.slice(0, opts.limit);
   const sources = new Set(opts.sources);
   const meta = { tool: `tools/location-verify.js ${VERSION}`, city: opts.city, generated: today, scope: opts.scope, sources: [...sources],
-    rowsInScope: inScope, rowsChecked: rows.length, anchor, mode: opts.mode, userAgent: UA,
+    rowsInScope: inScope, rowsChecked: rows.length, anchor, regionalAnchors: regional ? Object.keys(regional) : null, mode: opts.mode, userAgent: UA,
     rule: 'PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).' };
   const report = { meta, summary: {}, rows: [] };
 
@@ -869,7 +892,12 @@ async function run(opts) {
   for (const r of rows) {
     const place = { name: r.name, address: r.e.address, current: pickCurrent(r.e) };
     if (http.count >= http.max) { checked.push({ r, place, skipped: 'request budget exhausted (rerun resumes from cache)' }); continue; }
-    const res = await checkRow(http, place, anchor, sources, ctx);
+    const rowAnchor = (regional && regional[regionOf(r.e.address)]) || anchor;
+    const nom0 = http.nomCount;
+    const res = await checkRow(http, place, rowAnchor, sources, ctx);
+    // A row that wanted Nominatim but hit the per-run cap is SKIPPED (a rerun resumes it), never reported as no-match.
+    if (sources.has('nominatim') && http.nomMax != null && http.nomCount >= http.nomMax && nom0 >= http.nomMax
+        && !res.graded.some(c => c.grade === 'high')) { checked.push({ r, place, skipped: 'Nominatim budget for this run reached (rerun resumes from cache)' }); continue; }
     checked.push({ r, place, res });
   }
   // Overpass: lifecycle tags near each row's point (current pin, or the proposed one), batched 20 per query.
@@ -1320,4 +1348,4 @@ if (require.main === module) {
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, findDuplicates, recheckVerdict, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, regionOf, regionAnchors, findDuplicates, recheckVerdict, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
