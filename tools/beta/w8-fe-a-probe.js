@@ -311,6 +311,18 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     ok(cr2 === 'United States', 'QA-73 @1440: the desktop crumb keeps the full name', cr2);
     await c2.close();
   }
+  console.log('# designer nit: a tap opens the detail with focus on the dialog (no ring); a keyboard open focuses ✕');
+  for (const w of [390, 1440]) {
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1300);
+    await page.locator('li.pl .pl-n a').first().scrollIntoViewIfNeeded(); await page.locator('li.pl .pl-n a').first().click(); await page.waitForTimeout(700);
+    const t = await page.evaluate(() => { const a = document.activeElement; return { sheet: !!a && a.matches('#cleo-sheet .sheet'), ring: !!a && (a.matches(':focus-visible') && getComputedStyle(a).outlineStyle !== 'none') }; });
+    await page.keyboard.press('Tab'); const inside = await page.evaluate(() => document.getElementById('cleo-sheet').contains(document.activeElement));
+    await page.keyboard.press('Escape'); await page.waitForTimeout(500);
+    await page.evaluate(() => { const a = document.querySelectorAll('li.pl .pl-n a')[1]; a.scrollIntoView({ block: 'center' }); a.focus(); }); await page.keyboard.press('Enter'); await page.waitForTimeout(700);
+    const k = await page.evaluate(() => { const a = document.activeElement; return a ? a.getAttribute('data-sh') : null; });
+    ok(t.sheet && !t.ring && inside && k === 'x', `@${w}: tap → the dialog has focus with no ring, Tab stays inside; Enter → ✕`, [t, inside, k]);
+    await ctx.close();
+  }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
   process.exit(fails ? 1 : 0);

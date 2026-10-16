@@ -1148,3 +1148,44 @@ Open High/Blocker: **0**.
 **Why NO:** QA-70 and QA-71 regress rows that were ✅ on be74c82f.
 
 QA sign-off: NO
+
+## 2026-10-16 · QA · R7 delta re-sign on 3ba696e8 · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `3ba696e8743112fcc5407e05e5daf6b3184caad4`**, in a clean worktree. Using `merge-base --is-ancestor`, QA checked that it contains 2bfff3fe (QC-01), 69ca3690 (QA-69), fd54b823 (QA-71), a7b4a980 (QA-70), 1538974d and dd8331cd (PERF-08), df4382d2 (PERF-06) and dcdc6f87a (the FE-B `views.js` change).
+
+Gates:
+- validate ✅.
+- `npm test` ✅: ALL SUITES PASS, 730 PASS.
+- `beta:check` ✅: 180 pages, 8,702 places, beta == live.
+
+Evidence is in `design/beta/eval/w7/qa/resign-3ba696e8/`.
+
+**Harness edits by other lanes, read and accepted:**
+- `test-honesty.js` (D-42): the two allowed sentences are replaced by their exact new wording. That is still exact-sentence only.
+- `views.js` honesty (FE-B, f21538c81): record prose is stripped longest first, as `test-honesty.js` already does. The data set, the threshold and HONESTY are unchanged.
+- `feb-switcher.js` (FE-B, 96c94c42e): waits for `getAnimations()` to settle (2 s cap) and keeps a reduced-motion control run.
+
+**QA probe fix (ratified here):** `metrics.js` B-07 now polls up to 3 s for the first map marker after the toggle, where it used to take one look at +900 ms. In isolation, both be74c82f and the pin draw their first pin 0.9–1.5 s after the tap, so the single look passed or failed on timing. The reachability rule, the bubble zoom-in and both paths are unchanged.
+
+| Re-sign row | Result |
+|---|---|
+| QA-70: time to first pin (page-eval, 390, median of 3, run alone, interleaved) | ✅ Tokyo 2,237 ms (be74c82f 2,291; 530dc83b 3,701); New York 2,439 (2,467; 3,860) |
+| QA-71: carousel swipe after the round trip | ✅ 5/5 (`w7.js` atlasm) |
+| Gallery B-07, A/B on the same probe, 2 runs each, alone | ✅ pin 5/5 and 5/5. be74c82f fails "toggle none" on 4/5 in both runs (its own QA-69), so the pin is no worse than the baseline |
+| G1 | ✅ Gallery 5/5, Atlas 5/5; reach 8/8 |
+| B-02 / B-04 / B-05 / B-08 / B-20 / B-23 (Gallery pilots, 2 runs) | ✅ (Atlas B-04 "no rail" by design, D-36) |
+| `w7.js` atlasd, atlasm, detail, nocdn | ✅ except QA-67 (Low, known) |
+| `w7-photos.js` | ✅ 13/13 |
+| PERF-08 (a)–(h) in npm test | ✅ |
+| **No regression** | ❌ **QC-26**, **QA-75**, **QA-76** (below) |
+
+**Regressions against be74c82f (each probe run on be74c82f too):**
+- **QC-26** (Atlas FE-2): a cold Atlas deep link to a place in the page's first area. The sheet reads "1 of 488" (Tokyo CYD) and "4 of 194" (Cleveland DT); be74c82f and 530dc83b read "1 of 43" and "4 of 42". Log: `qc26-ab.log`.
+- **QA-75** (platform, PERF-08): `#view=gallery|atlas&t=1` with a remembered Guidebook or Insights view shows every place (Cleveland 180 for 47; Tokyo 481 for 177). The Cleveland subset of views.js links bisects to 1538974d.
+- **QA-76** (platform + Atlas FE-2, PERF-08): on an Atlas lens deep link, the early "Show all 158" shows "Showing all 382 places". `w7.js` lens fails 33 of 114 cases in 2 of 2 runs; it bisects to 1538974d.
+
+Open High/Blocker: **0**.
+
+**Why NO:** QC-26, QA-75 and QA-76 regress rows that were ✅ on be74c82f.
+
+QA sign-off: NO

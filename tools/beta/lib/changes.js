@@ -1,4 +1,6 @@
 'use strict';
+/** W9-2: a closure note that announces a retirement or a planned last day ("owners retired", "set to close", "last day …"). */
+const RETIRING = /retir|set to close|\bto close\b|closing (?:after|end|on|in|at|permanently)|last day/i;
 /**
  * changes.js — "What changed" (ROUND-2 gap #9, M3-07) from the dated provenance already in the data: every closure
  * (status check date + the source that says it closed), and every day the guide re-checked places' status or
@@ -73,7 +75,9 @@ function build(cityRows, emit) {
     const inM = r.changes.filter(e => e.d.slice(0, 7) === month);
     summary[i].changesPage = `changes/${r.fileKey}.html`;
     summary[i].month = { checked: inM.filter(e => e.kind === 'checked').reduce((t, e) => t + e.n, 0),
-      closed: inM.filter(e => e.kind === 'closed').length, pins: inM.filter(e => e.kind === 'pins').reduce((t, e) => t + e.n, 0) };
+      closed: inM.filter(e => e.kind === 'closed').length, pins: inM.filter(e => e.kind === 'pins').reduce((t, e) => t + e.n, 0),
+      // W9-2 acc2: of those closures, the ones whose sourced note announces a retirement or a planned last day (data only)
+      retiring: inM.filter(e => e.kind === 'closed' && RETIRING.test(e.note || '')).length };
   }
   summary.month = month;
   site.sort((x, y) => (x.d < y.d ? 1 : x.d > y.d ? -1 : 0) || (x.id < y.id ? -1 : 1));
@@ -81,4 +85,4 @@ function build(cityRows, emit) {
   return summary;
 }
 
-module.exports = { pageChanges, build, atom };
+module.exports = { RETIRING, pageChanges, build, atom };
