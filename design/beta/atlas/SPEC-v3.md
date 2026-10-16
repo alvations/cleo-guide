@@ -34,7 +34,12 @@ This brings back the live map-centred guide's calm. That guide has one big map, 
 | Level | What | Drawn as | DOM cost |
 |---|---|---|---|
 | **Featured pin** | The best places in view (§1.3), up to **N = 16 desktop / 8 phone** (prototype: Tokyo 16 / 8). 24 read as busy in review, so the count was lowered. | A **labelled pill**: one kind glyph + the short name (§1.2) | One divIcon each, so ≤ 16 nodes |
-| **Place dot** | Every other place in view | A **7 px marker** in **one quiet neutral**, with a thin surface halo. **Kind by shape** (R1 #4; R2 #6, where 3 px squares beside 3.5 px circles couldn't be told apart at 390): a sight is a **7 px circle** (`--ink` at 30 %); eat & drink is an **8 px square** with a 1 px radius (`--ink` at 72 %). That makes it light-round versus dark-square, distinguishable by eye at 390, which is rev 5's fix after R3's sign-off check failed. Both carry a 1.5 px surface halo. The sizes are diameters and side lengths, the same on every viewport, never radii. In dark mode the alphas are 45 % / 80 % (rev 5a: at 30 % / 50 % the real dark canvas swallowed the circle fill, about 1.2:1, so sights read as rings); measured on the real tile, a dark circle is ≥ 2:1 against the canvas and a square ≥ 4.5:1. **No tier colour on dots** (rev 5, R3 #4): must-sees are 36 % of places, so sun-coloured dots turned the light map into confetti and singled out nothing. All dots are neutral. A **closed** dot is hollow with a 1.5 px diagonal slash, so "closed" is an icon at every zoom, not only a shade (R0 #7). **There is no third dot state** (D-43 declined): a low-confidence pin (`pv.pin` 'low') draws like any other dot, because an outlined dot can't be told from the slashed closed dot at 7 px. Its honesty lives in words instead: the card, preview and detail say "Approximate pin" (the shared catalogue string), and the data lane's re-verify pass (CLAUDE.md 4b) upgrades or drops the pin. Canvas `tolerance: 19` gives every dot a 44 px hit circle (R0 #5). **No number and no area colours.** Area colour returns only when an area filter is active, and in the Key. | **Zero**: one shared canvas layer (`L.canvas()` circleMarkers) |
+| **Place dot** | Every other place in view | A **7 px marker** in **one quiet neutral**, with a thin surface halo. **Kind by shape** (R1 #4; R2 #6, where 3 px squares beside 3.5 px circles couldn't be told apart at 390): a sight is a **7 px circle** (`--ink` at 30 %); eat & drink is an **8 px square** with a 1 px radius (`--ink` at 72 %). That makes it light-round versus dark-square, distinguishable by eye at 390, which is rev 5's fix after R3's sign-off check failed. Both carry a 1.5 px surface halo. The sizes are diameters and side lengths, the same on every viewport, never radii. In dark mode the alphas are 45 % / 80 % (rev 5a: at 30 % / 50 % the real dark canvas swallowed the circle fill, about 1.2:1, so sights read as rings); measured on the real tile, a dark circle is ≥ 2:1 against the canvas and a square ≥ 4.5:1. **No tier colour on dots** (rev 5, R3 #4): must-sees are 36 % of places, so sun-coloured dots turned the light map into confetti and singled out nothing. All dots are neutral. A **closed** dot is hollow with a 1.5 px diagonal slash, so "closed" is an icon at every zoom, not only a shade (R0 #7). **Approximate pins draw differently (D-43, re-ruled after R8).** R8 found 235 low-confidence pins (`pv.pin` 'low') drawn exactly like exact ones and counted it against Atlas (gap #4e). The earlier objection still stands: an *outline* would read as the slashed, hollow closed dot at 7 px. So the cue uses a different visual channel, *area*:
+  - the dot or pill anchor draws as normal, on a **soft uncertainty halo**: a 20 px disc in `--ink` at 10 % (light) / 16 % (dark), with no stroke, under the dot's surface halo;
+  - it reads as "around here". Filled plus a soft disc never collides with closed (hollow plus a slash);
+  - the Key gets a swatch labelled "Approximate pin";
+  - the card, preview and detail keep the "Approximate pin" line (the shared catalogue string);
+  - the data lane's re-verify pass (CLAUDE.md 4b) still upgrades or drops each one, and a pin that becomes exact loses its halo. Canvas `tolerance: 19` gives every dot a 44 px hit circle (R0 #5). **No number and no area colours.** Area colour returns only when an area filter is active, and in the Key. | **Zero**: one shared canvas layer (`L.canvas()` circleMarkers) |
 | **Density disc** (replaces clusters) | Only where dots would overlap into a blob: more than 12 dots inside 28 px, which in practice means region zoom (≤ 11) | A soft **`--sand` disc at 80 % opacity** with a 1 px `--line` ring, sized by count (24 / 32 / 40 px) and **no number**. It reads as "lots here". | Canvas, zero nodes |
 
 - **No count bubbles and no rank numbers on the map, at any zoom.**
@@ -378,6 +383,22 @@ B-01a (≥ 75 % at P1 at rest, chrome only) stays ratified. Rev 5a meets it at 7
 - While Atlas is open, the URL carries the view: `#view=atlas&c=<lat>,<lng>,<zoom>` (5 decimals, zoom to 0.1), updated with `history.replaceState` on `moveend`, so it never adds history entries. A selected place adds `&p=<id>`.
 - Opening such a URL lands within 1 px and 0.1 zoom of where it was copied, and that wins over the stored session view.
 - **The share toast says what the link restores**, and nothing more: "Link copied · opens this map view", or "Link copied · opens Sensō-ji" when a place is selected.
+
+### 3.7 Map motion (R8 gap #3): two moments, ≤ 300 ms, none under reduced motion
+
+R8 scored motion 80 because the map has none: pin → preview and card ↔ pin hover are instant. There are exactly two moments, both started by the reader. No autoplay and no loops.
+
+**1. Selection grows into its card.**
+- **Desktop:** the preview card enters *from the pin*. `transform-origin` is the pin's point relative to the card. It goes from `scale(.94)` at opacity 0 to `scale(1)` at opacity 1 in `--dur-2` (200 ms), `--ease-out`. At the same time the pin turns selected, with a 120 ms (`--dur-1`) colour and shadow transition. Closing is a 120 ms fade, with no scale.
+- **Phone:** the carousel card lifts in from `translateY(12px)` at opacity 0 to rest in 200 ms, `--ease-out`, the first time it appears. Swiping between cards uses native scroll-snap only. The selected pin turns as on desktop.
+- A programmatic pan to the selection (`panTo`) lasts ≤ 300 ms.
+
+**2. Card ↔ pin hover is one short transition** (desktop, and keyboard focus everywhere):
+- Hovering or focusing a list card moves its pin to the hover style in 120 ms and raises it. For a canvas dot, the dot's diameter eases from 7 to 11 px over 120 ms (at most 8 rAF redraws of that one dot).
+- Hovering a pin or dot draws `--ring-select` on its card in 120 ms (a `box-shadow` transition).
+- Leaving reverses it in 120 ms.
+
+**Reduced motion:** every state change above is instant. `panTo` and `flyTo` use `animate: false`. **Acceptance:** with `prefers-reduced-motion: reduce`, `document.getAnimations().length === 0` after a select, a hover and a close, at 390 and 1440. Without it, each moment lasts ≤ 300 ms (`motion-probe.js`). Only `transform`, `opacity`, `box-shadow` and `color` animate, so there's no layout shift.
 
 ### 3.6 Rank context in the detail (R0 #14)
 
