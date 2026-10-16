@@ -465,3 +465,13 @@ Clean worktree at `4aba38b3e15c83d40aafbed5f569aa30da5a074b`. Outputs are in `de
 - Verified 21: QC-01–03, 06–12, 15–24, 26.
 - Open 6: Med 2 (QC-04, 05), Low 4 (QC-13, 14, 25, 27). High 0.
 
+## Re-verify 2026-10-16 · 9fba196e (i18n claim for QC-27)
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-27 | **verified** | The catalogue has 0 strings with 評価 other than 星評価. Tokyo and Cleveland `?lang=ja` (Gallery and Insights): How we choose reads 「各エリアでは、ランク順、…」; the tray reads 「ランク — エリアごとにランク付け」 and 「ガイドの順(ランク、次に出典数)」; no rendered 評価 outside 星評価. `design/beta/eval/qc/9fba196e/qc-27-ja-tier.json`. |
+
+**Register:**
+- Verified 22.
+- Open 5: Med 2 (QC-04, 05), Low 3 (QC-13, 14, 25). High 0.
+
