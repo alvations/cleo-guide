@@ -1,0 +1,245 @@
+diff --git a/tools/beta/client/trip.js b/tools/beta/client/trip.js
+index eecb0e4ab..7d18cffa3 100644
+--- a/tools/beta/client/trip.js
++++ b/tools/beta/client/trip.js
+@@ -10,10 +10,8 @@
+   'use strict';
+   var Cleo = window.Cleo = window.Cleo || {}, d = document;
+   var MAXD = 7, PER = 6;
+-  var TIER = ['', 'Must see', 'Worth the detour', 'Deep cut'];
+   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+   var km = function (a, b) { return Cleo.geo.km(a, b); };
+-  var pl = function (n, w, ws) { return n + ' ' + (n === 1 ? w : ws || w + 's'); };
+ 
+   /* ---------------------------------------------------------------- planning (pure; no DOM)
+    * An item: {ref, key, id, a, ll:[lat,lng]|null, closed, t, rank, unknown}. */
+@@ -95,12 +93,20 @@
+   Cleo.trip = { plan: plan, nearest: nearest, encode: encode, decode: decode, MAXD: MAXD, PER: PER };
+ 
+   /* ---------------------------------------------------------------- the page (beta/trip.html) */
++  // i18n (D-41): every interface string goes through Cleo.t (head snippet; English until a catalogue loads, keys in en.json)
++  if (!Cleo.t) Cleo.t = function (k, e, v) { return v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
++  var N = {
++    day: function (n) { return n === 1 ? Cleo.t('trip.n.day.one', '{n} day', { n: n }) : Cleo.t('trip.n.day', '{n} days', { n: n }); },
++    place: function (n) { return n === 1 ? Cleo.t('trip.n.place.one', '{n} place', { n: n }) : Cleo.t('hub.places', '{n} places', { n: n }); },
++    stop: function (n) { return n === 1 ? Cleo.t('trip.n.stop.one', '{n} stop', { n: n }) : Cleo.t('trip.n.stop', '{n} stops', { n: n }); }
++  };
++  var tier = function (t) { return t === 1 ? Cleo.t('tier.1', 'Must see') : t === 2 ? Cleo.t('tier.2', 'Worth the detour') : t === 3 ? Cleo.t('tier.3', 'Deep cut') : ''; };
+   var box = d.getElementById('cleo-trip');
+   if (!box || !Cleo.store || !Cleo.listCodec || !Cleo.geo || !Cleo.geo.walk) return;
+   var st = Cleo.store, data = {};
+   var pg = function (r) { return r.slice(0, r.lastIndexOf('/')); }, idOf = function (r) { return r.slice(r.lastIndexOf('/') + 1); };
+   var toast = function (m) { var el = d.createElement('p'); el.className = 'toast'; el.setAttribute('role', 'status'); el.textContent = m; d.body.appendChild(el); setTimeout(function () { el.remove(); }, 2600); };
+-  d.addEventListener('cleo:toast', function (e) { toast(e.detail === 'Link copied' ? 'Link copied — it reopens this exact trip.' : String(e.detail)); });
++  d.addEventListener('cleo:toast', function (e) { toast(e.detail === 'Link copied' ? Cleo.t('trip.copied', 'Link copied — it reopens this exact trip.') : String(e.detail)); });
+ 
+   function load(keys) {
+     return Promise.all(keys.map(function (k) {
+@@ -126,26 +132,27 @@
+   var label = function (p) { var nat = p.nat && p.n.slice(-p.nat.length - 2) === '(' + p.nat + ')' ? p.nat : ''; return nat ? p.n.slice(0, -nat.length - 2).trim() : p.n; };
+   function firstSource(x) {
+     var D = data[x.key], s = (x.p.src || []).filter(function (k) { return k !== 'guide'; });
+-    if (!s.length) return 'Added by the guide (general knowledge)';
+-    return 'Recommended by ' + (D.src[s[0]] || s[0]) + (s.length > 1 ? ' + ' + (s.length - 1) + ' more' : '');
++    if (!s.length) return Cleo.t('city.card.added', 'Added by the guide (general knowledge)');
++    return s.length > 1 ? Cleo.t('src.recby.more', 'Recommended by {src} + {n} more', { src: D.src[s[0]] || s[0], n: s.length - 1 }) : Cleo.t('card.recby', 'Recommended by') + ' ' + (D.src[s[0]] || s[0]);
+   }
+   function reason(l, asked) {
+     var p = l.x.p || {}, pv = p.pv || {};
+-    if (l.why === 'closed') return 'Closed — kept for the record, never planned' + (pv.checked ? ' (checked ' + pv.checked + ')' : '') + (pv.ss ? '. Source: ' + pv.ss : '');
+-    if (l.why === 'nopin') return 'No verified pin, so it can’t be put in walking order';
+-    if (l.why === 'fit') return 'Didn’t fit in ' + pl(asked, 'day') + ' — choose more days to include it';
+-    return 'No longer listed in a guide';
++    if (l.why === 'closed') return (pv.checked ? Cleo.t('trip.why.closed.at', 'Closed — kept for the record, never planned (checked {date})', { date: pv.checked }) : Cleo.t('trip.why.closed', 'Closed — kept for the record, never planned')) +
++      (pv.ss ? ' ' + Cleo.t('trip.why.source', 'Source: {src}', { src: pv.ss }) : '');
++    if (l.why === 'nopin') return Cleo.t('trip.why.nopin', 'No verified pin, so it can’t be put in walking order');
++    if (l.why === 'fit') return Cleo.t('trip.why.fit', 'Didn’t fit in {days} — choose more days to include it', { days: N.day(asked) });
++    return Cleo.t('trip.why.gone', 'No longer listed in a guide');
+   }
+ 
+   // where the places come from: #from=all|been|<list id> · #list=<codec>&n= (a shared list) · #g=<guide>&c=<collection>
+   function source(r) {
+     var s = Cleo.saved ? Cleo.saved.all() : {}, ls = st.get('lists', []); if (!Array.isArray(ls)) ls = [];
+-    if (r.list) return { name: r.n || 'A shared list', refs: codec().decode(r.list) };
++    if (r.list) return { name: r.n || Cleo.t('trip.shared', 'A shared list'), refs: codec().decode(r.list) };
+     if (r.g && r.c) return { name: null, refs: null, g: r.g, c: r.c };
+-    if (r.from === 'been') { var b = st.get('been', {}); return { name: 'Been there', refs: Object.keys(b && typeof b === 'object' ? b : {}) }; }
++    if (r.from === 'been') { var b = st.get('been', {}); return { name: Cleo.t('city.been', 'Been there'), refs: Object.keys(b && typeof b === 'object' ? b : {}) }; }
+     var l = ls.filter(function (x) { return x && x.id === r.from && Array.isArray(x.r); })[0];
+     if (l) return { name: l.n, refs: l.r.slice() };
+-    if (r.from === 'all') return { name: 'All saved', refs: Object.keys(s).sort(function (x, y) { return ((s[y] || {}).t || 0) - ((s[x] || {}).t || 0); }) };
++    if (r.from === 'all') return { name: Cleo.t('trip.all', 'All saved'), refs: Object.keys(s).sort(function (x, y) { return ((s[y] || {}).t || 0) - ((s[x] || {}).t || 0); }) };
+     return null;
+   }
+   var trips = function () { var t = st.get('trips', []); return Array.isArray(t) ? t.filter(function (x) { return x && x.v; }) : []; };
+@@ -165,42 +172,43 @@
+   function home() {
+     var s = Cleo.saved ? Cleo.saved.all() : {}, n = Object.keys(s).length, ls = st.get('lists', []), tr = trips();
+     if (!Array.isArray(ls)) ls = [];
+-    var opts = [['all', 'All saved', n]].concat(ls.filter(function (l) { return l && l.id && Array.isArray(l.r); }).map(function (l) { return [l.id, l.n, l.r.length]; }));
+-    box.innerHTML = '<header class="tp-head"><span class="eyebrow">Trips</span><h1 id="tp-h" class="d1">Make a trip</h1>' +
+-      '<p class="lede">Turn places you saved into a plan of several days: one area a day, at most six stops, nearest next. Closed places never go in, and the trip says why each place was left out.</p></header>' +
+-      (n ? '<section class="tp-from" aria-labelledby="tp-from-h"><h2 id="tp-from-h">Start from</h2><ul class="tp-pick">' + opts.map(function (o) {
+-        return '<li><a class="btn btn-ghost" href="#from=' + encodeURIComponent(o[0]) + '"' + (o[2] ? '' : ' aria-disabled="true"') + '>' + esc(o[1]) + ' <span class="n">' + pl(o[2], 'place') + '</span></a></li>';
++    var opts = [['all', Cleo.t('trip.all', 'All saved'), n]].concat(ls.filter(function (l) { return l && l.id && Array.isArray(l.r); }).map(function (l) { return [l.id, l.n, l.r.length]; }));
++    box.innerHTML = '<header class="tp-head"><span class="eyebrow">' + esc(Cleo.t('trip.eyebrow', 'Trips')) + '</span><h1 id="tp-h" class="d1">' + esc(Cleo.t('trip.make', 'Make a trip')) + '</h1>' +
++      '<p class="lede">' + esc(Cleo.t('trip.lede', 'Turn places you saved into a plan of several days: one area a day, at most six stops, nearest next. Closed places never go in, and the trip says why each place was left out.')) + '</p></header>' +
++      (n ? '<section class="tp-from" aria-labelledby="tp-from-h"><h2 id="tp-from-h">' + esc(Cleo.t('trip.from', 'Start from')) + '</h2><ul class="tp-pick">' + opts.map(function (o) {
++        return '<li><a class="btn btn-ghost" href="#from=' + encodeURIComponent(o[0]) + '"' + (o[2] ? '' : ' aria-disabled="true"') + '>' + esc(o[1]) + ' <span class="n">' + esc(N.place(o[2])) + '</span></a></li>';
+       }).join('') + '</ul></section>'
+-        : '<section class="sv-empty"><h2>Nothing saved yet</h2><p>Save places in any guide, then come back to make them a trip. A guide’s own collections work too, from their “Make a trip” link.</p><a class="btn btn-primary" href="index.html">Browse the guides</a></section>') +
+-      (tr.length ? '<section class="tp-mine" aria-labelledby="tp-mine-h"><h2 id="tp-mine-h">Your trips on this device</h2><ul>' + tr.map(function (t, i) {
+-        return '<li><a href="' + esc(tripHref(t.v, t.n)) + '">' + esc(t.n || 'A trip') + '</a> <button type="button" class="btn btn-quiet" data-tp="forget" data-i="' + i + '" aria-label="Forget ' + esc(t.n || 'this trip') + '">Forget</button></li>';
++        : '<section class="sv-empty"><h2>' + esc(Cleo.t('trip.empty.h', 'Nothing saved yet')) + '</h2><p>' + esc(Cleo.t('trip.empty.p', 'Save places in any guide, then come back to make them a trip. A guide’s own collections work too, from their “Make a trip” link.')) + '</p><a class="btn btn-primary" href="index.html">' + esc(Cleo.t('trip.browse', 'Browse the guides')) + '</a></section>') +
++      (tr.length ? '<section class="tp-mine" aria-labelledby="tp-mine-h"><h2 id="tp-mine-h">' + esc(Cleo.t('trip.mine', 'Your trips on this device')) + '</h2><ul>' + tr.map(function (t, i) {
++        return '<li><a href="' + esc(tripHref(t.v, t.n)) + '">' + esc(t.n || Cleo.t('trip.a', 'A trip')) + '</a> <button type="button" class="btn btn-quiet" data-tp="forget" data-i="' + i + '" aria-label="' + esc(Cleo.t('trip.forget.label', 'Forget {name}', { name: t.n || Cleo.t('trip.a', 'A trip') })) + '">' + esc(Cleo.t('trip.forget', 'Forget')) + '</button></li>';
+       }).join('') + '</ul></section>' : '');
+   }
+ 
+   /* ---- builder: how many days ---- */
++  var defName = function (n, guides) { return n ? Cleo.t('trip.defname', '{days} in {guides}', { days: N.day(n), guides: guides.join(', ') }) : Cleo.t('trip.defname.0', 'A trip in {guides}', { guides: guides.join(', ') }); };
+   function build(r, S) {
+-    box.innerHTML = '<p>Loading the places…</p>';
++    box.innerHTML = '<p>' + esc(Cleo.t('trip.loading', 'Loading the places…')) + '</p>';
+     var go = function (refs, name) {
+       load(keysOf(refs)).then(function () {
+         var items = refs.map(item), probe = plan(items, MAXD), fit = probe.days.length;
+         var placed = probe.days.reduce(function (n, u) { return n + u.items.length; }, 0), out = probe.left.filter(function (l) { return l.why !== 'fit'; });
+         var cur = Math.max(1, Math.min(MAXD, +r.days || fit || 1)), guides = keysOf(refs).map(function (k) { return data[k] ? data[k].name : k; });
+-        var def = (fit ? pl(fit, 'day') : 'A trip') + ' in ' + guides.join(' and ');
+-        box.innerHTML = '<header class="tp-head"><span class="eyebrow">Make a trip</span><h1 id="tp-h" class="d1">From “' + esc(name) + '”</h1>' +
+-          '<p class="lede">' + pl(refs.length, 'place') + (guides.length ? ' in ' + esc(guides.join(', ')) : '') + '. ' +
+-          (placed ? pl(placed, 'place') + ' can go in a day' + (fit ? ', filling at most ' + pl(fit, 'day') : '') + '.' : 'None of them can go in a day.') +
+-          (out.length ? ' ' + pl(out.length, 'place') + ' will be left out, each with the reason.' : '') + '</p></header>' +
+-          (placed ? '<form class="tp-form" id="tp-form"><fieldset><legend>How many days?</legend><div class="tp-days-pick">' +
+-            [1, 2, 3, 4, 5, 6, 7].map(function (k) { return '<label><input type="radio" name="days" value="' + k + '"' + (k === cur ? ' checked' : '') + '><span>' + pl(k, 'day') + '</span></label>'; }).join('') +
+-            '</div><p class="sm">One area a day, at most six stops, nearest next. ' + (fit ? 'Your places fill ' + pl(fit, 'day') + '; more days than that stay empty rather than padded.' : '') + '</p></fieldset>' +
+-            '<label class="tp-name" for="tp-n">Name it (optional)</label><input id="tp-n" name="n" maxlength="60" placeholder="' + esc(def) + '">' +
+-            '<p><button class="btn btn-primary" type="submit">Make the trip</button> <a class="btn btn-quiet" href="#">Cancel</a></p></form>'
+-            : '<p><a class="btn btn-ghost" href="#">Back</a></p>');
++        var def = defName(fit, guides);
++        box.innerHTML = '<header class="tp-head"><span class="eyebrow">' + esc(Cleo.t('trip.make', 'Make a trip')) + '</span><h1 id="tp-h" class="d1">' + esc(Cleo.t('trip.from.name', 'From “{name}”', { name: name })) + '</h1>' +
++          '<p class="lede">' + esc(guides.length ? Cleo.t('trip.b.in', '{places} in {guides}.', { places: N.place(refs.length), guides: guides.join(', ') }) : Cleo.t('trip.b.n', '{places}.', { places: N.place(refs.length) })) + ' ' +
++          esc(placed ? (fit ? Cleo.t('trip.b.fit', '{places} can go in a day, filling at most {days}.', { places: N.place(placed), days: N.day(fit) }) : Cleo.t('trip.b.can', '{places} can go in a day.', { places: N.place(placed) })) : Cleo.t('trip.b.none', 'None of them can go in a day.')) +
++          (out.length ? ' ' + esc(Cleo.t('trip.b.out', '{places} will be left out, each with the reason.', { places: N.place(out.length) })) : '') + '</p></header>' +
++          (placed ? '<form class="tp-form" id="tp-form"><fieldset><legend>' + esc(Cleo.t('trip.days.q', 'How many days?')) + '</legend><div class="tp-days-pick">' +
++            [1, 2, 3, 4, 5, 6, 7].map(function (k) { return '<label><input type="radio" name="days" value="' + k + '"' + (k === cur ? ' checked' : '') + '><span>' + esc(N.day(k)) + '</span></label>'; }).join('') +
++            '</div><p class="sm">' + esc(Cleo.t('trip.rule', 'One area a day, at most six stops, nearest next.')) + (fit ? ' ' + esc(Cleo.t('trip.fill', 'Your places fill {days}; more days than that stay empty rather than padded.', { days: N.day(fit) })) : '') + '</p></fieldset>' +
++            '<label class="tp-name" for="tp-n">' + esc(Cleo.t('trip.name', 'Name it (optional)')) + '</label><input id="tp-n" name="n" maxlength="60" placeholder="' + esc(def) + '">' +
++            '<p><button class="btn btn-primary" type="submit">' + esc(Cleo.t('trip.go', 'Make the trip')) + '</button> <a class="btn btn-quiet" href="#">' + esc(Cleo.t('trip.cancel', 'Cancel')) + '</a></p></form>'
++            : '<p><a class="btn btn-ghost" href="#">' + esc(Cleo.t('trip.back', 'Back')) + '</a></p>');
+         var f = d.getElementById('tp-form');
+         if (f) f.onsubmit = function (e) {
+           e.preventDefault();
+           var k = +(f.querySelector('input[name=days]:checked') || {}).value || cur, t = plan(items, k);
+-          var nm = (f.querySelector('#tp-n').value || '').trim() || ((t.days.length ? pl(t.days.length, 'day') : 'A trip') + ' in ' + keysOf(t.days.map(function (u) { return u.items[0].ref; })).map(function (x) { return data[x].name; }).join(' and '));
++          var nm = (f.querySelector('#tp-n').value || '').trim() || defName(t.days.length, keysOf(t.days.map(function (u) { return u.items[0].ref; })).map(function (x) { return data[x].name; }));
+           var v = encode(t); remember(v, nm); location.hash = tripHref(v, nm);
+         };
+         focusH();
+@@ -208,7 +216,7 @@
+     };
+     if (S.refs) return go(S.refs, S.name);
+     load([S.g]).then(function () {                              // a guide collection: its places, in guide order
+-      var D = data[S.g]; if (!D) { box.innerHTML = '<p>That guide couldn’t load. Try again when online.</p>'; return; }
++      var D = data[S.g]; if (!D) { box.innerHTML = '<p>' + esc(Cleo.t('trip.noguide', 'That guide couldn’t load. Try again when online.')) + '</p>'; return; }
+       var c = D.colls.filter(function (x) { return x.id === S.c; })[0];
+       var refs = Object.keys(D.by).filter(function (id) { return (D.by[id].g || []).indexOf(S.c) >= 0; }).map(function (id) { return S.g + '/' + id; });
+       go(refs, c ? String(c.n).replace(/^★\s*/, '') + ' · ' + D.name : S.c);
+@@ -217,8 +225,8 @@
+ 
+   /* ---- the trip ---- */
+   function view(r) {
+-    var T = decode(r.trip), all = [].concat.apply([], T.days).concat(T.left), name = r.n || 'Your trip';
+-    box.innerHTML = '<p>Loading your trip…</p>';
++    var T = decode(r.trip), all = [].concat.apply([], T.days).concat(T.left), name = r.n || Cleo.t('trip.yours', 'Your trip');
++    box.innerHTML = '<p>' + esc(Cleo.t('trip.loading.trip', 'Loading your trip…')) + '</p>';
+     load(keysOf(all)).then(function () {
+       var left = [], days = [], unknown = [];
+       T.days.forEach(function (refs) {          // the link's days and order, exactly; a place that closed since is refused with its reason
+@@ -233,39 +241,40 @@
+         var ids = u.items.map(function (x) { return x.id; }), area = D.ar[u.a] || u.a, col = /^#/.test(D.col[u.a] || '') ? D.col[u.a] : 'var(--city)';
+         var mapHref = Cleo.root + D.href + '#day=' + encodeURIComponent(u.a) + '&s=' + ids.join(',') + '&trip=' + r.trip + '&d=' + (n + 1);
+         return '<section class="tday" id="tday-' + (n + 1) + '" aria-labelledby="tday-h-' + (n + 1) + '" style="--area:' + esc(col) + '">' +
+-          '<header><span class="eyebrow">Day ' + (n + 1) + ' · ' + esc(D.name) + '</span><h2 id="tday-h-' + (n + 1) + '">' + esc(area) + '</h2>' +
+-          '<p class="tday-sum">' + pl(u.items.length, 'stop') + (u.items.length > 1 ? ' · ' + esc(w.dist) + ' between stops · about ' + w.min + ' min walking' : '') + '</p></header>' +
++          '<header><span class="eyebrow">' + esc(Cleo.t('trip.day.eyebrow', 'Day {n} · {guide}', { n: n + 1, guide: D.name })) + '</span><h2 id="tday-h-' + (n + 1) + '">' + esc(area) + '</h2>' +
++          '<p class="tday-sum">' + esc(N.stop(u.items.length)) + (u.items.length > 1 ? ' · ' + esc(Cleo.t('trip.day.walk', '{dist} between stops · about {min} min walking', { dist: w.dist, min: w.min })) : '') + '</p></header>' +
+           sketch(pts, n + 1) +
+           '<ol class="tstops">' + u.items.map(function (x, i) {
+             var p = x.p, nx = u.items[i + 1], lw = nx ? Cleo.geo.walk(legs[i + 1]) : null;
+             return '<li class="tstop"><span class="n" aria-hidden="true">' + (i + 1) + '</span><div class="tstop-b">' +
+-              '<a class="go" href="' + esc(Cleo.root + D.href + '#p=' + encodeURIComponent(p.id)) + '"><span class="vh">Stop ' + (i + 1) + ': </span>' + esc(label(p)) + '</a>' +
+-              '<span class="sm">' + (p.kind === 'food' ? 'eat & drink' : 'sight') + (TIER[p.t] ? ' · ' + TIER[p.t] : '') + '</span>' +
++              '<a class="go" href="' + esc(Cleo.root + D.href + '#p=' + encodeURIComponent(p.id)) + '"><span class="vh">' + esc(Cleo.t('trip.stop.n', 'Stop {n}:', { n: i + 1 })) + ' </span>' + esc(label(p)) + '</a>' +
++              '<span class="sm">' + esc(p.kind === 'food' ? Cleo.t('trip.kind.food', 'eat & drink') : Cleo.t('trip.kind.sight', 'sight')) + (tier(p.t) ? ' · ' + esc(tier(p.t)) : '') + '</span>' +
+               '<p class="tstop-src">' + esc(firstSource(x)) + '</p>' +
+-              (p.pv && p.pv.checked ? '<p class="chk">Open when last checked · ' + esc(p.pv.checked) + '</p>' : '') + '</div>' +
+-              (lw ? '<p class="leg">' + esc(lw.text) + ' to stop ' + (i + 2) +
+-                ' <a href="https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&amp;route=' + x.ll.join('%2C') + '%3B' + nx.ll.join('%2C') + '" rel="noopener" target="_blank">Directions<span class="vh"> from ' + esc(label(p)) + ' to ' + esc(label(nx.p)) + '</span></a></p>' : '') +
++              (p.pv && p.pv.checked ? '<p class="chk">' + esc(Cleo.t('trip.checked', 'Open when last checked · {date}', { date: p.pv.checked })) + '</p>' : '') + '</div>' +
++              (lw ? '<p class="leg">' + esc(Cleo.t('trip.leg', '{walk} to stop {n}', { walk: lw.text, n: i + 2 })) +
++                ' <a href="https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&amp;route=' + x.ll.join('%2C') + '%3B' + nx.ll.join('%2C') + '" rel="noopener" target="_blank">' + esc(Cleo.t('trip.dir', 'Directions')) + '<span class="vh"> ' + esc(Cleo.t('trip.dir.vh', 'from {a} to {b}', { a: label(p), b: label(nx.p) })) + '</span></a></p>' : '') +
+               '</li>';
+           }).join('') + '</ol>' +
+-          '<p class="tday-acts"><a class="btn btn-ghost" href="' + esc(mapHref) + '" data-tp-day="' + (n + 1) + '">Open day ' + (n + 1) + ' on the map</a></p></section>';
++          '<p class="tday-acts"><a class="btn btn-ghost" href="' + esc(mapHref) + '" data-tp-day="' + (n + 1) + '">' + esc(Cleo.t('trip.day.map', 'Open day {n} on the map', { n: n + 1 })) + '</a></p></section>';
+       }).join('');
+       var tw = Cleo.geo.walk(tot);
+-      var lo = left.length ? '<section class="tp-left" aria-labelledby="tp-left-h"><h2 id="tp-left-h">Left out (' + left.length + ')</h2><ul>' + left.map(function (l) {
++      var lo = left.length ? '<section class="tp-left" aria-labelledby="tp-left-h"><h2 id="tp-left-h">' + esc(Cleo.t('trip.left', 'Left out ({n})', { n: left.length })) + '</h2><ul>' + left.map(function (l) {
+         var D = data[l.x.key], p = l.x.p;
+         return '<li' + (l.why === 'closed' ? ' class="closed"' : '') + '><a href="' + esc(Cleo.root + D.href + '#p=' + encodeURIComponent(p.id)) + '">' + esc(label(p)) + '</a> <span class="sm">' + esc(D.name) + '</span><p>' + esc(reason(l, asked)) + '</p></li>';
+       }).join('') + '</ul></section>' : '';
+-      var gone = unknown.length ? '<p class="tp-gone" role="note">' + pl(unknown.length, 'place') + ' in this link ' + (unknown.length === 1 ? 'is' : 'are') + ' no longer listed in a guide: ' + esc(unknown.map(idOf).join(', ')) + '. The link may be older than the guide.</p>' : '';
++      var gone = unknown.length ? '<p class="tp-gone" role="note">' + esc(unknown.length === 1 ? Cleo.t('trip.gone.one', '1 place in this link is no longer listed in a guide: {ids}. The link may be older than the guide.', { ids: unknown.map(idOf).join(', ') })
++        : Cleo.t('trip.gone', '{n} places in this link are no longer listed in a guide: {ids}. The link may be older than the guide.', { n: unknown.length, ids: unknown.map(idOf).join(', ') })) + '</p>' : '';
+       var guides = keysOf(days.map(function (u) { return u.items[0].ref; })).map(function (k) { return data[k].name; });
+-      box.innerHTML = '<header class="tp-head tp-cover"><span class="eyebrow">Your trip' + (guides.length ? ' · ' + esc(guides.join(', ')) : '') + '</span><h1 id="tp-h" class="d1">' + esc(name) + '</h1>' +
+-        '<p class="tp-sum">' + pl(days.length, 'day') + ' · ' + pl(stops, 'stop') + (days.length ? ' · ' + esc(tw.dist) + ' between stops in all' : '') + '</p>' +
+-        '<p class="caveat" data-tp-assume>' + esc(Cleo.geo.ASSUME) + '. Check opening times before you go; the guide doesn’t list them.</p>' +
+-        '<div class="sharebar"><button type="button" class="btn btn-primary" data-tp="share">Share this trip</button>' +
+-        '<button type="button" class="btn btn-ghost" data-cleo-card="trip">Share as an image</button>' +
+-        '<button type="button" class="btn btn-ghost" data-tp="print">Print as a booklet</button>' +
+-        '<button type="button" class="btn btn-ghost" data-tp="kml">Export KML</button>' +
+-        '<a class="btn btn-quiet" href="#list=' + codec().encode(all) + '&n=' + encodeURIComponent(name) + '">Change the days</a></div>' +
+-        (days.length > 1 ? '<nav class="tp-nav" aria-label="Days">' + days.map(function (u, n) { return '<a href="#tday-' + (n + 1) + '" data-tp-go="' + (n + 1) + '">Day ' + (n + 1) + ' · ' + esc(data[u.key].ar[u.a] || u.a) + '</a>'; }).join('') + '</nav>' : '') +
+-        '</header>' + gone + (days.length ? html : '<p class="sv-empty">No day can be planned from this link: every place in it is closed, unpinned or no longer listed.</p>') + lo;
++      box.innerHTML = '<header class="tp-head tp-cover"><span class="eyebrow">' + esc(guides.length ? Cleo.t('trip.eyebrow.in', 'Your trip · {guides}', { guides: guides.join(', ') }) : Cleo.t('trip.yours', 'Your trip')) + '</span><h1 id="tp-h" class="d1">' + esc(name) + '</h1>' +
++        '<p class="tp-sum">' + esc(N.day(days.length)) + ' · ' + esc(N.stop(stops)) + (days.length ? ' · ' + esc(Cleo.t('trip.sum.dist', '{dist} between stops in all', { dist: tw.dist })) : '') + '</p>' +
++        '<p class="caveat" data-tp-assume>' + esc(Cleo.t('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route')) + '. ' + esc(Cleo.t('trip.hours', 'Check opening times before you go; the guide doesn’t list them.')) + '</p>' +
++        '<div class="sharebar"><button type="button" class="btn btn-primary" data-tp="share">' + esc(Cleo.t('trip.share', 'Share this trip')) + '</button>' +
++        '<button type="button" class="btn btn-ghost" data-cleo-card="trip">' + esc(Cleo.t('share.btn', 'Share as an image')) + '</button>' +
++        '<button type="button" class="btn btn-ghost" data-tp="print">' + esc(Cleo.t('trip.print', 'Print as a booklet')) + '</button>' +
++        '<button type="button" class="btn btn-ghost" data-tp="kml">' + esc(Cleo.t('trip.kml', 'Export KML')) + '</button>' +
++        '<a class="btn btn-quiet" href="#list=' + codec().encode(all) + '&n=' + encodeURIComponent(name) + '">' + esc(Cleo.t('trip.change', 'Change the days')) + '</a></div>' +
++        (days.length > 1 ? '<nav class="tp-nav" aria-label="' + esc(Cleo.t('trip.days', 'Days')) + '">' + days.map(function (u, n) { return '<a href="#tday-' + (n + 1) + '" data-tp-go="' + (n + 1) + '">' + esc(Cleo.t('trip.day.chip', 'Day {n} · {area}', { n: n + 1, area: data[u.key].ar[u.a] || u.a })) + '</a>'; }).join('') + '</nav>' : '') +
++        '</header>' + gone + (days.length ? html : '<p class="sv-empty">' + esc(Cleo.t('trip.noday', 'No day can be planned from this link: every place in it is closed, unpinned or no longer listed.')) + '</p>') + lo;
+       box._trip = { name: name, days: days, left: left, unknown: unknown, asked: asked };
+       Cleo.emit('cleo:trip', box._trip);                        // share-card.js (W9-7) and tests listen
+       if (+r.d && d.getElementById('tday-' + r.d)) { var h = d.getElementById('tday-h-' + r.d); h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); h.closest('section').scrollIntoView(); }
+@@ -281,7 +290,7 @@
+     var sx = (x1 - x0) * cx || 1e-6, sy = (y1 - y0) || 1e-6, k = Math.min((W - 2 * P) / sx, (H - 2 * P) / sy);
+     var ox = (W - sx * k) / 2, oy = (H - sy * k) / 2;
+     var xy = pts.map(function (p) { return [(ox + (p[1] - x0) * cx * k).toFixed(1), (oy + (y1 - p[0]) * k).toFixed(1)]; });
+-    return '<svg class="tday-sk" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Sketch of day ' + n + ': ' + pts.length + ' stops in walking order, drawn from the guide’s own pins">' +
++    return '<svg class="tday-sk" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(Cleo.t('trip.sketch', 'Sketch of day {n}: {stops} in walking order, drawn from the guide’s own pins', { n: n, stops: N.stop(pts.length) })) + '">' +
+       '<polyline points="' + xy.map(function (q) { return q.join(','); }).join(' ') + '" fill="none" stroke="var(--area,var(--city))" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round"/>' +
+       xy.map(function (q, i) { return '<g><circle cx="' + q[0] + '" cy="' + q[1] + '" r="10" fill="var(--area,var(--city))" stroke="var(--surface)" stroke-width="2"/><text x="' + q[0] + '" y="' + q[1] + '" dy="4" text-anchor="middle">' + (i + 1) + '</text></g>'; }).join('') + '</svg>';
+   }
+@@ -290,12 +299,12 @@
+     var x = function (s) { return String(s).replace(/[<&>]/g, function (c) { return { '<': '&lt;', '&': '&amp;', '>': '&gt;' }[c]; }); };
+     var body = T.days.map(function (u, n) {
+       var D = data[u.key];
+-      return '<Folder><name>Day ' + (n + 1) + ' · ' + x(D.ar[u.a] || u.a) + '</name>' + u.items.map(function (it, i) {
++      return '<Folder><name>' + x(Cleo.t('trip.day.chip', 'Day {n} · {area}', { n: n + 1, area: D.ar[u.a] || u.a })) + '</name>' + u.items.map(function (it, i) {
+         return '<Placemark><name>' + (i + 1) + '. ' + x(label(it.p)) + '</name><description>' + x(firstSource(it) + (it.p.ad ? ' — ' + it.p.ad : '')) + '</description><Point><coordinates>' + it.ll[1] + ',' + it.ll[0] + '</coordinates></Point></Placemark>';
+-      }).join('') + (u.items.length > 1 ? '<Placemark><name>Day ' + (n + 1) + ' route (straight lines)</name><LineString><coordinates>' + u.items.map(function (it) { return it.ll[1] + ',' + it.ll[0]; }).join(' ') + '</coordinates></LineString></Placemark>' : '') + '</Folder>';
++      }).join('') + (u.items.length > 1 ? '<Placemark><name>' + x(Cleo.t('trip.kml.route', 'Day {n} route (straight lines)', { n: n + 1 })) + '</name><LineString><coordinates>' + u.items.map(function (it) { return it.ll[1] + ',' + it.ll[0]; }).join(' ') + '</coordinates></LineString></Placemark>' : '') + '</Folder>';
+     }).join('');
+     var a = d.createElement('a');
+-    a.href = URL.createObjectURL(new Blob(['<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>' + x(T.name) + '</name><description>' + x(Cleo.geo.ASSUME) + '</description>' + body + '</Document></kml>'], { type: 'application/vnd.google-earth.kml+xml' }));
++    a.href = URL.createObjectURL(new Blob(['<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>' + x(T.name) + '</name><description>' + x(Cleo.t('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route')) + '</description>' + body + '</Document></kml>'], { type: 'application/vnd.google-earth.kml+xml' }));
+     a.download = (T.name.replace(/[^\w-]+/g, '-').replace(/^-+|-+$/g, '').toLowerCase() || 'cleo-trip') + '.kml'; d.body.appendChild(a); a.click(); a.remove();
+   }
+ 
