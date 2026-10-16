@@ -6,10 +6,18 @@ test-views-b.js). Report to the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx) 
 
 ## Task
 
-Idle after QC-10 (reopened by QC) and the B-04 / B-20 sweep. Waiting for QC re-verification of QC-09 / QC-10.
+Idle after D-42 (QC-19 + QC-20) and QC-18. Waiting for QC re-verification.
 
 ## Done
 
+- D-42 = QC-19 + QC-20: eb231ff0a (merged 6583673c2). lib/quoted.js adds POPULARITY + HOURS to PRICE_RATING; pq on 510
+  records; note "Prices, ratings and times are quoted…"; sheet gap line "We don’t track opening hours or prices" (one
+  string in FE-A's sheet.js; en + ja catalogue); both honesty greps allow exactly the new sentences.
+- QC-18: the switcher thumb (.v-ind) sat 114 px off on desktop Atlas (parked in the header, outside <main>, where the
+  thumb CSS did not apply and offsetLeft measured against another box) and the fonts.ready re-measure had been commented
+  out by an i18n edit. city.js now places it from bounding rects against its own containing block and re-measures on
+  fonts.ready, cleo:locale, resize (ResizeObserver) and re-parenting (MutationObserver); fe-a.css thumb rules unscoped.
+  Probe tools/beta/feb-ind.js (fonts held back 1.2 s; fresh loads into each view; en + ja): 0 px everywhere.
 - QC-09 at 200 % (designer's corrected §v2.11): < 300 px is a 2 x 2 glyph-only grid (61 x 44 at 195 px DPR 2), --cbar-h
   98 px there; on phones with a sheet open the switcher row is pinned under the header (a deep link can land past
   <main>, where the sticky bar had left). Probes: tools/beta/feb-switcher.js (incl. 195 px + fresh #p=senso-ji),
@@ -47,6 +55,7 @@ Nothing unpushed.
   `node beta/test-beta.js`, `node beta/qa/test-honesty.js`, `node beta/imagery/test-imagery.js`.
 - FE-A follow-up: a fresh Tokyo deep link #p=senso-ji at 195 px leaves the page scrolled past <main> (scrollY 13018,
   card off-screen) — reported to FE-A.
+- Thumb probe: `tools/beta/feb-ind.js [page]`.
 - Switcher probe: `tools/beta/feb-switcher.js [page]` (same static server).
 - B-05 probe: `tools/beta/feb-b05.js` (needs `python3 -m http.server 8765 -d <repo>`; ≥ 2 on landing + every hub).
 - Push with `tools/beta/feb-push.sh` (merges origin, regenerates beta/ on generated conflicts, stops on any source

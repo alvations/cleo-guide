@@ -48,8 +48,8 @@
   // phone pill, a long guide name), else none; re-fitted whenever the box changes size
   if (fi) { let full = fi.placeholder; const cv = d.createElement('canvas').getContext('2d'), fit = () => { if (!fi.clientWidth) return;
       const c = getComputedStyle(fi), room = fi.clientWidth - parseFloat(c.paddingLeft) - parseFloat(c.paddingRight); cv.font = c.fontWeight + ' ' + c.fontSize + ' ' + c.fontFamily;
-      fi.placeholder = cv.measureText(full).width <= room ? full : cv.measureText(tt('city.search.short', 'Search')).width <= room ? tt('city.search.short', 'Search') : ''; };
-    on(d, 'cleo:locale', () => { full = tt('city.search', 'Search {city}', { city: info.name }); fit(); });   // i18n D-41   // '': the icon-only pill (Atlas toolbar); the label names it
+      fi.placeholder = cv.measureText(full).width <= room ? full : cv.measureText(tt('city.search.short', 'Search')).width <= room ? tt('city.search.short', 'Search') : ''; };   // '': the icon-only pill (Atlas toolbar); the label names it
+    on(d, 'cleo:locale', () => { full = tt('city.search', 'Search {city}', { city: info.name }); fit(); });   // i18n D-41
     if (window.ResizeObserver) new ResizeObserver(fit).observe(fi); else on(window, 'resize', fit);
     if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit); }
   const shown0 = shown ? shown.innerHTML : '';
@@ -175,8 +175,19 @@
   { const nav = $('[data-cleo-views]');
     if (nav) { const ind = d.createElement('span'); ind.className = 'v-ind'; ind.setAttribute('aria-hidden', 'true'); nav.appendChild(ind);
       const place = () => { const b = $('button[aria-pressed="true"]', nav); if (!b || !b.offsetWidth) { ind.style.opacity = '0'; return; }
-        ind.style.opacity = ''; ind.style.left = b.offsetLeft + 'px'; ind.style.width = b.offsetWidth + 'px'; ind.style.top = b.offsetTop + 'px'; ind.style.height = b.offsetHeight + 'px'; };
-      nav.classList.add('has-ind'); place(); on(window, 'resize', place); on(d, 'cleo:locale', place);   // i18n D-41: the labels changed width if (d.fonts && d.fonts.ready) d.fonts.ready.then(place);
+        // FE-B QC-18: measured against the indicator's own containing block, not the button's offsetParent — the Atlas parks
+        // the switcher in the header, where the two differ and offsetLeft put the thumb 114 px off the pressed segment
+        const op = ind.offsetParent || nav, o = op.getBoundingClientRect(), r = b.getBoundingClientRect();
+        ind.style.opacity = ''; ind.style.left = (r.left - o.left - op.clientLeft + op.scrollLeft) + 'px'; ind.style.width = r.width + 'px';
+        ind.style.top = (r.top - o.top - op.clientTop + op.scrollTop) + 'px'; ind.style.height = r.height + 'px'; };
+      nav.classList.add('has-ind'); place(); on(window, 'resize', place); if (d.fonts && d.fonts.ready) d.fonts.ready.then(place);
+      // i18n D-41: the labels changed width. FE-B QC-18: re-measure after the swap lays out, and whenever the switcher or a
+      // segment changes size (a late font, a locale, a breakpoint) — the fonts.ready line above had been commented out
+      on(d, 'cleo:locale', () => { place(); requestAnimationFrame(place); });
+      if (window.ResizeObserver) { const ro = new ResizeObserver(() => place()); ro.observe(nav); $$('button[data-view]', nav).forEach(b => ro.observe(b)); }
+      // ...and when the switcher is re-parented (the Atlas parks it in the header on desktop and puts it back on leave): a
+      // move takes it out of its home parent, and brings it back there, so watching that parent's children catches both
+      if (window.MutationObserver && nav.parentNode) new MutationObserver(() => requestAnimationFrame(place)).observe(nav.parentNode, { childList: true });
       on(d, 'cleo:view', () => { requestAnimationFrame(place); main.classList.remove('v-swap'); void main.offsetWidth; main.classList.add('v-swap');
         setTimeout(() => main.classList.remove('v-swap'), 400); }); } }
   // W8 grid density: an area's end actions take the rest of its last card row (a lone last card never sits by itself);

@@ -355,3 +355,9 @@ outside card entries. Output: `design/beta/eval/qc/f7fa616d/ja-probe.json`.
 | QC-18 | observed fixed, **not yet claimed** | The switcher indicator sits under インサイト in `qc-16-ja-insights.jpg`; it will be verified on the next pin. |
 | **QC-21** (new, Low, i18n) | open | how-we-choose.html under `ja`: the stats table headers (Country, Guides, Places, Pins at high confidence, Closed, kept) and the h2 "Added by the guide" are English UI labels. The long paragraphs are stated English and not counted. `qc-21-ja-method-table.jpg`. |
 
+## Re-verify 2026-10-16 · a498adf5 (i18n claim for QC-21)
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-21 | **verified** | The QC ja probe on how-we-choose.html at 390 and 1440 (`design/beta/eval/qc/a498adf5/ja-probe-how-we-choose.json`, `qc-21-ja-method-table.jpg`): the five column headers and the h2 "Added by the guide" are now in Japanese. Still in English: the stated long paragraphs, and the country names used as row labels (proper nouns, not UI labels). |
+
