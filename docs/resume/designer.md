@@ -52,6 +52,10 @@ Current rows:
    - **200 %: FAIL.** The segments are 29 × 44. The spec is now corrected to a 2 × 2 glyph-only grid under 300 px, and the fe-a.css rule went to FE-A and FE-B.
    - Re-run `scratchpad qc09.js`, or the same check: 195 px viewport at DPR 2, `#p=senso-ji`, segment sizes ≥ 44, and elementFromPoint on each segment.
    - On a pass, tell R7 QA (session_017FLWXa5zgGWvqNo4C3UsvH).
+6. **FE-A reviews (2026-10-16).**
+   - **QA-67 detail media:** ≥ 800 w approved. Narrow copies: drop the colour-mix bands; the plate shrinks to the image width, centred.
+   - **Food covers:** signed off with three changes (`--cover-food`, size cap, never a source word). V2.21 now applies `--cover-food` to food covers in the base CSS, so FE-A can drop its `!important`.
+   - Also reminded FE-A about "pin N" and the view counter in the sheet.
 5. **FE-C review (W9-4/5/7).** Ten findings went to FE-C (session_01SxU3Mdpo1UAQyJQJmnMFtG) on 2026-10-16:
    - share-card initial and teal block;
    - coral Must-see;
