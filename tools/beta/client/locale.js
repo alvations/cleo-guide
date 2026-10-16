@@ -49,8 +49,10 @@
       return fetch(root + 'assets/i18n/' + l + '.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
     }
     Promise.all([get('en'), get(want)]).then(function (cats) {
+      window.CleoL10n = cats[1].strings;                   // Cleo.t (head snippet) answers from it from now on
       apply(cats[0], cats[1], want);
       reveal();
+      try { document.dispatchEvent(new CustomEvent('cleo:locale', { detail: { locale: want } })); } catch (e) {}
     }).catch(function () { d.lang = 'en'; reveal(); });
     window.CleoLocale = { build: build, apply: apply, locale: want };
   }

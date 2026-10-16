@@ -444,7 +444,7 @@ class Http {
     this.fixtures = o.fixtures || null; this.cacheDir = o.cacheDir; this.ttl = (o.ttlDays || 30) * 86400000;
     this.max = o.maxRequests || 3000; this.nomMax = o.nominatimMax == null ? 300 : o.nominatimMax;
     this.count = 0; this.nomCount = 0; this.cacheHits = 0; this.last = {}; this.today = o.today;
-    this.failures = []; this.backoffUntil = {};
+    this.failures = []; this.backoffUntil = {}; this.byHost = {};
     if (this.cacheDir && !this.fixtures) fs.mkdirSync(this.cacheDir, { recursive: true });
   }
   key(method, url, body) { return crypto.createHash('sha1').update(`${method} ${url}\n${body || ''}`).digest('hex'); }
@@ -470,6 +470,7 @@ class Http {
     const gap = SPACING[h] || SPACING.default, wait = (this.last[h] || 0) + gap - Date.now();
     if (wait > 0) await new Promise(r => setTimeout(r, wait));
     this.count++; if (h === 'nominatim.openstreetmap.org') this.nomCount++;
+    const bh = this.byHost[h] = this.byHost[h] || { requests: 0, failed: 0 }; bh.requests++;
     this.last[h] = Date.now();
     const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 30000);
     try {
@@ -478,13 +479,13 @@ class Http {
       let text = await r.text(); if (text.length > 2000000) text = text.slice(0, 2000000);
       const res = { url, status: r.status, body: text, retrieved: new Date().toISOString().slice(0, 10) };
       if (r.status === 429 || r.status === 503 || r.status === 504) {
-        this.backoffUntil[h] = Date.now() + (h === 'overpass-api.de' ? 60000 : 30000); this.failures.push(`${h} HTTP ${r.status}`);
+        this.backoffUntil[h] = Date.now() + (h === 'overpass-api.de' ? 60000 : 30000); this.failures.push(`${h} HTTP ${r.status}`); bh.failed++;
         return res; // not cached
       }
       if (file && (r.ok || r.status === 404)) fs.writeFileSync(file, JSON.stringify(res));
       return res;
     } catch (e) {
-      this.failures.push(`${h} ${e.name === 'AbortError' ? 'timeout' : (e.cause && e.cause.code) || e.message}`);
+      this.failures.push(`${h} ${e.name === 'AbortError' ? 'timeout' : (e.cause && e.cause.code) || e.message}`); bh.failed++;
       return { status: 0, body: '', error: (e.cause && e.cause.code) || e.message };
     } finally { clearTimeout(t); }
   }
@@ -780,12 +781,15 @@ async function run(opts) {
   for (const row of report.rows) row.assist = reviewAssist(row);
   for (const row of report.rows) count[row.outcome] = (count[row.outcome] || 0) + 1;
   report.summary = count;
-  meta.requests = { network: http.count, cacheHits: http.cacheHits, nominatim: http.nomCount, failures: http.failures.slice(0, 50) };
+  meta.requests = { network: http.count, cacheHits: http.cacheHits, nominatim: http.nomCount, failures: http.failures.slice(0, 50), byHost: http.byHost || {} };
   if (report.rows.some(r => (r.candidates || []).some(c => /^osm/.test(c.kind)) || (r.evidence || []).some(e => /^osm/.test(e.type))))
     meta.attribution = 'Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright';
   if (report.rows.some(r => (r.candidates || []).some(c => c.kind === 'onemap'))) meta.attributionOneMap = P2.ONEMAP_LICENCE;
   if (report.rows.some(r => (r.candidates || []).some(c => c.kind === 'gov-address'))) meta.attributionGov = ctx.houseSets.map(h => `${h.label}: ${h.licence}`).join(' · ');
-  meta.hardFailure = http.failures.length > 0 && http.count > 0 && http.failures.length / http.count > 0.25;
+  // Only the CORE sources can fail a run: a broken official site, an overloaded Overpass or the Census geocoder is reported
+  // (per host, in meta.requests.byHost and the .md) but never discards the report.
+  const CORE = ['www.wikidata.org', 'en.wikipedia.org', 'nominatim.openstreetmap.org'];
+  meta.hardFailure = CORE.some(h => { const b = (http.byHost || {})[h]; return b && b.requests >= 4 && b.failed / b.requests > 0.25; });
   return report;
 }
 
@@ -821,6 +825,8 @@ function toMarkdown(rep) {
   if (m.estimate) L.push(`Estimate for a live run of these rows: ~${m.estimate.requests} requests (${m.estimate.nominatimRequests} to Nominatim), ~${m.estimate.minutes} min.`, '');
   if (m.anchor) L.push(`City anchor (median of high-confidence pins): ${round5(m.anchor.lat)}, ${round5(m.anchor.lng)} · candidates farther than ${(m.anchor.radiusM / 1000).toFixed(0)} km are discarded as same-name-elsewhere.`, '');
   if (m.requests) L.push(`Requests: ${m.requests.network} network · ${m.requests.cacheHits} cache hits · ${m.requests.nominatim} Nominatim${m.requests.failures.length ? ` · failures: ${m.requests.failures.slice(0, 5).join('; ')}` : ''}`, '');
+  const bad = Object.entries((m.requests && m.requests.byHost) || {}).filter(([, b]) => b.failed);
+  if (bad.length) L.push(`Failed requests by host: ${bad.map(([h, b]) => `${h} ${b.failed}/${b.requests}`).join(' · ')}${bad.some(([h]) => h === 'overpass-api.de') ? ' — Overpass failures mean OSM lifecycle (closure) evidence is incomplete for some rows' : ''}`, '');
   L.push('## Summary', '', '| outcome | rows |', '|---|---|');
   for (const [k, v] of Object.entries(rep.summary)) L.push(`| ${k} | ${v} |`);
   L.push('');

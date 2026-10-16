@@ -36,11 +36,14 @@ const L10N_CSS = '.locales{display:flex;gap:2px;align-items:center;flex:none}.lo
 function l10nHead(up, assetsV) {
   const others = i18n.offered().map(l => l.locale).filter(l => l !== 'en');
   if (!others.length) return '';
+  // Cleo.t(key, english, vars): the client-side catalogue lookup for strings rendered in the browser. It returns the
+  // English the caller passes (which test-i18n holds equal to en.json) until locale.js has loaded another catalogue
+  // (window.CleoL10n), so en pages fetch nothing.
   // locale.js is injected only when a non-en locale is chosen (en pages pay no JS, no hide). On an en page a delegated
   // click on the switcher stores the choice and reloads; on a ja page locale.js owns the switcher.
   const src = `${up}assets/js/locale.js?v=${assetsV.locale}`;
   return `<style data-cleo-l10n>${L10N_CSS}</style>
-<script>(function(){var d=document.documentElement,o=${JSON.stringify(others)},l=null,m=/[?&]lang=([a-z-]+)/.exec(location.search);if(m)l=m[1];else try{l=JSON.parse(localStorage.getItem("cleo:v1:locale"))}catch(e){}` +
+<script>window.Cleo=window.Cleo||{};Cleo.t=function(k,e,v){var c=window.CleoL10n,s=c&&c[k]!=null?c[k]:e;return v?s.replace(/\{([a-z]+)\}/g,function(m,n){return n in v?v[n]:m}):s};(function(){var d=document.documentElement,o=${JSON.stringify(others)},l=null,m=/[?&]lang=([a-z-]+)/.exec(location.search);if(m)l=m[1];else try{l=JSON.parse(localStorage.getItem("cleo:v1:locale"))}catch(e){}` +
   `document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-cleo-locale]");if(!b||window.CleoLocale||b.getAttribute("aria-pressed")==="true")return;try{localStorage.setItem("cleo:v1:locale",JSON.stringify(b.getAttribute("data-cleo-locale")))}catch(x){}var u=location.href.replace(/([?&])lang=[a-z-]+&?/,"$1").replace(/[?&](#|$)/,"$1");if(u===location.href)location.reload();else location.href=u});` +
   `if(o.indexOf(l)<0)return;d.lang=l;d.classList.add("cleo-l10n-wait");setTimeout(function(){d.classList.remove("cleo-l10n-wait")},1500);var s=document.createElement("script");s.src=${JSON.stringify(src)};document.head.appendChild(s)})()</script>`;
 }
