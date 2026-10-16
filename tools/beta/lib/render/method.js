@@ -62,8 +62,8 @@ function countryTable(reg) {
     const hi = recs.filter(x => x.pv && x.pv.pin === 'high').length;
     return { name: c.name, g, n: recs.length, hi, pct: recs.length ? Math.round(100 * hi / recs.length) : 0, closed: recs.filter(x => x.closed).length };
   }).filter(r => r.n);
-  return `<div class="tablewrap" tabindex="0" role="region" aria-label="By country, as built (scrolls sideways)"><table class="ctable"><caption class="sm muted">By country, as built</caption>
-<thead><tr><th scope="col">Country</th><th scope="col">Guides</th><th scope="col">Places</th><th scope="col">Pins at high confidence</th><th scope="col">Closed, kept</th></tr></thead>
+  return `<div class="tablewrap" tabindex="0" role="region" aria-label="${t('m.tbl.aria')}"><table class="ctable"><caption class="sm muted">${t('m.tbl')}</caption>
+<thead><tr><th scope="col">${t('m.th.country')}</th><th scope="col">${t('m.th.guides')}</th><th scope="col">${t('m.th.places')}</th><th scope="col">${t('m.th.pins')}</th><th scope="col">${t('m.th.closed')}</th></tr></thead>
 <tbody>${rows.map(r => `<tr><th scope="row">${esc(r.name)}</th><td>${r.g}</td><td>${n(r.n)}</td><td>${n(r.hi)} (${r.pct} %)</td><td>${n(r.closed)}</td></tr>`).join('')}</tbody></table></div>`;
 }
 
@@ -72,7 +72,7 @@ function methodPage(reg, ctx) {
   const n = v => v.toLocaleString('en-US');
   const title = 'How we choose · Cleo';
   const desc = `How ${n(s.places)} places got onto Cleo's maps: named sources, a merit bar, tiers graded within each area, pins checked to the door and closures checked against a source.`;
-  const toc = [['merit', t('m.merit')], ['sources', t('m.sources')], ['tiers', t('m.tiers')], ['pins', t('foot.method.pins')], ['closures', t('foot.method.closures')], ['gaps', t('m.gaps')], ['added', t('sheet.added')]];   // i18n D-41
+  const toc = [['merit', t('m.merit')], ['sources', t('m.sources')], ['tiers', t('m.tiers')], ['pins', t('foot.method.pins')], ['closures', t('foot.method.closures')], ['gaps', t('m.gaps')], ['added', t('m.added')]];   // i18n D-41
   return `${head({ page: 'method', title, description: desc, rel: 'how-we-choose.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), from: 'every live place page (computed stats)' }).replace('</head>', `<style>${PAGE_CSS}</style>\n</head>`)}
 <body class="has-tabbar">
 ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
@@ -127,7 +127,7 @@ ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
   <h2 class="d2" id="gaps">${t('m.gaps')}</h2>
   <p>When a city has nothing that clears the bar for something — a cuisine, a kind of place — the guide says so in plain words instead of filling the slot with a weaker pick. Those notes appear on each city page under "How this guide was made".</p>
 
-  <h2 class="d2" id="added">${t('sheet.added')}</h2>
+  <h2 class="d2" id="added">${t('m.added')}</h2>
   <p>A few places were added from the guide's own general knowledge rather than a named source. They are labelled <b>Added by the guide (general knowledge)</b> and are never relabelled as sourced. That is ${n(s.added)} of ${n(s.places)} places.</p>
 
   <h2 class="d2" id="not">${t('m.not')}</h2>

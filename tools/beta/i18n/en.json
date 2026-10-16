@@ -13,7 +13,6 @@
     "trip.",
     "geo.",
     "share.",
-    "rec.",
     "src.",
     "city.search.short",
     "city.sig.t",
@@ -746,6 +745,14 @@
     "a.report": "Report an accessibility problem",
     "a.how": "How we choose places",
     "nf.h": "We couldn't find that page.",
-    "nf.all": "See every destination"
+    "nf.all": "See every destination",
+    "m.added": "Added by the guide",
+    "m.tbl": "By country, as built",
+    "m.tbl.aria": "By country, as built (scrolls sideways)",
+    "m.th.country": "Country",
+    "m.th.guides": "Guides",
+    "m.th.places": "Places",
+    "m.th.pins": "Pins at high confidence",
+    "m.th.closed": "Closed, kept"
   }
 }
