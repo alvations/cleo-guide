@@ -2109,6 +2109,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - The owner said: "Let's make atlas the default view then the list. That will differentiate us from our competitors."
 - Recorded as D-46 (2c44f676). Atlas becomes the default; the switcher order is Atlas, Gallery, Guidebook, Insights.
 - Routed to FE-A (lead), platform, FE-1/FE-2, QA, QC and the designer. It ships in the next release with Atlas rev 5.
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · PERF-18: the ja side of Platform's build-rendered lead card (option (c), proposed to Platform and the orchestrator).
+  - **locale.js:** re-says every `[data-l10n]` phrase (key, plus `data-l10n-v` JSON values) in the loaded catalogue at the start of the swap, inside the paint hold. It works even inside a client-drawn container such as `.g-lead-card`. Values fill in as text, never as HTML. An unknown key or bad JSON leaves the English in place.
+  - **Helper:** `common.l10nSpan(key, vars, tag)` renders the English with those attributes.
+  - **Inert for now:** nothing emits `data-l10n` yet. Platform's card (`tools/beta/lib/lead-card.js`) stays OFF until it uses `l10nSpan` and passes the Tokyo runtime pseudo check.
+  - **Tests:** test-i18n covers the helper output and the runtime re-say, including the unknown-key and bad-JSON cases.
 
 ## 2026-10-16 21:52Z · orchestrator check-in
 

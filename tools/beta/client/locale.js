@@ -173,6 +173,13 @@
 
   function apply(en, to, l) {
     var tr = build(en, to);
+    // i18n D-41 (PERF-18): a server-rendered phrase that names its key re-says itself, inside the paint hold —
+    // <span data-l10n="gal.see" data-l10n-v='{"n":3}'>English</span>. Plain text only: values fill in as text, never HTML.
+    [].slice.call(document.querySelectorAll('[data-l10n]')).forEach(function (el) {
+      try { var s = to.strings[el.getAttribute('data-l10n')]; if (s == null) return;
+        var v = JSON.parse(el.getAttribute('data-l10n-v') || '{}');
+        el.textContent = s.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? String(v[n]) : m; }); } catch (e) {}
+    });
     var page = d.getAttribute('data-cleo-page');
     // Landing, hubs, What changed and city pages are catalogue-built end to end (data excepted); elsewhere only the shell.
     var scopes = /^(landing|hub|changes|city|method|notfound)$/.test(page) ? [document.body]

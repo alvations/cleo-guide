@@ -92,4 +92,8 @@ ${l10nHead(up, assetsV) /* i18n D-41 */}
 // The visible shell (site bar, footer) is lane FE-B's: see render/shell.js. Re-exported for one import site.
 const { siteBar, footer, styles } = require('./shell');
 
-module.exports = { compactLd, head, siteBar, footer, styles, LIVE_BASE, BETA_BASE };
+/** i18n D-41 (PERF-18): a server-rendered phrase whose key is browser-only (swapSkip) — the English here, re-said by
+ * client/locale.js in the loaded catalogue inside the paint hold ([data-l10n]). Plain text only: vars are data. */
+const l10nSpan = (key, vars, tag = 'span') => `<${tag} data-l10n="${esc(key)}"${vars ? ` data-l10n-v="${esc(JSON.stringify(vars))}"` : ''}>${esc(i18n.t(key, vars))}</${tag}>`;
+
+module.exports = { compactLd, head, siteBar, footer, styles, LIVE_BASE, BETA_BASE, l10nSpan };
