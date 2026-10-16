@@ -1787,3 +1787,43 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Duplicates:** only 2 of 42 pairs were on a page (Pittsburgh, merged; 8,702 places). The rest are registry-only. Orphans are being classified, with nothing deleted. Location verify is now scoped to page plus dataset.
   - **Singapore:** the root causes are fixed (per-region anchors; skipped rows after the budget stop instead of no-match). Re-runs are in flight.
   - **Imagery:** leads 24/25, first row 50/51. Wave 2 covers Pittsburgh and DC, which had 0% tier-1 photos. Five DC memorials are stated gaps because the US has no freedom of panorama for sculpture.
+- 2026-10-16 · FE-A · **Spec change: one visible number in the place detail** (SPEC-v3 §3.6 rev 4/5, PANEL-R2 #11, PANEL-R3 #2; the designer confirmed this on 2026-10-16).
+  - The detail now shows only "No. k of n in {area}".
+  - "· pin N" is dropped from the badge line (en and ja `sheet.badge`): pins carry no numbers.
+  - The view position ("k of N in this {view} view") is no longer shown. It stays for assistive tech as a visually hidden `[data-sh-pos]`, together with the previous/next buttons' names, so QC's P-21/P-22 still read it.
+  - **This supersedes the R6/W7 acceptance of a visible "k of 488".** `w7-fe-a-probe.js` now asserts the new state at 390 and 1440:
+    - the hidden position still counts the whole view ("… of 488");
+    - the visible text has no "k of N" and no "pin N";
+    - exactly one "No. k of n in {area}".
+  - It is a spec change, not a weakened test.
+  - It applies to the Gallery and Atlas detail alike, since both use one component.
+### FE Atlas (FE-1) — SPEC-v3 rev 4: phone first screen (PANEL-R2 #2), Top picks (R2 #3, §2.4), count line (§2.3), dots and glyphs (R2 #6)
+- **Phone first screen (§2.2):**
+  - The map plus a 64 px list peek ("288 places here · Show list"; a tap opens the list). The carousel appears only after a selection (pin, dot, card, search result) or Near me, and the selected place is panned into the uncovered band. Escape (decided in the capture phase, so closing the detail never also drops the carousel) or a tap on empty map brings the peek back.
+  - The map controls are two labelled 44 px pills, "Near me" and "Map" (the style on show; it cycles to Satellite). At ≤ 300 px wide they keep the glyph and aria-label.
+  - The Key is never on the map on phones: it is the last section of Filters ("Map key"). Area is already the first.
+  - The header shows the back chevron (to the parent page) and the city name, with no breadcrumb trail and no wordmark.
+  - The kind chips carry no counts.
+  - Carousel cards are 282 px wide with a 72 px thumbnail. The name, kind line and "Recommended by" wrap and never truncate; the selected-state carousel is 196 px tall so nothing is cut.
+  - `C.overMap()` counts the peek as covered, so the fit and the pin labels keep clear of it.
+- **Top picks (§2.4):** the bar's Must see chip is replaced by ONE best-places control, "Top picks": the first 30 (desktop) or 12 (phone) places by map priority. Turning it on fits the map to the picks and leaves only them on the map. The count line reads "Top 30 picks"; "Show all 488" or turning it off restores every place and the reader's previous view. The route key is `top=1`, registered with a validator. Must see stays as information (the sun-wash pill, the card sticker, the Tier section in Filters).
+- **Count line (§2.3):** "354 places here · Top ranked" plus one "Show all 488". "N more outside this area" is removed. **Measurement-rule change for QA to ratify:** `qa/w7.js` atlasd "zoom/pan changes the count; "N more outside" offered" looks for the text "more outside", which §2.3 deliberately removes. The equivalent signal is the "Show all N" button (my atlas-ms check now asserts that). I haven't edited QA's harness.
+- **Measurement-rule note for QA (B-01 in Atlas on phones):** the spec's first phone screen has no card on it (map + peek), so `metrics --view atlas` B-01 "screens to first card" reads null on the phone. A card is one tap away (the peek). Please ratify a peek-aware rule for Atlas, or tell me to put a card on the first phone screen.
+- **Cards:** no rank number on Atlas cards (§2.3: the order is the ranking). "Recommended by" names two sources then "+n more".
+- **Dots (R2 #6):** an 8 px circle for sights and an 8 px rounded square for eat & drink (key updated to match).
+- **Map glyphs (R2 #6, rev 4 order):** the type noun in the place's own name first, then the collection glyph, then the compass. Japanese suffixes count as nouns: -ji / -dera / -in → lantern, -jinja / -gū / -taisha → torii, -jō → castle, -za → ticket, -en / -teien → leaf, yokochō / -dōri / -gai → awning. Built per place at build time (`data-mg`).
+- New atlas-ms checks: the phone first screen is map + a 64 px peek with no carousel (the carousel title and credit checks now run after a pin tap); Top picks (one best-places control, ≤ 30 on the map, count line names it, off restores every place); pins are measured against whichever bottom overlay is showing.
+- Not mine, red on origin too (6872dd51): w2 a11y Tokyo desktop dark, contrast 4.14 on `.food[data-gl=lantern] > .v.plate[lang=ja]` (FE-A's cover plate); reported to FE-A.
+- `tools/beta/test-fe-a.js` phone chip-row check: it expected the bar's `.ms-must` chip; per SPEC-v3 §2.4 it now expects the one best-places control `.ms-top` and **no** `.ms-must` in the bar (stricter: it also catches a second best-places control).
+- `test-fe-a.js` phone: "the Must see chip is the t=1 lens" → "the Top picks chip is the top=1 route and shows pressed" (the chip it clicked no longer exists; Must see stays reachable as Filters → Tier, t=1).
+- **Merged with Atlas FE-2 slices 1–2 (atlas-nav.js).** Fixes found in the combined head:
+  - **Paged list after Back:** cards stamped late (a Back that builds more) carry `ms-out`, but the carousel/grid face `#cleo-grid li.pl{display:grid}` outranked the hide rule, so the carousel grew to every place. `#cleo-grid li.pl.ms-out` is now `display:none !important`, and late-stamped cards join the page only if it shows them.
+  - **Swipe after closing the detail** (FE-2 fixed the same in atlas-nav.js as QA-71 — theirs kept on merge; QA w7 atlasm "swiping the carousel selects the centred card"; red on origin 10f5ea27 for NY / Chinatown / Wheeling): atlas-nav.js's close handler re-applied the saved carousel scroll at 30–800 ms and stopped only on a trusted pointer/key event, so a swipe right after Back was undone. The restore now stops once anything but itself has moved the list. Also, atlas.js's carousel scroll handler re-reads the middle card when the nav hold ends, instead of dropping the scroll. QA atlasm 56/56.
+  - **Far jumps:** a carousel jump of more than two card-widths is instant (a 12,000 px glide read as noise, and probes measured it mid-flight).
+  - **Phone select pan:** it skips `#p=` routes, an open detail and the nav hold, so it never fights atlas-nav.js's placement.
+  - **FE-2's probe:** `pickCard` in atlas-nav-ms.js opens the carousel with a pin tap on phones (marked FE-1 block): since §2.2 the phone's first screen has no cards.
+- **Still red, not fixable in Atlas files:** the #1 phone deep link (`pinUnderSheet` on 4/4 at 390). The phone detail sheet covers 116 → 844 px of an 844 px screen, so no band is left above it. SPEC §3.2 needs a partial-height phone sheet in Atlas; proposed to FE-A (sheet owner) and FE-2.
+- **R2 #13:** desktop pin select scrolls the list only to the nearest edge, and only when the card is off-screen (never past it to the footer).
+- **Keyboard (FE-2's (b)):** on desktop, msIn puts the map pane before the list in the DOM, so Tab reaches the map and its pins before the list. The explicit grid columns keep the layout; msOut restores the order.
+- **R2 #8:** the desktop preview and the phone carousel have no media block when there's no photo. The preview leads with a 40 px `--sand` glyph chip beside the name.
+- **R2 #7:** the phone ⓘ is itself a 44 × 44 button (no pseudo hit area), inside the one-line 20 px strip; attribution links get a ≥ 24 px tall hit box. Photo-credit links in cards are unchanged: padding them made the credit's scrollHeight exceed its box (QA "credits are whole").
