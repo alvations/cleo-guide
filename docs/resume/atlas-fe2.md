@@ -21,17 +21,16 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
   views.js): a3da0b4b.
 
 ## Next
-1. R3 #7: reproduce on desktop Tokyo (focus a card, card → detail → Esc/Back, Share), then record map top, the search
-   top and scrollTop of every ancestor of #cleo-map. Fix: no scroll on any map ancestor in Atlas desktop (focus with
-   preventScroll; reset a non-list ancestor's scroll), and scroll only `.listpane`. Add an ancestor-scrollTop + map-top
-   check to atlas-nav-ms.js.
+1. R3 #7 is done in the push that carries this line: the card links' `#p-<id>` fragment scrolled <body>; atlas-nav.js now
+   routes a plain click as `#…&p=` and resets any map-ancestor scroll on desktop. Probe "R3 #7 …" on 4 pages.
 2. R3 #8: a fresh `at=` load must re-run the map-area pass after the URL view is applied; then check the pill/count
    after a zoom.
 3. Declare the next round with FE-1 (one round per head; FE-1 sends "round N ready" for combined heads).
 
 ## In flight
-- Nothing unpushed. A feb-switcher flake count (be74c82f / 530dc83b / a3da0b4b, 10 runs each) is running in the
-  scratchpad worktree for the QA-70 ruling. be74c82f: 0/10.
+- Nothing unpushed. QA-70 flake counts were sent to the orchestrator (feb-switcher Tokyo, 10 runs per head):
+  be74c82f 0/10, 530dc83b 10/10 (195/260 expected there; 390 click 2/10), a3da0b4b 4/10 (390 click). The probe races
+  the sheet's view transition at a fixed 600 ms; QA rules.
 
 ## Notes
 - Hooks this lane exports (all optional): C.placeOpen, C.atView, C.freshPlace (city.js); C.navHold, C.navScrollHold,
