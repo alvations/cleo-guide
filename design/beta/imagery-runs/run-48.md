@@ -299,3 +299,30 @@ Flags: **REFUSE** = refuse for its own fault; **SIGNAGE** = an entrance sign or 
   gotoku-ji ← Gotokuji Temple (Cat Temple).jpg | Gōtoku-ji temple grounds  ⚠ ? interior altar, not the temple or its cats (interior)
   ueno-park ← Shinobazu no Ike Bentendō in Ueno Park (50786252291).jpg | Bentendō on Shinobazu Pond, Ueno Park
 ```
+
+## Orchestrator decision on the 17 "?" rows (2026-10-16 14:30Z)
+
+Reviewed from the 500 w contact sheets. The lane's 15 REFUSE and 11 SIGNAGE rows are confirmed as refused.
+
+| Row | Call | Why |
+|---|---|---|
+| cleveland--cleveland-museum-of-art | refuse (SIGNAGE) | the OP·EN banners dominate the facade |
+| hokkaido--asahiyama-zoo | refuse (VEHICLES) | entrance forecourt full of taxis |
+| hokkaido--banei-tokachi-obihiro-racecourse | keep | grandstand is the venue, clear sky |
+| hokkaido--nikka-whisky-yoichi-distillery | keep | the stone buildings and grounds are the subject |
+| osaka--suntory-yamazaki-distillery | keep | building with its name, not a logo shot |
+| philadelphia--the-met-philadelphia | keep | the facade is lit and readable; the sign is part of the building |
+| orlando--dr-phillips-center-for-the-performing-arts | keep | building plus plaza; lettering is small |
+| siliconvalley--intel-museum | keep | the museum is the interior; clean exhibit view, no people |
+| tokyo--gotoku-ji | refuse (WRONG SUBJECT) | cluttered altar interior, not the temple or its cats |
+| madison--cave-of-the-mounds | keep | the formations dominate; the heads are small at the bottom |
+| orlando--manta-seaworld-orlando | keep | the ride itself is the place |
+| orlando--hagrids-magical-creatures-motorbike-adventure | keep | the themed gate is the ride's entrance architecture |
+| orlando--icon-park-and-the-wheel | refuse (WRONG SUBJECT) | street, billboards and traffic; the wheel barely shows |
+| miami--biscayne-national-park-dante-fascell-visitor-center | keep | the bay is the park; a sunset is not gloom |
+| miami--bonnet-house-museum-and-gardens | refuse (WRONG SUBJECT) | a closed gate with house-number plaques, no house |
+| sanfrancisco--harvey-milk-plaza | refuse (GLOOM) | grey sky over a transit entrance, weak subject |
+| sanfrancisco--fort-point-national-historic-site | keep | the fort under the bridge arch, shown in full |
+
+Totals: 6 refused and 11 kept of the 17. The full refusal list is the 15 REFUSE rows, the 11 SIGNAGE rows and these 6, which makes 32.
+The imagery lane applies the refusals (cands.tsv, stated gaps, removal, gates). After that, the next `all` is dispatched at budget 1200.

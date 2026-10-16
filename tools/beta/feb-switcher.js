@@ -1,4 +1,4 @@
-// FE-B probe (QC-09 / QC-06, DESIGN-SYSTEM §v2.11): the view switcher at 390 / 768 / 1440 and 260 px (≈ 200 % zoom on a
+// FE-B probe (QC-09 / QC-06, DESIGN-SYSTEM §v2.11): the view switcher at 390 / 768 / 1024 / 1440 and 260 px (≈ 200 % zoom on a
 // phone). Checks: role=group + aria-label, 4 visible segments each >= 44 x 44, exactly one aria-pressed=true, one tap per
 // switch, and on phones (< 640 px; wider, the sheet is a modal dialog) with the place-detail sheet open each segment is what elementFromPoint finds at its centre and a tap closes
 // the sheet, switches and moves focus to the view's h1. Needs: python3 -m http.server 8765 -d <repo>. Run from tools/: node beta/feb-switcher.js [page]
@@ -7,7 +7,7 @@ const page0 = process.argv[2] || 'cities/tokyo.html';
 (async () => {
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   let bad = 0;
-  for (const w of [390, 768, 1440, 260]) {
+  for (const w of [390, 768, 1024, 1440, 260]) {
     const p = await b.newPage({ viewport: { width: w, height: 844 } });
     const errs = []; p.on('pageerror', e => errs.push(e.message));
     await p.goto('http://127.0.0.1:8765/beta/' + page0 + '#view=gallery'); await p.waitForTimeout(800);
