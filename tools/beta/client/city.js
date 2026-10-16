@@ -45,6 +45,8 @@
   { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need) Cleo.need('base', () => C.baseSheet && C.baseSheet(c)); }; }
   // FE-C W9-1 hook: the recognition badges are drawn by recognition.js (lazy) on pages that have recognised places
   if (Cleo.need && d.querySelector('.rail-i[data-rec]')) Cleo.need('recognition');
+  // FE-C W9-2 hook: the quiet "Status checked <d Mon>" card line is drawn by fresh.js (lazy) from each card's data-checked
+  if (Cleo.need) Cleo.need('fresh');
   need.q = {};
   const rail = $('#cleo-rail'), shown = $('#cleo-shown'), lens = $('#cleo-lens'), applied = $('[data-cleo-applied]'), fi = $('#cleo-filter'), split = $('.split');
   // R7 gap 2(c): the placeholder is never clipped mid-letter — "Search {city}" where it fits, else "Search" (a narrow
