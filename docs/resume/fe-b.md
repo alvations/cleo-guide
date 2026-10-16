@@ -6,10 +6,12 @@ test-views-b.js). Report to the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx) 
 
 ## Task
 
-QC-14 (FE-B half): snap fe-b.css spacing to the 4 px `--s-*` scale (40 off-scale margin / padding / gap values).
+Idle: FE-B queue empty after QC-14 (FE-B half). Waiting for QA/QC rows or new assignments.
 
 ## Done
 
+- QC-14 (FE-B half): fe-b.css spacing snapped with design/beta/tools/snap-spacing.py (40 snapped, 110 tokenised);
+  also the hub "Known for" separator spacing (" · "). SHA in the commit titled "beta QC-14 (FE-B)".
 - QC-01 (High), QC-02, QC-03, QC-10: 68b442c0 (merged 2bfff3fe). Insights marks link only when the lens they open
   shows exactly their count; lensed Insights ("43 of all 488"); focus to the view's h1 after a switch.
 - QA-65 (D-39 note in the place detail): 20e9a8e7. OWNER-casing on FE-B surfaces: 6b48078d, f0706b4d, 5361b121.
@@ -18,11 +20,8 @@ QC-14 (FE-B half): snap fe-b.css spacing to the 4 px `--s-*` scale (40 off-scale
 
 ## Next
 
-1. `python3 design/beta/tools/snap-spacing.py tools/beta/lib/render/fe-b.css` (designer's tool: padding ties round
-   up, margin/gap ties to the 8-grid, exact token sizes → `var(--s-N)`, calc()/clamp() untouched).
-2. `cd tools && node beta/build.js`, then look at the landing, a hub (Japan) and how-we-choose at 390 and 1440, light
-   and dark; check B-05 still holds (≥ 2 city cards wholly above the 390×844 fold: test-hubs / metrics.js).
-3. Gates, then `tools/beta/feb-push.sh`, verify `git ls-remote` = HEAD, update this file, report QC-14 (FE-B).
+1. Pull, read this file and docs/BETA-RESUME.md, run the gates.
+2. Read notifications; take the next FE-B row from the orchestrator (QC re-verifies QC-01/02/03/10/14).
 
 ## In flight
 
@@ -32,6 +31,7 @@ Nothing unpushed.
 
 - Gates before every push, fail-fast: `cd tools && npm run validate && npm test && npm run beta:check`, plus
   `node beta/test-beta.js`, `node beta/qa/test-honesty.js`, `node beta/imagery/test-imagery.js`.
+- B-05 probe: `tools/beta/feb-b05.js` (needs `python3 -m http.server 8765 -d <repo>`; ≥ 2 on landing + every hub).
 - Push with `tools/beta/feb-push.sh` (merges origin, regenerates beta/ on generated conflicts, stops on any source
   conflict or leftover conflict marker, verifies the ref moved). Re-run the gates on the merged head afterwards.
 - Edits in other lanes' files are small, marked and announced: views.css / v2.css (designer), city.js + sheet.js

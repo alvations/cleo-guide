@@ -211,8 +211,8 @@
     if (tg) {
       tg.classList.add('is-target');
       if (r.p !== lastP || !(Cleo.sheet && Cleo.sheet.isOpen())) {
-        tg.scrollIntoView({ block: 'center' });
-        if (map && markers[r.p]) fly(markers[r.p].getLatLng());
+        // Atlas hosts the detail over a map that stays put (atlas-nav.js, SPEC-v3 §3.2): no page scroll, no fly
+        if (!(C.placeOpen && C.placeOpen(tg, map && markers[r.p]))) { tg.scrollIntoView({ block: 'center' }); if (map && markers[r.p]) fly(markers[r.p].getLatLng()); }
         if (C.select && C.view === 'atlas') C.select(tg, 'route');   // selected + labelled on the map (SPEC-v3 §1.4)
         if (Cleo.sheet) Cleo.sheet.open(tg); else { const l = $('.pl-n a', tg); if (l && l.focus) l.focus({ preventScroll: true }); }
       }
@@ -374,7 +374,8 @@
     need('atlas', () => { if (C.atlasTools && live()) { C.atlasTools(L, el); feature(); } });
     syncMarkers(); C.after.forEach(f => f());
     const r0 = Cleo.route.parse().p;
-    if (r0 && markers[r0]) setTimeout(() => fly(markers[r0].getLatLng()), 0);
+    if (C.atView && C.atView()) { if (r0 && C.clearPin) setTimeout(C.clearPin, 0); }   // a shared view (#…&at=, atlas-nav.js) wins
+    else if (r0 && markers[r0]) setTimeout(() => { if (!(C.freshPlace && C.view === 'atlas' && C.freshPlace())) fly(markers[r0].getLatLng()); }, 0);
     else if (S.a) setTimeout(() => fitArea(S.a), 0);
     else if (S.mode !== 'all' || S.q || LENS.some(k => S[k])) setTimeout(fitLens, 0);   // a lens link: every match on the map, so the count is the lens total
     else setTimeout(() => { if (!(C.fitDefault && C.fitDefault())) fitCore(); }, 0);   // the city core, or the last view of this city (atlas.js)
