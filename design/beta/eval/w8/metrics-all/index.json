@@ -1,0 +1,1737 @@
+{
+ "generated": "2026-10-16T14:40:48.539Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "landing",
+    "vw": 390,
+    "vh": 844,
+    "title": "Cleo — sourced city guides",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 394,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 649,
+    "upperNodes": 45,
+    "upperPct": 6.9,
+    "minFontPx": 12,
+    "minFontEl": "p.kicker \"Sourced city guides\"",
+    "contrastChecked": 551,
+    "contrastUnknown": 4,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": true,
+    "railTop": 4272,
+    "railOnFirstScreen": false,
+    "railItems": 2,
+    "railFirst": "★ United StatesSan Francisco classicsin ",
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1710,
+    "fcp": 200,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 56,
+     "Inter": 588
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 624,
+      "IPAGothic": 8,
+      "Inter": 8738,
+      "WenQuanYi Zen Hei": 4,
+      "Inter SemiBold": 2
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": [
+      "WenQuanYi Zen Hei"
+     ]
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1956206,
+    "bytesAllResponses": 1956206,
+    "initial": {
+     "bytes": 1062900,
+     "gz": 752699
+    },
+    "session": {
+     "bytes": 1956206
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 551,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "landing",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Cleo — sourced city guides",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 549,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 942,
+    "upperNodes": 45,
+    "upperPct": 4.8,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 847,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": true,
+    "railTop": 3760,
+    "railOnFirstScreen": false,
+    "railItems": 6,
+    "railFirst": "★ United StatesSan Francisco classicsin ",
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1710,
+    "fcp": 196,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 48,
+     "Inter": 640
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 694,
+      "Inter": 9316,
+      "IPAGothic": 8,
+      "WenQuanYi Zen Hei": 4,
+      "Inter SemiBold": 6
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": [
+      "WenQuanYi Zen Hei"
+     ]
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1968062,
+    "bytesAllResponses": 1968062,
+    "initial": {
+     "bytes": 1109999,
+     "gz": 799798
+    },
+    "session": {
+     "bytes": 1968062
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 847,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 13001
+   },
+   "cpu4x": {
+    "fcp": 308,
+    "dcl": 1210,
+    "loadMs": 1262
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic, Inter SemiBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "6.9% (45/649)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px p.kicker \"Sourced city guides\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1922 KB · 1710 nodes · 196 ms · 308 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "781 KB (1,084 KB) · 735 KB (1,038 KB)"
+     }
+    },
+    "passed": 11,
+    "total": 11,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "Belgium/index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 390,
+    "vh": 844,
+    "title": "Belgium — 5 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": null,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 165,
+    "upperNodes": 10,
+    "upperPct": 6.1,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Trougnouf (Benoit\"",
+    "contrastChecked": 145,
+    "contrastUnknown": 3,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 493,
+    "fcp": 216,
+    "fontSampleN": 148,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 26,
+     "Inter": 196
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 247,
+      "Inter": 2789,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 742214,
+    "bytesAllResponses": 742214,
+    "initial": {
+     "bytes": 742214,
+     "gz": 500379
+    },
+    "session": {
+     "bytes": 742214
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 145,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Belgium — 5 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": null,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 189,
+    "upperNodes": 10,
+    "upperPct": 5.3,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 172,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 493,
+    "fcp": 224,
+    "fontSampleN": 172,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 28,
+     "Inter": 231
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 279,
+      "Inter": 3494,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 742214,
+    "bytesAllResponses": 742214,
+    "initial": {
+     "bytes": 742214,
+     "gz": 500379
+    },
+    "session": {
+     "bytes": 742214
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 172,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 3056
+   },
+   "cpu4x": {
+    "fcp": 324,
+    "dcl": 418,
+    "loadMs": 557
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "6.1% (10/165)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: Trougnouf (Benoit\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "725 KB · 493 nodes · 224 ms · 324 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "489 KB (725 KB) · 489 KB (725 KB)"
+     }
+    },
+    "passed": 11,
+    "total": 11,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "Germany/index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 390,
+    "vh": 844,
+    "title": "Germany — 3 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": null,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 132,
+    "upperNodes": 8,
+    "upperPct": 6.1,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Mike Peel · CC BY\"",
+    "contrastChecked": 116,
+    "contrastUnknown": 3,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 431,
+    "fcp": 168,
+    "fontSampleN": 119,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 24,
+     "Inter": 158
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 246,
+      "Inter": 2205,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 660650,
+    "bytesAllResponses": 660650,
+    "initial": {
+     "bytes": 660650,
+     "gz": 421908
+    },
+    "session": {
+     "bytes": 660650
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 116,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Germany — 3 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": null,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 149,
+    "upperNodes": 8,
+    "upperPct": 5.4,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 136,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 431,
+    "fcp": 192,
+    "fontSampleN": 136,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 26,
+     "Inter": 183
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 278,
+      "Inter": 2754,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 660650,
+    "bytesAllResponses": 660650,
+    "initial": {
+     "bytes": 660650,
+     "gz": 421908
+    },
+    "session": {
+     "bytes": 660650
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 136,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 2547
+   },
+   "cpu4x": {
+    "fcp": 352,
+    "dcl": 445,
+    "loadMs": 663
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "6.1% (8/132)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: Mike Peel · CC BY\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "645 KB · 431 nodes · 192 ms · 352 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "412 KB (645 KB) · 412 KB (645 KB)"
+     }
+    },
+    "passed": 11,
+    "total": 11,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "Japan/index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 390,
+    "vh": 844,
+    "title": "Japan — 5 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": null,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 165,
+    "upperNodes": 10,
+    "upperPct": 6.1,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Alpsdake · CC BY-\"",
+    "contrastChecked": 146,
+    "contrastUnknown": 2,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 558,
+    "fcp": 144,
+    "fontSampleN": 148,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 26,
+     "Inter": 196
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 241,
+      "Inter": 2681,
+      "IPAGothic": 9
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 698801,
+    "bytesAllResponses": 698801,
+    "initial": {
+     "bytes": 698801,
+     "gz": 454321
+    },
+    "session": {
+     "bytes": 698801
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 146,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Japan — 5 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": null,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 214,
+    "upperNodes": 10,
+    "upperPct": 4.7,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 197,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 558,
+    "fcp": 184,
+    "fontSampleN": 197,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 31,
+     "Inter": 268
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 317,
+      "Inter": 3832,
+      "IPAGothic": 9
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 698801,
+    "bytesAllResponses": 698801,
+    "initial": {
+     "bytes": 698801,
+     "gz": 454321
+    },
+    "session": {
+     "bytes": 698801
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 197,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 3355
+   },
+   "cpu4x": {
+    "fcp": 452,
+    "dcl": 538,
+    "loadMs": 686
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "6.1% (10/165)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: Alpsdake · CC BY-\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "682 KB · 558 nodes · 184 ms · 452 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "444 KB (682 KB) · 444 KB (682 KB)"
+     }
+    },
+    "passed": 11,
+    "total": 11,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "Singapore/index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 390,
+    "vh": 844,
+    "title": "Singapore — 29 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": null,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 287,
+    "upperNodes": 14,
+    "upperPct": 4.9,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: William Cho · CC \"",
+    "contrastChecked": 259,
+    "contrastUnknown": 3,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 678,
+    "fcp": 120,
+    "fontSampleN": 262,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 31,
+     "Inter": 347
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 343,
+      "Inter": 5028,
+      "IPAGothic": 7,
+      "WenQuanYi Zen Hei": 2
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": [
+      "WenQuanYi Zen Hei"
+     ]
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 884334,
+    "bytesAllResponses": 884334,
+    "initial": {
+     "bytes": 793580,
+     "gz": 540493
+    },
+    "session": {
+     "bytes": 884334
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 259,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Singapore — 29 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": null,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 307,
+    "upperNodes": 14,
+    "upperPct": 4.6,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 282,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 678,
+    "fcp": 152,
+    "fontSampleN": 282,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 32,
+     "Inter": 372
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 354,
+      "Inter": 5890,
+      "IPAGothic": 7,
+      "WenQuanYi Zen Hei": 2
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": [
+      "WenQuanYi Zen Hei"
+     ]
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 884334,
+    "bytesAllResponses": 884334,
+    "initial": {
+     "bytes": 884334,
+     "gz": 631247
+    },
+    "session": {
+     "bytes": 884334
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 282,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 5292
+   },
+   "cpu4x": {
+    "fcp": 288,
+    "dcl": 723,
+    "loadMs": 769
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "4.9% (14/287)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: William Cho · CC \""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "864 KB · 678 nodes · 152 ms · 288 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "616 KB (864 KB) · 528 KB (775 KB)"
+     }
+    },
+    "passed": 11,
+    "total": 11,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "Vietnam/index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 390,
+    "vh": 844,
+    "title": "Vietnam — 5 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": null,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 135,
+    "upperNodes": 5,
+    "upperPct": 3.7,
+    "minFontPx": 12,
+    "minFontEl": "p.credit \"Photo: Ashley98lee · CC \"",
+    "contrastChecked": 119,
+    "contrastUnknown": 5,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 440,
+    "fcp": 128,
+    "fontSampleN": 124,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 26,
+     "Inter": 158
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 257,
+      "Inter": 2069,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 504798,
+    "bytesAllResponses": 504798,
+    "initial": {
+     "bytes": 504798,
+     "gz": 265916
+    },
+    "session": {
+     "bytes": 504798
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 119,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Vietnam — 5 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": null,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 146,
+    "upperNodes": 5,
+    "upperPct": 3.4,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 135,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 440,
+    "fcp": 176,
+    "fontSampleN": 135,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 30,
+     "Inter": 166
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 288,
+      "Inter": 2462,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 504798,
+    "bytesAllResponses": 504798,
+    "initial": {
+     "bytes": 504798,
+     "gz": 265916
+    },
+    "session": {
+     "bytes": 504798
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 135,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 2221
+   },
+   "cpu4x": {
+    "fcp": 340,
+    "dcl": 415,
+    "loadMs": 541
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "3.7% (5/135)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px p.credit \"Photo: Ashley98lee · CC \""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "493 KB · 440 nodes · 176 ms · 340 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "260 KB (493 KB) · 260 KB (493 KB)"
+     }
+    },
+    "passed": 11,
+    "total": 11,
+    "hardFail": []
+   }
+  }
+ ]
+}
