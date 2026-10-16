@@ -34,6 +34,7 @@ never weakens a gate.
 - `a498adf5`: QC-21 verified.
 - `995e2529`: QC-18 and QC-20 verified; QC-19 still open (2 Cleveland records); new QC-22 (Low).
 - `8f21eda9`: QC-10, 15, 17 and 19 verified; QC-22 still open; new QC-23 to QC-26 (W9-1 recognition pass plus the QC-26 regression).
+- `9c133152`: QC-23 and QC-24 verified.
 - `3a0ecfec`: QC-11 and QC-12 verified (S-12 all 91 pages at 390, 768 and 1440).
 
 ## In flight

@@ -438,3 +438,16 @@ Both probes will be updated before the next pass.
 - Verified 17: QC-01, 02, 03, 06, 07, 08, 09, 10, 11, 12, 15, 16, 17, 18, 19, 20, 21.
 - Open 9: Med 4 (QC-04, 05, 23, 26), Low 5 (QC-13, 14, 22, 24, 25). High 0 · Blocker 0.
 
+## Re-verify 2026-10-16 · 9c133152 (FE-C claims for QC-23, QC-24)
+
+Clean worktree at `9c1331525`. QC probe at 390 and 1440. Output: `design/beta/eval/qc/9c133152/qc-23-24-probe.json`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-23 | **verified** | Toa Payoh `kim-keat-hokkien-mee` and `hup-chong-hakka-yong-tau-foo`, both closed: the sheet shows "Before it closed: Cited by 3 sources" / "… 6 sources" (a 32 px row) on a cold deep link and on the card-click path. The closed card's own copy is display:none by class (the design: shown in the detail) (`qc-23-before-it-closed.jpg`). |
+| QC-24 | **verified** | The `#rec=any` chip reads "Recognised" (aria "Remove Recognised"); under `?lang=ja` it reads "注目" ("注目を外す"). The new `#lf=1` chip reads "Local favourites" (`qc-24-chip.jpg`). |
+
+**Register:**
+- Verified 19: QC-01–03, 06–12, 15–21, 23, 24.
+- Open 7: Med 3 (QC-04, 05, 26), Low 4 (QC-13, 14, 22, 25). High 0.
+
