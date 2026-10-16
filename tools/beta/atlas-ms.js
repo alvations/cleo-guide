@@ -11,6 +11,7 @@
  * Probes (the Amendment 2 acceptance): desktop map share + full height, 2-column grid, pan changes the count and
  * "Show all" restores N, hover card → pin and pin → card, pin → preview → detail; phone first screen ≥ 70 % map,
  * pin → carousel card in view, List/Map toggle, "Search this area"; 0 page errors with stub and with blocked tiles.
+ * Then runs atlas-nav-ms.js (the map's interaction state: PANEL-R1 #1, #3, #11, #13) as part of the same gate.
  */
 const fs = require('fs');
 const path = require('path');
@@ -173,15 +174,25 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
           pv = await page.evaluate(() => { const p = document.getElementById('cleo-poi'), c = document.querySelector('li.pl.is-sel'), lp = document.querySelector('.listpane').getBoundingClientRect(), r = c && c.getBoundingClientRect();
             return { open: !!p && !p.hidden && p.offsetHeight > 80, name: p && (p.querySelector(".ms-pv-n") || {}).textContent, card: c && c.id, cardInView: !!r && r.top >= lp.top - 2 && r.bottom <= lp.bottom + 2, r: r && [Math.round(r.top), Math.round(r.bottom)], lp: [Math.round(lp.top), Math.round(lp.bottom)], scrollY }; });
           await snap(page, `${key}-atlas-1440-preview`);
+          // PANEL-R1 process note: "view kept" means the view, not the hash — centre, zoom, scrolls and focus survive the
+          // detail round-trip (Escape), exactly as PANEL-R1 #1 measures it
+          const keep = () => page.evaluate(() => { const m = Cleo.city.map(), c = m.getCenter(), l = document.querySelector('.listpane'); return { lat: c.lat, lng: c.lng, z: m.getZoom(), y: Math.round(scrollY), t: Math.round(l.scrollTop), x: Math.round(l.scrollLeft), n: (document.querySelector('.ms-count') || {}).textContent }; });
+          const k0 = await keep();
           await page.click('#cleo-poi a.ms-pv'); await sleep(900);
           det = await page.evaluate(() => ({ hash: location.hash, sheet: !!document.querySelector('#cleo-sheet:not([hidden])') }));
           await snap(page, `${key}-atlas-1440-detail`);
+          await page.keyboard.press('Escape'); await sleep(1000);
+          const k1 = await keep();
+          det.px = await page.evaluate(k => { const m = Cleo.city.map(), a = m.latLngToContainerPoint([k.lat, k.lng]), b = m.latLngToContainerPoint(m.getCenter()); return Math.round(Math.hypot(a.x - b.x, a.y - b.y) * 100) / 100; }, k0);
+          det.zoom = [k0.z, k1.z]; det.scroll = [[k0.y, k0.t, k0.x], [k1.y, k1.t, k1.x]]; det.count = [k0.n, k1.n];
+          det.focus = await page.evaluate(() => { const a = document.activeElement, p = a && a.closest && a.closest('.leaflet-marker-icon'); return p ? 'pin' : a && a.closest && a.closest('li.pl') ? 'card' : a ? a.tagName : null; });
+          det.kept = det.px <= 1 && k0.z === k1.z && k0.y === k1.y && k0.t === k1.t && k0.x === k1.x && k0.n === k1.n && det.focus === 'pin';
         }
         chk(`${key} desktop: hovering a card highlights its pin`, hv && hv.cardToPin, hv);
         chk(`${key} desktop: hovering a pin highlights its card`, p2c === true, p2c);
         chk(`${key} desktop: pin → card in view in the list, page not scrolled`, pv && pv.cardInView && pv.scrollY === 0, pv);
         chk(`${key} desktop: pin → preview card on the map`, pv && pv.open, pv && pv.name);
-        chk(`${key} desktop: preview → place detail (#p=, view kept)`, det && det.sheet && /view=atlas/.test(det.hash) && /p=/.test(det.hash), det);
+        chk(`${key} desktop: preview → place detail (#p=) → Escape keeps the view (centre ≤ 1 px, zoom, scrolls, count) and focus returns to the pin`, det && det.sheet && /view=atlas/.test(det.hash) && /p=/.test(det.hash) && det.kept, det);
         // area chip fits the map
         const ar = await page.evaluate(async () => { location.hash = '#view=atlas'; await new Promise(r => setTimeout(r, 300)); const b = document.querySelector('.ms-head [data-cleo-area]'); if (!b) return null;
           const z0 = Cleo.city.map().getZoom(); b.click(); await new Promise(r => setTimeout(r, 900)); const a = b.getAttribute('data-cleo-area'), m = Cleo.city.map(), bd = m.getBounds();
@@ -315,6 +326,9 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
   }
   await browser.close();
   fs.writeFileSync(path.join(OUT, 'probe.json'), JSON.stringify({ ok, states: R }, null, 1) + '\n');
+  // the map's interaction state (Atlas FE-2: round-trip, the view in the URL, keyboard, near me) — part of this gate
+  const nav = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'atlas-nav-ms.js')].concat(ONLY ? ['--only', ONLY] : []), { stdio: 'inherit', env: process.env });
+  if (nav.status !== 0) fails++;
   console.log(fails ? `\n>>> FAIL — ${fails} Atlas map-search check(s)` : '\n>>> PASS — Atlas map-search acceptance');
   process.exit(fails ? 1 : 0);
 })();
