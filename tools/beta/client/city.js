@@ -11,7 +11,8 @@
   const fold = Cleo.fold || (s => String(s || '').toLowerCase());
   cards.forEach(c => { byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
   const desk = () => !window.matchMedia || matchMedia('(min-width: 1024px)').matches;
-  const LENS = ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day'], RAIL = ['sig', 'c', 'cz', 't', 'src', 'gap', 'closed'], S = { mode: 'all', q: '', sort: '' };
+  const LENS = ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day', 'rec'], RAIL = ['sig', 'c', 'cz', 't', 'src', 'gap', 'closed', 'rec'],   // 'rec': FE-C W9-1 hook
+  S = { mode: 'all', q: '', sort: '' };
   const store = Cleo.store || { get: (k, x) => x, set: () => {} };
   const been = { all: () => { const b = store.get('been', {}); return b && typeof b === 'object' ? b : {}; },
     toggle(r) { const b = been.all(); if (b[r]) delete b[r]; else b[r] = 1; store.set('been', b); paint(); return !!b[r]; } };
@@ -42,6 +43,8 @@
   };
   // FE-C W9-5 hook: "Set as my base" in the place sheet. base.js loads on the first sheet (core loads it at once when a base is set)
   { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need) Cleo.need('base', () => C.baseSheet && C.baseSheet(c)); }; }
+  // FE-C W9-1 hook: the recognition badges are drawn by recognition.js (lazy) on pages that have recognised places
+  if (Cleo.need && d.querySelector('.rail-i[data-rec]')) Cleo.need('recognition');
   need.q = {};
   const rail = $('#cleo-rail'), shown = $('#cleo-shown'), lens = $('#cleo-lens'), applied = $('[data-cleo-applied]'), fi = $('#cleo-filter'), split = $('.split');
   // R7 gap 2(c): the placeholder is never clipped mid-letter — "Search {city}" where it fits, else "Search" (a narrow
@@ -87,6 +90,7 @@
     if (S.been) { const b = !!been.all()[key + '/' + pid(c)]; if (S.been === 'hide' ? b : !b) return false; }
     if (S.sig && !(info.sig && info.sig.ids.indexOf(pid(c)) >= 0)) return false;
     if ((S.mine && !(Cleo.saved && Cleo.saved.has(key + '/' + pid(c)))) || (S.day && C.inDay && !C.inDay(pid(c)))) return false;
+    if (S.rec && !(at(c, 'data-rec') || '').split(' ').some(x => x && (S.rec === 'any' || x === S.rec))) return false;   // FE-C W9-1 hook: recognised (open places only carry data-rec)
     if (C.ringKeep && !C.ringKeep(c)) return false;   // Atlas FE-2 W9-5 hook: the walking ring from your base (atlas-nav.js)
     return !S.q || fold(S.q).split(/\s+/).every(w => !w || text[pid(c)].indexOf(w) >= 0);
   };
@@ -125,9 +129,10 @@
     const gap = t => '<div class="gap"><span class="eyebrow">' + tt('city.gap.k', 'Stated gap') + '</span>' + t + '</div>';
     if (shown) shown.innerHTML = n === tot ? shown0 : n ? tt('city.shown', 'Showing {n} of {total} places in {areas}', { n: '<b>' + n + '</b>', total: tot, areas: ar(nA) }) + tt('city.facts.order', '. Ordered by tier, then by number of named sources.')
       : '<b>' + tt('city.empty', 'No places match.') + '</b> ' + tt('city.empty.note', 'Filters never hide places for good.') + ' <button class="btn btn-quiet" data-cleo-all>' + tt('city.empty.clear', 'Clear filters ({places})', { places: pl(tot) }) + '</button>';
-    const lk = ['day', 'sig', 'src', 'gap', 'closed', 'mine', 'c', 'cz', 't', 'a'].filter(k => S[k])[0];
+    const lk = ['day', 'sig', 'src', 'gap', 'closed', 'mine', 'rec', 'c', 'cz', 't', 'a'].filter(k => S[k])[0];   // 'rec': FE-C W9-1 hook
     let h = '';
     if (C.lens[lk]) h = C.lens[lk](n, nA, all);
+    else if (lk === 'rec') h = '<span class="eyebrow">' + esc(Cleo.t('rec.tile.d', 'From the sources we hold')) + '</span><h2>' + esc({ award: Cleo.t('rec.f.award', 'Has an award'), video: Cleo.t('rec.f.video', 'Has a creator video'), cited: Cleo.t('rec.f.cited', 'Cited by 3 or more sources') }[S.rec] || Cleo.t('rec.tile.t', 'Awards and much-cited places')) + ' (' + n + ')</h2><div class="row">' + all + '</div>';   // FE-C W9-1 hook
     else if (lk === 'closed') h = '<h2>' + tt('city.closed.h', 'Recently closed — kept for the record ({n})', { n }) + '</h2><p>' + tt('city.closed.p', 'Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.') + '</p><div class="row">' + all + '</div>';
     else if (lk === 'sig' && info.sig) h = '<span class="eyebrow">' + tt('city.sig.k', '★ Signature') + ' · ' + esc(info.sig.why || '') + '</span><h2>' + esc(info.sig.t) + ' (' + n + ')</h2>' +
       (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + tt('city.across', '{places} across {areas}.', { places: pl(n), areas: ar(nA) }) + '</p><div class="row">' + all + '</div>';
@@ -265,7 +270,7 @@
   on(d, 'cleo:stamped', e => { ((e.detail || {}).cards || []).forEach(c => { if (byId[pid(c)] === c) return; cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
     $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); }); paint(); });
 
-  const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been'];
+  const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been', 'rec'];   // 'rec': FE-C W9-1 hook
   let P = {}, opener = null, pushed = 0, after = null;
   const tpaint = () => {
     $$('.pill', tray).forEach(b => { const k = at(b, 'data-f'); b.setAttribute('aria-pressed', String((k === 'base' ? ({ 'street!': 'street', satellite: 'satellite' })[store.get('base', 'map')] || 'light' : P[k] || '') === at(b, 'data-v'))); });
@@ -327,7 +332,8 @@
   // parks pins underneath. Fit inside the uncovered band (QA-34; the day route sits above the carousel too).
   const overMap = C.overMap = () => { const m = el0().getBoundingClientRect(), lp = $('.listpane'), bar = $('.ms-bar'), H = d.documentElement; let t = 0, b = 0;
     if (!desk() && H.classList.contains('atlas-m') && !H.classList.contains('ms-list')) {
-      if (lp && lp.offsetHeight) b = Math.max(0, m.bottom - lp.getBoundingClientRect().top);
+      // the bottom overlay: the carousel after a selection, else the 64 px list peek (SPEC-v3 §2.2)
+      const pk = $('.ms-toggle'), bo = lp && lp.offsetHeight ? lp : pk && pk.offsetHeight ? pk : null; if (bo) b = Math.max(0, m.bottom - bo.getBoundingClientRect().top);
       if (bar && bar.offsetHeight) t = Math.max(0, bar.getBoundingClientRect().bottom - m.top); }
     return { paddingTopLeft: [32, 24 + t], paddingBottomRight: [32, 24 + b] }; };
   const fitArea = C.fitArea = a => { if (!live() || !map.getSize().x) return; const ll = cards.concat(Cleo.defer ? Cleo.defer.peek() : []).filter(c => at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
@@ -363,6 +369,8 @@
     const c2d = (() => { try { return !!d.createElement('canvas').getContext('2d'); } catch (e) { return false; } })();   // no 2D canvas → SVG dots, same API
     // tolerance 19: every dot gets a 44 px hit circle (SPEC-v3 §1.1)
     const cv = C.canvas = c2d ? L.canvas({ padding: 0.3, tolerance: 19 }) : L.svg({ padding: 0.3 });
+    // i18n D-41 / W8-I18N-MAPRACE: a redraw queued as fail() removes the map finds no 2D context (Leaflet throws 'save')
+    if (c2d) { const rd = cv._redraw; cv._redraw = function () { if (this._ctx) rd.call(this); }; }
     // a dot draws its kind by shape on the canvas: options.shape 'sq' (eat & drink), options.slash (closed); SVG keeps the circle
     const Dot = L.CircleMarker.extend({ _updatePath: function () { const r = this._renderer, o = this.options;
       if (!r._ctx || !r._fillStroke || (!o.shape && !o.slash)) return L.CircleMarker.prototype._updatePath.call(this);

@@ -293,6 +293,26 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     box.querySelectorAll('[aria-label]').forEach(el => { const v = el.getAttribute('aria-label'); if (/[A-Za-z]{2,}/.test(v) && !/⟦/.test(v)) leftTrip.push('@' + v.slice(0, 50)); });
     chk('trip.html, runtime pseudo catalogue: the trip has 0 English interface strings (data exempt)', [box.querySelectorAll('.tday').length > 0, !!box.querySelector('.tp-left'), [...new Set(leftTrip)].slice(0, 12)], [true, true, []]);
   }
+  // W8-I18N-MAPRACE: tiles that never load drop the map (client/city.js fail()); a canvas redraw queued as it went threw
+  // "reading 'save'" on ja pages. Real browser, tile hosts blocked, the atlas with a lens on, phone and desktop, ja and en.
+  let pw = null; try { pw = require('playwright'); } catch (e) {}
+  if (!pw) console.log('  SKIP  tiles-blocked map check (no playwright here)');
+  else {
+    const MIME = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' };
+    const ROOT = path.resolve(__dirname, '..', '..'), http = require('http');
+    const srv = http.createServer((q, r) => { const f = path.join(ROOT, decodeURIComponent(q.url.split('?')[0])); fs.readFile(f, (e, b) => { if (e) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': MIME[path.extname(f)] || 'application/octet-stream' }); r.end(b); }); });
+    await new Promise(res => srv.listen(0, '127.0.0.1', res));
+    const br = await pw.chromium.launch(), got = [];
+    for (const l of ['ja', 'en']) for (const vp of [390, 1440]) {
+      const cx = await br.newContext({ viewport: { width: vp, height: 900 }, serviceWorkers: 'block' }), pg = await cx.newPage(), errs = [];
+      await pg.route(/arcgisonline|openstreetmap/, r => r.abort());
+      pg.on('pageerror', e => errs.push(String(e).slice(0, 80)));
+      await pg.goto(`http://127.0.0.1:${srv.address().port}/beta/cities/tokyo.html?lang=${l}#view=atlas&t=1`); await pg.waitForTimeout(2500);
+      got.push(`${l} @${vp} errors=${errs.length}${errs.length ? ' ' + errs[0] : ''}`); await cx.close();
+    }
+    await br.close(); srv.close();
+    chk('tiles blocked: #view=atlas&t=1 drops the map with no JS error (ja + en, 390 + 1440)', got, ['ja @390 errors=0', 'ja @1440 errors=0', 'en @390 errors=0', 'en @1440 errors=0']);
+  }
   // storage that throws (sandboxes): the runtime still runs and stays in English
   const dT = new JSDOM(fs.readFileSync(path.join(BETA, 'index.html'), 'utf8'), { url: 'https://example.test/beta/index.html', runScripts: 'outside-only' }).window;
   Object.defineProperty(dT, 'localStorage', { get() { throw new Error('denied'); } });

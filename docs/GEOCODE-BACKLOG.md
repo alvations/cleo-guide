@@ -1724,7 +1724,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Brauerei Kürzer
 
 ## saarland
-- registry entries: **410** · verified pins: **292** (high 218 · med 74 · low 0)
+- registry entries: **406** · verified pins: **288** (high 214 · med 74 · low 0)
 - ⚠️ **UNVERIFIED** in registry (118) — held by the gate, need the helper:
     - #FOX l Coffee-Shop & Torréfacteur
     - Ancien Cinéma Café-Club
@@ -1846,7 +1846,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - À la Table du Bon Roi Stanislas
 
 ## san-francisco-ca
-- registry entries: **579** · verified pins: **508** (high 454 · med 54 · low 0)
+- registry entries: **579** · verified pins: **508** (high 455 · med 53 · low 0)
 - ⚠️ **UNVERIFIED** in registry (71) — held by the gate, need the helper:
     - Absinthe Brasserie & Bar
     - April Jean
@@ -1921,7 +1921,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Wursthall — CLOSED
 
 ## silicon-valley-ca
-- registry entries: **172** · verified pins: **153** (high 98 · med 55 · low 0)
+- registry entries: **171** · verified pins: **152** (high 97 · med 55 · low 0)
 - ⚠️ **UNVERIFIED** in registry (19) — held by the gate, need the helper:
     - Academic Coffee
     - Bill's Cafe
