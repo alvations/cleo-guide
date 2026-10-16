@@ -197,7 +197,6 @@ new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></
 assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>", "", new)), "literal \\uXXXX escape leaked into visible HTML \u2014 use real characters in page prose, not \\u escapes"
 import engine_guard  # no map may ship the Google "API key" base-map surface
 new = engine_guard.fix_basemap_tiles(engine_guard.strip_google(new)); engine_guard.assert_no_google(new, OUT)
-open(OUT, "w", encoding="utf-8").write(new)
 assert "P.forEach((p,i)=>{p.id='s'+i" in new
 # "Cleveland Ave(nue)" is a real street in several of these metros; exempt it so this engine-leak
 # guard fires only on a genuine template-data leak (Cleveland place names or a "Cleveland, OH"
@@ -207,6 +206,8 @@ assert "Cleveland" not in re.sub(r"Cleveland Ave(?:nue)?", "", _leakseg), "Cleve
 for a in DS["areas"]:
     n1 = sum(1 for r in DS["P"]+DS["F"] if r["a"]==a["id"] and r["t"]==1)
     assert n1 >= 1, "area %s has no tier-1 must-see" % a["id"]
+# every check on `new` above passes before anything is written (CLAUDE.md rule 2: refuse to write on a failed check)
+open(OUT, "w", encoding="utf-8").write(new)
 print("sights: %d  food: %d  total: %d" % (nP, nF, TOTAL))
 print("remaining 'Cleveland' mentions:", new.count("Cleveland"))
 print("OK wrote", OUT)
