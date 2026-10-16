@@ -32,11 +32,12 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | W9-1 Atlas preview badges | bdafa7a46 | — |
 | w8p fix: Gallery/Guidebook/preview badges read the place's own card (stamped or `Cleo.defer.peek()` stub), never `Cleo.pageData` — Tokyo phone first load 762 → 656 KB | b8a3a6ae2 | — |
 | W9 audit (AUDIT.md + tools/beta/qa/w9-audit/) | 78065c843 | — |
-| W9-2 card line "Status checked <d Mon>" (client/fresh.js, lazy; text in a CSS attr() so search never matches it) + "Follow changes" line (lib/render/fresh-ui.js, OFF until fresh.feed's ja lands; key in pending-en.json) | this push | — |
+| W9-2 card line "Status checked <d Mon>" (client/fresh.js, lazy; text in a CSS attr() so search never matches it) + "Follow changes" line (lib/render/fresh-ui.js, OFF until fresh.feed's ja lands; key in pending-en.json) | 38228322b | — |
+| batch 4 ja merged: W9-9 local favourites LIVE (patch applied, removed), "Follow changes" LIVE on 84 pages; QC-23 closed "Before it closed" row visible in the detail (CSS-hidden on the card; city.js onSheet hook for deep links); QC-24 rec/lf chips named | this push | — |
 
 ## Next
 
-W9 audit: design/beta/eval/w9/AUDIT.md (scripts in tools/beta/qa/w9-audit/) is written and was sent to QA session_017FLWXa5zgGWvqNo4C3UsvH. W9-2 card line is live; "Follow changes" waits for the i18n lane's ja of `fresh.feed` (with the 7 lf.* keys). When pending-ja.json lands: `python3 tools/beta/i18n-fec/merge.py` (the line turns on by itself: fresh-ui ON() reads en) + `git apply tools/beta/i18n-fec/w9-9-lf.patch`, then the gates (test-fe-c FRESH then checks all 84 pages' feed link).
+W9 audit: design/beta/eval/w9/AUDIT.md (scripts in tools/beta/qa/w9-audit/) is written and was sent to QA session_017FLWXa5zgGWvqNo4C3UsvH. W9-2 card line + "Follow changes" and W9-9 are live; pending-*.json are empty. QC-17: FE-1 done at 03c9fc58d (phone carousel wraps p.pl-base). Next: anything new from the orchestrator / QC (session_01MYsz5PHtY39stLxc8rMmqj).
 
 
 Orchestrator order (2026-10-16 14:52Z):
@@ -77,8 +78,7 @@ Orchestrator order (2026-10-16 14:52Z):
 ## In flight
 
 Nothing unpushed. Waiting on:
-- the i18n lane: pending-ja.json for W9-9's 7 keys + W9-2's fresh.feed;
-- Atlas FE-1: the carousel SHA for QC-17 (agreed: the line wraps).
+- nothing (QC-17 closed by FE-1 at 03c9fc58d).
 
 ## Notes
 

@@ -1,6 +1,768 @@
 {
- "head": "83aa1a28",
+ "head": "4aba38b3e",
  "checks": [
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=gallery (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=gallery&p=soldiers-and-sailors-monument (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=gallery&a=DT (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=gallery&a=DT&p=soldiers-and-sailors-monument (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=gallery&t=1 (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=gallery&t=1&p=soldiers-and-sailors-monument (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=gallery&q=Soldiers' (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=gallery&q=Soldiers'&p=soldiers-and-sailors-monument (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=gallery&pg=2",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "hash": "#view=gallery&pg=2"
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=gallery&all=1",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "hash": "#view=gallery&all=1"
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=atlas (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=atlas&p=soldiers-and-sailors-monument (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=atlas&a=DT (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=atlas&a=DT&p=soldiers-and-sailors-monument (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=atlas&t=1 (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=atlas&t=1&p=soldiers-and-sailors-monument (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=atlas&q=Soldiers' (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=atlas&q=Soldiers'&p=soldiers-and-sailors-monument (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=guidebook (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=guidebook&p=soldiers-and-sailors-monument (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=guidebook&a=DT (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=guidebook&a=DT&p=soldiers-and-sailors-monument (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=guidebook&t=1 (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=guidebook&t=1&p=soldiers-and-sailors-monument (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=guidebook&q=Soldiers' (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=guidebook&q=Soldiers'&p=soldiers-and-sailors-monument (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=insights (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=insights&p=soldiers-and-sailors-monument (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=insights&a=DT (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=insights&a=DT&p=soldiers-and-sailors-monument (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=insights&t=1 (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=insights&t=1&p=soldiers-and-sailors-monument (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=insights&q=Soldiers' (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile #view=insights&q=Soldiers'&p=soldiers-and-sailors-monument (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=gallery (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=gallery&p=soldiers-and-sailors-monument (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=gallery&a=DT (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=gallery&a=DT&p=soldiers-and-sailors-monument (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=gallery&t=1 (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=gallery&t=1&p=soldiers-and-sailors-monument (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=gallery&q=Soldiers' (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=gallery&q=Soldiers'&p=soldiers-and-sailors-monument (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=gallery&pg=2",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "hash": "#view=gallery&pg=2"
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=gallery&all=1",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "hash": "#view=gallery&all=1"
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=atlas (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=atlas&p=soldiers-and-sailors-monument (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=atlas&a=DT (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=atlas&a=DT&p=soldiers-and-sailors-monument (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=atlas&t=1 (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=atlas&t=1&p=soldiers-and-sailors-monument (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=atlas&q=Soldiers' (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=atlas&q=Soldiers'&p=soldiers-and-sailors-monument (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=guidebook (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=guidebook&p=soldiers-and-sailors-monument (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=guidebook&a=DT (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=guidebook&a=DT&p=soldiers-and-sailors-monument (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=guidebook&t=1 (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=guidebook&t=1&p=soldiers-and-sailors-monument (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=guidebook&q=Soldiers' (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=guidebook&q=Soldiers'&p=soldiers-and-sailors-monument (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=insights (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=insights&p=soldiers-and-sailors-monument (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=insights&a=DT (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=insights&a=DT&p=soldiers-and-sailors-monument (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 42,
+    "want": 42,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=insights&t=1 (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=insights&t=1&p=soldiers-and-sailors-monument (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 47,
+    "want": 47,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=insights&q=Soldiers' (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop #view=insights&q=Soldiers'&p=soldiers-and-sailors-monument (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Soldiers' & Sailors' Monument",
+    "shown": 1,
+    "want": 1,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html mobile Back/Forward across a switch",
+   "status": "PASS",
+   "evidence": {
+    "a": "atlas",
+    "b": "gallery",
+    "c": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cleveland.html desktop Back/Forward across a switch",
+   "status": "PASS",
+   "evidence": {
+    "a": "atlas",
+    "b": "gallery",
+    "c": "atlas",
+    "err": []
+   }
+  },
   {
    "group": "links",
    "name": "cities/tokyo.html mobile #view=gallery (pref guidebook)",

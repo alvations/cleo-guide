@@ -3,7 +3,7 @@
 // switch, and on phones (< 640 px; wider, the sheet is a modal dialog) with the place-detail sheet open each segment is what elementFromPoint finds at its centre and a tap closes
 // the sheet, switches and moves focus to the view's h1. Needs: python3 -m http.server 8765 -d <repo>. Run from tools/: node beta/feb-switcher.js [page]
 const { chromium } = require('playwright');
-const page0 = process.argv[2] || 'cities/tokyo.html';
+const page0 = process.argv[2] || 'cities/tokyo.html', view0 = process.argv[3] || 'gallery';   // node beta/feb-switcher.js [page] [view]
 (async () => {
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   let bad = 0;
@@ -13,7 +13,7 @@ const page0 = process.argv[2] || 'cities/tokyo.html';
     const p = await b.newPage({ viewport: { width: w, height: 844 }, deviceScaleFactor: dpr, reducedMotion: rm || 'no-preference' });
     const errs = []; p.on('pageerror', e => errs.push(e.message));
     const deep = how === 'hash' && page0 === 'cities/tokyo.html';   // a fresh load of the deep link (the sheet opens on load)
-    await p.goto('http://127.0.0.1:8765/beta/' + page0 + (deep ? '#view=gallery&p=senso-ji' : '#view=gallery')); await p.waitForTimeout(deep ? 1500 : 800);
+    await p.goto('http://127.0.0.1:8765/beta/' + page0 + (deep ? '#view=' + view0 + '&p=senso-ji' : '#view=' + view0)); await p.waitForTimeout(deep ? 1500 : 800);
     const st = () => p.evaluate(() => {
       const g = document.querySelector('[data-cleo-views]'), bs = [...g.querySelectorAll('button[data-view]')];
       return { tag: g.tagName, role: g.getAttribute('role'), label: g.getAttribute('aria-label'), pressed: bs.filter(x => x.getAttribute('aria-pressed') === 'true').map(x => x.dataset.view),
@@ -23,7 +23,7 @@ const page0 = process.argv[2] || 'cities/tokyo.html';
     const s0 = await st();
     const small = s0.segs.filter(x => !x.vis || x.w < (w < 300 ? 60 : 44) || x.h < 44);   // < 300 px: the 2 x 2 grid, each >= 60 x 44
     // open a place sheet, then check each segment is still hit-testable, and tap Guidebook once
-    if (!deep) { await p.evaluate(() => { const a = document.querySelector('li.pl .pl-n a'); if (a) a.click(); }); await p.waitForTimeout(150); }
+    if (!deep) { await p.evaluate(() => { const a = document.querySelector('li.pl .pl-n a'); if (a && a.offsetParent) a.click(); else { const li = document.querySelector('li.pl[id^="p-"]'); if (li) location.hash = location.hash.replace(/&p=[^&]*/, '') + '&p=' + li.id.slice(2); }   /* a hidden card list (Atlas): open by the deep link */ }); await p.waitForTimeout(150); }
     // the sheet grows in through a view transition (~430–480 ms, starting 80–120 ms after the tap) during which
     // elementFromPoint returns <html>: wait until no animation runs (2 s cap) instead of a fixed delay
     await p.waitForFunction(() => document.getAnimations().every(a => a.playState !== 'running'), null, { timeout: 2000 }).catch(() => {});
@@ -35,7 +35,7 @@ const page0 = process.argv[2] || 'cities/tokyo.html';
     const after = await p.evaluate(() => ({ view: document.documentElement.getAttribute('data-view'), sheet: !!(window.Cleo && Cleo.sheet && Cleo.sheet.isOpen()), focus: document.activeElement && document.activeElement.tagName, hash: location.hash }));
     const ok = s0.tag === 'DIV' && s0.role === 'group' && s0.label === 'View' && s0.pressed.length === 1 && !small.length && open1 && (w >= 640 || (!covered.length && after.view === 'guidebook' && !after.sheet && /^H[12]$/.test(after.focus))) && !errs.length;
     if (!ok) bad++;
-    console.log(`${ok ? 'PASS' : 'FAIL'} ${w}px@${dpr}x ${how}${rm ? ' reduced-motion' : ''}  ${JSON.stringify({ segs: s0.segs.map(x => `${x.v} ${x.w}x${x.h}`), small, sheetOpen: open1, covered, after, errs })}`);
+    console.log(`${ok ? 'PASS' : 'FAIL'} ${view0} ${w}px@${dpr}x ${how}${rm ? ' reduced-motion' : ''}  ${JSON.stringify({ segs: s0.segs.map(x => `${x.v} ${x.w}x${x.h}`), small, sheetOpen: open1, covered, after, errs })}`);
     await p.close();
   }
   await b.close();

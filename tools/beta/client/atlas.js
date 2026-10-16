@@ -197,6 +197,7 @@
     const T = topOn() ? topSet() : null; topMap(T);
     const area = !T && !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
     if (more !== true && C.navKeep && C.navKeep()) { if (C.msPaint) C.msPaint(); return; }   // a round-trip keeps the list it left (atlas-nav.js)
+    if (area && more !== true && C.navFitPending && C.navFitPending()) { if (C.msPaint) C.msPaint(); return; }   // QA-76: no map-area pass on the pre-fit view (atlas-nav.js)
     if (more !== true) lim = PER;
     // a place without a verified pin has no "outside": it is always listed (last), so no lens count ever loses it
     const b = area ? box() : null, keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { if (T) return !!T[C.pid(c)] || keep(c); const ll = llOf(c); return !b || !ll || b.contains(ll) || keep(c); };
