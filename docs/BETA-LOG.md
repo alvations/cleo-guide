@@ -2121,3 +2121,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - The r7 deploy is live (4382a187). The R8 evaluator is running.
 - Atlas: real shots R4b committed on ffbb225a. R4 is held for D-46 and the dark-dot re-sign.
 - Platform: Tokyo phone LCP diagnosed (the Gallery lead card, 3.1 s). A build-time card brings it to 0.98 s; it's off pending i18n's (c) hook. Under D-46 the LCP target moves to the Atlas default, and platform measures that next.
+
+## FE-A — D-46 part 1: Atlas first impression, legacy pager links, search route (2026-10-16)
+- **City intro:** server-rendered at the top of the Atlas list column: name, dek, "N places picked by M sources" (`city.intro.n`, en + ja).
+  - Desktop Atlas only for now; it paints before `.ms-ready` and is 79 px tall (≤ 88).
+  - Shared with the Atlas lane for the phone list sheet.
+- **Lead card:** `.w7-cards li.pl.pl-lead` spans both list columns with 3:2 media. The CSS is inert until the Atlas lane marks the first card of its order on a cold, unfiltered load.
+- **Legacy links:** `#pg=` / `#all=1` with no `view=` imply Gallery (views.js `implied()` and the head script), ready for the Atlas default.
+- **Search (FE-B finding):** the route is the source of truth. Typing writes `q=` (one history entry, then in place); a link with no `q=` clears the box and the filter; Back restores it. test-fe-a gains 4 checks.
+- **Not in this push:** the default flip itself, held until `w2 --only dom` is green with Atlas first (Tokyo 3,587 nodes today).

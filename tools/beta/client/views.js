@@ -19,7 +19,8 @@
 
   // no view= → the implied view (#day= or a lens → Atlas, the unpaged list; else the default); writes keep the view
   const LENS = ((Cleo.lens && Cleo.lens.KEYS) || ['mode', 'a', 't', 'c', 'cz', 'src', 'closed', 'q']).concat(['sig', 'gap']);
-  const implied = r => (r.day || LENS.some(k => r[k])) && ok('atlas') ? 'atlas' : DEF;
+  // D-46: Atlas is the default, so a legacy pager link (#pg= / #all=1, the Gallery's own keys) implies Gallery
+  const implied = r => (r.pg || r.all) && ok('gallery') ? 'gallery' : (r.day || LENS.some(k => r[k])) && ok('atlas') ? 'atlas' : DEF;
   const href0 = Cleo.route.href.bind(Cleo.route);
   Cleo.route.href = o => { o = Object.assign({}, o || {}); const v = o.view || cur; delete o.view; if (v !== implied(o)) o = Object.assign({ view: v }, o); return href0(o); };
 
