@@ -769,7 +769,8 @@ async function fromOfficial(http, place, website) {
 const US_ADDR = /,\s*[A-Z]{2}\s+\d{5}(?:-\d{4})?\b/;
 async function censusSecondSource(http, row) {
   const addr = row.current.address;
-  if (!addr || !US_ADDR.test(addr) || !row.proposal) return null;
+  const ref = row.proposal && row.proposal.lat != null ? row.proposal : (row.current && row.current.lat != null ? row.current : null);
+  if (!addr || !US_ADDR.test(addr) || !ref) return null;
   const clean = addr.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim();
   const url = `${ENDPOINT.census}?${qs({ address: clean, benchmark: 'Public_AR_Current', format: 'json' })}`;
   const r = await http.json(url);
@@ -777,7 +778,7 @@ async function censusSecondSource(http, row) {
   if (!m || !m.coordinates) return { source: 'census', matched: false, sourceUrl: url, retrieved: r.retrieved, note: r.error || (r.json ? 'no address match' : `HTTP ${r.status}`) };
   const lat = m.coordinates.y, lng = m.coordinates.x;
   return { source: 'census', matched: true, matchedAddress: m.matchedAddress, lat: round5(lat), lng: round5(lng),
-    distanceM: haversineM(row.proposal.lat, row.proposal.lng, lat, lng), sourceUrl: url, retrieved: r.retrieved,
+    distanceM: haversineM(ref.lat, ref.lng, lat, lng), sourceUrl: url, retrieved: r.retrieved,
     licence: 'US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)' };
 }
 
@@ -837,7 +838,8 @@ async function run(opts) {
   const entries = (reg.cities || {})[opts.city];
   if (!entries) throw Object.assign(new Error(`unknown city key "${opts.city}" (keys: ${Object.keys(reg.cities || {}).join(', ')})`), { code: 1 });
   const anchor = cityAnchor(entries);
-  let rows = Object.entries(entries).map(([name, e]) => ({ name, e, why: scopeReasons(e, opts.scope) })).filter(r => r.why.length);
+  let rows = Object.entries(entries).map(([name, e]) => ({ name, e, why: opts.names ? (opts.names.includes(name) ? ['recheck'] : []) : scopeReasons(e, opts.scope) })).filter(r => r.why.length);
+  if (opts.names) { const miss = opts.names.filter(n => !entries[n]); if (miss.length) throw Object.assign(new Error(`--names not in ${opts.city}: ${miss.join(' | ')}`), { code: 1 }); }
   const inScope = rows.length;
   if (opts.limit) rows = rows.slice(0, opts.limit);
   const sources = new Set(opts.sources);
@@ -912,7 +914,7 @@ async function run(opts) {
   }
   demoteSharedObjects(report.rows);
   if (sources.has('census')) for (const row of report.rows)
-    if (row.proposal && row.proposal.grade === 'med' && row.outcome !== 'shared-object') row.secondSource = await censusSecondSource(http, row);
+    if (((row.proposal && row.proposal.grade === 'med') || opts.names) && row.outcome !== 'shared-object') row.secondSource = await censusSecondSource(http, row);
   for (const row of report.rows) {
     const p = row.proposal;
     if (p && (p.kind === 'wikidata' || p.kind === 'wikipedia') && !(p.addressAgreement && p.addressAgreement.houseNumber === true) && !isExtended(row.name))
@@ -979,6 +981,30 @@ function carryReviews(prev, rep) {
   if (stale.length) rep.meta.reviewsStale = stale;
   if (orphaned.length) rep.meta.reviewsOrphaned = orphaned;
   return rep;
+}
+
+/** corroborated (≤ 40 m from the CURRENT registry pin) · moved (a better candidate farther away) · none found. */
+function recheckVerdict(row, reg, city) {
+  const e = reg.cities[city][row.name], cur = { lat: e.lat, lng: e.lng };
+  const indep = (row.candidates || []).filter(c => !/^wiki/.test(c.kind) && c.grade && c.grade !== 'low');
+  const census = row.secondSource && row.secondSource.matched ? [{ kind: 'census', lat: row.secondSource.lat, lng: row.secondSource.lng, sourceUrl: row.secondSource.sourceUrl, name: row.secondSource.matchedAddress, grade: 'med' }] : [];
+  const all = indep.concat(census).map(c => ({ ...c, d: cur.lat == null ? null : haversineM(cur.lat, cur.lng, c.lat, c.lng) }));
+  const near = all.filter(c => c.d != null && c.d <= 40).sort((a, b) => a.d - b.d);
+  if (near.length) return { verdict: 'corroborated', by: near.map(c => ({ kind: c.kind, name: c.name, distanceM: c.d, sourceUrl: c.sourceUrl })) };
+  const best = all.filter(c => c.kind !== 'census').sort((a, b) => GRADE_RANK[b.grade] - GRADE_RANK[a.grade] || a.d - b.d)[0];
+  if (best) return { verdict: 'moved', distanceM: best.d, candidate: { kind: best.kind, name: best.name, lat: best.lat, lng: best.lng, grade: best.grade, sourceUrl: best.sourceUrl } };
+  return { verdict: 'none found', note: census.length ? `only a Census interpolated point ${all[0] && all[0].d} m away` : 'no OSM POI, OSM address point, official geo or Census match' };
+}
+function recheckMarkdown(rep) {
+  const L = [`# Re-check — ${rep.meta.city} (${rep.meta.generated})`, '', `_Rows: ${rep.meta.recheck.names.join(' · ')} · sources: ${rep.meta.recheck.sources.join(', ')} (no Wikidata/Wikipedia: the point is an INDEPENDENT source) · proposals only._`, '',
+    '| place | current pin | verdict | detail |', '|---|---|---|---|'];
+  for (const r of rep.rows) {
+    const v = r.recheck; const det = v.verdict === 'corroborated' ? v.by.map(b => `${b.kind} “${b.name || ''}” ${b.distanceM} m — ${b.sourceUrl}`).join('; ')
+      : v.verdict === 'moved' ? `${v.candidate.kind} “${v.candidate.name || ''}” ${v.candidate.lat}, ${v.candidate.lng} (${v.candidate.grade}) is ${v.distanceM} m away — ${v.candidate.sourceUrl}` : v.note;
+    L.push(`| ${r.name} | ${r.current.lat}, ${r.current.lng} (${r.current.confidence}) | **${v.verdict}** | ${String(det).replace(/\|/g, '\\|')} |`);
+  }
+  if (rep.meta.attribution) L.push('', `_${rep.meta.attribution}_`);
+  return L.join('\n') + '\n';
 }
 
 function toMarkdown(rep) {
@@ -1111,6 +1137,8 @@ function parseArgs(argv) {
     else if (a === '--status-sweep') { o.scope = ['all']; o.sources = ['wikidata', 'overpass', 'official']; o.nominatimMax = 0; o.city = o.city || 'all'; o.statusSweep = true; }
     else if (a === '--backlog') o.backlog = true;
     else if (a === '--accept') o.accept = path.resolve(v());
+    else if (a === '--names') o.names = v().split('|').map(x => x.trim()).filter(Boolean); // re-check these rows only
+    else if (a === '--recheck-out') o.recheckOut = path.resolve(v());
     else if (a === '--reassist') (o.reassist = o.reassist || []).push(path.resolve(v())); // offline: recompute assist only
     else if (a === '--dry-run') o.dryRun = true; // report mode is always a dry run; with --accept: show, write nothing
     else throw Object.assign(new Error(`unknown option ${a}`), { code: 1 });
@@ -1180,6 +1208,18 @@ async function main1(o) {
   else { const off = await reachable(); if (off) { console.log(`Wikidata is not reachable from here (${off}). Writing the offline PLAN report (exit 0).\n  Real proposals come from the GitHub-hosted runner. Do NOT route around a block.`); mode = 'offline-plan'; } }
   const rep = await run({ ...o, fixtures, mode });
   fs.mkdirSync(o.out, { recursive: true });
+  if (o.names) {
+    // A re-check of named rows never touches the city report (which carries reviews): its own file under recheck/.
+    const out = o.recheckOut || path.join(ROOT, 'docs', 'geoverify', 'recheck', `${o.city}-${rep.meta.generated}.json`);
+    if (!path.resolve(out).startsWith(path.join(ROOT, 'docs', 'geoverify', 'recheck'))) throw Object.assign(new Error('--recheck-out must be under docs/geoverify/recheck/'), { code: 1 });
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    rep.meta.recheck = { names: o.names, sources: o.sources };
+    for (const r of rep.rows) r.recheck = rep.meta.mode === 'offline-plan' ? { verdict: 'planned', note: 'nothing fetched (offline plan) — run on the runner' }
+      : recheckVerdict(r, o.registry || JSON.parse(fs.readFileSync(o.geocodes || GEOCODES, 'utf8')), o.city);
+    fs.writeFileSync(out, JSON.stringify(rep, null, 1) + '\n'); fs.writeFileSync(out.replace(/\.json$/, '.md'), recheckMarkdown(rep));
+    console.log(`wrote ${path.relative(ROOT, out)} (+ .md) — ${rep.rows.map(r => `${r.name}: ${r.recheck.verdict}`).join('; ')}`);
+    return rep.meta.hardFailure ? 4 : 0;
+  }
   const base = path.join(o.out, o.city);
   if (fs.existsSync(base + '.json')) { try { carryReviews(JSON.parse(fs.readFileSync(base + '.json', 'utf8')), rep); } catch (e) { throw new Error(`existing ${base}.json is unreadable (${e.message}); refusing to overwrite reviewed decisions`); } }
   fs.writeFileSync(base + '.json', JSON.stringify(rep, null, 1) + '\n');
@@ -1209,4 +1249,4 @@ if (require.main === module) {
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, recheckVerdict, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };

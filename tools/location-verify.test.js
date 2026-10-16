@@ -330,6 +330,15 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const v = LV.reviewAssist({ outcome: 'pin', name: 'Old Diner — CLOSED', current: { confidence: 'UNVERIFIED', status: 'closed' }, proposal: { grade: 'high', kind: 'osm-poi', nameSim: 1, addressAgreement: { houseNumber: true, street: true } } });
     assert.strictEqual(v.verdict, 'review');
   });
+  await t('recheck verdicts: corroborated within 40 m of the current pin / moved / none found', () => {
+    const reg = { cities: { c: { A: { lat: 1, lng: 1 }, B: { lat: 1, lng: 1 }, C: { lat: 1, lng: 1 } } } };
+    const v1 = LV.recheckVerdict({ name: 'A', candidates: [{ kind: 'osm-poi', grade: 'high', lat: 1.0002, lng: 1, sourceUrl: 'osm', name: 'A' }] }, reg, 'c');
+    assert.strictEqual(v1.verdict, 'corroborated'); assert.ok(v1.by[0].distanceM <= 40);
+    const v2 = LV.recheckVerdict({ name: 'B', candidates: [{ kind: 'official', grade: 'high', lat: 1.01, lng: 1, sourceUrl: 'site', name: 'B' }] }, reg, 'c');
+    assert.strictEqual(v2.verdict, 'moved'); assert.ok(v2.distanceM > 1000);
+    const v3 = LV.recheckVerdict({ name: 'C', candidates: [{ kind: 'wikidata', grade: 'high', lat: 1, lng: 1 }] }, reg, 'c');
+    assert.strictEqual(v3.verdict, 'none found', 'a Wikidata candidate is not independent');
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });
