@@ -22,6 +22,8 @@ plural (i18n).
 - QC-12 (1440 top-bar CLS) and QC-11 (768): VERIFIED by QC on 3a0ecfec (db9824aa) — closed by PERF-06.
 - Lint tools/beta/test-css-has.js committed unwired (7110b59b); no allowlist (designer eddbb7b0 removed theirs).
 - sync-push.sh: a clean merge's rebuilt beta/ is committed; dirty beta/ never pushes (exit 6); test-sync-push.js: a9ed1e0f.
+- W9-9 acc1 typing: 1,814 → 2,183 of 2,552 publishers typed (registry key/host/domain agreement, guide OFFICIAL key, explicit
+  host rules); 369 untyped listed in beta/data/recognition-untyped.json (stated gap). W9-8: offline-pack.js in npm test.
 - R8 measurement kit: design/beta/eval/r8/README.md (+ r8/tools/pair.py).
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).
 
