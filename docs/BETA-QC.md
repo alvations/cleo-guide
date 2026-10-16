@@ -344,3 +344,31 @@ Exploration at 390 and 1440, with off-origin requests aborted and 0 off-origin r
 - **Open:** 13. Med 9 (QC-04, 05, 11, 12, 15, 16, 17, 19, 20) · Low 4 (QC-10 on the pin, 13, 14, 18) · High 0 · Blocker 0.
 - **Verified:** QC-01, 02, 03, 06, 07, 08, 09; QC-10 on 639d2b1b (it will verify on the next pin that contains 78e4ab74).
 
+## Re-verify 2026-10-16 · f7fa616d (i18n claim for QC-16)
+
+Clean worktree at `f7fa616d`. The QC ja probe (`?lang=ja`, 1440) lists every visible UI text node with no kana or kanji
+outside card entries. Output: `design/beta/eval/qc/f7fa616d/ja-probe.json`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-16 | **verified** | Tokyo and Cleveland Insights: only 3 English nodes each, all data or stated (city name, tagline, the method intro sentence). Titles, captions, tiles, footnotes and "Show as a table" are in Japanese (`qc-16-ja-insights.jpg`). The banner now says the method pages' longer explanations stay in English. In the Guidebook only data remains English (area names, neighbourhood lines). |
+| QC-18 | observed fixed, **not yet claimed** | The switcher indicator sits under インサイト in `qc-16-ja-insights.jpg`; it will be verified on the next pin. |
+| **QC-21** (new, Low, i18n) | open | how-we-choose.html under `ja`: the stats table headers (Country, Guides, Places, Pins at high confidence, Closed, kept) and the h2 "Added by the guide" are English UI labels. The long paragraphs are stated English and not counted. `qc-21-ja-method-table.jpg`. |
+
+## Re-verify 2026-10-16 · a498adf5 (i18n claim for QC-21)
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-21 | **verified** | The QC ja probe on how-we-choose.html at 390 and 1440 (`design/beta/eval/qc/a498adf5/ja-probe-how-we-choose.json`, `qc-21-ja-method-table.jpg`): the five column headers and the h2 "Added by the guide" are now in Japanese. Still in English: the stated long paragraphs, and the country names used as row labels (proper nouns, not UI labels). |
+
+## Re-verify 2026-10-16 · 995e2529 (FE-B claims for QC-18, QC-19, QC-20)
+
+Clean worktree at `995e25294`, which contains 6583673c. Outputs are in `design/beta/eval/qc/995e2529/`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-18 | **verified** | Indicator vs the pressed segment: dx 0, dw 0 in ja Insights, en Atlas, ja Atlas and en Guidebook at 1440 (`qc-18-ja-indicator.png`). |
+| QC-19 | **open** | D-42 scan of the 5 pilot Guidebooks for price, rating, popularity or time wording without the note. Tokyo 0/5, New York 0/5, Chinatown 0/2 and Wheeling 0/1 are missing it; the named records (Barroco, kamo-to-negi, best-satay) now carry it. **Cleveland: 2/19 still lack it:** `cain-park` ("nationally top-rated juried outdoor art fair") and `tita-floras` ("the highest-rated Asian …", closed). |
+| QC-20 | **verified** | Hours wording carries "Prices, ratings and times are quoted from the source at the time of research (date)". The sheet's gap line now reads "We don’t track opening hours or prices · Check before you go." |
+| **QC-22** (new, Low) | open | Every city page's "How we choose" section (`section#how-we-choose p.sm`) still reads "No ratings, prices or opening hours are shown, because the guide doesn’t hold verified ones", which contradicts the D-42 quotes now shown with a dated note. Lane: FE-A (city page copy) with FE-B (D-42). `qc-22-method-copy.json`. |
+

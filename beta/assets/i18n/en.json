@@ -13,7 +13,6 @@
     "trip.",
     "geo.",
     "share.",
-    "rec.",
     "src.",
     "city.search.short",
     "city.sig.t",
@@ -577,6 +576,7 @@
     "ins.tier.t": "The tier ladder per area",
     "ins.tier.s": "Open places by tier ({open} of {n}). Tiers are graded within each area, so every area has its own must-sees.",
     "ins.tier.note": "{n} closed places carry no tier and are counted in the closures card instead.",
+    "ins.tier.note.one": "1 closed place carries no tier and is counted in the closures card instead.",
     "ins.rec.t": "Recognised places by area",
     "ins.rec.nodata": "This guide has no recognition data yet.",
     "ins.rec.award": "Award source",
@@ -745,6 +745,17 @@
     "a.report": "Report an accessibility problem",
     "a.how": "How we choose places",
     "nf.h": "We couldn't find that page.",
-    "nf.all": "See every destination"
+    "nf.all": "See every destination",
+    "m.added": "Added by the guide",
+    "m.tbl": "By country, as built",
+    "m.tbl.aria": "By country, as built (scrolls sideways)",
+    "m.th.country": "Country",
+    "m.th.guides": "Guides",
+    "m.th.places": "Places",
+    "m.th.pins": "Pins at high confidence",
+    "m.th.closed": "Closed, kept",
+    "page.trip.title": "Trips · Cleo",
+    "page.trip.desc": "Make a trip of several days from places you saved: one area a day, nearest next, walking estimates, closed places left out with the reason. One link, a printable booklet and KML.",
+    "page.trip.nojs": "Trips are made in your browser from places you saved, so this page needs its script. Every guide and your saved list work without it."
   }
 }

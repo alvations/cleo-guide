@@ -2,7 +2,7 @@
 
 _Generated 2026-10-16 from data/geocodes.json and the committed docs/geoverify/<city>.json reports. Report only: fixing is a research / data job. For each pair the status evidence is shown so the current one can be decided against a real source (CLAUDE.md 4c)._
 
-**42 pair(s)** — open + CLOSED: 6 · one OSM object: 9 · similar names, same spot: 27
+**38 pair(s)** — open + CLOSED: 6 · one OSM object: 9 · similar names, same spot: 23
 
 ## open + CLOSED
 
@@ -41,8 +41,6 @@ _Candidates only: a stall in a hawker centre, a sub-temple or a restaurant on a 
 | new-york-ny | Wah Fung No 1 | open · 2026-08-10 · NYC research pass 2026-08-10 — fact-checked open via 2026 sources (Michelin/Eater/Infatuation/official) | Wah Fung No. 1 Fast Food | open · 2026-08-10 · NYC research pass 2026-08-10 — fact-checked open via 2026 sources (Michelin/Eater/Infatuation/official) | name similarity 0.9, 10 m apart |
 | okinawa | Makishi Public Market (第一牧志公設市場) | open · 2026-10-03 · Stripes: reopened in new 3-storey building (84 shops), hours 8–22 | Kiraku, Makishi Public Market 2F (きらく 第一牧志公設市場) | open · 2026-10-03 · Ryukyu Shimpo 933592 and co-trip 613167 describe mochiage at the rebuilt market (opened 2023-03); no closure notice found (2026-10) | name similarity 0.9, 0 m apart |
 | osaka | Dōtonbori | open · 2026-10-03 · public street / canal district | Kani Doraku Dōtonbori Honten (かに道楽 道頓堀本店) | open · 2026-10-03 · carried over from dataset record (not re-checked in W7E); MapFan spot listing live 2026-10-03 https://mapfan.com/spots/S5CQC,E0,W56CP0 | name similarity 0.9, 22 m apart |
-| pittsburgh-pa | Pamela's Diner (Strip) | open · 2026-08-10 · Yelp updated Aug 2026 with current hours; official pamelasdiner.com lists Strip District location | Pamela's Diner | open · 2026-08-13 · Yelp 'Updated 2026' + active official site; classic-PGH Mode C fact-check 2026-08-13 | name similarity 1, 0 m apart |
-| pittsburgh-pa | De Luca's Diner | open · 2026-08-10 · active hours + Jul 2026 Yelp reviews; Jan 2026 Post-Gazette story on its 75th anniversary | DeLuca's Diner | open · 2026-08-13 · Yelp 'Updated August 2026' + active official site; classic-PGH Mode C fact-check 2026-08-13 | name similarity 1, 17 m apart |
 | saarland | Brasserie Excelsior | open · 2026-08-31 ·  | Brasserie L'Excelsior | open · 2026-08-31 ·  | name similarity 0.914, 0 m apart |
 | saarland | Place Stanislas, Place de la Carrière & Place d'Alliance | open · 2026-08-31 ·  | Place Stanislas (Nancy) | open · 2026-08-31 ·  | name similarity 0.9, 0 m apart |
 | saarland | Villa Majorelle | open · 2026-08-31 ·  | Villa Majorelle (Nancy) | open · 2026-08-31 ·  | name similarity 1, 0 m apart |
@@ -60,6 +58,23 @@ _Candidates only: a stall in a hawker centre, a sub-temple or a restaurant on a 
 | singapore | Old Upper Thomson Road (former Grand Prix circuit) | open · 2026-10-03 ·  | Old Upper Thomson Road (Thomson Road Grand Prix Circuit) | open · 2026-10-03 ·  | name similarity 1, 0 m apart |
 | singapore | Goodwood Park Hotel (Tower Wing) | open · 2026-10-03 · Operating hotel; not re-checked this pass (no WebSearch budget spent on status); 2026-10-02 | Goodwood Park Hotel Coffee Lounge (durian desserts) | open · 2026-10-03 · Eatbook durian-buffet coverage (2024 edition) + Time Out listing; no closure report | name similarity 0.9, 0 m apart |
 | tokyo | Shibamata Taishakuten (柴又帝釈天) | open · 2026-10-02 · GO TOKYO spot page (current) | Taishakuten-Sandō, Shibamata (帝釈天参道) | open · 2026-10-02 · GO TOKYO spot page (current) | name similarity 0.9, 14 m apart |
-| youngstown-oh | Youngstown Historical Center of Industry and Labor | open · 2026-08-10 · Official yhcil.org; Ohio History Connection; Yelp 'Updated May 2026' with current hours | Youngstown Historical Center of Industry and Labor (the "Steel Museum") | open · 2026-08-10 · Ohio History Connection site + yhcil.org list current 2026 hours (Wed–Sat) and admission; Yelp updated April 2026 | name similarity 1, 28 m apart |
-| youngstown-oh | Roger & Gloria Jones Children's Center for Science & Technology | open · 2026-08-10 · OH WOW! official site + WFMJ news; new exhibit hosted Apr 2026, operating in downtown Youngstown | Roger & Gloria Jones Children's Center for Science & Technology (OH WOW!) | open · 2026-08-10 · Official site ohwowkids.org + WFMJ news of April 2026 exhibit; 2026 free-admission Wednesdays program | name similarity 1, 32 m apart |
 
+
+## Decisions (audit trail — append only)
+
+| date | city | pair | decision | evidence |
+|---|---|---|---|---|
+| 2026-10-16 | pittsburgh-pa | "Pamela's Diner (Strip)" + "Pamela's Diner" | **merged** → one record "Pamela's Diner" (both were on the page). Sources union GFP "Best Diners" · DTB · VP "Favorite Diners"; cz CAF+AM; the registry keeps the Apple Maps place-pin entry, the alias's source is kept in its `note`. Page 212 → 210 places. | same address 60 21st St, same coordinate 40.45195, -79.98362 in both entries |
+| 2026-10-16 | pittsburgh-pa | "De Luca's Diner" + "DeLuca's Diner" | **merged** → "DeLuca's Diner" (the business's own spelling). Sources union GFP "Best Diners" · VP "Strip District dining"; cz CAF+AM; the alias's mapcarta pin (40.45167, -79.98389, 17 m away) is kept in the canonical `note`. | same address 2015 Penn Ave |
+| 2026-10-16 | youngstown-oh | 'Youngstown Historical Center of Industry and Labor (the "Steel Museum")' | **registry alias removed** (not on the page; the page record is the bare name, Wikipedia DMS pin, high). The alias's source and pin are kept in the canonical `note`. | 28 m apart, same Wikipedia article |
+| 2026-10-16 | youngstown-oh | "Roger & Gloria Jones Children's Center for Science & Technology (OH WOW!)" | **registry alias removed** (not on the page). The canonical pin is unchanged (med); the alias's official-site source (ohwowkids.org) and its pin, 32 m away, are kept in the canonical `note` for the next pin re-verify. | same venue, OH WOW! is its brand name |
+| 2026-10-16 | kyoto | Ryōan-ji / Ryōan-ji Seigen-in | **leave** — Seigen-in is a sub-temple restaurant inside the Ryōan-ji precinct: two places | a different entity |
+| 2026-10-16 | okinawa | Makishi Public Market / Kiraku, 2F | **leave** — a restaurant on the market's 2nd floor | a different entity |
+| 2026-10-16 | osaka | Dōtonbori / Kani Doraku Dōtonbori Honten | **leave** — a street vs a restaurant on it | a different entity |
+| 2026-10-16 | singapore | Song Kee / Kwang Kee Teochew Fish Porridge | **leave** — two different stalls in one hawker centre | different stall names |
+| 2026-10-16 | singapore | Goodwood Park Hotel (Tower Wing) / Coffee Lounge | **leave** — a hotel vs its café | a different entity |
+| 2026-10-16 | tokyo | Shibamata Taishakuten / Taishakuten-Sandō | **leave** — a temple vs its approach street | a different entity |
+| 2026-10-16 | silicon-valley-ca | Cantor Arts Center / … & Rodin Sculpture Garden; Android Lawn Statues / Google … Visitor Experience; SoFA District / … & SoFA Market | **pending** — registry-only (neither name is on the page); to clear with the orphan cleanup | — |
+
+**Finding (2026-10-16):** of the 42 pairs, only the 2 Pittsburgh pairs were duplicated on a live page. The 2 Youngstown pairs were page name + orphan alias. Every other pair is **registry-only**: neither name is on its city's page (held, renamed or merged by consolidate). They don't affect the guide; they are stale registry entries. Each city's `--geocheck` prints "registry has N entries not on the page" (orphans), about 2,000 in total. The open + CLOSED twins are all of this kind: chicago Edzo's, erie Enrique's, miami Fillmore, philadelphia Manakeesh, singapore Chợ Nổi Cái Bè and Denzy Gelato.
+| 2026-10-16 | aachen | "Het Romeins Museum (Thermenmuseum) - CLOSED" (hyphen) | **registry alias removed**: not on the page, and wrongly marked status open with no statusSource. The page record "— CLOSED" (status closed, source hetromeinsmuseum.nl/geschiedenis) is kept, and the alias is noted in its `note`. | same Wikidata Q153193 pin |

@@ -48,8 +48,8 @@
   // phone pill, a long guide name), else none; re-fitted whenever the box changes size
   if (fi) { let full = fi.placeholder; const cv = d.createElement('canvas').getContext('2d'), fit = () => { if (!fi.clientWidth) return;
       const c = getComputedStyle(fi), room = fi.clientWidth - parseFloat(c.paddingLeft) - parseFloat(c.paddingRight); cv.font = c.fontWeight + ' ' + c.fontSize + ' ' + c.fontFamily;
-      fi.placeholder = cv.measureText(full).width <= room ? full : cv.measureText(tt('city.search.short', 'Search')).width <= room ? tt('city.search.short', 'Search') : ''; };
-    on(d, 'cleo:locale', () => { full = tt('city.search', 'Search {city}', { city: info.name }); fit(); });   // i18n D-41   // '': the icon-only pill (Atlas toolbar); the label names it
+      fi.placeholder = cv.measureText(full).width <= room ? full : cv.measureText(tt('city.search.short', 'Search')).width <= room ? tt('city.search.short', 'Search') : ''; };   // '': the icon-only pill (Atlas toolbar); the label names it
+    on(d, 'cleo:locale', () => { full = tt('city.search', 'Search {city}', { city: info.name }); fit(); });   // i18n D-41
     if (window.ResizeObserver) new ResizeObserver(fit).observe(fi); else on(window, 'resize', fit);
     if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit); }
   const shown0 = shown ? shown.innerHTML : '';
@@ -97,7 +97,11 @@
   const far = x => byBase() ? C.baseKm(x) : C.dist && C.dist[pid(x)] != null ? C.dist[pid(x)] : 1e9;
   const apply = () => {
     if (Cleo.defer && (C.rank || S.day || S.sort)) Cleo.defer.all();   // a reorder must see every card (M3-06)
-    let n = 0; const areas = {}, tot = cards.length;
+    // PERF-08 (platform): under Cleo.defer.selective a lens stamps only what it shows, so the unstamped stubs count too —
+    // as shown when no lens is on (they are simply not built yet), as the lens decides when one is
+    const L0 = Cleo.lens.current(), lon = Cleo.lens.on(L0), stubs = Cleo.defer ? Cleo.defer.peek() : [], inL = lon ? stubs.filter(st => Cleo.lens.match(st, L0)) : stubs;
+    let n = inL.length; const areas = {}, tot = cards.length + stubs.length, stA = new Set();
+    inL.forEach(st => { stA.add(at(st, 'data-a')); areas[at(st, 'data-a')] = 1; });
     $$('ol.pls').forEach(ol => {
       const base = S.sort === 'az' ? (x, y) => $('.pl-n', x).textContent.localeCompare($('.pl-n', y).textContent)
         : S.sort === 'src' ? (x, y) => nsrc(y) - nsrc(x) || num(x) - num(y) : nearOn() ? (x, y) => far(x) - far(y) || num(x) - num(y) : (x, y) => num(x) - num(y);
@@ -112,7 +116,7 @@
       const dk = $('.pl-dist', c), dv = C.dist && C.dist[pid(c)];
       if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-dist"></span>'); $('.pl-dist', c).textContent = tt('city.away', '{d} away', { d: dv < 1 ? Math.round(dv * 100) * 10 + ' m' : dv.toFixed(1) + ' km' }); } else if (dk) dk.remove();
     });
-    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden]),noscript[data-cleo-defer]'); });
+    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden])') && !(s.querySelector('noscript[data-cleo-defer]') && (!lon || !s.hasAttribute('data-area') || stA.has(at(s, 'data-area')))); });
     if (sections.length > 1) {   // Near me: the nearest area comes first; otherwise the guide's area order
       const ord = sections.slice().sort((x, y) => nearOn() ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
       if (ord.some((x, i) => x !== $$('section.area')[i])) { const how = $('#how-we-choose'); ord.forEach(x => how.parentNode.insertBefore(x, how)); }
@@ -171,8 +175,19 @@
   { const nav = $('[data-cleo-views]');
     if (nav) { const ind = d.createElement('span'); ind.className = 'v-ind'; ind.setAttribute('aria-hidden', 'true'); nav.appendChild(ind);
       const place = () => { const b = $('button[aria-pressed="true"]', nav); if (!b || !b.offsetWidth) { ind.style.opacity = '0'; return; }
-        ind.style.opacity = ''; ind.style.left = b.offsetLeft + 'px'; ind.style.width = b.offsetWidth + 'px'; ind.style.top = b.offsetTop + 'px'; ind.style.height = b.offsetHeight + 'px'; };
-      nav.classList.add('has-ind'); place(); on(window, 'resize', place); on(d, 'cleo:locale', place);   // i18n D-41: the labels changed width if (d.fonts && d.fonts.ready) d.fonts.ready.then(place);
+        // FE-B QC-18: measured against the indicator's own containing block, not the button's offsetParent — the Atlas parks
+        // the switcher in the header, where the two differ and offsetLeft put the thumb 114 px off the pressed segment
+        const op = ind.offsetParent || nav, o = op.getBoundingClientRect(), r = b.getBoundingClientRect();
+        ind.style.opacity = ''; ind.style.left = (r.left - o.left - op.clientLeft + op.scrollLeft) + 'px'; ind.style.width = r.width + 'px';
+        ind.style.top = (r.top - o.top - op.clientTop + op.scrollTop) + 'px'; ind.style.height = r.height + 'px'; };
+      nav.classList.add('has-ind'); place(); on(window, 'resize', place); if (d.fonts && d.fonts.ready) d.fonts.ready.then(place);
+      // i18n D-41: the labels changed width. FE-B QC-18: re-measure after the swap lays out, and whenever the switcher or a
+      // segment changes size (a late font, a locale, a breakpoint) — the fonts.ready line above had been commented out
+      on(d, 'cleo:locale', () => { place(); requestAnimationFrame(place); });
+      if (window.ResizeObserver) { const ro = new ResizeObserver(() => place()); ro.observe(nav); $$('button[data-view]', nav).forEach(b => ro.observe(b)); }
+      // ...and when the switcher is re-parented (the Atlas parks it in the header on desktop and puts it back on leave): a
+      // move takes it out of its home parent, and brings it back there, so watching that parent's children catches both
+      if (window.MutationObserver && nav.parentNode) new MutationObserver(() => requestAnimationFrame(place)).observe(nav.parentNode, { childList: true });
       on(d, 'cleo:view', () => { requestAnimationFrame(place); main.classList.remove('v-swap'); void main.offsetWidth; main.classList.add('v-swap');
         setTimeout(() => main.classList.remove('v-swap'), 400); }); } }
   // W8 grid density: an area's end actions take the rest of its last card row (a lone last card never sits by itself);
@@ -228,7 +243,7 @@
   // R7 gap 5 (food covers): food places never get photos (honesty rule), so their cover names the dish in display type
   // on the eat-and-drink tint, under the kind glyph — an intentional face, never a blank box that reads as "not loaded"
   const dishOf = c => { if (at(c, 'data-k') !== 'f') return ''; const x = $('.pl-e .in-d', c), t = x ? x.textContent.replace(/^\s*·\s*/, '').trim() : '';
-    return '<span class="pl-dish">' + esc(t || C.label('a', at(c, 'data-a'))) + '</span>'; };   // no dish or cuisine to name: the area (food covers (c))
+    return t ? '<span class="pl-dish">' + esc(t) + '</span>' : ''; };   // no dish or cuisine to name: a glyph-only cover (designer: the area is never a cover word)
   const paint = () => {
     const s = Cleo.saved ? Cleo.saved.all() : {}, b = been.all();
     cards.forEach(c => {
@@ -297,7 +312,8 @@
   ['mouseover', 'focusin', 'mouseout', 'focusout'].forEach((ev, i) => on(d, ev, e => {
     const c = e.target.closest && e.target.closest('li.pl'); if (c && !(e.relatedTarget && c.contains(e.relatedTarget))) hot(c, i < 2); }));
   const syncMarkers = () => { if (!map) return; try { map.stop(); } catch (e) {}
-    cards.forEach(c => { const k = markers[pid(c)]; if (!k) return; if (!c.hidden) { if (!dots.hasLayer(k)) k.addTo(dots); } else if (dots.hasLayer(k)) dots.removeLayer(k); }); feature(); };
+    // PERF-08: every marker — a stamped card or a deferred stub (no `hidden` of its own: the lens decides, Cleo.lens.shows)
+    Object.keys(markers).forEach(id => { const k = markers[id], c = byId[id] || stub[id]; if (!c) return; if (Cleo.lens.shows(c)) { if (!dots.hasLayer(k)) k.addTo(dots); } else if (dots.hasLayer(k)) dots.removeLayer(k); }); feature(); };
   let dots = null;   // the canvas layer group holding every dot
   const inCl = C.inCl = {}, feature = () => { if (map && C.feature) C.feature(); };
   const still = () => !window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -377,7 +393,7 @@
     else setTimeout(() => { if (!(C.fitDefault && C.fitDefault())) fitCore(); }, 0);   // the city core, or the last view of this city (atlas.js)
     return true;
   };
-  const fitLens = C.fitLens = () => { if (!live() || !map.getSize().x) return; const ll = cards.filter(c => !c.hidden && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
+  const fitLens = C.fitLens = () => { if (!live() || !map.getSize().x) return; const ll = cards.filter(c => !c.hidden).concat(Cleo.defer ? Cleo.defer.peek({ lens: Cleo.lens.current() }) : []).filter(c => markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
     if (ll.length) { auto = Date.now(); map.fitBounds(window.L.latLngBounds(ll), Object.assign(overMap(), { maxZoom: 15, animate: false })); } };
   // QA-44: the first view fits the city's core (pins within 3× the median distance of the median point, else 95 %) (a far outlier — a day trip, a mis-filed place — never zooms
   // the city out to a country); every place stays in the list, behind "Show all" and a zoom out
