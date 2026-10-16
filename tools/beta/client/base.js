@@ -167,7 +167,7 @@
   var css = d.createElement('style');
   css.textContent = '.pl .pl-base{order:99;grid-column:1/-1}.pl-base,.gc-base,.ge-base{margin:4px 0 0;font:500 var(--fs-sm)/1.35 var(--font-ui);color:var(--ink-2)}.ms-pv-base{display:block;margin-top:2px;font-size:var(--fs-sm);color:var(--ink-2)}' +
     '.base-note{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:8px 0;padding:8px 12px;border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface);font-size:var(--fs-sm);color:var(--ink-2)}' +
-    '.base-note p{margin:0}.base-note b{color:var(--ink)}.base-acts{display:flex;flex-wrap:wrap;gap:6px}.base-acts .btn{min-height:var(--tap)}.ms-head .base-note{margin:6px 0 0}';
+    '.base-note p{margin:0}.base-note b{color:var(--ink)}.base-acts{display:flex;flex-wrap:wrap;gap:var(--s-2)}.base-acts .btn{min-height:var(--tap)}.base-acts .btn[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}.ms-head .base-note{margin:6px 0 0}';
   d.head.appendChild(css);
 
   // decorate whatever any view renders, whenever it renders it (pages, chunks, the Atlas preview), without hooks into it

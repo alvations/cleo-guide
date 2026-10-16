@@ -281,7 +281,7 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     await new Promise(r => setTimeout(r, 300));
     const dT = dom.window.document, box = dT.getElementById('cleo-trip');
     const tj = JSON.parse(fs.readFileSync(path.join(B, 'data/places/tokyo.json'), 'utf8')), names = new Set(['tokyo', 't']);
-    tj.places.forEach(p => { names.add(p.n.toLowerCase()); names.add(p.n.replace(/\s*\([^)]*\)$/, '').toLowerCase()); });
+    tj.places.forEach(p => { const n = p.n.replace(/\s+[—–-]+\s*CLOSED\b.*$/, ''); [p.n, n, n.replace(/\s*\([^)]*\)$/, '')].forEach(x => names.add(x.toLowerCase())); });
     tj.areas.forEach(a => names.add(String(a.n).split(/\s+[(—–]\s*|\s+\(/)[0].toLowerCase())); (tj.sourceIndex || []).forEach(x => names.add(String(x.name).split(' · ')[0].toLowerCase()));
     const leftTrip = [];
     box.querySelectorAll('svg text').forEach(n => n.remove());
