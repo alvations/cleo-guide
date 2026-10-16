@@ -453,7 +453,7 @@
   // the circle round the median point holding 60 % of places — less outliers beyond 2.5× the median distance
   const VK = 'cleo:atlas-view:' + C.key;
   let viewReady = false;   // the map's own first set-up never counts as "the last view"
-  const keepView = () => { const m = C.map(); if (!m || !atlas() || !viewReady) return; const c = m.getCenter(); try { sessionStorage.setItem(VK, JSON.stringify([+c.lat.toFixed(5), +c.lng.toFixed(5), m.getZoom()])); } catch (e) {} };
+  const keepView = () => { const m = C.map(); if (!m || !atlas() || !viewReady || (C.navPrivate && C.navPrivate())) return; const c = m.getCenter(); try { sessionStorage.setItem(VK, JSON.stringify([+c.lat.toFixed(5), +c.lng.toFixed(5), m.getZoom()])); } catch (e) {} };   // never the view centred on the reader (atlas-nav.js)
   C.fitDefault = () => {
     const m = C.map(), L = window.L; if (!m || !m.getSize().x) return false;
     let v = null; try { v = JSON.parse(sessionStorage.getItem(VK) || 'null'); } catch (e) {}

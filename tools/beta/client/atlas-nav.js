@@ -13,7 +13,12 @@
  *   C.navHold() → true while a detail is open or being closed (atlas.js moveend / carousel scroll stand still)
  *   C.navKeep() → true while only the open place changed (atlas.js: the route's list refresh stands still)
  *   C.freshPlace() → true when a fresh #p= load is being placed (city.js mountMap then doesn't fly)
- *   C.clearPin() → pan the open place out from under the detail, by the minimum needed */
+ *   C.clearPin() → pan the open place out from under the detail, by the minimum needed
+ *   C.navPrivate() → true while the map is still the one centred on the reader (atlas.js keepView then stores nothing)
+ *   C.onLocate(latlng) → true when Atlas takes the reading: nearest first, a walking time per card (atlas.js locate-me)
+ *   · keyboard (§5, #11): "Skip to the map" / "Skip to the results"; arrows move between pins by map priority.
+ *   · near me (§3.4, #3): locate-me sorts one list nearest first across areas, and every card shows its distance and an
+ *     estimated walking time (straight line at 80 m a minute, said so). The location lives in memory only. */
 (() => {
   'use strict';
   const Cleo = window.Cleo || {}, C = Cleo.city, d = document, H = d.documentElement; if (!C || C.placeOpen) return;
@@ -31,8 +36,12 @@
   // 5 decimals (≈ 1 m) to zoom 15, 6 above it, so a copied view reopens within 1 px at every zoom
   const fmt = m => { const c = m.getCenter(), z = m.getZoom(), k = z > 15 ? 6 : 5; return (+c.lat.toFixed(k)) + ',' + (+c.lng.toFixed(k)) + ',' + (+z.toFixed(1)); };
   let atDone = false, ready = false;
+  // the view right after locate-me is centred on the reader: it is never written anywhere (URL or session) until the
+  // reader moves the map themselves
+  let meView = false, meAt = 0;
+  C.navPrivate = () => meView;
   const writeAt = () => {
-    const m = C.map(); if (!m || !atlas() || !ready || !m.getSize().x || /^#p-/.test(location.hash) || !history.replaceState) return;
+    const m = C.map(); if (!m || !atlas() || !ready || meView || !m.getSize().x || /^#p-/.test(location.hash) || !history.replaceState) return;
     const r = route(), v = fmt(m); if (r.at === v) return; r.at = v;
     try { history.replaceState(history.state, '', Cleo.route.href(r)); } catch (e) {}
   };
@@ -151,7 +160,7 @@
     const m = C.map(); if (!m || m._navHooked) return; m._navHooked = 1;
     // a click inside the preview card is not a click on the map (Leaflet would clear the selection and drop its pin)
     const pv = $('#cleo-poi'); if (pv) pv._leaflet_disable_click = true;
-    m.on('moveend', () => { if (open) open.moved = true; rec(); writeAt(); });
+    m.on('moveend', () => { if (meView && userAt > meAt + 400) meView = false; if (open) open.moved = true; rec(); writeAt(); });
     // the map's own first fit (and a URL view) settle before the view is written or remembered
     setTimeout(() => { ready = true; if (!hasP() && !last) last = snapNow(); writeAt(); }, 1600);
     if (parseAt() && !atDone && !userAt) C.atView();
@@ -160,6 +169,89 @@
   const t0 = C.atlasTools; C.atlasTools = function () { const r = t0 && t0.apply(this, arguments); hook(); return r; };
   if (C.map()) hook();
   if (hasP() && atlas()) { open = { snap: null, opener: null, moved: false, fresh: true }; wrap(); C.freshPlace(); }   // a deep link that routed before this file
+
+  /* ---- keyboard (§5, PANEL-R1 #11): skip links, and the arrow keys between pins ---- */
+  // two skip links right after the page's own, to the map and to the results. Focus moves; the hash never changes (a
+  // plain #anchor would re-route the page). They show on focus, like the page's own, and only in Atlas (atlas-nav.css).
+  const firstCard = () => [].slice.call(d.querySelectorAll('.listpane li.pl:not([hidden]):not(.ms-out) .pl-n a')).filter(a => a.getClientRects().length)[0];
+  const skips = () => { const s0 = $('a.skip'); if (!s0 || $('.ms-skip')) return;
+    s0.insertAdjacentHTML('afterend', '<a class="skip ms-skip" href="#cleo-map" data-skip="map">Skip to the map</a><a class="skip ms-skip" href="#cleo-grid" data-skip="list">Skip to the results</a>'); };
+  skips();
+  on(d, 'click', e => { const a = e.target.closest && e.target.closest('a.ms-skip'); if (!a) return; e.preventDefault();
+    if (a.getAttribute('data-skip') === 'map') { const m = C.map(), el = m ? m.getContainer() : $('#cleo-map'); if (!el) return; if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0'); el.focus({ preventScroll: true }); }
+    else { const l = firstCard(); if (l) l.focus({ preventScroll: true }); if (l && !desktop()) { const li = l.closest('li.pl'), lp0 = lp(); if (li && lp0) lp0.scrollLeft = li.offsetLeft - (lp0.clientWidth - li.offsetWidth) / 2; } } });
+  const desktop = () => (C.desk ? C.desk() : innerWidth >= 1024);
+  // Tab order follows what you see (§5): in Atlas the map comes before the list in the document as it does on screen
+  // (skip links → bar → map → its pins → list). Only the order of the two panes changes, never the layout; other views
+  // get the list-first order back.
+  const order = () => { const sp = $('.split'), mp = sp && $('.mappane', sp), l = sp && $('.listpane', sp); if (!mp || !l || mp.parentNode !== sp || l.parentNode !== sp) return;
+    const mapFirst = !!(mp.compareDocumentPosition(l) & 4);
+    if (atlas() && !mapFirst) sp.insertBefore(mp, l); else if (!atlas() && mapFirst) sp.insertBefore(l, mp); };
+  order(); if (window.MutationObserver) new MutationObserver(order).observe(H, { attributes: true, attributeFilter: ['data-view'] });
+  // a focused pin: → / ↓ the next pin by map priority, ← / ↑ the previous (the focused map itself keeps arrow-pan)
+  on(d, 'keydown', e => {
+    if (!/^Arrow(Left|Right|Up|Down)$/.test(e.key) || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const m = C.map(), pin = m && e.target.closest && e.target.closest('.leaflet-marker-icon.pp[data-id]'); if (!pin) return;
+    const mp = id => { const v = C.mp ? C.mp(id) : undefined; return v === undefined ? 1e9 : v; };
+    const els = [].slice.call(m.getPane('markerPane').querySelectorAll('.leaflet-marker-icon.pp[data-id]')).sort((a, b) => mp(a.getAttribute('data-id')) - mp(b.getAttribute('data-id')));
+    const i = els.indexOf(pin), j = i + (/Right|Down/.test(e.key) ? 1 : -1); e.preventDefault(); e.stopPropagation();
+    if (i >= 0 && j >= 0 && j < els.length) els[j].focus({ preventScroll: true });
+  }, true);
+
+  /* ---- near me (§3.4, PANEL-R1 #3): nearest first, a walking time on every card; the location stays in memory ---- */
+  const rad = Math.PI / 180, kmTo = (a, b) => { const dl = (b[0] - a[0]) * rad, dn = (b[1] - a[1]) * rad, h = Math.sin(dl / 2) ** 2 + Math.cos(a[0] * rad) * Math.cos(b[0] * rad) * Math.sin(dn / 2) ** 2; return 12742 * Math.asin(Math.sqrt(h)); };
+  const llOf = c => { const v = (c.getAttribute('data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; };
+  // locate-me (atlas.js) → every place's straight-line distance, the map on the person at zoom ≥ 15 in the uncovered band,
+  // and the sort switched to "Nearest to me" (the count line says so); the reading is never stored or sent
+  C.onLocate = me => {
+    if (!atlas()) return false;
+    if (Cleo.defer && Cleo.defer.all) Cleo.defer.all();
+    const p0 = [me.lat, me.lng], dist = {}; C.cards.forEach(c => { const ll = llOf(c); if (ll) dist[C.pid(c)] = kmTo(p0, ll); });
+    C.dist = dist; meView = true; meAt = Date.now();
+    const m = C.map(); if (m) { C.auto(); m.setView(me, Math.max(15, m.getZoom()), { animate: false });
+      const o = C.overMap ? C.overMap() : null, dy = o ? (o.paddingTopLeft[1] - o.paddingBottomRight[1]) / 2 : 0; if (Math.abs(dy) >= 1) { C.auto(); m.panBy([0, -Math.round(dy)], { animate: false }); } }
+    const r = route(); delete r.p; delete r.pg; delete r.all; r.sort = 'near'; C.msAll = false; C.go(r);
+    setTimeout(() => { const l = lp(); if (l) { l.scrollLeft = 0; l.scrollTop = 0; } }, 60);   // the carousel opens on the nearest in-bounds place
+    return true;
+  };
+  // "Nearest to me" in Atlas is one list, nearest first, across areas (the guide's area grouping would put a farther
+  // place first): the cards move into one list while it is on, and back to their own areas after
+  let nearSec = null;
+  const far = c => { const v = C.dist && C.dist[C.pid(c)]; return v == null ? 1e9 : v; };
+  const flat = () => {
+    const S = C.S || {}, want = atlas() && S.sort === 'near' && !!C.dist, pane = lp(); if (!pane) return;
+    if (want) {
+      if (!nearSec) { nearSec = d.createElement('section'); nearSec.className = 'ms-near'; nearSec.setAttribute('aria-label', 'Nearest first'); nearSec.innerHTML = '<ol class="pls"></ol>'; }
+      const ol = nearSec.firstChild, s0 = $('section.area', pane);
+      if (!nearSec.parentNode) { if (!s0) return; s0.parentNode.insertBefore(nearSec, s0); }
+      const all = [].slice.call(pane.querySelectorAll('li.pl'));
+      all.forEach(li => { if (!li._home && li.parentNode !== ol) li._home = li.parentNode; });
+      const ord = all.slice().sort((x, y) => far(x) - far(y) || (+x.getAttribute('data-n')) - (+y.getAttribute('data-n')));
+      if (ord.some((x, i) => ol.children[i] !== x)) ord.forEach(x => ol.appendChild(x));
+      (C.sections || []).forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden]),noscript[data-cleo-defer]'); });
+      H.classList.add('ms-near');
+    } else if (nearSec && nearSec.parentNode) {
+      [].slice.call(nearSec.querySelectorAll('li.pl')).forEach(li => { if (li._home) li._home.appendChild(li); });
+      nearSec.parentNode.removeChild(nearSec); H.classList.remove('ms-near');
+      Promise.resolve().then(() => C.apply());   // the guide's own order inside each area again
+    }
+  };
+  // the distance on every card, first on its kind line: "450 m · about 6 min walk" (metres to the nearest 10 under 1 km,
+  // else one decimal of a km; walking at 80 m a minute — an estimate, said so in the count line)
+  const fmtD = km => { const m = km * 1000, t = Math.max(1, Math.round(m / 80)); return (m < 1000 ? Math.max(10, Math.round(m / 10) * 10) + ' m' : (Math.round(km * 10) / 10).toFixed(1) + ' km') + ' · about ' + t + ' min walk'; };
+  const dists = () => {
+    const on1 = atlas() && !!C.dist;
+    [].slice.call(d.querySelectorAll('.listpane li.pl')).forEach(c => { const k = $('.ms-k', c), sp = $('.ms-d', c), v = on1 && C.dist[C.pid(c)];
+      if (v == null || v === false) { if (sp) sp.remove(); return; }
+      if (!k) return; const t = fmtD(v) + ' · ';
+      if (!sp) { k.insertAdjacentHTML('afterbegin', '<span class="ms-d" title="Straight-line distance; the walking time is an estimate at 80 m a minute"></span>'); }
+      $('.ms-d', c).textContent = t; });
+    const head = $('.ms-head'); if (!head) return; let n = $('.ms-near-n', head);
+    if (on1 && (C.S || {}).sort === 'near') { if (!n) { n = d.createElement('p'); n.className = 'ms-near-n'; const ref = $('.ms-more', head); head.insertBefore(n, ref ? ref.nextSibling : null); }
+      n.textContent = 'Nearest first, from where you are. Distances are straight-line; walking times are estimates at 80 m a minute. Your location stays on this device and is gone when you reload.'; }
+    else if (n) n.remove();
+  };
+  C.after.unshift(flat); C.after.push(dists); on(d, 'cleo:stamped', () => setTimeout(() => { if (C.dist) { flat(); dists(); } }, 0));
 
   /* ---- the share toast says what the link opens (§3.5) ---- */
   const share0 = Cleo.share;

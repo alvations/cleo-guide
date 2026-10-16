@@ -3,7 +3,8 @@
  * assets/i18n/en.json + <locale>.json and swaps every catalogue string it finds: whole text nodes, whole element runs
  * (a template whose placeholder holds an element, e.g. "Where to {em}?"), the label attributes and the title. Values
  * filled into a template are data and pass through untouched. An AI-reviewed locale carries a visible note on every
- * page. The pre-paint snippet in <head> (render/common.js) holds the paint until this is done, so nothing shifts.
+ * page. The pre-paint snippet in <head> (render/common.js) injects this file only when a non-en locale is chosen (en
+ * pages load no locale JS) and holds the paint until it is done, so nothing shifts.
  * Storage goes through Cleo.store (try/catch) or a local try/catch; a failed fetch falls back to English. */
 (function () {
   'use strict';
@@ -21,33 +22,39 @@
     try { window.localStorage.setItem(KEY, JSON.stringify(l)); } catch (e) {}
   }
 
-  var buttons = [].slice.call(document.querySelectorAll('[data-cleo-locale]'));
-  var offered = buttons.map(function (b) { return b.getAttribute('data-cleo-locale'); });
-  var m = /[?&]lang=([a-z-]+)/.exec(location.search);
-  var want = m ? m[1] : getStored();
-  if (offered.indexOf(want) < 0) want = 'en';
-  if (m && offered.indexOf(m[1]) >= 0) setStored(m[1]);
+  var want = 'en';
+  // Injected from <head> by the pre-paint snippet, so this can run before the body is parsed.
+  function init() {
+    var buttons = [].slice.call(document.querySelectorAll('[data-cleo-locale]'));
+    var offered = buttons.map(function (b) { return b.getAttribute('data-cleo-locale'); });
+    var m = /[?&]lang=([a-z-]+)/.exec(location.search);
+    want = m ? m[1] : getStored();
+    if (offered.indexOf(want) < 0) want = 'en';
+    if (m && offered.indexOf(m[1]) >= 0) setStored(m[1]);
 
-  buttons.forEach(function (b) {
-    var l = b.getAttribute('data-cleo-locale');
-    b.setAttribute('aria-pressed', String(l === want));
-    b.addEventListener('click', function () {
-      if (l === want) return;
-      setStored(l);
-      var u = location.href.replace(/([?&])lang=[a-z-]+&?/, '$1').replace(/[?&](#|$)/, '$1');
-      if (u === location.href) location.reload(); else location.href = u;
+    buttons.forEach(function (b) {
+      var l = b.getAttribute('data-cleo-locale');
+      b.setAttribute('aria-pressed', String(l === want));
+      b.addEventListener('click', function () {
+        if (l === want) return;
+        setStored(l);
+        var u = location.href.replace(/([?&])lang=[a-z-]+&?/, '$1').replace(/[?&](#|$)/, '$1');
+        if (u === location.href) location.reload(); else location.href = u;
+      });
     });
-  });
-  if (want === 'en') { if (d.lang !== 'en' && offered.length) d.lang = 'en'; reveal(); return; }
-  d.lang = want;
+    if (want === 'en') { if (d.lang !== 'en' && offered.length) d.lang = 'en'; reveal(); return; }
+    d.lang = want;
 
-  function get(l) {
-    return fetch(root + 'assets/i18n/' + l + '.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+    function get(l) {
+      return fetch(root + 'assets/i18n/' + l + '.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+    }
+    Promise.all([get('en'), get(want)]).then(function (cats) {
+      apply(cats[0], cats[1], want);
+      reveal();
+    }).catch(function () { d.lang = 'en'; reveal(); });
+    window.CleoLocale = { build: build, apply: apply, locale: want };
   }
-  Promise.all([get('en'), get(want)]).then(function (cats) {
-    apply(cats[0], cats[1], want);
-    reveal();
-  }).catch(function () { d.lang = 'en'; reveal(); });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 
   /* ---- the swap ---- */
   var NUM = { n: 1, places: 1, guides: 1, countries: 1, checked: 1, closed: 1, pins: 1 };
@@ -180,5 +187,4 @@
     if (bar && bar.classList.contains('on-night')) { var main = document.querySelector('main'); anchor = main && main.firstElementChild || anchor; }
     if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(p, anchor.nextSibling); else document.body.insertBefore(p, document.body.firstChild);
   }
-  window.CleoLocale = { build: build, apply: apply, locale: want };
 })();

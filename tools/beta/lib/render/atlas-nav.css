@@ -4,3 +4,11 @@
 @media (max-width:1023.98px){
   html.atlas-m[data-view=atlas] #cleo-sheet .sheet.detail{max-height:58vh}
 }
+/* skip links (§5): the page's own skip link style; Atlas only */
+html:not([data-view=atlas]) .ms-skip{display:none}
+/* "Nearest to me": one list across areas (atlas-nav.js moves the cards into section.ms-near while it is on) */
+html.atlas-m[data-view=atlas]:not(.ms-list) .listpane :is(section.ms-near,section.ms-near>ol.pls){display:contents}
+html.ms-on[data-view=atlas] main[data-city] #cleo-grid section.ms-near li.pl.ms-out{display:none}   /* outside the map area / page */
+.ms-d{font-weight:600;color:var(--ink)}
+.ms-head .ms-near-n{margin:4px 0 8px;font-size:var(--fs-sm);color:var(--ink-2)}
+html.atlas-m[data-view=atlas]:not(.ms-list) .ms-head .ms-near-n{display:none}

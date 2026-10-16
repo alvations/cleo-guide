@@ -182,6 +182,79 @@ async function finish(page, s0, opener, close) {
       if (o.errors.length) chk(`#13 ${key} ${vn} share: 0 page errors`, false, o.errors.slice(0, 2));
       await o.ctx.close(); }
   }
+  // #11 keyboard (desktop Tokyo + Cleveland; the panel's Tab walk, scanned in full)
+  for (const [key, url] of PAGES.filter(p => ['tokyo', 'cleveland'].includes(p[0]))) {
+    const { ctx, page, errors } = await open(browser, D, url + '#view=atlas');
+    const stops = []; let firstCard = -1, firstPin = -1, mapAt = -1, noRing = [];
+    for (let i = 0; i < 400 && (firstCard < 0 || firstPin < 0 || mapAt < 0); i++) {
+      await page.keyboard.press('Tab');
+      const s = await page.evaluate(() => { const a = document.activeElement; if (!a || a === document.body) return null; const st = getComputedStyle(a), w = a.closest('.spill'), ws = w && getComputedStyle(w);
+        const ring = (st.outlineStyle !== 'none' && parseFloat(st.outlineWidth) > 0) || (st.boxShadow && st.boxShadow !== 'none') || (!!ws && ws.boxShadow && ws.boxShadow !== 'none');
+        return { d: a.tagName.toLowerCase() + '.' + String(a.className).split(' ')[0] + ' ' + (a.getAttribute('aria-label') || a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 30), card: !!a.closest('li.pl'), pin: a.classList.contains('leaflet-marker-icon'), map: a.id === 'cleo-map' || a.classList.contains('leaflet-container'), ring }; });
+      if (!s) continue; stops.push(s); const n = stops.length;
+      if (s.card && firstCard < 0) firstCard = n; if (s.pin && firstPin < 0) firstPin = n; if (s.map && mapAt < 0) mapAt = n; if (!s.ring) noRing.push(n + ' ' + s.d);
+    }
+    // the card by Tab alone comes after the map and its pins (visual order: map left, list right); "Skip to the results"
+    // is the short way to it (≤ 15 stops: it is stop 3, then Enter)
+    const skipAt = stops.findIndex(s => /Skip to the results/.test(s.d)) + 1, skipMap = stops.findIndex(s => /Skip to the map/.test(s.d)) + 1;
+    // the keyboard path of SPEC-v3 §5: "Skip to the map" → the map → its first pin, counted in stops from the top
+    await page.focus('a.ms-skip[data-skip="map"]'); await page.keyboard.press('Enter'); await sleep(200); await page.keyboard.press('Tab'); await sleep(100);
+    const viaSkip = await page.evaluate(() => { const a = document.activeElement; return !!a && a.classList.contains('leaflet-marker-icon') && a.classList.contains('pp'); });
+    const pinBySkip = viaSkip ? skipMap + 2 : -1;
+    chk(`#11 ${key} 1440: the first pin ≤ 12 stops in (via "Skip to the map"), the map before the list in Tab order, "Skip to the results" ≤ 15 stops in; every stop shows a visible ring`,
+      pinBySkip > 0 && pinBySkip <= 12 && mapAt > 0 && mapAt < firstCard && firstPin < firstCard && skipAt > 0 && skipAt <= 14 && noRing.length === 0,
+      { pinBySkip, tabOnly: { mapAt, firstPin, firstCard }, skipAt, noRing: noRing.slice(0, 4), first: stops.slice(0, 6).map(s => s.d) });
+    // the skip links: the first stops after the page's own; each lands where it says, and the hash never changes
+    await page.evaluate(() => { document.activeElement && document.activeElement.blur(); window.scrollTo(0, 0); });
+    const h0 = await page.evaluate(() => location.hash);
+    const sk = {}; for (const k of ['map', 'list']) { await page.focus(`a.ms-skip[data-skip="${k}"]`).catch(() => {}); const vis = await page.evaluate(k => { const a = document.querySelector(`a.ms-skip[data-skip="${k}"]`); if (!a) return null; const r = a.getBoundingClientRect(); return r.top >= 0 && r.bottom <= innerHeight && r.width > 0; }, k);
+      await page.keyboard.press('Enter'); await sleep(250); sk[k] = { visibleOnFocus: vis, to: await active(page), hash: await page.evaluate(() => location.hash) }; }
+    chk(`#11 ${key} 1440: "Skip to the map" focuses the map and "Skip to the results" the first card, the hash untouched`, sk.map.visibleOnFocus && /^div\.map|^div\.leaflet/.test(sk.map.to) && /^card /.test(sk.list.to) && sk.map.hash === h0 && sk.list.hash === h0, sk);
+    // pins: arrows move by map priority; Enter opens the preview; Escape closes it with focus on the pin
+    const kb = await page.evaluate(async () => { const C = Cleo.city, m = C.map(), sl = ms => new Promise(r => setTimeout(r, ms));
+      const els = [...m.getPane('markerPane').querySelectorAll('.leaflet-marker-icon.pp[data-id]')], mp = e => C.mp(e.getAttribute('data-id'));
+      const top = els.slice().sort((a, b) => mp(a) - mp(b)); if (top.length < 3) return { pins: top.length };
+      top[0].focus(); const seq = [top[0].getAttribute('data-id')];
+      for (let i = 0; i < 2; i++) { document.activeElement.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true, cancelable: true })); await sl(50); seq.push(document.activeElement.getAttribute('data-id')); }
+      document.activeElement.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true, cancelable: true })); await sl(50); seq.push(document.activeElement.getAttribute('data-id'));
+      return { pins: top.length, seq, want: [0, 1, 2, 1].map(i => top[i].getAttribute('data-id')) }; });
+    const arrowsOk = kb.seq && kb.seq.join() === kb.want.join();
+    const v0 = await page.evaluate(() => { const c = Cleo.city.map().getCenter(); return { lat: c.lat, lng: c.lng }; });
+    await page.keyboard.press('Enter'); await sleep(700);
+    const pv = await page.evaluate(() => ({ preview: !!document.querySelector('#cleo-poi:not([hidden]) .ms-pv'), focus: (document.activeElement.getAttribute('data-id') || document.activeElement.tagName) }));
+    await page.keyboard.press('Escape'); await sleep(400);
+    const es = await page.evaluate(() => ({ preview: !!document.querySelector('#cleo-poi:not([hidden]) .ms-pv'), focusPin: document.activeElement.classList.contains('leaflet-marker-icon') }));
+    chk(`#11 ${key} 1440: arrows move between pins in map-priority order; Enter opens the preview; Escape closes it, focus on the pin`, arrowsOk && pv.preview && !es.preview && es.focusPin, { kb, pv, es, v0: !!v0 });
+    if (errors.length) chk(`#11 ${key}: 0 page errors`, false, errors.slice(0, 2));
+    await ctx.close();
+  }
+
+  // #3 near me — T3: located at Shibuya (35.6595, 139.7005), then Eat & drink
+  if (PAGES.some(p => p[0] === 'tokyo')) for (const [vk, vp] of [['d', D], ['m', M]]) {
+    const vn = vk === 'd' ? '1440' : '390', geo = { latitude: 35.6595, longitude: 139.7005 };
+    const { ctx, page, errors } = await open(browser, vp, 'beta/cities/tokyo.html#view=atlas', { geo });
+    const loc = await page.$('.leaflet-control-container .m-locate'); let tap = 'none';
+    if (loc) { try { await loc.click({ timeout: 2500 }); tap = 'click'; } catch (e) { await loc.evaluate(b => b.click()); tap = 'scripted (the tap was intercepted)'; } }
+    await sleep(1500);
+    const food = await page.$('.ms-bar button[data-mode="food"]'); if (food) { await food.evaluate(b => b.click()); await sleep(1200); }
+    const r = await page.evaluate(g => { const C = Cleo.city, m = C.map(), R = 6371, rad = x => x * Math.PI / 180, dist = (a, b) => { const dl = rad(b[0] - a[0]), dn = rad(b[1] - a[1]); const h = Math.sin(dl / 2) ** 2 + Math.cos(rad(a[0])) * Math.cos(rad(b[0])) * Math.sin(dn / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
+      const vis = [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden);
+      const top = vis.slice(0, 5).map(e => ({ n: Cleo.city.name(e), km: +dist([g.latitude, g.longitude], e.getAttribute('data-ll').split(',').map(Number)).toFixed(2), d: ((e.querySelector('.ms-d') || {}).textContent || '').trim() }));
+      const tg = document.querySelector('.ms-toggle'), pill = tg ? +((/([\d,]+)/.exec(tg.textContent) || [0, '0'])[1].replace(/,/g, '')) : null;
+      const ll0 = vis[0] && vis[0].getAttribute('data-ll').split(',').map(Number);
+      return { sort: Cleo.route.parse().sort, food: Cleo.route.parse().mode, top, allDist: vis.every(e => /min walk/.test((e.querySelector('.ms-d') || {}).textContent || '')), shown: vis.length, firstInBounds: !!(m && ll0 && m.getBounds().contains(ll0)), pill,
+        count: (document.querySelector('.ms-count') || {}).textContent || '', stored: JSON.stringify(Object.assign({}, localStorage)) + JSON.stringify(Object.assign({}, sessionStorage)) }; }, geo);
+    let listN = null; if (vk === 'm') { await page.click('.ms-toggle'); await sleep(600); listN = await page.evaluate(() => ({ count: +((/([\d,]+)/.exec((document.querySelector('.ms-count') || {}).textContent || '') || [0, '0'])[1].replace(/,/g, '')), cards: [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden).length })); }
+    const top3 = r.top.slice(0, 3).map(x => x.n).join(' | ');
+    chk(`#3 tokyo ${vn}: after locate-me + Eat & drink, nearest first — the first card within 1.2 km, Nonbei Yokochō or The Bellwood in the top 3`, r.sort === 'near' && r.top[0] && r.top[0].km <= 1.2 && /Nonbei|Bellwood/i.test(top3) && r.top.every((x, i, a) => !i || a[i - 1].km <= x.km + 1e-9), { tap, top: r.top.slice(0, 3), count: r.count });
+    const cn = +((/([\d,]+)/.exec(r.count) || [0, '0'])[1].replace(/,/g, ''));
+    chk(`#3 tokyo ${vn}: every card shows its distance and an estimated walking time; the cards shown are the map area's (≤ the count)`, r.allDist && r.shown > 0 && r.shown <= cn, { shown: r.shown, count: cn, eg: r.top.slice(0, 2).map(x => x.d) });
+    chk(`#3 tokyo ${vn}: the first card is a place inside the map bounds`, r.firstInBounds, r.top[0]);
+    if (vk === 'm') chk(`#3 tokyo 390: the List pill count equals the List-mode count`, r.pill !== null && listN && r.pill === listN.count, { pill: r.pill, list: listN });
+    chk(`#3 tokyo ${vn}: the location is never stored`, !/35\.659|139\.700/.test(r.stored), r.stored.slice(0, 120));
+    if (errors.length) chk(`#3 tokyo ${vn}: 0 page errors`, false, errors.slice(0, 2));
+    await ctx.close();
+  }
   await browser.close();
   if (OUT) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, 'nav-probe.json'), JSON.stringify(R, null, 1) + '\n'); }
   console.log(fails ? `\n>>> FAIL — ${fails} Atlas interaction-state check(s)` : '\n>>> PASS — Atlas interaction state');

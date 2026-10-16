@@ -22,6 +22,7 @@ const { normalise, nativeOf } = require('./lib/model');
 const stats = require('./lib/stats');
 const { pageSources, siteSources } = require('./lib/sources');
 const art = require('./lib/art');
+const { sentence, ownWords } = require('./lib/casing');               // W8 owner rule: sentence case for data labels
 const imagery = require('./imagery');                              // imagery lane: motifs, photo manifest, credit gate
 const quoted = require('./lib/quoted');                            // D-39: price/rating prose is labelled, not stripped
 const { guide } = require('./lib/guide');
@@ -69,6 +70,10 @@ for (const r of cityRows) {
   // Live prose carries hand-typed counts that drift (Cleveland: "143 sights and 40" vs 148 + 46). Rewrite
   // the engine's count phrase from the computed numbers before any renderer sees it.
   for (const f of ['standfirst', 'description']) if (m[f]) m[f] = stats.fixProseCounts(m[f], r.stats);
+  // W8 (owner): the ★ signature's display label in sentence case (lib/casing.js), for the landing, hubs and Guidebook;
+  // `title` stays the data's own (grouping key); the page's own place names keep their capitals
+  const sg = r.guide && r.guide.signature;
+  if (sg && sg.title) sg.label = sentence(sg.title, ownWords(r.name, r.nat, m.h1Native, ...(r.data.AREAS || []).map(a => a.n)));
 }
 // Hub/landing aggregates: renderers read these, never re-count.
 for (const c of reg.countries) { c.stats = stats.countryStats(reg, c); c.pages = stats.countryPages(reg, c); }
@@ -379,8 +384,9 @@ const shellFiles = ['./index.html', './saved.html', './trip.html', './manifest.w
   .concat(fontFiles)
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too
-  .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`));
-const version = sha(JSON.stringify(assetsV) + feaV + generated.join() + fontFiles.join() + cityRows.map(r => r.art && r.art.map ? r.art.map.v : '').join());
+  .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`))
+  .concat(i18n.files().map(([rel]) => './' + rel));                 // i18n D-41: catalogues, so a chosen locale works offline
+const version = sha(JSON.stringify(assetsV) + i18n.files().map(([, b]) => sha(b)).join() /* i18n D-41 */ + feaV + generated.join() + fontFiles.join() + cityRows.map(r => r.art && r.art.map ? r.art.map.v : '').join());
 emit('sw.js', swSource(version, shellFiles));
 
 // ---------------------------------------------------------------- gate, then write (or check)

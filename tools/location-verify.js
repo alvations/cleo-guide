@@ -56,6 +56,7 @@ const ENDPOINT = {
   wikipedia: 'https://en.wikipedia.org/w/api.php',
   nominatim: 'https://nominatim.openstreetmap.org/search',
   overpass: 'https://overpass-api.de/api/interpreter',
+  census: 'https://geocoding.geo.census.gov/geocoder/locations/onelineaddress',
 };
 const LICENCE = {
   wikidata: 'CC0-1.0 (Wikidata structured data)',
@@ -64,7 +65,7 @@ const LICENCE = {
   official: "the place's own website (fact read from its schema.org markup / page; robots.txt honoured)",
 };
 // Per-host minimum spacing between requests (ms). Every source is queried single-threaded.
-const SPACING = { 'www.onemap.gov.sg': 500, 'nominatim.openstreetmap.org': 1100, 'overpass-api.de': 5000, 'www.wikidata.org': 300, 'en.wikipedia.org': 300, default: 2000 };
+const SPACING = { 'geocoding.geo.census.gov': 1000, 'www.onemap.gov.sg': 500, 'nominatim.openstreetmap.org': 1100, 'overpass-api.de': 5000, 'www.wikidata.org': 300, 'en.wikipedia.org': 300, default: 2000 };
 
 // ───────────────────────────────────────────────────────── pure helpers (unit-tested) ──
 
@@ -268,11 +269,18 @@ function reviewAssist(row) {
   const ag = p.addressAgreement || {};
   const exactAddr = ag.houseNumber === true && ag.street === true;
   const corroborated = (p.corroboratedBy || []).length > 0;
-  if (p.grade === 'med') return { verdict: 'hold', why: ['med: needs a second independent source within 50 m'] };
+  if (p.grade === 'med') {
+    const ss = row.secondSource;
+    if (ss && ss.matched && ss.distanceM <= 50 && (p.addressAgreement || {}).houseNumber !== false)
+      return { verdict: 'review', why: [`med + second source: US Census point ${ss.distanceM} m away (“${ss.matchedAddress}”; interpolated, read it)`] };
+    return { verdict: 'hold', why: ['med: needs a second independent source within 50 m' + (ss ? (ss.matched ? ` (Census point is ${ss.distanceM} m away)` : ' (Census: no match)') : '')] };
+  }
   if (p.kind === 'osm-poi') return exactAddr && p.nameSim >= 0.85
     ? { verdict: 'pass', why: [`OSM POI, name ${p.nameSim}, house number + street match`] }
     : { verdict: 'hold', why: [`OSM POI without an exact address match (house number ${ag.houseNumber}, street ${ag.street})`] };
-  if (p.kind === 'official') return { verdict: 'pass', why: ["official site's schema.org geo"] };
+  if (p.kind === 'official') return p.nameSim >= 0.6
+    ? { verdict: 'pass', why: ["official site's schema.org geo"] }
+    : { verdict: 'hold', why: [`official schema.org geo, but it names “${p.matchedName}” (similarity ${p.nameSim}): may be the venue, not the place`] };
   if (p.kind === 'onemap') return { verdict: 'pass', why: ['OneMap building for the exact postal code with a matching building name'] };
   if (p.kind === 'wikidata' || p.kind === 'wikipedia') return exactAddr || corroborated
     ? { verdict: 'pass', why: [`${p.kind} coordinate with ${exactAddr ? 'matching address' : 'an independent source within 40 m'}`] }
@@ -522,9 +530,12 @@ async function fromWikidata(http, place, anchor) {
     const url = `https://www.wikidata.org/wiki/${f.qid}`;
     cands.push({ kind: 'wikidata', source: 'wikidata', name: f.label, lat: f.lat, lng: f.lng, street: f.street, postcode: f.postcode,
       address: f.street, sourceUrl: url, retrieved: g.retrieved, licence: LICENCE.wikidata, linked });
-    if (f.dissolved) evidence.push({ type: 'wikidata-P576', detail: `dissolved/abolished/demolished ${f.dissolved}`, sourceUrl: url, retrieved: g.retrieved });
-    if (f.closed) evidence.push({ type: 'wikidata-P3999', detail: `date of official closure ${f.closed}`, sourceUrl: url, retrieved: g.retrieved });
-    if (f.stateOfUse.length) evidence.push({ type: 'wikidata-P5817', detail: `state of use ${f.stateOfUse.join(', ')} (a person reads the value)`, sourceUrl: url, retrieved: g.retrieved, informational: true });
+    // Closure statements belong to THIS item; they count only if the item is the place (linked QID, or the chosen
+    // proposal, or within 150 m of the current pin) — a same-name item (the 1868 lighthouse) is not evidence.
+    const ev = { linked, lat: f.lat, lng: f.lng, sourceUrl: url, retrieved: g.retrieved };
+    if (f.dissolved) evidence.push({ type: 'wikidata-P576', detail: `dissolved/abolished/demolished ${f.dissolved}`, ...ev });
+    if (f.closed) evidence.push({ type: 'wikidata-P3999', detail: `date of official closure ${f.closed}`, ...ev });
+    if (f.stateOfUse.length) evidence.push({ type: 'wikidata-P5817', detail: `state of use ${f.stateOfUse.join(', ')} (a person reads the value)`, ...ev, informational: true });
     website = website || f.website; enwiki = enwiki || f.enwiki;
   }
   return { cands, evidence, website, enwiki };
@@ -583,11 +594,11 @@ async function fromNominatim(http, place, anchor) {
 }
 
 /** One Overpass query for a batch of rows that have a point: named objects within 80 m, including lifecycle tags. */
-async function fromOverpassBatch(http, rows) {
+async function fromOverpassBatch(http, rows, retry = false) {
   const pts = rows.filter(r => r.point);
   if (!pts.length) return {};
   const parts = pts.map(r => `nwr(around:80,${r.point.lat},${r.point.lng})[~"^(name|old_name|was:name|disused:name)$"~"."];`).join('\n');
-  const q = `[out:json][timeout:60];\n(\n${parts}\n);\nout tags center 400;`;
+  const q = `[out:json][timeout:${retry ? 90 : 60}];\n(\n${parts}\n);\nout tags center 400;`;
   const res = await http.json(ENDPOINT.overpass, { method: 'POST', body: qs({ data: q }), host: 'overpass-api.de' });
   const els = (res.json && res.json.elements) || [];
   const out = {};
@@ -634,6 +645,26 @@ async function fromOfficial(http, place, website) {
   const notice = siteClosureNotice(page.body);
   if (notice) evidence.push({ type: 'official-site-notice', detail: `“…${notice}…”`, sourceUrl: u.href, retrieved: page.retrieved });
   return { cands, evidence, notes };
+}
+
+/**
+ * Second source for med rows at US addresses: the US Census Geocoder (no key; TIGER address ranges, independent of OSM).
+ * Its point is INTERPOLATED along the street, so it never proposes a pin; it only reports how far it falls from the
+ * proposal, for the reviewer's "second independent source within 50 m" check.
+ */
+const US_ADDR = /,\s*[A-Z]{2}\s+\d{5}(?:-\d{4})?\b/;
+async function censusSecondSource(http, row) {
+  const addr = row.current.address;
+  if (!addr || !US_ADDR.test(addr) || !row.proposal) return null;
+  const clean = addr.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim();
+  const url = `${ENDPOINT.census}?${qs({ address: clean, benchmark: 'Public_AR_Current', format: 'json' })}`;
+  const r = await http.json(url);
+  const m = r.json && r.json.result && (r.json.result.addressMatches || [])[0];
+  if (!m || !m.coordinates) return { source: 'census', matched: false, sourceUrl: url, retrieved: r.retrieved, note: r.error || (r.json ? 'no address match' : `HTTP ${r.status}`) };
+  const lat = m.coordinates.y, lng = m.coordinates.x;
+  return { source: 'census', matched: true, matchedAddress: m.matchedAddress, lat: round5(lat), lng: round5(lng),
+    distanceM: haversineM(row.proposal.lat, row.proposal.lng, lat, lng), sourceUrl: url, retrieved: r.retrieved,
+    licence: 'US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)' };
 }
 
 // ───────────────────────────────────────────────────────── the run ──
@@ -711,7 +742,11 @@ async function run(opts) {
       const p = c.place.current.lat != null ? { lat: c.place.current.lat, lng: c.place.current.lng } : (d.proposal ? { lat: d.proposal.lat, lng: d.proposal.lng } : null);
       return { place: c.place, point: p };
     }).filter(x => x.point);
-    for (let i = 0; i < pts.length; i += 20) Object.assign(ov, await fromOverpassBatch(http, pts.slice(i, i + 20)));
+    for (let i = 0; i < pts.length; i += 10) {
+      let got = await fromOverpassBatch(http, pts.slice(i, i + 10));
+      if (Object.values(got).some(x => x.error)) got = await fromOverpassBatch(http, pts.slice(i, i + 10), true); // one retry after the back-off
+      Object.assign(ov, got);
+    }
   }
   const count = {};
   for (const c of checked) {
@@ -725,7 +760,10 @@ async function run(opts) {
         for (const n of o.near) for (const e of osmClosureEvidence(n.tags)) ev.push({ ...e, sourceUrl: n.url, retrieved: o.retrieved, distanceM: n.d });
         if (o.error) c.res.notes.push(`overpass: ${o.error}`);
       }
-      const seen = new Set(); const evidence = ev.filter(e => { const k = e.type + e.detail + e.sourceUrl; if (seen.has(k)) return false; seen.add(k); return true; });
+      const cur = c.place.current;
+      const isThePlace = e => e.linked || (d.proposal && d.outcome !== 'conflict' && e.sourceUrl === d.proposal.sourceUrl)
+        || (cur.lat != null && e.lat != null && haversineM(cur.lat, cur.lng, e.lat, e.lng) <= 150);
+      const seen = new Set(); const evidence = ev.filter(e => !/^wikidata-/.test(e.type) || isThePlace(e)).filter(e => { const k = e.type + e.detail + e.sourceUrl; if (seen.has(k)) return false; seen.add(k); return true; });
       row.outcome = d.outcome; row.proposal = d.proposal; row.notes = d.notes.concat(c.res.notes);
       const sp = statusProposal(c.place, evidence);
       if (sp) { row.statusOutcome = sp.outcome; row.statusProposal = sp.proposal; count[sp.outcome] = (count[sp.outcome] || 0) + 1; }
@@ -737,6 +775,8 @@ async function run(opts) {
     report.rows.push(row);
   }
   demoteSharedObjects(report.rows);
+  if (sources.has('census')) for (const row of report.rows)
+    if (row.proposal && row.proposal.grade === 'med' && row.outcome !== 'shared-object') row.secondSource = await censusSecondSource(http, row);
   for (const row of report.rows) row.assist = reviewAssist(row);
   for (const row of report.rows) count[row.outcome] = (count[row.outcome] || 0) + 1;
   report.summary = count;
@@ -795,7 +835,8 @@ function toMarkdown(rep) {
       : (r.plan ? esc(r.plan.join('; ')) : '—');
     const o = r.proposal && r.proposal.osmObject;
     const osm = o ? `OSM ${o.id} ${o.class || ''}${o.addresstype ? ' · addresstype=' + o.addresstype : ''}${o.name ? ' · name “' + esc(o.name) + '”' : ' · (no name)'}${o.address ? ' · ' + esc(o.address) : ''}${Object.keys(o.tags).length ? ' · ' + esc(Object.entries(o.tags).map(([k, v]) => k + '=' + v).join(', ')) : ''}` : '';
-    const ev = [osm, (r.statusProposal ? `**${r.statusProposal.suggest}**: ` : '') + (r.evidence || []).map(e => `${esc(e.detail)} ([src](${e.sourceUrl}))`).join('; '), (r.notes || []).map(esc).join('; ')].filter(Boolean).join(' — ');
+    const ss = r.secondSource ? (r.secondSource.matched ? `2nd source: [Census](${r.secondSource.sourceUrl}) ${r.secondSource.distanceM} m (“${esc(r.secondSource.matchedAddress)}”)` : `2nd source: Census ${esc(r.secondSource.note)}`) : '';
+    const ev = [osm, ss, (r.statusProposal ? `**${r.statusProposal.suggest}**: ` : '') + (r.evidence || []).map(e => `${esc(e.detail)} ([src](${e.sourceUrl}))`).join('; '), (r.notes || []).map(esc).join('; ')].filter(Boolean).join(' — ');
     L.push(`| ${esc(r.name)} | ${now} | ${r.scope.join(', ')} | ${r.outcome}${r.statusOutcome ? ' + ' + r.statusOutcome : ''} | ${r.assist ? `**${r.assist.verdict}**: ${esc(r.assist.why.join('; '))}` : ''} | ${p} | ${ev} |`);
   }
   L.push('');
@@ -871,7 +912,7 @@ function accept(reportPath, o = {}) {
 // ───────────────────────────────────────────────────────── CLI ──
 
 function parseArgs(argv) {
-  const o = { scope: ['unverified', 'low', 'status'], sources: ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official'], out: path.join(ROOT, 'docs', 'geoverify'),
+  const o = { scope: ['unverified', 'low', 'status'], sources: ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official', 'census'], out: path.join(ROOT, 'docs', 'geoverify'),
     cache: process.env.LV_CACHE_DIR || path.join(os.homedir(), '.cache', 'cleo-location-verify'), ttlDays: 30, maxRequests: 3000, nominatimMax: 300 };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i], v = () => { const x = argv[++i]; if (x == null) throw Object.assign(new Error(`${a} needs a value`), { code: 1 }); return x; };
@@ -899,7 +940,7 @@ function parseArgs(argv) {
     else throw Object.assign(new Error(`unknown option ${a}`), { code: 1 });
   }
   if (o.statusSweep && !o.outGiven) o.out = path.join(ROOT, 'docs', 'geoverify', 'status');
-  const okScope = ['unverified', 'low', 'med', 'high', 'status', 'all'], okSrc = ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official'];
+  const okScope = ['unverified', 'low', 'med', 'high', 'status', 'all'], okSrc = ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official', 'census'];
   for (const s of o.scope) if (!okScope.includes(s)) throw Object.assign(new Error(`unknown scope ${s}`), { code: 1 });
   for (const s of o.sources) if (!okSrc.includes(s)) throw Object.assign(new Error(`unknown source ${s}`), { code: 1 });
   return o;
