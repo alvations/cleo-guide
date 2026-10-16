@@ -239,7 +239,7 @@ async function load(rel, { url, storageThrows = false, fetchFails = false, seed 
       if (storageThrows) Object.defineProperty(w, 'localStorage', { get() { throw new Error('blocked'); } });
       else if (seed) for (const k in seed) w.localStorage.setItem(k, JSON.stringify(seed[k]));
       w.fetch = u => { fetched.push(String(u)); return fetchFails ? Promise.reject(new Error('offline'))
-        : Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(rd(/source-hosts\.json/.test(u) ? 'data/source-hosts.json' : 'data/search.json'))) }); };
+        : Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(rd((/(?:^|\/)(data\/[\w./-]+\.json)$/.exec(String(u)) || [])[1] || 'data/search.json'))) }); };   // the site's own data files
       w.Element.prototype.scrollIntoView = function () {};
     } });
   await sleep(60);
@@ -318,8 +318,36 @@ async function load(rel, { url, storageThrows = false, fetchFails = false, seed 
   }
   {
     const { d, fetched } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=' + encodeURIComponent('https://zzqxv-unknown.example/a') });
-    chk('paste a link: an unknown host says so', !!d.querySelector('#results [data-cleo-state="no-source"]'), true);
-    chk('paste a link: unknown host not fetched', fetched.filter(u => /zzqxv-unknown/.test(u)), a => a.length === 0);
+    const st = d.querySelector('#results [data-cleo-state="no-source"]'), sug = st && st.querySelector('a[data-cleo-suggest]');
+    chk('paste a link: an unknown host says so plainly (VOICE) and offers "Suggest this source" via the project issue flow', !!st && /^No guide cites zzqxv-unknown\.example yet\./.test(st.querySelector('h3').textContent)
+      && !!sug && sug.textContent === 'Suggest this source' && sug.getAttribute('href').startsWith('https://github.com/alvations/cleo-guide/issues/new?labels=source-suggestion'), true);
+    chk('paste a link: an unknown URL makes 0 calls beyond the site\'s own JSON', fetched.filter(u => !/^(?:https:\/\/cleo\.local\/beta\/)?data\/[\w./-]+\.json$/.test(u)), a => a.length === 0);
+  }
+  // W9-6 acc1: a site match opens "Everything <source> recommends, in N guides"; a specific page also lifts the places citing
+  // exactly that URL. gotokyo.org has no listed domain — it is learnt from the URLs the Tokyo records cite.
+  {
+    const u = 'https://www.gotokyo.org/en/story/guide/a-noble-look-at-tokyos-imperial-palace-a-guide-to-the-royal-residence/index.html?utm=x#top';
+    const { d, errors } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=' + encodeURIComponent(u) });
+    const hs = [...d.querySelectorAll('#results h2[data-cleo-source]')].map(h => h.textContent);
+    const ex = [...d.querySelectorAll('#results [data-cleo-source-url] a')].map(a => a.getAttribute('href'));
+    chk('paste a link: gotokyo.org (no listed domain) → "Everything GO Tokyo recommends, in 1 guide"; the page lifts its place', [hs.some(t => /^Everything GO Tokyo recommends, in 1 guide/.test(t)), ex.includes('cities/tokyo.html#p=imperial-palace-east-gardens'), errors.length], a => JSON.stringify(a) === '[true,true,0]');
+  }
+  {
+    // 20 cited URLs sampled across all guides: each opens its source's view with that guide (#src=<id>) and the page's places
+    const all = []; for (const f of fs.readdirSync(path.join(BETA, 'data/places'))) { const j = JSON.parse(rd('data/places/' + f)), g = {};
+      (j.sourceIndex || []).forEach(s => (s.entries || []).forEach(e => { g[e.key] = s.id; }));
+      j.places.forEach(pl => (pl.s || []).forEach(([k, url]) => { if (/^https?:\/\//.test(url || '') && g[k] && g[k] !== 'guide') all.push([j.beta, g[k], pl.id, url]); })); }
+    const pick = Array.from({ length: 20 }, (_, i) => all[Math.floor((i + 0.5) * all.length / 20)]);
+    const { w, d } = await load('index.html');
+    const host = d.createElement('div'); d.body.appendChild(host); const bad = [];
+    for (const [beta, sid, id, url] of pick) {
+      await w.Cleo.query(host, url); await sleep(5);
+      const src = [...host.querySelectorAll('h2[data-cleo-source] + ol a, [data-cleo-source] ~ ol a')].map(a => a.getAttribute('href'));
+      const ex = [...host.querySelectorAll('[data-cleo-source-url] a')].map(a => a.getAttribute('href'));
+      const okSrc = [...host.querySelectorAll('a')].some(a => a.getAttribute('href') === beta + '#src=' + encodeURIComponent(sid));
+      if (!okSrc || !ex.includes(beta + '#p=' + encodeURIComponent(id))) bad.push(`${url} → src ${okSrc}, place ${ex.includes(beta + '#p=' + encodeURIComponent(id))}`);
+    }
+    chk(`paste a link: 20 sampled source URLs open the right source view (guide + #src) and lift the citing place`, bad, a => a.length === 0);
   }
   {
     const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=ramen', fetchFails: true });
