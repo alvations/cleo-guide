@@ -182,6 +182,93 @@ The owner made Atlas the default city view (D-46): "make atlas the default view 
 
 ## 2. Slice 2: chrome and the list (after slice 1)
 
+### 2.0 Overlay and chrome budgets, auto-compact and label rules (OV-00, owner directive 2026-10-16)
+
+The owner's Punggol screenshot (`design/beta/eval/owner/2026-10-16-punggol-atlas-phone-dark.png`; ledger OV-01–07) shows a real phone (P2, 390×664 once the browser bars are taken) with three fixed bars, a mid-map "Search this area", a 60 %-wide label, two text pills named "Map" and "Near me", a half-width attribution, a cut chip row, and none of it moving when the map moves. Rev 5a's numbers were set at 390×844 with no browser bars, and only at rest. These rules replace §2.2's chrome numbers wherever they conflict, and DESIGN-SYSTEM §v2.12 holds the site-wide part.
+
+**1. Budgets** (P1 390×844 · P2 390×664 · L 844×390 · T1 768×1024 · T2 1024×768 · D 1440×900):
+- **Chrome share** is the top plus bottom chrome bars (header, view switch, chip row, peek or carousel) as a % of the viewport height.
+- **Clear map** is the viewport area (phone and T1) or the map pane (T2 and D, the split layout) left after chrome, floating controls, attribution and any other overlay, but **not** labels, which have their own budget.
+
+| Viewport | Chrome at rest | Chrome while panning | Clear map at rest | Clear map while panning | Labels: max count | Labels: max coverage |
+|---|---|---|---|---|---|---|
+| P1 390×844 | ≤ 25 % | ≤ 8 % | ≥ 72 % | ≥ 90 % | 8 | ≤ 8 % of the map |
+| P2 390×664 | ≤ 32 % | ≤ 10 % | ≥ 64 % | ≥ 87 % | 7 | ≤ 8 % |
+| L 844×390 | ≤ 13 % | ≤ 13 % | ≥ 80 % | ≥ 80 % | 10 | ≤ 8 % |
+| T1 768×1024 | ≤ 18 % | ≤ 8 % | ≥ 78 % | ≥ 90 % | 12 | ≤ 7 % |
+| T2 1024×768 | ≤ 15 % | ≤ 15 % | ≥ 90 % of the pane | ≥ 90 % | 16 | ≤ 6 % |
+| D 1440×900 | ≤ 12 % | ≤ 12 % | ≥ 92 % of the pane | ≥ 92 % | 16 | ≤ 6 % |
+
+B-01a (≥ 75 % at P1 at rest, chrome only) stays ratified. Rev 5a meets it at 75.4 %.
+
+**2. Auto-compact while the reader explores** (phone portrait and T1):
+- **Trigger:** the reader's own drag or pinch moves the map more than 8 px. A programmatic fit or fly does not count.
+- **What hides:**
+  - the view-switch row and the chip row slide up together under the header (`transform`, `--dur-2` 200 ms ease-out);
+  - the peek slides down out of view;
+  - the header stays (back, city, search, saved);
+  - the control stack (§2.0.3) moves down with the peek, keeping its 12 px gap from the bottom edge;
+  - the carousel, once a place is selected, does **not** hide: a selection is the reader's focus.
+- **What brings them back:**
+  - 1,200 ms after the last map movement ends (idle);
+  - a tap on empty map;
+  - keyboard focus entering a hidden bar;
+  - opening a sheet or the search;
+  - never mid-gesture.
+- **Layout:** the map pane fills the whole viewport under the header, and the bars are overlays with their own backgrounds, so hiding or showing them never resizes the map or shifts its content (no Leaflet `invalidateSize` on compact).
+- **Reduced motion:** the same states, swapped instantly with no slide.
+- **At P1:** while panning, chrome is 52 px, so 6.2 %, and clear map is ≈ 92 %.
+- **At P2:** chrome is 7.8 % and clear map ≈ 90 %. At rest P2 is 208 px of chrome (31.3 %), which is why it must compact.
+
+**3. Floating map controls:**
+- **Phone (P1, P2, T1):** **one stack**, bottom-right, 12 px from the edge and 12 px above the peek or carousel. **Icon-only 44×44** surface circles (`--shadow-sm`), 8 px apart, at most **two**:
+  - **Locate** (⌖, `aria-label="Near me"`);
+  - **Layers** (`aria-label="Map style and key"`), which opens a small popover with Map / Satellite as a radio pair and then the Key.
+  The footprint is fixed at ≤ 44 × 96 px. Each icon shows a visible tooltip on press-and-hold and on focus. The base switch is **never a pill named "Map"**, which read as a fifth view next to Atlas. This supersedes R2 #2's text pills by owner direction; the tooltips and aria-labels keep them understandable. No + / − on phones.
+- **Landscape (L):** the same stack on the right edge, vertically centred in the map.
+- **Desktop (T2, D):** + / −, then Layers, top-left of the map. **"Near me" appears once per screen:** the list column's "Near me" (§3.4) is it, and the map has no second locate button.
+- **Attribution:**
+  - **Phone:** on the first map load, the one-line credit "© OpenStreetMap · Esri" at 11 px (≤ 20 px tall, bottom-left) is visible without interaction. On the reader's first pan, or after 5 s, it **collapses to an ⓘ** (24 px visual, 44 px hit), which opens the full credit with links. That follows the OSMF attribution guidance: visible without interaction at first, and findable after it collapses.
+  - **Desktop:** the full one-line credit, bottom-right.
+
+**4. Map labels** (featured pills, §1.2):
+- **Size:**
+  - Phone: 13 px / 600 text, 28 px tall, a 14 px glyph, 8 px side padding, with a transparent hit area grown to 44 px.
+  - Desktop: 14 px / 600, 32 px tall.
+- **Max width:** phone **40 % of the map width** (156 px at 390); desktop **220 px**. Longer names end in an ellipsis. The full name is in `aria-label` and `title`. The pill expands to the full name while it is focused, hovered or selected, and is drawn above the others then.
+- **Count from the map area, not a fixed number:**
+  - phone `floor(map area / 24,000 px²)`, clamped to 3–8, with 10 in landscape;
+  - T1 `floor(area / 26,000)`, clamped to 12;
+  - desktop `floor(area / 30,000)`, clamped to 16.
+  - The area is the clear map at rest. So P2 gets 7 and a short map gets fewer.
+- **Coverage:** the union of label pills is at most the table's % of the map. Where adding a label would breach it, the lowest `mp` label drops to a dot.
+- **Collisions:** labels keep ≥ 4 px from each other (§1.6), and never touch a chrome bar, the control stack, the attribution or the "Search this area" slot.
+
+**5. "Search this area"** (only when "Search as I move the map" is off, which is the phone default):
+- **Never on the first screen.** It appears only after a reader pan or zoom changes the bounds by more than 25 %.
+- **Fixed slot:** centred, 8 px under the lowest visible top bar. It's a compact 36 px pill with a 44 px hit area.
+- **It leaves** on tap (after use), when the next map move starts, or when the bounds return. Labels avoid its slot.
+
+**6. Chip row** (OV-06): a 24 px fade on each overflowing edge (`var(--mask)`), scroll-snap to chip starts, and no chip cut mid-word with no fade.
+
+**7. Landscape (L, height < 500):**
+- **One 48 px top bar:** back, city, the view switch (labels), search, saved. The chips collapse into one "Filters" button in that bar, so the sheet holds kind, Top picks and Area.
+- **No peek.** "List" is a third icon in the control stack.
+- **The carousel** becomes a 320 px side card on the right after a selection.
+- Chrome is 12.3 % and doesn't compact; it is already one bar.
+
+**Acceptance:**
+- QC S-17 measures every row of the table on Punggol, Tokyo, Cleveland, Chinatown and New York, in light and dark: at load, during a scripted 200 px pan (sampled at 300 ms), and 1.5 s after it.
+- Also checked:
+  - the hidden bars return;
+  - "Search this area" is absent at load and in its slot after a pan;
+  - no label is wider than its cap;
+  - label coverage is within budget;
+  - the control stack is ≤ 44 × 96 on phones;
+  - no control is named "Map";
+  - "Near me" appears once.
+
+
 ### 2.1 Desktop: one bar, map ≤ 120 px from the top (AO-3)
 
 - **The site header shrinks to 56 px:** wordmark, breadcrumb and the view switch (Gallery · **Atlas** · Guidebook · Insights) on the right.
@@ -425,6 +512,7 @@ The R0 findings sit in these slices: #1, #5 (pins), #6, #7 in slice 1; #3, #8, #
 | PANEL-R3 #6 (1.8) | No-photo covers | §2.3 (rev 4) unchanged: designed list cover; previews and carousel have no media block. R3's preview still had an empty 170 px cover. |
 | PANEL-R3 #7 (1.3, High 5/8), #8 | 108 px layout shift; stale counts | FE-2, §3.2 and §2.3 count rule. Process note: the FE probe must measure the map's top and ancestor scrollTop, not window scroll. |
 | FE-1 rev 5 conflicts (2026-10-16) | The required switcher row puts the phone first screen at 73.9 % clear and 15 controls above the first card (B-03 ≤ 14); the spire glyph drew a cross and stood for every faith | §2.2 rev 5a: search only in the header, a 48 px chip row and a 56 px peek give 75.4 % clear (50.7 % at 200 %) and 14 controls. §1.2: the kit spire with no faith mark, for churches only; other houses of worship fall through to their kind glyph. |
+| Owner directive OV-00 (2026-10-16, Punggol phone screenshot) | Fixed layers that don't move and take the space: three bars, a mid-map pill, wide labels, "Map" and "Near me" text pills, a wide attribution, a cut chip row | §2.0: budgets per viewport at rest and while panning, auto-compact, an icon-only control stack, collapsing attribution, label caps and coverage, the "Search this area" slot, chip-row fades, landscape. DESIGN-SYSTEM §v2.12 for every other view. Ledger: docs/BETA-OVERLAY-LEDGER.md. |
 | Owner decision D-46 (2026-10-16) | Atlas becomes the default view, ahead of Gallery | §1.7: photos in the phone peek, a city intro and a lead card on the cold load, and no-map fixes. Order and labels are in DESIGN-SYSTEM §v2.11. |
 | Owner direction (relayed by the panel, 2026-10-11) | Don't copy one product; combine the best of each, keep the map-search navigation, don't neglect the other features | §10: a combination table built from existing beta features, plus a non-regression rule for Gallery, Guidebook, Insights and the detail (§10.1). |
 | PANEL-R0 AO-5 (rejected in part) | Must-sees stand out | Kept: the sun-wash pill stays the Must-see signal. |

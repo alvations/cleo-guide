@@ -1,0 +1,6 @@
+runs 80, failed 0, runs with serious/critical 4, total serious/critical nodes 8
+m light Vietnam/ho-chi-minh-city.html#view=gallery&p=viet-nam-quoc-tu [{"id":"color-contrast","impact":"serious","n":2,"ex":[".primary-link > .lbl",".lbl > .nw"]}]
+m dark Vietnam/ho-chi-minh-city.html#view=gallery&p=viet-nam-quoc-tu [{"id":"color-contrast","impact":"serious","n":2,"ex":[".primary-link > .lbl",".lbl > .nw"]}]
+d light Vietnam/ho-chi-minh-city.html#view=gallery&p=viet-nam-quoc-tu [{"id":"color-contrast","impact":"serious","n":2,"ex":[".primary-link > .lbl",".lbl > .nw"]}]
+d dark Vietnam/ho-chi-minh-city.html#view=gallery&p=viet-nam-quoc-tu [{"id":"color-contrast","impact":"serious","n":2,"ex":[".primary-link > .lbl",".lbl > .nw"]}]
+moderate/minor rule ids (runs): {"landmark-contentinfo-is-top-level":8}
