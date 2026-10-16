@@ -211,4 +211,14 @@ A fresh independent subagent proposed a change to each of the four drafts, and a
 | `views.approx` | おおよその位置のピン {n}か所 | ピンがおおよその位置の場所 {n}か所 | {n} counts places (か所). It now matches its neighbour `views.nopin` (…場所 {n}か所), where pins elsewhere count in 件. |
 | `views.approx.one` | おおよその位置のピン 1か所 | ピンがおおよその位置の場所 1か所 | Same as `views.approx`. |
 
-**Total: 78 changes over sixteen rounds.**
+## Round 17: `m.not.p` on how-we-choose (FE-B, aee184d3, QC-25 / D-42; 1 change, applied)
+
+**Concern checked:** the orchestrator asked whether ja had sentences missing from the en. The en already carries both: "…dated. We don't guess — check hours before you go." So 推測はしません。お出かけ前に営業時間をご確認ください。 is faithful, and nothing was concatenated.
+
+**Fixes:** three terminology fixes bring the string into line with QC-27 and the sister strings `city.how.order` and `foot.colophon`. A fresh independent subagent kept the result as proposed.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `m.not.p` | 評価、レビュー件数、価格、営業時間を独自に付け加えることはありません。紹介記事に引用されているものは出典側の情報で、日付を添えています。推測はしません。お出かけ前に営業時間をご確認ください。 | 星評価・レビュー件数・価格・営業時間を独自に付け加えることはありません。解説で引用しているものは出典のもので、日付を添えています。推測はしません。お出かけ前に営業時間をご確認ください。 | Bare 評価 is gone (QC-27: ratings are 星評価, never the guide's ランク). 紹介記事 → 解説, the catalogue's word for write-up. 出典側の情報 → 出典のもの, as in the sister strings. |
+
+**Total: 79 changes over seventeen rounds.**
