@@ -293,6 +293,12 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
   ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
 }
+{ // R7 QA-78: an author is never a URL or HTML (a Flickr profile link credits the account it shows)
+  ok(fc.accountOf('https://www.flickr.com/photos/arne_heggestad/') === 'arne_heggestad (Flickr)' && fc.authorOf('<a href="https://www.flickr.com/photos/arne_heggestad/">https://www.flickr.com/photos/arne_heggestad/</a>') === 'arne_heggestad (Flickr)' && fc.authorProblems('https://example.org/me').length && fc.authorProblems('A &lt;b&gt; B').length && !fc.authorProblems('arne_heggestad (Flickr)').length, 'R7 QA-78: a profile-link credit names the account; any other URL or HTML author is refused');
+  const doc = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8'));
+  const bad = (doc.credits || []).filter(c => /^https?:\/\//i.test(String(c.author || '')) || /&lt;|</.test(String(c.author || ''))).map(c => `${c.file}: "${c.author}"`);
+  ok(!bad.length, `R7 QA-78: no CREDITS author is a URL or carries HTML (the template example row is not a credit)${bad.length ? ': ' + bad.join('; ') : ''}`);
+}
 { // rescan whitelist: only files a person reviewed, each with its reason
   const titles = new Set((JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).map(c => c.commonsTitle));
   ok(Object.entries(fc.RESCAN_KEPT).every(([f, why]) => /^File:/.test(f) && /kept after review/.test(why) && titles.has(f)), `rescan whitelist: ${Object.keys(fc.RESCAN_KEPT).length} reviewed file(s), each credited and with its reason`);
