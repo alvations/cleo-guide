@@ -28,7 +28,7 @@ function page(r, ctx) {
   const checked = ev.filter(e => e.kind === 'checked').reduce((s, e) => s + e.n, 0);
   const pins = ev.filter(e => e.kind === 'pins').reduce((s, e) => s + e.n, 0);
   const line = e => e.kind === 'closed'
-    ? `<li>${t('chg.closed', { place: `<a href="${esc(city)}#p=${encodeURIComponent(e.id)}">${esc(e.name)}</a>` })}${e.src ? ` <span class="sm"><a href="${esc(e.src)}" rel="noopener">${t('chg.closed.src')}</a></span>` : ''}</li>`
+    ? `<li>${t('chg.closed', { place: `<a href="${esc(city)}#p=${encodeURIComponent(e.id)}">${esc(e.name)}</a>` })}${e.src ? ` <span class="sm"><a class="chg-src" href="${esc(e.src)}" rel="noopener">${t('chg.closed.src')}</a></span>` : ''}</li>`
     : e.kind === 'checked'
       ? `<li>${tn('chg.checked', e.n)}${e.closed ? ` <span class="sm">(${t('chg.checked.closed', { n: e.closed })})</span>` : ''}</li>`
       : `<li>${tn('chg.pinsday', e.n)}</li>`;

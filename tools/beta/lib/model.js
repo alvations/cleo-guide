@@ -135,4 +135,12 @@ const pinSource = src => {
   return parts.find(x => /coord|lat\/lng|geocod|OneMap|official site|directory|Michelin/i.test(x)) || parts[0] || 'Coordinate source on file';
 };
 
-module.exports = { statusUrl, pinSource, RESEARCH, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
+// R8 gap #2d (FE-B): a source's public name. Research parentheticals are internal ("Wikipedia (published facts/coords)",
+// "(notability + published coordinates)") and are dropped; author / publisher credits ("(Mark Wiens)") stay. A place's own
+// site ("Official site", "Official company/institution site") is evidence, not a recommender: `recommender` gives null.
+const INTERNAL_PAREN = /\s*\((?=[^)]*(?:coord|facts|notability|verif|research))[^)]*\)/gi;
+const OWN_SITE = /^official\s+(?:site|website|company|institution)\b/i;
+const publicName = n => String(n || '').replace(INTERNAL_PAREN, '').trim();
+const recommender = n => (OWN_SITE.test(publicName(n)) ? null : publicName(n) || null);
+
+module.exports = { publicName, recommender, statusUrl, pinSource, RESEARCH, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
