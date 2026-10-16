@@ -127,7 +127,7 @@
     if (C.lens[lk]) h = C.lens[lk](n, nA, all);
     else if (lk === 'closed') h = '<h2>Recently closed — kept for the record (' + n + ')</h2><p>Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.</p><div class="row">' + all + '</div>';
     else if (lk === 'sig' && info.sig) h = '<span class="eyebrow">★ Signature · ' + esc(info.sig.why || '') + '</span><h2>' + esc(info.sig.t) + ' (' + n + ')</h2>' +
-      (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + pl(n) + ' across ' + ar(nA) + ' — numbered to match the map.</p><div class="row">' + all + '</div>';
+      (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + pl(n) + ' across ' + ar(nA) + '.</p><div class="row">' + all + '</div>';
     else if (lk === 'mine') {   // W8: a saved list becomes a day in one tap (the area with the most saved, open, pinned places)
       const per = {}; Object.keys(Cleo.saved ? Cleo.saved.all() : {}).forEach(r => { const c = r.slice(0, r.lastIndexOf('/')) === key && C.byId[r.slice(r.lastIndexOf('/') + 1)];
         if (c && !c.hasAttribute('data-closed') && c.getAttribute('data-ll')) per[c.getAttribute('data-a')] = (per[c.getAttribute('data-a')] || 0) + 1; });
@@ -140,7 +140,7 @@
         (s[2] ? '<p>All ' + s[2] + ' of its numbered entries are here.</p>' : '') +
         '<div class="row">' + (s[4] ? '<a class="btn btn-ghost" href="' + esc(s[4]) + '" rel="noopener" target="_blank">Read the source ' + icon('external') + '</a>' : '') + all + '</div>';
     } else if (lk === 'gap') { const g = (info.gaps || [])[+S.gap] || ['', '']; h = gap('<p class="d3">' + esc(g[0]) + '</p><p>“' + esc(g[1]) + '”</p>') + '<div class="row">' + all + '</div>'; }
-    else if (lk) h = '<h2>' + esc(label(lk, S[lk])) + '</h2><p>' + pl(n) + ' across ' + ar(nA) + (lk === 't' ? ', graded within each area' : '') + ' — numbered to match the map.</p>' +
+    else if (lk) h = '<h2>' + esc(label(lk, S[lk])) + '</h2><p>' + pl(n) + ' across ' + ar(nA) + (lk === 't' ? ', graded within each area' : '') + '.</p>' +
       (lk === 'cz' ? (info.gaps || []).filter(x => x[2].indexOf(S.cz) >= 0).map(x => gap('<p>“' + esc(x[1]) + '”</p>')).join('') : '') + '<div class="row">' + all + '</div>';
     if (lens) { lens.innerHTML = h; lens.hidden = !h; lens.classList.toggle('is-day', lk === 'day'); }
     const chips = act.filter(k => k !== 'day').concat(S.q ? ['q'] : []);

@@ -1,6 +1,6 @@
-city=orlando-fl
+city=chicago-il
 scope=unverified,low,status
 limit=0
 nominatim_max=300
 commit=false
-# dry run 2: Overpass retry in batches of 10; Wikidata closure only from the place itself; Census second source for med rows
+# dry run: Chicago (122 rows); Overpass client timeout 120 s

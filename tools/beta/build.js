@@ -59,6 +59,9 @@ for (const r of cityRows) {
   r.sources = pageSources(r, r.recs);             // stamps rec.src (publisher ids) — M1-10
   r.recog = recognition.pageRecognition(r, r.recs, r.sources.list, ROOT);   // W9-1/W9-9: badges + local favourites from source keys only
   r.stats = stats.pageStats(r, r.recs);           // every number the page prints — M1-20
+  // D-39 (QA-65): a record whose own prose quotes a price or rating carries `pq` (the research date) on the record
+  // itself, so the card (data-pq → the place detail) and the page JSON (Guidebook) label it from one value
+  for (const x of r.recs) if (quoted.quotes(x)) x.pq = quoted.researched(x) || r.stats.lastChecked || 'undated';
   r.guide = guide(r, r.recs);                     // ★ signature, canon-first food order, day plans, recently closed (W2)
   r.order = views.stamp(r, r.recs);               // W3 P-01: rank/of/k3 on every record; the view order (area, then rank)
   r.insights = views.insights(r, r.recs);         // W3 P-03: every number the Insights view draws
