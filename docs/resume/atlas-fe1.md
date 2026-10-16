@@ -25,7 +25,7 @@ SPEC-v3 rev 5 for panel round 4 (R3 scored 80.7), plus QC / QA items. In order:
 
 ## Done (pushed)
 - 03c9fc58 QC-17 · 0e8faff9 phone switcher row + chip order · 4888cd5a desktop header (#5), no rank badges, QC-05 · 0118f115 one ranked list (#2), B-21 · bbe11d60 card text 16/14 (#3) · (this push) QC-13, R7-g4 (d) checked date in the peek, (e) desktop doors; QC-04 met by FE-C.
-- d2b6ead3 — checkpoint + push script; FE-2 QA-71 merge (verified).
+- d2b6ead3 checkpoint + push script · 66c2a8e1 QC-14 spacing, R7-g4 (b) probe · 45379fbf local/R4 evidence, SHOTS-REQUEST = R4.
 - (this push) rev 5 #4 part: no sun on dots/pills, sight 7 px circle @30 % / food 8 px square @72 %, glyph overrides (step 0) + new nouns (bottle, frame, bag) + spire, location dot as a placed box, measured pill gaps ≥ 4 px; FE-B shadows → tokens.
 - 7fef2dec: QA-45 (Show all in one list), QA-54, QA-52.
 - 40e15601: R2 panel round (PANEL-R1 #2, #4, #6, #15; CLS 1.57 → 0.003).
@@ -34,8 +34,13 @@ SPEC-v3 rev 5 for panel round 4 (R3 scored 80.7), plus QC / QA items. In order:
 - Rev 4 phone first screen (peek, labelled pills, Key in Filters), Top picks, count line, 8 px dots, noun-first glyphs. Merged with FE-2 slices 1–2: the paged list survives late stamping, a swipe after Back, preview with no media, nearest-edge scroll. See BETA-LOG "SPEC-v3 rev 4" and the merge notes.
 
 ## Next
-- Dropped my duplicate map-pane move (FE-2's atlas-nav.js owns the map-first DOM order).
-- Then items 1 → 7 above. Push every 20–30 min, verified with ls-remote.
+- **Round 4:** wait for (1) the real/R4 shots (orchestrator runs the workflow), (2) the designer's dots sign-off, (3) FE-2's go or SHA (their #7 108 px shift, R7-g4 c). Then send the panel (session_01EKzwLjqF1Z1gwXWgbrrr2S) exactly "round 4 ready at <sha>", after telling FE-2.
+- **Open decisions** (designer / QA): clear map ~74 % with the required switcher row; B-03's ≤ 14 against the spec's 15 phone controls; review of the `bag` and `spire` glyphs.
+- **Watch:**
+  - FE-C's `.rb` badge hit area (B-20);
+  - the DOM budget on Tokyo desktop (3,082 on origin, not Atlas's);
+  - FE-A's partial-height phone sheet proposal (R2 #1 deep link).
+- **Residual polish:** on the phone, the selected pin's label can sit under the Near me pill when the carousel opens.
 
 ## In flight
 - Nothing unpushed except what the current commit carries.
