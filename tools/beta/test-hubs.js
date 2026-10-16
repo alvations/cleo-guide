@@ -207,6 +207,10 @@ console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed l
   const CHG = C.pages.map(p => [p.changesPage, rd(p.changesPage)]), snip = Object.values(notes).flat().map(n => String(n).replace(/https?:\/\/\S+/g, '').replace(/[&<>"']/g, ' ').trim().slice(0, 40)).filter(x => x.length >= 20);
   chk('no closure note text on any changes page (QC-25): no "Status source:" prose, no note snippet, source links are http(s)', CHG.filter(([, h]) => /Status source:/.test(h) || snip.some(x => h.includes(x)) ||
     [...h.matchAll(/<a href="([^"]*)"[^>]*>Status source<\/a>/g)].some(m => !/^https?:\/\//.test(m[1]))).map(([f]) => f), a => a.length === 0);
+  // QC-32: no research-note markers in any shipped JSON (prov sidecars, place data, indexes, catalogues): the worklist,
+  // "verify before publish", UNVERIFIED (upper case: the catalogue's lower-case "unverified" label is a UI word)
+  const JSONS = []; (function walk(dir) { fs.readdirSync(dir, { withFileTypes: true }).forEach(e => { const f = path.join(dir, e.name); if (e.isDirectory()) walk(f); else if (/\.json$/.test(e.name)) JSONS.push(f); }); })(path.join(__dirname, '..', '..', 'beta'));
+  chk(`no worklist / "verify before publish" / UNVERIFIED in any of ${JSONS.length} shipped JSON files (QC-32)`, JSONS.filter(f => { const t = fs.readFileSync(f, 'utf8'); return /worklist|verify before publish/i.test(t) || /UNVERIFIED/.test(t); }).map(f => path.relative(path.join(__dirname, '..', '..'), f)), a => a.length === 0);
   // QC-25: no closure note text in any shipped JSON — only its URL (src)
   chk('no closure note text ships in data/places/*.json (QC-25)', C.pages.filter(p => JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.some(e => 'note' in e || (e.src && !/^https?:\/\//.test(e.src)))).map(p => p.key), a => a.length === 0);
   chk(`retiring (${rt}) == closures this month whose sourced note announces a retirement or a last day`, sum('retiring') === rt, true);
