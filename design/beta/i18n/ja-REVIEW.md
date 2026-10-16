@@ -1,6 +1,6 @@
 # Japanese interface catalogue: independent review (D-41)
 
-- **Catalogue:** `tools/beta/i18n/ja.json`, published as `beta/assets/i18n/ja.json`. It has 166 interface strings and the AI-tier note: 147 at first, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
+- **Catalogue:** `tools/beta/i18n/ja.json`, published as `beta/assets/i18n/ja.json`. It has 256 interface strings (166, plus 90 city-page strings in round 4) and the AI-tier note: 147 at first, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
 - **Translator:** an AI agent (session_01HB7igqdcuhrau7mUWSauDL).
 - **Reviewer:** an independent AI subagent. It was given only `en.json`, `ja.json` and the review brief, and none of the translator's reasoning.
 - **Date:** 2026-10-11.
@@ -51,4 +51,20 @@ The `fy.*` strings landed upstream after round 2. A fresh independent subagent r
 | `fy.note` | …すべてのガイドは下に一覧があります。 | …すべてのガイドは引き続き下に一覧表示されています。 | The English "still" had been dropped, and the old phrasing read awkwardly. The new wording keeps the reassurance that nothing is hidden. |
 | `fy.i.food` | 食と飲み物 | 飲食 | 食と飲み物 is an unnatural pairing for a chip. The catalogue already uses 飲食 for "eat & drink" (`hub.food`). |
 
-**Total: 7 changes over three rounds.**
+## Round 4: the 90 city-page strings (`tier.*`, `city.*`; 9 changes, applied)
+
+These keys came in when the city page's server-rendered interface (`lib/render/city.js`) moved into the catalogue. A fresh independent subagent reviewed them under the same brief, with access only to the two catalogues.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `city.card.look` | 見どころ | 注目ポイント | 見どころ is already the "Sights" label, and "Look for" means what to notice. |
+| `city.card.within` | {area} | {area}内 | The bare placeholder had dropped "within". |
+| `city.src.k` | 推薦したすべての場所 | この出典が推薦したすべての場所 | The old string didn't say who recommended. |
+| `city.door.day.d` | {n}か所 · {areas}を計画済み | {n}か所 · {areas}を巡るプラン | The old phrasing said the areas were planned, not that the day plan covers them. |
+| `city.view.label` | 表示 | 表示形式 | It clashed with `city.mode.label` (表示), so two control groups had the same accessible name. |
+| `city.how.order` | …評価・価格・営業時間… | …星評価・価格・営業時間… | 評価 is the catalogue's word for tiers, which the page does show. |
+| `city.door.near.d` | 確認は1回 · 保存しません | 位置情報の許可は1回だけ · 保存しません | 確認 means status checks elsewhere; it's the location permission that is asked once. The reviewer proposed 位置情報の許可を求めるのは1回だけ; I applied it shortened to fit the rail chip, with the same meaning. |
+| `city.elsewhere` | その他の地域 | その他のエリア | The catalogue's term for an area is エリア. |
+| `city.area.day` | この地域の1日プラン · {n}か所 | このエリアの1日プラン · {n}か所 | Same reason: エリア. |
+
+**Total: 16 changes over four rounds.**

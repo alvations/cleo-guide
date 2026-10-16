@@ -120,7 +120,11 @@ chk('en catalogue is reviewed', en.reviewed, true);
   i18n.setLocale('en');
 }
 chk('every string used by the pseudo render exists in en', [...i18n.used].filter(k => !(k in en.strings)), []);
-const unused = Object.keys(en.strings).filter(k => !i18n.used.has(k) && !k.endsWith('.one') && k !== 'shell.locale.label');
+// i18n D-41: city-page and client keys are rendered outside these fixtures; a key counts as live when the source names it
+// (quoted, or as a quoted prefix the code completes: tr('tier.' + t), Cleo.t('fy.i.' + id, …))
+const SRC = ['lib', 'lib/render', 'client'].map(d => path.join(__dirname, d)).flatMap(d => fs.readdirSync(d).filter(f => f.endsWith('.js')).map(f => fs.readFileSync(path.join(d, f), 'utf8'))).join('\n');
+const named = k => SRC.includes(`'${k}'`) || [...Array(k.length).keys()].slice(3).some(i => SRC.includes(`'${k.slice(0, i)}' +`));
+const unused = Object.keys(en.strings).filter(k => !i18n.used.has(k) && !k.endsWith('.one') && k !== 'shell.locale.label' && !named(k));
 chk('no dead catalogue strings', unused, []);
 chk('placeholders survive the pseudo transform', i18n.pseudoText('{n} places'), '⟦{n} ｐｌａｃｅｓ⟧');
 chk('a missing key throws (no silent English fallback)', (() => { try { i18n.t('nope.missing'); return false; } catch (e) { return true; } })(), true);
@@ -237,6 +241,24 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
       }
     }
     chk('client Cleo.t calls: key exists and English default == en.json', bad, []);
+  }
+  // i18n D-41 (city pages): the built Tokyo page, swapped at runtime with the PSEUDO catalogue, has 0 English interface
+  // strings. Data is exempt: a record's own words (DATA containers, as locale.js skips them) and any text that is a
+  // name from the page's data file (areas, collections, cuisines, sources, dishes) or a country / city name.
+  {
+    const rel = 'cities/tokyo.html', url = 'https://example.test/beta/' + rel + '?lang=ja';
+    const dT = await runtime(fs.readFileSync(path.join(BETA, rel), 'utf8'), url, { en: i18n.EN, ja: PSEUDO });
+    const names = new Set();
+    (function walk(v) { if (typeof v === 'string') v.split(/\s*(?:,|&|·|—|–|\(|\))\s*/).concat(v).forEach(x => x && names.add(x.trim().toLowerCase())); else if (v && typeof v === 'object') Object.values(v).forEach(walk); })(
+      [JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/tokyo.json'), 'utf8')), JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data/countries.json'), 'utf8')).countries.map(c => c.name)]);
+    const DATA = '.pl-n, .pl-w, .pl-k, .pl-ad, .pl-s, button.src, figure.photo, figcaption, .credit, .about, .method .note, h1, .dek, .g-lead, .area-sub, .area-n, [translate="no"]';
+    dT.querySelectorAll('script, style, svg, time, link, meta, [data-cleo-locale], .l10n-note').forEach(n => n.remove());
+    const isData = t => { if (names.has(t.trim().toLowerCase())) return true; const x = t.replace(/^[\s·—,+(]+|[\s·—,)]+$/g, '').toLowerCase(); return names.has(x) || x.split(/\s*(?:,|&|·)\s*/).every(y => !y || names.has(y)); };
+    const leftT = [];
+    const tw = dT.createTreeWalker(dT.body, 4);
+    for (let n; (n = tw.nextNode());) { const pe = n.parentElement, t = n.nodeValue.trim(); if ((pe.closest(DATA) && !pe.matches('.lbl')) || !/[A-Za-z]{2,}/.test(t) || /⟦/.test(t) || isData(t)) continue; leftT.push(t.slice(0, 60)); }
+    dT.querySelectorAll('[aria-label], [title], [placeholder], [alt]').forEach(el => ['aria-label', 'title', 'placeholder', 'alt'].forEach(a => { const v = el.getAttribute(a); if (v && /[A-Za-z]{2,}/.test(v) && !/⟦/.test(v) && !el.closest(DATA) && !isData(v)) leftT.push('@' + a + ' ' + v.slice(0, 60)); }));
+    chk('Tokyo city page, runtime pseudo swap: 0 English interface strings (data exempt)', [...new Set(leftT)].slice(0, 12), []);
   }
   // storage that throws (sandboxes): the runtime still runs and stays in English
   const dT = new JSDOM(fs.readFileSync(path.join(BETA, 'index.html'), 'utf8'), { url: 'https://example.test/beta/index.html', runScripts: 'outside-only' }).window;

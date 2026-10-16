@@ -1,0 +1,530 @@
+{
+ "generated": "2026-10-16T13:59:06.347Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "cities/wheeling.html",
+   "gen": "new",
+   "expected": {
+    "total": 42,
+    "sights": 28,
+    "food": 14,
+    "live": "cities/wheeling.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Wheeling — 42 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 40,
+    "cardsVisible": 40,
+    "legacy": false,
+    "firstCardTop": 293,
+    "screensToFirstCard": 0.35,
+    "mastheadPx": 0,
+    "controlsAbove": 11,
+    "controlsAboveOnScreen": 11,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"All 42\"",
+     "button \"Sights 28\"",
+     "button \"Eat & drink 14\"",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary \"Keep Wheeling offline\""
+    ],
+    "tapSmall": 1,
+    "tapSmallKinds": {
+     "input#cleo-filter 52x42": 1
+    },
+    "tapSmallList": [
+     "input#cleo-filter 52x42"
+    ],
+    "textNodes": 291,
+    "upperNodes": 3,
+    "upperPct": 1,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Unknown author · \"",
+    "contrastChecked": 274,
+    "contrastUnknown": 11,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.ms-bar \"Search Wheelingplace · d\"",
+     "div#cleo-grid.listpane.w7-cards \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 312,
+    "cardsPerScreen": 2.7,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 1,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2061,
+    "fcp": 200,
+    "fontSampleN": 285,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 22,
+     "Inter": 432
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 93,
+      "Inter": 2914,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 20,
+     "where": [
+      "ms-bar over Wheeling Suspension Bridge",
+      "ms-bar over Wheeling Suspension Bridge",
+      "ms-bar over Wheeling Suspension Bridge",
+      "ms-bar over Wheeling Suspension Bridge",
+      "ms-bar over Wheeling Suspension Bridge"
+     ]
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 879713,
+    "bytesAllResponses": 950741,
+    "initial": {
+     "bytes": 879713,
+     "gz": 321593
+    },
+    "session": {
+     "bytes": 879713
+    },
+    "offOriginBlocked": 40,
+    "night": {
+     "contrastChecked": 274,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 119,
+      "h": 44,
+      "name": "map-first: List · 17",
+      "mapFirst": true,
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "great-stone-viaduct",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 776,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Wheeling — 42 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 40,
+    "cardsVisible": 40,
+    "legacy": false,
+    "firstCardTop": 413,
+    "screensToFirstCard": 0.46,
+    "mastheadPx": null,
+    "controlsAbove": 26,
+    "controlsAboveOnScreen": 26,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button \"All 42\"",
+     "button \"Sights 28\"",
+     "button \"Eat & drink 14\"",
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.chip.ms-must \"Must see\"",
+     "button.chip.ms-mine \"Saved\"",
+     "select \"Top rankedMost sourcesA–\"",
+     "button.chip \"Wheeling, WV 15\"",
+     "button.chip \"Washington, PA 8\"",
+     "button.chip \"Ohio Valley 4\"",
+     "button.chip \"Cambridge & Guernsey Cou\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 335,
+    "upperNodes": 3,
+    "upperPct": 0.9,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 315,
+    "contrastUnknown": 12,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Wheelingplace · d\"",
+     "div.ms-head \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 295,
+    "cardsPerScreen": 3.05,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 1,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2062,
+    "fcp": 184,
+    "fontSampleN": 327,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 23,
+     "Inter": 501
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 615,
+      "Inter": 4746,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 42,
+     "scrolled": 42,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 42,
+      "ok": 42,
+      "bad": []
+     },
+     "search": {
+      "n": 42,
+      "ok": 42,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 42 places",
+     "groups": [
+      "AreaWheeling, WV 15W",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionIconic & m",
+      "Collection",
+      "CuisineItalian & piz",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1287477,
+    "bytesAllResponses": 1287477,
+    "initial": {
+     "bytes": 879713,
+     "gz": 321593
+    },
+    "session": {
+     "bytes": 1287477
+    },
+    "offOriginBlocked": 80,
+    "night": {
+     "contrastChecked": 315,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": true,
+     "mapWidthPct": 60,
+     "split": true,
+     "sticky": true,
+     "markers": 7,
+     "pinned": 40,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 7,
+     "hoverHighlights": true,
+     "pinClick": {
+      "cardHighlighted": true,
+      "cardInView": true,
+      "sheet": true
+     },
+     "orderingStated": true
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 42,
+    "text": 9644
+   },
+   "cpu4x": {
+    "fcp": 340,
+    "dcl": 1111,
+    "loadMs": 2249
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.35
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 0
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "11 on-screen / 11 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": true,
+      "val": "split true, sticky true, map 60%, hover→pin true, pin→card true"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 119×44, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": false,
+      "val": 20
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": true,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 7, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 42 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 1 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.7
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 42 · DOM 42 · scrolled 42 · deep 42/42 · search 42/42 · no-JS 42"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "1% (3/291)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": false,
+      "val": 1
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: Unknown author · \""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 120"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1257 KB · 2062 nodes · 184 ms · 340 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "314 KB (859 KB) · 314 KB (859 KB)"
+     }
+    },
+    "passed": 22,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}

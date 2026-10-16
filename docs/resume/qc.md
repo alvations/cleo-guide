@@ -8,7 +8,6 @@ never weakens a gate.
 
 - Re-verify QC-01…QC-14 on a pinned SHA as lanes report fixes. Record each in BETA-QC.md and in the register's
   verification column: pinned SHA, probe, result.
-- Build the missing **P-24** probe (no silent caps).
 
 ## Done
 
@@ -17,13 +16,11 @@ never weakens a gate.
   - 14 findings (High 1, Med 9, Low 4), with QC rows in the register after QA-66 / QA-67.
   - Outputs in `design/beta/eval/qc/{f2c39d69,b5f0afa1}/`.
   - `tools/beta/qa/qc-evidence.js` for the evidence shots.
+- P-24 probe (no silent caps) plus the P-26 probe fix: this push.
 
 ## Next
 
-1. **P-24 probe** in `qc.js`, on each pilot × view. Every list, rail, tray and index must show all of its stated count
-   or a visible control to reach the rest ("See all n", "Show all", the pager).
-   - Measure: stated n vs rendered nodes after `Cleo.defer.all()`.
-   - Then run `--only patterns --pages tokyo` to check the probe itself, and commit.
+1. P-24 is done (see Done). It is first measured for real on the next pass.
 2. **Re-pass**, when the orchestrator pins "QC pass at <sha>" or a lane claims a QC fix:
    - check out the SHA in a clean worktree (`git worktree add --detach <dir> <sha>`, symlink `tools/node_modules`);
    - run `NODE_PATH=$(npm root -g) node beta/qa/qc.js --label <sha>` (≈ 70 min for all groups; `--only` narrows it);
