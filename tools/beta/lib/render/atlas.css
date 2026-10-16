@@ -139,15 +139,30 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   /* no layout shift on load (Platform perf audit, CLS): the Atlas layout applies from first paint (the head boot script sets
      atlas-d / atlas-m with data-view), the bar has a fixed height and its space is held until atlas.js builds it, and the
      list is held (not drawn) until the first map-area pass picks its page — a CSS fallback shows it after 4 s regardless */
-  html.atlas-d[data-view=atlas]:not(.ms-built) main:not(.feb)>.split.split{margin-top:65px}
+  html.atlas-d[data-view=atlas]:not(.ms-built) main:not(.feb)>.split.split{margin-top:52px}
+  /* SPEC-v3 §2.1: one bar, the map ≤ 120 px from the top — a 56 px site header + the 52 px Atlas bar (= 108 px). The city
+     bar's search pill and view switch ride in the Atlas bar, so the city bar steps aside from first paint */
+  html.atlas-d[data-view=atlas]{--bar-h:56px}
+  html.atlas-d[data-view=atlas] main{display:flow-root}   /* the held bar space never collapses through main */
+  html.atlas-d[data-view=atlas] main>.cbar{position:absolute;visibility:hidden;height:0;overflow:hidden;animation:ms-reveal 0s 4s forwards}
+  html.atlas-d[data-view=atlas] .topbar .wrap>.views{flex:none;margin:0 0 0 auto;position:static}
+  html.atlas-d[data-view=atlas] .topbar .wrap>.views+.top-actions{margin-left:12px}
+  html.atlas-d[data-view=atlas] .ms-bar{max-width:none}
+  html.atlas-d[data-view=atlas] .ms-bar .modes .n{display:none}   /* kind chips carry no counts (§2.1); the count line does */
+  html.atlas-d[data-view=atlas] .ms-bar .toolbar>.spill{flex:0 1 340px;min-width:220px;margin:0}
+  html.atlas-d[data-view=atlas] .ms-bar .toolbar>.spill .hint{display:none}
+  /* the document does not scroll in Atlas: map and list fill the screen under the 108 px, only the list scrolls, and the
+     notes and the footer sit at the end of the list column */
+  html.atlas-d[data-view=atlas],html.atlas-d[data-view=atlas] body{overflow:hidden;height:100%}
+  html.atlas-d[data-view=atlas] .listpane>:is(.about,.method,.footer){margin:40px 0 0;padding-left:0;padding-right:0;max-width:none}
   html.atlas-d[data-view=atlas]:not(.ms-built) main>[data-cleo-toolbar]{position:absolute;visibility:hidden;animation:ms-reveal 0s 4s forwards}   /* it moves into the bar */
   html.atlas-d[data-view=atlas] .split>.mappane{grid-column:1;grid-row:1}html.atlas-d[data-view=atlas] .split>.listpane{grid-column:2;grid-row:1}   /* the list's column never depends on the map pane being shown yet */
   html.atlas-d[data-view=atlas]:not(.ms-ready) .split>.listpane>:not(.ms-head){visibility:hidden;animation:ms-reveal 0s 4s forwards}
-  html.atlas-d[data-view=atlas] .ms-bar{height:65px;box-sizing:border-box;position:relative;z-index:5;margin:0 calc(-1 * var(--gutter));padding:10px var(--gutter);background:var(--paper);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+  html.atlas-d[data-view=atlas] .ms-bar{height:52px;box-sizing:border-box;position:relative;z-index:5;margin:0 calc(-1 * var(--gutter));padding:4px var(--gutter);background:var(--paper);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
   html.atlas-d[data-view=atlas] .ms-bar #cleo-filter{flex:0 1 300px;min-width:200px;min-height:var(--tap);padding:0 18px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);font:inherit;color:var(--ink)}
   html.atlas-d[data-view=atlas] .ms-bar .applied{display:flex;gap:6px}
   html.atlas-d[data-view=atlas] .ms-bar .ms-sort{margin-left:auto}
-  html.atlas-d[data-view=atlas] main:not(.feb)>.split.split{display:grid;grid-template-columns:minmax(0,60fr) minmax(440px,40fr);gap:0;max-width:none;margin:0 calc(-1 * var(--gutter));padding:0;height:calc(100vh - var(--atlas-top,140px));min-height:560px}
+  html.atlas-d[data-view=atlas] main:not(.feb)>.split.split{display:grid;grid-template-columns:minmax(0,64fr) minmax(420px,36fr);gap:0;max-width:none;margin:0 calc(-1 * var(--gutter));padding:0;height:calc(100vh - var(--atlas-top,140px));min-height:560px}
   html.atlas-d[data-view=atlas] .split>.mappane{display:block;order:-1;position:relative;top:auto;height:100%;padding:0;border:0;border-radius:0;border-right:1px solid var(--line)}
   html.atlas-d[data-view=atlas] .split>.mappane .map,html.atlas-d[data-view=atlas] .split #cleo-map{height:100%;min-height:0;border:0;border-radius:0}
   html.atlas-d[data-view=atlas] .split>.listpane{height:100%;overflow-y:auto;overscroll-behavior:contain;padding:0 24px 32px;scrollbar-gutter:stable}
@@ -186,7 +201,7 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   /* FE-A's search pill in the chip row: a 44 px search button until focused, then it opens (no overflow at 390) */
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill{position:relative;flex:0 0 var(--tap);width:var(--tap);min-width:var(--tap);height:var(--tap);min-height:var(--tap);padding:0;justify-content:center;overflow:hidden;transition:flex-basis var(--dur-2) var(--ease-out),width var(--dur-2) var(--ease-out)}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill .hint{display:none}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill #cleo-filter{position:absolute!important;inset:0;width:100%;padding:0 12px 0 40px!important;color:transparent;cursor:pointer}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill #cleo-filter{position:absolute!important;inset:-1px;min-height:var(--tap);width:100%;padding:0 12px 0 40px!important;color:transparent;cursor:pointer}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill #cleo-filter::placeholder{color:transparent}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill>.ico{position:absolute;left:13px;top:13px;width:18px;height:18px;pointer-events:none}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q){flex-basis:min(240px,62vw);width:min(240px,62vw)}
@@ -227,7 +242,7 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m.ms-list[data-view=atlas] .split::after{content:"";position:fixed;z-index:34;left:0;right:0;bottom:0;height:72px;background:var(--paper);border-top:1px solid var(--line)}   /* the Map pill sits in its own band, never over a card */
   html.atlas-m.ms-nomap[data-view=atlas] .ms-toggle{display:none}
   /* list mode: the map area's places as a full-screen image-first list */
-  html.atlas-m.ms-list[data-view=atlas] .listpane{display:block;top:calc(var(--bar-h) + var(--cbar-o) + 66px);bottom:72px;height:auto;padding:4px 16px 24px;overflow-x:hidden;overflow-y:auto;scroll-snap-type:none;background:var(--paper)}
+  html.atlas-m.ms-list[data-view=atlas] .listpane{scroll-padding-block:56px 24px;display:block;top:calc(var(--bar-h) + var(--cbar-o) + 66px);bottom:72px;height:auto;padding:4px 16px 24px;overflow-x:hidden;overflow-y:auto;scroll-snap-type:none;background:var(--paper)}
   html.atlas-m.ms-list[data-view=atlas] .ms-bar{background:var(--paper);top:calc(var(--bar-h) + var(--cbar-o));height:66px;padding-top:0;padding-bottom:0;border-bottom:1px solid var(--line)}
   html.atlas-m.ms-list[data-view=atlas] .ms-head{padding:8px 0 4px}
   html.atlas-m.ms-list[data-view=atlas] .listpane section.area>:not(ol):not(h2):not(.area-end){display:none}

@@ -128,6 +128,11 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         chk(`${key} desktop: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc }); }
       await snap(page, `${key}-atlas-1440${t}`);
       if (!dark) {
+        // SPEC-v3 §2.1 (PANEL-R1 #5): one bar — the map starts ≤ 120 px from the top, its box is ≥ 55 % of the first screen,
+        // and the document does not scroll in Atlas (only the list does)
+        const ch = await page.evaluate(() => { const m = document.getElementById('cleo-map').getBoundingClientRect();
+          return { top: Math.round(m.top), box: Math.round(100 * m.width * Math.max(0, Math.min(innerHeight, m.bottom) - m.top) / (innerWidth * innerHeight)), docScroll: document.scrollingElement.scrollHeight - innerHeight }; });
+        chk(`${key} desktop: chrome ≤ 120 px above the map, map box ≥ 55 % of the first screen, no document scroll`, ch.top <= 120 && ch.box >= 55 && ch.docScroll <= 0, ch);
         chk(`${key} desktop: map ≥ 58 % wide, on the left, full height`, s0.mapW >= 58 && s0.mapLeft <= 1 && Math.abs(s0.mapBottomGap) <= 2, [s0.mapW, s0.mapLeft, s0.mapBottomGap]);
         chk(`${key} desktop: list is a 2-column card grid`, s0.cols === 2, s0.cols);
         const N = nIn(s0) + nIn({ count: s0.more });

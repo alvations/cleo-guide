@@ -267,6 +267,9 @@ Hooking them up is a front-end task for the next round.
 
 ### 1. The manifest — `beta/assets/img/commons-candidates.json`
 
+Generated, never hand-edited: `python3 tools/beta/imagery/manifest/build_manifest.py` builds it from the place data and
+`tools/beta/imagery/manifest/cands.tsv` (vetted candidates and visual-review refusals, one per line).
+
 One entry per **target**, in fetch-priority order:
 
 | Order | Target | Count | What |

@@ -1,0 +1,1211 @@
+{
+ "_doc": "DRAFT (i18n D-41, not wired): city-page interface strings proposed for tools/beta/i18n/en.json + ja.json. Applied to FE-A's files only after the orchestrator pins the R7 head; then reviewed by an independent subagent. English strings for client files are approximate (reconstructed from concatenated code) and must be re-derived from the code when applied.",
+ "rows": [
+  {
+   "key": "city.pin",
+   "en": "Map pin {n}",
+   "ja": "地図のピン {n}",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.note",
+   "en": "Your guide’s note",
+   "ja": "ガイドのメモ",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.look",
+   "en": "Look for",
+   "ja": "見どころ",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.added",
+   "en": "Added by the guide (general knowledge)",
+   "ja": "ガイドによる追加(一般知識)",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "card.recby",
+   "en": "Recommended by",
+   "ja": "(existing key)",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "tier.1",
+   "en": "Must see",
+   "ja": "必見",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "tier.2",
+   "en": "Worth the detour",
+   "ja": "寄り道の価値あり",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "tier.3",
+   "en": "Deep cut",
+   "ja": "通好み",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.elsewhere",
+   "en": "Elsewhere",
+   "ja": "その他の地域",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.src.k",
+   "en": "Everything recommended by",
+   "ja": "推薦したすべての場所:",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.guide.k",
+   "en": "Your guide",
+   "ja": "あなたのガイド",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.guide.t",
+   "en": "For you",
+   "ja": "あなたへのおすすめ",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.guide.s",
+   "en": "Tell it what you love",
+   "ja": "好きなものを教えてください",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.day.k",
+   "en": "Your day",
+   "ja": "1日プラン",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.day.t",
+   "en": "A day in {area}",
+   "ja": "{area}の1日",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.mine.k",
+   "en": "Your list",
+   "ja": "マイリスト",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.mine.t",
+   "en": "Saved here",
+   "ja": "ここで保存した場所",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.near.k",
+   "en": "Near me",
+   "ja": "現在地の近く",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.near.t",
+   "en": "Nearest first",
+   "ja": "近い順",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.near.s",
+   "en": "Asks once · never stored",
+   "ja": "確認は1回 · 保存しません",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.closed.k",
+   "en": "Kept for the record",
+   "ja": "記録として掲載",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.closed.t",
+   "en": "Recently closed",
+   "ja": "最近閉店した場所",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.door.gap.k",
+   "en": "Stated gap",
+   "ja": "明記した空白",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.view.label",
+   "en": "View",
+   "ja": "表示",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.view.gallery",
+   "en": "Gallery",
+   "ja": "ギャラリー",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.view.atlas",
+   "en": "Atlas",
+   "ja": "アトラス",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.view.guidebook",
+   "en": "Guidebook",
+   "ja": "ガイドブック",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.view.insights",
+   "en": "Insights",
+   "ja": "インサイト",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.areas.label",
+   "en": "Areas",
+   "ja": "エリア",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.tray.h",
+   "en": "Filters",
+   "ja": "絞り込み",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.tray.close",
+   "en": "Close filters",
+   "ja": "絞り込みを閉じる",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.tray.area",
+   "en": "Area",
+   "ja": "エリア",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.tray.tier",
+   "en": "Distinction",
+   "ja": "評価",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.tray.tier.note",
+   "en": "— graded within each area",
+   "ja": "— エリアごとに評価",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.tray.c",
+   "en": "Collection",
+   "ja": "コレクション",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.tray.cz",
+   "en": "Cuisine",
+   "ja": "料理のジャンル",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.tray.sort",
+   "en": "Sort within each area",
+   "ja": "エリア内の並び順",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.sort.guide",
+   "en": "Guide’s order (tier, then sources)",
+   "ja": "ガイドの順(評価、次に出典数)",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.sort.src",
+   "en": "Most sources first",
+   "ja": "出典の多い順",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.sort.az",
+   "en": "A–Z",
+   "ja": "A–Z",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.sort.near",
+   "en": "Nearest to me",
+   "ja": "現在地から近い順",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.been",
+   "en": "Been there",
+   "ja": "行った場所",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.been.all",
+   "en": "Show all",
+   "ja": "すべて表示",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.been.hide",
+   "en": "Hide been there",
+   "ja": "行った場所を隠す",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.been.only",
+   "en": "Only been there",
+   "ja": "行った場所だけ",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.base",
+   "en": "Map style",
+   "ja": "地図のスタイル",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.base.street",
+   "en": "Street",
+   "ja": "標準",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.base.light",
+   "en": "Light",
+   "ja": "ライト",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.base.satellite",
+   "en": "Satellite",
+   "ja": "航空写真",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.tray.clear",
+   "en": "Clear all",
+   "ja": "すべてクリア",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.tray.go",
+   "en": "Show {n} places",
+   "ja": "{n}か所を表示",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.facts.long",
+   "en": " · every one sourced, pinned and status-checked",
+   "ja": " · すべて出典つき、ピン確認済み、営業状況確認済み",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.facts.checked",
+   "en": "last checked",
+   "ja": "最終確認",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.facts.closed",
+   "en": "{n} closed",
+   "ja": "閉店 {n}",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.facts.kept",
+   "en": ", kept for the record",
+   "ja": "、記録として掲載",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.facts.order",
+   "en": ". Ordered by tier, then by number of named sources.",
+   "ja": "。評価順、次に名前のわかる出典の数で並べています。",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.mode.label",
+   "en": "Show",
+   "ja": "表示",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.mode.all",
+   "en": "All",
+   "ja": "すべて",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.mode.sights",
+   "en": "Sights",
+   "ja": "見どころ",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.mode.food",
+   "en": "Eat & drink",
+   "ja": "飲食",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.search",
+   "en": "Search {city}",
+   "ja": "{city}を検索",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.search.hint",
+   "en": "place · dish · area",
+   "ja": "場所 · 料理 · エリア",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.mappill",
+   "en": "Show map",
+   "ja": "地図を表示",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.rail.label",
+   "en": "Collections",
+   "ja": "コレクション",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.rail.all",
+   "en": "Show all",
+   "ja": "すべて表示",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.rail.prev",
+   "en": "Previous collections",
+   "ja": "前のコレクション",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.rail.next",
+   "en": "Next collections",
+   "ja": "次のコレクション",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.lead",
+   "en": "Start with",
+   "ja": "まずはここから",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.map.show",
+   "en": "Show the map",
+   "ja": "地図を表示",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.map.label",
+   "en": "Map",
+   "ja": "地図",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.map.back",
+   "en": "Back to the list",
+   "ja": "一覧に戻る",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.map.list",
+   "en": "Show list",
+   "ja": "一覧を表示",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.map.fallback",
+   "en": "The map appears when it can load. Every place is listed here either way.",
+   "ja": "地図は読み込めたときに表示されます。どちらの場合も、すべての場所はここに一覧表示されています。",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.poi.label",
+   "en": "Place on the map",
+   "ja": "地図上の場所",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.about.label",
+   "en": "About this guide",
+   "ja": "このガイドについて",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.how.p",
+   "en": "Every place is recommended by named sources (review-aggregator star ratings never count as the recommender), pinned to its door from a published coordinate, and status-checked. Closed places stay, flagged, so you know they’re gone.",
+   "ja": "どの場所も名前のわかる出典が推薦しています(口コミサイトの星評価は推薦元として数えません)。公開された座標から入口の位置までピンで示し、営業状況を確認しています。閉店した場所は表示を付けて残すので、もうないことがわかります。",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.how.t1",
+   "en": "The places to plan a visit around — graded within each area, not across the city.",
+   "ja": "旅の計画の軸にしたい場所。都市全体ではなく、エリアごとに評価しています。",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.how.t2",
+   "en": "Strong picks, worth going out of your way for.",
+   "ja": "わざわざ足を運ぶ価値のある有力な候補。",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.how.t3",
+   "en": "For the curious: smaller, odder, more local.",
+   "ja": "好奇心旺盛な人に。小さく、個性的で、より地元らしい場所。",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "city.how.order",
+   "en": "Within each area, places are ordered by tier, then by number of named sources — never by popularity. Numbers on the cards match the pins on the map. No ratings, prices or opening hours are shown, because the guide doesn’t hold verified ones.",
+   "ja": "各エリアでは、評価順、次に名前のわかる出典の数で並べています。人気順ではありません。カードの番号は地図のピンと対応しています。検証済みの情報がないため、評価・価格・営業時間は表示していません。",
+   "file": "lib/render/city.js"
+  },
+  {
+   "key": "sheet.look",
+   "en": "Look for:",
+   "ja": "見どころ:",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.authority",
+   "en": "{name} (authority)",
+   "ja": "{name}(公的機関)",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.src.all",
+   "en": "All {n} {city} picks citing {source}",
+   "ja": "{source}が推薦する{city}の{n}か所すべて",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.read",
+   "en": "Read",
+   "ja": "読む",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.added",
+   "en": "Added by the guide",
+   "ja": "ガイドによる追加",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.added.note",
+   "en": "General knowledge — not from a cited source",
+   "ja": "一般知識 — 引用した出典によるものではありません",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.by",
+   "en": "Recommended by {source}",
+   "ja": "推薦元: {source}",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.by.more",
+   "en": "Recommended by {source} and {n} more",
+   "ja": "推薦元: {source} ほか{n}件",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.closed",
+   "en": "Closed",
+   "ja": "閉店",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.closed.note",
+   "en": "Kept for the record, not as a suggestion",
+   "ja": "おすすめではなく、記録として掲載しています",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.closed.checked",
+   "en": "checked {d}",
+   "ja": "{d}に確認",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.closed.per",
+   "en": "per {src}",
+   "ja": "出典: {src}",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.where",
+   "en": "Where it is in {area}",
+   "ja": "{area}での位置",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.all",
+   "en": "All {n} places",
+   "ja": "{n}か所すべて",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.pos",
+   "en": "{i} of {n}",
+   "ja": "{n}件中{i}件目",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.pos.in",
+   "en": " in this {what}",
+   "ja": " (この{what}内)",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.prev",
+   "en": "Previous place",
+   "ja": "前の場所",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.prev.named",
+   "en": "Previous: {name}",
+   "ja": "前へ: {name}",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.next",
+   "en": "Next place",
+   "ja": "次の場所",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.next.named",
+   "en": "Next: {name}",
+   "ja": "次へ: {name}",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.rank",
+   "en": "No. {k} of {n} in {area}",
+   "ja": "{area}の{n}か所中{k}位",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.straight",
+   "en": "{d} straight-line",
+   "ja": "直線距離 {d}",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.closeby",
+   "en": "Close by",
+   "ja": "近くの場所",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.official",
+   "en": "Visit the official site",
+   "ja": "公式サイトを見る",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.readwhat",
+   "en": "Read what {source} says",
+   "ja": "{source}の記事を読む",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.close",
+   "en": "Close",
+   "ja": "閉じる",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.why",
+   "en": "Why it’s here",
+   "ja": "掲載の理由",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.part",
+   "en": "Part of",
+   "ja": "含まれるコレクション",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.directions",
+   "en": "Directions",
+   "ja": "経路",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.pinned",
+   "en": "Pinned to the door: {c} confidence",
+   "ja": "入口までピン: 確度 {c}",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.verified",
+   "en": "verified {d}",
+   "ja": "{d}に検証",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.status",
+   "en": "Status checked {d}",
+   "ja": "営業状況を{d}に確認",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.open",
+   "en": "Open when last checked",
+   "ja": "最終確認時は営業中",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.nohours",
+   "en": "Hours and prices aren’t in our data",
+   "ja": "営業時間と価格はデータにありません",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.checkfirst",
+   "en": "Check before you go.",
+   "ja": "お出かけ前にご確認ください。",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.been.on",
+   "en": "Been there ✓",
+   "ja": "行った ✓",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.been.off",
+   "en": "Mark as been there",
+   "ja": "行った場所にする",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.day.on",
+   "en": "In your day ✓",
+   "ja": "1日プランに追加済み ✓",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.day.off",
+   "en": "Add to your day in {area}",
+   "ja": "{area}の1日プランに追加",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.correct",
+   "en": "Suggest a correction",
+   "ja": "修正を提案",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.saved",
+   "en": "Saved",
+   "ja": "保存済み",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.save",
+   "en": "Save",
+   "ja": "保存",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.wasat",
+   "en": "Where it was",
+   "ja": "かつての場所",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.share",
+   "en": "Share",
+   "ja": "共有",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.copied",
+   "en": "Link copied",
+   "ja": "リンクをコピーしました",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "sheet.copied.long",
+   "en": "Link copied — it opens this exact view.",
+   "ja": "リンクをコピーしました。この表示がそのまま開きます。",
+   "file": "client/sheet.js"
+  },
+  {
+   "key": "city.empty",
+   "en": "No places match.",
+   "ja": "一致する場所はありません。",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.empty.note",
+   "en": "Filters never hide places for good.",
+   "ja": "絞り込みで場所が消えることはありません。",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.empty.clear",
+   "en": "Clear filters ({n} places)",
+   "ja": "絞り込みをクリア({n}か所)",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.closed.h",
+   "en": "Recently closed — kept for the record ({n})",
+   "ja": "最近閉店した場所 — 記録として掲載({n})",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.closed.p",
+   "en": "Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.",
+   "ja": "閉店した場所は、閉店確認の出典と日付を添え、表示を付けてガイドに残しています。ピンが「今日行ける場所」と誤解されることはありません。新しい確認順です。",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.numbered",
+   "en": "— numbered to match the map.",
+   "ja": "— 番号は地図と対応しています。",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.dayfrom",
+   "en": "Plan a day from these",
+   "ja": "これらで1日プランを作る",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.mine.h",
+   "en": "Your list in {city}",
+   "ja": "{city}のマイリスト",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.mine.p",
+   "en": "Saved on this device.",
+   "ja": "この端末に保存されています。",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.mine.all",
+   "en": "All your lists",
+   "ja": "すべてのリスト",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.everything",
+   "en": "Everything",
+   "ja": "すべて",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.entries",
+   "en": "{n} of its numbered entries are here.",
+   "ja": "番号付きの項目のうち{n}件がここにあります。",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.graded",
+   "en": ", graded within each area",
+   "ja": "、エリアごとに評価",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.showing",
+   "en": "Showing {n} places",
+   "ja": "{n}か所を表示中",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.remove",
+   "en": "Remove {name}",
+   "ja": "{name}を削除",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.readsrc",
+   "en": "Read the source",
+   "ja": "出典を読む",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.away",
+   "en": "{d} away",
+   "ja": "ここから{d}",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.across",
+   "en": " across {name}",
+   "ja": "({name}全体)",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.recommends",
+   "en": "{source} recommends in {city}",
+   "ja": "{source}が推薦する{city}の場所",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.theme.light",
+   "en": "Light",
+   "ja": "ライト",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.theme.dark",
+   "en": "Dark",
+   "ja": "ダーク",
+   "file": "client/city.js"
+  },
+  {
+   "key": "city.been.short",
+   "en": "Been",
+   "ja": "行った",
+   "file": "client/city.js"
+  },
+  {
+   "key": "tier.0",
+   "en": "Signature",
+   "ja": "名物",
+   "file": "client/city.js"
+  },
+  {
+   "key": "views.pages",
+   "en": "Pages of places",
+   "ja": "場所のページ",
+   "file": "client/views.js"
+  },
+  {
+   "key": "views.page",
+   "en": "Page {n}",
+   "ja": "{n}ページ",
+   "file": "client/views.js"
+  },
+  {
+   "key": "views.prev",
+   "en": "Previous page",
+   "ja": "前のページ",
+   "file": "client/views.js"
+  },
+  {
+   "key": "views.next",
+   "en": "Next page",
+   "ja": "次のページ",
+   "file": "client/views.js"
+  },
+  {
+   "key": "views.onepage",
+   "en": "Show all {n} on one page",
+   "ja": "{n}か所すべてを1ページに表示",
+   "file": "client/views.js"
+  },
+  {
+   "key": "views.none",
+   "en": "No places match — show all {n}",
+   "ja": "一致する場所はありません — {n}か所すべてを表示",
+   "file": "client/views.js"
+  },
+  {
+   "key": "views.showing",
+   "en": "Showing {a}–{b} of {n}",
+   "ja": "{n}か所中{a}–{b}を表示",
+   "file": "client/views.js"
+  },
+  {
+   "key": "views.ofall",
+   "en": " (all {n} in the guide)",
+   "ja": "(ガイド全体で{n}か所)",
+   "file": "client/views.js"
+  },
+  {
+   "key": "views.nopin",
+   "en": "{n} without a verified pin · in the list",
+   "ja": "検証済みのピンがない場所{n}か所 · 一覧に掲載",
+   "file": "client/views.js"
+  },
+  {
+   "key": "gal.closed",
+   "en": "Closed · kept for the record",
+   "ja": "閉店 · 記録として掲載",
+   "file": "client/gallery.js"
+  },
+  {
+   "key": "gal.seeall",
+   "en": "See all {n}",
+   "ja": "{n}件すべてを見る",
+   "file": "client/gallery.js"
+  },
+  {
+   "key": "gal.save",
+   "en": "Save {name}",
+   "ja": "{name}を保存",
+   "file": "client/gallery.js"
+  },
+  {
+   "key": "gal.more",
+   "en": "+{n} more",
+   "ja": "ほか{n}件",
+   "file": "client/gallery.js"
+  },
+  {
+   "key": "day.need",
+   "en": "Save at least two open places in one area to plan a day.",
+   "ja": "1日プランを作るには、同じエリアの営業中の場所を2か所以上保存してください。",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.h",
+   "en": "Your day in {area}",
+   "ja": "{area}での1日",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.saved",
+   "en": "{n} saved places, nearest next.",
+   "ja": "保存した{n}か所、近い順。",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.more",
+   "en": "{n} more saved in other areas.",
+   "ja": "ほかのエリアにも{n}か所を保存しています。",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.moredays",
+   "en": "More days:",
+   "ja": "ほかの日:",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.none",
+   "en": "No day in {area}",
+   "ja": "{area}の1日プランはありません",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.none.p",
+   "en": "The guide plans a day only where it has at least four open places with a verified pin close together, and doesn’t pad one out.",
+   "ja": "ガイドが1日プランを作るのは、検証済みのピンがある営業中の場所が近くに4か所以上ある場合だけです。数合わせはしません。",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.stop",
+   "en": "Stop {n}",
+   "ja": "{n}か所目",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.k",
+   "en": "Your day · {area}",
+   "ja": "1日プラン · {area}",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.a",
+   "en": "A day in {area}",
+   "ja": "{area}の1日",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.shared",
+   "en": "A day shared with you as a link — edit it to keep your own copy on this device.",
+   "ja": "リンクで共有された1日プランです。編集すると、この端末に自分用のコピーが保存されます。",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.yours",
+   "en": "Your version of the guide’s day.",
+   "ja": "ガイドの1日プランを、あなた用に変更したものです。",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.note",
+   "en": "Suggested by the guide from sourced picks — check hours before you go. Distances are straight-line, not walking routes.",
+   "ja": "出典つきの候補からガイドが提案するプランです。お出かけ前に営業時間をご確認ください。距離は直線距離で、徒歩経路ではありません。",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.share",
+   "en": "Share this day",
+   "ja": "この1日を共有",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.maps",
+   "en": "Open in maps",
+   "ja": "地図アプリで開く",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.print",
+   "en": "Print",
+   "ja": "印刷",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.kml",
+   "en": "Export KML",
+   "ja": "KMLを書き出す",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.saveall",
+   "en": "Save all",
+   "ja": "すべて保存",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.done",
+   "en": "Done",
+   "ja": "完了",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.edit",
+   "en": "Edit stops",
+   "ja": "立ち寄り先を編集",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.reset",
+   "en": "Reset to the guide’s day",
+   "ja": "ガイドの1日プランに戻す",
+   "file": "client/day.js"
+  },
+  {
+   "key": "day.route",
+   "en": "Route (straight lines)",
+   "ja": "ルート(直線)",
+   "file": "client/day.js"
+  },
+  {
+   "key": "fy.first",
+   "en": "First because you picked {names}",
+   "ja": "{names}を選んだため、上位に表示",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.up",
+   "en": "{n} places from those collections move up in their area.",
+   "ja": "それらのコレクションの{n}か所が、各エリアで上位に移動します。",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.still",
+   "en": "All {n} are still here.",
+   "ja": "{n}か所すべてが引き続き掲載されています。",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.change",
+   "en": "Change",
+   "ja": "変更",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.near",
+   "en": "Nearest first.",
+   "ja": "近い順。",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.loc",
+   "en": "Using your location for this visit only — never stored or sent.",
+   "ja": "現在地はこの訪問中だけ使います。保存も送信もしません。",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.off",
+   "en": "Turn off",
+   "ja": "オフにする",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.food",
+   "en": "Every place to eat and drink",
+   "ja": "すべての飲食スポット",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.canon",
+   "en": ", the city’s own canon first",
+   "ja": "、その都市ならではの定番を先に",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.who",
+   "en": "Who’s showing you around?",
+   "ja": "誰が案内しますか?",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.tell",
+   "en": "Tell your guide what you’re into. It puts those places first in every area — all {n} places stay in the list and on the map.",
+   "ja": "興味のあるものをガイドに教えてください。各エリアでその場所を先に表示します。{n}か所すべてが一覧と地図に残ります。",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.local",
+   "en": "Remembered on this device only. No account, nothing sent anywhere.",
+   "ja": "この端末にだけ記憶されます。アカウント不要で、どこにも送信しません。",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.reset",
+   "en": "Reset",
+   "ja": "リセット",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.show",
+   "en": "Show me",
+   "ja": "表示する",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.nogeo",
+   "en": "This browser can’t share a location. Every place is still listed.",
+   "ja": "このブラウザでは位置情報を共有できません。すべての場所は引き続き一覧に表示されます。",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.denied",
+   "en": "Location is off for this site, so nothing changed. Every place is still listed.",
+   "ja": "このサイトでは位置情報がオフのため、何も変更していません。すべての場所は引き続き一覧に表示されます。",
+   "file": "client/foryou.js"
+  },
+  {
+   "key": "fy.failed",
+   "en": "We couldn’t get your location. Every place is still listed.",
+   "ja": "現在地を取得できませんでした。すべての場所は引き続き一覧に表示されます。",
+   "file": "client/foryou.js"
+  }
+ ]
+}
