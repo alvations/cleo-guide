@@ -71,11 +71,12 @@ A WebSearch-only job, using no Nominatim. All 11 registry rows with `status: clo
   - rhineland: Kaspars, and Brauerei zum Schiffchen (closed for renovation, reopening targeted 2027, re-check then);
   - singapore: Canopy Garden Dining, Denzy Gelato (Bishan), Grub (the 510 unit; the brand reopened at 1380 AMK Ave 1, which is unpinned), Amber Ember;
   - erie-pa: 1201 Kitchen.
+- Orchestrator: Enrique's stays a stale orphan (no further research); Schiffchen kept closed with a re-check note; build-erie fixed by the orchestrator; the Grub park lead is logged in ../geoverify/LEADS.md.
 - **UNVERIFIED-status (3):** noted, no source invented, statusChecked left as it was:
   - Cu Chi Wildlife Rescue Station: only a booking listing says closed;
   - Take One (Aachen);
   - Enrique's (22 N Park Row, a stale orphan): the news found points to it moving *into* the food hall there, so the closed status may be wrong.
-- Rebuilt aachen, rhineland and singapore-pages. `build-erie.py` fails on HEAD too ("Cleveland leaked into data"), which predates this job.
+- Rebuilt aachen, rhineland and singapore-pages. Pushed as bfa2be2c (head 2eee2d25).
 
 ## Notes
 

@@ -1888,3 +1888,7 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - New: QC-23 (Before it closed never visible), QC-24 (the "any" chip) and QC-25 (a raw status note on closed cards), routed to FE-C and FE-A. QC-26 is above.
   - **FE-C's W9 audit** (78065c84): the gaps went to FE-B (W9-2 acc2/acc5, W9-6 acc1/acc4), platform (W9-8 pack test, W9-9 publisher typing) and location (7 closed places without a statusSource).
   - **FE-A** (8b06f542): QA-72, QA-73, QC-22, QA-55 and R7-g6 in fe-a.css. FE-B: R7-g6 closed, with 0 letter-spacings and 7 shadows pinned.
+- **Phone switcher (FE-B QC-09, §v2.11) and chip row (rev 5 §2.2, R3 #1):**
+  - On phones Atlas now shows FE-A's city-bar switcher row, as every other view does: four segments visible, one tap per switch. It's a fixed 52 px row under the header (`--cbar-o`), and the chip row and the map sit under it. The switcher is no longer parked last in the scrolling chip row, where it went off-screen at 390.
+  - The chip row reads: search, All / Sights / Eat & drink, Top picks, Area, Filters. The search pill is sticky at the row's left edge, so it stays visible whichever chip is selected. Saved (the header's heart) and sort (in Filters) leave the row.
+  - Clear map on the first phone screen drops by the 52 px row. The switcher had to be visible (§v2.11); flagged to the designer against the §2.2 75 % budget.
