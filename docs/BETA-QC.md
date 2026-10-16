@@ -372,3 +372,16 @@ Clean worktree at `995e25294`, which contains 6583673c. Outputs are in `design/b
 | QC-20 | **verified** | Hours wording carries "Prices, ratings and times are quoted from the source at the time of research (date)". The sheet's gap line now reads "We don’t track opening hours or prices · Check before you go." |
 | **QC-22** (new, Low) | open | Every city page's "How we choose" section (`section#how-we-choose p.sm`) still reads "No ratings, prices or opening hours are shown, because the guide doesn’t hold verified ones", which contradicts the D-42 quotes now shown with a dated note. Lane: FE-A (city page copy) with FE-B (D-42). `qc-22-method-copy.json`. |
 
+## Re-verify 2026-10-16 · 3a0ecfec (platform claim for QC-12; QC-11 measured alongside)
+
+Clean worktree at `3a0ecfec`. QC re-ran its own sweep (light, all 91 pages) at 390, 768 and 1440. Outputs are in
+`design/beta/eval/qc/3a0ecfec/sweep-390/` and `sweep-768-1440/`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-12 | **verified** | S-12 at 1440: 91/91 PASS, max CLS 0.0028; no `.topnav` / `.top-actions` shift recorded. Fix: PERF-06 (df4382d2). |
+| QC-11 | **verified** | S-12 at 390: 91/91 PASS, max CLS 0.0002. At 768: 91/91 PASS, max 0.0002. Fixed by the same PERF-06 change, though FE-A never claimed it. |
+
+Other sweep FAILs on this SHA are the known classes: S-15 (the search ring on its wrapper, a harness artefact), S-08
+(data-label casing, OWNER-casing) and S-01 (the token census, R7-g6).
+
