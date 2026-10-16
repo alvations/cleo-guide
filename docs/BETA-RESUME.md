@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 17:02Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 17:38Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -30,15 +30,12 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- **The deploy candidate is pinned at `3ba696e8743112fcc5407e05e5daf6b3184caad4`** (16:20Z). QA is running the delta re-sign; asked 16:20Z.
-  - The pin contains QC-01 (2bfff3fe), QA-69 (69ca3690), QA-71 (fd54b823, verified by QA in 178d9e05) and **QA-70 (a7b4a980)**. In a7b4a980, all four `:has()`-over-main rules are rekeyed to `data-views-on` and `data-overlay-on`; FE-2 measures Tokyo and NY first pin at about 0.95 s.
-  - validate, npm test (alone) and beta:check are green. It merges cleanly into `claude/cleveland-page-creation-pant4l`.
-  - Platform measures first pin against be74c82f, then wires the `:has()` lint. No product-code pushes from platform until QA rules.
-- The previous candidate, 530dc83b, was NO on QA-70 and QA-71 (566d606e). Both are now fixed in the pin.
-- **QA status (16:43Z):** the suite is still running. Gallery B-07 failed on Tokyo/NY in QA's first runs with the fixed 900 ms wait. QA is A/B-ing the same probe on be74c82f and 3ba696e8, alone in the container.
-  - Platform's first-pin: be74c82f Tokyo 1,564 / NY 1,760 ms vs 3ba696e8 1,653 / 1,807 ms, within noise. 530dc83b was 2,481 ms.
-  - FE-2: even be74c82f's first label pin is about 1.0–1.3 s, so the 900 ms wait is marginal.
-  - Rule given to QA: the same probe on both heads; no worse than be74c82f passes.
+- **Pin 3ba696e8 is NO** (QA, 17:30Z). Open High is 0. QA-70 and QA-71 are fixed (Tokyo first pin is 2,237 ms against 2,291 on be74c82f). Three Med regressions against be74c82f:
+  - **QC-26:** a first-area Atlas deep link's sheet shows "1 of 488". Bisected to PERF-08 1538974d. FE-2 has a fix in sheet.js (the no-lens shortcut only applies with no lens, search or kind filter), with a probe at 12/12; push about 17:50Z.
+  - **QA-75:** the tier lens is dropped on `#view=gallery|atlas&t=1` when the remembered view is Guidebook or Insights (views.js links 62/8). Bisected to PERF-08. Platform owns it.
+  - **QA-76:** a transient "N more outside… Show all" during the first map fit, then "Showing all 382" (w7 lens 33/114 FAIL). Bisected to PERF-08. Platform with FE-2.
+  - **Timebox:** fix forward by about 18:20Z, otherwise platform reverts 1538974d's FE parts with `git revert` and PERF-08 re-lands after the deploy.
+- **Next pin:** the head with QC-26, QA-75 and QA-76 fixed. It must also have w8p green (Tokyo 618 KB, fixed by FE-C b8a3a6ae and FE-A 8b06f542). Gate it: validate, npm test alone, beta:check, w8p, views.js links and w7 lens. QA then runs a delta: those rows, B-07 with its 3 s findPin poll, and the claims since 3ba696e8.
 - Not blocking: QA-61 and QA-68. QA-67 is fixed (f08f892d).
 - **On YES:**
   1. `git push origin <sha>:refs/heads/beta-deploy-r7`;
