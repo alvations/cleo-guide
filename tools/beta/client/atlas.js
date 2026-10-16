@@ -210,7 +210,7 @@
   let selC = null;
   // the list pages like listing results: the first 40 places in the area (guide order: area, then rank), "Show 40 more"
   // after them; only the cards on show are stamped, so a city-wide view never builds every card (DOM stays small)
-  const PER = 40; let lim = PER, pager = null;
+  const PER = 36; let lim = PER, pager = null;   // D-46 DOM budget (platform): a 36-card first page keeps Tokyo Atlas under 2,900 nodes
   // SPEC-v3 §2.4: ONE best-places control — "Top picks", the first N places by map priority (30 desktop / 12 phones), the
   // same set as the default fit; mp round-robins across areas, so it covers the city. Must see stays information (the
   // sun-wash pill, the card sticker, the Tier section in Filters) — never a second bar control
@@ -258,6 +258,7 @@
     // while the map is still on its way, page what is already built: its own first fit picks the page to build
     if (need.size && Cleo.defer && (map || pre || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
     lastShow = show; qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
+    if (area) shed();   // D-46 DOM budget: the off-page cards go back to the deferred pool
     H.classList.add('ms-paged');   // INP: until this first pass, desktop Atlas lays out no card (atlas.css) — a Guidebook-built list was 488 cards reflowed per forced layout
     flat();
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
@@ -396,7 +397,8 @@
    * kind, "Recommended by <first source> +N". Only additions, hidden outside Atlas (atlas.css); the card stays FE-A's. */
   const info = C.info;
   const deco = () => qa('li.pl').forEach(c => {
-    if (c.hasAttribute('data-ms')) return; c.setAttribute('data-ms', '');
+    // off-page cards aren't decorated (DOM budget)
+    if (c.hasAttribute('data-ms') || (c.classList.contains('ms-out') && H.classList.contains('ms-on'))) return; c.setAttribute('data-ms', '');
     const t1 = at(c, 'data-t') === '1', cl = c.hasAttribute('data-closed'), a = ((info.areas || {})[at(c, 'data-a')] || {}).n || '';
     const inT = ($('.pl-e .in', c) || {}).textContent || '', dish = inT.split(' · ').slice(1).join(' · ').trim();
     const g = (at(c, 'data-g') || '').split(' ').filter(x => x && x !== 'FREE' && x !== 'ICON')[0], kind = dish || (at(c, 'data-k') === 'f' ? 'Eat & drink' : ((info.cats || {})[g] || 'Sight'));
@@ -409,6 +411,18 @@
       '<p class="ms-rec">' + (s0 ? 'Recommended by <b>' + ss.slice(0, 2).map(x => C.esc(((info.src || {})[x] || [x])[0])).join('</b>, <b>') + '</b>' + (ss.length > 2 ? ' +' + (ss.length - 2) + ' more' : '') : 'Added by the guide') + '</p>');
     const im = fig && $('img', fig); if (im && !im.hasAttribute('data-sizes0')) im.setAttribute('data-sizes0', im.getAttribute('sizes') || '');
   });
+  // D-46 DOM budget (FE-A: Tokyo Atlas 3,587 nodes against 3,000): a card off the map-area page goes back into a deferred
+  // noscript chunk, undecorated, exactly as a never-stamped card waits — core's peek / stampIds / stamp-all and city.js's
+  // stubs (C.forget) treat it like any other; the selected, targeted or focused card always stays
+  const shed = () => { if (!Cleo.defer || !C.forget || !lp) return; const f = d.activeElement;
+    qa('#cleo-grid li.pl.ms-out').forEach(c => { if (c === selC || c.classList.contains('is-target') || c.contains(f) || !c.parentNode) return;
+      qa('img[data-sizes0]', c).forEach(im => { im.setAttribute('sizes', at(im, 'data-sizes0')); im.removeAttribute('data-sizes0'); });
+      qa(':scope>:is(.ms-bd,.ms-cr), .ms-k, .ms-rec', c).forEach(x => x.remove()); c.removeAttribute('data-ms'); c.classList.remove('ms-out', 'is-hover', 'is-focus');
+      c.style.removeProperty('order'); if (!c.getAttribute('style')) c.removeAttribute('style'); c.hidden = false;
+      const a = {}; [].forEach.call(c.attributes, x => { a[x.name] = x.value; });
+      const st = { id: c.id, stub: true, getAttribute: k => (Object.prototype.hasOwnProperty.call(a, k) ? a[k] : null), hasAttribute: k => Object.prototype.hasOwnProperty.call(a, k), _a: a };
+      const n = d.createElement('noscript'); n.setAttribute('data-cleo-defer', ''); n.setAttribute('data-n', '1'); n.setAttribute('style', 'display:contents'); n.textContent = '\n' + c.outerHTML + '\n';
+      c.parentNode.replaceChild(n, c); C.forget(c, st); }); };
   const undeco = () => { qa('li.pl img[data-sizes0]').forEach(im => { im.setAttribute('sizes', at(im, 'data-sizes0')); im.removeAttribute('data-sizes0'); });
     qa('li.pl[data-ms]').forEach(x => x.removeAttribute('data-ms')); qa('li.pl :is(.ms-bd,.ms-cr,.ms-k,.ms-rec)').forEach(x => x.remove()); };
   on(d, 'cleo:stamped', () => { if (atlas()) { deco(); face(); } });

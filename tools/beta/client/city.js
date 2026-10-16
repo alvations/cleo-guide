@@ -355,6 +355,9 @@
   const live = () => !!map && !!map._loaded && !!map.getContainer().parentNode;   // R6 QA High: never touch a removed map (_leaflet_pos)
   const fly = ll => { if (!live() || !map.getSize().x) return; auto = Date.now(); try { if (still()) map.setView(ll, Math.max(map.getZoom(), 15), { animate: false }); else map.flyTo(ll, Math.max(map.getZoom(), 15), { duration: 0.6 }); } catch (e) {} };
   C.map = () => (live() ? map : null); C.markers = markers; C.loadMap = cb => loadMap(cb); C.pinEl = pinEl; C.hot = hot;
+  // D-46 DOM budget: atlas.js returns an off-page card to the deferred pool (a noscript chunk); the card is forgotten here
+  // and its place keeps a stub, as a never-stamped card has — so its pin, counts and lens all go on working
+  C.forget = (c, st) => { const id = pid(c), i = cards.indexOf(c); if (i >= 0) cards.splice(i, 1); if (byId[id] === c) delete byId[id]; delete text[id]; stub[id] = st; };
   C.stub = id => stub[id]; C.pin = c => pin(c); C.fly = ll => fly(ll); C.still = () => still(); C.auto = () => { auto = Date.now(); }; C.autoAt = () => auto; C.num = num; C.sections = sections;
   const el0 = () => d.getElementById('cleo-map') || main;
   // phones: the chip row (top) and the card carousel (bottom) float over the full-bleed map, so a fit that ignores them
