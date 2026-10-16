@@ -223,10 +223,13 @@ async function pinTarget(page, phone) {
       await ctx.close();
     }
     // 7. #p= detail round-trip from a card: the map view before / after
+    const layout = pg => pg.evaluate(() => { const m = document.querySelector('#cleo-map, .leaflet-container'), q = document.querySelector('input[type=search], .spill input');
+      let maxScroll = 0; for (let e = m && m.parentElement; e; e = e.parentElement) maxScroll = Math.max(maxScroll, e.scrollTop || 0);
+      return { mapTop: m ? Math.round(m.getBoundingClientRect().top) : null, searchTop: q ? Math.round(q.getBoundingClientRect().top) : null, ancestorScroll: maxScroll, winScroll: scrollY }; });
     for (const vk of ['d', 'm']) {
       const { ctx, page, errors } = await open(browser, vk, url + '#view=atlas', { tiles: 'stub' });
       await page.evaluate(() => { const m = Cleo.city.map(); m && m.setZoom(m.getZoom() + 1, { animate: false }); }); await sleep(800);
-      const v0 = await view(page), h0 = await page.evaluate(() => location.hash), sc0 = await page.evaluate(() => { const l = document.querySelector('.listpane'); return l ? [l.scrollTop, l.scrollLeft] : null; });
+      const L0 = await layout(page), v0 = await view(page), h0 = await page.evaluate(() => location.hash), sc0 = await page.evaluate(() => { const l = document.querySelector('.listpane'); return l ? [l.scrollTop, l.scrollLeft] : null; });
       const link = await page.evaluateHandle(() => [...document.querySelectorAll('li.pl .pl-n a')].find(a => { const r = a.getBoundingClientRect(); return r.width && r.top > 0 && r.bottom < innerHeight && r.left >= 0 && r.right <= innerWidth; }));
       let rt = { opened: false };
       if (link.asElement()) {
@@ -237,13 +240,14 @@ async function pinTarget(page, phone) {
         await snap(page, `${key}-${vk === 'd' ? 1440 : 390}-detail-from-card`, `${key}: place detail opened from a card`);
         const v1 = await view(page);
         await page.keyboard.press('Escape'); await sleep(700);
-        const v2 = await view(page), h2 = await page.evaluate(() => location.hash), sc2 = await page.evaluate(() => { const l = document.querySelector('.listpane'); return l ? [l.scrollTop, l.scrollLeft] : null; });
+        const L2 = await layout(page), v2 = await view(page), h2 = await page.evaluate(() => location.hash), sc2 = await page.evaluate(() => { const l = document.querySelector('.listpane'); return l ? [l.scrollTop, l.scrollLeft] : null; });
         const focusBack = await page.evaluate(() => { const a = document.activeElement; return a ? (a.closest('li.pl') ? 'card ' + a.closest('li.pl').id : a.tagName + '.' + a.className) : null; });
         await snap(page, `${key}-${vk === 'd' ? 1440 : 390}-after-detail-close`, `${key}: back from the detail (Escape)`);
         // and with the browser Back button
         await link.asElement().click().catch(() => {}); await sleep(900); await page.goBack().catch(() => {}); await sleep(900);
-        const v3 = await view(page), h3 = await page.evaluate(() => location.hash);
-        rt = { opened: !!det, name: nm, detail: det, viewBefore: v0, viewDuringDetail: v1, viewAfterEscape: v2, viewAfterBack: v3, hashBefore: h0, hashAfterEscape: h2, hashAfterBack: h3, listScrollBefore: sc0, listScrollAfter: sc2, focusAfterClose: focusBack,
+        const L3 = await layout(page), v3 = await view(page), h3 = await page.evaluate(() => location.hash);
+        rt = { opened: !!det, name: nm, detail: det, viewBefore: v0, viewDuringDetail: v1, viewAfterEscape: v2, viewAfterBack: v3, hashBefore: h0, hashAfterEscape: h2, hashAfterBack: h3, listScrollBefore: sc0, listScrollAfter: sc2, focusAfterClose: focusBack, layoutBefore: L0, layoutAfterEscape: L2, layoutAfterBack: L3,
+          layoutKept: !!(L0 && L2 && L3 && L0.mapTop === L2.mapTop && L0.mapTop === L3.mapTop && L2.ancestorScroll === 0 && L3.ancestorScroll === 0),
           viewKept: !!(v0 && v2 && Math.abs(v0.lat - v2.lat) < 0.002 && Math.abs(v0.lng - v2.lng) < 0.002 && v0.z === v2.z) };
       }
       rt.errors = errors; P[`${vk}-roundtrip`] = rt; await ctx.close();
@@ -270,7 +274,7 @@ async function pinTarget(page, phone) {
     const stops = []; let firstCard = -1, firstPin = -1, mapFocus = -1, noRing = 0;
     for (let i = 0; i < 450; i++) {
       await page.keyboard.press('Tab'); await sleep(30);
-      const s = await page.evaluate(() => { const a = document.activeElement; if (!a || a === document.body) return null; const st = getComputedStyle(a), r = a.getBoundingClientRect();
+      const s = await page.evaluate(() => { const a = document.activeElement; if (!a || a === document.body) return null; const st = getComputedStyle(a); let r = a.getBoundingClientRect(); if (r.width === 0 && a.firstElementChild) r = a.firstElementChild.getBoundingClientRect();   // a pin's anchor is 0x0; its pill is the first child
         const hasRing = x => { const q = getComputedStyle(x); return (q.outlineStyle !== 'none' && parseFloat(q.outlineWidth) > 0) || (q.boxShadow && q.boxShadow !== 'none'); };
         let ring = hasRing(a); for (let p = a.parentElement, i = 0; !ring && p && i < 3; p = p.parentElement, i++) ring = p.matches(':focus-within') && hasRing(p);   // a wrapper's :focus-within ring counts
         return { d: (a.className && a.className.baseVal === undefined ? a.tagName.toLowerCase() + '.' + String(a.className).split(' ')[0] : a.tagName.toLowerCase()) + ' ' + (a.getAttribute('aria-label') || a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 30), card: !!a.closest('li.pl'), pin: a.classList.contains('leaflet-marker-icon'), map: a.id === 'cleo-map' || a.classList.contains('leaflet-container'), ring, onScreen: r.bottom > 0 && r.top < innerHeight && r.width > 0 }; });
