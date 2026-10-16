@@ -1366,3 +1366,48 @@ Each half is a WARN until its feature lands, then a FAIL. The switches are `GATE
 Evidence: `design/beta/eval/w7/qa/d46-harness/ratified-*`.
 
 **Next on the r8 pin:** INP on the desktop switch → Atlas and on the filters (`beta:perf --only inp`), because platform reports a 21 s switch → Atlas INP on dev b61fda89.
+
+## 2026-10-16 · QA · PERF-08 re-land verified on c5df501a; B-03 re-pointed (R8 gap 5c); B-25 overlay gate added · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**PERF-08 (`Cleo.defer.selective = true`, c5df501a):** verified. I ran it alone in the container.
+- Gates ✅: validate, `npm test` and beta:check.
+- `perf08-regress.sh` passes every check: QC-26 (both probes), the W2 DOM budget (Tokyo desktop 2,821), atlas-nav-ms, QC-33, w7 lens, and the QA-75 links (140/0).
+- The script first reported FAIL because of QA's own D-46 precedence rows, which I had put in the `links` group and which fail until D-46 lands. They now run as a separate `default` group, so `--only links` is the QA-75 set again.
+- QA's A/B: QC-26 matches b54b3745 in 8 of 8; `w7.js` 132/132; reach 8/8; G1 ✅.
+
+**B-03 re-pointed (R8 gap 5c: the evaluator lets QA re-point and ratify).**
+- R8 counts 16 controls above the first card on 76 pages. On Tokyo the 16 are: brand, crumb, language switch, search, saved, 4 view buttons, "last checked", **the hero photo's 2 credit links** ("CC BY 4.0", "Wikimedia Commons") and 4 rail tiles. The 76 failing pages track the 76 guides that gained a hero photo in R8.
+- **Ruling:** the language switch **counts**. It is a real control, and dropping it to pass would measure around real clutter. Links inside a photo credit (`figcaption`, `.credit`) **do not count**. The licence requires that attribution, it is not a control the reader is invited to use, and counting it penalises the credits R8 rewards.
+- Tokyo now counts 14 ✅; under D-46 the Atlas default counts 13. QA measures B-03 on 84/84 on the next pin, and any page over 14 goes to FE-1/FE-A to cut controls.
+
+**B-25, the overlay and chrome gate** (owner directive; `docs/BETA-OVERLAY-LEDGER.md`): `tools/beta/qa/overlay.js`.
+- Pages: the five pilots + Punggol.
+- Views: Atlas, Gallery, Guidebook and the place sheet.
+- Viewports: 390×844, 390×664, 844×390, 768×1024 and 1440×900.
+- Themes: light and dark. States: at load, while panning, and after a pan or scroll.
+
+Measured per cell:
+- chrome % (fixed/sticky rows, split top / bottom, plus a floating flag);
+- clear map % (pane points that hit the map or a pin, not a control or chrome);
+- label coverage % and the widest label as a % of the pane width;
+- label↔label and label↔control overlaps;
+- control collisions between chrome-layer controls;
+- "Search this area" on the first screen.
+
+Verdict:
+- **FAIL** if any **open** ledger row is High or Med severity, or (once OV-00 sets budgets) any cell is over budget, or "Search this area" is on the first screen, or chrome controls collide.
+- Until OV-00 and a ledger severity column exist, the result is **WARN, never PASS**. The switch is `GATES.OVERLAY` in `default-view.js` (env `QA_GATE_OVERLAY=fail`).
+
+First readings on dev (`--quick`: Tokyo and Punggol, phone / landscape / desktop, light):
+
+| View | Phone (390×844) | Landscape (844×390) | Desktop |
+|---|---|---|---|
+| Atlas chrome | 26 % (top 20, bottom 6, plus floating pills) | **57 %** | 6 % |
+| Atlas clear map | 81 % | **56 %** | 96 % |
+| Atlas widest label | **56–63 %** of the map width | 31–34 % | 27–31 % |
+| Gallery chrome, at load | 15 % | **36 % (62 % after a scroll)** | 17 % |
+| Sheet chrome | 22 % | 18 % | 10 % |
+
+- No collisions and no "Search this area" on dev.
+- Landscape and the long labels are the largest measured instances (OV-03, plus a landscape row for QC's S-17).
+- Evidence: `design/beta/eval/w7/qa/overlay-trial-dev/`.
