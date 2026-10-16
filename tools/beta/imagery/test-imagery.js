@@ -248,15 +248,16 @@ ok(!fc.RESCAN_KEPT['File:Meadowcroft Rockshelter 07.jpg'], 'R7 QA-63: Meadowcrof
 { // recompress.js: size targets per copy, Commons JPEGs only, once per row; the card credit still says "(resized)"
   const rc = require('./recompress');
   const card = { provider: 'wikimedia-commons', file: 'x-960.jpg', width: 960, record: {} }, hero = Object.assign({}, card, { slot: { type: 'hero', key: 'tokyo' } });
-  ok(rc.targetOf({ provider: 'wikimedia-commons', file: 'x-960.jpg', width: 960, variants: [{ file: 'x-500.jpg', width: 500 }, { file: 'x-720.jpg', width: 720 }], record: {} }, 720, false) === 55 * 1024 && rc.targetOf({ provider: 'wikimedia-commons', file: 'x-720.jpg', width: 720, variants: [{ file: 'x-500.jpg', width: 500 }], record: {} }, 720, true) === 75 * 1024, 'D-40 option a: a 720 w copy beside a 960 (lead / first row, first screen) ≤ 55 KB; a 500 + 720 card\'s 720 ≤ 75 KB');
+  ok(rc.targetOf({ provider: "wikimedia-commons", file: "x-960.jpg", width: 960, variants: [{ file: "x-500.jpg", width: 500 }, { file: "x-720.jpg", width: 720 }], record: {} }, 720, false) === rc.P720_KB * 1024 && rc.P720_KB <= 45 && rc.targetOf({ provider: 'wikimedia-commons', file: 'x-720.jpg', width: 720, variants: [{ file: 'x-500.jpg', width: 500 }], record: {} }, 720, true) === 75 * 1024, 'D-40 option a: a 720 w copy beside a 960 (lead / first row, first screen) ≤ 45 KB; a 500 + 720 card\'s 720 ≤ 75 KB');
   { // D-40 option a over the committed photos: every lead / first-row Commons card with a 960 also carries its ≤ 55 KB 720 copy
     const rows = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits;
     const prio = new Set(JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'commons-candidates.json'), 'utf8')).targets.filter(t => t.priority && t.type !== 'hero').map(t => t.depicts));
     const missing = rows.filter(r => rc.needs720(r, prio)).map(r => r.file);
     const heavy = rows.filter(rc.hasLarge).flatMap(r => rc.filesOf(r)).filter(f => /-7\d\d\.jpe?g$/i.test(f.file) && fs.statSync(path.join(BETA, 'assets', 'img', 'photos', f.file)).size > rc.P720_KB * 1024).map(f => f.file);
-    // PENDING (imagery, 2026-10-16): the 45 copies land right after the `all` run #48 commits (to avoid a CREDITS conflict
-    // with it); until then a missing copy is reported, not failed. An over-cap copy always fails. Remove D40A_PENDING then.
-    const D40A_PENDING = true;
+    ok(Object.keys(rc.NO720).every(f => rows.some(r => r.file === f) && rows.find(r => r.file === f).variants.every(v => !/-(4|5)\d\d\.jpe?g$/i.test(v.file) || /-500\./.test(v.file))) && Object.values(rc.NO720).every(Boolean), 'D-40 option a: each NO720 exception is a credited 500 + 960 card with its reason, never a shrunken sub-600 copy');
+    // Landed 2026-10-16 (run #50 + local recompress). Set D40A_PENDING to report rather than fail a missing copy, e.g.
+    // while a run that adds lead / first-row cards is in flight. An over-cap copy always fails.
+    const D40A_PENDING = false;
     ok(!heavy.length && (D40A_PENDING || !missing.length), `D-40 option a: every lead / first-row card has a 720 w copy ≤ ${rc.P720_KB} KB${heavy.length ? '; over: ' + heavy.join(', ') : ''}`);
     if (D40A_PENDING && missing.length) console.log(`  pending  D-40 option a: ${missing.length} lead / first-row card(s) still without their 720 w copy (land after run #48)`);
   }
