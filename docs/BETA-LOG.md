@@ -1734,3 +1734,19 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - The sweep mode keeps ours, as before.
   - **QC** (2ed1ddce): QC-01/02/03 verified on 2bfff3fe; QC-10 is still open and went back to FE-B. The designer ratifies the SPEC §3.4 plain-bar wording.
   - **FE-A** got the designer's three food-cover changes. QC and the designer were given 530dc83b to work on.
+
+- 2026-10-16 15:15Z · **Orchestrator** · QA NO on 530dc83b; Atlas panel R3 80.7; Miami pins · commit: this entry's commit
+  - **Atlas panel round 3: 80.7** at 537cfb8c (min 74.0, SD 2.86); R0 56.1 → R1 63.8 → R2 70.9 → R3 80.7. The designer folded it into SPEC-v3 rev 5 (46f4abe3).
+  - **QA delta re-sign on 530dc83b: NO** (566d606e). QA-69 is verified and open High is 0. Two Med regressions against be74c82f:
+    - QA-70 (the phone Gallery map open is about 1.5 s slower; the Gallery B-07 pin step fails on Tokyo/NY). Platform is bisecting be74c82f..530dc83b.
+    - QA-71 (the carousel swipe after a `#p=` round trip). Routed to Atlas FE-2.
+  - **Miami location verify:** 2 of the 11 pass rows were accepted (Jungle Queen Riverboat, OSM POI; Superblue, official geo with the exact address).
+    - Held: 3 closed, 4 extended features, and 2 stale Wikidata coordinates for places that moved (Young At Art: the old Davie building; Locust Projects: the old Design District space).
+    - The location lane now treats Wikipedia as not independent of Wikidata, and guards against moved places (1b0da370).
+    - The four earlier Wikidata+Wikipedia accepts are being re-checked against OSM, official and Census sources.
+  - **Test harness:** test-views.js and test-views-b.js now inline client scripts through a replacer function, so `$&` in client code can't corrupt them (found by i18n).
+  - **Process:** two `npm test` runs at once in one container fail test-honesty and test-views spuriously (each passed alone). This is now a standing rule in BETA-RESUME.
+  - **Routing:**
+    - i18n catalogues FE-B's Guidebook/Insights views;
+    - FE-C does the designer's ten findings before W9-1/W9-9;
+    - FE-B owns QC-09 at 200 % and QC-10. The designer re-verified QC-09 PASS after 639d2b1b.

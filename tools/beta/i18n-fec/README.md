@@ -3,14 +3,16 @@
 test-i18n needs en.json and ja.json to match key for key, and FE-C never writes ja. So FE-C's new strings wait here
 until the i18n lane supplies their Japanese:
 
-- `pending-en.json`: 122 keys:
-  - W9-4 trips: `trip.*`;
-  - W9-5 base and the walk helper: `base.*`, `geo.*`, `src.*`;
+- **Batch 1 is merged** (trip.js + rec.*, 79 keys, en + ja together). trip.html renders in ja; test-i18n checks it.
+- `pending-en.json`: **batch 2**, 46 keys:
+  - W9-5 base: `base.*`;
+  - the walk helper: `geo.walk.*`;
   - W9-7 share cards: `share.*`;
-  - W9-1 recognition: `rec.*`.
+  - trip.html's server strings: `trip.page.*`.
 - `pending-ja.json`: **written by the i18n lane**, with the same keys and the same `{placeholders}`.
 - `merge.py`: checks both files and merges them into the catalogues in one step (`--check` reports only).
-- `fec-i18n.patch`: client/trip.js, base.js and share-card.js, plus Cleo.geo.walk in core.js, converted to `Cleo.t` (`git apply` after the merge).
+- `fec-i18n.patch`: batch 2's client side. base.js, share-card.js and Cleo.geo.walk in core.js are converted to `Cleo.t` (`git apply` after the merge).
+  The server side, lib/render/trip.js `t('trip.page.*')`, is done by hand in the same commit.
   Existing keys are reused wherever the English matches: hub.places, city.card.added, city.been, card.recby, tier.*, card.share.image,
   day.k, day.h, day.kind.*, day.kml, sheet.close, sheet.directions, gal.closed, city.sort.base.
 - `apply.py`: the helper that made the patch (asserted literal replacements, plus the `Cleo.t` key scan).

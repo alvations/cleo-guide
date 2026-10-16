@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 15:02Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 15:12Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -22,7 +22,7 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 ## Goals (owner)
 
 - The overall independent review ≥ 98. Last measured: R7 88.5 at badcc20d. The R8 evaluator runs after the next deploy.
-- The Atlas map panel ≥ 95. R0 56.1 → R1 63.8 → **R2 70.9** (at 40e15601).
+- The Atlas map panel ≥ 95. R0 56.1 → R1 63.8 → R2 70.9 → **R3 80.7** (at 537cfb8c).
 - Fix all issues, with the melon-seek-style UX QA/QC and the optimization audit, keeping the audit trail
   (`docs/BETA-ISSUES.md`, `docs/BETA-QC.md`, `docs/BETA-PERF-AUDIT.md`).
 - The owner delegated decisions: "You decide; if you're asking for permissions then I say just yes".
@@ -30,13 +30,10 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- **The deploy candidate is pinned at `530dc83b6e45c88afe764779b1451f201a883410`** (15:00Z). It contains:
-  - 2bfff3fe, the QC-01 fix, which QA verified in the 2bfff3fe delta re-sign (90c6c65a: NO on QA-69 only, open High 0);
-  - FE-A's QA-69 fix, 69ca36905;
-  - QC-08, FE-2's 58vh detail, the W9-5 ring, the W9-7 share cards, the QC-09/06 switcher, and Chicago +48 pins.
-
-  validate, npm test and beta:check are all green on the pin.
-- **QA (asked 15:00Z):** the delta re-sign on 530dc83b. That covers Gallery B-07 5/5 twice, the QA-69 check, and regression against be74c82f. QA also rules on whether Tokyo/NY B-07 "pin sheet none" is new. The answer is YES or NO, with the open High count.
+- **The candidate 530dc83b is NO** (QA 566d606e, 15:05Z). QA-69 and QC-01 are verified, and open High is 0. Two Med regressions against be74c82f block the re-sign:
+  - **QA-70:** the phone Gallery map open is about 1.5 s slower (Tokyo 2.45 → 3.93 s, NY 2.72 → 4.20 s), so the Gallery B-07 pin step fails on Tokyo/NY. **Platform is bisecting** be74c82f..530dc83b (asked 15:10Z).
+  - **QA-71:** after `#p=` and Back, swiping the phone Atlas carousel no longer moves the selection. **Atlas FE-2 owns it** (round trip / view kept, fdc0bae37 suspected).
+- **Next:** when both fixes are on origin, pin a new head. QA then runs a delta re-sign: the touched rows, Gallery B-07 5/5 twice, and the carousel swipe after the round trip.
 - Not blocking: QA-67 (detail matte), QA-61 (phone Atlas search box size), QA-68 (B-08 probe artefact; QA fixes the probe).
 - **On YES:**
   1. `git push origin <sha>:refs/heads/beta-deploy-r7`;
@@ -55,8 +52,8 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 | What | State | Next |
 |---|---|---|
 | Imagery `all` | Run #48 committed (tier-1 487/1017). The orchestrator decided the 17 open rows at 14:30Z: 32 refusals in total, recorded in `design/beta/imagery-runs/run-48.md` | The imagery lane applies the refusals and then dispatches the next `all` at budget 1200 (236 targets left). D-40a 720w leads follow from push run #50 |
-| Location verification | Accepted: Wheeling 7, SF 112, Orlando 7, **Chicago 48** (14:50Z). Five Chicago pass rows are held: 2 closed, 1 park, 1 street stretch, 1 with no registry address. Beta is at 8,627 places. DC is in flight (commit=true) | The lane commits each city's report; the orchestrator reviews, runs `--accept`, rebuilds and gates. Order after DC: Miami, Erie, Philadelphia, then Singapore (about 3 runs), Saarland, Okinawa, Rhineland, Aachen |
-| Atlas panel | R3 declared at 537cfb8c; real shots are in `design/beta/atlas/real/R3` (SHOTS-REQUEST pins the SHA) | The panel scores R3; relay the score to the owner. Then the open items: the W9-5 base ring (FE-2), §3.6, and the phone switcher in .ms-bar (FE-1) |
+| Location verification | Accepted: Wheeling 7, SF 112, Orlando 7, Chicago 48, DC 38, Miami 2. Miami's Wikidata rows were stale (moved places); the lane added the Wikipedia ≠ independent and moved-place guards (1b0da370). The 4 earlier Wikidata+Wikipedia accepts (Koi Palace, Hotel Utah, Wild Side West, ABC Commissary) are being re-checked (docs/geoverify/recheck/). Beta is at 8,666 places. Erie is committed; Philadelphia is in flight | The lane commits each city's report; the orchestrator reviews, runs `--accept`, rebuilds and gates. Order after DC: Miami, Erie, Philadelphia, then Singapore (about 3 runs), Saarland, Okinawa, Rhineland, Aachen |
+| Atlas panel | **R3 80.7** (min 74.0, SD 2.86) at 537cfb8c; R0 56.1 → R1 63.8 → R2 70.9 → R3 80.7. The designer folded it into SPEC-v3 rev 5 (46f4abe3) and briefs FE-1/FE-2 | FE-1 and FE-2 build rev 5 toward R4, after QA-71 (FE-2) |
 | QC | 14 findings (QC-01 High), routed | QC re-verifies as fixes land |
 | Perf | PERF-01/03/04/05/13 fixed; PERF-06 released 13:36Z; PERF-08 core inert | Platform applies PERF-06, then the PERF-08 FE parts |
 
