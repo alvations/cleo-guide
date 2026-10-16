@@ -437,7 +437,7 @@
     build(); unpark(); deco(); face(); setTimeout(routeSel, 0); sq();
     const x = $('.ms-x', bar);
     // phones: the chip row carries FE-A's search pill (in the toolbar) and the switcher last; desktop: area chips in the results head
-    if (!desk()) { park(tb, bar, x); park(nav, bar, null); } else {
+    if (!desk()) { park(tb, bar, x); } else {   // phones: the view switch stays in FE-A's city bar, its own row under the header (QC-09)
       // desktop (SPEC-v3 §2.1): ONE bar — the search pill (in the toolbar), the chips, then the view switch; the notes and
       // the footer go to the end of the list column, since the document does not scroll in Atlas
       const sp = $('[data-cleo-search]'); park(tb, bar, x); if (sp && tb) park(sp, tb, tb.firstChild); const tw = $('.topbar .wrap'); park(nav, tw || bar, tw ? $('.top-actions', tw) : null);   // the view switch: the header's right
