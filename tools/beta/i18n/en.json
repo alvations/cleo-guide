@@ -756,6 +756,14 @@
     "m.th.closed": "Closed, kept",
     "page.trip.title": "Trips · Cleo",
     "page.trip.desc": "Make a trip of several days from places you saved: one area a day, nearest next, walking estimates, closed places left out with the reason. One link, a printable booklet and KML.",
-    "page.trip.nojs": "Trips are made in your browser from places you saved, so this page needs its script. Every guide and your saved list work without it."
+    "page.trip.nojs": "Trips are made in your browser from places you saved, so this page needs its script. Every guide and your saved list work without it.",
+    "lf.label": "Local favourites",
+    "lf.f": "Local favourites only",
+    "lf.tile.t": "Local press, writers and creators",
+    "lf.tile.d": "None official, every source typed",
+    "lf.h": "Local favourites ({n})",
+    "lf.rule": "Open places recommended only by local press, local writers or vetted creators — none by an official or tourism source, and every source typed in our registry.",
+    "lf.gap": "Fewer than {min} places here qualify ({n}), with {typed} of {total} sources typed in our registry, so the lens is not shown rather than padded.",
+    "fresh.feed": "an RSS feed of every closure and status check in this guide, for any feed reader."
   }
 }

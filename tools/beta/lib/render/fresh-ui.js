@@ -12,6 +12,6 @@ const ON = () => EN.strings['fresh.feed'] != null;
 /** The line for the "How we choose" section, or '' (no feed, or the string not merged yet). `up` = '../' per depth. */
 function follow(row, up) {
   if (!ON() || !row || !row.feed) return '';
-  return `<p class="sm feedline" data-cleo-follow><a href="${esc(up + row.feed)}" type="application/atom+xml">${esc(t('land.month.follow'))}</a> — ${esc(t('fresh.feed'))}</p>`;
+  return `<p class="sm feedline" data-cleo-follow><a href="${esc(up + row.feed)}" type="application/atom+xml">${esc(t('land.month.follow'))}</a> — <span>${esc(t('fresh.feed'))}</span></p>`;
 }
 module.exports = { ON, follow };
