@@ -90,7 +90,7 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.ok(LV.robotsAllows('User-agent: *\nDisallow: /private', '/menu'));
     assert.ok(LV.robotsAllows('User-agent: *\nDisallow: /\nAllow: /contact', '/contact'), 'longest match');
     assert.ok(!LV.robotsAllows('User-agent: CleoGuideLocationVerify\nDisallow: /\n\nUser-agent: *\nAllow: /', '/'), 'our group wins');
-    assert.ok(LV.robotsAllows('User-agent: Googlebot\nDisallow: /\n', '/'), 'other bots’ rules do not bind us');
+    assert.ok(LV.robotsAllows('User-agent: OtherBot\nDisallow: /\n', '/'), 'other bots’ rules do not bind us');
     assert.ok(LV.robotsAllows('User-agent: *\nDisallow:\n', '/x'), 'empty Disallow allows');
     assert.ok(!LV.robotsAllows('User-agent: *\nDisallow: /*.php$\n', '/index.php'));
   });
@@ -227,7 +227,7 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.ok(row('Example Museum').statusProposal.evidence.some(e => e.type === 'wikidata-P576'), 'a linked QID still counts');
   });
   await t('review assist holds official JSON-LD that names something else (the venue)', () => {
-    const v = LV.reviewAssist({ outcome: 'pin', proposal: { grade: 'high', kind: 'official', nameSim: 0.2, matchedName: 'Disney Springs' } });
+    const v = LV.reviewAssist({ outcome: 'pin', proposal: { grade: 'high', kind: 'official', nameSim: 0.2, matchedName: 'Example Springs Shopping District' } });
     assert.strictEqual(v.verdict, 'hold');
   });
   await t('optional-source failures never fail the run; core-source failures do', async () => {
@@ -260,9 +260,9 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.strictEqual(wd({ coordDecimals: 3 }).verdict, 'hold', '3 decimals is coarse even with a second source');
     assert.strictEqual(wd({ coordDecimals: 6 }).verdict, 'pass');
     assert.strictEqual(LV.coordDecimals(28.595, -81.511), 3); assert.strictEqual(LV.coordDecimals(28.5, -81.5, 0.0001), 4);
-    const part = LV.reviewAssist({ ...base, name: "Disney's Coronado Springs Resort (Gran Destino Tower)", proposal: { grade: 'high', kind: 'wikidata', nameSim: 1, coordDecimals: 5, corroboratedBy: [{}], matchedName: "Disney's Coronado Springs Resort", addressAgreement: {} } });
+    const part = LV.reviewAssist({ ...base, name: "Example Springs Resort (North Tower)", proposal: { grade: 'high', kind: 'wikidata', nameSim: 1, coordDecimals: 5, corroboratedBy: [{}], matchedName: "Example Springs Resort", addressAgreement: {} } });
     assert.strictEqual(part.verdict, 'hold');
-    const sys = LV.reviewAssist({ ...base, name: 'Disney Skyliner', proposal: { grade: 'high', kind: 'wikidata', nameSim: 1, coordDecimals: 5, corroboratedBy: [{}], addressAgreement: {} } });
+    const sys = LV.reviewAssist({ ...base, name: 'Example Skyliner', proposal: { grade: 'high', kind: 'wikidata', nameSim: 1, coordDecimals: 5, corroboratedBy: [{}], addressAgreement: {} } });
     assert.strictEqual(sys.verdict, 'hold');
     const ent = LV.reviewAssist({ outcome: 'conflict', name: 'Big State Park', current: { confidence: 'med' }, proposal: { grade: 'high', kind: 'osm-poi', entrance: true, distanceM: 1870, matchedName: 'Big State Park (Main Entrance)' } });
     assert.strictEqual(ent.verdict, 'review');
@@ -292,11 +292,17 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const out = LV.accept(rp, { geocodes: geo, ledger: path.join(dir, 'L.md'), today: '2026-10-16', allowCi: true });
     assert.ok(out.refused.some(x => /Schema Grill: review is stale/.test(x)));
   });
-  await t('ordering / aggregator hosts are never "official"', () => {
-    for (const h of ['orderpizzamenu.com', 'www.orderxyzmenu.com', 'order.examplecafe.com', 'examplecafe.square.site', 'www.toasttab.com', 'menu.example.com', 'examplecafe-online-order.com'])
+  await t('generic signals only: ordering-shaped hosts, source URLs must resemble the place, JSON-LD url on another host', () => {
+    for (const h of ['orderexamplemenu.com', 'www.orderxyzmenu.com', 'order.examplecafe.com', 'menu.example.com', 'examplecafe-online-order.com', 'exampledelivery.net', 'examplemenu.com'])
       assert.ok(LV.isOrderingHost(h), h);
-    for (const h of ['www.zymarium.com', 'politepig.com', 'www.weaselboybrewing.com', 'menudo-house.com'.replace('menudo-house', 'mendocinofarms')])
+    for (const h of ['www.zymarium.com', 'politepig.com', 'www.weaselboybrewing.com', 'mendocinofarms.com'])
       assert.ok(!LV.isOrderingHost(h), h);
+    assert.ok(LV.hostResemblesName('www.zymarium.com', 'Zymarium Meadery'));
+    assert.ok(LV.hostResemblesName('politepig.com', 'The Polite Pig'));
+    assert.ok(!LV.hostResemblesName('www.examplereviews.com', 'Zymarium Meadery'), 'a review/map site URL in `source` is not the place\'s site');
+    assert.strictEqual(LV.siteLabel('www.example.co.uk'), 'example');
+    const c = { kind: 'official', unofficial: 'JSON-LD url points to orderexamplemenu.com', name: 'Pizza Example' };
+    assert.strictEqual(LV.gradeCandidate(c, { name: 'Pizza Example', address: '', current: {} }).grade, 'med');
   });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);

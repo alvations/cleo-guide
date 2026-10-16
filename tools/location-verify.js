@@ -159,7 +159,10 @@ function gradeCandidate(c, place) {
   const ag = addrAgreement(place.address, c);
   c.nameSim = sim; c.addr = ag;
   let grade = 'low';
-  if (c.kind === 'wikidata' || c.kind === 'wikipedia' || c.kind === 'official') {
+  if (c.kind === 'official' && c.unofficial) {
+    if (sim >= 0.8) { grade = 'med'; why.push(`unofficial geo (${c.unofficial}); med at most — let an OSM POI or a second source lead`); }
+    else why.push(`unofficial geo (${c.unofficial}) and name similarity ${sim}`);
+  } else if (c.kind === 'wikidata' || c.kind === 'wikipedia' || c.kind === 'official') {
     if (sim >= 0.8 || c.kind === 'official' || c.linked) { grade = 'high'; why.push(`${c.kind} published coordinate`); }
     else why.push(`${c.kind} name similarity ${sim} < 0.8`);
   } else if (c.kind === 'osm-poi') {
@@ -359,7 +362,8 @@ function parseJsonLd(html) {
         ? [ad.streetAddress, ad.addressLocality, [ad.addressRegion, ad.postalCode].filter(Boolean).join(' ')].filter(Boolean).join(', ')
         : (typeof ad === 'string' ? ad : null);
       out.push({ lat: isFinite(lat) ? lat : null, lng: isFinite(lng) ? lng : null, address, name: o.name || null,
-        postcode: ad && ad.postalCode ? String(ad.postalCode) : null, openingHours: o.openingHours || o.openingHoursSpecification || null });
+        postcode: ad && ad.postalCode ? String(ad.postalCode) : null, openingHours: o.openingHours || o.openingHoursSpecification || null,
+        url: typeof o.url === 'string' ? o.url : null });
     }
     Object.values(o).forEach(v => { if (v && typeof v === 'object') walk(v); });
   };
@@ -498,7 +502,7 @@ class Http {
     if (this.count >= this.max) return { status: 0, body: '', error: 'request budget exhausted', budget: true };
     if (h === 'nominatim.openstreetmap.org' && this.nomCount >= this.nomMax) return { status: 0, body: '', error: 'nominatim budget exhausted', budget: true };
     // Circuit breaker: a host that failed 2 times in a row (timeouts, TLS, DNS) is skipped for the rest of the run —
-    // an official site that never answers must not cost 30 s per row (Orlando: disneyworld.disney.go.com 32/32).
+    // an official site that never answers must not cost 30 s per row (Orlando: one resort site timed out 32/32).
     if ((this.streak || {})[h] >= 2 && !/wikidata|wikipedia|nominatim|overpass/.test(h)) return { status: 0, body: '', error: `${h} skipped after repeated failures` };
     if (this.backoffUntil[h] && Date.now() < this.backoffUntil[h]) {
       const w = this.backoffUntil[h] - Date.now();
@@ -681,27 +685,40 @@ async function fromOverpassBatch(http, rows, retry = false) {
   return out;
 }
 
-const NOT_OFFICIAL = /(wikipedia|wikidata|google|apple\.com|openstreetmap|yelp|tripadvisor|facebook|instagram|mapquest|roadsideamerica|atlasobscura|untappd|opentable|mapcarta)/i;
 /**
- * Third-party ordering / menu / reservation / aggregator hosts are NOT the place's own site: their schema.org geo is
- * often a template or a different location. Generic shapes first (order…menu, …online-order…, …delivery…), then known
- * platform hosts. Kept here, not in the docs.
+ * Generic signals only (no platform names, in code or docs): a host shaped like an ordering / menu / delivery site is not
+ * the place's own site.
  */
 const ORDERING_HOST = [
   /(^|\.)(order|ordering|orderonline|onlineorder|menu|menus|delivery|takeout|reserv|booking)[a-z0-9-]*\./i,
-  /order[a-z0-9-]*menu|menu[a-z0-9-]*order|online-?order|order-?online/i,
-  /(^|\.)(toasttab|clover|square\.site|squareup|chownow|slicelife|menufy|beyondmenu|grubhub|doordash|ubereats|postmates|seamless|opentable|resy|tock|exploretock|sevenrooms|yelp|tripadvisor|zomato|menupages|allmenus|restaurantji|singleplatform|popmenu|bentobox|spoton|owner\.com|gloriafood|hungerrush|foodbooking|eatstreet|ezcater)(\.|$)/i,
+  /order[a-z0-9-]*menu|menu[a-z0-9-]*order|online-?order|order-?online|delivery|takeout|menu\.com$/i,
 ];
 function isOrderingHost(host) { return ORDERING_HOST.some(rx => rx.test(String(host || '').toLowerCase())); }
+/** example.co.uk / www.example.com → example (the registrable label, roughly). */
+function siteLabel(host) {
+  const parts = String(host || '').toLowerCase().replace(/^www\d*\./, '').split('.').filter(Boolean);
+  if (parts.length >= 3 && /^(co|com|org|net|ac|gov|edu)$/.test(parts[parts.length - 2])) return parts[parts.length - 3];
+  return parts.length >= 2 ? parts[parts.length - 2] : parts[0] || '';
+}
+/** Does a host plausibly belong to this place? (a ≥ 4-letter word of the name in the host label, or the reverse) */
+function hostResemblesName(host, name) {
+  const label = siteLabel(host).replace(/[^a-z0-9]/g, ''), compact = normName(name).replace(/ /g, '');
+  if (label.length < 3 || !compact) return false;
+  if (compact.includes(label) && label.length >= 4) return true;
+  return normName(name).split(' ').filter(w => w.length >= 4 && !/^(restaurant|cafe|bar|grill|kitchen|house|museum|park|the|and)$/.test(w)).some(w => label.includes(w));
+}
+const sameSite = (a, b) => siteLabel(a) === siteLabel(b);
 
 async function fromOfficial(http, place, website) {
   const cands = [], evidence = [], notes = [];
   let url = website;
-  if (!url) { const m = String(place.current.source || '').match(/https?:\/\/[^\s)]+/); if (m && !NOT_OFFICIAL.test(m[0])) url = m[0]; }
+  // A URL in the registry's `source` is only taken as the place's own site when its host resembles the place's name
+  // (Wikidata P856 and the OSM website tag are curated and used as given).
+  if (!url) { const m = String(place.current.source || '').match(/https?:\/\/[^\s)]+/); try { if (m && hostResemblesName(new URL(m[0]).host, place.name)) url = m[0]; } catch (_) { /* not a URL */ } }
   if (!url) return { cands, evidence, notes };
   let u; try { u = new URL(url); } catch (_) { return { cands, evidence, notes }; }
   if (!/^https?:$/.test(u.protocol)) return { cands, evidence, notes };
-  if (isOrderingHost(u.host)) { notes.push(`${u.host} is an ordering/aggregator site, not the place's own: not used as "official"`); return { cands, evidence, notes }; }
+  if (isOrderingHost(u.host)) { notes.push(`unofficial geo: ${u.host} looks like an ordering / menu site, not the place's own — not used`); return { cands, evidence, notes }; }
   const robots = await http.request(`${u.origin}/robots.txt`, { accept: 'text/plain' });
   const robotsTxt = robots.status >= 200 && robots.status < 300 ? robots.body : (robots.status >= 400 && robots.status < 500 ? '' : null);
   if (robotsTxt === null) { notes.push(`robots.txt unreachable (${robots.error || 'HTTP ' + robots.status}); official site skipped (RFC 9309: assume disallow on server error)`); return { cands, evidence, notes }; }
@@ -713,7 +730,11 @@ async function fromOfficial(http, place, website) {
   }
   for (const j of parseJsonLd(page.body)) {
     if (j.lat != null && j.lng != null) {
-      cands.push({ kind: 'official', source: 'official', name: j.name || place.name, lat: j.lat, lng: j.lng, address: j.address, postcode: j.postcode,
+      // The block's own `url` naming another site means the page republishes someone's data: "unofficial geo".
+      let unofficial = null;
+      try { if (j.url && !sameSite(new URL(j.url, u.href).host, u.host)) unofficial = `JSON-LD url points to ${new URL(j.url, u.href).host}`; } catch (_) { /* ignore */ }
+      if (unofficial) notes.push(`unofficial geo: ${unofficial}`);
+      cands.push({ kind: 'official', source: 'official', unofficial, name: j.name || place.name, lat: j.lat, lng: j.lng, address: j.address, postcode: j.postcode,
         ...(j.address ? (({ houseNumber, street }) => ({ houseNumber, street }))(parseAddress(j.address)) : {}),
         sourceUrl: u.href, retrieved: page.retrieved, licence: LICENCE.official });
     } else if (j.address) notes.push(`official site schema.org address: ${j.address} (no geo)`);
@@ -1132,4 +1153,4 @@ if (require.main === module) {
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, isOrderingHost, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
