@@ -752,7 +752,7 @@ html body #cleo-sheet .sheet.detail:focus{outline:none}
 /* ---- SPEC-v3 slice 1 pins: a labelled pill (one kind glyph · the short name; Must see = the sun-wash pill), anchored by a tail at the
    place's exact point. Every other place is a canvas dot (atlas.js); no numbers on the map. ---- */
 .leaflet-marker-icon.pp{width:0!important;height:0!important;margin:0!important;background:none;border:0;overflow:visible}
-.pp>span{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 7px));display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px 0 10px;border-radius:var(--r-pill);
+.pp>span{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 7px));display:inline-flex;align-items:center;gap:var(--s-2);height:32px;padding:0 var(--s-3) 0 var(--s-3);border-radius:var(--r-pill);
   background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm);font:600 var(--fs-sm)/1 var(--font-ui);white-space:nowrap;cursor:pointer;
   transition:transform var(--dur-1) var(--ease-out),background-color var(--dur-1) var(--ease-out),color var(--dur-1) var(--ease-out),border-color var(--dur-1) var(--ease-out)}
 .pp>span::before{content:"";position:absolute;inset:-6px -2px}                         /* a 44 px hit area round a 32 px pill */
@@ -760,7 +760,7 @@ a.pp{color:inherit;text-decoration:none}a.pp:focus{outline:none}a.pp:focus-visib
 /* side and below anchors (SPEC-v3 §1.3): no stem, a 4 px gap from the point */
 .pp.pp-ar>span{transform:translate(4px,-50%)}.pp.pp-al>span{transform:translate(calc(-100% - 4px),-50%)}.pp.pp-ab>span{transform:translate(-50%,4px)}
 .pp:is(.pp-ar,.pp-al,.pp-ab)>span::after{display:none}
-.pp>span::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:7px;margin-left:-5px;background:inherit;clip-path:polygon(0 0,100% 0,50% 100%)}   /* the tail */
+.pp>span::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:7px;margin-left:-4px;background:inherit;clip-path:polygon(0 0,100% 0,50% 100%)}   /* the tail */
 .pp>span>b{font-weight:600}
 .pp .ico{flex:none;width:16px;height:16px;color:var(--ink-2);stroke-width:1.5}
 /* rev 5 (R3 #4): no sun treatment on pills — every pill is the surface pill; Must see shows in the preview, the card sticker and Filters → Tier */
@@ -771,15 +771,15 @@ a.pp{color:inherit;text-decoration:none}a.pp:focus{outline:none}a.pp:focus-visib
 .day-on .leaflet-marker-icon.pp{display:none}                                         /* a day shows its numbered stops only */
 
 /* ---- map controls: one family of 44 px buttons ---- */
-.leaflet-container .am-ctl{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-ui)/1 var(--font-ui);box-shadow:var(--e-2);cursor:pointer}
+.leaflet-container .am-ctl{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);min-width:44px;min-height:44px;padding:0 var(--s-3);border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-ui)/1 var(--font-ui);box-shadow:var(--e-2);cursor:pointer}
 .leaflet-container .am-ctl .ico{width:18px;height:18px}
 .leaflet-container .m-locate{padding:0;width:44px}.leaflet-container .m-locate[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}.leaflet-container .m-locate.busy{opacity:.6}
 .leaflet-container .am-ctl:focus-visible,.leaflet-container .m-legend summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px;box-shadow:var(--focus-ring,none)}
 .leaflet-container .m-legend{display:block;padding:0;border-radius:var(--r-m);max-width:270px}
-.leaflet-container .m-legend summary{display:flex;align-items:center;gap:6px;min-height:44px;padding:0 12px;cursor:pointer;list-style:none}
+.leaflet-container .m-legend summary{display:flex;align-items:center;gap:var(--s-2);min-height:44px;padding:0 var(--s-3);cursor:pointer;list-style:none}
 .leaflet-container .m-legend summary::-webkit-details-marker{display:none}
-:is(.leaflet-container .m-legend,.ms-key) ul{list-style:none;margin:0;padding:2px 12px 12px;display:grid;gap:8px;font-size:var(--fs-meta);line-height:1.3;color:var(--ink-2)}
-:is(.leaflet-container .m-legend,.ms-key) li{display:flex;align-items:center;gap:10px}
+:is(.leaflet-container .m-legend,.ms-key) ul{list-style:none;margin:0;padding:2px var(--s-3) var(--s-3);display:grid;gap:var(--s-2);font-size:var(--fs-meta);line-height:1.3;color:var(--ink-2)}
+:is(.leaflet-container .m-legend,.ms-key) li{display:flex;align-items:center;gap:var(--s-2)}
 :is(.leaflet-container .m-legend,.ms-key) .kd{flex:none;width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--ink) 30%,var(--paper))}:is(.leaflet-container .m-legend,.ms-key) .kd.f{width:8px;height:8px;border-radius:1px;background:color-mix(in srgb,var(--ink) 72%,var(--paper));margin-left:2px}   /* eat & drink: a rounded square */
 :is(.m-legend,.ms-key) b.pp{position:relative;display:inline-block;flex:none;width:140px;height:32px}:is(.m-legend,.ms-key) b.pp>span{left:0;top:0;transform:none;cursor:default}:is(.m-legend,.ms-key) b.pp>span::after{display:none}
 .leaflet-container .leaflet-control-zoom a{width:44px;height:44px;line-height:44px;background:var(--surface);color:var(--ink);border-color:var(--line)}
@@ -790,34 +790,34 @@ html .leaflet-container .leaflet-control-attribution a{color:var(--ink)}
 /* ---- the filter bar + results head (both layouts) ---- */
 .ms-bar,.ms-head,.ms-toggle,.ms-here{display:none}
 html:not(.atlas-d) .ms-head .ms-doors{display:none}   /* phones: Near me is the map pill; the doors stay in their own views */
-html[data-view=atlas] .ms-bar{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
+html[data-view=atlas] .ms-bar{display:flex;align-items:center;gap:var(--s-2);flex-wrap:nowrap}
 html[data-view=atlas] .ms-bar>.toolbar{display:contents}
 html[data-view=atlas] .ms-bar :is(.map-toggle,.applied:empty){display:none!important}
 html[data-view=atlas] .ms-bar .applied{flex:0 0 auto;width:auto}
 html[data-view=atlas] .ms-bar .ms-x{display:contents}
-html[data-view=atlas] .ms-bar .chip{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:var(--tap);padding:0 14px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-ui)/1 var(--font-ui);cursor:pointer;white-space:nowrap}
+html[data-view=atlas] .ms-bar .chip{flex:none;display:inline-flex;align-items:center;gap:var(--s-2);min-height:var(--tap);padding:0 var(--s-4);border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-ui)/1 var(--font-ui);cursor:pointer;white-space:nowrap}
 html[data-view=atlas] .ms-bar .chip .ico{width:16px;height:16px}html[data-view=atlas] .ms-bar .chip .n{color:var(--ink-3)}
 html[data-view=atlas] .ms-bar .chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 html[data-view=atlas] .ms-bar .chip[aria-pressed=true] :is(.n,.tg){color:var(--paper)}
 html[data-view=atlas] .ms-bar .ms-mine[aria-pressed=false] .ico{color:var(--accent)}
-html[data-view=atlas] .ms-sort select{min-height:var(--tap);padding:0 34px 0 14px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-ui)/1 var(--font-ui);cursor:pointer}
+html[data-view=atlas] .ms-sort select{min-height:var(--tap);padding:0 36px 0 var(--s-4);border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-ui)/1 var(--font-ui);cursor:pointer}
 html[data-view=atlas] .ms-bar .modes{flex:none}
 html[data-view=atlas] .ms-head{display:block}
-html[data-view=atlas] .ms-head .ms-row{display:flex;align-items:center;justify-content:space-between;gap:8px 16px;flex-wrap:wrap}
+html[data-view=atlas] .ms-head .ms-row{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2) var(--s-4);flex-wrap:wrap}
 html[data-view=atlas] .ms-count{margin:0;font-size:var(--fs-ui);color:var(--ink-2)}html[data-view=atlas] .ms-count b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
 html[data-view=atlas] .ms-sortby{color:var(--ink)}
-html[data-view=atlas] .ms-live{display:inline-flex;align-items:center;gap:8px;min-height:var(--tap);font-size:var(--fs-sm);color:var(--ink-2);cursor:pointer}
+html[data-view=atlas] .ms-live{display:inline-flex;align-items:center;gap:var(--s-2);min-height:var(--tap);font-size:var(--fs-sm);color:var(--ink-2);cursor:pointer}
 html[data-view=atlas] .ms-live input{width:18px;height:18px;margin:0;accent-color:var(--ink)}
 html[data-view=atlas] .ms-live[hidden]{display:none}
 html[data-view=atlas] .ms-more{margin:0;font-size:var(--fs-sm);color:var(--ink-2)}html[data-view=atlas] .ms-more:empty{display:none}
-html[data-view=atlas] .ms-more .btn{min-height:var(--tap);padding:0 6px;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-html[data-view=atlas] .ms-nomap-n{display:none;margin:0 0 8px;padding:10px 14px;border-radius:var(--r-m);background:var(--sand);color:var(--ink-2);font-size:var(--fs-sm)}
+html[data-view=atlas] .ms-more .btn{min-height:var(--tap);padding:0 var(--s-2);font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+html[data-view=atlas] .ms-nomap-n{display:none;margin:0 0 var(--s-2);padding:var(--s-3) var(--s-4);border-radius:var(--r-m);background:var(--sand);color:var(--ink-2);font-size:var(--fs-sm)}
 html.ms-nomap[data-view=atlas] .ms-nomap-n{display:block}
-html[data-view=atlas] .ms-head .area-chips{display:flex;gap:8px;overflow-x:auto;padding:6px 0 2px;scrollbar-width:thin}
+html[data-view=atlas] .ms-head .area-chips{display:flex;gap:var(--s-2);overflow-x:auto;padding:var(--s-2) 0 2px;scrollbar-width:thin}
 /* the map-area filter: classes only — a card outside the area is out of the list, never out of the guide */
 html.ms-on[data-view=atlas] :is(li.pl.ms-out,section.area.ms-empty,.cleo-defer-gap){display:none}
 html.ms-on[data-view=atlas] #cleo-grid li.pl.ms-out{display:none!important}   /* outranks the carousel / grid card faces (#cleo-grid li.pl{display:grid}) */   /* in-area stubs are stamped by atlas.js */
-html[data-view=atlas] .ms-pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 14px;margin:24px 0;color:var(--ink-2);font-size:var(--fs-sm)}
+html[data-view=atlas] .ms-pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--s-2) var(--s-4);margin:var(--s-6) 0;color:var(--ink-2);font-size:var(--fs-sm)}
 html[data-view=atlas] .ms-pager[hidden],html:not(.ms-on) .ms-pager,html:not([data-view=atlas]) .ms-pager{display:none}
 /* Atlas shows the cards, the map shows the rest: no rail, no Gallery pager, no lens line duplicating the head */
 html[data-view=atlas] :is(.rail,.railbar,.listpane>.shown,.mapclose,.pager){display:none!important}
@@ -837,13 +837,13 @@ html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo fig
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:has(>figure.pl-photo)>.pl-cover{display:none}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-cover>:not(.pl-glyph){display:none}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-cover .pl-glyph{position:static;inset:auto;width:34px;height:34px;margin:0;color:var(--ink-3);opacity:1;transform:none}
-html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-bd{position:absolute;z-index:3;left:10px;top:10px;right:60px;display:flex;flex-wrap:wrap;gap:6px;pointer-events:none}
-html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid .ms-rk{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 8px;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:600 var(--fs-meta)/1 var(--font-ui);font-variant-numeric:tabular-nums;box-shadow:var(--shadow-sm)}
+html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-bd{position:absolute;z-index:3;left:10px;top:10px;right:60px;display:flex;flex-wrap:wrap;gap:var(--s-2);pointer-events:none}
+html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid .ms-rk{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 var(--s-2);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:600 var(--fs-meta)/1 var(--font-ui);font-variant-numeric:tabular-nums;box-shadow:var(--shadow-sm)}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl .ms-bd .sticker{position:absolute;left:0;top:calc(75cqw - 48px);margin:0;white-space:nowrap}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl .ms-cl{background:var(--closed-soft);color:var(--closed)}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-cr{position:absolute;z-index:3;right:6px;top:calc(75cqw - 40px);display:inline-grid;place-items:center;width:var(--tap);height:var(--tap);color:var(--paper);font:600 var(--fs-xs)/1 var(--font-ui);text-decoration:none;text-shadow:0 1px 2px rgba(0,0,0,.7)}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-x{position:absolute;z-index:3;top:6px;right:6px;margin:0}
-html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{margin:10px 0 2px;padding:0;font:600 var(--fs-d3)/1.3 var(--font-ui);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{margin:var(--s-2) 0 2px;padding:0;font:600 var(--fs-d3)/1.3 var(--font-ui);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n a{display:inline;min-height:0;padding:0;color:var(--ink);text-decoration:none}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n a::after{content:"";position:absolute;inset:0;z-index:1}   /* the whole card opens the place */
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n .nat{display:none}
@@ -863,16 +863,16 @@ html[data-view=atlas] #cleo-grid.w7-cards li.pl:is(.is-hover,.is-sel){outline:no
 html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700;inset:auto;left:0;top:0;width:300px;max-height:none;overflow:hidden;padding:0;margin:0;border:0;border-radius:var(--r-l);background:var(--surface);box-shadow:var(--e-4);transform:none}
 .ms-pv{display:block;color:var(--ink);text-decoration:none}
 .ms-pv-m{display:block;aspect-ratio:16/9;background:var(--sand);overflow:hidden}.ms-pv-m img{width:100%;height:100%;object-fit:cover;display:block}
-.ms-pv-t .ms-pv-n{display:flex;align-items:center;gap:10px}   /* R2 #8: no photo → a text card led by a 40 px glyph chip */
+.ms-pv-t .ms-pv-n{display:flex;align-items:center;gap:var(--s-2)}   /* R2 #8: no photo → a text card led by a 40 px glyph chip */
 .ms-pv-g{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:var(--r-m);background:var(--sand);color:var(--ink-3)}.ms-pv-g .ico{width:22px;height:22px}
 /* R2 #7: licence links get a ≥ 24 px tall hit box without moving the line */
-html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
+html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
 .ms-pv-m .pl-cover{position:relative;width:100%;height:100%;margin:0;border-radius:0;aspect-ratio:auto}
-.ms-pv-b{display:grid;gap:4px;padding:12px 14px 14px}
+.ms-pv-b{display:grid;gap:var(--s-1);padding:var(--s-3) var(--s-4) var(--s-4)}
 .ms-pv-e{font-size:var(--fs-xs);color:var(--ink-3);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .ms-pv-n{font:var(--fw-display) var(--fs-lead)/1.15 var(--font-display);letter-spacing:var(--track-display)}
 .ms-pv-w{font-size:var(--fs-sm);line-height:var(--lh-sm);color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.ms-pv-c{margin:0;padding:0 14px 12px;font-size:var(--fs-xs);line-height:1.35;color:var(--ink-3)}.ms-pv-c a{color:var(--ink-2)}
+.ms-pv-c{margin:0;padding:0 var(--s-4) var(--s-3);font-size:var(--fs-xs);line-height:1.35;color:var(--ink-3)}.ms-pv-c a{color:var(--ink-2)}
 .ms-pv-s{font-size:var(--fs-xs);color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .ms-pv:hover .ms-pv-n,.ms-pv:focus-visible .ms-pv-n{text-decoration:underline;text-underline-offset:3px}
 .ms-pv:focus-visible{outline:3px solid var(--focus);outline-offset:-3px;border-radius:var(--r-l)}
@@ -895,49 +895,49 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   /* rev 5 §2.1 (R3 #5): the view switch sits INSIDE the 56 px header — a 40 px segmented control (top 8, bottom 48), each
      segment with a 44 px tall hit area; header links never wrap; the breadcrumb is whole or "‹ City", never clipped */
   html.atlas-d[data-view=atlas] .topbar .wrap>.views{flex:none;margin:0 0 0 auto;position:static;height:40px;min-height:0;padding:2px;align-self:center;box-sizing:border-box}
-  html.atlas-d[data-view=atlas] .topbar .wrap>.views button{position:relative;height:36px;min-height:0;padding:0 12px}
+  html.atlas-d[data-view=atlas] .topbar .wrap>.views button{position:relative;height:36px;min-height:0;padding:0 var(--s-3)}
   html.atlas-d[data-view=atlas] .topbar .wrap>.views button::after{content:"";position:absolute;left:0;right:0;top:-4px;bottom:-4px}
   html.atlas-d[data-view=atlas] .topbar :is(.topnav a,.crumbs,.crumbs *){white-space:nowrap}
   html.atlas-d[data-view=atlas] .topbar .brand small{display:none}
   html.atlas-d[data-view=atlas] .topbar .crumbs{flex:none}
-  html.atlas-d[data-view=atlas] .topbar .wrap>.views+.top-actions{margin-left:12px}
+  html.atlas-d[data-view=atlas] .topbar .wrap>.views+.top-actions{margin-left:var(--s-3)}
   html.atlas-d[data-view=atlas] .ms-bar{max-width:none}
   html.atlas-d[data-view=atlas] .ms-bar .toolbar>.spill{flex:0 1 340px;min-width:220px;margin:0}
   html.atlas-d[data-view=atlas] .ms-bar .toolbar>.spill .hint{display:none}
   /* the document does not scroll in Atlas: map and list fill the screen under the 108 px, only the list scrolls, and the
      notes and the footer sit at the end of the list column */
   html.atlas-d[data-view=atlas],html.atlas-d[data-view=atlas] body{overflow:hidden;height:100%}
-  html.atlas-d[data-view=atlas] .listpane>:is(.about,.method,.footer){margin:40px 0 0;padding-left:0;padding-right:0;max-width:none}
+  html.atlas-d[data-view=atlas] .listpane>:is(.about,.method,.footer){margin:var(--s-8) 0 0;padding-left:0;padding-right:0;max-width:none}
   html.atlas-d[data-view=atlas]:not(.ms-built) main>[data-cleo-toolbar]{position:absolute;visibility:hidden;animation:ms-reveal 0s 4s forwards}   /* it moves into the bar */
   html.atlas-d[data-view=atlas] .split>.mappane{grid-column:1;grid-row:1}html.atlas-d[data-view=atlas] .split>.listpane{grid-column:2;grid-row:1}   /* the list's column never depends on the map pane being shown yet */
   html.atlas-d[data-view=atlas]:not(.ms-ready) .split>.listpane>:not(.ms-head){visibility:hidden;animation:ms-reveal 0s 4s forwards}
-  html.atlas-d[data-view=atlas] .ms-bar{height:52px;box-sizing:border-box;position:relative;z-index:5;margin:0 calc(-1 * var(--gutter));padding:4px var(--gutter);background:var(--paper);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
-  html.atlas-d[data-view=atlas] .ms-bar #cleo-filter{flex:0 1 300px;min-width:200px;min-height:var(--tap);padding:0 18px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);font:inherit;color:var(--ink)}
-  html.atlas-d[data-view=atlas] .ms-bar .applied{display:flex;gap:6px}
+  html.atlas-d[data-view=atlas] .ms-bar{height:52px;box-sizing:border-box;position:relative;z-index:5;margin:0 calc(-1 * var(--gutter));padding:var(--s-1) var(--gutter);background:var(--paper);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+  html.atlas-d[data-view=atlas] .ms-bar #cleo-filter{flex:0 1 300px;min-width:200px;min-height:var(--tap);padding:0 var(--s-5);border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);font:inherit;color:var(--ink)}
+  html.atlas-d[data-view=atlas] .ms-bar .applied{display:flex;gap:var(--s-2)}
   html.atlas-d[data-view=atlas] .ms-bar .ms-sort{margin-left:auto}
   html.atlas-d[data-view=atlas] main:not(.feb)>.split.split{display:grid;grid-template-columns:minmax(0,64fr) minmax(420px,36fr);gap:0;max-width:none;margin:0 calc(-1 * var(--gutter));padding:0;height:calc(100vh - var(--atlas-top,140px));min-height:560px}
   html.atlas-d[data-view=atlas] .split>.mappane{display:block;order:-1;position:relative;top:auto;height:100%;padding:0;border:0;border-radius:0;border-right:1px solid var(--line)}
   html.atlas-d[data-view=atlas] .split>.mappane .map,html.atlas-d[data-view=atlas] .split #cleo-map{height:100%;min-height:0;border:0;border-radius:0}
-  html.atlas-d[data-view=atlas] .split>.listpane{height:100%;overflow-y:auto;overscroll-behavior:contain;padding:0 24px 32px;scrollbar-gutter:stable}
-  html.atlas-d[data-view=atlas] .ms-head{position:sticky;top:0;z-index:3;margin:0 -24px 8px;padding:14px 24px 10px;background:var(--paper);border-bottom:1px solid var(--line)}
-  html.atlas-d[data-view=atlas] .listpane .lens{margin-top:8px}
+  html.atlas-d[data-view=atlas] .split>.listpane{height:100%;overflow-y:auto;overscroll-behavior:contain;padding:0 var(--s-6) var(--s-7);scrollbar-gutter:stable}
+  html.atlas-d[data-view=atlas] .ms-head{position:sticky;top:0;z-index:3;margin:0 -24px var(--s-2);padding:var(--s-4) var(--s-6) var(--s-3);background:var(--paper);border-bottom:1px solid var(--line)}
+  html.atlas-d[data-view=atlas] .listpane .lens{margin-top:var(--s-2)}
   html.atlas-d[data-view=atlas] .listpane section.area{margin:0;padding:0;border:0}
   html.atlas-d[data-view=atlas] .listpane section.area>:not(ol):not(h2):not(.area-end){display:none}
-  html.atlas-d[data-view=atlas] .listpane section.area>h2{margin:18px 0 10px;font:600 var(--fs-sm)/1.3 var(--font-ui);letter-spacing:0;color:var(--ink-2)}
+  html.atlas-d[data-view=atlas] .listpane section.area>h2{margin:var(--s-4) 0 var(--s-2);font:600 var(--fs-sm)/1.3 var(--font-ui);letter-spacing:0;color:var(--ink-2)}
   html.atlas-d[data-view=atlas] .listpane section.area>h2 .area-n{font:inherit;color:var(--ink)}
-  html.atlas-d[data-view=atlas] .listpane .pls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}
-  html.atlas-d[data-view=atlas] .listpane .area-end{margin:12px 0 0}
+  html.atlas-d[data-view=atlas] .listpane .pls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-6) var(--s-4)}
+  html.atlas-d[data-view=atlas] .listpane .area-end{margin:var(--s-3) 0 0}
   /* §2.3 (R3 #2): ONE ranked list beside the map — the sections and lists step aside (display: contents) and every card
      takes its rank as its CSS order (atlas.js flat); no area headings, no "area n of N", no area-chip row (area lives in the
      bar's Area button and in Filters) */
-  html.atlas-d[data-view=atlas] .split>.listpane{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;align-content:start}
+  html.atlas-d[data-view=atlas] .split>.listpane{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-6) var(--s-4);align-content:start}
   html.atlas-d[data-view=atlas] .split>.listpane>*{grid-column:1/-1;order:999999}
   html.atlas-d[data-view=atlas] .split>.listpane>.ms-head{order:-2;margin-bottom:-8px}html.atlas-d[data-view=atlas] .split>.listpane>.lens{order:-1}
   html.atlas-d[data-view=atlas] .listpane :is(section.area,section.area>ol.pls){display:contents}
   html.atlas-d[data-view=atlas] .listpane section.area>:not(ol){display:none}
   html.atlas-d[data-view=atlas] .listpane li.pl{grid-column:auto}
   html.atlas-d[data-view=atlas] .ms-head .area-chips{display:none}
-  html.atlas-d[data-view=atlas] .ms-head .ms-doors{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}html.atlas-d[data-view=atlas] .ms-head .ms-doors .btn{min-height:var(--tap);gap:6px}
+  html.atlas-d[data-view=atlas] .ms-head .ms-doors{display:flex;flex-wrap:wrap;gap:var(--s-2);margin:var(--s-2) 0 0}html.atlas-d[data-view=atlas] .ms-head .ms-doors .btn{min-height:var(--tap);gap:var(--s-2)}
   html.atlas-d[data-view=atlas] .leaflet-top.leaflet-left{top:4px}
 }
 
@@ -958,7 +958,7 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   html.atlas-m[data-view=atlas] .split .mappane{display:block;position:fixed;z-index:20;inset:calc(var(--bar-h) + var(--cbar-o)) 0 0 0;height:auto;padding:0;border:0;border-radius:0;background:var(--sand)}
   html.atlas-m[data-view=atlas] .split .mappane .map,html.atlas-m[data-view=atlas] #cleo-map{border-radius:0;border:0;min-height:0;height:100%}
   /* the chip row */
-  html.atlas-m[data-view=atlas] .ms-bar{position:fixed;z-index:30;left:0;right:0;top:var(--row-top);padding:0 12px 6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  html.atlas-m[data-view=atlas] .ms-bar{position:fixed;z-index:30;left:0;right:0;top:var(--row-top);padding:0 var(--s-3) var(--s-2);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   html.atlas-m[data-view=atlas] .ms-bar::-webkit-scrollbar{display:none}
   html.atlas-m[data-view=atlas] .ms-bar :is(.toolbar,.ms-x){display:contents}
   html.atlas-m[data-view=atlas] .ms-bar .toolbar>.spill{order:0;position:sticky;left:0;z-index:2}
@@ -968,33 +968,33 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   html.atlas-m[data-view=atlas] .ms-bar :is(.ms-mine,.ms-sort,.map-toggle){display:none}   /* Saved is the header's heart; sort is in Filters */
   html.atlas-m[data-view=atlas] .ms-bar :is(.chip,.ms-sort select,.views,.modes,.area-btn,[data-cleo-tray],#cleo-filter){box-shadow:var(--e-2)}
   html.atlas-m[data-view=atlas] .ms-bar>.views{flex:none;margin:0;width:auto;position:static}
-  html.atlas-m[data-view=atlas] .ms-bar #cleo-filter{flex:0 0 150px;min-height:var(--tap);padding:0 14px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:inherit}
+  html.atlas-m[data-view=atlas] .ms-bar #cleo-filter{flex:0 0 150px;min-height:var(--tap);padding:0 var(--s-4);border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:inherit}
   html.atlas-m[data-view=atlas] .ms-bar :is(.area-btn,[data-cleo-tray]){flex:none;background:var(--surface)}
-  html.atlas-m[data-view=atlas] .ms-bar .applied{display:flex;gap:6px}
+  html.atlas-m[data-view=atlas] .ms-bar .applied{display:flex;gap:var(--s-2)}
   html.atlas-m[data-view=atlas] .ms-bar .area-chips{display:none}
   /* FE-A's search pill in the chip row: a 44 px search button until focused, then it opens (no overflow at 390) */
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill{position:relative;flex:0 0 var(--tap);width:var(--tap);min-width:var(--tap);height:var(--tap);min-height:var(--tap);padding:0;justify-content:center;overflow:hidden;transition:flex-basis var(--dur-2) var(--ease-out),width var(--dur-2) var(--ease-out)}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill .hint{display:none}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill #cleo-filter{position:absolute!important;inset:-1px;min-height:var(--tap);width:100%;padding:0 12px 0 40px!important;color:transparent;cursor:pointer}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill #cleo-filter{position:absolute!important;inset:-1px;min-height:var(--tap);width:100%;padding:0 var(--s-3) 0 var(--s-8)!important;color:transparent;cursor:pointer}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill #cleo-filter::placeholder{color:transparent}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill>.ico{position:absolute;left:13px;top:13px;width:18px;height:18px;pointer-events:none}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q){flex-basis:min(240px,62vw);width:min(240px,62vw)}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q) #cleo-filter{color:var(--ink);cursor:text}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:focus-within #cleo-filter::placeholder{color:var(--ink-3)}
   /* the carousel: the same cards, side by side; sections and lists step aside (display: contents) */
-  html.atlas-m[data-view=atlas] .listpane{display:flex;align-items:stretch;gap:10px;position:fixed;z-index:25;left:0;right:0;bottom:12px;height:var(--car-h);margin:0;padding:0 16px;overflow-x:auto;overflow-y:hidden;
-    scroll-snap-type:x mandatory;scroll-padding:0 16px;overscroll-behavior:contain;background:none;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  html.atlas-m[data-view=atlas] .listpane{display:flex;align-items:stretch;gap:var(--s-2);position:fixed;z-index:25;left:0;right:0;bottom:12px;height:var(--car-h);margin:0;padding:0 var(--s-4);overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;scroll-padding:0 var(--s-4);overscroll-behavior:contain;background:none;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   html.atlas-m[data-view=atlas] .listpane::-webkit-scrollbar{display:none}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane>:not(section.area){display:none}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane :is(section.area,section.area>ol.pls){display:contents}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane section.area>:not(ol){display:none}
   /* the carousel: the same card face, side by side — media left, text right (sections and lists step aside) */
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:0 0 min(282px,78vw);scroll-snap-align:center;display:grid;grid-template-columns:72px minmax(0,1fr);grid-template-rows:auto auto auto;align-content:center;column-gap:12px;
-    height:var(--car-h);padding:10px 12px 10px 10px;overflow:hidden;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--e-2);container-type:normal}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:0 0 min(282px,78vw);scroll-snap-align:center;display:grid;grid-template-columns:72px minmax(0,1fr);grid-template-rows:auto auto auto;align-content:center;column-gap:var(--s-3);
+    height:var(--car-h);padding:var(--s-3) var(--s-3) var(--s-3) var(--s-3);overflow:hidden;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--e-2);container-type:normal}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-cover,figure.pl-photo){grid-column:1;grid-row:1/span 2;width:72px;height:72px;align-self:start;aspect-ratio:auto;border-radius:var(--r-m)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-n,.ms-k,.ms-rec){grid-column:2;padding:0}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{grid-row:1}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-k{grid-row:2;margin-right:30px}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-rec{grid-row:3}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{margin:0 30px 2px 0;font-size:var(--fs-body);line-height:1.25;overflow:visible;white-space:normal;-webkit-line-clamp:unset;display:block}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{grid-row:1}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-k{grid-row:2;margin-right:var(--s-7)}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-rec{grid-row:3}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{margin:0 var(--s-7) 2px 0;font-size:var(--fs-body);line-height:1.25;overflow:visible;white-space:normal;-webkit-line-clamp:unset;display:block}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.ms-k,.ms-rec){font-size:var(--fs-sm)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid section.area .ms-a{display:inline}   /* the carousel crosses areas: name it */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-bd{left:14px;top:14px;right:auto}
@@ -1003,15 +1003,15 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
      under the thumb and text (author · licence · source in full); the © shortcut is then redundant */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo{display:contents!important;overflow:visible!important}   /* a contents box clips nothing; say so in its style too */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo img{grid-column:1;grid-row:1/span 2;width:72px;height:72px;align-self:start;object-fit:cover;border-radius:var(--r-m)}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo figcaption{grid-column:1/-1;grid-row:4;position:static!important;width:auto!important;height:auto!important;max-width:none!important;clip:auto!important;overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important;white-space:normal!important;margin:6px 0 0!important;padding:0!important;background:none!important;font:400 var(--fs-xs)/1.3 var(--font-ui)!important;color:var(--ink-3)!important;position:relative;z-index:2}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo figcaption{grid-column:1/-1;grid-row:4;position:static!important;width:auto!important;height:auto!important;max-width:none!important;clip:auto!important;overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important;white-space:normal!important;margin:var(--s-2) 0 0!important;padding:0!important;background:none!important;font:400 var(--fs-xs)/1.3 var(--font-ui)!important;color:var(--ink-3)!important;position:relative;z-index:2}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo figcaption a{color:var(--ink-2)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-cr{display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:has(>figure.pl-photo){align-content:start}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{align-content:start}   /* every card reads from the top, whatever height the carousel grew to */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-x{top:2px;right:2px}
   /* QC-17 (with FE-C): the base line ("1.9 km from … · 23 min walk") has its own full-width row and wraps, never clips;
      the carousel grows to the tallest card on show (atlas.js fitCar). Recognition stays in the detail and the preview */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-n,.ms-k,.ms-rec,.pl-base,figure.pl-photo>figcaption){min-height:auto}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-base{grid-column:1/-1;grid-row:5;order:0;margin:6px 0 0;font-size:var(--fs-sm);line-height:1.35;color:var(--ink-2);white-space:normal;overflow-wrap:anywhere}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-base{grid-column:1/-1;grid-row:5;order:0;margin:var(--s-2) 0 0;font-size:var(--fs-sm);line-height:1.35;color:var(--ink-2);white-space:normal;overflow-wrap:anywhere}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-rec{display:none}
   /* R2 #8: a carousel card with no photo has no media block — no empty frame; its text takes the width */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:not(:has(>figure.pl-photo))>.pl-cover{display:none}
@@ -1020,50 +1020,50 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl.is-sel{outline:2px solid var(--ink);outline-offset:-2px}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl.is-sel>:is(.pl-cover,figure.pl-photo){outline:none}
   /* the List / Map pill, bottom centre */
-  html.atlas-m[data-view=atlas] .ms-toggle{display:inline-flex;align-items:center;gap:8px;position:fixed;z-index:35;left:50%;bottom:calc(var(--car-h) + 24px);transform:translateX(-50%);min-height:var(--tap);padding:0 20px;border-radius:var(--r-pill);box-shadow:var(--e-4);white-space:nowrap}
+  html.atlas-m[data-view=atlas] .ms-toggle{display:inline-flex;align-items:center;gap:var(--s-2);position:fixed;z-index:35;left:50%;bottom:calc(var(--car-h) + 24px);transform:translateX(-50%);min-height:var(--tap);padding:0 var(--s-5);border-radius:var(--r-pill);box-shadow:var(--e-4);white-space:nowrap}
   html.atlas-m.ms-list[data-view=atlas] .ms-toggle{bottom:14px}
   /* the first screen: map + a 64 px list peek ("128 places here · Show list"); the carousel comes after a selection (.ms-car) */
   html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car){--car-h:16px}
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list){--car-h:196px}   /* names and "Recommended by" wrap, never truncate (§2.3, §3.3): the selected-state carousel is as tall as they need */
   html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car) .listpane{display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car) .ms-toggle{left:0;right:0;bottom:0;transform:none;width:100%;min-height:64px;padding:12px 16px 14px;flex-direction:column;justify-content:flex-start;gap:8px;
+  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car) .ms-toggle{left:0;right:0;bottom:0;transform:none;width:100%;min-height:64px;padding:var(--s-3) var(--s-4) var(--s-4);flex-direction:column;justify-content:flex-start;gap:var(--s-2);
     border-radius:var(--r-l) var(--r-l) 0 0;background:var(--surface);color:var(--ink);font:400 var(--fs-body)/1.2 var(--font-ui);box-shadow:var(--e-4)}
   html.atlas-m[data-view=atlas] .ms-toggle .ms-handle{display:block;width:36px;height:4px;border-radius:2px;background:var(--line-strong)}
   html.atlas-m[data-view=atlas] .ms-toggle b{font-weight:600}
   html.atlas-m.ms-list[data-view=atlas] .split::after{content:"";position:fixed;z-index:34;left:0;right:0;bottom:0;height:72px;background:var(--paper);border-top:1px solid var(--line)}   /* the Map pill sits in its own band, never over a card */
   html.atlas-m.ms-nomap[data-view=atlas] .ms-toggle{display:none}
   /* list mode: the map area's places as a full-screen image-first list */
-  html.atlas-m.ms-list[data-view=atlas] .listpane{scroll-padding-block:56px 24px;display:block;top:calc(var(--bar-h) + var(--cbar-o) + 66px);bottom:72px;height:auto;padding:4px 16px 24px;overflow-x:hidden;overflow-y:auto;scroll-snap-type:none;background:var(--paper)}
+  html.atlas-m.ms-list[data-view=atlas] .listpane{scroll-padding-block:56px 24px;display:block;top:calc(var(--bar-h) + var(--cbar-o) + 66px);bottom:72px;height:auto;padding:var(--s-1) var(--s-4) var(--s-6);overflow-x:hidden;overflow-y:auto;scroll-snap-type:none;background:var(--paper)}
   html.atlas-m.ms-list[data-view=atlas] .ms-bar{background:var(--paper);top:calc(var(--bar-h) + var(--cbar-o));height:66px;padding-top:0;padding-bottom:0;border-bottom:1px solid var(--line)}
-  html.atlas-m.ms-list[data-view=atlas] .ms-head{padding:8px 0 4px}
+  html.atlas-m.ms-list[data-view=atlas] .ms-head{padding:var(--s-2) 0 var(--s-1)}
   html.atlas-m.ms-list[data-view=atlas] .listpane section.area>:not(ol):not(h2):not(.area-end){display:none}
-  html.atlas-m.ms-list[data-view=atlas] .listpane section.area>h2{margin:18px 0 10px;font:600 var(--fs-sm)/1.3 var(--font-ui);letter-spacing:0;color:var(--ink-2)}
-  html.atlas-m.ms-list[data-view=atlas] .listpane .pls{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+  html.atlas-m.ms-list[data-view=atlas] .listpane section.area>h2{margin:var(--s-4) 0 var(--s-2);font:600 var(--fs-sm)/1.3 var(--font-ui);letter-spacing:0;color:var(--ink-2)}
+  html.atlas-m.ms-list[data-view=atlas] .listpane .pls{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s-6)}
   /* the phone list is the same ONE ranked list (§2.3) */
-  html.atlas-m.ms-list[data-view=atlas] .listpane{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-content:start}
+  html.atlas-m.ms-list[data-view=atlas] .listpane{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s-6);align-content:start}
   html.atlas-m.ms-list[data-view=atlas] .listpane>*{order:999999}html.atlas-m.ms-list[data-view=atlas] .listpane>.ms-head{order:-2}
   html.atlas-m.ms-list[data-view=atlas] .listpane :is(section.area,section.area>ol.pls){display:contents}
   html.atlas-m.ms-list[data-view=atlas] .listpane section.area>:not(ol){display:none}
   html.atlas-m.ms-nomap[data-view=atlas] .split .mappane{display:none}
   /* "Search this area" after a pan */
-  html.atlas-m[data-view=atlas] .ms-here{display:inline-flex;align-items:center;gap:6px;position:absolute;z-index:690;left:50%;top:calc(var(--cbar-o) + 112px);transform:translateX(-50%);min-height:var(--tap);padding:0 18px;border:0;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:600 var(--fs-ui)/1 var(--font-ui);box-shadow:var(--e-4);white-space:nowrap}
+  html.atlas-m[data-view=atlas] .ms-here{display:inline-flex;align-items:center;gap:var(--s-2);position:absolute;z-index:690;left:50%;top:calc(var(--cbar-o) + 112px);transform:translateX(-50%);min-height:var(--tap);padding:0 var(--s-5);border:0;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:600 var(--fs-ui)/1 var(--font-ui);box-shadow:var(--e-4);white-space:nowrap}
   html.atlas-m[data-view=atlas] .ms-here[hidden],html.atlas-m.ms-list[data-view=atlas] .ms-here{display:none}
   html.atlas-m[data-view=atlas] .leaflet-top{top:calc(var(--cbar-o) + 62px)}
   /* two labelled 44 px pills (SPEC-v3 §2.2): "Near me" and "Map" (cycles to Satellite); at 200 % they keep the glyph and aria-label */
-  html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-locate){width:auto;min-width:var(--tap);padding:0 14px 0 12px;gap:6px;justify-content:flex-start}
+  html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-locate){width:auto;min-width:var(--tap);padding:0 var(--s-4) 0 var(--s-3);gap:var(--s-2);justify-content:flex-start}
   html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right{display:flex;flex-direction:column;align-items:flex-end}
   @media (max-width:300px){html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-locate)>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-locate){padding:0;justify-content:center}}
   html.atlas-m[data-view=atlas] .leaflet-container .m-legend[open]{width:auto}
   html.atlas-m[data-view=atlas] .leaflet-bottom{bottom:calc(var(--car-h) + 76px)}
   /* OSM credit: one line, bottom left, never wraps; the ⓘ (a 44 px hit area) opens the full credit */
-  html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-left .leaflet-control-attribution.m-attr{position:relative;display:flex;align-items:center;gap:4px;margin:0 0 0 12px;padding:0 2px 0 6px;max-height:20px;white-space:nowrap;background:color-mix(in srgb,var(--surface) 70%,transparent);color:var(--ink-2);border-radius:var(--r-s)}
+  html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-left .leaflet-control-attribution.m-attr{position:relative;display:flex;align-items:center;gap:var(--s-1);margin:0 0 0 var(--s-3);padding:0 2px 0 var(--s-2);max-height:20px;white-space:nowrap;background:color-mix(in srgb,var(--surface) 70%,transparent);color:var(--ink-2);border-radius:var(--r-s)}
   html.atlas-m[data-view=atlas] .m-attr .m-attr-s a{color:var(--ink-2)}
-  html.atlas-m[data-view=atlas] .m-attr .m-attr-i{position:relative;display:inline-grid;place-items:center;width:44px;height:44px;margin:-12px -12px -12px -10px;padding:0;border:0;background:none;color:var(--ink-2);font:inherit;line-height:1;cursor:pointer}
+  html.atlas-m[data-view=atlas] .m-attr .m-attr-i{position:relative;display:inline-grid;place-items:center;width:44px;height:44px;margin:-12px -12px -12px -8px;padding:0;border:0;background:none;color:var(--ink-2);font:inherit;line-height:1;cursor:pointer}
   html.atlas-m[data-view=atlas] .m-attr .m-attr-i:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-  html.atlas-m[data-view=atlas] .m-attr .m-attr-pop{position:absolute;left:0;bottom:calc(100% + 8px);width:max-content;max-width:calc(100vw - 24px);padding:8px 10px;white-space:normal;background:var(--surface);color:var(--ink-2);border:1px solid var(--line);border-radius:var(--r-m);box-shadow:var(--e-2);line-height:1.5}
+  html.atlas-m[data-view=atlas] .m-attr .m-attr-pop{position:absolute;left:0;bottom:calc(100% + 8px);width:max-content;max-width:calc(100vw - 24px);padding:var(--s-2) var(--s-3);white-space:normal;background:var(--surface);color:var(--ink-2);border:1px solid var(--line);border-radius:var(--r-m);box-shadow:var(--e-2);line-height:1.5}
   html.atlas-m[data-view=atlas] .m-attr .m-attr-pop[hidden]{display:none}
-  html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right .leaflet-control{margin:8px 12px 0 0}   /* locate, map style, key: bottom right above the cards */
-  html.atlas-m[data-view=atlas] .leaflet-control-attribution{font-size:var(--fs-xs);line-height:1.5;padding:0 6px;border-radius:var(--r-s)}
+  html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right .leaflet-control{margin:var(--s-2) var(--s-3) 0 0}   /* locate, map style, key: bottom right above the cards */
+  html.atlas-m[data-view=atlas] .leaflet-control-attribution{font-size:var(--fs-xs);line-height:1.5;padding:0 var(--s-2);border-radius:var(--r-s)}
   html.atlas-m[data-view=atlas] .topbar .crumbs :is(a~.sep,a~.here){display:inline}   /* QA-40: the city named in the header */
   html.atlas-m[data-view=atlas] .topbar .crumbs{display:flex;align-items:center;min-width:0;flex:1 1 auto;margin-left:-12px}
   html.atlas-m[data-view=atlas] .topbar .crumbs .sep{display:none!important}
@@ -1077,7 +1077,7 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
 }
 @media (min-width:600px) and (max-width:1023px){html.atlas-m.ms-list[data-view=atlas] .listpane .pls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @keyframes ms-reveal{to{visibility:visible}}
-@media (min-width:1024px) and (max-width:1439px){html.atlas-d[data-view=atlas] .topbar .wrap>.views button .ico{display:none}html.atlas-d[data-view=atlas] .topbar .wrap>.views[data-cleo-views] button{padding:0 10px}html.atlas-d[data-view=atlas] .topbar .locales [aria-pressed=true]{display:none}html.atlas-d[data-view=atlas] .topbar .topnav a[href$="#destinations"]{display:none}}   /* room for the header's own actions; the wordmark goes home to the destinations */   /* room for the header's own actions */
+@media (min-width:1024px) and (max-width:1439px){html.atlas-d[data-view=atlas] .topbar .wrap>.views button .ico{display:none}html.atlas-d[data-view=atlas] .topbar .wrap>.views[data-cleo-views] button{padding:0 var(--s-3)}html.atlas-d[data-view=atlas] .topbar .locales [aria-pressed=true]{display:none}html.atlas-d[data-view=atlas] .topbar .topnav a[href$="#destinations"]{display:none}}   /* room for the header's own actions; the wordmark goes home to the destinations */   /* room for the header's own actions */
 /* desktop below 1280 (rev 5 §2.1): the top links move out of the header (they are in the footer, at the end of the list)
    and the breadcrumb shortens to whole "‹ City" — never clipped mid-word or overprinted */
 @media (min-width:1024px) and (max-width:1279px){
@@ -1092,7 +1092,7 @@ html[data-view=atlas] #cleo-grid li.pl :is(.sticker,.ms-bd span,.pl-e a.tier,.pl
 /* rev 5 §2.3 (R3 #2): no rank badges on Atlas cards in any sort — the order is the ranking; ranks stay in the Guidebook */
 html[data-view=atlas] #cleo-grid li.pl .pl-num{display:none}
 .ms-key{margin:0;padding:0;border:0}html[data-view=atlas] .ms-bar .modes .n{display:none}   /* kind chips carry no counts (§2.1, §2.2); the count line does */
-.ms-key ul{padding:4px 0 0}html:not([data-view=atlas]) .ms-key{display:none}   /* the phone Key lives in Filters, in Atlas only */
+.ms-key ul{padding:var(--s-1) 0 0}html:not([data-view=atlas]) .ms-key{display:none}   /* the phone Key lives in Filters, in Atlas only */
 @media (prefers-reduced-motion:reduce){.pp>span{transition:none}}
 
 /* atlas-nav.css (Atlas FE-2 lane): the Atlas map's interaction state — rides after atlas.css in assets/fe-a.css.
