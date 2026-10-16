@@ -1892,3 +1892,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - On phones Atlas now shows FE-A's city-bar switcher row, as every other view does: four segments visible, one tap per switch. It's a fixed 52 px row under the header (`--cbar-o`), and the chip row and the map sit under it. The switcher is no longer parked last in the scrolling chip row, where it went off-screen at 390.
   - The chip row reads: search, All / Sights / Eat & drink, Top picks, Area, Filters. The search pill is sticky at the row's left edge, so it stays visible whichever chip is selected. Saved (the header's heart) and sort (in Filters) leave the row.
   - Clear map on the first phone screen drops by the 52 px row. The switcher had to be visible (§v2.11); flagged to the designer against the §2.2 75 % budget.
+
+- 2026-10-16 18:00Z · **Orchestrator** · new deploy candidate · commit: this entry's commit
+  - **Pin `4aba38b3e15c83d40aafbed5f569aa30da5a074b`:** PERF-08 is off (afb09e74b). QC-26 and QA-76 are also fixed forward by FE-2, and the w8p fixes are in. On the pin: validate, npm test (alone) and beta:check pass; w8p passes (Tokyo 620 KB); views.js links 140/0. QA is re-signing.
+  - **Build hygiene:** build-erie.py had been failing its Cleveland-leak guard since the Saigon Nights pin (15:18), with the page still written because the assert ran after the write. Fixed in 013029fe: the sourced prose is exempted and the checks run before the write. All build-*.py exit 0; platform is to fix the write order in the other 19.
+  - **Lanes:**
+    - FE-B: W9-2 acc2/acc5 and W9-6 acc1/acc4;
+    - FE-C: the W9-2 Status checked line;
+    - location: 8 closure sources, 3 flagged UNVERIFIED-status;
+    - imagery: leads 25/25 and first row 51/51.
