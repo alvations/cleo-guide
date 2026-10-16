@@ -182,7 +182,8 @@
    }
   },
   "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
-  "hardFailure": false
+  "hardFailure": false,
+  "reassisted": "2026-10-16"
  },
  "summary": {
   "pin": 27,
@@ -607,7 +608,7 @@
    "assist": {
     "verdict": "review",
     "why": [
-     "med + second source: US Census point 17 m away (“1617 E PASSYUNK AVE, PHILADELPHIA, PA, 19148”; interpolated, read it)"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -5785,9 +5786,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "review",
     "why": [
-     "OSM POI, name 1, house number + street match"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -6110,7 +6111,7 @@
    "assist": {
     "verdict": "review",
     "why": [
-     "med + second source: US Census point 18 m away (“16 ARDMORE AVE, ARDMORE, PA, 19003”; interpolated, read it)"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -6384,9 +6385,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "review",
     "why": [
-     "OSM POI, name 1, house number + street match"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   }
