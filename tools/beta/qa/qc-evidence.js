@@ -40,6 +40,8 @@ const SHOTS = [
   ['qc-18-ja-switcher', 'cities/tokyo.html?lang=ja', 1440, '#view=insights', async () => '[data-cleo-views]'],
   ['qc-19-rating-no-note', 'cleveland.html', 1440, '#view=guidebook', async p => { await p.evaluate(() => { if (window.Cleo && Cleo.defer) Cleo.defer.all(); const e = document.querySelector('.ge[data-id="barroco-arepa-bar"]'); if (e) { e.setAttribute('data-qc-shot', ''); e.scrollIntoView({ block: 'center', behavior: 'instant' }); } }); await p.waitForTimeout(500); return '[data-qc-shot]'; }],
   ['qc-20-hours-in-text', 'cities/newyork.html', 1440, '#view=guidebook', async p => { await p.evaluate(() => { if (window.Cleo && Cleo.defer) Cleo.defer.all(); const e = document.querySelector('.ge[data-id="central-park"]'); if (e) { e.setAttribute('data-qc-shot', ''); e.scrollIntoView({ block: 'center', behavior: 'instant' }); } }); await p.waitForTimeout(500); return '[data-qc-shot]'; }],
+  ['qc-23-closed-no-rec', 'Singapore/toa-payoh.html', 1440, '#view=gallery&all=1', async p => { await p.evaluate(() => { if (window.Cleo && Cleo.defer) Cleo.defer.all(); const e = document.getElementById('p-kim-keat-hokkien-mee'); if (e) { e.setAttribute('data-qc-shot', ''); e.scrollIntoView({ block: 'center', behavior: 'instant' }); } }); await p.waitForTimeout(600); return '[data-qc-shot]'; }],
+  ['qc-24-rec-chip', 'cities/tokyo.html', 1440, '#rec=any', async p => { await p.waitForTimeout(800); return '[data-unset], main .chips, main [class*=applied]'; }],
 ];
 async function cardOf(p, rx) {
   await p.evaluate(src => { const r = new RegExp(src, 'i'); const c = [...document.querySelectorAll('.icard')].find(x => r.test(x.textContent));
