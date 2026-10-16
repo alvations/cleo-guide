@@ -346,7 +346,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 
 /* FE-B W8 (R7 gap 6): counts line up in the Guidebook too — facts box, contents, section counts, ranks; dates stay
    proportional (Inter's tabular hyphen spaces "2026-10-03" apart) */
-:is(.view-guidebook, [data-cleo-book]) :is(.facts-box dd, .toc .meta, .toc .n, .gs .meta, .rk){font-variant-numeric:var(--num)}
+:is(.view-guidebook, [data-cleo-book]) :is(.facts-box dd, .toc .meta, .toc .n, .gs .meta, .rk, .gcover .gfacts){font-variant-numeric:var(--num)}   /* FE-B R7-g6: + the cover facts line */
 :is(.view-guidebook, [data-cleo-book]) .facts-box dd time{font-variant-numeric:normal}
 
 /* ---------- V7. INSIGHTS (.view-insights) ---------- */
@@ -374,6 +374,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-insights, [data-cleo-insights]) .chart .vl{font:600 var(--fs-xs) var(--font-ui);fill:var(--ink)}
 /* the font shorthands above reset font-variant: chart values and axis ticks line up again (R7 gap 6) */
 :is(.view-insights, [data-cleo-insights]) .chart :is(.ax, .vl){font-variant-numeric:var(--num)}
+:is(.view-insights, [data-cleo-insights]) :is(.tbl td, .ixall .meta, .ix h3 .meta, .count){font-variant-numeric:var(--num)}   /* FE-B R7-g6: table cells and counts line up too */
 :is(.view-insights, [data-cleo-insights]) .chart a:hover rect{stroke:var(--ink);stroke-width:1.5}
 :is(.view-insights, [data-cleo-insights]) .chart a:focus-visible rect{stroke:var(--focus);stroke-width:3px;paint-order:fill}
 :is(.view-insights, [data-cleo-insights]) .legend{display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-4);list-style:none;margin:var(--s-2) 0 0;padding:0;font-size:var(--fs-meta);color:var(--ink-2)}
