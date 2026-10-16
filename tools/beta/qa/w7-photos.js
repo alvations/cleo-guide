@@ -2,7 +2,8 @@
 /**
  * Beta QA — Wave 7 photo + credit honesty audit (static; QA lane). Independent of test-imagery.js.
  * For every row in beta/assets/img/CREDITS.json and every <img> of a photo in the built beta pages:
- *   · licence is free (CC0 / PD / CC BY / CC BY-SA, any version), never NC/ND; licenceUrl is the matching CC deed
+ *   · licence is free (CC0 / PD / CC BY / CC BY-SA, any version; or "Copyrighted free use", approved W8, linked to its
+ *     Commons template), never NC/ND; licenceUrl is the matching CC deed
  *   · sourceUrl is the commons.wikimedia.org File: page of commonsTitle; author is a clean name (no markup, no
  *     newline, no "User:", ≤ 60 chars, no licence text, no date)
  *   · the record is on its page, open, a sight (never food), not a venue (bar/shop/market/mall/hawker/theatre/arena/
@@ -24,7 +25,7 @@ const PH = path.join(BETA, 'assets/img/photos');
 const places = {}; for (const f of fs.readdirSync(path.join(BETA, 'data/places'))) { const d = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', f), 'utf8')); places[d.key] = d; places[f.replace(/\.json$/, '')] = d; }
 const R = { checks: [], rows: [] }; let fails = 0;
 const check = (name, ok, ev) => { R.checks.push({ name, ok: ok === null ? null : !!ok, ev }); if (ok === false) fails++; console.log(`  ${ok === null ? 'INFO' : ok ? 'PASS' : 'FAIL'}  ${name}` + (ev !== undefined ? ' = ' + JSON.stringify(ev).slice(0, 400) : '')); };
-const FREE = /^(CC0 1\.0|Public domain|CC BY(-SA)? \d\.\d( [A-Z]{2})?)$/;   // a ported licence keeps its jurisdiction (e.g. "CC BY 3.0 US")
+const FREE = /^(CC0 1\.0|Public domain|CC BY(-SA)? \d\.\d( [A-Z]{2})?|Copyrighted free use)$/;   // "Copyrighted free use": approved W8 (IMAGERY.md), any use, no conditions   // a ported licence keeps its jurisdiction (e.g. "CC BY 3.0 US")
 const VENUE = /\b(BAR|SHOP|SHOPPING|MARKET|MALL|HAWKER|THEATRE|THEATER|ARENA|ENTERTAINMENT|NIGHTLIFE|STADIUM|MUSIC|VENUE|CLUB)\b/;
 const bad = { lic: [], src: [], author: [], food: [], venue: [], closed: [], vn: [], missing: [] };
 const seenT = {}, seenS = {}, dupes = [];
@@ -32,6 +33,7 @@ for (const c of CR) {
   const id = c.file;
   if (!FREE.test(c.licence || '') || /NC|ND/.test(c.licence)) bad.lic.push(id + ' ' + c.licence);
   else if (/^CC BY/.test(c.licence)) { const [, kind, ver, jur] = /^CC (BY(?:-SA)?) (\d\.\d)(?: ([A-Z]{2}))?/.exec(c.licence), deed = `https://creativecommons.org/licenses/${kind.toLowerCase()}/${ver}` + (jur ? '/' + jur.toLowerCase() : ''); if (!new RegExp('^' + deed.replace(/[.]/g, '\\.') + '(/|/deed\\.[a-z]+)?$').test(c.licenceUrl)) bad.lic.push(id + ' url ' + c.licenceUrl); }
+  else if (c.licence === 'Copyrighted free use') { if (c.licenceUrl !== 'https://commons.wikimedia.org/wiki/Template:Copyrighted_free_use') bad.lic.push(id + ' url ' + c.licenceUrl); }
   else if (!/^https:\/\/creativecommons\.org\/(publicdomain|licenses)\//.test(c.licenceUrl || '') && !/wikipedia|wikimedia/.test(c.licenceUrl || '')) bad.lic.push(id + ' url ' + c.licenceUrl);
   const want = 'https://commons.wikimedia.org/wiki/' + (c.commonsTitle || '').replace(/ /g, '_');
   if (!c.commonsTitle || decodeURIComponent(c.sourceUrl) !== decodeURIComponent(want)) bad.src.push(id + ' ' + c.sourceUrl);

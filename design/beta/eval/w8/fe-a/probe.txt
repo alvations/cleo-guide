@@ -212,7 +212,7 @@
   PASS  a photo's placeholder is its dominant colour, fading ≤ 300 ms = {"ph":"#c8d8c8","bg":"rgb(200, 216, 200)","dur":280,"inn":true,"op":"0","fade":true}
   PASS  once the image has loaded the placeholder is gone = [true,"0"]
   PASS  no-preference: the switcher's selection moves onto the new view = [{"left":875,"on":875,"w":105,"bw":105,"dur":240},{"left":1074,"on":1074,"w":131,"bw":131,"dur":240}]
-  PASS  the selection slides and the content cross-fades, each ≤ 300 ms = [240,[220,240]]
+  PASS  the selection slides and the content cross-fades, each ≤ 300 ms = [240,[240]]
   PASS  reduced motion: the placeholder clears with no transition = 0
   PASS  reduce: the switcher's selection moves onto the new view = [{"left":875,"on":875,"w":105,"bw":105,"dur":0},{"left":1074,"on":1074,"w":131,"bw":131,"dur":0}]
   PASS  reduced motion: no slide, no cross-fade = [0,0]
@@ -234,10 +234,10 @@
   PASS  @390 Singapore/chinatown.html: the pill is visible at load and after scrolling down = ["visible","visible"]
   PASS  @390 cities/wheeling.html: the pill is visible at load and after scrolling down = ["visible","visible"]
 # QA-67: the desktop detail media fits its photo — no sand band beside it
-  PASS  kanda-myojin: a wide copy sets the slot — media 960 px = slot 960 px, file 960 w, no band = {"cls":"hero-plate has-photo ph-fit","hw":960,"iw":960,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"none"}
-  PASS  imperial-palace-east-gardens: a wide copy sets the slot — media 960 px = slot 960 px, file 960 w, no band = {"cls":"hero-plate has-photo ph-fit","hw":960,"iw":960,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"none"}
-  PASS  ueno-park: a narrow copy sits at its own width (720 ≤ 720) in side bands of its own tone, not sand = {"cls":"hero-plate has-photo ph-frame","hw":1024,"iw":720,"fw":720,"bg":"rgba(0, 0, 0, 0)","band":"color(srgb 0.533922 0.525294 0.512353) -720px 0px 0px 0px, c"}
-  PASS  koishikawa-korakuen: a narrow copy sits at its own width (691 ≤ 960) in side bands of its own tone, not sand = {"cls":"hero-plate has-photo ph-frame","hw":1024,"iw":691,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"color(srgb 0.533922 0.525294 0.512353) -691px 0px 0px 0px, c"}
+  PASS  kanda-myojin: the plate fits the image — media 960 px = plate 960 px, file 960 w, no band = {"cls":"hero-plate has-photo ph-fit","hw":960,"iw":960,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"none"}
+  PASS  imperial-palace-east-gardens: the plate fits the image — media 960 px = plate 960 px, file 960 w, no band = {"cls":"hero-plate has-photo ph-fit","hw":960,"iw":960,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"none"}
+  PASS  ueno-park: the plate fits the image — media 720 px = plate 720 px, file 720 w, no band = {"cls":"hero-plate has-photo ph-frame","hw":720,"iw":720,"fw":720,"bg":"rgba(0, 0, 0, 0)","band":"none"}
+  PASS  koishikawa-korakuen: the plate fits the image — media 691 px = plate 691 px, file 960 w, no band = {"cls":"hero-plate has-photo ph-frame","hw":691,"iw":691,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"none"}
 # B-20 (FE-B sweep): the card "Must see" link is a ≥ 44 × 44 tap target on phones
   PASS  @390 cities/akron.html#all=1: 39 tier links, none under 44 × 44 = []
   PASS  @390 cities/ghent.html#all=1: 27 tier links, none under 44 × 44 = []

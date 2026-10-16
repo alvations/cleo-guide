@@ -26,7 +26,7 @@ The orchestrator does the review, `--accept`, rebuild and gates (§ Owner decisi
 | miami-fl | **committed** 4f73fb2a (re-scored 855a21bc → pass 2): registry duplicate Fillmore open + CLOSED | **2** (orchestrator) |
 | erie-pa | **committed** 0929302d (re-scored): pin 39 · confirm 17 · move 1 · ambiguous 2 · shared 6 (registry dups Tandoori Hut ×2, Enrique's open+CLOSED) · no-match 14 — assist pass 27 · review 9 · hold 5 · no-change 12 · reject 26 | — (sent) |
 | philadelphia-pa | **committed** e590eeb2 (re-scored 094f5550): pin 27 · confirm 15 · move 1 · ambiguous 2 · shared 2 (dup Manakeesh open+CLOSED) · no-match 31 — assist pass 25 · review 10 · hold 5 · no-change 3 · reject 35 | — (sent) |
-| singapore | commit run in flight (712 rows; ≤ 300 Nominatim → expect a budget stop, then resume runs) | — |
+| singapore | committed 3a513510 but **invalid**: 682/712 no-match (single anchor for an SE-Asia key + Nominatim cap reported as no-match). Fixed 3490e42a. **Re-run needed** (≈3 runs). | — |
 
 Tool SHAs:
 
@@ -43,27 +43,31 @@ Tool SHAs:
 | c2306ba1 | name-only Nominatim fallback |
 | (git log: "circuit breaker") | per-host circuit breaker; 502 handled as a back-off |
 
-Tests: `node tools/location-verify.test.js`, 58 tests. Also: adfb052d `--names` re-check mode · f29ae0f1 `--duplicates` → docs/geoverify/DUPLICATES.md (42 pairs). Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
+Tests: `node tools/location-verify.test.js`, 61 tests. Also: adfb052d `--names` re-check mode · f29ae0f1 `--duplicates` → docs/geoverify/DUPLICATES.md (42 pairs). Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
 
 ## Next
 
-1. `recheck.sh` (scratchpad) is running. It waits for "Location-verify report: singapore", pushes REQUEST
-   `city=san-francisco-ca`, `names=Koi Palace|Hotel Utah Saloon|Wild Side West`, `sources=nominatim,official,overpass,census`,
-   `commit=true`. When docs/geoverify/recheck/san-francisco-ca-* lands, it pushes the same for `orlando-fl`,
-   `names=ABC Commissary`.
-2. Combine both recheck .md files into **docs/geoverify/recheck-wikidata-2026-10-16.md** (verdict per row:
-   corroborated / moved / none found, with source URLs) and send it to the orchestrator.
-3. Singapore: if its report shows `skipped` rows (budget), push REQUEST singapore again (commit=true) until none remain.
-4. Then saarland, okinawa, rhineland, aachen (REQUEST each, commit=true).
+1. Singapore re-run 1 is in flight (58b8579d; per-region anchors, budget rows skipped).
+   - When "Location-verify report: singapore" lands after 58b8579d, summarise it.
+   - If any rows are `skipped`, push the same REQUEST again with `scratchpad/q.sh req …`.
+   - Repeat until 0 skipped, then send the orchestrator the final SHA. It accepts Singapore in one batch, holding
+     Founder Bak Kut Teh until then.
+2. Then saarland, okinawa, rhineland, aachen, one REQUEST each, commit=true.
+3. Waiting on the orchestrator: a decision on the ORPHANS.md (d) list (12 entries: archive with a reason, or keep).
 
 ## In flight
 
-- singapore `commit=true` run; recheck.sh queued behind it. Nothing unpushed.
+- Singapore re-run 1 (commit=true). Nothing unpushed.
 
 ## Notes
 
 - **Never re-run a reviewed city without need**: re-runs now CARRY review.* (18d11e6d), but don't review a city while its run is in flight.
 - **Re-score without network:** `node tools/location-verify.js --reassist docs/geoverify/<city>.json` (assist column only; reviews untouched). Never on a city whose run is in flight.
+- **Never run queue scripts in the main checkout**: a background script once committed REQUEST inside a manual merge. Use `scratchpad/q.sh` (own worktree, detached at origin, only REQUEST).
+- **Beta merge conflicts**: take theirs for beta/*, rebuild (`npm run beta`), then gates. Never hand-merge generated files.
+- **Scope (385f6189):** default is page ∪ dataset. The ~2,000 "orphans" are almost all (b), dataset rows held for a
+  pin. `--orphans` → ORPHANS.md; `--duplicates` → DUPLICATES.md. Both keep a Decisions log.
+- **Re-check (4573ae25):** 3 corroborated, Hotel Utah moved 71 m. The orchestrator applied it in f9e717dc.
 - **Queue step:** fetch until `git log origin/<branch>` shows "Location-verify report: <prev>", pull, write REQUEST
   (`city=<next>` with scope `unverified,low,status`, limit 0, nominatim_max 300, `commit=true`), commit, push, verify
   with ls-remote.
