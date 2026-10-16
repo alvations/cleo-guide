@@ -260,6 +260,32 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     dT.querySelectorAll('[aria-label], [title], [placeholder], [alt]').forEach(el => ['aria-label', 'title', 'placeholder', 'alt'].forEach(a => { const v = el.getAttribute(a); if (v && /[A-Za-z]{2,}/.test(v) && !/⟦/.test(v) && !el.closest(DATA) && !isData(v)) leftT.push('@' + a + ' ' + v.slice(0, 60)); }));
     chk('Tokyo city page, runtime pseudo swap: 0 English interface strings (data exempt)', [...new Set(leftT)].slice(0, 12), []);
   }
+  // FE-C (W9-4): trip.html draws its whole trip in the browser through Cleo.t. With the PSEUDO catalogue loaded (as
+  // locale.js leaves it in window.CleoL10n), a built trip (days, legs, a closed place left out, an unknown id) has 0
+  // English interface strings. Data passes: place, area, guide and source names, ids and dates.
+  {
+    const rel = 'trip.html', B = path.join(BETA);
+    let html = fs.readFileSync(path.join(B, rel), 'utf8').replace(/<script src="(assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
+      (m, src) => '<script>' + fs.readFileSync(path.join(B, src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+    html = html.replace('</head>', () => '<script>window.Cleo.root = "https://example.test/beta/";</script></head>');
+    const hash = '#trip=tokyo:senso-ji,asakusa-shrine,kappabashi-dogu-gai~tokyo:shibuya-scramble-crossing,hachiko-statue~!tokyo:unicorn-gundam-statue-divercity-tokyo-plaza,no-such-place&n=T';
+    const dom = new JSDOM(html, { url: 'https://example.test/beta/' + rel + hash, runScripts: 'dangerously', pretendToBeVisual: true, beforeParse(w) {
+      w.CleoL10n = PSEUDO.strings; w.Element.prototype.scrollIntoView = () => {};
+      w.fetch = u => { const f = path.join(B, new URL(u, w.location.href).pathname.replace(/^\/beta\//, ''));
+        return fs.existsSync(f) ? Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(f, 'utf8'))) }) : Promise.resolve({ ok: false, status: 404 }); };
+    } });
+    await new Promise(r => setTimeout(r, 300));
+    const dT = dom.window.document, box = dT.getElementById('cleo-trip');
+    const tj = JSON.parse(fs.readFileSync(path.join(B, 'data/places/tokyo.json'), 'utf8')), names = new Set(['tokyo', 't']);
+    tj.places.forEach(p => { names.add(p.n.toLowerCase()); names.add(p.n.replace(/\s*\([^)]*\)$/, '').toLowerCase()); });
+    tj.areas.forEach(a => names.add(String(a.n).split(/\s+[(—–]\s*|\s+\(/)[0].toLowerCase())); (tj.sourceIndex || []).forEach(x => names.add(String(x.name).split(' · ')[0].toLowerCase()));
+    const leftTrip = [];
+    box.querySelectorAll('svg text').forEach(n => n.remove());
+    const tw = dT.createTreeWalker(box, 4);
+    for (let n; (n = tw.nextNode());) { const t = n.nodeValue.trim(); if (!/[A-Za-z]{2,}/.test(t) || /⟦/.test(t) || names.has(t.toLowerCase())) continue; leftTrip.push(t.slice(0, 60)); }
+    box.querySelectorAll('[aria-label]').forEach(el => { const v = el.getAttribute('aria-label'); if (/[A-Za-z]{2,}/.test(v) && !/⟦/.test(v)) leftTrip.push('@' + v.slice(0, 50)); });
+    chk('trip.html, runtime pseudo catalogue: the trip has 0 English interface strings (data exempt)', [box.querySelectorAll('.tday').length > 0, !!box.querySelector('.tp-left'), [...new Set(leftTrip)].slice(0, 12)], [true, true, []]);
+  }
   // storage that throws (sandboxes): the runtime still runs and stays in English
   const dT = new JSDOM(fs.readFileSync(path.join(BETA, 'index.html'), 'utf8'), { url: 'https://example.test/beta/index.html', runScripts: 'outside-only' }).window;
   Object.defineProperty(dT, 'localStorage', { get() { throw new Error('denied'); } });
