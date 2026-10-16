@@ -26,8 +26,8 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
   unchanged); the full note stays in data/geocodes.json. test-hubs scans all 466 shipped JSON files for the markers.
 - QC-31: no FE-B lines in fe-a.css (FE-A by blame) or constellation.css (designer). Sent the mapping to the orchestrator
   (for the designer) and FE-A: drop var(--surface/--paper,#fff) fallbacks (7), mask #000 → var(--ink) (4), new tokens
-  --shade-text, --on-night-hover, --on-night-line, --on-photo, --scrim-photo, --r-xxs. Waiting on their answer; apply
-  as marked edits only if asked. client/search.js is catalogued (i18n a46f6ec7): any new or changed string goes through
+  --shade-text, --on-night-hover, --on-night-line, --on-photo, --scrim-photo, --r-xxs. FE-A landed the fe-a.css half
+  (ca5a8a88, --mask); the rest is Atlas (atlas.css) + designer (constellation.css). Nothing left for FE-B. client/search.js is catalogued (i18n a46f6ec7): any new or changed string goes through
   tt('srch.x', 'English') with the English exactly as in en.json; send the key to i18n for ja.
 - QC-25 leftovers (from FE-A): closure statusSource notes no longer ship anywhere — What changed pages, Atom feeds and
   data/places/*.json carry only the note's first URL (pv.ss / changes src; "Status source" link). The note stays
