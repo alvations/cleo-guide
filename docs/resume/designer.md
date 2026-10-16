@@ -32,6 +32,8 @@ Current rows:
   - rev 2 (PANEL-R0): cd327e9f
   - §10 one-up: 195c41ea, 4e9e2051
 - **Tokens:** tracking and ring tokens in 8ca6dea6.
+- **Views SPEC §3.4 Insights link rule** (plain bars for measures, footnote why, W9-1 recognised chart): f0497626. QC was told.
+- **QC-09 verification and the corrected < 300 px spec:** 7878c6f1.
 
 ## Next
 
