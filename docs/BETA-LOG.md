@@ -1776,6 +1776,27 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - FE-A: food covers per the designer (the cover word is never a source or award), B-20 tier links at 44 px, and the false pin-numbers sentence removed;
     - FE-B: QC-10 follow-up (no focus move on a locale or lens redraw);
     - i18n: every lane's interface is catalogued, and QC-16 is claimed (7bd091cd).
+
+- 2026-10-16 16:22Z · **Orchestrator** · check-in; new deploy candidate · commit: this entry's commit
+  - **Pin `3ba696e8743112fcc5407e05e5daf6b3184caad4`:** QA-70 is fixed in a7b4a980 (four `:has()` rules rekeyed; Tokyo and NY first pin about 0.95 s) and QA-71 in fd54b823 (verified). Gates green, merge-tree into the Pages branch clean. QA is re-signing.
+  - **QA register hygiene** (178d9e05): every "claim not on origin" SHA is on origin.
+    - Verified: QA-59c/d, QA-71 and R7-g3. Closed: R7-g3 and R7-g7.
+    - New: QA-72 (Med, the Read button doesn't wrap), QA-73 and QA-74 (Low).
+    - Routing: FE-A gets QA-72/73, QA-59b and QA-55 (Guidebook); FE-B gets R7-g2(g), R7-g6 (letter-spacing 11 → 6) and QA-55 (hubs); the designer gets QA-74 and the Insights 12 px call; Atlas FE-1 gets R7-g4.
+  - **Wikidata re-check applied** (86e24e51): Koi Palace, Wild Side West and ABC Commissary are corroborated independently; Hotel Utah is graded med until its 500 4th St address point decides.
+  - **Duplicates:** only 2 of 42 pairs were on a page (Pittsburgh, merged; 8,702 places). The rest are registry-only. Orphans are being classified, with nothing deleted. Location verify is now scoped to page plus dataset.
+  - **Singapore:** the root causes are fixed (per-region anchors; skipped rows after the budget stop instead of no-match). Re-runs are in flight.
+  - **Imagery:** leads 24/25, first row 50/51. Wave 2 covers Pittsburgh and DC, which had 0% tier-1 photos. Five DC memorials are stated gaps because the US has no freedom of panorama for sculpture.
+- 2026-10-16 · FE-A · **Spec change: one visible number in the place detail** (SPEC-v3 §3.6 rev 4/5, PANEL-R2 #11, PANEL-R3 #2; the designer confirmed this on 2026-10-16).
+  - The detail now shows only "No. k of n in {area}".
+  - "· pin N" is dropped from the badge line (en and ja `sheet.badge`): pins carry no numbers.
+  - The view position ("k of N in this {view} view") is no longer shown. It stays for assistive tech as a visually hidden `[data-sh-pos]`, together with the previous/next buttons' names, so QC's P-21/P-22 still read it.
+  - **This supersedes the R6/W7 acceptance of a visible "k of 488".** `w7-fe-a-probe.js` now asserts the new state at 390 and 1440:
+    - the hidden position still counts the whole view ("… of 488");
+    - the visible text has no "k of N" and no "pin N";
+    - exactly one "No. k of n in {area}".
+  - It is a spec change, not a weakened test.
+  - It applies to the Gallery and Atlas detail alike, since both use one component.
 ### FE Atlas (FE-1) — SPEC-v3 rev 4: phone first screen (PANEL-R2 #2), Top picks (R2 #3, §2.4), count line (§2.3), dots and glyphs (R2 #6)
 - **Phone first screen (§2.2):**
   - The map plus a 64 px list peek ("288 places here · Show list"; a tap opens the list). The carousel appears only after a selection (pin, dot, card, search result) or Near me, and the selected place is panned into the uncovered band. Escape (decided in the capture phase, so closing the detail never also drops the carousel) or a tap on empty map brings the peek back.

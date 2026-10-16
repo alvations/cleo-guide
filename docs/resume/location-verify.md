@@ -26,7 +26,7 @@ The orchestrator does the review, `--accept`, rebuild and gates (§ Owner decisi
 | miami-fl | **committed** 4f73fb2a (re-scored 855a21bc → pass 2): registry duplicate Fillmore open + CLOSED | **2** (orchestrator) |
 | erie-pa | **committed** 0929302d (re-scored): pin 39 · confirm 17 · move 1 · ambiguous 2 · shared 6 (registry dups Tandoori Hut ×2, Enrique's open+CLOSED) · no-match 14 — assist pass 27 · review 9 · hold 5 · no-change 12 · reject 26 | — (sent) |
 | philadelphia-pa | **committed** e590eeb2 (re-scored 094f5550): pin 27 · confirm 15 · move 1 · ambiguous 2 · shared 2 (dup Manakeesh open+CLOSED) · no-match 31 — assist pass 25 · review 10 · hold 5 · no-change 3 · reject 35 | — (sent) |
-| singapore | committed 3a513510 but **invalid**: 682/712 no-match (single anchor for an SE-Asia key + Nominatim cap reported as no-match). Fixed 3490e42a. **Re-run needed** (≈3 runs). | — |
+| singapore | re-run 1 committed ffecac1c: pin 40 · confirm 27 · move 2 · conflict 6 · ambiguous 8 · no-match 100 · **skipped 527 (budget)** — resume ≤ 300 Nominatim/DAY (≈3 days) | — (batch accept after the final run) |
 
 Tool SHAs:
 
@@ -43,21 +43,25 @@ Tool SHAs:
 | c2306ba1 | name-only Nominatim fallback |
 | (git log: "circuit breaker") | per-host circuit breaker; 502 handled as a back-off |
 
-Tests: `node tools/location-verify.test.js`, 61 tests. Also: adfb052d `--names` re-check mode · f29ae0f1 `--duplicates` → docs/geoverify/DUPLICATES.md (42 pairs). Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
+Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` re-check mode · f29ae0f1 `--duplicates` → docs/geoverify/DUPLICATES.md (42 pairs). Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
 
 ## Next
 
-1. Singapore re-run 1 is in flight (58b8579d; per-region anchors, budget rows skipped).
-   - When "Location-verify report: singapore" lands after 58b8579d, summarise it.
-   - If any rows are `skipped`, push the same REQUEST again with `scratchpad/q.sh req …`.
-   - Repeat until 0 skipped, then send the orchestrator the final SHA. It accepts Singapore in one batch, holding
-     Founder Bak Kut Teh until then.
-2. Then saarland, okinawa, rhineland, aachen, one REQUEST each, commit=true.
-3. Waiting on the orchestrator: a decision on the ORPHANS.md (d) list (12 entries: archive with a reason, or keep).
+1. **Nominatim pace is per UTC day (≤ 300 across ALL runs).**
+   - It was breached on 2026-10-16 (~1,570), and the ledger was added in c59aca30. Check
+     docs/geoverify/NOMINATIM-LEDGER.json before any REQUEST.
+   - The orchestrator still has to make the workflow commit the ledger file.
+2. **Singapore:** push REQUEST `city=singapore … commit=true` once per day, until 0 skipped. Then send the final SHA for
+   the batch accept.
+3. **Then** saarland, okinawa, rhineland, aachen, at the same daily pace.
+4. **Done today:**
+   - re-check (4573ae25) and the Hotel Utah settle: OSM wins, Census 13 m vs 58 m;
+   - duplicates and orphans (DUPLICATES.md, ORPHANS.md; (d) decided, b8926d86);
+   - page ∪ dataset scope (385f6189).
 
 ## In flight
 
-- Singapore re-run 1 (commit=true). Nothing unpushed.
+- Nothing. Nominatim allowance for 2026-10-16 is spent.
 
 ## Notes
 

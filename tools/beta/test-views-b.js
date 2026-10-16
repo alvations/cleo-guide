@@ -398,6 +398,20 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     const raw = files.filter(f => /fill:#[0-9a-f]{3,8}/i.test(I.render(load(f)).html));
     chk('R7-g6: Insights marks take token colours (series tokens, area hues muted toward --area-mute), never a raw hex fill', raw.length === 0, raw);
   }
+  // ---- R7-g2 (h): the phone "Start with" card (Gallery lead, data/gallery/<page>.json `lead`) and the desktop "Start with …"
+  // link in the masthead (.g-start a) name the same place, on every city page. (g) — no single-word last lines in the dek,
+  // stat and lead lines, hub Known-for and landing sub-line at 390 / 1440 — is a layout check: tools/beta/feb-g2.js.
+  {
+    const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(dir, e.name))) : e.name.endsWith('.html') ? [path.join(dir, e.name)] : []);
+    const badL = []; let nL = 0;
+    for (const f of walk(BETA)) {
+      const h = fs.readFileSync(f, 'utf8'); if (!/data-cleo-page="city"/.test(h)) continue;
+      const file = (/"file":"([^"]+)"/.exec(h) || [])[1], g = path.join(BETA, 'data/gallery', file + '.json');
+      const desk = (/<p class="g-start"><a href="#p-([^"]+)"/.exec(h) || [])[1], phone = fs.existsSync(g) && (JSON.parse(fs.readFileSync(g, 'utf8')).lead || {}).id;
+      if (desk || phone) { nL++; if (desk !== phone) badL.push(`${path.relative(BETA, f)}: desktop ${desk} vs phone ${phone}`); }
+    }
+    chk(`R7-g2 (h): the phone "Start with" card and the desktop "Start with …" link name the same place (${nL} city pages)`, nL >= 84 && !badL.length, badL.slice(0, 4));
+  }
   console.log(failures ? `\n>>> FAIL — ${failures} FE-B view check(s) failed` : '\n>>> PASS — FE-B views: Guidebook + Insights hold every place, numbers add up, hub links resolve');
   process.exitCode = failures ? 1 : 0;
 })();

@@ -29,15 +29,13 @@ plural (i18n).
    (tools/checkpoint.sh: full gate → commit explicit paths → merge origin, regenerating beta/ on generated-only
    conflicts, stopping on a source conflict → fast gate → push → ls-remote check).
 
-1. When FE-2's QA-70 fix lands: `tools/beta/qa/first-pin.sh <sha> cities/tokyo.html` and `… cities/newyork.html` for
-   be74c82f and the fix SHA; send the numbers to the orchestrator.
-2. Wire tools/beta/test-css-has.js into `test:serial` (append ` && node beta/test-css-has.js`) in the push right after
-   FE-2's fix (fe-a.css `main[data-views-on]` / `main[data-overlay-on]`); it must pass on the merged head.
+1. QA-70: FE-2's fix a7b4a980; first-pin on 3ba696e8 = be74c82f level (Tokyo 1,653 vs 1,564; NY 1,807 vs 1,760 ms). With QA.
+2. `:has()` lint wired into npm test (test:serial); no allowlist.
 3. PERF-08 is with QA (SHA dd8331cd sent); fix forward on their findings. PERF-14 re-checked (w8p 608/651 KB).
 
 ## In flight
 
-- Nothing unpushed. Waiting on FE-2's QA-70 fix (check-in armed).
+- Nothing unpushed. Hold product-code pushes until QA rules on the QA-70 pin (orchestrator).
 - views.js honesty: 1 FAIL left (Cleveland Guidebook, Birdietown) → FE-B.
 
 ## Notes

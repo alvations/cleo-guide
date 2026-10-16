@@ -375,6 +375,14 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.ok(!a.includes('75 Ah Balling Peanut Soup (Punggol Coast)'), 'two branches are not aliases');
     for (const k of ['a', 'b', 'c', 'd']) assert.ok(Array.isArray(cls.singapore[k]));
   });
+  await t('daily Nominatim ledger: remaining allowance and recording', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lv-led-')); const f = path.join(dir, 'L.json');
+    fs.writeFileSync(f, JSON.stringify({ dailyMax: 300, days: { '2026-10-16': { used: 250, runs: [] } } }));
+    assert.strictEqual(LV.ledgerRemaining(f, '2026-10-16').remaining, 50);
+    assert.strictEqual(LV.ledgerRemaining(f, '2026-10-17').remaining, 300);
+    LV.ledgerRecord(f, '2026-10-16', 'x', 60); assert.strictEqual(LV.ledgerRemaining(f, '2026-10-16').remaining, 0, 'never negative');
+    LV.ledgerRecord(f, '2026-10-17', 'y', 10); assert.strictEqual(JSON.parse(fs.readFileSync(f)).days['2026-10-17'].runs[0].city, 'y');
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });

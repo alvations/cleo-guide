@@ -14,6 +14,9 @@
  *  CARD   (W9-7) every place of every guide: the share-card spec carries the source line and the checked date, a closed
  *         place reads "Closed · kept for the record" with no write-up, a photo's credit rides with it; day / list / trip name
  *         every stop's source; each share action offers "Share as an image", which loads share-card.js lazily.
+ *  REC    (W9-1) on all 84 built pages, every card's badges equal platform's rec data exactly (none inferred): award
+ *         links to its own award source, "Cited by n sources" carries n, a closed place has no data-rec and only a hidden
+ *         copy for its detail. The Recognised lens shows exactly the recognised open places; "Show all" restores every place.
  *  BASE   (W9-5) 84 guides × 5 bases: every card line = haversine from the base, rounded by Cleo.geo.walk; the assumption
  *         once per view; a closed place can't be a base; Nearest to my base sorts by it and clearing restores the order
  *         exactly; storage throwing, &base= still works; the sheet offers it only for open, pinned places; Saved shows it.
@@ -208,6 +211,56 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     chk('no js errors (share actions)', [c1, c2, c3, c4].every(x => !x.errs.length), [].concat(c1.errs, c2.errs, c3.errs, c4.errs).slice(0, 2));
   }
 
+  console.log('\n== REC (W9-1): recognition badges from platform data only ==');
+  {
+    const bad = []; let nb = 0, np = 0, nClosedRec = 0;
+    for (const f of files) {
+      const j = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', f), 'utf8')), html = fs.readFileSync(path.join(BETA, j.beta), 'utf8');
+      const award = new Set((j.sourceIndex || []).filter(x => x.award).map(x => x.id));
+      for (const p of j.places) { np++;
+        const m = new RegExp('<li class="pl[^"]*" id="p-' + p.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"[^>]*>([\\s\\S]*?)</li>').exec(html.replace(/<\/?noscript[^>]*>/g, ''));
+        if (!m) { bad.push([j.key, p.id, 'card not found']); continue; }
+        const tag = m[0].slice(0, m[0].indexOf('>')), rec = p.rec || {}, closed = !!p.closed;
+        const want = ['award', 'video', 'cited'].filter(k => k === 'cited' ? rec.cited >= 3 : (rec[k] || []).length);
+        const A = n => (new RegExp(' ' + n + '="([^"]*)"').exec(tag) || [])[1] || '';
+        if (A('data-rec') !== (closed ? '' : want.join(' ')) || A('data-rec0') !== (closed ? want.join(' ') : '')) bad.push([j.key, p.id, 'kinds', A('data-rec'), A('data-rec0'), want]);
+        if (A('data-ra') !== (rec.award || []).join(' ') || A('data-rv') !== (rec.video || []).join(' ')) bad.push([j.key, p.id, 'source ids']);
+        if ((rec.award || []).some(id => !award.has(id))) bad.push([j.key, p.id, 'award id is not an award source']);
+        if (rec.cited >= 3 && A('data-src').split(' ').filter(x => x && x !== 'guide').length !== rec.cited) bad.push([j.key, p.id, 'cited n ≠ the card\'s named sources']);
+        if (/class="pl-rec/.test(m[1])) bad.push([j.key, p.id, 'badge markup sent from the server (page weight)']);
+        if (want.length) { nb++; if (closed) nClosedRec++; }
+      }
+    }
+    chk(`${files.length} pages, ${np} places: ${nb} badge rows (${nClosedRec} closed, hidden) carry exactly platform's rec data as attributes; none without data`, bad.length === 0, bad.slice(0, 4));
+
+    const tj = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/tokyo.json'), 'utf8'));
+    { const g = boot('cities/tokyo.html', { mods: ['recognition'] }); await sleep(200); g.w.Cleo.defer.all(); await sleep(50);
+      const by = {}; tj.places.forEach(p => { by[p.id] = p; }); const probs = []; let rows = 0;
+      g.d.querySelectorAll('li.pl[id^="p-"]').forEach(c => { const p = by[c.id.slice(2)], rec = p.rec || {}, r = c.querySelector(':scope > .pl-rec');
+        const n = (rec.award || []).length + (rec.video || []).length + (rec.cited >= 3 ? 1 : 0);
+        if (!n) { if (r) probs.push(p.id + ' extra'); return; } rows++;
+        if (!r || r.querySelectorAll('a.rb').length !== n) { probs.push(p.id + ' count'); return; }
+        if (!!p.closed !== r.hidden) probs.push(p.id + ' closed must be hidden (and only closed)');
+        (rec.award || []).forEach(id => { const a = r.querySelector('a.rb-award[href="#src=' + id + '"]'); const nm = c.querySelector('.pl-s button.src[data-src="' + id + '"]');
+          if (!a || a.textContent !== 'Award · ' + (nm ? nm.textContent.trim() : id)) probs.push(p.id + ' award ' + id); });
+        if (rec.cited >= 3 && (r.querySelector('a.rb-cited') || {}).textContent !== 'Cited by ' + rec.cited + ' sources') probs.push(p.id + ' cited'); });
+      chk(`Tokyo: recognition.js draws ${rows} badge rows, each equal to the data (award named by the card's own chip; closed hidden)`, rows > 200 && probs.length === 0, probs.slice(0, 4));
+      chk('no js errors (recognition.js)', !g.errs.length, g.errs.slice(0, 2)); }
+    const wantA = tj.places.filter(p => !p.closed && (p.rec || {}).award).map(p => 'p-' + p.id).sort();
+    const r1 = boot('cities/tokyo.html', { hash: '#rec=award' }); await sleep(300); r1.w.Cleo.defer.all(); await sleep(50);
+    const vis = d => [...d.querySelectorAll('li.pl')].filter(c => !c.hidden).map(c => c.id).sort();
+    chk('#rec=award shows exactly the open places with an award', JSON.stringify(vis(r1.d)) === JSON.stringify(wantA), [vis(r1.d).length, wantA.length]);
+    chk('the lens names the filter and offers "Show all"', /Has an award \(\d+\)/.test(r1.d.getElementById('cleo-lens').textContent) && !!r1.d.querySelector('#cleo-lens [data-cleo-all]'));
+    r1.d.querySelector('#cleo-lens [data-cleo-all]').click(); await sleep(100);
+    chk('"Show all" restores every place', vis(r1.d).length === tj.places.length, vis(r1.d).length);
+    chk('the tray offers the recognition filter; the rail has the Recognised door', r1.d.querySelectorAll('#cleo-tray [data-f="rec"]').length >= 1 && !!r1.d.querySelector('.rail-i[data-rec="any"]'));
+    const aw = tj.places.find(p => !p.closed && (p.rec || {}).award);
+    const r2 = boot('cities/tokyo.html', { hash: '#p=' + aw.id, mods: ['recognition'] }); await sleep(400);
+    const fact = [...r2.d.querySelectorAll('#cleo-sheet .fact')].find(x => x.querySelector('.pl-rec'));
+    chk('the detail shows the place\'s badges, each a link', !!fact && fact.querySelectorAll('a.rb').length >= 1 && /^#src=/.test(fact.querySelector('a.rb').getAttribute('href')));
+    chk('no js errors (recognition)', !r1.errs.length && !r2.errs.length, r1.errs.concat(r2.errs).slice(0, 2));
+  }
+
   console.log('\n== BASE (W9-5): every card, every guide, 5 bases each ==');
   {
     const R = Math.PI / 180, hav = (a, b) => { const h = Math.sin((b[0] - a[0]) * R / 2) ** 2 + Math.cos(a[0] * R) * Math.cos(b[0] * R) * Math.sin((b[1] - a[1]) * R / 2) ** 2; return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h))); };
@@ -295,6 +348,6 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
   const css = require('./lib/render/trip').CSS;
   chk('booklet: each day breaks to a new page, actions hidden', /@media print\{[^]*\.tday\{break-before:page;break-inside:avoid/.test(css) && /@media print\{[^]*\.sharebar/.test(css));
 
-  console.log(failures ? `\n>>> FAIL — ${failures} check(s) failed` : '\n>>> PASS — FE-C gate: trips (W9-4), base (W9-5), share cards (W9-7)');
+  console.log(failures ? `\n>>> FAIL — ${failures} check(s) failed` : '\n>>> PASS — FE-C gate: trips (W9-4), base (W9-5), share cards (W9-7), recognition (W9-1)');
   process.exit(failures ? 1 : 0);
 })();
