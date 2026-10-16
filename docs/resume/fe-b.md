@@ -13,6 +13,10 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- QC-34: Guidebook Contents follow the lens — syncLens (client/guidebook.js) recounts each chapter's Contents entry from
+  the model's visible set on every lens change and drops chapters with 0 (as the chapters do). test-views-b: mode=food,
+  q=, a= on 3 guides (counts == visible entries, total == "s of all N", a= keeps 1 chapter; cleared → full). Note for
+  FE-A: clearing the hash keeps the city's search (city.js S.q stays unless the route carries q=).
 - QC-33 (Med): deep-linked Guidebook / Insights load CLS 0.42–0.58 at 1440 → 0 (all 24 runs < 0.006; 390 stays 0). One
   marked FE-B rule in fe-a.css: under html[data-view=guidebook|insights], #cleo-view:is([hidden],:empty) holds 100vh, so
   the method section + footer first paint below the fold. Gate: tools/beta/feb-cls.js (wraps QC's qa/qc-view-cls.js,
