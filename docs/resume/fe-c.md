@@ -30,11 +30,12 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | W9-9 local favourites: parked patch + 7 pending en strings | b20bc4a32 | — |
 | W9-1 gap: badges on Gallery rows + Guidebook entries | e1540ffd | — |
 | W9-1 Atlas preview badges | bdafa7a46 | — |
-| w8p fix: Gallery/Guidebook/preview badges read the place's own card (stamped or `Cleo.defer.peek()` stub), never `Cleo.pageData` — Tokyo phone first load 762 → 656 KB | this push | — |
+| w8p fix: Gallery/Guidebook/preview badges read the place's own card (stamped or `Cleo.defer.peek()` stub), never `Cleo.pageData` — Tokyo phone first load 762 → 656 KB | b8a3a6ae2 | — |
+| W9 audit (AUDIT.md + tools/beta/qa/w9-audit/) | this push | — |
 
 ## Next
 
-After the w8p fix: write design/beta/eval/w9/AUDIT.md (audit results in the conversation log: W9-2 partial, W9-6 fail acc1, the rest pass), copy the audit scripts under tools/beta/qa/w9-audit/, then send QA session_017FLWXa5zgGWvqNo4C3UsvH the SHA.
+W9 audit: design/beta/eval/w9/AUDIT.md (scripts in tools/beta/qa/w9-audit/) is written and was sent to QA session_017FLWXa5zgGWvqNo4C3UsvH. Next: the W9-2 "Checked <d Mon>" card line and "Follow changes" link as marked hooks (tell FE-A), and send the other lanes' gaps to the orchestrator.
 
 
 Orchestrator order (2026-10-16 14:52Z):
