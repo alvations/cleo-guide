@@ -1975,3 +1975,7 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **QC-28 fixed** (2bbae5ac) and verified by QC (1f0c09e3).
 - **D-44 added:** the closure-evidence classes. It reverses the earlier instruction to set Uncle Liu's to UNVERIFIED-status, which would have dropped its CLOSED marker. QC-25 closure sources are done: 55 of 60 rows have a URL.
 - **Forwarded:** FE-B's leak fixes (b6e0c2b0e) to QC, and FE-B's m.not.p ja to i18n. The ja has two sentences the en lacks, so i18n will check it.
+- **QC-13:** under a lens the count line keeps the total: "177 places here, of all 488" with the map, and "177 of all 488 places" without it.
+- **QC-04:** already met by FE-C's D-43 hook in views.js ("1 approximate pin" on Cleveland, both viewports).
+- **R7-g4 (d):** the phone peek reads "351 places here · checked 2 Oct · Show list". The date is the earliest open/closed check across the guide's places, so it's true of every place.
+- **R7-g4 (e):** desktop Atlas has For you, Your day and Near me as quiet buttons in the list head (city.js handles them by attribute), so they're reachable without horizontal scroll at 1024 and 1440. "For you" opens its dialog.

@@ -380,7 +380,11 @@
     split.parentNode.insertBefore(bar, split); H.classList.add('ms-built');   // the bar takes the space held for it, in the same frame
     head = d.createElement('div'); head.className = 'ms-head';
     head.innerHTML = '<p class="ms-nomap-n">Map unavailable right now — every place is listed here.</p><div class="ms-row"><p class="ms-count" aria-live="polite"></p>' +
-      '<label class="ms-live"><input type="checkbox"> <span>Search as I move the map</span></label></div><p class="ms-more"></p>';
+      '<label class="ms-live"><input type="checkbox"> <span>Search as I move the map</span></label></div><p class="ms-more"></p>' +
+      // R7-g4 (e): the rail's doors, reachable in desktop Atlas without horizontal scroll (city.js handles them by attribute)
+      '<p class="ms-doors"><button type="button" class="btn btn-quiet" data-cleo-foryou aria-haspopup="dialog">' + C.icon('spark') + '<span>For you</span></button>' +
+      '<button type="button" class="btn btn-quiet" data-cleo-day="">' + C.icon('route') + '<span>Your day</span></button>' +
+      '<button type="button" class="btn btn-quiet" data-cleo-near aria-pressed="false">' + C.icon('locate') + '<span>Near me</span></button></p>';
     if (lp) lp.insertBefore(head, lp.firstChild);
     const lv = $('.ms-live input', head); lv.checked = C.msLive = store.get('msLive', true) !== false;
     on(lv, 'change', () => { C.msLive = lv.checked; store.set('msLive', lv.checked); msArea(); });
@@ -400,17 +404,25 @@
   }
   // the results line: "86 places in this map area · Top ranked" + "12 more outside this area. Show all"; without the
   // map it is simply every place in the lens
+  // R7-g4 (d): the open/closed check date on the first phone screen — the EARLIEST check across the guide's places, so
+  // "checked 2 Oct" is true of every place (each was checked on or after it)
+  let chk0;
+  const checked = () => { if (chk0 !== undefined) return chk0; let m = '';
+    qa('li.pl[data-checked]').concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => { const v = at(c, 'data-checked'); if (v && (!m || v < m)) m = v; });
+    const x = /^(\d{4})-(\d{2})-(\d{2})/.exec(m); chk0 = x ? new Date(Date.UTC(+x[1], +x[2] - 1, +x[3])).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }) : ''; return chk0; };
   const paintMs = C.msPaint = () => {
     if (!head) return;
     const pend = lensStubs().length, N = qa('li.pl').filter(c => !c.hidden).length + pend, n = C.msN, onA = !!n && H.classList.contains('ms-on'), all = !!C.msOne || (!!C.msAll && !!C.map());
     const tot = '<span class="ms-sortby" title="Ordered by tier within each area, then by number of named sources">' + (SORT.filter(x => x[0] === (S.sort || ''))[0] || SORT[0])[1] + '</span>';
-    const tp = C.msTop, total = (C.info && C.info.total) || 0;
+    const tp = C.msTop, total = (C.info && C.info.total) || 0, lensOn = !!(Cleo.lens && Cleo.lens.on && Cleo.lens.on(Cleo.lens.current()));
     // QC-05: a search (or lens) that matches nothing says so and offers the way back — never a blank map and "0"
     const none = !tp && N === 0 && total > 0;
     if (none) { $('.ms-count', head).innerHTML = S.q ? 'No places match “' + C.esc(S.q) + '”' : 'No places match these filters';
       $('.ms-more', head).innerHTML = (S.q ? '<button type="button" class="btn btn-quiet" data-ms-clear="q">Clear search</button> ' : '') + '<button type="button" class="btn btn-quiet" data-ms-clear="all">Show all ' + total.toLocaleString('en-US') + '</button>'; }
     else $('.ms-count', head).innerHTML = tp ? 'Top <b>' + tp[0].toLocaleString('en-US') + '</b> picks · ' + tot
-      : onA ? '<b>' + n[0].toLocaleString('en-US') + '</b> ' + (n[0] === 1 ? 'place' : 'places') + ' here · ' + tot
+      : onA ? '<b>' + n[0].toLocaleString('en-US') + '</b> ' + (n[0] === 1 ? 'place' : 'places') + ' here' + (lensOn && total ? ', of all ' + total.toLocaleString('en-US') : '') + ' · ' + tot
+      // QC-13: under a lens the line keeps the total — "43 of all 488 places"
+      : lensOn && total && N < total ? '<b>' + N.toLocaleString('en-US') + '</b> of all ' + total.toLocaleString('en-US') + ' places · ' + tot
       : (all ? 'Showing all <b>' : 'All <b>') + N.toLocaleString('en-US') + '</b> ' + (N === 1 ? 'place' : 'places') + ' · ' + tot;
     if (!none) $('.ms-more', head).innerHTML = tp ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + tp[1].toLocaleString('en-US') + '</button>'
       : onA && n[1] ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + (n[0] + n[1]).toLocaleString('en-US') + '</button>'
@@ -422,7 +434,7 @@
     const k = onA ? n[0] : N;
     tog.innerHTML = listOn ? C.icon('map') + '<span>Map</span>' : desk() || H.classList.contains('ms-car') ? C.icon('list') + '<span>List · ' + k.toLocaleString('en-US') + '</span>'
       : none ? '<i class="ms-handle" aria-hidden="true"></i><span>No places match · Show the list</span>'
-      : '<i class="ms-handle" aria-hidden="true"></i><span><b>' + k.toLocaleString('en-US') + '</b> ' + (k === 1 ? 'place' : 'places') + ' here · Show list</span>';   // the phone peek
+      : '<i class="ms-handle" aria-hidden="true"></i><span><b>' + k.toLocaleString('en-US') + '</b> ' + (k === 1 ? 'place' : 'places') + ' here' + (checked() ? ' · <span class="ms-chk">checked ' + checked() + '</span>' : '') + ' · Show list</span>';   // the phone peek
     tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k));
   };
   // cards stamped later (a deep link, a route that builds more) join the page only if it shows them: a kept list stays the list

@@ -24,7 +24,7 @@ SPEC-v3 rev 5 for panel round 4 (R3 scored 80.7), plus QC / QA items. In order:
 7. QC-14: run `python3 design/beta/tools/snap-spacing.py tools/beta/lib/render/atlas.css`, then check 390 and 1440.
 
 ## Done (pushed)
-- 03c9fc58 QC-17 · 0e8faff9 phone switcher row + chip order · 4888cd5a desktop header (#5), no rank badges, QC-05 · 0118f115 one ranked list (#2), B-21 · (this push) card text 16/14 (#3).
+- 03c9fc58 QC-17 · 0e8faff9 phone switcher row + chip order · 4888cd5a desktop header (#5), no rank badges, QC-05 · 0118f115 one ranked list (#2), B-21 · bbe11d60 card text 16/14 (#3) · (this push) QC-13, R7-g4 (d) checked date in the peek, (e) desktop doors; QC-04 met by FE-C.
 - d2b6ead3 — checkpoint + push script; FE-2 QA-71 merge (verified).
 - (this push) rev 5 #4 part: no sun on dots/pills, sight 7 px circle @30 % / food 8 px square @72 %, glyph overrides (step 0) + new nouns (bottle, frame, bag) + spire, location dot as a placed box, measured pill gaps ≥ 4 px; FE-B shadows → tokens.
 - 7fef2dec: QA-45 (Show all in one list), QA-54, QA-52.
