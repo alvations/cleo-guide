@@ -259,6 +259,15 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     chk('the sheet of an open, pinned place offers "Set as my base"', !!setB && setB.textContent === 'Set as my base');
     setB.click(); await sleep(150);
     chk('setting it stores it on the device, puts &base= in the URL and marks the sheet', JSON.parse(g4.w.localStorage.getItem('cleo:v1:mybase')).tokyo === 'kanda-myojin' && /base=kanda-myojin/.test(g4.w.location.hash) && /Your base/.test(g4.d.querySelector('[data-cleo-base-fact]').textContent));
+    // QC-15: the action keeps focus in the sheet (on the new control), announces itself, and Escape still closes the sheet
+    const ae = g4.d.activeElement, live = g4.d.querySelector('#cleo-sheet [data-cleo-base-live]');
+    chk('QC-15: after "Set as my base", focus is on "Clear my base" inside the sheet, and the change is announced', !!ae && !!ae.closest('#cleo-sheet') && ae.getAttribute('data-cleo-base') === 'clear' && !!live && /^Your base is /.test(live.textContent), [ae && ae.tagName, ae && ae.getAttribute('data-cleo-base'), live && live.textContent]);
+    ae.click(); await sleep(150);
+    const ae2 = g4.d.activeElement;
+    chk('QC-15: after "Clear my base" in the sheet, focus stays in the sheet (on "Set as my base")', !!ae2 && !!ae2.closest('#cleo-sheet') && ae2.getAttribute('data-cleo-base') === 'set', ae2 && ae2.outerHTML.slice(0, 80));
+    ae2.click(); await sleep(150);
+    g4.d.activeElement.dispatchEvent(new g4.w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await sleep(150);
+    chk('QC-15: Escape still closes the sheet after the action', g4.d.getElementById('cleo-sheet').hidden === true);
     g4.w.location.hash = '#p=' + cl.id; await sleep(400);
     chk('the sheet of a closed place never offers it', !!g4.d.querySelector('#cleo-sheet .sheet') && !g4.d.querySelector('#cleo-sheet [data-cleo-base="set"]'));
     chk('no js errors (sheet)', g4.errs.length === 0, g4.errs.slice(0, 2));

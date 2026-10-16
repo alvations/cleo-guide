@@ -14,6 +14,8 @@
 
 - This push: Pullman Porter Museum refused (wrong subject); candidate wave 1: 20 vetted Commons titles for the 10 searchable empty leads / first-row slots, plus 6 stated gaps (Otaru Kihinkan, Nintendo Museum, Den Den Town, Gamble Garden, Singapore Zoo, Coney Island Park).
 
+- This push: run #54 review (wave 1). 10 new rows, 9 kept; Uluwatu refused (the temple is barely visible); Cebu's shrunken 720 dropped and added to NO720; recompress auto-drops such copies. Leads 24/25, first row 50/51.
+
 **In flight:**
 - Run #48's 32 refusals are APPLIED in this push (orchestrator's final list, recorded in design/beta/imagery-runs/run-48.md). CREDITS 580 → 548.
 - D-40a data has LANDED: 38 lead/first-row cards have a 720 copy ≤ 45 KB. 7 are in `NO720` in recompress.js (busy or tall photos that only fit by shrinking below 600 px) and keep 500 + 960. The cap went from 55 to 45 KB because 55 measured Tokyo phone@3× at 703 KB once the 720-aware `sizes` was applied; 45 measures 691 KB. Platform still has to switch `cardSizes()` to the 720 copy (asked); until then phones load the 500 and Tokyo is 649 KB.
@@ -33,7 +35,7 @@
 5. Review any dispatched run as in step 1. Write `design/beta/imagery-runs/run-<N>.md` and send the flagged rows to the orchestrator.
 
 **Notes:**
-- Known gap: when the runner fetches a new priority row, `store()` derives its 720 at q82 and recompress then re-encodes it to ≤ 45 KB. A busy photo can be scaled below 600 px while keeping its `-720` name. Check new priority rows in each review and add any such row to `NO720`.
+- Closed gap: recompress now DROPS a lead/first-row `-720` copy that would only fit by shrinking below 600 px, and logs it ("add … to NO720"). Add the logged row to `NO720` at review so `needs720` stops re-trying it.
 - sharp for local runs is at `NODE_PATH=<scratch>/sh/node_modules`. In a fresh session: `cd tools && npm install --no-save sharp`.
 - The Actions workflow `beta-fetch-unsplash.yml` belongs to the orchestrator; never edit it. Runs: push → scope priority; dispatch → `scope` + `budget`. The image hosts are blocked in this sandbox, so all fetching happens on Actions.
 - Refusal scope: a photo-fault reason applies to every target; a slot or duplicate reason stays local (`refusalIsGlobal`).
