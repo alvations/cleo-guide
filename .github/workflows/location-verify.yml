@@ -93,6 +93,8 @@ jobs:
             [ "$IN_DRY" = false ] && COMMIT=true || COMMIT=false
           fi
           CITY="${IN_CITY:-wheeling-wv}"; SCOPE="${IN_SCOPE:-unverified,low,status}"; LIMIT="${IN_LIMIT:-0}"; NOMINATIM_MAX="${IN_NMAX:-300}"
+          # a dry run commits nothing, so it could not record its Nominatim use in the daily ledger: it reads the cache only
+          if [ "$COMMIT" != true ]; then NOMINATIM_MAX=0; echo "dry run: Nominatim from cache only (nominatim_max=0)"; fi
           # validate BEFORE anything reaches GITHUB_ENV (each value is one safe token)
           [[ "$CITY" =~ ^[a-z0-9-]+$ ]] || { echo "::error::bad city key"; exit 1; }
           [[ "$SCOPE" =~ ^[a-z,]+$ ]] || { echo "::error::bad scope"; exit 1; }
@@ -176,7 +178,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           BASE=$(git rev-parse HEAD)   # the commit this run checked out
+          LEDGER=docs/geoverify/NOMINATIM-LEDGER.json   # per-UTC-day Nominatim use across runs; must travel with every commit
           git add -- "$REPORT_PREFIX"*
+          [ -f "$LEDGER" ] && git add -- "$LEDGER"
           if git diff --cached --quiet; then echo "No report change."; exit 0; fi
           if [ "$MODE" = sweep ]; then msg="Location-verify status sweep, shard $SHARD (proposals only; review + --accept + gates before any registry change)"
           elif [ "$MODE" = recheck ]; then msg="Location-verify re-check: $CITY, named rows against independent sources (proposals only)"
@@ -194,7 +198,25 @@ jobs:
             changed=$(git status --porcelain | awk '{print $2}' | grep -v '^docs/geoverify/' || true)
             [ -z "$changed" ] || { echo "::error::the re-run touched files outside docs/geoverify/:"; echo "$changed"; return 1; }
             git add -- "$REPORT_PREFIX"*
+            [ -f "$LEDGER" ] && git add -- "$LEDGER"
             git diff --cached --quiet || git commit -m "Location-verify report: $CITY re-run from cache to carry review decisions committed mid-run"
+          }
+          # A concurrent run may also have appended to the ledger: keep the branch's copy and re-append only this run's
+          # entries (those after the BASE copy's runs for each day), adding their counts to the day's total.
+          merge_ledger() {
+            git show "$BASE:$LEDGER" > "$RUNNER_TEMP/ledger-base.json" 2>/dev/null || echo '{"days":{}}' > "$RUNNER_TEMP/ledger-base.json"
+            git show "HEAD:$LEDGER" > "$RUNNER_TEMP/ledger-ours.json"
+            git checkout --theirs -- "$LEDGER"
+            node -e '
+              const fs=require("fs"); const [b,o,t]=process.argv.slice(1).map(f=>JSON.parse(fs.readFileSync(f,"utf8")));
+              for (const [day,od] of Object.entries(o.days||{})) {
+                const bn=((b.days||{})[day]||{runs:[]}).runs.length, mine=(od.runs||[]).slice(bn);
+                if (!mine.length) continue;
+                const td=(t.days=t.days||{})[day]=(t.days||{})[day]||{used:0,runs:[]};
+                td.runs=(td.runs||[]).concat(mine); td.used=(td.used||0)+mine.reduce((s,r)=>s+(r.n||0),0);
+              }
+              fs.writeFileSync(process.argv[3], JSON.stringify(t,null,1)+"\n");' "$RUNNER_TEMP/ledger-base.json" "$RUNNER_TEMP/ledger-ours.json" "$LEDGER"
+            git add -- "$LEDGER"
           }
           # Other lanes push to this branch while the job runs. This job adds only docs/geoverify/<city>.*; any merge
           # conflict outside that stops the job. On our own report: if the branch changed it since BASE (city mode),
@@ -207,11 +229,14 @@ jobs:
             fi
             if ! git merge --no-edit origin/claude/peaceful-goodall-i0hsrt; then
               conflicted=$(git diff --name-only --diff-filter=U)
-              if printf '%s\n' "$conflicted" | grep -v -F -- "$REPORT_PREFIX" | grep -q .; then
+              if printf '%s\n' "$conflicted" | grep -v -F -- "$REPORT_PREFIX" | grep -v -x -F -- "$LEDGER" | grep -q .; then
                 echo "::error::merge conflict outside the report:"; printf '%s\n' "$conflicted"; git merge --abort; exit 1
               fi
               side=--ours; [ "$reviewed_midrun" = true ] && side=--theirs
-              while IFS= read -r f; do [ -n "$f" ] && git checkout "$side" -- "$f" && git add -- "$f"; done <<< "$conflicted"
+              while IFS= read -r f; do
+                [ -z "$f" ] && continue
+                if [ "$f" = "$LEDGER" ]; then merge_ledger; else git checkout "$side" -- "$f" && git add -- "$f"; fi
+              done <<< "$conflicted"
               git commit --no-edit
             fi
             if [ "$reviewed_midrun" = true ]; then

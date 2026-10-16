@@ -1057,3 +1057,4 @@ html[data-view=atlas] .ms-ring .chip[aria-pressed=true]{background:var(--ink);co
 .rb-award{background:var(--sun-wash);color:var(--on-sun-wash)}
 .sheet .fact .pl-rec{margin:0}
 .sheet .fact .pl-rec[hidden]{display:flex}
+.gc-rec{display:flex;margin-top:var(--s-1)}.gc-rec .rb{min-height:24px;pointer-events:none}.ge-rec{margin:var(--s-1) 0}

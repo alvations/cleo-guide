@@ -26,9 +26,46 @@
       var old = c.querySelector(':scope > .pl-rec'), h = row(c); if (old) old.remove(); if (h) c.insertAdjacentHTML('beforeend', h);
     });
   }
-  Cleo.recog = { paint: paint, row: row };
+  // Gallery row cards (li.gc) and Guidebook entries (li.ge) are drawn in the browser from the page dataset, so their badges
+  // come from the same dataset (platform's rec, the source index's names), never from markup. A Gallery card is one link
+  // (to the detail), so its badges are text; a Guidebook entry's badges are links. A closed place carries none here.
+  var key = (d.getElementById('main') || { getAttribute: function () { return ''; } }).getAttribute('data-city') || '', PD = null;
+  var pd = function () { return PD || (PD = Cleo.pageData && key ? Cleo.pageData(key).then(function (j) {
+    var by = {}, nm = {}; (j.places || []).forEach(function (p) { by[p.id] = p; }); (j.sourceIndex || []).forEach(function (x) { nm[x.id] = String(x.name || x.id).split(' · ')[0]; });
+    return { by: by, nm: nm }; }) : Promise.reject(new Error('no page data'))); };
+  function badges(p, nm, links) {
+    var rec = p && !p.closed && p.rec; if (!rec) return '';
+    var out = [], one = function (cls, href, text) { out.push(links ? '<a class="rb ' + cls + '" href="' + esc(href) + '">' + esc(text) + '</a>' : '<span class="rb ' + cls + '">' + esc(text) + '</span>'); };
+    (rec.award || []).forEach(function (s) { one('rb-award', '#src=' + s, Cleo.t('rec.award', 'Award · {src}', { src: nm[s] || s })); });
+    (rec.video || []).forEach(function (s) { one('rb-video', '#src=' + s, Cleo.t('rec.video', 'Creator video · {src}', { src: nm[s] || s })); });
+    if (rec.cited >= 3) one('rb-cited', '#p=' + encodeURIComponent(p.id), Cleo.t('rec.cited', 'Cited by {n} sources', { n: rec.cited }));
+    return out.join(' ');
+  }
+  function paintViews() {
+    var todo = [].filter.call(d.querySelectorAll('li.gc[data-id], li.ge[data-id]'), function (el) { return !el.hasAttribute('data-rec-done'); });
+    if (!todo.length) return;
+    pd().then(function (D) {
+      todo.forEach(function (el) {
+        if (el.hasAttribute('data-rec-done')) return; el.setAttribute('data-rec-done', '');
+        var isGc = el.matches('li.gc'), h = badges(D.by[el.getAttribute('data-id')], D.nm, !isGc); if (!h) return;
+        var row = '<' + (isGc ? 'span' : 'p') + ' class="pl-rec ' + (isGc ? 'gc-rec' : 'ge-rec') + '"><span class="vh">' + esc(Cleo.t('rec.label', 'Recognition')) + '</span> ' + h + '</' + (isGc ? 'span' : 'p') + '>';
+        var at = isGc ? el.querySelector('.gc-b') : el.querySelector('.ge-m');
+        if (isGc) (at || el).insertAdjacentHTML('beforeend', row); else if (at) at.insertAdjacentHTML('afterend', row); else el.insertAdjacentHTML('beforeend', row);
+      });
+    }, function () {});
+  }
+  var raf = 0, later = function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; paintViews(); }); };
+  if ('MutationObserver' in window && d.getElementById('main')) new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++) for (var j = 0; j < ms[i].addedNodes.length; j++) { var n = ms[i].addedNodes[j];
+      if (n.nodeType === 1 && (n.matches('li.gc, li.ge') || n.querySelector('li.gc, li.ge'))) { later(); return; } }
+  }).observe(d.getElementById('main'), { childList: true, subtree: true });
+  Cleo.recog = { paint: paint, row: row, views: paintViews };
+  paintViews();
   paint(d.querySelectorAll('li.pl[data-rec], li.pl[data-rec0]'));
   d.addEventListener('cleo:stamped', function (e) { paint((e.detail && e.detail.cards) || []); });            // later chunks (core defer)
-  d.addEventListener('cleo:locale', function () { paint(d.querySelectorAll('li.pl[data-rec], li.pl[data-rec0]')); });   // i18n: redraw in the catalogue
+  d.addEventListener('cleo:locale', function () {   // i18n: redraw in the catalogue
+    paint(d.querySelectorAll('li.pl[data-rec], li.pl[data-rec0]'));
+    [].forEach.call(d.querySelectorAll('[data-rec-done]'), function (el) { el.removeAttribute('data-rec-done'); var r = el.querySelector('.gc-rec, .ge-rec'); if (r) r.remove(); }); paintViews();
+  });   // i18n: redraw in the catalogue
   if (Cleo.need && Cleo.need.done) Cleo.need.done('recognition');
 })();

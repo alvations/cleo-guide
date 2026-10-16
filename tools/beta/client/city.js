@@ -227,13 +227,24 @@
       tg.classList.add('is-target');
       if (r.p !== lastP || !(Cleo.sheet && Cleo.sheet.isOpen())) {
         // Atlas hosts the detail over a map that stays put (atlas-nav.js, SPEC-v3 §3.2): no page scroll, no fly
-        if (!(C.placeOpen && C.placeOpen(tg, map && markers[r.p]))) { tg.scrollIntoView({ block: 'center' }); if (map && markers[r.p]) fly(markers[r.p].getLatLng()); }
+        if (!(C.placeOpen && C.placeOpen(tg, map && markers[r.p]))) { tg.scrollIntoView({ block: 'center' }); keepInView(tg); if (map && markers[r.p]) fly(markers[r.p].getLatLng()); }
         if (C.select && C.view === 'atlas') C.select(tg, 'route');   // selected + labelled on the map (SPEC-v3 §1.4)
         if (Cleo.sheet) Cleo.sheet.open(tg); else { const l = $('.pl-n a', tg); if (l && l.focus) l.focus({ preventScroll: true }); }
       }
     } else if (Cleo.sheet && Cleo.sheet.isOpen()) Cleo.sheet.close(true);
     lastP = r.p || '';
   };
+  // FE-B finding (fresh #view=gallery&p=…): the rows, the lead card and deferred chunks still draw above the target after
+  // the first scroll, and scroll anchoring then carried the page past the end of <main>. For 2.5 s after a route scroll,
+  // each size change of <main> re-centres the target — until the reader scrolls, taps or presses a key themselves
+  let kv = null;
+  function keepInView(tg) {
+    if (kv) kv.stop(); if (!window.ResizeObserver) return;
+    let raf = 0; const ro = new ResizeObserver(() => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { if (tg.isConnected && tg.getClientRects().length) tg.scrollIntoView({ block: 'center' }); }); });
+    const stop = () => { ro.disconnect(); cancelAnimationFrame(raf); ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(e => removeEventListener(e, stop, true)); clearTimeout(t); kv = null; };
+    ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(e => addEventListener(e, stop, { capture: true, passive: true }));
+    const t = setTimeout(stop, 2500); ro.observe(main); kv = { stop };
+  }
   on(window, 'hashchange', onRoute); on(d, 'cleo:route', onRoute);
 
   // cover plate: the native name set vertically when the build says it fits (data-nat, ≤ 5 glyphs, sized by --n so it
@@ -369,6 +380,8 @@
     const c2d = (() => { try { return !!d.createElement('canvas').getContext('2d'); } catch (e) { return false; } })();   // no 2D canvas → SVG dots, same API
     // tolerance 19: every dot gets a 44 px hit circle (SPEC-v3 §1.1)
     const cv = C.canvas = c2d ? L.canvas({ padding: 0.3, tolerance: 19 }) : L.svg({ padding: 0.3 });
+    // i18n D-41 / W8-I18N-MAPRACE: a redraw queued as fail() removes the map finds no 2D context (Leaflet throws 'save')
+    if (c2d) { const rd = cv._redraw; cv._redraw = function () { if (this._ctx) rd.call(this); }; }
     // a dot draws its kind by shape on the canvas: options.shape 'sq' (eat & drink), options.slash (closed); SVG keeps the circle
     const Dot = L.CircleMarker.extend({ _updatePath: function () { const r = this._renderer, o = this.options;
       if (!r._ctx || !r._fillStroke || (!o.shape && !o.slash)) return L.CircleMarker.prototype._updatePath.call(this);

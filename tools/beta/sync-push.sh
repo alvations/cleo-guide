@@ -5,10 +5,13 @@
 # It merges origin (never rebase or force), resolves conflicts ONLY in generated beta/ by regenerating it
 # (node tools/beta/build.js), runs beta:check, pushes, and succeeds ONLY when ls-remote == HEAD. A conflict in any
 # source file, a conflict marker left anywhere, a failed build or beta:check, or six rejected pushes stop it loudly
-# (exit ≠ 0). Then re-run the full gate on the pushed head (rule 8.5).
+# (exit ≠ 0). A clean merge whose rebuild changes beta/ gets its own commit; a dirty beta/ never pushes (exit 6).
+# Then re-run the full gate on the pushed head (rule 8.5). Test: tools/beta/test-sync-push.js.
 set -u
 cd "$(git rev-parse --show-toplevel)" || exit 9
-BR=claude/peaceful-goodall-i0hsrt
+BR=${CLEO_BRANCH:-claude/peaceful-goodall-i0hsrt}
+# trailers for the regeneration commit: set CLEO_TRAILERS to your lane's lines (default: the team's)
+TRAILERS=${CLEO_TRAILERS:-$'Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PCNcUkfa5S1N1BKGzZA4xx'}
 for i in 1 2 3 4 5 6; do
   git fetch -q origin "$BR"
   if ! git merge-base --is-ancestor "origin/$BR" HEAD; then
@@ -20,7 +23,11 @@ for i in 1 2 3 4 5 6; do
     if git grep -nI -e '^<<<<<<< ' -e '^>>>>>>> ' -- ':!beta' >/dev/null 2>&1; then echo "CONFLICT MARKERS LEFT:"; git grep -nI -e '^<<<<<<< ' -e '^>>>>>>> ' -- ':!beta' | head; exit 5; fi
     (cd tools && npm run -s beta:check >/dev/null 2>&1) || { echo "BETA:CHECK FAILED"; exit 4; }
     git rev-parse -q --verify MERGE_HEAD >/dev/null && git commit -q --no-edit
+    # a CLEAN merge can still leave beta/ stale: the rebuild above staged it, so commit it (platform, 2026-10-16)
+    git diff --cached --quiet || git commit -q -m "Merge origin; beta/ regenerated" -m "$TRAILERS"
   fi
+  # never push a HEAD that lacks the regenerated beta/ the working tree has
+  if [ -n "$(git status --porcelain beta)" ]; then echo "BETA/ NOT COMMITTED:"; git status --porcelain beta | head; exit 6; fi
   if git push -q origin "HEAD:$BR" 2>"${TMPDIR:-/tmp}/fe-a-push.log"; then
     R=$(git ls-remote origin "refs/heads/$BR" | cut -f1); H=$(git rev-parse HEAD)
     [ "$R" = "$H" ] && { echo "PUSHED-VERIFIED $H (ls-remote matches)"; exit 0; }

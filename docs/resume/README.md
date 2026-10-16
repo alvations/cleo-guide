@@ -31,3 +31,10 @@ container, a new session) with little loss. The orchestrator's checkpoint is [`.
    5. run the full gate again on the pushed head at once, and fix forward immediately if it's red.
 
    A source-file conflict is resolved by hand, never by a script. Atlas FE-2 used this pattern for 537cfb8c.
+
+9. **Use the shared push helper:** `cd tools && npm run checkpoint -- -m "<message + trailers>" <paths…>`, then
+   `npm run checkpoint -- --verify` (platform, 86ef9cd7). It runs the full gate, commits exactly the given paths,
+   merges origin (regenerating `beta/` on generated-only conflicts and stopping on a source conflict), runs the fast
+   gate, then pushes and checks that ls-remote equals HEAD. It refuses on red at every step.
+10. **Never run two `npm test` at once in one container.** Each run uses 4 jobs, and the contention fails test-honesty
+    and test-views spuriously.
