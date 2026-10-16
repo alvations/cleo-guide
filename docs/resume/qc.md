@@ -37,6 +37,7 @@ never weakens a gate.
 - `9c133152`: QC-23 and QC-24 verified.
 - `4aba38b3` (deploy pin): QC-26 and QC-22 verified; new QC-27 (Low, i18n: tier translated as 評価).
 - `9fba196e`: QC-27 verified.
+- `r7-19af6d81` (release branch pre-check): FE-B leaks PASS; m.not.p en/ja PASS; QC-28 PASS; S-16 FAIL on 4 pages → new QC-29 (ports 9fa622096 + 5d3dc9850 missing).
 - `7857f885`: QC-04 verified (D-43 approximate pins).
 - `cc127fb1`: QC-28 verified (S-16 91/91; TODO/FIXME now case-sensitive).
 - `edf94546`: new sweep check S-16 (internal editorial phrases, incl. deferred cards); QC-28 (Low, data: Erie "Kept flagged").
@@ -46,7 +47,7 @@ never weakens a gate.
 
 ## In flight
 
-Nothing unpushed and no long run. On the next orchestrator pin, verify FE-B's honesty-leak fixes (712e746f, aee184d3): the What changed pages, Atom feeds and `data/places/*.json` carry only a "Status source" link, never the raw note; how-we-choose has the m.not.p line in en and ja. Re-run S-16 there too. QC-13 and QC-14 are open (Low).
+Nothing unpushed and no long run. The deploy pin is the **release branch `beta-deploy-r7`**, not the dev head. When the orchestrator sends the release SHA, run a clean worktree with `qc.js --only sweep --vps 1440` (S-16), the leak greps over `beta/{changes,feeds,data/places}` and the how-we-choose m.not.p browser check (`ex28.js` logic in BETA-QC.md). Set QC-29 to verified if S-16 is 0. QC-04 and Atlas rev 5 go in the next release. QC-13 and QC-14 are open (Low).
 
 Next harness work:
 - P-25 and P-26 must discount entries that carry the D-42 note.

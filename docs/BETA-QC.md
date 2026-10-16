@@ -539,3 +539,17 @@ Pending on the next pin (orchestrator): FE-B's honesty-leak fixes (712e746f, aee
 - "What changed" pages, Atom feeds and `data/places/*.json` carry only a "Status source" link.
 - how-we-choose carries the new m.not.p line.
 
+
+## Release pre-check 2026-10-16 · `beta-deploy-r7` @ 19af6d81 (before the release SHA is cut)
+
+The deploy pin is the release branch: 4aba38b3 plus ported fixes. The orchestrator's checklist for it is FE-B's leak checks, m.not.p in en and ja, S-16 and QC-28. Outputs are in `design/beta/eval/qc/r7-19af6d81/`. The sweep ran with `qc.js --only sweep --vps 1440` (2205 PASS · 35 FAIL · 28 WARN).
+
+| Check | Result | Evidence |
+|---|---|---|
+| FE-B leaks: What changed, feeds, `data/places/*.json` | **PASS** | grep over `beta/changes`, `beta/feeds`, `beta/data/places`: 0 "verify before publish", 0 "worklist", 0 `statusSource`, 0 `UNVERIFIED`. "Status source:" appears 22 times, always followed by a URL; 11 more are the link label "Status source" with an href. |
+| m.not.p (how-we-choose) en / ja | **PASS** | Browser: the en paragraph "We don’t add ratings, review counts, prices or opening hours of our own; any quoted in a write-up are the source’s, dated. …" is visible, and the ja paragraph「星評価・レビュー件数・価格・営業時間を独自に付け加えることはありません。…」 is visible under `?lang=ja`. `evidence/m-not-p-{en,ja}.jpg`. |
+| QC-28 (Erie) | **PASS** | S-16 has no Erie hit. |
+| S-16 | **FAIL, 4 pages** → QC-29 | orlando and washingtondc: "kept flagged" (dev fixed this in 9fa622096; not ported). statecollege and Singapore/toa-payoh: "worklist" in the raw status note printed on closed cards, 3 hits each (dev fixed this in 5d3dc9850, QC-25; not ported). |
+| other sweep FAILs | known, as on dev | S-15 ×24: the search ring sits on its wrapper (harness artefact). S-08 ×6: OWNER-casing. S-01: token census. |
+
+The orchestrator has been asked to port 9fa622096 and 5d3dc9850 into r7. Re-check them on the release SHA.
