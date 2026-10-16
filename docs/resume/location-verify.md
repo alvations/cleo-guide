@@ -60,6 +60,11 @@ Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` 
       bruges 2, miami-fl 2, cleveland-oh 1, pittsburgh-pa 1, washington-dc 1, state-college-pa 1, antwerp 1, brussels 1.
       These are registry `confidence: low` counts from 2026-10-16. Singapore's 4 are covered by step 1.
    4. Then saarland, rhineland, aachen, with scope `unverified,low,status`.
+   5. **After Singapore's REQUEST on the next wake:** the D-44 status follow-ups. Use WebSearch only, one search each:
+      - Oriental Delight (Antwerp): keep it closed. Rewrite statusSource as "Listings show it closed (Foursquare 'Now Closed'; TripAdvisor closed); no permanent-closure report found", and drop the worklist wording. No search needed.
+      - De Vagant: search once for a reopening. Flip it to open only on news or the bar's own site or socials; an aggregator comment doesn't count.
+      - PA Military Museum: search once for a reopening date.
+      - Thurman, The Mill, Schiffchen: re-check on the next refresh.
    - Accept rules are unchanged:
      - upgrade a pin only to an exact place coordinate;
      - never fabricate;
