@@ -204,7 +204,7 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
   console.log('# QC-06: every visible view-switcher segment is ≥ 44 px tall, at every width');
   for (const w of [390, 768, 1024, 1440]) {
     const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(900);
-    const hs = await page.evaluate(() => [...document.querySelectorAll('nav[data-cleo-views] button')].filter(e => e.getClientRects().length).map(e => Math.round(e.getBoundingClientRect().height)));
+    const hs = await page.evaluate(() => [...document.querySelectorAll('[data-cleo-views] button')].filter(e => e.getClientRects().length).map(e => Math.round(e.getBoundingClientRect().height)));
     ok(hs.length && hs.every(h => h >= 44), `@${w}: ${hs.length} switcher segment(s) ≥ 44 px`, hs); await ctx.close();
   }
   console.log('# QC-08: best food near X in three taps; the first card on screen is inside the lens');
@@ -228,6 +228,19 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
         return !p.hidden && c.display !== 'none' && c.visibility === 'visible' && +c.opacity > 0.9 && r.bottom <= innerHeight && r.top >= 0 ? 'visible' : [c.display, c.visibility, c.opacity, Math.round(r.top)].join(' '); });
       const v0 = await at(); await page.evaluate(() => scrollBy(0, 900)); await page.waitForTimeout(800); const v1 = await at();
       ok(v0 === 'visible' && v1 === 'visible', `@390 ${u}: the pill is visible at load and after scrolling down`, [v0, v1]); await page.close();
+    }
+    await ctx.close(); }
+  console.log('# QA-67: the desktop detail media fits its photo — no sand band beside it');
+  { const ctx = await ctxFor(b, 1440);
+    for (const id of ['kanda-myojin', 'imperial-palace-east-gardens', 'ueno-park', 'koishikawa-korakuen']) {
+      const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html#p=' + id, { waitUntil: 'load' }); await page.waitForTimeout(1500);
+      const r = await page.evaluate(() => { const h = document.querySelector('#cleo-sheet .hero-plate.has-photo'), i = h && h.querySelector('img'); if (!i) return null;
+        const hw = Math.round(h.getBoundingClientRect().width), iw = Math.round(i.getBoundingClientRect().width), fw = +((/-(\d+)\.(?:jpe?g|webp)$/.exec(i.currentSrc) || [])[1] || 0);
+        return { cls: h.className.replace(/\s+/g, ' '), hw, iw, fw, bg: getComputedStyle(h).backgroundColor, band: getComputedStyle(i).boxShadow.slice(0, 60) }; });
+      if (!r) { ok(false, `${id}: detail photo present`); await page.close(); continue; }
+      if (/ph-fit/.test(r.cls)) ok(Math.abs(r.hw - r.iw) <= 1 && r.iw <= r.fw, `${id}: a wide copy sets the slot — media ${r.iw} px = slot ${r.hw} px, file ${r.fw} w, no band`, r);
+      else ok(/ph-frame/.test(r.cls) && r.iw <= r.fw && /rgb/.test(r.band) && !/241, 237, 231/.test(r.band), `${id}: a narrow copy sits at its own width (${r.iw} ≤ ${r.fw}) in side bands of its own tone, not sand`, r);
+      await page.close();
     }
     await ctx.close(); }
   console.log('# QC-07: Esc returns focus to the control that opened the sheet');

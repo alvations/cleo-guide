@@ -31,12 +31,17 @@ never weakens a gate.
 
 ## In flight
 
-- **QC pass at `530dc83b`** (orchestrator, 2026-10-16 14:38Z). The worktree is in the scratchpad (`qc-530dc83b`); the harness is the current `qc.js`.
-  - Running: patterns (5 pilots × 390/1440), journeys (5 pilots × 390/1440 light), sweep (91 pages × 768/1440 light).
-- **Then:**
-  1. Re-verify the claimed rows: QC-01, 02, 03, 10 (FE-B); 06, 09 (7e746d9b); 07, 08 (5b1074f9); 12 (i18n). FE-1 has not logged a claim for 04, 05 or 13, so re-measure them only.
-  2. A melon-seek pass on the new features: trip.html, "Set as my base" and the walk ring, near me, share cards, the switcher, `?lang=ja`. New findings go to QC-15 onward; send the orchestrator the list (route nothing).
-  3. Commit `qc.json`, `summary.md` and the evidence shots, plus this file.
+- **QC pass at `530dc83b`.** The worktree is in the scratchpad (`qc-530dc83b`).
+  - Sweep 768/1440 is done: QC-06 verified (S-10 91/91); QC-12 open (S-12 9 pages at 1440); QC-11 open (768, max 0.48); QC-05 still reproduces (not claimed).
+  - Patterns are running. Journeys are re-running with the place-link selector fix (the card's first link is now the tier badge to `#how-we-choose`).
+- **New-feature exploration is done.** Draft findings:
+  - QC-15: "Set as my base" drops focus to body, so Esc no longer closes the sheet.
+  - QC-16: under `?lang=ja` the Insights view is English beyond the banner's stated scope.
+  - QC-17: the phone Atlas carousel card clips the base-distance line by 8 px.
+  - QC-18: under `ja` at 1440 the switcher indicator is offset 56 px from the pressed button.
+  - Trips, near me, share cards and the `base=` / trip links round-trip and pass.
+  - Scratch screenshots are in `ex/`.
+- **Then:** file the re-verify results and QC-15…18, commit the outputs, and reply to the orchestrator with the SHA and counts.
 
 ## Notes
 

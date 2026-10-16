@@ -141,7 +141,8 @@
    }
   },
   "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
-  "hardFailure": false
+  "hardFailure": false,
+  "reassisted": "2026-10-16"
  },
  "summary": {
   "pin": 33,
@@ -238,9 +239,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -314,7 +315,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -403,9 +404,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -1512,9 +1513,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -1756,7 +1757,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -1907,9 +1908,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "review",
     "why": [
-     "OSM POI, name 1, house number + street match"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -2053,9 +2054,9 @@
    },
    "secondSource": null,
    "assist": {
-    "verdict": "hold",
+    "verdict": "review",
     "why": [
-     "med: needs a second independent source within 50 m"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -2672,7 +2673,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -2893,7 +2894,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -2965,7 +2966,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -3083,7 +3084,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "med: needs a second independent source within 50 m"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -3273,9 +3274,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -3426,7 +3427,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "med: needs a second independent source within 50 m"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -3498,7 +3499,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -3656,7 +3657,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -3995,9 +3996,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -4168,9 +4169,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -4309,7 +4310,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -4479,7 +4480,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -4567,7 +4568,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate has 3 decimals (≈ 100 m coarse) — needs a precise source"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -5038,7 +5039,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -5153,9 +5154,9 @@
    },
    "secondSource": null,
    "assist": {
-    "verdict": "hold",
+    "verdict": "review",
     "why": [
-     "med: needs a second independent source within 50 m"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -5242,9 +5243,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "hold",
+    "verdict": "review",
     "why": [
-     "OSM POI without an exact address match (house number true, street false)"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -5379,9 +5380,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "review",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -5463,9 +5464,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "review",
     "why": [
-     "OSM POI, name 0.9, house number + street match"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -5549,9 +5550,9 @@
    },
    "secondSource": null,
    "assist": {
-    "verdict": "hold",
+    "verdict": "review",
     "why": [
-     "med: needs a second independent source within 50 m"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },

@@ -509,7 +509,7 @@ async function journeysCity(rel, vp, theme) {
     }
     const saved = (await page.evaluate(STATE)).saved;
     if (saved !== 2) fr.push('saved count is ' + saved + ' after two saves');
-    const card = page.locator('main .gc a, main li.pl a, main li.pl button.pl-n').filter({ visible: true }).first();
+    const card = page.locator('main .gc a[href^="#p"], main li.pl a[href^="#p"], main li.pl button.pl-n').filter({ visible: true }).first();
     await click(page, card, steps, fr, 'a place card');
     let t = await page.evaluate(STATE); if (!t.sheet) fr.push('no sheet after opening a card');
     await click(page, '[role=dialog] [data-sh=day]', steps, fr, 'Add to day');
@@ -519,7 +519,7 @@ async function journeysCity(rel, vp, theme) {
     const dayState = await page.evaluate(() => ({ hash: location.hash, store: (() => { try { return Object.keys(localStorage).filter(k => /day/i.test(k)); } catch (e) { return []; } })() }));
     if (!/day=/.test(dayState.hash) && !dayState.store.length) fr.push('no visible day plan state after Add to day');
     if (!(await page.locator('[role=dialog] [data-sh=share]').filter({ visible: true }).count())) {
-      const op = page.locator('main li.pl a, main .gc a, main .gc').filter({ visible: true }).first(); await click(page, op, steps, fr, 'reopen the card to share'); }
+      const op = page.locator('main li.pl a[href^="#p"], main .gc a[href^="#p"], main .gc').filter({ visible: true }).first(); await click(page, op, steps, fr, 'reopen the card to share'); }
     await click(page, '[role=dialog] [data-sh=share]', steps, fr, 'Share');
     const url = await page.evaluate(() => window.__shared.slice(-1)[0] || '');
     t = await page.evaluate(STATE);
@@ -557,7 +557,7 @@ async function journeysCity(rel, vp, theme) {
     const firstOnScreen = await page.evaluate(new Function(`${P_VIS} const c = [...document.querySelectorAll('main .gc, main li.pl')].find(e => vis(e) && e.getBoundingClientRect().bottom > 0); return c ? (c.getAttribute('data-id') || c.id) : null;`));
     const match = T.P.filter(p => p.kind === 'food' && p.a === foodArea).map(p => p.id);
     if (firstOnScreen && !match.includes(String(firstOnScreen).replace(/^p-/, ''))) fr.push('the first card on screen (' + firstOnScreen + ') is outside the lens');
-    const target = page.locator(match.slice(0, 40).map(id => `main #p-${id} a, main .gc[data-id="${id}"] a, main #p-${id}`).join(', ')).filter({ visible: true }).first();
+    const target = page.locator(match.slice(0, 40).map(id => `main #p-${id} a[href^="#p"], main .gc[data-id="${id}"] a[href^="#p"]`).join(', ')).filter({ visible: true }).first();
     await click(page, target, steps, fr, 'first food place in ' + foodArea);
     const t2 = await page.evaluate(STATE);
     const s = await shot(page, `j02-${tag}`);
@@ -624,7 +624,7 @@ async function journeysCity(rel, vp, theme) {
     // close returns to the same scroll position
     await page.evaluate(() => { location.hash = ''; }); await page.waitForTimeout(500);
     await page.evaluate(() => window.scrollTo({ top: 1400, behavior: 'instant' })); await page.waitForTimeout(400); const y0 = await page.evaluate(() => Math.round(scrollY));
-    const c = page.locator('main li.pl a, main .gc a, main .gc').filter({ visible: true });
+    const c = page.locator('main li.pl a[href^="#p"], main .gc a[href^="#p"], main .gc').filter({ visible: true });
     let y1 = null; const n = await c.count();
     for (let i = 0; i < n; i++) { const bb = await c.nth(i).boundingBox(); if (bb && bb.y > 60 && bb.y < VP[vp].viewport.height - 100) { await c.nth(i).click().catch(() => {}); break; } }
     await page.waitForTimeout(700); await page.locator('[role=dialog] [data-sh=x]').filter({ visible: true }).first().click().catch(() => page.keyboard.press('Escape'));
@@ -640,7 +640,7 @@ async function journeysCity(rel, vp, theme) {
     const chip = page.locator('[data-mode=sights]').filter({ visible: true }).first();
     if (await chip.count()) await chip.click().catch(() => {}); else await page.evaluate(() => { location.hash = location.hash + '&mode=sights'; });
     await page.waitForTimeout(600); seq.push(await page.evaluate(STATE));
-    await page.locator('main li.pl a, main li.pl button.pl-n, main li.pl').filter({ visible: true }).first().click().catch(() => {}); await page.waitForTimeout(700);
+    await page.locator('main li.pl a[href^="#p"], main li.pl button.pl-n, main li.pl').filter({ visible: true }).first().click().catch(() => {}); await page.waitForTimeout(700);
     seq.push(await page.evaluate(STATE));
     const back = [];
     for (let i = 0; i < 3; i++) { await page.goBack({ timeout: 4000 }).catch(() => {}); await page.waitForTimeout(600); back.push(await page.evaluate(STATE).catch(() => ({ view: 'LEFT PAGE' }))); }
@@ -702,7 +702,7 @@ async function commonJourneys(rel, vp, theme, T, top) {
       await page.focus('[data-cleo-views] button[data-view="gallery"]').catch(() => {}); await page.keyboard.press('Space'); await page.waitForTimeout(600);
       if ((await page.evaluate(STATE)).view !== 'gallery') fr.push('Space on the Gallery segment did not switch');
       // open a card by keyboard, focus trap, Esc returns focus
-      const opener = await page.evaluate(() => { const c = [...document.querySelectorAll('main .gc a, main li.pl a, main li.pl button.pl-n')].find(e => e.offsetParent); if (!c) return null; c.setAttribute('data-qc-opener', ''); c.focus(); return (c.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 40); });
+      const opener = await page.evaluate(() => { const c = [...document.querySelectorAll('main .gc a[href^="#p"], main li.pl a[href^="#p"], main li.pl button.pl-n')].find(e => e.offsetParent); if (!c) return null; c.setAttribute('data-qc-opener', ''); c.focus(); return (c.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 40); });
       await page.keyboard.press('Enter'); await page.waitForTimeout(800);
       const st1 = await page.evaluate(STATE); if (!st1.sheet) { fr.push('Enter on a card opened no sheet'); success = 'no'; }
       else {
@@ -801,7 +801,7 @@ async function journeysHub(rel, vp, theme) {
       const inView = await page.evaluate(id => { const e = document.getElementById('p-' + id); if (!e) return false; const r = e.getBoundingClientRect(); return r.width > 0 && r.top < innerHeight && r.bottom > 0; }, anchor[1]);
       fr.push('the hub links to a place with #p-' + anchor[1] + ': the sheet does not open' + (inView ? ' (the card is in view)' : ' and the card is not in view'));
     }
-    if (onCity && !t.sheet) { await click(page, page.locator('main .gc a, main li.pl a').filter({ visible: true }).first(), steps, fr, 'a Tokyo place'); t = await page.evaluate(STATE); }
+    if (onCity && !t.sheet) { await click(page, page.locator('main .gc a[href^="#p"], main li.pl a[href^="#p"]').filter({ visible: true }).first(), steps, fr, 'a Tokyo place'); t = await page.evaluate(STATE); }
     const s = await shot(page, `j01h-${tag}`);
     J('J-01h', C, onCity && t.sheet ? (steps.n <= 4 && !fr.length ? 'yes' : 'partial') : 'no', steps.n, fr, { url: page.url().replace(base, '/'), sheet: t.sheet && t.sheet.title, errors: st.errors.slice(0, 2) }, s);
     // J-06 for a hub: Back returns to the hub at the same scroll
