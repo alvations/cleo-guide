@@ -52,6 +52,7 @@ ${siteBar({ depth: 0, current: 'saved', rel: 'trip.html' })}
 </main>
 ${footer({ depth: 0 })}
 <script src="assets/js/trip.js?v=${ctx.assetsV.trip}" defer></script>
+<script type="application/json" id="cleo-lazy">${JSON.stringify({ base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'] })}</script>
 </body>
 </html>
 `;
