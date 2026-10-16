@@ -48,8 +48,7 @@ function englishLeft(html) {
   for (let n; (n = walk.nextNode());) texts.push(n.nodeValue);
   doc.querySelectorAll('[aria-label], [title], [placeholder], [alt]').forEach(el => ['aria-label', 'title', 'placeholder', 'alt'].forEach(a => el.hasAttribute(a) && texts.push(el.getAttribute(a))));
   for (let s of texts) {
-    // data is stripped case-insensitively: display-time sentence casing (lib/casing.js) may render a data label
-    // such as a signature title as "Testville gazette"; it is still data, not catalogue copy
+    // data passes through by name; FE-B's casing helper may sentence-case a data label ("Testville gazette"), so match without case
     for (const d of DATA) s = s.replace(new RegExp(d.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), ' ');
     const m = s.match(/[A-Za-z]{2,}/g); if (m) out.push(...m);
   }
@@ -215,6 +214,29 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     chk(`${rel}?lang=ja: applies ja and remembers it`, [dq.documentElement.lang, dq.defaultView.localStorage.getItem('cleo:v1:locale')], ['ja', '"ja"']);
     const df = await runtime(html, `https://example.test/beta/${rel}`, { en: i18n.EN }, 'ja');
     chk(`${rel}: catalogue fetch fails → falls back to English, no note`, [df.documentElement.lang, !!df.querySelector('.l10n-note')], ['en', false]);
+  }
+  // Cleo.t: the head snippet defines it; English (the caller's default) until a catalogue loads, then the catalogue
+  {
+    const i0 = h2.indexOf('<script>window.Cleo='), shim = i0 < 0 ? '' : h2.slice(i0 + 8, h2.indexOf(';(function(){var d=', i0) + 1);
+    const w = new JSDOM('<!doctype html><body>', { runScripts: 'outside-only' }).window;
+    w.eval(shim);
+    const a = w.Cleo.t('chg.h1', 'What changed'), b = w.Cleo.t('hub.places', '{n} places', { n: 3 });
+    w.CleoL10n = ja.strings;
+    chk('Cleo.t: English default until a catalogue loads, then the catalogue (vars filled)', [a, b, w.Cleo.t('chg.h1', 'What changed'), w.Cleo.t('hub.places', '{n} places', { n: 3 })], ['What changed', '3 places', ja.strings['chg.h1'], ja.strings['hub.places'].replace('{n}', 3)]);
+    const dj = await runtime(fs.readFileSync(path.join(BETA, 'index.html'), 'utf8'), 'https://example.test/beta/index.html', CATS, 'ja');
+    chk('locale.js publishes the loaded catalogue for Cleo.t (window.CleoL10n)', dj.defaultView.CleoL10n && dj.defaultView.CleoL10n['chg.h1'], ja.strings['chg.h1']);
+  }
+  // every Cleo.t('key', 'English') call in client code names a catalogue key and passes exactly its en string
+  {
+    const bad = [];
+    for (const f of fs.readdirSync(path.join(__dirname, 'client')).filter(f => f.endsWith('.js'))) {
+      const src = fs.readFileSync(path.join(__dirname, 'client', f), 'utf8');
+      for (const m of src.matchAll(/Cleo\.t\(\s*'([^']+)'\s*,\s*'((?:\\.|[^'\\])*)'/g)) {
+        const enS = m[2].replace(/\\'/g, "'");
+        if (en.strings[m[1]] !== enS) bad.push(`${f}: ${m[1]}`);
+      }
+    }
+    chk('client Cleo.t calls: key exists and English default == en.json', bad, []);
   }
   // storage that throws (sandboxes): the runtime still runs and stays in English
   const dT = new JSDOM(fs.readFileSync(path.join(BETA, 'index.html'), 'utf8'), { url: 'https://example.test/beta/index.html', runScripts: 'outside-only' }).window;

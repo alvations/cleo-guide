@@ -91,6 +91,8 @@
       '<div class="content">' + shut + '<div class="badges">' + (closed ? '' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
       '<span class="sm">in ' + esc(C.label('a', a)) + ' · pin ' + c.getAttribute('data-n') + '</span></div><h2 class="d2" id="sh-t">' + (q('.pl-vert', c) && q('.pl-n .nat', c) ? esc(C.name(c)) + ' <span class="vh">' + esc(q('.pl-n .nat', c).textContent) + '</span>' : q('.pl-n a', c).innerHTML) + '</h2>' +
       byline + rank + (w ? (exp ? '<h3 class="section-t">Why it’s here</h3>' : '') + '<p class="why">' + w.innerHTML + '</p>' : '') + note +
+      // FE-B D-39 (QA-65): prose that quotes a price or rating is labelled as a dated quote (the Guidebook's sentence)
+      (c.hasAttribute('data-pq') ? '<p class="gq sm muted">Prices and ratings are quoted from the source at the time of research (' + esc(c.getAttribute('data-pq')) + ').</p>' : '') +
       '<div><h3 class="section-t">Recommended by</h3><ul class="srclist">' + src + '</ul></div>' +
       (lenses.length ? '<div><h3 class="section-t">Part of</h3><div class="pills">' + lenses.map(function (x) { return '<button class="pill" data-sh="lens" data-f="' + x[0] + '" data-v="' + esc(x[1]) + '">' + esc(C.label(x[0], x[1])) + '</button>'; }).join('') + '</div></div>' : '') + near + '<div class="plan"><h3 class="section-t">Plan your visit</h3>' + (primary ? '<p>' + primary + '</p>' : '') +
       (ad || dir ? fact('pin', ad ? esc(ad.textContent) : 'Directions', dir) : '') +
