@@ -1103,3 +1103,12 @@ Open High/Blocker: **0**.
 QA-68 probe fix: B-08 now cuts each title by its clipping panes before testing overlap. It extends the W6-ratified "clipped by its own pane" rule from wholly to partly clipped titles. Measured B-08 is unchanged on this SHA (✅ 0, both views).
 
 QA sign-off: NO
+
+## 2026-10-16 · QA · Ratification: Atlas FE-1 measurement changes (SPEC-v3 rev 4) · session_017FLWXa5zgGWvqNo4C3UsvH
+
+| Change | Verdict | Reason |
+|---|---|---|
+| `qa/w7.js` atlasd: "N more outside" may give way to a "Show all <N>" control in `.ms-more` (SPEC §2.3: at most two count strings) | **Ratified, as implemented by QA** | Same user outcome: the reader is told more places exist outside the map area, and every place is one tap away. QA's check accepts either signal only when the Show-all total **exceeds** the area count shown, and the count must still change on zoom and pan. Nothing else in the check changes. |
+| `metrics.js --view atlas` B-01 on phones: the first phone screen becomes map plus a 64 px list peek ("288 places here · Show list"), with no card | **Not exempted in code. Recorded as ❌ by design in phone Atlas, as D-36 did for B-04**, with conditions | B-01 keeps grading the default view (Gallery), where it passes. In phone Atlas QA accepts the peek as the first-card affordance only when all of these hold: (1) the peek is on the first screen, ≥ 44 px tall and states the count; (2) one tap on it puts a card wholly on screen; (3) a pin tap still brings that place's own card into view (B-07 W7 path, `w7.js atlasm`); (4) the Atlas list pages and G1 stay ✅. QA checks (1)–(3) with `w7.js` and `page-eval.js` on the head that ships it. |
+
+**Conformance note for the orchestrator and the evaluator.** W7-BRIEFS Amendment 2 and checklist row D2 call for "a swipeable card carousel … at the bottom, synced to the pins" on phones. A first phone screen with no card visible changes that design. QA doesn't block on it, since condition (3) keeps pin → card. The D2 row should record the SPEC-v3 change and its owner decision.
