@@ -344,3 +344,14 @@ Exploration at 390 and 1440, with off-origin requests aborted and 0 off-origin r
 - **Open:** 13. Med 9 (QC-04, 05, 11, 12, 15, 16, 17, 19, 20) · Low 4 (QC-10 on the pin, 13, 14, 18) · High 0 · Blocker 0.
 - **Verified:** QC-01, 02, 03, 06, 07, 08, 09; QC-10 on 639d2b1b (it will verify on the next pin that contains 78e4ab74).
 
+## Re-verify 2026-10-16 · f7fa616d (i18n claim for QC-16)
+
+Clean worktree at `f7fa616d`. The QC ja probe (`?lang=ja`, 1440) lists every visible UI text node with no kana or kanji
+outside card entries. Output: `design/beta/eval/qc/f7fa616d/ja-probe.json`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-16 | **verified** | Tokyo and Cleveland Insights: only 3 English nodes each, all data or stated (city name, tagline, the method intro sentence). Titles, captions, tiles, footnotes and "Show as a table" are in Japanese (`qc-16-ja-insights.jpg`). The banner now says the method pages' longer explanations stay in English. In the Guidebook only data remains English (area names, neighbourhood lines). |
+| QC-18 | observed fixed, **not yet claimed** | The switcher indicator sits under インサイト in `qc-16-ja-insights.jpg`; it will be verified on the next pin. |
+| **QC-21** (new, Low, i18n) | open | how-we-choose.html under `ja`: the stats table headers (Country, Guides, Places, Pins at high confidence, Closed, kept) and the h2 "Added by the guide" are English UI labels. The long paragraphs are stated English and not counted. `qc-21-ja-method-table.jpg`. |
+
