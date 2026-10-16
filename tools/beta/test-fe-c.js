@@ -274,6 +274,38 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     chk('no js errors (recognition)', !r1.errs.length && !r2.errs.length, r1.errs.concat(r2.errs).slice(0, 2));
   }
 
+  console.log('\n== FRESH (W9-2, card + city half): "Status checked <d Mon>" from pv.checked; "Follow changes" ==');
+  {
+    const bad = [], fb = [], FON = require('./lib/render/fresh-ui').ON(); let np = 0, nd = 0, nf = 0;
+    for (const f of files) {
+      const j = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', f), 'utf8')), html = fs.readFileSync(path.join(BETA, j.beta), 'utf8').replace(/<\/?noscript[^>]*>/g, '');
+      for (const p of j.places) { np++;
+        const m = new RegExp('<li class="pl[^"]*" id="p-' + p.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"[^>]*>').exec(html);
+        const got = m && ((/ data-checked="([^"]*)"/.exec(m[0]) || [])[1] || ''), want = (p.pv && p.pv.checked) || '';
+        if (!m) bad.push([j.key, p.id, 'card not found']); else if (got !== want) bad.push([j.key, p.id, got, want]); else if (want) nd++;
+      }
+      const fl = /<p class="sm feedline" data-cleo-follow><a href="([^"]+)"/.exec(html), feed = 'feeds/' + String(j.key).replace(/\//g, '--') + '.xml';
+      if (FON) { if (!fl) fb.push([j.key, 'no Follow changes line']); else if (path.posix.normalize(path.posix.join(path.posix.dirname(j.beta), fl[1])) !== feed || !fs.existsSync(path.join(BETA, feed))) fb.push([j.key, fl[1]]); else nf++; }
+      else if (fl) fb.push([j.key, 'the line is on before its string is merged']);
+    }
+    chk(`${files.length} pages, ${np} cards: every card's data-checked equals its record's pv.checked (${nd} dated)`, bad.length === 0, bad.slice(0, 4));
+    chk(FON ? `"Follow changes" on all ${files.length} pages, each resolving to its feeds/<page>.xml (${nf})` : '"Follow changes" stays off until fresh.feed is merged (en + ja)', fb.length === 0, fb.slice(0, 4));
+
+    const g = boot('cities/tokyo.html', { mods: ['fresh'] }); await sleep(200); g.w.Cleo.defer.all(); await sleep(50);
+    const fmt = iso => { const [y, mo, dd] = iso.split('-').map(Number); return new Date(Date.UTC(y, mo - 1, dd)).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }); };
+    const probs = []; let n = 0;
+    g.d.querySelectorAll('li.pl[id^="p-"]').forEach(c => { const iso = c.getAttribute('data-checked'), e = c.querySelector(':scope > .pl-chk');
+      if (!iso) { if (e) probs.push([c.id, 'line without a date']); return; }
+      n++; if (!e) return probs.push([c.id, 'no line']);
+      if (e.getAttribute('data-d') !== iso || e.getAttribute('data-t') !== 'Status checked ' + fmt(iso)) probs.push([c.id, e.getAttribute('data-t'), iso]);
+      if (e.textContent) probs.push([c.id, 'date in the card text (search would match it)']);
+      if (/open now|hours|open until|closes at/i.test(e.getAttribute('data-t'))) probs.push([c.id, 'implies open now or hours']); });
+    chk(`Tokyo: ${n} dated cards each draw "Status checked <d Mon>" equal to data-checked, out of the card text`, probs.length === 0 && n > 400, probs.slice(0, 4));
+    chk('Tokyo: the date is not searchable text (a search for "Oct" matches no card by its date)', ![...g.d.querySelectorAll('li.pl .pl-chk')].some(e => /Oct/.test(e.textContent)));
+    chk('fresh.js is lazy (no page loads it eagerly)', !/<script[^>]+fresh\.js/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')));
+    chk('no js errors (fresh)', g.errs.length === 0, g.errs.slice(0, 2));
+  }
+
   console.log('\n== BASE (W9-5): every card, every guide, 5 bases each ==');
   {
     const R = Math.PI / 180, hav = (a, b) => { const h = Math.sin((b[0] - a[0]) * R / 2) ** 2 + Math.cos(a[0] * R) * Math.cos(b[0] * R) * Math.sin((b[1] - a[1]) * R / 2) ** 2; return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h))); };

@@ -1068,3 +1068,9 @@ html[data-view=atlas] .ms-ring .chip[aria-pressed=true]{background:var(--ink);co
 .sheet .fact .pl-rec{margin:0}
 .sheet .fact .pl-rec[hidden]{display:flex}
 .gc-rec{display:flex;margin-top:var(--s-1)}.gc-rec .rb{min-height:24px;pointer-events:none}.ge-rec{margin:var(--s-1) 0}
+/* FE-C (W9-2) the quiet "Status checked <d Mon>" card line (client/fresh.js). The text is a CSS attr(), out of the card's
+   textContent so search never matches the date. Ink-3 on paper. */
+.pl .pl-chk{order:97;grid-column:1/-1}
+.pl-chk{display:block;margin:var(--s-1) 0 0;font-size:var(--fs-xs);line-height:1.4;color:var(--ink-3)}
+.pl-chk::before{content:attr(data-t)}
+.feedline a{font-weight:600}
