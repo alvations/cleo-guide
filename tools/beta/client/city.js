@@ -47,6 +47,8 @@
     const s = d.createElement('script'); s.src = (Cleo.root || '../') + 'assets/js/' + n + '.js?v=' + ((info.js || {})[n] || ''); s.async = true;
     s.onload = () => q.splice(0).forEach(f => f && f()); d.head.appendChild(s);
   };
+  // FE-C W9-5 hook: "Set as my base" in the place sheet. base.js loads on the first sheet (core loads it at once when a base is set)
+  { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need) Cleo.need('base', () => C.baseSheet && C.baseSheet(c)); }; }
   need.q = {};
   const rail = $('#cleo-rail'), shown = $('#cleo-shown'), lens = $('#cleo-lens'), applied = $('[data-cleo-applied]'), fi = $('#cleo-filter'), split = $('.split');
   // R7 gap 2(c): the placeholder is never clipped mid-letter — "Search {city}" where it fits, else "Search" (a narrow
@@ -91,17 +93,20 @@
     if (S.been) { const b = !!been.all()[key + '/' + pid(c)]; if (S.been === 'hide' ? b : !b) return false; }
     if (S.sig && !(info.sig && info.sig.ids.indexOf(pid(c)) >= 0)) return false;
     if ((S.mine && !(Cleo.saved && Cleo.saved.has(key + '/' + pid(c)))) || (S.day && C.inDay && !C.inDay(pid(c)))) return false;
+    if (C.ringKeep && !C.ringKeep(c)) return false;   // Atlas FE-2 W9-5 hook: the walking ring from your base (atlas-nav.js)
     return !S.q || fold(S.q).split(/\s+/).every(w => !w || text[pid(c)].indexOf(w) >= 0);
   };
   const count = o => { const sv = {}; let n = 0; for (const k in o) { sv[k] = S[k]; S[k] = o[k]; } cards.forEach(c => { if (visible(c)) n++; }); Object.assign(S, sv); return n; };
   const nsrc = x => (at(x, 'data-src') || '').split(' ').length, num = x => +at(x, 'data-n');
-  const far = x => C.dist && C.dist[pid(x)] != null ? C.dist[pid(x)] : 1e9;
+  // FE-C W9-5 hook: "Nearest to my base" (sort=base) sorts like Near me, by km from your base (base.js: C.baseKm)
+  const byBase = () => S.sort === 'base' && !!C.baseKm, nearOn = () => (S.sort === 'near' && !!C.dist) || byBase();
+  const far = x => byBase() ? C.baseKm(x) : C.dist && C.dist[pid(x)] != null ? C.dist[pid(x)] : 1e9;
   const apply = () => {
     if (Cleo.defer && (C.rank || S.day || S.sort)) Cleo.defer.all();   // a reorder must see every card (M3-06)
     let n = 0; const areas = {}, tot = cards.length;
     $$('ol.pls').forEach(ol => {
       const base = S.sort === 'az' ? (x, y) => $('.pl-n', x).textContent.localeCompare($('.pl-n', y).textContent)
-        : S.sort === 'src' ? (x, y) => nsrc(y) - nsrc(x) || num(x) - num(y) : S.sort === 'near' && C.dist ? (x, y) => far(x) - far(y) || num(x) - num(y) : (x, y) => num(x) - num(y);
+        : S.sort === 'src' ? (x, y) => nsrc(y) - nsrc(x) || num(x) - num(y) : nearOn() ? (x, y) => far(x) - far(y) || num(x) - num(y) : (x, y) => num(x) - num(y);
       const rk = S.day && C.dayRank ? C.dayRank : S.closed && info.co ? x => { const i = info.co.indexOf(pid(x)); return i < 0 ? 999 : i; } : C.rank;
       const li = $$('li.pl', ol).sort(rk ? (x, y) => rk(x) - rk(y) || base(x, y) : base);
       if (li.some((x, i) => ol.children[i] !== x)) li.forEach(x => ol.appendChild(x));
@@ -115,7 +120,7 @@
     });
     sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden]),noscript[data-cleo-defer]'); });
     if (sections.length > 1) {   // Near me: the nearest area comes first; otherwise the guide's area order
-      const ord = sections.slice().sort((x, y) => S.sort === 'near' && C.dist ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
+      const ord = sections.slice().sort((x, y) => nearOn() ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
       if (ord.some((x, i) => x !== $$('section.area')[i])) { const how = $('#how-we-choose'); ord.forEach(x => how.parentNode.insertBefore(x, how)); }
     }
     const nA = Object.keys(areas).length, act = LENS.filter(k => S[k] && k !== 'gap' && k !== 'day'), all = '<button class="btn btn-primary" data-cleo-all>Show all ' + tot + '</button>';
@@ -207,8 +212,8 @@
     if (tg) {
       tg.classList.add('is-target');
       if (r.p !== lastP || !(Cleo.sheet && Cleo.sheet.isOpen())) {
-        tg.scrollIntoView({ block: 'center' });
-        if (map && markers[r.p]) fly(markers[r.p].getLatLng());
+        // Atlas hosts the detail over a map that stays put (atlas-nav.js, SPEC-v3 §3.2): no page scroll, no fly
+        if (!(C.placeOpen && C.placeOpen(tg, map && markers[r.p]))) { tg.scrollIntoView({ block: 'center' }); if (map && markers[r.p]) fly(markers[r.p].getLatLng()); }
         if (C.select && C.view === 'atlas') C.select(tg, 'route');   // selected + labelled on the map (SPEC-v3 §1.4)
         if (Cleo.sheet) Cleo.sheet.open(tg); else { const l = $('.pl-n a', tg); if (l && l.focus) l.focus({ preventScroll: true }); }
       }
@@ -371,7 +376,8 @@
     need('atlas', () => { if (C.atlasTools && live()) { C.atlasTools(L, el); feature(); } });
     syncMarkers(); C.after.forEach(f => f());
     const r0 = Cleo.route.parse().p;
-    if (r0 && markers[r0]) setTimeout(() => fly(markers[r0].getLatLng()), 0);
+    if (C.atView && C.atView()) { if (r0 && C.clearPin) setTimeout(C.clearPin, 0); }   // a shared view (#…&at=, atlas-nav.js) wins
+    else if (r0 && markers[r0]) setTimeout(() => { if (!(C.freshPlace && C.view === 'atlas' && C.freshPlace())) fly(markers[r0].getLatLng()); }, 0);
     else if (S.a) setTimeout(() => fitArea(S.a), 0);
     else if (S.mode !== 'all' || S.q || LENS.some(k => S[k])) setTimeout(fitLens, 0);   // a lens link: every match on the map, so the count is the lens total
     else setTimeout(() => { if (!(C.fitDefault && C.fitDefault())) fitCore(); }, 0);   // the city core, or the last view of this city (atlas.js)

@@ -1,0 +1,18 @@
+/* atlas-nav.css (Atlas FE-2 lane): the Atlas map's interaction state — rides after atlas.css in assets/fe-a.css.
+ * Phones, Atlas only: the place detail is a sheet over the map that leaves a band of map above it, so the open place's
+ * pin is never under the sheet (SPEC-v3 §3.2). It scrolls inside; the other views keep FE-A's full-height sheet. */
+@media (max-width:1023.98px){
+  html.atlas-m[data-view=atlas] #cleo-sheet .sheet.detail{max-height:58vh}
+}
+/* skip links (§5): the page's own skip link style; Atlas only */
+html:not([data-view=atlas]) .ms-skip{display:none}
+/* "Nearest to me": one list across areas (atlas-nav.js moves the cards into section.ms-near while it is on) */
+html.atlas-m[data-view=atlas]:not(.ms-list) .listpane :is(section.ms-near,section.ms-near>ol.pls){display:contents}
+html.ms-on[data-view=atlas] main[data-city] #cleo-grid section.ms-near li.pl.ms-out{display:none}   /* outside the map area / page */
+.ms-d{font-weight:600;color:var(--ink)}
+.ms-head .ms-near-n{margin:4px 0 8px;font-size:var(--fs-sm);color:var(--ink-2)}
+html.atlas-m[data-view=atlas]:not(.ms-list) .ms-head .ms-near-n{display:none}
+/* the walking ring from your base (W9-5) */
+html[data-view=atlas] .ms-ring{display:inline-flex;align-items:center;gap:6px;flex:none}
+html[data-view=atlas] .ms-ring .ms-ring-l{font:500 var(--fs-sm)/1.2 var(--font-ui);color:var(--ink-2);white-space:nowrap}
+html[data-view=atlas] .ms-ring .chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}

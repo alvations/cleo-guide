@@ -1630,6 +1630,66 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - B-20: the phone search pill's input now fills the 44 px pill, border included (it measured 52 × 42).
 - B-08 (Wheeling phone, pre-existing on origin): with tiles blocked the phone opens the list; tabbing scrolled a card title half under the list's top edge at the chip row. The phone list now has `scroll-padding-block: 56px 24px`, so focus scrolling keeps context above the focused item (B-08 ✅ 0).
 
+- 2026-10-16 13:40Z · **Orchestrator** · resumed after the seven-day usage-limit pause (Oct 11 22:55 → Oct 16 13:00Z, when the limit reset) · commit: this entry's commit
+  - **The owner:** "Continue and complete towards the goals. Continue on the agents too."
+  - **State on resume:**
+    - The head was green on validate and beta:check.
+    - npm test had 2 failing suites. Both came from the casing helper rendering data labels in sentence case: the landing rail tile titles, and i18n data stripping ("Testville gazette").
+    - The tests now match data labels case-insensitively; FE-B and the i18n lane landed the same fixes in parallel. ALL SUITES PASS.
+  - **FE-A's last re-sign fixes are on origin:** dbd6d87d (QA-50: the rank comes from the data; QA-48/60: the category bar sits above the phone lead).
+  - **R7 re-sign pinned at `be74c82f2680009c726ac8ac54731ef97773dfb8`:** validate, npm test and beta:check all ✅. QA is re-signing.
+  - **QC pass, melon-seek style:** 14 findings, all reproducing on today's head.
+    - By severity: High 1 (QC-01: a canon chart's bars open the wrong set), Med 9, Low 4.
+    - Routed: FE-B QC-01/02/03/10; Atlas FE-1 QC-04/05/13; FE-A QC-06/07/08/09/11; i18n plus platform QC-12; designer QC-14.
+  - **Atlas panel round 2: 70.9** (R0 56.1, R1 63.8).
+    - The top open items, in recoverable points: #1 detail round-trip and deep link (6.8), #2 phone first screen (3.8), #3 counts (3.3), #4 near me (3.2), #5 desktop chrome (3.1).
+    - The designer folded these into SPEC-v3 rev 4.
+  - **Released now that the re-sign head is pinned:** platform's PERF-06 (phone CLS ~0.3 → ≤ 0.002 in the prototype) and the PERF-08 FE parts; the i18n lane's city-page Japanese strings.
+  - **Imagery:** `all` dispatched at budget 1200.
+  - **Location verification:** reports will now be committed per city for review (Orlando, Chicago, DC, Miami, Erie, Philadelphia next).
+  - **FE-C** was found on a stray local branch `work-fec`. It was told to merge onto the designated branch and verify the push.
+
+- 2026-10-16 · **FE-C** · closes **W9-5** (FE-C part: "Set as my base") · f70222d9f (head 517142af7)
+  - `tools/beta/client/base.js` (new, lazy):
+    - any open, pinned place's sheet offers "Set as my base";
+    - every card in Gallery, the list and Atlas (and its map preview), Guidebook and Saved then reads "650 m from <base> · 8 min walk", with the assumption (straight-line, about 80 m a minute) stated once per view;
+    - "Nearest to my base" sort; clearing restores the guide's order exactly;
+    - a closed or unpinned place can't be a base; one closed since is cleared with the reason;
+    - Atlas FE-2 ring API: `Cleo.base.ll/from/ready`, `cleo:base`, `cleo:base-ready`.
+  - core.js (platform told): route key `base`, `Cleo.base` state (`&base=` for the visit, `Cleo.store` 'mybase'), and the `Cleo.need` lazy loader.
+  - FE-A files: marked `FE-C W9-5 hook` blocks in city.js, render/city.js and render/saved.js (FE-A told).
+  - Tests: test-fe-c.js BASE (84 guides × 5 bases = 42,885 card lines equal to haversine; storage throwing; closed refused; sort and restore; sheet; Saved; lazy). Probe base-keys / base-lazy (keyboard, 390/1440, light and dark, every view, 0 off-origin requests). Shots: `design/beta/eval/w9/fe-c/base-*`.
+  - Open: the Atlas 5/10/15-min ring (W9-5 acceptance 5–6) is Atlas FE-2's, after their round 3.
+
+- 2026-10-16 · **Atlas FE-2** · closes **PANEL-R1-#1**, **PANEL-R1-#13**, **PANEL-R1-#11**, **PANEL-R1-#3** (FE-2 parts) and the PANEL-R1 probe-honesty note · round-3 head `537cfb8c65524a8da72a5fb4f2824bb084cfe399`
+  - Code: `tools/beta/client/atlas-nav.js` (new; ships inside `assets/js/atlas.js` via build.js) and `tools/beta/lib/render/atlas-nav.css` (after atlas.css), plus one-line optional hooks in atlas.js (FE-1 agreed) and city.js (FE-A told).
+  - **#1 round-trip:** opening a place from a card, a pin or the preview never flies the map or scrolls the page. Escape, Close and Back restore the centre (0 px), zoom, page and list scroll, the List count and pill, and focus on the opener (card or pin). A fresh `#p=` load sits at zoom ≥ 15, clear of the detail, at scrollY 0. On phone Atlas the detail sheet is 58vh, so the pin keeps a map band.
+  - **#13 view in the URL:** `#…&at=lat,lng,zoom` (the key `c=` is the category lens), written by replaceState on moveend. It reopens within 1 px and the same zoom and wins over the session view. The share toast reads "Link copied · opens <place> on this map view".
+  - **#11 keyboard:**
+    - "Skip to the map" and "Skip to the results" follow the shell skip link;
+    - in Atlas the map pane comes before the list in the document (Tab: map at stop 28, was 230; first pin 4 stops in via the skip link);
+    - with a pin focused, the arrow keys move between pins in map-priority order;
+    - Enter opens the preview and Escape returns to the pin (FE-1's link pins);
+    - 0 stops without a ring.
+  - **#3 near me:**
+    - locate-me sorts one list nearest first across areas;
+    - every card shows "90 m · about 1 min walk" (straight-line, 80 m a minute, stated in the count block);
+    - T3 at Shibuya + Eat & drink puts Nonbei Yokochō first at 90 m on both viewports;
+    - the first card is in bounds, and the pill equals the List-mode count;
+    - the view centred on the reader is never written to the URL or sessionStorage.
+  - Probes: `tools/beta/atlas-nav-ms.js`, run by `atlas-ms.js`. The atlas-ms "view kept" check now asserts centre, zoom, scrolls, count and focus. The baseline had 36 FAILs; now 0 FAIL.
+  - Gates on 537cfb8c: validate, npm test, beta:check and atlas-ms all PASS.
+  - Open: the W9-5 5/10/15-min base ring (FE-C's API is in), and SPEC-v3 rev 4 §3.6 one numbering in the detail (to verify with FE-A).
+
+- 2026-10-16 · **FE-C** · closes **W9-7** (Share cards) · 0f8598c0b (head 82556da37)
+  - `tools/beta/client/share-card.js` (new, lazy, loaded by core on the first tap):
+    - a 1080×1920 PNG drawn on canvas for a place (its sheet), a day (day mode), a list (Saved) or a trip (trip.html);
+    - same-origin pixels only: the place's committed photo or its calm cover, our own pins for the route (no tiles), the self-hosted faces;
+    - every card carries the source line and the checked date, and a photo card its short credit as text;
+    - a closed place reads "Closed · kept for the record" with no call to visit; a closed stop is flagged on its own line;
+    - preview with matching alt text, then Web Share with files where supported, a PNG download otherwise.
+  - Hooks: "Share as an image" as marked `FE-C W9-7 hook` lines in sheet.js, day.js and saved.js (FE-A told); core.js delegated tap (platform told).
+  - Tests: test-fe-c.js CARD (8,577 places: source and date on every card, closed stated, credit with photo; specs; every share action; lazy at the page version). Probe card section: six cases, including the map library blocked, all 1080×1920; 0 off-origin requests from tap to preview; Web Share image/png; download fallback; preview at 390/1440, light and dark. Cards: `design/beta/eval/w9/fe-c/cards/`.
 ### FE Atlas (FE-1) — SPEC-v3 rev 4: phone first screen (PANEL-R2 #2), Top picks (R2 #3, §2.4), count line (§2.3), dots and glyphs (R2 #6)
 - **Phone first screen (§2.2):**
   - The map plus a 64 px list peek ("288 places here · Show list"; a tap opens the list). The carousel appears only after a selection (pin, dot, card, search result) or Near me, and the selected place is panned into the uncovered band. Escape (decided in the capture phase, so closing the detail never also drops the carousel) or a tap on empty map brings the peek back.

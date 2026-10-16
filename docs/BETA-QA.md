@@ -1032,3 +1032,43 @@ Head `8e526c48`.
 | **D-39** (ratified by the orchestrator): verify FE-B's note test | **Guidebook ✅, detail ❌ → QA-65** | `test-views-b` passes. QA's own regex finds 192 records quoting a figure, and all 192 carry the note. The detector also labels 43 wording-only records, which errs on the safe side. The place detail, which D-39 says reads the same field, never shows the note. | `npm test`; Tokyo Guidebook 2/2 notes in the browser; `#p=tempura-abe-honten` shows "¥1,500–9,000" with no note |
 
 New finding **QA-65** (Med, honesty) · FE-A (`sheet.js`), with FE-B as the D-39 owner: the place detail shows quoted prices and ratings without the dated note.
+
+## 2026-10-16 · QA · R7 re-sign on be74c82f · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `be74c82f2680009c726ac8ac54731ef97773dfb8`**, in a clean worktree. Using `merge-base --is-ancestor`, QA checked that it contains FE-A dbd6d87d, b244f104, 6733a233, the gap-2, 3 and 5 commits, and FE-B 20e9a8e7.
+
+Gates:
+- validate ✅.
+- `npm test` ✅.
+- `beta:check` ✅: 180 pages, 8,577 places, beta == live.
+
+Evidence is in `design/beta/eval/w7/qa/resign-be74c82f/`.
+
+**Test edits since the last pin**, read and accepted:
+- The "No. k of n" test now requires k to equal the data's rank, including on a fresh deep link. That is stricter.
+- Two casing edits match ★ display labels without case, because labels are now sentence case. They check the same totals.
+
+| Re-sign row | Result |
+|---|---|
+| Atlas G1 (QA-45) | ✅ 5/5 (Gallery G1 also ✅ 5/5) |
+| Gallery B-02 (QA-47) | ✅ 5/5: 482 / 482 / 458 / 482 / 458 |
+| Tokyo B-04 (QA-48) | ✅ top 482 |
+| Wheeling B-04 (QA-60) | ✅ top 458 |
+| Landing B-05 (QA-49) | ✅ 2 |
+| QA-50 rank on a fresh `#p=` load | ✅ 5/5, phone + desktop |
+| QA-52 carousel credits, B-07 real pin tap | ✅ 5/5 |
+| QA-54 search refit | ✅ 8/8 |
+| QA-65 D-39 note in the detail | ✅ |
+| Casing | ✅ |
+| QA-66 B-23 (probe fixed: painted `pointer-events:none` layers are hit-tested for the reading) | ✅ light 0/0, night 0/0 on 6/6 pages, Gallery + Atlas |
+| **No regression** | ❌ **QA-69**: Gallery B-07 "toggle none" on 4/5 pilots. The phone map pill is hidden at load and while scrolling down (FE-A 7c70e821). It was ✅ on dd2125e3 and b5f0afa1. |
+| Register open High/Blocker | ❌ **1**: QC-01 (FE-B, Insights dish bars all open `cz=SUSHI`) |
+
+Also recorded:
+- **QA-68**: a `metrics.js` B-08 artefact in phone Atlas (one title straddling the scrolled list pane's edge). 0/90 titles are covered at reading position.
+- **QA-67**: the desktop detail photo matte, Low, still present.
+- **QA-61**: phone Atlas search 52 × 42, Low, still present.
+
+**Ratification:** the QA-66 probe fix to `metrics.js` `bgOf` measures what is actually painted under text, and nothing is exempted. A `pointer-events:none` layer above text now counts as covering it, so the change is stricter where it applies.
+
+QA sign-off: NO

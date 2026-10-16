@@ -36,10 +36,15 @@ const MARK = 'recompressed (JPEG, quality ≤ 72)';
 /** Size target (bytes) for one file of a row: a hero's 960 w ≤ 120 KB (R7 gap 7: every 960 w JPEG ≤ 120 KB); a card's
  *  ≥ 800 w copy ≤ 110 KB; any smaller copy ≤ 45 KB. */
 function targetOf(row, width, isMain) {
-  if (width >= 600 && width < 800) return 75 * KB;   // a card's derived 720 w copy (D-40)
+  if (width >= 600 && width < 800) return hasLarge(row) ? P720_KB * KB : 75 * KB;   // a card's 720 w copy (D-40): ≤ 55 KB beside a 960 (first screen)
   if (width < 800) return 45 * KB;
   return row.slot && isMain ? 120 * KB : 110 * KB;
 }
+/** A lead / first-row card (500 + 720 + 960) is on the first screen: its 720 w copy, what a 3× phone loads, is capped
+ *  tighter so Tokyo phone@3× stays ≤ 700 KB (D-40 option a, orchestrator 2026-10-16). */
+const P720_KB = 55;
+/** Does the row carry a ≥ 800 w copy (960) — a hero or a lead / first-row card? */
+const hasLarge = row => filesOf(row).some(f => classWidth(f) >= 800);
 /** The files of a credit row with their widths: the main file last. */
 const filesOf = row => [...(row.variants || []).map(v => ({ file: v.file, w: v.width, h: v.height, main: false })), { file: row.file, w: row.width, h: row.height, main: true }];
 /** The size class of a file: its 960-step copy is judged by its name, so a copy scaled below 800 px keeps its 110/120 KB target. */
@@ -102,13 +107,48 @@ async function convert(sharp, row, f, buf, target, meta, dry, p) {
   return [buf.length, out.length];
 }
 
+/** The manifest's lead / first-row targets ("page#id"), whose cards take 500 + 720 + 960 (D-40 option a). */
+function priorityIds() {
+  try { return new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'beta/assets/img/commons-candidates.json'), 'utf8')).targets.filter(t => t.priority && t.type !== 'hero').map(t => t.depicts)); }
+  catch (e) { return new Set(); }
+}
+/** A lead / first-row Commons card with a 960 w copy and no 720 w one: derive the 720 locally from the committed 960 (no
+ *  download), at ≤ 55 KB. Returns the rows to give one. */
+const needs720 = (row, prio) => row.provider === 'wikimedia-commons' && row.record && prio.has(`${row.record.page}#${row.record.id}`) &&
+  filesOf(row).some(f => /-960\.jpe?g$/i.test(f.file)) && !filesOf(row).some(f => classWidth(f) >= 600 && classWidth(f) < 800);
+async function priority720(sharp, rows, dry) {
+  let n = 0;
+  for (const row of rows) {
+    const big = filesOf(row).find(f => /-960\.jpe?g$/i.test(f.file)), p = path.join(PHOTO_DIR, big.file);
+    if (!fs.existsSync(p)) { console.log(`  skip  ${big.file}: no such file (no 720 copy)`); continue; }
+    const small = await sharp(fs.readFileSync(p)).resize({ width: 720 }).toBuffer();
+    const meta = await sharp(small).metadata();
+    const { out, q, w, h, scaled } = await encode(sharp, small, P720_KB * KB, meta);
+    const file = big.file.replace(/-960\.jpe?g$/i, `-${w}.jpg`);
+    console.log(`  ${dry ? 'would add' : 'added'} ${file} ${Math.round(out.length / KB)} KB (q${q}${scaled ? `, scaled to ${w}×${h}` : ''}, from the committed 960, target ${P720_KB} KB)`);
+    n++;
+    if (dry) continue;
+    fs.writeFileSync(path.join(PHOTO_DIR, file), out);
+    row.variants = [...(row.variants || []), { file, width: w, height: h }].sort((a, b) => a.width - b.width);
+    row.modified = String(row.modified || '').replace(/^resized to 500 and (\d+) px wide/, `resized to 500, ${w} and $1 px wide`);
+  }
+  return n;
+}
+
 async function main() {
   const dry = process.argv.includes('--dry-run');
   const j = JSON.parse(fs.readFileSync(CREDITS, 'utf8'));
   const sizeOf = f => { try { return fs.statSync(path.join(PHOTO_DIR, f)).size; } catch (e) { return null; } };
+  const prio = priorityIds(), p720 = j.credits.filter(r => needs720(r, prio));
+  let added720 = 0;
+  if (p720.length) {
+    const sharp = loadSharp();
+    if (!sharp) console.log(`recompress: ${p720.length} lead / first-row card(s) want a 720 w copy, but sharp is not installed — skipped.`);
+    else { console.log(`recompress: ${p720.length} lead / first-row card(s) without a 720 w copy (D-40)`); added720 = await priority720(sharp, p720, dry); const n = added720; console.log(`  → ${n} 720 w cop${n === 1 ? 'y' : 'ies'} ${dry ? 'to add' : 'added'}\n`); }
+  }
   const rows = j.credits.filter(r => needsWork(r, sizeOf));
   console.log(`recompress: ${rows.length} credited Commons row(s) to re-encode, convert to JPEG or colour (new, not a JPEG, over target, or no dominant colour)`);
-  if (!rows.length) return;
+  if (!rows.length) { if (!dry && added720) fs.writeFileSync(CREDITS, JSON.stringify(j, null, 1) + '\n'); return; }
   const sharp = loadSharp();
   if (!sharp) { console.log('recompress: sharp is not installed (cd tools && npm install --no-save sharp) — nothing changed (exit 0).'); return; }
   let before = 0, after = 0, files = 0, colours = 0;
@@ -149,4 +189,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => { console.error(`recompress: ${e.stack || e}`); process.exit(4); });
-module.exports = { targetOf, filesOf, eligible, needsWork, notJpeg, jpgName, dominantOf, MARK, QUALITIES };
+module.exports = { P720_KB, needs720, hasLarge, targetOf, filesOf, eligible, needsWork, notJpeg, jpgName, dominantOf, MARK, QUALITIES };

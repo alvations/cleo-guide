@@ -100,6 +100,7 @@
       (chk ? fact('stamp', 'Status checked ' + esc(chk), '<span class="muted">' + (closed ? 'Closed' : 'Open when last checked') + '</span>') : '') +
       fact('info', 'Hours and prices aren’t in our data', '<span class="muted">Check before you go.</span>') +
       '<div class="fact">' + icon('stamp') + '<div><button class="btn btn-ghost" data-sh="been" aria-pressed="' + been + '">' + (been ? 'Been there ✓' : 'Mark as been there') + '</button></div></div>' +
+      /* FE-C W9-7 hook: a portrait share image of this place (share-card.js, loaded on tap by core) */ '<div class="fact">' + icon('share') + '<div><button type="button" class="btn btn-ghost" data-cleo-card="place" data-id="' + esc(id) + '">Share as an image</button></div></div>' +
       (planned && !closed && ll ? '<div class="fact">' + icon('route') + '<div><button class="btn btn-ghost" data-sh="day" aria-pressed="' + !!inDay + '">' + (inDay ? 'In your day ✓' : 'Add to your day in ' + esc(C.label('a', a))) + '</button></div></div>' : '') +
       '<p class="sm"><a href="https://github.com/alvations/cleo-guide/issues/new?title=' + encodeURIComponent('Correction: ' + name + ' (' + info.name + ')') + '"' + NT + '>Suggest a correction</a></p></div></div>' +
       '<div class="actions"><button class="btn btn-ghost" data-sh="save" aria-pressed="' + !!saved + '">' + icon('heart') + '<span>' + (saved ? 'Saved' : 'Save') + '</span></button>' +
@@ -160,8 +161,9 @@
       im.setAttribute('sizes', '(min-width: 1024px) min(1024px, 88vw), 100vw'); im.setAttribute('loading', 'eager');
       if (mw) { im.style.maxWidth = mw + 'px'; x.style.setProperty('--ph-max', mw + 'px'); } }
     return x.outerHTML; };
-  var grow = null;
+  var grow = null, opener = null, tap = null;   // tap: the link or button just activated (mouse, touch or Enter), the sheet's opener
   d.addEventListener('click', function (e) {
+    var o = e.target.closest && e.target.closest('a[href], button'); if (o && !host.contains(o)) tap = [o, Date.now()];
     var t = e.target.closest && e.target.closest('li.pl .pl-n a, li.pl > .pl-cover, li.pl > .pl-photo, li.gc .gc-a'); if (!t) return;
     var li = t.closest('li.pl, li.gc'), m = li && (q('.pl-photo img', li) || q('.pl-cover', li) || q('.cover', li));
     if (m && m.getBoundingClientRect().height > 0) grow = [m, Date.now()];
@@ -169,6 +171,10 @@
   var api = Cleo.sheet = {
     isOpen: function () { return !host.hidden; },
     open: function (c) {
+      // QC-07: remember the control that opened the sheet (a row card, a grid card, a pin, a search hit), so Esc / Close
+      // returns focus to it, not to some other card for the same place; a stepped-through sheet keeps the first opener
+      var ae = tap && Date.now() - tap[1] < 1500 && tap[0].isConnected ? tap[0] : d.activeElement; tap = null;
+      if (host.hidden && ae && ae !== d.body && !host.contains(ae)) opener = ae;
       if (Cleo.tray) Cleo.tray.close(true);
       // W8 (R7 2d): a side panel only beside the Atlas map; elsewhere a centred dialog over a scrim
       var show = function () {
@@ -189,7 +195,9 @@
     close: function (fromRoute) {
       if (host.hidden) return;
       host.hidden = true; host.innerHTML = ''; d.body.style.overflow = '';
-      var back = card; card = null; if (back) { var l = q('.pl-n a', back); if (l && l.focus) l.focus({ preventScroll: true }); }
+      var back = card, op = opener; card = null; opener = null;
+      if (op && op.isConnected && op.getClientRects().length && op.focus) op.focus({ preventScroll: true });
+      else if (back) { var l = q('.pl-n a', back); if (l && l.focus) l.focus({ preventScroll: true }); }
       if (fromRoute) return;
       var r = Cleo.route.parse(); if (!r.p && !/^#p-/.test(location.hash)) return;
       if (byNav && history.length > 1) history.back(); else { delete r.p; C.go(r, true); }

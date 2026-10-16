@@ -13,7 +13,7 @@
  */
 const { esc, prose, jsonInline } = require('../html');
 const { TIER } = require('../model');
-const { t: tr } = require('../i18n');   // platform W9-8: the offline-pack strings come from the catalogue
+const { t: tr, tn } = require('../i18n');   // platform W9-8: the offline-pack strings come from the catalogue; i18n D-41: every interface string
 /** Every catalogue string the W9-8 offline pack and the offline map line use (test-i18n renders it in `pseudo`). */
 function offlineStrings(city, n) {
   const L = k => tr('pack.' + k, { city, size: '{size}', date: '{date}' });
@@ -32,7 +32,7 @@ function areaSplit(name) {                     // 'Jōnan — Shinagawa · Megur
   m = /^(.*?)\s+[—–]\s+(.*)$/.exec(n); if (m) { n = m[1].trim(); hoods = [m[2].trim()].concat(hoods); }
   return [n.trim(), hoods.join(' · ')];
 }
-const plural = (n, w) => `${n.toLocaleString('en-US')} ${w}${n === 1 ? '' : 's'}`;
+const plural = (n, w) => tn(w === 'place' ? 'hub.places' : 'city.areas', n, { n: n.toLocaleString('en-US') });   // i18n D-41
 
 /* ---- generic glyphs (original line set from design/beta/tools/svgkit.py); a glyph names a subject, never a venue ---- */
 const ICONS = {
@@ -110,7 +110,7 @@ const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg
 // R7 gap 3: the photo's dominant colour (imagery recompress.js, photo.color) rides on its figure as --ph, the placeholder
 // the photo fades in from (city.js marks the figure .in when its image has loaded)
 const tinted = (html, ph) => ph && /^#[0-9a-f]{6}$/i.test(ph.color || '') ? html.replace(/^<figure class="/, `<figure style="--ph:${ph.color}" class="`) : html;
-const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
+const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${tr('tier.' + t)}</span></a>` : '';   // i18n D-41
 
 /* ---- stated gaps: verbatim from the page's own method notes (never a keyword tag on a place) ---- */
 const GAP_RE = /\b(there is no|genuinely thin|(is|are) thin|thin for that reason|rather than pad|rather than (be )?fill|isn.t there|could not find)\b/i;
@@ -157,15 +157,15 @@ function card(r, num, ctx) {
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
   const eyebrow = r.closed
-    ? `Closed — kept for the record${prov.ss ? ` · per ${esc(prov.ss)}` : ''}${pv.checked ? `, checked ${esc(pv.checked)}` : ''}`
-    : `${tier(r.t)} <span class="in"><span class="in-a">within ${esc(aName)}</span>${dish ? `<span class="in-d"><span class="sep"> · </span>${esc(dish)}</span>` : ''}</span>`;   // in-a: hidden where the list is grouped by area (W7 card)
+    ? (prov.ss ? `${tr('city.card.closed')} · ${esc(tr(pv.checked ? 'city.card.perc' : 'city.card.per', { src: prov.ss, d: pv.checked }))}` : esc(tr(pv.checked ? 'city.card.closed.c' : 'city.card.closed', { d: pv.checked })))   // i18n D-41
+    : `${tier(r.t)} <span class="in"><span class="in-a">${esc(tr('city.card.within', { area: aName }))}</span>${dish ? `<span class="in-d"><span class="sep"> · </span>${esc(dish)}</span>` : ''}</span>`;   // in-a: hidden where the list is grouped by area (W7 card)
   // Recommended by: every publisher is a chip that opens its source view (M1-10); CSS shows three, then "+N".
   const ids = (r.src || []).filter(s => s !== 'guide');
   // literal ', ' stays for screen readers / copy; DES's cleo.css 15.3 glues a drawn comma to each name (QA-18)
   const chips = ids.map(id => { const s = srcById[id] || { name: id }; return `<button type="button" class="src${s.authority ? ' auth' : ''}" data-src="${esc(id)}">${esc(s.name.split(' · ')[0])}</button>`; });
   let rec = chips.slice(0, 3).join(', ');
   if (chips.length > 3) rec += ` <span class="more">+${chips.length - 3}</span><span class="rest">, ${chips.slice(3).join(', ')}</span>`;
-  if ((r.src || []).includes('guide')) rec += (rec ? ', ' : '') + '<span class="added">Added by the guide (general knowledge)</span>';
+  if ((r.src || []).includes('guide')) rec += (rec ? ', ' : '') + `<span class="added">${tr('city.card.added')}</span>`;   // i18n D-41
   // native script is printed ONCE (ROUND-1 #4): a trailing native aside is wrapped as .nat; the client sets it on the
   // plate (≤ 7 glyphs) and DES's cleo.css then hides the title copy visually (kept for screen readers + search).
   const nat = r.nat && r.n.endsWith(`(${r.nat})`) ? r.nat : '';
@@ -183,10 +183,10 @@ function card(r, num, ctx) {
   // W7 media slot (contract in docs/BETA-LOG.md): the calm cover (.pl-cover), a credited photo laid over it when the imagery
   // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
   return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
-<p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="Map pin ${num}">${num}</span>` : `<span class="pl-num" aria-label="Map pin ${num}">${num}</span> ${eyebrow}`}</p>
+<p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span>` : `<span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
-${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${isNote ? 'Your guide’s note' : 'Look for'}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
-<p class="pl-s"${ids.length > 1 ? ` data-more="${ids.length - 1}"` : ''}><span class="lbl">Recommended by</span> ${rec}</p></li>`;
+${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${tr(isNote ? 'city.card.note' : 'city.card.look')}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
+<p class="pl-s"${ids.length > 1 ? ` data-more="${ids.length - 1}"` : ''}><span class="lbl">${tr('card.recby')}</span> ${rec}</p></li>`;   // i18n D-41: the card's labels
 }
 
 /* ---- "For you" (M2-05): interests → collection / cuisine IDS only (Wenwen rule: never a dish or name keyword).
@@ -233,7 +233,7 @@ function render(row, recs, ctx) {
   const areasAll = page.AREAS || [];
   const colors = row.colors || {};
   const areas = areasAll.filter(a => recs.some(r => r.a === a.id));
-  const areaName = id => { const a = areasAll.find(x => x.id === id); return a ? areaSplit(a.n)[0] : 'Elsewhere'; };
+  const areaName = id => { const a = areasAll.find(x => x.id === id); return a ? areaSplit(a.n)[0] : tr('city.elsewhere'); };   // i18n D-41
   const srcList = (row.sources && row.sources.list) || [];
   const srcById = Object.fromEntries(srcList.map(s => [s.id, s]));
   const nS = st.sights != null ? st.sights : recs.filter(r => r.kind === 'sight').length, nF = recs.length - nS;
@@ -265,47 +265,47 @@ function render(row, recs, ctx) {
     const c = cats.find(x => x.id === sig.c[0]); tiles.push({ cls: 'sig', key: 'c', id: c.id, t: c.n, n: cnt(r => r.g.includes(c.id)), g: glyphFor(c.id, c.n), badge: 1, d: sig.line });
   } else if (sig) tiles.push({ cls: 'sig', key: 'sig', id: '1', t: sig.title, n: sig.ids.length, g: sig.kind === 'food' ? glyphFor((sig.cz || [])[0], sig.title, true) : 'star4', badge: 1, d: sig.line });
   const nT1 = cnt(r => r.t === 1 && !r.closed);
-  if (nT1) tiles.push({ cls: '', key: 't', id: '1', t: 'Must see', n: nT1, tg: 1 });
+  if (nT1) tiles.push({ cls: '', key: 't', id: '1', t: tr('tier.1'), n: nT1, tg: 1 });   // i18n D-41
   cats.filter(c => !/^★/.test(c.n) && !tiles.some(t => t.key === 'c' && t.id === c.id)).forEach(c => { const n = cnt(r => r.g.includes(c.id)); if (n) tiles.push({ cls: '', key: 'c', id: c.id, t: c.n, n, g: glyphFor(c.id, c.n), only: recs.every(r => !r.g.includes(c.id) || r.kind === 'sight') ? 's' : '' }); });
-  namedSrc.slice(0, 2).forEach(s => tiles.push({ cls: 'src-t', key: 'src', id: s.id, t: s.name, n: s.n, k: 'Everything recommended by', g: 'stamp' }));
+  namedSrc.slice(0, 2).forEach(s => tiles.push({ cls: 'src-t', key: 'src', id: s.id, t: s.name, n: s.n, k: tr('city.src.k'), g: 'stamp' }));   // i18n D-41
   const fo = G.foodOrder || [], fRank = c => { const i = fo.indexOf(c.id); return i < 0 ? 1e3 : i; };
   cuis.slice().sort((x, y) => fRank(x) - fRank(y)).forEach(c => { const n = cnt(r => r.cz.includes(c.id)); if (n) tiles.push({ cls: '', key: 'cz', id: c.id, t: c.n, n, g: glyphFor(c.id, c.n, true), only: 'f' }); });
   const missing = cats.concat(cuis).filter(c => cnt(r => r.g.includes(c.id) || r.cz.includes(c.id)) && !tiles.some(t => t.id === c.id && t.key !== 'src'));
   if (missing.length) throw new Error(`${row.beta}: collection rail would drop ${missing.map(c => c.id)}`);   // M1-02: no silent drop
   // home modules (M2-11, M2-05, M2-06, M3-02, M2-10) — only from fields that exist; they sit right after ★ in the rail
   const firstDay = areas.find(a => days[a.id]);
-  const mods = [`<button type="button" class="rail-i door fy" data-cleo-foryou aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span class="k">Your guide</span><span class="t">For you</span><span class="d">Tell it what you love</span></button>`];
-  if (firstDay) mods.push(`<button type="button" class="rail-i door" data-cleo-day=""><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span class="k">Your day</span><span class="t">A day in ${esc(areaSplit(firstDay.n)[0])}</span><span class="d">${days[firstDay.id].length} stops · ${Object.keys(days).length === 1 ? '1 area' : Object.keys(days).length + ' areas'} planned</span></button>`);
+  const mods = [`<button type="button" class="rail-i door fy" data-cleo-foryou aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span class="k">${tr('city.door.guide.k')}</span><span class="t">${tr('city.door.guide.t')}</span><span class="d">${tr('city.door.guide.d')}</span></button>`];   // i18n D-41: the rail's doors
+  if (firstDay) mods.push(`<button type="button" class="rail-i door" data-cleo-day=""><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span class="k">${tr('city.door.day.k')}</span><span class="t">${esc(tr('city.door.day.t', { area: areaSplit(firstDay.n)[0] }))}</span><span class="d">${tr('city.door.day.d', { n: days[firstDay.id].length, areas: tn('city.areas', Object.keys(days).length) })}</span></button>`);
   const iFree = tiles.findIndex(t => t.key === 'c' && t.id === 'FREE');
   const free = iFree >= 0 ? tiles.splice(iFree, 1)[0] : null;
   if (free) free.cls = 'door';
-  mods.push(`<button type="button" class="rail-i door mine" data-cleo-mine aria-pressed="false" hidden><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span class="k">Your list</span><span class="t">Saved here</span><span class="n" data-cleo-mine-n>0</span></button>`);
-  if (recs.some(r => r.la != null)) mods.push(`<button type="button" class="rail-i door" data-cleo-near aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-locate"/></svg><span class="k">Near me</span><span class="t">Nearest first</span><span class="d">Asks once · never stored</span></button>`);
+  mods.push(`<button type="button" class="rail-i door mine" data-cleo-mine aria-pressed="false" hidden><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span class="k">${tr('shell.saved')}</span><span class="t">${tr('city.door.mine.t')}</span><span class="n" data-cleo-mine-n>0</span></button>`);
+  if (recs.some(r => r.la != null)) mods.push(`<button type="button" class="rail-i door" data-cleo-near aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-locate"/></svg><span class="k">${tr('city.door.near.k')}</span><span class="t">${tr('city.door.near.t')}</span><span class="d">${tr('city.door.near.d')}</span></button>`);
   const nClosed = cnt(r => r.closed);
-  const closedTile = nClosed ? `<button type="button" class="rail-i gap" data-closed="1" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-archive"/></svg><span class="k">Kept for the record</span><span class="t">Recently closed</span><span class="n${nClosed === 1 ? ' one' : ''}">${nClosed}</span></button>` : '';
+  const closedTile = nClosed ? `<button type="button" class="rail-i gap" data-closed="1" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-archive"/></svg><span class="k">${tr('city.door.closed.k')}</span><span class="t">${tr('city.door.closed.t')}</span><span class="n${nClosed === 1 ? ' one' : ''}">${nClosed}</span></button>` : '';
   const gaps = statedGaps(page).map(g => Object.assign({}, g, { title: SC(g.title) }));
   const tileHtml = t => `<button type="button" class="rail-i${t.cls ? ' ' + t.cls : ''}" data-${t.key}="${esc(t.id)}"${t.only ? ` data-only="${t.only}"` : ''} aria-pressed="false">` +
     (t.tg ? '<i class="tg t1 g" aria-hidden="true"></i>' : t.g ? `<svg class="g ico" aria-hidden="true"><use href="#i-${t.g}"/></svg>` : '') +
-    (t.badge ? '<span class="k">★ Signature</span>' : t.k ? `<span class="k">${esc(t.k)}</span>` : '') +
+    (t.badge ? `<span class="k">${tr('city.sig.k')}</span>` : t.k ? `<span class="k">${esc(t.k)}</span>` : '') +
     `<span class="t">${esc(t.t.split(' · ')[0])}</span>${t.d ? `<span class="d">${esc(t.d)}</span>` : ''}<span class="n${t.n === 1 ? ' one' : ''}">${t.n}</span></button>`;
-  const gapHtml = gaps.map((g, i) => `<button type="button" class="rail-i gap" data-gap="${i}" data-only="f" aria-pressed="false"><svg class="g ico" aria-hidden="true"><use href="#i-info"/></svg><span class="k">Stated gap</span><span class="t">${esc(g.cz.length ? (cuis.find(c => c.id === g.cz[0]) || {}).n : g.title)}</span></button>`);
+  const gapHtml = gaps.map((g, i) => `<button type="button" class="rail-i gap" data-gap="${i}" data-only="f" aria-pressed="false"><svg class="g ico" aria-hidden="true"><use href="#i-info"/></svg><span class="k">${tr('city.gap.k')}</span><span class="t">${esc(g.cz.length ? (cuis.find(c => c.id === g.cz[0]) || {}).n : g.title)}</span></button>`);
 
   /* -- area chapters -- */
   const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
   const cardCtx = { japan: row.country === 'japan', page, srcById, areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
   const chapter = (a, list, i, total) => {
-    const [head1, hoods] = a ? areaSplit(a.n) : ['Elsewhere', ''];
+    const [head1, hoods] = a ? areaSplit(a.n) : [tr('city.elsewhere'), ''];   // i18n D-41: chapter strings
     const id = a ? a.id : 'other', col = a && colors[a.id] && /^#/.test(colors[a.id]) ? colors[a.id] : null;
     const art = a && row.art && row.art.areas && row.art.areas[a.id];
     placed += list.length;
     return `<section class="area" id="area-${esc(id)}" data-area="${a ? esc(a.id) : ''}" aria-labelledby="ah-${esc(id)}"${col ? ` style="--area:${col}"` : ''}>
-${art ? `<img class="shape" src="${esc(up + art.src)}" width="${art.w}" height="${art.h}" alt="" decoding="async" loading="lazy">` : ''}<h2 id="ah-${esc(id)}"><span class="area-n">${esc(head1)}</span> <span class="area-c">${plural(list.length, 'place')} · area ${i + 1} of ${total}</span></h2>
+${art ? `<img class="shape" src="${esc(up + art.src)}" width="${art.w}" height="${art.h}" alt="" decoding="async" loading="lazy">` : ''}<h2 id="ah-${esc(id)}"><span class="area-n">${esc(head1)}</span> <span class="area-c">${tr('city.area.c', { places: plural(list.length, 'place'), i: i + 1, n: total })}</span></h2>
 ${hoods ? `<p class="area-sub">${esc(hoods)}</p>` : ''}
 <ol class="pls">
 ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
 </ol>
-<p class="area-end">${a && days[a.id] ? `<button type="button" class="btn btn-ghost" data-cleo-day="${esc(a.id)}">${ico('route')}<span>Your day here · ${days[a.id].length} stops</span></button>` : ''}<button type="button" class="btn btn-ghost" data-cleo-map="${a ? esc(a.id) : ''}">${ico('map')}<span>See these ${list.length} on the map</span></button></p>
+<p class="area-end">${a && days[a.id] ? `<button type="button" class="btn btn-ghost" data-cleo-day="${esc(a.id)}">${ico('route')}<span>${tr('city.area.day', { n: days[a.id].length })}</span></button>` : ''}<button type="button" class="btn btn-ghost" data-cleo-map="${a ? esc(a.id) : ''}">${ico('map')}<span>${tr('city.area.map', { n: list.length })}</span></button></p>
 </section>`;
   };
   const orphan = recs.filter(r => !areas.some(a => a.id === r.a));
@@ -340,14 +340,16 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     `<p class="pack-done sm" data-pack-done data-l="${esc(pkL('saved'))}" hidden></p>` +
     `<p class="pack-msg sm" data-pack-msg role="status" aria-live="polite" data-l-saving="${esc(pkL('saving'))}" data-l-failed="${esc(pkL('failed'))}" data-l-removed="${esc(pkL('removed'))}"></p>` +
     `<p><button type="button" class="btn btn-ghost" data-pack="remove" hidden>${esc(pkL('remove'))}</button></p></section>`;
-  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? tinted(heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }), heroPhoto) : ''}</div>`;
+  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">${esc(tr('city.lead', { name: leadName }))}</a></p>` : ''}${heroPhoto ? tinted(heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }), heroPhoto) : ''}</div>`;
   // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
   // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
   const DV = 'gallery';
   const VIEWS = ['gallery', 'atlas'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
-  const VLBL = { gallery: ['Gallery', 'grid'], atlas: ['Atlas', 'map'], guidebook: ['Guidebook', 'list'], insights: ['Insights', 'sliders'] };
-  const switcher = `<nav class="views" data-cleo-views aria-label="View" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}">${ico(VLBL[v][1])}<span>${VLBL[v][0]}</span></button>`).join('')}</nav>`;
-  const areaChips = areas.length > 1 ? '<div class="area-chips" role="group" aria-label="Areas" data-cleo-toolbar hidden></div>' : '';   // views.js draws the chips (page weight)
+  const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'sliders'] };   // i18n D-41: views, tray, masthead
+  // FE-B QC-09 (DESIGN-SYSTEM §v2.11): a labelled group of four pressed-state toggles, never a <nav> (axe: no group role on
+  // nav); four segments at every width, one tap per switch; data-label = the visible tooltip when only the glyph shows
+  const switcher = `<div class="views" data-cleo-views role="group" aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}" data-label="${VLBL[v][0]}">${ico(VLBL[v][1])}<span class="l">${VLBL[v][0]}</span></button>`).join('')}</div>`;
+  const areaChips = areas.length > 1 ? `<div class="area-chips" role="group" aria-label="${tr('city.areas.label')}" data-cleo-toolbar hidden></div>` : '';   // views.js draws the chips (page weight)
   // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
   const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
     `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x);if(x==='atlas')document.documentElement.classList.add(!window.matchMedia||matchMedia('(min-width:1024px)').matches?'atlas-d':'atlas-m')})()</script>`;
@@ -358,7 +360,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   for (const mm of cardsHtml.matchAll(/data-[gm][lg]="([a-z0-9-]+)"/g)) used.add(mm[1]);
   const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${[...used].filter(k => ICONS[k]).sort().map(k => `<symbol id="i-${k}" viewBox="0 0 24 24">${ICONS[k]}</symbol>`).join('')}</svg>`;
 
-  const mapArt = row.art && row.art.map ? Object.assign({ alt: `Schematic of ${row.art.map.drawn} verified pins in ${name}, coloured by area` }, row.art.map) : null;
+  const mapArt = row.art && row.art.map ? Object.assign({ alt: tr('city.mapart.alt', { n: row.art.map.drawn, city: name }) }, row.art.map) : null;
   const provDates = [...new Set(Object.values(prov).map(p => p.pv).filter(Boolean))].sort();
   const blob = {
     v: 2, key: row.key, name, center: ctx.center, total: recs.length, file: row.fileKey, lang,
@@ -371,7 +373,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
-    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights },  // loaded on first use (C.need / views.js), precached by the SW
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'] /* FE-C W9-5 / W9-7 hook */ },  // loaded on first use (C.need / views.js), precached by the SW
     views: VIEWS, dv: DV,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
@@ -383,17 +385,17 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   /* -- filter tray (M1-07), server-rendered so it costs no client JS; city.js only opens it and applies it -- */
   const pill = (k, v, t, n) => `<button type="button" class="pill" data-f="${k}" data-v="${esc(v)}" aria-pressed="false">${esc(t)}${n != null ? ` <span class="n">${n}</span>` : ''}</button>`;
   const fs = (id, legend, body) => body ? `<fieldset data-fs="${id}"><legend>${legend}</legend><div class="opts">${body}</div></fieldset>` : '';
-  const trayHtml = `<div class="overlay" id="cleo-tray" hidden><div class="tray" role="dialog" aria-modal="true" aria-labelledby="tray-h"><header><h2 id="tray-h">Filters</h2>` +
-    `<button type="button" class="btn btn-icon" data-tr="x" aria-label="Close filters">${ico('close')}</button></header><div class="scroll">` +
-    (areas.length > 1 ? fs('area', 'Area', areas.map(a => pill('a', a.id, areaSplit(a.n)[0], cnt(r => r.a === a.id))).join('')) : '') +
-    fs('tier', 'Distinction <span class="sm">— graded within each area</span>', [1, 2, 3].map(t => pill('t', String(t), TIER[t], cnt(r => r.t === t && !r.closed))).join('')) +
-    fs('src', 'Recommended by', srcList.map(x => pill('src', x.id, x.name, x.n)).join('')) +
-    fs('c', 'Collection', cats.filter(c => cnt(r => r.g.includes(c.id))).map(c => pill('c', c.id, c.n.replace(/^★\s*/, ''), cnt(r => r.g.includes(c.id)))).join('')) +
-    fs('cz', 'Cuisine', cuis.filter(c => cnt(r => r.cz.includes(c.id))).map(c => pill('cz', c.id, c.n, cnt(r => r.cz.includes(c.id)))).join('')) +
-    fs('sort', 'Sort within each area', pill('sort', '', 'Guide’s order (tier, then sources)') + pill('sort', 'src', 'Most sources first') + pill('sort', 'az', 'A–Z') + pill('sort', 'near', 'Nearest to me')) +
-    fs('been', 'Been there', pill('been', '', 'Show all') + pill('been', 'hide', 'Hide been there') + pill('been', 'only', 'Only been there')) +
-    fs('base', 'Map style', pill('base', 'street', 'Street') + pill('base', 'light', 'Light') + pill('base', 'satellite', 'Satellite')) +
-    `</div><footer><button type="button" class="btn btn-quiet" data-tr="clear">Clear all</button><button type="button" class="btn btn-primary" data-tr="go">Show ${recs.length} places</button></footer></div></div>`;
+  const trayHtml = `<div class="overlay" id="cleo-tray" hidden><div class="tray" role="dialog" aria-modal="true" aria-labelledby="tray-h"><header><h2 id="tray-h">${tr('city.tray.h')}</h2>` +
+    `<button type="button" class="btn btn-icon" data-tr="x" aria-label="${tr('city.tray.close')}">${ico('close')}</button></header><div class="scroll">` +
+    (areas.length > 1 ? fs('area', tr('city.tray.area'), areas.map(a => pill('a', a.id, areaSplit(a.n)[0], cnt(r => r.a === a.id))).join('')) : '') +
+    fs('tier', `${tr('city.tray.tier')} <span class="sm">${tr('city.tray.tier.note')}</span>`, [1, 2, 3].map(t => pill('t', String(t), tr('tier.' + t), cnt(r => r.t === t && !r.closed))).join('')) +
+    fs('src', tr('card.recby'), srcList.map(x => pill('src', x.id, x.name, x.n)).join('')) +
+    fs('c', tr('city.tray.c'), cats.filter(c => cnt(r => r.g.includes(c.id))).map(c => pill('c', c.id, c.n.replace(/^★\s*/, ''), cnt(r => r.g.includes(c.id)))).join('')) +
+    fs('cz', tr('city.tray.cz'), cuis.filter(c => cnt(r => r.cz.includes(c.id))).map(c => pill('cz', c.id, c.n, cnt(r => r.cz.includes(c.id)))).join('')) +
+    fs('sort', tr('city.tray.sort'), pill('sort', '', tr('city.sort.guide')) + pill('sort', 'src', tr('city.sort.src')) + pill('sort', 'az', 'A–Z') + pill('sort', 'near', tr('city.sort.near')) + pill('sort', 'base', tr('city.sort.base')).replace('<button', '<button hidden') /* FE-C W9-5 hook: base.js shows it */) +
+    fs('been', tr('city.been'), pill('been', '', tr('city.been.all')) + pill('been', 'hide', tr('city.been.hide')) + pill('been', 'only', tr('city.been.only'))) +
+    fs('base', tr('city.base'), pill('base', 'street', tr('city.base.street')) + pill('base', 'light', tr('city.base.light')) + pill('base', 'satellite', tr('city.base.satellite'))) +
+    `</div><footer><button type="button" class="btn btn-quiet" data-tr="clear">${tr('city.tray.clear')}</button><button type="button" class="btn btn-primary" data-tr="go">${tr('city.tray.go', { n: recs.length })}</button></footer></div></div>`;
 
   const title = `${name} — ${recs.length} sourced places · Cleo`;
   const desc = `${name}: ${nS} sights and ${nF} places to eat and drink, every one traceable to the source that recommended it, pinned and status-checked.`;
@@ -402,18 +404,18 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const country = COUNTRIES.find(c => c.key === row.country) || {};
   // ROUND-4 #3: phones keep one short line (count · areas · last checked · closed); the method sentence and its "How we
   // choose" link sit in .long (≥ 900 px), so the What-changed link is the only masthead link before the first card
-  const facts = `<b>${plural(recs.length, 'place')}</b> · ${plural(st.areas || areas.length, 'area')}<span class="long"> · every one sourced, pinned and status-checked</span>${st.lastChecked ? ` · last checked <time class="nw">${esc(st.lastChecked)}</time>` : ''}${st.closed ? ` · ${st.closed} closed<span class="long">, kept for the record</span>` : ''}<span class="long">. Ordered by tier, then by number of named sources. <a href="#how-we-choose">How we choose</a></span>`;
-  const seg = `<div class="modes" role="group" aria-label="Show"><button type="button" data-mode="all" aria-pressed="true">All <span class="n">${recs.length}</span></button>` +
-    (nS && nF ? `<button type="button" data-mode="sights" aria-pressed="false">Sights <span class="n">${nS}</span></button><button type="button" data-mode="food" aria-pressed="false">Eat &amp; drink <span class="n">${nF}</span></button>` : '') + '</div>';
+  const facts = `<b>${plural(recs.length, 'place')}</b> · ${plural(st.areas || areas.length, 'area')}<span class="long">${tr('city.facts.long')}</span>${st.lastChecked ? ` · ${tr('city.facts.checked')} <time class="nw">${esc(st.lastChecked)}</time>` : ''}${st.closed ? ` · ${tr('city.facts.closed', { n: st.closed })}<span class="long">${tr('city.facts.kept')}</span>` : ''}<span class="long">${tr('city.facts.order')} <a href="#how-we-choose">${tr('page.method')}</a></span>`;   // i18n D-41
+  const seg = `<div class="modes" role="group" aria-label="${tr('city.mode.label')}"><button type="button" data-mode="all" aria-pressed="true">${tr('city.mode.all')} <span class="n">${recs.length}</span></button>` +
+    (nS && nF ? `<button type="button" data-mode="sights" aria-pressed="false">${tr('city.mode.sights')} <span class="n">${nS}</span></button><button type="button" data-mode="food" aria-pressed="false">${esc(tr('city.mode.food'))} <span class="n">${nF}</span></button>` : '') + '</div>';
 
   return `${headHtml}
 <body>
 ${sprite}
 ${siteBar({ depth, current: 'city', rel: row.beta })}
 <main id="main" data-city="${esc(row.key)}">
-<div class="cbar"><div class="cbar-in"><div class="spill" role="search" data-cleo-search hidden>${ico('search')}<label class="vh" for="cleo-filter">Search ${esc(name)}</label><input id="cleo-filter" type="search" placeholder="Search ${esc(name)}" autocomplete="off" enterkeyhint="search"><span class="hint" aria-hidden="true">place · dish · area</span></div>
+<div class="cbar"><div class="cbar-in"><div class="spill" role="search" data-cleo-search hidden>${ico('search')}<label class="vh" for="cleo-filter">${esc(tr('city.search', { city: name }))}</label><input id="cleo-filter" type="search" placeholder="${esc(tr('city.search', { city: name }))}" autocomplete="off" enterkeyhint="search"><span class="hint" aria-hidden="true">${tr('city.search.hint')}</span></div>
 ${switcher}</div></div>
-<button type="button" class="mappill" data-cleo-map="" data-cleo-mappill hidden>${ico('map')}<span>Show map</span></button>
+<button type="button" class="mappill" data-cleo-map="" data-cleo-mappill hidden>${ico('map')}<span>${tr('city.mappill')}</span></button>
 <p class="vh" id="cleo-view-live" aria-live="polite"></p>
 <header class="masthead">${motifSvg(row.imagery && row.imagery.motif, up, { fit: 'xMaxYMax meet', style: 'position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:.42;-webkit-mask-image:linear-gradient(90deg,transparent 35%,#000 75%);mask-image:linear-gradient(90deg,transparent 35%,#000 75%)' })}
   <p class="eyebrow">${esc(country.name || m.eyebrow || '')}</p>
@@ -421,22 +423,22 @@ ${switcher}</div></div>
   <p class="facts">${facts}</p>
 ${heroHtml}
 </header>
-<nav class="rail" id="cleo-rail" aria-label="Collections" data-cleo-rail data-view="all" hidden>
+<nav class="rail" id="cleo-rail" aria-label="${tr('city.rail.label')}" data-cleo-rail data-view="all" hidden>
 ${tiles.filter(t => t.cls === 'sig').map(tileHtml).join('\n')}
 ${mods.join('\n')}${free ? '\n' + tileHtml(free) : ''}
 ${tiles.filter(t => t.cls !== 'sig').map(tileHtml).join('\n')}
 ${gapHtml.join('\n')}${closedTile ? '\n' + closedTile : ''}
-<button type="button" class="rail-i rail-all" data-cleo-all aria-pressed="false"><svg class="g ico" aria-hidden="true"><use href="#i-grid"/></svg><span class="t">Show all</span><span class="n">${recs.length}</span></button>
+<button type="button" class="rail-i rail-all" data-cleo-all aria-pressed="false"><svg class="g ico" aria-hidden="true"><use href="#i-grid"/></svg><span class="t">${tr('city.been.all')}</span><span class="n">${recs.length}</span></button>
 </nav>
-<div class="railbar" data-cleo-rail hidden><button type="button" class="btn btn-icon btn-ghost" data-rail="-1" aria-label="Previous collections">${ico('chev-l')}</button><button type="button" class="btn btn-icon btn-ghost" data-rail="1" aria-label="Next collections">${ico('chev-r')}</button></div>
+<div class="railbar" data-cleo-rail hidden><button type="button" class="btn btn-icon btn-ghost" data-rail="-1" aria-label="${tr('city.rail.prev')}">${ico('chev-l')}</button><button type="button" class="btn btn-icon btn-ghost" data-rail="1" aria-label="${tr('city.rail.next')}">${ico('chev-r')}</button></div>
 <!-- QA-48 / QA-60 (B-04): the category bar sits above the phone lead card, so it is on the first screen on every page, not only where the hero is short -->
-<div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">Start with</p></div>
+<div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">${tr('city.lead.k')}</p></div>
 <div class="g-rows vw view-gallery" id="cleo-rows-host"></div>
 <div class="toolbar" data-cleo-toolbar hidden>
 ${seg}
-<button type="button" class="btn btn-ghost area-btn" data-cleo-tray="area" aria-haspopup="dialog">${ico('pin')}<span class="lbl">Area</span></button>
-<button type="button" class="btn btn-ghost" data-cleo-tray="" aria-haspopup="dialog" aria-label="Filters">${ico('sliders')}<span class="lbl">Filters</span><span class="tb-n" data-cleo-nf></span></button>
-<button type="button" class="btn btn-primary map-toggle" data-cleo-map="" aria-label="Show the map">${ico('map')}</button>
+<button type="button" class="btn btn-ghost area-btn" data-cleo-tray="area" aria-haspopup="dialog">${ico('pin')}<span class="lbl">${tr('city.tray.area')}</span></button>
+<button type="button" class="btn btn-ghost" data-cleo-tray="" aria-haspopup="dialog" aria-label="${tr('city.tray.h')}">${ico('sliders')}<span class="lbl">${tr('city.tray.h')}</span><span class="tb-n" data-cleo-nf></span></button>
+<button type="button" class="btn btn-primary map-toggle" data-cleo-map="" aria-label="${tr('city.map.show')}">${ico('map')}</button>
 <div class="applied" data-cleo-applied></div>
 ${areaChips}
 </div>
@@ -446,21 +448,21 @@ ${areaChips}
 <div class="lens" id="cleo-lens" aria-live="polite" hidden></div>
 <p class="shown" id="cleo-shown" aria-live="polite"></p>
 ${cardsHtml}
-<section class="howto" id="how-we-choose" aria-labelledby="hwc-h"><h2 class="d2" id="hwc-h">How we choose</h2>
-<p>Every place is recommended by named sources (review-aggregator star ratings never count as the recommender), pinned to its door from a published coordinate, and status-checked. Closed places stay, flagged, so you know they’re gone.</p>
-<dl><dt><i class="tg t1" aria-hidden="true"></i> Must see</dt><dd>The places to plan a visit around — graded within each area, not across the city.</dd><dt><i class="tg t2" aria-hidden="true"></i> Worth the detour</dt><dd>Strong picks, worth going out of your way for.</dd><dt><i class="tg t3" aria-hidden="true"></i> Deep cut</dt><dd>For the curious: smaller, odder, more local.</dd></dl>
-<p class="sm">Within each area, places are ordered by tier, then by number of named sources — never by popularity. Numbers on the cards match the pins on the map. No ratings, prices or opening hours are shown, because the guide doesn’t hold verified ones.</p>
+<section class="howto" id="how-we-choose" aria-labelledby="hwc-h"><h2 class="d2" id="hwc-h">${tr('page.method')}</h2>
+<p>${tr('city.how.p')}</p>
+<dl>${[1, 2, 3].map(n => `<dt><i class="tg t${n}" aria-hidden="true"></i> ${tr('tier.' + n)}</dt><dd>${tr('city.how.t' + n)}</dd>`).join('')}</dl>
+<p class="sm">${tr('city.how.order')}</p>
 </section>
 </div>
-<aside class="mappane" aria-label="Map">
-<button type="button" class="btn btn-primary mapclose" data-cleo-map="" aria-label="Back to the list">${ico('list')}<span>Show list</span></button>
+<aside class="mappane" aria-label="${tr('city.map.label')}">
+<button type="button" class="btn btn-primary mapclose" data-cleo-map="" aria-label="${tr('city.map.back')}">${ico('list')}<span>${tr('city.map.list')}</span></button>
 <div id="cleo-map" class="map" data-l-offline="${esc(OS.mapOffline)}"${mapArt ? ` data-art="${esc(up + mapArt.src)}" data-art-alt="${esc(mapArt.alt)}"` : ''}>${mapArt
-    ? `<figure class="map-art map-fallback"><img src="${esc(up + mapArt.src)}" width="${mapArt.w}" height="${mapArt.h}" alt="${esc(mapArt.alt)}" decoding="async" style="max-width:100%;height:auto"><figcaption>The map appears when it can load. Every place is listed here either way.</figcaption></figure>`
-    : '<p class="map-fallback">The map appears when it can load. Every place is listed here either way.</p>'}</div>
-<div class="poi-sheet" id="cleo-poi" role="dialog" aria-label="Place on the map" hidden></div>
+    ? `<figure class="map-art map-fallback"><img src="${esc(up + mapArt.src)}" width="${mapArt.w}" height="${mapArt.h}" alt="${esc(mapArt.alt)}" decoding="async" style="max-width:100%;height:auto"><figcaption>${tr('city.map.fallback')}</figcaption></figure>`
+    : `<p class="map-fallback">${tr('city.map.fallback')}</p>`}</div>
+<div class="poi-sheet" id="cleo-poi" role="dialog" aria-label="${tr('city.poi.label')}" hidden></div>
 </aside>
 </div>
-${m.standfirst ? `<section class="about" aria-label="About this guide"><p>${esc(m.standfirst.replace(/\s*Switch modes below[\s\S]*$/, ''))}</p></section>` : ''}
+${m.standfirst ? `<section class="about" aria-label="${tr('city.about.label')}"><p>${esc(m.standfirst.replace(/\s*Switch modes below[\s\S]*$/, ''))}</p></section>` : ''}
 ${packHtml}
 <div class="overlay" id="cleo-sheet" hidden></div>
 <div class="overlay" id="cleo-fy" hidden></div>

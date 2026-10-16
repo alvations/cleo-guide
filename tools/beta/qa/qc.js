@@ -444,6 +444,23 @@ async function patterns(rel, vp) {
       ev.route = t2.route; ev.lines = (await o2.page.evaluate(COUNTS)).map(x => x.text).slice(0, 2); }
     check('P-28', C, ok(ev.route && !['a', 'mode', 't'].some(k => ev.route[k])), ev); await o2.ctx.close();
   }
+  // P-24 no silent caps: every container that states "n places" shows n items or a visible control to reach the rest
+  for (const v of VIEWS) {
+    const o24 = await open(rel, vp, { hash: '#view=' + v, settle: 1200 });
+    const caps = await o24.page.evaluate(new Function(`${P_VIS} if (window.Cleo && Cleo.defer && Cleo.defer.all) Cleo.defer.all();
+      let measured = 0; const ITEM = 'li.pl, .gc, .ge, .ixi, .rail-i'; const MORE = /see all|show all|show [\\d,]+ more|all [\\d,]+ places|next|›/i; const out = [];
+      document.querySelectorAll('main section, main .g-row, main .ch, main .ms-head, main .rail, main [class*=row]').forEach(c => {
+        if (!vis(c) || c.closest('[role=dialog]')) return;
+        const head = [...c.querySelectorAll('h2,h3,.row-h,.sub,.count,.ms-count,p')].slice(0, 4).map(h => h.textContent).join(' ');
+        const m = /\\b([\\d,]+) places?\\b/.exec(head); if (!m) return;
+        const n = +m[1].replace(/,/g, ''); const items = c.querySelectorAll(ITEM).length; if (!items) return; measured++;
+        const ctl = [...c.querySelectorAll('button, a')].some(b => vis(b) && MORE.test(b.textContent)) || [...(c.parentElement ? c.parentElement.querySelectorAll(':scope > .pager, :scope > .ms-pager, :scope > [class*=pager]') : [])].some(vis);
+        if (items < n && !ctl) out.push({ stated: n, rendered: items, head: head.replace(/\\s+/g, ' ').trim().slice(0, 80), cls: String(c.className).slice(0, 40) });
+      });
+      return { out, measured };`));
+    check('P-24', { ...C, view: v }, caps.measured ? ok(!caps.out.length) : 'N/A', { measured: caps.measured, silentCaps: caps.out.slice(0, 6) });
+    await o24.ctx.close();
+  }
   // P-25 value-led ranking, P-26 invented data (all four views, visible text + sort options)
   const o = await open(rel, vp, { hash: '#p=' + top.id, settle: 900 });
   const texts = {};
@@ -455,7 +472,7 @@ async function patterns(rel, vp) {
   const vh = hits(VALUE), ih = hits(INVENT);
   check('P-25', C, ok(VIEWS.every(v => !vh[v].length) && !sorts.some(s => VALUE.test(s) || /rating|popular/i.test(s))), { hits: vh, sortOptions: sorts });
   const photos = await o.page.evaluate(new Function(`${P_VIS} return [...document.querySelectorAll('main img')].filter(i => vis(i) && !/\\.svg(\\?|$)/.test(i.currentSrc || i.src) && i.naturalWidth > 64)
-    .map(i => { const f = i.closest('figure, .gc, .cover, .photo, [class*=img], li, article') || i.parentElement; return { src: (i.currentSrc || i.src).split('/').slice(-1)[0], credit: /photo|©|cc |public domain|wikimedia|courtesy/i.test(f ? f.textContent + (i.getAttribute('title') || '') + (i.alt || '') : '') };   // textContent: content-visibility:auto cards report no innerText off-screen }).slice(0, 80);`));
+    .map(i => { const f = i.closest('figure, .gc, .cover, .photo, [class*=img], li, article') || i.parentElement; return { src: (i.currentSrc || i.src).split('/').slice(-1)[0], credit: /photo|©|cc |public domain|wikimedia|courtesy/i.test(f ? f.textContent + (i.getAttribute('title') || '') + (i.alt || '') : '') };  /* textContent: content-visibility:auto cards report no innerText off-screen */ }).slice(0, 80);`));
   check('P-26', C, ok(VIEWS.every(v => !ih[v].length) && photos.every(p => p.credit)), { hits: ih, photos: photos.length, uncredited: photos.filter(p => !p.credit).slice(0, 5) });
   P_TEXT_CACHE[rel] = texts.gallery;
   await o.ctx.close();

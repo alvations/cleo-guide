@@ -231,7 +231,22 @@ const PROBE = () => {
     // on screen: use what is actually painted under the text (catches overlays such as a header over a hero band)
     const r = el.getBoundingClientRect(), cx = r.left + Math.min(r.width / 2, 8), cy = r.top + r.height / 2;
     if (cx >= 0 && cy >= 0 && cx < vw && cy < vh) {
+      // QA R7 (QA-66): elementsFromPoint skips layers with pointer-events:none, so a painted decorative layer under the
+      // text (e.g. the switcher's sliding indicator) was missed and the text was graded against the track behind it.
+      // Make such painted layers near the text hit-testable for this one reading, then restore them. This measures what
+      // is actually painted; an exempted element would not be — and a pe:none layer ABOVE the text now counts as covering it.
+      const lifted = [];
+      for (let a = el.parentElement, d = 0; a && d < 4; a = a.parentElement, d++) {
+        for (const u of a.querySelectorAll('*')) {
+          if (u === el || u.contains(el) || lifted.includes(u)) continue;
+          const us = getComputedStyle(u); if (us.pointerEvents !== 'none') continue;
+          const ub = parseRGB(us.backgroundColor); if (!(ub && ub[3] > 0) && (!us.backgroundImage || us.backgroundImage === 'none')) continue;
+          const q = u.getBoundingClientRect(); if (cx < q.left || cx > q.right || cy < q.top || cy > q.bottom) continue;
+          lifted.push(u); u.dataset.qaPe = u.style.pointerEvents; u.style.pointerEvents = 'auto';
+        }
+      }
       const pile = document.elementsFromPoint(cx, cy);
+      lifted.forEach(u => { u.style.pointerEvents = u.dataset.qaPe; delete u.dataset.qaPe; });
       const top = pile.find(u => !(u !== el && el.contains(u)));
       if (top && top !== el && !top.contains(el)) return { bg: null, unknown: true, occluded: true };   // covered (e.g. a rail arrow)
       for (const u of pile) {

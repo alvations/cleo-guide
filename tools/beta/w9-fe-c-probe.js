@@ -11,6 +11,12 @@
  *  trip-print  the booklet PDF has one page per day plus the cover and the left-out page
  *  trip-map    "Open day 1 on the map" opens the guide in day mode with exactly the trip's stops, in order
  *  offorigin   0 off-origin requests (tiles stubbed only on the guide page)
+ *  base-keys   (W9-5) at 390 and 1440, light and dark: a place sheet → "Set as my base" by keyboard; then Gallery, Atlas and
+ *              Guidebook each show the assumption once and the line on every visible card; Saved too
+ *  base-lazy   a first load with no base never requests base.js; with a base it is requested once
+ *  card        (W9-7) place (photo), closed place, day, list (Saved) and trip: a 1080×1920 PNG; its preview's alt text names
+ *              the source line, the checked date and (photo cards) the credit; 0 off-origin requests from the tap to the
+ *              preview; works with the map library blocked; Web Share gets an image/png file where supported, else a download
  */
 const fs = require('fs');
 const path = require('path');
@@ -25,16 +31,18 @@ const SAVED = {};
 ['senso-ji', 'tokyo-national-museum', 'ueno-park', 'kappabashi-dogu-gai', 'yanaka-cemetery', 'asakusa-shrine', 'national-museum-of-western-art', 'shibuya-scramble-crossing',
   'yoyogi-park', 'meiji-jingu', 'hachiko-statue', 'unicorn-gundam-statue-divercity-tokyo-plaza', 'shinjuku-golden-gai', 'isegen', 'kanda-myojin'].forEach((id, i) => { SAVED['tokyo/' + id] = { t: i }; });
 
-async function open(b, url, o = {}) {
+async function open(b, url, o = {}) {   // o.noLeaflet: the map library is blocked
   const ctx = await b.newContext({ viewport: { width: o.w || 390, height: o.h || 844 }, isMobile: (o.w || 390) < 500, hasTouch: (o.w || 390) < 500, serviceWorkers: 'block', colorScheme: o.dark ? 'dark' : 'light' });
   const off = [];
   await ctx.route('**/*', r => { const u = r.request().url();
     if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u) && o.tiles) return r.fulfill({ status: 200, contentType: 'image/png', body: TILE });
     if (!u.startsWith(BASE)) { off.push(u); return r.abort('blockedbyclient'); }
+    if (o.noLeaflet && /assets\/vendor\/leaflet\//.test(u)) return r.abort('blockedbyclient');
     const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname));
     if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
     return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
   if (o.saved) await ctx.addInitScript(s => { try { localStorage.setItem('cleo:v1:saved', s); } catch (e) {} }, JSON.stringify(o.saved));
+  if (o.share) await ctx.addInitScript(() => { navigator.canShare = () => true; navigator.share = d => { window.__shared = { n: d.files && d.files.length, type: d.files && d.files[0].type, size: d.files && d.files[0].size, text: d.text }; return Promise.resolve(); }; });
   if (o.dark) await ctx.addInitScript(() => { try { localStorage.setItem('cleo:v1:theme', '"dark"'); } catch (e) {} });
   const page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(e.message));
   await page.goto(BASE + 'beta/' + url, { waitUntil: 'load' }); await page.waitForTimeout(o.settle || 700);
@@ -95,6 +103,95 @@ async function tabTo(page, test, n = 80) {
     ok(JSON.stringify(st) === JSON.stringify(ref[0]), 'day mode shows exactly day 1\'s stops in order', st);
     await m.page.screenshot({ path: path.join(SHOTS, 'trip-day1-on-map-1440-light.png') });
     ok(!m.errs.length, 'guide page: 0 page errors', m.errs.slice(0, 2)); await m.ctx.close(); }
+
+  console.log('# base-lazy');
+  { const s = await open(b, 'cities/tokyo.html', { w: 1440, tiles: true, settle: 1500 }), req = [];
+    const n = await s.page.evaluate(() => performance.getEntriesByType('resource').filter(r => /assets\/js\/base\.js/.test(r.name)).length);
+    ok(n === 0, 'Tokyo first load with no base: base.js not requested', n); await s.ctx.close(); }
+
+  console.log('# base-keys (keyboard) and shots');
+  for (const w of [390, 1440]) for (const dark of [false, true]) {
+    const tag = `${w}-${dark ? 'dark' : 'light'}`, s = await open(b, 'cities/tokyo.html#p=senso-ji', { w, dark, tiles: true, settle: 1600 });
+    const k = await tabTo(s.page, () => document.activeElement && document.activeElement.getAttribute('data-cleo-base') === 'set', 60);
+    await s.page.keyboard.press('Enter'); await s.page.waitForTimeout(400);
+    const set = await s.page.evaluate(() => Cleo.base.get() && Cleo.base.get().id);
+    ok(k && set === 'senso-ji', `${tag}: "Set as my base" reached and pressed by keyboard`, [k, set]);
+    await s.page.screenshot({ path: path.join(SHOTS, `base-sheet-${tag}.png`) });
+    await s.page.keyboard.press('Escape'); await s.page.waitForTimeout(500);
+    for (const v of ['gallery', 'atlas', 'guidebook']) {
+      await s.page.evaluate(v => { location.hash = '#view=' + v + '&base=senso-ji'; }, v); await s.page.waitForTimeout(1600);
+      await s.page.evaluate(v => { const sel = { gallery: 'li.gc[data-id]', atlas: 'li.pl[id^="p-"]', guidebook: 'li.ge[data-id]' }[v];
+        const c = [...document.querySelectorAll(sel)].find(e => e.getClientRects().length); if (c) c.scrollIntoView({ block: 'center' }); }, v); await s.page.waitForTimeout(600);
+      const r = await s.page.evaluate(() => {
+        const vis = e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden';
+        const cards = [...document.querySelectorAll('li.pl[id^="p-"], li.gc[data-id], li.ge[data-id]')].filter(vis).filter(c => { const r = c.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; });
+        const notes = [...document.querySelectorAll('#cleo-basenote')].filter(vis).length;
+        return { cards: cards.length, lined: cards.filter(c => { const l = c.querySelector('[data-cleo-bl]'); return l && vis(l) && / from Sensō-ji · |^Your base$/.test(l.textContent); }).length, notes,
+          over: document.documentElement.scrollWidth - innerWidth };
+      });
+      ok(r.cards > 0 && r.lined === r.cards && r.notes === 1 && r.over <= 0, `${tag} ${v}: the assumption once, the line on every card in view, no sideways scroll`, r);
+      await s.page.screenshot({ path: path.join(SHOTS, `base-${v}-${tag}.png`) });
+    }
+    const req = await s.page.evaluate(() => performance.getEntriesByType('resource').filter(r => /assets\/js\/base\.js/.test(r.name)).length);
+    ok(req === 1, `${tag}: base.js requested once`, req);
+    ok(!s.errs.length && !s.off.length, `${tag}: 0 page errors, 0 off-origin requests`, [s.errs.slice(0, 2), s.off.slice(0, 2)]);
+    const cs = await s.ctx.storageState(); await s.ctx.close();
+    const sv = await open(b, 'saved.html', { w, dark, saved: SAVED, settle: 1500 });
+    await sv.page.evaluate(() => { try { localStorage.setItem('cleo:v1:mybase', '{"tokyo":"senso-ji"}'); } catch (e) {} }); await sv.page.reload({ waitUntil: 'load' }); await sv.page.waitForTimeout(1500);
+    const sr = await sv.page.evaluate(() => ({ lines: document.querySelectorAll('#cleo-saved li.pl [data-cleo-bl]').length, notes: document.querySelectorAll('#cleo-basenote').length }));
+    ok(sr.lines >= 10 && sr.notes === 1, `${tag} Saved: the line on Tokyo cards, the assumption once`, sr);
+    await sv.page.screenshot({ path: path.join(SHOTS, `base-saved-${tag}.png`) }); await sv.ctx.close();
+  }
+
+  console.log('# card (share images)');
+  const CARDS = path.join(SHOTS, 'cards'); fs.mkdirSync(CARDS, { recursive: true });
+  const CASES = [
+    { k: 'place', url: 'cities/tokyo.html#p=senso-ji', btn: '[data-cleo-card="place"]', photo: true },
+    { k: 'closed', url: 'cities/tokyo.html#p=unicorn-gundam-statue-divercity-tokyo-plaza', btn: '[data-cleo-card="place"]', closed: true },
+    { k: 'day', url: 'cities/tokyo.html#day=TAITO', btn: '[data-cleo-card="day"]' },
+    { k: 'list', url: 'saved.html', btn: '[data-cleo-card="list"]', saved: SAVED },
+    { k: 'trip', url: link, btn: '[data-cleo-card="trip"]' },
+    { k: 'place-noleaflet', url: 'cities/tokyo.html#p=kanda-myojin', btn: '[data-cleo-card="place"]', noLeaflet: true },
+  ];
+  for (const c of CASES) {
+    const s = await open(b, c.url, { w: 1440, tiles: true, saved: c.saved, noLeaflet: c.noLeaflet, settle: 1800 });
+    const off0 = s.off.length, reqs = [];
+    s.page.on('request', r => reqs.push(r.url()));
+    await s.page.click(c.btn);
+    await s.page.waitForSelector('#cleo-card-dlg img', { timeout: 10000 }).catch(() => {});
+    const r = await s.page.evaluate(() => { const L = Cleo.shareCard && Cleo.shareCard.last, img = document.querySelector('#cleo-card-dlg img');
+      return L ? { w: L.canvas.width, h: L.canvas.height, type: L.blob.type, size: L.blob.size, alt: img && img.alt, credit: L.S.credit, png: L.canvas.toDataURL('image/png'), focus: document.activeElement && document.activeElement.getAttribute('data-card') } : null; });
+    if (!r) { ok(false, `${c.k}: a card was made`); await s.ctx.close(); continue; }
+    fs.writeFileSync(path.join(CARDS, c.k + '.png'), Buffer.from(r.png.split(',')[1], 'base64'));
+    ok(r.w === 1080 && r.h === 1920 && r.type === 'image/png' && r.size > 20000, `${c.k}: 1080×1920 PNG`, [r.w, r.h, r.size]);
+    const alt = r.alt || '';
+    ok(/Recommended by |Added by the guide/.test(alt) && /(checked · |checked to )\d{4}-\d\d-\d\d/.test(alt), `${c.k}: the card names its source and the checked date (alt text)`, alt.slice(0, 120));
+    if (c.photo) ok(/^Photo: .+ · .+/.test(r.credit) && alt.includes(r.credit), `${c.k}: the photo's credit is on the card`, r.credit);
+    if (c.closed) ok(/Closed · kept for the record/.test(alt) && !/Directions|Visit|Go there/i.test(alt), `${c.k}: "Closed · kept for the record", no call to visit`);
+    const offNow = s.off.slice(off0), cross = reqs.filter(u => !u.startsWith(BASE));
+    ok(!cross.length && !offNow.length, `${c.k}: 0 off-origin requests from the tap to the preview`, cross.slice(0, 2));
+    ok(r.focus === 'share' || r.focus === 'dl', `${c.k}: the preview takes focus on its first action`, r.focus);
+    await s.page.keyboard.press('Escape'); await s.page.waitForTimeout(150);
+    ok(!(await s.page.$('#cleo-card-dlg')), `${c.k}: Esc closes the preview`);
+    ok(!s.errs.length, `${c.k}: 0 page errors`, s.errs.slice(0, 2)); await s.ctx.close();
+  }
+  { const s = await open(b, 'cities/tokyo.html#p=senso-ji', { w: 390, share: true, tiles: true, settle: 1600 });
+    await s.page.click('[data-cleo-card="place"]'); await s.page.waitForSelector('[data-card="share"]', { timeout: 10000 }).catch(() => {});
+    await s.page.click('[data-card="share"]').catch(() => {}); await s.page.waitForTimeout(300);
+    const sh = await s.page.evaluate(() => window.__shared || null);
+    ok(sh && sh.n === 1 && sh.type === 'image/png' && sh.size > 20000 && /Recommended by/.test(sh.text), 'Web Share with files: one image/png, the source line in its text', sh); await s.ctx.close(); }
+  { const s = await open(b, 'cities/tokyo.html#p=senso-ji', { w: 1440, tiles: true, settle: 1600 });
+    await s.page.evaluate(() => { navigator.canShare = undefined; });
+    await s.page.click('[data-cleo-card="place"]'); await s.page.waitForSelector('[data-card="dl"]', { timeout: 10000 }).catch(() => {});
+    const [dl] = await Promise.all([s.page.waitForEvent('download', { timeout: 5000 }).catch(() => null), s.page.click('[data-card="dl"]').catch(() => {})]);
+    ok(!!dl && /^cleo-.+\.png$/.test(dl.suggestedFilename()), 'without Web Share: a PNG download', dl && dl.suggestedFilename()); await s.ctx.close(); }
+  for (const w of [390, 1440]) for (const dark of [false, true]) {
+    const tag = `${w}-${dark ? 'dark' : 'light'}`, s = await open(b, 'cities/tokyo.html#p=senso-ji', { w, dark, tiles: true, settle: 1600 });
+    await s.page.click('[data-cleo-card="place"]'); await s.page.waitForSelector('#cleo-card-dlg img', { timeout: 10000 }).catch(() => {}); await s.page.waitForTimeout(300);
+    const over = await s.page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+    ok(over <= 0, `${tag}: the preview fits, no sideways scroll`, over);
+    await s.page.screenshot({ path: path.join(SHOTS, `card-preview-${tag}.png`) }); await s.ctx.close();
+  }
 
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails}` : '\n>>> PASS — FE-C W9 probe');
