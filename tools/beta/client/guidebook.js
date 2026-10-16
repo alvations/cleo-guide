@@ -104,7 +104,7 @@
       '<p class="ge-m">' + tier + (p.ad ? '<span class="ad">' + esc(p.ad) + '</span>' : '') + '</p>' +
       (p.w ? '<p class="ge-w">' + esc(p.w) + '</p>' : '') + (p.k ? '<p class="gk">' + tt('sheet.look', 'Look for:') + ' ' + esc(p.k) + '</p>' : '') +
       // D-39 (proposed): prose that quotes a price or a rating is labelled as a dated quote, never edited (`pq` from build)
-      (p.pq ? '<p class="gq sm muted">' + esc(tt('sheet.quoted', 'Prices and ratings are quoted from the source at the time of research ({d}).', { d: p.pq })) + '</p>' : '') +
+      (p.pq ? '<p class="gq sm muted">' + esc(tt('sheet.quoted', 'Prices, ratings and times are quoted from the source at the time of research ({d}).', { d: p.pq })) + '</p>' : '') +
       '<p class="recby"><span>' + tt('card.recby', 'Recommended by') + '</span> ' + rec + '</p>' +
       '<button type="button" class="heart ge-save" data-cleo-ref="' + esc(ref) + '" aria-pressed="false" aria-label="' + esc(tt('gal.save', 'Save {name}', { name: x.name })) + '">' + tt('sheet.save', 'Save') + '</button></li>';
   }

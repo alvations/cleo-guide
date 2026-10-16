@@ -128,4 +128,13 @@ FE-C's pending list grew to 122 keys: the round-6 strings plus 43 new ones. At F
 | `share.checked.to` | {date}まで営業状況を確認 | 営業状況は{date}時点で確認済み | まで read as "will check until"; the meaning is "checked as of". |
 | `share.more` | ほか{n}か所はリンクで | ほか{n}か所はリンク先に | リンクで read unfinished. |
 
-**Total: 49 changes over eight rounds.**
+## Round 9: method, accessibility and 404 headings (`m.*`, `a.*`, `nf.*`), the updated banner, and FE-C's `trip.page.*` (2 changes, applied)
+
+QC-16: the method pages' headings, labels and buttons moved to the catalogue. The banner now says the method pages' longer explanations stay in English too, which matches what a visitor sees. A fresh independent subagent reviewed the strings under the same brief.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `note.text` | 日本語の画面表示: 機械翻訳し、別のAIによるレビューで確認したものです。各場所の解説と、方法のページの詳しい説明は英語のままです。 | 日本語の画面表示: 機械翻訳し、別のAIによるレビューで確認したものです。各場所の解説と、選定方法のページの詳しい説明は英語のままです。 | The catalogue translates "Method" as 選定方法. |
+| `trip.page.desc` | 保存した場所から数日間の旅程を作ります。1日1エリア、近い順、徒歩時間の目安つきで、閉店した場所は理由を添えて除外します。リンク1つ、印刷できる冊子、KMLに対応しています。 | 保存した場所から数日間の旅程を作ります。1日1エリア、近い順、徒歩時間の目安つきで、閉店した場所は理由を添えて除外します。リンク1つ、印刷できる冊子、KMLで使えます。 | 対応しています read like a spec sheet. |
+
+**Total: 51 changes over nine rounds.**

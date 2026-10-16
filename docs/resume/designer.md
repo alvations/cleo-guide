@@ -48,6 +48,23 @@ Current rows:
 
    FE-1 and FE-2 have been briefed. **Next:** when a new head lands, the designer signs off on `real/R4/tokyo-390-light-1-default.jpg` dots; then send the panel "round 4 ready" through FE or the orchestrator. Remind FE-A about the "Numbers on the cards match the pins" copy.
 3. **QC-09: closed.** R7 QA verified it independently on adfb052d. QC-06 (768 px, 44 px segments) was verified with it.
+5. **FE-C review (W9-4/5/7).** Ten findings went to FE-C (session_01SxU3Mdpo1UAQyJQJmnMFtG) on 2026-10-16:
+   - the share-card initial on a teal block;
+   - coral Must-see;
+   - the hard-coded COL palette and #C23A1C;
+   - the wordmark;
+   - the trip-day stripe and purple;
+   - the h1 focus ring;
+   - casing;
+   - the caveat on sun-wash;
+   - spacing;
+   - the base-sort pressed state.
+
+   Re-review when FE-C sends new shots.
+6. **FE-A reviews (2026-10-16):**
+   - **QA-67 detail media:** ≥ 800 w approved. Narrow copies drop the colour-mix bands, and the plate is image-width, centred.
+   - **Detail numbering confirmed:** drop "pin N" and the nav "k of N"; keep "No. k of n". FE-A logs the spec change in BETA-LOG.
+   - **Food covers (6edb6acb):** OK, except the fallback. The area is not a cover word, so use the cuisine, else a glyph-only cover. V2.21 applies `--cover-food` in the base layer.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight
