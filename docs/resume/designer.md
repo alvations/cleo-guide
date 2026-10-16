@@ -41,10 +41,24 @@ Current rows:
    - commit with the finding ids in the message;
    - brief FE-1 (layout, pins, chrome, list) and FE-2 (round-trip, near-me, URL, keyboard);
    - send the panel only "round N ready at <sha>", through FE or the orchestrator.
-3. **Verify FE-A's QC-09 build** against §v2.11's acceptance:
-   - 4 segments at 390 and at 200 %;
-   - `role=group`;
-   - with a sheet open, elementFromPoint at each segment returns that segment.
+3. **QC-09 re-verify.** On 2026-10-16, against head 055e2e6d (build 7e746d9bc):
+   - **390 px: PASS.**
+   - **200 %: FAIL.** The segments are 29 × 44. The spec is now corrected to a 2 × 2 glyph-only grid under 300 px, and the fe-a.css rule went to FE-A and FE-B.
+   - Re-run `scratchpad qc09.js`, or the same check: 195 px viewport at DPR 2, `#p=senso-ji`, segment sizes ≥ 44, and elementFromPoint on each segment.
+   - On a pass, tell R7 QA (session_017FLWXa5zgGWvqNo4C3UsvH).
+5. **FE-C review (W9-4/5/7).** Ten findings went to FE-C (session_01SxU3Mdpo1UAQyJQJmnMFtG) on 2026-10-16:
+   - share-card initial and teal block;
+   - coral Must-see;
+   - the drifted COL palette and #C23A1C;
+   - the wordmark;
+   - the trip day stripe and purple;
+   - the h1 focus ring;
+   - casing;
+   - the caveat on sun-wash;
+   - spacing;
+   - the base sort's pressed state.
+
+   Re-review when FE-C sends new shots.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight
