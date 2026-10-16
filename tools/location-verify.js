@@ -1385,7 +1385,9 @@ async function main1(o) {
   fs.mkdirSync(o.out, { recursive: true });
   if (o.names) {
     // A re-check of named rows never touches the city report (which carries reviews): its own file under recheck/.
-    const out = o.recheckOut || path.join(ROOT, 'docs', 'geoverify', 'recheck', `${o.city}-${rep.meta.generated}.json`);
+    // One file per (city, date, names): a later re-check never overwrites an earlier one's evidence.
+    const slug = o.names.length === 1 ? normName(o.names[0]).replace(/ /g, '-').slice(0, 40) : crypto.createHash('sha1').update(o.names.join('|')).digest('hex').slice(0, 8);
+    let out = o.recheckOut || path.join(ROOT, 'docs', 'geoverify', 'recheck', `${o.city}-${rep.meta.generated}-${slug}.json`);
     if (!path.resolve(out).startsWith(path.join(ROOT, 'docs', 'geoverify', 'recheck'))) throw Object.assign(new Error('--recheck-out must be under docs/geoverify/recheck/'), { code: 1 });
     fs.mkdirSync(path.dirname(out), { recursive: true });
     rep.meta.recheck = { names: o.names, sources: o.sources };
