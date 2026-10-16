@@ -28,6 +28,10 @@
 
 - This push: R7 QA-78 fixed (the Duquesne Incline author was a Flickr profile URL; it is now "arne_heggestad (Flickr)". The fetcher names the account for a profile-link credit and refuses any other URL or HTML author; test-imagery checks every CREDITS author). Run #64 (wave 4) reviewed in design/beta/imagery-runs/run-64.md. 7 kept. Heilig Bloed (triptych) and Het Zwin (housing estate) refused and now stated gaps. Tier-1 509/999, 244 left. No '?' rows. Next: wave 5 candidates for Chicago, Orlando, SF and Miami (the largest remaining counts).
 
+- R8 gap #1 (orchestrator, 23:00Z): (a) hero candidates for Jalan Besar and Queenstown, Dempsey Hill stays stated; (d) holds on eligible cards, and the 12 misses are all food, venue or stated gap; (b) tier-1 509/999 = 51 % against a 70 % target (+191); (c) 523/3829 = 13.7 % against 30 % (+626). Wave 5a: 127 titles for Saarland and Okinawa, plus 5 stated gaps. Work list: scratchpad t1todo.tsv, rebuilt by the node one-liner in this lane's notes.
+
+- QUEUED (Designer, 23:38Z, orchestrator agreed): designed food covers in tools/beta/imagery/motifs.js per DESIGN-SYSTEM §v2.7a (6b2faadd4). They combine the --cover-food ground plus the city pattern at ink 5/7 %, the cuisine kit glyph at 56 % bottom-right, FE-A's cover word and a native dish name. The skin must stay under 1 KB per city and add no requests. Acceptance: the first food rows on New York and Chinatown. Start after the wave-5a review.
+
 **In flight:**
 - Run #48's 32 refusals are APPLIED in this push (orchestrator's final list, recorded in design/beta/imagery-runs/run-48.md). CREDITS 580 → 548.
 - D-40a data has LANDED: 38 lead/first-row cards have a 720 copy ≤ 45 KB. 7 are in `NO720` in recompress.js (busy or tall photos that only fit by shrinking below 600 px) and keep 500 + 960. The cap went from 55 to 45 KB because 55 measured Tokyo phone@3× at 703 KB once the 720-aware `sizes` was applied; 45 measures 691 KB. Platform still has to switch `cardSizes()` to the 720 copy (asked); until then phones load the 500 and Tokyo is 649 KB.

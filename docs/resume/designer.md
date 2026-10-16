@@ -102,6 +102,7 @@ Current rows:
       - `--fs-d2` is now 24 px, and V2.22 moves the display face below 24 px to the UI face.
       - build-css strips whitespace after ':' and ',', taking cleo.css to 194.8 KB (it was 200.2 KB, over the budget).
     - **D12/D13 notes:** sent to the orchestrator.
+19. **Food covers, DESIGN-SYSTEM §v2.7a:** the city pattern on `--cover-food`, a large bleeding glyph, the dish word at 24 px, and the native name. Imagery builds it in motifs.js and FE-A places it. The spec goes to imagery after their wave 5a review. Credit lines are one line under a card. QC has been told about the opaque bars.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight

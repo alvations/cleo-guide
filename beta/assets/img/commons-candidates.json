@@ -38,16 +38,16 @@
   },
   "otherLandmarks": {
    "targets": 1151,
-   "skipped": 244,
-   "withArticle": 625
+   "skipped": 262,
+   "withArticle": 612
   },
   "candidates": {
-   "total": 544,
-   "high": 522,
-   "med": 22,
+   "total": 675,
+   "high": 637,
+   "med": 38,
    "low": 0
   },
-  "targetsWithHigh": 271,
+  "targetsWithHigh": 332,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -1864,7 +1864,7 @@
    ],
    "wikiLead": true,
    "candidates": [],
-   "skip": "no Commons photo of Dempsey Hill turned up and its article has no lead image — the guide keeps its motif hero (stated)"
+   "skip": "wave 1 and R8 wave 5 searches found no Commons file titled or described as Dempsey Hill/Dempsey Road (the Dempsey Road category lists 3 files, none named in any result); the Dempsey Hill article has no lead image — the guide keeps its motif hero (stated)"
   },
   {
    "key": "hero:singapore/geylang",
@@ -1916,8 +1916,22 @@
     "https://en.wikipedia.org/wiki/Jalan_Besar"
    ],
    "wikiLead": true,
-   "candidates": [],
-   "skip": "only a constituency locator map and a non-free photo on Commons — the guide keeps its motif hero (stated)"
+   "candidates": [
+    {
+     "file": "File:Edificio en Jalan Besar, 115, Singapur, 2023-08-17, DD 10.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Edificio_en_Jalan_Besar,_115,_Singapur,_2023-08-17,_DD_10.jpg",
+     "depicts": "Pre-war shophouse at 115 Jalan Besar",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Jalan Besar (Diego Delso series, 2023)"
+    },
+    {
+     "file": "File:Edificio en Jalan Besar, 125, Singapur, 2023-08-17, DD 11.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Edificio_en_Jalan_Besar,_125,_Singapur,_2023-08-17,_DD_11.jpg",
+     "depicts": "Shophouse at 125 Jalan Besar",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Jalan Besar (Diego Delso series, 2023)"
+    }
+   ]
   },
   {
    "key": "hero:singapore/jurong",
@@ -2168,9 +2182,22 @@
      "confidence": "high",
      "reason": "title names Queenstown; summary: thirty-storey flats, Strathmore Avenue, 2005",
      "refused": "refused by the fetch (runs #31/#35, Commons API): no author in the file metadata, not marked own work"
+    },
+    {
+     "file": "File:SkyOasis @ Dawson public housing project.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:SkyOasis_@_Dawson_public_housing_project.jpg",
+     "depicts": "SkyOasis @ Dawson public housing, Queenstown",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): listed in Category:HDB flats in Queenstown"
+    },
+    {
+     "file": "File:Dawson Place.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dawson_Place.JPG",
+     "depicts": "Dawson Place public housing, Queenstown",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): listed in Category:HDB flats in Queenstown"
     }
-   ],
-   "skip": "its only Commons photo has no author in its metadata (not marked own work) and the town article's lead image doesn't show Queenstown — the guide keeps its motif hero (stated)"
+   ]
   },
   {
    "key": "hero:singapore/southern-ridges",
@@ -16398,6 +16425,7 @@
     "17エンド"
    ],
    "pilot": false,
+   "skip": "no file found (only 'Shimojishima Runway17.jpg', subject unconfirmed) (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -16412,7 +16440,24 @@
     "阿波連ビーチ"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Aharen Beach On Tokashiki Island 2009 (7373).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aharen_Beach_On_Tokashiki_Island_2009_(7373).JPG",
+     "depicts": "Aharen Beach, Tokashiki Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Aharen Beach on Tokashiki Island"
+    },
+    {
+     "file": "File:Aharen Beach On Tokashiki Island 2009 (7384).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aharen_Beach_On_Tokashiki_Island_2009_(7384).jpg",
+     "depicts": "Aharen Beach, Tokashiki Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Aharen Beach on Tokashiki Island"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#cape-hedo",
@@ -16424,7 +16469,24 @@
     "辺戸岬"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Cape Hedo 202011.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cape_Hedo_202011.jpg",
+     "depicts": "Cape Hedo headland",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Cape Hedo; in Category:Cape Hedo"
+    },
+    {
+     "file": "File:View of Cape Hedo from Yanbarukuina observatory.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:View_of_Cape_Hedo_from_Yanbarukuina_observatory.JPG",
+     "depicts": "Cape Hedo seen from the Yanbarukuina observatory",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Cape Hedo"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#cape-higashi-hennazaki",
@@ -16436,7 +16498,24 @@
     "東平安名崎"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Higashi Hennazaki cape - panoramio - Kaz Ish.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Higashi_Hennazaki_cape_-_panoramio_-_Kaz_Ish.jpg",
+     "depicts": "Cape Higashi-hennazaki, Miyako Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Higashi Hennazaki cape"
+    },
+    {
+     "file": "File:Miyako higashi hennazaki.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Miyako_higashi_hennazaki.JPG",
+     "depicts": "Cape Higashi-hennazaki, Miyako Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names higashi hennazaki"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#cape-irizaki-yonaguni-japans-westernmost-point",
@@ -16451,7 +16530,24 @@
     "西崎"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Yonaguni irizaki.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Yonaguni_irizaki.jpg",
+     "depicts": "Cape Irizaki, Japan's westernmost point, Yonaguni",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Irizaki; caption says westernmost point of Japan"
+    },
+    {
+     "file": "File:Yonaguni irizaki lighthouse.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Yonaguni_irizaki_lighthouse.jpg",
+     "depicts": "Irizaki Lighthouse on the cape, Yonaguni",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Irizaki lighthouse, which stands on the cape"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#cape-maeda-and-the-blue-cave",
@@ -16465,7 +16561,24 @@
     "真栄田岬 青の洞窟"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:真栄田岬 - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E7%9C%9F%E6%A0%84%E7%94%B0%E5%B2%AC_-_panoramio.jpg",
+     "depicts": "Cape Maeda (panorama)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names 真栄田岬 (Cape Maeda); in Category:Cape Maeda"
+    },
+    {
+     "file": "File:Cape Maeda.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cape_Maeda.jpg",
+     "depicts": "Cape Maeda, Onna",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Cape Maeda (small 450px file)"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#cape-manzamo",
@@ -16477,7 +16590,17 @@
     "万座毛"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Onna Okinawa Japan Cape-Manzamo-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Onna_Okinawa_Japan_Cape-Manzamo-01.jpg",
+     "depicts": "Cape Manzamo cliffs",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Cape Manzamo; summary says landscape of the cliffs"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#former-japanese-navy-underground-headquarters",
@@ -16490,7 +16613,24 @@
     "旧海軍司令部壕"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Former Japanese Naval Underground Headquaters Okinawa06s5s3104.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Former_Japanese_Naval_Underground_Headquaters_Okinawa06s5s3104.jpg",
+     "depicts": "Former Japanese Naval Underground HQ (likely tunnel interior)",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names the HQ (title spelled 'Headquaters' per file URL); underground site so view may be interior"
+    },
+    {
+     "file": "File:Former Japanese Naval Underground Headquaters Okinawa12s5s3104.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Former_Japanese_Naval_Underground_Headquaters_Okinawa12s5s3104.jpg",
+     "depicts": "Former Japanese Naval Underground HQ (likely tunnel interior)",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names the HQ (title spelled 'Headquaters' per file URL); underground site so view may be interior"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#furuzamami-beach-zamami-island",
@@ -16504,7 +16644,24 @@
     "古座間味ビーチ"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Furuzamami beach Okinawa Zamami.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Furuzamami_beach_Okinawa_Zamami.jpg",
+     "depicts": "Furuzamami Beach, Zamami Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Furuzamami beach; ja-wiki featured picture"
+    },
+    {
+     "file": "File:JAP Zamami Furuzamami Beach.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:JAP_Zamami_Furuzamami_Beach.jpg",
+     "depicts": "Furuzamami Beach, Zamami Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Furuzamami Beach"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#hate-no-hama-sandbar-kume-island",
@@ -16518,7 +16675,24 @@
     "ハテの浜"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hateno-hama beach はての浜 DSCF7960.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hateno-hama_beach_%E3%81%AF%E3%81%A6%E3%81%AE%E6%B5%9C_DSCF7960.JPG",
+     "depicts": "Hate-no-hama sandbar off Kume Island (wide panorama)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hateno-hama; linked to ja-wiki はての浜"
+    },
+    {
+     "file": "File:Hatenohama.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hatenohama.jpg",
+     "depicts": "Hate-no-hama sandbar, Kume Island",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hatenohama but subject not confirmed in result"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#hiji-falls",
@@ -16531,7 +16705,24 @@
     "比地大滝"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hiji Waterfall 202105.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hiji_Waterfall_202105.jpg",
+     "depicts": "Hiji Falls waterfall",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hiji Waterfall; in Category:Hiji waterfall"
+    },
+    {
+     "file": "File:Hiji Falls.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hiji_Falls.JPG",
+     "depicts": "Hiji Falls waterfall",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hiji Falls; in Category:Hiji waterfall"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#himeyuri-peace-museum",
@@ -16543,7 +16734,24 @@
     "ひめゆり平和祈念資料館"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Himeyuri Peace Museum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Himeyuri_Peace_Museum.jpg",
+     "depicts": "Himeyuri Peace Museum",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Himeyuri Peace Museum; in Category:Himeyuri Peace Museum (exterior not confirmed)"
+    },
+    {
+     "file": "File:Himeyuri Peace Museum01n3104.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Himeyuri_Peace_Museum01n3104.jpg",
+     "depicts": "Himeyuri Peace Museum",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Himeyuri Peace Museum; in Category:Himeyuri Peace Museum (exterior not confirmed)"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#hoshizuna-no-hama-star-sand-beach-iriomote",
@@ -16557,7 +16765,24 @@
     "星砂の浜"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hoshizuna-no-hama Iriomote Island04bs3s4592.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hoshizuna-no-hama_Iriomote_Island04bs3s4592.jpg",
+     "depicts": "Hoshizuna-no-hama star sand beach, Iriomote",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hoshizuna-no-hama"
+    },
+    {
+     "file": "File:Hoshizuna-no-hama Iriomote Island02bs3s4500.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hoshizuna-no-hama_Iriomote_Island02bs3s4500.jpg",
+     "depicts": "Hoshizuna-no-hama star sand beach, Iriomote",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hoshizuna-no-hama; Commons quality image"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#irabu-ohashi-bridge",
@@ -16569,7 +16794,24 @@
     "伊良部大橋"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Miyako irabu ohashi 2014 2.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Miyako_irabu_ohashi_2014_2.jpg",
+     "depicts": "Irabu Ohashi Bridge seen from Makiyama observation deck",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names irabu ohashi; used on ja-wiki bridge article"
+    },
+    {
+     "file": "File:Irabu Bridge (52204289208).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Irabu_Bridge_(52204289208).jpg",
+     "depicts": "Irabu Ohashi Bridge",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Irabu Bridge; in Category:Irabu Bridge"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#iriomote-island-jungle-and-mangroves",
@@ -16585,7 +16827,24 @@
     "西表島"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mangrove swamp, Iriomote Island, Okinawa, Japan.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mangrove_swamp,_Iriomote_Island,_Okinawa,_Japan.jpg",
+     "depicts": "Mangrove forest along the Urauchi River, Iriomote",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Iriomote mangrove swamp"
+    },
+    {
+     "file": "File:Urauchi River Iriomote 2007-04-05.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Urauchi_River_Iriomote_2007-04-05.jpg",
+     "depicts": "Urauchi River through Iriomote jungle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Urauchi River, Iriomote"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#kabira-bay",
@@ -16597,7 +16856,24 @@
     "川平湾"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kabira Bay Ishigaki Island23n4500.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kabira_Bay_Ishigaki_Island23n4500.jpg",
+     "depicts": "Kabira Bay, Ishigaki Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kabira Bay"
+    },
+    {
+     "file": "File:Kabira Bay (52117120293).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kabira_Bay_(52117120293).jpg",
+     "depicts": "Kabira Bay, Ishigaki Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kabira Bay; listed in Category:Kabira Bay"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#kaichu-doro-sea-causeway",
@@ -16609,7 +16885,24 @@
     "海中道路"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kaichu-Doro.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kaichu-Doro.jpg",
+     "depicts": "Kaichu-doro sea causeway near Henza Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kaichu-Doro; in causeway category"
+    },
+    {
+     "file": "File:Uruma Kaichu Doro.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Uruma_Kaichu_Doro.jpg",
+     "depicts": "Kaichu-doro sea causeway, Uruma",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kaichu Doro; in Category:Kaichu-doro Causeway"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#kakazu-ridge-kakazu-takadai-park",
@@ -16623,6 +16916,7 @@
     "嘉数高台公園"
    ],
    "pilot": false,
+   "skip": "only a crowd photo on Commons (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -16635,7 +16929,24 @@
     "金城町石畳道"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kinjocho ishidatami-michi Shuri Naha05n4272.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kinjocho_ishidatami-michi_Shuri_Naha05n4272.jpg",
+     "depicts": "Kinjo-cho stone-paved road, Shuri",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kinjocho ishidatami-michi"
+    },
+    {
+     "file": "File:Kinjocho ishidatami-michi Shuri Naha01n4272.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kinjocho_ishidatami-michi_Shuri_Naha01n4272.jpg",
+     "depicts": "Kinjo-cho stone-paved road, Shuri",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kinjocho ishidatami-michi; Commons quality image"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#kokusai-dori",
@@ -16662,7 +16973,24 @@
     "古宇利大橋・古宇利島"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kouri Ohashi.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kouri_Ohashi.JPG",
+     "depicts": "Kouri Ohashi Bridge, August 2007",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kouri Ohashi; in Category:Kouri Bridge"
+    },
+    {
+     "file": "File:Nago Okinawa Kouri-Bridge-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nago_Okinawa_Kouri-Bridge-01.jpg",
+     "depicts": "Kouri Bridge to Kouri Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kouri Bridge"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#koza-gate-2-street",
@@ -16689,7 +17017,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kudaka_Island",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kudakajima Island from Cape Chinen Park 5.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kudakajima_Island_from_Cape_Chinen_Park_5.JPG",
+     "depicts": "Kudaka Island seen across the water from Cape Chinen Park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kudakajima Island"
+    },
+    {
+     "file": "File:Kudakajimacoast-dec2012.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kudakajimacoast-dec2012.jpg",
+     "depicts": "Kudaka Island coast",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kudakajima coast; contents not confirmed in result"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#makishi-public-market",
@@ -16754,7 +17099,24 @@
     "中村家住宅"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nakamura House Kitanakagusuku23n3104.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nakamura_House_Kitanakagusuku23n3104.jpg",
+     "depicts": "Nakamura House, Kitanakagusuku",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Nakamura House Kitanakagusuku (view not confirmed as exterior)"
+    },
+    {
+     "file": "File:Nakamura House Kitanakagusuku19n3000.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nakamura_House_Kitanakagusuku19n3000.jpg",
+     "depicts": "Nakamura House, Kitanakagusuku",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Nakamura House Kitanakagusuku (view not confirmed as exterior)"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#nakijin-castle-ruins",
@@ -16767,7 +17129,24 @@
     "今帰仁城跡"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nakijin Okinawa Japan Nakikjin-Castle-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nakijin_Okinawa_Japan_Nakikjin-Castle-01.jpg",
+     "depicts": "Walls of Nakijin Castle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Nakijin Castle (sic spelling in title)"
+    },
+    {
+     "file": "File:Nakijin Castle 20221229.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nakijin_Castle_20221229.jpg",
+     "depicts": "Nakijin Castle ruins",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Nakijin Castle; listed in Category:Nakijin Castle"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#nishihama-beach-hateruma-island",
@@ -16781,7 +17160,24 @@
     "ニシ浜"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hateruma nishihama 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hateruma_nishihama_1.jpg",
+     "depicts": "Nishihama Beach, Hateruma Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hateruma nishihama; in Category:Nishihama (Haterumajima)"
+    },
+    {
+     "file": "File:Hateruma nishihama 2.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hateruma_nishihama_2.jpg",
+     "depicts": "Nishihama Beach, Hateruma Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hateruma nishihama; in Category:Nishihama (Haterumajima)"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#okinawa-churaumi-aquarium",
@@ -16793,7 +17189,24 @@
     "沖縄美ら海水族館"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Okinawa Churaumi Aquarium from west.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Okinawa_Churaumi_Aquarium_from_west.JPG",
+     "depicts": "Churaumi Aquarium building seen from the west",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Churaumi Aquarium; in exterior category"
+    },
+    {
+     "file": "File:Side view of Okinawa Churaumi Aquarium.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Side_view_of_Okinawa_Churaumi_Aquarium.JPG",
+     "depicts": "Churaumi Aquarium building from the south",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Churaumi Aquarium; in exterior category"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#okinawa-peace-memorial-park-and-prefectural-peace-memorial-m",
@@ -16807,7 +17220,24 @@
     "平和祈念公園"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Itoman Okinawa Okinawa-Cornerstone-of-Peace-Memorial-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Itoman_Okinawa_Okinawa-Cornerstone-of-Peace-Memorial-01.jpg",
+     "depicts": "Cornerstone of Peace memorial in the Peace Memorial Park",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Cornerstone of Peace, the park's central memorial"
+    },
+    {
+     "file": "File:Okinawa prefectural Peace memorial Museum-2007-06-27 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Okinawa_prefectural_Peace_memorial_Museum-2007-06-27_1.jpg",
+     "depicts": "Okinawa Prefectural Peace Memorial Museum",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names the museum; exterior vs interior not confirmed"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#okinawa-prefectural-museum-and-art-museum",
@@ -16821,7 +17251,24 @@
     "沖縄県立博物館・美術館"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Okinawa Prefectural Museum & Art Museum05n4272.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Okinawa_Prefectural_Museum_&_Art_Museum05n4272.jpg",
+     "depicts": "Okinawa Prefectural Museum & Art Museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names the museum (exterior not confirmed)"
+    },
+    {
+     "file": "File:Okinawa Prefectural Museum & Art Museum04n4272.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Okinawa_Prefectural_Museum_&_Art_Museum04n4272.jpg",
+     "depicts": "Okinawa Prefectural Museum & Art Museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names the museum (exterior not confirmed)"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#okinawa-world-and-gyokusendo-cave",
@@ -16835,7 +17282,24 @@
     "おきなわワールド 玉泉洞"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gyokusendo Cave - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gyokusendo_Cave_-_panoramio.jpg",
+     "depicts": "Inside Gyokusendo limestone cave",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Gyokusendo Cave (cave interior is the sight itself)"
+    },
+    {
+     "file": "File:Gyokusendo Nanjo Okinawa Japan02s3104.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gyokusendo_Nanjo_Okinawa_Japan02s3104.jpg",
+     "depicts": "Inside Gyokusendo limestone cave",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Gyokusendo (cave interior is the sight itself)"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#pinaisara-falls-iriomote",
@@ -16910,7 +17374,24 @@
     "識名園"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Naha Okinawa Japan Shikinaen-02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Naha_Okinawa_Japan_Shikinaen-02.jpg",
+     "depicts": "Chinese-style arched bridge in Shikinaen garden",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Shikinaen"
+    },
+    {
+     "file": "File:Naha Okinawa Japan Shikinaen-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Naha_Okinawa_Japan_Shikinaen-01.jpg",
+     "depicts": "Rokkaku-do hexagonal pavilion in Shikinaen",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Shikinaen"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#shuri-castle",
@@ -16922,7 +17403,24 @@
     "首里城"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Naha Shuri Castle51s3s4200.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Naha_Shuri_Castle51s3s4200.jpg",
+     "depicts": "Shuri Castle main hall (Seiden)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Shuri Castle; caption identifies Seiden"
+    },
+    {
+     "file": "File:Naha Shuri Castle02s5s3200.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Naha_Shuri_Castle02s5s3200.jpg",
+     "depicts": "Shureimon gate of Shuri Castle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Shuri Castle; summary says Shureimon gate"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#sunayama-beach",
@@ -16934,7 +17432,24 @@
     "砂山ビーチ"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sunayama Beach in Miyako Island , Okinawa Pref. - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sunayama_Beach_in_Miyako_Island_,_Okinawa_Pref._-_panoramio.jpg",
+     "depicts": "Sunayama Beach, Miyako Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Sunayama Beach (note space before comma, as in file URL)"
+    },
+    {
+     "file": "File:Sunayama beach (51922963462).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sunayama_beach_(51922963462).jpg",
+     "depicts": "Sunayama Beach, Miyako Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Sunayama beach; in Category:Sunayama Beach"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#takanazaki-and-japans-southernmost-point-monument-hateruma",
@@ -16949,7 +17464,24 @@
     "高那崎・日本最南端の碑"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Haterumajima-Takanazaki-headland.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Haterumajima-Takanazaki-headland.jpg",
+     "depicts": "Takanazaki headland, Hateruma Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Takanazaki headland"
+    },
+    {
+     "file": "File:Haterumajima 日本最南端の碑と星空観測タワー DSCF3393.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Haterumajima_%E6%97%A5%E6%9C%AC%E6%9C%80%E5%8D%97%E7%AB%AF%E3%81%AE%E7%A2%91%E3%81%A8%E6%98%9F%E7%A9%BA%E8%A6%B3%E6%B8%AC%E3%82%BF%E3%83%AF%E3%83%BC_DSCF3393.JPG",
+     "depicts": "Japan's Southernmost Point monument with the observatory tower, Hateruma",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names the southernmost-point monument (日本最南端の碑)"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#taketomi-island-and-village",
@@ -16962,7 +17494,24 @@
     "竹富島"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Village in Taketomi Island - located at southwest Japan.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Village_in_Taketomi_Island_-_located_at_southwest_Japan.jpg",
+     "depicts": "Traditional village on Taketomi Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Taketomi Island village"
+    },
+    {
+     "file": "File:Taketomi Island01s3s7000.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Taketomi_Island01s3s7000.jpg",
+     "depicts": "Taketomi Island historic village (panorama)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Taketomi Island; description cites preservation district"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#tamaudun-royal-mausoleum",
@@ -16974,7 +17523,24 @@
     "玉陵"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:玉陵 Tamaudun Royal Mausoleum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E7%8E%89%E9%99%B5_Tamaudun_Royal_Mausoleum.jpg",
+     "depicts": "Tamaudun royal mausoleum",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Tamaudun; used on en/ja Wikipedia"
+    },
+    {
+     "file": "File:Tamaudun02s3s4592.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tamaudun02s3s4592.jpg",
+     "depicts": "Tamaudun royal mausoleum",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Tamaudun"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#toguchi-no-hama-beach-irabu-island",
@@ -17004,7 +17570,17 @@
     "通り池"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Toriike.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Toriike.jpg",
+     "depicts": "Tori-ike pond, Shimoji/Irabu Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Toriike; English caption says Shimoji Island"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#tsuboya-yachimun-dori-pottery-street",
@@ -17032,6 +17608,7 @@
     "宇江城城跡"
    ],
    "pilot": false,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -17057,7 +17634,24 @@
     "与那覇前浜"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Yonahamaehama Miyakojima Okinawa Japan03bs3s4500.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Yonahamaehama_Miyakojima_Okinawa_Japan03bs3s4500.jpg",
+     "depicts": "Yonaha Maehama beach, Miyakojima",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Yonahamaehama"
+    },
+    {
+     "file": "File:Yonahamaehama Miyakojima Okinawa Japan06s3s4592.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Yonahamaehama_Miyakojima_Okinawa_Japan06s3s4592.jpg",
+     "depicts": "Yonaha Maehama beach seen from Kurima Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Yonahamaehama; caption says view from Kurima Island"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#apollo-saturn-v-center",
@@ -17083,7 +17677,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Avatar_Flight_of_Passage",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -17339,7 +17933,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_Epcot_attractions",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -17417,7 +18011,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -17431,7 +18025,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Harry_Potter_and_the_Escape_from_Gringotts",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -17656,7 +18250,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mario_Kart:_Bowser's_Challenge",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -17669,7 +18263,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Men_in_Black:_Alien_Attack",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -17709,7 +18303,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mickey_&_Minnie's_Runaway_Railway",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -17724,7 +18318,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -17738,7 +18332,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -17829,7 +18423,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Remy's_Ratatouille_Adventure",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -17842,7 +18436,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Revenge_of_the_Mummy",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -17947,7 +18541,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_Disney's_Hollywood_Studios_attractions",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -18003,7 +18597,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/The_Simpsons_Ride",
-   "wikiLead": true,
+   "skip": "indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
    "candidates": []
   },
   {
@@ -20470,7 +21064,24 @@
     "Burg Metternich"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Beilstein mosel burg metternich.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Beilstein_mosel_burg_metternich.jpg",
+     "depicts": "Burg Metternich above Beilstein on the Moselle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Beilstein and Burg Metternich; in Category:Burg Metternich (Mosel)"
+    },
+    {
+     "file": "File:Beilstein BW 0.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Beilstein_BW_0.JPG",
+     "depicts": "Beilstein village on the Moselle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Beilstein (view not described)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#belval-blast-furnaces",
@@ -20482,7 +21093,24 @@
     "Belval Blast Furnace"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Belval Blast furnaces 2011-08.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Belval_Blast_furnaces_2011-08.JPG",
+     "depicts": "Belval blast furnaces A and B",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Belval blast furnaces"
+    },
+    {
+     "file": "File:Esch-Belval Haut-Fourneau.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Esch-Belval_Haut-Fourneau.jpg",
+     "depicts": "Belval blast furnace B",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Esch-Belval haut-fourneau"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#benediktinerabtei-st-mauritius-tholey",
@@ -20494,7 +21122,24 @@
     "Benediktinerabtei Saint Mauritius Tholey"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:2020 08 Abtei Tholey.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:2020_08_Abtei_Tholey.jpg",
+     "depicts": "Tholey Abbey with its garden",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Abtei Tholey; summary says abbey with garden"
+    },
+    {
+     "file": "File:Tholey, Abtei St. Mauritius (45) (2020).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tholey,_Abtei_St._Mauritius_(45)_(2020).jpg",
+     "depicts": "Benedictine Abbey of St. Mauritius, Tholey",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Abtei St. Mauritius Tholey (view not described)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#bock-casemates",
@@ -20506,7 +21151,24 @@
     "Bock Casemate"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:The Bock Casemates 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Bock_Casemates_1.jpg",
+     "depicts": "Bock Casemates in the Bock rock, Luxembourg City",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names the Bock Casemates"
+    },
+    {
+     "file": "File:Bockfelsen Casemates Luxembourg City.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bockfelsen_Casemates_Luxembourg_City.jpg",
+     "depicts": "Bock rock with its casemates, Luxembourg City",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Bockfelsen casemates"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#bourscheid-castle",
@@ -20517,7 +21179,24 @@
     "Bourscheid Castle"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bourscheid Castle in Luxembourg.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bourscheid_Castle_in_Luxembourg.jpg",
+     "depicts": "Bourscheid Castle on its hilltop",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Bourscheid Castle"
+    },
+    {
+     "file": "File:Bourscheid Castle Autumn.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bourscheid_Castle_Autumn.jpg",
+     "depicts": "Bourscheid Castle in autumn",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Bourscheid Castle; in Category:Bourscheid castle"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#bremmer-calmont-klettersteig",
@@ -20576,7 +21255,24 @@
     "Casemates de la Pétrusse"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Luxembourg, Pétrusse Casemates (109).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Luxembourg,_P%C3%A9trusse_Casemates_(109).jpg",
+     "depicts": "Inside the Pétrusse Casemates (Austrian staircase)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Pétrusse Casemates (tunnel interior is the sight itself)"
+    },
+    {
+     "file": "File:Luxembourg, Pétrusse Casemates (102).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Luxembourg,_P%C3%A9trusse_Casemates_(102).jpg",
+     "depicts": "Pétrusse Casemates, Luxembourg City",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Pétrusse Casemates (view not described; likely interior)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#cathedrale-notre-dame-de-strasbourg",
@@ -20587,7 +21283,24 @@
     "Cathédrale Notre-Dame de Strasbourg"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Cathédrale Notre-Dame de Strasbourg août 2014.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Strasbourg_ao%C3%BBt_2014.jpg",
+     "depicts": "West façade of Strasbourg Cathedral",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names the cathedral; summary says west façade"
+    },
+    {
+     "file": "File:Cathédrale Notre-Dame de Strasbourg.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Strasbourg.jpg",
+     "depicts": "Strasbourg Cathedral",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names the cathedral (view not described)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#cathedrale-saint-etienne-de-metz",
@@ -20598,7 +21311,24 @@
     "Cathédrale Saint-Étienne de Metz"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Cathedrale-saint-etienne-metz-de-place-prefecture.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cathedrale-saint-etienne-metz-de-place-prefecture.jpg",
+     "depicts": "Metz Cathedral seen from Place de la Préfecture",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names cathédrale Saint-Étienne de Metz"
+    },
+    {
+     "file": "File:Quai des Régates sur la Moselle et cathédrale de Metz (juin 2019).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Quai_des_R%C3%A9gates_sur_la_Moselle_et_cath%C3%A9drale_de_Metz_(juin_2019).JPG",
+     "depicts": "Metz Cathedral above the Moselle from Quai des Régates",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names cathédrale de Metz"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#centre-pompidou-metz",
@@ -20609,7 +21339,24 @@
     "Centre Pompidou-Metz"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Metz - Centre Pompidou.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Metz_-_Centre_Pompidou.jpg",
+     "depicts": "Centre Pompidou-Metz building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Centre Pompidou Metz; in category (view not described)"
+    },
+    {
+     "file": "File:Musée, Centre Pompidou de Metz.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e,_Centre_Pompidou_de_Metz.jpg",
+     "depicts": "Centre Pompidou-Metz museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Centre Pompidou de Metz (view not described)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#chemin-de-la-corniche",
@@ -20620,7 +21367,24 @@
     "Chemin de la Corniche"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Chemin de la Corniche, Luxembourg City (5809014418).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chemin_de_la_Corniche,_Luxembourg_City_(5809014418).jpg",
+     "depicts": "Chemin de la Corniche, Luxembourg City",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Chemin de la Corniche"
+    },
+    {
+     "file": "File:Luxembourg City - Grund from Corniche.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Luxembourg_City_-_Grund_from_Corniche.jpg",
+     "depicts": "View of the Grund quarter from the Corniche",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Corniche as the viewpoint, subject is the Grund"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#esch-sur-sure-village-and-castle",
@@ -20631,7 +21395,24 @@
     "Esch-sur-Sûre"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Esch-sur-Sure castle 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Esch-sur-Sure_castle_01.jpg",
+     "depicts": "Esch-sur-Sûre castle ruin above the village",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Esch-sur-Sure castle"
+    },
+    {
+     "file": "File:Luxembourg Esch-sur-Sure 12 June 2011.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Luxembourg_Esch-sur-Sure_12_June_2011.jpg",
+     "depicts": "Esch-sur-Sûre village",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Esch-sur-Sure"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#gare-de-metz",
@@ -20669,7 +21450,24 @@
     "Grand Ducal Palace"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Luxembourg Grand Ducal Palace 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Luxembourg_Grand_Ducal_Palace_01.jpg",
+     "depicts": "Grand Ducal Palace, Luxembourg City",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Grand Ducal Palace; widely used 2006 photo"
+    },
+    {
+     "file": "File:Façade du Palais Grand-Ducal, Luxembourg, septembre 2025.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fa%C3%A7ade_du_Palais_Grand-Ducal,_Luxembourg,_septembre_2025.jpg",
+     "depicts": "Façade of the Grand Ducal Palace",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Palais Grand-Ducal façade"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#grande-ile-and-neustadt-unesco",
@@ -20682,7 +21480,24 @@
     "Neustadt"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Ill river @ Petite France @ Grande Ile @ Strasbourg (45618833621).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ill_river_@_Petite_France_@_Grande_Ile_@_Strasbourg_(45618833621).jpg",
+     "depicts": "Ill river at Petite France on the Grande Île, Strasbourg",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Grande Ile, Strasbourg"
+    },
+    {
+     "file": "File:Neustadt (52297126552).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Neustadt_(52297126552).jpg",
+     "depicts": "Neustadt district, Strasbourg",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title says only 'Neustadt'; found under Category:Neustadt (Strasbourg)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#hauptmarkt-and-marktkreuz-trier",
@@ -20726,7 +21541,24 @@
     "Homburger Schlossberghöhlen"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Homburg, die Schlossberghöhlen-2.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Homburg,_die_Schlossbergh%C3%B6hlen-2.jpg",
+     "depicts": "Inside the Schlossberg sandstone caves, Homburg",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Schlossberghöhlen Homburg (cave interior is the sight itself)"
+    },
+    {
+     "file": "File:Saarland Homburg Schlossberghoehlen 07.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Saarland_Homburg_Schlossberghoehlen_07.jpg",
+     "depicts": "Inside the Schlossberg sandstone caves, Homburg",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Schlossberghoehlen Homburg (cave interior is the sight itself)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#ludwigskirche",
@@ -20793,7 +21625,24 @@
     "Musée de La Cour d'Or"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hôtel Le Gronnais - Musée de Metz.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_Le_Gronnais_-_Mus%C3%A9e_de_Metz.JPG",
+     "depicts": "Hôtel Le Gronnais, a building of the Cour d'Or museum, Metz",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Musée de Metz; categorized under the museum (exterior not confirmed)"
+    },
+    {
+     "file": "File:Musées de Metz.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9es_de_Metz.jpg",
+     "depicts": "Grenier de Chèvremont granary, part of the Cour d'Or museums",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): description says granary of the Musées de Metz; may be interior ground floor"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#musee-de-la-faience-de-sarreguemines",
@@ -20858,7 +21707,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/National_Museum_of_Military_History_(Luxembourg)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:MilitMuzeoDiekirch 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:MilitMuzeoDiekirch_01.jpg",
+     "depicts": "National Museum of Military History, Diekirch (content unverified; may be interior/exhibit)",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names military museum Diekirch (Esperanto); in museum category; FLAG: exterior not confirmed"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#neumunster-abbey-neimenster",
@@ -20898,7 +21757,24 @@
     "Nécropole"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Military Cemetery with Douaumont Ossuary - Verdun - Meuse - France (52147168894).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Military_Cemetery_with_Douaumont_Ossuary_-_Verdun_-_Meuse_-_France_(52147168894).jpg",
+     "depicts": "Douaumont Ossuary above the national military cemetery",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Douaumont Ossuary and the military cemetery"
+    },
+    {
+     "file": "File:Ossuaire de Douaumont nécropole.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ossuaire_de_Douaumont_n%C3%A9cropole.jpg",
+     "depicts": "Douaumont Ossuary and necropolis",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Ossuaire de Douaumont nécropole; in both ossuary and necropolis categories"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#palais-des-ducs-de-lorraine-musee-lorrain",
@@ -20914,7 +21790,24 @@
    "pilot": false,
    "article": "https://fr.wikipedia.org/wiki/Mus%C3%A9e_lorrain",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nancy - palais ducal, façade.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nancy_-_palais_ducal,_fa%C3%A7ade.jpg",
+     "depicts": "Façade of the Ducal Palace (Musée lorrain), Nancy",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names palais ducal, Nancy; listed in façade category"
+    },
+    {
+     "file": "File:Palais des Ducs de Lorraine Nancy 2018a.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Palais_des_Ducs_de_Lorraine_Nancy_2018a.jpg",
+     "depicts": "Palace of the Dukes of Lorraine, Nancy",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Palais des Ducs de Lorraine"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#palais-rohan-three-museums",
@@ -20939,7 +21832,24 @@
     "Petite France"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Quartier de la petite France à Strasbourg.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Quartier_de_la_petite_France_%C3%A0_Strasbourg.jpg",
+     "depicts": "Petite France quarter, Strasbourg",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names quartier de la Petite France"
+    },
+    {
+     "file": "File:La Petite France Strasbourg 02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:La_Petite_France_Strasbourg_02.jpg",
+     "depicts": "Timber-framed houses of Petite France, Strasbourg",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names La Petite France Strasbourg"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#pfaffenthal-panoramic-elevator",
@@ -20964,7 +21874,24 @@
     "Place Stanisla"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nancy - Place Stanislas.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nancy_-_Place_Stanislas.JPG",
+     "depicts": "Place Stanislas, Nancy",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Place Stanislas"
+    },
+    {
+     "file": "File:Place Stanislas et ses grilles à Nancy.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Place_Stanislas_et_ses_grilles_%C3%A0_Nancy.jpg",
+     "depicts": "Place Stanislas with its gilded gates",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Place Stanislas"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#place-stanislas-place-de-la-carriere-and-place-dalliance",
@@ -20979,7 +21906,24 @@
     "Place Stanisla"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Place de la Carriere in Nancy.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Place_de_la_Carriere_in_Nancy.jpg",
+     "depicts": "Place de la Carrière, Nancy",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Place de la Carriere"
+    },
+    {
+     "file": "File:Nancy Place Stanislas panoramic August 2021.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nancy_Place_Stanislas_panoramic_August_2021.jpg",
+     "depicts": "Panorama of Place Stanislas, Nancy",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Place Stanislas"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#ponts-couverts-and-barrage-vauban",
@@ -21006,7 +21950,24 @@
     "Porta Nigra"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Trier Porta Nigra BW 1.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Trier_Porta_Nigra_BW_1.JPG",
+     "depicts": "Porta Nigra Roman gate, Trier",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Porta Nigra"
+    },
+    {
+     "file": "File:Trier, Porta Nigra cityside.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Trier,_Porta_Nigra_cityside.jpg",
+     "depicts": "Porta Nigra seen from the city side",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Porta Nigra"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#porte-des-allemands",
@@ -21018,7 +21979,24 @@
     "Porte des Allemand"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Metz Porte des Allemands R07.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Metz_Porte_des_Allemands_R07.jpg",
+     "depicts": "Porte des Allemands fortified gate, Metz",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Porte des Allemands; Commons featured picture"
+    },
+    {
+     "file": "File:Metz Porte des Allemands vdm.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Metz_Porte_des_Allemands_vdm.jpg",
+     "depicts": "Porte des Allemands, Metz",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Porte des Allemands; credited to city of Metz"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#quartier-europeen-parlement-europeen-and-palais-de-leurope",
@@ -21032,7 +22010,24 @@
     "Palais de l'Europe"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Louise Weiss building EP Strasbourg 09.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Louise_Weiss_building_EP_Strasbourg_09.jpg",
+     "depicts": "Louise Weiss building of the European Parliament, Strasbourg",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Louise Weiss building EP Strasbourg; listed as exterior in category"
+    },
+    {
+     "file": "File:Louise Weiss building EP Strasbourg 11.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Louise_Weiss_building_EP_Strasbourg_11.jpg",
+     "depicts": "Louise Weiss building of the European Parliament, Strasbourg",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Louise Weiss building EP Strasbourg; listed as exterior in category"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#reichsburg-cochem",
@@ -21043,7 +22038,24 @@
     "Reichsburg Cochem"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Cochem, Reichsburg, 2012-08 CN-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cochem,_Reichsburg,_2012-08_CN-01.jpg",
+     "depicts": "Reichsburg Cochem from the southwest",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Reichsburg Cochem; Picture of the Year candidate"
+    },
+    {
+     "file": "File:Cochem, Reichsburg -- 2018 -- 0099.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cochem,_Reichsburg_--_2018_--_0099.jpg",
+     "depicts": "Reichsburg Cochem",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Reichsburg Cochem"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#rheinisches-landesmuseum-trier",
@@ -21067,7 +22079,24 @@
     "Römerbrücke Trier"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Römerbrücke Trier 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:R%C3%B6merbr%C3%BCcke_Trier_01.jpg",
+     "depicts": "Roman Bridge over the Moselle, Trier",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Römerbrücke Trier; in Category:Roman bridge, Trier"
+    },
+    {
+     "file": "File:Roman bridge in Trier, Germany.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Roman_bridge_in_Trier,_Germany.jpg",
+     "depicts": "Roman Bridge over the Moselle, Trier",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Roman bridge in Trier"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#romische-villa-nennig",
@@ -21078,6 +22107,7 @@
     "Römische Villa Nennig"
    ],
    "pilot": false,
+   "skip": "only details/interiors (mosaic photos/archival excavation images; no villa or shelter exterior found) (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -21117,7 +22147,24 @@
     "Saarburger Wasserfall"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Wasserfall-Saarburg-Amueseum-2016.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Wasserfall-Saarburg-Amueseum-2016.jpg",
+     "depicts": "Saarburg waterfall (Leukbach) with the Amüseum",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Wasserfall Saarburg; Commons featured picture"
+    },
+    {
+     "file": "File:Wasserfall in Saarburg.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Wasserfall_in_Saarburg.jpg",
+     "depicts": "Saarburg waterfall in the old town",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Wasserfall in Saarburg; in Category:Wasserfall (Saarburg)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#saarlandmuseum-moderne-galerie",
@@ -21130,6 +22177,7 @@
     "Moderne Galerie"
    ],
    "pilot": false,
+   "skip": "only details/interiors (results were sculptures/artworks; no confirmed building exterior) (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -21156,7 +22204,24 @@
     "Aussichtspunkt Cloef"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Saarschleife at Mettlach (2457306844).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Saarschleife_at_Mettlach_(2457306844).jpg",
+     "depicts": "Saar loop seen from the Cloef viewpoint",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Saarschleife at Mettlach; description cites the Cloef view"
+    },
+    {
+     "file": "File:Mettlach - Saarschleife an der Cloef.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mettlach_-_Saarschleife_an_der_Cloef.jpg",
+     "depicts": "Saar loop at the Cloef, Mettlach",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Saarschleife an der Cloef"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#st-johanner-markt",
@@ -21225,7 +22290,24 @@
     "Family of Man"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Schloss Clerf - Clervaux Castle, May 2023 Luxembourg photographs.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Schloss_Clerf_-_Clervaux_Castle,_May_2023_Luxembourg_photographs.jpg",
+     "depicts": "Clervaux Castle, home of The Family of Man exhibition",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Clervaux Castle (castle exterior; exhibition itself not shown)"
+    },
+    {
+     "file": "File:Luxembourg, Clervaux, Castle2.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Luxembourg,_Clervaux,_Castle2.JPG",
+     "depicts": "Clervaux Castle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Clervaux Castle"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#trierer-dom-and-liebfrauenkirche",
@@ -21238,7 +22320,24 @@
     "Liebfrauenkirche"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Dom und Liebfrauen Trier.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dom_und_Liebfrauen_Trier.jpg",
+     "depicts": "Trier Cathedral and Liebfrauenkirche together",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Dom und Liebfrauen Trier"
+    },
+    {
+     "file": "File:Trier, Hohe Domkirche St. Peter -- 2015 -- 6172.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Trier,_Hohe_Domkirche_St._Peter_--_2015_--_6172.jpg",
+     "depicts": "Trier Cathedral of St. Peter with the Church of Our Lady",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hohe Domkirche St. Peter, Trier; caption includes Church of Our Lady"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#vianden-castle-chateau-de-vianden",
@@ -21249,7 +22348,24 @@
     "Vianden Castle"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Vianden Castle in Luxembourg - 51129121738.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Vianden_Castle_in_Luxembourg_-_51129121738.jpg",
+     "depicts": "Vianden Castle on its hill",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Vianden Castle"
+    },
+    {
+     "file": "File:Luxembourg, Vianden, Castle.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Luxembourg,_Vianden,_Castle.JPG",
+     "depicts": "Vianden Castle, daytime 2005",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Vianden Castle"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#volklinger-hutte-volklingen-ironworks",
