@@ -1,0 +1,508 @@
+{
+ "generated": "2026-10-16T14:34:38.858Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "cities/hokkaido.html",
+   "gen": "new",
+   "expected": {
+    "total": 412,
+    "sights": 228,
+    "food": 184,
+    "live": "cities/hokkaido.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Hokkaido — 412 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 24,
+    "cardsVisible": 24,
+    "legacy": false,
+    "firstCardTop": 583,
+    "screensToFirstCard": 0.69,
+    "mastheadPx": 449,
+    "controlsAbove": 16,
+    "controlsAboveOnScreen": 16,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-10-03\"",
+     "a \"CC BY-SA 4.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.sig \"★ SignatureAnime, manga \"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Your dayA day in Sapporo\"",
+     "button.rail-i.door \"Near meNearest firstAsks\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 302,
+    "upperNodes": 7,
+    "upperPct": 2.3,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Suicasmo · CC BY-\"",
+    "contrastChecked": 292,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Hokkaidoplace · d\"",
+     "button.mappill \"Show map\""
+    ],
+    "railVisible": true,
+    "railTop": 449,
+    "railOnFirstScreen": true,
+    "railItems": 4,
+    "railFirst": "★ SignatureAnime, manga & pop culture28",
+    "cityCardsAbove": 0,
+    "cardMedianH": 334,
+    "cardsPerScreen": 2.53,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2236,
+    "fcp": 232,
+    "fontSampleN": 293,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 32,
+     "Inter": 414,
+     "Hiragino Sans": 15
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 466,
+      "Inter": 5069,
+      "IPAGothic": 541,
+      "Inter SemiBold": 1
+     },
+     "primary": [
+      "Inter",
+      "IPAGothic",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 2002778,
+    "bytesAllResponses": 2169129,
+    "initial": {
+     "bytes": 1929992,
+     "gz": 904592
+    },
+    "session": {
+     "bytes": 2002778
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 292,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 137,
+      "h": 48,
+      "name": "Show map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "detail": {
+      "cls": "sheet detail",
+      "h": 728,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Hokkaido — 412 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 48,
+    "cardsVisible": 48,
+    "legacy": false,
+    "firstCardTop": 753,
+    "screensToFirstCard": 0.84,
+    "mastheadPx": 540,
+    "controlsAbove": 31,
+    "controlsAboveOnScreen": 31,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-10-03\"",
+     "a \"How we choose\"",
+     "a \"Start with Ōdōri Park\"",
+     "a \"CC BY-SA 4.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.sig \"★ SignatureAnime, manga \"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Your dayA day in Sapporo\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i.door \"Free to visit82\"",
+     "button.rail-i \"Must see101\"",
+     "button.rail-i \"Iconic & must-see31\"",
+     "button.rail-i \"UNESCO World Heritage12\"",
+     "button.rail-i \"Temples & shrines10\"",
+     "button.rail-i \"Castles, palaces & histo\"",
+     "button.rail-i \"Gardens & teahouses19\"",
+     "button.btn.btn-ghost \"See all 28\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 531,
+    "upperNodes": 12,
+    "upperPct": 2.3,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 519,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Hokkaidoplace · d\"",
+     "button.mappill \"Show map\"",
+     "nav#cleo-rail.rail \"★ SignatureAnime, manga \""
+    ],
+    "railVisible": true,
+    "railTop": 540,
+    "railOnFirstScreen": true,
+    "railItems": 11,
+    "railFirst": "★ SignatureAnime, manga & pop culture28",
+    "cityCardsAbove": 0,
+    "cardMedianH": 358,
+    "cardsPerScreen": 2.52,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2879,
+    "fcp": 356,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 35,
+     "Inter": 626,
+     "Hiragino Sans": 25
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 242,
+      "Inter": 5603,
+      "IPAGothic": 828,
+      "Inter SemiBold": 2
+     },
+     "primary": [
+      "Inter",
+      "IPAGothic",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 36,
+     "where": [
+      "rail over Ōdōri Park (大通公園)",
+      "rail over Menya Saimi (麺屋彩未)",
+      "rail over Sapporo Clock Tower (札幌市時計台)",
+      "rail over Former Hokkaido Government Off",
+      "rail over Moerenuma Park (モエレ沼公園)"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 412,
+     "scrolled": 412,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 412,
+      "ok": 412,
+      "bad": []
+     },
+     "search": {
+      "n": 26,
+      "ok": 26,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 412 places",
+     "groups": [
+      "AreaSapporo 110Otaru",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionAnime, man",
+      "Collection",
+      "CuisineSushi & kaise",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 4444206,
+    "bytesAllResponses": 4771855,
+    "initial": {
+     "bytes": 1672538,
+     "gz": 647138
+    },
+    "session": {
+     "bytes": 4444206
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 519,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 48,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 412,
+    "text": 44018
+   },
+   "cpu4x": {
+    "fcp": 480,
+    "dcl": 1682,
+    "loadMs": 2445
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.69
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 449
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "16 on-screen / 16 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": true,
+      "val": "top 449, 4 tiles, first \"★ SignatureAnime, manga & pop culture28\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": false,
+      "val": "toggle 137×48, full map true, pin sheet none"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 0, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 412 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.53
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 412 · DOM 412 · scrolled 412 · deep 412/412 · search 26/26 · no-JS 412"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, IPAGothic, Bricolage Grotesque 96pt ExtraBold, Inter SemiBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "2.3% (7/302)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: Suicasmo · CC BY-\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "4340 KB · 2879 nodes · 356 ms · 480 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "632 KB (1,633 KB) · 883 KB (1,885 KB)"
+     }
+    },
+    "passed": 21,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}

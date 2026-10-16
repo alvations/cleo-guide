@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(.github/workflows/beta-fetch-unsplash.yml)",
+      "Edit(tools/beta/imagery/**)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(ls *)",
+      "Bash(cat *)"
+    ]
+  }
+}

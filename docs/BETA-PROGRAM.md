@@ -159,3 +159,42 @@ insight modes; a snapshot is in `design/reference/melon-seek/`.
 
 A view may page its results only if every place stays reachable: page navigation, an "all N places" total, show-all,
 and search and filters that reach every record. The study, specs, mockups and build plan go in `design/beta/views/`.
+
+## Round 6: typography & style (owner request, 2026-10-11)
+
+The owner asked for the fonts, the styles and every other visual element to be **rated explicitly** and the improvements built in. melon-seek's ideas may be borrowed.
+
+From Round 6 on, the evaluator reports an itemised **Typography & style** sub-scorecard inside dimension A, covering:
+- the display face and the UI face;
+- scale and rhythm;
+- colour and skins;
+- spacing, radius and elevation;
+- components;
+- iconography;
+- motion;
+- consistency.
+
+The A weight is unchanged. The audit and the decision record live in `design/beta/style/`. The briefs are in `design/beta/eval/W6-BRIEFS.md`.
+
+## Rounds 6–9 (owner request, 2026-10-11)
+
+There will be four more rounds, Rounds 6–9, run with the same loop. Each evaluator also scores the **design-conformance checklist** in `design/beta/eval/ROUNDS-6-9.md`, which covers:
+- the views;
+- Atlas map-first;
+- Gallery, Guidebook and Insights;
+- the type & style rating and rebuild;
+- the melon-seek ideas;
+- luxury and fun;
+- photos;
+- honesty;
+- performance and accessibility.
+
+Any row that is not ✅ becomes the next wave's work.
+
+## Target raised: ≥ 98 overall (owner, 2026-10-11)
+
+**98 is the minimum, not a stretch target.** Rounds continue (6, 7, 8, …) until the independent review scores ≥ 98 overall with every design-conformance row ✅. The rubric and the evaluator's independence are unchanged:
+- the evaluator is never given the target, nor asked to hit it;
+- QA never weakens a gate.
+
+If progress stalls because the remaining points are blocked on the owner (photographs, a reviewed locale), the orchestrator pauses and reports exactly what unblocks them. See `design/beta/eval/ROUNDS-6-9.md`.

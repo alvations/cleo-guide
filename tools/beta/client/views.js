@@ -1,14 +1,18 @@
-/* views.js (FE-A): view switcher + registry (SPEC §2.4), Gallery pager (§2.3), Atlas tray (§3.2). Nothing removes a card. */
+/* views.js (FE-A): view switcher + registry (SPEC §2.4), Gallery pager (§2.3); Atlas layout hooks (Atlas lane: atlas.js does the rest). Nothing removes a card. */
 (() => {
   'use strict';
   const Cleo = window.Cleo || {}, C = Cleo.city, d = document, html = d.documentElement;
   if (!C || !Cleo.route || Cleo.views) return;                  // once per page, even if the file is evaluated twice
   const $ = (s, el) => (el || d).querySelector(s), qa = (s, el) => [].slice.call((el || d).querySelectorAll(s));
   const at = (el, a) => el.getAttribute(a), on = (el, ev, f) => el && el.addEventListener(ev, f);
+  let byUser = '';
   const info = C.info, DEF = info.dv || 'atlas', NAME = { gallery: 'Gallery', atlas: 'Atlas', guidebook: 'Guidebook', insights: 'Insights' };
   const avail = (info.views || ['gallery', 'atlas']).filter(v => NAME[v]), store = Cleo.store || { get: (k, x) => x, set: () => {} };
   const nav = $('[data-cleo-views]'), host = $('#cleo-view'), live = $('#cleo-view-live'), split = $('.split'), lp = $('.listpane');
-  const reg = {}, mem = {}, pl = n => n.toLocaleString('en-US') + (n === 1 ? ' place' : ' places');
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n)
+  const tt = (k, e, v) => Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, (m, n) => (n in v ? v[n] : m)) : e;
+  const nm = v => tt('city.view.' + v, NAME[v]);
+  const reg = {}, mem = {}, pl = n => n === 1 ? tt('hub.places.one', '1 place') : tt('hub.places', '{n} places', { n: n.toLocaleString('en-US') });
   const ok = v => avail.indexOf(v) >= 0;
   const isRoute = h => !h || h === '#' || h.indexOf('=') >= 0;          // #p-x / #area-X are anchors, not routes: keep the view
   let cur = ok(at(html, 'data-view')) ? at(html, 'data-view') : DEF;
@@ -20,7 +24,7 @@
   Cleo.route.href = o => { o = Object.assign({}, o || {}); const v = o.view || cur; delete o.view; if (v !== implied(o)) o = Object.assign({ view: v }, o); return href0(o); };
 
   const api = Cleo.views = {
-    names: avail.slice(), current: () => cur, label: v => NAME[v] || v,
+    names: avail.slice(), current: () => cur, label: v => (NAME[v] ? nm(v) : v),
     get: name => reg[name] || null,
     register(name, m) { reg[name] = m; if (name === cur && host && m.mount && !m.on) mount(name); },
     show: (v, o) => show(v, o || {}),
@@ -38,7 +42,8 @@
   };
   function mount(v) {
     const m = reg[v]; if (!m || m.on) return;
-    m.on = 1; if (host) { host.hidden = false; try { m.mount && m.mount(host, { key: C.key, file: info.file, city: C, total: info.total, go: C.go, view: v }); } catch (e) { if (window.console) console.error(e); } }
+    const user = byUser === v; byUser = '';   // FE-B QC-10: the module focuses its own heading once drawn after a user switch
+    m.on = 1; if (host) { host.hidden = false; try { m.mount && m.mount(host, { key: C.key, file: info.file, city: C, total: info.total, go: C.go, view: v, user }); } catch (e) { if (window.console) console.error(e); } }
 
     if (v === 'insights') grow();
   }
@@ -52,21 +57,31 @@
   }
   function unmount(v) { const m = reg[v]; if (m && m.on) { m.on = 0; try { m.unmount && m.unmount(host); } catch (e) {} } if (host && !(reg[cur] && reg[cur].on)) host.hidden = true; }
 
-  function paintNav() { if (!nav) return; qa('button[data-view]', nav).forEach(b => { const p = at(b, 'data-view') === cur; b.setAttribute('aria-pressed', String(p)); if (p) b.setAttribute('aria-expanded', String(nav.classList.contains('open'))); else b.removeAttribute('aria-expanded'); }); }
+  function paintNav() { if (!nav) return; qa('button[data-view]', nav).forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-view') === cur))); }   // FE-B QC-09: pressed state only (no menu)
+  let vxT = 0;
   function show(v, o) {
     if (!ok(v)) v = DEF;
     const prev = cur, changed = v !== prev || o.first;
     if (v !== prev) { mem[prev] = window.scrollY || 0; unmount(prev); }
     cur = v; html.setAttribute('data-view', v); C.view = v; paintNav();
+    // PERF-16 (designer, views.css eddbb7b0): the fallback cross-fade keys on html[data-vx], set for 300 ms on a reader's
+    // switch only — never on first paint or a deep-link restore (a :has() on html re-ran on every DOM mutation)
+    if (o.user && v !== prev) { html.setAttribute('data-vx', ''); clearTimeout(vxT); vxT = setTimeout(() => html.removeAttribute('data-vx'), 300); }
     if (v === 'atlas') atlasIn(); else atlasOut();
+    if (v !== 'gallery' && Cleo.defer && Cleo.defer.resume) Cleo.defer.resume();   // the lazy observer takes over again
     if (v === 'gallery' && !C.gallery) need('gallery');            // the Gallery extras (rows, covers) load on first use
     if (!NAME[v] || v === 'gallery' || v === 'atlas') { if (host) host.hidden = true; }
-    else loadMod(v, () => { if (cur === v) mount(v); });
+    else {
+      // FE-B QC-10 (SPEC §5): a user switch to a drawn view takes focus to a heading at once — a placeholder h1 named for the
+      // view while its module and data load (focused below), then the module's own h1 when it is drawn (ctx.user)
+      if (o.user && host && !(reg[v] && reg[v].on)) { byUser = v; host.hidden = false; host.innerHTML = '<h1 class="d2" tabindex="-1" data-cleo-pending>' + NAME[v] + '</h1>'; }
+      loadMod(v, () => { if (cur === v) mount(v); });
+    }
     page();
     if (changed && !o.first) {
       if (C.beat) C.beat(html, 'view-in', 360);                      // ROUND-3 #5: cross-fade hook on a real switch (DES CSS)
       requestAnimationFrame(() => { try { window.scrollTo(0, mem[v] || 0); } catch (e) {} });
-      if (live) live.textContent = NAME[v] + ' view, ' + pl(info.total);
+      if (live) live.textContent = tt('views.live', '{view} view, {places}', { view: nm(v), places: pl(info.total) });
       const h = v === 'gallery' || v === 'atlas' ? $('#main h1') : host && $('h1,h2', host);
       if (o.user && h) { if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
     }
@@ -77,11 +92,13 @@
   on(nav, 'click', e => {
     const b = e.target.closest && e.target.closest('button[data-view]'); if (!b) return;
     const v = at(b, 'data-view');
-    // phones (< 640 px): the switcher is one "current view" button that opens the four (B-03 controls budget)
-    if (v === cur) { if (window.matchMedia && matchMedia('(max-width: 639px)').matches) { const o = !nav.classList.contains('open'); nav.classList.toggle('open', o); b.setAttribute('aria-expanded', String(o)); } return; }
-    nav.classList.remove('open');
+    // FE-B QC-09 (§v2.11): four segments at every width, one tap per switch; a tap with a sheet open closes it and switches
+    const wasOpen = !!(Cleo.sheet && Cleo.sheet.isOpen && Cleo.sheet.isOpen());
+    if (wasOpen) { try { Cleo.sheet.close(true); } catch (x) {} try { b.focus({ preventScroll: true }); } catch (x) {} }   // focus leaves the closed sheet for the segment; the new view then takes it to its heading
+    if (Cleo.tray && Cleo.tray.close) { try { Cleo.tray.close(true); } catch (x) {} }
+    if (v === cur) { if (wasOpen) { const r0 = Cleo.route.parse(); if (r0.p) { delete r0.p; location.hash = Cleo.route.href(r0); } } return; }
     store.set('view', v);
-    const r = Cleo.route.parse(); delete r.pg; delete r.all; r.view = v;
+    const r = Cleo.route.parse(); delete r.pg; delete r.all; if (wasOpen) delete r.p; r.view = v;
     const h = Cleo.route.href(r);
     const go = () => {
       show(v, { user: 1 });                                        // first, so the hashchange below sees no change to undo
@@ -97,8 +114,7 @@
     const b = cur !== 'atlas' && e.target.closest && e.target.closest('[data-cleo-map]'); if (!b || !ok('atlas')) return;
     e.preventDefault(); e.stopPropagation(); store.set('view', 'atlas');
     const r = Cleo.route.parse(), a = at(b, 'data-cleo-map'); delete r.pg; delete r.all; delete r.p; r.view = 'atlas';
-    // phones: the map opens in this same tap (ROUND-5 gap #3), not the Atlas list; desktop Atlas always shows it
-    if (a || mobile()) r.map = a || '1'; else delete r.map;
+    if (a) r.map = a; else delete r.map;
     show('atlas', { user: 1 }); location.hash = Cleo.route.href(r);
   }, true);
   const fromHash = () => {
@@ -117,16 +133,32 @@
   function page() {
     const cards = qa('li.pl'), secs = qa('section.area');
     if (cur !== 'gallery') { cards.forEach(c => c.classList.remove('pg-off')); secs.forEach(s => s.classList.remove('pg-empty')); if (pager) pager.hidden = true; return; }
-    const r = Cleo.route.parse(), all = r.all === '1', per = size(), lensOn = cards.some(c => c.hidden);
+    // PERF-08: a lens is on when the route carries one (a selective lens leaves its non-matches unstamped, so no card is hidden)
+    const r = Cleo.route.parse(), all = r.all === '1', per = size(), lensOn = cards.some(c => c.hidden) || (!!Cleo.lens && Cleo.lens.on(Cleo.lens.pick(r)));
     let pend = Cleo.defer ? Cleo.defer.peek().length : 0;
     let pg = Math.max(1, parseInt(r.pg, 10) || 1);
     const deep = !!r.p || /^#(p|area)-/.test(location.hash);          // an addressed place / area needs the true view order
-    if (pend && (all || pg > 1 || lensOn || deep)) { Cleo.defer.all(); pend = 0; if (lensOn) { C.apply(); return; } }   // re-apply: new cards must meet the lens
-    const live = qa('li.pl').filter(c => !c.hidden), N = live.length + pend, pages = Math.max(1, Math.ceil(N / per));
+    const fine = !!(Cleo.defer && Cleo.defer.order && Cleo.defer.stampIds);
+    // PERF-08 (platform): under Cleo.defer.selective a lens builds only the cards it shows (stampLens); the stubs left are
+    // outside it, so the pager counts the shown cards only. "Show all" (all=1) still builds every card.
+    if (pend && lensOn && !all && fine && Cleo.defer.selective && Cleo.defer.stampLens) {
+      const got = Cleo.defer.peek({ lens: Cleo.lens.pick(r) }).length ? Cleo.defer.stampLens(r) : []; pend = 0; if (got.length) { C.apply(); return; } }
+    else if (pend && (all || lensOn || (!fine && (pg > 1 || deep)))) { Cleo.defer.all(); pend = 0; if (lensOn) { C.apply(); return; } }   // re-apply: new cards must meet the lens
+    const h = location.hash, mp = /^#p-(.+)$/.exec(h), ma = /^#area-(.+)$/.exec(h), tid = r.p || (mp && decodeURIComponent(mp[1]));
+    // Platform W7 (R6 gap #5): with no lens, any page (a deep link, page > 1, page 1) stamps only the cards it shows, placed
+    // by the full view order (stamped cards + deferred stubs) — not every card (a phone #p= built 12.8k nodes).
+    let ord = pend && fine ? Cleo.defer.order() : null;
+    if (ord) {
+      const i0 = tid ? ord.findIndex(o => o.id === 'p-' + tid) : -1, p0 = Math.min(i0 >= 0 ? Math.floor(i0 / per) + 1 : pg, Math.max(1, Math.ceil(ord.length / per)));
+      const want = new Set(ord.slice((p0 - 1) * per, p0 * per).filter(o => !o.el).map(o => o.id));
+      if (want.size) { Cleo.defer.stampIds(want); ord = Cleo.defer.order(); }
+      pend = Cleo.defer.peek().length; if (!pend) ord = null;
+    }
+    const live = qa('li.pl').filter(c => !c.hidden), N = ord ? ord.length : live.length + pend, pages = Math.max(1, Math.ceil(N / per));
+    const at0 = ord ? new Map(ord.map((o, i) => [o.id, i])) : null, pos = c => at0 ? (at0.has(c.id) ? at0.get(c.id) : -1) : live.indexOf(c);
     if (pg > pages) pg = pages;
     // QA-29 (G1): a deep link or anchor always lands — #p=<id>, #p-<id> or #area-<A> on another page moves the pager there
-    const h = location.hash, mp = /^#p-(.+)$/.exec(h), ma = /^#area-(.+)$/.exec(h), tid = r.p || (mp && decodeURIComponent(mp[1]));
-    const tg = tid ? d.getElementById('p-' + tid) : ma ? $('li.pl:not([hidden])', d.getElementById('area-' + decodeURIComponent(ma[1])) || d.createElement('i')) : null, ti = tg ? live.indexOf(tg) : -1;
+    const tg = tid ? d.getElementById('p-' + tid) : ma ? $('li.pl:not([hidden])', d.getElementById('area-' + decodeURIComponent(ma[1])) || d.createElement('i')) : null, ti = tg ? pos(tg) : -1;
     if (!all && ti >= 0 && (ti < (pg - 1) * per || ti >= pg * per)) {
       pg = Math.floor(ti / per) + 1;
       if (!tid) requestAnimationFrame(() => { const s = tg.closest('section.area'); if (s) s.scrollIntoView({ block: 'start' }); });
@@ -134,11 +166,12 @@
     }
     const a = all ? 0 : (pg - 1) * per, b = all ? N : Math.min(N, a + per);
     // page 1 may reach past the live cards (still deferred): keep their sections in layout; cleo:stamped re-pages
-    const keep = new Set(pend && b > live.length ? Cleo.defer.peek().slice(0, b - live.length).map(x => x.getAttribute('data-a')) : []);
+    const keep = new Set(ord ? ord.slice(a, b).filter(o => !o.el).map(o => o.a)
+      : pend && b > live.length ? Cleo.defer.peek().slice(0, b - live.length).map(x => x.getAttribute('data-a')) : []);
     qa('li.pl').forEach(c => c.classList.remove('pg-off'));
-    live.forEach((c, i) => { if (i < a || i >= b) c.classList.add('pg-off'); });
+    live.forEach(c => { const i = pos(c); if (i < a || i >= b) c.classList.add('pg-off'); });
     secs.forEach(s => s.classList.toggle('pg-empty', !s.querySelector('li.pl:not([hidden]):not(.pg-off)') && !keep.has(at(s, 'data-area'))));
-    if (!pager) { pager = d.createElement('nav'); pager.className = 'pager g-pager vw view-gallery'; pager.setAttribute('aria-label', 'Pages of places');
+    if (!pager) { pager = d.createElement('nav'); pager.className = 'pager g-pager vw view-gallery'; pager.setAttribute('aria-label', tt('views.pages', 'Pages of places'));
       const how = $('#how-we-choose'); if (how) how.parentNode.insertBefore(pager, how); else if (lp) lp.appendChild(pager);
       on(pager, 'click', e => { const x = e.target.closest('button'); if (!x) return; const v = at(x, 'data-pg');
         if (v === 'all') setPg({ all: '1' }); else if (v === 'paged') setPg({}); else setPg(+v > 1 ? { pg: v } : {}); }); }
@@ -147,64 +180,53 @@
     if (!all && pages > 1) {
       const want = new Set([1, pages, pg - 1, pg, pg + 1].filter(x => x >= 1 && x <= pages)); let last = 0;
       [...want].sort((x, y) => x - y).forEach(x => { if (x - last > 1) nums.push('<span class="gap" aria-hidden="true">…</span>');
-        nums.push('<button type="button" class="pg" data-pg="' + x + '"' + (x === pg ? ' aria-current="page"' : '') + ' aria-label="Page ' + x + ' of ' + pages + '">' + x + '</button>'); last = x; });
+        nums.push('<button type="button" class="pg" data-pg="' + x + '"' + (x === pg ? ' aria-current="page"' : '') + ' aria-label="' + tt('views.page', 'Page {i} of {n}', { i: x, n: pages }) + '">' + x + '</button>'); last = x; });
     }
-    const line = !N ? 'No places match — <button type="button" class="btn btn-quiet" data-cleo-all>show all ' + T + '</button>'
-      : 'Showing <b>' + (a + 1) + '–' + b + '</b> of ' + N.toLocaleString('en-US') + (N === T ? ' — all ' + pl(T) : ' (all ' + pl(T) + ' in the guide)');
-    pager.innerHTML = (nums.length ? '<div class="pg-n"><button type="button" class="pg" data-pg="' + Math.max(1, pg - 1) + '"' + (pg === 1 ? ' disabled' : '') + ' aria-label="Previous page">‹</button>' + nums.join('') +
-      '<button type="button" class="pg" data-pg="' + Math.min(pages, pg + 1) + '"' + (pg === pages ? ' disabled' : '') + ' aria-label="Next page">›</button></div>' : '') +
+    const line = !N ? tt('views.none', 'No places match —') + ' <button type="button" class="btn btn-quiet" data-cleo-all>' + tt('views.none.all', 'show all {n}', { n: T }) + '</button>'
+      : tt('views.showing', 'Showing {range} of {n}', { range: '<b>' + (a + 1) + '–' + b + '</b>', n: N.toLocaleString('en-US') }) + (N === T ? tt('views.all', ' — all {places}', { places: pl(T) }) : tt('views.inguide', ' (all {places} in the guide)', { places: pl(T) }));
+    pager.innerHTML = (nums.length ? '<div class="pg-n"><button type="button" class="pg" data-pg="' + Math.max(1, pg - 1) + '"' + (pg === 1 ? ' disabled' : '') + ' aria-label="' + tt('views.prev', 'Previous page') + '">‹</button>' + nums.join('') +
+      '<button type="button" class="pg" data-pg="' + Math.min(pages, pg + 1) + '"' + (pg === pages ? ' disabled' : '') + ' aria-label="' + tt('views.next', 'Next page') + '">›</button></div>' : '') +
       '<p class="pg-line tot" aria-live="polite">' + line + '</p>' +
-      (pages > 1 || all ? '<p><button type="button" class="btn btn-ghost showall" data-pg="' + (all ? 'paged' : 'all') + '">' + (all ? 'Show ' + per + ' per page' : 'Show all ' + N.toLocaleString('en-US') + ' on one page') + '</button></p>' : '');
+      (pages > 1 || all ? '<p><button type="button" class="btn btn-ghost showall" data-pg="' + (all ? 'paged' : 'all') + '">' + (all ? tt('views.per', 'Show {n} per page', { n: per }) : tt('views.onepage', 'Show all {n} on one page', { n: N.toLocaleString('en-US') })) + '</button></p>' : '');
     if (Cleo.emit) Cleo.emit('cleo:paged', { a, b, n: N });
   }
   C.after.push(page);
+  on(d, 'cleo:locale', () => { if (pager) page(); nopin(); });   // i18n D-41: redraw the pager and the badge in the loaded catalogue
+  // the paged Gallery stamps exactly its page (above), so core's lazy observer holds while it shows (platform W7)
+  if (Cleo.defer && Cleo.defer.resume) Cleo.defer.hold = () => cur === 'gallery' && Cleo.route.parse().all !== '1';
   on(d, 'cleo:stamped', () => { if (cur === 'gallery') requestAnimationFrame(page); });
   on(window, 'beforeprint', () => { if (Cleo.defer) Cleo.defer.all(); qa('li.pl.pg-off').forEach(c => c.classList.remove('pg-off')); qa('.pg-empty').forEach(s => s.classList.remove('pg-empty')); });
   on(window, 'afterprint', () => page());
   if (window.matchMedia) { const mq = matchMedia('(min-width: 640px)'); const f = () => page(); if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
 
-  /* ---- Atlas (SPEC §3.2): desktop split; phone map under a tray with peek / half / full detents (#map=1 = peek) ---- */
-  const DET = ['peek', 'half', 'full'], tb = $('[data-cleo-toolbar]'), rail = $('#cleo-rail');
-  let grab = null, moved = [], det = 'peek', pushedDet = 0;
-  const mobile = () => !C.desk();
-  const setDet = (v, push) => {
-    det = v; if (split) split.setAttribute('data-detent', v);
-    if (grab) { grab.setAttribute('aria-label', 'Tray: ' + v + '. Change the tray size'); grab.setAttribute('aria-expanded', String(v !== 'peek')); }
-    if (push && v === 'full' && !pushedDet) { try { history.pushState({ detent: 1 }, '', location.href); pushedDet = 1; } catch (e) {} }
-    const m = C.map && C.map(); if (m) setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 220);
-  };
+  /* ---- Atlas = map search (W7 Amendment 2: the real-estate map-search pattern, for travel) ----
+   * The layout is CSS on html[data-view=atlas] from first paint (atlas.css: desktop map-left split with a 2-column card
+   * grid; phones the map is the screen with a card carousel). The filter bar, results line, List / Map pill and the
+   * map-area filter are atlas.js (Atlas lane), loaded on entering Atlas — off the eager path. Without it, or without
+   * the map, the list still holds every place. State classes on <html>: atlas-d / atlas-m (layout), ms-*. */
+  C.mapFirst = () => cur === 'atlas' && !C.desk();
+  // desktop: the split fills the rest of the first screen (map bottom = viewport bottom), measured, never guessed
+  const fitSplit = C.fitSplit = () => { if (!split || !C.desk() || cur !== 'atlas') return; split.style.removeProperty('--atlas-top');
+    const t = Math.round(split.getBoundingClientRect().top + (window.scrollY || 0)); if (t > 0) split.style.setProperty('--atlas-top', t + 'px'); const m = C.map && C.map(); if (m) m.invalidateSize(); };
+  let rt; on(window, 'resize', () => { clearTimeout(rt); rt = setTimeout(fitSplit, 150); });
+  // W7: the search pill lives in the city bar; on the phone map the city bar steps aside (the Atlas chip row holds the
+  // switcher and the toolbar), so the pill rides in the toolbar there and comes home on leaving
+  const spill = $('[data-cleo-search]'), spHome = spill && spill.parentNode, tbS = $('[data-cleo-toolbar]');
+  const spillTo = a => { if (!spill || !tbS || !spHome) return; if (a) { if (spill.parentNode !== tbS) tbS.insertBefore(spill, tbS.firstChild); } else if (spill.parentNode !== spHome) spHome.insertBefore(spill, spHome.firstChild); };
   function atlasIn() {
     if (!split) return;
-    html.classList.toggle('atlas-m', mobile());
-    // phones: list first (the W2 page, QA-31); the tray detents live over the map, opened by Map / #map=
-    if (mobile() && !Cleo.route.parse().map) { atlasOut(); return; }
-    if (!mobile()) { atlasOut(true); if (C.loadMap) C.loadMap(() => { const m = C.map(); if (m) setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 0); }); return; }
-    if (!grab) {
-      const th = d.createElement('div'); th.className = 'tray-head';
-      th.innerHTML = '<button type="button" class="grab" data-detent-cycle aria-expanded="true"><span class="vh">Tray size</span></button>';
-      grab = th.firstChild; lp.insertBefore(th, lp.firstChild);
-      // swipe on the handle: up = one detent up, down = one down
-      let y0 = null, swiped = 0; on(th, 'pointerdown', e => { y0 = e.clientY; swiped = 0; }); on(th, 'pointerup', e => { if (y0 == null) return; const dy = e.clientY - y0; y0 = null;
-        if (Math.abs(dy) < 24) return; swiped = 1; const i = DET.indexOf(det); setDet(DET[Math.max(0, Math.min(2, i + (dy < 0 ? 1 : -1)))], dy < 0); });
-      on(grab, 'click', () => { if (swiped) { swiped = 0; return; } const i = DET.indexOf(det); setDet(DET[(i + 1) % 3], true); });
-    }
-    const th = $('.tray-head', lp);
-    [tb, rail].forEach(el => { if (el && el.parentNode !== th) { moved.push([el, el.parentNode, el.nextSibling]); th.appendChild(el); } });
-    if (C.loadMap) C.loadMap(() => { const m = C.map(); if (m) m.invalidateSize(); });
-    setDet(det);
+    const m = !C.desk(); html.classList.toggle('atlas-m', m); html.classList.toggle('atlas-d', !m);
+    spillTo(m);
+    if (C.need) C.need('atlas', () => { if (cur === 'atlas' && C.msIn) { C.msIn(); fitSplit(); } });
+    if (C.loadMap) C.loadMap(() => { fitSplit(); if (C.msArea) C.msArea(); });
+    requestAnimationFrame(fitSplit); if (d.fonts && d.fonts.ready) d.fonts.ready.then(fitSplit);
     nopin();
   }
-  function atlasOut(keep) {
-    html.classList.remove('atlas-m'); if (lp) lp.removeAttribute('inert');   // a pin sheet's inert tray never outlives the phone map
-    moved.splice(0).reverse().forEach(([el, par, nx]) => { if (nx && nx.parentNode === par) par.insertBefore(el, nx); else par.appendChild(el); });
-    if (split && !keep) split.removeAttribute('data-detent');
-    if (cur === 'atlas' && split) nopin();
+  function atlasOut() {
+    spillTo(false);
+    ['atlas-m', 'atlas-d', 'ms-list', 'ms-on'].forEach(k => html.classList.remove(k));
+    if (C.msOut) C.msOut(); if (split) split.style.removeProperty('--atlas-top');
   }
-  on(d, 'keydown', e => { if (e.key !== 'Escape' || cur !== 'atlas' || !mobile() || det === 'peek') return;
-    if ((Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])') || ($('#cleo-poi') && !$('#cleo-poi').hidden)) return;
-    setDet(det === 'full' ? 'half' : 'peek'); });
-  on(window, 'popstate', () => { if (pushedDet) { pushedDet = 0; if (cur === 'atlas' && det === 'full') setDet('half'); } });
-  on(window, 'hashchange', () => { if (cur === 'atlas' && mobile()) { const inMap = html.classList.contains('atlas-m'); if (!!Cleo.route.parse().map !== inMap) { if (!inMap) det = 'peek'; atlasIn(); } } });
   if (window.matchMedia) { const mq = matchMedia('(min-width: 1024px)'); const f = () => { if (cur === 'atlas') atlasIn(); }; if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
   // places without a verified pin are listed, never dropped (R-17): a floating badge on the Atlas map says so
   function nopin() {
@@ -212,10 +234,9 @@
     const n = qa('li.pl').filter(c => !c.hasAttribute('data-ll')).length + (Cleo.defer ? Cleo.defer.peek().filter(c => !c.hasAttribute('data-ll')).length : 0);
     let b = $('.nopin', mp); if (!n) { if (b) b.remove(); return; }
     if (!b) { b = d.createElement('p'); b.className = 'nopin'; mp.appendChild(b); }
-    b.textContent = n + ' without a verified pin · listed below';
+    b.textContent = tt('views.nopin', '{n} without a verified pin · in the list', { n });
   }
-
-  // area chips (Atlas tray head): one tap = the area lens, a second tap clears it. Drawn here from the blob + card attrs.
+  // area chips (Atlas list head on desktop; the Area tray elsewhere): one tap = the area lens, a second tap clears it. Drawn here from the blob + card attrs.
   const chips = $('.area-chips');
   if (chips) { const n = {}; qa('li.pl').concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => { const a = c.getAttribute('data-a'); n[a] = (n[a] || 0) + 1; });
     chips.innerHTML = qa('section.area[data-area]').map(s => at(s, 'data-area')).filter(a => n[a]).map(a => { const x = (info.areas || {})[a] || {};
@@ -229,7 +250,14 @@
   window.CleoViewQueue = { push: x => api.register(x[0], x[1]) };
 
   // first paint: the head script set html[data-view]; a stored preference is written into the hash (Back, shares)
-  if (nav) nav.hidden = false;
+  // PERF (QA-70, bisected to 7e746d9b): the phone sheets' "below the switcher" rules key on data-views-on and the switcher's
+  // "pinned while a sheet is open" rules on data-overlay-on (fe-a.css), not on :has() over <main>, which re-matched on every
+  // card stamped into <main> and held the main thread ~1.5 s after "Show map"
+  const mn0 = d.getElementById('main');
+  if (nav) { nav.hidden = false; if (mn0) mn0.setAttribute('data-views-on', ''); }
+  { const ov = ['cleo-sheet', 'cleo-fy', 'cleo-tray'].map(i => d.getElementById(i)).filter(Boolean);   // the old :has(>.overlay:not([hidden]):not(.side)) test
+    const ovOn = () => { if (mn0) mn0.toggleAttribute('data-overlay-on', ov.some(e => !e.hidden && !e.classList.contains('side') && e.parentNode === mn0)); };
+    if (mn0 && ov.length && window.MutationObserver) { const mo = new MutationObserver(ovOn); ov.forEach(e => mo.observe(e, { attributes: true, attributeFilter: ['hidden', 'class'] })); ovOn(); } }
   const r0 = Cleo.route.parse(), hv = isRoute(location.hash) && r0.view;
   const im = implied(r0), sv = store.get('view', '');
   let v0 = hv && ok(hv) ? hv : im !== DEF ? im : !isRoute(location.hash) ? cur : ok(sv) ? sv : DEF;

@@ -1,0 +1,302 @@
+{
+ "generated": "2026-10-16T16:22:14.591Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "Singapore/index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 390,
+    "vh": 844,
+    "title": "Singapore — 29 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 392,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 287,
+    "upperNodes": 14,
+    "upperPct": 4.9,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: William Cho · CC \"",
+    "contrastChecked": 259,
+    "contrastUnknown": 3,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 678,
+    "fcp": 172,
+    "fontSampleN": 262,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 31,
+     "Inter": 347
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 343,
+      "Inter": 5028,
+      "IPAGothic": 7,
+      "WenQuanYi Zen Hei": 2
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": [
+      "WenQuanYi Zen Hei"
+     ]
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 885005,
+    "bytesAllResponses": 885005,
+    "initial": {
+     "bytes": 794251,
+     "gz": 540746
+    },
+    "session": {
+     "bytes": 885005
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 259,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Singapore — 29 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 612,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 307,
+    "upperNodes": 14,
+    "upperPct": 4.6,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 282,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 678,
+    "fcp": 260,
+    "fontSampleN": 282,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 32,
+     "Inter": 372
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 354,
+      "Inter": 5890,
+      "IPAGothic": 7,
+      "WenQuanYi Zen Hei": 2
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": [
+      "WenQuanYi Zen Hei"
+     ]
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 885005,
+    "bytesAllResponses": 885005,
+    "initial": {
+     "bytes": 885005,
+     "gz": 631500
+    },
+    "session": {
+     "bytes": 885005
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 282,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 5292
+   },
+   "cpu4x": {
+    "fcp": 480,
+    "dcl": 637,
+    "loadMs": 784
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "4.9% (14/287)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: William Cho · CC \""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "864 KB · 678 nodes · 260 ms · 480 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "617 KB (864 KB) · 528 KB (776 KB)"
+     }
+    },
+    "passed": 11,
+    "total": 11,
+    "hardFail": []
+   }
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "_about": "Nominatim requests per UTC day across ALL location-verify runs (owner decision §8.3: <= 300/day). tools/location-verify.js reads today's total, caps the run at the remaining allowance, and appends its own count. 2026-10-16 is reconstructed from the committed reports' meta.requests.nominatim plus two superseded runs; it exceeded the allowance — see docs/resume/location-verify.md.",
+ "dailyMax": 300,
+ "days": {
+  "2026-10-16": { "used": 1570, "reconstructed": true, "runs": [
+   {"city": "chicago-il", "n": 152, "note": "dry run (report superseded)"},
+   {"city": "chicago-il", "n": 51}, {"city": "washington-dc", "n": 188}, {"city": "miami-fl", "n": 136},
+   {"city": "erie-pa", "n": 144}, {"city": "philadelphia-pa", "n": 172}, {"city": "orlando-fl", "n": 121},
+   {"city": "singapore", "n": 300, "note": "run 3a513510 (report superseded)"}, {"city": "singapore", "n": 300},
+   {"city": "san-francisco-ca", "n": 4, "note": "re-check"}, {"city": "orlando-fl", "n": 2, "note": "re-check"} ] }
+ }
+}

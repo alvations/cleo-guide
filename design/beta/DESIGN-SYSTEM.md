@@ -1,158 +1,206 @@
-# Cleo beta design system — "Constellation"
+# Cleo beta design system — v2 "Bone & Oxblood" (W7, current)
 
-> Lane: UI/UX (design/beta/, beta/assets/*.css). Wave 0, 2026-10-10. Beta only — nothing here touches the live site.
-> Tokens: [`tokens.css`](tokens.css) (shipped copy `beta/assets/tokens.css`) · Components: [`beta/assets/constellation.css`](../../beta/assets/constellation.css)
-> Live component sheet: [`mockups/components.html`](mockups/components.html) · Contrast proof: [`CONTRAST.md`](CONTRAST.md)
-> Pages + benchmarks: [`specs/README.md`](specs/README.md) · Imagery: [`IMAGERY.md`](IMAGERY.md) · Voice: [`VOICE.md`](VOICE.md) · Why: [`DECISIONS.md`](DECISIONS.md)
+> Lane: designer. Wave 7, 2026-10-11. Beta only. Decision and evidence: [`style/v2/DECISION.md`](style/v2/DECISION.md) ·
+> board: [`style/v2/board.html`](style/v2/board.html) · tokens: [`tokens.css`](tokens.css) · base components:
+> [`css/v2.css`](css/v2.css) (bundled last into `beta/assets/cleo.css`) · icons: [`style/v2/icons/`](style/v2/icons/sheet.html).
+> This file documents only what ships. The retired R6 "Constellation" system (night hero, star-field art, gold plates,
+> purple signature tiles, per-city skins, Playfair italics) was removed in W8. It is in git history before `34f3988a`.
 
-## 1. The direction in one paragraph
+## v2.1 Principles
 
-**Every city is drawn as the constellation of its verified pins.** The owner asked for "luxury yet fun — Airbnb
-Experiences meets a hotel butler meets your local guide; wanderlust; clean yet informative", and we have no venue
-photos and may not fake any. So the visual anchor is *our own data, made beautiful*: a night-sky masthead where each
-star is a sourced coordinate (brighter = must-see, lines join each area's must-sees), and a **typographic plate** on
-every card — the place's native script set vertically (浅草寺) or a fashion-Didone initial, on its area's colour,
-with an original collection glyph and a locator drawn from that area's real pins. Luxury comes from restraint
-(porcelain paper, ink, one gilt distinction colour, a Didone voice — Aman, Rosewood); fun comes from **one local
-accent per city** (Tokyo vermilion, Cleveland lake blue — The Hoxton's local skins) and playful functional details
-(glyphs that bob, a save "stamp", "Been there" passport stamps). The information architecture is Salon's, kept;
-its missing wanderlust and visual anchor are what this replaces.
+1. **Calm, minimal, image-first.** Content and photos carry the colour. The chrome is ground, ink and hairlines.
+2. **One accent, spent rarely.** Oxblood is used on four things only: the saved heart, the saved count, the day route and the wordmark star. It is the same for every city.
+3. **One sun highlight.** A flat warm wash sits behind data-backed sticker badges and the heart pop. It is never a gradient, never text colour and never chrome.
+4. **Ink does the work.** The primary button, the active segment, the pressed chip, the selected pin and the focus ring are all ink.
+5. **Two faces, two jobs.** Bricolage Grotesque sets headlines, city names and big numbers. Inter sets everything people read or tap. There are no italics.
+6. **Quiet depth.** Resting cards have no shadow. Soft shadows appear only on the search pill, floating controls and sheets.
+7. **Honest covers.** Without a credited photo, a place gets the calm cover: a sand ground, one kind glyph and the name in type. The cover never pretends to be a photo.
+8. **Trust for every generation.** Body text is 16 px or more, every pair passes AA in light and dark, buttons say what they do, and "Recommended by" is always visible.
 
-| Screenshot | |
-|---|---|
-| ![Tokyo mobile](screenshots/city-tokyo-m.jpg) | ![Tokyo desktop](screenshots/city-tokyo-d.jpg) |
-
-## 2. Principles (each traceable to the research)
-
-1. **Inventory first** (P1): the first place card is on the first phone screen (Tokyo 0.73–0.79 screens, 14 on-screen controls above it — measured by `tools/shots.js`).
-2. **Collections are the front door** (P2): a rail of cover tiles; ★ signature collections first and largest.
-3. **Attribution is navigation** (P20): every card says *Recommended by*; every source chip and source tile opens "everything this source recommends".
-4. **Distinction is a ladder of original glyphs** (P18/P19), identical on pin, card and sheet, linked to *How we choose*. Closed places never carry one.
-5. **One calm frame, one local accent** (P5/P7/P8). The accent is spent only on actions, the active state and distinctions.
-6. **Honest art** (P10): typography + map art from verified pins + generic glyphs. No photo that isn't the place; no stock; no AI.
-7. **Content never waits for the network**: fonts load non-blocking with system fallbacks; map art renders offline; tiles are a bonus.
-8. **No manufactured urgency** (P21): no ratings, "trending", scarcity, prices or hours — we hold none.
-
-## 3. Foundations
-
-### 3.1 Colour (light; dark = "night edition")
+## v2.2 Colour
 
 | Token | Light | Dark | Use |
 |---|---|---|---|
-| `--paper` | `#FBF8F3` | `#11100E` | page ground (warm porcelain) |
-| `--surface` | `#FFFFFF` | `#1B1916` | cards, sheets, tray |
-| `--sand` | `#F2ECE2` | `#24211D` | secondary ground, chips, quiet buttons |
-| `--ink` / `--ink-2` / `--ink-3` | `#191613` / `#4B443C` / `#675E54` | `#F3EEE6` / `#D2CABE` / `#A79E91` | text tiers; ink also fills the primary button |
-| `--line` / `--line-strong` | `#E7E0D5` / `#CDC3B4` | `#2F2B26` / `#4A443C` | hairlines / control borders |
-| `--night` / `--night-2` / `--on-night` / `--on-night-2` | `#0E1526` / `#18213A` / `#F5EEDF` / `#BDB6A8` | deeper | masthead & hero sky |
-| `--gilt` / `--gilt-soft` | `#8A6514` / `#F3E7C8` | `#DDB65E` / `#3A2F17` | **distinctions only** (tier glyph, authority chip) |
-| `--open` / `--closed` / `--warn` (+ `-soft`) | green / brick / amber | lifted | status chips, caveats |
-| `--focus` | `#1F4FD1` | `#8FB0FF` | 2 px focus ring, 2 px offset |
-| `--city` / `--city-ink` / `--city-wash` / `--city-on` | per skin | per skin | the one local accent |
+| `--paper` | `#F9F7F3` | `#131110` | Page ground (warm bone / warm near-black). `--night` aliases here. |
+| `--surface` | `#FFFFFF` | `#1C1918` | Sheets, menus, the search pill |
+| `--sand` | `#F1EDE7` | `#262220` | Quiet fill: the no-photo cover, the switcher track |
+| `--ink` · `--ink-2` · `--ink-3` | `#1C1917` · `#4A4440` · `#68615B` | `#F2EEEA` · `#D0C9C3` · `#A69E97` | Text tiers; ink is also the primary fill and the focus ring. `--gilt` aliases to ink. |
+| `--line` · `--line-strong` | `#E7E2DB` · `#CCC5BC` | `#302B28` · `#4B4440` | Hairlines and control borders |
+| `--accent` · `--accent-ink` · `--accent-wash` · `--on-accent` | `#7A2A2A` · `#7A2A2A` · `#F5EAE7` · `#FFF` | `#E0A19A` · `#E8B0A9` · `#33201E` · `#1E0E0C` | The one accent. `--city*` aliases here. |
+| `--sun` · `--sun-wash` · `--on-sun-wash` | `#E9A93B` · `#FBEBC8` · `#3D2A06` | `#F0BC5E` · `#3B2C10` · `#FBE3B0` | Sticker badge and heart pop only |
+| `--open` / `--closed` / `--warn` (+ `-soft`) | green / brick / amber | lifted | Status only |
+| `--area-mute`, `--area-mix` | `#948B83`, 50 % | `#766D67` | The data's area colours are mixed toward the palette for pins and dots |
 
-**WCAG AA:** 284 token pairs checked in light, dark and every skin — **0 below minimum** ([CONTRAST.md](CONTRAST.md),
-`python3 design/beta/tools/contrast.py` exits 1 on any regression). Dark mode follows the OS unless
-`data-theme="light|dark"` pins it.
+`python3 design/beta/tools/contrast.py` checks **86 pairs: 0 below AA**. The palette generator is
+`style/v2/tools/palettes.py`; it writes four directions and exits 1 on any miss.
 
-### 3.2 Type
+## v2.3 Type
 
-| Role | Family | Mobile / desktop | Notes |
-|---|---|---|---|
-| Hero | **Bodoni Moda** 500 (opsz axis) | 40–44 / 76 px, lh 1.02 | landing only; italic for the one emphasised word |
-| Display 1 (city, place) | Bodoni Moda | 38 / 64 | |
-| Display 2 (sections, areas) | Bodoni Moda | 28 / 36 | |
-| Display 3 (card name) | Bodoni Moda | 21 / 22 | renders macrons (Sensō-ji, Jōnan) |
-| Lead / Body / Small | **Figtree** 450 | 18·16·14 / 20·16·14 | humanist geometric sans — the friendly, "fun" half |
-| Eyebrow | Figtree 650, tracked caps .06em | 12.5 | **at most one per block**; everything else sentence case (M1-15) |
-| Native script | system Mincho/Gothic first, then Noto Serif JP via Google Fonts `&text=` subset (only the glyphs on the page) | plate 21–34, detail 54–84 | |
-
-Exactly two families + the CJK face. Both stylesheets load with `media="print" onload` (non-blocking); fallbacks are
-`Bodoni 72, Didot, Bodoni MT, Georgia, serif` and `system-ui, -apple-system, Segoe UI, Roboto`. With no network the
-page reads in Georgia + system sans with identical layout. No text below 12 px.
-
-### 3.3 City skins (one accent per city)
-
-| Skin | Cities (assigned) | `--city` light / dark |
+| Role | Face | Mobile / desktop |
 |---|---|---|
-| vermilion | Tokyo | `#C23A1C` / `#FF7A57` |
-| moss | Kyoto | `#4E6B22` / `#A8C46A` |
-| neon | Osaka | `#B8255F` / `#FF74AA` |
-| lagoon | Okinawa (+ Singapore/Vietnam regional skin candidates) | `#0B7473` / `#4FD1C9` |
-| glacier | Hokkaido | `#2F5F9E` / `#7FA8EA` |
-| lake | Cleveland | `#1F5E8A` / `#6FB2E6` |
-| saffron | New York | `#9A5B00` / `#F2B54B` |
-| plum | Chicago | `#6B3A8C` / `#C79BEA` |
+| Hero | Bricolage Grotesque 600, −0.035 em | 38 / 60 px |
+| Display 1 (city, country) | Bricolage 600, −0.024 em | 34 / 52 |
+| Display 2 (sections, sheet titles) | Bricolage 600 | 22 / 28 |
+| Card title | **Inter 600** | 16 |
+| Lead / body / small = UI / meta / xs | Inter 400–500 | 17·18 / 16 / 14 / 13 / 12 |
 
-Other cities rotate through the eight; a skin overrides **only** the four `--city*` tokens. Area colours (`AC` in the
-data) are used only as plate tints (15 % over surface), the plate's 5 px edge, map washes and the area-head dot.
+- **Five steps between 12 and 17 px:** 12 · 13 · 14 · 16 · 17. Only weights 400 / 500 / 600 / 700 render, and there is no 13.5 px.
+  - `style/v2/tools/normalize-v2.py` snaps every raw size and radius in the designer's sources onto tokens, and has a `--check` mode.
+  - The probes confirm it: `eval/r6/tools/probe-type.js` and `probe-css.py`. In the designer's CSS the only raw font size left is `.5em` (the native script after a city name), and the only raw radii are `50%` and `3px`.
+- **Optical size:** Bricolage ships as one pinned opsz-72 instance (wght axis only, 54.5 KB). That is deliberate: the display face only sets 22 px and up, where opsz 72 is the right cut, and keeping the opsz axis would roughly double the files for no visible gain. Do not set `font-optical-sizing` or `font-variation-settings: 'opsz'` on it. Headlines, deks and subtitles use `text-wrap: balance / pretty`.
+- Tabular figures appear wherever we count (`--num`).
+- CJK falls back to the system sans.
+- Fonts are self-hosted OFL subsets (vi, latin-ext, latin), with `font-display: swap`.
 
-### 3.4 Space, radius, elevation, motion
+## v2.4 Shape, depth, motion, icons
 
-- **Space:** 4-pt scale `--s-1…--s-11` = 4 8 12 16 20 24 32 40 56 72 96. Side gutter 16 px mobile, 40 px desktop; max width 1360.
-- **Radius:** 6 (chips' inner), 10 (inputs, banners), **16 cards**, 24 sheets/tiles/map pane, pill 999.
-- **Elevation:** `--e-1` resting card/control · `--e-2` hover & popovers · `--e-3` bottom sheets · `--e-4` floating map list, hero feature.
-- **Motion:** 120 / 220 / 360 / 520 ms; `--ease-out` for everything, `--ease-spring` only for the save stamp and the
-  collection-glyph bob. `prefers-reduced-motion: reduce` sets every duration to 0 (and the keyframes inherit it). No
-  animation > 300 ms on a primary path (M3-05) — the 360/520 ms durations are decorative only.
+- **Radius:** 8 px for buttons and controls, 12 px for inputs and small media, 16 px for card media and sheets, and pill for chips, search, the switcher and stickers.
+- **Motion:** durations are 120, 200, 280 and 480 ms (every moment ≤ 300 ms, the R7 delight cap; 480 only for non-moment layout); primary paths stay at 200 ms or less. The signature moment is the tapped cover or pin growing into the sheet: `--dur-grow` 300 ms with `--ease-grow`, using view transitions plus a FLIP fallback. The heart pop is the only spring. `prefers-reduced-motion` sets every duration to 0. Spec: [`style/v2/MOTION.md`](style/v2/MOTION.md).
+- **Elevation, three steps:** `--shadow-sm` (the switcher thumb and the heart chip), `--shadow` (the search pill, hover, floating controls) and `--shadow-lg` (sheets and dialogs). Resting cards have none (`--e-1: none`).
+- **Icons:** one line set of 73 icons on a 24 px grid, with a 1.5 stroke and round caps (`style/v2/icons/icons.json`). Every subject is generic, never a venue.
 
-### 3.5 Iconography
+## v2.5 Components (base layer, `css/v2.css`)
 
-Original 24-px line set (1.75 stroke, round caps), one inline `<symbol>` sprite per page (`svgkit.py ICONS`): UI
-(search, heart, map, list, sliders, close, directions, share, check, chevrons, plus, pin, day, guide, offline, info,
-alert, external, globe, route, swap, print, seal, compass, stamp) and **collection / dish glyphs** (torii, castle,
-leaf, columns, mountain, steam, awning, moon, bubble-star, tower, ticket, bowl, sushi, noodles, lantern, cup, dango,
-flame, cloche, fork-knife, fish, bottle, cake, tv, dumpling, sandwich). Glyphs are generic — "a ramen bowl", never
-"this shop's bowl". The brand mark is a four-point compass star. No third-party logo, mascot or monogram anywhere;
-Michelin / James Beard / NPS appear as **text** with a gilt dot.
+| Component | v2 spec |
+|---|---|
+| Top bar | Ground + 1 px hairline, no blur. Wordmark in Bricolage 600 with an accent star. The current nav item gets a 2 px ink underline. |
+| Buttons | Primary: ink fill with paper text, 8 px radius. Secondary: transparent with a `--line-strong` hairline. Icon buttons: round, sand on hover. Focus: 2 px ink outline, 2 px offset. |
+| Chips / pills | Surface with a hairline; pressed = ink fill. Source credits are underlined text, not filled pills. |
+| Search pill | White capsule, hairline, `--shadow`, ink search button. |
+| Hero / masthead | On the ground: eyebrow in ink-3, name in display, one line, the count. No night, art, particles, motif or accent bar. |
+| Card | No frame, border or resting shadow. Rounded media (16 px), heart top-right, then 2–3 lines: name (Inter 600), area · kind (ink-3), Recommended by. Hover dims the media 3 %; pressed scales it to 0.99. |
+| No-photo cover | Sand ground, centred 30 px kind glyph in ink-3, native name 13 px bottom-left. |
+| Sticker badge `.sticker` | Sun-wash pill with 12 px semibold text, top-left on media (or inline). Data-backed only; never on closed places. |
+| Rails / collection tiles | Surface with a hairline, ink text; pressed = ink inset ring. No purple, motif or shimmer. |
+| View switcher | Sand track (pill) with a white thumb and `--shadow-sm`; labels in ink-2 / ink. |
+| Sheets, tray, dialogs | Surface, `--shadow-lg`, 16 px top radius. |
+| Toast | Ink, paper text, 8 px radius. |
+| Tab bar | Surface + hairline; current item in ink with a 2 px stroke icon. |
+| Map | Pins on surface with a 2 px muted area underline; selected pin = ink. Clusters get a muted ring; the day route uses the accent. |
+| Footer | On the ground, hairline above. |
 
-## 4. Components
+## v2.6 Casing: no superfluous capitals (owner rule, W7)
 
-All sizes are CSS px. "Mobile" = < 640 (cards) / < 900 (chrome); desktop ≥ 1024 (split view). Every interactive
-target is ≥ 44 × 44 (dense source chips get an invisible 44 px hit-area pseudo-element).
+> Owner: "those capital initials everywhere in the UI I don't think we need them they are superfluous and don't serve any purpose!"
 
-| Component | Class | Anatomy & spec | States | Mobile / desktop |
-|---|---|---|---|---|
-| **Top bar** | `.topbar` | compass mark + *cleo* italic wordmark (→ landing), primary nav (Destinations · Your guide · Your day · Saved), search, saved heart with count dot in city accent | default, scrolled (blur), `.on-night` over hero, `aria-current` tab | 60 px, nav hidden / 68 px, nav shown |
-| **Tab bar** | `.tabbar` | Explore · Saved · Your day · Guide; active icon in `--city` | active, focus | fixed 64 px + safe-area / hidden |
-| **Hero** (landing) | `.hero` | kicker → Didone headline (one italic word in gilt-soft) → computed one-liner → search pill → featured-map card | — | constellation background, 40 px headline / 2-col with 560×600 feature card |
-| **Masthead** (hub, city, day) | `.masthead` | crumbs · name + native script · computed facts (`N places · sights · eat & drink · areas · last check`) · *How we choose* link · 3 px accent bar; sky = city constellation | — | ≈ 160 px (0.19 screen; budget ≤ 0.6) / ≈ 228 px |
-| **Segmented tabs** | `.seg` | All N · Sights N · Eat & drink N (computed) | selected (surface + e-1), hover, focus | 40 px pills inside 48 px track |
-| **Collection rail tile** | `.coll` | glyph tile → title (Didone) → "N places" | default, hover (lift + glyph bob), `aria-pressed` (ink inset), `.sig` (accent fill, constellation of its own pins, ★ Signature badge), `.by-src` (night tile: monogram + "Everything recommended by {source}"), `.all` (dashed "Show all N") | 132×124 / 148×164; sig 210 / 236 wide |
-| **Category pill** | `.pill` | glyph + label + count | default, pressed (ink fill), focus | 44 px |
-| **Search** | `.search`, `.suggest` | pill input + primary button; suggestions grouped Places / Collections / Sources with `<mark>` highlight and meta | empty, typing, selected option, no result (→ empty state) | 56 px (hero) / 44 px `.compact` (toolbar) |
-| **Toolbar** | `.toolbar` | search + Area + Filters (+ Map toggle on mobile); sticky under top bar | sticky blur | icon-only 44 px buttons / labelled |
-| **Applied filters** | `.applied` | removable ink chips + "Clear all" | — | 36 px chip, 44 px hit |
-| **Area chapter head** | `.area-head` | area dot + "Area n of N · count" eyebrow, Didone name, neighbourhoods line, **silhouette of the area's own pins** | — | order note hidden on mobile (stated in the tray + method page) |
-| **Place card** | `.card` | **plate** (native script vertical / Didone initial · area tint + 5 px edge · glyph · locator · pin number) → tier glyph + area · dish → **name** (+ native) → 2-line write-up → *Recommended by* chips (+N) → heart | default, hover (e-2), `.is-focus` (accent ring = pin selected), saved (filled accent heart + stamp anim), visited (rotated "Been there" stamp), **closed** (no tier glyph, grey hatched plate, "Closed · kept for the record" + "checked {date}") | cover card 136 px plate (≥ 2 cards per screen after the first) / grid 2-up, plate 16:9; `.row` compact density for sheets/day plan |
-| **Distinction ladder** | `.tier.t1/2/3` | **Must see**: filled compass star in a ring (gilt) · **Worth the detour**: outlined star in a ring + dot · **Deep cut**: open diamond. Text label always present; `title` says "within {area}"; links to How we choose | — | 16 px / 22 px `.lg` in sheets |
-| **Authority mark** | `.authority`, `.src.auth` | gilt dot + text "Michelin Bib Gourmand" / "James Beard Foundation" / NPS | — | — |
-| **Source chip** | `.src` | sentence-case short label ("Go Tokyo", "News 5 Cleveland #1" keeps the rank note); `.added` dashed "Added by the guide" for ADD/FADD only | hover border, focus | 26 px visual / 44 px hit |
-| **Source list** | `.srclist` | monogram · name · domain · "All n Tokyo picks citing {source} →" (in-link) · "Read ↗" (out-link) | — | — |
-| **Guide's note / Look for** | `.note`, `.lookfor` | prose `k` → italic Didone note on accent wash; keyword `k` → tag row. Never voice keywords as a sentence | — | — |
-| **Detail sheet / page** | `.detail`, `.sheet` | hero plate (map art + vertical native name) → tier + status → name → Didone write-up → Look for → collections → Recommended by → practical facts (address + Directions / Apple Maps / OSM; Open per {source} checked {date}; Pinned to the door {confidence}, {pin source}, verified {date}; "Hours & prices: not in our data") → Close by (straight-line) | — | full-height sheet: grabber, visible Close, sticky Save · Add to day · Directions / two columns with sticky aside |
-| **Map split view** | `.split`, `.mappane`, `.mapart` | list left, sticky map ≥ 42 % right; area chip; zoom / near-me; pins numbered per area; selected pin in accent; credit line | pin hover ↔ card focus | — / ≥ 1024 |
-| **Mobile map + POI sheet** | `.mapview`, `.poi-sheet` | full-screen map, back · search · filters, area/type chips; sheet with grabber, "n of N in view", visible Close, snap carousel of compact cards, List · Open | peek / half / full detents | full screen / floating 440 px list panel over the map |
-| **Filter & sort tray** | `.tray` | Area · Distinction · Recommended by · Sort (guide's order, nearest, A–Z) · More (hide been-there, free only, map style) → "Clear all" + **"Show N places"** | focus-trapped, Esc/Back closes | bottom sheet 88 vh / centred 560 px dialog |
-| **Hub city tile** | `.tile` | constellation art + vertical native name + accent bar → Didone name → computed counts → data-derived canon line → ★ signature line | hover lift | 150 px art (Tokyo `.lg` 220, spans 2 cols ≥ 1100) |
-| **Guide picker option** | `.interest` | glyph tile · Didone title · description with count · tick | pressed (accent glyph, ink ring, filled tick) | 84 px rows |
-| **Day plan** | `.stops`, `.daysum`, `.caveat` | summary (stops · km straight-line · places to eat), caveat, route actions, numbered timeline with dotted accent spine and leg distances | — | map strip on top / sticky route map |
-| **Stated gap** | `.gap` | dashed card, eyebrow "Stated gap · {cuisine}", italic Didone headline, the guide's own words verbatim, link to the closest qualifying place | — | — |
-| **Empty / error / offline** | `.state`, `.banner`, `.skeleton` | line art + Didone title + one plain sentence + one action. Night banner for offline, amber for storage blocked | — | — |
-| **Footer** | `.footer` | wordmark + computed promise, Explore / Plan / Trust columns, legal line with OSM/Esri credit and "no ratings, prices or hours" | — | 2 cols / 4 cols |
+**Rule: every UI label, heading, chip, badge, button and eyebrow is in sentence case.** Capitalise only the first word, plus anything in the list below. Text is never transformed: there is no `text-transform: uppercase | capitalize`, no small caps and no letter-spaced caps. The text starts plainly: there are no drop caps (`::first-letter`) and no decorative cover initials.
 
-## 5. Rules engineers must keep
+**What keeps its capitals:**
+1. **Proper nouns and demonyms:** place names (Tokyo, Kanda Myōjin, Ohio River, Little Tokyo) and nationalities or cuisines of a people (Japanese, Polish, Southeast Asian). This also covers named styles, events and things: Art Deco, Prairie School, Civil War, World Heritage, Frank Lloyd Wright, Rainbow Cone.
+2. **Acronyms and initialisms:** UNESCO, NPS, JNTO, BBQ, TV, UW. Words with an internal capital also stay as written: MiMo, MetroParks, YouTube.
+3. **Source and publisher names, exactly as each publisher writes them:** Time Out, The Japan Times, Atlas Obscura, Michelin. Source names never pass through the casing helper. A generic label is not a publisher name, so "Official Site" becomes "Official site".
 
-- Never render a tier glyph on a closed record; closed sorts last within its area.
-- Every number on screen is computed from data at build time (`make-mockups.py` does it; the generator must too).
-- Pin numbers == card numbers within an area; ordering is "tier, then number of named sources" and the UI says so.
-- A collection or interest **reorders or filters a view, never deletes**; "Show all N" restores exactly N.
-- Map art draws only verified pins; OSM geometry, if ever drawn, carries a visible "© OpenStreetMap contributors".
-- `localStorage` always in try/catch; the storage-blocked banner is the fallback copy.
+**How it is applied to data:** collection and cuisine labels come from page data (`beta/data/places/*.json`), and 259 of 368 are Title Case. **The data is not edited.** A shared display-time helper, `sentenceCase(label)`, applies the rule:
+- it keeps the first word;
+- it keeps allowlisted phrases and words;
+- it keeps all-caps words, single capital letters (U-pick) and words with an internal capital;
+- it lowercases every other word, handling hyphenated words per segment (must-see, Italian-American, sub-Saharan).
 
-## 6. Reproduce
+The executable spec and allowlist are in [`casing/`](casing/):
+- `allowlist.json`: the phrases and words to keep;
+- `sentence_case.py`: the reference implementation, whose `--check` mode lists every change;
+- `labels.md`: every label before and after, for review.
+
+When a label lowercases a proper noun, add the noun to `allowlist.json`, never to code.
+
+| Before | After |
+|---|---|
+| Iconic & Must-See | Iconic & must-see |
+| Free to Visit | Free to visit |
+| Temples & Shrines | Temples & shrines |
+| ★ Anime, Manga & Pop Culture | ★ Anime, manga & pop culture |
+| Aviation & the Wright Brothers | Aviation & the Wright brothers |
+| Art Deco, MiMo & Architecture | Art Deco, MiMo & architecture |
+| Polish, Ukrainian & Eastern European | Polish, Ukrainian & Eastern European |
+| START WITH (CSS uppercase) | Start with |
+
+## v2.7 Photos and credits
+
+- **Source and gate:** only credited Wikimedia Commons (or Unsplash) photos, as local files. Every one needs a complete TASL row in `beta/assets/img/CREDITS.json` and a free licence (CC0, PD, CC BY, CC BY-SA; NC and ND are refused). The build and `test-imagery.js` refuse anything else.
+- **Never photographed:** food places, venues, closed places, or anything in Vietnam (no freedom of panorama).
+- **Same box as the cover:** a photo sits in exactly the box of the calm cover (rounded `--r-l`, no frame), so a page mixes them gracefully. It has no glyph and no name plate on top.
+- **Credit under the media:**
+  - The credit always sits under the media, never over it, and is never clipped.
+  - Short form (imagery `captionHtml`): "Photo: ⟨author⟩ · ⟨licence⟩ · Wikimedia Commons (resized)".
+  - The licence and the source are links. The work's title sits in the source link's accessible name and title, which satisfies CC 2.0/3.0 "title if supplied".
+  - The credit is one sentence in ink-3 at `--fs-xs`, line-height 1.6. Its links get a 44 px hit area from inline padding, so the line box doesn't grow.
+- **Inside a link:** a card that is itself one link puts the credit *after* the link (`li > a.card + p.credit`), because a credit's own links may not nest inside an `<a>`.
+- **Loading and weight:**
+  - Lazy and `decoding="async"` everywhere except a hub's hero, which is eager with `fetchpriority="high"`.
+  - `srcset` comes from the imagery widths (500 / 960 for cards, 640 / 1280 for heroes). `sizes` matches the real column width, so a 3× phone takes the 500 w copy for a ~170 px card.
+  - Budget (D-38): a page's default first load stays ≤ 2.0 MB on desktop and on a 390 px phone at 3×.
+- **No repeats:** a hub card never repeats its hub's hero photo (render guard plus `test-hubs.js`).
+
+## v2.8 Page patterns
+
+| Page | Pattern |
+|---|---|
+| **Landing** | **Search first.** Sentence-case kicker in ink-2. One headline in the display face, "Where to next?", where the single expressive moment is a flat `--sun-wash` swipe under one word. Then the facts line, the search pill and the country pills. Then one row of city cards per live country (2 columns on phones, 3 at 768, 4 at 1024), the ★ signature row and collections as image cards (a scroll row on phones, a grid from 1024), a quiet "How we choose" strip (computed counts: named sources, places pinned, closed places kept) and the country cards. |
+| **City card (hub / landing)** | `li.dest > a.tile.card` is one link: media, then name (display face), counts, "Known for" (the guide's own signature line) and "Recommended by ⟨top sources⟩ + n more". The credit goes after the link. A ★ collection shows as the design system's `.sticker` on the media. Cover tones `c-0…c-3` rotate so neighbours never match. |
+| **Country hub** | **Photo first on phones.** Hero media in a reserved 3:2 box under the header, then the name, "Known for" (the first signature item of the three largest guides, deduped by dish synonyms from the canon table), the stats line and **one** primary CTA. Share and "How we choose" sit on a quiet secondary row; the dek comes last. Desktop is two columns, top-aligned, with the photo above the fold. No hero photo means the calm cover, with the place count as the big number. Then the city card grid (1 / 2 / 3 / 4 columns), the collections and "Elsewhere in Cleo". |
+| **Static pages** (method, accessibility, 404) | Light page head (display h1, a `--fs-lead` dek), prose at `--fs-lead` / 1.6, `max-width: 68ch`, numbers in the display face. |
+| **Guidebook** | Chapters per area. A chapter leads with a credited photo where an honest one exists: the first open sight in view order, never food, never Vietnam, 3:2, credit under it. Each entry shows its tier or "Closed · kept for the record", address, write-up, "Look for", Recommended by and Save. **D-39 (proposed):** a record whose own prose quotes a price or rating carries a quiet line under it: "Prices and ratings are quoted from the source at the time of research (⟨date⟩)". The prose is never edited. |
+| **Insights** | Every chart reads `--series-1…6` / `--series-other` in fixed order: calm slate, clay, teal, ochre, plum and sage, validated on the surface in light and dark. Oxblood stays out. Every count uses tabular figures (`--num`). Every bar opens those places. |
+
+Copy voice: inviting in headlines and CTAs ("Where to next?", "See all 5 guides"), plain wherever facts live (sources, closures, addresses, dates). Every interface string goes through `tools/beta/i18n/en.json`.
+
+Wrapping: headings and short hero lines use `text-wrap: balance`, deks and subtitles `pretty`, and a date is glued to its label with a no-break space. The result has no single-word last lines at 390 or 1440.
+
+## v2.9 Rules engineers must keep
+
+- Tokens only. No raw colours or family names in component CSS. Font sizes come from `--fs-*`, radii from `--r-*`.
+- Never render a tier glyph on a closed record; a closed record sorts last within its area and says "Closed" in words.
+- Every number on screen is computed from the data at build time, never typed.
+- Pin numbers equal card numbers within an area. The order is tier, then number of named sources, and the UI says so.
+- A collection or interest **reorders or filters a view, never deletes**: "Show all N" restores exactly N.
+- Map art draws only verified pins. OSM geometry, if ever drawn, carries a visible "© OpenStreetMap contributors".
+- `localStorage` always goes in try/catch; the storage-blocked banner is the fallback copy.
+- Targets are ≥ 44 px, and text pairs are AA in light and dark. Nothing moves under `prefers-reduced-motion`. Content never depends on a CDN.
+
+## v2.11 The view switcher on phones (QC-09; FE-A builds it)
+
+**Today:** under 640 px the four views collapse into one "View: Gallery ▾" control, so every switch takes two taps, and an open sheet covers it. `nav[data-cleo-views]` holds toggle buttons, so it has no valid group role (axe rejects `role=group` on `<nav>`).
+
+**Spec:**
+- **Markup:** `<div class="views" data-cleo-views role="group" aria-label="View">` holding four `<button type="button" data-view="…" aria-pressed="true|false">` (glyph + label).
+  - The four are mutually exclusive toggles, not links, so a labelled group of pressed buttons is the right pattern; the `<nav>` element goes.
+  - The base CSS (`views.css`, `v2.css`) now targets `.views[data-cleo-views]` whatever the element, so the swap needs no CSS change.
+  - FE-A's own `nav.views…` selectors in `fe-a.css` need the same change.
+- **Always four segments, never collapsed:** one tap per switch at every width. Drop the `:not(.open)` single-column collapse and the "View:" prefix.
+  - **≥ 400 px:** glyph + label.
+  - **< 400 px:** label only, 14 px (`--fs-sm`), four equal columns. At 390, a segment is 87 px and "Guidebook" fits in 70 px.
+  - **< 300 px (200 % zoom on a 390 phone):** a **2 × 2 grid** of glyph-only segments (each at least 60 × 44 px). The label stays as the button's accessible name, with a visible tooltip on focus and press. It is still one tap per switch. *(Corrected 2026-10-16: a single row cannot work here. The 195 px viewport less the 16 px main gutters leaves 163 px, and four 44 px segments plus the track need 180 px. The build measured 29 × 44 px segments.)*
+  - The track is `--sand` with a `--surface` thumb on the pressed segment (v2 §v2.5). The thumb slides (`--dur-2`), and there's no slide under reduced motion.
+- **Placement on phones:** a 52 px row directly under the 52 px header. It is sticky with the header, so the switcher is always at `top: 52px`.
+  - The search pill doesn't share this row on phones: search is the header's search icon (which opens the search sheet). The row is the switcher alone, full width less the 16 px gutters.
+- **Reachable with a sheet open:**
+  - Every phone sheet (place detail, filters, list) stops below the switcher: `max-height: calc(100dvh - 104px)`, with its top edge at ≥ 104 px. Its scrim also starts at 104 px, so header and switcher stay visible and hit-testable.
+  - Tapping a segment while a sheet is open closes the sheet and switches view in the same tap.
+  - Focus moves to the new view's heading.
+  - The sheet's own close button and Escape still work.
+- **Verification on 2026-10-16, head 055e2e6d (FE-B's build 7e746d9bc):**
+  - **390 px: PASS.** `div[role=group][aria-label=View]`, 4 buttons each 78 × 44, one pressed. With `#p=senso-ji` open (sheet top at 116 px), `elementFromPoint` returns each segment.
+  - **200 % (195 px): FAIL.** There are 4 segments in one row, each 29 × 44, which is under the 44 px target, and the labels still render. Sheet reachability passes.
+  - The fix belongs in `fe-a.css` (the `html main[data-city] .views[data-cleo-views]` rules near lines 194–203): add the < 300 px 2 × 2 glyph-only grid above.
+- **Re-verification on 2026-10-16, head after 639d2b1be: PASS at both widths.**
+  - **390 px:** 4 segments, each 78 × 44.
+  - **195 px (DPR 2):** a 2 × 2 grid of 61 × 44 glyph-only segments.
+  - **Both:** `role=group`, one pressed. With `#p=senso-ji` open, elementFromPoint returns every segment; the sheet top is 116 px at 390 and 162 px at 195.
+  - FE-B also pins the row under the header while a sheet is open, so reachability holds wherever the page is scrolled. Accepted.
+- **Acceptance (qc.js P-01, J-05):**
+  - at 390 and at 200 % zoom, four segments are visible and each switch is 1 tap;
+  - every segment is ≥ 44 × 44 px;
+  - `role="group"` with `aria-label="View"`, exactly one `aria-pressed="true"`;
+  - with the place-detail sheet open, `document.elementFromPoint` at each segment's centre returns that segment;
+  - axe reports no `aria-allowed-role`.
+
+## v2.10 Reproduce and probe
 
 ```bash
-python3 design/beta/tools/make-mockups.py                         # mockups from real records (+ syncs beta/assets/tokens.css)
-NODE_PATH=$(npm root -g) node design/beta/tools/shots.js          # screenshots + metrics.json (390×844 @2x, 1440×900)
-python3 design/beta/tools/contrast.py                             # WCAG gate over tokens
+python3 design/beta/tools/contrast.py                                   # WCAG gate over the tokens (light + dark)
+python3 design/beta/eval/r6/tools/probe-css.py .                        # raw vs token sizes, radii, shadows across beta/assets/*.css
+node design/beta/eval/r6/tools/probe-type.js <port> <label> <out.json>  # rendered sizes, weights, radii, figures per page
+NODE_PATH=$(npm root -g) node tools/beta/fe-b-shots.js --scheme dark    # landing + hubs + static pages, 390 / 1440
+NODE_PATH=$(npm root -g) node tools/beta/w8-feb-shots.js                # Guidebook + Insights, 390 / 1440, light + dark
+cd tools && npm run validate && npm test && npm run beta:check          # the gates
 ```

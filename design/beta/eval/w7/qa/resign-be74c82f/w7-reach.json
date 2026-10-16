@@ -1,0 +1,82 @@
+{
+ "head": "be74c82f2680009c726ac8ac54731ef97773dfb8",
+ "checks": [
+  {
+   "group": "reach",
+   "name": "Singapore/chinatown.html mobile: Atlas #p= opens the detail for every one of 16 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "Singapore/chinatown.html mobile: search by name lists the place (16 samples)",
+   "ok": true,
+   "evidence": {
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "Singapore/chinatown.html desktop: Atlas #p= opens the detail for every one of 16 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "Singapore/chinatown.html desktop: search by name lists the place (16 samples)",
+   "ok": true,
+   "evidence": {
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/tokyo.html mobile: Atlas #p= opens the detail for every one of 488 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/tokyo.html mobile: search by name lists the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/tokyo.html desktop: Atlas #p= opens the detail for every one of 488 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/tokyo.html desktop: search by name lists the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "bad": [],
+    "err": []
+   }
+  }
+ ],
+ "info": {}
+}

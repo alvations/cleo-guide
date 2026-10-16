@@ -1,0 +1,13 @@
+{
+  "_doc": "FE-C batch 4 (W9-9 local favourites lens, lf.*; plus fresh.feed, review round 13): ja from the i18n lane (D-41, AI tier); review round 11 in design/beta/i18n/ja-REVIEW.md. Merged with pending-en.json by merge.py.",
+  "strings": {
+    "lf.label": "地元のお気に入り",
+    "lf.f": "地元のお気に入りのみ",
+    "lf.tile.t": "地元のメディア、書き手、クリエイター",
+    "lf.tile.d": "公式の出典なし・全出典の種別を登録済み",
+    "lf.h": "地元のお気に入り({n})",
+    "lf.rule": "地元のメディア、地元の書き手、または確認済みのクリエイターだけが推薦している営業中の場所です。公式・観光系の出典による推薦はなく、すべての出典の種別が当ガイドの出典台帳に登録されています。",
+    "lf.gap": "ここで該当する場所は{min}か所に満たない({n}か所)ため、数合わせはせず、この絞り込みは表示しません。当ガイドの出典台帳に種別が登録されている出典は{total}件中{typed}件です。",
+    "fresh.feed": "このガイドの閉店と営業状況の確認をまとめたRSSフィードです。どのフィードリーダーでも読めます。"
+  }
+}

@@ -6,12 +6,14 @@
  *                         manifest, gates every photo against CREDITS.json, and attaches `imagery` to rows.
  *   imagery.motifSvg()    the motif as a decorative inline <svg><image> layer for a tile / masthead / cover.
  *   imagery.photoFor()    the gated photo for a record, or null (then the renderer keeps the motif / plate).
- *   imagery.figureHtml()  <figure class="photo"> with the visible TASL credit.
+ *   imagery.figureHtml()  <figure class="photo"> with the visible TASL credit (srcset when the credit has size variants).
+ *   imagery.heroFor()     the credited hero photo of a city row / country, or null (W7, Commons or Unsplash slots).
+ *   imagery.heroHtml()    that hero as a full-bleed, eager <figure class="photo hero-photo"> (+ heroCreditHtml(): its credit line).
  *
  * Model fields (documented for FE lanes; all paths are beta-root-relative and carry a ?v= content hash):
- *   row.imagery     = { motif: {night, ink, why}, photos: {placeId: {src, w, h, credit}} }   (city page rows)
- *   country.imagery = { motif: {night, ink, why} }
- *   reg.imagery     = { collections: {kind: {night, ink, why}}, collectionKind(id, name) → kind, photoCount }
+ *   row.imagery     = { motif: {night, ink, why}, photos: {placeId: {src, w, h, srcset, credit}}, hero }   (city rows)
+ *   country.imagery = { motif: {night, ink, why}, hero }
+ *   reg.imagery     = { collections: {kind: {night, ink, why}}, collectionKind(id, name) → kind, photoCount, slots }
  * Static outputs: beta/assets/img/motifs/*.svg, beta/assets/img/motifs/index.json, beta/assets/img/manifest.json.
  * Owner-edited inputs (never generated): beta/assets/img/CREDITS.json, beta/assets/img/photos/*.
  */
@@ -49,8 +51,9 @@ function build({ reg, cityRows, emit, errors, sha, betaDir }) {
   const ph = photos.loadPhotos(betaDir, pages);
   errors.push(...ph.errors.map(e => 'imagery: ' + e));
   let photoCount = 0;
-  for (const r of cityRows) { r.imagery.photos = ph.byPage[r.key] || {}; photoCount += Object.keys(r.imagery.photos).length; }
-  reg.imagery = { collections, collectionKind, photoCount };
+  for (const r of cityRows) { r.imagery.photos = ph.byPage[r.key] || {}; r.imagery.hero = ph.bySlot[`hero:${r.key}`] || null; photoCount += Object.keys(r.imagery.photos).length; }
+  for (const c of reg.countries) if (c.imagery) c.imagery.hero = ph.bySlot[`hero:${c.key}`] || null;   // country hub hero (W7)
+  reg.imagery = { collections, collectionKind, photoCount, slots: ph.bySlot, heroCount: Object.keys(ph.bySlot).filter(k => k.startsWith('hero:')).length };
   return reg.imagery;
 }
 
@@ -102,10 +105,21 @@ function motifSvg(m, up = '', { tone = 'night', fit = 'xMidYMax slice', style = 
   return `<svg class="${cls}" viewBox="0 0 480 200" preserveAspectRatio="${fit}" aria-hidden="true" focusable="false"${style ? ` style="${attr(style)}"` : ''}><image href="${attr(up + m[tone])}" width="480" height="200" preserveAspectRatio="${fit}"/></svg>`;
 }
 
+/**
+ * The credited hero photo for a city row (row.imagery.hero), a country (country.imagery.hero) or any key via
+ * heroFor(reg, key) (reg.imagery.slots), or null — then the
+ * renderer keeps its motif / calm cover and the page is unchanged. Vietnam never has one (refused at build).
+ */
+function heroFor(obj, key) {
+  const im = obj && obj.imagery; if (!im) return null;
+  if (key != null && im.slots) return im.slots[`hero:${key}`] || null;   // heroFor(reg, key): FE-B hubs/landing
+  return im.hero || null;                                                 // heroFor(row) / heroFor(country)
+}
+
 /** The credited local photo for a record, or null. Closed places never get one (also refused at build). */
 function photoFor(row, rec) {
   if (!row || !row.imagery || !rec || rec.closed) return null;
   return row.imagery.photos[rec.id] || null;
 }
 
-module.exports = { build, motifSvg, motifOf, MOTIF_KIND, MOTIF_THEME, photoFor, figureHtml: photos.figureHtml, collectionKind };
+module.exports = { build, motifSvg, motifOf, MOTIF_KIND, MOTIF_THEME, photoFor, heroFor, figureHtml: photos.figureHtml, heroHtml: photos.heroHtml, heroPreload: photos.heroPreload, heroCreditHtml: photos.heroCreditHtml, collectionKind };

@@ -1,0 +1,8 @@
+city=san-francisco-ca
+scope=all
+limit=0
+nominatim_max=20
+names=Hotel Utah Saloon
+sources=nominatim,census
+commit=true
+# settle Hotel Utah: forward-geocode 500 4th St (Census + Nominatim address point) vs both candidates

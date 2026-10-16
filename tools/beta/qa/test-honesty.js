@@ -7,7 +7,7 @@
  *   - the Guidebook and Insights views rendered from every page's JSON with the FE-B view modules.
  * Two checks, 0 hits allowed:
  *   1. no price / currency / rating / star-score / booking / reserve / availability / opening-hours wording — the one
- *      allowed line is "Hours and prices aren't in our data" (it states the gap).
+ *      allowed line is "We don't track opening hours or prices" (it states the gap; D-42).
  *   2. no third-party travel / review / booking brand (owner rule 6). The denylist is kept as truncated SHA-256 hashes
  *      of lower-cased 1–3-word n-grams so the gate itself never names a brand. A name that is a source in our data
  *      (any page's sourceIndex name or domain) is a data-rendered attribution label and is exempt, as are place names.
@@ -57,7 +57,9 @@ const PROSE = [...DATA].sort((a, b) => b.length - a.length);
 const HONESTY = /(?:[$€£¥₫₩]\s?\d|\b\d+\s?(?:usd|eur|sgd|jpy|vnd|dollars?|yen)\b|(?<![A-Z][a-z]+ )\bprices?\b|\bpriced\b|\bcheap\b|\bratings?\b|\brated \d|\b\d(?:\.\d)?\s?(?:\/\s?5|stars?)\b|\bstar[- ]score\b|\bbook now\b|\bbooking\b|\breserve (?:a|your|ahead|online|now)\b|\breservations?\b|\bavailability\b|\bopen(?:ing)? hours\b|\bopen now\b|\bopens? at\b|\bcloses? at\b)/i;
 // stated-gap lines (they say what we do NOT show) are the allowed exceptions, and so is a closed card's status line:
 // its text after "kept for the record ·" is the closure source (rule 4c), a data-rendered source label
-const ALLOWED = /Closed — kept for the record · .*|Hours and prices aren['’]t in our data|No ratings, prices or (?:opening )?hours are shown|review-aggregator star ratings never count as the recommender/gi;
+// D-39 / D-42 (FE-B): the dated-quote label on records whose own prose quotes a price, rating or time is a stated
+// limit of the data, like the gap lines above — exact sentence only.
+const ALLOWED = /Closed — kept for the record · .*|We don['’]t track opening hours or prices|No ratings, prices or (?:opening )?hours are shown|We don['’]t add ratings, (?:review counts, )?prices or opening hours of our own|review-aggregator star ratings never count as the recommender|Prices, ratings and times are quoted from the source at the time of research \((?:\d{4}-\d{2}-\d{2}|undated)\)\./gi;
 
 let failures = 0;
 const hits = { honesty: [], brand: [], prose: [] };

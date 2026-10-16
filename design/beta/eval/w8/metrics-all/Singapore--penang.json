@@ -1,0 +1,531 @@
+{
+ "generated": "2026-10-16T14:24:45.919Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "Singapore/penang.html",
+   "gen": "new",
+   "expected": {
+    "total": 6,
+    "sights": 3,
+    "food": 3,
+    "live": "Singapore/penang.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Penang (George Town) — 6 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 6,
+    "cardsVisible": 6,
+    "legacy": false,
+    "firstCardTop": 662,
+    "screensToFirstCard": 0.78,
+    "mastheadPx": 511,
+    "controlsAbove": 15,
+    "controlsAboveOnScreen": 15,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-09-02\"",
+     "a \"CC BY-SA 4.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.sig \"★ SignatureThe hawker ca\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i \"Must see4\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 143,
+    "upperNodes": 1,
+    "upperPct": 0.7,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: HundenvonPenang ·\"",
+    "contrastChecked": 138,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Penang (George To\"",
+     "button.mappill \"Show map\""
+    ],
+    "railVisible": true,
+    "railTop": 511,
+    "railOnFirstScreen": true,
+    "railItems": 4,
+    "railFirst": "★ SignatureThe hawker canonlaksa2",
+    "cityCardsAbove": 0,
+    "cardMedianH": 311,
+    "cardsPerScreen": 2.71,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 853,
+    "fcp": 248,
+    "fontSampleN": 139,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 23,
+     "Inter": 189
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 407,
+      "Inter": 3075,
+      "IPAGothic": 3,
+      "Inter SemiBold": 1
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 647720,
+    "bytesAllResponses": 647720,
+    "initial": {
+     "bytes": 647720,
+     "gz": 275438
+    },
+    "session": {
+     "bytes": 647720
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 138,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 137,
+      "h": 48,
+      "name": "Show map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "nasi-kandar-line-clear",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 728,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 728,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Penang (George Town) — 6 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 6,
+    "cardsVisible": 6,
+    "legacy": false,
+    "firstCardTop": 769,
+    "screensToFirstCard": 0.85,
+    "mastheadPx": 540,
+    "controlsAbove": 30,
+    "controlsAboveOnScreen": 30,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-09-02\"",
+     "a \"How we choose\"",
+     "a \"Start with Penang Road F\"",
+     "a \"CC BY-SA 4.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.sig \"★ SignatureThe hawker ca\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i \"Must see4\"",
+     "button.rail-i \"Heritage & culture2\"",
+     "button.rail-i \"Temples, mosques & shrin\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i \"Laksa & curry noodles1\"",
+     "button.rail-i \"Wok noodles (char kway t\"",
+     "button.rail-i \"Indian & roti prata1\"",
+     "button.btn.btn-ghost \"See all 2\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 171,
+    "upperNodes": 1,
+    "upperPct": 0.6,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 166,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Penang (George To\"",
+     "button.mappill \"Show map\"",
+     "nav#cleo-rail.rail \"★ SignatureThe hawker ca\""
+    ],
+    "railVisible": true,
+    "railTop": 540,
+    "railOnFirstScreen": true,
+    "railItems": 11,
+    "railFirst": "★ SignatureThe hawker canonlaksa2",
+    "cityCardsAbove": 0,
+    "cardMedianH": 336,
+    "cardsPerScreen": 2.68,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 853,
+    "fcp": 320,
+    "fontSampleN": 167,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 32,
+     "Inter": 230
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 416,
+      "Inter": 3712,
+      "IPAGothic": 3,
+      "Inter SemiBold": 2
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 6,
+     "where": [
+      "rail over Penang Road Famous Jin Kor Cha",
+      "rail over Air Itam Laksa",
+      "rail over George Town UNESCO Heritage Zo",
+      "rail over Nasi Kandar Line Clear",
+      "rail over Kek Lok Si Temple"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 6,
+     "scrolled": 6,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 6,
+      "ok": 6,
+      "bad": []
+     },
+     "search": {
+      "n": 6,
+      "ok": 6,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 6 places",
+     "groups": [
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byVisit ",
+      "Recommended by",
+      "CollectionHeritage &",
+      "Collection",
+      "CuisineLaksa & curry",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "Been thereShow allHi",
+      "Been there"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 676799,
+    "bytesAllResponses": 676799,
+    "initial": {
+     "bytes": 647720,
+     "gz": 275438
+    },
+    "session": {
+     "bytes": 676799
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 166,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 6,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 6,
+    "text": 4021
+   },
+   "cpu4x": {
+    "fcp": 532,
+    "dcl": 942,
+    "loadMs": 1192
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.78
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": false,
+      "val": 511
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "15 on-screen / 15 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": true,
+      "val": "top 511, 4 tiles, first \"★ SignatureThe hawker canonlaksa2\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 137×48, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 0, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 6 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.71
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 6 · DOM 6 · scrolled 6 · deep 6/6 · search 6/6 · no-JS 6"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic, Inter SemiBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0.7% (1/143)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: HundenvonPenang ·\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "661 KB · 853 nodes · 320 ms · 532 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "269 KB (633 KB) · 269 KB (633 KB)"
+     }
+    },
+    "passed": 21,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}

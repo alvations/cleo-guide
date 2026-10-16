@@ -1,0 +1,739 @@
+{
+ "head": "995e25294c45762cd0b4864fb0a8b803bf1e91d4",
+ "checks": [
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 65
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: the city (\"Cleveland\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Cleveland"
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 1,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    123,
+    44,
+    "List · 85"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "superior-pho",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 47,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 374
+    },
+    "pinSel": true,
+    "want": "Superior Phở",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Superior Phở",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-superior-pho",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cleveland.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-soldiers-and-sailors-monument",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 1,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 41,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cleveland.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "© OpenStreetMap · Esriⓘ Leaflet | Tiles © Esri — Esri, HERE,",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 598,
+     "w": 168,
+     "h": 20,
+     "b": 618,
+     "r": 180
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 65
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: the city (\"Tokyo\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Tokyo"
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    129,
+    44,
+    "List · 351"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "zojo-ji",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 46,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 374
+    },
+    "pinSel": true,
+    "want": "Zōjō-ji (増上寺)",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Zōjō-ji (増上寺)",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-zojo-ji",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cities/tokyo.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-tokyo-station-marunouchi-building",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 41,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cities/tokyo.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "© OpenStreetMap · Esriⓘ Leaflet | Tiles © Esri — Esri, HERE,",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 598,
+     "w": 168,
+     "h": 20,
+     "b": 618,
+     "r": 180
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 65
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: the city (\"New York City\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: New York City"
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    129,
+    44,
+    "List · 316"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "apollo-theater",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 31,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 359
+    },
+    "pinSel": true,
+    "want": "Apollo Theater",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Apollo Theater",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-apollo-theater",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cities/newyork.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-museum-of-modern-art-moma",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 264,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cities/newyork.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "© OpenStreetMap · Esriⓘ Leaflet | Tiles © Esri — Esri, HERE,",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 598,
+     "w": 168,
+     "h": 20,
+     "b": 618,
+     "r": 180
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 65
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: the city (\"Chinatown & CBD\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Chinatown & CBD"
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    117,
+    44,
+    "List · 11"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "famous-sungei-road-trishaw-laksa",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 31,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 359
+    },
+    "pinSel": true,
+    "want": "Famous Sungei Road Trishaw Laksa",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Famous Sungei Road Trishaw Laksa",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-famous-sungei-road-trishaw-laksa",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/Singapore/chinatown.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-sri-mariamman-temple",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 11,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/Singapore/chinatown.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "© OpenStreetMap · Esriⓘ Leaflet | Tiles © Esri — Esri, HERE,",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 598,
+     "w": 168,
+     "h": 20,
+     "b": 618,
+     "r": 180
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 65
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: the city (\"Wheeling\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Wheeling"
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    119,
+    44,
+    "List · 17"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "oglebay-resort-and-park",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 32,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 359
+    },
+    "pinSel": true,
+    "want": "Oglebay Resort & Park",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Oglebay Resort & Park",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-oglebay-resort-and-park",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cities/wheeling.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-dicarlos-pizza",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 17,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cities/wheeling.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "© OpenStreetMap · Esriⓘ Leaflet | Tiles © Esri — Esri, HERE,",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 598,
+     "w": 168,
+     "h": 20,
+     "b": 618,
+     "r": 180
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "tiles",
+   "name": "every tile request went to OSM or Esri",
+   "ok": true,
+   "evidence": {
+    "server.arcgisonline.com": 230
+   }
+  }
+ ],
+ "info": {}
+}

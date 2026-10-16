@@ -1,0 +1,268 @@
+# Your day @390: build from saved → reorder / remove → share → print → reopen
+  PASS  @390 "Your list" offers "Plan a day from these", reached by Tab
+  PASS  @390 Enter builds a day from the 4 saved places in Taitō-ku (the 5th is elsewhere) = ["senso-ji","kappabashi-dogu-gai","ameya-yokocho","ueno-park"]
+  PASS  @390 focus moves to the day's heading
+  PASS  @390 the heading and the summary (stops, km) are in view, clear of the sticky bars
+  PASS  @390 the summary reads stops and distance = "4 stops 2.5 km straight-line total 0 places to eat"
+  PASS  @390 [data-dy="share"] is reached by Tab from the heading
+  PASS  @390 [data-dy="print"] is reached by Tab from the heading
+  PASS  @390 [data-dy="kml"] is reached by Tab from the heading
+  PASS  @390 [data-dy="edit"] is reached by Tab from the heading
+  PASS  @390 "Move later" on stop 1 is reached by Tab (editing)
+  PASS  @390 Enter moves stop 1 later = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho","ueno-park"]
+  PASS  @390 focus stays on the moved stop's controls
+  PASS  @390 "Remove" on stop 4 is reached by Tab
+  PASS  @390 Enter removes stop 4 (3 left) = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho"]
+  PASS  @390 Share hands over a link carrying the edited stops, in order = "#day=TAITO&s=kappabashi-dogu-gai,senso-ji,ameya-yokocho"
+  PASS  @390 Print (Enter) opens the print dialog
+  PASS  @390 print keeps the summary and stops, drops the buttons and the map pill = {"stops":true,"sum":true,"bar":false,"pill":false}
+  PASS  @390 0 page errors while building = []
+  PASS  @390 the shared link reopens the same day, same order (view: atlas) = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho"]
+  PASS  @390 the day's summary sits on the map, in view and uncovered = "Your day Taitō-ku 3 stops · 2.8 km"
+  PASS  @390 opening a shared day stores nothing
+  PASS  @390 0 page errors on reopen = []
+# Your day @1440: build from saved → reorder / remove → share → print → reopen
+  PASS  @1440 "Your list" offers "Plan a day from these", reached by Tab
+  PASS  @1440 Enter builds a day from the 4 saved places in Taitō-ku (the 5th is elsewhere) = ["senso-ji","kappabashi-dogu-gai","ameya-yokocho","ueno-park"]
+  PASS  @1440 focus moves to the day's heading
+  PASS  @1440 the heading and the summary (stops, km) are in view, clear of the sticky bars
+  PASS  @1440 the summary reads stops and distance = "4 stops 2.5 km straight-line total 0 places to eat"
+  PASS  @1440 [data-dy="share"] is reached by Tab from the heading
+  PASS  @1440 [data-dy="print"] is reached by Tab from the heading
+  PASS  @1440 [data-dy="kml"] is reached by Tab from the heading
+  PASS  @1440 [data-dy="edit"] is reached by Tab from the heading
+  PASS  @1440 "Move later" on stop 1 is reached by Tab (editing)
+  PASS  @1440 Enter moves stop 1 later = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho","ueno-park"]
+  PASS  @1440 focus stays on the moved stop's controls
+  PASS  @1440 "Remove" on stop 4 is reached by Tab
+  PASS  @1440 Enter removes stop 4 (3 left) = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho"]
+  PASS  @1440 Share hands over a link carrying the edited stops, in order = "#day=TAITO&s=kappabashi-dogu-gai,senso-ji,ameya-yokocho"
+  PASS  @1440 Print (Enter) opens the print dialog
+  PASS  @1440 print keeps the summary and stops, drops the buttons and the map pill = {"stops":true,"sum":true,"bar":false,"pill":false}
+  PASS  @1440 0 page errors while building = []
+  PASS  @1440 the shared link reopens the same day, same order (view: atlas) = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho"]
+  PASS  @1440 the day's summary sits on the map, in view and uncovered = "Your day Taitō-ku 3 stops · 2.8 km"
+  PASS  @1440 opening a shared day stores nothing
+  PASS  @1440 0 page errors on reopen = []
+# place detail (QA-51, QA-59b/d, R7 2d, closures)
+  PASS  @390 kanda-myojin (fresh #p=): the rank line is the data's 3 of 43 (QA-50) = "No. 3 of 43 in Chiyoda-ku"
+  PASS  @390 kanda-myojin: the detail photo is never upscaled (file 500 w shown at 358 px)
+  PASS  @390 kanda-myojin: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 kanda-myojin: no source-link icon wraps onto a line of its own
+  PASS  @390 asukayama-park (fresh #p=): the rank line is the data's 2 of 37 (QA-50) = "No. 2 of 37 in Jōhoku"
+  PASS  @390 asukayama-park: the detail photo is never upscaled (file 500 w shown at 358 px)
+  PASS  @390 asukayama-park: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 asukayama-park: no source-link icon wraps onto a line of its own
+  PASS  @390 terminal-tower-observation-deck (fresh #p=): the rank line is the data's 3 of 42 (QA-50) = "No. 3 of 42 in Downtown & The Flats"
+  PASS  @390 terminal-tower-observation-deck: the detail photo is never upscaled (file 500 w shown at 358 px)
+  PASS  @390 terminal-tower-observation-deck: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 terminal-tower-observation-deck: no source-link icon wraps onto a line of its own
+  PASS  @390 west-side-market (fresh #p=): the rank line is the data's 1 of 52 (QA-50) = "No. 1 of 52 in West Side, Ohio City & Tremont"
+  PASS  @390 west-side-market: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 west-side-market: no source-link icon wraps onto a line of its own
+  PASS  @390 heinens-downtown (fresh #p=): the rank line is the data's 39 of 42 (QA-50) = "No. 39 of 42 in Downtown & The Flats"
+  PASS  @390 heinens-downtown: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 heinens-downtown: no source-link icon wraps onto a line of its own
+  PASS  @390 heinens-downtown: a closed place never offers Directions as its primary action = ""
+  PASS  @390 katzs-delicatessen (fresh #p=): the rank line is the data's 19 of 264 (QA-50) = "No. 19 of 264 in Manhattan"
+  PASS  @390 katzs-delicatessen: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 katzs-delicatessen: no source-link icon wraps onto a line of its own
+  PASS  @1440 kanda-myojin (fresh #p=): the rank line is the data's 3 of 43 (QA-50) = "No. 3 of 43 in Chiyoda-ku"
+  PASS  @1440 kanda-myojin: the detail photo is never upscaled (file 960 w shown at 960 px)
+  PASS  @1440 kanda-myojin: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 kanda-myojin: no source-link icon wraps onto a line of its own
+  PASS  @1440 kanda-myojin: the desktop sheet is centred over a full-viewport scrim = {"img":[960,960],"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 asukayama-park (fresh #p=): the rank line is the data's 2 of 37 (QA-50) = "No. 2 of 37 in Jōhoku"
+  PASS  @1440 asukayama-park: the detail photo is never upscaled (file 960 w shown at 960 px)
+  PASS  @1440 asukayama-park: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 asukayama-park: no source-link icon wraps onto a line of its own
+  PASS  @1440 asukayama-park: the desktop sheet is centred over a full-viewport scrim = {"img":[960,960],"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 terminal-tower-observation-deck (fresh #p=): the rank line is the data's 3 of 42 (QA-50) = "No. 3 of 42 in Downtown & The Flats"
+  PASS  @1440 terminal-tower-observation-deck: the detail photo is never upscaled (file 960 w shown at 960 px)
+  PASS  @1440 terminal-tower-observation-deck: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 terminal-tower-observation-deck: no source-link icon wraps onto a line of its own
+  PASS  @1440 terminal-tower-observation-deck: the desktop sheet is centred over a full-viewport scrim = {"img":[960,960],"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 west-side-market (fresh #p=): the rank line is the data's 1 of 52 (QA-50) = "No. 1 of 52 in West Side, Ohio City & Tremont"
+  PASS  @1440 west-side-market: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 west-side-market: no source-link icon wraps onto a line of its own
+  PASS  @1440 west-side-market: the desktop sheet is centred over a full-viewport scrim = {"img":null,"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 heinens-downtown (fresh #p=): the rank line is the data's 39 of 42 (QA-50) = "No. 39 of 42 in Downtown & The Flats"
+  PASS  @1440 heinens-downtown: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 heinens-downtown: no source-link icon wraps onto a line of its own
+  PASS  @1440 heinens-downtown: a closed place never offers Directions as its primary action = ""
+  PASS  @1440 heinens-downtown: the desktop sheet is centred over a full-viewport scrim = {"img":null,"over":[],"lone":0,"closed":true,"pri":"","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 katzs-delicatessen (fresh #p=): the rank line is the data's 19 of 264 (QA-50) = "No. 19 of 264 in Manhattan"
+  PASS  @1440 katzs-delicatessen: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 katzs-delicatessen: no source-link icon wraps onto a line of its own
+  PASS  @1440 katzs-delicatessen: the desktop sheet is centred over a full-viewport scrim = {"img":null,"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+# polish (R7 gap 2a/b/c/e): credits fit their boxes, bars opaque, placeholder whole, no upscaled photo
+  PASS  @390 light cleveland.html: 11 credits, none overflow their box = []
+  PASS  @390 light cleveland.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 light cleveland.html: the search placeholder fits unclipped = null
+  PASS  @390 light cleveland.html: no photo shown wider than its file = []
+  PASS  @390 light cleveland.html: no single-word last line in the dek or the stat line = []
+  PASS  @390 light cities/tokyo.html: 16 credits, none overflow their box = []
+  PASS  @390 light cities/tokyo.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 light cities/tokyo.html: the search placeholder fits unclipped = null
+  PASS  @390 light cities/tokyo.html: no photo shown wider than its file = []
+  PASS  @390 light cities/tokyo.html: no single-word last line in the dek or the stat line = []
+  PASS  @390 light cities/tokyo.html#all=1: 54 credits, none overflow their box = []
+  PASS  @390 light cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 light cities/tokyo.html#all=1: the search placeholder fits unclipped = null
+  PASS  @390 light cities/tokyo.html#all=1: no photo shown wider than its file = []
+  PASS  @390 light cities/tokyo.html#all=1: no single-word last line in the dek or the stat line = []
+  PASS  @390 light cities/tokyo.html#view=atlas: 0 credits, none overflow their box = []
+  PASS  @390 light cities/tokyo.html#view=atlas: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 light cities/tokyo.html#view=atlas: the search placeholder fits unclipped = null
+  PASS  @390 light cities/tokyo.html#view=atlas: no photo shown wider than its file = []
+  PASS  @390 light cities/tokyo.html#day=TAITO: 0 credits, none overflow their box = []
+  PASS  @390 light cities/tokyo.html#day=TAITO: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 light cities/tokyo.html#day=TAITO: the search placeholder fits unclipped = null
+  PASS  @390 light cities/tokyo.html#day=TAITO: no photo shown wider than its file = []
+  PASS  @390 light Singapore/chinatown.html: 5 credits, none overflow their box = []
+  PASS  @390 light Singapore/chinatown.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 light Singapore/chinatown.html: the search placeholder fits unclipped = null
+  PASS  @390 light Singapore/chinatown.html: no photo shown wider than its file = []
+  PASS  @390 light Singapore/chinatown.html: no single-word last line in the dek or the stat line = []
+  PASS  @390 dark cleveland.html: 11 credits, none overflow their box = []
+  PASS  @390 dark cleveland.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 dark cleveland.html: the search placeholder fits unclipped = null
+  PASS  @390 dark cleveland.html: no photo shown wider than its file = []
+  PASS  @390 dark cleveland.html: no single-word last line in the dek or the stat line = []
+  PASS  @390 dark cities/tokyo.html: 16 credits, none overflow their box = []
+  PASS  @390 dark cities/tokyo.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 dark cities/tokyo.html: the search placeholder fits unclipped = null
+  PASS  @390 dark cities/tokyo.html: no photo shown wider than its file = []
+  PASS  @390 dark cities/tokyo.html: no single-word last line in the dek or the stat line = []
+  PASS  @390 dark cities/tokyo.html#all=1: 54 credits, none overflow their box = []
+  PASS  @390 dark cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 dark cities/tokyo.html#all=1: the search placeholder fits unclipped = null
+  PASS  @390 dark cities/tokyo.html#all=1: no photo shown wider than its file = []
+  PASS  @390 dark cities/tokyo.html#all=1: no single-word last line in the dek or the stat line = []
+  PASS  @390 dark cities/tokyo.html#view=atlas: 0 credits, none overflow their box = []
+  PASS  @390 dark cities/tokyo.html#view=atlas: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 dark cities/tokyo.html#view=atlas: the search placeholder fits unclipped = null
+  PASS  @390 dark cities/tokyo.html#view=atlas: no photo shown wider than its file = []
+  PASS  @390 dark cities/tokyo.html#day=TAITO: 0 credits, none overflow their box = []
+  PASS  @390 dark cities/tokyo.html#day=TAITO: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 dark cities/tokyo.html#day=TAITO: the search placeholder fits unclipped = null
+  PASS  @390 dark cities/tokyo.html#day=TAITO: no photo shown wider than its file = []
+  PASS  @390 dark Singapore/chinatown.html: 5 credits, none overflow their box = []
+  PASS  @390 dark Singapore/chinatown.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @390 dark Singapore/chinatown.html: the search placeholder fits unclipped = null
+  PASS  @390 dark Singapore/chinatown.html: no photo shown wider than its file = []
+  PASS  @390 dark Singapore/chinatown.html: no single-word last line in the dek or the stat line = []
+  PASS  @1440 light cleveland.html: 12 credits, none overflow their box = []
+  PASS  @1440 light cleveland.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 light cleveland.html: the search placeholder fits unclipped = null
+  PASS  @1440 light cleveland.html: no photo shown wider than its file = []
+  PASS  @1440 light cleveland.html: no single-word last line in the dek or the stat line = []
+  PASS  @1440 light cities/tokyo.html: 20 credits, none overflow their box = []
+  PASS  @1440 light cities/tokyo.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 light cities/tokyo.html: the search placeholder fits unclipped = null
+  PASS  @1440 light cities/tokyo.html: no photo shown wider than its file = []
+  PASS  @1440 light cities/tokyo.html: no single-word last line in the dek or the stat line = []
+  PASS  @1440 light cities/tokyo.html#all=1: 57 credits, none overflow their box = []
+  PASS  @1440 light cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 light cities/tokyo.html#all=1: the search placeholder fits unclipped = null
+  PASS  @1440 light cities/tokyo.html#all=1: no photo shown wider than its file = []
+  PASS  @1440 light cities/tokyo.html#all=1: no single-word last line in the dek or the stat line = []
+  PASS  @1440 light cities/tokyo.html#view=atlas: 6 credits, none overflow their box = []
+  PASS  @1440 light cities/tokyo.html#view=atlas: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 light cities/tokyo.html#view=atlas: the search placeholder fits unclipped = null
+  PASS  @1440 light cities/tokyo.html#view=atlas: no photo shown wider than its file = []
+  PASS  @1440 light cities/tokyo.html#day=TAITO: 0 credits, none overflow their box = []
+  PASS  @1440 light cities/tokyo.html#day=TAITO: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 light cities/tokyo.html#day=TAITO: the search placeholder fits unclipped = null
+  PASS  @1440 light cities/tokyo.html#day=TAITO: no photo shown wider than its file = []
+  PASS  @1440 light Singapore/chinatown.html: 7 credits, none overflow their box = []
+  PASS  @1440 light Singapore/chinatown.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 light Singapore/chinatown.html: the search placeholder fits unclipped = null
+  PASS  @1440 light Singapore/chinatown.html: no photo shown wider than its file = []
+  PASS  @1440 light Singapore/chinatown.html: no single-word last line in the dek or the stat line = []
+  PASS  @1440 dark cleveland.html: 12 credits, none overflow their box = []
+  PASS  @1440 dark cleveland.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 dark cleveland.html: the search placeholder fits unclipped = null
+  PASS  @1440 dark cleveland.html: no photo shown wider than its file = []
+  PASS  @1440 dark cleveland.html: no single-word last line in the dek or the stat line = []
+  PASS  @1440 dark cities/tokyo.html: 20 credits, none overflow their box = []
+  PASS  @1440 dark cities/tokyo.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 dark cities/tokyo.html: the search placeholder fits unclipped = null
+  PASS  @1440 dark cities/tokyo.html: no photo shown wider than its file = []
+  PASS  @1440 dark cities/tokyo.html: no single-word last line in the dek or the stat line = []
+  PASS  @1440 dark cities/tokyo.html#all=1: 57 credits, none overflow their box = []
+  PASS  @1440 dark cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 dark cities/tokyo.html#all=1: the search placeholder fits unclipped = null
+  PASS  @1440 dark cities/tokyo.html#all=1: no photo shown wider than its file = []
+  PASS  @1440 dark cities/tokyo.html#all=1: no single-word last line in the dek or the stat line = []
+  PASS  @1440 dark cities/tokyo.html#view=atlas: 6 credits, none overflow their box = []
+  PASS  @1440 dark cities/tokyo.html#view=atlas: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 dark cities/tokyo.html#view=atlas: the search placeholder fits unclipped = null
+  PASS  @1440 dark cities/tokyo.html#view=atlas: no photo shown wider than its file = []
+  PASS  @1440 dark cities/tokyo.html#day=TAITO: 0 credits, none overflow their box = []
+  PASS  @1440 dark cities/tokyo.html#day=TAITO: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 dark cities/tokyo.html#day=TAITO: the search placeholder fits unclipped = null
+  PASS  @1440 dark cities/tokyo.html#day=TAITO: no photo shown wider than its file = []
+  PASS  @1440 dark Singapore/chinatown.html: 7 credits, none overflow their box = []
+  PASS  @1440 dark Singapore/chinatown.html: top bar / city bar / tab bar fully opaque = []
+  PASS  @1440 dark Singapore/chinatown.html: the search placeholder fits unclipped = null
+  PASS  @1440 dark Singapore/chinatown.html: no photo shown wider than its file = []
+  PASS  @1440 dark Singapore/chinatown.html: no single-word last line in the dek or the stat line = []
+# delight (R7 gap 3): photos fade in from their dominant colour; view switch slides and cross-fades
+  PASS  a photo's placeholder is its dominant colour, fading ≤ 300 ms = {"ph":"#c8d8c8","bg":"rgb(200, 216, 200)","dur":280,"inn":true,"op":"0","fade":true}
+  PASS  once the image has loaded the placeholder is gone = [true,"0"]
+  PASS  no-preference: the switcher's selection moves onto the new view = [{"left":875,"on":875,"w":105,"bw":105,"dur":240},{"left":1074,"on":1074,"w":131,"bw":131,"dur":240}]
+  PASS  the selection slides and the content cross-fades, each ≤ 300 ms = [240,[240]]
+  PASS  reduced motion: the placeholder clears with no transition = 0
+  PASS  reduce: the switcher's selection moves onto the new view = [{"left":875,"on":875,"w":105,"bw":105,"dur":0},{"left":1074,"on":1074,"w":131,"bw":131,"dur":0}]
+  PASS  reduced motion: no slide, no cross-fade = [0,0]
+  PASS  without JS no placeholder ever covers a photo = "none"
+# QC-06: every visible view-switcher segment is ≥ 44 px tall, at every width
+  PASS  @390: 4 switcher segment(s) ≥ 44 px = [44,44,44,44]
+  PASS  @768: 4 switcher segment(s) ≥ 44 px = [44,44,44,44]
+  PASS  @1024: 4 switcher segment(s) ≥ 44 px = [44,44,44,44]
+  PASS  @1440: 4 switcher segment(s) ≥ 44 px = [44,44,44,44]
+# QC-08: best food near X in three taps; the first card on screen is inside the lens
+  PASS  @390: an area chip is one tap away in Gallery (no tray)
+  PASS  @390: under Eat & drink + Taitō-ku the lead card steps aside and the first card is a Taitō-ku food place = {"lead":false,"k":"f","a":"TAITO","id":"p-usagiya"}
+  PASS  @1440: an area chip is one tap away in Gallery (no tray)
+  PASS  @1440: under Eat & drink + Taitō-ku the lead card steps aside and the first card is a Taitō-ku food place = {"lead":false,"k":"f","a":"TAITO","id":"p-usagiya"}
+# QA-69: the phone Gallery's "Show map" pill is visible at load and at rest (the first screen's way to the map)
+  PASS  @390 cleveland.html: the pill is visible at load and after scrolling down = ["visible","visible"]
+  PASS  @390 cities/tokyo.html: the pill is visible at load and after scrolling down = ["visible","visible"]
+  PASS  @390 cities/newyork.html: the pill is visible at load and after scrolling down = ["visible","visible"]
+  PASS  @390 Singapore/chinatown.html: the pill is visible at load and after scrolling down = ["visible","visible"]
+  PASS  @390 cities/wheeling.html: the pill is visible at load and after scrolling down = ["visible","visible"]
+# QA-67: the desktop detail media fits its photo — no sand band beside it
+  PASS  kanda-myojin: the plate fits the image — media 960 px = plate 960 px, file 960 w, no band = {"cls":"hero-plate has-photo ph-fit","hw":960,"iw":960,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"none"}
+  PASS  imperial-palace-east-gardens: the plate fits the image — media 960 px = plate 960 px, file 960 w, no band = {"cls":"hero-plate has-photo ph-fit","hw":960,"iw":960,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"none"}
+  PASS  ueno-park: the plate fits the image — media 720 px = plate 720 px, file 720 w, no band = {"cls":"hero-plate has-photo ph-frame","hw":720,"iw":720,"fw":720,"bg":"rgba(0, 0, 0, 0)","band":"none"}
+  PASS  koishikawa-korakuen: the plate fits the image — media 691 px = plate 691 px, file 960 w, no band = {"cls":"hero-plate has-photo ph-frame","hw":691,"iw":691,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"none"}
+# B-20 (FE-B sweep): the card "Must see" link is a ≥ 44 × 44 tap target on phones
+  PASS  @390 cities/akron.html#all=1: 39 tier links, none under 44 × 44 = []
+  PASS  @390 cities/ghent.html#all=1: 27 tier links, none under 44 × 44 = []
+  PASS  @390 cities/okinawa.html#all=1: 122 tier links, none under 44 × 44 = []
+  PASS  @390 cities/tokyo.html#all=1: 177 tier links, none under 44 × 44 = []
+# deep link (FE-B finding): a fresh #view=gallery&p= keeps its card in view once the page settles
+  PASS  @195×422: after 3 s the Sensō-ji card is on screen and the page is inside <main> = {"top":272,"bottom":518,"mainB":6312,"vh":606}
+  PASS  @390×844: after 3 s the Sensō-ji card is on screen and the page is inside <main> = {"top":263,"bottom":580,"mainB":5449,"vh":844}
+  PASS  @1440×900: after 3 s the Sensō-ji card is on screen and the page is inside <main> = {"top":281,"bottom":618,"mainB":2855,"vh":900}
+# QC-07: Esc returns focus to the control that opened the sheet
+  PASS  @390 .g-rows li.gc .gc-a #p-kanda-myojin: Enter opens the sheet, Esc returns focus to that same control = "gc-a #p-kanda-myojin"
+  PASS  @390 #cleo-lead li.gc .gc-a #p-kanda-myojin: Enter opens the sheet, Esc returns focus to that same control = "gc-a #p-kanda-myojin"
+  PASS  @390 li.pl:not(.pg-off) .pl-n a #p-imperial-palace-east-gardens: Enter opens the sheet, Esc returns focus to that same control = "A #p-imperial-palace-east-gardens"
+  PASS  @1440 .g-rows li.gc .gc-a #p-kanda-myojin: Enter opens the sheet, Esc returns focus to that same control = "gc-a #p-kanda-myojin"
+  (skip @1440 #cleo-lead li.gc .gc-a: none visible)
+  PASS  @1440 li.pl:not(.pg-off) .pl-n a #p-imperial-palace-east-gardens: Enter opens the sheet, Esc returns focus to that same control = "A #p-imperial-palace-east-gardens"
+# QA-72 / QA-59b / QA-73 / QA-55: the detail link wraps, one number, the short crumb, Guidebook prose at 16 px
+  PASS  QA-72 @390: the primary link stays inside the sheet on 24 New York places (widest) = ["the-metropolitan-museum-of-art","Read what The Metropolitan Museum of Art (official) says",350,-20]
+  PASS  QA-72 / QA-59d: the icon rides the label's last line and the link is ≥ 44 px tall = [24,24,0]
+  PASS  QA-59b / §3.6: the nav row carries no "k of N" and no pin number (nothing left to clip)
+  PASS  QA-73 @390: the crumb reads "‹ US", unclipped, and keeps "United States" for assistive tech = {"txt":"US","lgW":1,"sw":45,"cw":45,"right":133,"vw":390,"name":"United States"}
+  PASS  QA-55 @390: Guidebook .gfacts and .gsig at ≥ 16 px = [16,16]
+  PASS  QA-73 @1440: the desktop crumb keeps the full name = "United States"
+# designer nit: a tap opens the detail with focus on the dialog (no ring); a keyboard open focuses ✕
+  PASS  @390: tap → the dialog has focus with no ring, Tab stays inside; Enter → ✕ = [{"sheet":true,"ring":false},true,"x"]
+  PASS  @1440: tap → the dialog has focus with no ring, Tab stays inside; Enter → ✕ = [{"sheet":true,"ring":false},true,"x"]
+
+>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard

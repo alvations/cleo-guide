@@ -4,7 +4,7 @@
  * tools/beta/fe-b-shots.js — FE-B lane screenshots + measurements for the landing, hubs, method page, shell and
  * states (M1-16/17/18/19/09) at 390×844 (DPR 3, touch) and 1440×900, against the generated beta/ on disk.
  *
- *   NODE_PATH=$(npm root -g) node tools/beta/fe-b-shots.js [--out design/beta/screenshots] [--tag w1-feb]
+ *   NODE_PATH=$(npm root -g) node tools/beta/fe-b-shots.js [--out design/beta/screenshots] [--tag w1-feb] [--scheme dark] [--only landing,hub-japan]
  *
  * Every request is served from disk via route.fulfill; anything off-origin is aborted, so each shot also proves
  * the page renders with no CDN. Writes <tag>-<id>-<m|d>.jpg (JPEG q70) and <tag>-metrics.json.
@@ -17,6 +17,8 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const OUT = path.resolve(ROOT, arg('--out', 'design/beta/screenshots'));
 const TAG = arg('--tag', 'w1-feb');
+const SCHEME = arg('--scheme', 'light');                          // W7: light | dark (prefers-color-scheme)
+const ONLY = (arg('--only', '') || '').split(',').filter(Boolean); // W7: a subset of SETS ids
 const BASE = 'https://cleo.local/';
 const M = { viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true };
 const D = { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 };
@@ -77,8 +79,8 @@ async function measure(page) {
   const browser = await chromium.launch();
   const metrics = {};
   for (const [vk, vp] of [['m', M], ['d', D]]) {
-    for (const s of SETS) {
-      const ctx = await browser.newContext(vp);
+    for (const s of SETS.filter(x => !ONLY.length || ONLY.includes(x.id))) {
+      const ctx = await browser.newContext(Object.assign({ colorScheme: SCHEME }, vp));
       const offOrigin = [];
       await ctx.route('**/*', route => {
         const u = new URL(route.request().url());
@@ -102,7 +104,7 @@ async function measure(page) {
       }
       if (s.anchor) await page.evaluate(id => { const e = document.getElementById(id); if (e) window.scrollTo({ top: e.getBoundingClientRect().top + scrollY - 70, behavior: 'instant' }); }, s.anchor);
       if (s.anchor) await page.waitForTimeout(400);
-      if (s.scroll) await page.evaluate(n => window.scrollTo(0, innerHeight * n), s.scroll);
+      if (s.scroll) await page.evaluate(n => window.scrollTo({ top: innerHeight * n, behavior: 'instant' }), s.scroll);
       if (/q=/.test(s.url)) { await page.waitForTimeout(400); await page.evaluate(() => { const r = document.getElementById('results'); if (r) window.scrollTo(0, r.getBoundingClientRect().top + scrollY - 70); }); }
       await page.waitForTimeout(150);
       const m = await measure(page);

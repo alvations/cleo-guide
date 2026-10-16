@@ -1,0 +1,1940 @@
+{
+ "checks": [
+  {
+   "group": "foryou",
+   "name": "cleveland.html: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    194,
+    194,
+    194
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    194,
+    194
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    39,
+    "First because you picked Food & drink and Pop culture: 39 places from those collections mo"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: choice persists through Cleo.store (cards lifted + line shown after reload)",
+   "ok": true,
+   "evidence": {
+    "p": "true",
+    "d": "Food & drink · Pop culture first",
+    "why": 39,
+    "line": true
+   }
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: rail tile aria-pressed reflects the restored choice",
+   "ok": true,
+   "evidence": "true"
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    194,
+    194,
+    194
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    194,
+    194
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    39,
+    "First because you picked Food & drink and Pop culture: 39 places from those collections mo"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 5
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    488,
+    488,
+    488
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    488,
+    488
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    483,
+    "First because you picked History & landmarks and Food & drink and Pop culture and Outdoors"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: choice persists through Cleo.store (cards lifted + line shown after reload)",
+   "ok": true,
+   "evidence": {
+    "p": "true",
+    "d": "History & landmarks · Food & drink · Pop culture · Outdoors · Art & museums first",
+    "why": 483,
+    "line": true
+   }
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: rail tile aria-pressed reflects the restored choice",
+   "ok": true,
+   "evidence": "true"
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 5
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    488,
+    488,
+    488
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    488,
+    488
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    483,
+    "First because you picked History & landmarks and Food & drink and Pop culture and Outdoors"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 5
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    508,
+    508,
+    508
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    508,
+    508
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    502,
+    "First because you picked History & landmarks and Food & drink and Pop culture and Outdoors"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: choice persists through Cleo.store (cards lifted + line shown after reload)",
+   "ok": true,
+   "evidence": {
+    "p": "true",
+    "d": "History & landmarks · Food & drink · Pop culture · Outdoors · Art & museums first",
+    "why": 502,
+    "line": true
+   }
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: rail tile aria-pressed reflects the restored choice",
+   "ok": true,
+   "evidence": "true"
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 4
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    16,
+    16
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    16,
+    "First because you picked History & landmarks and Food & drink and Outdoors and Art & museu"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: choice persists through Cleo.store (cards lifted + line shown after reload)",
+   "ok": true,
+   "evidence": {
+    "p": "true",
+    "d": "History & landmarks · Food & drink · Outdoors · Art & museums first",
+    "why": 16,
+    "line": true
+   }
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: rail tile aria-pressed reflects the restored choice",
+   "ok": true,
+   "evidence": "true"
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 4
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    35,
+    35,
+    35
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    35,
+    35
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    34,
+    "First because you picked History & landmarks and Food & drink and Outdoors and Art & museu"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: choice persists through Cleo.store (cards lifted + line shown after reload)",
+   "ok": true,
+   "evidence": {
+    "p": "true",
+    "d": "History & landmarks · Food & drink · Outdoors · Art & museums first",
+    "why": 34,
+    "line": true
+   }
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: rail tile aria-pressed reflects the restored choice",
+   "ok": true,
+   "evidence": "true"
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "INTERESTS table maps to collection/cuisine ids, no dish keywords",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html mobile: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#view=gallery&day=DT"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html mobile: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "chess-collection-cleveland-public-library-main-library",
+     "eastman-reading-garden",
+     "the-arcade-old-arcade",
+     "butcher-and-the-brewer",
+     "5th-street-arcades-and-euclid-arcade",
+     "slymans-restaurant-and-deli"
+    ],
+    "areas": [
+     "DT"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html mobile: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "40 m straight-line to stop 2",
+    "190 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html mobile: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops2.5 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html: shared #day=A&s=ids link reproduces the stops in order",
+   "ok": true,
+   "evidence": {
+    "want": [
+     "slymans-restaurant-and-deli",
+     "5th-street-arcades-and-euclid-arcade",
+     "butcher-and-the-brewer",
+     "the-arcade-old-arcade",
+     "eastman-reading-garden",
+     "chess-collection-cleveland-public-library-main-library"
+    ],
+    "got": [
+     "slymans-restaurant-and-deli",
+     "5th-street-arcades-and-euclid-arcade",
+     "butcher-and-the-brewer",
+     "the-arcade-old-arcade",
+     "eastman-reading-garden",
+     "chess-collection-cleveland-public-library-main-library"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html desktop: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#view=gallery&day=DT"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html desktop: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "chess-collection-cleveland-public-library-main-library",
+     "eastman-reading-garden",
+     "the-arcade-old-arcade",
+     "butcher-and-the-brewer",
+     "5th-street-arcades-and-euclid-arcade",
+     "slymans-restaurant-and-deli"
+    ],
+    "areas": [
+     "DT"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html desktop: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "40 m straight-line to stop 2",
+    "190 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html desktop: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops2.5 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html mobile: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#view=gallery&day=CYD"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html mobile: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "imperial-palace-east-gardens",
+     "national-museum-of-modern-art-tokyo-momat",
+     "kitanomaru-park",
+     "nippon-budokan",
+     "chidorigafuchi",
+     "isegen"
+    ],
+    "areas": [
+     "CYD"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html mobile: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "420 m straight-line to stop 2",
+    "160 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html mobile: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops3.4 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html: shared #day=A&s=ids link reproduces the stops in order",
+   "ok": true,
+   "evidence": {
+    "want": [
+     "isegen",
+     "chidorigafuchi",
+     "nippon-budokan",
+     "kitanomaru-park",
+     "national-museum-of-modern-art-tokyo-momat",
+     "imperial-palace-east-gardens"
+    ],
+    "got": [
+     "isegen",
+     "chidorigafuchi",
+     "nippon-budokan",
+     "kitanomaru-park",
+     "national-museum-of-modern-art-tokyo-momat",
+     "imperial-palace-east-gardens"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html desktop: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#view=gallery&day=CYD"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html desktop: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "imperial-palace-east-gardens",
+     "national-museum-of-modern-art-tokyo-momat",
+     "kitanomaru-park",
+     "nippon-budokan",
+     "chidorigafuchi",
+     "isegen"
+    ],
+    "areas": [
+     "CYD"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html desktop: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "420 m straight-line to stop 2",
+    "160 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html desktop: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops3.4 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html mobile: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#view=gallery&day=MAN"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html mobile: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "the-metropolitan-museum-of-art",
+     "the-halal-guys",
+     "neue-galerie-new-york",
+     "solomon-r-guggenheim-museum",
+     "cooper-hewitt-smithsonian-design-museum",
+     "the-jewish-museum"
+    ],
+    "areas": [
+     "MAN"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html mobile: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "2.4 km straight-line to stop 2",
+    "2.7 km straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html mobile: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops5.7 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html: shared #day=A&s=ids link reproduces the stops in order",
+   "ok": true,
+   "evidence": {
+    "want": [
+     "the-jewish-museum",
+     "cooper-hewitt-smithsonian-design-museum",
+     "solomon-r-guggenheim-museum",
+     "neue-galerie-new-york",
+     "the-halal-guys",
+     "the-metropolitan-museum-of-art"
+    ],
+    "got": [
+     "the-jewish-museum",
+     "cooper-hewitt-smithsonian-design-museum",
+     "solomon-r-guggenheim-museum",
+     "neue-galerie-new-york",
+     "the-halal-guys",
+     "the-metropolitan-museum-of-art"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html desktop: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#view=gallery&day=MAN"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html desktop: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "the-metropolitan-museum-of-art",
+     "the-halal-guys",
+     "neue-galerie-new-york",
+     "solomon-r-guggenheim-museum",
+     "cooper-hewitt-smithsonian-design-museum",
+     "the-jewish-museum"
+    ],
+    "areas": [
+     "MAN"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html desktop: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "2.4 km straight-line to stop 2",
+    "2.7 km straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html desktop: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops5.7 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html mobile: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#view=gallery&day=WHL"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html mobile: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "wheeling-suspension-bridge",
+     "capitol-theatre",
+     "wheeling-heritage-trail",
+     "west-virginia-independence-hall",
+     "centre-market-historic-district",
+     "figarettis-restaurant"
+    ],
+    "areas": [
+     "WHL"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html mobile: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "240 m straight-line to stop 2",
+    "490 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html mobile: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops4.3 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html: shared #day=A&s=ids link reproduces the stops in order",
+   "ok": true,
+   "evidence": {
+    "want": [
+     "figarettis-restaurant",
+     "centre-market-historic-district",
+     "west-virginia-independence-hall",
+     "wheeling-heritage-trail",
+     "capitol-theatre",
+     "wheeling-suspension-bridge"
+    ],
+    "got": [
+     "figarettis-restaurant",
+     "centre-market-historic-district",
+     "west-virginia-independence-hall",
+     "wheeling-heritage-trail",
+     "capitol-theatre",
+     "wheeling-suspension-bridge"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html desktop: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#view=gallery&day=WHL"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html desktop: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "wheeling-suspension-bridge",
+     "capitol-theatre",
+     "wheeling-heritage-trail",
+     "west-virginia-independence-hall",
+     "centre-market-historic-district",
+     "figarettis-restaurant"
+    ],
+    "areas": [
+     "WHL"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html desktop: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "240 m straight-line to stop 2",
+    "490 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html desktop: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops4.3 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "Cleveland day plans come from guide.days.plans (one computation, D-34)",
+   "ok": true,
+   "evidence": 3
+  },
+  {
+   "group": "near",
+   "name": "Tokyo: distance shown on every pinned card",
+   "ok": true,
+   "evidence": [
+    488,
+    488,
+    488
+   ]
+  },
+  {
+   "group": "near",
+   "name": "Tokyo: every place still listed",
+   "ok": true,
+   "evidence": 488
+  },
+  {
+   "group": "near",
+   "name": "Tokyo: nearest first + \"never stored\" note",
+   "ok": true,
+   "evidence": [
+    "40 m away",
+    "Nearest first. Using your location for this visit only — never stored or sent. T",
+    "#sort=near"
+   ]
+  },
+  {
+   "group": "near",
+   "name": "position never stored: localStorage/sessionStorage/cookie/IndexedDB/URL",
+   "ok": true,
+   "evidence": {
+    "ls": "{}",
+    "ss": "{}",
+    "cookie": "",
+    "idb": [],
+    "href": "cities/tokyo.html#sort=near"
+   }
+  },
+  {
+   "group": "near",
+   "name": "position never sent: no request URL carries it",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "near",
+   "name": "reload: distances gone (memory only)",
+   "ok": true,
+   "evidence": 0
+  },
+  {
+   "group": "near",
+   "name": "0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "near",
+   "name": "permission denied: every place listed, no distances, a calm message",
+   "ok": true,
+   "evidence": {
+    "n": 488,
+    "dist": 0,
+    "toast": "Location is off for this site, so nothing changed. Every place is still listed."
+   }
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "64 %"
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-voinovich-bicentennial-park-and-cleveland-lighthouse-view",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 194
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "probe crashed",
+   "ok": false,
+   "evidence": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.map-toggle').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-cleo-map=\"\" aria-label=\"Show the map\" class=\"btn btn-primary map-toggle\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 "
+  },
+  {
+   "group": "saved",
+   "name": "saved page shows the 3 places saved from the sheet",
+   "ok": true,
+   "evidence": 3
+  },
+  {
+   "group": "saved",
+   "name": "map of saved places",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "saved",
+   "name": "export KML/GeoJSON/JSON + share + import controls",
+   "ok": true,
+   "evidence": [
+    "kml",
+    "geojson",
+    "json",
+    "share",
+    "pick"
+   ]
+  },
+  {
+   "group": "saved",
+   "name": "\"Open in maps\" links on each card",
+   "ok": true,
+   "evidence": 9
+  },
+  {
+   "group": "saved",
+   "name": "create a named list",
+   "ok": true,
+   "evidence": [
+    "All saved3",
+    "Been there0",
+    "QA trip0",
+    "New list"
+   ]
+  },
+  {
+   "group": "saved",
+   "name": "rename the list",
+   "ok": true,
+   "evidence": [
+    "All saved3",
+    "Been there0",
+    "QA renamed0",
+    "New list"
+   ]
+  },
+  {
+   "group": "saved",
+   "name": "delete the list; the places stay saved",
+   "ok": true,
+   "evidence": {
+    "tabs": [
+     "All saved3",
+     "Been there0",
+     "New list"
+    ],
+    "cards": 3
+   }
+  },
+  {
+   "group": "saved",
+   "name": "Been there stamps a card",
+   "ok": true,
+   "evidence": {
+    "stamp": 1,
+    "tab": "Been there1"
+   }
+  },
+  {
+   "group": "saved",
+   "name": "shared view: read-only (no new/rename/delete) with Save a copy",
+   "ok": true,
+   "evidence": {
+    "cards": 2,
+    "gone": "1 saved place is no longer listed in a guide (no-such-place-qa). The link may be older than the guide.",
+    "copy": true,
+    "edit": 0
+   }
+  },
+  {
+   "group": "saved",
+   "name": "shared view: 2 known places shown, the unknown id reported",
+   "ok": true,
+   "evidence": "1 saved place is no longer listed in a guide (no-such-place-qa). The link may be older than the guide."
+  },
+  {
+   "group": "saved",
+   "name": "Save a copy creates a named list on this device",
+   "ok": true,
+   "evidence": {
+    "hash": "#v=lmv3usgp9",
+    "tabs": [
+     "All saved3",
+     "Been there0",
+     "Shared QA3",
+     "New list"
+    ]
+   }
+  },
+  {
+   "group": "saved",
+   "name": "storage throwing: shared view renders, 0 errors",
+   "ok": true,
+   "evidence": [
+    2,
+    []
+   ]
+  },
+  {
+   "group": "saved",
+   "name": "0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "sig",
+   "name": "★ never a publisher on 84 place pages",
+   "ok": true,
+   "evidence": {
+    "kinds": {
+     "canon": 55,
+     "collection": 5
+    },
+    "bad": []
+   }
+  },
+  {
+   "group": "sig",
+   "name": "pages with no ★ data show no ★ tile (not a substitute)",
+   "ok": true,
+   "evidence": {
+    "noStar": 24,
+    "eg": [
+     "cities/siliconvalley.html",
+     "cities/wheeling.html",
+     "Singapore/bagan.html",
+     "Singapore/bali.html"
+    ]
+   }
+  },
+  {
+   "group": "sig",
+   "name": "Cleveland ★ = its food canon (Polish Boy · corned beef · Barberton chicken)",
+   "ok": true,
+   "evidence": "★ Signature Only in Cleveland Polish Boy · corned beef · Barberton chicken 18"
+  },
+  {
+   "group": "sig",
+   "name": "Cleveland ★ lens opens on the canon places (18)",
+   "ok": true,
+   "evidence": {
+    "n": 18,
+    "first": [
+     "Slyman's Restaurant and Deli",
+     "Cordelia",
+     "Mabel's BBQ",
+     "Banter"
+    ],
+    "shown": "Showing 18 of 194 places in 4 areas. Ordered by tier, then by number of named sources."
+   }
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html mobile: initial DOM ≤ 3,000 nodes",
+   "ok": true,
+   "evidence": 2510
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html mobile: every place reachable after stamp-all",
+   "ok": true,
+   "evidence": [
+    488,
+    488
+   ]
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html desktop: initial DOM ≤ 3,000 nodes",
+   "ok": true,
+   "evidence": 2534
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html desktop: every place reachable after stamp-all",
+   "ok": true,
+   "evidence": [
+    488,
+    488
+   ]
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html mobile: initial DOM ≤ 3,000 nodes",
+   "ok": true,
+   "evidence": 2373
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html mobile: every place reachable after stamp-all",
+   "ok": true,
+   "evidence": [
+    508,
+    508
+   ]
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html desktop: initial DOM ≤ 3,000 nodes",
+   "ok": true,
+   "evidence": 2397
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html desktop: every place reachable after stamp-all",
+   "ok": true,
+   "evidence": [
+    508,
+    508
+   ]
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "og",
+   "name": "every og:image is a local 1200×630 PNG ≤ 300 KB (179 pages)",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "og",
+   "name": "each place page has its own share card",
+   "ok": true,
+   "evidence": [
+    84,
+    84
+   ]
+  },
+  {
+   "group": "hubs",
+   "name": "hub tile lines are signature lines, never category labels (70 tiles)",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "hubs",
+   "name": "every motif referenced by a hub tile exists",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "hubs",
+   "name": "≥ 4 tile compositions; no two neighbouring tiles share one",
+   "ok": true,
+   "evidence": {
+    "kinds": [
+     "c-night skin-vermilion",
+     "c-wash skin-lake",
+     "c-city skin-moss",
+     "c-paper skin-neon",
+     "c-night skin-lagoon",
+     "c-night",
+     "c-wash",
+     "c-city",
+     "c-paper",
+     "c-wash skin-glacier",
+     "c-paper skin-plum",
+     "c-paper skin-saffron",
+     "c-city skin-saffron",
+     "c-wash skin-plum"
+    ],
+    "adj": []
+   }
+  },
+  {
+   "group": "hubs",
+   "name": "landing editorial rail: 38 deep links open with the promised count",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "index.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "index.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "index.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Japan/index.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Japan/index.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Japan/index.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Vietnam/index.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Vietnam/index.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Vietnam/index.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cleveland.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cleveland.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cleveland.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/tokyo.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/tokyo.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/tokyo.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/newyork.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/newyork.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/newyork.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Singapore/chinatown.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Singapore/chinatown.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Singapore/chinatown.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/wheeling.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/wheeling.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/wheeling.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "saved.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "saved.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "saved.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "how-we-choose.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "scrollable-region-focusable×1: .tablewrap — Element should have focusable content"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "how-we-choose.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "how-we-choose.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "404.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "404.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "404.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "keyboard: first Tab is the skip link",
+   "ok": true,
+   "evidence": {
+    "t": "Skip to content",
+    "href": "#main"
+   }
+  },
+  {
+   "group": "a11y",
+   "name": "keyboard: Enter opens the sheet with focus inside; Esc closes and restores focus to the card",
+   "ok": true,
+   "evidence": {
+    "op": {
+     "open": true,
+     "inSheet": true
+    },
+    "back": {
+     "closed": true,
+     "focus": "p-imperial-palace-east-gardens"
+    }
+   }
+  },
+  {
+   "group": "a11y",
+   "name": "keyboard: For you picker traps focus, Esc closes and returns focus",
+   "ok": true,
+   "evidence": {
+    "fy": {
+     "inside": true
+    },
+    "fy2": {
+     "closed": true,
+     "back": true
+    }
+   }
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility page linked from every beta page (179)",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "storage",
+   "name": "storage throws: every card renders, 0 JS errors (84 pages)",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "storage",
+   "name": "saved page renders with storage throwing",
+   "ok": true,
+   "evidence": "Skip to content\ncleo\nYour list\nStorage is blocked here, so saves last until you "
+  }
+ ],
+ "railMismatch": [],
+ "axe": [
+  {
+   "rel": "index.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "index.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "index.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "Japan/index.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Japan/index.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Japan/index.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "saved.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "saved.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "saved.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "accessibility.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "accessibility.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "accessibility.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "how-we-choose.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "scrollable-region-focusable",
+     "impact": "serious",
+     "n": 1,
+     "eg": [
+      ".tablewrap — Element should have focusable content"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "how-we-choose.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "how-we-choose.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "404.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "404.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "404.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  }
+ ],
+ "summary": {
+  "checks": 188,
+  "pass": 186,
+  "fail": 2,
+  "at": "2026-10-11T13:29:48.048Z"
+ }
+}

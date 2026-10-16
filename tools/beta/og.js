@@ -35,11 +35,9 @@ function loadPlaywright() {
 }
 
 const font = (fam, file, style) => `@font-face{font-family:"${fam}";font-style:${style};font-weight:400 900;src:url(data:font/woff2;base64,${fs.readFileSync(path.join(BETA, 'assets/fonts', file)).toString('base64')}) format("woff2")}`;
-const FONTS = [
-  font('Bodoni Moda', 'bodoni-moda-normal-latin.woff2', 'normal'), font('Bodoni Moda', 'bodoni-moda-normal-latin-ext.woff2', 'normal'),
-  font('Bodoni Moda', 'bodoni-moda-italic-latin.woff2', 'italic'), font('Bodoni Moda', 'bodoni-moda-italic-latin-ext.woff2', 'italic'),
-  font('Figtree', 'figtree-normal-latin.woff2', 'normal'), font('Figtree', 'figtree-normal-latin-ext.woff2', 'normal'),
-].join('');
+// W6 (design/beta/style/DECISION.md): Playfair (display) + Inter (UI), every script subset make-fonts.py ships.
+const FONTS = fs.readdirSync(path.join(BETA, 'assets/fonts')).filter(f => /^(playfair|inter)-(normal|italic)-.+\.woff2$/.test(f)).sort()
+  .map(f => { const [fam, style] = f.split('-'); return font(fam === 'inter' ? 'Inter' : 'Playfair', f, style); }).join('');
 const TOKENS = rd('beta/assets/tokens.css');
 
 const CSS = `

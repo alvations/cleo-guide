@@ -146,3 +146,285 @@ Every motif is a 480×200 frame whose subject sits in the middle band, so it cro
   on the art.
 If Gallery needs portrait covers, the imagery lane will add a square/portrait recipe per key to `motifs.js`. That is
 the same vocabulary and needs no new pipeline.
+
+## Unsplash candidates — research now, a mechanical fetch later (2026-10-11)
+
+> Lane: imagery research · owner request "real photographs, from Unsplash among other sources". `api.unsplash.com`
+> and `images.unsplash.com` return 403 under this environment's network policy (like Wikimedia). Nothing was
+> downloaded and nothing routes around the block. What does work is WebSearch restricted to `unsplash.com`, which
+> returns photo **page** URLs and their titles. That is all this manifest is built from.
+
+### What is in `beta/assets/img/unsplash-candidates.json`
+
+One entry per **target**, with up to three **candidates** each, copied verbatim from search results:
+
+| Target type | What it is | Where it may show |
+|---|---|---|
+| `hero` (`hub:<page or country>`) | a recognisable city or country scene (skyline, a signature view) | hub tiles, country hub hero, city masthead |
+| `landmark` (`<page>#<record id>`) | one **tier-1 sight** record, pilots first (Tokyo, Kyoto, Cleveland, New York, Singapore towns), then the other cities and SEA | that record's card and detail hero |
+| `cover` (`collection:<key>`) | a **generic** mood image: a noodle bowl, a hawker hall, a shrine gate, a diner… | collection covers **only**, never next to a venue's name |
+
+Each candidate: `pageUrl`, `id` (the last 11-character path token), `title` exactly as returned, `photographer` only
+when the result showed it, `depicts`, `confidence`, `reason`, and `flags` where something needs a human look.
+
+**Confidence is strict.** `high` only when the returned title or description names that exact landmark or place
+("Kinkaku-ji with a gold roof"). `med` when a search summary or location tag points to it but the title is generic
+("A castle with a moat", located at the Gravensteen). `low` when it was merely returned for the query. For covers,
+`high` means the title describes exactly the generic subject and names no venue.
+
+**Never assigned.** No photo is attached to a restaurant, shop or other venue: food and venues get only generic
+covers. Excluded with a note: Unsplash+ photos (a paid licence), 3-D renders, historical archive images presented
+as today, and any result that is really a different place (Kinkaku-ji when searching for Ginkaku-ji, Philadelphia
+City Hall for Independence Hall, the U.S. Capitol for Wisconsin's). **Gaps are stated, not filled**: a target with
+no honest candidate keeps an empty list and a note (Terminal Tower, West Side Market, Henderson Waves…).
+
+**Flags** (the fetch script skips a flagged candidate unless you pass `--allow-flag <flag>` after looking at it):
+`people-visible` (identifiable people), `public-art-check` (freedom of panorama: US and Japan have none for modern
+public art), `venue-check` (a legible shop sign or a nameable venue on a cover), `artwork-check` (copyrighted works
+in frame), `possibly-plus` (stock-agency style title; the API decides), `fop-vietnam`.
+
+The `summary` block counts targets, candidates by confidence, and lists every gap.
+
+**Status (2026-10-11, about 160 searches):** 146 targets (34 heroes, 93 landmarks, 19 covers) and 250 candidates:
+**128 high, 77 med, 45 low**. 121 targets have at least one candidate and 72 have a high one. 23 are stated gaps,
+including Terminal Tower, West Side Market, Soldiers' & Sailors', the Arcade and the Cleveland Museum of Art building,
+Singapore Botanic Gardens, Henderson Waves, Heian Jingū, Shuri Castle and the Singapore Zoo. Hero Thailand and hero
+Indochina reuse the Wat Arun and Angkor Wat candidates. With the defaults (high only, no flags) the fetch script would
+try 65 targets; `--min med` and reviewed `--allow-flag`s widen that.
+
+### Licence and credit
+
+Unsplash photos are under the **Unsplash License** (<https://unsplash.com/license>): free use, modification allowed,
+no permission needed; attribution is not legally required but the API guidelines require it and our rule shows it
+anyway, wherever the photo appears. The credit line is **"Photo by <name> on Unsplash"**, with the name linked to the
+photographer's profile and "Unsplash" linked to the photo page, both with `utm_source=cleo_guide&utm_medium=referral`.
+The licence does not allow selling unaltered copies or compiling photos into a competing photo service; neither
+applies here. Unsplash+ is a different, paid licence and is refused.
+
+The credit gate (`tools/beta/imagery/photos.js`) accepts `Unsplash License` (licence URL must be the one above and the
+source must be an `unsplash.com` photo page), renders the Unsplash credit line, and also accepts `slot` rows
+(`{type: hero|cover, key}`) for hero and cover photos that do not belong to one record. Everything else is unchanged:
+no file without a complete row, no row without its file, no closed or Vietnamese place.
+
+### Fetch and commit
+
+**Owner-approved path: GitHub Actions.** The owner chose to fetch on a GitHub-hosted runner, which can reach both hosts:
+`.github/workflows/beta-fetch-unsplash.yml` (orchestrator) runs the script with `UNSPLASH_ACCESS_KEY` from a repository
+secret, then `npm run beta && npm run validate && npm test`, and commits `beta/` only if every gate passes. It runs on
+manual dispatch or on a push that touches the manifest, the script or the workflow. The sandbox itself still cannot
+reach the hosts and never tries to.
+
+Prerequisites (owner): create an Unsplash developer app and put its **Access Key** in the `UNSPLASH_ACCESS_KEY`
+repository secret (never in the repo). Demo apps get 50 requests an hour. Each photo costs 2 API calls (photo +
+download event), so the script spends at most 45 calls per run (`--budget`), about 22 photos, and stops cleanly. Targets
+that already have a credit row are skipped, so the next run resumes where the last one stopped.
+
+```bash
+node tools/beta/imagery/fetch-unsplash.js                       # no key: prints the plan, fetches nothing, exit 0
+UNSPLASH_ACCESS_KEY=… node tools/beta/imagery/fetch-unsplash.js # fetch (high confidence, no flags, ≤ 45 API calls)
+… fetch-unsplash.js --dry-run                                   # plan only, even with a key
+… fetch-unsplash.js --type landmark --key landmark:tokyo#senso-ji --min med --allow-flag people-visible
+cd tools && npm run beta && npm test                            # the gate renders them, or names the problem
+```
+
+Per target the script takes the first candidate that passes, in manifest order:
+
+1. `GET /photos/:id` with `Authorization: Client-ID $UNSPLASH_ACCESS_KEY`. The API, not the search snippet, decides:
+   the id must match, the photo must not be Unsplash+/premium, and for a landmark the API's own description, alt text,
+   location or tags must contain a word of the target's name. A candidate that fails moves to the next one.
+2. `GET` the photo's `links.download_location`, the download event the API guidelines require whenever a photo is used.
+3. Download `urls.raw` with `w=960&fm=webp&q=75&fit=max`, resized by Unsplash's image CDN, so no local image library is
+   needed. Store it as `beta/assets/img/photos/<page>--<id>-960.webp` (landmarks; `/` in a page key becomes `--`),
+   `hero--<key>-960.webp` or `cover--<key>-960.webp`.
+4. Write or replace its `CREDITS.json` row: `record` (landmark) or `slot` (hero/cover), `author`, `authorUrl`,
+   `sourceUrl` (photo page + utm), `licence: "Unsplash License"`, `licenceUrl`, `provider: "unsplash"`, `unsplashId`,
+   `credit: "Photo by <name> on Unsplash"`, `modified`, `fetched`, `confidence`.
+
+Exit codes: **0** when it is done or there is nothing to do, including no `UNSPLASH_ACCESS_KEY` (it prints the plan and
+fetches nothing); **1** for a bad option; **3** when either host is unreachable or answered by a policy proxy;
+**4** when an API or image request fails. It prints every kept and refused photo with a reason, and the API calls used.
+It writes `CREDITS.json` after each photo, so a stop keeps the finished work. It runs only where the hosts are allowed
+(the Actions workflow above), never through a proxy, mirror or other workaround.
+
+**One tension for the owner to decide.** The Unsplash API guidelines ask API apps to *hotlink* the returned image URLs,
+while our rules self-host every asset (content never depends on a CDN; a blocked CDN costs a map, not a page). The
+licence itself allows downloading and self-hosting. The script follows our rule: it triggers the download event and
+credits every photo as the guidelines ask, then serves a local copy. If the owner registers a production app, either
+confirm with Unsplash that self-hosting downloaded files is acceptable for this use, or use the site's own download
+button for each picked photo (the licence covers that) and add the `CREDITS.json` row by hand. The gate is the same
+either way.
+
+**Not wired yet:** the renderers attach gated photos to record cards today; hero and cover `slot` rows are validated
+and exposed (`loadPhotos().bySlot`), but the hub hero, masthead and collection-cover renderers still show motifs.
+Hooking them up is a front-end task for the next round.
+
+## Wikimedia Commons — a keyless photo path through GitHub Actions (W7, 2026-10-11)
+
+> Lane: imagery · W7 brief `design/beta/eval/W7-BRIEFS.md` § "Lane: imagery". Commons needs **no key**, and a
+> GitHub-hosted runner can reach it. This sandbox cannot (network policy), so nothing was downloaded here and nothing
+> routes around the block: the manifest is built from WebSearch results restricted to `commons.wikimedia.org`, and the
+> fetch runs on the runner.
+
+### 1. The manifest — `beta/assets/img/commons-candidates.json`
+
+Generated, never hand-edited: `python3 tools/beta/imagery/manifest/build_manifest.py` builds it from the place data and
+`tools/beta/imagery/manifest/cands.tsv` (vetted candidates and visual-review refusals, one per line).
+
+One entry per **target**, in fetch-priority order:
+
+| Order | Target | Count | What |
+|---|---|---|---|
+| 1 | `hero:<page or country>` | 40 | city, town and hub heroes: the five pilot pages and the five live country hubs first (Tokyo, Cleveland, New York, Chinatown SG, Wheeling; Japan, US, Singapore, Belgium, Germany), then every other city and region |
+| 2 | `landmark:<pilot page>#<id>` | 174 | every tier-1 sight on the pilot pages |
+| 3 | `landmark:<page>#<id>` | 1,114 | every other tier-1 sight (not Vietnam) |
+
+Each target carries `names` (the phrases a file must name: the record name and its parts, the native name, the cited
+Wikipedia article title, plus a few aliases such as "Hannes Tiedemann House" for Franklin Castle), its cited `article`
+when there is one, and `candidates` copied verbatim from search results: the `File:` title, its Commons page, what the
+result says it shows, a confidence grade and the reason. **high** = the file title (or its description as the result
+showed it) names that exact place; **med** = a description or category points to it but the title is generic, or the
+photo may not show the place today. Nothing is guessed: titles from a Commons category listing are marked so in the reason.
+
+**Status (about 150 searches):** 40 heroes, all 40 with a high candidate; 174 pilot sights, 103 with a high
+candidate, 65 skipped by rule; 269 candidates in all (255 high, 14 med). Seven pilot gaps are stated, not filled:
+Holden Arboretum (only plant close-ups), the Solstice Steps, Bronx Zoo, Queens Museum (only 1939 scans), LeMoyne House
+(only its marker), Salt Fork State Park, The Wilds.
+
+**Never a photo (target `skip`):** food places; venues: anything tagged bar, shop, market, mall, hawker, theatre,
+arena, entertainment or nightlife, plus pilot venues named one by one (Kabuki-za, Ryōgoku Kokugikan, Radio City, the
+Apollo, Yankee Stadium, Luna Park, the Cyclone, teamLab, the Ghibli Museum, the studio tour, Shibuya Sky, Sunshine
+City, Severance, Beck Center, Cain Park, 78th Street Studios, two tiny private museums, Quintana's); modern public art
+where the country has no freedom of panorama for it (the Free Stamp, the Unisphere, the GE Chandelier, the Yayoi Kusama
+façade, manga and animation museums); exhibits inside a building (Lucy, the chess collection, the Percy Skuy
+collection); closed places; Vietnam.
+
+**Flags** (the fetch skips a flagged candidate unless `--allow-flag` names it after a person has looked):
+`people-visible`, `public-art-check` (the 9/11 Memorial pools, Christopher Park's statue, Storm King, the Hakone
+Open-Air Museum, the Noguchi Museum, the Guardians of Traffic), `venue-check` (shop signs on Pagoda Street), `panorama`
+(a 360° file), `outdated` (Shuri Castle before the 2019 fire; the Cleveland Museum of Art before its 2013 addition),
+`author-check`.
+
+### 2. The fetch — `tools/beta/imagery/fetch-commons.js`
+
+```bash
+node tools/beta/imagery/fetch-commons.js --dry-run                  # the plan, no network
+node tools/beta/imagery/fetch-commons.js --budget 150               # runner: heroes, then pilot sights (high, unflagged)
+node tools/beta/imagery/fetch-commons.js --budget 300 --wiki-lead   # also tier-1 sights everywhere else, from the
+                                                                    # lead image of each record's cited Wikipedia article
+cd tools && npm run beta && npm test                                # the gate renders them, or names the problem
+```
+
+Per target, the first candidate that passes, in manifest order (then, with `--wiki-lead`, the article's lead image):
+
+1. **Re-read from the Commons API** (`action=query&prop=imageinfo|categories&iiprop=url|size|mime|sha1|extmetadata`).
+   The API, not the search snippet, decides.
+2. **Free licence only:** `LicenseShortName` must be CC0, public domain, CC BY or CC BY-SA (any version or port). NC,
+   ND, GFDL-only and anything else are refused. The author (`Artist`, HTML stripped) must be present. Bitmap only,
+   at least 640 px wide, no panorama wider than 3:1. Personality-rights restrictions are refused unless
+   `--allow-flag people-visible`.
+3. **Depicts re-check:** the file title, its `ObjectName`, its description or one of its visible categories must
+   contain one of the target's `names`, compared without spaces, punctuation or diacritics. "Kinkaku-ji" never passes
+   for Ginkaku-ji.
+4. **Sized local copies:** Commons' own server-side thumbnails, never wider than the original. Commons serves only its
+   standard thumbnail widths (250, 330, 500, 960, 1280, 1920); any other width answers HTTP 400, which stopped
+   workflow run #5 at a 640 px thumbnail. Each asked width therefore snaps to the nearest step, and the thumbnail URL
+   comes from the API for that width (`thumb.wikimedia.org` or `upload.wikimedia.org`). Cards: 500 + 960 px. Heroes:
+   960 + 1280 px by default; the workflow passes `--widths 500,960 --hero-widths 500,960` to keep Tokyo within 2.0 MB. Stored as
+   `beta/assets/img/photos/<base>-<w>.jpg` (`/` in a page key becomes `--`). Nothing is hotlinked. A failed thumbnail
+   refuses that candidate; a 429 or 5xx stops the run cleanly, and the next run resumes. The run exits 4 only if
+   the API fails or more than 25 % of image downloads fail.
+5. **TASL credit row** in `CREDITS.json`: the largest width is `file`, the smaller one is in `variants`, plus `title`,
+   `depicts`, `author`, `sourceUrl` (the Commons File: page), `licence`, `licenceUrl`, `provider:
+   "wikimedia-commons"`, `commonsTitle`, `sha1`, `modified` ("resized to … px wide"), `fetched`, `confidence`.
+   Written after each photo, so a stop keeps the finished work; credited targets are skipped next run.
+
+API etiquette: a descriptive `User-Agent`/`Api-User-Agent`, `maxlag=5`, a 400 ms pause between requests, and a request
+budget (`--budget`, default 150). **No network → exit 0 with the plan printed** (this sandbox: `ENOTFOUND`). Exit 4
+when a request fails mid-run.
+
+**Workflow:** `.github/workflows/` belongs to the orchestrator. The command to wire in is
+`node tools/beta/imagery/fetch-commons.js --budget 150`, run before the beta rebuild and gates. It needs no secret.
+Add `--wiki-lead` once the pilots have been reviewed.
+
+### 3. The gate — `photos.js` + `test-imagery.js`
+
+Still refuses anything uncredited. New in W7:
+- `variants: [{file, width, height}]`: smaller sizes of the **same** credited image. Each must exist, be a bare image
+  name and belong to no other row. A variant without its row is an uncredited photo and is refused like any other.
+- `provider: "wikimedia-commons"` rows must link a `commons.wikimedia.org/wiki/File:` page, never an
+  `upload.wikimedia.org` hotlink.
+- Hero slots work for any city, town or country key. A Vietnam key (country or city) is still refused.
+
+### 4. Rendering
+
+- **Cards** (`li.pl`): `<figure class="photo pl-photo">` with `srcset` (500w, 960w) and
+  `sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"`, `loading="lazy"`, explicit width and height,
+  `alt` = what it depicts, and the TASL `figcaption` laid over the bottom of the photo.
+- **Hub heroes and hub/landing city cards** belong to FE-B (`hub.js`, `landing.js`). They call `imagery.heroFor(reg, key)`
+  (slot `hero:<country or page key>` from `reg.imagery.slots`) and `imagery.heroHtml(ph, up, 'photo hero-media')`.
+  With a media-slot class that is an in-flow, eager figure with `srcset` and its TASL `figcaption`. `photo.srcset` is a
+  beta-relative string (`"assets/img/photos/x-480.jpg 480w, …"`). `photo.widths` holds the same sizes as objects.
+- **City heroes** (`.masthead .g-hero-x`, `city.js`): `imagery.heroHtml()` with the default class is a full-bleed
+  `<figure class="photo hero-photo">` behind the headline. It is eager (`fetchpriority="high"`) with `srcset` at
+  `100vw` and a scrim in the hero's ground colour (`--hero-scrim`, default `--night`), so the text stays at AA. It
+  replaces the pin sky only when a credited hero exists. `imagery.heroCreditHtml()` puts the credit as a small
+  **"Photo: author · licence · Wikimedia Commons (resized)"** line in the text flow, under the actions. Laid over
+  the photo it collided with the facts and buttons. With no hero photo the page is byte-identical.
+- Not yet: Gallery row cards and the "Start with" lead card are drawn client-side from `data/gallery/<page>.json`.
+  Adding `row.imagery.photos[id]` there is an FE-A follow-up (contract: `{src, srcset, w, h, credit}`).
+
+### 5. Credits, subject rules and weight (W7 review round 3)
+
+- **Short credit everywhere a card or hero shows a photo:** `photos.captionHtml(credit)` →
+  `Photo: <author> · <licence link> · <Commons File: page link> (resized)`. The file title is the source link's
+  `title` and part of its accessible name (`aria-label="“Title” on Wikimedia Commons"`), which covers CC 2.0/3.0's
+  title-if-supplied term. The File: page is the full TASL record; there is no separate credits page.
+  `captionHtml(credit, {full:true})` gives the whole sentence for a place detail view.
+- **Card `sizes`:** `CARD_SIZES = (max-width: 639px) 92vw, (max-width: 1023px) 45vw, 25vw`. Thumbnails pass their own,
+  e.g. `figureHtml(photo, up, cls, { sizes: '120px' })`.
+- **Subject rules at fetch time** (`fetch-commons.js`): signage, lettering, logos or advertising (`SIGNAGE`), and
+  equipment, people or close-ups such as hands, a drone controller, a selfie or a portrait (`CLOSEUP`, which also checks
+  categories) are refused unless the target itself is named so (Sign Hill, a portrait gallery). Heroes also refuse
+  winter, snow, overcast or fog (`GLOOM`). Every run first **re-scans** the credited photos against their current
+  Commons text and prints `RESCAN` lines (report only).
+- **One file, one row:** `test-imagery.js` fails if a Commons file is credited twice (two heroes, or a hero and a card).
+  Whether a hub hero looks too much like one of its city heroes stays a visual check.
+- **Weight:** `tools/beta/imagery/recompress.js` re-encodes credited Commons JPEGs in place: progressive mozjpeg,
+  metadata stripped, the highest quality ≤ 72 that meets 45 KB (500 w), 110 KB (card 960 w) or 160 KB (hero 960 w),
+  never below 50. It keeps pixel size, writes only when smaller and appends "recompressed (JPEG, quality ≤ 72)" to
+  `modified`; it is idempotent. It needs `sharp` (`npm install --no-save sharp` in `tools/` on the runner) and exits 0
+  without it. The first pass took `photos/` from 36 MB to 17 MB.
+
+### 6. W8 coverage (R7 gap 1), weight (gap 7) and colour (gap 3)
+
+- **Targets.** Every non-Vietnam guide's gallery lead card and first rail row are targets (`priority: lead | row`),
+  fetched right after the heroes; then the pilot pages' tier-1 sights, then every other tier-1 sight.
+  `fetch-commons.js --scope heroes | priority | pilots | all` (default `priority`) says what a run may fetch.
+- **Article lead images.** A target citing a Wikipedia article carries `wikiLead`: when no candidate passes, the
+  fetch tries that article's lead image under every check. Heroes carry `articles` (the town, then an iconic
+  sight), tried in order. Maps, coats of arms, flags, seals, emblems, crests, insignia, badges, logos, diagrams,
+  posters and montages are refused (`NOT_A_PHOTO`, on the title, object name and vetted depicts; R7-g7: the NMUSAF
+  emblem). A PNG or other non-JPEG lead image is suspect and accepted only with a vetted candidate's depicts. So is a
+  file already credited to another row (one file, one row). Vietnam guides keep their motif hero, with the reason
+  stated in the manifest.
+- **Stated gaps.** Brand stores (the branding is the subject), Poké Lid character art, venues (by tag, and by name:
+  theatre, opera house, playhouse, ballpark, arena, stadium, concert hall; each name-matched skip is listed in the run
+  summary for review). `node tools/beta/imagery/coverage.js` reports hero / lead / first-row / tier-1 coverage per
+  guide.
+- **Widths per class (repo size).** Heroes, lead cards and first-row cards: 500 + 960. Every other card: 500 + 720
+  (the 720 derived with sharp from the 960 thumbnail, D-40).
+- **Weight.** recompress.js: every 960 w ≤ 120 KB (cards ≤ 110 KB), 720 w ≤ 75 KB, 500 w ≤ 45 KB, quality floor 40.
+  Any non-JPEG file (a PNG thumbnail) is converted to `<same name>.jpg`, transparency on white, and its row and srcset
+  follow (R7-g7); the size test covers every format. A tall or
+  very detailed photo that still misses its target is scaled down (0.85× steps) and its row's width/height updated.
+- **Dominant colour.** recompress.js writes `color: "#rrggbb"` on each Commons row; the gate exposes it as
+  `photo.color` for a fade-in placeholder.
+- **Author from the uploader (approved W8).** When a Commons file's Artist field is empty and its Credit field says
+  "Own work", the author is the uploader the API names (imageinfo `user`), the Commons convention for own-work
+  uploads. Nothing else is guessed. Each such row is named in the run log (`author = uploader, own work`).
+- **Copyrighted free use (approved W8)** is an allowed licence (any use, no conditions). The full credit still shows
+  author, "Copyrighted free use" and the Commons link.
+- **The view from a place is not the place.** A title of the form "<X> from <place>" / "View from <place>" is refused
+  unless the part before "from", or a vetted candidate's depicts text, names the place (`viewFrom`); the rescan flags
+  credited rows that match. (W8: "Chuo-dori from Nihonbashi" for Nihonbashi Bridge.)
+- **A refusal is per file, not per target.** A file refused for one place is refused for every place.

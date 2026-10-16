@@ -1,0 +1,522 @@
+{
+ "generated": "2026-10-16T14:21:44.576Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "Singapore/dempsey-hill.html",
+   "gen": "new",
+   "expected": {
+    "total": 2,
+    "sights": 0,
+    "food": 2,
+    "live": "Singapore/dempsey-hill.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Dempsey Hill — 2 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 2,
+    "cardsVisible": 2,
+    "legacy": false,
+    "firstCardTop": 459,
+    "screensToFirstCard": 0.54,
+    "mastheadPx": 340,
+    "controlsAbove": 15,
+    "controlsAboveOnScreen": 15,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Singapore\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-09-02\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i \"Must see2\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i.src-t \"Everything recommended b\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 101,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "span.badge.t1 \"Must see\"",
+    "contrastChecked": 98,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Dempsey Hillplace\"",
+     "button.mappill \"Show map\""
+    ],
+    "railVisible": true,
+    "railTop": 340,
+    "railOnFirstScreen": true,
+    "railItems": 5,
+    "railFirst": "Your guideFor youTell it what you love",
+    "cityCardsAbove": 0,
+    "cardMedianH": 311,
+    "cardsPerScreen": 2.71,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 610,
+    "fcp": 244,
+    "fontSampleN": 98,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 21,
+     "Inter": 129
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 386,
+      "Inter": 2325,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 542277,
+    "bytesAllResponses": 542277,
+    "initial": {
+     "bytes": 542277,
+     "gz": 182188
+    },
+    "session": {
+     "bytes": 542277
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 98,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 137,
+      "h": 48,
+      "name": "Show map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "burnt-ends",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 728,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 728,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Dempsey Hill — 2 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 2,
+    "cardsVisible": 2,
+    "legacy": false,
+    "firstCardTop": 613,
+    "screensToFirstCard": 0.68,
+    "mastheadPx": 416,
+    "controlsAbove": 26,
+    "controlsAboveOnScreen": 26,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Singapore\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-09-02\"",
+     "a \"How we choose\"",
+     "a \"Start with Candlenut\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i \"Must see2\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i \"Peranakan / Nyonya1\"",
+     "button.rail-i \"Cafés & modern1\"",
+     "button.rail-i.rail-all \"Show all2\"",
+     "button.btn.btn-ghost \"See all 2\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 110,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 107,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Dempsey Hillplace\"",
+     "button.mappill \"Show map\"",
+     "nav#cleo-rail.rail \"Your guideFor youTell it\""
+    ],
+    "railVisible": true,
+    "railTop": 416,
+    "railOnFirstScreen": true,
+    "railItems": 8,
+    "railFirst": "Your guideFor youTell it what you love",
+    "cityCardsAbove": 0,
+    "cardMedianH": 315,
+    "cardsPerScreen": 2.86,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 610,
+    "fcp": 228,
+    "fontSampleN": 107,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 23,
+     "Inter": 146
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 375,
+      "Inter": 2650,
+      "IPAGothic": 3,
+      "Inter SemiBold": 1
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 2,
+     "where": [
+      "rail over Candlenut",
+      "rail over Burnt Ends"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 2,
+     "scrolled": 2,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 2,
+      "ok": 2,
+      "bad": []
+     },
+     "search": {
+      "n": 2,
+      "ok": 2,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 2 places",
+     "groups": [
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byMichel",
+      "Recommended by",
+      "CuisinePeranakan / N",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "Been thereShow allHi",
+      "Been there",
+      "Map styleStreetLight",
+      "Map style"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 561437,
+    "bytesAllResponses": 561437,
+    "initial": {
+     "bytes": 542277,
+     "gz": 182188
+    },
+    "session": {
+     "bytes": 561437
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 107,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 2,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 2,
+    "text": 2399
+   },
+   "cpu4x": {
+    "fcp": 484,
+    "dcl": 820,
+    "loadMs": 1050
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.54
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 340
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "15 on-screen / 15 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": true,
+      "val": "top 340, 5 tiles, first \"Your guideFor youTell it what you love\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 137×48, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 0, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 2 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.71
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 2 · DOM 2 · scrolled 2 · deep 2/2 · search 2/2 · no-JS 2"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/101)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px span.badge.t1 \"Must see\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "548 KB · 610 nodes · 228 ms · 484 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "178 KB (530 KB) · 178 KB (530 KB)"
+     }
+    },
+    "passed": 22,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}

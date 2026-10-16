@@ -1,0 +1,1457 @@
+#!/usr/bin/env node
+'use strict';
+/**
+ * location-verify.js — PROPOSE coordinate / address / open-closed corrections for one city from open, key-free
+ * sources, as a REPORT for a person to review. The design and policy study is docs/LOCATION-VERIFY-ACTIONS.md.
+ *
+ * It runs where the sources are reachable: a GitHub-hosted runner (.github/workflows/location-verify.yml). In the
+ * authoring sandbox those hosts are blocked by the org egress policy; the script then writes an OFFLINE PLAN report
+ * (what it would query) and exits 0. Never through a proxy, mirror or other workaround.
+ *
+ *   node tools/location-verify.js --city wheeling-wv                       # report → docs/geoverify/wheeling-wv.{json,md}
+ *   node tools/location-verify.js --city wheeling-wv --scope unverified,low --limit 20
+ *   node tools/location-verify.js --city wheeling-wv --fixtures f.json     # replay recorded responses (tests)
+ *   node tools/location-verify.js --backlog                                # per-city backlog table (no network)
+ *   node tools/location-verify.js --accept docs/geoverify/wheeling-wv.json # LOCAL ONLY: apply reviewer-accepted rows
+ *
+ * THE RUNNER ONLY PROPOSES. Report mode never writes data/geocodes.json; --accept refuses to run on CI.
+ *   Rule 4a  every proposal carries sourceUrl, retrieved date, matched name + address, distance from the current pin,
+ *            a confidence grade and the source licence. Nothing is filled from memory or estimated: no source, no row.
+ *   Rule 4b  coordinates come from place objects (Wikidata P625, Wikipedia primary {{coord}}, an OSM object, the
+ *            official site's schema.org geo), never a map viewport. Grades high/med/low as in docs/SOURCES.md.
+ *   Rule 4c  closures are only ever proposed as `status-needs-check` with evidence (Wikidata P576/P3999, OSM lifecycle
+ *            prefixes disused:/was:/abandoned:/closed:/demolished:, a closure notice on the official site). An HTTP
+ *            error or 404 on the official site is NEVER closure evidence.
+ *
+ * Options
+ *   --city <key>          city key in data/geocodes.json (required for report mode)
+ *   --scope <list>        which rows to check: unverified, low, med, high, status, all (default unverified,low,status)
+ *   --limit <n>           at most n rows this run (default all in scope)
+ *   --sources <list>      wikidata, wikipedia, nominatim, overpass, official (default all five)
+ *   --nominatim-max <n>   Nominatim requests this run (default 300; policy: ≤ 1/s, cached, single thread)
+ *   --max-requests <n>    total network requests this run (default 3000); stops cleanly, a rerun resumes from cache
+ *   --out <dir>           report directory (default docs/geoverify)
+ *   --cache <dir>         response cache (default ~/.cache/cleo-location-verify; LV_CACHE_DIR overrides)
+ *   --cache-ttl-days <n>  reuse cached responses younger than this (default 30)
+ *   --fixtures <file>     replay responses from a JSON fixture file instead of the network (no network at all)
+ *   --offline             force the offline plan report
+ *   --today <YYYY-MM-DD>  date stamp (tests)
+ *
+ * Exit codes: 0 report written (or offline plan); 1 bad option/input; 4 a source failed hard (report still written).
+ */
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+const crypto = require('crypto');
+const P2 = require('./location-verify-phase2.js');
+const SCOPE = require('./location-verify-scope.js');
+
+const ROOT = path.resolve(__dirname, '..');
+const GEOCODES = path.join(ROOT, 'data', 'geocodes.json');
+const VERSION = '0.1.0';
+const UA_TOKEN = 'CleoGuideLocationVerify';
+const UA = `${UA_TOKEN}/${VERSION} (https://github.com/alvations/cleo-guide; location-verify proposals, reviewed by a person) node`;
+
+const ENDPOINT = {
+  wikidata: 'https://www.wikidata.org/w/api.php',
+  wikipedia: 'https://en.wikipedia.org/w/api.php',
+  nominatim: 'https://nominatim.openstreetmap.org/search',
+  overpass: 'https://overpass-api.de/api/interpreter',
+  // Fallback for the retry (the main server is often overloaded; its wiki says "use alternatives if possible").
+  // overpass.private.coffee: no rate limit; asks for a meaningful UA, POST, and notice before > 10 req/s or > 10
+  // parallel — we send one sequential query per 10 rows.
+  overpassAlt: 'https://overpass.private.coffee/api/interpreter',
+  census: 'https://geocoding.geo.census.gov/geocoder/locations/onelineaddress',
+};
+const LICENCE = {
+  wikidata: 'CC0-1.0 (Wikidata structured data)',
+  wikipedia: 'Wikipedia {{coord}} via GeoData API (article text CC BY-SA 4.0; credit the article)',
+  osm: 'ODbL-1.0 — © OpenStreetMap contributors',
+  official: "the place's own website (fact read from its schema.org markup / page; robots.txt honoured)",
+};
+// Per-host minimum spacing between requests (ms). Every source is queried single-threaded.
+const SPACING = { 'overpass.private.coffee': 5000, 'geocoding.geo.census.gov': 1000, 'www.onemap.gov.sg': 500, 'nominatim.openstreetmap.org': 1100, 'overpass-api.de': 5000, 'www.wikidata.org': 300, 'en.wikipedia.org': 300, default: 2000 };
+
+// ───────────────────────────────────────────────────────── pure helpers (unit-tested) ──
+
+function stripDiacritics(s) { return String(s).normalize('NFKD').replace(/[̀-ͯ]/g, ''); }
+
+/** Name normalisation for matching: drop the CLOSED marker, parentheticals, "the", punctuation; & → and. */
+function normName(s) {
+  return stripDiacritics(String(s || ''))
+    .replace(/\s+[—–-]\s*CLOSED\b.*$/i, '')
+    .replace(/\([^)]*\)/g, ' ')
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/['’`]/g, '')
+    .replace(/[^a-z0-9぀-ヿ一-鿿]+/g, ' ')
+    .replace(/\b(the|a|an)\b/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function bigrams(s) { const t = s.replace(/ /g, ''); const out = []; for (let i = 0; i < t.length - 1; i++) out.push(t.slice(i, i + 2)); return out; }
+
+/** Name similarity in [0,1]: max of token-set overlap (containment-aware) and bigram Dice. */
+function nameSim(a, b) {
+  const x = normName(a), y = normName(b);
+  if (!x || !y) return 0;
+  if (x === y) return 1;
+  const tx = new Set(x.split(' ')), ty = new Set(y.split(' '));
+  let inter = 0; tx.forEach(t => { if (ty.has(t)) inter++; });
+  const jacc = inter / (tx.size + ty.size - inter);
+  const contain = inter / Math.min(tx.size, ty.size); // "Coleman's Fish Market" vs "Coleman's"
+  const tokenScore = Math.max(jacc, 0.9 * contain * (Math.min(tx.size, ty.size) >= 1 ? 1 : 0));
+  const bx = bigrams(x), by = bigrams(y);
+  const pool = new Map(); by.forEach(g => pool.set(g, (pool.get(g) || 0) + 1));
+  let hits = 0; bx.forEach(g => { const n = pool.get(g); if (n) { hits++; pool.set(g, n - 1); } });
+  const dice = bx.length + by.length ? (2 * hits) / (bx.length + by.length) : 0;
+  return Math.round(Math.max(tokenScore, dice) * 1000) / 1000;
+}
+
+function haversineM(lat1, lng1, lat2, lng2) {
+  const R = 6371008.8, r = d => (d * Math.PI) / 180;
+  const dLat = r(lat2 - lat1), dLng = r(lng2 - lng1);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(r(lat1)) * Math.cos(r(lat2)) * Math.sin(dLng / 2) ** 2;
+  return Math.round(2 * R * Math.asin(Math.sqrt(h)));
+}
+
+const STREET_ABBR = { street: 'st', avenue: 'ave', road: 'rd', drive: 'dr', boulevard: 'blvd', lane: 'ln', place: 'pl', court: 'ct', highway: 'hwy', north: 'n', south: 's', east: 'e', west: 'w', parkway: 'pkwy', square: 'sq', terrace: 'ter' };
+/** Parse the parts of a free-text address that matter for matching. */
+function parseAddress(s) {
+  const t = stripDiacritics(String(s || '')).replace(/\([^)]*\)/g, ' ');
+  const first = t.split(',')[0] || '';
+  const hn = (first.match(/^\s*(\d+[a-z]?)\b/i) || [])[1] || null;
+  const street = first.replace(/^\s*\d+[a-z]?\s+/i, '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/)
+    .filter(Boolean).map(w => STREET_ABBR[w] || w).join(' ') || null;
+  const pc = (t.match(/\b(\d{5})(?:-\d{4})?\b(?!.*\b\d{5}\b)/) || t.match(/\b(\d{3}-\d{4}|\d{4}|\d{6})\b(?!.*\d)/) || [])[1] || null;
+  return { houseNumber: hn ? hn.toLowerCase() : null, street, postcode: pc };
+}
+
+/** Compare a registry address with a candidate's address parts. */
+function addrAgreement(regAddr, cand) {
+  const a = parseAddress(regAddr);
+  const b = { houseNumber: cand.houseNumber ? String(cand.houseNumber).toLowerCase() : null,
+    street: cand.street ? parseAddress('1 ' + cand.street).street : null, postcode: cand.postcode || null };
+  const out = { houseNumber: null, street: null, postcode: null };
+  if (a.houseNumber && b.houseNumber) out.houseNumber = a.houseNumber === b.houseNumber;
+  if (a.street && b.street) { const sa = new Set(a.street.split(' ')); const sb = b.street.split(' ');
+    const core = sb.filter(w => !/^(st|ave|rd|dr|blvd|ln|pl|ct|hwy|n|s|e|w|pkwy|sq|ter)$/.test(w));
+    out.street = core.length ? core.every(w => sa.has(w)) : null; }
+  if (a.postcode && b.postcode) out.postcode = String(a.postcode).slice(0, 5) === String(b.postcode).slice(0, 5);
+  return out;
+}
+
+const EXTENDED = /\b(park|parks|trail|trails|district|woods|forest|island|bridge|viaduct|river|lake|beach|garden|gardens|reserve|preserve|fairgrounds|campus|zoo|market district|state park|national park|square|alley|neighbou?rhood|village|valley|canal|harbou?r|port|wilds)\b/i;
+const BUSINESS = /\b(pizza|pizzeria|pie|pies|bakery|bakeworks|bakehouse|brewing|brewery|brewpub|taproom|cafe|coffee|kitchen|grill|grille|restaurant|bar|pub|tavern|saloon|diner|deli|bistro|taqueria|cantina|eatery|steakhouse|sushi|ramen|thai|noodle|bbq|barbecue|creamery|donut|doughnut|burger|tacos?|shop|store|market hall|hotel|inn|club)\b/i;
+/**
+ * Parks, trails, districts and bridges are pinned to an entrance / most-visited point, so a centroid differs. A name
+ * that is a business ("Thai Square", "One Lake Brewing", "Square Pie Guys") or an OSM object tagged as a business is
+ * not an extended feature, whatever words it borrows.
+ */
+function isExtended(name, osmClass) {
+  if (osmClass && /^(amenity|shop|craft|office|healthcare)=/.test(osmClass)) return false;
+  const n = normName(name);
+  return EXTENDED.test(n) && !BUSINESS.test(n);
+}
+
+const GRADE_RANK = { none: 0, low: 1, med: 2, high: 3 };
+
+/**
+ * Grade one candidate coordinate. kind: wikidata | wikipedia | official | osm-poi | osm-address | osm-other.
+ * Returns { grade, why[] }. high = a published place coordinate (Wikidata/Wikipedia/official schema.org) or an OSM
+ * place object whose name AND house number/street agree; med = an OSM place object by name only, or the exact
+ * address point; low = everything else (reported, never proposed).
+ */
+function gradeCandidate(c, place) {
+  const why = [];
+  const sim = nameSim(place.name, c.name || '');
+  const ag = addrAgreement(place.address, c);
+  c.nameSim = sim; c.addr = ag;
+  let grade = 'low';
+  if (c.kind === 'official' && c.unofficial) {
+    if (sim >= 0.8) { grade = 'med'; why.push(`unofficial geo (${c.unofficial}); med at most — let an OSM POI or a second source lead`); }
+    else why.push(`unofficial geo (${c.unofficial}) and name similarity ${sim}`);
+  } else if (c.kind === 'wikidata' || c.kind === 'wikipedia' || c.kind === 'official') {
+    if (sim >= 0.8 || c.kind === 'official' || c.linked) { grade = 'high'; why.push(`${c.kind} published coordinate`); }
+    else why.push(`${c.kind} name similarity ${sim} < 0.8`);
+  } else if (c.kind === 'osm-poi') {
+    if (sim >= 0.85 && (ag.houseNumber === true || (ag.houseNumber === null && ag.street === true))) { grade = 'high'; why.push('OSM place object, name + address agree'); }
+    else if (sim >= 0.85) { grade = 'med'; why.push('OSM place object, name agrees, address not corroborated'); }
+    else why.push(`OSM object name similarity ${sim} < 0.85`);
+  } else if (c.kind === 'gov-address') {
+    if (c.exactGovAddress) { grade = 'med'; why.push(`official house coordinate (${c.source}): exact postcode + street + number, an address point`); }
+  } else if (c.kind === 'onemap') {
+    if (ag.postcode !== false && (c.buildingMatch >= 0.8 || sim >= 0.8)) { grade = 'high'; why.push('OneMap building for the exact postal code, building name matches'); }
+    else if (ag.postcode !== false) { grade = 'med'; why.push('OneMap point for the exact postal code (one building per postcode); building name not matched'); }
+  } else if (c.kind === 'osm-address' && (/^(highway|route|boundary|landuse|place=(?!house|address))/.test(c.osmClass || '') || (/^place=/.test(c.osmClass || '') && /^way\//.test(c.osm || '')))) {
+    why.push(`street/area-level OSM object (${c.osmClass}), not an address point`);
+  } else if (c.kind === 'osm-address') {
+    if (ag.houseNumber === true && ag.street !== false) { grade = 'med'; why.push('exact address point (the building, not a named place)'); }
+    else why.push('address point without a house-number match');
+  } else why.push(`not a place object (${c.osmClass || c.kind})`);
+  if (ag.houseNumber === false && grade !== 'low' && !(c.kind === 'wikidata' || c.kind === 'wikipedia')) { grade = 'low'; why.push('house number disagrees'); }
+  if (ag.postcode === false && grade !== 'low') { grade = grade === 'high' ? 'med' : 'low'; why.push('postcode disagrees'); }
+  return { grade, why };
+}
+
+/**
+ * Decide what to propose for one row from its graded candidates (each with lat,lng,grade). Pure.
+ * Returns { outcome, proposal|null, notes[] }.
+ *   pin       registry has no coordinate; best candidate ≥ med
+ *   confirm   ≤ 30 m from the current pin (refresh source / date; upgrade confidence if the grade is higher)
+ *   move      30–250 m away, grade ≥ the current confidence (the classic viewport-vs-place-pin error)
+ *   conflict  > 250 m (extended features: > 1500 m) away — a person must look; never applied blindly
+ *   ambiguous two ≥ med candidates with matching names more than 150 m apart — nothing proposed
+ *   no-match  nothing ≥ med
+ */
+function decide(place, graded) {
+  const notes = [];
+  const good = graded.filter(c => GRADE_RANK[c.grade] >= 2);
+  if (!good.length) return { outcome: 'no-match', proposal: null, notes };
+  const pref = { official: 5, onemap: 4.5, wikidata: 4, wikipedia: 3, 'osm-poi': 2, 'gov-address': 1.5, 'osm-address': 1 };
+  // Parks, reserves and other extended features are pinned at the main entrance: an OSM object named "… (Main Entrance)"
+  // or tagged entrance=* outranks a centroid of the same grade.
+  const ext0 = isExtended(place.name);
+  good.forEach(c => { c.entrance = ext0 && /\bentrance\b/i.test(c.name || '') || !!(c.tags && c.tags.entrance); });
+  good.sort((a, b) => GRADE_RANK[b.grade] - GRADE_RANK[a.grade] || (ext0 ? (b.entrance - a.entrance) : 0) || (pref[b.kind] || 0) - (pref[a.kind] || 0) || b.nameSim - a.nameSim);
+  const best = good[0];
+  const ext = isExtended(place.name);
+  const spread = ext ? 1500 : 150;
+  const rivals = good.filter(c => c !== best && c.nameSim >= 0.85 && haversineM(c.lat, c.lng, best.lat, best.lng) > spread);
+  if (rivals.length && !(GRADE_RANK[best.grade] > GRADE_RANK[rivals[0].grade])) {
+    notes.push(`candidates disagree by ${haversineM(rivals[0].lat, rivals[0].lng, best.lat, best.lng)} m`);
+    return { outcome: 'ambiguous', proposal: null, notes };
+  }
+  // Independent agreement: a med candidate corroborated within 40 m by another source becomes high.
+  let grade = best.grade;
+  // Wikipedia's {{coord}} usually mirrors Wikidata P625: the two are one source for corroboration purposes.
+  const family = k => (k === 'wikidata' || k === 'wikipedia' ? 'wiki' : k);
+  const agree = good.filter(c => c !== best && family(c.source) !== family(best.source) && c.source !== best.source && haversineM(c.lat, c.lng, best.lat, best.lng) <= 40);
+  if (grade === 'med' && agree.length) { grade = 'high'; notes.push(`corroborated within 40 m by ${agree.map(c => c.kind).join(', ')}`); }
+  const proposal = { kind: best.kind, lat: round5(best.lat), lng: round5(best.lng), address: best.address || null,
+    matchedName: best.name || null, sourceUrl: best.sourceUrl, retrieved: best.retrieved, licence: best.licence,
+    grade, gradeWhy: best.why, nameSim: best.nameSim, addressAgreement: best.addr, distanceM: null,
+    osmObject: best.osm ? osmEvidence(best) : null,
+    coordDecimals: best.coordDecimals == null ? null : best.coordDecimals, multiSite: !!best.multiSite, entrance: !!best.entrance,
+    corroboratedBy: agree.map(c => ({ kind: c.kind, sourceUrl: c.sourceUrl, distanceM: haversineM(c.lat, c.lng, best.lat, best.lng) })) };
+  const cur = place.current;
+  if (cur.lat == null || cur.lng == null) return { outcome: 'pin', proposal, notes };
+  const d = haversineM(cur.lat, cur.lng, best.lat, best.lng);
+  proposal.distanceM = d;
+  const curRank = GRADE_RANK[(cur.confidence || '').toLowerCase()] || 0;
+  if (d <= 30) return { outcome: 'confirm', proposal, notes: notes.concat(GRADE_RANK[grade] > curRank ? [`upgrade confidence ${cur.confidence} → ${grade}`] : []) };
+  if (ext) {
+    if (d > 1500) return { outcome: 'conflict', proposal, notes: notes.concat(['extended feature: centroid vs entrance pin, but > 1.5 km apart']) };
+    return { outcome: 'confirm', proposal, notes: notes.concat([`extended feature: ${d} m between centroid and the pinned entrance/point is expected; no move proposed`]) };
+  }
+  if (d > 250) return { outcome: 'conflict', proposal, notes };
+  if (GRADE_RANK[grade] >= curRank) return { outcome: 'move', proposal, notes };
+  return { outcome: 'confirm', proposal: null, notes: notes.concat([`a ${grade} candidate ${d} m away does not outrank the current ${cur.confidence} pin`]) };
+}
+
+/** What the reviewer needs to see about a matched OSM object: id, class=type, addresstype, address and a few tags. */
+function osmEvidence(c) {
+  const t = c.tags || {};
+  const keep = Object.keys(t).filter(k => /^(building|addr:|highway|shop|amenity|tourism|website|opening_hours|check_date)/.test(k)).slice(0, 8);
+  return { id: c.osm, class: c.osmClass || null, addresstype: c.addresstype || null, name: c.name || '',
+    address: c.address || null, houseNumber: c.houseNumber || null, tags: Object.fromEntries(keep.map(k => [k, t[k]])) };
+}
+
+/**
+ * Two rows of one city that resolve to the SAME OSM object cannot both be right (two places on one street, or one
+ * building mistaken for two places): both proposals drop to low with a note. Mutates and returns the rows.
+ */
+function demoteSharedObjects(rows) {
+  const by = new Map();
+  for (const r of rows) if (r.proposal && r.proposal.osmObject && r.proposal.osmObject.id) {
+    const k = r.proposal.osmObject.id; if (!by.has(k)) by.set(k, []); by.get(k).push(r);
+  }
+  for (const [id, rs] of by) if (rs.length > 1) for (const r of rs) {
+    r.proposal.grade = 'low';
+    r.outcome = 'shared-object';
+    (r.notes = r.notes || []).push(`shared object: OSM ${id} also matched ${rs.filter(x => x !== r).map(x => x.name).join(', ')}; graded low`);
+  }
+  return rows;
+}
+
+/**
+ * Review assist: pre-check the agreed accept bar (docs/LOCATION-VERIFY-ACTIONS.md § Owner decisions) so a review is
+ * mechanical. It ADVISES only; review.decision is still set by the reviewer.
+ *   pass  high + place-specific: an OSM POI whose name matches AND whose house number + street equal the registry's;
+ *         an official-site JSON-LD geo; a Wikidata/Wikipedia coordinate that also has a matching address or an
+ *         independent source within 40 m.
+ *   hold  needs a second, independent source within 50 m (any med row; a coordinate-only Wikidata/Wikipedia row;
+ *         an OSM POI without an exact address match) — logged in review.why when found.
+ *   reject low, shared-object, conflict, ambiguous, or no proposal.
+ */
+const SYSTEM_NAME = /\b(skyliner|gondola|monorail|railway|rail line|line|system|network|route|cruise|tour|trolley|ferry|shuttle)\b/i;
+/** The registry record names a PART ("Resort (Gran Destino Tower)") that the matched name does not carry. */
+function namesAPart(placeName, matched) {
+  const q = (String(placeName).match(/\(([^)]+)\)/) || [])[1];
+  if (!q || !matched) return false;
+  const words = normName(q).split(' ').filter(w => w.length > 3);
+  const m = normName(matched);
+  return words.length > 0 && !words.some(w => m.includes(w)) && /\b(tower|wing|building|hall|terminal|pavilion|lodge|station|gate|entrance|annex|center|centre)\b/i.test(q);
+}
+function reviewAssist(row) {
+  const p = row.proposal;
+  const conf = String((row.current && row.current.confidence) || '').toLowerCase();
+  if (p && row.outcome === 'confirm' && GRADE_RANK[conf] >= GRADE_RANK[p.grade]) return { verdict: 'no-change', why: [`confirms the current ${conf} pin (${p.distanceM} m); nothing to review`] };
+  if (!p || ['no-match', 'ambiguous', 'planned', 'skipped'].includes(row.outcome)) return { verdict: 'reject', why: ['no proposal'] };
+  if (row.outcome === 'shared-object' || p.grade === 'low') return { verdict: 'reject', why: ['low / shared OSM object'] };
+  if (row.outcome === 'conflict') return p.entrance
+    ? { verdict: 'review', why: [`entrance object “${p.matchedName}” is ${p.distanceM} m from the current pin — parks are pinned at the main entrance; check which is right`] }
+    : { verdict: 'hold', why: [`conflict: ${p.distanceM} m from the current pin — look at both`] };
+  if (/[—–-]\s*CLOSED\b/i.test(row.name) || (row.current && row.current.status === 'closed'))
+    return { verdict: 'review', why: ['closed place: a pin keeps its story on the map — the reviewer decides whether it gets one'] };
+  if (isExtended(row.name, p.osmObject && p.osmObject.class) && !p.entrance && (row.outcome === 'pin' || row.outcome === 'move'))
+    return { verdict: 'hold', why: ['extended feature (street, district, park, island…): pin the entrance / most-visited point by hand'] };
+  const coarse = (p.kind === 'wikidata' || p.kind === 'wikipedia') && p.coordDecimals != null && p.coordDecimals < 4;
+  if (coarse) return { verdict: 'hold', why: [`${p.kind} coordinate has ${p.coordDecimals} decimals (≈ ${p.coordDecimals <= 2 ? '1 km' : '100 m'} coarse) — needs a precise source`] };
+  if (p.multiSite || ((p.kind === 'wikidata' || p.kind === 'wikipedia') && SYSTEM_NAME.test(row.name))) return { verdict: 'hold', why: ['a multi-site system or route, not one place — pick the stop/point by hand'] };
+  if (namesAPart(row.name, p.matchedName)) return { verdict: 'hold', why: [`the record names a part (“${(row.name.match(/\(([^)]+)\)/) || [])[1]}”) but the match is the whole (“${p.matchedName}”)`] };
+  const ag = p.addressAgreement || {};
+  const exactAddr = ag.houseNumber === true && ag.street === true;
+  const corroborated = (p.corroboratedBy || []).some(c => c.kind !== 'wikidata' && c.kind !== 'wikipedia');
+  if (p.grade === 'med') {
+    const ss = row.secondSource;
+    if (ss && ss.matched && ss.distanceM <= 50 && (p.addressAgreement || {}).houseNumber !== false)
+      return { verdict: 'review', why: [`med + second source: US Census point ${ss.distanceM} m away (“${ss.matchedAddress}”; interpolated, read it)`] };
+    return { verdict: 'hold', why: ['med: needs a second independent source within 50 m' + (ss ? (ss.matched ? ` (Census point is ${ss.distanceM} m away)` : ' (Census: no match)') : '')] };
+  }
+  if (p.kind === 'osm-poi') return exactAddr && p.nameSim >= 0.85
+    ? { verdict: 'pass', why: [`OSM POI, name ${p.nameSim}, house number + street match`] }
+    : { verdict: 'hold', why: [`OSM POI without an exact address match (house number ${ag.houseNumber}, street ${ag.street})`] };
+  if (p.kind === 'official') return p.nameSim >= 0.6
+    ? { verdict: 'pass', why: ["official site's schema.org geo"] }
+    : { verdict: 'hold', why: [`official schema.org geo, but it names “${p.matchedName}” (similarity ${p.nameSim}): may be the venue, not the place`] };
+  if (p.kind === 'onemap') return { verdict: 'pass', why: ['OneMap building for the exact postal code with a matching building name'] };
+  if ((p.kind === 'wikidata' || p.kind === 'wikipedia') && row.addressCheck && row.addressCheck.distanceM > 1000)
+    return { verdict: 'hold', why: [`possible old location: the registry address geocodes ${(row.addressCheck.distanceM / 1000).toFixed(1)} km from this ${p.kind} coordinate (${row.addressCheck.source})`] };
+  if (p.kind === 'wikidata' || p.kind === 'wikipedia') return exactAddr || corroborated
+    ? { verdict: 'pass', why: [`${p.kind} coordinate with ${exactAddr ? 'matching address' : 'an independent source within 40 m'}`] }
+    : { verdict: 'hold', why: [`${p.kind} coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source`] };
+  return { verdict: 'hold', why: [`${p.kind}: check by hand`] };
+}
+
+const LIFECYCLE = /^(disused|was|abandoned|closed|demolished|removed|razed|destroyed):/;
+const ACTIVE_MAIN = /^(amenity|shop|leisure|tourism|craft|office|club|healthcare|historic|attraction|sport)$/;
+/**
+ * Closure evidence carried by OSM tags (lifecycle prefixes, shop=vacant). Returns [{type, detail}]. A lifecycle tag on
+ * an object that still has an ACTIVE main feature tag means the building was repurposed (a roller rink in a former
+ * church: was:amenity=place_of_worship + leisure=sports_centre), not that the place closed, so it does not count.
+ */
+function osmClosureEvidence(tags) {
+  const ev = [];
+  const active = Object.entries(tags || {}).some(([k, v]) => ACTIVE_MAIN.test(k) && v && v !== 'no' && v !== 'vacant');
+  for (const [k, v] of Object.entries(tags || {})) {
+    if (LIFECYCLE.test(k) && !/^(was|old):?name/.test(k) && !active) ev.push({ type: 'osm-lifecycle', detail: `${k}=${v}` });
+    if (k === 'shop' && v === 'vacant') ev.push({ type: 'osm-vacant', detail: 'shop=vacant' });
+    if (k === 'opening_hours' && /^\s*closed\s*$/i.test(v)) ev.push({ type: 'osm-hours-closed', detail: 'opening_hours=closed' });
+  }
+  return ev;
+}
+
+const CLOSURE_TEXT = /(permanently closed|closed permanently|(?:have|has|'ve) (?:now )?closed (?:our|its|their) doors|we (?:have|'ve) closed for good|closed for good|is now (?:permanently )?closed|ceased (?:trading|operations)|final day of (?:service|business))/i;
+/** Closure notice in a page's visible text (scripts/styles removed). Returns the matched phrase in context or null. */
+function siteClosureNotice(html) {
+  const text = String(html || '').replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+  const m = text.match(CLOSURE_TEXT);
+  if (!m) return null;
+  const i = m.index;
+  return text.slice(Math.max(0, i - 60), Math.min(text.length, i + m[0].length + 60)).trim();
+}
+
+/** schema.org geo / address from JSON-LD blocks. Returns [{lat,lng,address,name,openingHours}]. */
+function parseJsonLd(html) {
+  const out = [];
+  const re = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let m;
+  const walk = o => {
+    if (!o || typeof o !== 'object') return;
+    if (Array.isArray(o)) { o.forEach(walk); return; }
+    const geo = o.geo && (Array.isArray(o.geo) ? o.geo[0] : o.geo);
+    const ad = o.address && (Array.isArray(o.address) ? o.address[0] : o.address);
+    if (geo || (ad && typeof ad === 'object')) {
+      const lat = geo ? parseFloat(geo.latitude) : NaN, lng = geo ? parseFloat(geo.longitude) : NaN;
+      const address = ad && typeof ad === 'object'
+        ? [ad.streetAddress, ad.addressLocality, [ad.addressRegion, ad.postalCode].filter(Boolean).join(' ')].filter(Boolean).join(', ')
+        : (typeof ad === 'string' ? ad : null);
+      out.push({ lat: isFinite(lat) ? lat : null, lng: isFinite(lng) ? lng : null, address, name: o.name || null,
+        postcode: ad && ad.postalCode ? String(ad.postalCode) : null, openingHours: o.openingHours || o.openingHoursSpecification || null,
+        url: typeof o.url === 'string' ? o.url : null });
+    }
+    Object.values(o).forEach(v => { if (v && typeof v === 'object') walk(v); });
+  };
+  while ((m = re.exec(html))) { try { walk(JSON.parse(m[1].trim())); } catch (_) { /* malformed block: skip */ } }
+  return out;
+}
+
+/** RFC 9309 robots.txt check for our token (falls back to *). Longest match wins; Allow wins a tie. */
+function robotsAllows(robotsTxt, urlPath, token = UA_TOKEN) {
+  const groups = []; let cur = null, lastWasAgent = false;
+  for (const raw of String(robotsTxt || '').split(/\r?\n/)) {
+    const line = raw.replace(/#.*$/, '').trim(); if (!line) continue;
+    const i = line.indexOf(':'); if (i < 0) continue;
+    const k = line.slice(0, i).trim().toLowerCase(), v = line.slice(i + 1).trim();
+    if (k === 'user-agent') { if (!lastWasAgent) { cur = { agents: [], rules: [] }; groups.push(cur); } cur.agents.push(v.toLowerCase()); lastWasAgent = true; }
+    else { lastWasAgent = false; if (cur && (k === 'allow' || k === 'disallow')) cur.rules.push({ allow: k === 'allow', p: v }); }
+  }
+  const mine = groups.filter(g => g.agents.some(a => a !== '*' && token.toLowerCase().startsWith(a)));
+  const rules = (mine.length ? mine : groups.filter(g => g.agents.includes('*'))).flatMap(g => g.rules);
+  let best = null;
+  for (const r of rules) {
+    if (!r.p) continue; // "Disallow:" (empty) allows everything
+    const rx = new RegExp('^' + r.p.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*').replace(/\\\$$/, '$'));
+    if (rx.test(urlPath) && (!best || r.p.length > best.p.length || (r.p.length === best.p.length && r.allow))) best = r;
+  }
+  return !best || best.allow;
+}
+
+/** Wikidata claim helpers. */
+function claimValues(entity, pid) {
+  const cl = ((entity && entity.claims) || {})[pid] || [];
+  const pref = cl.filter(c => c.rank === 'preferred');
+  return (pref.length ? pref : cl.filter(c => c.rank !== 'deprecated')).map(c => c.mainsnak)
+    .filter(s => s && s.snaktype === 'value' && s.datavalue).map(s => s.datavalue.value);
+}
+/** Decimal places of a coordinate as published (28.595 → 3). Fewer than 4 is ≈ 100 m coarse. */
+function decimals(x) { const m = String(x).match(/\.(\d+)/); return m ? m[1].replace(/0+$/, '').length : 0; }
+/** Wikidata precision (degrees) → decimal places; else count the published digits. */
+function coordDecimals(lat, lng, precisionDeg) {
+  if (precisionDeg && precisionDeg > 0) return Math.max(0, Math.round(-Math.log10(precisionDeg)));
+  return Math.min(decimals(lat), decimals(lng));
+}
+function wikidataFacts(entity) {
+  const coord = claimValues(entity, 'P625')[0];
+  const t = v => (v && v.time ? v.time.replace(/^\+/, '').slice(0, 10).replace(/-00/g, '') : null);
+  return {
+    qid: entity.id,
+    label: (entity.labels && (entity.labels.en || Object.values(entity.labels)[0]) || {}).value || null,
+    lat: coord ? coord.latitude : null, lng: coord ? coord.longitude : null,
+    coordDecimals: coord ? coordDecimals(coord.latitude, coord.longitude, coord.precision) : null,
+    coordCount: ((entity.claims || {}).P625 || []).filter(c => c.rank !== 'deprecated').length,
+    website: claimValues(entity, 'P856')[0] || null,
+    street: (claimValues(entity, 'P6375')[0] || {}).text || null,
+    postcode: claimValues(entity, 'P281')[0] || null,
+    dissolved: t(claimValues(entity, 'P576')[0]),
+    closed: t(claimValues(entity, 'P3999')[0]),
+    stateOfUse: claimValues(entity, 'P5817').map(v => v.id),
+    enwiki: entity.sitelinks && entity.sitelinks.enwiki ? entity.sitelinks.enwiki.title : null,
+  };
+}
+
+/** Where the city is: median of its high-confidence pins + a radius that covers them (regions are wide). */
+function cityAnchor(entries) {
+  const pts = Object.values(entries).filter(e => e && e.lat != null && e.lng != null && String(e.confidence).toLowerCase() === 'high');
+  const use = pts.length ? pts : Object.values(entries).filter(e => e && e.lat != null && e.lng != null);
+  if (!use.length) return null;
+  const med = a => { const s = a.slice().sort((x, y) => x - y); return s[Math.floor(s.length / 2)]; };
+  const lat = med(use.map(e => e.lat)), lng = med(use.map(e => e.lng));
+  const d = use.map(e => haversineM(lat, lng, e.lat, e.lng)).sort((x, y) => x - y);
+  const p95 = d[Math.min(d.length - 1, Math.floor(d.length * 0.95))] || 0;
+  return { lat, lng, radiusM: Math.min(150000, Math.max(25000, Math.round(p95 * 1.5))) };
+}
+
+/** Country-ish token of a free-text address: its last part, postcode stripped ("Singapore 229495", "S555945" → singapore). */
+function regionOf(address) {
+  const parts = String(address || '').split(',').map(x => x.trim()).filter(Boolean);
+  let last = (parts[parts.length - 1] || '').replace(/\b[A-Z]?\d{4,6}\b/g, '').trim().toLowerCase();
+  if (!last || /^s$/.test(last)) last = 'singapore';
+  return stripDiacritics(last);
+}
+/**
+ * One anchor per region for keys that span several countries (the 'singapore' key covers SE Asia); a single-region
+ * city keeps one anchor. A region needs ≥ 5 high pins of its own, else the row falls back to the city anchor.
+ */
+function regionAnchors(entries) {
+  const by = {};
+  for (const e of Object.values(entries)) { const r = regionOf(e.address); (by[r] = by[r] || {})[Object.keys(by[r]).length] = e; }
+  const out = {};
+  for (const [r, es] of Object.entries(by)) {
+    const highs = Object.values(es).filter(e => e && e.lat != null && String(e.confidence).toLowerCase() === 'high');
+    if (highs.length >= 5) out[r] = cityAnchor(Object.fromEntries(highs.map((e, i) => [i, e])));
+  }
+  return Object.keys(out).length >= 2 ? out : null;
+}
+function isUnverified(e) { return !e || e.lat == null || e.lng == null || String(e.source || '').toUpperCase() === 'UNVERIFIED'; }
+function statusUnchecked(e) { return !e || !['open', 'closed'].includes(e.status) || !String(e.statusSource || '').trim(); }
+
+/** Why a row is in scope (empty = out of scope). */
+function scopeReasons(e, scope) {
+  const r = [], all = scope.includes('all');
+  const conf = String((e && e.confidence) || '').toLowerCase();
+  if ((all || scope.includes('unverified')) && isUnverified(e)) r.push('unverified');
+  if (!isUnverified(e)) {
+    if ((all || scope.includes('low')) && conf === 'low') r.push('low');
+    if ((all || scope.includes('med')) && conf === 'med') r.push('med');
+    if ((all || scope.includes('high')) && conf === 'high') r.push('high');
+  }
+  if ((all || scope.includes('status')) && statusUnchecked(e)) r.push('status');
+  return r;
+}
+
+/** Backlog per city, straight from data/geocodes.json. */
+function backlog(cities, today) {
+  const rows = [];
+  for (const [key, entries] of Object.entries(cities).sort()) {
+    const v = Object.values(entries);
+    const conf = c => v.filter(e => !isUnverified(e) && String(e.confidence).toLowerCase() === c).length;
+    const stale = v.filter(e => e.statusChecked && daysBetween(e.statusChecked, today) > 180).length;
+    rows.push({ city: key, entries: v.length, unverified: v.filter(isUnverified).length, low: conf('low'), med: conf('med'), high: conf('high'),
+      statusUnchecked: v.filter(statusUnchecked).length, closed: v.filter(e => e.status === 'closed').length, statusStale180: stale });
+  }
+  return rows;
+}
+/** Split city keys into n shards of similar row counts (greedy, largest first); returns the keys of shard i (1-based). */
+function shardCities(cities, i, n) {
+  const bins = Array.from({ length: n }, () => ({ rows: 0, keys: [] }));
+  Object.entries(cities).map(([k, v]) => [k, Object.keys(v).length]).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))
+    .forEach(([k, c]) => { const b = bins.reduce((m, x) => (x.rows < m.rows ? x : m)); b.rows += c; b.keys.push(k); });
+  return bins[i - 1].keys.sort();
+}
+function daysBetween(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 86400000); }
+function round5(x) { return Math.round(x * 1e5) / 1e5; }
+
+// ───────────────────────────────────────────────────────── HTTP: cache, pacing, fixtures ──
+
+class Http {
+  constructor(o) {
+    this.fixtures = o.fixtures || null; this.cacheDir = o.cacheDir; this.ttl = (o.ttlDays || 30) * 86400000;
+    this.max = o.maxRequests || 3000; this.nomMax = o.nominatimMax == null ? 300 : o.nominatimMax;
+    this.count = 0; this.nomCount = 0; this.cacheHits = 0; this.last = {}; this.today = o.today;
+    this.failures = []; this.backoffUntil = {}; this.byHost = {};
+    if (this.cacheDir && !this.fixtures) fs.mkdirSync(this.cacheDir, { recursive: true });
+  }
+  key(method, url, body) { return crypto.createHash('sha1').update(`${method} ${url}\n${body || ''}`).digest('hex'); }
+  async request(url, { method = 'GET', body = null, accept = 'application/json', host, headers: extra = null } = {}) {
+    const h = host || new URL(url).host;
+    if (this.fixtures) {
+      if (h === 'nominatim.openstreetmap.org' && this.nomCount >= this.nomMax) return { status: 0, body: '', error: 'nominatim budget exhausted', budget: true };
+      const f = matchFixture(this.fixtures, method, url, body);
+      this.count++; if (h === 'nominatim.openstreetmap.org') this.nomCount++;
+      if (!f) return { status: 599, body: '', retrieved: this.today, error: 'not in fixtures' };
+      return { status: f.status || 200, body: typeof f.body === 'string' ? f.body : JSON.stringify(f.body), retrieved: f.retrieved || this.today };
+    }
+    const k = this.key(method, url, body), file = this.cacheDir && path.join(this.cacheDir, k + '.json');
+    if (file && fs.existsSync(file)) {
+      try { const c = JSON.parse(fs.readFileSync(file, 'utf8')); if (Date.now() - Date.parse(c.retrieved) < this.ttl) { this.cacheHits++; return c; } } catch (_) { /* refetch */ }
+    }
+    if (this.count >= this.max) return { status: 0, body: '', error: 'request budget exhausted', budget: true };
+    if (h === 'nominatim.openstreetmap.org' && this.nomCount >= this.nomMax) return { status: 0, body: '', error: 'nominatim budget exhausted', budget: true };
+    // Circuit breaker: a host that failed 2 times in a row (timeouts, TLS, DNS) is skipped for the rest of the run —
+    // an official site that never answers must not cost 30 s per row (Orlando: one resort site timed out 32/32).
+    if ((this.streak || {})[h] >= 2 && !/wikidata|wikipedia|nominatim|overpass/.test(h)) return { status: 0, body: '', error: `${h} skipped after repeated failures` };
+    if (this.backoffUntil[h] && Date.now() < this.backoffUntil[h]) {
+      const w = this.backoffUntil[h] - Date.now();
+      if (w > 120000) return { status: 0, body: '', error: `${h} backing off after 429/503` };
+      await new Promise(r => setTimeout(r, w)); // wait it out (polite), then try once
+    }
+    const gap = SPACING[h] || SPACING.default, wait = (this.last[h] || 0) + gap - Date.now();
+    if (wait > 0) await new Promise(r => setTimeout(r, wait));
+    this.count++; if (h === 'nominatim.openstreetmap.org') this.nomCount++;
+    const bh = this.byHost[h] = this.byHost[h] || { requests: 0, failed: 0 }; bh.requests++;
+    this.last[h] = Date.now();
+    // Overpass queries carry their own [timeout:60|90]; the client must wait longer than the server does.
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), /overpass/.test(h) ? 120000 : 30000);
+    try {
+      const r = await fetch(url, { method, body, signal: ctl.signal, redirect: 'follow',
+        headers: Object.assign({ 'User-Agent': UA, 'Api-User-Agent': UA, Accept: accept }, body ? { 'Content-Type': 'application/x-www-form-urlencoded' } : {}, extra || {}) });
+      let text = await r.text(); if (text.length > 2000000) text = text.slice(0, 2000000);
+      const res = { url, status: r.status, body: text, retrieved: new Date().toISOString().slice(0, 10) };
+      this.streak = this.streak || {};
+      if (r.status === 429 || r.status === 502 || r.status === 503 || r.status === 504) {
+        this.backoffUntil[h] = Date.now() + (h === 'overpass-api.de' ? 60000 : 30000); this.failures.push(`${h} HTTP ${r.status}`); bh.failed++;
+        return res; // not cached
+      }
+      this.streak[h] = 0;
+      if (file && (r.ok || r.status === 404)) fs.writeFileSync(file, JSON.stringify(res));
+      return res;
+    } catch (e) {
+      this.failures.push(`${h} ${e.name === 'AbortError' ? 'timeout' : (e.cause && e.cause.code) || e.message}`); bh.failed++;
+      this.streak = this.streak || {}; this.streak[h] = (this.streak[h] || 0) + 1;
+      return { status: 0, body: '', error: (e.cause && e.cause.code) || e.message };
+    } finally { clearTimeout(t); }
+  }
+  async json(url, o) { const r = await this.request(url, o); let j = null; if (r.status >= 200 && r.status < 300) { try { j = JSON.parse(r.body); } catch (_) { /* not json */ } } return { ...r, json: j }; }
+}
+
+/**
+ * Fixtures: either an object keyed "METHOD URL[ body]", or an array of matchers
+ * { method?, host, path?, params?: {k: v}, bodyIncludes?, status?, body, retrieved? } — the first whose every given
+ * field matches wins (params compared as strings against the URL query, or the form body for POST).
+ */
+function matchFixture(fx, method, url, body) {
+  if (!Array.isArray(fx)) return fx[`${method} ${url}${body ? ' ' + body : ''}`] || null;
+  const u = new URL(url);
+  const q = new URLSearchParams(method === 'POST' && body ? body : u.search);
+  return fx.find(f => (!f.method || f.method === method) && (!f.host || f.host === u.host) && (!f.path || f.path === u.pathname)
+    && (!f.params || Object.entries(f.params).every(([k, v]) => q.get(k) === String(v)))
+    && (!f.bodyIncludes || String(q.get('data') || body || '').includes(f.bodyIncludes))) || null;
+}
+
+const qs = o => Object.entries(o).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&');
+
+// ───────────────────────────────────────────────────────── source adapters ──
+
+async function fromWikidata(http, place, anchor) {
+  const cands = [], evidence = [];
+  const qidInSource = (String(place.current.source || '').match(/\bQ\d{2,}\b/) || [])[0];
+  let ids = qidInSource ? [qidInSource] : [];
+  const linked = !!qidInSource;
+  if (!ids.length) {
+    const s = await http.json(`${ENDPOINT.wikidata}?${qs({ action: 'wbsearchentities', search: place.name.replace(/\s+[—–-]\s*CLOSED.*$/i, '').replace(/\([^)]*\)/g, '').trim(), language: 'en', uselang: 'en', type: 'item', limit: 5, format: 'json', maxlag: 5 })}`);
+    ids = ((s.json && s.json.search) || []).map(x => x.id);
+  }
+  if (!ids.length) return { cands, evidence, website: null, enwiki: null };
+  const g = await http.json(`${ENDPOINT.wikidata}?${qs({ action: 'wbgetentities', ids: ids.join('|'), props: 'claims|labels|sitelinks', languages: 'en', sitefilter: 'enwiki', format: 'json', maxlag: 5 })}`);
+  let website = null, enwiki = null;
+  for (const id of ids) {
+    const ent = g.json && g.json.entities && g.json.entities[id]; if (!ent || ent.missing !== undefined) continue;
+    const f = wikidataFacts(ent);
+    if (f.lat == null) continue;
+    if (anchor && haversineM(anchor.lat, anchor.lng, f.lat, f.lng) > anchor.radiusM) continue; // same name, elsewhere
+    if (!linked && nameSim(place.name, f.label || '') < 0.8) continue;
+    const url = `https://www.wikidata.org/wiki/${f.qid}`;
+    cands.push({ kind: 'wikidata', source: 'wikidata', name: f.label, lat: f.lat, lng: f.lng, street: f.street, postcode: f.postcode,
+      address: f.street, sourceUrl: url, retrieved: g.retrieved, licence: LICENCE.wikidata, linked, coordDecimals: f.coordDecimals, multiSite: f.coordCount > 1 });
+    // Closure statements belong to THIS item; they count only if the item is the place (linked QID, or the chosen
+    // proposal, or within 150 m of the current pin) — a same-name item (the 1868 lighthouse) is not evidence.
+    const ev = { linked, lat: f.lat, lng: f.lng, sourceUrl: url, retrieved: g.retrieved };
+    if (f.dissolved) evidence.push({ type: 'wikidata-P576', detail: `dissolved/abolished/demolished ${f.dissolved}`, ...ev });
+    if (f.closed) evidence.push({ type: 'wikidata-P3999', detail: `date of official closure ${f.closed}`, ...ev });
+    if (f.stateOfUse.length) evidence.push({ type: 'wikidata-P5817', detail: `state of use ${f.stateOfUse.join(', ')} (a person reads the value)`, ...ev, informational: true });
+    website = website || f.website; enwiki = enwiki || f.enwiki;
+  }
+  return { cands, evidence, website, enwiki };
+}
+
+async function fromWikipedia(http, place, anchor, enwikiTitle) {
+  const m = String(place.current.source || '').match(/en\.wikipedia\.org\/wiki\/([^\s#,;]+)/);
+  let raw = m ? m[1] : null;
+  while (raw && raw.endsWith(')') && (raw.match(/\(/g) || []).length < (raw.match(/\)/g) || []).length) raw = raw.slice(0, -1); // "(…/Foo)" wrapper
+  let title = enwikiTitle || null;
+  if (!title && raw) { try { title = decodeURIComponent(raw).replace(/_/g, ' '); } catch (_) { title = raw.replace(/_/g, ' '); } }
+  if (!title) return { cands: [] };
+  const r = await http.json(`${ENDPOINT.wikipedia}?${qs({ action: 'query', prop: 'coordinates', titles: title, redirects: 1, format: 'json', formatversion: 2, maxlag: 5 })}`);
+  const page = r.json && r.json.query && (r.json.query.pages || [])[0];
+  const c = page && page.coordinates && page.coordinates.find(x => x.primary !== false);
+  if (!c) return { cands: [] };
+  if (anchor && haversineM(anchor.lat, anchor.lng, c.lat, c.lon) > anchor.radiusM) return { cands: [] };
+  const url = `https://en.wikipedia.org/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`;
+  return { cands: [{ kind: 'wikipedia', source: 'wikipedia', name: page.title.replace(/\s*\([^)]*\)$/, ''), lat: c.lat, lng: c.lon,
+    sourceUrl: url, retrieved: r.retrieved, licence: LICENCE.wikipedia, linked: !!(enwikiTitle || raw), coordDecimals: coordDecimals(c.lat, c.lon) }] };
+}
+
+const OSM_PLACE_CLASSES = /^(amenity|shop|tourism|leisure|historic|craft|office|building|man_made|club|healthcare|natural|waterway|bridge|railway|aeroway)$/;
+async function fromNominatim(http, place, anchor) {
+  const cands = []; const urls = [];
+  const bare = place.name.replace(/\s+[—–-]\s*CLOSED.*$/i, '').replace(/\([^)]*\)/g, '').trim();
+  const queries = [`${bare}, ${place.address || ''}`.replace(/,\s*$/, '')];
+  if (place.address && parseAddress(place.address).houseNumber) queries.push(place.address.replace(/\([^)]*\)/g, '').trim());
+  for (const q of queries) {
+    const params = { q, format: 'jsonv2', addressdetails: 1, extratags: 1, namedetails: 1, limit: 5 };
+    if (anchor) { const dLat = anchor.radiusM / 111000, dLng = dLat / Math.cos(anchor.lat * Math.PI / 180);
+      Object.assign(params, { viewbox: [anchor.lng - dLng, anchor.lat + dLat, anchor.lng + dLng, anchor.lat - dLat].map(round5).join(','), bounded: 1 }); }
+    const r = await http.json(`${ENDPOINT.nominatim}?${qs(params)}`);
+    urls.push(r.error || r.status);
+    for (const x of (Array.isArray(r.json) ? r.json : [])) {
+      const lat = parseFloat(x.lat), lng = parseFloat(x.lon); if (!isFinite(lat)) continue;
+      if (anchor && haversineM(anchor.lat, anchor.lng, lat, lng) > anchor.radiusM) continue;
+      const a = x.address || {}; const nm = (x.namedetails && x.namedetails.name) || x.name || '';
+      const cls = x.category || x.class;
+      // An address point must itself BE a building or a house/address node. Nominatim also answers an address query with
+      // the street (class=highway) and echoes the asked house number into address{}, so a house number alone proves
+      // nothing: such a hit is street-level, osm-other, graded low.
+      // place=house on a WAY is an addr:interpolation line (Nominatim interpolates the asked number along it): street-level.
+      const isAddr = !nm && cls !== 'highway' && (cls === 'building' || x.addresstype === 'building'
+        || (cls === 'place' && (x.type === 'house' || x.type === 'address') && x.osm_type === 'node'));
+      const kind = nm && OSM_PLACE_CLASSES.test(cls) ? 'osm-poi' : (isAddr ? 'osm-address' : 'osm-other');
+      cands.push({ kind, source: 'nominatim', name: nm, lat, lng, houseNumber: a.house_number || null, street: a.road || null, postcode: a.postcode || null,
+        address: [[a.house_number, a.road].filter(Boolean).join(' '), a.city || a.town || a.village || a.hamlet, [a.state, a.postcode].filter(Boolean).join(' ')].filter(Boolean).join(', '),
+        osmClass: `${cls}=${x.type}`, osm: x.osm_type && x.osm_id ? `${x.osm_type}/${x.osm_id}` : null, addresstype: x.addresstype || null,
+        sourceUrl: x.osm_type && x.osm_id ? `https://www.openstreetmap.org/${x.osm_type}/${x.osm_id}` : 'https://nominatim.openstreetmap.org/',
+        retrieved: r.retrieved, licence: LICENCE.osm, tags: x.extratags || {} });
+    }
+    if (cands.some(c => c.kind === 'osm-poi' && nameSim(place.name, c.name) >= 0.85)) break; // no need for the address query
+  }
+  // Fallback: the bare name inside the city box. Generic or descriptive addresses ("Magic Kingdom, Bay Lake, FL") make
+  // the name+address query miss POIs that OSM does have. A name-only hit has no address corroboration, so it grades
+  // med at best (hold until a second source agrees) — unless its own address matches the registry's.
+  if (!cands.some(c => nameSim(place.name, c.name || '') >= 0.85) && anchor) {
+    const dLat = anchor.radiusM / 111000, dLng = dLat / Math.cos(anchor.lat * Math.PI / 180);
+    const params = { q: bare, format: 'jsonv2', addressdetails: 1, extratags: 1, namedetails: 1, limit: 5, bounded: 1,
+      viewbox: [anchor.lng - dLng, anchor.lat + dLat, anchor.lng + dLng, anchor.lat - dLat].map(round5).join(',') };
+    const r = await http.json(`${ENDPOINT.nominatim}?${qs(params)}`);
+    for (const x of (Array.isArray(r.json) ? r.json : [])) {
+      const lat = parseFloat(x.lat), lng = parseFloat(x.lon); const nm = (x.namedetails && x.namedetails.name) || x.name || '';
+      const cls = x.category || x.class; const a = x.address || {};
+      if (!isFinite(lat) || !nm || !OSM_PLACE_CLASSES.test(cls) || nameSim(place.name, nm) < 0.85) continue;
+      cands.push({ kind: 'osm-poi', source: 'nominatim', name: nm, lat, lng, houseNumber: a.house_number || null, street: a.road || null, postcode: a.postcode || null,
+        address: [[a.house_number, a.road].filter(Boolean).join(' '), a.city || a.town || a.village || a.hamlet, [a.state, a.postcode].filter(Boolean).join(' ')].filter(Boolean).join(', '),
+        osmClass: `${cls}=${x.type}`, osm: x.osm_type && x.osm_id ? `${x.osm_type}/${x.osm_id}` : null, addresstype: x.addresstype || null, nameOnly: true,
+        sourceUrl: x.osm_type && x.osm_id ? `https://www.openstreetmap.org/${x.osm_type}/${x.osm_id}` : 'https://nominatim.openstreetmap.org/',
+        retrieved: r.retrieved, licence: LICENCE.osm, tags: x.extratags || {} });
+    }
+  }
+  return { cands, statusCodes: urls };
+}
+
+/** One Overpass query for a batch of rows that have a point: named objects within 80 m, including lifecycle tags. */
+async function fromOverpassBatch(http, rows, retry = false) {
+  const pts = rows.filter(r => r.point);
+  if (!pts.length) return {};
+  const parts = pts.map(r => `nwr(around:80,${r.point.lat},${r.point.lng})[~"^(name|old_name|was:name|disused:name)$"~"."];`).join('\n');
+  const q = `[out:json][timeout:${retry ? 90 : 60}];\n(\n${parts}\n);\nout tags center 400;`;
+  const url = retry ? ENDPOINT.overpassAlt : ENDPOINT.overpass;
+  const res = await http.json(url, { method: 'POST', body: qs({ data: q }), host: new URL(url).host });
+  const els = (res.json && res.json.elements) || [];
+  const out = {};
+  for (const r of pts) {
+    const near = [];
+    for (const el of els) {
+      const lat = el.lat != null ? el.lat : el.center && el.center.lat, lng = el.lon != null ? el.lon : el.center && el.center.lon;
+      if (lat == null) continue;
+      const d = haversineM(r.point.lat, r.point.lng, lat, lng); if (d > 80) continue;
+      const t = el.tags || {};
+      const sim = Math.max(...['name', 'old_name', 'was:name', 'disused:name'].map(k => (t[k] ? nameSim(r.place.name, t[k]) : 0)));
+      if (sim < 0.85) continue;
+      near.push({ el, lat, lng, d, sim, tags: t, url: `https://www.openstreetmap.org/${el.type}/${el.id}` });
+    }
+    out[r.place.name] = { near, retrieved: res.retrieved, error: res.json ? null : (res.error || `HTTP ${res.status}`) };
+  }
+  return out;
+}
+
+/**
+ * Generic signals only (no platform names, in code or docs): a host shaped like an ordering / menu / delivery site is not
+ * the place's own site.
+ */
+const ORDERING_HOST = [
+  /(^|\.)(order|ordering|orderonline|onlineorder|menu|menus|delivery|takeout|reserv|booking)[a-z0-9-]*\./i,
+  /order[a-z0-9-]*menu|menu[a-z0-9-]*order|online-?order|order-?online|delivery|takeout|menu\.com$/i,
+];
+function isOrderingHost(host) { return ORDERING_HOST.some(rx => rx.test(String(host || '').toLowerCase())); }
+/** example.co.uk / www.example.com → example (the registrable label, roughly). */
+function siteLabel(host) {
+  const parts = String(host || '').toLowerCase().replace(/^www\d*\./, '').split('.').filter(Boolean);
+  if (parts.length >= 3 && /^(co|com|org|net|ac|gov|edu)$/.test(parts[parts.length - 2])) return parts[parts.length - 3];
+  return parts.length >= 2 ? parts[parts.length - 2] : parts[0] || '';
+}
+/** Does a host plausibly belong to this place? (a ≥ 4-letter word of the name in the host label, or the reverse) */
+function hostResemblesName(host, name) {
+  const label = siteLabel(host).replace(/[^a-z0-9]/g, ''), compact = normName(name).replace(/ /g, '');
+  if (label.length < 3 || !compact) return false;
+  if (compact.includes(label) && label.length >= 4) return true;
+  return normName(name).split(' ').filter(w => w.length >= 4 && !/^(restaurant|cafe|bar|grill|kitchen|house|museum|park|the|and)$/.test(w)).some(w => label.includes(w));
+}
+const sameSite = (a, b) => siteLabel(a) === siteLabel(b);
+
+async function fromOfficial(http, place, website) {
+  const cands = [], evidence = [], notes = [];
+  let url = website;
+  // A URL in the registry's `source` is only taken as the place's own site when its host resembles the place's name
+  // (Wikidata P856 and the OSM website tag are curated and used as given).
+  if (!url) { const m = String(place.current.source || '').match(/https?:\/\/[^\s)]+/); try { if (m && hostResemblesName(new URL(m[0]).host, place.name)) url = m[0]; } catch (_) { /* not a URL */ } }
+  if (!url) return { cands, evidence, notes };
+  let u; try { u = new URL(url); } catch (_) { return { cands, evidence, notes }; }
+  if (!/^https?:$/.test(u.protocol)) return { cands, evidence, notes };
+  if (isOrderingHost(u.host)) { notes.push(`unofficial geo: ${u.host} looks like an ordering / menu site, not the place's own — not used`); return { cands, evidence, notes }; }
+  const robots = await http.request(`${u.origin}/robots.txt`, { accept: 'text/plain' });
+  const robotsTxt = robots.status >= 200 && robots.status < 300 ? robots.body : (robots.status >= 400 && robots.status < 500 ? '' : null);
+  if (robotsTxt === null) { notes.push(`robots.txt unreachable (${robots.error || 'HTTP ' + robots.status}); official site skipped (RFC 9309: assume disallow on server error)`); return { cands, evidence, notes }; }
+  if (!robotsAllows(robotsTxt, u.pathname + u.search)) { notes.push(`robots.txt disallows ${u.pathname} for ${UA_TOKEN}; skipped`); return { cands, evidence, notes }; }
+  const page = await http.request(u.href, { accept: 'text/html' });
+  if (!(page.status >= 200 && page.status < 300)) {
+    notes.push(`official site ${u.href} answered ${page.error || 'HTTP ' + page.status} — NOT closure evidence (sites move, break and block bots)`);
+    return { cands, evidence, notes };
+  }
+  for (const j of parseJsonLd(page.body)) {
+    if (j.lat != null && j.lng != null) {
+      // The block's own `url` naming another site means the page republishes someone's data: "unofficial geo".
+      let unofficial = null;
+      try { if (j.url && !sameSite(new URL(j.url, u.href).host, u.host)) unofficial = `JSON-LD url points to ${new URL(j.url, u.href).host}`; } catch (_) { /* ignore */ }
+      if (unofficial) notes.push(`unofficial geo: ${unofficial}`);
+      cands.push({ kind: 'official', source: 'official', unofficial, name: j.name || place.name, lat: j.lat, lng: j.lng, address: j.address, postcode: j.postcode,
+        ...(j.address ? (({ houseNumber, street }) => ({ houseNumber, street }))(parseAddress(j.address)) : {}),
+        sourceUrl: u.href, retrieved: page.retrieved, licence: LICENCE.official });
+    } else if (j.address) notes.push(`official site schema.org address: ${j.address} (no geo)`);
+  }
+  const notice = siteClosureNotice(page.body);
+  if (notice) evidence.push({ type: 'official-site-notice', detail: `“…${notice}…”`, sourceUrl: u.href, retrieved: page.retrieved });
+  return { cands, evidence, notes };
+}
+
+/**
+ * Second source for med rows at US addresses: the US Census Geocoder (no key; TIGER address ranges, independent of OSM).
+ * Its point is INTERPOLATED along the street, so it never proposes a pin; it only reports how far it falls from the
+ * proposal, for the reviewer's "second independent source within 50 m" check.
+ */
+const US_ADDR = /,\s*[A-Z]{2}\s+\d{5}(?:-\d{4})?\b/;
+async function censusSecondSource(http, row) {
+  const addr = row.current.address;
+  const ref = row.proposal && row.proposal.lat != null ? row.proposal : (row.current && row.current.lat != null ? row.current : null);
+  if (!addr || !US_ADDR.test(addr) || !ref) return null;
+  const clean = addr.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim();
+  const url = `${ENDPOINT.census}?${qs({ address: clean, benchmark: 'Public_AR_Current', format: 'json' })}`;
+  const r = await http.json(url);
+  const m = r.json && r.json.result && (r.json.result.addressMatches || [])[0];
+  if (!m || !m.coordinates) return { source: 'census', matched: false, sourceUrl: url, retrieved: r.retrieved, note: r.error || (r.json ? 'no address match' : `HTTP ${r.status}`) };
+  const lat = m.coordinates.y, lng = m.coordinates.x;
+  return { source: 'census', matched: true, matchedAddress: m.matchedAddress, lat: round5(lat), lng: round5(lng),
+    distanceM: haversineM(ref.lat, ref.lng, lat, lng), sourceUrl: url, retrieved: r.retrieved,
+    licence: 'US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)' };
+}
+
+/**
+ * Moved-place guard. A Wikidata/Wikipedia coordinate can be the OLD building (Young At Art, Locust Projects). Forward-
+ * geocode the registry's own address (Census for US addresses, else Nominatim; both cached) and report the distance.
+ */
+async function addressCheck(http, row, anchor) {
+  const addr = row.current.address; if (!addr || !row.proposal) return null;
+  const clean = addr.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim();
+  if (US_ADDR.test(clean)) {
+    const ss = await censusSecondSource(http, row);
+    if (ss && ss.matched) return { source: `US Census geocode of “${ss.matchedAddress}”`, distanceM: ss.distanceM, sourceUrl: ss.sourceUrl };
+  }
+  if (!/\d/.test(clean.split(',')[0] || '')) return null; // no street number: too vague to judge a move
+  const params = { q: clean, format: 'jsonv2', limit: 1 };
+  if (anchor) { const dLat = anchor.radiusM / 111000, dLng = dLat / Math.cos(anchor.lat * Math.PI / 180);
+    Object.assign(params, { viewbox: [anchor.lng - dLng, anchor.lat + dLat, anchor.lng + dLng, anchor.lat - dLat].map(round5).join(','), bounded: 1 }); }
+  const r = await http.json(`${ENDPOINT.nominatim}?${qs(params)}`);
+  const x = Array.isArray(r.json) && r.json[0]; if (!x) return null;
+  if ((x.category || x.class) === 'boundary' || /^(city|town|village|suburb|county|state)$/.test(x.addresstype || '')) return null; // area hit
+  return { source: `OSM geocode of the registry address (${x.display_name ? x.display_name.split(',').slice(0, 2).join(',') : ''})`,
+    distanceM: haversineM(row.proposal.lat, row.proposal.lng, parseFloat(x.lat), parseFloat(x.lon)) };
+}
+
+/**
+ * Daily Nominatim ledger (owner decision: <= dailyMax requests per UTC DAY across all runs, not per run).
+ * docs/geoverify/NOMINATIM-LEDGER.json is committed with the report, so the count survives across runs and cities.
+ */
+const LEDGER = path.join(ROOT, 'docs', 'geoverify', 'NOMINATIM-LEDGER.json');
+function ledgerRemaining(file, day) {
+  if (!fs.existsSync(file)) return { remaining: Infinity, max: null };
+  const l = JSON.parse(fs.readFileSync(file, 'utf8')); const used = ((l.days || {})[day] || {}).used || 0;
+  return { remaining: Math.max(0, (l.dailyMax || 300) - used), max: l.dailyMax || 300, used };
+}
+function ledgerRecord(file, day, city, n, note) {
+  if (!n || !fs.existsSync(file)) return;
+  const l = JSON.parse(fs.readFileSync(file, 'utf8')); l.days = l.days || {};
+  const d = l.days[day] = l.days[day] || { used: 0, runs: [] };
+  d.used += n; d.runs.push(Object.assign({ city, n }, note ? { note } : {}));
+  fs.writeFileSync(file, JSON.stringify(l, null, 1) + '\n');
+}
+
+// ───────────────────────────────────────────────────────── the run ──
+
+async function checkRow(http, place, anchor, sources, ctx = {}) {
+  const cands = [], evidence = [], notes = [];
+  let website = null, enwiki = null;
+  if (sources.has('wikidata')) { const w = await fromWikidata(http, place, anchor); cands.push(...w.cands); evidence.push(...w.evidence); website = w.website; enwiki = w.enwiki; }
+  if (sources.has('wikipedia')) { const w = await fromWikipedia(http, place, anchor, enwiki); cands.push(...w.cands); }
+  const haveStrong = cands.some(c => gradeCandidate(c, place).grade === 'high');
+  if (sources.has('nominatim') && !haveStrong) { const n = await fromNominatim(http, place, anchor); cands.push(...n.cands); }
+  for (const c of cands.filter(c => c.source === 'nominatim')) {
+    for (const ev of osmClosureEvidence(c.tags)) if (nameSim(place.name, c.name) >= 0.85) evidence.push({ ...ev, sourceUrl: c.sourceUrl, retrieved: c.retrieved });
+    if (!website && c.tags && (c.tags.website || c.tags['contact:website']) && nameSim(place.name, c.name) >= 0.85) website = c.tags.website || c.tags['contact:website'];
+  }
+  if (sources.has('official')) { const o = await fromOfficial(http, place, website); cands.push(...o.cands); evidence.push(...o.evidence); notes.push(...o.notes); }
+  if (ctx.houseSets && ctx.houseSets.length) { const h = P2.houseCandidate(ctx.houseSets, place, ctx.today); if (h) cands.push(h); }
+  if (ctx.onemapToken) cands.push(...await P2.fromOneMap(http, place, ctx.onemapToken, nameSim));
+  if (ctx.abr) { const g = P2.abrGuard(ctx.abr, place, haversineM); if (g) notes.push(g); }
+  const graded = cands.map(c => Object.assign(c, gradeCandidate(c, place)));
+  return { graded, evidence, notes };
+}
+
+function statusProposal(place, evidence) {
+  const closing = evidence.filter(e => !e.informational);
+  if (place.current.status !== 'closed' && closing.length)
+    return { outcome: 'status-needs-check', proposal: { suggest: 'needs-check (possible closure)', evidence: closing } };
+  return null;
+}
+
+async function run(opts) {
+  const today = opts.today || new Date().toISOString().slice(0, 10);
+  const reg = opts.registry || JSON.parse(fs.readFileSync(opts.geocodes || GEOCODES, 'utf8'));
+  const entries = (reg.cities || {})[opts.city];
+  if (!entries) throw Object.assign(new Error(`unknown city key "${opts.city}" (keys: ${Object.keys(reg.cities || {}).join(', ')})`), { code: 1 });
+  const anchor = cityAnchor(entries);
+  const regional = regionAnchors(entries);
+  // Scope: places on the page ∪ places in the city's dataset (a dataset row held for want of a pin ships once
+  // accepted). Registry entries in neither are orphans: out of scope unless --include-orphans.
+  let pageOrDs = null, orphansSkipped = 0;
+  if (!opts.includeOrphans && !opts.names && !opts.registry) {
+    const pg = SCOPE.pageNames(opts.city), ds = SCOPE.datasetNames(opts.city);
+    if (pg.size || ds.size) pageOrDs = new Set([...pg, ...ds]);
+  }
+  let rows = Object.entries(entries).map(([name, e]) => ({ name, e, why: opts.names ? (opts.names.includes(name) ? ['recheck'] : []) : scopeReasons(e, opts.scope) })).filter(r => r.why.length);
+  if (pageOrDs) { const before = rows.length; rows = rows.filter(r => pageOrDs.has(r.name)); orphansSkipped = before - rows.length; }
+  if (opts.names) { const miss = opts.names.filter(n => !entries[n]); if (miss.length) throw Object.assign(new Error(`--names not in ${opts.city}: ${miss.join(' | ')}`), { code: 1 }); }
+  const inScope = rows.length;
+  if (opts.limit) rows = rows.slice(0, opts.limit);
+  const sources = new Set(opts.sources);
+  const meta = { tool: `tools/location-verify.js ${VERSION}`, city: opts.city, generated: today, scope: opts.scope, sources: [...sources],
+    rowsInScope: inScope, rowsChecked: rows.length, orphansSkipped, anchor, regionalAnchors: regional ? Object.keys(regional) : null, mode: opts.mode, userAgent: UA,
+    rule: 'PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).' };
+  const report = { meta, summary: {}, rows: [] };
+
+  if (opts.mode === 'offline-plan') {
+    for (const r of rows) report.rows.push({ name: r.name, current: pickCurrent(r.e), scope: r.why, outcome: 'planned',
+      plan: planFor(r, sources), review: emptyReview() });
+    meta.note = 'The sources are not reachable from here (org egress policy). This is the PLAN only: nothing was fetched and nothing is proposed. Run the workflow on a GitHub-hosted runner for real proposals.';
+    meta.estimate = estimate(rows.length, sources);
+    report.summary = { planned: rows.length };
+    return report;
+  }
+
+  const http = opts.http || new Http({ fixtures: opts.fixtures, cacheDir: opts.cache, ttlDays: opts.ttlDays, maxRequests: opts.maxRequests, nominatimMax: opts.nominatimMax, today });
+  const ctx = { today, houseSets: opts.houseSets || [], abr: opts.abr || null, onemapToken: null };
+  meta.phase2 = { houseFiles: ctx.houseSets.map(h => ({ label: h.label, points: h.count, licence: h.licence })), abr: ctx.abr ? { towns: ctx.abr.count } : null, onemap: null };
+  if (rows.some(r => P2.sgPostcode(r.e.address))) {
+    const t = opts.onemapToken !== undefined ? { token: opts.onemapToken, note: opts.onemapToken ? null : 'OneMap skipped (no token)' } : (opts.mode === 'live' ? await P2.onemapToken() : { token: null, note: 'OneMap skipped (not a live run)' });
+    ctx.onemapToken = t.token; meta.phase2.onemap = t.token ? 'used' : t.note;
+    if (t.note) console.log(t.note);
+  }
+  const checked = [];
+  for (const r of rows) {
+    const place = { name: r.name, address: r.e.address, current: pickCurrent(r.e) };
+    if (http.count >= http.max) { checked.push({ r, place, skipped: 'request budget exhausted (rerun resumes from cache)' }); continue; }
+    const rowAnchor = (regional && regional[regionOf(r.e.address)]) || anchor;
+    const nom0 = http.nomCount;
+    const res = await checkRow(http, place, rowAnchor, sources, ctx);
+    // A row that wanted Nominatim but hit the per-run cap is SKIPPED (a rerun resumes it), never reported as no-match.
+    if (sources.has('nominatim') && http.nomMax != null && http.nomCount >= http.nomMax && nom0 >= http.nomMax
+        && !res.graded.some(c => c.grade === 'high')) { checked.push({ r, place, skipped: 'Nominatim budget for this run reached (rerun resumes from cache)' }); continue; }
+    checked.push({ r, place, res });
+  }
+  // Overpass: lifecycle tags near each row's point (current pin, or the proposed one), batched 20 per query.
+  const ov = {};
+  if (sources.has('overpass')) {
+    const pts = checked.filter(c => c.res).map(c => {
+      const d = decide(c.place, c.res.graded); c.decision = d;
+      const p = c.place.current.lat != null ? { lat: c.place.current.lat, lng: c.place.current.lng } : (d.proposal ? { lat: d.proposal.lat, lng: d.proposal.lng } : null);
+      return { place: c.place, point: p };
+    }).filter(x => x.point);
+    for (let i = 0; i < pts.length; i += 10) {
+      let got = await fromOverpassBatch(http, pts.slice(i, i + 10));
+      if (Object.values(got).some(x => x.error)) got = await fromOverpassBatch(http, pts.slice(i, i + 10), true); // one retry after the back-off
+      Object.assign(ov, got);
+    }
+  }
+  const count = {};
+  for (const c of checked) {
+    const row = { name: c.place.name, current: c.place.current, scope: c.r.why };
+    if (c.skipped) { row.outcome = 'skipped'; row.notes = [c.skipped]; }
+    else {
+      const d = c.decision || decide(c.place, c.res.graded);
+      const ev = c.res.evidence.slice();
+      const o = ov[c.place.name];
+      if (o) {
+        for (const n of o.near) for (const e of osmClosureEvidence(n.tags)) ev.push({ ...e, sourceUrl: n.url, retrieved: o.retrieved, distanceM: n.d });
+        if (o.error) c.res.notes.push(`overpass: ${o.error}`);
+      }
+      const cur = c.place.current;
+      const isThePlace = e => e.linked || (d.proposal && d.outcome !== 'conflict' && e.sourceUrl === d.proposal.sourceUrl)
+        || (cur.lat != null && e.lat != null && haversineM(cur.lat, cur.lng, e.lat, e.lng) <= 150);
+      const seen = new Set(); const evidence = ev.filter(e => !/^wikidata-/.test(e.type) || isThePlace(e)).filter(e => { const k = e.type + e.detail + e.sourceUrl; if (seen.has(k)) return false; seen.add(k); return true; });
+      row.outcome = d.outcome; row.proposal = d.proposal; row.notes = d.notes.concat(c.res.notes);
+      const sp = statusProposal(c.place, evidence);
+      if (sp) { row.statusOutcome = sp.outcome; row.statusProposal = sp.proposal; count[sp.outcome] = (count[sp.outcome] || 0) + 1; }
+      row.evidence = evidence;
+      row.candidates = c.res.graded.slice(0, 6).map(g => ({ kind: g.kind, name: g.name, lat: round5(g.lat), lng: round5(g.lng), grade: g.grade, nameSim: g.nameSim,
+        sourceUrl: g.sourceUrl, retrieved: g.retrieved, osmClass: g.osmClass, osm: g.osm || undefined, addresstype: g.addresstype || undefined, distanceFromCurrentM: c.place.current.lat != null ? haversineM(c.place.current.lat, c.place.current.lng, g.lat, g.lng) : null }));
+    }
+    row.review = emptyReview();
+    report.rows.push(row);
+  }
+  demoteSharedObjects(report.rows);
+  if (sources.has('census')) for (const row of report.rows)
+    if (((row.proposal && row.proposal.grade === 'med') || opts.names) && row.outcome !== 'shared-object') row.secondSource = await censusSecondSource(http, row);
+  for (const row of report.rows) {
+    const p = row.proposal;
+    if (p && (p.kind === 'wikidata' || p.kind === 'wikipedia') && !(p.addressAgreement && p.addressAgreement.houseNumber === true) && !isExtended(row.name))
+      row.addressCheck = await addressCheck(http, row, anchor);
+  }
+  for (const row of report.rows) row.assist = reviewAssist(row);
+  for (const row of report.rows) count[row.outcome] = (count[row.outcome] || 0) + 1;
+  report.summary = count;
+  meta.requests = { network: http.count, cacheHits: http.cacheHits, nominatim: http.nomCount, failures: http.failures.slice(0, 50), byHost: http.byHost || {} };
+  if (report.rows.some(r => (r.candidates || []).some(c => /^osm/.test(c.kind)) || (r.evidence || []).some(e => /^osm/.test(e.type))))
+    meta.attribution = 'Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright';
+  if (report.rows.some(r => (r.candidates || []).some(c => c.kind === 'onemap'))) meta.attributionOneMap = P2.ONEMAP_LICENCE;
+  if (report.rows.some(r => (r.candidates || []).some(c => c.kind === 'gov-address'))) meta.attributionGov = ctx.houseSets.map(h => `${h.label}: ${h.licence}`).join(' · ');
+  // Only the CORE sources can fail a run: a broken official site, an overloaded Overpass or the Census geocoder is reported
+  // (per host, in meta.requests.byHost and the .md) but never discards the report.
+  const CORE = ['www.wikidata.org', 'en.wikipedia.org', 'nominatim.openstreetmap.org'];
+  meta.hardFailure = CORE.some(h => { const b = (http.byHost || {})[h]; return b && b.requests >= 4 && b.failed / b.requests > 0.25; });
+  return report;
+}
+
+function pickCurrent(e) {
+  return { address: e.address || null, lat: e.lat == null ? null : e.lat, lng: e.lng == null ? null : e.lng, source: e.source || null,
+    confidence: e.confidence || null, verified: e.verified || null, status: e.status || null, statusSource: e.statusSource || null, statusChecked: e.statusChecked || null };
+}
+function emptyReview() { return { decision: null, by: null, why: null, date: null }; }
+function planFor(r, sources) {
+  const p = [];
+  if (sources.has('wikidata')) p.push(/\bQ\d{2,}\b/.test(r.e.source || '') ? 'wikidata: wbgetentities (QID in source)' : 'wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)');
+  if (sources.has('wikipedia')) p.push('wikipedia: GeoData prop=coordinates for the linked article (if any)');
+  if (sources.has('nominatim')) p.push('nominatim: name+address search, then address search (only if no high candidate yet)');
+  if (sources.has('official')) p.push('official site: robots.txt, then home page schema.org geo/address + closure notice');
+  if (sources.has('overpass')) p.push('overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)');
+  return p;
+}
+/** Request + time estimate: per row ≈ 2 Wikidata + 0–1 Wikipedia + 0–2 Nominatim (1.1 s each) + 0–2 official + 1/20 Overpass. */
+function estimate(n, sources) {
+  const perRow = { wikidata: 2, wikipedia: 0.5, nominatim: 1.5, official: 1.2, overpass: 0.05 };
+  const secPer = { wikidata: 0.5, wikipedia: 0.5, nominatim: 1.15, official: 2.5, overpass: 5 / 1 };
+  let req = 0, sec = 0;
+  for (const s of sources) { req += perRow[s] * n; sec += perRow[s] * n * secPer[s]; }
+  return { requests: Math.round(req), nominatimRequests: sources.has('nominatim') ? Math.round(1.5 * n) : 0, minutes: Math.ceil(sec / 60) };
+}
+
+/**
+ * A committed report is the review record: its review.* decisions must survive a re-run. Carry every reviewed row's
+ * review into the new report by place name. If the proposal moved (> 5 m) or vanished, keep the review but mark it
+ * stale so --accept refuses it until a person looks again. Names that left the report are listed in meta.
+ */
+function carryReviews(prev, rep) {
+  if (!prev || !Array.isArray(prev.rows)) return rep;
+  const byName = new Map(rep.rows.map(r => [r.name, r]));
+  const carried = [], stale = [], orphaned = [];
+  for (const old of prev.rows) {
+    if (!old.review || !old.review.decision) continue;
+    const r = byName.get(old.name);
+    if (!r) { orphaned.push({ name: old.name, review: old.review, proposal: old.proposal || null }); continue; }
+    r.review = { ...old.review };
+    const a = old.proposal, b = r.proposal;
+    const moved = a && a.lat != null && (!b || b.lat == null || haversineM(a.lat, a.lng, b.lat, b.lng) > 5);
+    if (moved) { r.review.stale = true; r.review.staleWhy = `proposal changed since review (${a.lat},${a.lng} → ${b ? b.lat + ',' + b.lng : 'none'})`; stale.push(old.name); }
+    else carried.push(old.name);
+  }
+  rep.meta.reviewsCarried = carried.length;
+  if (stale.length) rep.meta.reviewsStale = stale;
+  if (orphaned.length) rep.meta.reviewsOrphaned = orphaned;
+  return rep;
+}
+
+/** corroborated (≤ 40 m from the CURRENT registry pin) · moved (a better candidate farther away) · none found. */
+function recheckVerdict(row, reg, city) {
+  const e = reg.cities[city][row.name], cur = { lat: e.lat, lng: e.lng };
+  const indep = (row.candidates || []).filter(c => !/^wiki/.test(c.kind) && c.grade && c.grade !== 'low');
+  const census = row.secondSource && row.secondSource.matched ? [{ kind: 'census', lat: row.secondSource.lat, lng: row.secondSource.lng, sourceUrl: row.secondSource.sourceUrl, name: row.secondSource.matchedAddress, grade: 'med' }] : [];
+  const all = indep.concat(census).map(c => ({ ...c, d: cur.lat == null ? null : haversineM(cur.lat, cur.lng, c.lat, c.lng) }));
+  const near = all.filter(c => c.d != null && c.d <= 40).sort((a, b) => a.d - b.d);
+  if (near.length) return { verdict: 'corroborated', by: near.map(c => ({ kind: c.kind, name: c.name, distanceM: c.d, sourceUrl: c.sourceUrl })) };
+  const best = all.filter(c => c.kind !== 'census').sort((a, b) => GRADE_RANK[b.grade] - GRADE_RANK[a.grade] || a.d - b.d)[0];
+  if (best) return { verdict: 'moved', distanceM: best.d, candidate: { kind: best.kind, name: best.name, lat: best.lat, lng: best.lng, grade: best.grade, sourceUrl: best.sourceUrl } };
+  return { verdict: 'none found', note: census.length ? `only a Census interpolated point ${all[0] && all[0].d} m away` : 'no OSM POI, OSM address point, official geo or Census match' };
+}
+function recheckMarkdown(rep) {
+  const L = [`# Re-check — ${rep.meta.city} (${rep.meta.generated})`, '', `_Rows: ${rep.meta.recheck.names.join(' · ')} · sources: ${rep.meta.recheck.sources.join(', ')} (no Wikidata/Wikipedia: the point is an INDEPENDENT source) · proposals only._`, '',
+    '| place | current pin | verdict | detail |', '|---|---|---|---|'];
+  for (const r of rep.rows) {
+    const v = r.recheck; const det = v.verdict === 'corroborated' ? v.by.map(b => `${b.kind} “${b.name || ''}” ${b.distanceM} m — ${b.sourceUrl}`).join('; ')
+      : v.verdict === 'moved' ? `${v.candidate.kind} “${v.candidate.name || ''}” ${v.candidate.lat}, ${v.candidate.lng} (${v.candidate.grade}) is ${v.distanceM} m away — ${v.candidate.sourceUrl}` : v.note;
+    L.push(`| ${r.name} | ${r.current.lat}, ${r.current.lng} (${r.current.confidence}) | **${v.verdict}** | ${String(det).replace(/\|/g, '\\|')} |`);
+  }
+  if (rep.meta.attribution) L.push('', `_${rep.meta.attribution}_`);
+  return L.join('\n') + '\n';
+}
+
+/**
+ * Registry hygiene (offline, report only): (1) a bare name and its "— CLOSED" twin in one city; (2) two registry names
+ * that resolved to one OSM object in a committed report; (3) near-identical names (≥ 0.9) pinned within 50 m.
+ * Each entry shows the status evidence so a research pass can decide which one is current.
+ */
+function findDuplicates(cities, reportsDir) {
+  const out = [];
+  const ev = e => ({ status: e.status || null, statusSource: e.statusSource || '', statusChecked: e.statusChecked || null, address: e.address || '',
+    pin: e.lat == null ? 'UNVERIFIED' : `${e.lat}, ${e.lng} (${e.confidence})` });
+  for (const [city, entries] of Object.entries(cities).sort()) {
+    const names = Object.keys(entries);
+    const seen = new Set();
+    const add = (kind, a, b, why) => { const k = [kind, ...[a, b].sort()].join('|'); if (seen.has(k)) return; seen.add(k);
+      out.push({ city, kind, a: { name: a, ...ev(entries[a]) }, b: { name: b, ...ev(entries[b]) }, why }); };
+    // 1. bare + CLOSED
+    const bare = new Map(names.filter(n => !/[—–-]\s*CLOSED\b/i.test(n)).map(n => [normName(n), n]));
+    for (const n of names.filter(n => /[—–-]\s*CLOSED\b/i.test(n))) { const twin = bare.get(normName(n)); if (twin) add('open + CLOSED', twin, n, 'the same name exists bare and with the closed marker'); }
+    // 2. one OSM object, two names (from the committed report, if any)
+    const rp = path.join(reportsDir, `${city}.json`);
+    if (fs.existsSync(rp)) {
+      const by = new Map();
+      for (const r of JSON.parse(fs.readFileSync(rp, 'utf8')).rows || []) {
+        const id = r.proposal && r.proposal.osmObject && r.proposal.osmObject.id; if (!id || !entries[r.name]) continue;
+        if (!by.has(id)) by.set(id, []); by.get(id).push(r.name);
+      }
+      for (const [id, ns] of by) for (let i = 0; i < ns.length; i++) for (let j = i + 1; j < ns.length; j++) add('one OSM object', ns[i], ns[j], `both resolved to OSM ${id} in docs/geoverify/${city}.json`);
+    }
+    // 3. near-identical names pinned close together
+    const pinned = names.filter(n => entries[n].lat != null);
+    for (let i = 0; i < pinned.length; i++) for (let j = i + 1; j < pinned.length; j++) {
+      const a = entries[pinned[i]], b = entries[pinned[j]];
+      if (Math.abs(a.lat - b.lat) > 0.001 || Math.abs(a.lng - b.lng) > 0.0015) continue;
+      const d = haversineM(a.lat, a.lng, b.lat, b.lng);
+      if (d > 50 || nameSim(pinned[i], pinned[j]) < 0.9) continue;
+      // "Jeni's — North Market" / "Klostergastronomie Abtei Mariawald": the longer name ENDS with the shorter one = a
+      // stall or venue inside it, not a duplicate. "Tandoori Hut" + " Indian Cuisine" (starts with) or equal = duplicate.
+      const [x, y] = [normName(pinned[i]), normName(pinned[j])].sort((p, q) => p.length - q.length);
+      if (x !== y && y.endsWith(x)) continue;
+      add('similar names, same spot', pinned[i], pinned[j], `name similarity ${nameSim(pinned[i], pinned[j])}, ${d} m apart`);
+    }
+  }
+  return out;
+}
+function duplicatesMarkdown(list, today) {
+  const L = ['# Registry duplicates (location-verify --duplicates)', '', `_Generated ${today} from data/geocodes.json and the committed docs/geoverify/<city>.json reports. Report only: fixing is a research / data job. For each pair the status evidence is shown so the current one can be decided against a real source (CLAUDE.md 4c)._`, ''];
+  const kinds = ['open + CLOSED', 'one OSM object', 'similar names, same spot'];
+  L.push(`**${list.length} pair(s)** — ${kinds.map(k => `${k}: ${list.filter(x => x.kind === k).length}`).join(' · ')}`, '');
+  const esc = s => String(s == null ? '' : s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  for (const k of kinds) {
+    const rows = list.filter(x => x.kind === k); if (!rows.length) continue;
+    L.push(`## ${k}`, '');
+    if (k === 'similar names, same spot') L.push('_Candidates only: a stall in a hawker centre, a sub-temple or a restaurant on a named street can look alike. Check each by hand._', '');
+    L.push('| city | name A | A: status · checked · source | name B | B: status · checked · source | why |', '|---|---|---|---|---|---|');
+    for (const x of rows) L.push(`| ${x.city} | ${esc(x.a.name)} | ${x.a.status} · ${x.a.statusChecked} · ${esc(x.a.statusSource).slice(0, 140)} | ${esc(x.b.name)} | ${x.b.status} · ${x.b.statusChecked} · ${esc(x.b.statusSource).slice(0, 140)} | ${esc(x.why)} |`);
+    L.push('');
+  }
+  return L.join('\n') + '\n';
+}
+
+/**
+ * Classify registry entries that are NOT on the city's page:
+ *   (a) alias of an on-page name (same normalised name, or ≥ 0.9 similar and within 50 m where one name starts with the
+ *       other) — merge candidates;  (b) in the dataset but not rendered (held for a pin, or dropped by a gate) — keep;
+ *   (c) only in research files (dropped by the merit bar / editorial review) — keep;  (d) none of these — stale, listed.
+ */
+function classifyOrphans(cities) {
+  const out = {};
+  for (const [city, entries] of Object.entries(cities).sort()) {
+    const pg = SCOPE.pageNames(city); if (!pg.size) { out[city] = { skipped: 'no built page found' }; continue; }
+    const ds = SCOPE.datasetNames(city), rs = SCOPE.researchNames(city);
+    const byNorm = new Map([...pg].map(n => [normName(n), n]));
+    const res = { a: [], b: [], c: [], d: [] };
+    for (const [n, e] of Object.entries(entries)) {
+      if (pg.has(n)) continue;
+      const row = { name: n, pin: e.lat == null ? 'UNVERIFIED' : `${e.lat}, ${e.lng} (${e.confidence})`, status: e.status || null, statusSource: e.statusSource || '', source: e.source || '' };
+      if (ds.has(n)) { res.b.push({ ...row, why: e.lat == null || String(e.source).toUpperCase() === 'UNVERIFIED' ? 'held: no verified pin' : 'pinned but not rendered (a build gate dropped it)' }); continue; }
+      // Same name but DIFFERENT parenthetical qualifiers is two branches ("… (Punggol Coast)" vs "… (One Punggol)").
+      const qual = x => ((String(x).match(/\(([^)]*)\)/) || [])[1] || '').trim().toLowerCase();
+      let alias = byNorm.get(normName(n)) || null;
+      if (alias && qual(n) && qual(alias) && qual(n) !== qual(alias)) alias = null;
+      if (!alias && e.lat != null) for (const p of pg) {
+        const pe = entries[p]; if (!pe || pe.lat == null) continue;
+        const [x, y] = [normName(n), normName(p)].sort((u, v) => u.length - v.length);
+        if (nameSim(n, p) >= 0.9 && y.startsWith(x) && haversineM(e.lat, e.lng, pe.lat, pe.lng) <= 50) { alias = p; break; }
+      }
+      if (alias) { res.a.push({ ...row, aliasOf: alias }); continue; }
+      if (rs.has(n)) { res.c.push({ ...row, why: 'research record exists; not in the dataset (merit bar / editorial)' }); continue; }
+      res.d.push(row);
+    }
+    out[city] = res;
+  }
+  return out;
+}
+function orphansMarkdown(cls, today) {
+  const esc = s => String(s == null ? '' : s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  const tot = k => Object.values(cls).reduce((t, c) => t + ((c[k] || []).length), 0);
+  const L = ['# Registry entries not on their city page (location-verify --orphans)', '',
+    `_Generated ${today}. Report only, except class (a), whose merges are logged below. Classes: **(a)** alias of an on-page name (merge, keeping source / pin / status in \`note\`) · **(b)** in the dataset but not rendered (held for a pin, or a gate drop) — keep · **(c)** only in research files (merit bar / editorial) — keep · **(d)** none of these — stale, listed for a decision (archive with a reason, never silent deletion)._`, '',
+    `**Totals:** (a) ${tot('a')} · (b) ${tot('b')} · (c) ${tot('c')} · (d) ${tot('d')}`, '',
+    '| city | (a) alias | (b) dataset, held | (c) research only | (d) stale |', '|---|---|---|---|---|'];
+  for (const [c, r] of Object.entries(cls)) L.push(r.skipped ? `| ${c} | — | — | — | — (${r.skipped}) |` : `| ${c} | ${r.a.length} | ${r.b.length} | ${r.c.length} | ${r.d.length} |`);
+  L.push('');
+  for (const [k, title] of [['a', '(a) Aliases of an on-page name'], ['d', '(d) Stale: no page, dataset, research row or alias'], ['c', '(c) Research only (kept)']]) {
+    const rows = Object.entries(cls).flatMap(([c, r]) => (r[k] || []).map(x => ({ c, ...x }))); if (!rows.length) continue;
+    L.push(`## ${title}`, '', k === 'a' ? '| city | registry name | alias of (on page) | pin | status |' : '| city | registry name | pin | status | status source |', k === 'a' ? '|---|---|---|---|---|' : '|---|---|---|---|---|');
+    for (const x of rows) L.push(k === 'a' ? `| ${x.c} | ${esc(x.name)} | ${esc(x.aliasOf)} | ${x.pin} | ${x.status} |` : `| ${x.c} | ${esc(x.name)} | ${x.pin} | ${x.status} | ${esc(x.statusSource).slice(0, 100)} |`);
+    L.push('');
+  }
+  L.push('_(b) rows are not listed one by one: they are the dataset rows the geocode backlog already tracks (docs/GEOCODE-BACKLOG.md); location-verify keeps them in scope._');
+  return L.join('\n') + '\n';
+}
+
+function toMarkdown(rep) {
+  const m = rep.meta, L = [];
+  L.push(`# Location-verify report — ${m.city}`, '');
+  L.push(`_Generated ${m.generated} by \`${m.tool}\` · mode **${m.mode}** · scope ${m.scope.join(', ')} · ${m.rowsChecked} of ${m.rowsInScope} rows in scope._`, '');
+  L.push(`> ${m.rule}`, '');
+  if (m.note) L.push(`> **${m.note}**`, '');
+  if (m.estimate) L.push(`Estimate for a live run of these rows: ~${m.estimate.requests} requests (${m.estimate.nominatimRequests} to Nominatim), ~${m.estimate.minutes} min.`, '');
+  if (m.orphansSkipped) L.push(`${m.orphansSkipped} registry row(s) on neither the page nor the dataset were left out (orphans; \`--include-orphans\` to check them).`, '');
+  if (m.anchor) L.push(`City anchor (median of high-confidence pins): ${round5(m.anchor.lat)}, ${round5(m.anchor.lng)} · candidates farther than ${(m.anchor.radiusM / 1000).toFixed(0)} km are discarded as same-name-elsewhere.`, '');
+  if (m.reviewsCarried || m.reviewsStale || m.reviewsOrphaned) L.push(`Reviews carried from the previous report: ${m.reviewsCarried || 0}${m.reviewsStale ? ` · STALE (proposal changed, re-review): ${m.reviewsStale.join(', ')}` : ''}${m.reviewsOrphaned ? ` · rows no longer in scope (decisions kept in meta.reviewsOrphaned): ${m.reviewsOrphaned.map(x => x.name).join(', ')}` : ''}`, '');
+  if (m.requests) L.push(`Requests: ${m.requests.network} network · ${m.requests.cacheHits} cache hits · ${m.requests.nominatim} Nominatim${m.requests.failures.length ? ` · failures: ${m.requests.failures.slice(0, 5).join('; ')}` : ''}`, '');
+  const bad = Object.entries((m.requests && m.requests.byHost) || {}).filter(([, b]) => b.failed);
+  if (bad.length) L.push(`Failed requests by host: ${bad.map(([h, b]) => `${h} ${b.failed}/${b.requests}`).join(' · ')}}`, '');
+  const noOv = rep.rows.filter(r => (r.notes || []).some(n => /^overpass:/.test(n))).length;
+  if (noOv) L.push(`OSM lifecycle (closure) evidence missing for ${noOv} row(s): both Overpass instances failed for their batch. Coordinates are unaffected.`, '');
+  L.push('## Summary', '', '| outcome | rows |', '|---|---|');
+  for (const [k, v] of Object.entries(rep.summary)) L.push(`| ${k} | ${v} |`);
+  L.push('');
+  const av = {}; rep.rows.forEach(r => { if (r.assist) av[r.assist.verdict] = (av[r.assist.verdict] || 0) + 1; });
+  if (Object.keys(av).length) L.push(`Review assist (advice against the accept bar): ${Object.entries(av).map(([k, v]) => `${k} ${v}`).join(' · ')}`, '');
+  L.push('## Rows', '');
+  L.push('| place | now | scope | outcome | assist | proposal | evidence |', '|---|---|---|---|---|---|---|');
+  const esc = s => String(s == null ? '' : s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  for (const r of rep.rows) {
+    const now = r.current.lat == null ? 'UNVERIFIED' : `${r.current.lat}, ${r.current.lng} (${r.current.confidence})`;
+    const p = r.proposal ? `${r.proposal.lat}, ${r.proposal.lng} **${r.proposal.grade}** · ${r.proposal.distanceM == null ? 'new pin' : r.proposal.distanceM + ' m'} · “${esc(r.proposal.matchedName)}” · [${r.proposal.kind}](${r.proposal.sourceUrl}) ${r.proposal.retrieved}`
+      : (r.plan ? esc(r.plan.join('; ')) : '—');
+    const o = r.proposal && r.proposal.osmObject;
+    const osm = o ? `OSM ${o.id} ${o.class || ''}${o.addresstype ? ' · addresstype=' + o.addresstype : ''}${o.name ? ' · name “' + esc(o.name) + '”' : ' · (no name)'}${o.address ? ' · ' + esc(o.address) : ''}${Object.keys(o.tags).length ? ' · ' + esc(Object.entries(o.tags).map(([k, v]) => k + '=' + v).join(', ')) : ''}` : '';
+    const ss = r.secondSource ? (r.secondSource.matched ? `2nd source: [Census](${r.secondSource.sourceUrl}) ${r.secondSource.distanceM} m (“${esc(r.secondSource.matchedAddress)}”)` : `2nd source: Census ${esc(r.secondSource.note)}`) : '';
+    const ev = [osm, ss, (r.statusProposal ? `**${r.statusProposal.suggest}**: ` : '') + (r.evidence || []).map(e => `${esc(e.detail)} ([src](${e.sourceUrl}))`).join('; '), (r.notes || []).map(esc).join('; ')].filter(Boolean).join(' — ');
+    L.push(`| ${esc(r.name)} | ${now} | ${r.scope.join(', ')} | ${r.outcome}${r.statusOutcome ? ' + ' + r.statusOutcome : ''} | ${r.assist ? `**${r.assist.verdict}**: ${esc(r.assist.why.join('; '))}` : ''} | ${p} | ${ev} |`);
+  }
+  L.push('');
+  if (m.attribution) L.push(`_${m.attribution}_`, '');
+  if (m.attributionOneMap) L.push(`_${m.attributionOneMap}_`, '');
+  if (m.attributionGov) L.push(`_House coordinates: ${m.attributionGov}_`, '');
+  if (m.phase2 && m.phase2.onemap && m.phase2.onemap !== 'used') L.push(`_${m.phase2.onemap}._`, '');
+  L.push('Review: set `review.decision` in the JSON to `accept` (coordinate) or `accept-closed` (closure confirmed — also set `review.statusSource`), with `review.by` and `review.why`; then run `node tools/location-verify.js --accept <this json>` locally and the gates.');
+  return L.join('\n') + '\n';
+}
+
+// ───────────────────────────────────────────────────────── --accept (local, reviewed) ──
+
+/**
+ * Apply reviewer-accepted rows. Coordinates are merged into data/geocodes.json here (status fields untouched, never a
+ * downgrade, record counts asserted). Accepted closures are emitted as a geo-merge wave file so tools/geo-merge.py
+ * applies the "— CLOSED" marker convention in its one place. Every applied row is appended to docs/geoverify/ACCEPTED.md.
+ */
+function accept(reportPath, o = {}) {
+  if (!o.allowCi && (process.env.GITHUB_ACTIONS || process.env.CI)) throw Object.assign(new Error('--accept is a reviewed, local step; it refuses to run on CI'), { code: 1 });
+  const rep = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+  const geoPath = o.geocodes || GEOCODES;
+  const g = JSON.parse(fs.readFileSync(geoPath, 'utf8'));
+  const city = g.cities[rep.meta.city];
+  if (!city) throw Object.assign(new Error(`city ${rep.meta.city} not in registry`), { code: 1 });
+  const n0 = Object.keys(city).length, total0 = Object.values(g.cities).reduce((a, c) => a + Object.keys(c).length, 0);
+  const today = o.today || new Date().toISOString().slice(0, 10);
+  const applied = [], closures = [], refused = [];
+  for (const r of rep.rows) {
+    const rv = r.review || {};
+    if (!rv.decision) continue;
+    if (!rv.by || !rv.why) { refused.push(`${r.name}: review needs by + why`); continue; }
+    if (rv.stale) { refused.push(`${r.name}: review is stale (${rv.staleWhy}); look again`); continue; }
+    const e = city[r.name];
+    if (!e) { refused.push(`${r.name}: no longer in the registry (renamed?)`); continue; }
+    if (rv.decision === 'accept') {
+      const p = r.proposal;
+      if (!p || p.lat == null || !p.sourceUrl) { refused.push(`${r.name}: no coordinate proposal to accept`); continue; }
+      if (p.grade === 'low' || r.outcome === 'shared-object') { refused.push(`${r.name}: a low / shared-object proposal is not a verified pin`); continue; }
+      if (r.outcome === 'conflict' && !rv.overrideConflict) { refused.push(`${r.name}: conflict rows need review.overrideConflict=true`); continue; }
+      if (!isUnverified(e) && GRADE_RANK[p.grade] < (GRADE_RANK[String(e.confidence).toLowerCase()] || 0)) { refused.push(`${r.name}: ${p.grade} would downgrade a ${e.confidence} pin`); continue; }
+      const before = { lat: e.lat, lng: e.lng, confidence: e.confidence, source: e.source };
+      e.lat = p.lat; e.lng = p.lng; e.confidence = p.grade; e.verified = today;
+      e.source = `${p.sourceUrl} (${p.kind}, retrieved ${p.retrieved}; location-verify proposal accepted by ${rv.by}: ${rv.why})`;
+      if (rv.address) e.address = rv.address;
+      applied.push({ name: r.name, before, after: { lat: p.lat, lng: p.lng, confidence: p.grade }, by: rv.by, why: rv.why, src: p.sourceUrl });
+    } else if (rv.decision === 'accept-closed') {
+      if (!rv.statusSource) { refused.push(`${r.name}: accept-closed needs review.statusSource (the evidence a person checked)`); continue; }
+      closures.push({ n: r.name, address: e.address, lat: e.lat, lng: e.lng, confidence: isUnverified(e) ? 'unverified' : e.confidence, geoSource: e.source,
+        status: 'closed', statusSource: `${rv.statusSource} (location-verify evidence reviewed by ${rv.by}: ${rv.why})`, note: e.note });
+    } else if (rv.decision !== 'reject') refused.push(`${r.name}: unknown decision ${rv.decision}`);
+  }
+  const n1 = Object.keys(city).length, total1 = Object.values(g.cities).reduce((a, c) => a + Object.keys(c).length, 0);
+  if (n1 !== n0 || total1 !== total0) throw new Error(`record count changed (${n0}→${n1}, total ${total0}→${total1}); refusing to write`);
+  if (applied.length && !o.dryRun) fs.writeFileSync(geoPath, JSON.stringify(g, null, 1) + '\n');
+  let wave = null;
+  if (closures.length && !o.dryRun) {
+    const key = rep.meta.city, full = path.join(ROOT, 'data', `${key}-research`);
+    const dir = o.waveDir || path.join(fs.existsSync(full) ? full : path.join(ROOT, 'data', `${key.replace(/-[a-z]{2}$/, '')}-research`), 'geo');
+    fs.mkdirSync(dir, { recursive: true });
+    wave = path.join(dir, `_geoout_lv_${today}.json`);
+    fs.writeFileSync(wave, JSON.stringify(closures, null, 1) + '\n');
+  }
+  if ((applied.length || closures.length) && !o.dryRun) {
+    const led = o.ledger || path.join(ROOT, 'docs', 'geoverify', 'ACCEPTED.md');
+    if (!fs.existsSync(led)) fs.writeFileSync(led, '# Location-verify — accepted proposals (audit trail)\n\nAppended by `tools/location-verify.js --accept`. One line per applied row.\n\n| date | city | place | change | source | by | why |\n|---|---|---|---|---|---|---|\n');
+    const lines = applied.map(a => `| ${today} | ${rep.meta.city} | ${a.name} | ${a.before.lat == null ? 'UNVERIFIED' : `${a.before.lat},${a.before.lng} (${a.before.confidence})`} → ${a.after.lat},${a.after.lng} (${a.after.confidence}) | ${a.src} | ${a.by} | ${a.why.replace(/\|/g, '/')} |`)
+      .concat(closures.map(c => `| ${today} | ${rep.meta.city} | ${c.n} | status → closed (via geo-merge wave) | ${c.statusSource.replace(/\|/g, '/')} | — | — |`));
+    fs.appendFileSync(led, lines.join('\n') + '\n');
+  }
+  return { applied, closures, refused, wave };
+}
+
+// ───────────────────────────────────────────────────────── CLI ──
+
+function parseArgs(argv) {
+  const o = { scope: ['unverified', 'low', 'status'], sources: ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official', 'census'], out: path.join(ROOT, 'docs', 'geoverify'),
+    cache: process.env.LV_CACHE_DIR || path.join(os.homedir(), '.cache', 'cleo-location-verify'), ttlDays: 30, maxRequests: 3000, nominatimMax: 300 };
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i], v = () => { const x = argv[++i]; if (x == null) throw Object.assign(new Error(`${a} needs a value`), { code: 1 }); return x; };
+    if (a === '--city') o.city = v();
+    else if (a === '--scope') o.scope = v().split(',').map(s => s.trim()).filter(Boolean);
+    else if (a === '--sources') o.sources = v().split(',').map(s => s.trim()).filter(Boolean);
+    else if (a === '--limit') o.limit = parseInt(v(), 10);
+    else if (a === '--nominatim-max') o.nominatimMax = parseInt(v(), 10);
+    else if (a === '--max-requests') o.maxRequests = parseInt(v(), 10);
+    else if (a === '--out') { o.out = path.resolve(v()); o.outGiven = true; }
+    else if (a === '--cache') o.cache = path.resolve(v());
+    else if (a === '--cache-ttl-days') o.ttlDays = parseInt(v(), 10);
+    else if (a === '--fixtures') o.fixturesPath = path.resolve(v());
+    else if (a === '--geocodes') o.geocodes = path.resolve(v());
+    else if (a === '--offline') o.offline = true;
+    else if (a === '--today') o.today = v();
+    else if (a === '--shard') { o.shard = v(); if (!/^\d+\/\d+$/.test(o.shard)) throw Object.assign(new Error('--shard i/n, e.g. 1/3'), { code: 1 }); }
+    else if (a === '--max-minutes') o.maxMinutes = parseFloat(v());
+    else if (a === '--house-file') { const [f, licence] = v().split('::'); (o.houseFiles = o.houseFiles || []).push({ f: path.resolve(f), licence }); }
+    else if (a === '--abr-file') o.abrFile = path.resolve(v());
+    else if (a === '--status-sweep') { o.scope = ['all']; o.sources = ['wikidata', 'overpass', 'official']; o.nominatimMax = 0; o.city = o.city || 'all'; o.statusSweep = true; }
+    else if (a === '--backlog') o.backlog = true;
+    else if (a === '--duplicates') o.duplicates = true;
+    else if (a === '--accept') o.accept = path.resolve(v());
+    else if (a === '--names') o.names = v().split('|').map(x => x.trim()).filter(Boolean); // re-check these rows only
+    else if (a === '--recheck-out') o.recheckOut = path.resolve(v());
+    else if (a === '--include-orphans') o.includeOrphans = true; // also registry rows on neither the page nor the dataset
+    else if (a === '--orphans') o.orphans = true;
+    else if (a === '--ignore-ledger') o.ignoreLedger = true; // tests / one-off: do not read or write the daily ledger
+    else if (a === '--reassist') (o.reassist = o.reassist || []).push(path.resolve(v())); // offline: recompute assist only
+    else if (a === '--dry-run') o.dryRun = true; // report mode is always a dry run; with --accept: show, write nothing
+    else throw Object.assign(new Error(`unknown option ${a}`), { code: 1 });
+  }
+  if (o.statusSweep && !o.outGiven) o.out = path.join(ROOT, 'docs', 'geoverify', 'status');
+  const okScope = ['unverified', 'low', 'med', 'high', 'status', 'all'], okSrc = ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official', 'census'];
+  for (const s of o.scope) if (!okScope.includes(s)) throw Object.assign(new Error(`unknown scope ${s}`), { code: 1 });
+  for (const s of o.sources) if (!okSrc.includes(s)) throw Object.assign(new Error(`unknown source ${s}`), { code: 1 });
+  return o;
+}
+
+async function reachable() {
+  const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 8000);
+  try {
+    const r = await fetch(`${ENDPOINT.wikidata}?action=query&meta=siteinfo&format=json`, { headers: { 'User-Agent': UA }, signal: ctl.signal });
+    if (!r.ok) return `HTTP ${r.status}`;
+    const j = await r.json().catch(() => null);
+    return j && j.query ? null : 'not the Wikidata API';
+  } catch (e) { return (e.cause && e.cause.code) || e.message; } finally { clearTimeout(t); }
+}
+
+async function main() {
+  const o = parseArgs(process.argv.slice(2));
+  if (o.backlog) {
+    const today = o.today || new Date().toISOString().slice(0, 10);
+    const rows = backlog(JSON.parse(fs.readFileSync(o.geocodes || GEOCODES, 'utf8')).cities, today);
+    const t = k => rows.reduce((a, r) => a + r[k], 0);
+    console.log('| city | entries | unverified | low | med | status unchecked | closed |\n|---|---|---|---|---|---|---|');
+    rows.forEach(r => console.log(`| ${r.city} | ${r.entries} | ${r.unverified} | ${r.low} | ${r.med} | ${r.statusUnchecked} | ${r.closed} |`));
+    console.log(`| **total** | **${t('entries')}** | **${t('unverified')}** | **${t('low')}** | **${t('med')}** | **${t('statusUnchecked')}** | **${t('closed')}** |`);
+    return 0;
+  }
+  if (o.orphans) {
+    const today = o.today || new Date().toISOString().slice(0, 10);
+    const cls = classifyOrphans(JSON.parse(fs.readFileSync(o.geocodes || GEOCODES, 'utf8')).cities);
+    const outp = path.join(ROOT, 'docs', 'geoverify', 'ORPHANS.md');
+    const prev = fs.existsSync(outp) ? fs.readFileSync(outp, 'utf8') : ''; const i = prev.indexOf('\n## Decisions');
+    fs.writeFileSync(outp, orphansMarkdown(cls, today) + (i >= 0 ? prev.slice(i) : ''));
+    fs.writeFileSync(outp.replace(/\.md$/, '.json'), JSON.stringify(cls, null, 1) + '\n');
+    const t = k => Object.values(cls).reduce((s, c) => s + ((c[k] || []).length), 0);
+    console.log(`wrote ${path.relative(ROOT, outp)} — (a) ${t('a')} · (b) ${t('b')} · (c) ${t('c')} · (d) ${t('d')}`);
+    return 0;
+  }
+  if (o.duplicates) {
+    const today = o.today || new Date().toISOString().slice(0, 10);
+    const list = findDuplicates(JSON.parse(fs.readFileSync(o.geocodes || GEOCODES, 'utf8')).cities, path.join(ROOT, 'docs', 'geoverify'));
+    const outp = path.join(ROOT, 'docs', 'geoverify', 'DUPLICATES.md');
+    // The decisions log (audit trail of resolved pairs) is hand-maintained below the generated part: keep it.
+    const prev = fs.existsSync(outp) ? fs.readFileSync(outp, 'utf8') : '';
+    const i = prev.indexOf('\n## Decisions');
+    fs.writeFileSync(outp, duplicatesMarkdown(list, today) + (i >= 0 ? prev.slice(i) : ''));
+    console.log(`wrote ${path.relative(ROOT, outp)} — ${list.length} pair(s)`);
+    return 0;
+  }
+  if (o.reassist) {
+    for (const f of o.reassist) {
+      const rep = JSON.parse(fs.readFileSync(f, 'utf8')); const before = {}, after = {};
+      for (const r of rep.rows) { const v0 = (r.assist || {}).verdict || '-'; before[v0] = (before[v0] || 0) + 1;
+        r.assist = reviewAssist(r); after[r.assist.verdict] = (after[r.assist.verdict] || 0) + 1; }
+      rep.meta.reassisted = new Date().toISOString().slice(0, 10);
+      fs.writeFileSync(f, JSON.stringify(rep, null, 1) + '\n'); fs.writeFileSync(f.replace(/\.json$/, '.md'), toMarkdown(rep));
+      console.log(`${path.basename(f)}: assist ${JSON.stringify(before)} → ${JSON.stringify(after)} (reviews untouched)`);
+    }
+    return 0;
+  }
+  if (o.accept) {
+    const r = accept(o.accept, { dryRun: o.dryRun, geocodes: o.geocodes, today: o.today });
+    console.log(`applied ${r.applied.length} coordinate(s); ${r.closures.length} closure(s)${r.wave ? ' → ' + path.relative(ROOT, r.wave) : ''}; refused ${r.refused.length}`);
+    r.refused.forEach(x => console.log('  refused: ' + x));
+    if (r.closures.length) console.log(`  next: python3 tools/geo-merge.py ${JSON.parse(fs.readFileSync(o.accept, 'utf8')).meta.city} --only "_geoout_lv_*.json"`);
+    console.log('  then: node tools/research.js --geocheck <city> && node tools/research.js --statuscheck <city> && (cd tools && npm run validate && npm test)');
+    return 0;
+  }
+  if (!o.city) throw Object.assign(new Error('--city <key> is required (or --backlog / --accept / --status-sweep)'), { code: 1 });
+  if (o.city === 'all') return sweep(o);
+  return main1(o);
+}
+
+async function main1(o) {
+  let mode = 'live', fixtures = null;
+  const day = new Date().toISOString().slice(0, 10);
+  if (o.houseFiles && !o.houseSets) o.houseSets = o.houseFiles.map(h => { const s = P2.loadHouseCoords(h.f, { licence: h.licence }); console.log(`house coordinates: ${s.label} — ${s.count} points (${s.skipped} skipped)`); return s; });
+  if (o.abrFile && !o.abr) { o.abr = P2.loadAbr(o.abrFile); console.log(`ABR: ${o.abr.count} town points`); }
+  if (o.fixturesPath) {
+    const fx = JSON.parse(fs.readFileSync(o.fixturesPath, 'utf8')); mode = 'fixtures';
+    fixtures = fx.responses || fx;
+    if (fx.registry && !o.geocodes) o.registry = fx.registry; // a self-contained fixture file carries its own registry
+  }
+  else if (o.offline) mode = 'offline-plan';
+  else { const off = await reachable(); if (off) { console.log(`Wikidata is not reachable from here (${off}). Writing the offline PLAN report (exit 0).\n  Real proposals come from the GitHub-hosted runner. Do NOT route around a block.`); mode = 'offline-plan'; } }
+  if (mode === 'live' && !o.ignoreLedger) {
+    const L = ledgerRemaining(o.ledgerFile || LEDGER, day);
+    if (L.max != null && L.remaining < o.nominatimMax) {
+      console.log(`Nominatim daily allowance: ${L.used}/${L.max} used today (${day}); this run may use ${L.remaining}.`);
+      o.nominatimMax = L.remaining;
+    }
+  }
+  const rep = await run({ ...o, fixtures, mode });
+  if (mode === 'live' && rep.meta.requests) ledgerRecord(o.ledgerFile || LEDGER, day, o.city, rep.meta.requests.nominatim, o.names ? 're-check' : null);
+  fs.mkdirSync(o.out, { recursive: true });
+  if (o.names) {
+    // A re-check of named rows never touches the city report (which carries reviews): its own file under recheck/.
+    // One file per (city, date, names): a later re-check never overwrites an earlier one's evidence.
+    const slug = o.names.length === 1 ? normName(o.names[0]).replace(/ /g, '-').slice(0, 40) : crypto.createHash('sha1').update(o.names.join('|')).digest('hex').slice(0, 8);
+    let out = o.recheckOut || path.join(ROOT, 'docs', 'geoverify', 'recheck', `${o.city}-${rep.meta.generated}-${slug}.json`);
+    if (!path.resolve(out).startsWith(path.join(ROOT, 'docs', 'geoverify', 'recheck'))) throw Object.assign(new Error('--recheck-out must be under docs/geoverify/recheck/'), { code: 1 });
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    rep.meta.recheck = { names: o.names, sources: o.sources };
+    for (const r of rep.rows) r.recheck = rep.meta.mode === 'offline-plan' ? { verdict: 'planned', note: 'nothing fetched (offline plan) — run on the runner' }
+      : recheckVerdict(r, o.registry || JSON.parse(fs.readFileSync(o.geocodes || GEOCODES, 'utf8')), o.city);
+    fs.writeFileSync(out, JSON.stringify(rep, null, 1) + '\n'); fs.writeFileSync(out.replace(/\.json$/, '.md'), recheckMarkdown(rep));
+    console.log(`wrote ${path.relative(ROOT, out)} (+ .md) — ${rep.rows.map(r => `${r.name}: ${r.recheck.verdict}`).join('; ')}`);
+    return rep.meta.hardFailure ? 4 : 0;
+  }
+  const base = path.join(o.out, o.city);
+  if (fs.existsSync(base + '.json')) { try { carryReviews(JSON.parse(fs.readFileSync(base + '.json', 'utf8')), rep); } catch (e) { throw new Error(`existing ${base}.json is unreadable (${e.message}); refusing to overwrite reviewed decisions`); } }
+  fs.writeFileSync(base + '.json', JSON.stringify(rep, null, 1) + '\n');
+  fs.writeFileSync(base + '.md', toMarkdown(rep));
+  console.log(`wrote ${path.relative(ROOT, base)}.json/.md — ${JSON.stringify(rep.summary)}`);
+  return rep.meta.hardFailure ? 4 : 0;
+}
+
+/** Many cities in one job (the quarterly status sweep): one report per city, sequential, inside --max-minutes. */
+async function sweep(o) {
+  const reg = o.registry || JSON.parse(fs.readFileSync(o.geocodes || GEOCODES, 'utf8'));
+  let keys = Object.keys(reg.cities).sort();
+  if (o.shard) { const [i, n] = o.shard.split('/').map(Number); keys = shardCities(reg.cities, i, n); }
+  const t0 = Date.now(), budget = (o.maxMinutes || 330) * 60000, done = [], left = [];
+  let worst = 0;
+  for (const k of keys) {
+    if (Date.now() - t0 > budget) { left.push(k); continue; }
+    const code = await main1({ ...o, city: k, registry: reg });
+    worst = Math.max(worst, code); done.push(k);
+  }
+  console.log(`sweep: ${done.length} cities done${left.length ? `; NOT reached within ${o.maxMinutes || 330} min: ${left.join(', ')}` : ''}`);
+  return worst;
+}
+
+if (require.main === module) {
+  main().then(c => { process.exitCode = c; }).catch(e => { console.error('location-verify: ' + e.message); process.exitCode = e.code || 4; });
+}
+
+module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, ledgerRemaining, ledgerRecord, classifyOrphans, regionOf, regionAnchors, findDuplicates, recheckVerdict, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };

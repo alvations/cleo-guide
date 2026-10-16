@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { esc } = require('../html');
-const { t, reviewed, locale } = require('../i18n');   // W4 gap #8: every shell string comes from the catalogue
+const { t, offered, locale } = require('../i18n');  // i18n D-41: offered() (human + AI tier)   // W4 gap #8: every shell string comes from the catalogue
 const LIVE_BASE = 'https://alvations.github.io/cleo-guide';
 const ROOT = path.resolve(__dirname, '..', '..', '..', '..');
 
@@ -54,8 +54,12 @@ const assetV = (k, file) => (SITE.assetsV && SITE.assetsV[k]) || ver(file);
  *  (in place of the Wave 0 baseline cleo.css, whose selectors clash with Constellation's — DES UX-20). */
 function styles(depth) {
   const up = '../'.repeat(depth);
-  return [`<link rel="stylesheet" href="${up}assets/cleo.css?v=${assetV('css', path.join(ROOT, 'beta', 'assets', 'cleo.css'))}">`];
+  return [`<link rel="stylesheet" href="${up}assets/cleo.css?v=${assetV('css', path.join(ROOT, 'beta', 'assets', 'cleo.css'))}">`,
+    `<link rel="stylesheet" href="${up}assets/fe-b.css?v=${febV()}">`];
 }
+/** W7: FE-B's page stylesheet (landing, hubs, static pages) — source lib/render/fe-b.css, emitted by build.js. */
+const FEB_CSS_SRC = path.join(__dirname, 'fe-b.css');
+const febV = () => ver(FEB_CSS_SRC);
 
 
 // ---------------------------------------------------------------- icons (inline sprite, no network)
@@ -91,7 +95,7 @@ function trail(rel) {
   if (!pg) return out;
   const c = SITE.countries.find(x => x.key === pg.country);
   if (pg.kind === 'country-hub') return out.concat({ name: c ? c.name : pg.name });
-  if (c) out.push({ name: c.name, href: c.href });
+  if (c) out.push({ name: c.name, href: c.href, short: c.key.length === 2 && c.name.length > 10 ? c.key.toUpperCase() : '' });   // QA-73: "‹ US" on phones
   return out.concat({ name: pg.name });
 }
 
@@ -100,13 +104,13 @@ function crumbs(rel, up) {
   const tr = trail(rel).slice(1);
   if (!tr.length) return '';
   return `<nav class="crumbs" aria-label="${t('shell.crumbs.label')}">${tr.map((c, i) => (i ? '<span class="sep" aria-hidden="true">›</span>' : '') +
-    (c.href ? `<a class="c${i}" href="${up}${esc(c.href)}">${esc(c.name)}</a>` : `<span class="here" aria-current="page">${esc(c.name)}</span>`)).join('')}</nav>`;
+    (c.href ? `<a class="c${i}" href="${up}${esc(c.href)}">${c.short ? `<span class="sh" aria-hidden="true">${esc(c.short)}</span><span class="lg">${esc(c.name)}</span>` : esc(c.name)}</a>` : `<span class="here" aria-current="page">${esc(c.name)}</span>`)).join('')}</nav>`;
 }
 
 // ---------------------------------------------------------------- locale switcher (M3-03)
-/** Rendered only once a second REVIEWED locale exists (tools/beta/i18n/*.json "reviewed": true). Until then: nothing. */
+/** Rendered once a second OFFERED locale exists (i18n D-41: human-reviewed, or AI-reviewed and labelled on the page). */
 function localeSwitch() {
-  const locs = reviewed();
+  const locs = offered();   // i18n D-41: human- and AI-reviewed locales (an AI tier carries a note, client/locale.js)
   if (locs.length < 2) return '';
   return `<nav class="locales" aria-label="${t('shell.locale.label')}">${locs.map(l => `<button type="button" class="btn btn-quiet" data-cleo-locale="${esc(l.locale)}" lang="${esc(l.locale)}" aria-pressed="${l.locale === locale()}">${esc(l.name)}</button>`).join('')}</nav>`;
 }
@@ -164,9 +168,9 @@ function footer({ depth, liveRel, notes = [], tabbar = false, current }) {
   <div class="cols">
     <div><a class="brand" href="${up}index.html" aria-label="${t('shell.brand.label')}">${MARK}<b>${t('shell.brand.word')}</b></a>
       <p>${t('foot.about', { places: T.places.toLocaleString('en-US'), guides: T.guides })}</p></div>
-    <div><h4>${t('foot.destinations')}</h4><ul>${SITE.countries.map(c => `<li><a href="${up}${esc(c.href)}">${esc(c.name)}</a></li>`).join('')}</ul></div>
-    <div><h4>${t('foot.method')}</h4><ul><li><a href="${up}how-we-choose.html">${t('foot.method.how')}</a></li><li><a href="${up}how-we-choose.html#closures">${t('foot.method.closures')}</a></li><li><a href="${up}how-we-choose.html#pins">${t('foot.method.pins')}</a></li><li><a href="${up}accessibility.html">${t('foot.method.a11y')}</a></li></ul></div>
-    <div><h4>${t('foot.yours')}</h4><ul><li><a href="${up}saved.html">${t('foot.yours.saved')}</a></li><li><a href="${up}index.html#search">${t('foot.yours.search')}</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden>${icon('moon')}<span>${t('shell.night')}</span></button></li></ul></div>
+    <div><h2 class="fh">${t('foot.destinations')}</h2><ul>${SITE.countries.map(c => `<li><a href="${up}${esc(c.href)}">${esc(c.name)}</a></li>`).join('')}</ul></div>
+    <div><h2 class="fh">${t('foot.method')}</h2><ul><li><a href="${up}how-we-choose.html">${t('foot.method.how')}</a></li><li><a href="${up}how-we-choose.html#closures">${t('foot.method.closures')}</a></li><li><a href="${up}how-we-choose.html#pins">${t('foot.method.pins')}</a></li><li><a href="${up}accessibility.html">${t('foot.method.a11y')}</a></li></ul></div>
+    <div><h2 class="fh">${t('foot.yours')}</h2><ul><li><a href="${up}saved.html">${t('foot.yours.saved')}</a></li><li><a href="${up}index.html#search">${t('foot.yours.search')}</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden>${icon('moon')}<span>${t('shell.night')}</span></button></li></ul></div>
   </div>
   <p class="legal colophon">${t('foot.colophon', { live, osm: `<a href="https://www.openstreetmap.org/copyright">${t('foot.osm')}</a>` })}</p>
 </div></footer>
@@ -175,4 +179,4 @@ ${tabbar ? tabBar({ depth, current }) : ''}
 <script src="${up}assets/js/search.js?v=${v('search.js')}" defer></script>`;
 }
 
-module.exports = { localeSwitch, siteBar, footer, tabBar, styles, setSite, site, trail, icon, MARK, LIVE_BASE };
+module.exports = { FEB_CSS_SRC, febV, localeSwitch, siteBar, footer, tabBar, styles, setSite, site, trail, icon, MARK, LIVE_BASE };

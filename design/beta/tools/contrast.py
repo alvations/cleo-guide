@@ -7,7 +7,15 @@ CSS = open(os.path.join(os.path.dirname(__file__), '..', 'tokens.css')).read()
 
 def block(sel_regex):
     m = re.search(sel_regex + r'\s*\{([^}]*)\}', CSS)
-    return dict(re.findall(r'--([\w-]+):\s*(#[0-9A-Fa-f]{6})', m.group(1))) if m else {}
+    return dict(re.findall(r'--([\w-]+):\s*(#[0-9A-Fa-f]{6}|var\(--[\w-]+\))', m.group(1))) if m else {}
+
+def resolve(T):   # v2 (W7): R6 names are aliases (--night: var(--paper)) — follow var() to the hex
+    out = {}
+    for k in T:
+        v, n = T[k], 0
+        while v.startswith('var(') and n < 8: v = T.get(v[6:-1], '#000000'); n += 1
+        out[k] = v
+    return out
 
 def lum(h):
     c = [int(h[i:i + 2], 16) / 255 for i in (1, 3, 5)]
@@ -20,6 +28,7 @@ def ratio(a, b):
 
 light = block(r':root')
 dark = dict(light); dark.update(block(r':root\[data-theme="dark"\]'))
+light, dark = resolve(light), resolve(dark)
 PAIRS = [  # (fg, bg, min, what)
     ('ink', 'paper', 4.5, 'body text'), ('ink', 'surface', 4.5, 'card text'), ('ink-2', 'paper', 4.5, 'secondary text'),
     ('ink-2', 'surface', 4.5, 'card why-line'), ('ink-3', 'paper', 4.5, 'meta'), ('ink-3', 'surface', 4.5, 'card meta'),
@@ -33,6 +42,10 @@ PAIRS = [  # (fg, bg, min, what)
     ('ink-2', 'sand', 4.5, 'view switcher label'), ('focus', 'sand', 3.0, 'focus ring on switcher'),
     ('ink-3', 'surface', 4.5, 'chart axis label'),
     ('ink', 'surface', 4.5, 'chart value label'), ('chart-gap', 'surface', 1.0, 'segment gap = surface'),
+    # W7 v2: the one accent (saved heart, count dot, day route, wordmark star) and its text-safe ink
+    ('accent-ink', 'paper', 4.5, 'accent text on ground'), ('accent-ink', 'surface', 4.5, 'accent text on sheet'),
+    ('accent-ink', 'accent-wash', 4.5, 'accent text on wash'), ('on-accent', 'accent', 4.5, 'count on accent dot'),
+    ('accent', 'surface', 3.0, 'heart glyph on card'), ('ink', 'accent-wash', 4.5, 'ink on wash'), ('warn', 'surface', 4.5, 'warning text'), ('on-sun-wash', 'sun-wash', 4.5, 'sticker badge'), ('ink', 'sun-wash', 4.5, 'ink on sun wash'),
 ]
 SKINS = re.findall(r'(\[data-city="(\w+)"\],\s*)?\.skin-(\w+)\s*\{([^}]*)\}', CSS)
 fails, rows = 0, []

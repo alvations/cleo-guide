@@ -81,6 +81,7 @@
       t: /^[123]$/,
       closed: /^1$/,
       pg: /^[1-9]\d{0,4}$/,
+      base: ID,                                        // FE-C W9-5: your base, a place id of this guide
       all: /^1$/
     },
     ok: function (k, v) {
@@ -163,6 +164,10 @@
     /** Only the lens keys of a route object (drops p, view, pg, all…). */
     pick: function (o) { var out = {}; (o = o || {}); Cleo.lens.KEYS.forEach(function (k) { if (o[k]) out[k] = o[k]; }); return out; },
     on: function (o) { return Object.keys(Cleo.lens.pick(o)).length > 0; },
+    /** PERF-08: the lens of the current route (or {}), and whether a card OR a deferred stub is shown under it — a stub
+     *  has no `hidden`, so consumers that mix stamped cards with Cleo.defer stubs ask this instead of `!c.hidden`. */
+    current: function () { return Cleo.lens.pick(Cleo.route.parse()); },
+    shows: function (c) { if (!c) return false; if (!c.stub) return !c.hidden; var L = Cleo.lens.current(); return !Cleo.lens.on(L) || Cleo.lens.match(c, L); },
     /** Apply: set `hidden` on every card (never removes a node). Returns the number shown. */
     apply: function (cards, o) { var n = 0; [].forEach.call(cards, function (c) { var v = Cleo.lens.match(c, o); c.hidden = !v; if (v) n++; }); return n; }
   };
@@ -242,6 +247,19 @@
     return pd[f];
   };
 
+  /* ---- per-place source links (beta/data/links/<fileKey>.json, perf audit PERF-04): {g: {sourceKey: groupId},
+   * p: {placeId: [[sourceKey, url], …]}} — what the place detail needs, ~7× smaller than the page dataset ---- */
+  var lk = {};
+  Cleo.links = function (key) {
+    var f = String(key || '').replace(/\//g, '--');
+    if (!lk[f]) {
+      lk[f] = window.fetch ? fetch(Cleo.root + 'data/links/' + f + '.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        : Promise.reject(new Error('no fetch'));
+      lk[f].catch(function () { delete lk[f]; });
+    }
+    return lk[f];
+  };
+
   /* ---- "your guide" data (build-time, tools/beta/lib/guide.js): signature, foodOrder, days, closed ---- */
   Cleo.guide = function (key) { return Cleo.pageData(key).then(function (d) { return d.guide; }); };
 
@@ -254,8 +272,52 @@
       return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h)));
     },
     fmt: function (km) { return km < 0.1 ? 'next door (under 0.1 km straight-line)' : (km < 10 ? km.toFixed(1) : Math.round(km)) + ' km straight-line'; },
+    /** THE walking estimate (SPEC-v3 §3.4 / §10; W9-4 trips, W9-5 base) — one function, no second copy: straight-line
+     *  metres ÷ 80 m a minute. Metres round to 10 under 1 km, one decimal of a km above. Callers state ASSUME once per view. */
+    MPM: 80, ASSUME: 'Walk times are straight-line, about 80 m a minute — an estimate, not a route',
+    walk: function (km) {
+      var T = function (k, e, v) { return Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
+      var m = km * 1000, r = Math.round(m / 10) * 10, min = Math.round(m / 80);
+      var dist = r < 1000 ? r + ' m' : (m / 1000).toFixed(1) + ' km';
+      return { m: m, min: min, dist: dist, text: dist + ' · ' + (min < 1 ? T('geo.walk.under', 'under 1 min walk') : T('geo.walk.min', '{n} min walk', { n: min })) };   // i18n D-41: Cleo.t (head snippet)
+    },
     ll: function (el) { var v = (el && el.getAttribute('data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; }
   };
+
+  /* ---- lazy modules (FE-C W9): Cleo.need('base'|'share-card', cb) loads assets/js/<n>.js once, at the version the page
+   * declares (#cleo-city info.js, or #cleo-lazy on saved.html / trip.html), so the worker's cache-first copy is never stale. ---- */
+  var lz = {};
+  Cleo.need = function (n, cb) {
+    var q = lz[n]; if (q === true) { if (cb) cb(); return; }
+    if (q) { if (cb) q.push(cb); return; }
+    q = lz[n] = cb ? [cb] : [];
+    var v = '';
+    ['cleo-city', 'cleo-lazy'].forEach(function (x) { var el = document.getElementById(x), j = null; try { j = el && JSON.parse(el.textContent); } catch (e) {} j = j && (j.js || j); if (!v && j && j[n]) v = j[n]; });
+    var s = document.createElement('script'); s.src = Cleo.root + 'assets/js/' + n + '.js' + (v ? '?v=' + v : ''); s.async = true;
+    s.onload = function () { Cleo.need.done(n); };
+    s.onerror = function () { delete lz[n]; };
+    document.head.appendChild(s);
+  };
+  /** A module announces it has run (also when a test inlines it): queued callbacks fire, later need() calls run at once. */
+  Cleo.need.done = function (n) { var q = lz[n]; lz[n] = true; if (q && q.forEach) q.forEach(function (f) { try { f(); } catch (e) {} }); };
+
+  /* ---- your base (FE-C W9-5): one place per guide, from #…&base=<id> (this visit, wins) or Cleo.store 'mybase' {pageKey: id}
+   * (the store key 'base' is the map layer). Lookups only: distances, validation and the UI are base.js's, which loads
+   * only when a base is set here (or a place sheet opens, city.js). ---- */
+  var visit = {}, pageKey = function () { var m = document.getElementById('main'); return m && m.getAttribute('data-city') || ''; };
+  var mine = function () { var a = Cleo.store.get('mybase', {}); return a && typeof a === 'object' && !Array.isArray(a) ? a : {}; };
+  var seen = false, fromUrl = function () { var k = !seen && pageKey(); if (k) { seen = true; var b = Cleo.route.parse().base; if (b) visit[k] = b; } };   // once <main> exists
+  Cleo.base = {
+    page: pageKey,
+    all: function () { fromUrl(); var a = mine(); for (var k in visit) a[k] = visit[k]; return a; },
+    get: function (k) { k = k || pageKey(); var id = k && Cleo.base.all()[k]; return id && ID.test(id) ? { key: k, id: id, ref: k + '/' + id } : null; },
+    set: function (k, id) { fromUrl(); var a = mine(); if (id) { a[k] = visit[k] = id; } else { delete a[k]; delete visit[k]; } Cleo.store.set('mybase', a); emit('cleo:base', { key: k, id: id || null }); }
+  };
+  // FE-C W9-7: any [data-cleo-card] button (place sheet, day, list, trip) draws a share image; share-card.js loads on the first tap
+  document.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('[data-cleo-card]'); if (!b) return; e.preventDefault(); Cleo.need('share-card', function () { if (Cleo.shareCard) Cleo.shareCard(b); }); });
+  document.addEventListener('DOMContentLoaded', function () {
+    if (Object.keys(Cleo.base.all()).length && (Cleo.base.get() || document.getElementById('cleo-saved'))) Cleo.need('base');
+  });
 
   /* ---- map art (build-time SVG from verified pins, tools/beta/lib/art.js): place a locator dot ----
    * proj = {w,h,pad,box:[minLat,minLng,maxLat,maxLng],kx,ky}; returns [x,y] in the SVG's own units. */
@@ -274,15 +336,23 @@
     layer.on('tileerror', function () { if (!ok && !done && ++errs >= n) { done = true; onFail(); } });
   };
 
+  // the build-time schematic inside #cleo-map: kept before a map mount clears it, so a fallback re-shows it (platform W7)
+  (function () { var m = document.getElementById('cleo-map'), i = m && m.querySelector('.map-art img'); if (i) m._cleoArt = i; })();
+
   /* ---- tiles failed: drop the dead map, show the build-time schematic + the VOICE.md copy ---- */
   Cleo.mapFallback = function (el, map) {
     try { if (map && map.remove) map.remove(); } catch (e) {}
     var art = el.getAttribute('data-art'), alt = el.getAttribute('data-art-alt') || '';
     el.innerHTML = (art ? '<figure class="map-art map-fallback"><img alt="" decoding="async" style="max-width:100%;height:auto"><figcaption></figcaption></figure>'
       : '<div class="map-fallback"><p></p></div>');
-    var img = el.querySelector('img'); if (img) { img.src = art; img.alt = alt; }
+    var img = el.querySelector('img'), kept = el._cleoArt;
+    // reuse the page's own schematic <img> (stashed below before the map cleared it): no second fetch of map.svg
+    if (img && kept && kept.getAttribute('src') === art) { kept.alt = alt; kept.style.cssText = img.style.cssText; img.parentNode.replaceChild(kept, img); img = null; }
+    if (img) { img.src = art; img.alt = alt; }
     var cap = el.querySelector('figcaption, p');
-    cap.innerHTML = '<strong>The map couldn\u2019t load.</strong> The list still has every place, address and source. ' +
+    var off = el.getAttribute('data-l-offline');   // W9-8: "Map unavailable · all N places listed" (catalogue string, rendered by the build)
+    cap.innerHTML = (off ? '<strong class="map-off">' + off.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }) + '</strong><br>' : '') +
+      '<strong>The map couldn\u2019t load.</strong> The list still has every place, address and source. ' +
       'We\u2019re showing map art from our own pins until tiles return. <button type="button" class="map-retry">Try again</button>';
     cap.querySelector('button').addEventListener('click', function () { location.reload(); });
     el.setAttribute('data-tiles', 'failed');
@@ -296,7 +366,7 @@
    * `cleo:stamped` {cards} synchronously, so page scripts adopt the new cards before their own handlers run. ---- */
   var D = Cleo.defer = {
     pending: function () { return [].slice.call(document.querySelectorAll('noscript[data-cleo-defer]')); },
-    stamp: function (ns) {
+    stamp: function (ns, quiet) {   // quiet: the caller emits one cleo:stamped for the whole batch (perf audit PERF-0x)
       if (!ns || !ns.parentNode) return [];
       var t = document.createElement('template'), ol = ns.parentNode;
       t.innerHTML = ns.children && ns.children.length ? ns.innerHTML : ns.textContent;   // scripting off in this parser → already elements
@@ -305,10 +375,11 @@
       var gap = ol.querySelector('.cleo-defer-gap');
       if (gap) { var left = 0; [].forEach.call(ol.querySelectorAll('noscript[data-cleo-defer]'), function (x) { left += +x.getAttribute('data-n') || 0; });
         if (left) gap.style.height = Math.round(left * (+gap.getAttribute('data-est') || 0)) + 'px'; else ol.removeChild(gap); }
-      if (cards.length) emit('cleo:stamped', { cards: cards });
+      if (cards.length && !quiet) emit('cleo:stamped', { cards: cards });
       return cards;
     },
-    all: function () { var out = []; D.pending().forEach(function (ns) { out = out.concat(D.stamp(ns)); }); if (io) { io.disconnect(); io = null; }
+    all: function () { var out = []; D.pending().forEach(function (ns) { out = out.concat(D.stamp(ns, 1)); }); if (io) { io.disconnect(); io = null; }
+      if (out.length) emit('cleo:stamped', { cards: out });   // ONE event for every chunk: listeners adopt and re-page once, not per chunk
       VC.slice().forEach(function (c) { c.all(); }); return out; },             // view chunks too (R-33)
     /** Stamp the chunk holding place `id` (a map pin of a not-yet-stamped card). Returns the card or null. */
     stampFor: function (id) {
@@ -319,20 +390,70 @@
     },
     /** Lightweight stand-ins for unstamped cards, parsed from their start tags only: {id, getAttribute, hasAttribute}.
      *  Enough to draw a map pin (data-ll, data-n, data-a, data-t, data-closed) without building the card. */
-    peek: function () {
-      var out = [];
+    /** opts.lens (a lens object, Cleo.lens.pick of a route): only the stubs that lens shows (PERF-08); default: every stub */
+    peek: function (opts) {
+      var out = [], L = opts && opts.lens && Cleo.lens.on(opts.lens) ? opts.lens : null;
       D.pending().forEach(function (ns) {
         var src = ns.children && ns.children.length ? ns.innerHTML : ns.textContent, re = /<li class="pl[ "][^>]*>/g, m;
         while ((m = re.exec(src))) {
           var at = {}, a = /([a-z-]+)(?:="([^"]*)")?/g, x, tag = m[0].slice(3, -1);
           while ((x = a.exec(tag))) at[x[1]] = x[2] === undefined ? '' : x[2].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-          out.push({ id: at.id, stub: true, getAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k) ? this._a[k] : null; },
-            hasAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k); }, _a: at });
+          var st = { id: at.id, stub: true, getAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k) ? this._a[k] : null; },
+            hasAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k); }, _a: at };
+          if (!L || Cleo.lens.match(st, L)) out.push(st);
         }
       });
       return out;
+    },
+    /** PERF-08: stamp only the cards a lens shows (the rest stay deferred, still reachable: "Show all", deep links, search,
+     *  print, find-in-page stamp them). A text query (q) can't be judged on a stub (it has only its id), so q stamps
+     *  everything, as before. Returns the stamped cards. */
+    stampLens: function (o) {
+      var L = Cleo.lens.pick(o || {});
+      if (!Cleo.lens.on(L)) return [];
+      if (L.q) return D.all();
+      var ids = new Set(D.peek({ lens: L }).map(function (s) { return s.id; }));
+      return ids.size ? D.stampIds(ids) : [];
+    },
+    /** PERF-08 switch: when true, a lens route stamps only its matching cards (stampLens) instead of every card. OFF again
+     *  (2026-10-16): with it on, QA-75 (a deep-linked tier lens dropped under a remembered Guidebook/Insights view), QA-76
+     *  (Atlas "Show all N" mid-fit) and likely QC-26 (sheet "1 of N") — consumers that still read stamped cards as the
+     *  whole set. Re-land after the deploy with those fixed and probed — see BETA-PERF-AUDIT PERF-08. */
+    selective: false,
+    /** Every card in document (= view) order, stamped or not, WITHOUT stamping: [{id:'p-…', a, el|null, ns|null}].
+     *  Lets the Gallery pager place a deep link on its page and stamp only that page (platform W7, R6 gap #5). */
+    order: function () {
+      var out = [];
+      [].forEach.call(document.querySelectorAll('li.pl, noscript[data-cleo-defer]'), function (x) {
+        if (x.tagName === 'LI') { out.push({ id: x.id, a: x.getAttribute('data-a'), el: x, ns: null }); return; }
+        cardsOf(x).forEach(function (c) { var t = c.slice(0, c.indexOf('>')), m = /\bid="([^"]*)"/.exec(t), a = /\bdata-a="([^"]*)"/.exec(t);
+          out.push({ id: m ? m[1] : '', a: a ? a[1].replace(/&amp;/g, '&') : null, el: null, ns: x }); });
+      });
+      return out;
+    },
+    /** Stamp exactly the cards whose element id is in `want` (Set of 'p-…'), splitting their chunks so the rest stay
+     *  deferred. Returns the stamped cards. */
+    stampIds: function (want) {
+      var out = [];
+      D.pending().forEach(function (ns) {
+        var cards = cardsOf(ns), hit = cards.map(function (c) { var m = /\bid="([^"]*)"/.exec(c.slice(0, c.indexOf('>'))); return !!(m && want.has(m[1])); });
+        if (!hit.some(Boolean)) return;
+        if (hit.every(Boolean)) { out = out.concat(D.stamp(ns, 1)); return; }
+        var ol = ns.parentNode, runs = [], cur = null, made = [];
+        cards.forEach(function (c, i) { if (!cur || cur.h !== hit[i]) runs.push(cur = { h: hit[i], c: [] }); cur.c.push(c); });
+        runs.forEach(function (r) {
+          var n = document.createElement('noscript'); n.setAttribute('data-cleo-defer', ''); n.setAttribute('data-n', String(r.c.length));
+          n.setAttribute('style', 'display:contents'); n.textContent = '\n' + r.c.join('\n') + '\n'; ol.insertBefore(n, ns); if (r.h) made.push(n);
+        });
+        ol.removeChild(ns);
+        made.forEach(function (n) { out = out.concat(D.stamp(n, 1)); });
+      });
+      if (out.length) emit('cleo:stamped', { cards: out });
+      return out;
     }
   };
+  var CARD = /<li class="pl[ "][\s\S]*?<\/li>/g;           // same card pattern as tools/beta/lib/chunk.js
+  function cardsOf(ns) { return (ns.children && ns.children.length ? ns.innerHTML : ns.textContent).match(CARD) || []; }
   /* ---- view chunks (P-05, R-33): the same progressive rendering for content a VIEW builds on the client (Guidebook
    * chapters, Gallery rails/pages, Insights cards). `parts` = HTML strings in order; `initial` render now, the rest as
    * the host's end nears the viewport (IntersectionObserver, 1,200 px), and ALL of them on anything that needs every
@@ -378,7 +499,11 @@
   };
   Cleo.chunks.pending = function () { return VC.length; };
 
-  var io = null;
+  var io = null, watched = [];
+  /** A view that stamps exactly what it shows (the paged Gallery) sets D.hold = () => true while that holds, so the lazy
+   *  observer doesn't stamp chunks the page then hides; D.resume() re-checks every watched list once the hold lifts. */
+  D.hold = null;
+  D.resume = function () { if (!io) return; watched.slice().forEach(function (t) { io.unobserve(t); io.observe(t); }); };
   /** What the URL needs stamped: 'p' = one place only (keys p/view/map/pg/all, or a #p-<id> anchor); true = nothing
    *  (a view switch, the map toggle, a Gallery page — no lens); false = every card (a lens, an area anchor, a day…). */
   var QUIET = ['p', 'view', 'map', 'pg', 'all'];
@@ -393,7 +518,8 @@
   function stampPlace() {
     var m = /^#p-(.+)$/.exec(location.hash), id = m ? m[1] : Cleo.route.parse().p;
     VC.slice().forEach(function (c) { c.reach(id); });                       // a view's own chunk holding the place
-    if (!D.stampFor(id)) D.all();                  // unknown id: let the page see everything (its "not found" path)
+    // just that card (its chunk stays deferred: R6 gap #5); unknown id: let the page see everything ("not found" path)
+    if (!document.getElementById('p-' + id) && !D.stampIds(new Set(['p-' + id])).length) D.all();
   }
   function deferInit() {
     var list = D.pending(); if (!list.length) return;
@@ -405,9 +531,12 @@
     var q = quiet();
     if (q === 'p') { stampPlace(); emit('cleo:route', {}); }
     else if (!q) {
-      D.all();
+      var lr = D.selective && lensOnly();
+      // PERF-08: a lens link builds only what the lens shows (+ its #p= place); the rest stay lazy for when it clears
+      if (lr) lensNow(lr);
+      else D.all();
       emit('cleo:route', {});                          // page scripts that already routed (inline/jsdom order) route again
-      return;
+      if (!lr) return;
     }
     // hold each deferred list's height so the scrollbar and anchors don't jump while it is unstamped
     var live = document.querySelector('ol.pls'), cards = live ? live.querySelectorAll(':scope > li.pl') : [];
@@ -416,14 +545,16 @@
     // nears the viewport, stamp that one chunk and move the watch to the new last card
     var watch = function (ol) {
       var ns = ol.querySelector('noscript[data-cleo-defer]'); if (!ns || !io) return;
-      var t = ns.previousElementSibling || ol; t._cleoNext = ns; io.observe(t);
+      var t = ns.previousElementSibling || ol; t._cleoNext = ns; watched.push(t); io.observe(t);
     };
     io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
-        if (!e.isIntersecting || !io) return;
-        io.unobserve(e.target);
-        var ns = e.target._cleoNext, ol = ns && ns.parentNode; e.target._cleoNext = null;
-        if (ol) { D.stamp(ns); watch(ol); }
+        if (!e.isIntersecting || !io || (D.hold && D.hold()) || lensed()) return;   // held: the view stamps its own page (Gallery pager) / a selective lens is on
+        io.unobserve(e.target); watched.splice(watched.indexOf(e.target) >>> 0, 1);
+        var ns = e.target._cleoNext; e.target._cleoNext = null;
+        // the watched chunk may have been split by stampIds since: stamp what is now the list's first chunk
+        var ol = ns && (ns.parentNode || (e.target.matches('ol') ? e.target : e.target.closest('ol')));
+        if (ol) { var first = ns.parentNode ? ns : ol.querySelector('noscript[data-cleo-defer]'); if (first) D.stamp(first); watch(ol); }
       });
     }, { rootMargin: '1200px 0px' });
     D.pending().forEach(function (ns) {                 // re-read: a place link may have stamped one chunk already
@@ -437,17 +568,31 @@
       }
       watch(ol);
     });
+    gaps();
   }
   var allNow = function () { if (D.pending().length || VC.length) D.all(); };
   // a place link (card, pin, shared #p=, Back/Forward between sheets) needs only its own card (R-32, gap #6); anything
   // else addressed by the URL needs every card. Registered when core.js runs — before any page script's listener — so
   // stamped cards are adopted before the page routes.
-  var routed = function () { if (!D.pending().length && !VC.length) return; var q = quiet(); if (q === 'p') stampPlace(); else if (!q) allNow(); };
+  // PERF-08: a route whose only non-quiet keys are lens keys stamps just what the lens shows (when D.selective is on)
+  var lensOnly = function () { var r = Cleo.route.parse(), ks = Object.keys(r); return Cleo.lens.on(r) && ks.every(function (k) { return QUIET.indexOf(k) >= 0 || Cleo.lens.KEYS.indexOf(k) >= 0; }) ? r : null; };
+  // under a selective lens the cards it leaves unstamped are outside it: their lists' height spacers fold away and the lazy
+  // observer waits; when the lens clears both come back (scrolling then builds every card, as with no lens)
+  // a selective lens: its matching cards, its #p= place, and every view chunk (a view's own list must meet the lens too)
+  var lensNow = function (lr) { D.stampLens(lr); if (lr.p) stampPlace(); VC.slice().forEach(function (c) { c.all(); }); };
+  var lensed = function () { return !!D.selective && D.pending().length > 0 && Cleo.lens.on(Cleo.lens.current()); };
+  var gaps = function () { var off = lensed(); [].forEach.call(document.querySelectorAll('.cleo-defer-gap[data-est]'), function (g) { g.style.display = off ? 'none' : ''; }); };
+  var routed = function () { if (!D.pending().length && !VC.length) return; var q = quiet(); if (q === 'p') stampPlace();
+    else if (!q) { var lr = D.selective && lensOnly(); if (lr) lensNow(lr); else allNow(); }
+    if (D.selective) { gaps(); if (!lensed()) D.resume(); } };
   window.addEventListener('hashchange', routed);
   document.addEventListener('cleo:route', routed);
   window.addEventListener('beforeprint', allNow);
   var NEEDS_ALL = '[data-mode],[data-cleo-all],.rail-i,.pl-s button.src,[data-cleo-tray],[data-cleo-map],[data-unset],[data-tr],[data-cleo-day],[data-cleo-near],[data-cleo-foryou],[data-cleo-mine]';
-  document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest(NEEDS_ALL)) allNow(); }, true);
+  // a lens control (.rail-i collection, [data-mode]) routes through the hash: with D.selective on, routed() stamps only
+  // what that lens shows, so the click itself no longer stamps everything (PERF-08)
+  var LENS_CTL = '.rail-i:not([data-cleo-all]):not([data-cleo-foryou]):not([data-cleo-day]):not([data-cleo-near]):not([data-cleo-mine]),[data-mode]';
+  document.addEventListener('click', function (e) { var t = e.target.closest && e.target.closest(NEEDS_ALL); if (!t) return; if (D.selective && t.matches(LENS_CTL)) return; allNow(); }, true);
   document.addEventListener('focusin', function (e) { if (e.target.matches && e.target.matches('#cleo-filter,main input[type=search]')) allNow(); }, true);
   document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && (e.key === 'f' || e.key === 'F' || e.key === 'g')) allNow(); }, true);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', deferInit); else deferInit();
@@ -482,6 +627,64 @@
       });
     }
   };
+  /* ---- W9-8 offline city pack: "Keep <city> offline" (data/packs/<page>.json, service worker cache `cleo-packs`, which a
+   * deploy never wipes). Content never depends on it: no worker, no Cache Storage, or any storage failure → the control
+   * stays hidden or says so, and the page works as before. Tiles are never cached (the pack lists none). ---- */
+  var swCall = function (msg, want) {
+    return navigator.serviceWorker.ready.then(function (reg) { return new Promise(function (ok) {
+      var t = setTimeout(function () { ok({ ok: 0, error: 'timeout' }); }, 120000);
+      navigator.serviceWorker.addEventListener('message', function h(e) { if (e.data && e.data.type === want && e.data.key === msg.key) { clearTimeout(t); navigator.serviceWorker.removeEventListener('message', h); ok(e.data); } });
+      reg.active.postMessage(msg);
+    }); });
+  };
+  Cleo.pack = {
+    manifest: function (key) { return fetch(Cleo.root + 'data/packs/' + key + '.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); },
+    /** the stored record {key, date, bytes, stated, urls…} or null */
+    state: function (key) {
+      if (!window.caches) return Promise.resolve(null);
+      return caches.open('cleo-packs').then(function (c) { return c.match(new URL('__pack/' + encodeURIComponent(key), new URL(Cleo.root, location.href)).href); })
+        .then(function (r) { return r ? r.json() : null; }).catch(function () { return null; });
+    },
+    save: function (key) {
+      return Cleo.pack.manifest(key).then(function (m) {
+        var base = new URL(Cleo.root, location.href);
+        return swCall({ type: 'pack', key: key, urls: m.files.map(function (f) { return new URL(f[0], base).href; }), meta: { name: m.name, bytes: m.bytes } }, 'packed');
+      });
+    },
+    remove: function (key) { return swCall({ type: 'unpack', key: key }, 'unpacked'); }
+  };
+  var mb = function (n) { return n >= 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB'; };
+  var dayOf = function (iso) { try { return new Date(iso).toLocaleDateString(document.documentElement.lang || 'en', { day: 'numeric', month: 'short', year: 'numeric' }); } catch (e) { return String(iso).slice(0, 10); } };
+  function packUi() {
+    var box = document.querySelector('[data-cleo-pack]');
+    if (!box || !('serviceWorker' in navigator) || !window.caches || !/^https?:$/.test(location.protocol)) return;
+    var key = box.getAttribute('data-key'), q = function (s) { return box.querySelector(s); };
+    var keep = q('[data-pack="keep"]'), rm = q('[data-pack="remove"]'), size = q('[data-pack-size]'), done = q('[data-pack-done]'), msg = q('[data-pack-msg]');
+    var paint = function (st) {
+      keep.hidden = !!st; rm.hidden = !st; done.hidden = !st; if (size) size.hidden = !!st;
+      if (st) done.textContent = done.getAttribute('data-l').replace('{date}', dayOf(st.date)) + ' · ' + mb(st.bytes);
+    };
+    Cleo.pack.manifest(key).then(function (m) {
+      size.textContent = size.getAttribute('data-l').replace('{size}', mb(m.bytes)); box.hidden = false;
+      return Cleo.pack.state(key).then(function (st) {
+        paint(st);
+        // a kept city refreshes itself on an online visit, so it follows deploys (PERF-13) without a tap
+        if (st && navigator.onLine !== false) Cleo.pack.save(key).then(function (r) { if (r && r.ok) Cleo.pack.state(key).then(paint); });
+      });
+    }).catch(function () { /* no manifest (offline first visit, or not built): the control stays hidden */ });
+    keep.addEventListener('click', function () {
+      keep.disabled = true; msg.textContent = msg.getAttribute('data-l-saving');
+      Cleo.pack.save(key).then(function (r) {
+        keep.disabled = false;
+        if (!r || !r.ok || r.ok < r.n) { msg.textContent = msg.getAttribute('data-l-failed'); return; }
+        msg.textContent = ''; emit('cleo:pack', r); return Cleo.pack.state(key).then(paint);
+      }, function () { keep.disabled = false; msg.textContent = msg.getAttribute('data-l-failed'); });
+    });
+    rm.addEventListener('click', function () {
+      Cleo.pack.remove(key).then(function () { paint(null); msg.textContent = msg.getAttribute('data-l-removed'); emit('cleo:pack', { removed: key }); });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', packUi); else packUi();
   if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol) && Cleo.root) {
     window.addEventListener('load', function () {
       navigator.serviceWorker.register(Cleo.root + 'sw.js').then(function () { return Cleo.offline.save(); }).catch(function () {});

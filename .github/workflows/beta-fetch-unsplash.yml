@@ -1,0 +1,163 @@
+# Beta imagery: fetch vetted, credited photos for the beta.
+#
+# Why this runs on GitHub Actions: the authoring sandbox cannot reach the image hosts (network
+# policy), but a GitHub-hosted runner can. Two sources, each with its own vetted candidate manifest
+# and fetch script:
+#
+#   1. Wikimedia Commons — needs NO key. tools/beta/imagery/fetch-commons.js reads
+#      beta/assets/img/commons-candidates.json, re-checks every file with the Commons API (free licence
+#      only: CC0 / PD / CC BY / CC BY-SA; author present; the title, description or categories name the
+#      place), stores sized thumbnails under beta/assets/img/photos/ and writes a TASL credit row per
+#      photo to beta/assets/img/CREDITS.json. A rerun resumes where the last one stopped.
+#   2. Unsplash — runs only when the UNSPLASH_ACCESS_KEY repository secret is set
+#      (Settings → Secrets and variables → Actions). tools/beta/imagery/fetch-unsplash.js re-reads each
+#      candidate from the official API, keeps only high-confidence matches, skips paid photos and fires
+#      download_location as the API guidelines require.
+#
+# Food places, venues, closed places and Vietnam never get a photo. After fetching, the job rebuilds the
+# beta and runs validate + test (the credit gate refuses any uncredited or non-free photo); it commits
+# only when every gate passes.
+name: beta-fetch-unsplash
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: "What this run may fetch: heroes | priority | pilots | all (fetch-commons.js --scope)"
+        required: false
+        default: priority
+      budget:
+        description: "Commons API requests this run (1-1500; 400 ms apart). Default 300; a wide `all` sweep may use up to 1500"
+        required: false
+        default: "300"
+  push:
+    branches: [claude/peaceful-goodall-i0hsrt]
+    paths:
+      - beta/assets/img/commons-candidates.json
+      - beta/assets/img/unsplash-candidates.json
+      - tools/beta/imagery/**
+      - .github/workflows/beta-fetch-unsplash.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: beta-fetch-unsplash
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/peaceful-goodall-i0hsrt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          # perf audit PERF-05: cache ~/.npm keyed on tools/package.json (there is no lockfile in this repo)
+          cache: npm
+          cache-dependency-path: tools/package.json
+
+      - name: Install tools
+        # package-lock.json is gitignored in this repo, so npm ci cannot run here.
+        run: cd tools && npm install --no-audit --no-fund
+
+      - name: Install the image encoder (sharp)
+        # Used only by recompress.js below. --no-save keeps it out of package.json; without it the
+        # recompress step prints a note and leaves the photos at full weight.
+        run: cd tools && npm install --no-save --no-audit --no-fund sharp
+
+      - name: Fetch Wikimedia Commons photos (no key needed)
+        # Push-triggered runs use the default scope (priority); wider scopes only by hand (workflow_dispatch),
+        # so no stray run can pull hundreds of photos.
+        env:
+          SCOPE: ${{ github.event.inputs.scope || 'priority' }}
+          BUDGET: ${{ github.event.inputs.budget || '300' }}
+        run: |
+          case "$SCOPE" in heroes|priority|pilots|all) ;; *) echo "::error::unknown scope '$SCOPE'"; exit 1;; esac
+          [[ "$BUDGET" =~ ^[0-9]+$ && "$BUDGET" -ge 1 && "$BUDGET" -le 1500 ]] || { echo "::error::budget must be 1-1500"; exit 1; }
+          if [ -f tools/beta/imagery/fetch-commons.js ]; then
+            node tools/beta/imagery/fetch-commons.js --scope "$SCOPE" --budget "$BUDGET" --widths 500,960 --hero-widths 500,960
+          else
+            echo "::warning::tools/beta/imagery/fetch-commons.js is not on this branch; skipping Commons."
+          fi
+
+      - name: Fetch Unsplash photos (only with the key)
+        run: |
+          if [ -z "$UNSPLASH_ACCESS_KEY" ]; then
+            echo "UNSPLASH_ACCESS_KEY secret is not set; skipping Unsplash."
+          elif [ ! -f tools/beta/imagery/fetch-unsplash.js ]; then
+            echo "::warning::tools/beta/imagery/fetch-unsplash.js is not on this branch; skipping Unsplash."
+          else
+            node tools/beta/imagery/fetch-unsplash.js
+          fi
+
+      - name: Recompress photos to the weight budget
+        # Re-encodes credited Commons JPEGs in place (progressive, metadata stripped, quality <= 72, never
+        # below 50; pixel size unchanged) and notes the change in each credit row. Skips rows already done.
+        run: |
+          if [ -f tools/beta/imagery/recompress.js ]; then
+            node tools/beta/imagery/recompress.js
+          else
+            echo "::warning::tools/beta/imagery/recompress.js is not on this branch; skipping recompress."
+          fi
+
+      - name: Did this run fetch or re-encode anything?
+        # perf audit PERF-05: the job only adds photos and credits under beta/assets/img/. A run that found nothing
+        # new has nothing to rebuild or commit, so it skips the rebuild and the gates (≈ 5 of its 6 minutes).
+        # Lanes rebuild and gate their own source changes before they push (CLAUDE.md, beta:check).
+        id: changed
+        run: |
+          if [ -n "$(git status --porcelain -- beta/assets/img)" ]; then echo "any=1" >> "$GITHUB_OUTPUT"; else echo "any=0" >> "$GITHUB_OUTPUT"; echo "No new photos or credits; skipping the rebuild."; fi
+
+      - name: Rebuild the beta and run the gates
+        if: steps.changed.outputs.any == '1'
+        run: |
+          cd tools
+          npm run beta
+          npm run validate
+          npm test
+          npm run beta:check
+
+      - name: Commit photos and credits
+        if: steps.changed.outputs.any == '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add beta
+          if git diff --cached --quiet; then
+            echo "No new photos."
+            exit 0
+          fi
+          git commit -m "Beta imagery: fetch vetted Commons/Unsplash photos + credits (Actions)"
+          # Other lanes push to this branch while the job runs. This job only adds photos and credits under
+          # beta/assets/img/ and regenerates the built pages. A conflict in a built page is resolved by
+          # rebuilding from the merged sources and re-running the gates. Any other conflict stops the job.
+          sync_and_push() {
+            git fetch origin claude/peaceful-goodall-i0hsrt || return 1
+            if ! git merge --no-edit origin/claude/peaceful-goodall-i0hsrt; then
+              conflicted=$(git diff --name-only --diff-filter=U)
+              if printf '%s\n' "$conflicted" | grep -v '^beta/' | grep -q . || \
+                 printf '%s\n' "$conflicted" | grep -q '^beta/assets/img/'; then
+                echo "::error::merge conflict outside the built pages:"; printf '%s\n' "$conflicted"
+                git merge --abort; return 2
+              fi
+              git diff --name-only --diff-filter=U -z | xargs -0 git checkout --theirs --
+              (cd tools && npm run beta && npm run validate && npm test && npm run beta:check) || return 2
+              git add -A beta && git commit --no-edit || return 2
+            fi
+            git push origin HEAD:claude/peaceful-goodall-i0hsrt
+          }
+          # the branch moves faster than a run lasts (a dozen lanes push to it), so a rejected push ("fetch first")
+          # is retried up to 6 times; a real conflict outside the built pages (return 2) still stops the job
+          for i in 1 2 3 4 5 6; do
+            sync_and_push && exit 0
+            [ $? -eq 2 ] && exit 1
+            sleep $((5 + i * 5))
+          done
+          exit 1

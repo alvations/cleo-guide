@@ -18,6 +18,8 @@ const NATIVE = /\(([^()]*[^\x00-\x7F\u00C0-\u024F\u1E00-\u1EFF\u2000-\u206F][^()
 const nativeOf = s => { const m = NATIVE.exec(String(s || '')); return m ? m[1].trim() : null; };
 
 const CLOSED_RE = /\s*[—–-]+\s*CLOSED\b.*$/i;
+// a source entry that is not a physical place (Cleveland's "@neorsd — not a place, but on the list"): listed, never pinned
+const NOT_PLACE_RE = /\bnot a place\b/i;
 const baseName = n => n.replace(CLOSED_RE, '').trim();
 
 function fnv(s) { let h = 0x811c9dc5; for (const c of s) { h ^= c.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); }
@@ -67,6 +69,7 @@ function normalise(row) {
     if (nat) rec.nat = nat;
     if (closed) rec.closed = true;
     if (r.warn) rec.warn = r.warn;
+    if (NOT_PLACE_RE.test(r.n)) rec.np = true;
     if (g) {
       rec.pv = {};
       if (g.statusChecked) rec.pv.checked = g.statusChecked;
@@ -74,7 +77,12 @@ function normalise(row) {
       if (g.confidence) rec.pv.pin = g.confidence;
       if (g.source) rec.pv.src = g.source;                         // pin source + date (sheet "Pinned to the door: …")
       if (g.verified) rec.pv.verified = g.verified;
-      if (closed && g.statusSource) rec.pv.ss = g.statusSource;    // why we say it closed
+      // FE-B QC-25: statusSource is internal research text (some notes name review sites) — only its first URL ships
+      // (pv.ss); the note stays build-side, non-enumerable, for the W9-2 retiring count (never serialised)
+      if (closed && g.statusSource) {
+        const u = statusUrl(g.statusSource); if (u) rec.pv.ss = u;
+        Object.defineProperty(rec.pv, 'note', { value: String(g.statusSource), enumerable: false });
+      }
     }
     recs.push(rec);
   };
@@ -110,4 +118,7 @@ function sourceHref(reg, key, ref) {
   return { href: regUrl, note: r || null };
 }
 
-module.exports = { sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
+// QC-25: the first http(s) URL in a geocodes statusSource note, or '' (same rule as render/city.js statusUrl)
+const statusUrl = n => ((/https?:\/\/[^\s;,'"()<>]+/.exec(String(n || '')) || [])[0] || '').replace(/[.]+$/, '');
+
+module.exports = { statusUrl, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };

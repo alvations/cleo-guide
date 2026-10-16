@@ -11,38 +11,57 @@
   const fold = Cleo.fold || (s => String(s || '').toLowerCase());
   cards.forEach(c => { byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
   const desk = () => !window.matchMedia || matchMedia('(min-width: 1024px)').matches;
-  const LENS = ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day'], RAIL = ['sig', 'c', 'cz', 't', 'src', 'gap', 'closed'], S = { mode: 'all', q: '', sort: '' };
+  const LENS = ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day', 'rec'], RAIL = ['sig', 'c', 'cz', 't', 'src', 'gap', 'closed', 'rec'],   // 'rec': FE-C W9-1 hook
+  S = { mode: 'all', q: '', sort: '' };
   const store = Cleo.store || { get: (k, x) => x, set: () => {} };
   const been = { all: () => { const b = store.get('been', {}); return b && typeof b === 'object' ? b : {}; },
     toggle(r) { const b = been.all(); if (b[r]) delete b[r]; else b[r] = 1; store.set('been', b); paint(); return !!b[r]; } };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const icon = n => '<svg class="ico" aria-hidden="true"><use href="#i-' + n + '"/></svg>';
-  const pl = n => n + (n === 1 ? ' place' : ' places'), ar = n => n + (n === 1 ? ' area' : ' areas');
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n)
+  const tt = (k, e, v) => Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, (m, n) => (n in v ? v[n] : m)) : e;
+  const pl = n => n === 1 ? tt('hub.places.one', '1 place') : tt('hub.places', '{n} places', { n }), ar = n => n === 1 ? tt('city.areas.one', '1 area') : tt('city.areas', '{n} areas', { n });
   const trap = (host, close) => on(host, 'keydown', e => {
     if (e.key === 'Escape') { e.preventDefault(); close(); return; }
     if (e.key !== 'Tab') return;
     const f = $$('a[href],button', host).filter(x => x.offsetParent !== null), l = f[f.length - 1];
-    if (e.shiftKey && d.activeElement === f[0]) { e.preventDefault(); l.focus(); } else if (!e.shiftKey && d.activeElement === l) { e.preventDefault(); f[0].focus(); }
+    if (e.shiftKey && (d.activeElement === f[0] || !f.includes(d.activeElement))) { e.preventDefault(); l.focus(); } else if (!e.shiftKey && d.activeElement === l) { e.preventDefault(); f[0].focus(); }
   });
   // hooks for foryou.js / day.js: rank(card) → sort key (lower first) and why(card) → 'First because' text; lens[k](n) → html;
   // after[] run once per apply (map overlays); dist {id: km} while Near me is on (never stored)
   const nameOf = c => { const a = $('.pl-n a', c); if (!a) return ''; const x = a.cloneNode(true); if (c.querySelector('.pl-vert')) $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };
   const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, lens: {}, after: [], rank: null, why: null, dist: null };
-  $$('[data-cleo-rail],[data-cleo-toolbar]').forEach(el => { el.hidden = false; });
+  $$('[data-cleo-rail],[data-cleo-toolbar],[data-cleo-search],[data-cleo-mappill]').forEach(el => { el.hidden = false; });
+  // QA-69: the floating "Show map" pill stays visible at load and at rest — the first screen's way to the map. (The W8
+  // step-aside hid it at load whenever a card title sat under it; B-08 passes under the ratified .mappill exemption.)
   // For you / Near me (foryou.js) and Your day (day.js) load on first use — a tap, a stored interest or a #day= route
   const need = C.need = (n, cb) => {
-    if (n === 'foryou' ? C.fy : C.day) { if (cb) cb(); return; }
+    if ({ foryou: C.fy, day: C.day, atlas: C.atlasTools }[n]) { if (cb) cb(); return; }
     const q = need.q[n] = need.q[n] || []; q.push(cb); if (q.length > 1) return;
     const s = d.createElement('script'); s.src = (Cleo.root || '../') + 'assets/js/' + n + '.js?v=' + ((info.js || {})[n] || ''); s.async = true;
     s.onload = () => q.splice(0).forEach(f => f && f()); d.head.appendChild(s);
   };
+  // FE-C W9-5 hook: "Set as my base" in the place sheet. base.js loads on the first sheet (core loads it at once when a base is set)
+  { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need) Cleo.need('base', () => C.baseSheet && C.baseSheet(c)); }; }
+  // FE-C W9-1 hook: the recognition badges are drawn by recognition.js (lazy) on pages that have recognised places
+  if (Cleo.need && d.querySelector('.rail-i[data-rec]')) Cleo.need('recognition');
+  // FE-C W9-2 hook: the quiet "Status checked <d Mon>" card line is drawn by fresh.js (lazy) from each card's data-checked
+  if (Cleo.need) Cleo.need('fresh');
   need.q = {};
   const rail = $('#cleo-rail'), shown = $('#cleo-shown'), lens = $('#cleo-lens'), applied = $('[data-cleo-applied]'), fi = $('#cleo-filter'), split = $('.split');
+  // R7 gap 2(c): the placeholder is never clipped mid-letter — "Search {city}" where it fits, else "Search" (a narrow
+  // phone pill, a long guide name), else none; re-fitted whenever the box changes size
+  if (fi) { let full = fi.placeholder; const cv = d.createElement('canvas').getContext('2d'), fit = () => { if (!fi.clientWidth) return;
+      const c = getComputedStyle(fi), room = fi.clientWidth - parseFloat(c.paddingLeft) - parseFloat(c.paddingRight); cv.font = c.fontWeight + ' ' + c.fontSize + ' ' + c.fontFamily;
+      fi.placeholder = cv.measureText(full).width <= room ? full : cv.measureText(tt('city.search.short', 'Search')).width <= room ? tt('city.search.short', 'Search') : ''; };   // '': the icon-only pill (Atlas toolbar); the label names it
+    on(d, 'cleo:locale', () => { full = tt('city.search', 'Search {city}', { city: info.name }); fit(); });   // i18n D-41
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(fi); else on(window, 'resize', fit);
+    if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit); }
   const shown0 = shown ? shown.innerHTML : '';
   const go = C.go = (r, rep) => Cleo.route.go(r, rep);
   const cur = () => { const r = {}; if (S.mode !== 'all') r.mode = S.mode; LENS.concat('sort').forEach(k => { if (S[k]) r[k] = S[k]; }); return r; };
-  const label = C.label = (k, v) => k === 'sig' ? (info.sig || {}).t || 'Signature' : k === 't' ? ['', 'Must see', 'Worth the detour', 'Deep cut'][v] : k === 'src' ? ((info.src || {})[v] || [v])[0] : k === 'closed' ? 'Recently closed' : k === 'mine' ? 'Your list'
-    : k === 'a' ? ((info.areas || {})[v] || {}).n || v : k === 'been' ? (v === 'hide' ? 'Hide been there' : 'Only been there') : k === 'q' ? '“' + v + '”' : (info.cats || {})[v] || v;
+  const label = C.label = (k, v) => k === 'sig' ? (info.sig || {}).t || tt('city.sig.t', 'Signature') : k === 't' ? ['', tt('tier.1', 'Must see'), tt('tier.2', 'Worth the detour'), tt('tier.3', 'Deep cut')][v] : k === 'src' ? ((info.src || {})[v] || [v])[0] : k === 'closed' ? tt('city.door.closed.t', 'Recently closed') : k === 'mine' ? tt('shell.saved', 'Your list')
+    : k === 'a' ? ((info.areas || {})[v] || {}).n || v : k === 'been' ? (v === 'hide' ? tt('city.been.hide', 'Hide been there') : tt('city.been.only', 'Only been there')) : k === 'q' ? '“' + v + '”' : (info.cats || {})[v] || v;
 
   on(d, 'click', e => {
     const t = e.target; let b;
@@ -52,11 +71,16 @@
     else if ((b = t.closest('[data-cleo-foryou]'))) need('foryou', () => C.fy.open(b));
     else if ((b = t.closest('[data-cleo-near]'))) need('foryou', () => C.near(b));
     else if ((b = t.closest('[data-cleo-day]'))) need('day', () => C.day.open(at(b, 'data-cleo-day')));
+    else if (t.closest('[data-cleo-dayfrom]')) need('day', () => C.day.fromSaved());
     else if ((b = t.closest('.rail-i'))) { const k = RAIL.filter(x => b.hasAttribute('data-' + x))[0], o = {}; if (k && S[k] !== at(b, 'data-' + k)) o[k] = at(b, 'data-' + k); go(o); }
     else if ((b = t.closest('.pl-s button.src'))) { e.preventDefault(); go({ src: at(b, 'data-src') }); }
     else if ((b = t.closest('[data-rail]'))) rail.scrollBy({ left: +at(b, 'data-rail') * rail.clientWidth * 0.8, behavior: 'smooth' });
     else if ((b = t.closest('[data-unset]'))) { const u = cur(), x = at(b, 'data-unset'); delete u[x]; if (x === 'q') { S.q = fi.value = ''; apply(); } go(u); }
-    else if ((b = t.closest('[data-cleo-map]'))) { const m = Cleo.route.parse(); if (m.map) history.back(); else { m.map = at(b, 'data-cleo-map') || '1'; go(m); } }
+    else if ((b = t.closest('[data-cleo-map]'))) {
+      const m = Cleo.route.parse(), a = at(b, 'data-cleo-map');
+      if (C.mapFirst && C.mapFirst()) { if (C.listMode) C.listMode(false); if (a && m.map !== a) { m.map = a; go(m); } else if (a) loadMap(() => fitArea(a)); }
+      else if (a) loadMap(() => fitArea(a));
+    }
     else if ((b = t.closest('[data-cleo-tray]'))) T.open(at(b, 'data-cleo-tray'), b);
     else if ((b = t.closest('button.pl-save')) && Cleo.saved) Cleo.saved.toggle(key + '/' + pid(b.closest('li.pl')));
   });
@@ -68,17 +92,25 @@
     if (S.been) { const b = !!been.all()[key + '/' + pid(c)]; if (S.been === 'hide' ? b : !b) return false; }
     if (S.sig && !(info.sig && info.sig.ids.indexOf(pid(c)) >= 0)) return false;
     if ((S.mine && !(Cleo.saved && Cleo.saved.has(key + '/' + pid(c)))) || (S.day && C.inDay && !C.inDay(pid(c)))) return false;
+    if (S.rec && !(at(c, 'data-rec') || '').split(' ').some(x => x && (S.rec === 'any' || x === S.rec))) return false;   // FE-C W9-1 hook: recognised (open places only carry data-rec)
+    if (C.ringKeep && !C.ringKeep(c)) return false;   // Atlas FE-2 W9-5 hook: the walking ring from your base (atlas-nav.js)
     return !S.q || fold(S.q).split(/\s+/).every(w => !w || text[pid(c)].indexOf(w) >= 0);
   };
   const count = o => { const sv = {}; let n = 0; for (const k in o) { sv[k] = S[k]; S[k] = o[k]; } cards.forEach(c => { if (visible(c)) n++; }); Object.assign(S, sv); return n; };
   const nsrc = x => (at(x, 'data-src') || '').split(' ').length, num = x => +at(x, 'data-n');
-  const far = x => C.dist && C.dist[pid(x)] != null ? C.dist[pid(x)] : 1e9;
+  // FE-C W9-5 hook: "Nearest to my base" (sort=base) sorts like Near me, by km from your base (base.js: C.baseKm)
+  const byBase = () => S.sort === 'base' && !!C.baseKm, nearOn = () => (S.sort === 'near' && !!C.dist) || byBase();
+  const far = x => byBase() ? C.baseKm(x) : C.dist && C.dist[pid(x)] != null ? C.dist[pid(x)] : 1e9;
   const apply = () => {
     if (Cleo.defer && (C.rank || S.day || S.sort)) Cleo.defer.all();   // a reorder must see every card (M3-06)
-    let n = 0; const areas = {}, tot = cards.length;
+    // PERF-08 (platform): under Cleo.defer.selective a lens stamps only what it shows, so the unstamped stubs count too —
+    // as shown when no lens is on (they are simply not built yet), as the lens decides when one is
+    const L0 = Cleo.lens.current(), lon = Cleo.lens.on(L0), stubs = Cleo.defer ? Cleo.defer.peek() : [], inL = lon ? stubs.filter(st => Cleo.lens.match(st, L0)) : stubs;
+    let n = inL.length; const areas = {}, tot = cards.length + stubs.length, stA = new Set();
+    inL.forEach(st => { stA.add(at(st, 'data-a')); areas[at(st, 'data-a')] = 1; });
     $$('ol.pls').forEach(ol => {
       const base = S.sort === 'az' ? (x, y) => $('.pl-n', x).textContent.localeCompare($('.pl-n', y).textContent)
-        : S.sort === 'src' ? (x, y) => nsrc(y) - nsrc(x) || num(x) - num(y) : S.sort === 'near' && C.dist ? (x, y) => far(x) - far(y) || num(x) - num(y) : (x, y) => num(x) - num(y);
+        : S.sort === 'src' ? (x, y) => nsrc(y) - nsrc(x) || num(x) - num(y) : nearOn() ? (x, y) => far(x) - far(y) || num(x) - num(y) : (x, y) => num(x) - num(y);
       const rk = S.day && C.dayRank ? C.dayRank : S.closed && info.co ? x => { const i = info.co.indexOf(pid(x)); return i < 0 ? 999 : i; } : C.rank;
       const li = $$('li.pl', ol).sort(rk ? (x, y) => rk(x) - rk(y) || base(x, y) : base);
       if (li.some((x, i) => ol.children[i] !== x)) li.forEach(x => ol.appendChild(x));
@@ -88,36 +120,42 @@
       const y = C.why && C.why(c), w = $('.pl-why', c);
       if (y) { if (!w) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-why"></span>'); $('.pl-why', c).textContent = y; } else if (w) w.remove();
       const dk = $('.pl-dist', c), dv = C.dist && C.dist[pid(c)];
-      if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-dist"></span>'); $('.pl-dist', c).textContent = (dv < 1 ? Math.round(dv * 100) * 10 + ' m' : dv.toFixed(1) + ' km') + ' away'; } else if (dk) dk.remove();
+      if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-dist"></span>'); $('.pl-dist', c).textContent = tt('city.away', '{d} away', { d: dv < 1 ? Math.round(dv * 100) * 10 + ' m' : dv.toFixed(1) + ' km' }); } else if (dk) dk.remove();
     });
-    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden]),noscript[data-cleo-defer]'); });
+    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden])') && !(s.querySelector('noscript[data-cleo-defer]') && (!lon || !s.hasAttribute('data-area') || stA.has(at(s, 'data-area')))); });
     if (sections.length > 1) {   // Near me: the nearest area comes first; otherwise the guide's area order
-      const ord = sections.slice().sort((x, y) => S.sort === 'near' && C.dist ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
+      const ord = sections.slice().sort((x, y) => nearOn() ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
       if (ord.some((x, i) => x !== $$('section.area')[i])) { const how = $('#how-we-choose'); ord.forEach(x => how.parentNode.insertBefore(x, how)); }
     }
-    const nA = Object.keys(areas).length, act = LENS.filter(k => S[k] && k !== 'gap' && k !== 'day'), all = '<button class="btn btn-primary" data-cleo-all>Show all ' + tot + '</button>';
-    const gap = t => '<div class="gap"><span class="eyebrow">Stated gap</span>' + t + '</div>';
-    if (shown) shown.innerHTML = n === tot ? shown0 : n ? 'Showing <b>' + n + '</b> of ' + tot + ' places in ' + ar(nA) + '. Ordered by tier, then by number of named sources.'
-      : '<b>No places match.</b> Filters never hide places for good. <button class="btn btn-quiet" data-cleo-all>Clear filters (' + tot + ' places)</button>';
-    const lk = ['day', 'sig', 'src', 'gap', 'closed', 'mine', 'c', 'cz', 't', 'a'].filter(k => S[k])[0];
+    const nA = Object.keys(areas).length, act = LENS.filter(k => S[k] && k !== 'gap' && k !== 'day'), all = '<button class="btn btn-primary" data-cleo-all>' + tt('city.showall', 'Show all {n}', { n: tot }) + '</button>';
+    const gap = t => '<div class="gap"><span class="eyebrow">' + tt('city.gap.k', 'Stated gap') + '</span>' + t + '</div>';
+    if (shown) shown.innerHTML = n === tot ? shown0 : n ? tt('city.shown', 'Showing {n} of {total} places in {areas}', { n: '<b>' + n + '</b>', total: tot, areas: ar(nA) }) + tt('city.facts.order', '. Ordered by tier, then by number of named sources.')
+      : '<b>' + tt('city.empty', 'No places match.') + '</b> ' + tt('city.empty.note', 'Filters never hide places for good.') + ' <button class="btn btn-quiet" data-cleo-all>' + tt('city.empty.clear', 'Clear filters ({places})', { places: pl(tot) }) + '</button>';
+    const lk = ['day', 'sig', 'src', 'gap', 'closed', 'mine', 'rec', 'c', 'cz', 't', 'a'].filter(k => S[k])[0];   // 'rec': FE-C W9-1 hook
     let h = '';
     if (C.lens[lk]) h = C.lens[lk](n, nA, all);
-    else if (lk === 'closed') h = '<h2>Recently closed — kept for the record (' + n + ')</h2><p>Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.</p><div class="row">' + all + '</div>';
-    else if (lk === 'sig' && info.sig) h = '<span class="eyebrow">★ Signature · ' + esc(info.sig.why || '') + '</span><h2>' + esc(info.sig.t) + ' (' + n + ')</h2>' +
-      (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + pl(n) + ' across ' + ar(nA) + ' — numbered to match the map.</p><div class="row">' + all + '</div>';
-    else if (lk === 'mine') h = '<h2>Your list in ' + esc(info.name) + ' (' + n + ')</h2><p>Saved on this device. <a href="' + (Cleo.root || '../') + 'saved.html">All your lists</a></p><div class="row">' + all + '</div>';
+    else if (lk === 'rec') h = '<span class="eyebrow">' + esc(Cleo.t('rec.tile.d', 'From the sources we hold')) + '</span><h2>' + esc({ award: Cleo.t('rec.f.award', 'Has an award'), video: Cleo.t('rec.f.video', 'Has a creator video'), cited: Cleo.t('rec.f.cited', 'Cited by 3 or more sources') }[S.rec] || Cleo.t('rec.tile.t', 'Awards and much-cited places')) + ' (' + n + ')</h2><div class="row">' + all + '</div>';   // FE-C W9-1 hook
+    else if (lk === 'closed') h = '<h2>' + tt('city.closed.h', 'Recently closed — kept for the record ({n})', { n }) + '</h2><p>' + tt('city.closed.p', 'Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.') + '</p><div class="row">' + all + '</div>';
+    else if (lk === 'sig' && info.sig) h = '<span class="eyebrow">' + tt('city.sig.k', '★ Signature') + ' · ' + esc(info.sig.why || '') + '</span><h2>' + esc(info.sig.t) + ' (' + n + ')</h2>' +
+      (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + tt('city.across', '{places} across {areas}.', { places: pl(n), areas: ar(nA) }) + '</p><div class="row">' + all + '</div>';
+    else if (lk === 'mine') {   // W8: a saved list becomes a day in one tap (the area with the most saved, open, pinned places)
+      const per = {}; Object.keys(Cleo.saved ? Cleo.saved.all() : {}).forEach(r => { const c = r.slice(0, r.lastIndexOf('/')) === key && C.byId[r.slice(r.lastIndexOf('/') + 1)];
+        if (c && !c.hasAttribute('data-closed') && c.getAttribute('data-ll')) per[c.getAttribute('data-a')] = (per[c.getAttribute('data-a')] || 0) + 1; });
+      const plan = Object.keys(per).some(a => per[a] >= 2) ? '<button type="button" class="btn btn-primary" data-cleo-dayfrom>' + icon('route') + '<span>' + tt('city.dayfrom', 'Plan a day from these') + '</span></button>' : '';
+      h = '<h2>' + esc(tt('city.mine.h', 'Your list in {city} ({n})', { city: info.name, n })) + '</h2><p>' + tt('city.mine.p', 'Saved on this device.') + ' <a href="' + (Cleo.root || '../') + 'saved.html">' + tt('city.mine.all', 'All your lists') + '</a></p><div class="row">' + plan + all + '</div>';
+    }
     else if (lk === 'src') {
       const s = (info.src || {})[S.src] || [S.src, n, 0, '', ''];
-      h = '<h2>Everything ' + esc(s[0]) + ' recommends in ' + esc(info.name) + ' (' + n + ')</h2>' + (s[5] ? '<p>' + esc(s[5]) + '</p>' : '') +
-        (s[2] ? '<p>All ' + s[2] + ' of its numbered entries are here.</p>' : '') +
-        '<div class="row">' + (s[4] ? '<a class="btn btn-ghost" href="' + esc(s[4]) + '" rel="noopener" target="_blank">Read the source ' + icon('external') + '</a>' : '') + all + '</div>';
+      h = '<h2>' + esc(tt('city.src.h', 'Everything {source} recommends in {city} ({n})', { source: s[0], city: info.name, n })) + '</h2>' + (s[5] ? '<p>' + esc(s[5]) + '</p>' : '') +
+        (s[2] ? '<p>' + tt('city.src.entries', 'All {n} of its numbered entries are here.', { n: s[2] }) + '</p>' : '') +
+        '<div class="row">' + (s[4] ? '<a class="btn btn-ghost" href="' + esc(s[4]) + '" rel="noopener" target="_blank">' + tt('city.src.read', 'Read the source') + ' ' + icon('external') + '</a>' : '') + all + '</div>';
     } else if (lk === 'gap') { const g = (info.gaps || [])[+S.gap] || ['', '']; h = gap('<p class="d3">' + esc(g[0]) + '</p><p>“' + esc(g[1]) + '”</p>') + '<div class="row">' + all + '</div>'; }
-    else if (lk) h = '<h2>' + esc(label(lk, S[lk])) + '</h2><p>' + pl(n) + ' across ' + ar(nA) + (lk === 't' ? ', graded within each area' : '') + ' — numbered to match the map.</p>' +
+    else if (lk) h = '<h2>' + esc(label(lk, S[lk])) + '</h2><p>' + (lk === 't' ? tt('city.across.t', '{places} across {areas}, graded within each area.', { places: pl(n), areas: ar(nA) }) : tt('city.across', '{places} across {areas}.', { places: pl(n), areas: ar(nA) })) + '</p>' +
       (lk === 'cz' ? (info.gaps || []).filter(x => x[2].indexOf(S.cz) >= 0).map(x => gap('<p>“' + esc(x[1]) + '”</p>')).join('') : '') + '<div class="row">' + all + '</div>';
     if (lens) { lens.innerHTML = h; lens.hidden = !h; lens.classList.toggle('is-day', lk === 'day'); }
     const chips = act.filter(k => k !== 'day').concat(S.q ? ['q'] : []);
-    if (applied) applied.innerHTML = chips.map(k => { const l = esc(label(k, k === 'q' ? S.q : S[k])); return '<button class="chip-x" data-unset="' + k + '" aria-label="Remove ' + l + '">' + l + icon('close') + '</button>'; }).join('') +
-      (chips.length > 1 ? '<button class="clear" data-cleo-all>Clear all</button>' : '');
+    if (applied) applied.innerHTML = chips.map(k => { const l = esc(label(k, k === 'q' ? S.q : S[k])); return '<button class="chip-x" data-unset="' + k + '" aria-label="' + esc(tt('city.remove', 'Remove {name}', { name: label(k, k === 'q' ? S.q : S[k]) })) + '">' + l + icon('close') + '</button>'; }).join('') +
+      (chips.length > 1 ? '<button class="clear" data-cleo-all>' + tt('city.tray.clear', 'Clear all') + '</button>' : '');
     const nf = $('[data-cleo-nf]'); if (nf) nf.textContent = act.length || '';
     $$('button[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-mode') === S.mode)));
     if (rail) rail.setAttribute('data-view', S.mode);
@@ -130,8 +168,46 @@
     syncMarkers(); C.after.forEach(f => f());
   };
   C.apply = () => apply();
+  // R7 gap 3, delight 1: photos fade in (≤ 280 ms) from their dominant colour (--ph, set at build). Only once this script
+  // runs (html.ph-fade), so a page without JS never hides a photo; a photo already loaded shows at once; a broken one
+  // drops its placeholder too. Under reduced motion the CSS has no transition.
+  { const done = im => { const f = im.closest('figure.photo, .gc .cover'); if (f) f.classList.add('in'); };
+    $$('figure.photo img, .gc .cover img').forEach(im => { if (im.complete) done(im); });
+    d.addEventListener('load', e => { if (e.target.tagName === 'IMG') done(e.target); }, true);
+    d.addEventListener('error', e => { if (e.target.tagName === 'IMG') done(e.target); }, true);
+    on(d, 'cleo:stamped', () => $$('figure.photo:not(.in) img, .gc .cover:not(.in) img').forEach(im => { if (im.complete) done(im); }));
+    d.documentElement.classList.add('ph-fade'); }
+  // R7 gap 3, delight 2: switching views — the switcher's selection slides to the new view and the content cross-fades
+  // in (≤ 260 ms); none under reduced motion (CSS)
+  { const nav = $('[data-cleo-views]');
+    if (nav) { const ind = d.createElement('span'); ind.className = 'v-ind'; ind.setAttribute('aria-hidden', 'true'); nav.appendChild(ind);
+      const place = () => { const b = $('button[aria-pressed="true"]', nav); if (!b || !b.offsetWidth) { ind.style.opacity = '0'; return; }
+        // FE-B QC-18: measured against the indicator's own containing block, not the button's offsetParent — the Atlas parks
+        // the switcher in the header, where the two differ and offsetLeft put the thumb 114 px off the pressed segment
+        const op = ind.offsetParent || nav, o = op.getBoundingClientRect(), r = b.getBoundingClientRect();
+        ind.style.opacity = ''; ind.style.left = (r.left - o.left - op.clientLeft + op.scrollLeft) + 'px'; ind.style.width = r.width + 'px';
+        ind.style.top = (r.top - o.top - op.clientTop + op.scrollTop) + 'px'; ind.style.height = r.height + 'px'; };
+      nav.classList.add('has-ind'); place(); on(window, 'resize', place); if (d.fonts && d.fonts.ready) d.fonts.ready.then(place);
+      // i18n D-41: the labels changed width. FE-B QC-18: re-measure after the swap lays out, and whenever the switcher or a
+      // segment changes size (a late font, a locale, a breakpoint) — the fonts.ready line above had been commented out
+      on(d, 'cleo:locale', () => { place(); requestAnimationFrame(place); });
+      if (window.ResizeObserver) { const ro = new ResizeObserver(() => place()); ro.observe(nav); $$('button[data-view]', nav).forEach(b => ro.observe(b)); }
+      // ...and when the switcher is re-parented (the Atlas parks it in the header on desktop and puts it back on leave): a
+      // move takes it out of its home parent, and brings it back there, so watching that parent's children catches both
+      if (window.MutationObserver && nav.parentNode) new MutationObserver(() => requestAnimationFrame(place)).observe(nav.parentNode, { childList: true });
+      on(d, 'cleo:view', () => { requestAnimationFrame(place); main.classList.remove('v-swap'); void main.offsetWidth; main.classList.add('v-swap');
+        setTimeout(() => main.classList.remove('v-swap'), 400); }); } }
+  // W8 grid density: an area's end actions take the rest of its last card row (a lone last card never sits by itself);
+  // a full last row gets the actions on a row of their own. Counts what is shown (lens, pager), recomputed after every change
+  let endsQ = 0;
+  const fillEnds = () => { endsQ = 0; $$('.split section.area').forEach(sec => { const e = $(':scope > .area-end', sec); if (!e) return;
+    const cols = getComputedStyle(sec).display === 'grid' ? getComputedStyle(sec).gridTemplateColumns.split(' ').length : 1;
+    const n = $$('li.pl', sec).filter(c => !c.hidden && !c.classList.contains('pg-off')).length, rem = cols > 1 ? n % cols : 0;
+    e.style.gridColumn = rem ? 'span ' + (cols - rem) : ''; }); };
+  const ends = () => { if (!endsQ) endsQ = requestAnimationFrame(fillEnds); };
+  C.after.push(ends); on(window, 'resize', ends); on(d, 'cleo:stamped', ends); on(window, 'hashchange', () => setTimeout(ends, 0));
 
-  let lastP = '';
+  let lastP = '', lastA = '';
   const onRoute = C.onRoute = () => {
     const r = Cleo.route.parse(), mm = /^#p-(.+)$/.exec(location.hash);
     if (mm && byId[decodeURIComponent(mm[1])]) r.p = decodeURIComponent(mm[1]);
@@ -143,20 +219,34 @@
     if (tg && !visible(tg)) { S.mode = 'all'; LENS.forEach(k => { S[k] = ''; }); S.q = ''; if (fi) fi.value = ''; }
     apply();
     $$('li.pl.is-target').forEach(c => { if (c !== tg) c.classList.remove('is-target'); });
-    const mob = !!r.map && !desk();
+    const mob = !desk() && (C.view || d.documentElement.getAttribute('data-view')) === 'atlas', fa = r.map && r.map !== '1' ? r.map : S.a;
     if (split) { if (mob) split.setAttribute('data-view', 'map'); else split.removeAttribute('data-view'); }
     // the fit waits a frame: the Atlas tray (views.js) settles on this same route change, and overMap() measures it
-    if (mob) loadMap(() => { map.invalidateSize(); if (r.map !== '1' || (focusA && !S.day)) { const a = r.map !== '1' ? r.map : focusA; requestAnimationFrame(() => { if (map) { map.invalidateSize(); fitArea(a); } }); } }); else closePoi();
+    if (mob) loadMap(() => { if (!live()) return; map.invalidateSize(); if (fa && !tg) requestAnimationFrame(() => { if (live()) { map.invalidateSize(); fitArea(fa); } }); });
+    else { if (C.closePoi) C.closePoi(1); if (S.a && S.a !== lastA && map && desk() && !tg && !S.day) fitArea(S.a); }
+    lastA = S.a;
     if (tg) {
       tg.classList.add('is-target');
       if (r.p !== lastP || !(Cleo.sheet && Cleo.sheet.isOpen())) {
-        tg.scrollIntoView({ block: 'center' });
-        if (map && markers[r.p]) fly(markers[r.p].getLatLng());
+        // Atlas hosts the detail over a map that stays put (atlas-nav.js, SPEC-v3 §3.2): no page scroll, no fly
+        if (!(C.placeOpen && C.placeOpen(tg, map && markers[r.p]))) { tg.scrollIntoView({ block: 'center' }); keepInView(tg); if (map && markers[r.p]) fly(markers[r.p].getLatLng()); }
+        if (C.select && C.view === 'atlas') C.select(tg, 'route');   // selected + labelled on the map (SPEC-v3 §1.4)
         if (Cleo.sheet) Cleo.sheet.open(tg); else { const l = $('.pl-n a', tg); if (l && l.focus) l.focus({ preventScroll: true }); }
       }
     } else if (Cleo.sheet && Cleo.sheet.isOpen()) Cleo.sheet.close(true);
     lastP = r.p || '';
   };
+  // FE-B finding (fresh #view=gallery&p=…): the rows, the lead card and deferred chunks still draw above the target after
+  // the first scroll, and scroll anchoring then carried the page past the end of <main>. For 2.5 s after a route scroll,
+  // each size change of <main> re-centres the target — until the reader scrolls, taps or presses a key themselves
+  let kv = null;
+  function keepInView(tg) {
+    if (kv) kv.stop(); if (!window.ResizeObserver) return;
+    let raf = 0; const ro = new ResizeObserver(() => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { if (tg.isConnected && tg.getClientRects().length) tg.scrollIntoView({ block: 'center' }); }); });
+    const stop = () => { ro.disconnect(); cancelAnimationFrame(raf); ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(e => removeEventListener(e, stop, true)); clearTimeout(t); kv = null; };
+    ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(e => addEventListener(e, stop, { capture: true, passive: true }));
+    const t = setTimeout(stop, 2500); ro.observe(main); kv = { stop };
+  }
   on(window, 'hashchange', onRoute); on(d, 'cleo:route', onRoute);
 
   // cover plate: the native name set vertically when the build says it fits (data-nat, ≤ 5 glyphs, sized by --n so it
@@ -166,33 +256,39 @@
     const na = $('.pl-n .nat', c), g0 = Array.from(na ? na.textContent.replace(/^\s*\(|\)\s*$/g, '') : ''), g = g0.length <= 7 ? g0 : [], nm = $('.pl-n', c).textContent.replace(/\s*[—–-]+\s*CLOSED\b.*$/i, '');
     p.innerHTML = (g.length ? '<span class="pl-vert' + (g.length > 4 ? ' long' : '') + '"' + (info.lang ? ' lang="' + info.lang + '"' : '') + '>' + esc(g.join('')) + '</span>'
       : '<span class="pl-ini" data-i="' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '"></span>') +
-      '<svg class="pl-glyph"><use href="#i-' + at(c, 'data-gl') + '"/></svg>';
+      '<svg class="pl-glyph"><use href="#i-' + at(c, 'data-gl') + '"/></svg>' + dishOf(c);
   };
+  // R7 gap 5 (food covers): food places never get photos (honesty rule), so their cover names the dish in display type
+  // on the eat-and-drink tint, under the kind glyph — an intentional face, never a blank box that reads as "not loaded"
+  const dishOf = c => { if (at(c, 'data-k') !== 'f') return ''; const x = $('.pl-e .in-d', c), t = x ? x.textContent.replace(/^\s*·\s*/, '').trim() : '';
+    return t ? '<span class="pl-dish">' + esc(t) + '</span>' : ''; };   // no dish or cuisine to name: a glyph-only cover (designer: the area is never a cover word)
   const paint = () => {
     const s = Cleo.saved ? Cleo.saved.all() : {}, b = been.all();
     cards.forEach(c => {
       cover(c);
       const x = $('.pl-x', c), ref = key + '/' + pid(c); if (!x) return;
-      if (!x.firstChild) x.innerHTML = '<button class="pl-save" aria-pressed="false">Save</button>';
+      // W7: the heart sits on the card's media, drawn by CSS (no extra nodes: DOM budget); the word stays for AT and search
+      if (!x.firstChild) x.innerHTML = '<button class="pl-save heart" aria-pressed="false">' + tt('sheet.save', 'Save') + '</button>';
       const btn = x.firstChild, o = !!s[ref], st = $('.stamp', c); x.hidden = false;
-      btn.setAttribute('aria-pressed', String(o)); btn.textContent = o ? 'Saved' : 'Save'; btn.setAttribute('aria-label', (o ? 'Saved: ' : 'Save ') + $('.pl-n', c).textContent);
-      if (b[ref] && !st) c.insertAdjacentHTML('beforeend', '<span class="stamp">Been<br>there</span>'); else if (!b[ref] && st) c.removeChild(st);
+      btn.setAttribute('aria-pressed', String(o)); btn.textContent = o ? tt('sheet.saved', 'Saved') : tt('sheet.save', 'Save'); btn.setAttribute('aria-label', o ? tt('gal.saved', 'Saved: {name}', { name: $('.pl-n', c).textContent }) : tt('gal.save', 'Save {name}', { name: $('.pl-n', c).textContent }));
+      if (b[ref] && !st) c.insertAdjacentHTML('beforeend', '<span class="stamp">' + esc(tt('city.stamp', 'Been there')).replace(' ', '<br>') + '</span>'); else if (!b[ref] && st) c.removeChild(st);
     });
     const mine = $('[data-cleo-mine]'), nm = Object.keys(s).filter(r => r.slice(0, r.lastIndexOf('/')) === key).length;
     if (mine) { mine.hidden = !nm && !S.mine; $('[data-cleo-mine-n]', mine).textContent = nm; $('[data-cleo-mine-n]', mine).className = 'n' + (nm === 1 ? ' one' : ''); }
   };
-  on(d, 'cleo:saved', () => { paint(); if (S.mine) apply(); });
+  on(d, 'cleo:saved', () => { paint(); if (S.mine) apply(); else syncMarkers(); });
+  on(d, 'cleo:locale', () => { $$('.stamp').forEach(x => x.remove()); paint(); apply(); });   // i18n D-41: redraw labels, lens and counts in the loaded catalogue
   // Platform hook (M3-06): later cards arrive from Cleo.defer (core.js) as their area nears the viewport, or all at
   // once before any lens/route. Adopt them so every lens, count and pin sees every place; stubs' pins become cards.
   on(d, 'cleo:stamped', e => { ((e.detail || {}).cards || []).forEach(c => { if (byId[pid(c)] === c) return; cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
     $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); }); paint(); });
 
-  const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been'];
+  const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been', 'rec'];   // 'rec': FE-C W9-1 hook
   let P = {}, opener = null, pushed = 0, after = null;
   const tpaint = () => {
-    $$('.pill', tray).forEach(b => { const k = at(b, 'data-f'); b.setAttribute('aria-pressed', String((k === 'base' ? store.get('base', 'street') : P[k] || '') === at(b, 'data-v'))); });
+    $$('.pill', tray).forEach(b => { const k = at(b, 'data-f'); b.setAttribute('aria-pressed', String((k === 'base' ? ({ 'street!': 'street', satellite: 'satellite' })[store.get('base', 'map')] || 'light' : P[k] || '') === at(b, 'data-v'))); });
     const o = { gap: '' }; TK.forEach(k => { o[k] = P[k]; }); const n = count(o);
-    $('[data-tr="go"]', tray).textContent = n ? 'Show ' + pl(n) : 'No places match — clear a filter';
+    $('[data-tr="go"]', tray).textContent = n ? tt('city.tray.show', 'Show {places}', { places: pl(n) }) : tt('city.tray.none', 'No places match — clear a filter');
   };
   const thide = () => { tray.hidden = true; d.body.style.overflow = ''; };
   const T = Cleo.tray = {
@@ -224,113 +320,133 @@
   if (tray) trap(tray, () => T.close());
 
   let map = null, loading = 0;
-  const markers = {}, bases = {}, poi = $('#cleo-poi'), waiters = [];
-  const accent = ((window.getComputedStyle && getComputedStyle(main).getPropertyValue('--city')) || '').trim() || '#C23A1C';
-  const style = c => { const cl = c.hasAttribute('data-closed');
-    return { radius: at(c, 'data-t') === '1' && !cl ? 7 : 5, weight: 1.5, color: '#fff', fillColor: cl ? '#999' : ((info.areas || {})[at(c, 'data-a')] || {}).c || '#555', fillOpacity: cl ? 0.45 : 0.92 }; };
-  const hot = (c, o) => { const k = c && markers[pid(c)]; if (!k) return; k.setStyle(o ? { radius: 10, weight: 3, color: accent } : style(c)); if (o) k.bringToFront();
-    const el = k.getTooltip && k.getTooltip() && k.getTooltip().getElement(); if (el) el.classList.toggle('sel', o); };
+  const markers = {}, bases = {}, waiters = [];
+  // SPEC-v3 slice 1 ("places on a map, not numbers on a grid"): every place is a quiet DOT on one shared canvas layer
+  // (zero DOM nodes; city.js); atlas.js lifts the best places in view into labelled pins (kind glyph + name, ≤ 24) and
+  // draws density discs at region zoom. No numbers on the map. Before atlas.js arrives the dots are plain.
+  const dotStyle = c => (C.dotStyle ? C.dotStyle(c) : { radius: 3.5, weight: 1.5, color: '#fff', fillColor: '#948B83', fillOpacity: 1 });
+  const pinEl = c => (c && C.pinOf ? C.pinOf(pid(c)) : null);
+  const hot = (c, o) => { if (c && C.hotPin) C.hotPin(c, o); };
   ['mouseover', 'focusin', 'mouseout', 'focusout'].forEach((ev, i) => on(d, ev, e => {
-    const c = e.target.closest && e.target.closest('li.pl'); if (c && !(i > 1 && e.relatedTarget && c.contains(e.relatedTarget))) hot(c, i < 2); }));
-  const syncMarkers = () => { if (map) { try { map.stop(); } catch (e) {} } if (map) cards.forEach(c => { const k = markers[pid(c)]; if (!k) return; if (!c.hidden) { if (!map.hasLayer(k)) k.addTo(map); } else if (map.hasLayer(k)) map.removeLayer(k); }); };
-  // the map follows the reading (ROUND-1 #6): fit to the area in view, fly to the open sheet's place, numbers on the
-  // focused area's pins at every zoom; a user who pans or zooms keeps control for 8 s
+    const c = e.target.closest && e.target.closest('li.pl'); if (c && !(e.relatedTarget && c.contains(e.relatedTarget))) hot(c, i < 2); }));
+  const syncMarkers = () => { if (!map) return; try { map.stop(); } catch (e) {}
+    // PERF-08: every marker — a stamped card or a deferred stub (no `hidden` of its own: the lens decides, Cleo.lens.shows)
+    Object.keys(markers).forEach(id => { const k = markers[id], c = byId[id] || stub[id]; if (!c) return; if (Cleo.lens.shows(c)) { if (!dots.hasLayer(k)) k.addTo(dots); } else if (dots.hasLayer(k)) dots.removeLayer(k); }); feature(); };
+  let dots = null;   // the canvas layer group holding every dot
+  const inCl = C.inCl = {}, feature = () => { if (map && C.feature) C.feature(); };
   const still = () => !window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let focusA = '', userAt = 0, auto = 0; const stub = {};   // unstamped cards (Cleo.defer.peek) that already have a pin
-  const fly = ll => { if (!map || !map.getSize().x) return; auto = Date.now(); if (still()) map.setView(ll, Math.max(map.getZoom(), 15)); else map.flyTo(ll, Math.max(map.getZoom(), 15), { duration: 0.6 }); };
-  // numbers: the focused area's at every zoom, all at ≥ 14; then declutter (DES REVIEW-W2 #6) — a label that would
-  // overlap one already shown is hidden (its pin stays), focused area first, guide order within. Writes, then reads.
-  const focusPins = () => { if (!map) return; const all = Object.keys(markers).map(id => byId[id] || stub[id]).filter(Boolean);
-    const many = all.filter(c => !c.hidden).length, lo = map.getZoom() < 14, els = [];
-    all.forEach(c => { const k = markers[pid(c)], t = k && k.getTooltip && k.getTooltip(), el = t && t.getElement && t.getElement(); if (!el) return;
-      const f = !c.hidden && (many <= 40 || at(c, 'data-a') === focusA); el.classList.toggle('foc', f); el.classList.remove('clash');
-      if (!c.hidden && (f || !lo)) els.push([f ? 0 : 1, el]); });
-    els.sort((x, y) => x[0] - y[0]);
-    const seen = [], hide = [];
-    els.forEach(([, el]) => { const r = el.getBoundingClientRect(); if (!r.width) return;
-      if (seen.some(q => r.left < q.right - 2 && r.right > q.left + 2 && r.top < q.bottom - 2 && r.bottom > q.top + 2)) hide.push(el); else seen.push(r); });
-    hide.forEach(el => el.classList.add('clash')); };
-  C.after.push(focusPins);
-  const follow = a => {
-    if (!a || a === focusA) return; focusA = a; focusPins();
-    if (!map || !desk() || (Cleo.sheet && Cleo.sheet.isOpen()) || S.day || Date.now() - userAt < 8000) return;
-    if (!map.getSize().x || !el0().offsetWidth) return;   // W3: the map is hidden outside Atlas — never fit a 0-size map (NaN LatLng)
-    const ll = cards.filter(c => !c.hidden && at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
-    if (!ll.length) return; auto = Date.now();
-    map.flyToBounds(window.L.latLngBounds(ll), { padding: [36, 36], maxZoom: 15, duration: still() ? 0 : 0.6, animate: !still() });
-  };
-  if (window.IntersectionObserver) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) follow(at(e.target, 'data-area')); }), { rootMargin: '-35% 0px -55% 0px' }); sections.forEach(x => io.observe(x)); }
-  C.map = () => map; C.markers = markers; C.loadMap = cb => loadMap(cb);
+  let auto = 0; const stub = {};   // unstamped cards (Cleo.defer.peek) that already have a pin
+  const live = () => !!map && !!map._loaded && !!map.getContainer().parentNode;   // R6 QA High: never touch a removed map (_leaflet_pos)
+  const fly = ll => { if (!live() || !map.getSize().x) return; auto = Date.now(); try { if (still()) map.setView(ll, Math.max(map.getZoom(), 15), { animate: false }); else map.flyTo(ll, Math.max(map.getZoom(), 15), { duration: 0.6 }); } catch (e) {} };
+  C.map = () => (live() ? map : null); C.markers = markers; C.loadMap = cb => loadMap(cb); C.pinEl = pinEl; C.hot = hot;
+  C.stub = id => stub[id]; C.pin = c => pin(c); C.fly = ll => fly(ll); C.still = () => still(); C.auto = () => { auto = Date.now(); }; C.autoAt = () => auto; C.num = num; C.sections = sections;
   const el0 = () => d.getElementById('cleo-map') || main;
-  // QA-34: on phones the Atlas tray (bottom) and the view switcher (top) float over the full-bleed map, so a fit that
-  // ignores them parks pins underneath, where a tap hits the tray instead of the pin. Fit inside the uncovered band.
-  const overMap = () => { const m = el0().getBoundingClientRect(), lp = $('.listpane'), nv = $('[data-cleo-views]'); let t = 0, b = 0;
-    if (!desk() && d.documentElement.classList.contains('atlas-m')) {
-      if (lp && lp.offsetHeight) b = Math.max(0, m.bottom - lp.getBoundingClientRect().top);
-      if (nv && nv.offsetHeight) t = Math.max(0, nv.getBoundingClientRect().bottom - m.top); }
-    return { paddingTopLeft: [40, 40 + t], paddingBottomRight: [40, 40 + b] }; };
-  const fitArea = a => { if (map && !map.getSize().x) return; const ll = cards.filter(c => at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng()); if (ll.length) map.fitBounds(window.L.latLngBounds(ll), Object.assign(overMap(), { maxZoom: 16 })); };
-  // ROUND-3 #2: one sheet on the phone map: while a pin sheet is up, the Atlas tray steps aside (html.poi-on), and it
-  // comes back when the sheet closes. Nothing is removed: the tray keeps every row, only hidden from view meanwhile.
-  const poiOn = v => { d.documentElement.classList.toggle('poi-on', v); const lp = $('.listpane'); if (lp && !desk()) { if (v && d.documentElement.classList.contains('atlas-m')) lp.setAttribute('inert', ''); else lp.removeAttribute('inert'); } };
-  const closePoi = () => { if (poi && !poi.hidden) { poi.hidden = true; poi.innerHTML = ''; poiOn(false); } };
-  // pin → peek sheet: a compact summary (≤ 40 % of the screen, so the map stays visible); the grabber expands it to the full card
-  const peekName = c => { const a = $('.pl-n a', c), x = a && a.cloneNode(true); if (!x) return ''; $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };   // ROUND-2 #2: no "(native)" in the peek title
-  const openPoi = c => {
-    const cp = c.cloneNode(true); cp.removeAttribute('id'); cp.hidden = false; cp.classList.remove('is-target'); $$('[id]', cp).forEach(x => x.removeAttribute('id'));
-    poiFrom = d.activeElement;
-    const w = $('.pl-w', c);
-    poi.innerHTML = '<button class="grab" data-poi="grow" aria-label="Show the whole card" aria-expanded="false"></button><div class="hdr"><span class="sm">' + esc(label('a', at(c, 'data-a'))) +
-      ' · pin ' + at(c, 'data-n') + '</span><button class="btn btn-icon" data-poi="x" aria-label="Close">' + icon('close') + '</button></div>' +
-      '<div class="peek-c"><p class="pl-e">' + $('.pl-e', c).innerHTML + '</p><h3 class="pk-n">' + esc(peekName(c)) + '</h3>' + (w ? '<p class="pk-w">' + esc(w.textContent) + '</p>' : '') + '</div>';
-    cp.classList.add('pk-full'); poi.appendChild(cp);
-    poi.insertAdjacentHTML('beforeend', '<div class="row-actions"><button class="btn btn-ghost" data-poi="x">Close</button><a class="btn btn-primary" href="#p-' + pid(c) + '">Open</a></div>');
-    poi.classList.remove('full'); poi.hidden = false; poiOn(true); $('[data-poi="x"]', poi).focus();
-    if (map && markers[pid(c)]) { map.panTo(markers[pid(c)].getLatLng(), { animate: false }); map.panBy([0, poi.offsetHeight / 2], { animate: false }); }
-  };
-  let poiFrom = null;
-  on(poi, 'click', e => { const b = e.target.closest('[data-poi],a'); if (!b) return; if (at(b, 'data-poi') === 'grow') { poi.classList.toggle('full'); b.setAttribute('aria-expanded', String(poi.classList.contains('full'))); } else closePoi(); });
-  on(poi, 'keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closePoi(); if (poiFrom && poiFrom.focus) poiFrom.focus(); } });
-  C.openPoi = c => openPoi(c);
+  // phones: the chip row (top) and the card carousel (bottom) float over the full-bleed map, so a fit that ignores them
+  // parks pins underneath. Fit inside the uncovered band (QA-34; the day route sits above the carousel too).
+  const overMap = C.overMap = () => { const m = el0().getBoundingClientRect(), lp = $('.listpane'), bar = $('.ms-bar'), H = d.documentElement; let t = 0, b = 0;
+    if (!desk() && H.classList.contains('atlas-m') && !H.classList.contains('ms-list')) {
+      // the bottom overlay: the carousel after a selection, else the 64 px list peek (SPEC-v3 §2.2)
+      const pk = $('.ms-toggle'), bo = lp && lp.offsetHeight ? lp : pk && pk.offsetHeight ? pk : null; if (bo) b = Math.max(0, m.bottom - bo.getBoundingClientRect().top);
+      if (bar && bar.offsetHeight) t = Math.max(0, bar.getBoundingClientRect().bottom - m.top); }
+    return { paddingTopLeft: [32, 24 + t], paddingBottomRight: [32, 24 + b] }; };
+  const fitArea = C.fitArea = a => { if (!live() || !map.getSize().x) return; const ll = cards.concat(Cleo.defer ? Cleo.defer.peek() : []).filter(c => at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
+    if (ll.length) { auto = Date.now(); map.fitBounds(window.L.latLngBounds(ll), Object.assign(overMap(), { maxZoom: 16, animate: !still() })); } };
+  // pin → atlas.js's select (desktop: the card lights up in the list + a preview card on the map; phones: the carousel
+  // brings the card into view). Before atlas.js arrives (it loads with the map), the card is simply brought into view.
   const pin = c => {
-    if (!desk()) { openPoi(c); return; }
-    $$('li.pl.is-focus').forEach(x => x.classList.remove('is-focus'));
-    c.classList.add('is-focus'); c.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    if (C.select) { C.select(c, 'pin'); return; }
+    $$('li.pl.is-focus').forEach(x => x.classList.remove('is-focus')); c.classList.add('is-focus'); c.scrollIntoView({ block: 'nearest' });
   };
   const mountMap = Cleo.mountMap = () => {
     const L = window.L, el = d.getElementById('cleo-map'); if (map || !L || !L.map || !el) return false;
-    el.innerHTML = '';
+    el.innerHTML = ''; el.removeAttribute('data-tiles');
     const z = info.center || [0, 0, 2], E = 'https://server.arcgisonline.com/ArcGIS/rest/services/', ea = { attribution: 'Tiles &copy; Esri', maxZoom: 19 };
-    map = L.map(el, { scrollWheelZoom: false }).setView([z[0], z[1]], z[2] || 11);
+    map = L.map(el, { scrollWheelZoom: desk(), zoomControl: false, zoomSnap: 0.5 }).setView([z[0], z[1]], z[2] || 11);
+    // SPEC-v3 §4 (settled by the real-tile R0 shots): the default base is the calm Esri gray canvas that follows the
+    // theme (light / dark), with its reference labels in their own pane below our dots and pins; Satellite is the one
+    // alternative in the switch; OSM street detail is opt-in (the Key). OSM + Esri only, no key, never CARTO.
+    map.createPane('labels').style.zIndex = 350; map.getPane('labels').style.pointerEvents = 'none';
+    const ca = { attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxNativeZoom: 16, maxZoom: 19 };
+    const canvas = t => L.layerGroup([L.tileLayer(E + 'Canvas/World_' + t + '_Gray_Base/MapServer/tile/{z}/{y}/{x}', ca), L.tileLayer(E + 'Canvas/World_' + t + '_Gray_Reference/MapServer/tile/{z}/{y}/{x}', { pane: 'labels', opacity: 0.85, maxNativeZoom: 16, maxZoom: 19 })]);
+    bases.mapLight = canvas('Light'); bases.mapDark = canvas('Dark');
     bases.street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
-    bases.light = L.tileLayer(E + 'Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', Object.assign({ maxNativeZoom: 16 }, ea));
     bases.satellite = L.tileLayer(E + 'World_Imagery/MapServer/tile/{z}/{y}/{x}', ea);
-    const b0 = bases[store.get('base', 'street')] || bases.street; b0.addTo(map);
-    if (Cleo.watchTiles) Cleo.watchTiles(b0, () => { Cleo.mapFallback(el, map); map = null; });
-    // every place gets its pin, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it)
+    const b0 = baseOf(store.get('base', 'map')); b0.addTo(map);
+    // tiles that never load: drop the map (cleanly — every handler checks live()), keep the list whole, say so quietly.
+    // Never mid-zoom (W7 FE-A): Leaflet's remove() leaves the zoom-end timer armed (`_leaflet_pos` of a removed pane)
+    const fail = () => { const m0 = map; if (!m0) return; try { m0.stop(); } catch (e) {} if (m0._animatingZoom) { m0.once('zoomend', () => setTimeout(fail, 0)); return; }
+      map = null; Object.keys(inCl).forEach(k => delete inCl[k]); Cleo.mapFallback(el, m0); d.documentElement.classList.add('ms-nomap'); if (C.onNoMap) C.onNoMap(); };
+    if (Cleo.watchTiles) Cleo.watchTiles(b0.getLayers ? b0.getLayers()[0] : b0, fail);
+    // every place gets its dot, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it) —
+    // one canvas renderer, so 500+ places cost no DOM nodes and pan smoothly; a generous click tolerance (thumbs)
+    const c2d = (() => { try { return !!d.createElement('canvas').getContext('2d'); } catch (e) { return false; } })();   // no 2D canvas → SVG dots, same API
+    // tolerance 19: every dot gets a 44 px hit circle (SPEC-v3 §1.1)
+    const cv = C.canvas = c2d ? L.canvas({ padding: 0.3, tolerance: 19 }) : L.svg({ padding: 0.3 });
+    // i18n D-41 / W8-I18N-MAPRACE: a redraw queued as fail() removes the map finds no 2D context (Leaflet throws 'save')
+    if (c2d) { const rd = cv._redraw; cv._redraw = function () { if (this._ctx) rd.call(this); }; }
+    // a dot draws its kind by shape on the canvas: options.shape 'sq' (eat & drink), options.slash (closed); SVG keeps the circle
+    const Dot = L.CircleMarker.extend({ _updatePath: function () { const r = this._renderer, o = this.options;
+      if (!r._ctx || !r._fillStroke || (!o.shape && !o.slash)) return L.CircleMarker.prototype._updatePath.call(this);
+      if (!r._drawing || this._empty()) return; const p = this._point, ctx = r._ctx, h = Math.max(this._radius, 1);
+      ctx.beginPath(); if (o.shape === 'sq') { if (ctx.roundRect) ctx.roundRect(p.x - h, p.y - h, 2 * h, 2 * h, 1.5); else ctx.rect(p.x - h, p.y - h, 2 * h, 2 * h); } else ctx.arc(p.x, p.y, h, 0, Math.PI * 2, false);
+      r._fillStroke(ctx, this);
+      if (o.slash && o.opacity) { ctx.beginPath(); ctx.moveTo(p.x - h - 1, p.y + h + 1); ctx.lineTo(p.x + h + 1, p.y - h - 1); ctx.globalAlpha = o.opacity; ctx.lineWidth = 1.5; ctx.strokeStyle = o.color; ctx.stroke(); } } }); dots = C.dots = L.layerGroup().addTo(map);
+    const card = id => byId[id] || (Cleo.defer && Cleo.defer.stampIds ? Cleo.defer.stampIds(new Set(['p-' + id]))[0] : Cleo.defer && Cleo.defer.stampFor(id));
+    C.cardOf = id => byId[id] || card(id);
     cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
-      const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
-      const k = markers[pid(c)] = L.circleMarker([+ll[0], +ll[1]], style(c)).addTo(map), id = pid(c); if (c.stub) stub[id] = c;
-      k.bindTooltip(at(c, 'data-n'), { permanent: true, direction: 'center', className: 'pin-n', opacity: 1 });
-      const te = k.getTooltip().getElement && k.getTooltip().getElement(), ac = ((info.areas || {})[at(c, 'data-a')] || {}).c; if (te && ac) { te.style.setProperty('--ac', ac); te.style.setProperty('--area', ac); }   // ROUND-2 #2: area-coloured labels
-      k.on('click', () => { const r = byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) pin(r); });
+      // not a physical place (data-np): it stays in the list with its note, and never draws on the map (PANEL-R1 #15)
+      const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2 || c.hasAttribute('data-np')) return;
+      const id = pid(c), k = markers[id] = new Dot([+ll[0], +ll[1]], Object.assign({ renderer: cv, bubblingMouseEvents: false }, dotStyle(c))).addTo(dots); if (c.stub) stub[id] = c;
+      // a canvas dot has no element of its own: the place's element is its featured pin, when it has one
+      k.getElement = () => (C.pinOf ? C.pinOf(id) : null) || undefined;
+      k.on('click', () => { const r = byId[id] || card(id); if (r) pin(r); });
+      k.on('mouseover', () => { const r = byId[id]; if (r) r.classList.add('is-hover'); if (C.hotId) C.hotId(id, true); });
+      k.on('mouseout', () => { const r = byId[id]; if (r) r.classList.remove('is-hover'); if (C.hotId) C.hotId(id, false); });
     });
-    const zl = () => { el.classList.toggle('zoom-lo', map.getZoom() < 14); focusPins(); }; map.on('zoomend', zl); zl();
-    let fr = 0; map.on('moveend', () => { cancelAnimationFrame(fr); fr = requestAnimationFrame(focusPins); });   // labels settle after a fly
-    map.on('dragstart', () => { userAt = Date.now(); }); map.on('zoomstart', () => { if (Date.now() - auto > 1500) userAt = Date.now(); });
-    syncMarkers(); C.after.forEach(f => f()); const a0 = focusA; focusA = ''; follow(a0 || at(sections[0] || main, 'data-area')); return true;
+    if (desk()) L.control.zoom({ position: 'topleft' }).addTo(map);   // phones pinch (SPEC-v3 §2.2)
+    need('atlas', () => { if (C.atlasTools && live()) { C.atlasTools(L, el); feature(); } });
+    syncMarkers(); C.after.forEach(f => f());
+    const r0 = Cleo.route.parse().p;
+    if (C.atView && C.atView()) { if (r0 && C.clearPin) setTimeout(C.clearPin, 0); }   // a shared view (#…&at=, atlas-nav.js) wins
+    else if (r0 && markers[r0]) setTimeout(() => { if (!(C.freshPlace && C.view === 'atlas' && C.freshPlace())) fly(markers[r0].getLatLng()); }, 0);
+    else if (S.a) setTimeout(() => fitArea(S.a), 0);
+    else if (S.mode !== 'all' || S.q || LENS.some(k => S[k])) setTimeout(fitLens, 0);   // a lens link: every match on the map, so the count is the lens total
+    else setTimeout(() => { if (!(C.fitDefault && C.fitDefault())) fitCore(); }, 0);   // the city core, or the last view of this city (atlas.js)
+    return true;
   };
-  C.setBase = k => { store.set('base', k); if (!map || !bases[k]) return; for (const x in bases) if (map.hasLayer(bases[x])) map.removeLayer(bases[x]); bases[k].addTo(map); };
+  const fitLens = C.fitLens = () => { if (!live() || !map.getSize().x) return; const ll = cards.filter(c => !c.hidden).concat(Cleo.defer ? Cleo.defer.peek({ lens: Cleo.lens.current() }) : []).filter(c => markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
+    if (ll.length) { auto = Date.now(); map.fitBounds(window.L.latLngBounds(ll), Object.assign(overMap(), { maxZoom: 15, animate: false })); } };
+  // QA-44: the first view fits the city's core (pins within 3× the median distance of the median point, else 95 %) (a far outlier — a day trip, a mis-filed place — never zooms
+  // the city out to a country); every place stays in the list, behind "Show all" and a zoom out
+  const fitCore = () => { if (!live() || !map.getSize().x) return; const ll = Object.keys(markers).map(id => markers[id].getLatLng()); if (ll.length < 2) return;
+    const md = a => a.slice().sort((x, y) => x - y)[a.length >> 1], c = [md(ll.map(p => p.lat)), md(ll.map(p => p.lng))];
+    const dd = ll.map(p => [Math.hypot(p.lat - c[0], (p.lng - c[1]) * Math.cos(c[0] * Math.PI / 180)), p]).sort((x, y) => x[0] - y[0]), cut = Math.max(dd[dd.length >> 1][0] * 3, 0.004);
+    let k = dd.filter(x => x[0] <= cut); if (k.length < ll.length * 0.6) k = dd.slice(0, Math.ceil(ll.length * 0.95)); k = k.map(x => x[1]);   // the core: within 3× the median distance
+    auto = Date.now(); map.fitBounds(window.L.latLngBounds(k), Object.assign(overMap(), { maxZoom: 15, animate: false })); };
+  // 'map' = the theme's gray canvas (the old stored 'light' and the old default 'street' both read as it; street detail is
+  // only ever an explicit choice from the Key, stored as 'street!')
+  const dark = () => { const t = d.documentElement.getAttribute('data-theme'); return t === 'dark' || (t !== 'light' && !!window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches); };
+  const baseOf = k => k === 'satellite' ? bases.satellite : k === 'street!' ? bases.street : dark() ? bases.mapDark : bases.mapLight;
+  C.setBase = k => { k = k === 'street' ? 'street!' : k === 'light' ? 'map' : k; store.set('base', k); if (!live()) return; const b = baseOf(k); for (const x in bases) if (bases[x] && bases[x] !== b && map.hasLayer(bases[x])) map.removeLayer(bases[x]); if (!map.hasLayer(b)) b.addTo(map); };
+  const reTheme = () => { if (live()) C.setBase(store.get('base', 'map')); };   // the canvas follows a theme toggle live
+  if (window.matchMedia) { const mq = matchMedia('(prefers-color-scheme: dark)'); if (mq.addEventListener) mq.addEventListener('change', reTheme); else if (mq.addListener) mq.addListener(reTheme); }
+  if (window.MutationObserver) new MutationObserver(reTheme).observe(d.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  // Leaflet (≈ 144 KB) loads after first paint and after the page's own load: the list is the content, the map follows
+  // (W7: Atlas Tokyo ≤ 2,000 KB, FCP untouched). A failed load costs the map, never a place: the list stays whole.
+  const afterPaint = f => { const go = () => requestAnimationFrame(() => setTimeout(f, 0)); if (d.readyState === 'complete') go(); else on(window, 'load', go); };
   const loadMap = cb => {
     if (cb) waiters.push(cb);
     const done = () => { mountMap(); if (map) waiters.splice(0).forEach(f => f()); };
     if (window.L) { done(); return; }
     if (loading++) return;
-    const b = (Cleo.root || '../') + 'assets/vendor/leaflet/', l = d.createElement('link'), s = d.createElement('script');
-    l.rel = 'stylesheet'; l.href = b + 'leaflet.css'; d.head.appendChild(l);
-    s.src = b + 'leaflet.js'; s.async = true; s.onload = done; d.head.appendChild(s);
+    afterPaint(() => {
+      const b = (Cleo.root || '../') + 'assets/vendor/leaflet/', l = d.createElement('link'), s = d.createElement('script');
+      l.rel = 'stylesheet'; l.href = b + 'leaflet.css'; d.head.appendChild(l);
+      s.src = b + 'leaflet.js'; s.async = true; s.onload = done;
+      s.onerror = () => { d.documentElement.classList.add('ms-nomap'); if (C.onNoMap) C.onNoMap(); };
+      d.head.appendChild(s);
+    });
   };
-
   paint();
   // ROUND-3 #5 motion hooks (FE-A JS half; DES owns the CSS). Classes only, added for one beat and only when the
   // reader allows motion: .pop on a save / been control that just turned on, .stamp-in on a fresh stamp, .is-press on
@@ -345,6 +461,4 @@
     ['pointerup', 'pointercancel', 'pointerleave'].forEach(k => r.addEventListener(k, up)); });
   onRoute();
   if ((store.get('interests', []) || []).length) need('foryou');
-  // W3: the map belongs to Atlas (views.js mounts it on switch); Gallery / Guidebook / Insights don't build ~1k pin nodes
-  if (desk() && /^(atlas|)$/.test(d.documentElement.getAttribute('data-view') || '')) { if (window.requestIdleCallback) requestIdleCallback(() => loadMap(), { timeout: 1500 }); else setTimeout(loadMap, 300); }
 })();

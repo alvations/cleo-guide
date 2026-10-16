@@ -1,0 +1,296 @@
+{
+ "generated": "2026-10-16T16:22:02.462Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "Germany/index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 390,
+    "vh": 844,
+    "title": "Germany — 3 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 392,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 132,
+    "upperNodes": 8,
+    "upperPct": 6.1,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Mike Peel · CC BY\"",
+    "contrastChecked": 116,
+    "contrastUnknown": 3,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 431,
+    "fcp": 252,
+    "fontSampleN": 119,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 24,
+     "Inter": 158
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 246,
+      "Inter": 2205,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 661321,
+    "bytesAllResponses": 661321,
+    "initial": {
+     "bytes": 661321,
+     "gz": 422158
+    },
+    "session": {
+     "bytes": 661321
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 116,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "hub",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Germany — 3 sourced guides · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 612,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 149,
+    "upperNodes": 8,
+    "upperPct": 5.4,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 136,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 431,
+    "fcp": 148,
+    "fontSampleN": 136,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 26,
+     "Inter": 183
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 278,
+      "Inter": 2754,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 661321,
+    "bytesAllResponses": 661321,
+    "initial": {
+     "bytes": 661321,
+     "gz": 422158
+    },
+    "session": {
+     "bytes": 661321
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 136,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 2547
+   },
+   "cpu4x": {
+    "fcp": 368,
+    "dcl": 444,
+    "loadMs": 526
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "6.1% (8/132)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: Mike Peel · CC BY\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "646 KB · 431 nodes · 148 ms · 368 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "412 KB (646 KB) · 412 KB (646 KB)"
+     }
+    },
+    "passed": 11,
+    "total": 11,
+    "hardFail": []
+   }
+  }
+ ]
+}

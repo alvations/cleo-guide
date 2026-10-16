@@ -256,7 +256,8 @@ function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO, io = f
       w.Element.prototype.scrollIntoView = function () {};
       if (storage === 'throws') Object.defineProperty(w, 'localStorage', { get() { throw new Error('SecurityError: storage disabled'); } });
       // a do-nothing IntersectionObserver: nothing ever scrolls into view, so only lazy-render triggers can stamp
-      if (io) w.IntersectionObserver = class { constructor(cb) { this.cb = cb; } observe() {} unobserve() {} disconnect() {} };
+      // (it records what it watches, so scrollAll() below can stand in for scrolling the whole page)
+      if (io) w.IntersectionObserver = class { constructor(cb) { this.cb = cb; this.t = new Set(); (w.__io = w.__io || []).push(this); } observe(t) { this.t.add(t); } unobserve(t) { this.t.delete(t); } disconnect() { this.t.clear(); } };
       w.addEventListener('error', e => errs.push('ERR ' + (e.message || e.error)));
     },
   });
@@ -264,6 +265,16 @@ function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO, io = f
   return { w: dom.window, d: dom.window.document, errs };
 }
 const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
+// "scroll to the end": fire every watched target of every (fake) IntersectionObserver until nothing new is watched
+const scrollAll = async w => { for (let i = 0; i < 400; i++) { const hit = (w.__io || []).filter(o => o.t.size); if (!hit.length) return; hit.forEach(o => o.cb([...o.t].map(t => ({ target: t, isIntersecting: true })))); await sleep(5); } };
+// PERF-08 (QA's wording, BETA-ISSUES PERF-08): a lens shows exactly its matches and every place stays reachable —
+// (a) shown == F; (b) every food place is a card; (c) cards + stubs == total; (f) the visible lens count == F
+const lensOutcome = (b, label) => {
+  const d = b.d, F = live.F.length, dom = d.querySelectorAll('li.pl').length, stubs = b.w.Cleo.defer.peek().length;
+  const cnt = d.querySelector('#cleo-shown b'), tile = d.querySelector('button[data-mode="food"] .n, .rail-i[data-mode="food"] .n');
+  chk(`${label} (${dom} of ${total} cards built): (a) shown == F · (b) every food place is a card · (c) cards + stubs == total · (f) the visible lens count == F`,
+    [shown(d), d.querySelectorAll('li.pl[data-k="f"]').length, dom + stubs, cnt ? +cnt.textContent : null].join(), `${F},${F},${total},${F}`);
+};
 
 (async () => {
   // Pilot set (BETA-DECISIONS D-27) — every page also passes the count gate; these also render in jsdom.
@@ -324,29 +335,88 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   {
     const html = rd('beta/' + TOKYO);
     const liveTags = (html.replace(/<noscript data-cleo-defer[\s\S]*?<\/noscript>/g, '').match(/<li class="pl[ "]/g) || []).length;
-    chk('Tokyo ships ≤ 32 live cards, the rest in <noscript data-cleo-defer> (still in the HTML)', [liveTags, (html.match(/<li class="pl[ "]/g) || []).length].join(), `32,${total}`);
+    chk('Tokyo ships ≤ 24 live cards, the rest in <noscript data-cleo-defer> (still in the HTML)', [liveTags, (html.match(/<li class="pl[ "]/g) || []).length].join(), `24,${total}`);
     const { w, d, errs } = boot({ io: true });
     await sleep(300);
-    chk('with JS: initial cards are the live 32', d.querySelectorAll('li.pl').length, 32);
+    // platform W7: the paged Gallery stamps exactly its first page (24 on a phone; jsdom has no matchMedia → 48), no more
+    chk('with JS: the cards built are exactly Gallery page 1 (jsdom: 48 per page)', d.querySelectorAll('li.pl').length, 48);
     chk('every deferred place still has a map stub (pin) via Cleo.defer.peek()', w.Cleo.defer.peek().filter(x => x.getAttribute('data-ll')).length + d.querySelectorAll('li.pl[data-ll]').length, total);
     chk('every area section stays visible while its cards are deferred', [...d.querySelectorAll('section.area')].filter(s => s.hidden).length, 0);
     const lastId = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)].pop()[1];
     chk('a pin on an unstamped place stamps its chunk (stampFor)', !!w.Cleo.defer.stampFor(lastId) && !!d.getElementById('p-' + lastId), true);
     d.querySelector('button[data-mode="food"]').click(); await sleep(30);
-    chk('any lens stamps every card first; food mode shows exactly the food', [d.querySelectorAll('li.pl').length, shown(d)].join(), `${total},${live.F.length}`);
+    // PERF-08: a lens builds only what it shows (Cleo.defer.selective); QA's (a)–(h) replace "any lens stamps every card"
+    lensOutcome({ w, d }, 'a lens (food mode)');
+    {   // (g) with the lens on, a #p= deep link to a place OUTSIDE it stamps and shows it (filters yield)
+      const sIds = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"[^>]*data-k="s"/g)].map(m => m[1]), out = sIds.find(id => !d.getElementById('p-' + id)) || sIds[sIds.length - 1];   // unbuilt if any (selective), else any sight
+      w.location.hash = '#mode=food&p=' + out; await sleep(40);
+      const oc = d.getElementById('p-' + out);
+      chk('(g) lens on: a #p= link to a place outside the lens stamps it and shows it', !!oc && !oc.hidden && oc.classList.contains('is-target'), true);
+    }
+    {   // (g) a typed search with the lens on: focusing the search builds every card, so a place outside the lens is findable
+      w.location.hash = '#mode=food'; await sleep(40);
+      const sIds2 = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"[^>]*data-k="s"/g)].map(m => m[1]), sId = sIds2.find(id => !d.getElementById('p-' + id)) || sIds2[sIds2.length - 2];
+      const fi = d.getElementById('cleo-filter');
+      fi.dispatchEvent(new w.FocusEvent('focusin', { bubbles: true }));
+      const name = (d.getElementById('p-' + sId) || { querySelector: () => null }).querySelector('.pl-n');
+      fi.value = name ? name.textContent : sId; fi.dispatchEvent(new w.Event('input', { bubbles: true })); await sleep(200);
+      w.location.hash = '#'; await sleep(40);   // the lens chip removed, the typed query stays
+      const sc = d.getElementById('p-' + sId);
+      chk('(g) lens on: a typed search builds the place outside the lens, and it shows once the lens is cleared', [!!sc, !!sc && !sc.hidden, d.querySelectorAll('li.pl').length].join(), `true,true,${total}`);
+    }
+    {   // (e) clearing the lens and scrolling builds every card; (d) "Show all" builds every card at once
+      const e1 = boot({ io: true, hash: '#view=atlas&mode=food' }); await sleep(300);
+      lensOutcome(e1, 'a lens link on load (Atlas)');
+      e1.w.location.hash = '#view=atlas'; await sleep(40); await scrollAll(e1.w);
+      chk('(e) Atlas: clearing the lens, then scrolling the list: the DOM ends up == total', e1.d.querySelectorAll('li.pl').length, total);
+      // the Gallery is paged (its lazy observer holds; SPEC §2.3): clearing the lens, then every page, reaches every card
+      const e3 = boot({ io: true, hash: '#mode=food' }); await sleep(300);
+      lensOutcome(e3, 'a lens link on load (Gallery)');
+      e3.w.location.hash = '#'; await sleep(40);
+      for (let k = 2; k <= Math.ceil(total / 48) + 1; k++) { e3.w.location.hash = '#pg=' + k; await sleep(20); }
+      chk('(e) Gallery: clearing the lens, then paging to the end: the DOM ends up == total', e3.d.querySelectorAll('li.pl').length, total);
+      const e2 = boot({ io: true, hash: '#mode=food' }); await sleep(300);
+      e2.d.querySelector('[data-cleo-all]').click(); await sleep(40);
+      chk('(d) "Show all" builds every card, every place shown', [e2.d.querySelectorAll('li.pl').length, shown(e2.d)].join(), `${total},${total}`);
+      chk('… no js errors ((d), (e))', e1.errs.concat(e2.errs, e3.errs), e => e.length === 0);
+    }
     chk('no js errors (lazy)', errs, e => e.length === 0);
-    // W5 (FE-A, coordinated): Gallery is the default now and its pager stamps every card for a deep link (the true page
-    // order, QA-29); R-32 place-only stamping is the Atlas path, so it is measured there
+    // PERF-08 primitives (core): a lens stamps only the cards it shows; every other place stays a reachable stub
+    {
+      const b3 = boot({ io: true }); await sleep(300);
+      const C3 = b3.w.Cleo, F = live.F.length, before = b3.d.querySelectorAll('li.pl').length;
+      const foodStubs = C3.defer.peek({ lens: { mode: 'food' } });
+      chk('peek({lens}) returns only the stubs that lens shows', foodStubs.every(x => x.getAttribute('data-k') === 'f'), true);
+      C3.defer.stampLens({ mode: 'food' });
+      const dom = [...b3.d.querySelectorAll('li.pl')], foodDom = dom.filter(c => c.getAttribute('data-k') === 'f').length;
+      chk('stampLens(food): every food place is now a card, nothing else new was built, every place still reachable (cards + stubs = total)',
+        [foodDom, dom.length - before <= F, dom.length + C3.defer.peek().length].join(), `${F},true,${total}`);
+      chk('stampLens(q=…) stamps everything (a stub cannot be judged on its text)', (C3.defer.stampLens({ q: 'shrine' }), b3.d.querySelectorAll('li.pl').length), total);
+      chk('no js errors (stampLens)', b3.errs, e => e.length === 0);
+    }
+    // Platform W7 (R6 gap #5): a Gallery deep link no longer stamps every card — it stamps only the page that holds the
+    // place (24 per page on a phone, 48 wider), placed by the true view order (QA-29). The page shown must be the right one.
+    {
+      const order = [...html.replace(/<noscript data-cleo-defer[^>]*>/g, '').matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)].map(m => m[1]);
+      const far = order[order.length - 30], g = boot({ io: true, hash: '#view=gallery&p=' + far }); await sleep(300);
+      const gt = g.d.getElementById('p-' + far), n = g.d.querySelectorAll('li.pl').length;
+      const onPage = [...g.d.querySelectorAll('li.pl')].filter(c => !c.hidden && !c.classList.contains('pg-off'));
+      chk('Gallery deep link on load to a deferred place: lands on its page, stamping only that page (≤ 24 live + one page; jsdom has no matchMedia → 48 per page)',
+        [!!gt && !gt.hidden && !gt.classList.contains('pg-off'), n <= 24 + 48 && n < order.length, onPage.length > 0 && onPage.length <= 48].join() + ' (' + n + ' cards)', s => s.startsWith('true,true,true'));
+      chk('… and no js errors', g.errs, e => e.length === 0);
+    }
     const b2 = boot({ io: true, hash: '#view=atlas&p=' + lastId }); await sleep(300);
     const tg = b2.d.getElementById('p-' + lastId);
     const nDom = b2.d.querySelectorAll('li.pl').length;
-    chk('deep link on load to a deferred place lands, stamping only its chunk (R-32, gap #6)', !!tg && !tg.hidden && tg.classList.contains('is-target') && nDom < total && nDom <= 32 + 40, true);
+    chk('deep link on load to a deferred place lands, stamping only its card (R-32, gap #6; platform W7)', !!tg && !tg.hidden && tg.classList.contains('is-target') && nDom < total && nDom <= 24 + 1, true);
     const mid = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)][200][1];
     b2.w.location.hash = '#view=atlas&p=' + mid; await sleep(60);
     const tm = b2.d.getElementById('p-' + mid);
     chk('a second place link (hashchange) stamps one more chunk, not the page', !!tm && !tm.hidden && b2.d.querySelectorAll('li.pl').length < total, true);
     b2.w.location.hash = '#mode=food'; await sleep(60);
-    chk('… and a lens after it still stamps every card', [b2.d.querySelectorAll('li.pl').length, shown(b2.d)].join(), `${total},${live.F.length}`);
+    lensOutcome(b2, '… and a lens after it');
+    b2.w.location.hash = '#view=atlas'; await sleep(40); await scrollAll(b2.w);
+    chk('… (e) clearing it on Atlas, then scrolling the list: the DOM ends up == total', b2.d.querySelectorAll('li.pl').length, total);
     chk('no js errors (place-only stamping)', b2.errs, e => e.length === 0);
   }
   console.log('\n== MAP: vendored Leaflet present ==');
@@ -355,7 +425,15 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     await sleep(700);
     const withLL = d.querySelectorAll('li.pl[data-ll]').length;
     chk('leaflet mounted', !!d.querySelector('#cleo-map .leaflet-pane'), true);
-    chk('one marker per pinned place', d.querySelectorAll('#cleo-map .leaflet-overlay-pane path').length, withLL);
+    // W6 (FE-A, coordinated): at dense zooms nearby pins gather into a count bubble (.pin-cl); a pin is either drawn or
+    // counted in exactly one bubble, so pins + bubble counts == pinned places. W7 Atlas map-search: a pin is a label-pill
+    // marker (.leaflet-marker-icon.pp), no longer an SVG circle path — same invariant, the new pin's selector.
+    // SPEC-v3 slice 1 (Atlas review loop): every pinned place is ONE dot on a shared canvas layer (no DOM node, no number),
+    // and atlas.js lifts at most 16 of them into labelled pins — same invariant (one marker per pinned place), the new layer
+    const W0 = d.defaultView, nDots = Object.keys(W0.Cleo.city.markers).length;
+    chk('one marker per pinned place (a canvas dot each)', nDots, withLL);
+    const icons = [...d.querySelectorAll('#cleo-map .leaflet-marker-icon')];
+    chk('labelled map pins ≤ 16 + 1, and no marker is a bare number (rank or count)', [icons.length <= 17, icons.some(e => /^\s*★?\s*\d+\s*$/.test(e.textContent))].join(), 'true,false');
     const hosts = [...new Set([...fs.readFileSync(path.join(BETA, 'assets/js/city.js'), 'utf8').matchAll(/tileLayer\('https:\/\/([^/']+)/g)].map(m => m[1]))];
     // Tiles that never load (blocked network): after 4 errors the dead map gives way to the schematic + VOICE copy.
     const W = d.defaultView, el = d.getElementById('cleo-map'), hs = {};
@@ -364,6 +442,15 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     chk('tiles failed → schematic + "The map couldn’t load" line', [el.getAttribute('data-tiles'), !!el.querySelector('.map-art img'), /map couldn’t load/.test(el.textContent)].join(), 'failed,true,true');
     chk('tile hosts in client (OSM/Esri only)', hosts, h => h.length > 0 && h.every(x => x === 'tile.openstreetmap.org' || x === 'server.arcgisonline.com'));
     chk('no js errors', errs, e => e.length === 0);
+  }
+  {   // PERF-08 (h): under a selective lens every unstamped place keeps its map pin, and the map shows exactly the lens
+      // (the DOM < total part only while Cleo.defer.selective is on; it is off again after QA-75/76)
+    const tags = [...rd('beta/' + TOKYO).matchAll(/<li class="pl[ "][^>]*>/g)].map(m => m[0]).filter(t => / data-ll="/.test(t) && !/ data-np[ =>]/.test(t));
+    const h = boot({ leaflet: true, io: true, hash: '#view=atlas&mode=food' }); await sleep(700);
+    const C = h.w.Cleo.city, onMap = C.dots ? C.dots.getLayers().length : -1;
+    chk('(h) a lens on Atlas: markers == pinned (stamped or not), and the dots shown == the pinned places the lens shows',
+      [Object.keys(C.markers).length, onMap, !h.w.Cleo.defer.selective || h.d.querySelectorAll('li.pl').length < total].join(), `${tags.length},${tags.filter(t => / data-k="f"/.test(t)).length},true`);
+    chk('… no js errors (h)', h.errs, e => e.length === 0);
   }
 
   // ── 5. budgets ────────────────────────────────────────────────────────────
@@ -398,13 +485,34 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   }
   // Platform W2: 32 → 40 KB gzip per page — core.js now carries progressive rendering (M3-06) and offline caching (B-40),
   // both of which make pages lighter/sturdier; every script is `defer`, so content never waits on it (RFC §7.5).
-  chk(`client JS loaded by any one page ≤ 40 KB gzip (heaviest: ${jsMax[0]}, ${jsMax[1]} KB raw)`, KB(jsMax[2]), n => n <= 40);
+  // Platform W7 (R6 gap #5): no rounding — the exact gzip bytes are held to 40.0 KB (40.45 used to round down to 40).
+  chk(`client JS loaded by any one page ≤ 40.0 KB gzip, unrounded (heaviest: ${jsMax[0]}, ${jsMax[1]} KB raw)`, +(jsMax[2] / 1024).toFixed(2), n => n <= 40.0);
   // per-page share cards (B-36, npm run beta:og): 1200×630 PNG ≤ 300 KB, and every page that has one points og:image at it
   const OGD = path.join(BETA, 'assets/og'), ogs = fs.existsSync(OGD) ? fs.readdirSync(OGD).filter(f => f.endsWith('.png')) : [];
   const ogBad = ogs.filter(f => { const b = fs.readFileSync(path.join(OGD, f)); return b.readUInt32BE(16) !== 1200 || b.readUInt32BE(20) !== 630 || b.length > 300 * 1024; });
   const ogUnused = manifest.pages.filter(p => p.kind === 'city' && ogs.includes(p.key.replace(/\//g, '--') + '.png'))
     .filter(p => !rd('beta/' + p.beta).includes(`/assets/og/${p.key.replace(/\//g, '--')}.png"`)).map(p => p.beta);
   chk(`share cards: ${ogs.length} PNGs are 1200×630 ≤ 300 KB, and their pages use them`, ogBad.concat(ogUnused), a => a.length === 0);
+  // Platform W8 (R7 gap 7): the one shared stylesheet ships ≤ 200 KB raw (dead R6 rules removed by tools/beta/css-dead.py,
+  // comments stripped by build-css.py; the sources keep theirs)
+  chk('cleo.css ≤ 200 KB raw (200,000 B)', size('assets/cleo.css'), n => n <= 200000);
+  // Perf audit PERF-04: the place detail reads data/links/<page>.json, a slice of the page dataset. It must say exactly
+  // what the dataset says: every place's http(s) source links and every source key's publisher group, nothing else.
+  {
+    const bad = [];
+    for (const pg of manifest.pages.filter(p => p.kind === 'city')) {
+      const f = pg.key.replace(/\//g, '--'), dp = path.join(BETA, 'data/places', f + '.json'), dl = path.join(BETA, 'data/links', f + '.json');
+      if (!fs.existsSync(dp)) continue;
+      if (!fs.existsSync(dl)) { bad.push(f + ': no links slice'); continue; }
+      const D = JSON.parse(fs.readFileSync(dp, 'utf8')), L = JSON.parse(fs.readFileSync(dl, 'utf8')), g = {};
+      for (const s of D.sourceIndex || []) for (const e of s.entries || []) g[e.key] = s.id;
+      if (JSON.stringify(g) !== JSON.stringify(L.g)) bad.push(f + ': groups differ');
+      for (const x of D.places) { const want = (x.s || []).filter(y => y && /^https?:\/\//.test(y[1] || ''));
+        if (JSON.stringify(want.length ? want : undefined) !== JSON.stringify(L.p[x.id])) { bad.push(f + '/' + x.id); break; } }
+      if (Object.keys(L.p).some(id => !D.places.find(x => x.id === id))) bad.push(f + ': extra ids');
+    }
+    chk('data/links/<page>.json == the page dataset\'s source links and groups, every page', bad.slice(0, 5), a => a.length === 0);
+  }
   chk('search index ≤ 250 KB gzip (lazy)', KB(gz('data/search.json')), n => n <= 250);
 
   console.log(failures ? `\n>>> FAIL — ${failures} beta check(s) failed` : '\n>>> PASS — beta: counts == live, reproducible, guarded, renders with no CDN');

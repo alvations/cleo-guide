@@ -1,0 +1,1416 @@
+{
+ "meta": {
+  "tool": "tools/location-verify.js 0.1.0",
+  "city": "wheeling-wv",
+  "generated": "2026-10-11",
+  "scope": [
+   "unverified",
+   "low",
+   "status"
+  ],
+  "sources": [
+   "wikidata",
+   "wikipedia",
+   "nominatim",
+   "overpass",
+   "official"
+  ],
+  "rowsInScope": 22,
+  "rowsChecked": 22,
+  "anchor": {
+   "lat": 40.06692,
+   "lng": -80.72444,
+   "radiusM": 150000
+  },
+  "mode": "live",
+  "userAgent": "CleoGuideLocationVerify/0.1.0 (https://github.com/alvations/cleo-guide; location-verify proposals, reviewed by a person) node",
+  "rule": "PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).",
+  "requests": {
+   "network": 0,
+   "cacheHits": 72,
+   "nominatim": 0,
+   "failures": []
+  },
+  "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
+  "hardFailure": false,
+  "reassisted": "2026-10-16"
+ },
+ "summary": {
+  "pin": 8,
+  "no-match": 14
+ },
+ "rows": [
+  {
+   "name": "DiCarlo's Pizza",
+   "current": {
+    "address": "1311 Main St, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "dicarloswv.com official site; Yelp updated Aug 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.06598,
+    "lng": -80.72386,
+    "address": "1311 Main Street, Wheeling, West Virginia 26003",
+    "matchedName": "DiCarlo's Pizza - Wheeling",
+    "sourceUrl": "https://www.openstreetmap.org/way/1167636095",
+    "retrieved": "2026-10-11",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1167636095",
+     "class": "amenity=fast_food",
+     "addresstype": "amenity",
+     "name": "DiCarlo's Pizza - Wheeling",
+     "address": "1311 Main Street, Wheeling, West Virginia 26003",
+     "houseNumber": "1311",
+     "tags": {
+      "website": "http://dicarlos.pizza/",
+      "building": "yes",
+      "opening_hours": "Fr-Sa 11:00-22:00; Su-Th 11:00-21:00",
+      "check_date:currency:XBT": "2025-11-21"
+     }
+    },
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "DiCarlo's Pizza - Wheeling",
+     "lat": 40.06598,
+     "lng": -80.72386,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/1167636095",
+     "retrieved": "2026-10-11",
+     "osmClass": "amenity=fast_food",
+     "osm": "way/1167636095",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "OSM POI whose name matches and whose street address equals the registry address (1311 Main Street, Wheeling, West Virginia 26003); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
+    "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 0.9, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Coleman's Fish Market",
+   "current": {
+    "address": "2226 Market St (Centre Market), Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "colemansfishmkt.com official site; centremarket.org shops listing",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.05916,
+    "lng": -80.7244,
+    "address": "2226 Market Street, Wheeling, West Virginia 26003",
+    "matchedName": "Coleman's Fish Market",
+    "sourceUrl": "https://www.openstreetmap.org/way/831360505",
+    "retrieved": "2026-10-11",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/831360505",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Coleman's Fish Market",
+     "address": "2226 Market Street, Wheeling, West Virginia 26003",
+     "houseNumber": "2226",
+     "tags": {
+      "website": "https://www.facebook.com/Colemans-Fish-Market-369493546495465/",
+      "building:part": "yes"
+     }
+    },
+    "corroboratedBy": []
+   },
+   "notes": [
+    "robots.txt disallows /Colemans-Fish-Market-369493546495465/ for CleoGuideLocationVerify; skipped"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Coleman's Fish Market",
+     "lat": 40.05916,
+     "lng": -80.7244,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/831360505",
+     "retrieved": "2026-10-11",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/831360505",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "OSM POI whose name matches and whose street address equals the registry address (2226 Market Street, Wheeling, West Virginia 26003); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
+    "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Vagabond Kitchen",
+   "current": {
+    "address": "1201 Market St, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "OpenTable (updated 2026); wvtourism.com listing",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.06714,
+     "lng": -80.72261,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/90186251",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/90186251",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Later Alligator",
+   "current": {
+    "address": "2145 Market St, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "lateralligator.net official site; Yelp updated 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.06037,
+    "lng": -80.72399,
+    "address": "2145 Market Street, Wheeling, West Virginia 26003",
+    "matchedName": "Later Alligator",
+    "sourceUrl": "https://www.openstreetmap.org/way/828908060",
+    "retrieved": "2026-10-11",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/828908060",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Later Alligator",
+     "address": "2145 Market Street, Wheeling, West Virginia 26003",
+     "houseNumber": "2145",
+     "tags": {
+      "website": "lateralligator.net",
+      "building": "yes"
+     }
+    },
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Later Alligator",
+     "lat": 40.06037,
+     "lng": -80.72399,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/828908060",
+     "retrieved": "2026-10-11",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/828908060",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "OSM POI whose name matches and whose street address equals the registry address (2145 Market Street, Wheeling, West Virginia 26003); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
+    "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Sarah's on Main",
+   "current": {
+    "address": "2122 Main St, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "sarahsonmainwv Facebook / Toast ordering; Yelp updated Jul 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.06136,
+     "lng": -80.72375,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/336941748",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/336941748",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Avenue Eats",
+   "current": {
+    "address": "1230 Water St, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "avenueeats.com official site; Yelp updated Aug 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.06678,
+     "lng": -80.72444,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/15621651",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/15621651",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Greco's",
+   "current": {
+    "address": "45 Washington Ave, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "grecoswheeling.com official site; Yelp updated Aug 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.07118,
+     "lng": -80.68498,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/15619525",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/15619525",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "The Alpha Tavern (formerly Ye Olde Alpha)",
+   "current": {
+    "address": "50 Carmel Rd, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "alphatavernwv.com official site (prior 'Ye Olde Alpha' Yelp page marked CLOSED reflects the rebrand; The Alpha Tavern operates at same address)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.07751,
+     "lng": -80.68265,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/963299313",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/963299313",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Wheeling Brewing Company — CLOSED",
+   "current": {
+    "address": "2247 Market St (Centre Market), Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "closed",
+    "statusSource": "Yelp listing 'WHEELING BREWING COMPANY - CLOSED' (updated Jul 2026); BeerAdvocate location marked closed",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.05918,
+    "lng": -80.7248,
+    "address": "2247 Market Street, Wheeling, West Virginia 26003",
+    "matchedName": "Wheeling Brewing",
+    "sourceUrl": "https://www.openstreetmap.org/way/828917937",
+    "retrieved": "2026-10-11",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/828917937",
+     "class": "amenity=pub",
+     "addresstype": "amenity",
+     "name": "Wheeling Brewing",
+     "address": "2247 Market Street, Wheeling, West Virginia 26003",
+     "houseNumber": "2247",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Wheeling Brewing",
+     "lat": 40.05918,
+     "lng": -80.7248,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/828917937",
+     "retrieved": "2026-10-11",
+     "osmClass": "amenity=pub",
+     "osm": "way/828917937",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.05925,
+     "lng": -80.72429,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/15621539",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/15621539",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.05876,
+     "lng": -80.72383,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/15621539",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/15621539",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "OSM POI whose name matches and whose street address equals the registry address (2247 Market Street, Wheeling, West Virginia 26003); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
+    "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "Angelo's Restaurant",
+   "current": {
+    "address": "2109 N Franklin Dr, Washington, PA 15301",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "OpenTable (updated 2026); Yelp updated Aug 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "North Franklin Drive",
+     "lat": 40.16149,
+     "lng": -80.27715,
+     "grade": "low",
+     "nameSim": 0.121,
+     "sourceUrl": "https://www.openstreetmap.org/way/187819436",
+     "retrieved": "2026-10-11",
+     "osmClass": "highway=unclassified",
+     "osm": "way/187819436",
+     "addresstype": "road",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "North Franklin Drive",
+     "lat": 40.15986,
+     "lng": -80.27935,
+     "grade": "low",
+     "nameSim": 0.121,
+     "sourceUrl": "https://www.openstreetmap.org/way/833053797",
+     "retrieved": "2026-10-11",
+     "osmClass": "highway=unclassified",
+     "osm": "way/833053797",
+     "addresstype": "road",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Sarris Candies",
+   "current": {
+    "address": "511 Adams Ave, Canonsburg, PA 15317",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "sarriscandies.com official store page (est. 1960, operating)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Sarris' Candy Parlor",
+     "lat": 40.26581,
+     "lng": -80.17317,
+     "grade": "low",
+     "nameSim": 0.643,
+     "sourceUrl": "https://www.openstreetmap.org/way/583544319",
+     "retrieved": "2026-10-11",
+     "osmClass": "craft=confectionery",
+     "osm": "way/583544319",
+     "addresstype": "craft",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Sarris' Ice Cream Parlor",
+     "lat": 40.26533,
+     "lng": -80.17359,
+     "grade": "low",
+     "nameSim": 0.45,
+     "sourceUrl": "https://www.openstreetmap.org/way/583544318",
+     "retrieved": "2026-10-11",
+     "osmClass": "amenity=ice_cream",
+     "osm": "way/583544318",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Mehlman's Cafeteria",
+   "current": {
+    "address": "51800 National Rd E, St. Clairsville, OH 43950",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "mehlman.com official site; Yelp updated Aug 2026 (Wed-Sun)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "National Road East",
+     "lat": 40.07374,
+     "lng": -80.862,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/19004255",
+     "retrieved": "2026-10-11",
+     "osmClass": "highway=primary",
+     "osm": "way/19004255",
+     "addresstype": "road",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Undo's West",
+   "current": {
+    "address": "51130 National Rd, St. Clairsville, OH 43950",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "undos.com official site; OpenTable (updated 2026); Yelp updated Jul 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.07618,
+     "lng": -80.86577,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/19004255",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/19004255",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Gulla's Lunch",
+   "current": {
+    "address": "3073 Belmont St, Bellaire, OH 43906",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "visitbelmontcounty.com listing; Yelp updated Jun 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.01284,
+     "lng": -80.74391,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/19006500",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/19006500",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Dickens Victorian Village",
+   "current": {
+    "address": "708 Wheeling Ave, Cambridge, OH 43725",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "ohio.org / dickensvictorianvillage.com — welcome center operating (2026)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.02473,
+     "lng": -81.59144,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/30534796",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/30534796",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Hopalong Cassidy Museum",
+   "current": {
+    "address": "627 Wheeling Ave, Cambridge, OH 43725",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "visitguernseycounty.com — Hopalong Cassidy exhibit at visitor center (standalone museum burned 2016)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 40.02492,
+     "lng": -81.59289,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/30534796",
+     "retrieved": "2026-10-11",
+     "osmClass": "place=house",
+     "osm": "way/30534796",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Great Guernsey Trail",
+   "current": {
+    "address": "Trailhead near Cambridge / Old Washington, Cambridge, OH 43725",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "traillink.com / nrtapplication.org — active rail-trail (2026)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Zanesville Museum of Art",
+   "current": {
+    "address": "620 Military Rd, Zanesville, OH 43701",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "zanesvilleart.org plan-your-visit; Yelp updated July 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 39.9786,
+    "lng": -82.0097,
+    "address": null,
+    "matchedName": "Zanesville Museum of Art",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q111364738",
+    "retrieved": "2026-10-11",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Zanesville Museum of Art",
+     "lat": 39.9786,
+     "lng": -82.0097,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q111364738",
+     "retrieved": "2026-10-11",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "hold",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Wikidata coordinate only; no address on the match and no independent second source found by WebSearch (address confirmed at 620 Military Rd, coordinate not). Held for a second source.",
+    "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
+   }
+  },
+  {
+   "name": "Alan Cottrill Sculpture Studio & Gallery",
+   "current": {
+    "address": "110 S 6th St, Zanesville, OH 43701",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "alancottrill.com; visitzanesville.com; Yelp updated July 2025",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Cottrill Art Studio",
+     "lat": 39.93798,
+     "lng": -82.00503,
+     "grade": "low",
+     "nameSim": 0.6,
+     "sourceUrl": "https://www.openstreetmap.org/way/1093315198",
+     "retrieved": "2026-10-11",
+     "osmClass": "craft=sculptor",
+     "osm": "way/1093315198",
+     "addresstype": "craft",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Kennedy's Bakery",
+   "current": {
+    "address": "1025 Wheeling Ave, Cambridge, OH 43725",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "visitguernseycounty.com; Yelp updated August 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.02485,
+    "lng": -81.58576,
+    "address": "1025 Wheeling Avenue, Cambridge, Ohio 43725",
+    "matchedName": "Kennedy's Bakery",
+    "sourceUrl": "https://www.openstreetmap.org/way/766133351",
+    "retrieved": "2026-10-11",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/766133351",
+     "class": "shop=bakery",
+     "addresstype": "shop",
+     "name": "Kennedy's Bakery",
+     "address": "1025 Wheeling Avenue, Cambridge, Ohio 43725",
+     "houseNumber": "1025",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Kennedy's Bakery",
+     "lat": 40.02485,
+     "lng": -81.58576,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/766133351",
+     "retrieved": "2026-10-11",
+     "osmClass": "shop=bakery",
+     "osm": "way/766133351",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "OSM POI whose name matches and whose street address equals the registry address (1025 Wheeling Avenue, Cambridge, Ohio 43725); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
+    "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Adornetto's Pizzeria",
+   "current": {
+    "address": "2224 Maple Ave, Zanesville, OH 43701",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "visitzanesville.com; Yelp updated June 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.96539,
+    "lng": -82.00955,
+    "address": "2224 Maple Avenue, Zanesville, Ohio 43701",
+    "matchedName": "Adornetto's",
+    "sourceUrl": "https://www.openstreetmap.org/way/1025770330",
+    "retrieved": "2026-10-11",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1025770330",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Adornetto's",
+     "address": "2224 Maple Avenue, Zanesville, Ohio 43701",
+     "houseNumber": "2224",
+     "tags": {
+      "website": "https://adornettos.com/",
+      "building": "retail",
+      "opening_hours": "We-Sa 16:00-21:00",
+      "opening_hours:drive_through": "Mo-Su 16:00-21:00"
+     }
+    },
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Adornetto's",
+     "lat": 39.96539,
+     "lng": -82.00955,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/1025770330",
+     "retrieved": "2026-10-11",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/1025770330",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "OSM POI whose name matches and whose street address equals the registry address (2224 Maple Avenue, Zanesville, Ohio 43701); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
+    "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 0.9, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Weasel Boy Brewing Company",
+   "current": {
+    "address": "126 Muskingum Ave, Zanesville, OH 43701",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "weaselboybrewing.com; Yelp updated May 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 39.93625,
+    "lng": -82.00963,
+    "address": "126 Muskingum Avenue, Zanesville, Ohio 43701",
+    "matchedName": "Weasel Boy Brewing Company",
+    "sourceUrl": "https://www.openstreetmap.org/node/6405232928",
+    "retrieved": "2026-10-11",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6405232928",
+     "class": "amenity=pub",
+     "addresstype": "amenity",
+     "name": "Weasel Boy Brewing Company",
+     "address": "126 Muskingum Avenue, Zanesville, Ohio 43701",
+     "houseNumber": "126",
+     "tags": {
+      "website": "https://www.weaselboybrewing.com/home"
+     }
+    },
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Weasel Boy Brewing Company",
+     "lat": 39.93625,
+     "lng": -82.00963,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6405232928",
+     "retrieved": "2026-10-11",
+     "osmClass": "amenity=pub",
+     "osm": "node/6405232928",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "OSM POI whose name matches and whose street address equals the registry address (126 Muskingum Avenue, Zanesville, Ohio 43701); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
+    "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  }
+ ]
+}

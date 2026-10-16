@@ -1,0 +1,5677 @@
+{
+ "meta": {
+  "tool": "tools/location-verify.js 0.1.0",
+  "city": "miami-fl",
+  "generated": "2026-10-16",
+  "scope": [
+   "unverified",
+   "low",
+   "status"
+  ],
+  "sources": [
+   "wikidata",
+   "wikipedia",
+   "nominatim",
+   "overpass",
+   "official",
+   "census"
+  ],
+  "rowsInScope": 85,
+  "rowsChecked": 85,
+  "anchor": {
+   "lat": 25.782252,
+   "lng": -80.19392,
+   "radiusM": 71886
+  },
+  "mode": "live",
+  "userAgent": "CleoGuideLocationVerify/0.1.0 (https://github.com/alvations/cleo-guide; location-verify proposals, reviewed by a person) node",
+  "rule": "PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).",
+  "phase2": {
+   "houseFiles": [],
+   "abr": null,
+   "onemap": null
+  },
+  "requests": {
+   "network": 319,
+   "cacheHits": 4,
+   "nominatim": 136,
+   "failures": [
+    "overpass-api.de HTTP 502",
+    "overpass-api.de HTTP 502",
+    "overpass-api.de HTTP 502",
+    "overpass-api.de HTTP 502"
+   ],
+   "byHost": {
+    "www.wikidata.org": {
+     "requests": 120,
+     "failed": 0
+    },
+    "en.wikipedia.org": {
+     "requests": 14,
+     "failed": 0
+    },
+    "www.lasolasboulevard.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.miamibeachfl.gov": {
+     "requests": 3,
+     "failed": 0
+    },
+    "nominatim.openstreetmap.org": {
+     "requests": 136,
+     "failed": 0
+    },
+    "hometownbbqmiami.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.ceviche105.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "lacarreta.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.margulieswarehouse.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.artegcbyavanti.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "pinecrestbakery.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.sibfl.net": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.browardcenter.org": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.junglequeen.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.hallandalebeachfl.gov": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.nps.gov": {
+     "requests": 3,
+     "failed": 0
+    },
+    "www.marriott.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "miamibeachbandshell.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "youngatartmuseum.org": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.superblue.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.aventuracenter.org": {
+     "requests": 2,
+     "failed": 0
+    },
+    "babyjanemiami.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "overpass-api.de": {
+     "requests": 8,
+     "failed": 4
+    },
+    "geocoding.geo.census.gov": {
+     "requests": 1,
+     "failed": 0
+    }
+   }
+  },
+  "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
+  "hardFailure": false,
+  "reassisted": "2026-10-16"
+ },
+ "summary": {
+  "pin": 33,
+  "confirm": 5,
+  "no-match": 41,
+  "ambiguous": 3,
+  "move": 1,
+  "shared-object": 2
+ },
+ "rows": [
+  {
+   "name": "Las Olas Boulevard",
+   "current": {
+    "address": "Las Olas Blvd, Fort Lauderdale",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 26.1193,
+    "lng": -80.135,
+    "address": null,
+    "matchedName": "Las Olas Boulevard",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q6492365",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Las_Olas_Boulevard",
+      "distanceM": 4
+     }
+    ]
+   },
+   "notes": [
+    "official site schema.org address: 915 East Las Olas Boulevard, Fort Lauderdale, FL 33301 (no geo)",
+    "overpass: HTTP 502"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Las Olas Boulevard",
+     "lat": 26.1193,
+     "lng": -80.135,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q6492365",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Las Olas Boulevard",
+     "lat": 26.1193,
+     "lng": -80.13496,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Las_Olas_Boulevard",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
+   }
+  },
+  {
+   "name": "Fort Lauderdale Beach",
+   "current": {
+    "address": "A1A, Fort Lauderdale",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 26.14056,
+    "lng": -80.10194,
+    "address": null,
+    "matchedName": "Fort Lauderdale Beach",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q49320734",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 502"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Fort Lauderdale Beach",
+     "lat": 26.14056,
+     "lng": -80.10194,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q49320734",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
+    ]
+   }
+  },
+  {
+   "name": "South Pointe Park",
+   "current": {
+    "address": "1 Washington Ave, Miami Beach, FL 33139",
+    "lat": 25.768339,
+    "lng": -80.131853,
+    "source": "Address geocode of adjacent 101 S Pointe Dr, Miami Beach 25.768339,-80.131853 (findlatitudeandlongitude.com) — not a park pin; re-verify",
+    "confidence": "low",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Public city park (timeout.com, gobrightline.com listings)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "low"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.76616,
+    "lng": -80.13293,
+    "address": null,
+    "matchedName": "South Pointe Park",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q7568258",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": 265,
+    "osmObject": null,
+    "coordDecimals": 6,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/South_Pointe_Park",
+      "distanceM": 0
+     }
+    ]
+   },
+   "notes": [
+    "extended feature: 265 m between centroid and the pinned entrance/point is expected; no move proposed",
+    "overpass: HTTP 502"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "South Pointe Park",
+     "lat": 25.76616,
+     "lng": -80.13293,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q7568258",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 265
+    },
+    {
+     "kind": "wikipedia",
+     "name": "South Pointe Park",
+     "lat": 25.76616,
+     "lng": -80.13293,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/South_Pointe_Park",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 265
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
+   }
+  },
+  {
+   "name": "The Surf Club Restaurant",
+   "current": {
+    "address": "9011 Collins Ave, Surfside, FL 33154",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Wine Spectator Best of Award of Excellence 2025; AAA Four Diamond 2024 (2026 search)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Four Seasons Hotel at The Surf Club",
+     "lat": 25.87732,
+     "lng": -80.12117,
+     "grade": "low",
+     "nameSim": 0.6,
+     "sourceUrl": "https://www.openstreetmap.org/way/1306263223",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=hotel",
+     "osm": "way/1306263223",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "The Surf Club Four Seasons Private Residences in Surfside, Florida",
+     "lat": 25.87787,
+     "lng": -80.12141,
+     "grade": "low",
+     "nameSim": 0.6,
+     "sourceUrl": "https://www.openstreetmap.org/way/824683053",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/824683053",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Four Seasons Hotel at The Surf Club",
+     "lat": 25.87732,
+     "lng": -80.12117,
+     "grade": "low",
+     "nameSim": 0.6,
+     "sourceUrl": "https://www.openstreetmap.org/way/1306263223",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=hotel",
+     "osm": "way/1306263223",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "The Surf Club Four Seasons Private Residences in Surfside, Florida",
+     "lat": 25.87787,
+     "lng": -80.12141,
+     "grade": "low",
+     "nameSim": 0.6,
+     "sourceUrl": "https://www.openstreetmap.org/way/824683053",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/824683053",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Hometown Barbecue Miami",
+   "current": {
+    "address": "1200 NW 22nd St Ste 100, Miami, FL 33142",
+    "lat": 25.79744,
+    "lng": -80.2157,
+    "source": "Business-listing coordinate 25.79744,-80.2157 (frankiapp.com/business/hometown-bar-b-que-13447) — aggregator value, not a place pin; upgrade",
+    "confidence": "low",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Michelin Guide listing guide.michelin.com/.../miami/restaurant/hometown-barbecue-miami",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "low"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.79742,
+    "lng": -80.21571,
+    "address": "1200 Northwest 22nd Street, Miami, Florida 33142",
+    "matchedName": "Hometown Barbecue",
+    "sourceUrl": "https://www.openstreetmap.org/node/10138428303",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": false,
+     "postcode": true
+    },
+    "distanceM": 2,
+    "osmObject": {
+     "id": "node/10138428303",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Hometown Barbecue",
+     "address": "1200 Northwest 22nd Street, Miami, Florida 33142",
+     "houseNumber": "1200",
+     "tags": {
+      "website": "https://hometownbbqmiami.com/",
+      "opening_hours": "Su-Th 11:30-21:00; Fr-Sa 11:30-22:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence low → high",
+    "overpass: HTTP 502"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Hometown Barbecue",
+     "lat": 25.79742,
+     "lng": -80.21571,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/10138428303",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/10138428303",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 2
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number true, street false)"
+    ]
+   }
+  },
+  {
+   "name": "Chez Le Bebe",
+   "current": {
+    "address": "114 NE 54th St, Miami, FL",
+    "lat": 25.82518005,
+    "lng": -80.19346619,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '114 NE 54th St': restaurantji.com/fl/miami/chez-le-bebe-/ · sirved.com/restaurant/miami-florida-usa/chez-le-bebe/822505",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Address confirmed (Infatuation, TimeOut, Fodor's); current listings show hours but no dated 2025/2026 evidence",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "overpass: HTTP 502"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 25.82515,
+     "lng": -80.19347,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/6096704990",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "node/6096704990",
+     "addresstype": "place",
+     "distanceFromCurrentM": 3
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Cvi.che 105",
+   "current": {
+    "address": "105 NE 3rd Ave, Miami, FL",
+    "lat": 25.7754765,
+    "lng": -80.1884418,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '105 NE 3rd Ave' (Downtown flagship): restaurantji.com/fl/miami/cvi-che-105-downtown-/ · sirved.com/restaurant/miami-florida-usa/cvi.che-105/688939",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "No 2025/2026 evidence found for the downtown flagship; South Beach branch flagged closed, Coral Gables branch opened Dec 2023 (whatnow.com). Re-check.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.77544,
+    "lng": -80.18847,
+    "address": "105 Northeast 3rd Avenue, Miami, Florida 33132",
+    "matchedName": "CVI.CHE 105",
+    "sourceUrl": "https://www.openstreetmap.org/node/3247965416",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": 5,
+    "osmObject": {
+     "id": "node/3247965416",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "CVI.CHE 105",
+     "address": "105 Northeast 3rd Avenue, Miami, Florida 33132",
+     "houseNumber": "105",
+     "tags": {
+      "website": "https://www.ceviche105.com/"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high",
+    "overpass: HTTP 502"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "CVI.CHE 105",
+     "lat": 25.77544,
+     "lng": -80.18847,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/3247965416",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/3247965416",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 5
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number true, street false)"
+    ]
+   }
+  },
+  {
+   "name": "Chef's Counter at MAASS",
+   "current": {
+    "address": "Four Seasons Hotel and Residences Fort Lauderdale, 525 N Fort Lauderdale Beach Blvd, Fort Lauderdale, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Earned Fort Lauderdale's first Michelin star 18 Apr 2025 (Miami New Times; visitlauderdale.com 2025 press release)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Recoveco",
+   "current": {
+    "address": "6000 SW 74th St Ste 1, South Miami, FL 33143",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Michelin Guide listing guide.michelin.com/en/florida/miami/restaurant/recoveco (Michelin Plate 2024)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Bar Bucce",
+   "current": {
+    "address": "N Miami Ave, Little River, Miami, FL (street number not in result)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Opened 2025; James Beard 2026 Best New Bar semifinalist (Miami New Times 'Inside Bar Bucce, Miami's only James Beard bar nominee')",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Daniel's, A Florida Steakhouse",
+   "current": {
+    "address": "620 S Federal Hwy (Hotel Wren), Fort Lauderdale, FL 33301",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Michelin Guide Fort Lauderdale listing; Time Out Fort Lauderdale",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 26.11428,
+    "lng": -80.13659,
+    "address": "620 South Federal Highway, Fort Lauderdale, Florida 33301",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1089580081",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1089580081",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "620 South Federal Highway, Fort Lauderdale, Florida 33301",
+     "houseNumber": "620",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 502"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 26.11428,
+     "lng": -80.13659,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1089580081",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1089580081",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 26.11464,
+     "lng": -80.13717,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/86302458",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/86302458",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 26.11465,
+     "lng": -80.1371,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/86302458",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/86302458",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 26.1139,
+     "lng": -80.13694,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1078589687",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/1078589687",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "620 S FEDERAL HWY, FORT LAUDERDALE, FL, 33301",
+    "lat": 26.11381,
+    "lng": -80.13697,
+    "distanceM": 65,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=620%20S%20Federal%20Hwy%20%2C%20Fort%20Lauderdale%2C%20FL%2033301&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "med: needs a second independent source within 50 m (Census point is 65 m away)"
+    ]
+   }
+  },
+  {
+   "name": "El Brazo Fuerte Bakery",
+   "current": {
+    "address": "1697 SW 32nd Ave, Miami, FL 33145",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "The Infatuation review (current); Miami New Times location page",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 25.7559,
+     "lng": -80.24641,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/435378519",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/435378519",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "La Carreta",
+   "current": {
+    "address": "3632 SW 8th St, Miami, FL",
+    "lat": 25.7644527,
+    "lng": -80.2537602,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '3632 SW 8th St': restaurantji.com/fl/miami/la-carreta-2/ · restaurantguru.com/La-Carreta-Miami-5 · wanderlog.com/place/details/36277",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "not checked (search budget)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.76453,
+    "lng": -80.25385,
+    "address": "3632 Southwest 8th Street, Miami, Florida 33135",
+    "matchedName": "La Carreta Cuban Restaurant - Little Havana",
+    "sourceUrl": "https://www.openstreetmap.org/node/6080057062",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": 12,
+    "osmObject": {
+     "id": "node/6080057062",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "La Carreta Cuban Restaurant - Little Havana",
+     "address": "3632 Southwest 8th Street, Miami, Florida 33135",
+     "houseNumber": "3632",
+     "tags": {
+      "website": "http://lacarreta.com/locations/",
+      "opening_hours": "Su-Th 08:00-24:00; Fr 08:00-02:00; Sa 08:00-03:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "upgrade confidence med → high",
+    "overpass: HTTP 502"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "La Carreta Cuban Restaurant - Little Havana",
+     "lat": 25.76453,
+     "lng": -80.25385,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/6080057062",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/6080057062",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 12
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number true, street false)"
+    ]
+   }
+  },
+  {
+   "name": "Latin Cafe 2000 (Brickell)",
+   "current": {
+    "address": "Brickell, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "not checked (search budget)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.81414,
+    "lng": -80.12842,
+    "address": "441 41st Street, Miami Beach, Florida 33140",
+    "matchedName": "Latin Cafe",
+    "sourceUrl": "https://www.openstreetmap.org/way/1297375229",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1297375229",
+     "class": "amenity=fast_food",
+     "addresstype": "amenity",
+     "name": "Latin Cafe",
+     "address": "441 41st Street, Miami Beach, Florida 33140",
+     "houseNumber": "441",
+     "tags": {
+      "building:part": "retail"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 502"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Latin Cafe",
+     "lat": 25.81414,
+     "lng": -80.12842,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/1297375229",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=fast_food",
+     "osm": "way/1297375229",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "med: needs a second independent source within 50 m"
+    ]
+   }
+  },
+  {
+   "name": "Naomi's Garden Restaurant & Lounge",
+   "current": {
+    "address": "Little Haiti, Miami, FL (street address not confirmed in results)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Infatuation review; 2025 Yahoo/AOL story on its Miami Beach expansion; The Local Palate",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.83958,
+    "lng": -80.20793,
+    "address": "Northwest 71st Street, Miami, Florida 33147",
+    "matchedName": "Naomi’s Garden Restaurant & Lounge",
+    "sourceUrl": "https://www.openstreetmap.org/node/6114254888",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6114254888",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Naomi’s Garden Restaurant & Lounge",
+     "address": "Northwest 71st Street, Miami, Florida 33147",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 502"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Naomi’s Garden Restaurant & Lounge",
+     "lat": 25.83958,
+     "lng": -80.20793,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6114254888",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/6114254888",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "med: needs a second independent source within 50 m"
+    ]
+   }
+  },
+  {
+   "name": "Piman Bouk Haitian Restaurant",
+   "current": {
+    "address": "5921 NE 2nd Ave, Miami, FL 33137",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "The Infatuation 'Piman Bouk Restaurant' review + Little Haiti guide",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 25.83021,
+     "lng": -80.19179,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/6099040249",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "node/6099040249",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Clyde Butcher's Big Cypress Gallery",
+   "current": {
+    "address": "52388 Tamiami Trail E, Ochopee",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Loop Road Scenic Drive",
+   "current": {
+    "address": "CR 94, Big Cypress",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Skunk Ape Research Headquarters",
+   "current": {
+    "address": "40904 Tamiami Trail E, Ochopee",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "South Beach",
+   "current": {
+    "address": "Miami Beach",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.78188,
+    "lng": -80.13626,
+    "address": null,
+    "matchedName": "South Beach",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q186106",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/South_Beach",
+      "distanceM": 0
+     }
+    ]
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "South Beach",
+     "lat": 25.78188,
+     "lng": -80.13626,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q186106",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikipedia",
+     "name": "South Beach",
+     "lat": 25.78188,
+     "lng": -80.13626,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/South_Beach",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
+    ]
+   }
+  },
+  {
+   "name": "Domino Park (Máximo Gómez Park)",
+   "current": {
+    "address": "801 SW 15th Ave, Miami",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 25.76559,
+     "lng": -80.21941,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/463460395",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/463460395",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Cuban Memorial Boulevard",
+   "current": {
+    "address": "SW 13th Ave, Miami",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Black Police Precinct and Courthouse Museum",
+   "current": {
+    "address": "480 NW 11th St, Miami",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.7842,
+    "lng": -80.2028,
+    "address": "480 Northwest 11th Street, Miami, Florida 33136",
+    "matchedName": "Historic Black Police Precinct Courthouse and Museum",
+    "sourceUrl": "https://www.openstreetmap.org/way/435748157",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/435748157",
+     "class": "tourism=museum",
+     "addresstype": "tourism",
+     "name": "Historic Black Police Precinct Courthouse and Museum",
+     "address": "480 Northwest 11th Street, Miami, Florida 33136",
+     "houseNumber": "480",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Historic Black Police Precinct Courthouse and Museum",
+     "lat": 25.7842,
+     "lng": -80.2028,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/435748157",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=museum",
+     "osm": "way/435748157",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number true, street false)"
+    ]
+   }
+  },
+  {
+   "name": "Margulies Collection at the Warehouse",
+   "current": {
+    "address": "591 NW 27th St, Miami",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.80212,
+    "lng": -80.20489,
+    "address": null,
+    "matchedName": "Margulies Collection at the Warehouse",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q96585445",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 6,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Margulies Collection at the Warehouse",
+     "lat": 25.80212,
+     "lng": -80.20489,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q96585445",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
+   }
+  },
+  {
+   "name": "The Den at Sushi Azabu",
+   "current": {
+    "address": "Inside The Stanton South Beach (Marriott), Miami Beach, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "OpenTable 'The Den Miami Beach' taking bookings; Marriott Stanton South Beach dining page lists it (2026 search). Note: located in The Stanton hotel",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Brasserie Laurel",
+   "current": {
+    "address": "Miami Worldcenter, Downtown Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Michelin Guide page still live but no dated 2025/2026 evidence either way; targeted closure search found nothing. Re-check.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Fiola Miami — CLOSED",
+   "current": {
+    "address": "1500 San Ignacio Ave, Coral Gables, FL 33146",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Closed 22 Jun 2025; space reopened as Daniel's Steakhouse – Miami (Miami New Times 'Fiola Miami to close in Coral Gables', TimeOut Miami 2025-05-20, AOL/Miami Herald)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.70511,
+    "lng": -80.2826,
+    "address": "1500 San Ignacio Avenue, Coral Gables, Florida 33146",
+    "matchedName": "Fiola Miami",
+    "sourceUrl": "https://www.openstreetmap.org/way/278812500",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/278812500",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Fiola Miami",
+     "address": "1500 San Ignacio Avenue, Coral Gables, Florida 33146",
+     "houseNumber": "1500",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Fiola Miami",
+     "lat": 25.70511,
+     "lng": -80.2826,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/278812500",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/278812500",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "Lido at The Surf Club",
+   "current": {
+    "address": "9011 Collins Ave, Surfside, FL 33154",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Four Seasons Surfside 2025 seasonal pages (Christmas Eve at Lido menu), press.fourseasons.com 2025 (2026 search)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Four Seasons Hotel at The Surf Club",
+     "lat": 25.87732,
+     "lng": -80.12117,
+     "grade": "low",
+     "nameSim": 0.675,
+     "sourceUrl": "https://www.openstreetmap.org/way/1306263223",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=hotel",
+     "osm": "way/1306263223",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "The Surf Club Four Seasons Private Residences in Surfside, Florida",
+     "lat": 25.87787,
+     "lng": -80.12141,
+     "grade": "low",
+     "nameSim": 0.45,
+     "sourceUrl": "https://www.openstreetmap.org/way/824683053",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/824683053",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Lion & the Rambler — CLOSED",
+   "current": {
+    "address": "804 Ponce de Leon Blvd, Coral Gables, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Miami New Times location page (miaminewtimes.com/location/lion-and-the-rambler-14776360) flags it 'Closed' — closure date not given",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 25.76421,
+    "lng": -80.25945,
+    "address": "804 Ponce de Leon Boulevard, Coral Gables, Florida 33134",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/435532068",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/435532068",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "804 Ponce de Leon Boulevard, Coral Gables, Florida 33134",
+     "houseNumber": "804",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 25.76421,
+     "lng": -80.25945,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/435532068",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/435532068",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "Elyu Omakase",
+   "current": {
+    "address": "Coral Gables, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "UNCHECKED — search budget exhausted (wave 3)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Grand Central",
+   "current": {
+    "address": "MiMo District, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "UNCHECKED — search budget exhausted (wave 3)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.78137,
+    "lng": -80.19905,
+    "address": "218 Northwest 8th Street, Miami, Florida 33136",
+    "matchedName": "Soleste Grand Central",
+    "sourceUrl": "https://www.openstreetmap.org/way/954741747",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/954741747",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "Soleste Grand Central",
+     "address": "218 Northwest 8th Street, Miami, Florida 33136",
+     "houseNumber": "218",
+     "tags": {
+      "website": "https://www.artegcbyavanti.com",
+      "building:levels": "18"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "official site schema.org address: 218 NW 8th St, Miami, FL 33136 (no geo)",
+    "official site schema.org address: 218 NW 8th St, Miami, FL 33136 (no geo)"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Soleste Grand Central",
+     "lat": 25.78137,
+     "lng": -80.19905,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/954741747",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/954741747",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "med: needs a second independent source within 50 m"
+    ]
+   }
+  },
+  {
+   "name": "Palma",
+   "current": {
+    "address": "Little Havana, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "UNCHECKED — search budget exhausted (wave 3)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Torno Subito",
+   "current": {
+    "address": "Julia & Henry's, 200 E Flagler St, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "UNCHECKED — search budget exhausted (wave 3)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Apocalypse BBQ",
+   "current": {
+    "address": "8695 SW 124th Ave, Miami, FL",
+    "lat": 25.687979,
+    "lng": -80.3935907,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '8695 SW 124th Ave': restaurantji.com/fl/miami/apocalypse-bbq-/ · restaurantguru.com/Apocalypse-BBQ-Miami",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "UNCHECKED — search budget exhausted (wave 3)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Latin House Grill",
+     "lat": 25.68797,
+     "lng": -80.3936,
+     "grade": "low",
+     "nameSim": 0.077,
+     "sourceUrl": "https://www.openstreetmap.org/way/435848953",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/435848953",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 1
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 25.68707,
+     "lng": -80.39383,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/969270858",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/969270858",
+     "addresstype": "place",
+     "distanceFromCurrentM": 104
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Pinecrest Bakery",
+   "current": {
+    "address": "Pinecrest, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "UNCHECKED — search budget exhausted (wave 3)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.65816,
+    "lng": -80.32716,
+    "address": "12101 South Dixie Highway, Pinecrest, Florida 33156",
+    "matchedName": "Pinecrest bakery",
+    "sourceUrl": "https://www.openstreetmap.org/node/6047566531",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6047566531",
+     "class": "shop=bakery",
+     "addresstype": "shop",
+     "name": "Pinecrest bakery",
+     "address": "12101 South Dixie Highway, Pinecrest, Florida 33156",
+     "houseNumber": "12101",
+     "tags": {
+      "website": "https://pinecrestbakery.com/",
+      "opening_hours": "24/7"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Pinecrest bakery",
+     "lat": 25.65816,
+     "lng": -80.32716,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6047566531",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=bakery",
+     "osm": "node/6047566531",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "med: needs a second independent source within 50 m"
+    ]
+   }
+  },
+  {
+   "name": "Newport Fishing Pier",
+   "current": {
+    "address": "16701 Collins Ave, Sunny Isles Beach",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "sibfl.gov 'Newport Fishing Pier' https://www.sibfl.gov/Parks-Recreation/Beach/Newport-Fishing-Pier (city page for operating pier)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "The Sunny",
+     "lat": 25.93079,
+     "lng": -80.12132,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/225624332",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=hotel",
+     "osm": "way/225624332",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Aveda",
+     "lat": 25.93073,
+     "lng": -80.12162,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/9621056826",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=cosmetics",
+     "osm": "node/9621056826",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Kitchen 305",
+     "lat": 25.93091,
+     "lng": -80.12136,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/9613580886",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/9613580886",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 25.93145,
+     "lng": -80.12186,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/552102738",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/552102738",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 25.93125,
+     "lng": -80.12206,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1071609875",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/1071609875",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Newport Fishing Pier",
+     "lat": 25.93015,
+     "lng": -80.11883,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/886373958",
+     "retrieved": "2026-10-16",
+     "osmClass": "man_made=pier",
+     "osm": "way/886373958",
+     "addresstype": "man_made",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Sunny Isles Beach",
+   "current": {
+    "address": "Sunny Isles Beach",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "ambiguous",
+   "proposal": null,
+   "notes": [
+    "candidates disagree by 2279 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Sunny Isles Beach",
+     "lat": 25.94167,
+     "lng": -80.125,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q2151584",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikidata",
+     "name": "Sunny Isles Beach Branch Library",
+     "lat": 25.94282,
+     "lng": -80.12132,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q69954125",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikidata",
+     "name": "Sunny Isles Beach Park",
+     "lat": 25.92139,
+     "lng": -80.12167,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q49567532",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Sunny Isles Beach, Florida",
+     "lat": 25.93694,
+     "lng": -80.12556,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Sunny_Isles_Beach%2C_Florida",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Broward Center for the Performing Arts",
+   "current": {
+    "address": "201 SW 5th Ave, Fort Lauderdale",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "browardcenter.org/about + Wikipedia: 700+ performances/yr",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 26.1204,
+    "lng": -80.1485,
+    "address": null,
+    "matchedName": "Broward Center for the Performing Arts",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q4975886",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Broward Center for the Performing Arts",
+     "lat": 26.1204,
+     "lng": -80.1485,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q4975886",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
+   }
+  },
+  {
+   "name": "Jungle Queen Riverboat",
+   "current": {
+    "address": "801 Seabreeze Blvd, Fort Lauderdale (Bahia Mar dock)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 26.11127,
+    "lng": -80.10602,
+    "address": "801 Seabreeze Boulevard, Fort Lauderdale, Florida 33316",
+    "matchedName": "Jungle Queen Riverboat",
+    "sourceUrl": "https://www.openstreetmap.org/node/1439350923",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/1439350923",
+     "class": "tourism=viewpoint",
+     "addresstype": "tourism",
+     "name": "Jungle Queen Riverboat",
+     "address": "801 Seabreeze Boulevard, Fort Lauderdale, Florida 33316",
+     "houseNumber": "801",
+     "tags": {
+      "website": "https://www.junglequeen.com/"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Bahia Mar Resort and Yachting Center",
+     "lat": 26.11352,
+     "lng": -80.10712,
+     "grade": "low",
+     "nameSim": 0.122,
+     "sourceUrl": "https://www.openstreetmap.org/way/963614683",
+     "retrieved": "2026-10-16",
+     "osmClass": "leisure=marina",
+     "osm": "way/963614683",
+     "addresstype": "leisure",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Bahia Mar Fort Lauderdale Beach - a DoubleTree by Hilton Hotel",
+     "lat": 26.11355,
+     "lng": -80.10611,
+     "grade": "low",
+     "nameSim": 0.088,
+     "sourceUrl": "https://www.openstreetmap.org/way/135170226",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=hotel",
+     "osm": "way/135170226",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Jungle Queen Riverboat",
+     "lat": 26.11127,
+     "lng": -80.10602,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/1439350923",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=viewpoint",
+     "osm": "node/1439350923",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Tacos Hooked Up Sportfishing",
+     "lat": 26.11162,
+     "lng": -80.10591,
+     "grade": "low",
+     "nameSim": 0.047,
+     "sourceUrl": "https://www.openstreetmap.org/node/301646439",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=attraction",
+     "osm": "node/301646439",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: within the guide region, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Hallandale Beach",
+   "current": {
+    "address": "Hallandale Beach FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": null,
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.98667,
+    "lng": -80.14611,
+    "address": null,
+    "matchedName": "Hallandale Beach",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q986548",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Hallandale Beach",
+     "lat": 25.98667,
+     "lng": -80.14611,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q986548",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikidata",
+     "name": "Hallandale Beach Branch",
+     "lat": 25.98186,
+     "lng": -80.14231,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q69953764",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Hallandale Beach, Florida",
+     "lat": 25.98417,
+     "lng": -80.13278,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Hallandale_Beach%2C_Florida",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
+    ]
+   }
+  },
+  {
+   "name": "Ernest F. Coe Visitor Center",
+   "current": {
+    "address": "40001 SR 9336, Homestead, FL 33034",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "No status source searched this wave.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.39531,
+    "lng": -80.58307,
+    "address": null,
+    "matchedName": "Ernest F. Coe Visitor Center‎",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q36036101",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 8,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Ernest F. Coe Visitor Center‎",
+     "lat": 25.39531,
+     "lng": -80.58307,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q36036101",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
+   }
+  },
+  {
+   "name": "Mahogany Hammock Trail",
+   "current": {
+    "address": "Main Park Rd, Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "No status source searched this wave.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Nine Mile Pond Canoe Trail",
+   "current": {
+    "address": "Main Park Road (~27 mi from entrance), Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "nps.gov 'Shoreline fishing in the park' https://home.nps.gov/ever/planyourvisit/shoreline-fishing-in-the-park.htm lists Nine Mile Pond access from the main road; no allowed coordinate source found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.25951,
+    "lng": -80.78514,
+    "address": "Florida",
+    "matchedName": "Nine Mile Pond Canoe Trail",
+    "sourceUrl": "https://www.openstreetmap.org/way/327295642",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/327295642",
+     "class": "waterway=link",
+     "addresstype": "link",
+     "name": "Nine Mile Pond Canoe Trail",
+     "address": "Florida",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Nine Mile Pond Canoe Trail",
+     "lat": 25.25951,
+     "lng": -80.78514,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/327295642",
+     "retrieved": "2026-10-16",
+     "osmClass": "waterway=link",
+     "osm": "way/327295642",
+     "addresstype": "link",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
+    ]
+   }
+  },
+  {
+   "name": "West Lake Trail",
+   "current": {
+    "address": "Main Park Road (~31 mi from entrance), Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "nps.gov 'Shoreline fishing in the park' https://home.nps.gov/ever/planyourvisit/shoreline-fishing-in-the-park.htm lists West Lake access from the main road; no allowed coordinate source found",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Elliott Key",
+   "current": {
+    "address": "Biscayne National Park, Miami-Dade County, FL (island)",
+    "lat": 25.44306,
+    "lng": -80.19722,
+    "source": "Wikipedia 'Elliott Key' https://en.wikipedia.org/wiki/Elliott_Key printed 25°26′35″N 80°11′50″W / 25.44306°N 80.19722°W (island centroid as published by Wikipedia; not harbor pin)",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "No 2025/2026 source found. Latest NPS items found are older: 'Biscayne National Park is beginning to increase recreational access at Boca Chita, Elliott Key and Adams Key' (2020) https://www.nps.gov/bisc/learn/news/news-release-biscayne-national-park-is-beginning-to-increase-recreational-access-at-boca-chita-elliott-key-and-adams-key.htm and 'Reopens Designated Slips in Elliott Key Harbor for Loading and Unloading Only' (2013) https://www.nps.gov/bisc/learn/news/biscayne-national-park-reopens-designated-slips-in-elliott-key-harbor-for-loading-and-unloading-only.htm — checked 2026-10-02",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "ambiguous",
+   "proposal": null,
+   "notes": [
+    "candidates disagree by 1186 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Elliott Key",
+     "lat": 25.44306,
+     "lng": -80.19722,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q3051499",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 1
+    },
+    {
+     "kind": "wikidata",
+     "name": "Elliott Key Campground",
+     "lat": 25.45366,
+     "lng": -80.19594,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q63614954",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 1186
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Elliott Key",
+     "lat": 25.44306,
+     "lng": -80.19722,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Elliott_Key",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 1
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Adams Key",
+   "current": {
+    "address": "Biscayne National Park, Miami-Dade County, FL (island, north side of Caesar Creek)",
+    "lat": 25.4,
+    "lng": -80.23306,
+    "source": "Wikipedia 'Adams Key' https://en.wikipedia.org/wiki/Adams_Key printed 25°24′00″N 80°13′59″W / 25.400°N 80.233°W (DMS converted to 5 dp)",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "No 2025/2026 source found; NPS 2020 release on increasing access to Adams Key is outdated https://www.nps.gov/bisc/learn/news/news-release-biscayne-national-park-is-beginning-to-increase-recreational-access-at-boca-chita-elliott-key-and-adams-key.htm — checked 2026-10-02",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "move",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.39984,
+    "lng": -80.23272,
+    "address": null,
+    "matchedName": "Adams Key",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q2824070",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": 39,
+    "osmObject": null,
+    "coordDecimals": 6,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Adams_Key",
+      "distanceM": 33
+     }
+    ]
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Adams Key",
+     "lat": 25.39984,
+     "lng": -80.23272,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q2824070",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 39
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Adams Key",
+     "lat": 25.4,
+     "lng": -80.233,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Adams_Key",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 6
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
+   }
+  },
+  {
+   "name": "North Beach (Miami Beach)",
+   "current": {
+    "address": "Collins Ave 60th–87th St",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "City of Miami Beach press release 'Miami Beach Completes $15.8 Million Upgrade to North Beach Oceanside Park' (Oct 2023) https://www.miamibeachfl.gov/wp-content/uploads/2023/10/Miami-Beach-Completes-15.8-Million-Upgrade-to-North-Beach-Oceanside-Park.pdf (park 79th–87th St, completed/open)",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Surfside Beach",
+   "current": {
+    "address": "Surfside FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "not checked (search budget); only the town centroid 25.87667,-80.12556 was found (Wikipedia 'Surfside, Florida') — rejected as a centroid",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.88033,
+    "lng": -80.12256,
+    "address": "9200 Collins Avenue, Surfside, Florida 33154",
+    "matchedName": "Residence Inn by Marriott Miami Beach Surfside",
+    "sourceUrl": "https://www.openstreetmap.org/relation/12905902",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "relation/12905902",
+     "class": "tourism=hotel",
+     "addresstype": "tourism",
+     "name": "Residence Inn by Marriott Miami Beach Surfside",
+     "address": "9200 Collins Avenue, Surfside, Florida 33154",
+     "houseNumber": "9200",
+     "tags": {
+      "website": "https://www.marriott.com/miaxb",
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "official site https://www.marriott.com/miaxb answered HTTP 403 — NOT closure evidence (sites move, break and block bots)"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Residence Inn by Marriott Miami Beach Surfside",
+     "lat": 25.88033,
+     "lng": -80.12256,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/relation/12905902",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=hotel",
+     "osm": "relation/12905902",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Grand Beach Hotel Surfside Restaurant",
+     "lat": 25.88435,
+     "lng": -80.12198,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/343691613",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=hotel",
+     "osm": "way/343691613",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Grand Beach Hotel Surfside West",
+     "lat": 25.88397,
+     "lng": -80.12271,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/1005571852",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=hotel",
+     "osm": "way/1005571852",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
+    ]
+   }
+  },
+  {
+   "name": "Bal Harbour Beach",
+   "current": {
+    "address": "Bal Harbour FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "not checked (search budget); only the town centroid 25.89500,-80.12389 was found (Wikipedia 'Bal Harbour, Florida') — rejected as a centroid",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.89453,
+    "lng": -80.12119,
+    "address": null,
+    "matchedName": "Bal Harbour Beach",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q34671119",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 5,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Bal Harbour Beach",
+     "lat": 25.89453,
+     "lng": -80.12119,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q34671119",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
+    ]
+   }
+  },
+  {
+   "name": "The Fillmore Miami Beach (Jackie Gleason Theater)",
+   "current": {
+    "address": "1700 Washington Ave, Miami Beach",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "status": "open",
+    "statusSource": "Songkick venue page lists 2026 shows (e.g. WOODZ 31 Jul 2026) https://www.songkick.com/venues/244628-fillmore-miami-beach-at-jackie-gleason-theater",
+    "statusChecked": "2026-10-02"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "shared-object",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.79293,
+    "lng": -80.13311,
+    "address": "1700 Washington Avenue, Miami Beach, Florida 33139",
+    "matchedName": "The Fillmore Miami Beach at the Jackie Gleason Theater",
+    "sourceUrl": "https://www.openstreetmap.org/way/590186839",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "low",
+    "gradeWhy": [
+     "OSM place object, name + address agree",
+     "postcode disagrees"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": false
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/590186839",
+     "class": "amenity=arts_centre",
+     "addresstype": "amenity",
+     "name": "The Fillmore Miami Beach at the Jackie Gleason Theater",
+     "address": "1700 Washington Avenue, Miami Beach, Florida 33139",
+     "houseNumber": "1700",
+     "tags": {
+      "building:part": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "shared object: OSM way/590186839 also matched The Fillmore Miami Beach (Jackie Gleason Theater) — CLOSED; graded low"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "The Fillmore Miami Beach at the Jackie Gleason Theater",
+     "lat": 25.79293,
+     "lng": -80.13311,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/590186839",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=arts_centre",
+     "osm": "way/590186839",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "low / shared OSM object"
+    ]
+   }
+  },
+  {
+   "name": "Miami Beach Bandshell",
+   "current": {
+    "address": "7275 Collins Ave, Miami Beach, FL 33141",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Wikipedia 'North Beach Bandshell' + miamibeachbandshell.com / Songkick 2026 event listings: operated by the Rhythm Foundation for the City of Miami Beach, 2026 events listed. Checked 2026-10-02.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.85814,
+    "lng": -80.12041,
+    "address": "7275 Collins Avenue, Miami Beach, FL",
+    "matchedName": "Miami Beach Bandshell",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q113553953",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 6,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Miami Beach Bandshell",
+     "lat": 25.85814,
+     "lng": -80.12041,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q113553953",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
+    ]
+   }
+  },
+  {
+   "name": "Miccosukee Indian Village",
+   "current": {
+    "address": "Mile Marker 36, US-41 (Tamiami Trail), Miami, FL 33194",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Greater Miami CVB official listing 'Miccosukee Indian Village & Airboat Rides' (https://www.miamiandbeaches.com/l/attractions/miccosukee-indian-village-and-airboat-rides/2155) current. Checked 2026-10-02.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Big Cypress Bend Boardwalk (Fakahatchee Strand)",
+   "current": {
+    "address": "US 41, Copeland (~7 mi W of SR 29)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Florida State Parks https://floridastateparks.org/learn/big-cypress-bend-boardwalk — 8am–sunset 365 days; pavilion restrooms temporarily closed effective June 2, 2026",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "The Fillmore Miami Beach (Jackie Gleason Theater) — CLOSED",
+   "current": {
+    "address": "1700 Washington Ave, Miami Beach, FL 33139",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Miami New Times + WLRN (Mar 2024): closed 31 May 2022, no reopening found (geocode w8); w7's Songkick-listing 'open' rejected as unconfirmed",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "shared-object",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.79293,
+    "lng": -80.13311,
+    "address": "1700 Washington Avenue, Miami Beach, Florida 33139",
+    "matchedName": "The Fillmore Miami Beach at the Jackie Gleason Theater",
+    "sourceUrl": "https://www.openstreetmap.org/way/590186839",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "low",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/590186839",
+     "class": "amenity=arts_centre",
+     "addresstype": "amenity",
+     "name": "The Fillmore Miami Beach at the Jackie Gleason Theater",
+     "address": "1700 Washington Avenue, Miami Beach, Florida 33139",
+     "houseNumber": "1700",
+     "tags": {
+      "building:part": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "shared object: OSM way/590186839 also matched The Fillmore Miami Beach (Jackie Gleason Theater); graded low"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "The Fillmore Miami Beach at the Jackie Gleason Theater",
+     "lat": 25.79293,
+     "lng": -80.13311,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/590186839",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=arts_centre",
+     "osm": "way/590186839",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "low / shared OSM object"
+    ]
+   }
+  },
+  {
+   "name": "D. A. Dorsey House",
+   "current": {
+    "address": "250 NW 9th St, Miami, FL",
+    "lat": 25.7825,
+    "lng": -80.19889,
+    "source": "Wikipedia 'D. A. Dorsey House' https://en.wikipedia.org/wiki/D._A._Dorsey_House printed 25°46′57″N 80°11′56″W (25.78250, -80.19889); address 250 NW 9th St confirmed same page (NRHP 1989)",
+    "confidence": "high",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "No 2025/2026 source found stating public visiting hours; a GoFundMe 'restore historic Dorsey home' (https://www.gofundme.com/f/restorehistoricdorseyhome) suggests restoration need, not open status. Checked 2026-10-02.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.7825,
+    "lng": -80.19889,
+    "address": null,
+    "matchedName": "Dana A. Dorsey House",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5203471",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 0.8,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": 0,
+    "osmObject": null,
+    "coordDecimals": 3,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/D._A._Dorsey_House",
+      "distanceM": 0
+     }
+    ]
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Dana A. Dorsey House",
+     "lat": 25.7825,
+     "lng": -80.19889,
+     "grade": "high",
+     "nameSim": 0.8,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q5203471",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 0
+    },
+    {
+     "kind": "wikipedia",
+     "name": "D. A. Dorsey House",
+     "lat": 25.7825,
+     "lng": -80.19889,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/D._A._Dorsey_House",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 0
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (0 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Young At Art Museum",
+   "current": {
+    "address": "Broward Mall, Plantation, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Visit Lauderdale listing: open Wed–Sun 10am–6pm inside Broward Mall (https://www.visitlauderdale.com/listing/young-at-art-museum/18071/). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 26.1126,
+    "lng": -80.3112,
+    "address": null,
+    "matchedName": "Young at Art Museum",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q8058535",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Young_at_Art_Museum",
+      "distanceM": 3
+     }
+    ]
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Young at Art Museum",
+     "lat": 26.1126,
+     "lng": -80.3112,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q8058535",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikidata",
+     "name": "Young at Art Museum/Broward County Library",
+     "lat": 26.11243,
+     "lng": -80.30993,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q69953877",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Young at Art Museum",
+     "lat": 26.11262,
+     "lng": -80.3112,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Young_at_Art_Museum",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
+   }
+  },
+  {
+   "name": "Superblue Miami",
+   "current": {
+    "address": "Allapattah (opposite the Rubell Museum), Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Exhibitions running 1 Nov 2025–31 Jan 2026 and a 2026 programme calendar (ticketfairy/artrabbit listings). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "official",
+    "lat": 25.7985,
+    "lng": -80.2157,
+    "address": "1101 NW 23rd Street, Miami, FL 33127",
+    "matchedName": "Superblue Miami",
+    "sourceUrl": "https://www.superblue.com/miami/",
+    "retrieved": "2026-10-16",
+    "licence": "the place's own website (fact read from its schema.org markup / page; robots.txt honoured)",
+    "grade": "high",
+    "gradeWhy": [
+     "official published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Superblue Miami",
+     "lat": 25.79931,
+     "lng": -80.21449,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/11346739876",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=arts_centre",
+     "osm": "node/11346739876",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "official",
+     "name": "Superblue Miami",
+     "lat": 25.7985,
+     "lng": -80.2157,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.superblue.com/miami/",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": "accept",
+    "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
+    "why": "Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo with the exact street address (1101 NW 23rd St)); orchestrator checks: within the guide region, no shared coordinate, not a closed place",
+    "date": "2026-10-16"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "official site's schema.org geo"
+    ]
+   }
+  },
+  {
+   "name": "Locust Projects",
+   "current": {
+    "address": "Little River, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Edison Peñafiel exhibition 14 Nov 2026–13 Feb 2027 (Ocula press release); 25th anniversary (Diario las Américas, Jul 2026). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.81239,
+    "lng": -80.19558,
+    "address": null,
+    "matchedName": "Locust Projects",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q17018639",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 5,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Locust_Projects",
+      "distanceM": 0
+     }
+    ]
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Locust Projects",
+     "lat": 25.81239,
+     "lng": -80.19558,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q17018639",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Locust Projects",
+     "lat": 25.81239,
+     "lng": -80.19558,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Locust_Projects",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
+   }
+  },
+  {
+   "name": "The Moore Building",
+   "current": {
+    "address": "Miami Design District, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "GMCVB Design District arts page (current): Elastika on view, Torno Subito operating inside. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Long Pine Key Trails & Campground",
+   "current": {
+    "address": "Main Park Road, Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "NPS operator page current (https://www.nps.gov/ever/planyourvisit/long-pine-key-trails.htm); no closure notice (contrast Chekika, which NPS lists as closed indefinitely). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Pinelands Trail",
+   "current": {
+    "address": "Main Park Road (2 mi west of Long Pine Key), Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "NPS operator page current (https://www.nps.gov/places/pinelands-trail.htm); no closure notice (contrast Chekika, which NPS lists as closed indefinitely). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.42539,
+    "lng": -80.68006,
+    "address": null,
+    "matchedName": "Pinelands Trail",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q3388672",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Pinelands Trail",
+     "lat": 25.42539,
+     "lng": -80.68006,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q3388672",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
+    ]
+   }
+  },
+  {
+   "name": "Paurotis Pond",
+   "current": {
+    "address": "Main Park Road, Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "NPS operator page current (https://www.nps.gov/places/paurotis-pond.htm); no closure notice (contrast Chekika, which NPS lists as closed indefinitely). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "ambiguous",
+   "proposal": null,
+   "notes": [
+    "candidates disagree by 210 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Paurotis Pond",
+     "lat": 25.28114,
+     "lng": -80.8011,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/relation/1863976",
+     "retrieved": "2026-10-16",
+     "osmClass": "natural=water",
+     "osm": "relation/1863976",
+     "addresstype": "water",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Paurotis Pond",
+     "lat": 25.28253,
+     "lng": -80.79968,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/583620933",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=parking",
+     "osm": "way/583620933",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Eco Pond",
+   "current": {
+    "address": "Flamingo, Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "NPS operator page current (https://www.nps.gov/places/eco-pond.htm); no closure notice (contrast Chekika, which NPS lists as closed indefinitely). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Anne Kolb Nature Center (West Lake Park)",
+   "current": {
+    "address": "West Lake Park, Hollywood, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Visit Lauderdale current listing and kayak guide (boat tours, rentals). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 26.03472,
+    "lng": -80.12083,
+    "address": null,
+    "matchedName": "Anne Kolb Nature Center",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q34814303",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Anne Kolb Nature Center",
+     "lat": 26.03472,
+     "lng": -80.12083,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q34814303",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
+   }
+  },
+  {
+   "name": "Homestead Historic Downtown District",
+   "current": {
+    "address": "Krome Ave, Homestead, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "GMCVB 'Homestead's Historic Treasures' (current): Seminole Theatre programming and Town Hall Museum operating. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.46843,
+    "lng": -80.47939,
+    "address": null,
+    "matchedName": "Homestead Historic Downtown District",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q8561179",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 3,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Homestead_Historic_Downtown_District",
+      "distanceM": 0
+     }
+    ]
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Homestead Historic Downtown District",
+     "lat": 25.46843,
+     "lng": -80.47939,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q8561179",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Homestead Historic Downtown District",
+     "lat": 25.46843,
+     "lng": -80.47939,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Homestead_Historic_Downtown_District",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
+    ]
+   }
+  },
+  {
+   "name": "El Espacio 23",
+   "current": {
+    "address": "Allapattah, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "GMCVB current listing and Time Out venue page. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "MiMo Biscayne Boulevard Historic District",
+   "current": {
+    "address": "Biscayne Blvd, NE 50th–77th St, Miami (Upper East Side), FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Public historic district along Biscayne Blvd; GMCVB retro-hotels/MiMo page (current). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Overtown Historic Folklife Village",
+   "current": {
+    "address": "NW 3rd Ave, Overtown, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Public streetscape; GMCVB 'Explore Historic Overtown' (current). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Opa-locka Museum of Art & History (Seaboard Station)",
+   "current": {
+    "address": "Opa-locka, FL (1927 Seaboard Air Line Railroad Station)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "GMCVB event listing: open to the public first Saturdays (free), weekday visits by appointment. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Opa-locka/Hialeah Flea Market",
+   "current": {
+    "address": "12705 NW 42nd Ave, Opa-locka, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "GMCVB Opa-locka guide (current): open year-round 7 days 9am–6pm, 200+ vendors. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 25.89115,
+     "lng": -80.2635,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/6037071292",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "node/6037071292",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 25.88898,
+     "lng": -80.26734,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/190819742",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/190819742",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 25.88928,
+     "lng": -80.26753,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1024250887",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/1024250887",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Aventura Arts & Cultural Center",
+   "current": {
+    "address": "3385 NE 188th St, Aventura, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "NT 2026–27 arts & culture events guide lists the venue; Time Out venue page (box office Tue–Sat). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.94989,
+    "lng": -80.13456,
+    "address": "3385 Northeast 188th Street, Aventura, Florida 33180",
+    "matchedName": "Aventura Arts & Cultural Center",
+    "sourceUrl": "https://www.openstreetmap.org/way/436109402",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/436109402",
+     "class": "amenity=theatre",
+     "addresstype": "amenity",
+     "name": "Aventura Arts & Cultural Center",
+     "address": "3385 Northeast 188th Street, Aventura, Florida 33180",
+     "houseNumber": "3385",
+     "tags": {
+      "website": "https://www.aventuracenter.org/",
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Aventura Arts & Cultural Center",
+     "lat": 25.94989,
+     "lng": -80.13456,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/436109402",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=theatre",
+     "osm": "way/436109402",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number true, street false)"
+    ]
+   }
+  },
+  {
+   "name": "Opa-locka Heritage Trail",
+   "current": {
+    "address": "Historic downtown Opa-locka, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "WLRN 28 Oct 2025: trail open year-round; Arabian Nights festival returned May 2026 (WLRN). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Art Deco Welcome Center & Museum",
+   "current": {
+    "address": "Ocean Dr (Lummus Park), Miami Beach, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Lonely Planet and Fodor's current sight reviews; GMCVB: daily guided walking tours. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Faena Theater",
+   "current": {
+    "address": "Faena Miami Beach, Collins Ave, Miami Beach, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Time Out venue page and NT location page (current listings). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "North Shore Open Space Park",
+   "current": {
+    "address": "Collins Ave, North Beach, Miami Beach, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Time Out current park page; NT fact-check confirms the park remains public open space. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.86528,
+    "lng": -80.12028,
+    "address": null,
+    "matchedName": "North Shore Open Space Park",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q49532917",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "North Shore Open Space Park",
+     "lat": 25.86528,
+     "lng": -80.12028,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q49532917",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
+    ]
+   }
+  },
+  {
+   "name": "Ichimura Miami-Japan Garden",
+   "current": {
+    "address": "1101 MacArthur Cswy, Watson Island, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Time Out current venue page (cultural space with Japanese festivals and classes) and NT location page. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Gramps — CLOSED",
+   "current": {
+    "address": "176 NW 24th St, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Axios Miami 28 Aug 2025 'Gramps in Wynwood announces January closure' + Miami New Times / The Miami Hurricane Oct 2025: Wynwood bar closed 4 Jan 2026 after 13 years (Gramps Getaway on Key Biscayne remains open). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.79965,
+    "lng": -80.1983,
+    "address": "Northwest 24th Street, Miami, Florida 33127",
+    "matchedName": "Gramps",
+    "sourceUrl": "https://www.openstreetmap.org/node/6110284487",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6110284487",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "Gramps",
+     "address": "Northwest 24th Street, Miami, Florida 33127",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Gramps",
+     "lat": 25.79965,
+     "lng": -80.1983,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6110284487",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=bar",
+     "osm": "node/6110284487",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "Wynwood Brewing Company — CLOSED",
+   "current": {
+    "address": "565 NW 24th St, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Axios Miami 15 Oct 2025 'The Wynwood favorites we've lost over the years' lists Wynwood Brewing Company (closed 2024). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.80016,
+    "lng": -80.20438,
+    "address": "565 Northwest 24th Street, Miami, Florida 33127",
+    "matchedName": "Wynwood Brewing Company",
+    "sourceUrl": "https://www.openstreetmap.org/way/353953354",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/353953354",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "Wynwood Brewing Company",
+     "address": "565 Northwest 24th Street, Miami, Florida 33127",
+     "houseNumber": "565",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [
+    {
+     "type": "osm-lifecycle",
+     "detail": "disused:craft=brewery",
+     "sourceUrl": "https://www.openstreetmap.org/way/353953354",
+     "retrieved": "2026-10-16"
+    }
+   ],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Wynwood Brewing Company",
+     "lat": 25.80016,
+     "lng": -80.20438,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/353953354",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/353953354",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "J. Wakefield Brewing — CLOSED",
+   "current": {
+    "address": "120 NW 24th St, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Miami New Times Aug 2024 'J. Wakefield Brewing in Wynwood to close in October, will relocate' — closed 28 Oct 2024; Untappd venue marked permanently closed; Axios Oct 2025 lost-favorites list. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "J Wakefield Brewery",
+     "lat": 25.79954,
+     "lng": -80.19753,
+     "grade": "low",
+     "nameSim": 0.813,
+     "sourceUrl": "https://www.openstreetmap.org/way/406251791",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/406251791",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Itamae AO — CLOSED",
+   "current": {
+    "address": "Midtown, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Miami New Times 'Michelin-star Miami restaurant Itamae AO to close in Midtown' — final service 2 Aug 2025; Wikipedia 'Itamae Ao' (opened May 2024, closed 2025); NT biggest closures of summer 2025. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 25.8072,
+    "lng": -80.1928,
+    "address": null,
+    "matchedName": "Itamae Ao",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q140157755",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Itamae_Ao",
+      "distanceM": 0
+     }
+    ]
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Itamae Ao",
+     "lat": 25.8072,
+     "lng": -80.1928,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q140157755",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Itamae Ao",
+     "lat": 25.8072,
+     "lng": -80.1928,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Itamae_Ao",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "Baby Jane — CLOSED",
+   "current": {
+    "address": "500 Brickell Ave, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Miami New Times / What Now Miami 2026: Baby Jane closed 30 May 2026 at 500 Brickell Ave after a decade (lease negotiations failed). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.76843,
+    "lng": -80.19064,
+    "address": "500 Brickell Avenue, Miami, Florida 33131",
+    "matchedName": "Baby Jane Cocktail House & Noodle Bar",
+    "sourceUrl": "https://www.openstreetmap.org/node/10111847374",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/10111847374",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "Baby Jane Cocktail House & Noodle Bar",
+     "address": "500 Brickell Avenue, Miami, Florida 33131",
+     "houseNumber": "500",
+     "tags": {
+      "website": "http://babyjanemiami.com/"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Baby Jane Cocktail House & Noodle Bar",
+     "lat": 25.76843,
+     "lng": -80.19064,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/10111847374",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=bar",
+     "osm": "node/10111847374",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "Havana Harry's — CLOSED",
+   "current": {
+    "address": "4612 S Le Jeune Rd, Coral Gables, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Miami New Times Sep 2025 'City forces Coral Gables Cuban spot to close indefinitely' (after June 2025 state DBPR shutdown, Local10); listed in NT biggest closures of Sept 2025; no reopening reported as of 2026-10-03. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 25.72915,
+    "lng": -80.26203,
+    "address": "4612 Southwest 42nd Avenue, Coral Gables, Florida 33146",
+    "matchedName": "Havana Harry's",
+    "sourceUrl": "https://www.openstreetmap.org/way/435565527",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name + address agree",
+     "postcode disagrees"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": false,
+     "postcode": false
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/435565527",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Havana Harry's",
+     "address": "4612 Southwest 42nd Avenue, Coral Gables, Florida 33146",
+     "houseNumber": "4612",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Havana Harry's",
+     "lat": 25.72915,
+     "lng": -80.26203,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/435565527",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/435565527",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
+   }
+  },
+  {
+   "name": "Jaguar Sun — CLOSED",
+   "current": {
+    "address": "230 NE 4th St, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "closed",
+    "statusSource": "Axios Miami 16 Aug 2024 'Jaguar Sun to close downtown' + Miami New Times biggest closures of 2024: closed Aug 2024 after six years (team moved on to Sunny's); Apple Maps listing marked permanently closed. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "The Guild Downtown X Miami",
+     "lat": 25.77762,
+     "lng": -80.18959,
+     "grade": "low",
+     "nameSim": 0.077,
+     "sourceUrl": "https://www.openstreetmap.org/way/739122530",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=apartments",
+     "osm": "way/739122530",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Cotoa",
+   "current": {
+    "address": "100 Biscayne Blvd (The B100M), Miami, FL 33132 — location disputed",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "status": "open",
+    "statusSource": "Pin withdrawn 2026-10-03: Apple's listing (same place-id) shows both 12475 NE 6th Ct North Miami and 100 Biscayne Blvd; Miami New Times (B100M opening) puts Cotoa downtown and the Michelin listing marks it temporarily closed. Re-check location + status before re-pinning. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Havana Café of the Everglades",
+   "current": {
+    "address": "191 Smallwood Dr, Chokoloskee, FL",
+    "lat": 25.81529045,
+    "lng": -81.35958099,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'HavAnnA Cafe, 191 Smallwood Dr, Chokoloskee': restaurantji.com/fl/chokoloskee/havana-cafe-of-the-everglades-/ · sirved.com/restaurant/chokoloskee-florida-usa/havana-cafe-of-the-everglades/401296",
+    "confidence": "med",
+    "verified": "2026-10-03",
+    "status": "unknown",
+    "statusSource": "Apple Maps listing showed 'temporarily closed' (W5); aggregator listings (restaurantji/sirved, as 'HavAnnA Cafe') still active — reopening not confirmed by press. Status UNKNOWN, recheck. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  }
+ ]
+}

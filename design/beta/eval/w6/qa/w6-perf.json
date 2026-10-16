@@ -1,0 +1,119 @@
+{
+ "head": "2f227631252db2a90fd7e76541365a151871ac99",
+ "checks": [
+  {
+   "group": "perf",
+   "name": "Tokyo gallery (default) mobile: transfer ≤ 2.0 MB and FCP at 4× ≤ 1.0 s (median of 3)",
+   "ok": true,
+   "evidence": {
+    "rawKB": 1462,
+    "gzipKB": 446,
+    "requests": 39,
+    "leaflet": false,
+    "fcp4x": [
+     616,
+     540,
+     372
+    ]
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo gallery (default) desktop (info)",
+   "ok": null,
+   "evidence": {
+    "rawKB": 1462,
+    "gzipKB": 446,
+    "requests": 39,
+    "leaflet": false,
+    "fcp4x": [
+     636,
+     556,
+     600
+    ]
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo atlas mobile: transfer and FCP at 4× (recorded; same budget applied)",
+   "ok": true,
+   "evidence": {
+    "rawKB": 1590,
+    "gzipKB": 480,
+    "requests": 23,
+    "leaflet": true,
+    "fcp4x": [
+     468,
+     668,
+     780
+    ]
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo atlas desktop (info)",
+   "ok": null,
+   "evidence": {
+    "rawKB": 1590,
+    "gzipKB": 480,
+    "requests": 23,
+    "leaflet": true,
+    "fcp4x": [
+     556,
+     1312,
+     456
+    ]
+   }
+  }
+ ],
+ "info": {
+  "perf gallery (default) mobile": {
+   "rawKB": 1462,
+   "gzipKB": 446,
+   "requests": 39,
+   "leaflet": false,
+   "fcp4x": [
+    616,
+    540,
+    372
+   ],
+   "median": 540
+  },
+  "perf gallery (default) desktop": {
+   "rawKB": 1462,
+   "gzipKB": 446,
+   "requests": 39,
+   "leaflet": false,
+   "fcp4x": [
+    636,
+    556,
+    600
+   ],
+   "median": 600
+  },
+  "perf atlas mobile": {
+   "rawKB": 1590,
+   "gzipKB": 480,
+   "requests": 23,
+   "leaflet": true,
+   "fcp4x": [
+    468,
+    668,
+    780
+   ],
+   "median": 668
+  },
+  "perf atlas desktop": {
+   "rawKB": 1590,
+   "gzipKB": 480,
+   "requests": 23,
+   "leaflet": true,
+   "fcp4x": [
+    556,
+    1312,
+    456
+   ],
+   "median": 556
+  }
+ }
+}

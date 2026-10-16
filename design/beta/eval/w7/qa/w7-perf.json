@@ -1,0 +1,450 @@
+{
+ "head": "badcc20dbae7f4e4f47023048e85a58552cede24",
+ "checks": [
+  {
+   "group": "perf",
+   "name": "Tokyo Gallery (default) desktop 1440: first-load transfer ≤ 2,000,000 B",
+   "ok": true,
+   "evidence": {
+    "tx": 667413,
+    "raw": 1736267,
+    "blocked": null,
+    "tiles": 0
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo Gallery (default) desktop: FCP at 4× CPU ≤ 1.0 s (median of 3)",
+   "ok": true,
+   "evidence": [
+    252,
+    268,
+    376
+   ]
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo Gallery (default) phone 390@3×: first-load transfer ≤ 2,000,000 B",
+   "ok": true,
+   "evidence": {
+    "tx": 962460,
+    "raw": 2031314,
+    "blocked": null,
+    "tiles": 0
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo Gallery (default) phone: FCP at 4× CPU ≤ 1.0 s (median of 3)",
+   "ok": true,
+   "evidence": [
+    268,
+    228,
+    308
+   ]
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo Atlas desktop 1440: first-load transfer ≤ 2,000,000 B (tiles stubbed AND tiles blocked)",
+   "ok": true,
+   "evidence": {
+    "tx": 626208,
+    "raw": 1799185,
+    "blocked": 626208,
+    "tiles": 44
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo Atlas desktop: FCP at 4× CPU ≤ 1.0 s (median of 3)",
+   "ok": true,
+   "evidence": [
+    528,
+    332,
+    312
+   ]
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo Atlas desktop: ≤ 3,000 DOM nodes at first load (tiles stubbed and blocked)",
+   "ok": true,
+   "evidence": [
+    2693,
+    2422
+   ]
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo Atlas phone 390@3×: first-load transfer ≤ 2,000,000 B (tiles stubbed AND tiles blocked)",
+   "ok": true,
+   "evidence": {
+    "tx": 921255,
+    "raw": 2094232,
+    "blocked": 1044276,
+    "tiles": 27
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo Atlas phone: FCP at 4× CPU ≤ 1.0 s (median of 3)",
+   "ok": true,
+   "evidence": [
+    304,
+    280,
+    308
+   ]
+  },
+  {
+   "group": "perf",
+   "name": "Tokyo Atlas phone3: ≤ 3,000 DOM nodes at first load (tiles stubbed and blocked)",
+   "ok": true,
+   "evidence": [
+    2616,
+    2453
+   ]
+  },
+  {
+   "group": "perf",
+   "name": "Landing desktop 1440: first-load transfer ≤ 2,000,000 B",
+   "ok": true,
+   "evidence": {
+    "tx": 748060,
+    "raw": 1081888,
+    "blocked": null,
+    "tiles": 0
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Landing desktop: FCP at 4× CPU ≤ 1.0 s (median of 3)",
+   "ok": true,
+   "evidence": [
+    692,
+    448,
+    204
+   ]
+  },
+  {
+   "group": "perf",
+   "name": "Landing phone 390@3×: first-load transfer ≤ 2,000,000 B",
+   "ok": true,
+   "evidence": {
+    "tx": 571935,
+    "raw": 905763,
+    "blocked": null,
+    "tiles": 0
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Landing phone: FCP at 4× CPU ≤ 1.0 s (median of 3)",
+   "ok": true,
+   "evidence": [
+    404,
+    372,
+    420
+   ]
+  },
+  {
+   "group": "perf",
+   "name": "Japan hub desktop 1440: first-load transfer ≤ 2,000,000 B",
+   "ok": true,
+   "evidence": {
+    "tx": 449932,
+    "raw": 717992,
+    "blocked": null,
+    "tiles": 0
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Japan hub desktop: FCP at 4× CPU ≤ 1.0 s (median of 3)",
+   "ok": true,
+   "evidence": [
+    300,
+    264,
+    368
+   ]
+  },
+  {
+   "group": "perf",
+   "name": "Japan hub phone 390@3×: first-load transfer ≤ 2,000,000 B",
+   "ok": true,
+   "evidence": {
+    "tx": 722063,
+    "raw": 990123,
+    "blocked": null,
+    "tiles": 0
+   }
+  },
+  {
+   "group": "perf",
+   "name": "Japan hub phone: FCP at 4× CPU ≤ 1.0 s (median of 3)",
+   "ok": true,
+   "evidence": [
+    316,
+    380,
+    304
+   ]
+  }
+ ],
+ "info": {},
+ "perf": [
+  {
+   "label": "Tokyo Gallery (default)",
+   "vp": "desktop",
+   "txKB": 652,
+   "rawKB": 1696,
+   "urls": 25,
+   "imgKB": 307,
+   "fontKB": 88,
+   "jsKB": 31,
+   "htmlKB": 136,
+   "cssKB": 77,
+   "dom": 2855,
+   "tiles": 0,
+   "fcp4": [
+    252,
+    268,
+    376
+   ],
+   "fcpMed": 268,
+   "tilesBlocked": null,
+   "photos": [
+    "hero--tokyo-960.jpg:83",
+    "tokyo--imperial-palace-east-gardens-500.jpg:45",
+    "tokyo--yasukuni-shrine-500.jpg:29",
+    "tokyo--kanda-myojin-500.jpg:38",
+    "tokyo--tokyo-station-marunouchi-building-500.jpg:38",
+    "tokyo--kokyo-gaien-and-nijubashi-500.jpg:31",
+    "tokyo--chidorigafuchi-500.jpg:45"
+   ]
+  },
+  {
+   "label": "Tokyo Gallery (default)",
+   "vp": "phone3",
+   "txKB": 940,
+   "rawKB": 1984,
+   "urls": 24,
+   "imgKB": 596,
+   "fontKB": 88,
+   "jsKB": 31,
+   "htmlKB": 136,
+   "cssKB": 77,
+   "dom": 2254,
+   "tiles": 0,
+   "fcp4": [
+    268,
+    228,
+    308
+   ],
+   "fcpMed": 268,
+   "tilesBlocked": null,
+   "photos": [
+    "hero--tokyo-960.jpg:83",
+    "tokyo--imperial-palace-east-gardens-960.jpg:120",
+    "tokyo--yasukuni-shrine-960.jpg:87",
+    "tokyo--kanda-myojin-960.jpg:101",
+    "tokyo--tokyo-station-marunouchi-building-960.jpg:106",
+    "tokyo--kokyo-gaien-and-nijubashi-960.jpg:98"
+   ]
+  },
+  {
+   "label": "Tokyo Atlas",
+   "vp": "desktop",
+   "txKB": 612,
+   "rawKB": 1757,
+   "urls": 26,
+   "imgKB": 224,
+   "fontKB": 88,
+   "jsKB": 77,
+   "htmlKB": 136,
+   "cssKB": 81,
+   "dom": 2693,
+   "tiles": 44,
+   "fcp4": [
+    528,
+    332,
+    312
+   ],
+   "fcpMed": 332,
+   "tilesBlocked": {
+    "txKB": 612,
+    "rawKB": 1757,
+    "dom": 2422
+   },
+   "photos": [
+    "tokyo--imperial-palace-east-gardens-500.jpg:45",
+    "tokyo--yasukuni-shrine-500.jpg:29",
+    "tokyo--kanda-myojin-500.jpg:38",
+    "tokyo--kokyo-gaien-and-nijubashi-500.jpg:31",
+    "tokyo--tokyo-station-marunouchi-building-500.jpg:38",
+    "tokyo--chidorigafuchi-500.jpg:45"
+   ]
+  },
+  {
+   "label": "Tokyo Atlas",
+   "vp": "phone3",
+   "txKB": 900,
+   "rawKB": 2045,
+   "urls": 25,
+   "imgKB": 512,
+   "fontKB": 88,
+   "jsKB": 77,
+   "htmlKB": 136,
+   "cssKB": 81,
+   "dom": 2616,
+   "tiles": 27,
+   "fcp4": [
+    304,
+    280,
+    308
+   ],
+   "fcpMed": 304,
+   "tilesBlocked": {
+    "txKB": 1020,
+    "rawKB": 2165,
+    "dom": 2453
+   },
+   "photos": [
+    "tokyo--imperial-palace-east-gardens-960.jpg:120",
+    "tokyo--yasukuni-shrine-960.jpg:87",
+    "tokyo--kanda-myojin-960.jpg:101",
+    "tokyo--tokyo-station-marunouchi-building-960.jpg:106",
+    "tokyo--kokyo-gaien-and-nijubashi-960.jpg:98"
+   ]
+  },
+  {
+   "label": "Landing",
+   "vp": "desktop",
+   "txKB": 731,
+   "rawKB": 1057,
+   "urls": 33,
+   "imgKB": 548,
+   "fontKB": 95,
+   "jsKB": 10,
+   "htmlKB": 15,
+   "cssKB": 61,
+   "dom": 1836,
+   "tiles": 0,
+   "fcp4": [
+    692,
+    448,
+    204
+   ],
+   "fcpMed": 448,
+   "tilesBlocked": null,
+   "photos": [
+    "hero--cleveland-500.jpg:27",
+    "hero--youngstown-500.jpg:40",
+    "hero--pittsburgh-500.jpg:24",
+    "hero--siliconvalley-500.jpg:32",
+    "hero--sanfrancisco-500.jpg:32",
+    "hero--columbus-500.jpg:35",
+    "hero--newyork-500.jpg:25",
+    "hero--dayton-500.jpg:25",
+    "hero--washingtondc-500.jpg:22",
+    "hero--statecollege-500.jpg:27",
+    "wheeling--wheeling-suspension-bridge-500.jpg:37",
+    "hero--erie-500.jpg:27"
+   ]
+  },
+  {
+   "label": "Landing",
+   "vp": "phone3",
+   "txKB": 559,
+   "rawKB": 885,
+   "urls": 26,
+   "imgKB": 376,
+   "fontKB": 95,
+   "jsKB": 10,
+   "htmlKB": 15,
+   "cssKB": 61,
+   "dom": 1836,
+   "tiles": 0,
+   "fcp4": [
+    404,
+    372,
+    420
+   ],
+   "fcpMed": 404,
+   "tilesBlocked": null,
+   "photos": [
+    "hero--cleveland-500.jpg:27",
+    "hero--youngstown-500.jpg:40",
+    "hero--pittsburgh-500.jpg:24",
+    "hero--sanfrancisco-500.jpg:32",
+    "hero--columbus-500.jpg:35",
+    "hero--dayton-500.jpg:25",
+    "hero--washingtondc-500.jpg:22",
+    "hero--siliconvalley-500.jpg:32",
+    "hero--newyork-500.jpg:25",
+    "wheeling--wheeling-suspension-bridge-500.jpg:37",
+    "hero--statecollege-500.jpg:27",
+    "hero--erie-500.jpg:27"
+   ]
+  },
+  {
+   "label": "Japan hub",
+   "vp": "desktop",
+   "txKB": 439,
+   "rawKB": 701,
+   "urls": 19,
+   "imgKB": 297,
+   "fontKB": 65,
+   "jsKB": 10,
+   "htmlKB": 6,
+   "cssKB": 61,
+   "dom": 575,
+   "tiles": 0,
+   "fcp4": [
+    300,
+    264,
+    368
+   ],
+   "fcpMed": 300,
+   "tilesBlocked": null,
+   "photos": [
+    "hero--japan-960.jpg:34",
+    "hero--tokyo-500.jpg:25",
+    "hero--kyoto-500.jpg:30",
+    "hero--osaka-500.jpg:44",
+    "hero--okinawa-500.jpg:27",
+    "hero--hokkaido-500.jpg:25",
+    "hero--us-500.jpg:25",
+    "hero--singapore-500.jpg:34",
+    "hero--belgium-500.jpg:26",
+    "hero--germany-500.jpg:27"
+   ]
+  },
+  {
+   "label": "Japan hub",
+   "vp": "phone3",
+   "txKB": 705,
+   "rawKB": 967,
+   "urls": 17,
+   "imgKB": 539,
+   "fontKB": 88,
+   "jsKB": 10,
+   "htmlKB": 6,
+   "cssKB": 61,
+   "dom": 575,
+   "tiles": 0,
+   "fcp4": [
+    316,
+    380,
+    304
+   ],
+   "fcpMed": 316,
+   "tilesBlocked": null,
+   "photos": [
+    "hero--japan-960.jpg:34",
+    "hero--tokyo-960.jpg:83",
+    "hero--kyoto-960.jpg:94",
+    "hero--osaka-960.jpg:157",
+    "hero--okinawa-960.jpg:94",
+    "hero--hokkaido-960.jpg:78"
+   ]
+  }
+ ]
+}

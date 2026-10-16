@@ -1,0 +1,164 @@
+{
+ "meta": {
+  "tool": "tools/location-verify.js 0.1.0",
+  "city": "san-francisco-ca",
+  "generated": "2026-10-16",
+  "scope": [
+   "unverified",
+   "low",
+   "status"
+  ],
+  "sources": [
+   "nominatim",
+   "census"
+  ],
+  "rowsInScope": 1,
+  "rowsChecked": 1,
+  "orphansSkipped": 0,
+  "anchor": {
+   "lat": 37.77919,
+   "lng": -122.420646,
+   "radiusM": 26202
+  },
+  "regionalAnchors": null,
+  "mode": "live",
+  "userAgent": "CleoGuideLocationVerify/0.1.0 (https://github.com/alvations/cleo-guide; location-verify proposals, reviewed by a person) node",
+  "rule": "PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).",
+  "phase2": {
+   "houseFiles": [],
+   "abr": null,
+   "onemap": null
+  },
+  "requests": {
+   "network": 0,
+   "cacheHits": 2,
+   "nominatim": 0,
+   "failures": [],
+   "byHost": {}
+  },
+  "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
+  "hardFailure": false,
+  "recheck": {
+   "names": [
+    "Hotel Utah Saloon"
+   ],
+   "sources": [
+    "nominatim",
+    "census"
+   ]
+  }
+ },
+ "summary": {
+  "move": 1
+ },
+ "rows": [
+  {
+   "name": "Hotel Utah Saloon",
+   "current": {
+    "address": "500 4th St, San Francisco, CA 94107",
+    "lat": 37.78001,
+    "lng": -122.39796,
+    "source": "https://www.wikidata.org/wiki/Q115147944 (wikidata, retrieved 2026-10-11; location-verify proposal accepted by orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx: Meets LOCATION-VERIFY §8 rule 2 (wikidata coordinate with an independent source within 40 m); orchestrator checks: house number equals the registry address, within 40 km of the city anchor, no shared coordinate, not a closed place; 14-row sample read by eye) — re-check 2026-10-16: an independent OSM POI 'Hotel Utah Saloon' (node/10245940482) sits 71 m away at 37.77938,-122.39811; graded med until the 500 4th St address point decides between them (docs/geoverify/recheck-wikidata-2026-10-16.md)",
+    "confidence": "med",
+    "verified": "2026-10-11",
+    "status": "open",
+    "statusSource": "https://www.sfgate.com/food/article/san-francisco-dive-bar-loves-bay-bridge-21216819.php",
+    "statusChecked": "2026-10-02"
+   },
+   "scope": [
+    "recheck"
+   ],
+   "outcome": "move",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 37.77938,
+    "lng": -122.39811,
+    "address": "500 4th Street, San Francisco, California 94107",
+    "matchedName": "Hotel Utah Saloon",
+    "sourceUrl": "https://www.openstreetmap.org/node/10245940482",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 71,
+    "osmObject": {
+     "id": "node/10245940482",
+     "class": "amenity=pub",
+     "addresstype": "amenity",
+     "name": "Hotel Utah Saloon",
+     "address": "500 4th Street, San Francisco, California 94107",
+     "houseNumber": "500",
+     "tags": {
+      "website": "https://hotelutah.com/",
+      "opening_hours": "Mo-Su 11:30-24:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Hotel Utah Saloon",
+     "lat": 37.77938,
+     "lng": -122.39811,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/10245940482",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=pub",
+     "osm": "node/10245940482",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 71
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "500 4TH ST, SAN FRANCISCO, CA, 94107",
+    "lat": 37.77949,
+    "lng": -122.39806,
+    "distanceM": 12,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=500%204th%20St%2C%20San%20Francisco%2C%20CA%2094107&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   },
+   "recheck": {
+    "verdict": "moved",
+    "distanceM": 71,
+    "candidate": {
+     "kind": "osm-poi",
+     "name": "Hotel Utah Saloon",
+     "lat": 37.77938,
+     "lng": -122.39811,
+     "grade": "high",
+     "sourceUrl": "https://www.openstreetmap.org/node/10245940482"
+    }
+   }
+  }
+ ]
+}

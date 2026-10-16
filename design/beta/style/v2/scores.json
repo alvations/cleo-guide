@@ -1,0 +1,24 @@
+{
+ "_doc": "W7 designer: every palette direction scored 1-10 on the eleven criteria (the nine W7-BRIEFS items + the owner amendment's 'Gen Z wanderlust appeal' and 'cross-generational trust & legibility'), on the same v2 component layer and the chosen type pairing (Bricolage Grotesque display + Inter text), from the real-page mockups in directions/shots/<id>/. AA is measured (directions/contrast.json); the rest is the designer's judgement against RESEARCH.md. 'oxblood-sun' is direction B plus the one sun highlight (sticker badges + heart pop ring) that the wanderlust item asked to be tested.",
+ "criteria": ["modern-minimal", "marketplace-grade clarity", "palette uniqueness", "classy, not tacky", "luxury feel", "readability", "AA light + dark", "consistency across views", "photo-friendliness", "Gen Z wanderlust appeal", "cross-generational trust & legibility"],
+ "directions": {
+  "juniper": {"scores": [9, 9, 6, 8, 7, 9, 10, 9, 7, 6, 9], "note": "Calm and safe, but deep green is the default 'wellness' accent and fights foliage in photos. Reads restful rather than 'go now'."},
+  "oxblood": {"scores": [9, 9, 9, 9, 9, 9, 10, 9, 9, 7, 9], "note": "A tailoring colour on bone: expensive, ours (ΔE76 49 from the marketplace coral, 38 from the label red), photo-friendly. On its own it reads a little evening-formal — classy, but not yet sunny."},
+  "oxblood-sun": {"scores": [9, 9, 9, 9, 9, 9, 10, 9, 9, 9, 9], "note": "B plus ONE warm, flat sun highlight: the sticker badge on data-backed distinctions and the heart 'pop' ring. The page gains daylight and a wink of delight while the chrome stays bone, ink and oxblood. Chosen."},
+  "petrol": {"scores": [9, 9, 7, 8, 7, 9, 10, 9, 8, 6, 9], "note": "Architectural and crisp. The cool mist ground greys warm food photos, blue-green sits next to map water, and it reads like a fintech, not a trip."},
+  "ember": {"scores": [8, 9, 5, 7, 7, 9, 10, 9, 7, 8, 9], "note": "The sunniest of the four and inviting, but terracotta is the most common travel accent (lowest uniqueness), it competes with warm food photos, and it sits only ΔE 21 from the retired R6 vermilion."}
+ },
+ "winner": "oxblood-sun",
+ "type": {
+  "_doc": "Display candidates for headlines, city names and big numbers, paired with Inter for everything people read or tap. Shot on the real landing, hub and Tokyo pages (type/pairings/<id>/) and in type/display-specimen.png. Faces without a Vietnamese subset were excluded before measuring: Young Serif, Gloock, Instrument Serif, DM Serif Display, Syne, Sora, Outfit, Gabarito.",
+  "criteria": ["inviting / youthful", "classy, not tacky", "legible at card-title size", "diacritics (macrons at DPR 1, Vietnamese)", "pairs with Inter"],
+  "faces": {
+   "bricolage":    {"name": "Bricolage Grotesque", "scores": [9, 9, 9, 10, 9], "kb": 55.6, "note": "A characterful grotesque with optical sizes: confident, warm and current, but still a grotesque — it stays elegant at 600. Macrons and stacked Vietnamese marks are correct. Chosen."},
+   "fraunces":     {"name": "Fraunces (soft, wonky)", "scores": [9, 8, 7, 2, 7], "kb": 56.5, "note": "The most charming, but the packaged cut still draws the macron one letter late ('Myoj̄in', 'Ōsaka-jō' drift) — the W6 defect persists. Disqualified on a guide with 400+ Japanese names."},
+   "unbounded":    {"name": "Unbounded", "scores": [9, 5, 6, 10, 6], "kb": 58.2, "note": "Wide and loud — fun for a poster, tacky on a city name at 52 px, and it eats line length on phones."},
+   "spacegrotesk": {"name": "Space Grotesk", "scores": [7, 7, 9, 10, 8], "kb": 35.5, "note": "Quirky and light, but reads tech-product rather than travel."},
+   "newsreader":   {"name": "Newsreader (control)", "scores": [5, 9, 9, 10, 8], "kb": 58.0, "note": "A fine editorial serif — classy, but not the inviting, youthful voice the owner asked for."}
+  },
+  "winner": "bricolage"
+ }
+}

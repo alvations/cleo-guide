@@ -204,12 +204,15 @@ async function honesty() {
     const d = pageJson(rel);
     const data = new Set(); const add = x => { if (typeof x === 'string') x.split(/\n+/).forEach(y => y.trim().length > 3 && data.add(y.trim())); else if (x && typeof x === 'object') Object.values(x).forEach(add); };
     add(d.places); add(d.notes); add(d.sourceIndex); add(d.sources);
+    const longest = [...data].filter(x => x.length > 12).sort((a, b) => b.length - a.length);
     for (const v of VIEWS) {
       const { ctx, page } = await open(rel, 'mobile', { hash: '#view=' + v + '&p=' + encodeURIComponent(d.places[0].id), settle: 900 });
       const s = await page.evaluate(STATE);
       const bad = s.text.split(/\n+/).map(l => l.trim()).filter(l => l && !data.has(l))
-        .map(l => l.replace(/Hours and prices aren['’]t in our data|No ratings, prices or (?:opening )?hours are shown|review-aggregator star ratings never count as the recommender|Closed — kept for the record · .*/g, ''))
-        .filter(l => { let t = l; for (const x of data) if (x.length > 12 && t.includes(x)) t = t.split(x).join(' '); return HONESTY.test(t); });
+        .map(l => l.replace(/We don['’]t track opening hours or prices|Prices, ratings and times are quoted from the source at the time of research \([^)]*\)\.|No ratings, prices or (?:opening )?hours are shown|We don['’]t add ratings, (?:review counts, )?prices or opening hours of our own|review-aggregator star ratings never count as the recommender|Closed — kept for the record · .*/g, ''))
+        // longest first (as test-honesty.js does): a short data string inside a longer one ("Closed Monday." inside a record's
+        // "Look for" line) must not be cut first, or the longer record prose no longer matches and its remainder reads as chrome
+        .filter(l => { let t = l; for (const x of longest) if (t.includes(x)) t = t.split(x).join(' '); return HONESTY.test(t); });
       check('honesty', `${rel} #view=${v} (sheet open)`, viewOk(s, v) === null && !bad.length ? null : !bad.length, bad.slice(0, 3));
       await ctx.close();
     }

@@ -23,7 +23,11 @@
   'use strict';
   var SER = ['var(--series-1,#2a78d6)', 'var(--series-2,#eb6834)', 'var(--series-3,#1baf7a)', 'var(--series-4,#eda100)', 'var(--series-5,#e87ba4)', 'var(--series-6,#6250d6)'];
   var OTHER = 'var(--series-other,#b4ada2)', CLOSED = 'var(--closed,#9b4a3c)';
-  var TIER = { 1: 'Must see', 2: 'Worth the detour', 3: 'Deep cut' };
+  // i18n D-41: interface strings from the catalogue (Cleo.t, the page's head snippet); the English here equals en.json
+  // (test-i18n). In node (the gates) there is no Cleo, so the English is filled in place: output unchanged. Data
+  // (place, area, source, dish and collection names) stays as written.
+  var tt = function (k, e, v) { var C = typeof self !== 'undefined' && self.Cleo; return C && C.t ? C.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
+  var TIER = { get 1() { return tt('tier.1', 'Must see'); }, get 2() { return tt('tier.2', 'Worth the detour'); }, get 3() { return tt('tier.3', 'Deep cut'); } };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
   var plural = function (n, w, pl) { return n + ' ' + (n === 1 ? w : (pl || w + 's')); };
   var shortArea = function (n) { return String(n || '').split(/\s+[(—–]\s*|\s+\(/)[0].trim(); };
@@ -36,6 +40,25 @@
     return 2 * R * Math.asin(Math.sqrt(h));
   };
   var median = function (xs) { var s = xs.slice().sort(function (a, b) { return a - b; }); return s[s.length >> 1]; };
+
+  /* ---- QC-02/QC-03: the lens predicate, the same rule as Cleo.lens.match (core.js) over the record fields the card
+   * carries (data-k/-a/-t/-g/-cz/-src/-closed). A text search (q) is decided by the browser, which passes the shown ids. */
+  var LENS = ['mode', 'a', 't', 'c', 'cz', 'src', 'closed', 'q'];
+  function lensMatch(p, o) {
+    var has = function (xs, v) { return (xs || []).indexOf(v) >= 0; };
+    if ((o.mode === 'sights' && p.kind === 'food') || (o.mode === 'food' && p.kind !== 'food')) return false;
+    if (o.a && p.a !== o.a) return false;
+    if (o.t && (p.closed || String(p.t) !== String(o.t))) return false;
+    if (o.c && !has(p.g, o.c)) return false;
+    if (o.cz && !has(p.cz, o.cz)) return false;
+    if (o.src && !has(p.src, o.src)) return false;
+    if (o.closed && !p.closed) return false;
+    return true;
+  }
+  var pickLens = function (o) { var out = {}; LENS.forEach(function (k) { if (o && o[k]) out[k] = String(o[k]); }); return out; };
+
+  // R7-g6 (DESIGN-SYSTEM v2 §V2.13): the data's saturated area colours are mixed toward the palette, as on the map
+  var muted = function (hex) { return 'color-mix(in oklab, ' + hex + ' var(--area-mix, 50%), var(--area-mute, #948B83))'; };
 
   /* ---- the numbers (P-03 shape when the build ships it; the same rules otherwise) ---- */
   function numbers(d) {
@@ -60,7 +83,7 @@
     var K3 = count(places, k3);
     var canon = g.canon || null;
     var I = {
-      N: N, areas: areas.map(function (a) { return { id: a.id, name: shortArea(a.n), c: (d.colors || {})[a.id] || '#888' }; }),
+      N: N, areas: areas.map(function (a) { return { id: a.id, name: shortArea(a.n), c: muted((d.colors || {})[a.id] || '#888') }; }),
       tiles: { places: N, areas: areas.length, sights: (K3.sight || 0) + (K3.pop || 0), food: K3.food || 0, pop: hasPop ? (K3.pop || 0) : null,
         sources: (d.stats || {}).sources || Object.keys(cites).length, citations: places.reduce(function (s, p) { return s + (p.src || []).length; }, 0),
         closed: places.filter(function (p) { return p.closed; }).length, lastChecked: (d.stats || {}).lastChecked || '' },
@@ -111,7 +134,16 @@
       I.tiers[id] = counts(ti[id], ['1', '2', '3']);
     });
     I.canon = P.canon && P.canon.rows && P.canon.rows.length ? { title: P.canon.title, cz: P.canon.cz, n: P.canon.of, open: P.canon.open, named: P.canon.named, dishes: P.canon.rows.map(function (x) { return { t: x.t, n: x.n }; }) } : null;
-    I.notes = { mix: P.mix.note, src: P.sources.note, den: P.perArea.note, spr: P.spread.note, cls: P.closed.note, can: P.canon && P.canon.note, tier: P.tiers.note };
+    // i18n D-41: the platform writes these notes in English into the page data (lib/views.js); each is re-said from the
+    // catalogue only when the catalogue's English is exactly the data's, so a reworded note falls back to the data text
+    var pn = function (raw, k, e, v) { var en = v ? e.replace(/\{([a-z]+)\}/g, function (m, x) { return x in v ? v[x] : m; }) : e; return raw && en === raw ? tt(k, e, v) : raw; };
+    I.notes = { mix: pn(P.mix.note, P.tiles.pop != null ? 'ins.p.mix' : 'ins.mix.nopop', P.tiles.pop != null ? 'Pop culture = sights in the city’s pop-culture collections; a place counts in one segment only.' : 'This city has no pop-culture collection in its data, so the third segment is absent rather than zero-filled.'),
+      src: pn(P.sources.note, 'ins.p.src', 'Citations, not places: a place named by three sources counts three times. "Added by the guide" marks general-knowledge additions and is never relabelled as sourced.'),
+      den: pn(P.perArea.note, 'ins.p.den', 'Every place counted once, in its own area.'),
+      spr: pn(P.spread.note, 'ins.p.spr', 'Computed from {a} of {n} places: open, with a verified pin. Straight-line, not walking routes. Areas with fewer than 2 such pins are not drawn.', { a: P.spread.of, n: P.N }),
+      cls: pn(P.closed.note, 'ins.p.cls', 'Closed places stay in every view, flagged, and never carry a tier. "unchecked" = no status check on record yet.'),
+      can: P.canon && pn(P.canon.note, 'ins.p.can', 'Bars count canon places whose own write-up names the dish; a place naming two dishes counts in both bars. Canon places that name no dish are not counted.'),
+      tier: pn(P.tiers.note, 'ins.p.tier', '{n} closed places carry no tier and are counted in the closures chart instead.', { n: P.closed.of }) };
     I.from = 'platform';
     return I;
   }
@@ -125,7 +157,7 @@
   function stackSvg(rows, series, link, uid, asPct, W, LW, narrow) {
     var G = 2, span0 = W - LW - 44;
     var mx = Math.max.apply(null, rows.map(function (r) { return sum(r.v); }).concat(1));
-    var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 26) + '" role="img" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
+    var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 26) + '" role="group" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
     [0, .25, .5, .75, 1].forEach(function (t) {
       var x = (LW + t * span0).toFixed(1);
       out.push('<line class="grid" x1="' + x + '" x2="' + x + '" y1="0" y2="' + rows.length * RH + '"/><text class="ax" x="' + x + '" y="' + (rows.length * RH + 16) + '" text-anchor="middle">' + (asPct ? Math.round(t * 100) + '%' : Math.round(t * mx)) + '</text>');
@@ -134,12 +166,14 @@
       var y0 = i * RH, y = y0 + BY, tot = sum(r.v) || 1, x = LW, span = span0 * (asPct ? 1 : tot / mx);
       var lb = '<text class="lb" x="' + (LW - 10) + '" y="' + (y + 16) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>';
       // the whole-guide row ("All of …") has no lens to apply, so its label stays text
-      out.push(r.key ? '<a href="' + esc(link(r.key, '')) + '" aria-label="' + esc(r.label + ' · all ' + sum(r.v)) + '">' + hit(0, y0, LW - 4) + lb + '</a>' : lb);
+      var rh = r.key ? link(r.key, '', sum(r.v), 1) : null;   // a row label that cannot link exactly stays text
+      out.push(rh ? '<a href="' + esc(rh) + '" aria-label="' + esc(tt('ins.aria.all', '{label} · all {n}', { label: r.label, n: sum(r.v) })) + '">' + hit(0, y0, LW - 4) + lb + '</a>' : lb);
       series.forEach(function (s) {
         var n = r.v[s.id] || 0; if (!n) return;
-        var w = span * n / tot;
-        out.push('<a href="' + esc(link(r.key, s.id)) + '" aria-label="' + esc(r.label + ' · ' + s.name + ': ' + n) + '">' + hit(x, y0, w - G) + '<rect class="bar" x="' + x.toFixed(1) + '" y="' + y + '" width="' + Math.max(w - G, 1).toFixed(1) + '" height="24" rx="3" style="fill:' + s.c + '">' +
-          '<title>' + esc(r.label + ' · ' + s.name + ': ' + n + ' of ' + tot + ' (' + pct(n, tot) + '%)') + '</title></rect></a>');
+        var w = span * n / tot, sh = link(r.key, s.id, n);
+        var seg = '<rect class="bar" x="' + x.toFixed(1) + '" y="' + y + '" width="' + Math.max(w - G, 1).toFixed(1) + '" height="24" rx="3" style="fill:' + s.c + '">' +
+          '<title>' + esc(r.label + ' · ' + s.name + ': ' + n + ' of ' + tot + ' (' + pct(n, tot) + '%)') + '</title></rect>';
+        out.push(sh ? '<a href="' + esc(sh) + '" aria-label="' + esc(tt('ins.aria.seg', '{label} · {series}: {n}', { label: r.label, series: s.name, n: n })) + '">' + hit(x, y0, w - G) + seg + '</a>' : seg);
         x += w;
       });
       out.push('<text class="vl" x="' + (x + 6).toFixed(1) + '" y="' + (y + 16) + '">' + sum(r.v) + '</text>');
@@ -148,12 +182,12 @@
   }
   function barSvg(rows, link, uid, unit, W, LW, narrow) {
     var mx = Math.max.apply(null, rows.map(function (r) { return r.n; }).concat(0)) || 1;
-    var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 2) + '" role="img" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
+    var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 2) + '" role="group" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
     rows.forEach(function (r, i) {
-      var y0 = i * RH, y = y0 + BY, w = (W - LW - 70) * r.n / mx;
-      out.push('<a href="' + esc(link(r.key)) + '" aria-label="' + esc(r.label + ': ' + r.n + unit) + '">' + hit(0, y0, LW + Math.max(w, 2) + 4) +
-        '<text class="lb" x="' + (LW - 10) + '" y="' + (y + 16) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>' +
-        '<rect class="bar" x="' + LW + '" y="' + y + '" width="' + Math.max(w, 2).toFixed(1) + '" height="24" rx="3" style="fill:' + r.c + '"><title>' + esc(r.label + ': ' + r.n + unit) + '</title></rect></a>' +
+      var y0 = i * RH, y = y0 + BY, w = (W - LW - 70) * r.n / mx, bh = link(r.key, '', r.n);
+      var mark = '<text class="lb" x="' + (LW - 10) + '" y="' + (y + 16) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>' +
+        '<rect class="bar" x="' + LW + '" y="' + y + '" width="' + Math.max(w, 2).toFixed(1) + '" height="24" rx="3" style="fill:' + r.c + '"><title>' + esc(r.label + ': ' + r.n + unit) + '</title></rect>';
+      out.push((bh ? '<a href="' + esc(bh) + '" aria-label="' + esc(r.label + ': ' + r.n + unit) + '">' + hit(0, y0, LW + Math.max(w, 2) + 4) + mark + '</a>' : mark) +
         '<text class="vl" x="' + (LW + w + 6).toFixed(1) + '" y="' + (y + 16) + '">' + r.n + esc(unit) + '</text>');
     });
     return out.join('') + '</svg>';
@@ -174,98 +208,180 @@
   };
   function stacked(rows, series, head, link, uid, asPct) {
     var legend = '<ul class="legend">' + series.map(function (s) { return '<li><i style="background:' + s.c + '"></i>' + esc(s.name) + '</li>'; }).join('') + '</ul>';
-    var table = details('Show as a table', '<table><thead><tr><th scope="col">' + esc(head) + '</th>' + series.map(function (s) { return '<th scope="col">' + esc(s.name) + '</th>'; }).join('') + '<th scope="col">Total</th></tr></thead><tbody>' +
+    var table = details(tt('ins.table', 'Show as a table'), '<table><thead><tr><th scope="col">' + esc(head) + '</th>' + series.map(function (s) { return '<th scope="col">' + esc(s.name) + '</th>'; }).join('') + '<th scope="col">' + tt('ins.total', 'Total') + '</th></tr></thead><tbody>' +
       rows.map(function (r) { return '<tr><th scope="row">' + esc(r.label) + '</th>' + series.map(function (s) { return '<td>' + (r.v[s.id] || 0) + '</td>'; }).join('') + '<td>' + sum(r.v) + '</td></tr>'; }).join('') + '</tbody></table>');
     return legend + both(stackSvg, [rows, series, link, uid, asPct]) + table;
   }
   function bars(rows, link, uid, unit) {
-    var table = details('Show as a table', '<table><tbody>' + rows.map(function (r) { return '<tr><th scope="row">' + esc(r.label) + '</th><td>' + r.n + esc(unit) + '</td></tr>'; }).join('') + '</tbody></table>');
+    var table = details(tt('ins.table', 'Show as a table'), '<table><tbody>' + rows.map(function (r) { return '<tr><th scope="row">' + esc(r.label) + '</th><td>' + r.n + esc(unit) + '</td></tr>'; }).join('') + '</tbody></table>');
     return both(barSvg, [rows, link, uid, unit]) + table;
   }
+  var PLAINS = null;   // set per render: card ids whose marks include plain (non-link) bars
+  var WHY = { get spr() { return tt('ins.why.spr', 'Distances are measures, not lists of places, so these bars do not open anything.'); },
+    get can() { return tt('ins.why.can', 'Each dish is named inside a place’s write-up and no filter selects it, so these bars count without opening places.'); } };
   var card = function (uid, title, sub, body, foot) {
-    return '<section class="icard" id="in-' + uid + '" aria-labelledby="' + uid + '-t"><h2 class="d3" id="' + uid + '-t">' + esc(title) + '</h2><p class="sub" id="' + uid + '-d">' + esc(sub) + '</p>' + body + (foot ? '<p class="fn">' + esc(foot) + '</p>' : '') + '</section>';
+    var why = PLAINS && PLAINS[uid] ? (WHY[uid] || tt('ins.why', 'Plain bars have no filter that opens exactly the places they count; linked bars open exactly theirs.')) : '';
+    return '<section class="icard" id="in-' + uid + '" aria-labelledby="' + uid + '-t"><h2 class="d3" id="' + uid + '-t">' + esc(title) + '</h2><p class="sub" id="' + uid + '-d">' + esc(sub) + '</p>' + body +
+      (foot ? '<p class="fn">' + esc(foot) + '</p>' : '') + (why ? '<p class="fn" data-plain>' + esc(why) + '</p>' : '') + '</section>';
   };
 
   /* ---- the whole view as an HTML string ---- */
   function render(d, opt) {
     SIZE = { W: (opt && opt.W) || 640, Wn: (opt && opt.Wn) || 320 }; ONLY = (opt && opt.only) || ''; TBL = opt && opt.lazyTables ? [] : null;
+    // QC-03 (SPEC §2.5): under a lens every number is computed from the lensed places ("43 of all 488")
+    var L = pickLens(opt && opt.lens), ids = opt && opt.ids, ALL = d.places.length, lensed = Object.keys(L).length > 0;
+    if (lensed) {
+      var keep = ids ? function (p) { return !!ids[p.id]; } : function (p) { return lensMatch(p, L); };
+      var g0 = d.guide || {}, cn0 = g0.canon, inS = {}, kept = d.places.filter(keep);
+      kept.forEach(function (p) { inS[p.id] = 1; });
+      var cn1 = null;
+      if (cn0 && cn0.dishes) {
+        var cid = (cn0.ids || []).filter(function (id) { return inS[id]; });
+        var dish = cn0.dishes.map(function (x) { var di = (x.ids || []).filter(function (id) { return inS[id]; }); return { t: x.t, n: di.length, ids: di }; }).filter(function (x) { return x.n; });
+        if (dish.length) cn1 = { title: cn0.title, cz: cn0.cz, ids: cid, n: cid.length, open: kept.filter(function (p) { return inS[p.id] && cid.indexOf(p.id) >= 0 && !p.closed; }).length, dishes: dish };
+      }
+      d = Object.assign({}, d, { places: kept, insights: null, stats: Object.assign({}, d.stats, { sources: undefined }), guide: Object.assign({}, g0, { canon: cn1 }) });
+      if (!kept.length) { TBL = null; ONLY = '';
+        var none = '<div class="ins" data-cleo-insights><header class="ins-h"><h1 class="d2" tabindex="-1">' + esc(tt('ins.h', '{city} in numbers', { city: d.name })) + '</h1><p class="count" data-ins-count><b>' + tt('gb.count', '{s} of all {n} places', { s: 0, n: ALL }) + '</b>' + tt('gb.count.m', ' match this lens.') + '</p></header></div>';
+        return { html: none, lazy: none, parts: [], numbers: { N: 0, all: ALL }, index: 0, tables: [] }; }
+    }
     var I = fromPlatform(d) || numbers(d), T = I.tiles, N = I.N, name = d.name, NO = I.notes || {};
+    I.all = ALL; I.lens = L;
     var note = function (k, mine) { return NO[k] || mine; };
     var gal = function (o) { var r = { view: 'gallery' }; Object.keys(o).forEach(function (k) { r[k] = o[k]; }); return href(r); };
+    // QC-01/QC-02: a mark is a link only when the lens it opens (this view's lens + the mark's own) shows exactly the
+    // places it counts; any other mark is a plain bar, and its card says why
+    var PLAIN = {}; PLAINS = PLAIN;
+    var exact = function (uid) { return function (o, n, label) {
+      var q = Object.assign({}, L, o), m = d.places.filter(function (p) { return lensMatch(p, o); }).length;
+      if (m === n && n > 0) return gal(q);
+      if (!label) PLAIN[uid] = 1; return null;
+    }; };
+    var plain = function (uid) { return function () { PLAIN[uid] = 1; return null; }; };
     var A = I.areas, srcName = {};
-    (d.sourceIndex || []).forEach(function (s) { srcName[s.id] = s.id === 'guide' ? 'Added by the guide' : String(s.name).split(/\s+[·—(]\s*/)[0].slice(0, 34); });
-    var tiles = [['Places', T.places, 'in ' + plural(T.areas, 'area')], ['Sights', T.sights, pct(T.sights, N) + '% of the guide'], ['Eat & drink', T.food, pct(T.food, N) + '% of the guide'],
-      ['Pop culture (trail)', T.pop == null ? '—' : T.pop, T.pop == null ? 'no pop-culture collection in this city’s data' : 'sights on the pop-culture trail'],
-      ['Named sources', T.sources, plural(T.citations, 'citation')], ['Closed, kept', T.closed, T.lastChecked ? 'status checked to ' + T.lastChecked : 'kept for the record']];
+    (d.sourceIndex || []).forEach(function (s) { srcName[s.id] = s.id === 'guide' ? tt('sheet.added', 'Added by the guide') : String(s.name).split(/\s+[·—(]\s*/)[0].slice(0, 34); });
+    var tiles = [[tt('gb.dt.places', 'Places'), T.places, (lensed ? tt('ins.t.ofall', 'of all {n} · ', { n: ALL }) : '') + tt('ins.t.in', 'in {areas}', { areas: T.areas === 1 ? tt('city.areas.one', '1 area') : tt('city.areas', '{n} areas', { n: T.areas }) })], [tt('city.mode.sights', 'Sights'), T.sights, tt('ins.t.pct', '{p}% of the guide', { p: pct(T.sights, N) })], [tt('city.mode.food', 'Eat & drink'), T.food, tt('ins.t.pct', '{p}% of the guide', { p: pct(T.food, N) })],
+      [tt('ins.t.pop', 'Pop culture (trail)'), T.pop == null ? '—' : T.pop, T.pop == null ? tt('ins.t.nopop', 'no pop-culture collection in this city’s data') : tt('ins.t.trail', 'sights on the pop-culture trail')],
+      [tt('ins.t.sources', 'Named sources'), T.sources, T.citations === 1 ? tt('ins.citations.one', '1 citation') : tt('ins.citations', '{n} citations', { n: T.citations })], [tt('gb.dt.closed', 'Closed, kept'), T.closed, T.lastChecked ? tt('gb.statusto', 'status checked to {d}', { d: T.lastChecked }) : tt('ins.kept', 'kept for the record')]];
     var tilesH = '<div class="tiles">' + tiles.map(function (t) { return '<div class="tile"><span class="tl">' + esc(t[0]) + '</span><b>' + esc(t[1]) + '</b><span class="ts">' + esc(t[2]) + '</span></div>'; }).join('') + '</div>';
 
     // 1 · what each area is for
-    var ks = [{ id: 'sight', name: 'Sights', c: SER[0] }, { id: 'food', name: 'Eat & drink', c: SER[1] }].concat(T.pop == null ? [] : [{ id: 'pop', name: 'Pop culture', c: SER[2] }]);
+    var ks = [{ id: 'sight', name: tt('city.mode.sights', 'Sights'), c: SER[0] }, { id: 'food', name: tt('city.mode.food', 'Eat & drink'), c: SER[1] }].concat(T.pop == null ? [] : [{ id: 'pop', name: tt('fy.i.pop', 'Pop culture'), c: SER[2] }]);
     var kq = function (k) { return k === 'food' ? { mode: 'food' } : k === 'pop' ? { c: I.popC } : { mode: 'sights' }; };
-    var kRows = [{ label: 'All of ' + name, key: '', v: I.kind.whole }].concat(A.map(function (a) { return { label: a.name, key: a.id, v: I.kind.perArea[a.id] }; }));
-    var c1 = card('mix', 'What each area is for', 'Share of sights, places to eat and pop-culture places, per area. All ' + N + ' places counted once; tap a bar to open those places.',
-      stacked(kRows, ks, 'Area', function (a, k) { var o = k ? kq(k) : {}; if (a) o.a = a; return gal(o); }, 'mix', true),
-      note('mix', T.pop == null ? 'This city has no pop-culture collection in its data, so the third segment is absent rather than zero-filled.' : 'Pop culture = places in the city’s pop-culture collections; a place counts in one segment only.'));
+    var kRows = [{ label: tt('ins.allof', 'All of {city}', { city: name }), key: '', v: I.kind.whole }].concat(A.map(function (a) { return { label: a.name, key: a.id, v: I.kind.perArea[a.id] }; }));
+    var c1 = card('mix', tt('ins.mix.t', 'What each area is for'), tt('ins.mix.s', 'Share of sights, places to eat and pop-culture places, per area. All {n} places counted once; tap a bar to open those places.', { n: N }),
+      stacked(kRows, ks, tt('city.tray.area', 'Area'), function (a, k, n, lab) { var o = k ? kq(k) : {}; if (a) o.a = a; return exact('mix')(o, n, lab); }, 'mix', true),
+      note('mix', T.pop == null ? tt('ins.mix.nopop', 'This city has no pop-culture collection in its data, so the third segment is absent rather than zero-filled.') : tt('ins.mix.pop', 'Pop culture = places in the city’s pop-culture collections; a place counts in one segment only.')));
     // 2 · who recommends each area
-    var ss = I.src.top.map(function (s, i) { return { id: s, name: srcName[s] || s, c: SER[i] }; }).concat([{ id: '_o', name: 'Other sources', c: OTHER }]);
-    var c2 = card('src', 'Who recommends each area', 'Citations per area by source: the ' + I.src.top.length + ' most-cited sources, then all others. A place named by three sources counts three times (' + T.citations + ' citations over ' + N + ' places).',
-      stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.src.perArea[a.id] }; }), ss, 'Area', function (a, s) { var o = { a: a }; if (s && s !== '_o') o.src = s; return gal(o); }, 'src', true),
-      note('src', I.src.all + ' sources in all. “Added by the guide” marks general-knowledge additions and is never relabelled as sourced.'));
+    var ss = I.src.top.map(function (s, i) { return { id: s, name: srcName[s] || s, c: SER[i] }; }).concat([{ id: '_o', name: tt('ins.other', 'Other sources'), c: OTHER }]);
+    var c2 = card('src', tt('ins.src.t', 'Who recommends each area'), tt('ins.src.s', 'Citations per area by source: the {top} most-cited sources, then all others. A place named by three sources counts three times ({c} citations over {n} places).', { top: I.src.top.length, c: T.citations, n: N }),
+      stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.src.perArea[a.id] }; }), ss, tt('city.tray.area', 'Area'), function (a, s, n, lab) { if (s === '_o') return plain('src')(); var o = { a: a }; if (s) o.src = s; return exact('src')(o, n, lab); }, 'src', true),
+      note('src', tt('ins.src.note', '{n} sources in all. “Added by the guide” marks general-knowledge additions and is never relabelled as sourced.', { n: I.src.all })));
     // 3 · where the places are
-    var c3 = card('den', 'Where the places are', 'Places per area, ' + N + ' in all (bars use each area’s map colour). Tap to open the area.',
-      bars(A.map(function (a) { return { label: a.name, key: a.id, n: I.perArea[a.id], c: a.c }; }), function (a) { return gal({ a: a }); }, 'den', ''), note('den', ''));
+    var c3 = card('den', tt('ins.den.t', 'Where the places are'), tt('ins.den.s', 'Places per area, {n} in all (bars use each area’s map colour). Tap to open the area.', { n: N }),
+      bars(A.map(function (a) { return { label: a.name, key: a.id, n: I.perArea[a.id], c: a.c }; }), function (a, _, n) { return exact('den')({ a: a }, n); }, 'den', ''), note('den', ''));
     // 4 · how far you walk
     var spr = A.filter(function (a) { return I.spread[a.id] != null; });
-    var c4 = card('spr', 'How far you walk', 'Median straight-line distance from each area’s middle pin to its open, verified pins. Small = a walkable cluster.',
-      spr.length ? bars(spr.map(function (a) { return { label: a.name, key: a.id, n: I.spread[a.id], c: a.c }; }), function (a) { return href({ view: 'atlas', a: a }); }, 'spr', ' km') : '<p class="empty">Not enough verified pins to measure.</p>',
-      note('spr', 'Computed from ' + I.spreadPins + ' open places with a verified pin; straight-line, not walking routes.' + (spr.length < A.length ? ' Areas with fewer than 2 such pins are absent rather than zero-filled.' : '')));
+    var c4 = card('spr', tt('ins.spr.t', 'How far you walk'), tt('ins.spr.s', 'Median straight-line distance from each area’s middle pin to its open, verified pins. Small = a walkable cluster.'),
+      spr.length ? bars(spr.map(function (a) { return { label: a.name, key: a.id, n: I.spread[a.id], c: a.c }; }), plain('spr'), 'spr', ' km') : '<p class="empty">' + tt('ins.spr.none', 'Not enough verified pins to measure.') + '</p>',
+      note('spr', tt('ins.spr.note', 'Computed from {n} open places with a verified pin; straight-line, not walking routes.', { n: I.spreadPins }) + (spr.length < A.length ? tt('ins.spr.absent', ' Areas with fewer than 2 such pins are absent rather than zero-filled.') : '')));
     // 5 · closures
     var cl = A.filter(function (a) { return I.closed[a.id]; });
     var months = Object.keys(I.months).sort();
-    var c5 = card('cls', 'Closures, kept for the record', T.closed + ' of ' + N + ' places have closed. They stay in every view, flagged, and never carry a tier.',
-      (cl.length ? bars(cl.map(function (a) { return { label: a.name, key: a.id, n: I.closed[a.id], c: CLOSED }; }), function (a) { return gal({ a: a, closed: '1' }); }, 'cls', '') : '<p class="empty">No closures on record.</p>') +
-      details('When each place’s status was last checked', '<table><thead><tr><th scope="col">Month</th><th scope="col">Places</th></tr></thead><tbody>' +
+    var c5 = card('cls', tt('ins.cls.t', 'Closures, kept for the record'), tt('ins.cls.s', '{c} of {n} places have closed. They stay in every view, flagged, and never carry a tier.', { c: T.closed, n: N }),
+      (cl.length ? bars(cl.map(function (a) { return { label: a.name, key: a.id, n: I.closed[a.id], c: CLOSED }; }), function (a, _, n) { return exact('cls')({ a: a, closed: '1' }, n); }, 'cls', '') : '<p class="empty">' + tt('ins.cls.none', 'No closures on record.') + '</p>') +
+      details(tt('ins.cls.when', 'When each place’s status was last checked'), '<table><thead><tr><th scope="col">' + tt('ins.month', 'Month') + '</th><th scope="col">' + tt('gb.dt.places', 'Places') + '</th></tr></thead><tbody>' +
       months.map(function (m) { return '<tr><th scope="row">' + esc(m) + '</th><td>' + I.months[m] + '</td></tr>'; }).join('') + '</tbody></table>'),
-      note('cls', 'Every one of the ' + N + ' places is counted in the status-check table.'));
+      note('cls', tt('ins.cls.note', 'Every one of the {n} places is counted in the status-check table.', { n: N })));
     // 6 · the signature canon
     var cn = I.canon;
-    var c6 = cn ? card('can', 'The signature canon: ' + cn.title, cn.n + ' places in the canon’s cuisines (' + cn.open + ' open). Bars count places whose own write-up names the dish.',
-      bars(cn.dishes.map(function (x) { return { label: x.t, key: x.t, n: x.n, c: SER[0] }; }), function () { return gal({ cz: (cn.cz || [])[0] }); }, 'can', ''),
-      note('can', cn.named + ' of ' + cn.n + ' canon places name one of these dishes; the rest serve the canon cuisine without naming a dish, so they are not counted here.'))
-      : card('can', 'The signature canon', 'This city has no named-dish canon in its data yet.', '<p class="empty">Stated, not filled.</p>');
+    var c6 = cn ? card('can', tt('ins.can.t', 'The signature canon: {title}', { title: cn.title }), tt('ins.can.s', '{n} places in the canon’s cuisines ({open} open). Bars count places whose own write-up names the dish.', { n: cn.n, open: cn.open }),
+      bars(cn.dishes.map(function (x) { return { label: x.t, key: x.t, n: x.n, c: SER[0] }; }), plain('can'), 'can', ''),
+      note('can', tt('ins.can.note', '{named} of {n} canon places name one of these dishes; the rest serve the canon cuisine without naming a dish, so they are not counted here.', { named: cn.named, n: cn.n })))
+      : card('can', tt('ins.can.t0', 'The signature canon'), tt('ins.can.none', 'This city has no named-dish canon in its data yet.'), '<p class="empty">' + tt('ins.stated', 'Stated, not filled.') + '</p>');
     // 7 · the tier ladder
     var ts = [{ id: '1', name: TIER[1], c: SER[5] }, { id: '2', name: TIER[2], c: SER[0] }, { id: '3', name: TIER[3], c: OTHER }];
-    var c7 = card('tier', 'The tier ladder per area', 'Open places by tier (' + (N - T.closed) + ' of ' + N + '). Tiers are graded within each area, so every area has its own must-sees.',
-      stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.tiers[a.id] }; }), ts, 'Area', function (a, t) { return gal({ a: a, t: t }); }, 'tier', false),
-      note('tier', T.closed + ' closed places carry no tier and are counted in the closures card instead.'));
+    var c7 = card('tier', tt('ins.tier.t', 'The tier ladder per area'), tt('ins.tier.s', 'Open places by tier ({open} of {n}). Tiers are graded within each area, so every area has its own must-sees.', { open: N - T.closed, n: N }),
+      stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.tiers[a.id] }; }), ts, tt('city.tray.area', 'Area'), function (a, t, n, lab) { return exact('tier')(t ? { a: a, t: t } : { a: a }, n, lab); }, 'tier', false),
+      note('tier', T.closed === 1 ? tt('ins.tier.note.one', '1 closed place carries no tier and is counted in the closures card instead.') : tt('ins.tier.note', '{n} closed places carry no tier and are counted in the closures card instead.', { n: T.closed })));
+    // 8 · W9-1 recognition: platform's per-place `rec`, made only from each record's own source keys (an award source,
+    // a vetted creator video, ≥ 3 distinct sources). Open places only — a closed place is never a live recommendation.
+    var RC = d.recognition, c8;
+    var recOf = function (p) { var r = p.rec || {}; return { award: !!(r.award && r.award.length), video: !!r.video, cited: !!r.cited }; };
+    if (!RC) c8 = card('rec', tt('ins.rec.t', 'Recognised places by area'), tt('ins.rec.nodata', 'This guide has no recognition data yet.'), '<p class="empty">' + tt('ins.stated', 'Stated, not filled.') + '</p>');
+    else {
+      var rk = { award: 0, video: 0, cited: 0 }, rTot = 0, rOpen = 0, rClosed = 0, rRows = A.map(function (a) {
+        var v = { award: 0, video: 0, cited: 0 }, n = 0, open = 0;
+        d.places.forEach(function (p) {
+          if (p.a !== a.id) return; var r = recOf(p), any = r.award || r.video || r.cited;
+          if (p.closed) { if (any) rClosed++; return; }
+          open++; if (!any) return; n++; Object.keys(v).forEach(function (k) { if (r[k]) { v[k]++; rk[k]++; } });
+        });
+        rTot += n; rOpen += open;
+        return { label: a.name, key: a.id, n: n, c: a.c, v: v, open: open };
+      });
+      var kinds = [['award', tt('ins.rec.award', 'Award source')], ['video', tt('ins.rec.video', 'Creator video')], ['cited', tt('ins.rec.cited', 'Cited by 3 or more')]].filter(function (k) { return rk[k[0]]; });
+      var rTable = details(tt('ins.table', 'Show as a table'), '<table><thead><tr><th scope="col">' + tt('city.tray.area', 'Area') + '</th>' + kinds.map(function (k) { return '<th scope="col">' + k[1] + '</th>'; }).join('') +
+        '<th scope="col">' + tt('ins.rec.recognised', 'Recognised') + '</th><th scope="col">' + tt('ins.rec.open', 'Open places') + '</th></tr></thead><tbody>' + rRows.map(function (r) {
+          return '<tr><th scope="row">' + esc(r.label) + '</th>' + kinds.map(function (k) { return '<td>' + r.v[k[0]] + '</td>'; }).join('') + '<td>' + r.n + '</td><td>' + r.open + '</td></tr>';
+        }).join('') + '</tbody></table>');
+      c8 = card('rec', tt('ins.rec.t', 'Recognised places by area'), tt('ins.rec.s', 'Open places with at least one recognition, per area: an award source, a vetted creator video, or three or more distinct sources, each read from the place’s own sources. A place counts once ({n} of {open} open places).', { n: rTot, open: rOpen }),
+        (rTot ? both(barSvg, [rRows, plain('rec'), 'rec', '']) : '<p class="empty">' + tt('ins.rec.none', 'No open place in this guide carries a recognition.') + '</p>') + rTable,
+        note('rec', [rk.video ? '' : tt('ins.rec.novideo', 'No vetted creator video is on record for this guide, so that kind is absent rather than zero-filled.'),
+          rClosed ? (rClosed === 1 ? tt('ins.rec.closed.one', '{places} with a recognition is left out; closures are counted in their own card.', { places: tt('ins.closedp.one', '1 closed place') }) : tt('ins.rec.closed', '{places} with a recognition are left out; closures are counted in their own card.', { places: tt('ins.closedp', '{n} closed places', { n: rClosed }) })) : '',
+          tt('ins.rec.only', 'Recognition is only what the sources say; nothing is inferred.')].filter(Boolean).join(' ')));
+      I.rec = { total: rTot, open: rOpen, closed: rClosed, kinds: rk, perArea: rRows.reduce(function (o, r) { o[r.key] = r.n; return o; }, {}) };
+    }
     // the "All N places" index
     var byId = {}; d.places.forEach(function (p) { byId[p.id] = p; });
     var parts = A.map(function (a) {
       var ids = I.order[a.id];
       return '<section class="ix"><h3 class="d3"><i style="background:' + esc(a.c) + '"></i>' + esc(a.name) + ' <span class="meta">' + ids.length + '</span></h3><ul>' +
-        ids.map(function (id) { var p = byId[id]; return '<li class="ixi" data-id="' + esc(id) + '"><a href="' + esc(href({ view: 'insights', p: id })) + '">' + esc(String(p.n).replace(/\s*[—–-]+\s*CLOSED\s*$/i, '')) + '</a>' + (p.closed ? ' <span class="flag closed">Closed</span>' : '') + '</li>'; }).join('') + '</ul></section>';
+        ids.map(function (id) { var p = byId[id]; return '<li class="ixi" data-id="' + esc(id) + '"><a href="' + esc(href({ view: 'insights', p: id })) + '">' + esc(String(p.n).replace(/\s*[—–-]+\s*CLOSED\s*$/i, '')) + '</a>' + (p.closed ? ' <span class="flag closed">' + tt('sheet.closed', 'Closed') + '</span>' : '') + '</li>'; }).join('') + '</ul></section>';
     }), idx = parts.join('');
     var nIdx = A.reduce(function (s, a) { return s + I.order[a.id].length; }, 0);
     if (nIdx !== N) throw new Error('insights index lost records: ' + nIdx + ' != ' + N);
-    var top = '<div class="ins" data-cleo-insights><header class="ins-h"><h1 class="d2" tabindex="-1">' + esc(name) + ' in numbers</h1>' +
-      '<p class="sub">Every number below is computed from the ' + N + ' places in this guide. Every chart accounts for all of them, and every bar opens those places in the Gallery.</p></header>' +
-      tilesH + '<div class="igrid">' + c1 + c2 + c3 + c4 + c5 + c6 + c7 + '</div>' +
-      '<section class="icard ixall" aria-labelledby="ix-t"><h2 class="d3" id="ix-t">All ' + N + ' places</h2><p class="sub">Every place the charts count, by area in rank order. Each opens its entry.</p><div class="ixg">';
+    var top = '<div class="ins" data-cleo-insights><header class="ins-h"><h1 class="d2" tabindex="-1">' + esc(tt('ins.h', '{city} in numbers', { city: name })) + '</h1>' +
+      (lensed ? '<p class="count" data-ins-count><b>' + tt('gb.count', '{s} of all {n} places', { s: N, n: ALL }) + '</b>' + tt('gb.count.m', ' match this lens.') + '</p>' : '') +
+      '<p class="sub">' + (lensed ? tt('ins.sub.lens', 'Every number below is computed from the {n} places in this lens. Every chart accounts for all of them, and a linked bar opens exactly the places it counts in the Gallery.', { n: N }) : tt('ins.sub.guide', 'Every number below is computed from the {n} places in this guide. Every chart accounts for all of them, and a linked bar opens exactly the places it counts in the Gallery.', { n: N })) + '</p></header>' +
+      tilesH + '<div class="igrid">' + c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + '</div>' +
+      '<section class="icard ixall" aria-labelledby="ix-t"><h2 class="d3" id="ix-t">' + tt('gb.count.all', 'All {n} places', { n: N }) + '</h2><p class="sub">' + tt('ins.ix.sub', 'Every place the charts count, by area in rank order. Each opens its entry.') + '</p><div class="ixg">';
     // `lazy` (W4 gap #6): the same page with the index body empty; mount() streams its area sections in on approach
     var tables = TBL; TBL = null; ONLY = '';
     return { html: top + idx + '</div></section></div>', lazy: top + '</div></section></div>', parts: parts, numbers: I, index: nIdx, tables: tables };
   }
 
   /* ---- browser ---- */
-  var host = null, ix = null;
+  var host = null, ix = null, offR = null, lensKey = '';
+  // QC-03: the city page's lens now — its keys and the ids it shows (cards and deferred stubs, Cleo.lens.match), so a
+  // text search counts here exactly as in the Gallery
+  function lensNow(d) {
+    var C = window.Cleo || {};
+    if (!C.lens || !C.route) return { lens: {} };
+    var L = C.lens.pick(C.route.parse()); if (!C.lens.on(L)) return { lens: {} };
+    var stubs = {}; if (C.defer && C.defer.peek) C.defer.peek().forEach(function (s) { stubs[String(s.id).replace(/^p-/, '')] = s; });
+    var ids = {}; d.places.forEach(function (p) { var c = document.getElementById('p-' + p.id) || stubs[p.id]; if (c && C.lens.match(c, L)) ids[p.id] = 1; });
+    return { lens: L, ids: ids };
+  }
+  // QC-10 (SPEC §5): after a switch by the user — ctx.user from views.js, used once (a lens or locale redraw never moves
+  // focus) — focus moves to the view's h1. Never on the initial load.
+  function focusHead(el, ctx) {
+    var user = !!(ctx && ctx.user);
+    if (ctx) ctx.user = false;
+    var h = el.querySelector('h1'); if (user && h) { if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+  }
+  var lastCtx = null;
+  // i18n D-41: numbers drawn before the ja catalogue arrived are drawn again in it
+  if (typeof document !== 'undefined') document.addEventListener('cleo:locale', function () { if (!host) return; if (ix) { ix.cancel(); ix = null; } mount(host, Object.assign({}, lastCtx, { user: false })); });   // a redraw never moves focus (QC-10)
   function mount(el, ctx) {
-    host = el; ctx = ctx || {};
+    host = el; ctx = ctx || {}; lastCtx = ctx;
     var C = window.Cleo || {}, main = document.getElementById('main'), key = ctx.key || (main && main.getAttribute('data-city'));
     el.classList.add('vw', 'view-insights'); el.setAttribute('aria-busy', 'true');
     return C.pageData(ctx.file || key).then(function (d) {
       if (host !== el) return;
       // draw only the render CSS shows, with table bodies built on open; the index starts empty when C.chunks streams it
       var nw = !!(window.matchMedia && matchMedia('(max-width: 639px)').matches), o = { only: nw ? 'n' : 'w', lazyTables: true };
+      var ln = lensNow(d); o.lens = ln.lens; o.ids = ln.ids;
       var r = render(d, o), lazy = !!C.chunks;
       el.innerHTML = lazy ? r.lazy : r.html; el.removeAttribute('aria-busy');
       // chart text stays at its CSS size (≥ 12 px): redraw at the card's real content width, once
@@ -287,14 +403,23 @@
       }
       // the "All N places" index is the heaviest part: mount it area by area as it nears the viewport, and all of it
       // on Cleo.defer.all() (lens, search, print) — the charts above stay complete (W4, ROUND-3 gap #6)
-      if (lazy) ix = C.chunks(el.querySelector('.ixg'), r.parts, { initial: 0, est: 900 });
+      var ixg = el.querySelector('.ixg');
+      if (lazy && ixg) ix = C.chunks(ixg, r.parts, { initial: 0, est: 900 });
+      // QC-03: a lens change (route) redraws the numbers for the new lensed set
+      lensKey = JSON.stringify(ln.lens);
+      if (!offR) {
+        var again = function () { if (host !== el) return; if (JSON.stringify(lensNow(d).lens) !== lensKey) { if (ix) { ix.cancel(); ix = null; } mount(el, ctx); } };
+        window.addEventListener('hashchange', again); document.addEventListener('cleo:route', again);
+        offR = function () { window.removeEventListener('hashchange', again); document.removeEventListener('cleo:route', again); };
+      }
+      focusHead(el, ctx);
       return r;
     }, function () {
       if (host !== el) return;
       el.removeAttribute('aria-busy');
-      el.innerHTML = '<p class="state" data-cleo-state="view-failed">The numbers couldn’t load just now. Every place is still in the list — switch to another view, or try again when you’re back online.</p>';
+      el.innerHTML = '<p class="state" data-cleo-state="view-failed">' + tt('ins.failed', 'The numbers couldn’t load just now. Every place is still in the list — switch to another view, or try again when you’re back online.') + '</p>';
     });
   }
-  function unmount() { if (ix) { ix.cancel(); ix = null; } if (host) { if (host.fillTables) window.removeEventListener('beforeprint', host.fillTables); host.innerHTML = ''; host.classList.remove('view-insights'); } host = null; }
+  function unmount() { if (offR) { offR(); offR = null; } if (ix) { ix.cancel(); ix = null; } if (host) { if (host.fillTables) window.removeEventListener('beforeprint', host.fillTables); host.innerHTML = ''; host.classList.remove('view-insights'); } host = null; }
   return { numbers: numbers, fromPlatform: fromPlatform, render: render, mount: mount, unmount: unmount };
 });

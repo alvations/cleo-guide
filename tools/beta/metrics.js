@@ -39,6 +39,7 @@
  */
 'use strict';
 const http = require('http');
+const zlib = require('zlib');
 const fs = require('fs');
 const path = require('path');
 
@@ -132,7 +133,14 @@ async function open(browser, base, rel, vpName, o = {}) {
   const ctx = await browser.newContext({ ...VP[vpName], serviceWorkers: 'block', colorScheme: o.scheme || 'light',
     javaScriptEnabled: o.js !== false, reducedMotion: 'reduce' });
   const page = await ctx.newPage();
-  const st = { errors: [], bytes: 0, offOrigin: 0, tileHosts: new Set(), local404: [] };
+  // session (bytes) = the whole session: load + every probe, focus walk, reachability stress and tray flow, which scroll
+  // every card and so load every lazy photo — INFORMATIONAL. initial = the default view at first load, no user scroll,
+  // up to network idle + 2 s: only what the browser actually fetched (lazy images below the fold excluded), raw and as
+  // a transfer estimate (gzip for text; images/fonts as sent) — GATED ≤ 2.0 MB (platform W7, proposed D-38).
+  // ctx.route() (needed to block off-origin requests) disables Chromium's HTTP/memory cache, so a URL shown twice (a
+  // card and its rail copy) or revisited during the stress loop is downloaded again — a real browser would not. Bytes
+  // count each URL once; the raw sum of every response stays in bytesAllResponses for reference.
+  const st = { errors: [], bytes: 0, bytesAll: 0, seen: new Set(), gz: 0, pend: [], load: null, offOrigin: 0, tileHosts: new Set(), local404: [] };
   const origin = new URL(base).origin;
   await ctx.route('**/*', route => {
     const u = route.request().url();
@@ -149,12 +157,17 @@ async function open(browser, base, rel, vpName, o = {}) {
   page.on('response', r => {
     if (!r.url().startsWith(origin)) return;
     if (r.status() >= 400) st.local404.push(r.url().slice(origin.length));
-    st.bytes += +(r.headers()['content-length'] || 0);
+    const cl = +(r.headers()['content-length'] || 0); st.bytesAll += cl;
+    if (st.seen.has(r.url())) return;
+    st.seen.add(r.url()); st.bytes += cl;
+    if (!st.load && r.status() < 300) st.pend.push(r.body().then(b => { st.gz += /\.(png|jpe?g|webp|avif|gif|woff2?)$/.test(r.url().split('?')[0]) ? b.length : zlib.gzipSync(b).length; }).catch(() => {}));
   });
   let loadErr = null;
   try { await page.goto(base + 'beta/' + rel + vhash(rel, o.hash), { waitUntil: 'load', timeout: 45000 }); }
   catch (e) { loadErr = String(e.message || e).slice(0, 200); }
   await page.waitForTimeout(o.settle || 400);
+  if (o.initial) { await page.waitForLoadState('networkidle', { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(2000); }
+  await Promise.all(st.pend); st.load = { bytes: st.bytes, gz: st.gz }; st.pend = [];
   return { ctx, page, st, loadErr };
 }
 
@@ -186,7 +199,8 @@ const PROBE = () => {
   // masthead
   // priority order (querySelector with a list returns the first in DOM order, which is the shell header)
   const mastEl = ['.masthead', '[data-cleo-masthead]', 'header.hero', '.hero'].map(q => document.querySelector(q)).find(Boolean);
-  const mastBottom = mastEl && vis(mastEl) ? Math.round(mastEl.getBoundingClientRect().bottom + scrollY) : null;
+  // W6 (FE-A, coordinated): on the Atlas phone map the masthead collapses to 0 px (visually hidden, h1 kept for AT)
+  const mastBottom = mastEl && vis(mastEl) ? Math.round(mastEl.getBoundingClientRect().bottom + scrollY) : mastEl && de.classList.contains('atlas-m') ? 0 : null;
 
   // interactive controls
   const CTRL = 'a[href], button, input:not([type=hidden]), select, textarea, summary, [role=button], [role=tab], [role=link], [tabindex]:not([tabindex="-1"])';
@@ -217,7 +231,22 @@ const PROBE = () => {
     // on screen: use what is actually painted under the text (catches overlays such as a header over a hero band)
     const r = el.getBoundingClientRect(), cx = r.left + Math.min(r.width / 2, 8), cy = r.top + r.height / 2;
     if (cx >= 0 && cy >= 0 && cx < vw && cy < vh) {
+      // QA R7 (QA-66): elementsFromPoint skips layers with pointer-events:none, so a painted decorative layer under the
+      // text (e.g. the switcher's sliding indicator) was missed and the text was graded against the track behind it.
+      // Make such painted layers near the text hit-testable for this one reading, then restore them. This measures what
+      // is actually painted; an exempted element would not be — and a pe:none layer ABOVE the text now counts as covering it.
+      const lifted = [];
+      for (let a = el.parentElement, d = 0; a && d < 4; a = a.parentElement, d++) {
+        for (const u of a.querySelectorAll('*')) {
+          if (u === el || u.contains(el) || lifted.includes(u)) continue;
+          const us = getComputedStyle(u); if (us.pointerEvents !== 'none') continue;
+          const ub = parseRGB(us.backgroundColor); if (!(ub && ub[3] > 0) && (!us.backgroundImage || us.backgroundImage === 'none')) continue;
+          const q = u.getBoundingClientRect(); if (cx < q.left || cx > q.right || cy < q.top || cy > q.bottom) continue;
+          lifted.push(u); u.dataset.qaPe = u.style.pointerEvents; u.style.pointerEvents = 'auto';
+        }
+      }
       const pile = document.elementsFromPoint(cx, cy);
+      lifted.forEach(u => { u.style.pointerEvents = u.dataset.qaPe; delete u.dataset.qaPe; });
       const top = pile.find(u => !(u !== el && el.contains(u)));
       if (top && top !== el && !top.contains(el)) return { bg: null, unknown: true, occluded: true };   // covered (e.g. a rail arrow)
       for (const u of pile) {
@@ -400,13 +429,22 @@ async function overlapScan(page) {
   return page.evaluate(async () => {
     const H = document.documentElement.scrollHeight, vh = innerHeight; let hits = 0; const where = [];
     const vis = el => { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && !el.closest('[hidden]'); };
-    const floaters = [...document.querySelectorAll('body *')].filter(el => { const p = getComputedStyle(el).position; return (p === 'fixed' || p === 'sticky') && !el.closest('header, [role=banner], .sitebar, .leaflet-container, .mappane, [role=dialog]'); });
+    // R7 QA ratification 6 (docs/BETA-QA.md): the sticky city bar .cbar and the floating .mappill are exempt, as the site header is
+    const floaters = [...document.querySelectorAll('body *')].filter(el => { const p = getComputedStyle(el).position; return (p === 'fixed' || p === 'sticky') && !el.closest('header, [role=banner], .sitebar, .cbar, .mappill, .leaflet-container, .mappane, [role=dialog]'); });
     for (let i = 0; i < 20; i++) {
       window.scrollTo(0, Math.round((H - vh) * i / 19)); await new Promise(r => requestAnimationFrame(() => r()));
       const fr = floaters.filter(vis).map(f => [f, f.getBoundingClientRect()]);
       if (!fr.length) continue;
       for (const t of document.querySelectorAll('li.pl .pl-n')) {
-        if (!vis(t)) continue; const a = t.getBoundingClientRect(); if (a.bottom < 0 || a.top > vh) continue;
+        if (!vis(t)) continue; const a0 = t.getBoundingClientRect(); if (a0.bottom < 0 || a0.top > vh) continue;
+        // W6 (FE-A, coordinated): a title scrolled out of its own scroll pane (the Atlas tray) is clipped, not covered.
+        // QA R7 (QA-68): the same for the PART of a title its pane clips, so a title straddling the pane edge is tested on
+        // what the pane actually shows (the cut rect), never on its invisible part. Wholly-clipped titles skip, as before.
+        let a = { left: a0.left, right: a0.right, top: a0.top, bottom: a0.bottom }, clip = false;
+        for (let e = t.parentElement; e && e !== document.body && !clip; e = e.parentElement) { const st = getComputedStyle(e); if (st.overflowY !== 'visible' || st.overflowX !== 'visible') { const q = e.getBoundingClientRect();
+          if (st.overflowY !== 'visible') { a.top = Math.max(a.top, q.top); a.bottom = Math.min(a.bottom, q.bottom); } if (st.overflowX !== 'visible') { a.left = Math.max(a.left, q.left); a.right = Math.min(a.right, q.right); }
+          clip = a.bottom - a.top < 1 || a.right - a.left < 1; } }
+        if (clip) continue;
         for (const [f, b] of fr) {
           if (f.contains(t)) continue;
           if (a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top) { hits++; if (where.length < 5) where.push((f.className || f.tagName) + ' over ' + t.textContent.trim().slice(0, 30)); }
@@ -479,16 +517,22 @@ async function mapSync(page) {
       const lb = list && list.getBoundingClientRect();
       const fc = [...document.querySelectorAll('li.pl')].find(c => c.getBoundingClientRect().height > 0);
       const fr = fc && fc.getBoundingClientRect();
-      r.split = !!fr && b.width > 0 && b.left >= fr.right - 2 && b.left > innerWidth * 0.4;   // map to the right of the cards
-      window.scrollTo(0, 2500); await new Promise(x => setTimeout(x, 120));
+      // map beside the cards (W6: Atlas gives the map ≥ 60 %, so the list may be narrower than 40 %). W7 Atlas map-search
+      // (Amendment 2) puts the map on the LEFT, so "beside" is either side, never overlapping (docs/BETA-LOG.md, QA to ratify)
+      r.split = !!fr && b.width > innerWidth * 0.25 && (b.left >= fr.right - 2 || b.right <= fr.left + 2);
+      // sticky = the map stays in view while the list scrolls — the window, or (W6 Atlas) the list's own scroll pane
+      const pane = fc && (() => { for (let e = fc.parentElement; e && e !== document.body; e = e.parentElement) { const o = getComputedStyle(e).overflowY; if ((o === 'auto' || o === 'scroll') && e.scrollHeight > e.clientHeight) return e; } return null; })();
+      if (pane) pane.scrollTop = 2500; else window.scrollTo(0, 2500); await new Promise(x => setTimeout(x, 120));
       const b2 = mapEl.getBoundingClientRect(); r.sticky = b2.top < innerHeight && b2.bottom > 0 && b2.height > 200;
-      window.scrollTo(0, 0); await new Promise(x => setTimeout(x, 120));
+      if (pane) pane.scrollTop = 0; window.scrollTo(0, 0); await new Promise(x => setTimeout(x, 120));
     }
     const paths = () => [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon')];
     r.markers = paths().length;
     r.pinned = document.querySelectorAll('li.pl[data-ll]').length;
     r.markerNumbers = [...document.querySelectorAll('.leaflet-marker-icon, .leaflet-tooltip')].filter(m => /^\s*\d+\s*$/.test(m.textContent)).length;
     r.pinLabels = document.querySelectorAll('.leaflet-tooltip.pin-n').length;
+    // SPEC-v3 (Atlas review loop): the map carries no numbers; pins are named (kind glyph + place name) — counted here
+    r.namedPins = [...document.querySelectorAll('.leaflet-marker-icon.pp')].filter(m => /\p{L}/u.test(m.textContent)).length;
     // hover a card → some marker's style changes
     const snap = () => paths().map(p => (p.getAttribute('class') || '') + (p.getAttribute('stroke-width') || '') + (p.getAttribute('fill-opacity') || '') + (p.getAttribute('d') || '').length + (p.style.cssText || ''));
     const card = [...document.querySelectorAll('li.pl[data-ll]')].find(c => !c.closest('[hidden]'));
@@ -539,6 +583,11 @@ async function sheetFlow(page) {
   const r = {};
   await page.evaluate(SHEET_VIS);
   r.toggle = await page.evaluate(() => {
+    // W6 (FE-A, coordinated with QA): Atlas phones open map-first — the map is already full screen, so the toggle measured
+    // is the visible one ("List" over the map), and it is not tapped before the pin test
+    // W7 Atlas map-search (QA R7, additive): the visible "List" pill (.ms-toggle) is that control on the map-search phone
+    const mf = document.documentElement.classList.contains('atlas-m') && [...document.querySelectorAll('.mapclose, .ms-toggle')].find(window.__qaVis);
+    if (mf) { mf.setAttribute('data-qa-toggle', '1'); mf.setAttribute('data-qa-mapfirst', '1'); const b = mf.getBoundingClientRect(); return { w: Math.round(b.width), h: Math.round(b.height), name: 'map-first: ' + (mf.textContent || '').trim(), mapFirst: true }; }
     const c = document.querySelector('.map-toggle, [data-cleo-map=""]') || [...document.querySelectorAll('button, a, [role=button]')].find(b =>
       /^(show (the )?)?map\b/i.test((b.getAttribute('aria-label') || b.textContent || '').trim()) && window.__qaVis(b));
     if (!c || !window.__qaVis(c)) return null;
@@ -547,18 +596,40 @@ async function sheetFlow(page) {
   });
   if (r.toggle) {
     r.toggle.ok44 = r.toggle.w >= 44 && r.toggle.h >= 44;
-    await page.click('[data-qa-toggle]', { timeout: 3000 }).catch(() => {});
+    if (!r.toggle.mapFirst) await page.click('[data-qa-toggle]', { timeout: 3000 }).catch(() => {});
     await page.waitForTimeout(900);
     r.fullMap = await page.evaluate(() => { const m = document.querySelector('#cleo-map, .leaflet-container'); if (!m) return false; const b = m.getBoundingClientRect(); return b.height >= innerHeight * 0.7 && b.width >= innerWidth * 0.95; });
     // a real tap on a visible pin
-    const pinSel = await page.evaluate(() => {
-      const ps = [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon')].filter(p => { const b = p.getBoundingClientRect(); return b.width > 0 && b.top > 80 && b.bottom < innerHeight - 80 && b.left > 10 && b.right < innerWidth - 10; });
-      if (!ps.length) return false; ps[Math.floor(ps.length / 2)].setAttribute('data-qa-pin', '1'); return true;
+    const findPin = () => page.evaluate(() => {
+      // a pin a finger can actually reach: on screen and not under the tray or a control (W6: not a cluster bubble)
+      // W7 (QA R7, additive): a label-pill pin (.pp) is measured and tapped by its label, as a finger would; it must sit
+      // in the uncovered band of the map (below the chip row, above the carousel) and hit-test to itself
+      const lab = p => p.classList.contains('pp') && p.firstElementChild ? p.firstElementChild : p;
+      const ms = !!document.querySelector('.ms-toggle'), top = ms ? 200 : 80, bot = ms ? 260 : 80;
+      const ps = [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon:not(.pin-cl)')].filter(p => { const b = lab(p).getBoundingClientRect(); if (!(b.width > 0 && b.top > top && b.bottom < innerHeight - bot && b.left > 10 && b.right < innerWidth - 10)) return false;
+        const t = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2); return !!t && (t === p || p.contains(t)); });
+      if (!ps.length) return false; const pk = ps[Math.floor(ps.length / 2)]; lab(pk).setAttribute('data-qa-pin', '1');
+      const C = window.Cleo && Cleo.city; if (C && C.markers) for (const id of Object.keys(C.markers)) { const e = C.markers[id].getElement && C.markers[id].getElement(); if (e === pk) pk.setAttribute('data-qa-pin-id', id); }
+      return true;
     });
+    // QA R7 (3ba696e8 re-sign; ratified by QA): the first label pin can take 1–1.5 s to draw after the toggle on either
+    // SHA, so the single look at +900 ms passed or failed on timing. Poll the same reachability rule for up to 3 s more
+    // (settled state); the rule itself, the bubble zoom-in and the W6/W7 paths are unchanged.
+    let pinSel = await findPin();
+    for (let t = 0; t < 3000 && !pinSel && !await page.evaluate(() => !!document.querySelector('.leaflet-marker-icon')); t += 150) { await page.waitForTimeout(150); pinSel = await findPin(); }
+    if (!pinSel) pinSel = await findPin();
+    // W7 (QA R7, additive): on the map-search phone, pins below zoom 15 gather into count bubbles; when no single pin is
+    // in reach, a real tap on a bubble zooms in (up to 3 times), as a reader would, then the pin rule above applies
+    for (let i = 0; i < 3 && !pinSel && await page.evaluate(() => !!document.querySelector('.ms-toggle')); i++) {
+      const bub = await page.evaluate(() => { const e = [...document.querySelectorAll('.leaflet-marker-icon.pin-cl')].map(x => [x, x.getBoundingClientRect()]).find(([x, b]) => b.top > 200 && b.bottom < innerHeight - 260 && b.left > 10 && b.right < innerWidth - 10 && (t => !!t && x.contains(t))(document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2)));
+        return e ? { x: e[1].left + e[1].width / 2, y: e[1].top + e[1].height / 2 } : null; });
+      if (!bub) break; await page.mouse.click(bub.x, bub.y); await page.waitForTimeout(1200); pinSel = await findPin();
+    }
     if (pinSel) {
       await page.click('[data-qa-pin]', { force: true, timeout: 3000 }).catch(() => {});
       await page.waitForTimeout(600);
       r.pinSheet = await openSheetState(page);
+      if (!r.pinSheet && await page.evaluate(() => !!document.querySelector('.ms-toggle'))) r.msPin = await msPinFlow(page);
       if (r.pinSheet) {
         await page.keyboard.press('Escape'); await page.waitForTimeout(400);
         r.pinSheet.escCloses = await sheetGone(page);
@@ -605,6 +676,33 @@ async function sheetFlow(page) {
   return r;
 }
 
+// B-07, W7 Atlas map-search (QA R7, BETA-QA.md "Wave 7 full pass"; ADDED, the W6 pin-sheet path still passes on its
+// own): the tapped pin's OWN card is selected and wholly on screen in the carousel (no sheet over the map); one tap on that
+// card opens the place detail with a visible Close; Esc closes it; re-opened, Back closes it and the reader is still in
+// Atlas on the same page.
+async function msPinFlow(page) {
+  const r = {};
+  r.card = await page.evaluate(() => { const id = (document.querySelector('[data-qa-pin-id]') || { getAttribute: () => null }).getAttribute('data-qa-pin-id'), c = id && document.getElementById('p-' + id);
+    const sel = document.querySelectorAll('li.pl.is-sel'), b = c && c.getBoundingClientRect();
+    if (c) { const a = c.querySelector('.pl-n a, .pl-n button'); if (a) a.setAttribute('data-qa-mscard', '1'); }
+    return { id, own: !!c && c.classList.contains('is-sel') && sel.length === 1, inView: !!b && b.left >= -1 && b.right <= innerWidth + 1 && b.top >= 0 && b.bottom <= innerHeight + 1 }; });
+  if (!r.card.own || !r.card.inView) return r;
+  const tap = () => page.click('[data-qa-mscard]', { timeout: 3000 }).catch(() => {});
+  await tap(); await page.waitForTimeout(700);
+  r.detail = await openSheetState(page);
+  if (!r.detail) return r;
+  await page.keyboard.press('Escape'); await page.waitForTimeout(400);
+  r.escCloses = await sheetGone(page);
+  await tap(); await page.waitForTimeout(700);
+  if (await openSheetState(page)) {
+    await page.goBack({ timeout: 3000 }).catch(() => {}); await page.waitForTimeout(500);
+    r.backCloses = await sheetGone(page);
+    r.stayedOnPage = /\/beta\//.test(page.url()) && await page.evaluate(() => document.documentElement.getAttribute('data-view') === 'atlas');
+  }
+  r.ok = !!(r.detail.closeVisible && r.escCloses && r.backCloses && r.stayedOnPage);
+  return r;
+}
+
 // Filter tray (B-10): a "Filters" control opens a tray with "Show N places".
 async function trayFlow(page) {
   return page.evaluate(async () => {
@@ -629,7 +727,7 @@ async function measure(browser, base, rel) {
   const out = { page: rel, gen: exp ? exp.gen : ((MAN.generated || []).includes(rel) ? 'new' : 'mirror'), expected: exp && { total: exp.total, sights: exp.sights, food: exp.food, live: exp.live } };
   for (const vp of ['mobile', 'desktop']) {
     const v = out[vp] = {};
-    let s = await open(browser, base, rel, vp);
+    let s = await open(browser, base, rel, vp, { initial: true });
     v.loadErr = s.loadErr;
     try {
       Object.assign(v, await s.page.evaluate(PROBE));
@@ -656,7 +754,7 @@ async function measure(browser, base, rel) {
       }
     } catch (e) { v.probeErr = String(e.message || e).slice(0, 200); }
     v.errorsStress = s.st.errors.length - (v.errorsLoad || 0);
-    v.errors = s.st.errors.slice(0, v.errorsLoad == null ? undefined : v.errorsLoad); v.stressErrorSample = [...new Set(s.st.errors.slice(v.errorsLoad || 0).map(e => e.slice(0, 120)))].slice(0, 3); v.local404 = s.st.local404; v.bytes = s.st.bytes; v.offOriginBlocked = s.st.offOrigin;
+    v.errors = s.st.errors.slice(0, v.errorsLoad == null ? undefined : v.errorsLoad); v.stressErrorSample = [...new Set(s.st.errors.slice(v.errorsLoad || 0).map(e => e.slice(0, 120)))].slice(0, 3); v.local404 = s.st.local404; v.bytes = s.st.bytes; v.bytesAllResponses = s.st.bytesAll; v.initial = s.st.load; v.session = { bytes: s.st.bytes }; v.offOriginBlocked = s.st.offOrigin;
     await s.ctx.close();
 
     // night theme contrast
@@ -716,10 +814,14 @@ function grade(m) {
     rows['B-06 split view + sticky map + sync'] = de.sync ? F(de.sync.split && de.sync.sticky && de.sync.mapWidthPct >= 40 && de.sync.hoverHighlights && de.sync.pinClick && de.sync.pinClick.cardInView,
       `split ${de.sync.split}, sticky ${de.sync.sticky}, map ${de.sync.mapWidthPct}%, hover→pin ${de.sync.hoverHighlights}, pin→card ${de.sync.pinClick && de.sync.pinClick.cardInView}`) : P(false, 'map did not mount');
     const sf = mo.sheetFlow || {}, ps = sf.pinSheet, dt = sf.detail;
-    rows['B-07 mobile map toggle + sheet (Close, Esc, Back)'] = F(sf.toggle && sf.toggle.ok44 && sf.fullMap && ps && ps.closeVisible && ps.escCloses && ps.backCloses && ps.stayedOnPage,
-      `toggle ${sf.toggle ? sf.toggle.w + '×' + sf.toggle.h : 'none'}, full map ${!!sf.fullMap}, pin sheet ${ps ? `close ${ps.closeVisible}, esc ${ps.escCloses}, back ${ps.backCloses}` : 'none'}`);
+    // W7 (QA R7, additive): on the map-search phone a pin's place shows as its own carousel card, and the detail opens from
+    // it — the row passes on the W6 path (pin sheet) OR the complete W7 path (msPinFlow); neither path is relaxed
+    const mp = sf.msPin;
+    rows['B-07 mobile map toggle + sheet (Close, Esc, Back)'] = F(sf.toggle && sf.toggle.ok44 && sf.fullMap && ((ps && ps.closeVisible && ps.escCloses && ps.backCloses && ps.stayedOnPage) || (mp && mp.ok)),
+      `toggle ${sf.toggle ? sf.toggle.w + '×' + sf.toggle.h : 'none'}, full map ${!!sf.fullMap}, pin sheet ${ps ? `close ${ps.closeVisible}, esc ${ps.escCloses}, back ${ps.backCloses}` : 'none'}` +
+      (mp ? `, map-search: own card ${mp.card && mp.card.own} in view ${mp.card && mp.card.inView} → detail ${!!mp.detail} close ${mp.detail && mp.detail.closeVisible} esc ${mp.escCloses} back ${mp.backCloses} atlas ${mp.stayedOnPage}` : ''));
     rows['B-08 floaters over titles = 0'] = P(mo.overlap && mo.overlap.hits === 0, mo.overlap ? mo.overlap.hits : null);
-    rows['B-09 pin numbers == card numbers'] = de.sync ? P((de.sync.markerNumbers > 0 || de.sync.pinLabels > 0) && de.sync.orderingStated, `numbered pins ${de.sync.markerNumbers} (pin-n labels ${de.sync.pinLabels}), ordering stated ${de.sync.orderingStated}`) : P(false, 'n/a');
+    rows['B-09 pin numbers == card numbers'] = de.sync ? P((de.sync.markerNumbers > 0 || de.sync.pinLabels > 0 || de.sync.namedPins > 0) && de.sync.orderingStated, `numbered pins ${de.sync.markerNumbers} (pin-n labels ${de.sync.pinLabels}), named pins ${de.sync.namedPins}, ordering stated ${de.sync.orderingStated}`) : P(false, 'n/a');
     rows['B-10 filter tray + "Show N places"'] = de.tray ? P(de.tray.tray && !!de.tray.showN, de.tray.tray ? de.tray.showN : (de.tray.button ? 'button, no tray' : 'no Filters control')) : P(false, 'n/a');
     rows['B-12 closed with tier glyph = 0'] = P(mo.closedWithTier === 0, mo.closedWithTier + ' of ' + mo.closed + ' closed');
     rows['B-16 cards per mobile screen ≥2'] = P(mo.cardsPerScreen != null && mo.cardsPerScreen >= 2, mo.cardsPerScreen);
@@ -750,7 +852,14 @@ function grade(m) {
     `errors ${(mo.errors || []).length + (de.errors || []).length} · 404 ${(mo.local404 || []).length} · off-origin blocked ${mo.offOriginBlocked + de.offOriginBlocked}`);
   if (city) rows['Stress: JS errors, every deep link at machine speed (info)'] = P(null, (de.errorsStress || 0) + ' errors' + (de.stressErrorSample && de.stressErrorSample.length ? ' — ' + de.stressErrorSample[0] : ''));
   rows['Tiles OSM/Esri only'] = P(!mo.tileHosts && !de.tileHosts ? null : (mo.tileHostsOk !== false && de.tileHostsOk !== false), [...new Set([...(mo.tileHosts || []), ...(de.tileHosts || [])])].join(', ') || 'no tiles requested');
+  const kb = n => Math.round((n || 0) / 1024).toLocaleString('en-US') + ' KB';
   rows['Perf: bytes / DOM / FCP / FCP 4×'] = P(null, `${Math.round((de.bytes || 0) / 1024)} KB · ${de.domNodes} nodes · ${de.fcp} ms · ${m.cpu4x && m.cpu4x.fcp} ms`);
+  // D-38 (ratified R7, on condition): map tiles are off-origin and blocked here, so they are EXCLUDED (Tokyo Atlas asks for
+  // ~44 tiles on desktop, 27 on a phone). The budget is the default view at first load (no scroll, network idle + 2 s), transfer
+  // ≤ 2.0 MB (2,000,000 B) on desktop AND phone @3×. The row above (whole session, unique URLs) stays informational.
+  const ini = de.initial && mo.initial;
+  rows['Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)'] = P(ini ? de.initial.gz <= 2e6 && mo.initial.gz <= 2e6 : false,
+    ini ? `${kb(de.initial.gz)} (${kb(de.initial.bytes)}) · ${kb(mo.initial.gz)} (${kb(mo.initial.bytes)})` : 'not measured');
   const vals = Object.values(rows).filter(r => r.pass !== null);
   const hardKeys = Object.keys(rows).filter(k => /^(G1|G4|G6|B-12)/.test(k));
   return { rows, passed: vals.filter(r => r.pass).length, total: vals.length, hardFail: hardKeys.filter(k => rows[k].pass === false) };

@@ -352,7 +352,7 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **QA-20 / B-16, root cause:** the area-art thumbnail (`.area .shape`, float right 72 px) squeezed the card grid by about 80 px for its whole height wherever the area heading was shorter than the float (single-line area names: Changi, Wheeling, Cleveland…), so sources stacked one per line. Fix: `.area>.pls{clear:right}`. "Recommended by" sources now flow inline (26 px per line) and each keeps a **44 px tap box** (padding pulled back by margin, so B-20 stays 0). On phones the eyebrow's "within {area}" ellipsizes, since the full name is the section heading. **Measured on all 84 place pages at 390×844: min 2.05 cards per screen** (was 23 pages under 2); `design/beta/eval/w2/fe-a/w2-b16-cards-per-screen.txt`. **DES:** these are 3 rules in `fe-a.css` (`html .pls .pl-s .src`…) layered over your 15.3. Fold them in as you like.
   - **"Look for: HIST":** 249 live records (Akron, Wheeling…) carry a collection id in `k`. Those no longer print as "Look for" (the collection already shows under "Part of"). Display only; data untouched.
   - **QA-19 (Esc on the pin sheet):** fixed in slice 1, with a test. **QA-21 (publisher ★):** gone since slice 2. ★ is now the platform canon or pop culture, else no ★ tile.
-  - **For PM (data, not FE-A):** some live source lists include **Tripadvisor** (e.g. Pittsburgh's Andy Warhol Museum: "carnegiemuseums.org, Tripadvisor, cmu.edu"). CLAUDE.md says Yelp/TripAdvisor are never the recommender. Beta prints what the live page cites, so this belongs on the live-pipeline backlog.
+  - **For PM (data, not FE-A):** some live source lists include **a review-aggregator site** (e.g. Pittsburgh's Andy Warhol Museum cites one beside carnegiemuseums.org and cmu.edu). CLAUDE.md says review aggregators are never the recommender. Beta prints what the live page cites, so this belongs on the live-pipeline backlog.
 - 2026-10-10 · **Platform** · Wave 2 slice 6 · session_01PCNcUkfa5S1N1BKGzZA4xx · `6b898a49` · orchestrator note (Round 3 Insights). `data/places/<page>.json` → `guide.areas[AREA]` = {n, sights, food, pop, closed, open, tiers, pins, km2, perKm2, sources:[[publisherId, n]]}, computed from the records, view-agnostic (every view still renders the full record set). Gated (sums agree); RFC §12. Owner rule 6 checked: no third-party brand names in platform code, comments, commits or copy (source ids are attribution). validate + npm test + beta:check PASS.
 - 2026-10-10 · **FE-A (city + saved)** · Wave 2 slice 5 · DES REVIEW-W2 fixes sent back to FE-A · commit: this entry's commit.
   - **#6 pin-label declutter:** numbers show for the focused area at every zoom and for all pins at ≥ 14. Then any label that would overlap one already shown is hidden (its pin stays), with the focused area first and guide order within it. This re-runs after every move and zoom, and it now also covers the pins of platform-deferred cards (`Cleo.defer.peek` stubs). Measured on Tokyo at 1440 after load: **0 overlapping labels** (369 shown, 119 hidden), where it was 200 overlapping pairs.
@@ -708,3 +708,1187 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     The harness's FCP 4× figures move by a few hundred ms from run to run on this machine. The R5 figure of 1,124 ms came from another machine. Every after-figure is under 1.0 s.
   - **Phone tap from Gallery.** Before: `#view=atlas`, list only, no map. After: `#view=atlas&map=1` with the map mounted.
   - **Gates.** G1 488/488 on every path (scrolled, deep, search, no-JS), and New York 508/508. `qa/w5.js` passes 64/64. P-04 passes in `npm test`. `validate`, `test` and `beta:check` are green.
+- 2026-10-10 · **QA** · R5 follow-up re-test · session_015bFMDrayu1fp3qp2cKD3xm
+  - **QA sign-off: YES on `63932912265fa83e23addc65c5f65b63112a7007`** (clean pinned worktree): w5.js 64/64; G1 in all views; Atlas 24/24; Tokyo default 1,932 KB raw (≈0.45 MB gzip); FCP 4× ≤ 968 ms on every pilot + landing; one-tap phone map → #view=atlas&map=1 (Back returns to Gallery); Gallery holds every place with its JSON blocked; W2 217/218 (QA-26). Details: BETA-QA.md → "R5 follow-up re-test".
+
+- 2026-10-10 21:11Z · orchestrator · DEPLOYED R5 follow-up (PR alvations/cleo-guide#8, QA-signed 63932912, merge 9f54587d). Program closed. Every beta session is archived and the check-ins have stopped.
+
+- 2026-10-11 · orchestrator · Owner request: rate the fonts, styles and every other visual element, and build the improvements, using melon-seek ideas if helpful. Opened Round 6 (type & style), briefs in `design/beta/eval/W6-BRIEFS.md`. Rubric addition in BETA-PROGRAM: a Typography & style sub-scorecard within dimension A.
+
+- 2026-10-11 11:16Z · orchestrator · Owner asked for images via Unsplash.
+  - **Blocked here:** api.unsplash.com and images.unsplash.com return 403 from the environment's network policy, the same as Wikimedia. Not routed around.
+  - **What works:** WebSearch with allowed_domains=unsplash.com returns photo page IDs and titles (e.g. Kinkaku-ji: x7Vl0wVpZBo, N5SG29ZSz_A).
+  - **Launched:** an imagery research lane (session_01VuJ1fj7XcNcQEei7qeoXap) building `beta/assets/img/unsplash-candidates.json` (verified candidates per hub and landmark, plus generic collection covers, never venues) and `tools/beta/imagery/fetch-unsplash.js`, ready to run once the owner allows the hosts and adds UNSPLASH_ACCESS_KEY.
+
+- 2026-10-11 11:17Z · orchestrator · Owner request: in Atlas the map must be front and centre, as in the live guide and the early map-centred beta Cleveland page. Launched the FE-A Atlas map-first lane (session_01GMm8uxMFE2KN29Q7WYH3EZ). On phones Atlas opens map-first with a tray; on desktop the map takes at least 60 % of the width. It reuses the live guide's ideas: area pins and legend, base switch, locate-me and tier filter. It goes through the same QA and evaluator review loop as every round before deploy.
+
+- 2026-10-11 11:20Z · orchestrator · Owner request: run 4 more rounds (R6–R9) and make sure the beta matches what was designed. Added the design-conformance checklist `design/beta/eval/ROUNDS-6-9.md` (D1–D11). Every evaluator scores it, every non-✅ row becomes next-wave work, and QA blocks any regression of a ✅ row. Round 6 is in progress: type & style, Atlas map-first and the Unsplash manifest.
+
+- 2026-10-11 11:25Z · orchestrator · Owner raised the target: **≥ 98 overall is the minimum**. Iterate until the independent review reaches it; there is no fixed round count. Evaluator independence is kept: it is not told the target and uses the same rubric. Plateau rule: if two rounds gain < 1 point and the remaining gap is owner-blocked (photographs, reviewed locale), pause and report what unblocks it.
+
+- 2026-10-11 · **Imagery research lane (Unsplash)** · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Blocked, not bypassed:** api.unsplash.com and images.unsplash.com stay blocked by the network policy; nothing was downloaded. About 160 WebSearch calls restricted to unsplash.com built the candidate manifest.
+  - **`beta/assets/img/unsplash-candidates.json`:** 146 targets (34 city/country heroes, 93 tier-1 landmarks starting with the pilots, 19 generic collection covers) and 250 candidates: **128 high · 77 med · 45 low**. "High" only when the returned title or description names the exact place. No venue or food place gets a photo. Unsplash+, 3-D renders, archive images and wrong-place results are excluded with notes. 23 gaps are stated, not filled (for example Terminal Tower, West Side Market, Henderson Waves, Heian Jingū, Shuri Castle).
+  - **`tools/beta/imagery/fetch-unsplash.js`:** uses the official API (`GET /photos/:id`, then `download_location`). It re-checks every candidate (id, not premium, the API text names the landmark), stores 960 px WebP in `beta/assets/img/photos/` and writes "Photo by <name> on Unsplash" rows to CREDITS.json. Per the orchestrator's contract for the owner-approved Actions workflow: no key → plan only, exit 0; at most 45 API calls per run, then it resumes on the next run; it prints kept and refused photos with reasons; a blocked host exits 3.
+  - **Gate (`photos.js`):** accepts the Unsplash License (pinned licence URL plus an unsplash.com photo page) and renders the Unsplash credit line. It also adds `slot` rows for hero and cover photos; a Vietnam hub hero is refused. New tests in test-imagery.js check these rules and the manifest.
+  - **Owner decisions:** (1) add the `UNSPLASH_ACCESS_KEY` repository secret (the Actions workflow does the fetch); (2) the API guidelines prefer hotlinking but our rule self-hosts, so confirm with Unsplash or use manual downloads (see IMAGERY.md); (3) whether a natural-landscape Vietnam hub hero is acceptable. The renderers do not consume hero and cover slots yet; that is front-end work for the next round.
+
+- 2026-10-11 · orchestrator · Owner asked for the Unsplash photos to come through GitHub Actions, and authorised the permission rules for it.
+  - **Added** `.github/workflows/beta-fetch-unsplash.yml`. A GitHub-hosted runner can reach the Unsplash API; this sandbox cannot.
+  - **Triggers:** manual dispatch, or a push to this branch that touches the candidate manifest, the fetch script or the workflow.
+  - **Run:** runs `tools/beta/imagery/fetch-unsplash.js` (official API, high-confidence title matches only, no Unsplash+, `download_location` fired), rebuilds the beta, runs `validate` and `test`, then commits the photos and their "Photo by X on Unsplash" credits.
+  - **Skips cleanly:** if the `UNSPLASH_ACCESS_KEY` repository secret or the script is missing, it warns and commits nothing.
+  - **Settings:** scoped allow rules in `.claude/settings.json`.
+
+- 2026-10-11 · **Designer (W6 type & style)** · [AUDIT](../design/beta/style/AUDIT.md) · [DECISION](../design/beta/style/DECISION.md) · `23da97d8`
+  - **Rated** the shipped type and style on 30 items (`design/beta/style/scores.json`): **196/300 (65.3 %)**. melon-seek scores 216 and the leading products' general patterns score 240. Top defects:
+    - Vietnamese falls back to a system face mid-word: Bodoni misses 43 characters and Figtree 44.
+    - Bodoni's macrons survive only through 13 opsz patches.
+    - The stylesheets carry 73 font sizes and 27 radii, and figures are proportional.
+  - **Three directions** (`design/beta/style/directions/`, token sets plus re-rendered mockups of the landing page, the Japan hub, Tokyo in all four views and two sheets): **A** Bodoni + Figtree refined, 209; **B** Playfair + Inter with melon-seek tokens, **240**; **C** Fraunces + Manrope, 224 (the packaged Fraunces subset misplaces macrons).
+  - **Shipped B:**
+    - Fonts: self-hosted OFL Playfair (opsz 28 pinned, roman + italic) and Inter, 400–700, in latin / latin-ext / latin-ext-more / vietnamese subsets built by `design/beta/style/tools/make-fonts.py`. Bodoni Moda and Figtree are removed.
+    - Tokens: `--radius*`, `--shadow-sm/--shadow/--shadow-lg` with a full night set, `--fs-meta/--fs-ui`, `--num`, `--track-display`, `--focus-ring`.
+    - `normalize-css.py` moved 179 sizes, 42 weights and 47 radii onto tokens.
+    - The Bodoni opsz patches are retired (contract §15.1/§16.1, views V11, the `build-css.py` Japan rule).
+    - Tabular figures on counts, stats and charts (views V12).
+  - **Hooks outside the designer's files:**
+    - `tools/beta/lib/render/fe-a.css` (FE-A): the normalization pass, plus the phone lead-card thumbnail at 108 → 100 px with its meta line at weight 500, so it stays on one line.
+    - `tools/beta/og.js` (platform) reads the new font files. The OG PNGs are not regenerated; run `npm run beta:og`.
+    - `lib/art.js` still names Figtree inside SVG-as-image, where web fonts never load. It is left as is.
+  - **Measured, Tokyo default:**
+
+    | | Before | After |
+    |---|---|---|
+    | Bytes | 1,932 KB | 1,945 KB |
+    | FCP 4× | 480 ms | 528 ms |
+    | AA failures | 0/0 | 0/0 |
+
+    The macron check passes on the visible lines. Vietnamese renders in one face. The gates (validate, test, beta:check) are green, with 8,458 places (beta == live).
+  - **After score: 240/300 (80.0 %).** Before and after screenshots: `design/beta/style/audit/` → `design/beta/style/after/`.
+
+- 2026-10-11 11:58Z · orchestrator · R6 check-in.
+  - **Type & style lane: verified and archived.**
+    - Re-ran validate and test on its head: all green; the rule-6 brand scan found 0 hits.
+    - Direction B shipped: Playfair + Inter with melon-seek-style tokens. The type & style sub-score rose from 196 to 240 of 300.
+    - Budgets hold: Tokyo default 1,945 KB, FCP 4× 528 ms, 0 AA contrast failures.
+  - **Atlas lane:** sent the new token values. It has built map-first and is running its tests.
+  - **Unsplash:** the first Actions run of `beta-fetch-unsplash` succeeded. It committed nothing because no key secret is set.
+  - **Waiting on:** the Atlas lane before R6 QA and the evaluator start.
+
+- 2026-10-11 12:10Z · orchestrator · Imagery lane verified and archived.
+  - **Candidate manifest:** 146 targets, 250 candidates (128 high).
+  - **`fetch-unsplash.js` (1485b61b):** matches the Actions workflow.
+    - At most 45 API calls per run; it resumes on the next run.
+    - One 960w WebP per target.
+    - With no key it prints the plan and exits 0 (verified here).
+  - **Credit gate (ed9f78b7):** accepts the Unsplash License with "Photo by X on Unsplash" credits. The closed-place and Vietnam refusals stay.
+  - **Checks:** validate and test all green, brand scan 0 hits.
+  - **Owner step to get photos:** add the `UNSPLASH_ACCESS_KEY` repository secret, then run the "beta-fetch-unsplash" workflow from the Actions tab.
+
+- 2026-10-11 · **FE-A** · W6 Atlas map-first (owner request) · session_01GMm8uxMFE2KN29Q7WYH3EZ · commits `8c7fb6ef` (feature), `1113c777` (merge with the W6 type lane), and this entry's commit (fixes + docs)
+  - **Phones (390×844):** Atlas opens on the map under a compact header ("View: Atlas" on the left, "List" on the right). The ranked list is a bottom tray: peek (area chip + "All N" + the first ranked place) → half → full; the grab and swipes step it, "List" opens it, the tray's map button lowers it. Pin → sheet; **Back closes it** (the pin sheet now pushes one history entry). `#view=atlas&map=1` and `map=<area>` still work (fit to the area). Reverses the W2 list-first choice for Atlas only: **D-36** in BETA-DECISIONS.
+  - **Desktop (1440×900):** the map is 64 % wide and fills the screen under the compact masthead (height measured, `--atlas-top`); the list is a 36 % scrolling side panel that holds the rail and a sticky toolbar. Numbered pins, two-way hover/click sync (a pin lights its card; a card lights its pin or its cluster bubble), fit to the active area (`a=` lens), fly to the open place (also on a deep-link load).
+  - **Live-guide ideas, rebuilt** in a new lazy module `tools/beta/client/atlas.js` (3.4 KB gzip, loaded with the map, so other views pay nothing): area-colour **legend** (open on desktop when ≤ 6 areas), **map style** switch (Street OSM · Light Esri gray · Satellite Esri; no key-required host, `check-google.py` passes), **locate-me** (opt-in, one reading, memory only, never stored or sent), **Must see** on the map (the same `t=1` lens, so the list follows), **pin clustering only at dense zooms** (below z13 with > 40 pins; a bubble zooms in and, on desktop, brings its best-ranked place to the list; never during a day route).
+  - **Hooks added (for DES / the W6 type lane):** classes `html.atlas-d`, `.atlas-peek` (`.peek-a`, `.peek-list`), `.am-ctl`, `.am-row`, `.m-locate`, `.m-must`, `.m-base`, `.m-legend`, `.pin-cl` (+ `.hot`), `li.pl.is-hover`; CSS var `--peek` (phone tray peek height) and `--atlas-top` (desktop). All CSS is Atlas-scoped in `tools/beta/lib/render/fe-a.css`; nothing in `beta/assets/*.css` changed. JS hooks: `Cleo.city.detent()`, `.mapFirst()`, `.cluster()`, `.inCl`, `.atlasTools()`, `.fitSplit()`.
+  - **Found and fixed (pre-existing, platform area):** a deferred chunk's `<noscript style="display:contents">` became one ~100k px grid row while JS runs, so `Cleo.defer` sized its spacers at ~3,900 px per card (New York's list was ~1 M px tall) and a pin/deep link could scroll past its card. Fixed in CSS, JS-only (`html[data-view] ol.pls>noscript[data-cleo-defer]{display:none!important}`); no-JS still renders every card. A desktop pin click now stamps all chunks and re-anchors once after the `content-visibility` areas size up.
+  - **Coordinated test / harness edits (QA, platform — please review):** `test-beta.js` "one marker per pinned place" now counts pins drawn + cluster bubble counts (= 488). `metrics.js`: B-07 measures the visible "List" control when the phone is already on the map and does not tap it first; B-06 "sticky" scrolls the list's own pane, and "split" accepts a list under 40 % (the map is now ≥ 60 %); B-08 skips titles clipped by their own scroll pane; B-02 reads a masthead collapsed to 0 px as 0; the pin probe only taps a pin a finger can reach (not under the tray, not a bubble). `test-fe-a.js` gains a W6 block (13 checks).
+  - **Measured** (`metrics.js --view atlas`, pilots): **23/24** on Cleveland, Tokyo, New York, Chinatown, Wheeling (R5: 24/24); the one ❌ is B-04 (rail on the first phone screen), by design (D-36). B-01 **0.85**, B-03 **10**, B-06/B-07/B-08/B-20/B-23 ✅, G1 194/488/508/16/35 ✅. Tokyo default (Gallery): **1,952 KB** (≤ 2.0 MB); FCP 4× over four runs 484 / 1,188 / 804 / 680 ms (the 1,188 ran right after a full sweep; noisy, as before). Eager JS per page 40.45 KB gzip (budget ≤ 40 rounded; 47 B headroom: a minify step would help).
+  - **Evidence:** `design/beta/eval/w6/atlas/` (before/after at 390 and 1440 for Tokyo, Cleveland, Chinatown + pin sheet, full tray, open place; `README.md`; metric tables). Gates: validate, npm test, beta:check PASS.
+
+- 2026-10-11 13:07Z · orchestrator · **Round 6 build complete; review started.**
+  - **Atlas map-first lane** (8c7fb6ef, b7ad67e3, 2f227631):
+    - phone map with a peek/half/full tray; desktop map ≥ 60 % of the width;
+    - numbered pins with two-way sync, legend, OSM/Esri switch, locate-me, tier filter;
+    - lazy atlas.js, so the Gallery default doesn't load it;
+    - `metrics --view atlas` 23/24 on the 5 pilots. B-04 is a by-design miss, D-36.
+  - **Pinned R6 SHA:** `2f227631252db2a90fd7e76541365a151871ac99`.
+  - **Launched in parallel:**
+    - QA full pass (session_01RX4nPDtmV2V1kHSaN6tG7z). It also rules on the Atlas lane's metrics.js/test-beta.js rule edits and on D-36.
+    - Independent evaluator (session_01KXg4vAizpiCSSLznCKWvJh): ROUND-6.md, with the rubric, the Typography & style sub-scorecard, D1–D11 and the owner-blocked points. Not told the target.
+
+- 2026-10-11 13:20Z · orchestrator · **Owner request: full UI/UX overhaul.**
+  - **What the owner said:** the colours, styles and everything else are still far from the competitors.
+  - **The target:**
+    - modern and minimal, at the image-first clarity of the leading home-rental marketplace;
+    - a unique colour scheme that is classy and luxurious, never tacky;
+    - the restraint of premium athleisure and fashion labels as reference.
+  - **Opened Wave 7** (`design/beta/eval/W7-BRIEFS.md`) with four lanes:
+    - designer: research, at least 4 unique palette directions, a type re-decision, an owner review board, then design system v2 across the beta;
+    - FE-A: city pages and views, with a search pill, category icon bar, image-first grid, map/list pill and a new place detail;
+    - FE-B: landing and hubs, launched once the R6 review sessions finish;
+    - imagery: Wikimedia Commons photos through GitHub Actions. They need no key; Unsplash still waits on the owner.
+  - **Retired as defaults:** the night hero, particle art, gold plates and purple tiles.
+  - **Checklist:** row D12 added to ROUNDS-6-9.
+  - **Round 6:** the QA and evaluator sessions keep running on 2f227631. Their scores are the baseline the overhaul is measured against.
+
+- 2026-10-11 13:25Z · orchestrator · **Owner amendment: Gen Z wanderlust feel, classy enough for Gen X and Boomers, with inviting Gen Z-style fonts.**
+  - Added the amendment to W7-BRIEFS and checklist row D13.
+  - Type plan: an expressive self-hosted OFL display face with Vietnamese, plus a highly legible text face.
+  - Owner: "autonomously continue and fan out on all lanes".
+  - FE-B (landing + hubs) launched now instead of waiting for the R6 sessions. The amendment was sent to the designer, FE-A and imagery lanes.
+
+- 2026-10-11 · FE-B (W7) · **Landing, country hubs and static pages rebuilt image-first, search-first and calm.**
+  - **Landing:** a light, search-first hero with one headline in the display face ("Where to next?", with a sunny highlighter swipe as the single expressive moment), a big search pill and country pills. Below it: one row of image-first city cards per live country, the ★ signature row and collections as image cards, a quiet "How we choose" strip with computed counts (named sources, places pinned, closed places kept), and country cards.
+  - **Card anatomy (shared with FE-A):** a rounded media slot, then name / counts / "Known for" / "Recommended by {top sources} + n more". There is no frame or border, and a soft lift on hover that is off under reduced motion.
+    - **Photo:** the imagery lane's credited photo (`hero:<key>` slot, else the best-sourced open tier-1 sight; never Vietnam), with its TASL credit under the card.
+    - **No-photo cover:** a calm neutral ground in 4 rotating tones, the city's own paper-ground line motif and its native-script name.
+  - **Hubs:**
+    - Retired the navy night hero, star-field particle art, skins and purple tiles.
+    - The hero is now copy plus media: a credited hero photo, or the calm cover with the place count as the big number. A primary CTA, share and method sit beside it.
+    - Below the hero: a "Guides in {country}" card grid (1/2/3/4 columns), the collections as image cards, and country cards.
+  - **Static pages:** method, accessibility and 404 use a light page head and the same type and spacing (17 px prose, display-face numbers).
+  - **CSS:** one cached stylesheet `assets/fe-b.css` (source `tools/beta/lib/render/fe-b.css`, tokens only, reading `--accent`/`--sun`/`--cover-1..4` with today's tokens as the fallback) replaces the inline glue CSS each hub and landing page used to carry.
+  - **Weight:** the landing went from 83 KB to ≈72 KB raw (≈11 KB gzip).
+  - **Tests:** test-i18n's fixture gains named sources, so the card's "Recommended by" line is checked in pseudo. That extends the check; nothing was relaxed.
+
+- 2026-10-11 14:20Z · orchestrator · **R6 evaluation in: 85.4** (A 77, B 88, C 96, D 89; R5 84.5).
+  - Type & style re-scored at 223/300.
+  - D1–D11: ✅ 5, ◐ 5, ✕ 1 (D9 photos, owner-blocked).
+  - About 3.1 points are owner-blocked; about 2.5 are earnable without the owner.
+  - **R6 QA (in progress)** has already found three Highs:
+    - the Leaflet `_leaflet_pos` error;
+    - the 370 px Atlas tray head;
+    - the workflow `npm ci` failure, fixed in 49deb0a7.
+  - So R6 gets no separate deploy. Its gaps are folded into W7 (W7-BRIEFS §"Round 6 evaluator gaps"):
+    - #1 motion, designer + FE-A;
+    - #2 Atlas, FE-A;
+    - #3 type, designer;
+    - #4 a11y and #5 perf, a new platform lane (session_01USPS1inq7bUDfyw89evKMA);
+    - #6 is out of beta scope;
+    - #7 and #8, FE-A.
+- 2026-10-11 14:20Z · orchestrator · **Commons photos via GitHub Actions.**
+  - The workflow gained the keyless Commons fetch (cd4196b0).
+  - Run #5 failed on HTTP 400 for a 640 px thumbnail. Wikimedia only serves standard thumbnail widths.
+  - Switched to 500/960 (eedd4207); the imagery lane is hardening fetch-commons.js (width snapping, non-fatal per-image failures).
+
+- 2026-10-11 14:26Z · orchestrator · **Owner: "Where is the map front and center in the atlas mode?! Think [the real-estate map-search site] for travel kinda!"** (brand name redacted per rule 6)
+  - **Why the owner can't see it:** the R6 map-first Atlas lives only on the branch, held back by the R6 QA Highs. The live beta still has the R5 Atlas.
+  - **Why R6 Atlas falls short anyway:** it enlarged the map but didn't make the map the way you search.
+  - **Response:**
+    - W7-BRIEFS **Amendment 2**: Atlas becomes map-search, the real-estate map-search pattern for travel.
+      - Desktop: a split view with the map at about 60 % and a 2-column card grid that follows the map bounds, pill pins, two-way hover sync and a preview card.
+      - Phone: a full-screen map, a synced card carousel and a List/Map toggle.
+    - Checklist D2 upgraded to match.
+    - A dedicated **Atlas map-search lane** (session_01Cuvo7DWhwbWjLpFicvaF5E) takes over atlas.js and Atlas CSS from FE-A.
+
+- 2026-10-11 14:45Z · orchestrator · **R6 QA: sign-off NO** on 2f227631 (73711b71). No R6 deploy; the findings are routed to W7.
+  - **To the Atlas map-search lane:**
+    - QA-36 High: the Leaflet `_leaflet_pos` error.
+    - QA-37 High: the 370 px tray head.
+    - QA-40 Med: phone Atlas doesn't name the city.
+    - QA-41 Med: pin ranks and cluster look.
+    - QA-44 Low: the initial fit should ignore far outliers. The Chinatown SG data issue goes to the live-pipeline backlog.
+  - **To platform:** QA-38 High (Insights axe) and QA-43 Low (eager JS).
+  - **To FE-A:** QA-42 Med (lead-card heart tap target).
+  - **Already fixed:** QA-39 High (workflow `npm ci`), in 49deb0a7.
+  - **Ratified:** R6 metrics.js B-02, B-06, B-07 and B-08, the test-beta cluster count, and D-36.
+- 2026-10-11 · Atlas lane · **Atlas is map search (W7 Amendment 2), first increment.**
+  - **Desktop (≥ 1024):** a filter bar on top (Sights / Eat & drink, search, Area, Filters, Must see, Saved, Sort); the map on the left at 60 %, full height; a 2-column card grid on the right (the shared `li.pl` card), filtered to the map area ("Search as I move the map", on by default), with "N more outside this area. Show all".
+    - Label-pill pins (the guide's number, ★ Must see; sight vs eat & drink in two quiet tokens; closed struck; saved ♥).
+    - Hover syncs both ways. A pin click selects its card in the list pane (the page never scrolls) and opens a preview card on the map that links to the place.
+    - Round dark count bubbles for clusters. Area chips fit the map.
+  - **Phone (< 1024):** the map is the screen. One chip row, a swipeable card carousel synced to the pins, a floating List / Map pill (Back closes the list), and "Search this area" after a pan. The R6 peek/half/full tray is retired, and with it the 370 px tray-head High.
+  - **R6 High `_leaflet_pos` fixed:** `C.map()` returns null once tiles fail and the map is removed, and every map call checks it. With tiles blocked the list holds every place under "Map unavailable". On phones the list opens by itself. 0 page errors with tiles blocked (probe below).
+  - **Leaflet after first paint:** it is injected after the page's `load` + one frame. The Atlas UI moved off the eager path into the lazy `atlas.js`, so eager JS fell: city.js −1.0 KB and views.js −0.4 KB gzip versus the R6 head.
+  - **Measurement rules changed because the UI changed. QA to ratify; none is weaker:**
+    1. `test-beta.js` "one marker per pinned place": pins are now `.leaflet-marker-icon.pp` label markers, not SVG circle paths. The invariant is unchanged (drawn + cluster counts == pinned places).
+    2. `test-fe-a.js` W6 Atlas checks (tray detents, `.mapclose`, the phone pin sheet) are replaced by W7 map-search checks:
+       - map-first with no list over it;
+       - the chip row holds the switcher, toolbar, Must see, Saved and Sort;
+       - List adds one history entry and Back closes it;
+       - "See these n on the map" returns to the map;
+       - the Must see chip is the `t=1` lens;
+       - the desktop filter bar and results head, all restored outside Atlas;
+       - a pin selects one carousel card;
+       - the pin preview closes on Esc.
+    3. `qa/w2.js` mobile map flow:
+       - the phone Atlas is already the map, so a toggle is pressed only when one is visible;
+       - pins are `.pp` pills, measured by their label box, and a cluster bubble is tapped until a pin shows;
+       - the pin "peek" is the carousel holding the selected card (≤ 40 %: measured at 15 %);
+       - desktop "numbered pins" counts `.pp`.
+    4. `metrics.js` B-06 `split`: the map may sit on either side of the cards (it now leads on the left), still without overlapping them.
+  - **QA findings routed by the orchestrator, each with a regression check:**
+    - **QA-36:** `repro-qa36.js` gives 0/20 for Cleveland `a=DT`, 0/10 for `a=SUB` and 0/10 for NY `map=1`.
+    - **QA-37:** w6.js's independent B-08 rule is now in `atlas-ms.js` for the carousel and the scrolled list: 0 titles covered. The list ends above the Map pill's own band.
+    - **QA-40:** the city name is first in the phone chip row.
+    - **QA-41:** label pills carry the number at every zoom, and clusters are round dark bubbles.
+    - **QA-44:** the first view fits the city core (pins within 3× the median distance of the median point). Chinatown fits at z15, not z6. The outlier stays in the list, behind "Show all" and a zoom out.
+    - **For QA:** `tools/beta/qa/w6.js` still drives the R6 tray (`.grab`, `.mapclose`, detents), which is retired. It needs a W7 rewrite against the carousel and List / Map pill. I left it untouched because it is QA's probe.
+  - **Paged map-area list (DOM):** the list now pages like listing results. The first 48 places in the area go "Top ranked" across areas (each area's own tier, then rank), shown grouped by area, then "Show 48 more". Only the cards on show are stamped.
+    - Tokyo desktop Atlas: 12,392 → 3,023 DOM nodes.
+    - Raw first-load bytes (uncompressed): 2,100 KB desktop, 2,539 KB phone. HTML/CSS/JS gzip ≈ 5:1, so the transfer is well under 2,000 KB.
+  - **Photos for imagery + FE-A:**
+    - On the phone, the card photos load at 960 px for a 96–300 px slot (`sizes` is `100vw` below 640 px), and the hidden Atlas masthead still loads `hero--tokyo-960.jpg` (274 KB).
+    - Fix: an Atlas-aware `sizes` / lazy hero. That markup is FE-A's and imagery's, so I left it.
+    - In Atlas, photos are cropped 4:3 (they had been rendering 692 px tall). The phone carousel keeps the calm cover, because a 96 px thumb has no room for a legible credit. The map preview shows the photo with its credit.
+  - **Gates on the final tree:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip). w2 map 35/35, w5 64/64, `atlas-ms.js` 85/85.
+  - **Evidence:** `design/beta/eval/w7/atlas/` (390 + 1440, light + dark, stub tiles + tiles blocked). Probe: `NODE_PATH=$(npm root -g) node tools/beta/atlas-ms.js`, the Amendment 2 acceptance as executable checks.
+
+- 2026-10-11 16:22Z · orchestrator · **W7 progress.**
+  - **Real photos via GitHub Actions (keyless Wikimedia Commons).** Runs #11–#14 landed 128 credited photos: 38 heroes and 94 cards. Licences are CC BY-SA, CC BY, PD and CC0, each with TASL credits.
+    - Run fixes along the way:
+      - #5: Commons only serves standard thumbnail widths, so widths are now 500/960.
+      - #6/#7: stale motif checks.
+      - #10: a test-fe-a credit-scan assumption.
+    - The imagery lane now runs a full 134-photo local mock before pushing.
+    - **Visual review by the orchestrator:**
+      - Tokyo and New York heroes swapped (dull office blocks with a logo; an asphalt path).
+      - 12 more hero swaps from a contact sheet: Bruges canal, Belgium and Germany hubs de-duplicated, Aachen, Dayton, Erie, Harrisburg, Akron, Liège, Indianapolis, Silicon Valley, Wheeling.
+      - New fetch rules refuse signage/logo subjects and winter/overcast heroes.
+    - Fetch budget raised to 300.
+  - **Weights with real photos:** Tokyo 941 KB desktop / 1,237 KB phone; Japan hub 649 / 1,064 KB. **The landing is 2,145 KB on a 3× phone**, over budget, and FE-B is fixing `sizes` and lazy loading.
+  - **Designer:**
+    - Owner board published: https://claude.ai/artifact/B58XJxG6XKYx3v9HeBmB8U (Bone & Oxblood + sun, Bricolage Grotesque + Inter; 100/110).
+    - R6 gap #3 type discipline and the gap #1 motion spec are done.
+    - Photo visual pass V2.17 is done.
+  - **FE-B:** landing and hubs on v2 and Bricolage. Next: the hub hero photo first on phones, and the landing budget.
+  - **Atlas map-search** (Amendment 2) is shipped:
+    - a desktop split with the map at 60 % and a list that follows the map bounds;
+    - a phone map with a carousel and a List/Map toggle;
+    - QA-36, 37, 40, 41 and 44 closed;
+    - probe 85/85.
+  - **Pending:** the shared photo-first card from FE-A. It has not pushed for about 3 h; deadline 16:30Z, otherwise the card is reassigned to the designer.
+- 2026-10-11 · **FE-A** · W7 city pages + views overhaul (owner: modern, minimal, image-first; classy, never tacky; Gen Z wanderlust every generation trusts) · session_01PCNcUkfa5S1N1BKGzZA4xx (lane run) · commit: this entry's commit
+  - **Shipped (all seven brief items):**
+    1. **City bar** (`.cbar` › `.cbar-in`), sticky under the site bar: a centred **search pill** (`.spill[role=search]` holding the page filter `#cleo-filter`, moved out of the toolbar; "place · dish · area" hint ≥ 900 px) and the view switcher as an understated segmented control (desktop, no longer pinned into the site bar) or one compact "current view ▾" control that opens the four as a menu (phones, B-03 budget kept).
+    2. **Category bar**: the collections rail (`nav.rail#cleo-rail`) moved under the hero (after the phone lead card, so B-03 is unchanged) and restyled as line icon + label, sideways scroll, active = underline; sticky ≥ 768 px. Kickers, notes and counts stay in each button for AT (visually hidden). Source tiles and "Show all" gained icons. In Atlas the same buttons render as compact pills.
+    3. **Image-first grid**: borderless cards, 4:3 rounded media with the heart on its corner, then name, area · kind (a "Must see" sticker only where the data says tier 1), Recommended by. 1 / 2 / 3 / 4 columns at < 600 / ≥ 600 / ≥ 1024 / ≥ 1280. Hover lift, pressed scale, heart pop (motion only when allowed). Row and lead cards (`li.gc`) share the anatomy. The calm **no-photo cover**: area colour at 9 % over sand, the kind icon on a small disc, the native name when it is CJK. The area pin art left the cards (one fewer fetch per area on a grid page) and stays in the place detail's locator.
+    4. **Quiet hero**: city name, one line (`guide.tileLine` or the dek), the count line; desktop adds one text link "Start with {lead}". Night sky, particle art, the masthead motif layer (kept in markup for the imagery test, hidden by CSS) and the hero buttons are retired on city pages.
+    5. **"Show map" pill** (`.mappill[data-cleo-map]`, fixed bottom centre) in Gallery, Guidebook and Insights → Atlas (hidden in Atlas, whose own List / Map pill takes over). **Atlas itself is now the Atlas map-search lane's** (Amendment 2): on merging its work I dropped every Atlas-scoped rule of this lane (tray rows, pin restyle, "Show list" pill, tray focus fix), so `atlas.css` owns Atlas alone. Shared pieces Atlas inherits: the city bar (search pill + switcher above the map) and the CSS heart on `li.pl`.
+    6. **Place detail**: sticky nav row ("n of N" shortens on phones), large calm media (or the credited photo, see the slot below) with the area locator inset, title, meta row (tier sticker, area, pin), sections divided by hairlines (Why it's here, Part of, Recommended by, Close by, Plan your visit), the sticky Save · Directions · Share bar. **Closed**: the media turns grey with a "Closed" label, a closed pill in the meta row and a closed callout; no tier.
+    7. **Guidebook and Insights**: the module's own cover carries the name (the page masthead steps aside; its h1 stays for AT, no hidden focusable links), no italics, drop caps, gold chapter bars or double rules; hairlines and the same type scale.
+  - **Design system v2 merged** (designer's `v2.css`, new faces). One deliberate override: v2 forces the card-chip look on every `.rail-i` with `!important`; the W7 category bar (FE-A item 2) answers in kind, scoped to `#cleo-rail` only (icon + label, no box, underline when active). **Designer:** if you want the chip look elsewhere, keep it; the city page's category bar stays bare.
+  - **Tokens only.** The W7 layer (`tools/beta/lib/render/fe-a.css` § W7) uses no raw colour: `--paper --surface --sand --ink --ink-2 --ink-3 --line --line-strong --city --city-ink --gilt-soft --closed --closed-soft --focus --e-1…--e-4 --r-s/m/l/pill --fs-* --font-display/-ui/-native --dur-* --ease-*`, plus the data colours `--area`/`--ac`. **Designer:** keep these names in v2 (or alias them) and the layer restyles itself; the heart is a CSS mask (shape only, colour = `currentColor`).
+  - **Media slot contract (for the imagery lane).** Card: `li.pl > .pl-cover` (the calm cover, always present; it is the 4:3 media box, 16:10 on phones, radius `--r-m`), then, when `photoFor()` returns a credited photo, `li.pl > figure.photo.pl-photo > img[width][height][alt=depicts][loading=lazy][decoding=async] + figcaption` (TASL credit, shown as a small chip on the photo) laid exactly over the cover, then `li.pl > .pl-x` (heart, top right). City hero: the imagery lane's `heroHtml(photo, up, 'photo hero-media')` in-flow slot renders inside the quiet hero when a credited city photo exists — a rounded 3:1 strip under the line on phones (the first card stays in the first screen), the right column (4:3) on desktop; its TASL credit is the figcaption chip. The full-bleed backdrop + scrim variant is not used on city pages. `srcset`/`sizes` come from the imagery lane's `figureHtml` (`CARD_SIZES`); FE-A adds nothing to the img. The photo is laid exactly over the cover (`object-fit:cover`), so photo and no-photo cards share one geometry; its credit is a 2-line chip on the photo, never cut to one line. Place detail: `sheet.js` copies the card's `figure.pl-photo` into `.hero-plate.has-photo` (16:10 phone, 220–340 px desktop) with the credit chip; closed places never get a photo (gate) and show the grey "Closed" media. Row and lead cards (`li.gc`, client-drawn): **done in this lane** — `lib/gallery.js` adds `ph = [src, w, h, alt, caption html, [[src, w]…]]` from the same credit-gated records (never closed), and `gallery.js` draws `li.gc > figure.photo.gc-photo` outside the card link (its credit links stay valid), laid over the cover. Place detail: the credit sits as a line under the photo.
+  - **Budgets.** Minify step added (`tools/beta/lib/minify.js`: comments, indentation, blank lines; strings, templates and regexes untouched; every file syntax-checked with `vm.Script`, the build refuses on failure). Eager JS per page **40.45 → 32 KB gzip** (heaviest: cleveland.html). **Tokyo default (Gallery): 1,854 KB** desktop / 1,431 KB phone (R6 base on the same harness: 1,952 KB), DOM 2,626 → initial Tokyo Insights DOM 2,956 (≤ 3,000; the heart is a CSS mask so cards gain no nodes). **FCP 4× (phone): Tokyo 460 / 560 ms** over two runs, Cleveland 440, New York 336 (≤ 1.0 s).
+  - **Fixed (pre-existing):** the `_leaflet_pos` page error (`views.js` [links] `cleveland #view=atlas&a=DT (pref insights)`, R6 QA-36): Leaflet's `remove()` keeps its zoom-end timer, so removing the map during an animated lens fit throws. Merged with the Atlas lane's QA-36 fix: `city.js` now stops the map and waits for `zoomend` before its clean no-map fallback. **QA-42 (lead-card heart tap target): fixed**, every card heart is a 44 × 44 button around a 36 px disc.
+  - **Card structure for other lanes:** `li.pl` keeps `.pl-cover`, `figure.pl-photo` and `.pl-x` as direct children (no wrapper; the Atlas lane's `li.pl>.pl-cover` / `>.pl-x` selectors hold). The page filter `#cleo-filter` now lives in the city bar, not the toolbar, so the Atlas filter bar shows search from the bar above it.
+  - **Gates on the merged tree** (with design system v2, Atlas map-search and Commons photos): `npm run validate`, `npm test`, `npm run beta:check` PASS; eager JS **30 KB gzip**. Merged-tree harnesses: `qa/w5.js` 64/64; `qa/w2.js` 216/218 (how-we-choose `.tablewrap`, FE-B, pre-existing; landing editorial-rail counts, FE-B/Atlas, under review); `qa/views.js` crashed in `switchTo` on phone Atlas (the city bar overlaps the Atlas lane's chip row) — **follow-up push from FE-A**.
+  - **Pre-merge gates.** `npm run validate`, `npm test`, `npm run beta:check` PASS (8,458 places, beta == live). `qa/views.js` 319/320 (the one FAIL is the known record-prose INFO "Look for: Closed Monday…", as in R5). `qa/w5.js` 64/64. `qa/w2.js` 186/188: the two FAILs are pre-existing and fail identically on base `24c20e65` (see below). `metrics.js` pilots, Gallery (same harness, base → W7): Cleveland 21 → 21, Tokyo 20 → 20, New York 21 → 20, Chinatown 20 → 21, Wheeling 21 → 21 of 24. **Fixed:** B-16 cards per phone screen 1.6 → 2.15 (16:10 phone media). **New ❌:** B-08 (rule change below). New York's extra ❌ is B-07 "pin sheet none", a timing flake (base Tokyo shows it; the same NY page passes it in a single-page run). Gallery B-06/B-09 ❌ are by design (no map in Gallery), as on base. `metrics.js --view atlas`: 23/24 on Cleveland, Tokyo, Chinatown and Wheeling (B-04 by design, D-36, as in W6); New York 22/24 with B-08 = 1 (see below).
+  - **For QA to ratify (no test edited):**
+    - **B-08 floaters over titles (Gallery):** the brief mandates a sticky header with the search pill and a floating "Show map" pill, which titles scroll beneath by design (the marketplace pattern). Proposed rule: exempt the page's sticky city bar (`.cbar`, the same role as the site bar `header`) and the `.mappill`, as B-08 already exempts the site header and the map pane.
+    - **B-08 (Atlas, phone):** a row's title can sit partly under the tray's own sticky head while the tray list is scrolled (the W6 tray design; New York hits 1 of 20 positions after this lane's fix). Fixed here: keyboard focus entering the tray at the peek raises it to half and scrolls the focused row below the head (it was 20 of 20). Proposed rule: also treat a title beneath its own scroll pane's sticky head as clipped, like the W6 "clipped by its own pane" rule.
+    - `tools/beta/qa/w2.js` map probe clicks `.map-toggle` on the phone at `#view=atlas`; since W6 (map-first, D-36) that button sits in the tray tools, hidden at the peek detent, so the probe times out. It fails identically on the base commit `24c20e65` (verified in a clean worktree). Proposed rule: on a map-first phone (`html.atlas-m`), skip the toggle tap when the map is already on screen (as `metrics.js` B-07 already does since W6) and go straight to the pin.
+    - Gallery card lines: the grid card shows name, area · kind and Recommended by; the write-up (`.pl-w`), "Look for" and address are hidden on the Gallery card (they are in the detail, Atlas rows and Guidebook). Nothing is removed from the DOM.
+    - Search: the filter box moved from the toolbar into the city bar; `#cleo-filter` keeps its id (metrics, w5 and test-fe-a find it as before).
+    - `how-we-choose.html` axe `scrollable-region-focusable` (`.tablewrap`) is FE-B's page, unchanged here.
+  - **Evidence:** `design/beta/eval/w7/fe-a/` (before/after, 390 and 1440, light and dark; `README.md`). Shots: `tools/beta/w7-shots.js`.
+
+- 2026-10-11 · **FE-A** · W7 follow-up: the shared card to the orchestrator's spec, the `w7-cards` opt-in, phone Atlas overlap · commit: this entry's commit
+  - **Shared card (`li.pl`):** media first, 4:3 (16:10 on phones), rounded. When a credited photo exists it replaces the calm cover in the flow, and its TASL credit is a quiet 2-line caption **under** the media. On the media: the rank badge top-left, the "Must see" sticker beside it, the heart top-right. Then the name (2 lines), area · kind, and one line of Recommended by. No frame, rail or tint. **Opt in anywhere with class `w7-cards`** on the list container (Gallery's grid has it by default). API sent to the Atlas and FE-B lanes.
+  - **Row/lead cards (`li.gc`):** the photo sits inside the cover (one link) with a plain-text TASL credit under it; the linked credit is in the place detail.
+  - **Phone Atlas:** the city bar steps aside (the Atlas chip row holds the switcher and the toolbar) and the search pill rides in the toolbar. This fixes `qa/views.js` `switchTo`, where the city bar intercepted taps on the parked switcher.
+  - Gates: validate, test, beta:check PASS on the merged tree.
+  - **Follow-up 2 (orchestrator + designer asks):**
+    - Media radius is now `--r-l`.
+    - The calm cover follows V2.7: kind glyph in ink-3 straight on sand (no disc), native name bottom-left.
+    - Photo credit is one quiet line under the media, on grid and row cards.
+    - "Recommended by" is one line on row cards too.
+    - fe-a.css has no raw font sizes or radii left (mapped to `--fs-*` / `--r-*`), for probe-css gap #3(e).
+    - Evidence re-shot on the current head (v2, Commons photos, shared card, hero photo), 52 shots, in `design/beta/eval/w7/fe-a/after/`.
+  - **Gap #1, the signature motion moment (follow-up 3):** tapping a card (grid `li.pl` or row/lead `li.gc`) grows its media (photo, else calm cover) into the place sheet's media through one view transition named `cleo-grow`, using the designer's V2.16 CSS and `--dur-grow` / `--ease-grow` (`client/sheet.js`).
+    - Triggers only on a real tap within the last second; deep links and back/forward open as before.
+    - Not used when view transitions are unavailable or motion is reduced. Probe `tools/beta/w7-grow-probe.js`: motion allowed → 1 transition; reduced motion → 0 transitions and 0 animations, at 390 and 1440 (`design/beta/eval/w7/fe-a/grow-probe.txt`).
+  - **Sheet "n of N" (platform's note):** with no lens on, the count and position use `Cleo.defer.order()` (the whole view order, stamped or not), so a far `#p=` reads e.g. "311 of 488" and not "25 of 25". An unstamped neighbour is labelled "Previous place" / "Next place" and opens through its `#p=` route, which stamps it. With a lens on, the count is unchanged: the lensed set.
+
+
+- 2026-10-11 16:55Z · **Orchestrator** · W7 check-in: lane reviews and routing · commit: this entry's commit
+  - **FE-B** (7936b8bd, merged 876b4676): hub hero photo first on phones (3:2 slot, one primary CTA, quiet secondary row); desktop two columns with the photo above the fold. Accepted. Landing 768 KB on a 3× phone, so a 330w card width is not needed for hubs. Follow-ups sent: (1) the country-hub "Known for" line is built from the top three guides' own signatures, never a cross-country most-cited pick (Japan read "Goryōkaku · Mandarake Grand Chaos · Menya Itto"), with a test; (2) the short credit under hub heroes and landing cards; (3) a test that a hub hero's file is not reused by a card on the same page.
+  - **FE-A** (8f85ae53): media radius `--r-l`, the V2.7 calm cover, tokenised fe-a.css, the hero two-column and phone strip, the phone Atlas `switchTo` fix. Accepted. Follow-ups sent, in order:
+    1. the motion trigger (R6 gap #1), with reduced-motion and a test;
+    2. credits must never clip the author or licence (phone cards and the hero strip did), with a test;
+    3. place-detail photo letterboxed on desktop, so fill the slot;
+    4. w7-shots.js stubs tiles with a yellow-green flat tile, so use the neutral land colour and state that tiles are stubbed offline;
+    5. phone `#p=` node growth and the sheet "n of N".
+  - **Atlas:** on top of the 8.26 MB budget fix, sent:
+    - the desktop list cards are not the shared card yet;
+    - the phone peek card shows the no-photo cover for a place that has a photo;
+    - the phone top bar overflows at 390 px;
+    - routed from FE-A: the w2 [hubs] rail-count FAIL. A lens deep link into Atlas fits the map to all matches, so the header count equals the lens total, with paging. The probe reads the header total, as a rule change for R7 QA to ratify.
+  - **Imagery:** contact sheet of all 38 heroes after run #15 (38154721912, success). Good: Japan, Tokyo, Kyoto, Osaka, Bruges (canal + Belfry), Harrisburg (blue sky), Pittsburgh, Singapore, State College, Okinawa, Saarland. Queued:
+    - duplicate files: `hero:us` = `hero:washingtondc` (the same Capitol file), and the Wheeling hero is also a place card on the Wheeling page;
+    - Belgium hub vs Bruges hero: near-identical views;
+    - Germany is grey and overcast;
+    - Hokkaido is a tower fragment;
+    - Youngstown's letter sign breaks the signage rule;
+    - plus Dayton, Erie and the optional Silicon Valley;
+    - a test that no Commons file appears in two credit rows;
+    - the short-credit helper first, since FE-A and FE-B both reuse it.
+- 2026-10-11 · Atlas lane · **Atlas review fixes (orchestrator):**
+  - **Image-first card face**, decorated onto the shared `li.pl` (no fork; additions are hidden outside Atlas):
+    - Media on top at 4:3: the credited photo at its 500w copy (`sizes="240px"` in Atlas, restored on leaving), or the calm cover.
+    - On the media: the heart, a rank badge (★ for Must see), a Must see sun sticker or a Closed sticker, and a © link carrying the full TASL credit.
+    - Below the media: the name (2 lines), area · kind (the area is dropped where the list is grouped by area), and "Recommended by <first source> +N".
+  - **Phone:**
+    - the carousel uses the same face;
+    - the OSM attribution moved top-left under the chip row, clear of the List pill and the bottom pins;
+    - the city is named in the header crumbs, and the chip row is filters only (view switcher last).
+  - **Pins:** Must see pins take the sun-wash; every other pin stays neutral.
+  - **Gates:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip); w2 map 35/35; `atlas-ms.js` 85/85.
+  - **After FE-A's W7 merge (57f3e39b):** FE-A's search bar (`.cbar`: search pill + view switcher) now leads Atlas on both layouts. On phones it is fixed under the header with the filter chip row below it, and the switcher stays there. The map controls, the OSM credit and "Search this area" are offset below both. My W7 test reads "the switcher stays in reach (search bar or chip row)", because it now lives in FE-A's search bar, not the chip row. All gates PASS; eager JS 27.5 KB gzip after platform's minify; `atlas-ms.js` 85/85; w2 map 35/35.
+  - **On FE-A's shared card (3cf31a3e):**
+    - Atlas opts into FE-A's `.w7-cards` face for the desktop grid and the phone list. My decorations are now carousel-only: a compact side-by-side version of the same `li.pl`.
+    - On phones Atlas follows FE-A's rule: the city bar steps aside, and the chip row carries the search pill and the switcher.
+    - In Atlas the write-up stays hidden even on the selected card. The selection ring sits on the media image.
+    - Gates all PASS; `atlas-ms.js` 85/85; w2 map 35/35.
+  - **Follow-up 4 (orchestrator 16:52 / 17:05):**
+    - **Credits never clip.** Cards, rows, the hero strip and the detail use imagery's short `captionHtml` ("Photo: author · licence · Wikimedia Commons (resized)", the file title on the link). It wraps in full under the media, and on phones the hero credit sits under the strip.
+    - **Place detail.** It spells the title out in front, for the full TASL credit. The photo fills its slot with `object-fit:cover`, max 420 px: no letterbox.
+    - **Phone `#p=` deep link.** Gallery rows no longer stamp behind an open place sheet. Before, they grew 2,422 → 3,156 nodes within 0.5 s; now Tokyo holds 2,167 for 3 s. The rows resume once the sheet closes and the reader is near them.
+    - **`w7-shots.js`.** The offline tile stub is a neutral land colour (#F2EFE9, dark #24211D); the README says tiles are stubbed.
+    - **New probe** `npm run beta:probe:fe-a` (`tools/beta/w7-fe-a-probe.js`, Playwright). It checks, and passes:
+      - no credit ellipsised, clamped or cut (6 page/viewport cases);
+      - phone deep links ≤ 3,000 nodes for 3 s (Tokyo ×2, New York), with rows resuming after close;
+      - the sheet count over the whole view ("… of 488");
+      - the grow motion: 1 transition and `--dur-grow` 340 ms; under reduced motion no transition, 0 animations and `--dur-grow` 0.
+
+      Result: `design/beta/eval/w7/fe-a/probe.txt`.
+    - Shots re-taken.
+  - **Follow-up 5 (Atlas lane review of the shared card):**
+    - **Area hook.** The eyebrow's area is now `.in-a` and the dish `.in-d` (with a `.sep`). Both the Gallery grid and any `.w7-cards` list hide the area under an area heading. The text is unchanged for search and AT.
+    - **Recommended by.** The card shows the first source plus "+n more" (`.pl-s[data-more]`; row cards `.more`). The full list is in the detail, and a narrow card no longer ends on a dangling comma.
+
+
+- 2026-10-11 17:45Z · **Orchestrator** · W7 check-in: lanes closing out · commit: this entry's commit
+  - **FE-A done** (61075ef9 motion, e2f19499 n of N, eb7f4053 / 1d47e800):
+    - `cleo-grow` card-to-sheet view transition at `--dur-grow` 340 ms, off under reduced motion;
+    - the sheet count reads "… of 488";
+    - credits use the short `captionHtml`, wrap in full under the media and are never clipped;
+    - the detail photo is cover-fit, max 420 px;
+    - the shot stub tile is #F2EFE9 (dark #24211D);
+    - phone `#p=` node growth fixed (rows hold while a sheet is open; Tokyo 2,167 for 3 s).
+    - New browser probe `npm run beta:probe:fe-a`, outside `npm test`; R7 QA runs it.
+    - Last nits sent: the repeated "within <area>" eyebrow under the same area header, and the dangling comma in "Recommended by".
+  - **FE-B done** (052194f5, e26abe6c, e694a6b7):
+    - the country "Known for" comes from the child guides' signatures, skipping guides with none, deduplicated by the guides' own canon synonym sets, with a test. Belgium reads "gaufre · frites · chocolate"; Singapore "chicken rice · laksa · Hokkien mee";
+    - a render guard and test stop a hub hero file being reused by a card on the same page;
+    - short credits sit under the hub hero and every landing/hub card.
+  - **Designer done** (4e61a9ca): Atlas/Guidebook cover credits sit under the media, never clipped. It flagged over-long author fields (Yasukuni 488 characters, Chrysler 120, US/DC 87), which went to imagery with the 17:12 author-sanitising request plus a test.
+  - **Platform:**
+    - `metrics.js` counts each URL once (Chromium's cache is off under `ctx.route`, so photos were double-counted) and adds a `first load … transfer` row;
+    - true Tokyo first-load transfer: Atlas 818 KB desktop / 1,845 KB phone@3×, Gallery 928 / 1,627;
+    - the hidden Atlas hero is no longer fetched (151 KB → 0) via `imagery.heroPreload()`;
+    - asked to confirm the first-load row is gated at 2.0 MB and recorded for R7 QA.
+  - **Imagery round 3** (ca83e28c / c0575dcd):
+    - `captionHtml` short credit, with the title in the source link's aria-label;
+    - card `sizes` default;
+    - CLOSEUP and extended SIGNAGE refusals, plus a RESCAN on every run;
+    - a one-file-one-row test;
+    - `recompress.js` (photos 36 → 17 MB locally).
+    - **Workflow** (6ae949ee): installs sharp (`--no-save`) before the fetch and runs `recompress.js` after it, before the gates.
+    - Contact sheet after run #18 (success): Belgium (Gravensteen), Dayton, Germany (Bonn Altes Rathaus), Hokkaido (Otaru canal), Silicon Valley (Stanford), US (Golden Gate) and Youngstown (Lanterman's Mill) accepted.
+    - Wheeling rejected: a hazy aerial; it keeps the calm cover.
+    - Erie (white sky) is weak; swap it if a bright lead exists.
+    - Run #19 (sharp + recompress) is in progress.
+  - **Atlas** (68ae2639): shared card face in the desktop grid and phone list, phone peek with the photo, OSM credit clear of the pill, phone chip row. Still owed: the Tokyo Atlas node and byte numbers after a first-page-only stamp (platform measured about 10.5 k nodes on desktop), and the lens deep link fitting all matches.
+  - **Platform (W7 close):**
+    - `metrics.js` page weight. The budget row is now **"Perf: initial load transfer ≤ 2.0 MB"**, gated on desktop and phone @3×: the default view at first load, no scroll, network idle + 2 s, each URL once. Session bytes stay informational. This is proposed as **D-38** for R7 QA to ratify.
+    - Why the numbers disagreed:
+      - `ctx.route()` disables the browser cache, so repeated URLs were downloaded and counted twice. `bytes` now counts each URL once, and `bytesAllResponses` keeps the raw sum.
+      - The old figure was whole-session, including the reachability scroll that loads every lazy photo.
+    - Tokyo, desktop / phone transfer:
+      - Gallery: 929 / 1,628 KB.
+      - Atlas: 820 / 1,847 KB. **Phone is within 10 % of the line**; the card photos are the lever (imagery re-encode routed).
+      - Landing: 1,151 / 830 KB.
+      - Hubs: Japan 787 / 1,344 KB, Belgium 800 / 1,407 KB, Germany 651 / 1,133 KB, Singapore 482 / 326 KB, Vietnam 376 / 349 KB.
+    - Hero photo: lazy plus `imagery.heroPreload()`. Atlas fetches 0 KB of it, and Gallery LCP is unchanged. New tests in `test-imagery.js` cover skipView, the stored preference and storage that throws.
+  - **Card-face test cases (orchestrator 17:41):** `beta:probe:fe-a` now checks the card face on Tokyo Gallery (grid at 1440/390, rails) and on Atlas (Tokyo, Cleveland `.w7-cards`):
+    - no card under an area header shows its area;
+    - rail cards (no header) keep it;
+    - "Recommended by" never ends on a dangling comma or a cut chip.
+
+    The probe caught a long source name cut in Cleveland's narrow Atlas cards. That line now wraps instead of clipping. All PASS (`design/beta/eval/w7/fe-a/probe.txt`).
+
+
+- 2026-10-11 · Atlas lane · **Atlas budget regression fixed, plus the orchestrator's pass.**
+  - **Cause of 8.26 MB / 10k nodes:** `msArea()` called `stampFor()` per shown id, and each call built a whole ~40-card chunk. Platform's lazy scroll-stamping also kept building hidden cards while the list scrolled.
+  - **Fix:**
+    - only the cards on show are built, via `Cleo.defer.stampIds`;
+    - Atlas holds the lazy stamping (`D.hold`, like the Gallery pager) while its list is paged, and `D.resume()`s on leaving;
+    - the list always pages by 48 in Atlas, even with no map or tiles. That path had been unpaged, and `metrics.js` blocks tiles, so it was the measured one.
+  - **Tokyo Atlas first load** (tiles blocked, as `metrics.js` runs it; raw bytes):
+    - desktop 2,083 KB raw (HTML 131 KB gz, so ≈ 1.0 MB transfer), 3,446 nodes, 71 cards;
+    - phone 3,914 nodes and 85 cards; its JPEG weight is the next bullet.
+  - **For R7 QA / platform:** `metrics.js` "Perf: bytes" (8,274 KB) is read **after** the reachability stress loop, which opens every place's `#p=` and so loads every photo. That figure is not first load.
+  - **Photo weight left for imagery / FE-A:**
+    - the server-rendered first cards' `sizes` is decided at parse time, before Atlas JS can shrink it, so the phone pulls 5 × 960w (≈ 2.4 MB raw);
+    - the hidden Atlas masthead still loads `hero--tokyo-960.jpg` eagerly;
+    - suggested fix: `sizes="auto, …"` on lazy card images, and a lazy (or Atlas-skipped) hero.
+  - **Also in this pass:**
+    - unpinned places are always listed (never "outside");
+    - a lens deep link fits the map to every match, so the header count is the lens total;
+    - phone carousel thumbs use `sizes="120px"`;
+    - the phone search pill is a 44 px button that opens on focus (no overflow at 390).
+  - **New checks in `atlas-ms.js`** (98/98):
+    - first fit builds ≤ 32 + 48 cards;
+    - no horizontal overflow on the phone, and the search control is on screen;
+    - the OSM credit is clear of the pill, the carousel and the chip row, light + dark.
+  - **Probe rule for R7 QA to ratify:** `qa/w2.js` hubs reads the promised lens count from the Atlas results header (`.ms-count b`) when there is one, because Atlas pages its list. Otherwise it counts cards as before. 38/38 PASS.
+  - **Nodes follow-up:**
+    - The Atlas list now pages by 40 in the guide's own order (area, then rank within the area), the order it is shown in. Page 1 reuses the cards the page already rendered.
+    - `metrics.js --view atlas --only cities/tokyo` (platform's first-load row):
+      - desktop 1,727 KB raw / 610 KB transfer; phone 2,015 KB raw / 899 KB transfer;
+      - 2,348 DOM nodes; FCP 204 ms (300 ms at 4×).
+    - Gates all PASS; `atlas-ms.js` 98/98; w2 map + hubs 39/39.
+  - **Type (designer's notes):** atlas.css has no raw font sizes left. The pins, clusters, rank badge, credit link, preview name and caption all use tokens, and the OSM credit went from 11 px up to `--fs-xs`, at or above the 12 px floor.
+  - **Budget, measured the orchestrator's way** (Tokyo `#view=atlas`, network idle + 2 s, no scroll; transfer = gzip text + images):
+
+    | Viewport | Tiles | Transfer | Nodes | Cards |
+    |---|---|---|---|---|
+    | 1440 | blocked | 612 KB | 2,422 | 40 |
+    | 1440 | stub | 612 KB | 2,693 | 40 |
+    | 390@3× | blocked | 1,532 KB | 2,453 | 41 |
+    | 390@3× | stub | 900 KB | 2,616 | 41 |
+
+    All are within ≤ 2,000 KB and ≤ 3,000 nodes. Blocked on the phone is the heaviest, because the first server cards' `sizes` picks the 960w copy at 3×.
+
+- 2026-10-11 18:18Z · **Orchestrator** · W7 closed; Round 7 launched on `badcc20dbae7f4e4f47023048e85a58552cede24` · commit: this entry's commit
+  - **Every W7 lane reported done:**
+    - FE-A 29350b89: shared card nits fixed with probe cases.
+    - FE-B e694a6b7.
+    - Atlas 9ac5063a: Tokyo Atlas first load 612 KB desktop / 900 KB phone@3× with stub tiles, 2,348–2,693 nodes; lens deep links fit all matches.
+    - Platform c7fa768d: D-38 gated first-load row.
+    - Designer 4e61a9ca.
+    - Imagery badcc20d:
+      - Wheeling hero dropped to the motif;
+      - authors trimmed with a test;
+      - RESCAN_KEPT whitelist for the New York hero and Meadowcroft after review;
+      - Erie hero is now "Erie Pa from Bicentennial Tower" (golden-hour pier view), fetched and recompressed on the runner by run #23 (38161998881, success); accepted on review.
+  - **Archived:** the designer and platform sessions (done; can be unarchived for R7 findings). FE-A, FE-B, Atlas and imagery stay idle and open.
+  - **Gates on the pinned head:** `npm run validate` DATA OK; `npm test` exit 0 with 0 FAIL; `npm run beta:check` PASS (179 pages, 8,458 places, beta == live).
+  - **Launched:**
+    - R7 QA `session_017FLWXa5zgGWvqNo4C3UsvH`: W7 acceptance, D1–D13, re-test of QA-36…44, Atlas/cards/photos/type/budgets/no-regression/honesty, and ratification of the W7 rule edits (Atlas, FE-A, platform D-38, B-07 rewrite, B-04 in Atlas).
+    - R7 independent evaluator `session_01Vx8PDHmhSZ8YgiQphvTLPs`: ROUND-7.md, same rubric, Typography & style sub-scorecard, D1–D13, owner-blocked points. It was not told any target.
+
+- 2026-10-11 18:33Z · **Orchestrator** · Owner request: thorough UI/UX review and iterative revision of the Atlas map with a panel, until the panel scores ≥ 95/100 · commit: this entry's commit
+  - **Owner:** "The map is just way off compared to how we originally envisioned it and the scoring all too noisy … iteratively revise and review the atlas map feature until it meets the panels score of >=95 out of 100". The panel includes Gen Z travel bloggers, Gen X travel planners and Boomer wanderlusters, alongside the UI/UX designer and the front-end engineer.
+  - **Charter:** `design/beta/atlas/PANEL.md` (af015696, 965b7a5c).
+    - **Original vision recap:** the live map-centred guide, the early map-centred beta, the real-estate map-search pattern, and the W7 look.
+    - **The orchestrator's round-0 observations AO-1…AO-8:**
+      - number soup: cluster counts, rank pills and ★ pills look alike;
+      - a whole-city cluster default;
+      - three stacked bars of about 210 px above the map;
+      - an area-grouped list full of counters;
+      - pin kinds unreadable;
+      - a phone control stack;
+      - card hierarchy;
+      - no real-tile evidence.
+    - **The panel:** eight simulated composite panelists: a UX designer, a front-end/a11y engineer, two Gen Z, two Gen X, two Boomer.
+    - **The rubric:** anchored, 100 points: map-first 15, pin/cluster signal-to-noise 20, map search 15, card↔pin↔preview↔detail 15, phone 15, craft 10, trust/access 10.
+    - **Noise controls:** fixed anchors and evidence pack; panelist agents never see targets or each other's scores; changes > 3 points need new evidence.
+    - **Tasks:** T1–T6.
+    - **The loop:** panel → designer SPEC-v3 → front-end build → panel. The plateau rule applies.
+  - **Real-tile evidence:** `.github/workflows/beta-atlas-real-shots.yml` shoots Atlas with the real no-key OSM/Esri tiles on a GitHub runner (the sandbox cannot reach tile hosts) into `design/beta/atlas/real/<label>/`. It is triggered by `design/beta/atlas/SHOTS-REQUEST` and runs `tools/beta/atlas-real-shots.js`, which the front-end engineer is writing now.
+  - **Sessions:**
+    - designer `session_011YjA2jku166RJrUyCiQV6B`, unarchived: SPEC-v3 with prototypes;
+    - front-end engineer: the Atlas lane `session_01Cuvo7DWhwbWjLpFicvaF5E` (real-shots script, then the SPEC-v3 slices);
+    - **panel** `session_01EKzwLjqF1Z1gwXWgbrrr2S`: round 0 on `965b7a5cb091097b10bc1fabb3eacaefdb491ae2`.
+  - R7 QA and the evaluator continue on `badcc20d`. They are unaffected.
+
+- 2026-10-11 18:42Z · **Orchestrator** · Owner: "autonomously continue to work and Fanout on the other agents lane". W8 part 1 fan-out (`design/beta/eval/W8-BRIEFS.md`) · commit: this entry's commit
+  - **FE-A:**
+    - "Start with" = lead card on all 84 pages (R6 gap #8);
+    - the day-plan / "Your guide" flow (R6 D 77);
+    - place detail and Gallery polish against D12/D13.
+  - **FE-B:**
+    - Guidebook and Insights under v2 (photo-led chapters, v2 charts);
+    - price/rating wording **labelled, not stripped**, as D-39 proposed (owner may veto);
+    - type residue (R6 gap #3);
+    - DESIGN-SYSTEM.md rewritten to what ships (D7);
+    - "What changed" B-23/B-20 (R6 gap #4).
+  - **Imagery:** photo coverage for each non-Vietnam city's first screen (lead card, first rail row, then tier-1 open sights), keeping every refusal and the ≤ 2.0 MB first-load budget.
+  - Atlas files stay with the Atlas review loop. R7 QA findings take priority in every lane.
+
+- 2026-10-11 18:52Z · **Orchestrator** · Owner: "those capital initials everywhere in the UI … superfluous … Have the UI and front end engineer revise that too!!!" · commit: this entry's commit
+  - **Read as three families of superfluous capitals:**
+    - Title Case labels: "Iconic & Must-See", "Free to Visit", "Temples & Shrines", "Anime, Manga & Pop Culture";
+    - uppercase-transformed eyebrows and kickers;
+    - decorative initials: Guidebook and collection-intro drop caps, and the cover initial plates `.pl-ini` / `.plate.i`.
+  - **Rule:** sentence case everywhere in the UI. Proper nouns, place names, acronyms and source names keep their capitals. Data is untouched; casing happens at display time through one shared helper.
+  - **Owners:**
+    - designer: the rule in DESIGN-SYSTEM.md plus CASING-AUDIT.md;
+    - FE-A: `tools/beta/lib/casing.js`, city pages, cards, Gallery, detail, and a casing test in `npm test`;
+    - FE-B: landing, hubs, Guidebook, Insights, "What changed";
+    - Atlas lane: Atlas surfaces, in its next SPEC-v3 slice.
+  - This takes priority over W8 part 1 in those lanes. It is recorded in `design/beta/eval/W8-BRIEFS.md`.
+
+- 2026-10-11 · Atlas lane · **Carousel credit never clipped** (FE-A's report: "Photo: Wiiii" was cut off at `#day=TAITO`).
+  - On the phone carousel the thumbnail's figure steps aside (`display: contents`), and its credit runs the card's full width under the thumbnail and text: author · licence · source, in full.
+  - The carousel card grows to 150 px, and the © shortcut is hidden there.
+  - New `atlas-ms.js` check: every carousel credit sits inside its card with no overflow. Evidence: `design/beta/eval/w7/atlas/tokyo-atlas-390-day-credit.jpg`.
+
+- 2026-10-11 19:15Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Loop A (Atlas panel):**
+    - Real-tile workflow run #2 (38164928697) succeeded; about 110 shots are in `design/beta/atlas/real/R0/`. They show OSM standard tiles too busy under the pins, and dark mode still drawing the bright OSM tiles. Settled with the designer and the Atlas lane: Esri Light Gray Canvas by default, Esri Dark Gray Canvas in dark mode, following the theme; satellite stays as the alternative; a test covers it.
+    - SPEC-v3 slice 1 (32a6eb86: no numbers on the map, named kind pills, quiet dots, a city-core default view, one 108 px bar, a flat list) is accepted, with four refinements sent:
+      - one glyph per pill;
+      - neutral dots;
+      - short names with collision-to-dot;
+      - possibly fewer pills.
+    - The Atlas lane is building slice 1.
+    - The panel's R0 evidence pack is built (129 shots); its eight panelists are scoring.
+  - **Casing (owner):** the designer pushed the rule and the executable spec (f145ab71: DESIGN-SYSTEM.md §v2.6, design/beta/casing/ with allowlist.json, sentence_case.py and labels.md: 368 labels, 259 change; CASING-AUDIT.md). It also removed the designer-owned uppercase, drop caps and cover initials. FE-A is building `tools/beta/lib/casing.js` to match the reference output; FE-B and the Atlas lane follow.
+  - **Loop C:**
+    - FE-A: "Start with" = lead card on all 84 pages (bae1b624; two pickers had drifted on 17 US/EU pages).
+    - FE-B:
+      - D-39 price/rating note on 235 records (ba5d7e23);
+      - "What changed" B-20/B-23 84/84;
+      - Guidebook chapter photos, 25 of 299 chapters, lazy and credited (f677272c);
+      - the Insights v2 series tokens were requested from the designer.
+    - Imagery: `--scope heroes|priority|pilots|all` (e26f890e) is wired into the workflow as a dispatch input; push runs stay at priority (62b7295d). The priority run is in progress; pilots and all wait for the contact sheet and a repo-size estimate.
+    - The Atlas carousel credit clip is fixed (f5efbc66).
+  - **Loop B:** R7 QA is running pilot runs and the B-07 rewrite; the evaluator's metrics sweep is about 2/3 done.
+
+- 2026-10-11 19:22Z · **Orchestrator** · Atlas panel round 0 · commit: this entry's commit
+  - **PANEL-R0** (head 965b7a5c; a70cc645 / 8e06aeb2):
+    - **panel score 56.1/100**, min 53.5 (FE), max 58.5 (B2), SD 1.73;
+    - row means: R1 9.4/15, R2 7.5/20, R3 8.8/15, R4 8.4/15, R5 9.4/15, R6 6.9/10, R7 5.8/10;
+    - no Blocker findings.
+  - **Top findings:**
+    1. number soup / no names on the map (≈10.5);
+    2. the detail round-trip loses the map state (≈6.5, High);
+    3. chrome and phone overlays (≈6.1);
+    4. near-me ignores proximity (≈3.5, High);
+    5. text and targets too small (≈2.8, High);
+    6. pin kind unreadable;
+    7. closed not marked on the map;
+    8. contradictory counts;
+    - also: #11 keyboard (High) and #13 view not in the URL (High).
+  - **AO verdicts:** AO-1/2/3/4/6/8 confirmed; AO-5 confirmed in part; AO-7 confirmed with low weight.
+  - **Routing:**
+    - visual findings → designer (SPEC-v3 slices; slice 1 refined in b62cce9a: one glyph, sun-wash Must-see, short names with collide-to-dot, 16/8 pins, neutral dots; basemap settled: Esri Light/Dark Gray Canvas following the theme);
+    - front-end findings #2/#4/#11/#13/#5/#3 → Atlas lane, after slice 1.
+  - Round 1 starts when slice 1 + the basemap ship.
+
+- 2026-10-11 19:32Z · **Orchestrator** · Round 7 result and the W8 part 2 fan-out · commit: this entry's commit
+  - **ROUND-7** (on `badcc20d`; 61184481 / 7e7c3762): **88.5** = A 83 (+6), B 91 (+3), C 96, D 89. Δ +3.1 vs R6 85.4.
+    - Typography & style 241/300 (R6 223); 7 items below 8: T7, S2, S3, C3, K5, K8, K9.
+    - D1–D13: 6 ✅, 7 ◐ (D2, D6, D7, D9, D11, D12, D13), 0 ✕.
+    - Owner-blocked about +0.6 (second locale, the price/rating call, the Unsplash top-up). The evaluator puts the team-recoverable points at about 3.0.
+    - Budgets: Tokyo default 652/940 KB first load, FCP 4× 340 ms, every page ≤ 2.0 MB and ≤ 1 s, axe 0 serious/critical in 80 runs, B-23 0/179.
+  - **W8 part 2** (`design/beta/eval/W8-BRIEFS.md`), from the R7 gaps:
+    - imagery: coverage (+1.15);
+    - FE-A: polish (+0.52), two more delight moments (+0.46), first-screen metrics, food covers;
+    - FE-B: B-05 hubs, the Insights v2 series, letter-spacing/shadow/tabular residue, widows, axe moderates;
+    - platform (reopened): photo `sizes`, the 700 KB phone target, cleo.css ≤ 200 KB with the R6 layers pruned, shell axe moderates, and the B-06/07/09 re-pointing after QA ratifies;
+    - Atlas residuals (gap 4) stay in the Atlas panel loop.
+  - The R7 evaluator session is archived. R7 QA is still running; on QA YES the deploy goes ahead (beta-deploy-r7).
+
+- 2026-10-11 19:40Z · **Orchestrator** · R7 QA: sign-off NO; findings routed; QA-58 fixed · commit: this entry's commit
+  - **R7 QA** (`session_017FLWXa5zgGWvqNo4C3UsvH`, 03f4f402 / e473cb4e) on `badcc20d`:
+    - **sign-off NO.**
+    - Gates green; QA-36…44 all fixed.
+    - Harnesses: w5 64/64, views 319/320, w2 218/218, atlas-ms 98/98, probe:fe-a 33/33; new `tools/beta/qa/w7.js`.
+    - Budgets within D-38.
+  - **Ratified:**
+    - `.pp` pins; test-fe-a W6→W7;
+    - the w2 carousel peek; B-06 map-left;
+    - the lens header total; the B-08 `.cbar`/`.mappill` exemption;
+    - the w2 toggle skip; Gallery hides `.pl-w/.pl-k/.pl-ad`;
+    - unique-URL bytes;
+    - D-38, on condition that the row states tiles are excluded;
+    - B-04 in Atlas by design;
+    - a new map-search B-07 path in metrics.js.
+  - **Rejected:** FE-A's B-08 sticky-head rule (QA-46; not coded, so no fix needed).
+  - **Routed:**
+    - Atlas: QA-45 High (G1 regression: the list pages by 40 and has no one-tap single list; deploy blocker), QA-52, QA-54, QA-57;
+    - FE-A: QA-47 (B-02 513 px), QA-48 (Tokyo B-04), QA-50 ("No. 2 of 1"), QA-51 (the upscaled detail photo), QA-55 (facts lines), QA-59;
+    - FE-B: QA-49 (landing B-05), QA-55 (Insights 14/12 px), QA-59 ("New York density" copy);
+    - imagery: QA-53 (Tokyo Tower, Rockaway, MoMA, the Nihonbashi woodblock; swap overcast heroes Kyoto, Orlando, Madison, Ghent and Akron if bright leads exist; Hokkaido and Erie kept after the orchestrator's review), QA-56 (author cleanup);
+    - platform: implement the ratified B-08 exemption and the D-38 tiles-excluded wording.
+  - **QA-58** (rule-6 brand names in committed docs) fixed here. The two owner quotes (W7-BRIEFS, this log) and the DESIGN-SYSTEM and BETA-DECISIONS (D-01, D-09) mentions now say "the real-estate map-search site" or "the leading home-rental marketplace", each marked as redacted per rule 6.
+  - **Re-sign needs:** Atlas G1 ✅ 5/5; Gallery B-02 ✅ 5/5, Tokyo B-04 ✅ and landing B-05 ✅ (or ratified re-measured rules); QA-50 and QA-52 passing in `w7.js --only detail,atlasm`. Then deploy.
+- 2026-10-11 · Atlas lane · **Atlas review loop, round 1: SPEC-v3 slice 1 built** ("places on a map, not numbers on a grid").
+  - **Markers** (as refined in b62cce9a):
+    - every place is a quiet canvas dot (one neutral: ink 38 % for sights, 62 % for eat & drink; hollow when closed; area colour only under an area filter), with zero DOM nodes;
+    - up to 16 (8 on phones) of the best places in view become labelled pins: one kind glyph and the short name, never truncated. Must see is the sun-wash pill; closed is dashed with " · Closed"; saved gets a heart chip; selected is ink with a tail.
+  - **Basemap:** the Esri Light / Dark Gray Canvas follows the theme live, with reference labels in their own pane. Satellite is the one alternative; OSM street detail is opt-in from the Key.
+    - unnumbered density discs appear at region zoom.
+    - No rank pills, count bubbles or numbers on the map.
+  - **Map priority** (tier, then a round-robin across areas, sources, rank) is computed in atlas.js from the cards' own attributes. That is equivalent to the spec's build-time `mp`, and FE-A's builder stays untouched.
+  - **Default view:** the top 30 by priority (12 on phones) inside the city core. The last view per city is kept in sessionStorage (try/catch). `#p=` opens selected at zoom ≥ 15. An empty-map click clears the selection.
+  - **Placement:** pins never sit under the chip row, the carousel, a map control or the List pill.
+  - **Phones:** no + / − (pinch).
+  - **Probe-rule changes for QA to ratify:**
+    1. `test-beta.js` "one marker per pinned place" now counts the canvas dots (one each). A new check: ≤ 17 marker nodes and no bare-number marker.
+    2. `metrics.js` B-09 also accepts named pins, because the map now carries no numbers by spec.
+    3. `atlas-ms.js` hover and pin checks target the labelled pins (`.pp[data-id]`); count bubbles are retired. New slice-1 acceptance checks.
+  - **Gates:** validate + `npm test` + `beta:check` PASS; `atlas-ms.js` 117/117; w2 map + hubs 39/39.
+  - **Budget:** Tokyo Atlas 1440 ≈ 616 KB / 2,604 nodes; 390@3× ≈ 904 KB / 2,574 nodes.
+
+- 2026-10-11 20:10Z · **Orchestrator** · Owner direction ("don't make it a literal copy … take the best features from the competitors … one-up every one of them … don't neglect the other features"), product lane launched, hero review, QA-49 fixed · commit: this entry's commit
+  - **Owner direction:** relayed through the panel session and recorded in W8-BRIEFS. The designer adds SPEC-v3 §10 "One-up". New product lane `session_013eanpBxmbgvhv8ELajtv2Q` writes ONE-UP.md with ranked W9 briefs. The panel adds a non-scoring regression check of the other views.
+  - **Heroes:** priority run #29 added 42 heroes (74 hero files in all). Contact sheet reviewed.
+    - Kept: Tanah Lot, Kiyomizu-dera, Ghent Graslei, the Madison Capitol, Cincinnati, the Rain Vortex, the Chinatown and Kampong Glam roofscapes, Katong, Little India, the Kallang terminal, Shwedagon, Marina Bay, and others.
+    - Refused: **Akron** (grey highway; restore the earlier sunset skyline), **Kuala Lumpur** (billboards and a fast-food logo), **Mandai** (unreadable), **Newton–Novena** (a mall sign).
+    - Balestier is a low-priority swap.
+  - **FE-B** c5cfce4d: QA-49 / R7 gap 5 fixed. B-05 shows 2 wholly-visible city cards on the landing page and every hub (the archive shows 7). Phone city cards are compact rows with no clamps.
+  - test-imagery briefly failed on the branch: a runner-fetched author, "Groyn88 at English Wikipedia". Imagery fixed it in 7f668236, and it passes on the head.
+
+- 2026-10-11 20:25Z · **Orchestrator** · Atlas panel round 1 = 63.8; second Atlas engineer · commit: this entry's commit
+  - **PANEL-R1** (head d8b26516, slice 1 + Esri basemap; cadff6f4 / 5ea294e9):
+    - **63.8/100** (R0 56.1, +7.7), min 60.0, max 67.5, SD 2.28;
+    - rows: R1 9.9, **R2 14.9 (was 7.5)**, R3 8.8, R4 8.3, R5 8.4 (was 9.4: a phone regression), R6 7.5, R7 6.1;
+    - the number soup is resolved; the basemap was judged on real tiles (real/R1); the other-view regression check is clean.
+  - **Top findings:**
+    1. the detail round-trip loses your place;
+    2. the phone attribution wraps to 2 lines and covers locate-me (new regression);
+    3. near-me isn't near;
+    4. the anonymous dot field;
+    5. desktop chrome at 208 px;
+    6. text and targets too small;
+    7. closed not marked on the map;
+    8. contradictory counts;
+    - plus #11 keyboard and #13 the view in the URL (both High).
+  - **Panel process note:** two atlas-ms checks passed while the panel measured failures ("view kept" checked only the hash; "credit clear" ignored locate-me). Both are being made stricter.
+  - **Routing:**
+    - new **Atlas FE-2** (`session_011SQNDyJMGzR5K32A4y9Udd`): interaction state (#1, #3, #11, #13 and the honest view-kept probe);
+    - Atlas FE-1: QA-45 first, then #2, #5, #6, #4/#7/#8/#9/#10/#12 per spec, and #15 (a "not a place" record drawn as a pin);
+    - designer: the visual findings into SPEC-v3.
+  - **Platform (W8, R7 gap 7 + shared-shell axe):** Evidence is in `design/beta/eval/w8/platform/README.md`, with `npm run beta:qa:w8p` as the probe.
+    - Phone @3× never fetches 960w for a < 200 px slot: 5 → 0. The Atlas carousel thumbs fetched 960w before.
+    - Tokyo phone first load: Gallery 930 → **590 KB**, Atlas 1,021 → **549 KB**. This uses the 3×-phone density cap (proposed **D-40**).
+    - `cleo.css`: 255,666 B → **193 KB** raw.
+      - `tools/beta/css-dead.py` removed 20 KB of provably dead R6 rules (237 selectors) from the designer's sources.
+      - `build-css.py` strips comments and indentation from the shipped file only.
+      - All 28 pilot shots (light and dark, 390 and 1440) diff **0 px**.
+    - axe `aria-allowed-role` 44 → 0 runs (the switcher `<nav>` loses `role="group"`); `heading-order` 16 → 0 (the footer heads are h3).
+    - B-06/07/09 re-pointing waits for R7 QA.
+
+- 2026-10-11 20:45Z · **Orchestrator** · ONE-UP.md landed; W9 fanned out; platform W8 done · commit: this entry's commit
+  - **Product lane** (archived): `design/beta/eval/ONE-UP.md`.
+    - It covers 7 competitor families (neutrally named), the other views and the refusals.
+    - C is already 96, so more copying earns little. The one-ups target D's weakest rows ("Your guide" 79, interest triad 81), D13 trust and Gen Z, and B discovery.
+    - Top 10, estimated ≈ +1.2 overall:
+      1. a recognition layer;
+      2. freshness everywhere;
+      3. interests that follow you;
+      4. trips;
+      5. "set as my base";
+      6. paste a link;
+      7. share cards;
+      8. an offline city pack;
+      9. a local favourites lens;
+      10. a dated edition.
+  - **`design/beta/eval/W9-BRIEFS.md`:**
+    - owners: platform (W9-1 data, W9-8, W9-9), FE-B (W9-2 landing, W9-3, W9-6, W9-10, the W9-1 Insights chart), FE-A (W9-1 UI, W9-2 cards and rail, W9-3 rail, the W9-9 lens), and the new **FE-C** `session_01SxU3Mdpo1UAQyJQJmnMFtG` (W9-4 trips, W9-5 base, W9-7 share cards, as new modules with agreed hooks);
+    - order in every lane: R7 re-sign rows → Atlas panel findings → W8 → W9.
+  - **Platform W8** (e83b6cc3 / cc514dbe):
+    - the 3×-phone density cap (D-40, proposed): no 960w for slots under 200 px;
+    - Tokyo phone first load: Gallery 590 KB, Atlas 553 KB;
+    - cleo.css 255 → 193 KB with the dead R6 layers removed (28 pilot shots diff 0 px; budget ≤ 200 KB in test-beta);
+    - axe moderates `aria-allowed-role` and `heading-order` both 0;
+    - new probe `beta:qa:w8p`.
+  - **FE-A** casing helper `tools/beta/lib/casing.js` plus `test-casing.js` in npm test (6733a233): JS equals the Python reference on 368 labels; no uppercase/capitalize in any shipped CSS; 4,919 city-page labels in sentence case.
+  - **Imagery:** the last hero swaps are pushed (61a69415, 71e1d271): Toa Payoh dragon playground, Changi Boardwalk, Sule Pagoda; refusals apply per file.
+### FE Atlas — QA-45 / QA-52 / QA-54 + w7 atlasm (no test changed)
+- QA-45: "Show all N in one list" (pager `data-pg="all"`, and the header's Show all) stamps every deferred card and lifts paging — every place in one list; metrics `--view atlas` G1 ✅ on all pilots, first load ≤ 2 MB ✅.
+- QA-54: a query change refits the map to the matches (`C.fitLens`), so an exact-name search off the map brings the place in view.
+- QA-52 / w7 atlasm: the carousel thumbnail's figure is `display:contents` (it clips nothing) and now says `overflow:visible`; a canvas dot reports its featured pin as its element, so a tapped pin is found by the probe as the place's element; phone controls (locate, map style, key) sit bottom right above the cards, the OSM credit top left — clear of every control. `node tools/beta/qa/w7.js --only atlasm` 56/56 PASS.
+  - **Platform (W8, R7 ratifications + QA-51):**
+    - `metrics.js` B-08 exempts the sticky city bar `.cbar` and the floating `.mappill`, as it exempts the site header (ratification 6, exactly as worded). Tokyo Gallery B-08 is ✅ 0.
+    - D-38 is **ratified**. The first-load row now reads "map tiles excluded": tiles are off-origin and blocked.
+    - QA-51: the detail media clone in `sheet.js` `fullCap()` asks for its own slot (`(min-width: 1024px) 1024px, 100vw`). Desktop Tokyo detail went from 500w to **960w** at 1,024 px. `beta:qa:w8p` check 3 covers it.
+    - B-06/07/09: nothing is left for platform. QA did B-06/B-07, and B-09 waits for QA's next pass.
+
+- 2026-10-11 20:55Z · **Orchestrator** · Owner: "Fix all the issues! And then run the melon-seek style UI/UX and experience QA QC and all the backend and application front end optimization and keep the audit trail on all of them" · commit: this entry's commit
+  - **Audit trail:**
+    - new `docs/BETA-ISSUES.md`, the single register of every open issue from every source;
+    - statuses: open → fixed (claimed, with a SHA) → verified (by an independent checker on a pinned SHA, with the probe and its result);
+    - the R7 QA lane builds and keeps it.
+  - **Fix all the issues:**
+    - every open item already has an owning lane (R7 QA rows, the R7 gaps, PANEL-R1, casing, W8);
+    - the register makes any unassigned item visible.
+  - **Then the melon-seek-style UI/UX and experience QA/QC:**
+    - a new QC lane, judged against the patterns in `design/beta/views/STUDY.md` §7 (taken from the owner's melon-seek), plus experience journeys and a UI QC sweep;
+    - it builds its harness now and runs the full pass on a pinned head once the fixes land;
+    - output in `docs/BETA-QC.md`, with each finding mirrored in the register.
+  - **Backend and front-end optimization:**
+    - the platform lane runs the audit with before/after numbers and commits in `docs/BETA-PERF-AUDIT.md`;
+    - "backend" here means the build and data pipeline, the search index and data payloads, the service worker and caching, and the GitHub Actions workflows (there is no server);
+    - "front end" means JS, CSS, images and fonts, plus LCP, CLS and INP.
+
+- 2026-10-11 20:55Z · **Orchestrator** · Owner: "Location verify, can we also use [GitHub] Actions for that? Launch an agent to look into that" · commit: this entry's commit
+  - Launched the **location-verification lane** `session_012FeQJjTmiN2MXYQWwe55J2`, a feasibility study plus a prototype. Its deliverable is `docs/LOCATION-VERIFY-ACTIONS.md`, covering:
+    - the backlog today (unsourced, low-confidence and unchecked places per city);
+    - candidate runner-reachable sources (OSM Nominatim/Overpass, Wikidata, Wikipedia coordinates, official sites, open data), each with its usage policy and licence. Keyed and commercial map APIs are excluded;
+    - the fit with CLAUDE.md rules 4a–4c. The runner **proposes** with source, date and confidence and never writes `data/geocodes.json` directly. Closures are proposed only as "needs check" with evidence. Acceptance goes through review and the existing gates;
+    - the workflow design, rate plan, run time and risks.
+  - Prototype: `tools/location-verify*` with fixture tests, plus a dry-run report for one small city. The workflow YAML comes to the orchestrator, who owns the workflow files.
+  - This is an owner-sanctioned use of Actions, like the Commons photo workflow; nothing routes around the sandbox policy.
+
+- 2026-10-11 20:58Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **QA-45 has landed:** a852a4e1 (Atlas FE-1: Show all is a single list, refit on search for QA-54, whole carousel credits, phone controls bottom right).
+    - Pinned **`dd2125e3`** for the R7 re-sign. The QA lane runs the G1/B-02/B-04/B-05 rows plus QA-45/50/52/54 on that SHA and records them in `docs/BETA-ISSUES.md`.
+    - On YES, beta-deploy-r7 ships exactly that SHA.
+    - The orchestrator's validate + test run on the same SHA is in progress.
+  - **Imagery `pilots` (run #34, 1cf7c025):** 3 new 500w photos, reviewed on a contact sheet.
+    - Kept: Tokyo Tower.
+    - Refused: Rockaway (an old aerial survey shot with bulldozers on the sand; equipment class).
+    - Refused: Nihonbashi ("Chuo-dori from Nihonbashi" shows the street seen from the bridge, not the bridge).
+    - Imagery adds a depicts-mismatch guard ("X from <place>" / "View from <place>" is refused unless depicts names the place) with a test. `scope=all` waits for the cleanup and the per-city coverage report.
+  - **Atlas loop:**
+    - FE-1 and FE-2 have agreed file ownership: FE-2 takes `atlas-nav.js` plus hook exports and a marked focus-ring block; FE-1 takes the pins, controls, attribution and phone overlay.
+    - FE-1 is fixing PANEL-R1 #2: the phone credit becomes a one-line "© OpenStreetMap · Esri ⓘ" strip at the bottom left, with the full credit behind ⓘ. The atlas-ms probe now does a real tap on every control (locate first).
+    - FE-2 is fixing #1 (the round-trip): its probe passes except focus return to the pin.
+    - Round 2 goes to the panel once both agree on N and the SHA.
+  - **The other lanes are all working:**
+    - FE-A: R7 gap 2 gate, then the gap 5 food covers;
+    - FE-B: the type residue;
+    - platform: replies, then the optimization audit;
+    - the designer;
+    - FE-C: `trip.js` (the walking helper is done);
+    - QC: the Phase 1 Playwright harness;
+    - location verification: reading the pipeline.
+
+- 2026-10-11 21:25Z · **Orchestrator** · location verification via GitHub Actions (owner request, 20:54Z) · commit: this entry's commit
+  - **The lane's verdict (1f337866):** feasible, as a proposal engine only.
+    - The runner queries open, key-free sources and writes `docs/geoverify/<city>.{json,md}`: Wikidata (CC0), Wikipedia GeoData, OSM Nominatim (≤ 1 request/s, cached) and Overpass, plus the place's own site, read only after robots.txt allows it.
+    - It never writes `data/geocodes.json`. A person sets `review.decision`, then runs `node tools/location-verify.js --accept` locally. That step refuses on CI and asserts record counts. After it, the usual gates run.
+    - Full study: `docs/LOCATION-VERIFY-ACTIONS.md`.
+  - **The orchestrator's review:**
+    - --accept refuses CI;
+    - the counts are asserted;
+    - the registry round-trips (only a trailing newline differs);
+    - the user agent carries no personal contact;
+    - only `docs/geoverify/` is written;
+    - 29/29 offline tests pass.
+  - **Added:**
+    - `.github/workflows/location-verify.yml`: manual dispatch only, one run at a time, input validation, a guard step that fails on any change outside `docs/geoverify/`, and an artifact upload. It commits only when `dry_run=false`.
+    - `node location-verify.test.js` wired into `npm test`.
+    - validate and npm test exit 0.
+  - **Backlog (from the registry):**
+    - 3,450 rows in the default scope: 2,032 UNVERIFIED, 237 low, 1,744 with no status check;
+    - plus 347 places not yet in the registry.
+    - Estimated runner time is about 6 h, paced over 2–3 weeks under Nominatim's policy.
+  - **Owner questions relayed** (ODbL, the reviewer, Nominatim pacing, auto-commit, phase-2 sources, a quarterly status sweep). Until the owner answers, the conservative defaults apply.
+
+- 2026-10-11 21:40Z · **FE-C** · closes **W9-4** (Trips) · ce4c6a7c (head 807ea5a3)
+  - New page `beta/trip.html` (`tools/beta/lib/render/trip.js`, `tools/beta/client/trip.js`):
+    - a trip starts from saved places, a named list, a shared list link or a guide collection, for 1–7 days;
+    - one area a day, at most six stops, nearest next;
+    - closed, unpinned and unfitted places are left out, each with its reason; unknown ids are reported;
+    - one `#trip=` link (ids and day breaks only), booklet print (one day a page), KML;
+    - each day opens its guide in day mode through day.js's `#day=&s=` route.
+  - Platform hooks (orchestrator OK; platform told): `Cleo.geo.walk` in core.js is the one 80 m/min helper; build.js emits trip.html.
+  - Tests: `beta/test-fe-c.js` in npm test (84 guides, 0 closed stops, link lossless, reopen with storage throwing); probe `npm run beta:probe:fe-c` (keyboard at 390/1440 light and dark, 5-page booklet, day-mode handoff, 0 off-origin requests). Shots: `design/beta/eval/w9/fe-c/`.
+  - Open: a "Make a trip" entry in saved.js and lazy-module versions in render/city.js wait on FE-A.
+### FE Atlas (FE-1) — PANEL-R1 #2, #4, #6, #15 · SPEC-v3 rev 3 §1.1–1.3, §2.2 (attribution)
+- **PANEL-R1 #2 (phone map top):** the OSM credit on phones is one line that cannot wrap, "© OpenStreetMap · Esri ⓘ" (≤ 20 px, bottom LEFT); the ⓘ (44 px hit area) opens the full credit with its links (Esc / map tap closes). Locate, map style and Key sit bottom RIGHT above the cards — no corner is shared. Probe made stricter (`atlas-ms.js`): the credit check now also requires one line ≤ 20 px, clear of "Search this area", and that a real tap on EVERY map control (locate first) hits that control (`locateCoveredBy` null) — the old check passed while locate was covered.
+- **PANEL-R1 #15:** a source entry that is not a physical place (name says "not a place", e.g. Cleveland's @neorsd) renders `data-np`; it stays listed with its note (source count untouched) and never draws on the map. NOTE for the designer: SPEC rev 3 keys this on `warn: 1`, but `warn` marks *planning hazards* (26 Cleveland places incl. West Side Market) — keying on it would wipe real places off the map, so it is keyed on "not a place" instead. New probe check.
+- **PANEL-R1 #4 / #6, SPEC §1.1–1.3:** dots are kind-by-shape (sight 7 px circle, eat & drink 6 px rounded square; dark-mode alphas 30 % / 50 %); a non-featured Must-see is a `--sun` dot with an `--on-sun-wash` ring; a closed dot is hollow with a diagonal slash at every zoom; canvas tolerance 19 (44 px hit circle). Pins are 32 px pills with 14 px labels and a 44 px hit area; each pin IS a link (`<a href="#view=atlas&p=id">`, the marker element itself — `keyboard: true`, one Tab stop, no role=button) with `data-kind` and aria-label "full name, sight|eat and drink, [Must see], [Closed], [saved]". Labels try four anchors (above with stem, right, left, below) before a place stays a dot; no two labels overlap. Sight pins with no collection glyph take the type noun in the place's own name (museum → columns, park → leaf, lake → wave, tower/bridge → tower, theatre → ticket, market → awning, memorial → flag, church/temple → lantern; torii on Japan pages) — map only (`data-mg`), card covers unchanged.
+- **Default view (phones; desktop since 2nd push keeps the bounds' middle, so its wide map pans between neighbourhoods — QA w7 atlasd Wheeling):** the fit is centred on the top places' own median point (their busiest spot) when that widens the frame by ≤ 1 zoom step and the town isn't already at street zoom — so two zoom steps in land among places (Cleveland phone: 1 → 4 named pins).
+- New probe checks (atlas-ms): pins are links with "name, kind" labels, 14 px / 32 px / ≥ 44 × 44, no overlaps; two zoom steps on phone → ≥ 4 named pins (a ≤ 40-place town: every place in the band, since Chinatown holds 1–2 places in the band at z18).
+
+- 2026-10-11 21:55Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **R7 re-sign on `dd2125e3`: NO** (QA 34ecf44c). Open High/Blocker count is 0. All four failing rows belong to FE-A:
+    - QA-47: B-02 is 513 against a limit of 506.
+    - QA-48: the Tokyo B-04 rail starts at 859.
+    - QA-60: the Wheeling B-04 rail starts at 852, a new regression (it was 687).
+    - QA-50: a fresh `#p=` link shows "No. 37 of 37" where the data says 2 of 37.
+  - FE-A's b244f104 (QA-47/48/59b-d) and 6733a233 (`lib/casing.js`) are still not on origin. FE-A has been told to put those four rows ahead of gap 3 motion. The next re-sign is pinned once they land.
+  - **Register (QA):**
+    - 72+ rows, verified on pinned heads.
+    - QA-64 is verified within the D-32 scope: the post-rule beta docs have 0 brand hits.
+    - QA-61 and QA-59a now have FE-A as lead.
+    - PERF-01…15 are merged into the register.
+  - **Optimization audit, first push (platform: fc861679, ee53bc4b):** see `docs/BETA-PERF-AUDIT.md`.
+    - PERF-01: npm test runs as a parallel pool, 392 s → 105–154 s.
+    - PERF-03: one batched `cleo:stamped`, so the Tokyo filter's INP drops from about 1 s to about 0.5 s.
+    - PERF-04: a links slice cuts the first place-open download from 104 KB to 14 KB gzip.
+    - PERF-05: CI caching, and the fetch job skips its rebuild when nothing was fetched. The orchestrator reviewed the workflow diffs.
+    - Still open: PERF-06 Gallery phone CLS (FE-A), PERF-07 Atlas first-load CLS (Atlas), PERF-08 INP (platform leads, approved for after the re-sign rows) and PERF-13 SW cache across deploys (W9-8).
+  - **Atlas:** FE-1 pushed cd1e4a7f.
+    - #2: a one-line phone credit with an ⓘ, and a stricter real-tap probe.
+    - #4 (part): square food dots and round sight dots, collision-free labels, more glyphs.
+    - #6 (part): 44 px hit areas.
+    - #15: records that aren't places are never drawn.
+    - Round 2 goes to the panel once FE-1 and FE-2 agree on N and the SHA.
+  - **W9:**
+    - FE-C shipped Trips (W9-4, ce4c6a7c): `beta/trip.html`, nearest-next by area, closed places refused with a reason, one `#trip=` link, KML and a printable booklet. A 25-check test plus a probe.
+    - FE-B shipped the landing's "October 2026 in Cleo" (W9-2), with an Atom feed.
+    - W9-3/W9-6 wait on platform's index fields.
+  - **Imagery:**
+    - Pilots cleaned up: Rockaway, Nihonbashi and MacRitchie refused, a `viewFrom` guard added, and SIGNAGE widened to info boards and plaques.
+    - Refusals are now split: a photo fault applies everywhere, a slot fault applies only to its own slot.
+    - Heroes: 84/84 credited or stated (Queenstown stated). Ang Mo Kio is now Town Garden West, reviewed.
+    - **`scope=all` dispatched** (run #40). QA-63's weak cards are in progress.
+  - **Location verification:** workflow `location-verify.yml`.
+    - Run #1 for Wheeling: 18 pin proposals, 4 no-match, artifact only, and the guard confirmed nothing else changed.
+    - Run #1's response cache didn't save (a `..` path); fixed by moving the cache under RUNNER_TEMP.
+    - The fix put the runner context in job-level env, which GitHub rejects, so runs 2–3 failed. Fixed and re-triggered.
+    - The report is now printed to the job log and run summary, so it can be reviewed without committing anything.
+    - Phase-2 government sources researched (2ce8e431): OneMap needs a token (owner decision); the German state house-coordinate files are open; the Japan Address Base Registry and the US Census Geocoder are guards only.
+
+- 2026-10-11 22:00Z · **Orchestrator** · the owner delegates decisions · commit: this entry's commit
+  - **The owner:** "You decide the answers to your question if you're asking for permissions then I say just yes."
+  - **Location verification, all six questions decided** (recorded in docs/LOCATION-VERIFY-ACTIONS.md by the lane):
+    1. ODbL: yes. OSM-derived coordinates may enter the registry with the OSM object as `source`.
+    2. An agent lane may review, under a bar:
+       - `high` place-specific matches (OSM POI with a matching name, a Wikidata P625 item, or the official site's JSON-LD) are accepted;
+       - `med` rows are accepted only with a second independent source within 50 m;
+       - `low` rows, street-level matches and shared OSM objects are never accepted;
+       - closures need a real `statusSource` under rule 4c.
+    3. A paced sweep: ≤ 300 Nominatim requests a day, one city per run.
+    4. Reports are committed as the audit trail: a `commit=true` line in REQUEST, or a dispatch with `dry_run=false`.
+    5. Phase 2: German state house-coordinate files and the Japan Address Base Registry (as a guard) are yes. Luxembourg, France, Belgium and the Netherlands get researched. OneMap is approved but needs a login only the owner can create, so the adapter skips it until an Actions secret exists.
+    6. A quarterly status-only sweep: yes. The schedule is added once the CLI exists; it fires from the default branch after the next deploy.
+  - **Next for the lane:** apply accepted rows locally with `--accept`, rebuild, and run the gates (--geocheck, --statuscheck, validate, test, beta:check), city by city.
+  - **D-39 ratified:** label, don't strip.
+  - **D-41 (new):** a second locale ships as an **AI-reviewed tier, labelled on the page**; `reviewed: true` stays human-only.
+    - New **i18n lane** `session_01HB7igqdcuhrau7mUWSauDL` builds Japanese (`ja`): one agent translates, an independent subagent reviews, and the changes are recorded in `design/beta/i18n/ja-REVIEW.md`. The switcher appears by rule, with a visible note and hreflang ja.
+    - This answers ROUND-7's owner-blocked "reviewed second locale" without claiming a human sign-off.
+  - **Not changed, because these are content rules rather than permissions:** food places still get no photos. Only a photo that truly shows the place counts.
+  - **Still needs the owner's own hands (optional):**
+    - the photo library's API key as an Actions secret (worth about +0.1);
+    - a OneMap login as Actions secrets, for Singapore pins.
+### FE Atlas (FE-1) — CLS on a fresh Atlas load (Platform perf audit)
+Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phone at 3×, plus a phone run with the tile host blocked). Tokyo desktop 1.575 → **0.003**, phone 0.184 → **0**, phone tiles-blocked 0.695 → **0.001**; Cleveland, New York, Chinatown ≤ 0.003.
+- The head boot script already sets `data-view`; for Atlas it now also sets `atlas-d` / `atlas-m` (the same 1024 px query views.js uses), so the Atlas layout applies from first paint instead of after views.js.
+- Desktop: the bar has a fixed 65 px height and its space is held (`:not(.ms-built)`) until atlas.js inserts it, in the same task; FE-A's toolbar (which moves into the bar) is held out of flow until then; the map and list panes take explicit grid columns, so the list never starts in the map's column; the list's cards are held (not drawn) until the first map-area pass picks its page (`ms-ready`, set by msArea, by no-map, or after 3 s; a CSS animation shows them after 4 s if JS never arrives); `#cleo-grid` gets FE-A's card face (`w7-cards`) at parse time on desktop Atlas.
+- Phone: the method notes and the footer (outside `<main>`, under the full-screen map) are `display:none` in phone Atlas only — they were invisible under the map and still Tab stops; every other view shows them.
+
+- 2026-10-11 22:25Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Location verification, first accepted wave (c727e196).** The decisions are recorded first-hand in `docs/LOCATION-VERIFY-ACTIONS.md` §8; the lane's own guard correctly refused to act on relayed authority.
+    - 7 Wheeling pins accepted: each is an OSM POI whose name matches and whose street address is exactly the registry address, graded high.
+    - Zanesville Museum of Art held: a Wikidata coordinate only, with no independent second source.
+    - `cities/wheeling.html` goes from 35 to 42 places on the map; the beta has 8,465 places.
+    - The --geocheck and --statuscheck gates passed, and ACCEPTED.md and GEOCODE-BACKLOG.md are updated.
+    - The workflow gained the quarterly status-only sweep schedule (days 1–3 of Jan/Apr/Jul/Oct, no Nominatim) and a `commit=true` REQUEST line.
+    - The split from here: the lane proposes and builds adapters; the orchestrator reviews, accepts, rebuilds and gates.
+  - **Imagery `all` run #40:** 92 rows. All are reviewed on contact sheets (33 + 52).
+    - Refused 7: Empty Bottle (performer), Second City (stage), Ravinia, Lincoln Park Zoo and Hersheypark (signage), Morton Arboretum (snowy grey), Nihonbashi kirin (close-up; now a stated gap).
+    - Refused 7 more: Lincoln Park lakefront (wrong subject), the Great Fire site (parked cars), Cincinnati Zoo, the Gettysburg visitor centre and Chocolate World (signage), the Air Force Museum (an emblem, not a photo), Sint-Martens-Latem (gloom).
+    - Guards added or widened: PERFORMER (with building-exterior-only for clubs and theatres), CLOSEUP, VEHICLES and SIGNAGE. Pending: NOT_A_PHOTO for emblems and logos.
+    - **Bug found:** PNG photos bypassed recompress and the weight caps; the Vogelsang 960w PNG is 827 KB. Imagery is converting every non-JPEG to JPEG and extending the size test to all formats before the next run.
+    - Tier-1 coverage is 146 → 223 of 1,018. The 720w card copies (D-40's condition) are in.
+    - The next `all` run uses budget 1200, about 3–4 runs for the remaining ~500 targets.
+  - **Atlas round 2 is with the panel** (FE-1 at 40e15601: #2, #15 and parts of #4, #6, #11; Atlas CLS 0.000 / 0.003). The R2 real-tile shots are in `design/beta/atlas/real/R2/` (114). FE-2 takes R3.
+  - **QC baseline pass** is running on `f2c39d69` (the QC lane's harness: 55 checks).
+  - **Other lanes:**
+    - FE-B: W9-6 paste-a-link and W9-3 "For you" rail shipped; QA-65 (the D-39 note in the detail) routed to FE-B.
+    - Platform: W9-1/W9-9 data and W9-8 offline packs shipped (PERF-13 fixed); PERF-08 started on the parts outside FE-A's files; PERF-06 to follow.
+    - QA: D-40 ratified on condition of the 720w copy, now met; QA-65 filed.
+  - **The R7 deploy still waits on FE-A** (QA-47/48/50/60 plus casing.js), which first finished gap 3 motion.
+
+- 2026-10-11 22:25Z · **Orchestrator** · found the cause of the stalled R7 re-sign · commit: this entry's commit
+  - **None of FE-A's commits since 19:45 reached origin.** Missing:
+    - gap 2 (16255149);
+    - gap 5 (7c70e821 / d0742ad6);
+    - gap 3 (e4db2ca7 / 6dd591ef);
+    - QA-47/48/59b-d (b244f104);
+    - casing.js (6733a233).
+  - FE-A reported each one as pushed. That is why QA's re-signs kept finding QA-47/48 open and casing missing.
+  - FE-A was told, with priority, to stop new work, merge origin (no rebase or force), run the gates, push, and verify with `git ls-remote` that origin equals HEAD. Its sync script must fail loudly on a refused push.
+  - Every other lane's claimed SHAs since 20:30 were checked and are all on origin.
+  - **New orchestrator practice:** a lane's claim counts only once its SHA is verified on origin with `git merge-base --is-ancestor`, before it reaches QA. Imagery had the same false-success bug earlier and fixed its push loop.
+- 2026-10-11 · i18n lane · W8 · session_01HB7igqdcuhrau7mUWSauDL · D-41 Japanese interface, commits `269c577c` (feature), `1345c26a` + `72c4a8a4` (merges that carry the pack and For-you strings), `f37ce60f` (docs).
+  - **Catalogue:** `tools/beta/i18n/ja.json` (published as `beta/assets/i18n/ja.json`).
+    - It translates all 166 interface strings: 147, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
+    - It carries `review: {by: "ai", …}` and keeps `reviewed: false`.
+  - **Review:** an independent subagent saw only en + ja. It made 4 changes, then 1 more for the pack strings and 2 more for the "For you" strings (7 in all). All are recorded in `design/beta/i18n/ja-REVIEW.md`.
+  - **Platform:** `lib/i18n.js` gains `offered()`, which lists locales with a tier. `reviewed()` stays human-only.
+  - **Shell:** `localeSwitch()` now lists the offered locales. Every page gets a top-bar switcher, with buttons that are ≥ 44 px and keyboard reachable.
+  - **Head (`common.js`):**
+    - hreflang ja (`?lang=ja`), en and x-default;
+    - a pre-paint snippet that holds the paint until the catalogue is applied (storage read in try/catch, 1.5 s failsafe);
+    - a Japanese system-font fallback and `word-break: auto-phrase`, with no CDN.
+  - **Runtime (`client/locale.js`, new):**
+    - It swaps the catalogue strings on the landing, the hubs and the What changed pages, and swaps the shell on every other page.
+    - It shows the AI note: "Japanese interface: machine-translated and checked by a second AI review. Place write-ups stay in English", in ja + en, with a "Report a wrong phrase" link to a GitHub issue.
+  - **Tests:** `test-i18n.js` now checks:
+    - offered = en + ja (ai), human-reviewed = en;
+    - key and placeholder parity;
+    - hreflang ja on all 180 pages;
+    - a runtime pseudo swap leaves 0 English;
+    - the note appears only with ja;
+    - a failed fetch falls back to English.
+  - **Shots:** `design/beta/eval/i18n/` (`tools/beta/i18n-shots.js`) covers the landing, Tokyo Gallery, Tokyo Atlas and a place detail, in ja and en, at 390 and 1440, with dark mode for ja.
+    - No overflow and no JS errors.
+    - Japanese CLS is no higher than English on the same view. The Atlas CLS of 0.511 at 390 is the same in en, so it predates this work.
+  - **Gap, stated:** FE-A's city-page interface strings (Gallery, Atlas, place sheet, offline pack) are not in the catalogue yet. On city pages only the shell is in Japanese.
+  - validate, npm test (all suites) and beta:check PASS.
+- 2026-10-11 · i18n lane · W8 follow-up · session_01HB7igqdcuhrau7mUWSauDL · D-41: platform's conditions, SW precache, CLS re-measure.
+  - **locale.js now loads only for a non-en locale.** The pre-paint snippet injects it with a script element, not `document.write`. The paint is held only when a non-en locale is chosen.
+    - en pages load no locale JS and are never hidden.
+    - On an en page, a delegated click on the switcher stores the choice (in try/catch) and reloads.
+    - test-i18n checks that no page loads locale.js eagerly.
+  - **SW precache** (approved by the orchestrator; platform's `build.js`, marked `// i18n D-41`): `assets/i18n/*.json` are in the shell list and in the SW version hash, so a chosen locale works offline.
+  - **beta:perf before and after:** identical.
+    - The city-page phone CLS (0.29–0.34 on Cleveland, Tokyo, New York, Chinatown and Wheeling) is unchanged.
+    - A control build with ja removed measured the same, so it predates i18n. Routed to the city-page owners.
+  - **Atlas CLS:** 0.000/0.003 on this head, so my earlier 0.511 no longer reproduces.
+  - **Shots re-taken:** `design/beta/eval/i18n/`. Switching en → ja → en works in a real browser with 0 JS errors.
+  - validate, npm test (all suites) and beta:check PASS.
+### FE Atlas (FE-1) — SPEC-v3 §2.1 desktop chrome (PANEL-R1 #5) · PERF-08 lens hooks
+- **One bar, map 108 px from the top** (was 208): in desktop Atlas the site header is 56 px (`--bar-h`) and carries the view switch (Gallery · Atlas · Guidebook · Insights) on its right; the city bar steps aside from first paint and its search pill rides in the one 52 px Atlas bar with the kind chips (no counts on them — the count line has the numbers), Area, Filters, Must see, Saved and the sort. Split 64 / 36 (list ≥ 420 px): map box 56 % of 1440×900.
+- **The document doesn't scroll in Atlas:** map and list fill the screen; the about notes, the method notes and the footer sit at the end of the list column (moved back on leaving Atlas).
+- CLS stays ≤ 0.003 (the held bar space uses `main{display:flow-root}` so it never collapses through main).
+- New atlas-ms check: chrome ≤ 120 px, map box ≥ 55 %, document scroll 0 — on Tokyo, Cleveland, Chinatown.
+- **PERF-08 (Platform):** atlas.js asks `Cleo.lens.shows(c)` / `Cleo.defer.peek({ lens })` for unstamped stubs (featured pins, msArea, the count) — no-ops until Platform turns `selective` on.
+- B-20: the phone search pill's input now fills the 44 px pill, border included (it measured 52 × 42).
+- B-08 (Wheeling phone, pre-existing on origin): with tiles blocked the phone opens the list; tabbing scrolled a card title half under the list's top edge at the chip row. The phone list now has `scroll-padding-block: 56px 24px`, so focus scrolling keeps context above the focused item (B-08 ✅ 0).
+
+- 2026-10-16 13:40Z · **Orchestrator** · resumed after the seven-day usage-limit pause (Oct 11 22:55 → Oct 16 13:00Z, when the limit reset) · commit: this entry's commit
+  - **The owner:** "Continue and complete towards the goals. Continue on the agents too."
+  - **State on resume:**
+    - The head was green on validate and beta:check.
+    - npm test had 2 failing suites. Both came from the casing helper rendering data labels in sentence case: the landing rail tile titles, and i18n data stripping ("Testville gazette").
+    - The tests now match data labels case-insensitively; FE-B and the i18n lane landed the same fixes in parallel. ALL SUITES PASS.
+  - **FE-A's last re-sign fixes are on origin:** dbd6d87d (QA-50: the rank comes from the data; QA-48/60: the category bar sits above the phone lead).
+  - **R7 re-sign pinned at `be74c82f2680009c726ac8ac54731ef97773dfb8`:** validate, npm test and beta:check all ✅. QA is re-signing.
+  - **QC pass, melon-seek style:** 14 findings, all reproducing on today's head.
+    - By severity: High 1 (QC-01: a canon chart's bars open the wrong set), Med 9, Low 4.
+    - Routed: FE-B QC-01/02/03/10; Atlas FE-1 QC-04/05/13; FE-A QC-06/07/08/09/11; i18n plus platform QC-12; designer QC-14.
+  - **Atlas panel round 2: 70.9** (R0 56.1, R1 63.8).
+    - The top open items, in recoverable points: #1 detail round-trip and deep link (6.8), #2 phone first screen (3.8), #3 counts (3.3), #4 near me (3.2), #5 desktop chrome (3.1).
+    - The designer folded these into SPEC-v3 rev 4.
+  - **Released now that the re-sign head is pinned:** platform's PERF-06 (phone CLS ~0.3 → ≤ 0.002 in the prototype) and the PERF-08 FE parts; the i18n lane's city-page Japanese strings.
+  - **Imagery:** `all` dispatched at budget 1200.
+  - **Location verification:** reports will now be committed per city for review (Orlando, Chicago, DC, Miami, Erie, Philadelphia next).
+  - **FE-C** was found on a stray local branch `work-fec`. It was told to merge onto the designated branch and verify the push.
+
+- 2026-10-16 · **FE-C** · closes **W9-5** (FE-C part: "Set as my base") · f70222d9f (head 517142af7)
+  - `tools/beta/client/base.js` (new, lazy):
+    - any open, pinned place's sheet offers "Set as my base";
+    - every card in Gallery, the list and Atlas (and its map preview), Guidebook and Saved then reads "650 m from <base> · 8 min walk", with the assumption (straight-line, about 80 m a minute) stated once per view;
+    - "Nearest to my base" sort; clearing restores the guide's order exactly;
+    - a closed or unpinned place can't be a base; one closed since is cleared with the reason;
+    - Atlas FE-2 ring API: `Cleo.base.ll/from/ready`, `cleo:base`, `cleo:base-ready`.
+  - core.js (platform told): route key `base`, `Cleo.base` state (`&base=` for the visit, `Cleo.store` 'mybase'), and the `Cleo.need` lazy loader.
+  - FE-A files: marked `FE-C W9-5 hook` blocks in city.js, render/city.js and render/saved.js (FE-A told).
+  - Tests: test-fe-c.js BASE (84 guides × 5 bases = 42,885 card lines equal to haversine; storage throwing; closed refused; sort and restore; sheet; Saved; lazy). Probe base-keys / base-lazy (keyboard, 390/1440, light and dark, every view, 0 off-origin requests). Shots: `design/beta/eval/w9/fe-c/base-*`.
+  - Open: the Atlas 5/10/15-min ring (W9-5 acceptance 5–6) is Atlas FE-2's, after their round 3.
+
+- 2026-10-16 · **Atlas FE-2** · closes **PANEL-R1-#1**, **PANEL-R1-#13**, **PANEL-R1-#11**, **PANEL-R1-#3** (FE-2 parts) and the PANEL-R1 probe-honesty note · round-3 head `537cfb8c65524a8da72a5fb4f2824bb084cfe399`
+  - Code: `tools/beta/client/atlas-nav.js` (new; ships inside `assets/js/atlas.js` via build.js) and `tools/beta/lib/render/atlas-nav.css` (after atlas.css), plus one-line optional hooks in atlas.js (FE-1 agreed) and city.js (FE-A told).
+  - **#1 round-trip:** opening a place from a card, a pin or the preview never flies the map or scrolls the page. Escape, Close and Back restore the centre (0 px), zoom, page and list scroll, the List count and pill, and focus on the opener (card or pin). A fresh `#p=` load sits at zoom ≥ 15, clear of the detail, at scrollY 0. On phone Atlas the detail sheet is 58vh, so the pin keeps a map band.
+  - **#13 view in the URL:** `#…&at=lat,lng,zoom` (the key `c=` is the category lens), written by replaceState on moveend. It reopens within 1 px and the same zoom and wins over the session view. The share toast reads "Link copied · opens <place> on this map view".
+  - **#11 keyboard:**
+    - "Skip to the map" and "Skip to the results" follow the shell skip link;
+    - in Atlas the map pane comes before the list in the document (Tab: map at stop 28, was 230; first pin 4 stops in via the skip link);
+    - with a pin focused, the arrow keys move between pins in map-priority order;
+    - Enter opens the preview and Escape returns to the pin (FE-1's link pins);
+    - 0 stops without a ring.
+  - **#3 near me:**
+    - locate-me sorts one list nearest first across areas;
+    - every card shows "90 m · about 1 min walk" (straight-line, 80 m a minute, stated in the count block);
+    - T3 at Shibuya + Eat & drink puts Nonbei Yokochō first at 90 m on both viewports;
+    - the first card is in bounds, and the pill equals the List-mode count;
+    - the view centred on the reader is never written to the URL or sessionStorage.
+  - Probes: `tools/beta/atlas-nav-ms.js`, run by `atlas-ms.js`. The atlas-ms "view kept" check now asserts centre, zoom, scrolls, count and focus. The baseline had 36 FAILs; now 0 FAIL.
+  - Gates on 537cfb8c: validate, npm test, beta:check and atlas-ms all PASS.
+  - Open: the W9-5 5/10/15-min base ring (FE-C's API is in), and SPEC-v3 rev 4 §3.6 one numbering in the detail (to verify with FE-A).
+
+- 2026-10-16 · **FE-C** · closes **W9-7** (Share cards) · 0f8598c0b (head 82556da37)
+  - `tools/beta/client/share-card.js` (new, lazy, loaded by core on the first tap):
+    - a 1080×1920 PNG drawn on canvas for a place (its sheet), a day (day mode), a list (Saved) or a trip (trip.html);
+    - same-origin pixels only: the place's committed photo or its calm cover, our own pins for the route (no tiles), the self-hosted faces;
+    - every card carries the source line and the checked date, and a photo card its short credit as text;
+    - a closed place reads "Closed · kept for the record" with no call to visit; a closed stop is flagged on its own line;
+    - preview with matching alt text, then Web Share with files where supported, a PNG download otherwise.
+  - Hooks: "Share as an image" as marked `FE-C W9-7 hook` lines in sheet.js, day.js and saved.js (FE-A told); core.js delegated tap (platform told).
+  - Tests: test-fe-c.js CARD (8,577 places: source and date on every card, closed stated, credit with photo; specs; every share action; lazy at the page version). Probe card section: six cases, including the map library blocked, all 1080×1920; 0 off-origin requests from tap to preview; Web Share image/png; download fallback; preview at 390/1440, light and dark. Cards: `design/beta/eval/w9/fe-c/cards/`.
+
+- 2026-10-16 14:55Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Imagery run #48:** the orchestrator decided the 17 open rows from the contact sheets, kept 11 and refused 6:
+    - CMA (the OPEN banners, SIGNAGE);
+    - Asahiyama (VEHICLES);
+    - Gotoku-ji, ICON Park and Bonnet House (WRONG SUBJECT);
+    - Harvey Milk Plaza (GLOOM).
+
+    With the lane's 15 REFUSE and 11 SIGNAGE rows, that makes 32 refusals (e716d941). The imagery lane applies them, then dispatches the next `all` at budget 1200.
+  - **Chicago location verify:** 48 of the 53 pass rows were accepted (`--accept`; ACCEPTED.md has one line per row).
+    - Held: Dear Margaret and Les Nomades (closed), Big Marsh Park (a park), Paseo Boricua (a street stretch), Chief O'Neill's (no registry address).
+    - Rebuilt `cities/chicago.html`: 412 places, 0 missing. `--geocheck chicago-il` PASS; `--statuscheck` consistent, with 5 places not yet closure-checked.
+    - Beta is at 8,627 places. validate, npm test and beta:check all pass.
+  - **FE-C:** next work is Cleo.t on its strings, then the W9-1 card and detail UI, then the W9-9 lens. Both W9 items moved from FE-A, who keeps QA-69 first because it blocks the deploy.
+  - **Deploy gate:** still waiting for FE-A's QA-69. Then pin a head with 2bfff3fe and the fix; QA re-runs B-07 Gallery, QC-01 and the regression rows.
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · D-41 city pages in Japanese (W8-I18N-JA gap 1) and QC-12.
+  - **QC-12 (`79bc6d73`):** the desktop top bar no longer shifts after load.
+    - The switcher sits right of the spacer (CSS order, so tab order is unchanged), and the hidden night toggle keeps its space.
+    - The top bar has dropped out of every QC shift list.
+  - **City server render (`46dc887b`):** every interface string in `lib/render/city.js` now comes from the catalogue: 90 keys plus FE-C's `city.sort.base`.
+    - The English is byte-identical: all 180 pages are unchanged.
+  - **City client modules (this commit):** sheet, city, views, gallery, day and foryou use `Cleo.t` (`tt`). The English passed to each call equals en.json, and test-i18n checks it.
+    - Each module redraws on `cleo:locale`. locale.js fires that event while the page is still held, then reveals it two frames later.
+    - The page-wide swap skips browser-drawn containers and data (record names, write-ups, sources, photos, collection, cuisine and area names).
+    - Japanese CLS is 0–0.007 on the landing, Gallery, Atlas and place detail. A deep-link sheet was 0.655 before the redraw moved inside the hold.
+  - **Catalogue:** 419 keys. Independent review rounds 4 and 5 made 9 + 8 changes (`design/beta/i18n/ja-REVIEW.md`).
+  - **Harness note:** test-views inlines scripts with `String.replace`, so client code must not contain `$&` or `$'`. A `$&` in gallery.js broke 24 checks once; both are now avoided.
+  - **Left English (data or other lanes):** dish, area and source names are data. "Set as my base" is FE-C's base.js, flagged to them. Guidebook and Insights are FE-B's views, not yet catalogued.
+  - validate, npm test (all suites) and beta:check PASS.
+
+- 2026-10-16 15:15Z · **Orchestrator** · deploy candidate pinned; DC pins; location-verify commit step · commit: this entry's commit
+  - **Deploy candidate `530dc83b6e45c88afe764779b1451f201a883410`:**
+    - It carries 2bfff3fe (QC-01, which QA verified in 90c6c65a: NO on QA-69 only, open High 0) and FE-A's QA-69 fix 69ca3690.
+    - validate, npm test and beta:check are green. QA is re-signing it.
+    - It merges cleanly into `claude/cleveland-page-creation-pant4l` (merge-tree clean).
+    - Tokyo and NY Gallery B-07 "pin sheet none" went to Atlas FE-2 to reproduce. QA rules on it against be74c82f.
+  - **Washington DC location verify:** 38 of the 40 pass rows were accepted, including the 59 m move of Chả Lụa Ngọc Hưng off a low pin.
+    - Held: Four Sisters (closed) and Pizza Mart (its "official" geo is a third-party ordering site).
+    - Rebuilt `cities/washingtondc.html`: 171 places, 0 missing. geocheck PASS, statuscheck consistent. Beta is at 8,664 places.
+  - **location-verify.yml commit step:** if the branch changed the city's report during the run (review decisions committed mid-run), the step now takes the branch's copy and re-runs from the response cache, so the tool carries every review forward. Before this, it kept the runner's copy and would have dropped those decisions.
+    - It was simulated in a scratch repo in two cases. With a mid-run review, the review is carried and the re-run output kept. With only an unrelated push, the fresh run wins.
+    - The sweep mode keeps ours, as before.
+  - **QC** (2ed1ddce): QC-01/02/03 verified on 2bfff3fe; QC-10 is still open and went back to FE-B. The designer ratifies the SPEC §3.4 plain-bar wording.
+  - **FE-A** got the designer's three food-cover changes. QC and the designer were given 530dc83b to work on.
+
+- 2026-10-16 15:15Z · **Orchestrator** · QA NO on 530dc83b; Atlas panel R3 80.7; Miami pins · commit: this entry's commit
+  - **Atlas panel round 3: 80.7** at 537cfb8c (min 74.0, SD 2.86); R0 56.1 → R1 63.8 → R2 70.9 → R3 80.7. The designer folded it into SPEC-v3 rev 5 (46f4abe3).
+  - **QA delta re-sign on 530dc83b: NO** (566d606e). QA-69 is verified and open High is 0. Two Med regressions against be74c82f:
+    - QA-70 (the phone Gallery map open is about 1.5 s slower; the Gallery B-07 pin step fails on Tokyo/NY). Platform is bisecting be74c82f..530dc83b.
+    - QA-71 (the carousel swipe after a `#p=` round trip). Routed to Atlas FE-2.
+  - **Miami location verify:** 2 of the 11 pass rows were accepted (Jungle Queen Riverboat, OSM POI; Superblue, official geo with the exact address).
+    - Held: 3 closed, 4 extended features, and 2 stale Wikidata coordinates for places that moved (Young At Art: the old Davie building; Locust Projects: the old Design District space).
+    - The location lane now treats Wikipedia as not independent of Wikidata, and guards against moved places (1b0da370).
+    - The four earlier Wikidata+Wikipedia accepts are being re-checked against OSM, official and Census sources.
+  - **Test harness:** test-views.js and test-views-b.js now inline client scripts through a replacer function, so `$&` in client code can't corrupt them (found by i18n).
+  - **Process:** two `npm test` runs at once in one container fail test-honesty and test-views spuriously (each passed alone). This is now a standing rule in BETA-RESUME.
+  - **Routing:**
+    - i18n catalogues FE-B's Guidebook/Insights views;
+    - FE-C does the designer's ten findings before W9-1/W9-9;
+    - FE-B owns QC-09 at 200 % and QC-10. The designer re-verified QC-09 PASS after 639d2b1b.
+
+- 2026-10-16 15:30Z · **Orchestrator** · Erie and Philadelphia pins; QC-15..20 routed; D-42 · commit: this entry's commit
+  - **Location verify:**
+    - Erie: 27 of the 27 pass rows accepted (cdb49bf8). 84 places, 0 missing.
+    - Philadelphia: 25 of the 25 pass rows accepted (062b61a3). 376 places, 0 missing.
+    - Beta is at 8,704 places. Both pushes passed validate, npm test (alone) and beta:check, and the merged head 062b61a3 was re-run green.
+    - Singapore is in flight.
+  - **QC pass on 530dc83b** (3b3f4eda): QC-06/07/08/09 verified, plus QC-10 on 639d2b1b. Six new findings, routed:
+    - QC-15 (base action drops focus, so Esc fails) → FE-C;
+    - QC-16 (ja Insights and method headings) → i18n;
+    - QC-17 (the carousel clips the base line) → Atlas FE-1 with FE-C;
+    - QC-18 (the ja switcher indicator offset, Low) → FE-B;
+    - QC-19 (a rating or popularity line without the D-39 note) and QC-20 (hours in prose) → FE-B, under **D-42**.
+  - **D-42** (docs/BETA-DECISIONS.md): extend D-39 to hours, keeping "label, don't strip". The note becomes "Prices, ratings and times are quoted from the source at the time of research (<date>)", and the sheet says "We don't track opening hours or prices."
+
+- 2026-10-16 15:40Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **QA-70 cause:** FE-2 and platform bisected it independently to 7e746d9b. On today's tip, four `:has()` rules on `<main>` in fe-a.css (197–198 and 201–202) cost about 0.8–1 s of main-thread time per map open. Platform showed that rekeying 197–198 alone still left Tokyo at 2,485 ms; all four removed gives 1,666 ms (be74c82f: 1,654 ms).
+    - FE-2 rekeys all four on script-set attributes.
+    - Platform adds a `:has()` lint with a shrink-only allowlist for 7 cleo.css selectors (PERF-16 → the designer).
+  - **QA-71:** green in FE-2's local tests; the push is pending.
+  - **Location-verify workflow:** a re-check mode for named rows (a74735f4), with names validated by node from env. The location lane's `--duplicates` report was approved.
+  - **Imagery:** plain `all` runs are retired (about 4% yield). Vetted-candidate waves are approved; wave 1 is 20 titles, 6 stated gaps, and run #54 is running. The Pullman Porter photo was refused.
+  - **Pushed today by the lanes:**
+    - FE-A: food covers per the designer (the cover word is never a source or award), B-20 tier links at 44 px, and the false pin-numbers sentence removed;
+    - FE-B: QC-10 follow-up (no focus move on a locale or lens redraw);
+    - i18n: every lane's interface is catalogued, and QC-16 is claimed (7bd091cd).
+
+- 2026-10-16 16:22Z · **Orchestrator** · check-in; new deploy candidate · commit: this entry's commit
+  - **Pin `3ba696e8743112fcc5407e05e5daf6b3184caad4`:** QA-70 is fixed in a7b4a980 (four `:has()` rules rekeyed; Tokyo and NY first pin about 0.95 s) and QA-71 in fd54b823 (verified). Gates green, merge-tree into the Pages branch clean. QA is re-signing.
+  - **QA register hygiene** (178d9e05): every "claim not on origin" SHA is on origin.
+    - Verified: QA-59c/d, QA-71 and R7-g3. Closed: R7-g3 and R7-g7.
+    - New: QA-72 (Med, the Read button doesn't wrap), QA-73 and QA-74 (Low).
+    - Routing: FE-A gets QA-72/73, QA-59b and QA-55 (Guidebook); FE-B gets R7-g2(g), R7-g6 (letter-spacing 11 → 6) and QA-55 (hubs); the designer gets QA-74 and the Insights 12 px call; Atlas FE-1 gets R7-g4.
+  - **Wikidata re-check applied** (86e24e51): Koi Palace, Wild Side West and ABC Commissary are corroborated independently; Hotel Utah is graded med until its 500 4th St address point decides.
+  - **Duplicates:** only 2 of 42 pairs were on a page (Pittsburgh, merged; 8,702 places). The rest are registry-only. Orphans are being classified, with nothing deleted. Location verify is now scoped to page plus dataset.
+  - **Singapore:** the root causes are fixed (per-region anchors; skipped rows after the budget stop instead of no-match). Re-runs are in flight.
+  - **Imagery:** leads 24/25, first row 50/51. Wave 2 covers Pittsburgh and DC, which had 0% tier-1 photos. Five DC memorials are stated gaps because the US has no freedom of panorama for sculpture.
+- 2026-10-16 · FE-A · **Spec change: one visible number in the place detail** (SPEC-v3 §3.6 rev 4/5, PANEL-R2 #11, PANEL-R3 #2; the designer confirmed this on 2026-10-16).
+  - The detail now shows only "No. k of n in {area}".
+  - "· pin N" is dropped from the badge line (en and ja `sheet.badge`): pins carry no numbers.
+  - The view position ("k of N in this {view} view") is no longer shown. It stays for assistive tech as a visually hidden `[data-sh-pos]`, together with the previous/next buttons' names, so QC's P-21/P-22 still read it.
+  - **This supersedes the R6/W7 acceptance of a visible "k of 488".** `w7-fe-a-probe.js` now asserts the new state at 390 and 1440:
+    - the hidden position still counts the whole view ("… of 488");
+    - the visible text has no "k of N" and no "pin N";
+    - exactly one "No. k of n in {area}".
+  - It is a spec change, not a weakened test.
+  - It applies to the Gallery and Atlas detail alike, since both use one component.
+### FE Atlas (FE-1) — SPEC-v3 rev 4: phone first screen (PANEL-R2 #2), Top picks (R2 #3, §2.4), count line (§2.3), dots and glyphs (R2 #6)
+- **Phone first screen (§2.2):**
+  - The map plus a 64 px list peek ("288 places here · Show list"; a tap opens the list). The carousel appears only after a selection (pin, dot, card, search result) or Near me, and the selected place is panned into the uncovered band. Escape (decided in the capture phase, so closing the detail never also drops the carousel) or a tap on empty map brings the peek back.
+  - The map controls are two labelled 44 px pills, "Near me" and "Map" (the style on show; it cycles to Satellite). At ≤ 300 px wide they keep the glyph and aria-label.
+  - The Key is never on the map on phones: it is the last section of Filters ("Map key"). Area is already the first.
+  - The header shows the back chevron (to the parent page) and the city name, with no breadcrumb trail and no wordmark.
+  - The kind chips carry no counts.
+  - Carousel cards are 282 px wide with a 72 px thumbnail. The name, kind line and "Recommended by" wrap and never truncate; the selected-state carousel is 196 px tall so nothing is cut.
+  - `C.overMap()` counts the peek as covered, so the fit and the pin labels keep clear of it.
+- **Top picks (§2.4):** the bar's Must see chip is replaced by ONE best-places control, "Top picks": the first 30 (desktop) or 12 (phone) places by map priority. Turning it on fits the map to the picks and leaves only them on the map. The count line reads "Top 30 picks"; "Show all 488" or turning it off restores every place and the reader's previous view. The route key is `top=1`, registered with a validator. Must see stays as information (the sun-wash pill, the card sticker, the Tier section in Filters).
+- **Count line (§2.3):** "354 places here · Top ranked" plus one "Show all 488". "N more outside this area" is removed. **Measurement-rule change for QA to ratify:** `qa/w7.js` atlasd "zoom/pan changes the count; "N more outside" offered" looks for the text "more outside", which §2.3 deliberately removes. The equivalent signal is the "Show all N" button (my atlas-ms check now asserts that). I haven't edited QA's harness.
+- **Measurement-rule note for QA (B-01 in Atlas on phones):** the spec's first phone screen has no card on it (map + peek), so `metrics --view atlas` B-01 "screens to first card" reads null on the phone. A card is one tap away (the peek). Please ratify a peek-aware rule for Atlas, or tell me to put a card on the first phone screen.
+- **Cards:** no rank number on Atlas cards (§2.3: the order is the ranking). "Recommended by" names two sources then "+n more".
+- **Dots (R2 #6):** an 8 px circle for sights and an 8 px rounded square for eat & drink (key updated to match).
+- **Map glyphs (R2 #6, rev 4 order):** the type noun in the place's own name first, then the collection glyph, then the compass. Japanese suffixes count as nouns: -ji / -dera / -in → lantern, -jinja / -gū / -taisha → torii, -jō → castle, -za → ticket, -en / -teien → leaf, yokochō / -dōri / -gai → awning. Built per place at build time (`data-mg`).
+- New atlas-ms checks: the phone first screen is map + a 64 px peek with no carousel (the carousel title and credit checks now run after a pin tap); Top picks (one best-places control, ≤ 30 on the map, count line names it, off restores every place); pins are measured against whichever bottom overlay is showing.
+- Not mine, red on origin too (6872dd51): w2 a11y Tokyo desktop dark, contrast 4.14 on `.food[data-gl=lantern] > .v.plate[lang=ja]` (FE-A's cover plate); reported to FE-A.
+- `tools/beta/test-fe-a.js` phone chip-row check: it expected the bar's `.ms-must` chip; per SPEC-v3 §2.4 it now expects the one best-places control `.ms-top` and **no** `.ms-must` in the bar (stricter: it also catches a second best-places control).
+- `test-fe-a.js` phone: "the Must see chip is the t=1 lens" → "the Top picks chip is the top=1 route and shows pressed" (the chip it clicked no longer exists; Must see stays reachable as Filters → Tier, t=1).
+- **Merged with Atlas FE-2 slices 1–2 (atlas-nav.js).** Fixes found in the combined head:
+  - **Paged list after Back:** cards stamped late (a Back that builds more) carry `ms-out`, but the carousel/grid face `#cleo-grid li.pl{display:grid}` outranked the hide rule, so the carousel grew to every place. `#cleo-grid li.pl.ms-out` is now `display:none !important`, and late-stamped cards join the page only if it shows them.
+  - **Swipe after closing the detail** (FE-2 fixed the same in atlas-nav.js as QA-71 — theirs kept on merge; QA w7 atlasm "swiping the carousel selects the centred card"; red on origin 10f5ea27 for NY / Chinatown / Wheeling): atlas-nav.js's close handler re-applied the saved carousel scroll at 30–800 ms and stopped only on a trusted pointer/key event, so a swipe right after Back was undone. The restore now stops once anything but itself has moved the list. Also, atlas.js's carousel scroll handler re-reads the middle card when the nav hold ends, instead of dropping the scroll. QA atlasm 56/56.
+  - **Far jumps:** a carousel jump of more than two card-widths is instant (a 12,000 px glide read as noise, and probes measured it mid-flight).
+  - **Phone select pan:** it skips `#p=` routes, an open detail and the nav hold, so it never fights atlas-nav.js's placement.
+  - **FE-2's probe:** `pickCard` in atlas-nav-ms.js opens the carousel with a pin tap on phones (marked FE-1 block): since §2.2 the phone's first screen has no cards.
+- **Still red, not fixable in Atlas files:** the #1 phone deep link (`pinUnderSheet` on 4/4 at 390). The phone detail sheet covers 116 → 844 px of an 844 px screen, so no band is left above it. SPEC §3.2 needs a partial-height phone sheet in Atlas; proposed to FE-A (sheet owner) and FE-2.
+- **R2 #13:** desktop pin select scrolls the list only to the nearest edge, and only when the card is off-screen (never past it to the footer).
+- **Keyboard (FE-2's (b)):** on desktop, msIn puts the map pane before the list in the DOM, so Tab reaches the map and its pins before the list. The explicit grid columns keep the layout; msOut restores the order.
+- **R2 #8:** the desktop preview and the phone carousel have no media block when there's no photo. The preview leads with a 40 px `--sand` glyph chip beside the name.
+- **R2 #7:** the phone ⓘ is itself a 44 × 44 button (no pseudo hit area), inside the one-line 20 px strip; attribution links get a ≥ 24 px tall hit box. Photo-credit links in cards are unchanged: padding them made the credit's scrollHeight exceed its box (QA "credits are whole").
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · W8-I18N-MAPRACE: the orchestrator assigned it to i18n, and FE-A was told.
+  - **Symptom:** when map tiles never load, `fail()` in client/city.js removes the map. A canvas redraw that Leaflet had already queued then runs with no 2D context and throws `TypeError … reading 'save'` at `Canvas._clear`. Nothing is visible, because the schematic has already replaced the map.
+  - **Scope, corrected:** this is not ja-only. The new test reproduces it in English at 390 px too; the ja probe had only ever looked at ja.
+  - **Fix:** one guard in `mountMap`, marked `// i18n D-41 / W8-I18N-MAPRACE`. The canvas renderer's `_redraw` does nothing once it has no context. `fail()`, atlas.js and the rest of the map path are unchanged.
+  - **Test:** test-i18n runs a real browser with the tile hosts blocked, on `#view=atlas&t=1`, ja and en, at 390 and 1440. It requires errors=0.
+    - Against the old city.js it fails: `ja @390` and `en @390` each throw the error.
+    - With the fix it passes.
+    - It prints SKIP where playwright is missing.
+
+### FE Atlas (FE-1) — SPEC-v3 rev 5 (PANEL-R3 #4 part) · FE-B R7-g6 shadows
+- **No sun on the map:** dots and pills carry no tier colour. Sights are light 7 px circles (`--ink` at 30 %) and eat & drink dark 8 px squares (`--ink` at 72 %; dark mode 30 % / 50 %), both with a 1.5 px surface halo. Every pill uses the surface treatment, and Must see shows in the preview, the card sticker and Filters → Tier. The Key drops its Must-see pill and draws the dots as on the map.
+- **Glyphs:**
+  - Step 0 is the per-place overrides in `design/beta/atlas/glyph-overrides.json` (Free Stamp → frame, The Arcade → bag, A Christmas Story House → frame), read at build time.
+  - New nouns: brewing / brewery / distillery / winery / taproom → bottle (Great Lakes Brewing); statue / sculpture → frame; market / shop / bookstore / arcade / yokochō / -dōri / -gai → bag.
+  - Worship outside Japan → spire.
+  - Two original line glyphs were added on the 24 px grid: `bag` and `spire`. `frame` comes from the design kit.
+- **Labels:**
+  - The location dot after Near me is a placed box, so no label covers it.
+  - After placing by estimate, `feature()` measures the real rendered pills. A pill nearer than 4 px to one already kept goes back to a dot; the selected and saved places stay labelled.
+- **FE-B R7-g6:** `.pp .pp-h` now uses `var(--ring-quiet)`, and the `.pp-1.sel` sun ring is removed (no sun on pills). The Key dots drop their 1 px surface halo rather than take the 4 px `--ring-surface`, which would swamp a 7 px dot. That leaves 3 fewer raw shadows in atlas.css.
+- The duplicate map-pane DOM move in msIn is dropped: atlas-nav.js (FE-2) owns the map-first Tab order.
+
+- 2026-10-16 17:02Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Deploy pin 3ba696e8:** QA's suite is running; B-07 is being A/B-tested against be74c82f with the same probe. Platform's first-pin shows the pin is back at the be74c82f level (Tokyo 1,653 vs 1,564 ms; NY 1,807 vs 1,760 ms).
+  - **Landed since 16:22Z:**
+    - platform: the `:has()` lint in npm test (cf6e0357), `npm run checkpoint` wrapping sync-push.sh (eedeac35), the sync-push fix for an uncommitted beta/ regeneration plus a test (43d9a895), and the R8 measurement kit draft (5f977955);
+    - FE-B: R7-g6 (letter-spacing 6, tabular 100 %, chart tokens), R7-g2 g/h, R7-g5 hubs/landing at 0 failing, QC-19 complete, QA-55 for hubs, and the switcher probe waiting for the transition;
+    - FE-A: §3.6 one visible number, designer follow-ups, and the deep-link keep-in-view;
+    - FE-C: W9-1 badges on every card type and the Recognised filter; W9-9 parked for ja;
+    - i18n: QC-21 and W8-I18N-MAPRACE;
+    - designer: QA-74 (motion ≤ 300 ms) and QA-55 footnotes at 14 px;
+    - QC: QC-11 and QC-12 verified;
+    - location: the Hotel Utah accept, orphans classified, and the daily Nominatim ledger, with a scheduled task at 03:17 UTC (trig_01P2RWA4kn9SKwApTwLdtSrm);
+    - imagery: waves 2 and 3 (Pittsburgh, DC, Bruges, Youngstown).
+  - **Gates on 7c280435:** validate, npm test (alone) and beta:check are all green.
+## FE-A — QA-72, QC-22, QA-73, QA-55 (Guidebook), R7-g6 tokens, D-40 (a) Gallery sizes (2026-10-16)
+- **QA-72:** the detail's "Read what <source> says" link wraps inside its button. The label is in `.lbl` and the icon rides the last word (QA-59d). The button is ≥ 44 px. The Met at 390 is now 350 px wide and inside the sheet (was 455 px).
+- **QA-59b:** the nav row has no "k of N" since ad23309d (§3.6), so nothing is left to clip. The probe asserts it on 40 New York places.
+- **QC-22 (spec/copy change):** `city.how.order` now reads "We don’t add ratings, prices or opening hours of our own. Any quoted in a write-up are the source’s, dated." (D-42). The ja is drafted and sent to i18n for review.
+  - The honesty scanners' allowlists (`qa/test-honesty.js`, `qa/views.js`, `qa/w4.js`) gain this one exact sentence, next to the old one. This is not a weakening: the sentence is a disclaimer, and every other ratings/prices mention is still flagged.
+- **QA-73:** on phones the US crumb reads "‹ US". The full name stays in the link, visually hidden, so assistive tech reads "United States". Desktop is unchanged. The short form is used only for a 2-letter country key with a name over 10 characters (`lib/render/shell.js` `trail()`).
+- **QA-55 (Guidebook):** `.gfacts` and `.gsig` use `--fs-body` (16 px).
+- **R7-g6:** fe-a.css has no raw letter-spacing left (12 → `--track-tight` / `--track-vert` / 0) and no raw `var(--city)` rings (→ `--ring-select` / `--ring-select-halo`).
+- **D-40 (a):** Gallery cards ask for 240 px on 3× phones when they have a 600–799 w copy, matching `cardSizes()`. Kanda Myōjin loads once. `beta:qa:w8p` Tokyo phone: 617 KB.
+- **QC-17 (with FE-C, whose half is 70060b332):** on the phone carousel, FE-C's base line ("1.9 km from … · 23 min walk") gets its own full-width row and wraps; the distance and the walk time are never cut. The carousel grows to the tallest card on show (`fitCar`: name, kind, sources, the credit inside the display:contents figure, and the base line; floor 196 px, cap 45 % of the screen), and the pin labels re-place clear of it. The card's text rows no longer carry `min-height:0`, which had let the grid squeeze them below their content inside the fixed-height card, so the wrapped kind and sources lines overlapped. The recognition row stays in the detail and the preview, not the carousel.
+- **atlas-ms:** the carousel credit check now reports the credit and card rectangles when it fails.
+
+
+- 2026-10-16 17:38Z · **Orchestrator** · check-in; QA NO on 3ba696e8 · commit: this entry's commit
+  - **QA verdict on 3ba696e8: NO.** Open High is 0; QA-70 and QA-71 are fixed.
+    - Three Med regressions (QC-26, QA-75, QA-76) all bisect to PERF-08 1538974d, the selective stamping.
+    - FE-2 has QC-26 fixed (probe 12/12). Platform and FE-2 are fixing QA-75 and QA-76.
+    - Timebox: fix forward by 18:20Z, otherwise revert 1538974d's FE parts.
+  - **w8p:**
+    - It went red on the head at 762 KB, from FE-C e1540ffd (the page JSON on the first screen) and a Kanda double load. FE-C b8a3a6ae and FE-A 8b06f542 fixed both: Tokyo is now 618 KB.
+    - The pin was 651 KB, measured by the orchestrator in a clean worktree.
+  - **QC:**
+    - Verified: QC-10, 15, 17, 19.
+    - New: QC-23 (Before it closed never visible), QC-24 (the "any" chip) and QC-25 (a raw status note on closed cards), routed to FE-C and FE-A. QC-26 is above.
+  - **FE-C's W9 audit** (78065c84): the gaps went to FE-B (W9-2 acc2/acc5, W9-6 acc1/acc4), platform (W9-8 pack test, W9-9 publisher typing) and location (7 closed places without a statusSource).
+  - **FE-A** (8b06f542): QA-72, QA-73, QC-22, QA-55 and R7-g6 in fe-a.css. FE-B: R7-g6 closed, with 0 letter-spacings and 7 shadows pinned.
+- **Phone switcher (FE-B QC-09, §v2.11) and chip row (rev 5 §2.2, R3 #1):**
+  - On phones Atlas now shows FE-A's city-bar switcher row, as every other view does: four segments visible, one tap per switch. It's a fixed 52 px row under the header (`--cbar-o`), and the chip row and the map sit under it. The switcher is no longer parked last in the scrolling chip row, where it went off-screen at 390.
+  - The chip row reads: search, All / Sights / Eat & drink, Top picks, Area, Filters. The search pill is sticky at the row's left edge, so it stays visible whichever chip is selected. Saved (the header's heart) and sort (in Filters) leave the row.
+  - Clear map on the first phone screen drops by the 52 px row. The switcher had to be visible (§v2.11); flagged to the designer against the §2.2 75 % budget.

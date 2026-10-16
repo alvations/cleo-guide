@@ -1,0 +1,139 @@
+{
+ "page": "Singapore/chinatown.html",
+ "phone": {
+  "map": [
+   0,
+   60,
+   390,
+   784
+  ],
+  "peekTray": {
+   "top": 664,
+   "visibleH": 180
+  },
+  "peekText": "Chinatown & CBD 16 All 16",
+  "controls": [
+   "am-ctl:Must see",
+   "am-ctl:Street",
+   "am-ctl:LegendChinatown & CBDBig pin = Mu",
+   "leaflet-control-zoom-in:+",
+   "leaflet-control-zoom-out:−",
+   "am-ctl:Show my location on the map (stay"
+  ],
+  "geoCallsAtLoad": 0,
+  "markers": {
+   "all": 0,
+   "clusters": 0,
+   "labelled": 0
+  },
+  "tray_half": {
+   "top": 405,
+   "shareOfScreen": "52%",
+   "mapVisiblePx": 345
+  },
+  "tray_full": {
+   "top": 124,
+   "shareOfScreen": "85%",
+   "mapVisiblePx": 64
+  },
+  "tray_peek": {
+   "top": 620,
+   "shareOfScreen": "27%",
+   "mapVisiblePx": 560
+  },
+  "pinTap": {
+   "x": 195,
+   "y": 489,
+   "w": 14,
+   "h": 14,
+   "candidates": 8
+  },
+  "afterPin": {
+   "open": true,
+   "text": "Chinatown & CBD · pin 4 4 Must see within Chinatown & CBD Sri Mariamman Temple Singapore's",
+   "hash": "#view=atlas"
+  },
+  "afterBack": {
+   "open": false,
+   "hash": "#view=atlas",
+   "url": "apore/chinatown.html"
+  },
+  "geoCallsAfterLocateTap": 1,
+  "storedGeo": [],
+  "baseOptions": [
+   "Must see",
+   "Light"
+  ],
+  "baseLabelAfter": "Light",
+  "legend": "Must see Light Legend Chinatown & CBD Big pin = Must see Grey pin = closed, kept for the record 12 Bubble = nearby pins, zoom in + − Leaflet | Tiles © Esri",
+  "errors": []
+ },
+ "desktop": {
+  "map": [
+   518,
+   160,
+   922,
+   740
+  ],
+  "mapShare": "64%",
+  "list": [
+   40,
+   442,
+   "31%"
+  ],
+  "controls": [
+   "am-ctl:",
+   "am-ctl:Must see",
+   "am-ctl:Street",
+   "am-ctl:LegendChinatown & CBDBig pin ="
+  ],
+  "markers": {
+   "all": 16,
+   "clusters": 0,
+   "labelled": 16,
+   "paths": 16,
+   "sample": [
+    "pin-n   foc:1",
+    "pin-n   foc clash:2",
+    "pin-n   foc clash:3",
+    "pin-n   foc clash:4",
+    "pin-n   foc clash:5",
+    "pin-n   foc clash:6"
+   ]
+  },
+  "rankMatch": {
+   "cardNums": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+   ],
+   "foundOnMap": 8
+  },
+  "hoverHot": [
+   "DIV.pin-n   foc sel:1"
+  ],
+  "pinClick": {
+   "pin": {
+    "x": 1055.390625,
+    "y": 816,
+    "cls": "leaflet-interactive"
+   },
+   "cardLit": true,
+   "cardText": "1 Must see within Chinatown & CBD · Hainanese Chicken Rice T",
+   "cardInView": true,
+   "sheet": false,
+   "hash": "#view=atlas"
+  },
+  "flyTo": {
+   "hash": "#view=atlas&p=kanda-myojin",
+   "pinCls": null,
+   "pinOffsetFromMapCentre": null
+  },
+  "errors": []
+ }
+}

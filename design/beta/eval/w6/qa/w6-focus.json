@@ -1,0 +1,86 @@
+{
+ "head": "2f227631252db2a90fd7e76541365a151871ac99",
+ "checks": [
+  {
+   "group": "focus",
+   "name": "cleveland.html mobile: every Atlas map / tray control shows a focus ring (23 controls)",
+   "ok": true,
+   "evidence": {
+    "bad": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html desktop: every Atlas map / tray control shows a focus ring (10 controls)",
+   "ok": true,
+   "evidence": {
+    "bad": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html mobile: every Atlas map / tray control shows a focus ring (30 controls)",
+   "ok": true,
+   "evidence": {
+    "bad": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html desktop: every Atlas map / tray control shows a focus ring (10 controls)",
+   "ok": true,
+   "evidence": {
+    "bad": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/newyork.html mobile: every Atlas map / tray control shows a focus ring (37 controls)",
+   "ok": true,
+   "evidence": {
+    "bad": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/newyork.html desktop: every Atlas map / tray control shows a focus ring (46 controls)",
+   "ok": true,
+   "evidence": {
+    "bad": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html mobile: every Atlas map / tray control shows a focus ring (11 controls)",
+   "ok": true,
+   "evidence": {
+    "bad": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html desktop: every Atlas map / tray control shows a focus ring (10 controls)",
+   "ok": true,
+   "evidence": {
+    "bad": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/wheeling.html mobile: every Atlas map / tray control shows a focus ring (11 controls)",
+   "ok": true,
+   "evidence": {
+    "bad": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/wheeling.html desktop: every Atlas map / tray control shows a focus ring (10 controls)",
+   "ok": true,
+   "evidence": {
+    "bad": []
+   }
+  }
+ ],
+ "info": {}
+}

@@ -151,6 +151,82 @@ console.log('\n== W2: signature lines from data, distinct tiles, themes computed
   chk('generated pages whose footer does not link accessibility.html', manifest.generated.filter(r => !/<footer[\s\S]*accessibility\.html/.test(rd(r))), a => a.length === 0);
 }
 
+// ── 7. W7: hub "Known for" from the guides' signatures; a hub hero photo never repeated on a card ─────────
+console.log('\n== W7: hub "Known for" from child guides\' signatures; hero photo not reused by a card ==');
+{
+  const guideIdx = Object.fromEntries(JSON.parse(rd('data/guide.json')).pages.map(p => [p.key, p]));
+  const hubs = manifest.pages.filter(p => p.kind === 'country-hub' && p.gen === 'new');
+  const badKnown = [], dupHero = [], sameDish = [];
+  // one dish, several names (the guides' canon table writes synonyms as "gaufre|waffle|waffles"): a class per synonym set
+  const { CANON } = require('./lib/guide');
+  const fold = x => String(x).normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  const cls = new Map();
+  for (const c of Object.values(CANON)) for (const dd of c.dishes || []) { const alts = dd.split('|').map(fold); for (const x of alts) if (!cls.has(x)) cls.set(x, alts.slice().sort().join('|')); }
+  const dishClassOf = n => cls.get(fold(n)) || fold(n);
+  let nKnown = 0;
+  for (const h of hubs) {
+    const d = doc(rd(h.beta));
+    const kids = cityPages.filter(p => p.country === h.country);
+    // allowed: each child guide's signature (tile line) and its open tier-1 record names
+    const allowed = kids.flatMap(p => {
+      const g = guideIdx[p.key], j = JSON.parse(rd(`data/places/${p.key.replace(/\//g, '--')}.json`));
+      return (g && g.tileLine ? g.tileLine.split(' · ') : []).concat(j.places.filter(x => !x.closed && x.t === 1).map(x => x.n));
+    });
+    const classes = [];
+    for (const s of d.querySelectorAll('.chero .why .l > span')) {
+      nKnown++;
+      classes.push(dishClassOf(s.textContent.trim()));
+      const t = s.textContent.trim();
+      if (!allowed.some(a => a.startsWith(t))) badKnown.push(`${h.beta}: ${t}`);
+    }
+    if (new Set(classes).size !== classes.length) sameDish.push(`${h.beta}: ${classes.join(' / ')}`);
+    const heroSrc = [...d.querySelectorAll('.chero .hero-media figcaption a')].map(a => a.getAttribute('href')).find(u => !/creativecommons|\/licen[cs]e|publicdomain/i.test(u || ''));
+    if (heroSrc) for (const a of d.querySelectorAll('li.dest .credit a')) if (a.getAttribute('href') === heroSrc) dupHero.push(`${h.beta}: ${heroSrc}`);
+  }
+  chk(`hub "Known for" items (${nKnown}) that are neither a child guide's signature nor an open tier-1 place`, badKnown, a => a.length === 0 && nKnown >= hubs.length);
+  chk('hub hero photo reused by a card on the same hub', dupHero, a => a.length === 0);
+  chk('hub "Known for" lines naming one dish twice (synonyms from the canon table)', sameDish, a => a.length === 0);
+}
+
+// ── 8. W9-2: the landing's "<month> in Cleo" module — every number a sum of data/changes.json; links resolve ──────
+console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed links + the feed resolve ==');
+{
+  const C = JSON.parse(rd('data/changes.json')), d = doc(rd('index.html'));
+  const sec = d.getElementById('month'), act = C.pages.filter(p => p.month && (p.month.checked || p.month.closed));
+  const sum = k => act.reduce((t, p) => t + p.month[k], 0), n = x => x.toLocaleString('en-US');
+  chk('module present, for the newest month on record', !!sec && sec.querySelector('.month-lede').dataset.month === C.month, true);
+  const lede = sec ? sec.querySelector('.month-lede').textContent : '';
+  chk('lede numbers == changes.json sums (re-checked, closed, retiring, pins, guides)', [n(sum('checked')), n(sum('closed')), n(sum('retiring')) + ' of them retiring', n(sum('pins')), String(act.length)].every(x => lede.includes(x)), true);
+  // retiring is recomputed here from the closure notes themselves (lib/changes.js RETIRING), never typed. QC-25: the
+  // notes never ship, so they are read from data/geocodes.json (closed entries, by base name) for each closure this month
+  const { RETIRING } = require('./lib/changes'), { baseName } = require('./lib/model');
+  const GEO = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'geocodes.json'), 'utf8')).cities, notes = {};
+  Object.values(GEO).forEach(c => Object.entries(c || {}).forEach(([nm, e]) => { if (e && e.status === 'closed' && e.statusSource) (notes[baseName(nm)] = notes[baseName(nm)] || []).push(e.statusSource); }));
+  const rt = C.pages.reduce((t, p) => t + JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.filter(e => e.kind === 'closed' && e.d.slice(0, 7) === C.month && (notes[e.name] || []).some(n => RETIRING.test(n))).length, 0);
+  // QC-25: no closure note text on any What changed page — a "Status source" link (an http URL) or nothing
+  const CHG = C.pages.map(p => [p.changesPage, rd(p.changesPage)]), snip = Object.values(notes).flat().map(n => String(n).replace(/https?:\/\/\S+/g, '').replace(/[&<>"']/g, ' ').trim().slice(0, 40)).filter(x => x.length >= 20);
+  chk('no closure note text on any changes page (QC-25): no "Status source:" prose, no note snippet, source links are http(s)', CHG.filter(([, h]) => /Status source:/.test(h) || snip.some(x => h.includes(x)) ||
+    [...h.matchAll(/<a href="([^"]*)"[^>]*>Status source<\/a>/g)].some(m => !/^https?:\/\//.test(m[1]))).map(([f]) => f), a => a.length === 0);
+  // QC-25: no closure note text in any shipped JSON — only its URL (src)
+  chk('no closure note text ships in data/places/*.json (QC-25)', C.pages.filter(p => JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.some(e => 'note' in e || (e.src && !/^https?:\/\//.test(e.src)))).map(p => p.key), a => a.length === 0);
+  chk(`retiring (${rt}) == closures this month whose sourced note announces a retirement or a last day`, sum('retiring') === rt, true);
+  const mName = JSON.parse(rd('assets/i18n/en.json')).strings['land.month.names'].split(',')[+C.month.slice(5, 7) - 1] + ' ' + C.month.slice(0, 4);
+  chk(`heading reads "This month in Cleo"; the lede names the month (${mName})`, !!sec && sec.querySelector('#month-h').textContent === 'This month in Cleo' && lede.startsWith('In ' + mName + ':'), true);
+  const rows = sec ? [...sec.querySelectorAll('.month-list a')] : [];
+  const bad = rows.filter(a => { const p = C.pages.find(x => x.changesPage === a.getAttribute('href'));
+    return !p || !fs.existsSync(path.join(BETA, a.getAttribute('href'))) || +a.dataset.checked !== p.month.checked || +a.dataset.closed !== p.month.closed; }).map(a => a.getAttribute('href'));
+  chk(`rows (${rows.length}) == guides with activity, each linking to its What changed page with its own numbers`, bad.length === 0 && rows.length === act.length, true);
+  const feed = sec && sec.querySelector('a[href="feeds/all.xml"]');
+  chk('"Follow changes" links the site feed, which exists', !!feed && /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/.test(rd('feeds/all.xml')), true);
+}
+
+// ── 9. R7-g2b: the tab bar is fully opaque — content never shows through it ──────────────────────────────────
+{
+  const css = rd('assets/cleo.css');
+  const top = [...css.matchAll(/:root \.tabbar\s*\{([^}]*)\}/g)].map(m => m[1]).filter(b => /background\s*:/.test(b)).pop() || '';
+  chk('tab bar background is opaque (the winning :root .tabbar rule)', (/background\s*:\s*([^;]+)/.exec(top) || [])[1], v => !!v && !/color-mix|transparent|rgba|hsla|\/\s*[\d.]+%?\s*\)/.test(v));
+}
+
 // ── 5. voice lint ──────────────────────────────────────────────────────────
 console.log('\n== VOICE: urgency lint on FE-B pages ==');
 {
@@ -160,24 +236,25 @@ console.log('\n== VOICE: urgency lint on FE-B pages ==');
 }
 
 // ── 4. states, in jsdom ────────────────────────────────────────────────────
-async function load(rel, { url, storageThrows = false, fetchFails = false } = {}) {
+async function load(rel, { url, storageThrows = false, fetchFails = false, seed = null } = {}) {
   const html = rd(rel).replace(/<script src="([^"]+)"( defer)?><\/script>/g, (m, src) => {
     const p = path.join(BETA, path.posix.dirname(rel), src.split('?')[0]);
     return fs.existsSync(p) ? `<script>${fs.readFileSync(p, 'utf8').replace(/<\/script/g, '<\\/script')}</script>` : '';
   });
-  const errors = [];
+  const errors = [], fetched = [];
   const dom = new JSDOM(html, { url: url || 'https://cleo.local/beta/' + rel, runScripts: 'dangerously', pretendToBeVisual: true,
     beforeParse(w) {
       w.addEventListener('error', e => errors.push(String(e.message)));
       if (storageThrows) Object.defineProperty(w, 'localStorage', { get() { throw new Error('blocked'); } });
-      w.fetch = () => fetchFails ? Promise.reject(new Error('offline'))
-        : Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(rd('data/search.json'))) });
+      else if (seed) for (const k in seed) w.localStorage.setItem(k, JSON.stringify(seed[k]));
+      w.fetch = u => { fetched.push(String(u)); return fetchFails ? Promise.reject(new Error('offline'))
+        : Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(rd((/(?:^|\/)(data\/[\w./-]+\.json)$/.exec(String(u)) || [])[1] || 'data/search.json'))) }); };   // the site's own data files
       w.Element.prototype.scrollIntoView = function () {};
     } });
   await sleep(60);
   dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
   await sleep(250);
-  return { w: dom.window, d: dom.window.document, errors };
+  return { w: dom.window, d: dom.window.document, errors, fetched };
 }
 
 (async () => {
@@ -206,6 +283,80 @@ async function load(rel, { url, storageThrows = false, fetchFails = false } = {}
     const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=a', });
     const shown = d.querySelectorAll('#results .grp:not(.guides) li').length, head = d.querySelector('#results h2').textContent;
     chk('search: every match reachable (folded groups expand to all)', (() => { d.querySelectorAll('[data-cleo-more]').forEach(b => b.click()); return d.querySelectorAll('#results .grp:not(.guides) li:not([hidden])').length === shown && head.startsWith(String(shown)); })(), true);
+  }
+  // W9-3: interests picked on a city page follow you — a "For you" rail on the landing and hubs that only reorders
+  {
+    const { d } = await load('index.html');
+    chk('for you: no interests → no rail', d.getElementById('foryou').hidden, true);
+  }
+  for (const [rel, on] of [['index.html', ['history']], ['index.html', ['food', 'art']], ['Japan/index.html', ['pop']]]) {
+    const { w, d, errors } = await load(rel, { seed: { 'cleo:v1:interests': on } });
+    const sec = d.getElementById('foryou'), rows = [...sec.querySelectorAll('.fy-list a')];
+    const cards = [...d.querySelectorAll('li.dest[data-page]')].filter(li => !sec.contains(li));
+    const want = new Map();                                   // expected: open places per guide for these ids, from data-fy
+    for (const li of cards) { const k = li.querySelector('a').getAttribute('href'); if (want.has(k)) continue;
+      const fy = Object.fromEntries((li.getAttribute('data-fy') || '').split(' ').filter(Boolean).map(x => x.split(':')).map(([a, b]) => [a, +b]));
+      want.set(k, on.reduce((s, id) => s + (fy[id] || 0), 0)); }
+    const got = rows.map(a => [a.getAttribute('href'), +a.getAttribute('data-fy-rank')]);
+    chk(`for you (${rel} · ${on}): rail shown`, !sec.hidden && rows.length > 0, true);
+    chk(`for you (${rel} · ${on}): every guide with a match, most first, counts == data-fy`, JSON.stringify(got),
+      JSON.stringify([...want].filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])));   // stable: page order on ties
+    chk(`for you (${rel} · ${on}): each row says "First because …" with each interest's own open-place count (no summed total)`,
+      rows.filter(a => { const li = cards.find(c => c.querySelector('a').getAttribute('href') === a.getAttribute('href'));
+        const fy = Object.fromEntries(li.getAttribute('data-fy').split(' ').map(x => x.split(':')));
+        return a.querySelector('.dest-s').textContent !== 'First because: ' + on.filter(id => +fy[id] > 0).map(id => JSON.parse(sec.getAttribute('data-labels'))[id] + ' ' + (+fy[id]).toLocaleString('en-US')).join(' · ') || a.querySelector('.dest-c'); }), a => a.length === 0);
+    chk(`for you (${rel} · ${on}): reorders only — every guide card still listed`, cards.length, cards.filter(li => !li.closest('[hidden]')).length);
+    if (rel === 'index.html' && on.length === 1) {
+      sec.querySelector('[data-cleo-fy-clear]').click(); await sleep(10);
+      chk('for you: Clear hides the rail and forgets the interests', sec.hidden && w.localStorage.getItem('cleo:v1:interests') === '[]', true);
+    }
+    chk(`for you (${rel}): no JS errors`, errors, a => a.length === 0);
+  }
+  {
+    const { d, errors } = await load('Japan/index.html', { storageThrows: true });
+    chk('for you: storage blocked → no rail, no errors', d.getElementById('foryou').hidden && errors.length === 0, true);
+  }
+  // W9-6: paste a link — a source URL opens that source's places; the pasted address is only read, never fetched
+  {
+    const { d, errors, fetched } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=' + encodeURIComponent('https://www.timeout.com/chicago/restaurants/x') });
+    const box = d.querySelector('#results [data-cleo-source]'), links = [...d.querySelectorAll('#results a[href*="#src="]')];
+    chk('paste a link: a source URL lists the guides that cite it', !!box && links.length >= 1 && links.some(a => /chicago\.html#src=time-out-chicago$/.test(a.getAttribute('href'))), true);
+    chk('paste a link: every #src= link resolves to a built guide', links.filter(a => !fs.existsSync(path.join(BETA, a.getAttribute('href').split('#')[0]))), a => a.length === 0);
+    chk('paste a link: nothing fetched from the pasted host', fetched.filter(u => /timeout\.com/.test(u) || /^https?:/.test(u) && !u.startsWith('https://cleo.local/')), a => a.length === 0);
+    chk('paste a link: no JS errors', errors, a => a.length === 0);
+  }
+  {
+    const { d, fetched } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=' + encodeURIComponent('https://zzqxv-unknown.example/a') });
+    const st = d.querySelector('#results [data-cleo-state="no-source"]'), sug = st && st.querySelector('a[data-cleo-suggest]');
+    chk('paste a link: an unknown host says so plainly (VOICE) and offers "Suggest this source" via the project issue flow', !!st && /^No guide cites zzqxv-unknown\.example yet\./.test(st.querySelector('h3').textContent)
+      && !!sug && sug.textContent === 'Suggest this source' && sug.getAttribute('href').startsWith('https://github.com/alvations/cleo-guide/issues/new?labels=source-suggestion'), true);
+    chk('paste a link: an unknown URL makes 0 calls beyond the site\'s own JSON', fetched.filter(u => !/^(?:https:\/\/cleo\.local\/beta\/)?data\/[\w./-]+\.json$/.test(u)), a => a.length === 0);
+  }
+  // W9-6 acc1: a site match opens "Everything <source> recommends, in N guides"; a specific page also lifts the places citing
+  // exactly that URL. gotokyo.org has no listed domain — it is learnt from the URLs the Tokyo records cite.
+  {
+    const u = 'https://www.gotokyo.org/en/story/guide/a-noble-look-at-tokyos-imperial-palace-a-guide-to-the-royal-residence/index.html?utm=x#top';
+    const { d, errors } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=' + encodeURIComponent(u) });
+    const hs = [...d.querySelectorAll('#results h2[data-cleo-source]')].map(h => h.textContent);
+    const ex = [...d.querySelectorAll('#results [data-cleo-source-url] a')].map(a => a.getAttribute('href'));
+    chk('paste a link: gotokyo.org (no listed domain) → "Everything GO Tokyo recommends, in 1 guide"; the page lifts its place', [hs.some(t => /^Everything GO Tokyo recommends, in 1 guide/.test(t)), ex.includes('cities/tokyo.html#p=imperial-palace-east-gardens'), errors.length], a => JSON.stringify(a) === '[true,true,0]');
+  }
+  {
+    // 20 cited URLs sampled across all guides: each opens its source's view with that guide (#src=<id>) and the page's places
+    const all = []; for (const f of fs.readdirSync(path.join(BETA, 'data/places'))) { const j = JSON.parse(rd('data/places/' + f)), g = {};
+      (j.sourceIndex || []).forEach(s => (s.entries || []).forEach(e => { g[e.key] = s.id; }));
+      j.places.forEach(pl => (pl.s || []).forEach(([k, url]) => { if (/^https?:\/\//.test(url || '') && g[k] && g[k] !== 'guide') all.push([j.beta, g[k], pl.id, url]); })); }
+    const pick = Array.from({ length: 20 }, (_, i) => all[Math.floor((i + 0.5) * all.length / 20)]);
+    const { w, d } = await load('index.html');
+    const host = d.createElement('div'); d.body.appendChild(host); const bad = [];
+    for (const [beta, sid, id, url] of pick) {
+      await w.Cleo.query(host, url); await sleep(5);
+      const src = [...host.querySelectorAll('h2[data-cleo-source] + ol a, [data-cleo-source] ~ ol a')].map(a => a.getAttribute('href'));
+      const ex = [...host.querySelectorAll('[data-cleo-source-url] a')].map(a => a.getAttribute('href'));
+      const okSrc = [...host.querySelectorAll('a')].some(a => a.getAttribute('href') === beta + '#src=' + encodeURIComponent(sid));
+      if (!okSrc || !ex.includes(beta + '#p=' + encodeURIComponent(id))) bad.push(`${url} → src ${okSrc}, place ${ex.includes(beta + '#p=' + encodeURIComponent(id))}`);
+    }
+    chk(`paste a link: 20 sampled source URLs open the right source view (guide + #src) and lift the citing place`, bad, a => a.length === 0);
   }
   {
     const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=ramen', fetchFails: true });
