@@ -242,7 +242,17 @@
   let quiet = 0;
   // phones (SPEC-v3 §2.2): the first screen is the map + a 64 px list peek; the carousel appears only after a selection
   // (a pin, a dot, a card, a search result) or Near me, and Escape or a tap on empty map brings the peek back
-  const car = o => { const was = H.classList.contains('ms-car'); H.classList.toggle('ms-car', !!o && !desk()); if (was !== H.classList.contains('ms-car')) { if (C.msPaint) C.msPaint(); if (C.feature) C.feature(); } };
+  // the selected-state carousel is as tall as the tallest card on show needs (wrapped names, sources, credit, the base
+  // line) — never clipped (§3.3, QC-17); 196 px is the floor
+  const fitCar = () => { if (desk() || !lp || !H.classList.contains('ms-car') || H.classList.contains('ms-list')) { H.style.removeProperty('--car-h'); return; }
+    const L = lp.getBoundingClientRect(); let need = 196;
+    qa('li.pl', lp).forEach(c => { const r = c.getBoundingClientRect(); if (!r.width || r.right < L.left || r.left > L.right) return;
+      // the credit sits inside the display:contents figure, so it is measured too
+      let b = r.top; [].forEach.call(c.querySelectorAll(':scope > *, :scope > figure > figcaption'), x => { const q = x.getBoundingClientRect(); if (q.height && getComputedStyle(x).position !== 'absolute') b = Math.max(b, q.bottom); });
+      need = Math.max(need, Math.ceil(b - r.top + 12)); });
+    need = Math.min(need, Math.round(innerHeight * 0.45)); if (need !== parseInt(H.style.getPropertyValue('--car-h') || '0', 10)) { H.style.setProperty('--car-h', need + 'px'); if (C.feature) C.feature(); } };   // the labels re-place clear of the taller carousel and the controls above it
+  C.fitCar = fitCar;
+  const car = o => { const was = H.classList.contains('ms-car'); H.classList.toggle('ms-car', !!o && !desk()); if (was !== H.classList.contains('ms-car')) { if (C.msPaint) C.msPaint(); if (C.feature) C.feature(); } requestAnimationFrame(fitCar); [250, 800].forEach(t => setTimeout(fitCar, t)); };   // again once photos and fonts settle
   C.car = car;
   const select = C.select = (c, how) => {
     if (!c) return;
@@ -285,6 +295,7 @@
       const mid = lp.getBoundingClientRect().left + lp.clientWidth / 2;
       const c = qa('li.pl', lp).filter(x => x.offsetWidth && !x.hidden).sort((x, y) => { const a = x.getBoundingClientRect(), b = y.getBoundingClientRect(); return Math.abs(a.left + a.width / 2 - mid) - Math.abs(b.left + b.width / 2 - mid); })[0];
       if (c && c !== selC) select(c, Date.now() - qSwipe < 900 ? 'pinned' : 'swipe');
+      fitCar();
     }, 140);
   };
   on(lp, 'scroll', swiped, { passive: true });
@@ -398,7 +409,7 @@
     tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k));
   };
   // cards stamped later (a deep link, a route that builds more) join the page only if it shows them: a kept list stays the list
-  C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (!atlas()) return; if (lastShow && H.classList.contains('ms-on')) qa('li.pl:not(.ms-out)').forEach(c => { if (!c.hidden && !lastShow[C.pid(c)] && c !== selC && !c.classList.contains('is-target')) c.classList.add('ms-out'); }); requestAnimationFrame(paintMs); }); on(d, 'cleo:saved', paintMs);
+  C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (!atlas()) return; if (lastShow && H.classList.contains('ms-on')) qa('li.pl:not(.ms-out)').forEach(c => { if (!c.hidden && !lastShow[C.pid(c)] && c !== selC && !c.classList.contains('is-target')) c.classList.add('ms-out'); }); requestAnimationFrame(() => { paintMs(); fitCar(); }); }); on(d, 'cleo:saved', paintMs);
   // phones: List ⇄ Map. The list is the full-screen image-first list of the places in the map area (Back closes it).
   // FE-A's shared card face, except the carousel; phone thumbs ask for the 500w copy (carousel 120px, list 240px)
   const face = () => { const car = atlas() && !desk() && !listOn; if (lp) lp.classList.toggle('w7-cards', atlas() && !car);
