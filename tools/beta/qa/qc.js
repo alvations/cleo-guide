@@ -53,7 +53,7 @@ const CHECKS = {
   'S-01': 'Token discipline (static census)', 'S-02': 'Token discipline (runtime inline styles)', 'S-03': 'Spacing rhythm',
   'S-04': 'Alignment', 'S-05': 'Component states', 'S-06': 'Truncation and clipping', 'S-07': 'Widows and orphans',
   'S-08': 'Sentence case', 'S-09': 'Credits visible', 'S-10': '44 px targets', 'S-11': 'AA contrast', 'S-12': 'No layout shift on load',
-  'S-13': 'No horizontal overflow', 'S-14': 'No errors', 'S-15': 'Focus visible',
+  'S-13': 'No horizontal overflow', 'S-14': 'No errors', 'S-15': 'Focus visible', 'S-16': 'No internal editorial phrases in visible text',
 };
 if (has('--list')) { Object.entries(CHECKS).forEach(([k, v]) => console.log(k.padEnd(6), v)); console.log(Object.keys(CHECKS).length + ' checks'); process.exit(0); }
 
@@ -926,6 +926,12 @@ const SWEEP = new Function('cfg', `${P_VIS}
     by.forEach(v => { const t = v.replace(/\\s+/g, ' ').trim(); if (t && t.length <= 70 && t.split(' ').length >= 2) segs.add(t); }); });
   segs.forEach(t => { const fixed = sc(t); if (fixed !== t) cas.push({ t: t.slice(0, 60), want: fixed.slice(0, 60) }); });
   out.casing = { n: cas.length, sample: cas.slice(0, 10) };
+  // S-16 internal pipeline / editorial phrases that must never reach a reader (orchestrator, 2026-10-16)
+  const JARGON = /\\b(kept flagged|worklist|per editorial rule|editorial rule|geocoded|geocod(e|ing) (pass|backlog)|statusSource|UNVERIFIED|TODO|FIXME|lorem ipsum)\\b/i;
+  const jt = []; const tw3 = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  for (let n; (n = tw3.nextNode());) { const pe = n.parentElement; if (!pe || pe.closest('script,style,noscript,template')) continue; const m = JARGON.exec(n.textContent); if (m && (vis(pe) || pe.closest('li.pl'))) jt.push({ t: n.textContent.replace(/\\s+/g, ' ').trim().slice(0, 90), m: m[0], el: (pe.closest('li.pl') || pe).id || pe.className.toString().slice(0, 30) }); }
+  document.querySelectorAll('noscript[data-cleo-defer]').forEach(ns => { const txt = (ns.textContent || '').replace(/<[^>]+>/g, ' '); const m = JARGON.exec(txt); if (m) { const i = txt.search(JARGON); jt.push({ t: txt.slice(Math.max(0, i - 60), i + 40).replace(/\\s+/g, ' ').trim(), m: m[0], el: 'deferred card' }); } });   // cards not yet stamped
+  out.jargon = { n: jt.length, sample: jt.slice(0, 6) };
   out.cls = { cls: +(window.__cls || 0).toFixed(4), shifts: (window.__shifts || []).slice(0, 5) };
   return out;`);
 async function sweepPage(rel, vp, theme) {
@@ -954,6 +960,7 @@ async function sweepPage(rel, vp, theme) {
   if (theme === 'light') S('S-08', r.casing.n ? 'FAIL' : 'PASS', r.casing);
   S('S-12', r.cls.cls <= 0.05 ? 'PASS' : r.cls.cls <= 0.1 ? 'WARN' : 'FAIL', r.cls);
   S('S-14', ok(!st.errors.length), { errors: st.errors.slice(0, 4) });
+  if (theme === 'light') S('S-16', r.jargon.n ? 'FAIL' : 'PASS', r.jargon);
   if (wide && theme === 'light') {
     const stops = await keyboard(page, 30); const bad = stops.filter(s => s.tag !== 'BODY' && !s.ring);
     S('S-15', bad.length ? 'FAIL' : 'PASS', { stops: stops.length, noRing: bad.slice(0, 5).map(s => s.tag + ' ' + s.t) });

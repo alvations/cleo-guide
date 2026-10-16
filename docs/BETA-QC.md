@@ -56,7 +56,7 @@ platform (core.js, route, store, build, tokens) · designer (tokens, type, spaci
 
 ## Checklist
 
-55 checks in three groups (28 pattern, 12 journey, 15 sweep), run as roughly 7,000 measurements per full pass (91 pages × 6 sweep loads, 10 pattern runs, 28 journey runs). Each id below is what `qc.js --list` prints and what `qc.json` records. **Auto** = measured
+56 checks in three groups (28 pattern, 12 journey, 16 sweep), run as roughly 7,000 measurements per full pass (91 pages × 6 sweep loads, 10 pattern runs, 28 journey runs). Each id below is what `qc.js --list` prints and what `qc.json` records. **Auto** = measured
 by the harness; **auto + look** = measured, with screenshots a human reads before filing; **manual** = recorded by the
 QC reviewer from the screenshots and noted in the pass section.
 
@@ -137,6 +137,7 @@ Run on all 91 pages at 390, 768, 1024 and 1440 in light, plus 390 and 1440 in da
 | **S-13** | No horizontal overflow | `scrollWidth ≤ innerWidth` at every width; offenders named. | auto |
 | S-14 | No errors | 0 page errors and 0 console errors (blocked-network noise excluded) on every load. | auto |
 | S-15 | Focus visible | The first 30 Tab stops each show an outline or a box shadow. | auto |
+| S-16 | No internal editorial phrases | No visible or deferred card text contains pipeline or editorial jargon ("kept flagged", "worklist", "per editorial rule", "geocoded", "UNVERIFIED", TODO/FIXME, placeholder text). Added 2026-10-16 at the orchestrator's suggestion. | auto |
 
 ## Pass log
 
@@ -498,4 +499,19 @@ sends its SHA.
 **Register:**
 - Verified 24.
 - Open 3: Med 1 (QC-04), Low 2 (QC-13, 14). High 0.
+
+## Sweep S-16 (new) · edf94546 · internal editorial phrases
+
+The orchestrator fixed 6 Orlando and DC write-ups that said "kept flagged …" (after QC's QC-25 note) and suggested a
+sweep for this class, which is now **S-16**. Run: `qc.js --only sweep --vps 1440 --themes light` on `edf94546`. The first
+version scanned visible text only and gave 91/91 PASS. It now also scans deferred card markup
+(`noscript[data-cleo-defer]`), and the re-check finds 1:
+
+| Id | Sev | Lane | Finding | Evidence |
+|---|---|---|---|---|
+| **QC-28** | Low | data (orchestrator) | Erie: a record write-up still carries the editorial phrase "… was destroyed by fire on May 2, 2017. **Kept flagged:** the site now hosts the Riverside Brewi…", the same class as the 6 fixed in Orlando and DC. The source is `beta/data/places/erie.json` and its research dataset. | `design/beta/eval/qc/edf94546/s16-recheck/qc.json` (S-16 FAIL, cities/erie.html); a static grep of `beta/**/*.html` finds 1 page. |
+
+**Register:**
+- Verified 24.
+- Open 4: Med 1 (QC-04), Low 3 (QC-13, 14, 28). High 0.
 
