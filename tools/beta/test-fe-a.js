@@ -338,20 +338,22 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
       const h = fs.readFileSync(f, 'utf8'); if (!/data-cleo-page="city"/.test(h)) continue; pages++;
       const file = (/"file":"([^"]+)"/.exec(h) || [])[1], j = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', file + '.json'), 'utf8'));
       // the sheet ranks a place over Cleo.defer.order(): every card in view order, live or still in a deferred chunk
-      const ord = (h.match(/<li class="pl[ "][^>]*>/g) || []).map(t => [(/\bid="p-([^"]*)"/.exec(t) || [])[1], ((/\bdata-a="([^"]*)"/.exec(t) || [])[1] || '').replace(/&amp;/g, '&')]);
+      const ord = (h.match(/<li class="pl[ "][^>]*>/g) || []).map(t => [(/\bid="p-([^"]*)"/.exec(t) || [])[1], ((/\bdata-a="([^"]*)"/.exec(t) || [])[1] || '').replace(/&amp;/g, '&'), +((/\bdata-rank="(\d+)"/.exec(t) || [])[1] || 0)]);
+      const rankOf = Object.fromEntries(ord.map(x => [x[0], x[2]]));
       const full = {}; j.places.forEach(p => { full[p.a] = (full[p.a] || 0) + 1; });
       for (const p of j.places) {
-        places++; const inA = ord.filter(x => x[1] === p.a).map(x => x[0]), k = inA.indexOf(p.id) + 1;
-        if (!(k >= 1 && k <= inA.length && inA.length === full[p.a])) bad.push([path.relative(BETA, f), p.id, k, inA.length, full[p.a]]);
+        places++; const inA = ord.filter(x => x[1] === p.a).map(x => x[0]);
+        if (!(rankOf[p.id] === p.rank && p.rank >= 1 && p.rank <= full[p.a] && inA.length === full[p.a])) bad.push([path.relative(BETA, f), p.id, rankOf[p.id], p.rank, inA.length, full[p.a]]);
       }
     }
-    chk(`"No. k of n": k ≤ n and n = the area's full count on all ${places} places (${pages} pages)`, places >= 8000 && !bad.length, bad.length ? bad.slice(0, 4) : places);
+    chk(`"No. k of n": k = the data's rank (data-rank) ≤ n = the area's full count on all ${places} places (${pages} pages)`, places >= 8000 && !bad.length, bad.length ? bad.slice(0, 4) : places);
     const areaN = (file, a) => JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', file + '.json'), 'utf8')).places.filter(p => p.a === a).length;
-    for (const [page, file, id] of [['cities/tokyo.html', 'tokyo', 'kanda-myojin'], ['cities/tokyo.html', 'tokyo', 'isegen'], ['cleveland.html', 'cleveland', 'heinens-downtown']]) {
+    for (const [page, file, id] of [['cities/tokyo.html', 'tokyo', 'kanda-myojin'], ['cities/tokyo.html', 'tokyo', 'isegen'], ['cities/tokyo.html', 'tokyo', 'asukayama-park'], ['cleveland.html', 'cleveland', 'terminal-tower-observation-deck'], ['cleveland.html', 'cleveland', 'heinens-downtown']]) {   // QA-50: fresh #p= deep links
       const { d } = boot(page, { hash: '#view=gallery&p=' + id }); await sleep(150);
       const t = (d.querySelector('#cleo-sheet .sh-rank') || {}).textContent || '', m = /^No\. (\d+) of (\d+) in /.exec(t)
       const a = (/"a":"([^"]+)"/.exec(JSON.stringify(JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', file + '.json'), 'utf8')).places.find(p => p.id === id))) || [])[1];
-      chk(`sheet ${file}#p=${id}: "${t}" uses the area's full count`, !!m && +m[1] <= +m[2] && +m[2] === areaN(file, a), [t, areaN(file, a)]);
+      const rk = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', file + '.json'), 'utf8')).places.find(p => p.id === id).rank;
+      chk(`sheet ${file}#p=${id} (fresh deep link): "${t}" = the data's rank ${rk} of the area's full ${areaN(file, a)}`, !!m && +m[1] === rk && +m[2] === areaN(file, a), [t, rk, areaN(file, a)]);
       if (id === 'heinens-downtown') {
         const pri = d.querySelector('#cleo-sheet .actions .btn-primary');
         chk('closed sheet: a "Closed" banner, and Directions is never the primary action', !!d.querySelector('#cleo-sheet .closed-banner') && !(pri && /Directions/.test(pri.textContent)), pri && pri.textContent);

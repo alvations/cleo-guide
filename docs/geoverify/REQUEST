@@ -1,6 +1,6 @@
-city=san-francisco-ca
+city=orlando-fl
 scope=unverified,low,status
 limit=0
 nominatim_max=300
-commit=true
-# San Francisco for review (orchestrator): cache warm; Overpass back-off fixed (abd3f061 lifecycle fix)
+commit=false
+# dry run 2: Overpass retry in batches of 10; Wikidata closure only from the place itself; Census second source for med rows

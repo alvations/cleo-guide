@@ -106,7 +106,7 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
   console.log('# place detail (QA-51, QA-59b/d, R7 2d, closures)');
   for (const w of [390, 1440]) {
     const ctx = await ctxFor(b, w);
-    for (const [u, id] of [['cities/tokyo.html', 'kanda-myojin'], ['cleveland.html', 'west-side-market'], ['cleveland.html', 'heinens-downtown'], ['cities/newyork.html', 'katzs-delicatessen']]) {
+    for (const [u, id] of [['cities/tokyo.html', 'kanda-myojin'], ['cities/tokyo.html', 'asukayama-park'], ['cleveland.html', 'terminal-tower-observation-deck'], ['cleveland.html', 'west-side-market'], ['cleveland.html', 'heinens-downtown'], ['cities/newyork.html', 'katzs-delicatessen']]) {
       const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u + '#p=' + id, { waitUntil: 'load' }); await page.waitForTimeout(1500);
       const r = await page.evaluate(() => { const h = document.getElementById('cleo-sheet'), sh = h.querySelector('.sheet'), im = h.querySelector('.hero-plate img');
         const fw = im ? +((/-(\d+)\.(?:jpe?g|webp)$/.exec(im.currentSrc) || [])[1] || 0) : 0;
@@ -115,6 +115,9 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
         const pri = h.querySelector('.actions .btn-primary'), hr = h.getBoundingClientRect(), sr = sh.getBoundingClientRect();
         return { img: im ? [fw, Math.round(im.getBoundingClientRect().width)] : null, over, lone, closed: !!h.querySelector('.closed-banner'), pri: pri ? pri.textContent.trim() : '',
           scrim: getComputedStyle(h).backgroundColor, full: Math.round(hr.left) === 0 && Math.round(hr.width) === innerWidth, centred: Math.abs((sr.left + sr.right) / 2 - innerWidth / 2) < 2 }; });
+      { const file = u.replace(/^cities\//, '').replace(/\.html$/, ''), j = JSON.parse(fs.readFileSync(path.join(ROOT, 'beta/data/places', file + '.json'), 'utf8'));
+        const rec = j.places.find(p => p.id === id), n = j.places.filter(p => p.a === rec.a).length, t = await page.evaluate(() => (document.querySelector('#cleo-sheet .sh-rank') || {}).textContent || '');
+        ok(t.startsWith(`No. ${rec.rank} of ${n} `), `@${w} ${id} (fresh #p=): the rank line is the data's ${rec.rank} of ${n} (QA-50)`, t); }
       if (r.img) ok(r.img[1] <= r.img[0], `@${w} ${id}: the detail photo is never upscaled (file ${r.img[0]} w shown at ${r.img[1]} px)`);
       ok(!r.over.length, `@${w} ${id}: nothing in the detail runs past the sheet's edge`, r.over);
       ok(!r.lone, `@${w} ${id}: no source-link icon wraps onto a line of its own`);
