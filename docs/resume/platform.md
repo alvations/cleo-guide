@@ -24,6 +24,7 @@ plural (i18n).
 - sync-push.sh: a clean merge's rebuilt beta/ is committed; dirty beta/ never pushes (exit 6); test-sync-push.js: a9ed1e0f.
 - W9-9 acc1 typing: 1,814 → 2,183 of 2,552 publishers typed (registry key/host/domain agreement, guide OFFICIAL key, explicit
   host rules); 369 untyped listed in beta/data/recognition-untyped.json (stated gap). W9-8: offline-pack.js in npm test.
+- Build scripts: guards before the write (22 + belgium_build), tools/test-builds.js in npm test: 967d43a3.
 - R8 measurement kit: design/beta/eval/r8/README.md (+ r8/tools/pair.py).
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).
 
@@ -35,8 +36,11 @@ plural (i18n).
 
 1. QA-70: FE-2's fix a7b4a980; first-pin on 3ba696e8 = be74c82f level (Tokyo 1,653 vs 1,564; NY 1,807 vs 1,760 ms). With QA.
 2. `:has()` lint wired into npm test (test:serial); no allowlist.
-3. PERF-08 switched OFF (selective=false) after QA-75/QA-76/QC-26; re-land after the deploy: consumers (atlas ms-more, sheet n-of-N,
-   views remembered-view routing) must read peek({lens}); add the three as probes first. PERF-14 re-checked (w8p 608/651 KB).
+3. PERF-08 OFF (afb09e74; pin 4aba38b3). Re-land AFTER the deploy, only when tools/beta/qa/perf08-regress.sh passes with
+   selective on: views.js links (QA-75), w7 lens (QA-76), my sheet check + FE-2's fe2/qc26.js first/second area (QC-26).
+   QA-75 root cause (FE-A): city.js's cleo:stamped adopted cards later stamped by Cleo.defer.all()/allNow without applying
+   the lens; FE-A's marked block fixes it (links 140/140 with the flag forced on; SHA pending). On re-land add a jsdom check:
+   selective on → lens → Cleo.defer.all() → shown == lens count. No product pushes until QA rules on 4aba38b3. PERF-14 re-checked (w8p 608/651 KB).
 
 ## In flight
 

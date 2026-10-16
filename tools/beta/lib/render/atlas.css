@@ -149,7 +149,14 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   html.atlas-d[data-view=atlas]{--bar-h:56px}
   html.atlas-d[data-view=atlas] main{display:flow-root}   /* the held bar space never collapses through main */
   html.atlas-d[data-view=atlas] main>.cbar{position:absolute;visibility:hidden;height:0;overflow:hidden;animation:ms-reveal 0s 4s forwards}
-  html.atlas-d[data-view=atlas] .topbar .wrap>.views{flex:none;margin:0 0 0 auto;position:static}
+  /* rev 5 §2.1 (R3 #5): the view switch sits INSIDE the 56 px header — a 40 px segmented control (top 8, bottom 48), each
+     segment with a 44 px tall hit area; header links never wrap; the breadcrumb is whole or "‹ City", never clipped */
+  html.atlas-d[data-view=atlas] .topbar .wrap>.views{flex:none;margin:0 0 0 auto;position:static;height:40px;min-height:0;padding:2px;align-self:center;box-sizing:border-box}
+  html.atlas-d[data-view=atlas] .topbar .wrap>.views button{position:relative;height:36px;min-height:0;padding:0 12px}
+  html.atlas-d[data-view=atlas] .topbar .wrap>.views button::after{content:"";position:absolute;left:0;right:0;top:-4px;bottom:-4px}
+  html.atlas-d[data-view=atlas] .topbar :is(.topnav a,.crumbs,.crumbs *){white-space:nowrap}
+  html.atlas-d[data-view=atlas] .topbar .brand small{display:none}
+  html.atlas-d[data-view=atlas] .topbar .crumbs{flex:none}
   html.atlas-d[data-view=atlas] .topbar .wrap>.views+.top-actions{margin-left:12px}
   html.atlas-d[data-view=atlas] .ms-bar{max-width:none}
   html.atlas-d[data-view=atlas] .ms-bar .toolbar>.spill{flex:0 1 340px;min-width:220px;margin:0}
@@ -311,6 +318,17 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
 }
 @media (min-width:600px) and (max-width:1023px){html.atlas-m.ms-list[data-view=atlas] .listpane .pls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @keyframes ms-reveal{to{visibility:visible}}
+@media (min-width:1024px) and (max-width:1439px){html.atlas-d[data-view=atlas] .topbar .wrap>.views button .ico{display:none}html.atlas-d[data-view=atlas] .topbar .wrap>.views[data-cleo-views] button{padding:0 10px}html.atlas-d[data-view=atlas] .topbar .locales [aria-pressed=true]{display:none}html.atlas-d[data-view=atlas] .topbar .topnav a[href$="#destinations"]{display:none}}   /* room for the header's own actions; the wordmark goes home to the destinations */   /* room for the header's own actions */
+/* desktop below 1280 (rev 5 §2.1): the top links move out of the header (they are in the footer, at the end of the list)
+   and the breadcrumb shortens to whole "‹ City" — never clipped mid-word or overprinted */
+@media (min-width:1024px) and (max-width:1279px){
+  html.atlas-d[data-view=atlas] .topbar .topnav{display:none}
+  html.atlas-d[data-view=atlas] .topbar .crumbs .sep,html.atlas-d[data-view=atlas] .topbar .crumbs>a:not(:last-of-type){display:none}
+  html.atlas-d[data-view=atlas] .topbar .crumbs>a:last-of-type{display:inline-grid;place-items:center;width:var(--tap);height:var(--tap);font-size:0;color:var(--ink)}
+  html.atlas-d[data-view=atlas] .topbar .crumbs>a:last-of-type::before{content:"‹";font:400 24px/1 var(--font-ui)}
+}
+/* rev 5 §2.3 (R3 #2): no rank badges on Atlas cards in any sort — the order is the ranking; ranks stay in the Guidebook */
+html[data-view=atlas] #cleo-grid li.pl .pl-num{display:none}
 .ms-key{margin:0;padding:0;border:0}html[data-view=atlas] .ms-bar .modes .n{display:none}   /* kind chips carry no counts (§2.1, §2.2); the count line does */
 .ms-key ul{padding:4px 0 0}html:not([data-view=atlas]) .ms-key{display:none}   /* the phone Key lives in Filters, in Atlas only */
 @media (prefers-reduced-motion:reduce){.pp>span{transition:none}}

@@ -1,4 +1,9 @@
 {
-  "_doc": "Empty: batch 4 (W9-9 lf.* + W9-2 fresh.feed) merged with its ja. New FE-C strings go here, then ask the i18n lane for pending-ja.json.",
-  "strings": {}
+  "_doc": "FE-C batch 6 (QC-04 per D-43: a low-confidence pin, pv.pin 'low', stays on the map and is labelled honestly). Browser-only (Cleo.t): the card label (client/fresh.js), the detail fact (sheet.js FE-C hook) and the Atlas badge (views.js FE-C hook), under the swapSkip prefixes sheet. and views.; {n} is a count of places.",
+  "strings": {
+    "sheet.pin.approx": "Approximate pin",
+    "sheet.pin.approx.d": "Approximate map pin: the coordinate we hold is not yet verified to the door",
+    "views.approx": "{n} approximate pins",
+    "views.approx.one": "1 approximate pin"
+  }
 }

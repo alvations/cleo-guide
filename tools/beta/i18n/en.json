@@ -87,7 +87,7 @@
     "foot.yours.search": "Search",
     "foot.live.one": "the current live guide",
     "foot.live.all": "the current live guides",
-    "foot.colophon": "Cleo beta — every place is carried from {live}, with its sources. Map tiles: © {osm}; Esri. No ratings, prices or hours are shown because they aren't in our data — check before you go.",
+    "foot.colophon": "Cleo beta — every place is carried from {live}, with its sources. Map tiles: © {osm}; Esri. We don’t add ratings, prices or opening hours of our own; any quoted are the source’s, dated. Check before you go.",
     "foot.osm": "OpenStreetMap contributors",
     "chg.title": "What changed in {city} · Cleo",
     "chg.desc": "Every dated check behind the {city} guide: closures, status checks and verified pins, newest first.",
@@ -99,7 +99,7 @@
     "chg.lede": "Every entry is a dated check on record — nothing here is estimated.",
     "chg.feed": "Follow this page as a feed",
     "chg.closed": "{place} has closed — it stays in the guide, flagged.",
-    "chg.closed.src": "Status source: {src}",
+    "chg.closed.src": "Status source",
     "chg.checked": "Open/closed status re-checked against a real source for {n} places.",
     "chg.checked.one": "Open/closed status re-checked against a real source for 1 place.",
     "chg.checked.closed": "{n} of them closed, kept and flagged",
@@ -224,8 +224,6 @@
     "tier.3": "Deep cut",
     "city.card.closed": "Closed — kept for the record",
     "city.card.closed.c": "Closed — kept for the record, checked {d}",
-    "city.card.per": "per {src}",
-    "city.card.perc": "per {src}, checked {d}",
     "city.card.within": "within {area}",
     "city.card.added": "Added by the guide (general knowledge)",
     "city.card.pin": "Map pin {n}",
@@ -320,7 +318,7 @@
     "sheet.closed": "Closed",
     "sheet.closed.note": "Kept for the record, not as a suggestion",
     "sheet.checked": " · checked {d}",
-    "sheet.per": " · per {src}",
+    "sheet.closed.src": "source",
     "sheet.where": "Where it is in {area}",
     "sheet.all": "All {n} places",
     "sheet.pos": "{i} of {n}",
@@ -764,6 +762,10 @@
     "lf.h": "Local favourites ({n})",
     "lf.rule": "Open places recommended only by local press, local writers or vetted creators — none by an official or tourism source, and every source typed in our registry.",
     "lf.gap": "Fewer than {min} places here qualify ({n}), with {typed} of {total} sources typed in our registry, so the lens is not shown rather than padded.",
-    "fresh.feed": "an RSS feed of every closure and status check in this guide, for any feed reader."
+    "fresh.feed": "an RSS feed of every closure and status check in this guide, for any feed reader.",
+    "city.empty.q": "No places match “{q}”.",
+    "city.empty.qnote": "Try another spelling, or search for a dish or an area.",
+    "city.empty.search": "Clear search",
+    "city.empty.f": "No places match these filters."
   }
 }

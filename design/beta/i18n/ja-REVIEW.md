@@ -166,4 +166,49 @@ A fresh independent subagent reviewed FE-A's ja draft against the new English. I
 
 A fresh independent subagent kept the draft: このガイドの閉店と営業状況の確認をまとめたRSSフィードです。どのフィードリーダーでも読めます。 It is the reviewed `land.month.feed` with 全ガイドの → このガイドの, matching the English "across the guides" → "in this guide". It reads naturally after 更新をフォロー — .
 
-**Total: 55 changes over thirteen rounds.**
+## Round 14: FE-C batch 5, the QC-05 empty state (4 browser-only keys `city.empty.*`, staged in `tools/beta/i18n-fec/pending-ja.json`; 0 changes)
+
+A fresh independent subagent kept all four drafts:
+- 「{q}」 renders the English curly quotes;
+- 表記 is used rather than 綴り, since visitors may type kana, kanji or romaji;
+- 検索をクリア follows 絞り込みをクリア;
+- この絞り込み follows `gb.count.m`.
+
+## Round 15: QC-27, the guide's tiers are not ratings (19 keys changed, applied)
+
+**The problem:** QC found that ja called the guide's own tiers 評価, which reads as "rating". That contradicts the guide itself: the order line says "never by popularity", and the method page says "our own marks. They are not ratings".
+
+**The fix:**
+- Every place the tier is named now uses **ランク** (ランク付け, ランク順).
+  - 区分 was avoided because ins.mix.* already uses it for chart segments.
+  - 格付け was avoided because it means "rating".
+- Review-site star ratings stay **星評価**.
+- Keys changed to ランク: city.tray.tier, city.tray.tier.note, city.sort.guide, city.facts.order, city.how.t1, city.how.order, gal.sub.top, city.across.t, ins.cls.s, ins.tier.t, ins.tier.s, ins.tier.note, ins.tier.note.one, ins.p.cls, ins.p.tier, m.tiers.h and m.tiers.
+- foot.colophon now says "No ratings" as 星評価.
+
+**Review:** a fresh independent subagent confirmed that ランク reads as the guide's own grade and does not clash with 順位/番目. It found no remaining tier still called 評価, and it proposed the refinements below, all applied.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `gal.sub.top` | 最上位(エリアごとにランク付け) | 最上位ランク(エリアごとに判定) | 最上位 alone doesn't say "top tier". |
+| `ins.tier.t` | エリアごとのランクの段階 | エリア別のランク内訳 | The card counts places per tier; 段階 was stiff. |
+| `ins.tier.s` | …ランク別の数…ランクはエリアごとなので… | …ランク別の件数…ランクはエリアごとに付けているので… | Says "graded within each area" precisely. |
+| `ins.tier.note`, `.one`, `ins.p.tier` | …にはランクがなく… | …にはランクを付けておらず… | More natural for "carry no tier". |
+| `land.trust.src.p` | ミシュランかジェームズ・ビアードの評価が1つ | …のお墨付きが1つ | "Nod" means an endorsement; 評価 beside Michelin suggests a star rating. |
+
+**Result:** 評価 now appears in the ja interface only as 星評価.
+
+**FE-A's D-42 colophon (5d3dc985), reviewed in the same round and accepted as is:** `foot.colophon` reads …星評価・価格・営業時間を独自に付け加えることはありません。引用しているものは出典のもので、日付を添えています。 It mirrors the reviewed `city.how.order`, and it uses 星評価 for ratings.
+
+## Round 16: FE-C batch 6, approximate pins (QC-04 / D-43; 4 browser-only keys staged in `tools/beta/i18n-fec/pending-ja.json`; 4 changes, applied)
+
+A fresh independent subagent proposed a change to each of the four drafts, and all were applied.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `sheet.pin.approx` | おおよその位置 | ピンはおおよその位置 | Without ピン it reads as "the place's location is vague". It now pairs with `sheet.pinned` (ピンは入口の位置). |
+| `sheet.pin.approx.d` | おおよその位置のピン: 当ガイドの座標は、まだ入口の位置まで検証していません | 地図のピンはおおよその位置: 当ガイドが持つ座標は、まだ入口の位置まで検証されていません | 地図のピン is the catalogue's term for "map pin". The draft's active verb made the coordinate the one doing the verifying, so it is now passive. |
+| `views.approx` | おおよその位置のピン {n}か所 | ピンがおおよその位置の場所 {n}か所 | {n} counts places (か所). It now matches its neighbour `views.nopin` (…場所 {n}か所), where pins elsewhere count in 件. |
+| `views.approx.one` | おおよその位置のピン 1か所 | ピンがおおよその位置の場所 1か所 | Same as `views.approx`. |
+
+**Total: 78 changes over sixteen rounds.**

@@ -131,7 +131,7 @@ ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
   <p>A few places were added from the guide's own general knowledge rather than a named source. They are labelled <b>Added by the guide (general knowledge)</b> and are never relabelled as sourced. That is ${n(s.added)} of ${n(s.places)} places.</p>
 
   <h2 class="d2" id="not">${t('m.not')}</h2>
-  <p>No star ratings, review counts, prices or opening hours — they aren't in our data, and we don't guess. Check hours before you go.</p>
+  <p>We don’t add ratings, prices or opening hours of our own; any quoted are the source’s, dated. We don't guess — check hours before you go.</p>
   <p>How the site itself is built for every reader — keyboard, screen reader, low vision, no network — is on the <a href="accessibility.html">accessibility page</a>.</p>
   </div>
 </div>

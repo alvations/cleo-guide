@@ -31,7 +31,8 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
 - **Bundle (16:00Z/16:17Z/16:43Z orders):** QA-72, QC-22, QA-73, QA-59b (confirmed), QA-55 Guidebook, R7-g6 tracking + shadows, D-40 (a) Gallery sizes. SHA: the commit titled "QA-72 …". Probe rows in w8-fe-a-probe.js.
 
 ## Next (in order)
-0. W9-2 card part ("Checked <date>"): asked FE-C (auditing W9) whether it is missing / theirs; wait for the answer.
+0. ~~W9-2 card part~~ built by FE-C through hooks (fresh.js, 38228322b) — nothing for FE-A.
+   - ~~QC-25, colophon, R3 #9/#14 one ring~~ DONE (commit "QC-25 …"). Leak left on FE-B's changes/ pages ("Status source: <note>", lib/changes.js) — reported.
    - ~~PANEL-R2 #1~~ already met on the merged head (phone-Atlas sheet top at y=354 on Cleveland/Tokyo/NY 390×844, pin in the band above); told FE-1/FE-2.
    - ~~Designer nit~~ DONE (commit "detail focus: the dialog on a tap …"): tap/deep link focuses the ringless dialog, keyboard open focuses ✕; C.trap wraps Shift+Tab from the container.
 1. ~~**Food covers**~~ DONE (this push; see Done) (designer sign-off, docs/resume/designer.md "Food-cover review", DESIGN-SYSTEM §v2.11):
