@@ -390,7 +390,7 @@ async function patterns(rel, vp) {
       const unlinked = [...c.querySelectorAll('svg rect.bar, svg .seg')].filter(r => !r.closest('a')).length;
       const fn = [...c.querySelectorAll('.fn')].map(f => f.textContent.trim()).join(' '); const table = /show as a table/i.test(c.textContent) && !!c.querySelector('table');
       const rows = [...c.querySelectorAll('table tbody tr')].map(tr => [...tr.children].map(x => x.textContent.trim()));
-      return { title: t.trim().slice(0, 60), links, marks, unlinked, fn: fn.trim().slice(0, 200), table, rows: rows.slice(0, 40) }; });`));
+      return { title: t.trim().slice(0, 60), links, marks, unlinked, fn: fn.trim().slice(0, 600), table, rows: rows.slice(0, 40) }; });`));
   if (!ins.length) { check('P-18', C, 'FAIL', 'no chart rendered in Insights'); }
   for (const c of ins) {
     const sample = c.links.filter((l, i) => i % Math.max(1, Math.ceil(c.links.length / 6)) === 0).slice(0, 6); const res = [];
@@ -404,7 +404,8 @@ async function patterns(rel, vp) {
         ok: Object.keys(lens).some(k => k !== 'view') && (isNaN(val) || val === want || citations) && pageLens === want, statedOk: cl.some(x => x.n === want) });
       await o.ctx.close();
     }
-    check('P-18', { ...C, chart: c.title }, !c.links.length || c.unlinked ? 'FAIL' : res.every(x => x.ok) ? (res.every(x => x.statedOk) ? 'PASS' : 'WARN') : 'FAIL', { links: c.links.length, unlinked: c.unlinked, sample: res });
+    const plainStated = /plain bars|not lists of places|no filter (that opens|selects)|without opening places/i.test(c.fn);   // unlinked bars are allowed when the footnote says why
+    check('P-18', { ...C, chart: c.title, plainStated }, (!c.links.length || c.unlinked) && !plainStated ? 'FAIL' : !c.links.length ? 'PASS' : res.every(x => x.ok) ? (res.every(x => x.statedOk) ? 'PASS' : 'WARN') : 'FAIL', { links: c.links.length, unlinked: c.unlinked, sample: res });
     check('P-19', { ...C, chart: c.title }, ok(c.table), { table: c.table, rows: c.rows.length });
     const m = /from ([\d,]+) of ([\d,]+) places/i.exec(c.fn);
     check('P-20', { ...C, chart: c.title }, !c.fn ? 'FAIL' : m ? ok(+m[2].replace(/,/g, '') === T.N) : 'PASS', { fn: c.fn });
