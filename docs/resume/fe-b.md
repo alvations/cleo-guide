@@ -6,10 +6,17 @@ test-views-b.js). Report to the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx) 
 
 ## Task
 
-Idle: FE-B queue empty after QC-14 (FE-B half). Waiting for QA/QC rows or new assignments.
+From FE-A (orchestrator, 2026-10-16): (1) the view switcher QC-09 + QC-06 (§v2.11) — pushed, see Done;
+(2) the B-04 / B-20 sweep (R7 gap 5): metrics.js per page in batches → design/beta/eval/w8/metrics-all/, list failures,
+fix FE-B surfaces, send FE-A / Atlas the rest with page + node.
 
 ## Done
 
+- QC-09 + QC-06 (switcher): see the commit "beta QC-09 + QC-06 (FE-B for FE-A)". div.views[role=group][aria-label=View]
+  with 4 pressed toggles at every width (city.js), no phone collapse (views.js; a tap with a sheet open closes it and
+  switches; focus to the view's h1), fe-a.css `.views[data-cleo-views]` rules (sand track, surface thumb, >= 44 px,
+  52 px phone row, glyph + tooltip < 300 px), phone overlays (#cleo-sheet/#cleo-fy/#cleo-tray) start below the row.
+  Probe: tools/beta/feb-switcher.js (390/768/1440/260). Static guard in test-views-b.js.
 - QC-14 (FE-B half): fe-b.css spacing snapped with design/beta/tools/snap-spacing.py (40 snapped, 110 tokenised);
   also the hub "Known for" separator spacing (" · "). SHA in the commit titled "beta QC-14 (FE-B)".
 - QC-01 (High), QC-02, QC-03, QC-10: 68b442c0 (merged 2bfff3fe). Insights marks link only when the lens they open
@@ -20,17 +27,22 @@ Idle: FE-B queue empty after QC-14 (FE-B half). Waiting for QA/QC rows or new as
 
 ## Next
 
-1. Pull, read this file and docs/BETA-RESUME.md, run the gates.
-2. Read notifications; take the next FE-B row from the orchestrator (QC re-verifies QC-01/02/03/10/14).
+1. B-04/B-20 sweep: `tools/beta/feb-metrics-batch.sh 4` (resumable: skips pages whose JSON exists). Commit
+   design/beta/eval/w8/metrics-all/*.json in batches as they land.
+2. When all 180 pages are measured: list every page failing B-04 (rail on the first phone screen) or B-20 (taps < 44)
+   from the JSONs, fix FE-B surfaces, send FE-A / Atlas the rest with page + node.
+3. Atlas FE-1 has the phone-Atlas switcher placement (parked last in .ms-bar) — told 2026-10-16.
 
 ## In flight
 
-Nothing unpushed.
+The metrics sweep runs in the background (about 40 s per page, 4 in parallel); JSONs land per page and are committed in
+batches. If stopped, re-run step 1: done pages are skipped.
 
 ## Notes
 
 - Gates before every push, fail-fast: `cd tools && npm run validate && npm test && npm run beta:check`, plus
   `node beta/test-beta.js`, `node beta/qa/test-honesty.js`, `node beta/imagery/test-imagery.js`.
+- Switcher probe: `tools/beta/feb-switcher.js [page]` (same static server).
 - B-05 probe: `tools/beta/feb-b05.js` (needs `python3 -m http.server 8765 -d <repo>`; ≥ 2 on landing + every hub).
 - Push with `tools/beta/feb-push.sh` (merges origin, regenerates beta/ on generated conflicts, stops on any source
   conflict or leftover conflict marker, verifies the ref moved). Re-run the gates on the merged head afterwards.

@@ -34,7 +34,7 @@ ${siteBar({ depth: 0, current: 'saved', rel: 'saved.html' })}
 </main>
 ${footer({ depth: 0 })}
 <script src="assets/js/saved.js?v=${ctx.assetsV.saved}" defer></script>
-${/* FE-C W9-5 hook: lazy-module versions for Cleo.need (base.js) */ ''}<script type="application/json" id="cleo-lazy">${JSON.stringify({ base: ctx.assetsV.base })}</script>
+${/* FE-C W9-5 hook: lazy-module versions for Cleo.need (base.js) */ ''}<script type="application/json" id="cleo-lazy">${JSON.stringify({ base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'] })}</script>
 </body>
 </html>
 `;

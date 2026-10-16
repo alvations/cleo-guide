@@ -84,6 +84,7 @@
     if (S.been) { const b = !!been.all()[key + '/' + pid(c)]; if (S.been === 'hide' ? b : !b) return false; }
     if (S.sig && !(info.sig && info.sig.ids.indexOf(pid(c)) >= 0)) return false;
     if ((S.mine && !(Cleo.saved && Cleo.saved.has(key + '/' + pid(c)))) || (S.day && C.inDay && !C.inDay(pid(c)))) return false;
+    if (C.ringKeep && !C.ringKeep(c)) return false;   // Atlas FE-2 W9-5 hook: the walking ring from your base (atlas-nav.js)
     return !S.q || fold(S.q).split(/\s+/).every(w => !w || text[pid(c)].indexOf(w) >= 0);
   };
   const count = o => { const sv = {}; let n = 0; for (const k in o) { sv[k] = S[k]; S[k] = o[k]; } cards.forEach(c => { if (visible(c)) n++; }); Object.assign(S, sv); return n; };

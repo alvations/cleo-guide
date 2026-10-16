@@ -20,8 +20,9 @@ The orchestrator does the review, `--accept`, rebuild and gates (§ Owner decisi
 |---|---|---|
 | wheeling-wv | committed (run #9) | **7** (c727e196) |
 | san-francisco-ca | committed (run #12) | **112** (pass rows); 29 hold remain |
-| orlando-fl | dry runs #11/#13/#14 clean: pass 12, review 2, hold 14, reject 121 | — (commit run queued, c2306ba1) |
-| chicago-il | dry run in flight (ac737c14) | — |
+| orlando-fl | **committed** 270d4f7a: pin 66 · confirm 7 · no-match 71 · ambiguous 4 · conflict 1 (Silver Springs: OSM main-entrance node 1.87 km off) — assist pass 13 · review 2 · hold 59 · reject 75 | — (sent to orchestrator) |
+| chicago-il | **committed** 548362d9: pin 87 · confirm 5 · no-match 28 · ambiguous 2 — assist pass 53 · review 8 · hold 31 · reject 30 | — (sent to orchestrator) |
+| washington-dc | commit run in flight | — |
 
 Tool SHAs:
 
@@ -36,26 +37,30 @@ Tool SHAs:
 | b462f8ba | only core sources can fail a run |
 | ac737c14 | Overpass 120 s timeout |
 | c2306ba1 | name-only Nominatim fallback |
+| (git log: "circuit breaker") | per-host circuit breaker; 502 handled as a back-off |
 
-Tests: `node tools/location-verify.test.js`, 47 tests.
+Tests: `node tools/location-verify.test.js`, 48 tests.
 
 ## Next
 
-1. When Orlando's commit run lands ("Location-verify report: orlando-fl" on origin), send the orchestrator its assist
-   summary.
-2. Push REQUEST `city=chicago-il … commit=true` (cache warm, ~2 min). Send its summary when it lands.
-3. Then washington-dc, miami-fl, erie-pa, philadelphia-pa: one REQUEST each, all `commit=true`, `nominatim_max=300`.
+1. When "Location-verify report: washington-dc" lands, send the orchestrator its assist summary. Helper:
+   `next.sh <prev> <next>` waits for prev's report commit, then pushes the next REQUEST (recreate it from this file's Notes
+   if the scratchpad is gone).
+2. Then miami-fl, erie-pa, philadelphia-pa: one REQUEST each, all `commit=true`, `nominatim_max=300`.
    Wait for each report commit before pushing the next REQUEST: concurrency keeps only the latest *pending* run.
 4. Remaining large non-US backlogs: singapore (OneMap needs the owner's secrets), saarland, okinawa, rhineland, aachen.
    Phase-2 file URLs are still unconfirmed (see the doc § 2.2).
 
 ## In flight
 
-- Chicago dry run (from ac737c14).
-- Orlando `commit=true` run (from c2306ba1), queued behind Chicago.
+- washington-dc `commit=true` run (REQUEST on the branch).
 - Nothing unpushed.
 
 ## Notes
+
+- **Queue step:** fetch until `git log origin/<branch>` shows "Location-verify report: <prev>", pull, write REQUEST
+  (`city=<next>` with scope `unverified,low,status`, limit 0, nominatim_max 300, `commit=true`), commit, push, verify
+  with ls-remote.
 
 - **Read reports from the run log**: `mcp__github__get_job_logs`, run → job id. Big logs spill to a file; parse it.
 - **The runner never writes the registry.** `--accept` refuses on CI, and refuses low, shared-object and conflict
