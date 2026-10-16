@@ -37,6 +37,7 @@ never weakens a gate.
 - `9c133152`: QC-23 and QC-24 verified.
 - `4aba38b3` (deploy pin): QC-26 and QC-22 verified; new QC-27 (Low, i18n: tier translated as 評価).
 - `9fba196e`: QC-27 verified.
+- `r7-b54b3745` (final release pin): PASS. Sweep 4 FAIL = filed QC-30/31; S-16 91/91; leaks 0; m.not.p en/ja; QA-77 badges ≥ 44 px, 0 in-view overlaps, no shift. New QC-33 (Med): Guidebook/Insights deep-link CLS ≈ 0.5 at 1440, pre-existing.
 - `r7-33a44d16` (release): QC-29 verified (S-16 91/91); every sweep FAIL accounted for: S-15 and part of S-08/S-01 were probe bugs (fixed in 6a93f81d); new QC-30 (casing ownWords), QC-31 (raw colours/radii), QC-32 (prov sidecar notes). Clean sweep: 4 FAIL, all filed.
 - `r7-19af6d81` (release branch pre-check): FE-B leaks PASS; m.not.p en/ja PASS; QC-28 PASS; S-16 FAIL on 4 pages → new QC-29 (ports 9fa622096 + 5d3dc9850 missing).
 - `7857f885`: QC-04 verified (D-43 approximate pins).
@@ -48,9 +49,10 @@ never weakens a gate.
 
 ## In flight
 
-Nothing unpushed and no long run. On the final r7 pin (adds QA-77, FE-C badge CSS), re-run: `qc.js --only sweep --vps 1440` (expect 4 FAIL = QC-30 ×3 pages + QC-31), the leak greps and the m.not.p browser check (`ex28.js` logic). Re-verify QC-13, 14, 30, 31 and 32 as lanes claim fixes. All 5 open rows are Low.
+Nothing unpushed and no long run. r7 has signed off (PASS). Re-verify QC-13, 14, 30, 31, 32 and 33 as lanes claim fixes. Use `qc-view-cls.js <root> <out>` for QC-33 (all views at 390/1440).
 
 Next harness work:
+- Fold deep-link view CLS (qc-view-cls.js) into S-12 for city pages at 1440.
 - P-25 and P-26 must discount entries that carry the D-42 note.
 - P-13 and P-15 must open the phone Atlas "Show list" before measuring.
 - J-10 and J-11 should also run under `?lang=ja`.

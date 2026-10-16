@@ -578,3 +578,24 @@ Outputs are in `design/beta/eval/qc/r7-33a44d16/`. The sweep ran with `qc.js --o
 **Register:**
 - Verified 27.
 - Open 5: Low 5 (QC-13 FE-1, QC-14 designer, QC-30 designer + FE-A, QC-31 designer + FE-B, QC-32 FE-B). Med 0 · High 0 · Blocker 0.
+
+## Final-pin pass 2026-10-16 · `beta-deploy-r7` @ b54b3745 (33a44d16 + QA-77 badge hit area + trip.html status-source link)
+
+Outputs are in `design/beta/eval/qc/r7-b54b3745/`. Sweep: `qc.js --only sweep --vps 1440` (harness 6a93f81d): **2236 PASS · 4 FAIL · 28 WARN · 18 N/A**. The 4 FAILs are exactly the filed ones (S-08 on Chicago, Orlando and Tokyo → QC-30; S-01 → QC-31).
+
+| Check | Result | Evidence |
+|---|---|---|
+| S-16 | **PASS 91/91** | QC-28 and QC-29 hold. |
+| FE-B leaks | **PASS** | Shipped html, xml, json and js, excluding `data/prov` (QC-32): 0 "verify before publish", "worklist", "kept flagged", "per editorial rule", `statusSource` and `UNVERIFIED`. "Status source:" appears 132 times, always with a URL. trip.js now draws a closed place's status source as a link named by its host: built from escaped parts, `rel="noopener"`, only for `https?://` URLs. |
+| m.not.p en / ja | **PASS** | Visible on how-we-choose in both languages. `evidence/m-not-p-{en,ja}.jpg`. |
+| QA-77 tap targets | **PASS** | Every `a.rb` hit area is ≥ 44 px tall (`qc-badges.js`, `qc-sheet-badges.js`). |
+| QA-77 overlap | **PASS** | With the Gallery scrolled so each card is laid out, badge hit areas overlap 0 times, with each other or with another link or button in the card. Checked on San Francisco, Tokyo, Chicago and Osaka at 390 and 1440 (46–109 badges in view per run). In the sheet (Tokyo, 3 places with 2 badges, 390 and 1440, scrolled into view), each badge is 44 px and overlaps no target. A first, whole-page pass reported overlaps between badges in *different* cards at the same coordinates. Those came from off-screen `content-visibility` cards with stale rects, and the same pass on 33a44d16 (before QA-77) showed them too. Not a finding. The sheet showed 2 overlaps until the badges were scrolled into view: that was the sticky action bar covering them, not an overlap. |
+| QA-77 layout shift | **PASS** | Gallery load CLS on badge-heavy pages: 0–0.0001, and no shift sources in badge rows (`badges-page.json`). S-12 at 1440: 91/91 PASS. |
+
+**A pre-existing finding, outside the release delta → QC-33 (Med):** opening a city page directly on **Guidebook or Insights at 1440** (`#view=guidebook`, `#view=insights`, the shareable deep links) shifts the layout by **CLS 0.42–0.53**. The shift sources are the method section and footer (`method wrap section`, `footer`), at 140–340 ms. It's the same on the dev head and on r7, it doesn't happen at 390, and Gallery and Atlas are 0. S-12 missed it because it loads only the default view; `qc-view-cls.js` covers the deep links (`evidence/qc-33-view-cls-{r7,dev}.json`). It isn't caused by QA-77 (identical on 33a44d16), so it isn't a release blocker; it goes to the next release.
+
+**Verdict for r7:** PASS, nothing in the release delta fails.
+
+**Register:**
+- Verified 27.
+- Open 6: Med 1 (QC-33), Low 5 (QC-13, 14, 30, 31, 32). High 0 · Blocker 0.

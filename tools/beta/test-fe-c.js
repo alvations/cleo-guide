@@ -328,6 +328,15 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     chk('Tokyo: the date is not searchable text (a search for "Oct" matches no card by its date)', ![...g.d.querySelectorAll('li.pl .pl-chk')].some(e => /Oct/.test(e.textContent)));
     chk('fresh.js is lazy (no page loads it eagerly)', !/<script[^>]+fresh\.js/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')));
     chk('no js errors (fresh)', g.errs.length === 0, g.errs.slice(0, 2));
+    // W9-2 (a): the Gallery row cards carry the same line, dated from the place's own card (no page data fetched)
+    const gg = boot('cleveland.html', { hash: '#view=gallery', mods: ['gallery', 'fresh'] }); await sleep(900);
+    const gcs = [...gg.d.querySelectorAll('li.gc[data-id]')], gp = [];
+    gcs.forEach(r => { const id = r.getAttribute('data-id'), c = gg.d.getElementById('p-' + id) || (gg.w.Cleo.defer.peek().find(s => s.id === 'p-' + id)), iso = c && c.getAttribute('data-checked'), e = r.querySelector('.pl-chk');
+      if (!iso) { if (e) gp.push([id, 'line without a date']); return; }
+      if (!e || e.getAttribute('data-d') !== iso || e.getAttribute('data-t') !== 'Status checked ' + fmt(iso)) gp.push([id, e && e.getAttribute('data-t'), iso]); });
+    chk(`Cleveland Gallery: all ${gcs.length} row cards carry "Status checked <d Mon>" equal to the place's data-checked`, gcs.length > 0 && gp.length === 0, gp.slice(0, 4));
+    chk('the row-card line fetches no page data', !gg.net.some(u => /data\/places\//.test(u)), gg.net.filter(u => /data\/places\//.test(u)));
+    chk('no js errors (fresh, gallery)', !gg.errs.length, gg.errs.slice(0, 2));
   }
 
   console.log('\n== LF (W9-9): local favourites, the rule holds for every place ==');

@@ -140,11 +140,18 @@
    * Keys: mode, a, t, c, cz, src, closed, q. `t` excludes closed places (they carry no tier). q is accent-folded,
    * every word must match the card's text. Unknown keys are ignored (page-specific lenses stay in the page). ---- */
   var lensText = typeof WeakMap === 'function' ? new WeakMap() : null;
+  // The search haystack: the card's text minus any [data-nosearch] subtree (e.g. FE-C's "Status checked 2 Oct" line, real
+  // text for find-in-page and screen readers, but it must not make q=oct match every card). Fast path: no such node.
+  var searchText = function (el) {
+    if (!el.querySelector || !el.querySelector('[data-nosearch]')) return el.textContent;
+    var x = el.cloneNode(true); [].forEach.call(x.querySelectorAll('[data-nosearch]'), function (n) { n.remove(); });
+    return x.textContent;
+  };
   var hasWord = function (el, k, v) { return (' ' + (el.getAttribute(k) || '') + ' ').indexOf(' ' + v + ' ') >= 0; };
   Cleo.lens = {
     KEYS: ['mode', 'a', 't', 'c', 'cz', 'src', 'closed', 'q'],
     text: function (el) {
-      var t = lensText && lensText.get(el); if (t === undefined || t === null) { t = fold(el.textContent); if (lensText) lensText.set(el, t); }
+      var t = lensText && lensText.get(el); if (t === undefined || t === null) { t = fold(searchText(el)); if (lensText) lensText.set(el, t); }
       return t;
     },
     match: function (el, o) {
@@ -381,13 +388,8 @@
     all: function () { var out = []; D.pending().forEach(function (ns) { out = out.concat(D.stamp(ns, 1)); }); if (io) { io.disconnect(); io = null; }
       if (out.length) emit('cleo:stamped', { cards: out });   // ONE event for every chunk: listeners adopt and re-page once, not per chunk
       VC.slice().forEach(function (c) { c.all(); }); return out; },             // view chunks too (R-33)
-    /** Stamp the chunk holding place `id` (a map pin of a not-yet-stamped card). Returns the card or null. */
-    stampFor: function (id) {
-      var el = document.getElementById('p-' + id); if (el) return el;
-      var hit = D.pending().filter(function (ns) { return ns.textContent.indexOf('id="p-' + id + '"') >= 0 || ns.innerHTML.indexOf('id="p-' + id + '"') >= 0; })[0];
-      if (hit) D.stamp(hit);
-      return document.getElementById('p-' + id);
-    },
+    /** Stamp place `id`'s card (a map pin of a not-yet-stamped card; kept for callers predating stampIds). Card or null. */
+    stampFor: function (id) { return document.getElementById('p-' + id) || D.stampIds(new Set(['p-' + id]))[0] || null; },
     /** Lightweight stand-ins for unstamped cards, parsed from their start tags only: {id, getAttribute, hasAttribute}.
      *  Enough to draw a map pin (data-ll, data-n, data-a, data-t, data-closed) without building the card. */
     /** opts.lens (a lens object, Cleo.lens.pick of a route): only the stubs that lens shows (PERF-08); default: every stub */

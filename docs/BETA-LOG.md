@@ -2027,3 +2027,17 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - Selecting a place on a phone pans it clear of the Near me / Map pills: the pan's padding adds the controls column's width and height plus the label's height.
   - A selected or saved pin that fits no anchor among the other pills takes an anchor clear of the map's controls and edges (the other pills give way), and falls back to above only if none exists.
   - Checked on Tokyo, Cleveland, New York and Chinatown at 390: the selected label overlaps no control.
+
+## 2026-10-16 20:38Z · orchestrator
+
+- **QC: PASS on the deploy pin b54b3745** (7c5ea616). QA's verdict is pending.
+- **QC-33 (Med, pre-existing):** a guidebook/insights deep link at 1440 shifts the layout (CLS 0.42–0.53). Sent to FE-B, with platform; next release.
+- **Tokyo desktop initial DOM:** w2 [dom] measures 3,074 on 4aba38b3 and b54b3745 (pre-existing) and 3,082 on dev. Told QA; platform takes it.
+- **Atlas R4:** real shots R4 dispatched on 45379fbf. The designer signed off light; dark needs a dot-contrast fix (FE-1). "Round 4 ready" waits for that and FE-1's three items (button.src B-20, the duplicate QC-05, the chip overflow), then a re-shoot.
+- **Dev-only landings:**
+  - f03b03cf, platform's `data-nosearch`;
+  - 1074d90c1, W9-2 (a) "Status checked" on gallery rows and Atlas previews;
+  - cf480358, QC-31's designer half;
+  - fec4f90b, QC-32;
+  - a46f6ec7, W8-I18N-SEARCH.
+- **Budget:** Cleveland eager JS is at 39.97/40 KB. Platform is moving the offline-pack UI behind Cleo.need (about 1 KB).
