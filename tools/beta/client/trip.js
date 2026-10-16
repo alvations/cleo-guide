@@ -260,6 +260,7 @@
         '<p class="tp-sum">' + pl(days.length, 'day') + ' · ' + pl(stops, 'stop') + (days.length ? ' · ' + esc(tw.dist) + ' between stops in all' : '') + '</p>' +
         '<p class="caveat" data-tp-assume>' + esc(Cleo.geo.ASSUME) + '. Check opening times before you go; the guide doesn’t list them.</p>' +
         '<div class="sharebar"><button type="button" class="btn btn-primary" data-tp="share">Share this trip</button>' +
+        '<button type="button" class="btn btn-ghost" data-cleo-card="trip">Share as an image</button>' +
         '<button type="button" class="btn btn-ghost" data-tp="print">Print as a booklet</button>' +
         '<button type="button" class="btn btn-ghost" data-tp="kml">Export KML</button>' +
         '<a class="btn btn-quiet" href="#list=' + codec().encode(all) + '&n=' + encodeURIComponent(name) + '">Change the days</a></div>' +

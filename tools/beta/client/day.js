@@ -73,6 +73,7 @@
       '<div class="daysum"><div><b>' + ids.length + '</b><span>stops</span></div><div><b>' + fmt(tot) + '</b><span>straight-line total</span></div><div><b>' + food + '</b><span>' + (food === 1 ? 'place to eat' : 'places to eat') + '</span></div></div>' +
       '<p class="caveat">' + (shared(a) ? 'A day shared with you as a link — edit it to keep your own copy on this device. ' : edited(a) ? 'Your version of the guide’s day. ' : '') + esc(info.dl || 'Suggested by the guide from sourced picks — check hours before you go. Distances are straight-line, not walking routes.') + '</p>' +
       '<div class="sharebar"><button type="button" class="btn btn-primary" data-dy="share">' + icon('share') + '<span>Share this day</span></button>' +
+      /* FE-C W9-7 hook */ '<button type="button" class="btn btn-ghost" data-cleo-card="day">' + icon('share') + '<span>Share as an image</span></button>' +
       '<a class="btn btn-ghost" href="' + g + '"' + NT + '>' + icon('directions') + '<span>Open in maps</span></a>' +
       '<button type="button" class="btn btn-ghost" data-dy="print">Print</button>' +
       '<button type="button" class="btn btn-ghost" data-dy="kml">Export KML</button>' + useSaved +
