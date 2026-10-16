@@ -55,7 +55,7 @@ const CHECKS = {
   'S-01': 'Token discipline (static census)', 'S-02': 'Token discipline (runtime inline styles)', 'S-03': 'Spacing rhythm',
   'S-04': 'Alignment', 'S-05': 'Component states', 'S-06': 'Truncation and clipping', 'S-07': 'Widows and orphans',
   'S-08': 'Sentence case', 'S-09': 'Credits visible', 'S-10': '44 px targets', 'S-11': 'AA contrast', 'S-12': 'No layout shift on load',
-  'S-13': 'No horizontal overflow', 'S-14': 'No errors', 'S-15': 'Focus visible', 'S-16': 'No internal editorial phrases in visible text',
+  'S-13': 'No horizontal overflow', 'S-14': 'No errors', 'S-15': 'Focus visible', 'S-16': 'No internal editorial phrases in visible text', 'S-17': 'Overlay and chrome (ledger OV; numbers until OV-00 budgets)',
 };
 if (has('--list')) { Object.entries(CHECKS).forEach(([k, v]) => console.log(k.padEnd(6), v)); console.log(Object.keys(CHECKS).length + ' checks'); process.exit(0); }
 
@@ -66,6 +66,8 @@ for (const f of fs.readdirSync(path.join(BETA, 'data', 'places'))) {
   if (!f.endsWith('.json')) continue;
   try { const d = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'places', f), 'utf8')); if (d.beta) JSON_BY_BETA[d.beta] = d; } catch (e) { /* skip */ }
 }
+// S-17 shares its in-page measurement with qc-overlay.js (the full page × view × viewport × theme audit)
+let OVERLAY = null; try { OVERLAY = require(path.join(__dirname, 'qc-overlay.js')); } catch (e) { /* older checkout: S-17 N/A */ }
 const PILOTS = ['cities/tokyo.html', 'cleveland.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html'];
 const HUBS = ['index.html', 'Japan/index.html'];
 const pick = list => PAGE_FILTER.length ? list.filter(p => PAGE_FILTER.some(k => p.includes(k))) : list;
@@ -1046,6 +1048,13 @@ async function sweepPage(rel, vp, theme) {
   S('S-12', r.cls.cls <= 0.05 ? 'PASS' : r.cls.cls <= 0.1 ? 'WARN' : 'FAIL', r.cls);
   S('S-14', ok(!st.errors.length), { errors: st.errors.slice(0, 4) });
   if (theme === 'light') S('S-16', r.jargon.n ? 'FAIL' : 'PASS', r.jargon);
+  // S-17: the default view's overlay and chrome numbers. WARN on any binary instance (Search this area on load, a toast,
+  // duplicate controls, colliding controls, a control over a pin, overlapping labels); budgets grade it once OV-00 lands.
+  if (OVERLAY) { const ov = await page.evaluate(OVERLAY.MEASURE).catch(e => ({ error: e.message.slice(0, 120) }));
+    const inst = ov.error ? ['probe: ' + ov.error] : [ov.searchHere && 'Search this area on load', ov.toasts && ov.toasts.length && 'toast: ' + ov.toasts[0], ov.duplicates && ov.duplicates.length && 'duplicates: ' + ov.duplicates.join('; '),
+      ov.controlCollisions && 'controls collide: ' + ov.controlCollisionSample.join('; '), ov.controlPin && 'control over a pin ×' + ov.controlPin, (ov.labelOverlaps || ov.labelControl) && `labels overlap: ${ov.labelOverlaps || 0} / over controls ${ov.labelControl || 0}`].filter(Boolean);
+    S('S-17', inst.length ? 'WARN' : 'PASS', { instances: inst, band: ov.band, chromeArea: ov.chromeArea, clearMap: ov.clearMap, labelCov: ov.labelCov, widestLabel: ov.widestLabel, view: ov.view }); }
+  else check('S-17', C, 'N/A', 'qc-overlay.js not in this checkout');
   if (wide && theme === 'light') {
     const stops = await keyboard(page, 30); const bad = stops.filter(s => s.tag !== 'BODY' && !s.ring);
     S('S-15', bad.length ? 'FAIL' : 'PASS', { stops: stops.length, noRing: bad.slice(0, 5).map(s => s.tag + ' ' + s.t) });

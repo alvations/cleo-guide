@@ -50,19 +50,11 @@ never weakens a gate.
 
 ## In flight
 
-D-46 (owner, 2c44f676: Atlas is the default; switcher Atlas, Gallery, Guidebook, Insights) harness update, committed in this push.
-- The probes read the page's declared default (`Cleo.city.info.dv`, else Atlas) instead of assuming Gallery: P-01 checks the label set (the order is P-29's job), and P-04, P-05, P-07, P-09, P-12 and J-06 were updated. P-11 is explicit (`view=gallery&pg=`) and also reports the pre-D-46 `#pg=`/`#all=1` links (WARN if they no longer open the Gallery).
-- New probes:
-  - P-29: a cold load opens Atlas at the first frame, the switcher is ordered Atlas first, CLS 0;
-  - P-30: a stored Gallery choice wins;
-  - P-31: with the map library blocked, a place card is on screen within 1.5 s, both cold and with `#view=atlas`.
-- Probe fixes: P-13, P-14 and P-15 open the phone Atlas list (`.ms-toggle`) before counting; P-14 accepts subset lines whose denominator is the lens count.
-- Tested on Tokyo and Cleveland at 390 and 1440, on dev before D-46 is implemented. P-29 FAILs as expected (dv=gallery); P-30 passes; P-31 `#view=atlas` gives a card in 377–481 ms.
-- Tokyo 390 re-test: P-13, P-14 and P-15 PASS with the phone Atlas list opened (reach 488/488, Atlas "Showing all 488 places"); P-30 PASS; P-31 `#view=atlas` card in 396 ms.
-
-- P-32 (platform 22:07Z, desktop switch → Atlas INP 21 s on b61fda89, suspect FE-1 797258c2): at 1440, Gallery → Atlas → Gallery → Atlas, timed from pointerdown `event.timeStamp` to the target view's first card painted; WARN > 500 ms, FAIL > 2 s. P-33: cold `#view=atlas` with the map allowed, time to the first list card; WARN > 1 s, FAIL > 2 s. Baseline on dev 6cfe7b9c (contains 797258c2 and b61fda89), Tokyo 1440, this rig (no CPU throttle, tiles stubbed): P-32 WARN, Gallery → Atlas 1024 / 925 ms, Atlas → Gallery 379 ms (not 21 s here); P-33 PASS, first Atlas card at 801 ms. Fixed in-session: P-32 looked for li.pl in the Gallery, whose rows are .gc cards.
-
-Next: run P-32/P-33 on the head that claims FE-1's fix and send the SHA; re-run patterns once the D-46 implementation lands. Re-verify QC-13, 14, 30, 31, 32, 33 and 34 as lanes claim fixes.
+**Owner directive (top priority): overlay and chrome audit.** The ledger is `docs/BETA-OVERLAY-LEDGER.md` (QC keeps it).
+- S-17 = `tools/beta/qa/qc-overlay.js`: every page × view (atlas, gallery, guidebook, insights, sheet; page for non-city pages) × 6 viewports × light/dark. It samples an 8 px grid and classifies the topmost element; measures chrome bands and area, clear map, label coverage, widest label, overlaps and collisions, Search this area, toasts and duplicates, at load, during a pan or scroll, and at idle. It flags the worst 10 % per metric plus binary instances, and shoots the worst of each group. Output in `design/beta/eval/qc/overlay/<label>/`.
+- qc.js runs S-17 on the default view in every sweep (WARN on binary instances).
+- Full audit running: r7 (`--root` worktree `qc-b54b3745`, label `r7-b54b3745`, log `scratchpad/ov-r7.log`). Then dev, then ledger rows (OV-08+) grouped by kind × view × viewport, with owners, and a reply to the orchestrator with the row count by owner.
+- Seen in the Punggol test on dev: phone Atlas chrome bands 25.7 % (390×844), 32.5 % (390×664), 55 % (844×390), no compaction on pan, widest label 47–56 % of the map width. The tray text renders as "16places here ·checked 3 Oct· Show list" (spaces lost; check on r7, then file).
 
 Next harness work:
 - Add a Contents-vs-lens count check to the COUNTS probe (QC-34 class) once FE-B fixes it.

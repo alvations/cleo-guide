@@ -229,6 +229,15 @@ async function tabTo(page, test, n = 80) {
     await s.page.screenshot({ path: path.join(SHOTS, `card-preview-${tag}.png`) }); await s.ctx.close();
   }
 
+  console.log('# card-fit (OV ledger: the share preview fits the screen whole, phone / landscape / tablet)');
+  for (const [w, hh] of [[390, 664], [844, 390], [768, 1024], [1024, 768]]) {
+    const s = await open(b, 'cities/tokyo.html#p=senso-ji', { w, h: hh, settle: 1400 });
+    await s.page.locator('[data-cleo-card="place"]').filter({ visible: true }).first().click(); await s.page.waitForSelector('#cleo-card-dlg img', { timeout: 10000 }).catch(() => {}); await s.page.waitForTimeout(400);
+    const r = await s.page.evaluate(() => { const d = document.querySelector('.card-dlg-b'); if (!d) return null; const inV = x => { const q = x.getBoundingClientRect(); return q.top >= -1 && q.bottom <= innerHeight + 1 && q.left >= -1 && q.right <= innerWidth + 1; };
+      const im = d.querySelector('img').getBoundingClientRect(); return { whole: [...d.children].every(inV), ratio: +(im.height / im.width).toFixed(2), scroll: d.scrollHeight > d.clientHeight + 2 }; });
+    ok(r && r.whole && Math.abs(r.ratio - 1.78) < 0.03 && !r.scroll, `${w}x${hh}: the share preview, its text and buttons are all on screen, 9:16, no scroll`, r); await s.ctx.close();
+  }
+
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails}` : '\n>>> PASS — FE-C W9 probe');
   process.exit(fails ? 1 : 0);
