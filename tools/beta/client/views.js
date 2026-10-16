@@ -8,7 +8,10 @@
   const info = C.info, DEF = info.dv || 'atlas', NAME = { gallery: 'Gallery', atlas: 'Atlas', guidebook: 'Guidebook', insights: 'Insights' };
   const avail = (info.views || ['gallery', 'atlas']).filter(v => NAME[v]), store = Cleo.store || { get: (k, x) => x, set: () => {} };
   const nav = $('[data-cleo-views]'), host = $('#cleo-view'), live = $('#cleo-view-live'), split = $('.split'), lp = $('.listpane');
-  const reg = {}, mem = {}, pl = n => n.toLocaleString('en-US') + (n === 1 ? ' place' : ' places');
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n)
+  const tt = (k, e, v) => Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, (m, n) => (n in v ? v[n] : m)) : e;
+  const nm = v => tt('city.view.' + v, NAME[v]);
+  const reg = {}, mem = {}, pl = n => n === 1 ? tt('hub.places.one', '1 place') : tt('hub.places', '{n} places', { n: n.toLocaleString('en-US') });
   const ok = v => avail.indexOf(v) >= 0;
   const isRoute = h => !h || h === '#' || h.indexOf('=') >= 0;          // #p-x / #area-X are anchors, not routes: keep the view
   let cur = ok(at(html, 'data-view')) ? at(html, 'data-view') : DEF;
@@ -20,7 +23,7 @@
   Cleo.route.href = o => { o = Object.assign({}, o || {}); const v = o.view || cur; delete o.view; if (v !== implied(o)) o = Object.assign({ view: v }, o); return href0(o); };
 
   const api = Cleo.views = {
-    names: avail.slice(), current: () => cur, label: v => NAME[v] || v,
+    names: avail.slice(), current: () => cur, label: v => (NAME[v] ? nm(v) : v),
     get: name => reg[name] || null,
     register(name, m) { reg[name] = m; if (name === cur && host && m.mount && !m.on) mount(name); },
     show: (v, o) => show(v, o || {}),
@@ -67,7 +70,7 @@
     if (changed && !o.first) {
       if (C.beat) C.beat(html, 'view-in', 360);                      // ROUND-3 #5: cross-fade hook on a real switch (DES CSS)
       requestAnimationFrame(() => { try { window.scrollTo(0, mem[v] || 0); } catch (e) {} });
-      if (live) live.textContent = NAME[v] + ' view, ' + pl(info.total);
+      if (live) live.textContent = tt('views.live', '{view} view, {places}', { view: nm(v), places: pl(info.total) });
       const h = v === 'gallery' || v === 'atlas' ? $('#main h1') : host && $('h1,h2', host);
       if (o.user && h) { if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
     }
@@ -152,7 +155,7 @@
     qa('li.pl').forEach(c => c.classList.remove('pg-off'));
     live.forEach(c => { const i = pos(c); if (i < a || i >= b) c.classList.add('pg-off'); });
     secs.forEach(s => s.classList.toggle('pg-empty', !s.querySelector('li.pl:not([hidden]):not(.pg-off)') && !keep.has(at(s, 'data-area'))));
-    if (!pager) { pager = d.createElement('nav'); pager.className = 'pager g-pager vw view-gallery'; pager.setAttribute('aria-label', 'Pages of places');
+    if (!pager) { pager = d.createElement('nav'); pager.className = 'pager g-pager vw view-gallery'; pager.setAttribute('aria-label', tt('views.pages', 'Pages of places'));
       const how = $('#how-we-choose'); if (how) how.parentNode.insertBefore(pager, how); else if (lp) lp.appendChild(pager);
       on(pager, 'click', e => { const x = e.target.closest('button'); if (!x) return; const v = at(x, 'data-pg');
         if (v === 'all') setPg({ all: '1' }); else if (v === 'paged') setPg({}); else setPg(+v > 1 ? { pg: v } : {}); }); }
@@ -161,17 +164,18 @@
     if (!all && pages > 1) {
       const want = new Set([1, pages, pg - 1, pg, pg + 1].filter(x => x >= 1 && x <= pages)); let last = 0;
       [...want].sort((x, y) => x - y).forEach(x => { if (x - last > 1) nums.push('<span class="gap" aria-hidden="true">…</span>');
-        nums.push('<button type="button" class="pg" data-pg="' + x + '"' + (x === pg ? ' aria-current="page"' : '') + ' aria-label="Page ' + x + ' of ' + pages + '">' + x + '</button>'); last = x; });
+        nums.push('<button type="button" class="pg" data-pg="' + x + '"' + (x === pg ? ' aria-current="page"' : '') + ' aria-label="' + tt('views.page', 'Page {i} of {n}', { i: x, n: pages }) + '">' + x + '</button>'); last = x; });
     }
-    const line = !N ? 'No places match — <button type="button" class="btn btn-quiet" data-cleo-all>show all ' + T + '</button>'
-      : 'Showing <b>' + (a + 1) + '–' + b + '</b> of ' + N.toLocaleString('en-US') + (N === T ? ' — all ' + pl(T) : ' (all ' + pl(T) + ' in the guide)');
-    pager.innerHTML = (nums.length ? '<div class="pg-n"><button type="button" class="pg" data-pg="' + Math.max(1, pg - 1) + '"' + (pg === 1 ? ' disabled' : '') + ' aria-label="Previous page">‹</button>' + nums.join('') +
-      '<button type="button" class="pg" data-pg="' + Math.min(pages, pg + 1) + '"' + (pg === pages ? ' disabled' : '') + ' aria-label="Next page">›</button></div>' : '') +
+    const line = !N ? tt('views.none', 'No places match —') + ' <button type="button" class="btn btn-quiet" data-cleo-all>' + tt('views.none.all', 'show all {n}', { n: T }) + '</button>'
+      : tt('views.showing', 'Showing {range} of {n}', { range: '<b>' + (a + 1) + '–' + b + '</b>', n: N.toLocaleString('en-US') }) + (N === T ? tt('views.all', ' — all {places}', { places: pl(T) }) : tt('views.inguide', ' (all {places} in the guide)', { places: pl(T) }));
+    pager.innerHTML = (nums.length ? '<div class="pg-n"><button type="button" class="pg" data-pg="' + Math.max(1, pg - 1) + '"' + (pg === 1 ? ' disabled' : '') + ' aria-label="' + tt('views.prev', 'Previous page') + '">‹</button>' + nums.join('') +
+      '<button type="button" class="pg" data-pg="' + Math.min(pages, pg + 1) + '"' + (pg === pages ? ' disabled' : '') + ' aria-label="' + tt('views.next', 'Next page') + '">›</button></div>' : '') +
       '<p class="pg-line tot" aria-live="polite">' + line + '</p>' +
-      (pages > 1 || all ? '<p><button type="button" class="btn btn-ghost showall" data-pg="' + (all ? 'paged' : 'all') + '">' + (all ? 'Show ' + per + ' per page' : 'Show all ' + N.toLocaleString('en-US') + ' on one page') + '</button></p>' : '');
+      (pages > 1 || all ? '<p><button type="button" class="btn btn-ghost showall" data-pg="' + (all ? 'paged' : 'all') + '">' + (all ? tt('views.per', 'Show {n} per page', { n: per }) : tt('views.onepage', 'Show all {n} on one page', { n: N.toLocaleString('en-US') })) + '</button></p>' : '');
     if (Cleo.emit) Cleo.emit('cleo:paged', { a, b, n: N });
   }
   C.after.push(page);
+  on(d, 'cleo:locale', () => { if (pager) page(); nopin(); });   // i18n D-41: redraw the pager and the badge in the loaded catalogue
   // the paged Gallery stamps exactly its page (above), so core's lazy observer holds while it shows (platform W7)
   if (Cleo.defer && Cleo.defer.resume) Cleo.defer.hold = () => cur === 'gallery' && Cleo.route.parse().all !== '1';
   on(d, 'cleo:stamped', () => { if (cur === 'gallery') requestAnimationFrame(page); });
@@ -214,7 +218,7 @@
     const n = qa('li.pl').filter(c => !c.hasAttribute('data-ll')).length + (Cleo.defer ? Cleo.defer.peek().filter(c => !c.hasAttribute('data-ll')).length : 0);
     let b = $('.nopin', mp); if (!n) { if (b) b.remove(); return; }
     if (!b) { b = d.createElement('p'); b.className = 'nopin'; mp.appendChild(b); }
-    b.textContent = n + ' without a verified pin · in the list';
+    b.textContent = tt('views.nopin', '{n} without a verified pin · in the list', { n });
   }
   // area chips (Atlas list head on desktop; the Area tray elsewhere): one tap = the area lens, a second tap clears it. Drawn here from the blob + card attrs.
   const chips = $('.area-chips');

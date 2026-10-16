@@ -191,7 +191,12 @@ async function atlasd(rel) {
   const z = await page.evaluate(async () => { const m = __C().map(); const v = [m.getCenter(), m.getZoom()]; m.setZoom(m.getZoom() + 2, { animate: false }); await new Promise(r => setTimeout(r, 900)); const a = __count();
     const s = m.getSize(); m.panBy([s.x * 0.4, s.y * 0.3], { animate: false }); await new Promise(r => setTimeout(r, 900)); const b = __count(), more = (document.querySelector('.ms-more') || {}).textContent;
     m.setView(v[0], v[1], { animate: false }); await new Promise(r => setTimeout(r, 900)); return { a, b, more, c: __count() }; });
-  check('atlasd', `${rel}: zoom/pan changes the count; "N more outside" offered`, z.a !== s0.count && z.b !== z.a && /more outside/.test(z.more || ''), { first: s0.count, zoomed: z.a, panned: z.b, more: z.more });
+  // SPEC-v3 rev 4 §2.3 (Atlas FE-1; QA ratified 2026-10-16): the "N more outside" line may give way to a "Show all <N>"
+  // control; either says more places exist outside the area, one tap away. Accepted only when the Show-all total exceeds
+  // the area count shown (so it really signals places outside), and the count must still change on zoom and pan.
+  const allN = s => { const m = /Show all ([\d,]+)/.exec(s || ''); return m ? +m[1].replace(/,/g, '') : null; };
+  const moreSignal = /more outside/.test(z.more || '') || (allN(z.more) != null && allN(z.more) > z.b);
+  check('atlasd', `${rel}: zoom/pan changes the count; "N more outside" or "Show all <N > shown>" offered`, z.a !== s0.count && z.b !== z.a && moreSignal, { first: s0.count, zoomed: z.a, panned: z.b, more: z.more });
   // Show all + paging: every place, once
   const pg = await page.evaluate(async () => { const all = document.querySelector('.ms-more [data-ms="all"]'); if (all) all.click(); await new Promise(r => setTimeout(r, 500));
     const head = (document.querySelector('.ms-count') || {}).textContent; let clicks = 0;

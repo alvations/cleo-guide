@@ -56,6 +56,10 @@ const ENDPOINT = {
   wikipedia: 'https://en.wikipedia.org/w/api.php',
   nominatim: 'https://nominatim.openstreetmap.org/search',
   overpass: 'https://overpass-api.de/api/interpreter',
+  // Fallback for the retry (the main server is often overloaded; its wiki says "use alternatives if possible").
+  // overpass.private.coffee: no rate limit; asks for a meaningful UA, POST, and notice before > 10 req/s or > 10
+  // parallel — we send one sequential query per 10 rows.
+  overpassAlt: 'https://overpass.private.coffee/api/interpreter',
   census: 'https://geocoding.geo.census.gov/geocoder/locations/onelineaddress',
 };
 const LICENCE = {
@@ -65,7 +69,7 @@ const LICENCE = {
   official: "the place's own website (fact read from its schema.org markup / page; robots.txt honoured)",
 };
 // Per-host minimum spacing between requests (ms). Every source is queried single-threaded.
-const SPACING = { 'geocoding.geo.census.gov': 1000, 'www.onemap.gov.sg': 500, 'nominatim.openstreetmap.org': 1100, 'overpass-api.de': 5000, 'www.wikidata.org': 300, 'en.wikipedia.org': 300, default: 2000 };
+const SPACING = { 'overpass.private.coffee': 5000, 'geocoding.geo.census.gov': 1000, 'www.onemap.gov.sg': 500, 'nominatim.openstreetmap.org': 1100, 'overpass-api.de': 5000, 'www.wikidata.org': 300, 'en.wikipedia.org': 300, default: 2000 };
 
 // ───────────────────────────────────────────────────────── pure helpers (unit-tested) ──
 
@@ -507,7 +511,7 @@ class Http {
     const bh = this.byHost[h] = this.byHost[h] || { requests: 0, failed: 0 }; bh.requests++;
     this.last[h] = Date.now();
     // Overpass queries carry their own [timeout:60|90]; the client must wait longer than the server does.
-    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), h === 'overpass-api.de' ? 120000 : 30000);
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), /overpass/.test(h) ? 120000 : 30000);
     try {
       const r = await fetch(url, { method, body, signal: ctl.signal, redirect: 'follow',
         headers: Object.assign({ 'User-Agent': UA, 'Api-User-Agent': UA, Accept: accept }, body ? { 'Content-Type': 'application/x-www-form-urlencoded' } : {}, extra || {}) });
@@ -657,7 +661,8 @@ async function fromOverpassBatch(http, rows, retry = false) {
   if (!pts.length) return {};
   const parts = pts.map(r => `nwr(around:80,${r.point.lat},${r.point.lng})[~"^(name|old_name|was:name|disused:name)$"~"."];`).join('\n');
   const q = `[out:json][timeout:${retry ? 90 : 60}];\n(\n${parts}\n);\nout tags center 400;`;
-  const res = await http.json(ENDPOINT.overpass, { method: 'POST', body: qs({ data: q }), host: 'overpass-api.de' });
+  const url = retry ? ENDPOINT.overpassAlt : ENDPOINT.overpass;
+  const res = await http.json(url, { method: 'POST', body: qs({ data: q }), host: new URL(url).host });
   const els = (res.json && res.json.elements) || [];
   const out = {};
   for (const r of pts) {
@@ -909,7 +914,9 @@ function toMarkdown(rep) {
   if (m.reviewsCarried || m.reviewsStale || m.reviewsOrphaned) L.push(`Reviews carried from the previous report: ${m.reviewsCarried || 0}${m.reviewsStale ? ` · STALE (proposal changed, re-review): ${m.reviewsStale.join(', ')}` : ''}${m.reviewsOrphaned ? ` · rows no longer in scope (decisions kept in meta.reviewsOrphaned): ${m.reviewsOrphaned.map(x => x.name).join(', ')}` : ''}`, '');
   if (m.requests) L.push(`Requests: ${m.requests.network} network · ${m.requests.cacheHits} cache hits · ${m.requests.nominatim} Nominatim${m.requests.failures.length ? ` · failures: ${m.requests.failures.slice(0, 5).join('; ')}` : ''}`, '');
   const bad = Object.entries((m.requests && m.requests.byHost) || {}).filter(([, b]) => b.failed);
-  if (bad.length) L.push(`Failed requests by host: ${bad.map(([h, b]) => `${h} ${b.failed}/${b.requests}`).join(' · ')}${bad.some(([h]) => h === 'overpass-api.de') ? ' — Overpass failures mean OSM lifecycle (closure) evidence is incomplete for some rows' : ''}`, '');
+  if (bad.length) L.push(`Failed requests by host: ${bad.map(([h, b]) => `${h} ${b.failed}/${b.requests}`).join(' · ')}}`, '');
+  const noOv = rep.rows.filter(r => (r.notes || []).some(n => /^overpass:/.test(n))).length;
+  if (noOv) L.push(`OSM lifecycle (closure) evidence missing for ${noOv} row(s): both Overpass instances failed for their batch. Coordinates are unaffected.`, '');
   L.push('## Summary', '', '| outcome | rows |', '|---|---|');
   for (const [k, v] of Object.entries(rep.summary)) L.push(`| ${k} | ${v} |`);
   L.push('');
