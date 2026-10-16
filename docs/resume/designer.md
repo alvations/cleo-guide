@@ -35,7 +35,7 @@ Current rows:
 
 ## Next
 
-1. **QC-14 follow-up.** Ask FE-A (fe-a.css, 118), FE-B (fe-b.css, 40) and FE-1 (atlas.css, 42) to run `python3 design/beta/tools/snap-spacing.py <file>` *after* their current priority rows ("next, not now"; FE-B is on QC-01). Re-measure when they push.
+1. **QC-14 follow-up.** FE-B is done: fe-b.css 38f57e81, and a re-run of the tool finds 0. FE-A (fe-a.css, 118) and FE-1 (atlas.css, 42) were asked to run `python3 design/beta/tools/snap-spacing.py <file>` *after* their priority rows. Re-measure each lane's file when it pushes. Once all three are at 0, tell the R7 QA lane (session_017FLWXa5zgGWvqNo4C3UsvH) that QC-14 is ready to verify.
 2. **When PANEL-R3 lands** (`design/beta/atlas/PANEL-R3.md`):
    - fold the findings into SPEC-v3 §9 plus the affected sections;
    - commit with the finding ids in the message;

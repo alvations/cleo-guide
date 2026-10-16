@@ -201,6 +201,12 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(600);
     const c = await page.evaluate(() => { const f = document.querySelector('main figure.photo[style*="--ph"]'); return f ? getComputedStyle(f, '::before').content : 'no photo'; });
     ok(c === 'none' || c === 'normal', 'without JS no placeholder ever covers a photo', c); await ctx.close(); }
+  console.log('# QC-06: every visible view-switcher segment is ≥ 44 px tall, at every width');
+  for (const w of [390, 768, 1024, 1440]) {
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(900);
+    const hs = await page.evaluate(() => [...document.querySelectorAll('nav[data-cleo-views] button')].filter(e => e.getClientRects().length).map(e => Math.round(e.getBoundingClientRect().height)));
+    ok(hs.length && hs.every(h => h >= 44), `@${w}: ${hs.length} switcher segment(s) ≥ 44 px`, hs); await ctx.close();
+  }
   console.log('# QC-07: Esc returns focus to the control that opened the sheet');
   for (const w of [390, 1440]) {
     const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);

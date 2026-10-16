@@ -207,6 +207,11 @@ honest in every view. "Who recommends this" works from every sheet.
 **Not measured this pass:** P-24 (no silent caps) has no automated probe yet. It is covered indirectly by P-13 (every
 view reaches all N) and P-23 (the pager), and gets its own probe before the re-pass.
 
+**Since this pass (2026-10-16):**
+- P-24 is automated. Every container that states "n places" must render n items or show a visible control to the rest (See all / Show all / pager).
+- A smoke run on Tokyo found no silent caps: Gallery 4 containers measured, Guidebook 13, Insights 1. The phone Atlas list is not shown at load, so it reads N/A there.
+- Also fixed: a comment inside the P-26 probe's function body broke that probe after 129eff6b. The f2c39d69 / b5f0afa1 results above predate the edit and are unaffected.
+
 ### Findings
 
 Severity rules and lanes as in "How QC measures". All are **open**; each is mirrored in `BETA-ISSUES.md`.

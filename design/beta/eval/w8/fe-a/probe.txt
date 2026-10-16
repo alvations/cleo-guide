@@ -217,6 +217,11 @@
   PASS  reduce: the switcher's selection moves onto the new view = [{"left":895,"on":895,"w":100,"bw":100,"dur":0},{"left":1084,"on":1084,"w":126,"bw":126,"dur":0}]
   PASS  reduced motion: no slide, no cross-fade = [0,0]
   PASS  without JS no placeholder ever covers a photo = "none"
+# QC-06: every visible view-switcher segment is ≥ 44 px tall, at every width
+  PASS  @390: 1 switcher segment(s) ≥ 44 px = [48]
+  PASS  @768: 4 switcher segment(s) ≥ 44 px = [44,44,44,44]
+  PASS  @1024: 4 switcher segment(s) ≥ 44 px = [44,44,44,44]
+  PASS  @1440: 4 switcher segment(s) ≥ 44 px = [44,44,44,44]
 # QC-07: Esc returns focus to the control that opened the sheet
   PASS  @390 .g-rows li.gc .gc-a #p-kanda-myojin: Enter opens the sheet, Esc returns focus to that same control = "gc-a #p-kanda-myojin"
   PASS  @390 #cleo-lead li.gc .gc-a #p-kanda-myojin: Enter opens the sheet, Esc returns focus to that same control = "gc-a #p-kanda-myojin"
