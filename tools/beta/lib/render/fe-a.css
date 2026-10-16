@@ -629,8 +629,8 @@ html:root body .topbar,html:root body .topbar.on-night{background:var(--paper)}
 html body .tabbar{background:var(--surface)}
 /* ---- 17. R7 gap 5: food covers read as intentional — the dish in display type on the eat-and-drink tint, under the
    kind glyph (food places never get photos; a blank sand box read as "not loaded") ---- */
-html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover,html .view-gallery .gc .cover.food{background:color-mix(in srgb,var(--sun) 16%,var(--sand))!important;container-type:inline-size;align-content:center;gap:8px}
-html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{display:block;max-width:86%;margin:0;color:var(--ink);font:500 clamp(14px,10cqi,28px)/1.08 var(--font-display);letter-spacing:-.01em;text-align:center;text-wrap:balance;overflow-wrap:anywhere}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover,html .view-gallery .gc .cover.food{background:var(--cover-food)!important;container-type:inline-size;align-content:center;gap:8px}
+html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{display:block;max-width:86%;margin:0;color:var(--ink);font:500 clamp(var(--fs-ui),9cqi,var(--fs-d2))/1.08 var(--font-display);letter-spacing:-.01em;text-align:center;text-wrap:balance;overflow-wrap:anywhere}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover .pl-glyph,html .view-gallery .gc .cover.food .gl,html .view-gallery .gc .cover.food .gl .ico{width:24px;height:24px;color:var(--ink-2)}
 html main[data-city] li.pl[data-k=f]>.pl-cover .pl-vert{display:none}
 /* the ratified Gallery card (QA W7): no write-up / look-for / address on the card face. v2's clamp rule
@@ -703,3 +703,6 @@ html body #cleo-sheet .detail .hero-plate.has-photo.ph-fit{max-width:min(var(--p
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{overflow:hidden;border-radius:var(--r-l)}
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{--ph-band:color-mix(in srgb,var(--ph,var(--sand)) 45%,var(--sand))}
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame>.photo img{border-radius:0;box-shadow:calc(-1 * var(--ph-max)) 0 0 0 var(--ph-band),var(--ph-max) 0 0 0 var(--ph-band)}
+/* food covers (c), designer sign-off: the cover names the dish, so a food card's kind line drops its duplicate dish (the
+   area line stays where the card is not under its own area header) */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-e .in-d{display:none}

@@ -23,6 +23,7 @@ function offlineStrings(city, n) {
 const { head, siteBar, footer, BETA_BASE } = require('./common');
 const { rowsOf: galleryRows } = require('../gallery');
 const { sentence, ownWords } = require('../casing');
+const { dishOf } = require('../dish');
 const COUNTRIES = (() => { try { return JSON.parse(require('fs').readFileSync(require('path').resolve(__dirname, '../../../../data/countries.json'), 'utf8')).countries; } catch (e) { return []; } })();
 
 const shortArea = n => String(n || '').split(/\s+[(—–]\s*|\s+\(/)[0].trim();
@@ -148,7 +149,7 @@ function card(r, num, ctx) {
   const { page, srcById, areaName } = ctx;
   const aName = areaName(r.a);
   const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
-  const dish = r.kind === 'food' && czN[0] ? (ctx.SC || String)(czN[0].split(/ & |, | \(/)[0]) : '';
+  const dish = r.kind === 'food' ? (ctx.SC || String)(dishOf(czN, ctx.srcNames)) : '';   // food covers (c): the dish or cuisine, never a source or award
   const gl = glyphOf(r, page), mg = mapGlyphOf(r, gl, ctx.japan);
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
@@ -288,7 +289,7 @@ function render(row, recs, ctx) {
 
   /* -- area chapters -- */
   const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
-  const cardCtx = { japan: row.country === 'japan', page, srcById, areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
+  const cardCtx = { japan: row.country === 'japan', page, srcById, srcNames: Object.values(srcById || {}).map(x => x && (x.name || x.n)).filter(Boolean), areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : [tr('city.elsewhere'), ''];   // i18n D-41: chapter strings

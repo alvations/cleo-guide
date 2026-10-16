@@ -228,7 +228,7 @@
   // R7 gap 5 (food covers): food places never get photos (honesty rule), so their cover names the dish in display type
   // on the eat-and-drink tint, under the kind glyph — an intentional face, never a blank box that reads as "not loaded"
   const dishOf = c => { if (at(c, 'data-k') !== 'f') return ''; const x = $('.pl-e .in-d', c), t = x ? x.textContent.replace(/^\s*·\s*/, '').trim() : '';
-    return '<span class="pl-dish">' + esc(t || tt('city.mode.food', 'Eat & drink')) + '</span>'; };
+    return '<span class="pl-dish">' + esc(t || C.label('a', at(c, 'data-a'))) + '</span>'; };   // no dish or cuisine to name: the area (food covers (c))
   const paint = () => {
     const s = Cleo.saved ? Cleo.saved.all() : {}, b = been.all();
     cards.forEach(c => {
