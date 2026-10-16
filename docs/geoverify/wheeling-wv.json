@@ -32,7 +32,8 @@
    "failures": []
   },
   "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
-  "hardFailure": false
+  "hardFailure": false,
+  "reassisted": "2026-10-16"
  },
  "summary": {
   "pin": 8,
@@ -115,6 +116,12 @@
     "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
     "why": "OSM POI whose name matches and whose street address equals the registry address (1311 Main Street, Wheeling, West Virginia 26003); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
     "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 0.9, house number + street match"
+    ]
    }
   },
   {
@@ -193,6 +200,12 @@
     "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
     "why": "OSM POI whose name matches and whose street address equals the registry address (2226 Market Street, Wheeling, West Virginia 26003); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
     "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
    }
   },
   {
@@ -236,6 +249,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -312,6 +331,12 @@
     "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
     "why": "OSM POI whose name matches and whose street address equals the registry address (2145 Market Street, Wheeling, West Virginia 26003); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
     "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
    }
   },
   {
@@ -355,6 +380,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -398,6 +429,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -441,6 +478,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -484,6 +527,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -587,6 +636,12 @@
     "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
     "why": "OSM POI whose name matches and whose street address equals the registry address (2247 Market Street, Wheeling, West Virginia 26003); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
     "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
+    ]
    }
   },
   {
@@ -644,6 +699,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -701,6 +762,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -744,6 +811,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -787,6 +860,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -830,6 +909,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -873,6 +958,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -916,6 +1007,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -944,6 +1041,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -1006,6 +1109,12 @@
     "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
     "why": "Wikidata coordinate only; no address on the match and no independent second source found by WebSearch (address confirmed at 620 Military Rd, coordinate not). Held for a second source.",
     "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
+    ]
    }
   },
   {
@@ -1049,6 +1158,12 @@
     "by": null,
     "why": null,
     "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
    }
   },
   {
@@ -1124,6 +1239,12 @@
     "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
     "why": "OSM POI whose name matches and whose street address equals the registry address (1025 Wheeling Avenue, Cambridge, Ohio 43725); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
     "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
    }
   },
   {
@@ -1202,6 +1323,12 @@
     "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
     "why": "OSM POI whose name matches and whose street address equals the registry address (2224 Maple Avenue, Zanesville, Ohio 43701); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
     "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 0.9, house number + street match"
+    ]
    }
   },
   {
@@ -1277,6 +1404,12 @@
     "by": "orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx",
     "why": "OSM POI whose name matches and whose street address equals the registry address (126 Muskingum Avenue, Zanesville, Ohio 43701); place-specific, graded high — LOCATION-VERIFY-ACTIONS §8 rule 2",
     "date": "2026-10-11"
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
    }
   }
  ]

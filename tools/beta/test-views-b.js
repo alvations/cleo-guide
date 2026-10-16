@@ -187,7 +187,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     const N = load(file + '.json').places.length;
     let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
       (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
-    html = html.replace('</body>', ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
+    html = html.replace('</body>', () => ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
     const errs = [];
     const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page,
       beforeParse(w) {
@@ -298,6 +298,92 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     const [open1, t1] = await sheetNote('cities/tokyo.html', pq.id), [open2, t2] = await sheetNote('cities/tokyo.html', plain.id);
     chk(`QA-65: the detail of tempura-abe-honten carries the D-39 note with its date (${pq.pq}); ${plain.id} carries none`,
       open1 && t1 === `Prices and ratings are quoted from the source at the time of research (${pq.pq}).` && open2 && t2 === null, [open1, t1, open2, t2]);
+  }
+  // ---- QC-01 / QC-02: an Insights mark links only to a lens that shows exactly the places it counts (independent
+  // re-statement of Cleo.lens.match over the record fields); QC-03: under a lens every number is the lensed set's
+  {
+    const MATCH = (p, o) => !((o.mode === 'sights' && p.kind === 'food') || (o.mode === 'food' && p.kind !== 'food')
+      || (o.a && p.a !== o.a) || (o.t && (p.closed || String(p.t) !== o.t)) || (o.c && !(p.g || []).includes(o.c))
+      || (o.cz && !(p.cz || []).includes(o.cz)) || (o.src && !(p.src || []).includes(o.src)) || (o.closed && !p.closed));
+    const un = x => x.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+    const check = (d, html, tag, bad) => {
+      let n = 0;
+      for (const m of html.matchAll(/<a href="#([^"]*view=gallery[^"]*)" aria-label="([^"]*)">/g)) {
+        n++; const o = Object.fromEntries(un(m[1]).split('&').map(kv => kv.split('=').map(decodeURIComponent)).filter(([k]) => k !== 'view'));
+        const want = +((/(?:: | · all )(\d+)$/.exec(un(m[2])) || [])[1]);
+        const got = d.places.filter(p => MATCH(p, o)).length;
+        if (got !== want) bad.push(`${tag}: "${un(m[2])}" opens ${got} (${m[1]})`);
+      }
+      const can = (html.match(/<section class="icard" id="in-can"[\s\S]*?<\/section>/) || [''])[0];
+      if (/<a href=/.test(can)) bad.push(`${tag}: canon bar links`);
+      for (const c of html.match(/<section class="icard"[\s\S]*?<\/section>/g) || []) {
+        const plainMarks = /<rect class="bar"/.test(c.replace(/<a [^>]*>[\s\S]*?<\/a>/g, ''));
+        if (plainMarks !== /data-plain/.test(c)) bad.push(`${tag}: ${(/id="(in-[a-z]+)"/.exec(c) || [])[1]} plain marks ${plainMarks} vs note`);
+      }
+      return n;
+    };
+    const bad1 = [], bad3 = []; let nLinks = 0, nLensed = 0;
+    for (const f of files) {
+      const d = load(f), r = I.render(d); nLinks += check(d, r.html, f, bad1);
+      // QC-03: the first area as a lens — "n of all N", tiles and every chart from that area only, links keep the lens
+      const a = d.places[0].a, L = { a }, want = d.places.filter(p => p.a === a).length, rl = I.render(d, { lens: L });
+      nLensed++;
+      if (rl.numbers.N !== want || !rl.html.includes(`<b>${want} of all ${d.places.length} places</b> match this lens.`) || rl.index !== want
+        || [...rl.html.matchAll(/<a href="#([^"]*view=gallery[^"]*)"/g)].some(m => !m[1].includes('a=' + encodeURIComponent(a))))
+        bad3.push(`${f} a=${a}: N ${rl.numbers.N} vs ${want}`);
+      const dl = Object.assign({}, d, { places: d.places.filter(p => p.a === a) });
+      check(dl, rl.html, f + ' (lensed)', bad1);
+    }
+    for (const L of [{ mode: 'food' }, { t: '1' }, { mode: 'sights', a: load('tokyo.json').places[0].a }]) {
+      const d = load('tokyo.json'), rl = I.render(d, { lens: L }), want = d.places.filter(p => MATCH(p, L)).length;
+      if (rl.numbers.N !== want || !rl.html.includes(`<b>${want} of all ${d.places.length} places</b>`)) bad3.push(`tokyo ${JSON.stringify(L)}: ${rl.numbers.N} vs ${want}`);
+      check(Object.assign({}, d, { places: d.places.filter(p => MATCH(p, L)) }), rl.html, 'tokyo ' + JSON.stringify(L), bad1);
+    }
+    chk(`QC-01/QC-02: every Insights link (${nLinks} on ${files.length} guides, plus lensed renders) opens exactly the places it counts; canon bars never link; plain bars are explained`, !bad1.length && nLinks > 1000, bad1.slice(0, 5));
+    chk(`QC-03: under a lens Insights counts the lensed set ("n of all N"), on ${nLensed} guides + 3 Tokyo lenses`, !bad3.length, bad3.slice(0, 4));
+  }
+  // QC-03 + QC-10 in the browser: Tokyo #view=insights&a=<area> shows "n of all N"; a keyboard switch to Guidebook or
+  // Insights moves focus to the view's h1
+  {
+    const boot = (page, hash) => {
+      let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
+        (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+      html = html.replace('</body>', () => ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
+      const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + hash,
+        beforeParse(w) { w.Element.prototype.scrollIntoView = function () {}; w.matchMedia = () => ({ matches: false, addListener() {}, removeListener() {} }); w.scrollTo = () => {};
+          w.fetch = u => { const p = path.join(BETA, /data\/places\//.test(u) ? 'data/places/' + u.split('data/places/')[1] : new URL(u, w.location.href).pathname.replace(/^\/beta\//, ''));
+            return fs.existsSync(p) ? Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(p, 'utf8'))) }) : Promise.resolve({ ok: false, status: 404 }); }; } });
+      return dom;
+    };
+    const tj = load('tokyo.json'), a = tj.places[0].a, n = tj.places.filter(p => p.a === a).length;
+    let dom = boot('cities/tokyo.html', '#view=insights&a=' + a); await sleep(900);
+    const cnt = dom.window.document.querySelector('[data-ins-count]');
+    chk(`QC-03 (jsdom): Tokyo #view=insights&a=${a} reads "${n} of all ${tj.places.length} places"`, cnt && cnt.textContent.includes(`${n} of all ${tj.places.length} places`), cnt && cnt.textContent);
+    dom.window.close();
+    const got = [];
+    for (const v of ['guidebook', 'insights']) {
+      dom = boot('cities/tokyo.html', ''); await sleep(500);
+      const b = dom.window.document.querySelector(`[data-cleo-views] button[data-view="${v}"]`);
+      if (b) { b.focus(); b.click(); await sleep(900); }
+      const ae = dom.window.document.activeElement;
+      got.push([v, !!b, ae && ae.tagName, ae && ae.closest && !!ae.closest('.vw')]); dom.window.close();
+    }
+    chk('QC-10 (jsdom): a keyboard switch to Guidebook / Insights moves focus to the view\'s h1', got.every(x => x[1] && x[2] === 'H1' && x[3]), got);
+  }
+  // ---- QC-09 / QC-06 (DESIGN-SYSTEM §v2.11): the switcher is a labelled group of 4 pressed toggles on every city page, never
+  // collapsed, and no shipped rule shrinks a segment under 44 px (layout probe: tools/beta/feb-switcher.js)
+  {
+    const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(dir, e.name))) : e.name.endsWith('.html') ? [path.join(dir, e.name)] : []);
+    const badSw = []; let nSw = 0;
+    for (const f of walk(BETA)) {
+      const h = fs.readFileSync(f, 'utf8'); if (!/data-cleo-page="city"/.test(h)) continue; nSw++;
+      const g = (/<(\w+) class="views" data-cleo-views role="group" aria-label="View" hidden>([\s\S]*?)<\/\1>/.exec(h) || []);
+      const bs = [...(g[2] || '').matchAll(/<button type="button" data-view="(\w+)" aria-pressed="(true|false)" data-label="[^"]+">/g)];
+      if (g[1] !== 'div' || bs.length !== 4 || bs.filter(x => x[2] === 'true').length !== 1 || /<nav class="views"/.test(h)) badSw.push(path.relative(BETA, f));
+    }
+    const css = ['cleo.css', 'fe-a.css'].map(f => fs.readFileSync(path.join(BETA, 'assets', f), 'utf8')).join('\n');
+    const shrink = (css.match(/\.views[^{}]*button[^{}]*\{[^}]*min-height:\s*(?:[0-3]\d|4[0-3])px/g) || []).concat(css.match(/views[^{}]*:not\(\.open\)/g) || [], css.match(/content:\s*"View: "/g) || []);
+    chk(`QC-09/QC-06: the switcher is div[role=group][aria-label=View] with 4 pressed toggles (exactly one on) on ${nSw} city pages; no collapse, no "View:" prefix, no segment under 44 px`, !badSw.length && nSw >= 84 && !shrink.length, badSw.slice(0, 3).concat(shrink.slice(0, 3)));
   }
   console.log(failures ? `\n>>> FAIL — ${failures} FE-B view check(s) failed` : '\n>>> PASS — FE-B views: Guidebook + Insights hold every place, numbers add up, hub links resolve');
   process.exitCode = failures ? 1 : 0;

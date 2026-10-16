@@ -1,6 +1,6 @@
 # Japanese interface catalogue: independent review (D-41)
 
-- **Catalogue:** `tools/beta/i18n/ja.json`, published as `beta/assets/i18n/ja.json`. It has 166 interface strings and the AI-tier note: 147 at first, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
+- **Catalogue:** `tools/beta/i18n/ja.json`, published as `beta/assets/i18n/ja.json`. It has 419 interface strings (147 at first; the rest added with the offline pack, For you and the city page) and the AI-tier note: 147 at first, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
 - **Translator:** an AI agent (session_01HB7igqdcuhrau7mUWSauDL).
 - **Reviewer:** an independent AI subagent. It was given only `en.json`, `ja.json` and the review brief, and none of the translator's reasoning.
 - **Date:** 2026-10-11.
@@ -51,4 +51,52 @@ The `fy.*` strings landed upstream after round 2. A fresh independent subagent r
 | `fy.note` | …すべてのガイドは下に一覧があります。 | …すべてのガイドは引き続き下に一覧表示されています。 | The English "still" had been dropped, and the old phrasing read awkwardly. The new wording keeps the reassurance that nothing is hidden. |
 | `fy.i.food` | 食と飲み物 | 飲食 | 食と飲み物 is an unnatural pairing for a chip. The catalogue already uses 飲食 for "eat & drink" (`hub.food`). |
 
-**Total: 7 changes over three rounds.**
+## Round 4: the 90 city-page strings (`tier.*`, `city.*`; 9 changes, applied)
+
+These keys came in when the city page's server-rendered interface (`lib/render/city.js`) moved into the catalogue. A fresh independent subagent reviewed them under the same brief, with access only to the two catalogues.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `city.card.look` | 見どころ | 注目ポイント | 見どころ is already the "Sights" label, and "Look for" means what to notice. |
+| `city.card.within` | {area} | {area}内 | The bare placeholder had dropped "within". |
+| `city.src.k` | 推薦したすべての場所 | この出典が推薦したすべての場所 | The old string didn't say who recommended. |
+| `city.door.day.d` | {n}か所 · {areas}を計画済み | {n}か所 · {areas}を巡るプラン | The old phrasing said the areas were planned, not that the day plan covers them. |
+| `city.view.label` | 表示 | 表示形式 | It clashed with `city.mode.label` (表示), so two control groups had the same accessible name. |
+| `city.how.order` | …評価・価格・営業時間… | …星評価・価格・営業時間… | 評価 is the catalogue's word for tiers, which the page does show. |
+| `city.door.near.d` | 確認は1回 · 保存しません | 位置情報の許可は1回だけ · 保存しません | 確認 means status checks elsewhere; it's the location permission that is asked once. The reviewer proposed 位置情報の許可を求めるのは1回だけ; I applied it shortened to fit the rail chip, with the same meaning. |
+| `city.elsewhere` | その他の地域 | その他のエリア | The catalogue's term for an area is エリア. |
+| `city.area.day` | この地域の1日プラン · {n}か所 | このエリアの1日プラン · {n}か所 | Same reason: エリア. |
+
+## Round 5: the browser-drawn city-page strings (`sheet.*`, `gal.*`, `views.*`, `day.*`, new `city.*` and `fy.*` keys; 8 changes, applied)
+
+These came in when FE-A's client modules (sheet, city, views, gallery, day, foryou) moved to `Cleo.t`. A fresh independent subagent reviewed them under the same brief, with access only to the two catalogues.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `sheet.pinned` | 入口までピン: 確度 {c} | ピンは入口の位置: 確度 {c} | 「入口までピン」 doesn't read; the English means the pin is placed at the door. |
+| `sheet.been.on` | 行った ✓ | 行った場所 ✓ | Matches 行った場所 in city.stamp, city.been and sheet.been.off. |
+| `sheet.wasat` | かつての場所 | かつての所在地 | かつての場所 could read as the place itself having changed; 所在地 says where it stood. |
+| `gal.sub.top` | {places} · 最上位の評価(エリアごと) | {places} · 最上位(エリアごとに評価) | Same phrasing as city.across.t (エリアごとに評価). |
+| `gal.sub.canon` | {places} · {city}で知られるもの | {places} · {city}ならではの定番 | で知られるもの read unnaturally; aligns with 定番 in fy.sub.canon. |
+| `city.empty.note` | 絞り込みで場所が消えることはありません。 | 絞り込みで場所が完全に消えることはありません。 | "for good" had been dropped (filters can hide places for a while). |
+| `city.mine.all` | すべてのリスト | すべてのマイリスト | Glossary term マイリスト. |
+| `city.src.entries` | 番号付きの{n}項目すべてがここにあります。 | この出典の番号付き{n}項目すべてを掲載しています。 | "its" (this source's) had been dropped; 掲載 aligns with other strings. |
+
+## Round 6: FE-C's 84 keys (`trip.*`, `geo.*`, `src.*`, `share.*`, `rec.*`; 10 changes, applied)
+
+FE-C staged these English strings in `tools/beta/i18n-fec/pending-en.json`. The i18n lane wrote `pending-ja.json`, and FE-C's `merge.py` merges both into the catalogue. A fresh independent subagent reviewed them under the same brief, with access only to the pending files and the catalogue.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `trip.why.gone` | どのガイドにも掲載されていません | ガイドに掲載されなくなりました | "no longer" had been dropped; the place was removed after the link was made. |
+| `trip.gone.one` | このリンクの1か所は、どのガイドにも掲載されていません: {ids}。リンクがガイドより古い可能性があります。 | このリンクの1か所は、ガイドに掲載されなくなりました: {ids}。リンクがガイドより古い可能性があります。 | Keeps "no longer listed" (the next sentence depends on it); matches trip.why.gone. |
+| `trip.gone` | このリンクの{n}か所は、どのガイドにも掲載されていません: {ids}。リンクがガイドより古い可能性があります。 | このリンクの{n}か所は、ガイドに掲載されなくなりました: {ids}。リンクがガイドより古い可能性があります。 | Same fix as the singular. |
+| `trip.noday` | このリンクからは1日プランを作れません。どの場所も閉店、ピンなし、またはガイドに掲載されていません。 | このリンクからは1日プランを作れません。どの場所も閉店、ピンなし、またはガイドに掲載されなくなっています。 | Same "no longer listed". |
+| `trip.all` | 保存したすべて | 保存したすべての場所 | An incomplete noun phrase as a selector label. |
+| `trip.from` | 元にするもの | 作成元 | A concise noun label. |
+| `trip.b.fit` | {places}を1日プランに入れられます。最大{days}です。 | {places}を1日プランに入れられます(最大{days}分)。 | "最大{days}です" was unclear; the places fill at most that many days. |
+| `geo.assume` | 徒歩時間は直線距離で、分速約80 mの目安です。経路ではありません | 徒歩時間は直線距離と分速約80 mから出した目安で、経路ではありません | The times are estimated from straight-line distance; they are not distances. |
+| `rec.label` | 評価・受賞 | 受賞・注目 | 評価 means tiers and star ratings in the catalogue; the site shows no ratings. |
+| `rec.tile.k` | 評価 | 注目 | Same clash with 評価; consistent with rec.label. |
+
+**Total: 34 changes over six rounds.**

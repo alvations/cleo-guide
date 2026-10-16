@@ -1,0 +1,533 @@
+{
+ "generated": "2026-10-16T14:35:10.558Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "cities/madison.html",
+   "gen": "new",
+   "expected": {
+    "total": 156,
+    "sights": 66,
+    "food": 90,
+    "live": "cities/madison.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Madison — 156 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 24,
+    "cardsVisible": 24,
+    "legacy": false,
+    "firstCardTop": 624,
+    "screensToFirstCard": 0.74,
+    "mastheadPx": 473,
+    "controlsAbove": 16,
+    "controlsAboveOnScreen": 16,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-10-03\"",
+     "a \"CC BY-SA 3.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.sig \"★ SignatureWisconsin cla\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Your dayA day in The Ist\"",
+     "button.rail-i.door \"Near meNearest firstAsks\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 274,
+    "upperNodes": 3,
+    "upperPct": 1.1,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Ander107 · CC BY-\"",
+    "contrastChecked": 266,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Madisonplace · di\"",
+     "button.mappill \"Show map\""
+    ],
+    "railVisible": true,
+    "railTop": 473,
+    "railOnFirstScreen": true,
+    "railItems": 4,
+    "railFirst": "★ SignatureWisconsin classicscheese curd",
+    "cityCardsAbove": 0,
+    "cardMedianH": 311,
+    "cardsPerScreen": 2.71,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2167,
+    "fcp": 268,
+    "fontSampleN": 267,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 37,
+     "Inter": 377
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 646,
+      "Inter": 3590,
+      "IPAGothic": 3,
+      "Inter SemiBold": 1
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1161171,
+    "bytesAllResponses": 1229951,
+    "initial": {
+     "bytes": 1160536,
+     "gz": 525017
+    },
+    "session": {
+     "bytes": 1161171
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 266,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 137,
+      "h": 48,
+      "name": "Show map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "fairchild",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 728,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 728,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Madison — 156 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 48,
+    "cardsVisible": 48,
+    "legacy": false,
+    "firstCardTop": 769,
+    "screensToFirstCard": 0.85,
+    "mastheadPx": 540,
+    "controlsAbove": 31,
+    "controlsAboveOnScreen": 31,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-10-03\"",
+     "a \"How we choose\"",
+     "a \"Start with Dane County F\"",
+     "a \"CC BY-SA 3.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.sig \"★ SignatureWisconsin cla\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Your dayA day in The Ist\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i.door \"Free to visit17\"",
+     "button.rail-i \"Must see52\"",
+     "button.rail-i \"Iconic & must-see21\"",
+     "button.rail-i \"Frank Lloyd Wright9\"",
+     "button.rail-i \"UW–Madison campus15\"",
+     "button.rail-i \"Museums & galleries13\"",
+     "button.rail-i \"Lakes, parks & gardens39\"",
+     "button.btn.btn-ghost \"See all 21\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 485,
+    "upperNodes": 8,
+    "upperPct": 1.6,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 476,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Madisonplace · di\"",
+     "button.mappill \"Show map\"",
+     "nav#cleo-rail.rail \"★ SignatureWisconsin cla\""
+    ],
+    "railVisible": true,
+    "railTop": 540,
+    "railOnFirstScreen": true,
+    "railItems": 11,
+    "railFirst": "★ SignatureWisconsin classicscheese curd",
+    "cityCardsAbove": 0,
+    "cardMedianH": 334,
+    "cardsPerScreen": 2.69,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 1,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2751,
+    "fcp": 280,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 50,
+     "Inter": 619
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 303,
+      "Inter": 5095,
+      "IPAGothic": 3,
+      "Inter SemiBold": 2
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 12,
+     "where": [
+      "rail over Dane County Farmers' Market",
+      "rail over Fromagination",
+      "rail over Wisconsin State Capitol",
+      "rail over Monona Terrace",
+      "rail over Overture Center for the Arts"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 156,
+     "scrolled": 156,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 156,
+      "ok": 156,
+      "bad": []
+     },
+     "search": {
+      "n": 26,
+      "ok": 26,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 156 places",
+     "groups": [
+      "AreaThe Isthmus & Ca",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionIconic & m",
+      "Collection",
+      "CuisineCheese curds ",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 2242934,
+    "bytesAllResponses": 2380494,
+    "initial": {
+     "bytes": 1050410,
+     "gz": 414891
+    },
+    "session": {
+     "bytes": 2242934
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 476,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 48,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 156,
+    "text": 16341
+   },
+   "cpu4x": {
+    "fcp": 612,
+    "dcl": 1470,
+    "loadMs": 1733
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.74
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 473
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "16 on-screen / 16 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": true,
+      "val": "top 473, 4 tiles, first \"★ SignatureWisconsin classicscheese curd\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 137×48, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 0, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 156 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.71
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 156 · DOM 156 · scrolled 156 · deep 156/156 · search 26/26 · no-JS 156"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic, Inter SemiBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "1.1% (3/274)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: Ander107 · CC BY-\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "2190 KB · 2751 nodes · 280 ms · 612 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "405 KB (1,026 KB) · 513 KB (1,133 KB)"
+     }
+    },
+    "passed": 22,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}

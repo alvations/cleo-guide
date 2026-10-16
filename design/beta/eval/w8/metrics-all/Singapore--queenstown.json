@@ -1,0 +1,525 @@
+{
+ "generated": "2026-10-16T14:25:19.750Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "Singapore/queenstown.html",
+   "gen": "new",
+   "expected": {
+    "total": 4,
+    "sights": 0,
+    "food": 4,
+    "live": "Singapore/queenstown.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Queenstown & Redhill — 4 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 4,
+    "cardsVisible": 4,
+    "legacy": false,
+    "firstCardTop": 488,
+    "screensToFirstCard": 0.58,
+    "mastheadPx": 354,
+    "controlsAbove": 14,
+    "controlsAboveOnScreen": 14,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Singapore\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-09-02\"",
+     "button.rail-i.sig \"★ SignatureThe hawker ca\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Your dayA day in Queenst\"",
+     "button.rail-i.door \"Near meNearest firstAsks\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 125,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "button.pl-save.heart \"Save\"",
+    "contrastChecked": 121,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Queenstown & Redh\"",
+     "button.mappill \"Show map\""
+    ],
+    "railVisible": true,
+    "railTop": 354,
+    "railOnFirstScreen": true,
+    "railItems": 4,
+    "railFirst": "★ SignatureThe hawker canonlaksa2",
+    "cityCardsAbove": 0,
+    "cardMedianH": 311,
+    "cardsPerScreen": 2.71,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 743,
+    "fcp": 344,
+    "fontSampleN": 122,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 24,
+     "Inter": 159
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 433,
+      "Inter": 2882,
+      "IPAGothic": 3,
+      "Inter SemiBold": 1
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 549112,
+    "bytesAllResponses": 549112,
+    "initial": {
+     "bytes": 549112,
+     "gz": 183302
+    },
+    "session": {
+     "bytes": 549112
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 121,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 137,
+      "h": 48,
+      "name": "Show map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "fatty-cheong",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 728,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 728,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Queenstown & Redhill — 4 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 4,
+    "cardsVisible": 4,
+    "legacy": false,
+    "firstCardTop": 629,
+    "screensToFirstCard": 0.7,
+    "mastheadPx": 416,
+    "controlsAbove": 28,
+    "controlsAboveOnScreen": 28,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Singapore\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-09-02\"",
+     "a \"How we choose\"",
+     "a \"Start with Depot Road Zh\"",
+     "button.rail-i.sig \"★ SignatureThe hawker ca\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Your dayA day in Queenst\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i \"Laksa & curry noodles1\"",
+     "button.rail-i \"Hawker & zi char1\"",
+     "button.rail-i \"Chinese, dim sum & Teoch\"",
+     "button.rail-i.rail-all \"Show all4\"",
+     "button.btn.btn-ghost \"See all 2\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 140,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 137,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Queenstown & Redh\"",
+     "button.mappill \"Show map\"",
+     "nav#cleo-rail.rail \"★ SignatureThe hawker ca\""
+    ],
+    "railVisible": true,
+    "railTop": 416,
+    "railOnFirstScreen": true,
+    "railItems": 10,
+    "railFirst": "★ SignatureThe hawker canonlaksa2",
+    "cityCardsAbove": 0,
+    "cardMedianH": 336,
+    "cardsPerScreen": 2.68,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 743,
+    "fcp": 220,
+    "fontSampleN": 137,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 30,
+     "Inter": 183
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 447,
+      "Inter": 3268,
+      "IPAGothic": 3,
+      "Inter SemiBold": 2
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 2,
+     "where": [
+      "rail over Depot Road Zhen Shan Mei Clayp",
+      "rail over Foong Kee Traditional Charcoal"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 4,
+     "scrolled": 4,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 4,
+      "ok": 4,
+      "bad": []
+     },
+     "search": {
+      "n": 4,
+      "ok": 4,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 4 places",
+     "groups": [
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byDaniel",
+      "Recommended by",
+      "CuisineLaksa & curry",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "Been thereShow allHi",
+      "Been there",
+      "Map styleStreetLight",
+      "Map style"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 573755,
+    "bytesAllResponses": 573755,
+    "initial": {
+     "bytes": 549112,
+     "gz": 183302
+    },
+    "session": {
+     "bytes": 573755
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 137,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 4,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 4,
+    "text": 3207
+   },
+   "cpu4x": {
+    "fcp": 460,
+    "dcl": 759,
+    "loadMs": 1137
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.58
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 354
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "14 on-screen / 14 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": true,
+      "val": "top 354, 4 tiles, first \"★ SignatureThe hawker canonlaksa2\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 137×48, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 0, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 4 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.71
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 4 · DOM 4 · scrolled 4 · deep 4/4 · search 4/4 · no-JS 4"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic, Inter SemiBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/125)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px button.pl-save.heart \"Save\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "560 KB · 743 nodes · 220 ms · 460 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "179 KB (536 KB) · 179 KB (536 KB)"
+     }
+    },
+    "passed": 23,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}

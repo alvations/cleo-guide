@@ -1,0 +1,487 @@
+{
+ "generated": "2026-10-16T14:25:50.948Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "Singapore/southern-ridges.html",
+   "gen": "new",
+   "expected": {
+    "total": 2,
+    "sights": 2,
+    "food": 0,
+    "live": "Singapore/southern-ridges.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Southern Ridges — 2 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 2,
+    "cardsVisible": 2,
+    "legacy": false,
+    "firstCardTop": 567,
+    "screensToFirstCard": 0.67,
+    "mastheadPx": 449,
+    "controlsAbove": 16,
+    "controlsAboveOnScreen": 16,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Singapore\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-09-02\"",
+     "a \"CC BY 2.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i \"Must see2\"",
+     "button.rail-i \"Parks, gardens & nature2\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 127,
+    "upperNodes": 3,
+    "upperPct": 2.4,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Kars Alfrink · CC\"",
+    "contrastChecked": 120,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Southern Ridgespl\""
+    ],
+    "railVisible": true,
+    "railTop": 449,
+    "railOnFirstScreen": true,
+    "railItems": 4,
+    "railFirst": "Your guideFor youTell it what you love",
+    "cityCardsAbove": 0,
+    "cardMedianH": 352,
+    "cardsPerScreen": 2.4,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 685,
+    "fcp": 312,
+    "fontSampleN": 121,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 17,
+     "Inter": 167
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 362,
+      "Inter": 3324,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 731021,
+    "bytesAllResponses": 868407,
+    "initial": {
+     "bytes": 731021,
+     "gz": 362764
+    },
+    "session": {
+     "bytes": 731021
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 120,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": null,
+     "detail": {
+      "cls": "sheet detail exp",
+      "h": 728,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Southern Ridges — 2 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 2,
+    "cardsVisible": 2,
+    "legacy": false,
+    "firstCardTop": 737,
+    "screensToFirstCard": 0.82,
+    "mastheadPx": 540,
+    "controlsAbove": 29,
+    "controlsAboveOnScreen": 29,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Singapore\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-09-02\"",
+     "a \"How we choose\"",
+     "a \"Start with Southern Ridg\"",
+     "a \"CC BY 2.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i \"Must see2\"",
+     "button.rail-i \"Parks, gardens & nature2\"",
+     "button.rail-i \"Architecture & landmarks\"",
+     "button.rail-i \"Family & kids1\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i.rail-all \"Show all2\"",
+     "button.btn.btn-ghost \"See all 2\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 136,
+    "upperNodes": 3,
+    "upperPct": 2.2,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 129,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Southern Ridgespl\"",
+     "button.mappill \"Show map\"",
+     "nav#cleo-rail.rail \"Your guideFor youTell it\""
+    ],
+    "railVisible": true,
+    "railTop": 540,
+    "railOnFirstScreen": true,
+    "railItems": 9,
+    "railFirst": "Your guideFor youTell it what you love",
+    "cityCardsAbove": 0,
+    "cardMedianH": 372,
+    "cardsPerScreen": 2.42,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 685,
+    "fcp": 272,
+    "fontSampleN": 130,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 21,
+     "Inter": 185
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 365,
+      "Inter": 3601,
+      "IPAGothic": 3,
+      "Inter SemiBold": 1
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 2,
+     "scrolled": 2,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 2,
+      "ok": 2,
+      "bad": []
+     },
+     "search": {
+      "n": 2,
+      "ok": 2,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 2 places",
+     "groups": [
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionParks, gar",
+      "Collection",
+      "Sort within each are",
+      "Sort within each are",
+      "Been thereShow allHi",
+      "Been there",
+      "Map styleStreetLight",
+      "Map style"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 941303,
+    "bytesAllResponses": 1078689,
+    "initial": {
+     "bytes": 731021,
+     "gz": 362764
+    },
+    "session": {
+     "bytes": 941303
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 129,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 2,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 2,
+    "text": 2742
+   },
+   "cpu4x": {
+    "fcp": 664,
+    "dcl": 1034,
+    "loadMs": 1235
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.67
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 449
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "16 on-screen / 16 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": true,
+      "val": "top 449, 4 tiles, first \"Your guideFor youTell it what you love\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": false,
+      "val": "toggle none, full map false, pin sheet none"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 0, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 2 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.4
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 2 · DOM 2 · scrolled 2 · deep 2/2 · search 2/2 · no-JS 2"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "2.4% (3/127)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: Kars Alfrink · CC\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "919 KB · 685 nodes · 272 ms · 664 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "354 KB (714 KB) · 354 KB (714 KB)"
+     }
+    },
+    "passed": 21,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}

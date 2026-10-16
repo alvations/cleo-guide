@@ -1,6 +1,6 @@
-city=chicago-il
+city=philadelphia-pa
 scope=unverified,low,status
 limit=0
 nominatim_max=300
-commit=false
-# dry run: Chicago (122 rows); Overpass client timeout 120 s
+commit=true
+# queue: next after erie-pa

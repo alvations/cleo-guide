@@ -1,0 +1,292 @@
+{
+ "generated": "2026-10-16T14:30:35.144Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "changes/singapore--toa-payoh.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "changes",
+    "vw": 390,
+    "vh": 844,
+    "title": "What changed in Toa Payoh · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 262,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 44,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "span \"Explore\"",
+    "contrastChecked": 41,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 191,
+    "fcp": 232,
+    "fontSampleN": 42,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 7,
+     "Inter": 64
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 63,
+      "IPAGothic": 3,
+      "Inter": 1486
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 353764,
+    "bytesAllResponses": 353764,
+    "initial": {
+     "bytes": 353764,
+     "gz": 129572
+    },
+    "session": {
+     "bytes": 353764
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 41,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "changes",
+    "vw": 1440,
+    "vh": 900,
+    "title": "What changed in Toa Payoh · Cleo",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 296,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 44,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 42,
+    "contrastUnknown": 0,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 191,
+    "fcp": 152,
+    "fontSampleN": 42,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 7,
+     "Inter": 64
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 63,
+      "Inter": 1521,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 353764,
+    "bytesAllResponses": 353764,
+    "initial": {
+     "bytes": 353764,
+     "gz": 129572
+    },
+    "session": {
+     "bytes": 353764
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 42,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 1292
+   },
+   "cpu4x": {
+    "fcp": 364,
+    "dcl": 341,
+    "loadMs": 549
+   },
+   "verdict": {
+    "rows": {
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/44)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px span \"Explore\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "345 KB · 191 nodes · 152 ms · 364 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "127 KB (345 KB) · 127 KB (345 KB)"
+     }
+    },
+    "passed": 10,
+    "total": 10,
+    "hardFail": []
+   }
+  }
+ ]
+}
