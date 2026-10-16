@@ -76,7 +76,7 @@ Current rows:
     - That gives 75.4 % clear map (50.7 % at 200 %) and 14 controls above the first card, so B-03 passes.
     - The kit `bag` and `spire` (no cross) are to be used. The spire is for churches only; synagogue, mosque and non-Japan temple fall through to the kind glyph.
     - FE-1 has been told. I'm waiting on its head for the dot sign-off.
-11. **QC-30 casing** (FE-A, 2026-10-16): approved the place-name rule (whole name, then capitalised runs, then single words not in `generic`). FE-A moves the generic list into `design/beta/casing/allowlist.json` as `"generic"`. **Next:** once FE-A sends the SHA, mirror the rule in `sentence_case.py` and DESIGN-SYSTEM §v2.6.
+11. **QC-30 casing** (FE-A, 2026-10-16): approved the place-name rule (whole name, then capitalised runs, then single words not in `generic`). FE-A moves the generic list into `design/beta/casing/allowlist.json` as `"generic"`. **Done:** FE-A shipped 0dc9dabb. `own_words()` is in `sentence_case.py` and the rule is written into DESIGN-SYSTEM §v2.6. Python and JS agree on all 2,745 page labels.
 12. **QC-31 (raw colours and radii)**, 2026-10-16:
     - New tokens: `--mask`, `--on-photo`, `--scrim-photo`, `--shade-text(-strong)`, `--on-night-hover`, `--on-night-line`, `--star`, `--city-glow`, `--print-ink/-paper/-rule`, `--r-xxs` (2px).
     - cleo.css and constellation.css are now at 0 raw colours. The grab bars use `--r-pill`.

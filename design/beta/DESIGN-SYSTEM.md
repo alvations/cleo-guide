@@ -96,8 +96,15 @@
 - it keeps all-caps words, single capital letters (U-pick) and words with an internal capital;
 - it lowercases every other word, handling hyphenated words per segment (must-see, Italian-American, sub-Saharan).
 
+**A page's own place names (QC-30).** On a city page the helper also gets that page's city name, native name and area names, and keeps their capitals in three ways:
+1. **Whole names**, with or without a trailing parenthetical: "A day in District 1", "A day in The Loop & Downtown".
+2. **Runs of capitalised words** inside a name: "Ohio City", "Wicker Park", "Omoide Yokochō", "New York".
+3. **Single words** from a name, unless the word is generic geography or position (`allowlist.json` → `generic`: park, river, lakefront, yokochō, north, old, downtown …). So "Havana" and "SoDo" keep their capitals, while generic words used on their own go lower case: "Theme-park rides", "Lakefront, river & water", "Izakaya, yakitori & yokochō".
+
+`own_words()` in `sentence_case.py` and `ownWords()` in `tools/beta/lib/casing.js` implement it identically (2,745 page labels cross-checked, 0 mismatches).
+
 The executable spec and allowlist are in [`casing/`](casing/):
-- `allowlist.json`: the phrases and words to keep;
+- `allowlist.json`: the phrases and words to keep, and the `generic` geography words that a page's own place names don't protect;
 - `sentence_case.py`: the reference implementation, whose `--check` mode lists every change;
 - `labels.md`: every label before and after, for review.
 
