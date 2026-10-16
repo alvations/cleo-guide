@@ -380,6 +380,17 @@ const lensOutcome = (b, label) => {
       chk('(d) "Show all" builds every card, every place shown', [e2.d.querySelectorAll('li.pl').length, shown(e2.d)].join(), `${total},${total}`);
       chk('… no js errors ((d), (e))', e1.errs.concat(e2.errs, e3.errs), e => e.length === 0);
     }
+    {   // QA-75 guard (FE-A's city.js fix, 752a77fc): with selective ON (forced here at runtime, whatever the default), a lens
+        // builds only its cards; anything that later builds the rest (find-in-page, print, search focus → Cleo.defer.all())
+        // must not show them: the shown count stays the lens count
+      const q = boot({ io: true }); await sleep(300); q.w.Cleo.defer.selective = true;
+      q.w.location.hash = '#t=1'; await sleep(60);
+      const T1 = live.P.concat(live.F).filter(r => r.t === 1 && !r.closed && !/[—–-]+\s*CLOSED\b/i.test(r.n)).length, before = shown(q.d), built = q.d.querySelectorAll('li.pl').length;
+      q.w.Cleo.defer.all(); await sleep(60);
+      chk('QA-75 guard: selective on, a tier lens, then every card built — shown stays the lens count', [before, shown(q.d), built < total, q.d.querySelectorAll('li.pl').length].join(), `${before},${before},true,${total}`);
+      chk('… and it is the tier-1 count', before, T1);
+      chk('… no js errors (QA-75 guard)', q.errs, e => e.length === 0);
+    }
     chk('no js errors (lazy)', errs, e => e.length === 0);
     // PERF-08 primitives (core): a lens stamps only the cards it shows; every other place stays a reachable stub
     {
