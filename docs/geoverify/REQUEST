@@ -1,8 +1,6 @@
-city=san-francisco-ca
-scope=all
+city=singapore
+scope=unverified,low,status
 limit=0
-nominatim_max=50
-names=Koi Palace|Hotel Utah Saloon|Wild Side West
-sources=nominatim,official,overpass,census
+nominatim_max=300
 commit=true
-# re-check Wikidata-only accepts against independent sources
+# re-run 1: per-region anchors + budget rows skipped (3490e42a)
