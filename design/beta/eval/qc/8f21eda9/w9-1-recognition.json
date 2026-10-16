@@ -1,0 +1,248 @@
+{
+ "cities/tokyo.html": {
+  "places": 488,
+  "withRec": 250,
+  "noDataButBadge": 0,
+  "recButNoBadge": 0,
+  "citedBad": [],
+  "citedBadN": 0,
+  "awardBad": [],
+  "closedRec": [],
+  "sample": [
+   [
+    "imperial-palace-east-gardens",
+    [
+     {
+      "t": "Cited by 3 sources",
+      "h": "#p=imperial-palace-east-gardens",
+      "vis": true,
+      "w": 132,
+      "hh": 32
+     }
+    ]
+   ],
+   [
+    "yasukuni-shrine",
+    [
+     {
+      "t": "Cited by 3 sources",
+      "h": "#p=yasukuni-shrine",
+      "vis": true,
+      "w": 132,
+      "hh": 32
+     }
+    ]
+   ],
+   [
+    "kanda-myojin",
+    [
+     {
+      "t": "Cited by 3 sources",
+      "h": "#p=kanda-myojin",
+      "vis": true,
+      "w": 132,
+      "hh": 32
+     }
+    ]
+   ]
+  ],
+  "errs": [],
+  "awardLink": {
+   "badge": "Award · Michelin",
+   "href": "#src=michelin",
+   "want": 87,
+   "stated": []
+  },
+  "filter": {
+   "hash": "#rec=any",
+   "stated": [
+    "488 places",
+    "(function(h,g){if(h.classList.contains('atlas-d'))g.classList.add('w7-cards')})(",
+    "43 places · area 1 of 13"
+   ],
+   "wantOpen": 250,
+   "wantAll": 250,
+   "shown": 250
+  },
+  "filterFresh": {
+   "hash": "#rec=any",
+   "shown": 250
+  }
+ },
+ "cleveland.html": {
+  "places": 194,
+  "withRec": 4,
+  "noDataButBadge": 0,
+  "recButNoBadge": 0,
+  "citedBad": [],
+  "citedBadN": 0,
+  "awardBad": [],
+  "closedRec": [],
+  "sample": [
+   [
+    "haserot-angel-lake-view-cemetery",
+    [
+     {
+      "t": "Cited by 3 sources",
+      "h": "#p=haserot-angel-lake-view-cemetery",
+      "vis": true,
+      "w": 132,
+      "hh": 32
+     }
+    ]
+   ],
+   [
+    "superior-pho",
+    [
+     {
+      "t": "Cited by 3 sources",
+      "h": "#p=superior-pho",
+      "vis": true,
+      "w": 132,
+      "hh": 32
+     }
+    ]
+   ],
+   [
+    "li-wah-cantonese-dim-sum-carts",
+    [
+     {
+      "t": "Cited by 3 sources",
+      "h": "#p=li-wah-cantonese-dim-sum-carts",
+      "vis": true,
+      "w": 132,
+      "hh": 32
+     }
+    ]
+   ]
+  ],
+  "errs": [],
+  "filter": {
+   "hash": "#rec=any",
+   "stated": [
+    "194 places",
+    "(function(h,g){if(h.classList.contains('atlas-d'))g.classList.add('w7-cards')})(",
+    "59 places · area 2 of 4"
+   ],
+   "wantOpen": 4,
+   "wantAll": 4,
+   "shown": 4
+  },
+  "filterFresh": {
+   "hash": "#rec=any",
+   "shown": 4
+  }
+ },
+ "Singapore/toa-payoh.html": {
+  "places": 55,
+  "withRec": 22,
+  "noDataButBadge": 0,
+  "recButNoBadge": 0,
+  "citedBad": [],
+  "citedBadN": 0,
+  "awardBad": [],
+  "closedRec": [
+   {
+    "id": "kim-keat-hokkien-mee",
+    "before": {
+     "hidden": true,
+     "txt": "Before it closed: Cited by 3 sources"
+    },
+    "rb": [
+     "Cited by 3 sources"
+    ]
+   },
+   {
+    "id": "hup-chong-hakka-yong-tau-foo",
+    "before": {
+     "hidden": true,
+     "txt": "Before it closed: Cited by 6 sources"
+    },
+    "rb": [
+     "Cited by 6 sources"
+    ]
+   }
+  ],
+  "sample": [
+   [
+    "hai-nan-xing-zhou-beef-noodle",
+    [
+     {
+      "t": "Award · Michelin Guide — Bib Gourmand",
+      "h": "#src=michelin-bib",
+      "vis": true,
+      "w": 258,
+      "hh": 32
+     },
+     {
+      "t": "Cited by 5 sources",
+      "h": "#p=hai-nan-xing-zhou-beef-noodle",
+      "vis": true,
+      "w": 132,
+      "hh": 32
+     }
+    ]
+   ],
+   [
+    "chey-sua-carrot-cake",
+    [
+     {
+      "t": "Award · Michelin Guide — Bib Gourmand",
+      "h": "#src=michelin-bib",
+      "vis": true,
+      "w": 258,
+      "hh": 32
+     },
+     {
+      "t": "Cited by 4 sources",
+      "h": "#p=chey-sua-carrot-cake",
+      "vis": true,
+      "w": 133,
+      "hh": 32
+     }
+    ]
+   ],
+   [
+    "chef-kangs-noodle-house",
+    [
+     {
+      "t": "Award · Michelin Guide — Bib Gourmand",
+      "h": "#src=michelin-bib",
+      "vis": true,
+      "w": 258,
+      "hh": 32
+     },
+     {
+      "t": "Cited by 4 sources",
+      "h": "#p=chef-kangs-noodle-house",
+      "vis": true,
+      "w": 133,
+      "hh": 32
+     }
+    ]
+   ]
+  ],
+  "errs": [],
+  "awardLink": {
+   "badge": "Award · Michelin Guide — Bib Gourmand",
+   "href": "#src=michelin-bib",
+   "want": 4,
+   "stated": []
+  },
+  "filter": {
+   "hash": "#rec=any",
+   "stated": [
+    "55 places",
+    "(function(h,g){if(h.classList.contains('atlas-d'))g.classList.add('w7-cards')})(",
+    "55 places · area 1 of 1"
+   ],
+   "wantOpen": 20,
+   "wantAll": 22,
+   "shown": 20
+  },
+  "filterFresh": {
+   "hash": "#rec=any",
+   "shown": 20
+  }
+ }
+}

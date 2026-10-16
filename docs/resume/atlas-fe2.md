@@ -15,18 +15,25 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
 
 ## Done
 - PANEL-R1 #1, #13, #11, #3 + probe honesty: 537cfb8c (round 3 head), BETA-LOG 03678da1.
+- QC-26 (cold lens deep link "1 of 488"; bisected to PERF-08 1538974d): sheet.js shortcut only with no lens on, in the
+  push carrying this line. Probe tools/beta/fe2/qc26.js (in atlas-nav-ms).
+- PANEL-R3 #7 (108 px layout shift): e7986460 (full gates green on the pushed head).
 - W9-5 walking ring from your base: 417da6aa. Phone 58vh detail above the QC-09 cap: ecae30b3.
 - QA-71 (swipe after Back): fd54b823; hardening (carousel holds only against the restore's own scroll): a3da0b4b.
 - QA-70 (map opens ~1.5 s slower; four `:has()` over `<main>` rules from 7e746d9b rekeyed to attributes set by
   views.js): a3da0b4b.
 
 ## Next
-1. R3 #7 is done in the push that carries this line: the card links' `#p-<id>` fragment scrolled <body>; atlas-nav.js now
-   routes a plain click as `#…&p=` and resets any map-ancestor scroll on desktop. Probe "R3 #7 …" on 4 pages.
-2. R3 #8: a fresh `at=` load must re-run the map-area pass after the URL view is applied; then check the pill/count
-   after a zoom.
-3. Declare the next round with FE-1 (one round per head; FE-1 sends "round N ready" for combined heads).
-
+0. QA-76 (transient "N more outside… Show all" during the first map fit, PERF-08), co-owned with platform
+   (session_01USPS1inq7bUDfyw89evKMA): asked them whether they take it; if not, msArea publishes no ms-more until the
+   first fit settles. Timebox ~18:20Z (otherwise platform reverts 1538974d's FE parts).
+1. R3 #8 guards are in atlas-nav-ms.js: a fresh `at=` (Asakusa z15) load lists only in-bounds places on both viewports
+   (passes on today's head: Sensō-ji first, 0 outside); after a phone zoom the pill and count equal the places in view
+   OR "Search this area" is offered. The pill still reads "351 places here" with 43 in view. FE-1's copy, raised with
+   FE-1 (proposal: the pill says it's the last searched area, or counts the view live). Tighten the check once FE-1 picks.
+2. Remove atlas-nav.js `order()` once FE-1 confirms their msIn park covers phone too (offered 16 Oct).
+3. Round 4: FE-1 declares it on a combined head; check my probes on that SHA first.
+4. Rev 5 #9/#14 rings: waiting on the designer's choice of which card ring to keep (the containers were sent).
 ## In flight
 - Nothing unpushed. QA-70 flake counts were sent to the orchestrator (feb-switcher Tokyo, 10 runs per head):
   be74c82f 0/10, 530dc83b 10/10 (195/260 expected there; 390 click 2/10), a3da0b4b 4/10 (390 click). The probe races

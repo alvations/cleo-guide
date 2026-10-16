@@ -58,7 +58,10 @@
     if (i < 0) { set = [c]; i = 0; }
     // W7: with no lens on, "n of N" counts the whole view order, stamped or not (Cleo.defer.order, platform W7), so a far
     // #p= reads "k of 488", not "k of the cards stamped so far"; an unstamped neighbour is reached through its #p= route
-    var ord = Cleo.defer && Cleo.defer.order && set.length === d.querySelectorAll('li.pl').length ? Cleo.defer.order() : null, oi = ord ? ord.map(function (x) { return x.id; }).indexOf(c.id) : -1;
+    // QC-26 (Atlas FE-2, with PERF-08's lens-only stamping): "every card is visible" means "no lens" only when no lens,
+    // search or kind filter is on; a cold #a=<first area>&p= link stamps exactly the lens's cards, which are all visible
+    var S0 = C.S || {}, lensOn = !!S0.q || (!!S0.mode && S0.mode !== 'all') || ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day', 'rec'].some(function (k) { return !!S0[k]; });   // city.js LENS
+    var ord = Cleo.defer && Cleo.defer.order && !lensOn && set.length === d.querySelectorAll('li.pl').length ? Cleo.defer.order() : null, oi = ord ? ord.map(function (x) { return x.id; }).indexOf(c.id) : -1;
     if (ord && ord.length > set.length && oi >= 0) {
       var stub = function (x) { return x.el || { id: x.id, stub: 1 }; };
       set = ord.map(stub); i = oi;
