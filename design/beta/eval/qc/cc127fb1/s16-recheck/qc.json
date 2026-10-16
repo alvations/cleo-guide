@@ -1,0 +1,1308 @@
+{
+ "label": "cc127fb1-s16b",
+ "sha": "cc127fb1",
+ "started": "2026-10-16T19:02:10.201Z",
+ "rig": "chromium; tiles stubbed 1×1; off-origin aborted; SW blocked",
+ "checks": [
+  {
+   "id": "S-01",
+   "title": "Token discipline (static census)",
+   "group": "S",
+   "page": "beta/assets/*.css",
+   "status": "FAIL",
+   "evidence": {
+    "font-size": 3,
+    "border-radius": 51,
+    "letter-spacing": 0,
+    "box-shadow": 8,
+    "colour": 66
+   }
+  },
+  {
+   "id": "S-13",
+   "title": "No horizontal overflow",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "sw": 1440,
+    "w": 1440,
+    "offenders": []
+   }
+  },
+  {
+   "id": "S-10",
+   "title": "44 px targets",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "checked": 400,
+    "small": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-11",
+   "title": "AA contrast",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "tested": 0,
+    "unknown": 0,
+    "fails": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-06",
+   "title": "Truncation and clipping",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "clipped": 0,
+    "truncated": 0,
+    "clipSample": [],
+    "truncSample": []
+   }
+  },
+  {
+   "id": "S-07",
+   "title": "Widows and orphans",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-09",
+   "title": "Credits visible",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "photos": 6,
+    "bad": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-02",
+   "title": "Token discipline (runtime inline styles)",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-03",
+   "title": "Spacing rhythm",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "measured": 1238,
+    "offScale": 19,
+    "share": 0.015,
+    "top": [
+     [
+      "14",
+      6
+     ],
+     [
+      "6",
+      5
+     ],
+     [
+      "23",
+      5
+     ],
+     [
+      "18",
+      2
+     ],
+     [
+      "57.6",
+      1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S-04",
+   "title": "Alignment",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "edges": 3,
+    "list": [
+     [
+      "80",
+      9
+     ],
+     [
+      "0",
+      1
+     ],
+     [
+      "40",
+      1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S-08",
+   "title": "Sentence case",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-12",
+   "title": "No layout shift on load",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "cls": 0,
+    "shifts": []
+   }
+  },
+  {
+   "id": "S-14",
+   "title": "No errors",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "errors": []
+   }
+  },
+  {
+   "id": "S-16",
+   "title": "No internal editorial phrases in visible text",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-13",
+   "title": "No horizontal overflow",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "sw": 1440,
+    "w": 1440,
+    "offenders": []
+   }
+  },
+  {
+   "id": "S-10",
+   "title": "44 px targets",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "checked": 362,
+    "small": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-11",
+   "title": "AA contrast",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "tested": 0,
+    "unknown": 0,
+    "fails": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-06",
+   "title": "Truncation and clipping",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "clipped": 0,
+    "truncated": 0,
+    "clipSample": [],
+    "truncSample": []
+   }
+  },
+  {
+   "id": "S-07",
+   "title": "Widows and orphans",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-09",
+   "title": "Credits visible",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "photos": 4,
+    "bad": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-02",
+   "title": "Token discipline (runtime inline styles)",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-03",
+   "title": "Spacing rhythm",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "measured": 1111,
+    "offScale": 14,
+    "share": 0.013,
+    "top": [
+     [
+      "14",
+      6
+     ],
+     [
+      "6",
+      4
+     ],
+     [
+      "18",
+      2
+     ],
+     [
+      "23",
+      1
+     ],
+     [
+      "57.6",
+      1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S-04",
+   "title": "Alignment",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "edges": 3,
+    "list": [
+     [
+      "80",
+      9
+     ],
+     [
+      "0",
+      1
+     ],
+     [
+      "40",
+      1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S-08",
+   "title": "Sentence case",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-12",
+   "title": "No layout shift on load",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "cls": 0.004,
+    "shifts": []
+   }
+  },
+  {
+   "id": "S-14",
+   "title": "No errors",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "errors": []
+   }
+  },
+  {
+   "id": "S-16",
+   "title": "No internal editorial phrases in visible text",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-15",
+   "title": "Focus visible",
+   "group": "S",
+   "page": "cities/washingtondc.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "FAIL",
+   "evidence": {
+    "stops": 30,
+    "noRing": [
+     "INPUT "
+    ]
+   },
+   "shot": "design/beta/eval/qc/cc127fb1-s16b/shots/s-washingtondc-1440-light.jpg"
+  },
+  {
+   "id": "S-15",
+   "title": "Focus visible",
+   "group": "S",
+   "page": "cities/erie.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "stops": 30,
+    "noRing": []
+   }
+  },
+  {
+   "id": "S-13",
+   "title": "No horizontal overflow",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "sw": 1440,
+    "w": 1440,
+    "offenders": []
+   }
+  },
+  {
+   "id": "S-10",
+   "title": "44 px targets",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "checked": 409,
+    "small": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-11",
+   "title": "AA contrast",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "tested": 0,
+    "unknown": 0,
+    "fails": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-06",
+   "title": "Truncation and clipping",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "clipped": 0,
+    "truncated": 0,
+    "clipSample": [],
+    "truncSample": []
+   }
+  },
+  {
+   "id": "S-07",
+   "title": "Widows and orphans",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-09",
+   "title": "Credits visible",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "photos": 4,
+    "bad": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-02",
+   "title": "Token discipline (runtime inline styles)",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-03",
+   "title": "Spacing rhythm",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "measured": 1245,
+    "offScale": 16,
+    "share": 0.013,
+    "top": [
+     [
+      "14",
+      6
+     ],
+     [
+      "6",
+      5
+     ],
+     [
+      "18",
+      2
+     ],
+     [
+      "23",
+      2
+     ],
+     [
+      "57.6",
+      1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S-04",
+   "title": "Alignment",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "edges": 3,
+    "list": [
+     [
+      "80",
+      9
+     ],
+     [
+      "0",
+      1
+     ],
+     [
+      "40",
+      1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S-08",
+   "title": "Sentence case",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "FAIL",
+   "evidence": {
+    "n": 3,
+    "sample": [
+     {
+      "t": "Theme-Park rides & attractions",
+      "want": "Theme-park rides & attractions"
+     },
+     {
+      "t": "Theme-Park signature eats",
+      "want": "Theme-park signature eats"
+     },
+     {
+      "t": "Mills 50, Milk District, Audubon Park & SoDo",
+      "want": "Mills 50, milk district, audubon park & SoDo"
+     }
+    ]
+   },
+   "shot": "design/beta/eval/qc/cc127fb1-s16b/shots/s-orlando-1440-light.jpg"
+  },
+  {
+   "id": "S-12",
+   "title": "No layout shift on load",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "cls": 0,
+    "shifts": []
+   }
+  },
+  {
+   "id": "S-14",
+   "title": "No errors",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "errors": []
+   }
+  },
+  {
+   "id": "S-16",
+   "title": "No internal editorial phrases in visible text",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-13",
+   "title": "No horizontal overflow",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "sw": 1440,
+    "w": 1440,
+    "offenders": []
+   }
+  },
+  {
+   "id": "S-10",
+   "title": "44 px targets",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "checked": 415,
+    "small": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-11",
+   "title": "AA contrast",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "tested": 0,
+    "unknown": 0,
+    "fails": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-06",
+   "title": "Truncation and clipping",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "WARN",
+   "evidence": {
+    "clipped": 0,
+    "truncated": 7,
+    "clipSample": [],
+    "truncSample": [
+     {
+      "el": "a.",
+      "t": "Hokkaido University — Poplar & Ginkgo Av"
+     },
+     {
+      "el": "a.",
+      "t": "Jingisukan Hitsujikai no Mise Itadakimas"
+     },
+     {
+      "el": "a.",
+      "t": "ES CON FIELD HOKKAIDO — Hokkaido Ballpar"
+     },
+     {
+      "el": "a.",
+      "t": "Sapporo Miso Ramen Senmonten Keyaki Susu"
+     },
+     {
+      "el": "a.",
+      "t": "Kaisen Shokudō Kita no Gourmet-tei, Curb"
+     },
+     {
+      "el": "a.",
+      "t": "Ōkurayama Ski Jump Stadium & Sapporo Oly"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-07",
+   "title": "Widows and orphans",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-09",
+   "title": "Credits visible",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "photos": 6,
+    "bad": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-02",
+   "title": "Token discipline (runtime inline styles)",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-03",
+   "title": "Spacing rhythm",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "measured": 1353,
+    "offScale": 15,
+    "share": 0.011,
+    "top": [
+     [
+      "14",
+      6
+     ],
+     [
+      "6",
+      5
+     ],
+     [
+      "18",
+      2
+     ],
+     [
+      "23",
+      1
+     ],
+     [
+      "57.6",
+      1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S-04",
+   "title": "Alignment",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "edges": 3,
+    "list": [
+     [
+      "80",
+      9
+     ],
+     [
+      "0",
+      1
+     ],
+     [
+      "40",
+      1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S-08",
+   "title": "Sentence case",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-12",
+   "title": "No layout shift on load",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "cls": 0.0001,
+    "shifts": []
+   }
+  },
+  {
+   "id": "S-14",
+   "title": "No errors",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "errors": []
+   }
+  },
+  {
+   "id": "S-16",
+   "title": "No internal editorial phrases in visible text",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "n": 0,
+    "sample": []
+   }
+  },
+  {
+   "id": "S-15",
+   "title": "Focus visible",
+   "group": "S",
+   "page": "cities/orlando.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "stops": 30,
+    "noRing": []
+   }
+  },
+  {
+   "id": "S-15",
+   "title": "Focus visible",
+   "group": "S",
+   "page": "cities/hokkaido.html",
+   "vp": 1440,
+   "theme": "light",
+   "status": "PASS",
+   "evidence": {
+    "stops": 30,
+    "noRing": []
+   }
+  }
+ ],
+ "journeys": [],
+ "census": {
+  "label": "cc127fb1-s16b",
+  "font-size": {
+   "decls": 367,
+   "token_or_keyword": 364,
+   "raw": 3,
+   "distinct_raw": 2,
+   "distinct_all": 14,
+   "top_raw": [
+    [
+     ".5em",
+     2
+    ],
+    [
+     ".42em",
+     1
+    ]
+   ]
+  },
+  "border-radius": {
+   "decls": 347,
+   "token_or_keyword": 296,
+   "raw": 51,
+   "distinct_raw": 4,
+   "distinct_all": 16,
+   "top_raw": [
+    [
+     "50%",
+     40
+    ],
+    [
+     "3px",
+     9
+    ],
+    [
+     "1px",
+     1
+    ],
+    [
+     "2px",
+     1
+    ]
+   ]
+  },
+  "letter-spacing": {
+   "decls": 90,
+   "token_or_keyword": 90,
+   "raw": 0,
+   "distinct_raw": 0,
+   "distinct_all": 11,
+   "top_raw": []
+  },
+  "box-shadow": {
+   "decls": 198,
+   "token_or_keyword": 190,
+   "raw": 8,
+   "distinct_raw": 7,
+   "distinct_all": 32,
+   "top_raw": [
+    [
+     "inset 0 -5px 0 var(--ac)",
+     2
+    ],
+    [
+     "inset 0 0 0 1px color-mix(in srgb, var(--city) 40%, transparent)",
+     1
+    ],
+    [
+     "inset 0 -3px 0 var(--ac, transparent)",
+     1
+    ],
+    [
+     "0 0 0 2px var(--area-c, var(--line-strong))",
+     1
+    ],
+    [
+     "inset 0 -2px 0 var(--acq), var(--shadow-sm)",
+     1
+    ],
+    [
+     "0 0 0 2px var(--area,transparent),var(--e-1)",
+     1
+    ],
+    [
+     "0 0 0 2px var(--focus),var(--e-2)",
+     1
+    ]
+   ]
+  },
+  "font-weight": {
+   "decls": 156,
+   "token_or_keyword": 7,
+   "raw": 149,
+   "distinct_raw": 6,
+   "distinct_all": 8,
+   "top_raw": [
+    [
+     "600",
+     92
+    ],
+    [
+     "500",
+     34
+    ],
+    [
+     "400",
+     10
+    ],
+    [
+     "700",
+     6
+    ],
+    [
+     "400 700",
+     4
+    ],
+    [
+     "500 700",
+     3
+    ]
+   ]
+  },
+  "line-height": {
+   "decls": 92,
+   "token_or_keyword": 27,
+   "raw": 65,
+   "distinct_raw": 16,
+   "distinct_all": 26,
+   "top_raw": [
+    [
+     "1.5",
+     12
+    ],
+    [
+     "1.45",
+     11
+    ],
+    [
+     "1.4",
+     7
+    ],
+    [
+     "1",
+     6
+    ],
+    [
+     "1.6",
+     6
+    ],
+    [
+     "1.3",
+     5
+    ],
+    [
+     "1.35",
+     5
+    ],
+    [
+     "1.04",
+     2
+    ]
+   ]
+  },
+  "font-family": {
+   "decls": 37,
+   "token_or_keyword": 30,
+   "raw": 7,
+   "distinct_raw": 2,
+   "distinct_all": 6,
+   "top_raw": [
+    [
+     "\"Inter\"",
+     4
+    ],
+    [
+     "\"Bricolage Grotesque\"",
+     3
+    ]
+   ]
+  },
+  "font-variant-numeric": {
+   "decls": 19,
+   "token_or_keyword": 10,
+   "raw": 9,
+   "distinct_raw": 3,
+   "distinct_all": 5,
+   "top_raw": [
+    [
+     "tabular-nums",
+     7
+    ],
+    [
+     "oldstyle-nums proportional-nums",
+     1
+    ],
+    [
+     "lining-nums tabular-nums",
+     1
+    ]
+   ]
+  },
+  "@font-face families": [
+   "Bricolage Grotesque",
+   "Inter"
+  ],
+  "tabular-nums rules": 16,
+  "css bytes": 432239,
+  "tokens": {
+   "fs": 16,
+   "r-": 5,
+   "radius": 3,
+   "shadow": 9,
+   "e-": 7,
+   "sp": 0,
+   "font": 5
+  },
+  "rawColours": [
+   "rgba(255,255,255,.1)",
+   "rgba(255,255,255,.12)",
+   "#fff",
+   "rgba(0,0,0,.65)",
+   "#F7F4EE",
+   "#DDD6CA",
+   "#000",
+   "rgba(245,238,223,.7)",
+   "rgba(245,238,223,.55)",
+   "rgba(245,238,223,.5)",
+   "rgba(245,238,223,.75)",
+   "rgba(245,238,223,.45)",
+   "#C8574F",
+   "rgba(0,0,0,.35)",
+   "rgba(0,0,0,.3)",
+   "rgba(0,0,0,.55)",
+   "rgba(245,238,223,.4)",
+   "#ccc",
+   "#12141f",
+   "rgba(0,0,0,.1)"
+  ]
+ },
+ "byCheck": {
+  "S-01": {
+   "PASS": 0,
+   "FAIL": 1,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-13": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-10": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-11": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-06": {
+   "PASS": 3,
+   "FAIL": 0,
+   "WARN": 1,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-07": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-09": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-02": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-03": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-04": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-08": {
+   "PASS": 3,
+   "FAIL": 1,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-12": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-14": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-16": {
+   "PASS": 4,
+   "FAIL": 0,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  },
+  "S-15": {
+   "PASS": 3,
+   "FAIL": 1,
+   "WARN": 0,
+   "PENDING": 0,
+   "N/A": 0
+  }
+ },
+ "finished": "2026-10-16T19:02:15.860Z"
+}

@@ -1964,3 +1964,14 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - metrics B-20 on the phone counts FE-C's "Cited by N sources" badges (`a.rb-cited`, 32 px tall) in the Atlas list. Reported to FE-C.
   - metrics B-03 reads 15 controls on 3 pilots against a limit of 14. The spec's phone chrome is header 4 + switcher 4 + chips 7 = 15, and the switcher row is required (QC-09). Raised with QA and the designer.
 - **Card text (rev 5 §2.3 / §5, R3 #3), Atlas only:** the "Recommended by" label, source links and "+n more" are 16 px. The tier sticker ("Must see") and the cover's native-name line are 14 px. `.pl-s` itself is left alone: FE-A hides the extra sources' separators at font-size 0. Under 14 px now: photo credits (allowed) and FE-C's "Cited by" badges (reported).
+
+## 2026-10-16 19:12Z · orchestrator
+
+- **QA said NO on 4aba38b3** (025bac06), with 0 open High or Blocker. It blocks on QA-77 (badge tap targets 32 px, FE-C) and QA-78 (Duquesne credit author is a URL, imagery). Everything else verified on the pin.
+- **Decision:** the next pin is the release branch `beta-deploy-r7`: 4aba38b3 plus ported fixes only. That keeps QA's delta short and leaves the Atlas rev 5 work, which landed after the pin, out of this deploy.
+  - a48d7f6e5 ports QA-74 and QC-28. Gates are green.
+  - QA-77 and QA-78 are ported when they land.
+- **QA-74 fixed** (af1a0e2a): the shipped beta/assets/tokens.css now carries the designer's motion tokens. test-css-has.js fails when the two token files drift.
+- **QC-28 fixed** (2bbae5ac) and verified by QC (1f0c09e3).
+- **D-44 added:** the closure-evidence classes. It reverses the earlier instruction to set Uncle Liu's to UNVERIFIED-status, which would have dropped its CLOSED marker. QC-25 closure sources are done: 55 of 60 rows have a URL.
+- **Forwarded:** FE-B's leak fixes (b6e0c2b0e) to QC, and FE-B's m.not.p ja to i18n. The ja has two sentences the en lacks, so i18n will check it.

@@ -26,6 +26,8 @@
 
 - This push: Zwin 32.jpg refused per the orchestrator (a plain beach; 'Het Zwin.JPG' is next). Candidate wave 4: 19 vetted titles for the still-open Ghent, Antwerp, Dayton, Saarland and State College targets (Gravensteen, OLV Antwerp, Kazerne Dossin, Carillon Park, Westcott House, NMUSAF, Ludwigskirche, Hauptmarkt Trier, Cusanusstift, Horseshoe Curve). Eastwood and Englewood MetroParks are stated gaps (no file found). Not found yet: MSK Gent, Zoo Planckendael, Kudaka, Diekirch, Musée lorrain. Next: dispatch `all` at budget 600 and review it.
 
+- This push: R7 QA-78 fixed (the Duquesne Incline author was a Flickr profile URL; it is now "arne_heggestad (Flickr)". The fetcher names the account for a profile-link credit and refuses any other URL or HTML author; test-imagery checks every CREDITS author). Run #64 (wave 4) reviewed in design/beta/imagery-runs/run-64.md. 7 kept. Heilig Bloed (triptych) and Het Zwin (housing estate) refused and now stated gaps. Tier-1 509/999, 244 left. No '?' rows. Next: wave 5 candidates for Chicago, Orlando, SF and Miami (the largest remaining counts).
+
 **In flight:**
 - Run #48's 32 refusals are APPLIED in this push (orchestrator's final list, recorded in design/beta/imagery-runs/run-48.md). CREDITS 580 → 548.
 - D-40a data has LANDED: 38 lead/first-row cards have a 720 copy ≤ 45 KB. 7 are in `NO720` in recompress.js (busy or tall photos that only fit by shrinking below 600 px) and keep 500 + 960. The cap went from 55 to 45 KB because 55 measured Tokyo phone@3× at 703 KB once the 720-aware `sizes` was applied; 45 measures 691 KB. Platform still has to switch `cardSizes()` to the 720 copy (asked); until then phones load the 500 and Tokyo is 649 KB.

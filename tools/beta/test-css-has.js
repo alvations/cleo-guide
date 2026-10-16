@@ -27,6 +27,14 @@ for (const f of files) {
 }
 console.log('== CSS: no :has() anchored on html / :root / body / main (QA-70, PERF-16) ==');
 console.log(`  ${bad.length ? 'FAIL' : 'PASS'}  ${files.length} shipped stylesheets: anchored :has() selectors${bad.length ? ' = ' + JSON.stringify(bad.slice(0, 8)) : ''}`);
-const fail = bad.length;
-console.log(fail ? `\n>>> FAIL — anchored :has() check` : '\n>>> PASS — no :has() anchored on html / :root / body / main');
+// QA-74: the designer edits design/beta/tokens.css, but the build ships beta/assets/tokens.css. faadd1a5a changed only the
+// design copy, so the shipped motion tokens stayed over the 300 ms delight cap. The two copies must be identical.
+const DESIGN_TOK = path.resolve(__dirname, '..', '..', 'design', 'beta', 'tokens.css');
+let drift = 0;
+if (fs.existsSync(DESIGN_TOK)) {
+  drift = fs.readFileSync(DESIGN_TOK, 'utf8') === fs.readFileSync(path.join(DIR, 'tokens.css'), 'utf8') ? 0 : 1;
+  console.log(`  ${drift ? 'FAIL' : 'PASS'}  design/beta/tokens.css == beta/assets/tokens.css${drift ? ' (copy the designer\'s file into beta/assets/, then npm run beta)' : ''}`);
+}
+const fail = bad.length + drift;
+console.log(fail ? `\n>>> FAIL — shipped CSS check` : '\n>>> PASS — no :has() anchored on html / :root / body / main; tokens in sync');
 process.exit(fail ? 1 : 0);

@@ -1,7 +1,7 @@
 # Atlas map, spec v3: "places on a map, not numbers on a grid"
 
 - **Owner:** the designer, for the Atlas review loop ([`PANEL.md`](PANEL.md)). The Atlas lane builds it.
-- **Status:** revision 5, after PANEL-R3 (80.7 / 100; R2 70.9, R1 63.8, R0 56.1; [`PANEL-R3.md`](PANEL-R3.md)). Earlier revisions folded in R0 to R2. Revision 2 folded in PANEL-R0 ([`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
+- **Status:** revision 5a (FE-1 conflicts, 2026-10-16), revision 5 after PANEL-R3 (80.7 / 100; R2 70.9, R1 63.8, R0 56.1; [`PANEL-R3.md`](PANEL-R3.md)). Earlier revisions folded in R0 to R2. Revision 2 folded in PANEL-R0 ([`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
 - **Prototypes:** [`proto/`](proto/), shot at 1440×900 and 390×844, in light and dark. They use real coordinates on a flat stub basemap; see §6.
 - **Rule 6:** no brand names. The owner's reference is written as "the real-estate map-search pattern".
 - **Owner direction:** combine the best patterns of every product kind and don't copy one (§10). The map-search navigation is the frame, not the whole product.
@@ -57,7 +57,7 @@ This brings back the live map-centred guide's calm. That guide has one big map, 
     1. the **type noun in the place's own name** (it wins, because a name is specific and a collection is broad: R2 #6 found Kabuki-za drawn as a castle via its "Castles, palaces and history" collection);
     2. otherwise, the glyph of the place's first collection (`glyphs.json`);
     3. otherwise, `compass`.
-    - The name table, English nouns: museum, gallery, library, hall, institute → `columns`; church, cathedral, chapel, synagogue, basilica → `spire` (`torii` or `lantern` on Japan pages, per `glyphs.json`); park, garden, reservation, preserve, arboretum, conservatory, trail → `leaf`; beach, lake, river, falls, pier, harbor → `wave`; tower, lighthouse, observatory, bridge → `tower`; theatre or theater, playhouse, stadium, arena → `ticket`; market, shop, bookstore → `bag`; cemetery, memorial, monument → `flag`.
+    - The name table, English nouns: museum, gallery, library, hall, institute → `columns`; church, cathedral, chapel, basilica → `spire`, the kit glyph in `design/beta/style/v2/icons/icons.json` (a plain pointed tower and door, **no cross or other faith mark**). Synagogue, mosque, and a temple or shrine outside Japan get **no noun glyph**; they fall through to the place's own kind glyph. The spire is never stretched to stand for every faith, and the torii and lantern stay on Japan pages, per `glyphs.json`; park, garden, reservation, preserve, arboretum, conservatory, trail → `leaf`; beach, lake, river, falls, pier, harbor → `wave`; tower, lighthouse, observatory, bridge → `tower`; theatre or theater, playhouse, stadium, arena → `ticket`; market, shop, bookstore → `bag`; cemetery, memorial, monument → `flag`.
     - More English nouns (rev 5, R3 #4): brewing, brewery, distillery, winery, taproom → `bottle` (Great Lakes Brewing); arcade → `bag`; statue, sculpture → `frame`.
     - **Step 0, per-place overrides:** [`glyph-overrides.json`](glyph-overrides.json), for the few places whose name and collections say nothing about the kind (Free Stamp is public art → `frame`). It is designer-owned, and every entry carries its reason.
     - **Romanised Japanese suffixes** (Japan pages): -ji, -dera, -in → `lantern`; -jinja, -gū, -taisha → `torii`; -jō → `castle`; -za → `ticket` (so Kabuki-za is a theatre); -en, -teien → `leaf`; yokochō, -dōri, -gai → `bag`. A suffix matches only at the end of a word, so Asakusa doesn't match -sa.
@@ -173,14 +173,16 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
 
 ### 2.2 Phone: the map is the screen (AO-6, R0 #3, #9, #12)
 
-- **Header** (52 px): back, the city name, and search and saved icons. **No breadcrumb on phones** (R1 #15, R2 #2: it collided). The city name truncates only if it alone exceeds the row, which no current city does.
-- **One floating chip row** over the map: **search icon, All / Sights / Eat & drink / Top picks / Area / Filters**. It scrolls sideways if it must.
+- **Header** (52 px): back, the city name, and search and saved icons. **The header's search icon is the phone search** (as in DESIGN-SYSTEM §v2.11), and it is always visible because the header is sticky. **No breadcrumb on phones** (R1 #15, R2 #2: it collided). The city name truncates only if it alone exceeds the row, which no current city does.
+- **The view switcher** (DESIGN-SYSTEM §v2.11, QC-09) is its own 52 px row under the header, as on every view.
+- **One floating chip row** over the map, **48 px** (44 px chips plus a 4 px gap to the map): **All / Sights / Eat & drink / Top picks / Area / Filters**. It scrolls sideways if it must.
+  - **No search chip in this row (rev 5a).** The header already carries search, and a second search icon here pushed the phone chrome to 15 controls above the first card (B-03 allows 14). Header 4 + switcher 4 + chips 6 = 14.
   - **Chips carry no counts.** R3 still showed "All 488 · Sights 263 · Eat & drink 225", which are three more count strings.
   - **Area is a chip on the 390 first screen** (R3 #1, `areaFound`). It opens the area list directly.
-  - **The search icon stays first and visible** whichever chip is selected.
+  - **Search stays visible** whichever chip is selected, because it lives in the sticky header.
   - **Top picks** is one toggle (§2.4). When it is on, the chip itself turns ink (`--ink` fill, `--paper` text). There is no second "×" pill and no badge echoing it.
   - **Filters** opens a sheet whose **first section is Area**, so a neighbourhood is two taps away (Filters → the area). Picking one closes the sheet and fits the map to that area (R0 #12). Source, sort, closed places and the Key follow.
-- **Bottom: a 64 px list peek**, not the carousel. It shows the drag handle and one line, "128 places here · Show list". Tapping or dragging it opens the full list sheet. This replaces the floating "List" pill.
+- **Bottom: a 56 px list peek** (rev 5a; 8 px top, a 4 px handle, a 44 px tap row), not the carousel. It shows the drag handle and one line, "128 places here · Show list". Tapping or dragging it opens the full list sheet. This replaces the floating "List" pill.
 - **The carousel appears only after a selection** (a pin, a dot or a search result) or after locate-me (§3.4). It replaces the peek; Escape, the back gesture or a tap on empty map brings the peek back.
 - **Controls:** **two labelled pills**, "Near me" (locate glyph + text) and "Map" (layers glyph + text, which cycles Map ⇄ Satellite). They are 44 px tall, stacked at the bottom-right, 28 px above the peek or carousel, in thumb reach (R2 #2 asked for labelled controls). No + / − on phones, because pinch zooms. **The Key is never on the map on phones:** it is the last section of Filters. At 200 % zoom the pills drop their text and keep a visible tooltip and an aria-label; they never move above y = 55 %.
 - **Attribution** (R1 #2: it wrapped to two lines and covered locate, so real taps landed on the attribution):
@@ -188,10 +190,10 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
   - The ⓘ has a 44 × 44 hit area. It opens a small popover with the full credit ("Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap contributors", with links), so the licence text stays one tap away and nothing is hidden.
   - On desktop it is the full credit on one line at the bottom-right edge of the map. If the map is narrower than the credit, it falls back to the phone form.
   - **It never shares a corner with a control.** Locate and layers are bottom-*right*; the attribution is bottom-*left*. The featured-pin layout and the default fit both treat the strip as off-map, so it never covers a pin.
-- **"Search this area"** (shown only when "Search as I move the map" is off; that switch lives in Filters on phones) is a 40 px pill centred **under the chip row** (top 112 px). It never sits at the bottom, where the attribution and controls are.
-- **At 200 % zoom** (a 195 CSS px wide viewport) the header stays 52 px, the chip row stays one line and scrolls sideways, and the peek stays 64 px. That leaves at least 50 % clear map.
+- **"Search this area"** (shown only when "Search as I move the map" is off; that switch lives in Filters on phones) is a 40 px pill centred **under the chip row** (top 160 px: header 52 + switcher 52 + chips 48 + 8). It never sits at the bottom, where the attribution and controls are.
+- **At 200 % zoom** (a 195 CSS px wide viewport) the header and switcher stay 52 px each, the chip row stays one 48 px line and scrolls sideways, and the peek stays 56 px. That is 208 of 422 px, so 50.7 % clear map. (With the old 52 px chips and 64 px peek it would have been 47.9 %, under the bar.)
 - **Acceptance (R1 #2):** a real tap on locate hits locate (`locateCoveredBy` null). The attribution is one line ≤ 20 px. Clear map ≥ 75 % at 390 and ≥ 50 % at 200 %. No two overlays overlap. Every map control sits at y ≥ 55 % of the screen or carries a text label.
-- **Clear map on the first screen:** 844 − 52 header − 52 chip row − 64 peek = 676 px, **80 %** (R0 asked ≥ 75 %). With the carousel open it is 70 %, which is a selected state, not the first screen.
+- **Clear map on the first screen (rev 5a):** 844 − 52 header − 52 switcher − 48 chip row − 56 peek = 636 px, **75.4 %** (R0 asked ≥ 75 %). Rev 4's 80 % left out the switcher row that QC-09 added later; with it and the old sizes, the first screen fell to 73.9 %. With the carousel open it is 70 %, which is a selected state, not the first screen.
 
 ### 2.3 The list beside the map (AO-4, AO-7)
 
@@ -392,6 +394,7 @@ The R0 findings sit in these slices: #1, #5 (pins), #6, #7 in slice 1; #3, #8, #
 | PANEL-R3 #5 (1.9, High 8/8) | Desktop header off-screen; header link wraps; breadcrumb clipped | §2.1 rev 5: the switch sits inside the 56 px header, the link doesn't wrap, whole-segment breadcrumb. |
 | PANEL-R3 #6 (1.8) | No-photo covers | §2.3 (rev 4) unchanged: designed list cover; previews and carousel have no media block. R3's preview still had an empty 170 px cover. |
 | PANEL-R3 #7 (1.3, High 5/8), #8 | 108 px layout shift; stale counts | FE-2, §3.2 and §2.3 count rule. Process note: the FE probe must measure the map's top and ancestor scrollTop, not window scroll. |
+| FE-1 rev 5 conflicts (2026-10-16) | The required switcher row puts the phone first screen at 73.9 % clear and 15 controls above the first card (B-03 ≤ 14); the spire glyph drew a cross and stood for every faith | §2.2 rev 5a: search only in the header, a 48 px chip row and a 56 px peek give 75.4 % clear (50.7 % at 200 %) and 14 controls. §1.2: the kit spire with no faith mark, for churches only; other houses of worship fall through to their kind glyph. |
 | Owner direction (relayed by the panel, 2026-10-11) | Don't copy one product; combine the best of each, keep the map-search navigation, don't neglect the other features | §10: a combination table built from existing beta features, plus a non-regression rule for Gallery, Guidebook, Insights and the detail (§10.1). |
 | PANEL-R0 AO-5 (rejected in part) | Must-sees stand out | Kept: the sun-wash pill stays the Must-see signal. |
 
