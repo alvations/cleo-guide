@@ -420,8 +420,8 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 .daysum div { background: var(--surface); padding: var(--s-3) var(--s-4); }
 .daysum b { font: 500 var(--fs-d2)/1.1 var(--font-display); display: block; }
 .daysum span { font-size:var(--fs-xs); color: var(--ink-3); }
-.caveat { display: flex; gap: var(--s-2); padding: var(--s-3) var(--s-4); border-radius: var(--r-m); background: var(--warn-soft); color: var(--ink); font-size:var(--fs-meta); line-height: 1.45; }
-.caveat .ico { color: var(--warn); margin-top: 1px; }
+.caveat { display: flex; gap: var(--s-2); padding: var(--s-3) var(--s-4); border-radius: var(--r-m); background: var(--sand); color: var(--ink); font-size:var(--fs-sm); line-height: 1.45; }
+.caveat .ico { color: var(--ink-3); margin-top: 1px; }   /* an estimate note, not a warning: sand ground (designer, FE-C review) */
 
 /* ---------- Saved list ---------- */
 .listhead { display: grid; gap: var(--s-2); }

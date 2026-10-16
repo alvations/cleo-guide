@@ -120,7 +120,9 @@ ok(/^<p class="hero-credit"[^>]*>Photo: A\. Photographer · <a [^>]*rel="license
   ok(/ sizes="\(min-resolution: 2\.5dppx\) and \(max-width: 1023px\) 166px, \(max-width: 639px\) 92vw, \(max-width: 1023px\) 45vw, 25vw"/.test(photos.figureHtml(cph, '../')) && / sizes="120px"/.test(photos.figureHtml(cph, '../', 'photo', { sizes: '120px' })), 'card sizes default: a ≥ 2.5 dppx phone takes 500 w (166px), else 92vw phones, 45vw tablets, 25vw desktop; callers can pass a smaller sizes (thumbnails)');
   // D-40 condition: a 500w + 720w card asks for 240px on a 3× phone (resolves to the 720w copy); a 500w + 960w card keeps 166px
   ok(photos.cardSizes({ widths: [{ w: 500 }, { w: 720 }] }) === photos.CARD_SIZES_720 && /2\.5dppx\) and \(max-width: 1023px\) 240px,/.test(photos.CARD_SIZES_720)
-    && photos.cardSizes({ widths: [{ w: 500 }, { w: 960 }] }) === photos.CARD_SIZES, 'card sizes by copy: 720w cards cap 3× phones at 240px (the 720w copy); 960w cards keep 166px');
+    && photos.cardSizes({ widths: [{ w: 500 }, { w: 960 }] }) === photos.CARD_SIZES
+    && photos.cardSizes({ widths: [{ w: 500 }, { w: 720 }, { w: 960 }] }) === photos.CARD_SIZES_720 && photos.cardSizes({ widths: [{ w: 500 }, { w: 640 }, { w: 960 }] }) === photos.CARD_SIZES_720,
+    'card sizes by copy: a card with a ~720w copy (600–799, D-40a; with or without a 960) caps 3× phones at 240px; 500 + 960 cards keep 166px');
 }
 ok(imagery.heroFor({ imagery: { hero: hph } }) === hph && imagery.heroFor({ imagery: { slots: r.bySlot } }, 'tokyo') === hph && imagery.heroFor({ imagery: { slots: r.bySlot } }, 'kyoto') === null && imagery.heroFor({ imagery: {} }) === null && imagery.heroFor(null) === null, 'heroFor(row) / heroFor(reg, key): the credited hero, else null (renderer keeps the motif)');
 ok(/^<figure class="photo hero-media"><img [^>]*srcset=[^>]*fetchpriority="high"[^>]*><figcaption>Photo: /.test(hph ? photos.heroHtml(hph, '../', 'photo hero-media') : ''), 'heroHtml with a media-slot class: in-flow, eager, with its TASL figcaption (FE-B hub hero)');

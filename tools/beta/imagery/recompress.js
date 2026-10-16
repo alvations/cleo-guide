@@ -125,6 +125,7 @@ const NO720 = {
   'hokkaido--sapporo-beer-museum-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
   'kyoto--uji-bridge-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
   'singapore--southern-ridges--haw-par-villa-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
+  'singapore--cebu--basilica-minore-del-santo-nino-and-magellans-cross-960.jpg': 'busy photo (festival crowd); the runner\'s 45 KB copy shrank to 518 px wide',
 };
 const needs720 = (row, prio) => row.provider === 'wikimedia-commons' && row.record && !NO720[row.file] && prio.has(`${row.record.page}#${row.record.id}`) &&
   filesOf(row).some(f => /-960\.jpe?g$/i.test(f.file)) && !filesOf(row).some(f => classWidth(f) >= 600 && classWidth(f) < 800);
@@ -179,6 +180,15 @@ async function main() {
       if (marked(row) && buf.length <= target) continue;          // already recompressed and within its target
       if ((meta.orientation || 1) !== 1) { console.log(`  skip  ${f.file}: EXIF orientation ${meta.orientation} (stripping it would turn the photo)`); continue; }
       const { out, q, w: nw, h: nh, scaled } = await encode(sharp, buf, target, meta);
+      if (scaled && !f.main && hasLarge(row) && classWidth(f) >= 600 && classWidth(f) < 800 && nw < 600) {
+        // a lead / first-row 720 copy that only fits by shrinking below 600 px is no sharper than the 500: drop it (NO720)
+        console.log(`  drop  ${f.file}: a ${Math.round(target / KB)} KB copy shrinks to ${nw} px wide — the card keeps 500 + 960; add ${row.file} to NO720`);
+        if (!dry) {
+          fs.unlinkSync(p); row.variants = row.variants.filter(v => v.file !== f.file);
+          row.modified = String(row.modified || '').replace(/^resized to 500, \d+ and (\d+) px wide/, 'resized to 500 and $1 px wide');
+        }
+        continue;
+      }
       const m2 = await sharp(out).metadata();
       if (m2.width !== nw || m2.height !== nh || (!scaled && (nw !== meta.width || nh !== meta.height))) throw new Error(`${f.file}: size changed ${meta.width}×${meta.height} → ${m2.width}×${m2.height}`);
       before += buf.length;
