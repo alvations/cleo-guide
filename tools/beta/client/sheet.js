@@ -68,7 +68,7 @@
     // W8 (R7 gap 2f): "No. k of n in {area}" = this place's rank in its area over the whole view order (stamped or not), so
     // n is the area's full count and k ≤ n always (the pin number is a separate thing and stays on the badges line)
     var inA = (Cleo.defer && Cleo.defer.order ? Cleo.defer.order() : [].map.call(d.querySelectorAll('li.pl'), function (x) { return { id: x.id, a: x.getAttribute('data-a') }; }))
-      .filter(function (x) { return x.a === a; }).map(function (x) { return x.id; }), k = inA.indexOf(c.id) + 1;
+      .filter(function (x) { return x.a === a; }).map(function (x) { return x.id; }), k = +c.getAttribute('data-rank') || inA.indexOf(c.id) + 1;   // QA-50: k is the data's rank in its area (data-rank), never the card's DOM or stamp position
     var rank = k > 0 ? '<p class="sm sh-rank">No. ' + k + ' of ' + inA.length + ' in ' + esc(C.label('a', a)) + '</p>' : '';
     // Close by: the 4 nearest open places with a pin, straight-line (never a walking time we don't hold)
     var near = '';

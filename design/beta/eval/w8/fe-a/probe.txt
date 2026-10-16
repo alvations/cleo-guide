@@ -45,27 +45,53 @@
   PASS  @1440 opening a shared day stores nothing
   PASS  @1440 0 page errors on reopen = []
 # place detail (QA-51, QA-59b/d, R7 2d, closures)
+  PASS  @390 kanda-myojin (fresh #p=): the rank line is the data's 3 of 43 (QA-50) = "No. 3 of 43 in Chiyoda-ku"
   PASS  @390 kanda-myojin: the detail photo is never upscaled (file 500 w shown at 358 px)
   PASS  @390 kanda-myojin: nothing in the detail runs past the sheet's edge = []
   PASS  @390 kanda-myojin: no source-link icon wraps onto a line of its own
+  PASS  @390 asukayama-park (fresh #p=): the rank line is the data's 2 of 37 (QA-50) = "No. 2 of 37 in Jōhoku"
+  PASS  @390 asukayama-park: the detail photo is never upscaled (file 500 w shown at 358 px)
+  PASS  @390 asukayama-park: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 asukayama-park: no source-link icon wraps onto a line of its own
+  PASS  @390 terminal-tower-observation-deck (fresh #p=): the rank line is the data's 3 of 42 (QA-50) = "No. 3 of 42 in Downtown & The Flats"
+  PASS  @390 terminal-tower-observation-deck: the detail photo is never upscaled (file 500 w shown at 358 px)
+  PASS  @390 terminal-tower-observation-deck: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 terminal-tower-observation-deck: no source-link icon wraps onto a line of its own
+  PASS  @390 west-side-market (fresh #p=): the rank line is the data's 1 of 52 (QA-50) = "No. 1 of 52 in West Side, Ohio City & Tremont"
   PASS  @390 west-side-market: nothing in the detail runs past the sheet's edge = []
   PASS  @390 west-side-market: no source-link icon wraps onto a line of its own
+  PASS  @390 heinens-downtown (fresh #p=): the rank line is the data's 39 of 42 (QA-50) = "No. 39 of 42 in Downtown & The Flats"
   PASS  @390 heinens-downtown: nothing in the detail runs past the sheet's edge = []
   PASS  @390 heinens-downtown: no source-link icon wraps onto a line of its own
   PASS  @390 heinens-downtown: a closed place never offers Directions as its primary action = ""
+  PASS  @390 katzs-delicatessen (fresh #p=): the rank line is the data's 19 of 264 (QA-50) = "No. 19 of 264 in Manhattan"
   PASS  @390 katzs-delicatessen: nothing in the detail runs past the sheet's edge = []
   PASS  @390 katzs-delicatessen: no source-link icon wraps onto a line of its own
+  PASS  @1440 kanda-myojin (fresh #p=): the rank line is the data's 3 of 43 (QA-50) = "No. 3 of 43 in Chiyoda-ku"
   PASS  @1440 kanda-myojin: the detail photo is never upscaled (file 960 w shown at 960 px)
   PASS  @1440 kanda-myojin: nothing in the detail runs past the sheet's edge = []
   PASS  @1440 kanda-myojin: no source-link icon wraps onto a line of its own
   PASS  @1440 kanda-myojin: the desktop sheet is centred over a full-viewport scrim = {"img":[960,960],"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 asukayama-park (fresh #p=): the rank line is the data's 2 of 37 (QA-50) = "No. 2 of 37 in Jōhoku"
+  PASS  @1440 asukayama-park: the detail photo is never upscaled (file 960 w shown at 960 px)
+  PASS  @1440 asukayama-park: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 asukayama-park: no source-link icon wraps onto a line of its own
+  PASS  @1440 asukayama-park: the desktop sheet is centred over a full-viewport scrim = {"img":[960,960],"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 terminal-tower-observation-deck (fresh #p=): the rank line is the data's 3 of 42 (QA-50) = "No. 3 of 42 in Downtown & The Flats"
+  PASS  @1440 terminal-tower-observation-deck: the detail photo is never upscaled (file 960 w shown at 960 px)
+  PASS  @1440 terminal-tower-observation-deck: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 terminal-tower-observation-deck: no source-link icon wraps onto a line of its own
+  PASS  @1440 terminal-tower-observation-deck: the desktop sheet is centred over a full-viewport scrim = {"img":[960,960],"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 west-side-market (fresh #p=): the rank line is the data's 1 of 52 (QA-50) = "No. 1 of 52 in West Side, Ohio City & Tremont"
   PASS  @1440 west-side-market: nothing in the detail runs past the sheet's edge = []
   PASS  @1440 west-side-market: no source-link icon wraps onto a line of its own
   PASS  @1440 west-side-market: the desktop sheet is centred over a full-viewport scrim = {"img":null,"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 heinens-downtown (fresh #p=): the rank line is the data's 39 of 42 (QA-50) = "No. 39 of 42 in Downtown & The Flats"
   PASS  @1440 heinens-downtown: nothing in the detail runs past the sheet's edge = []
   PASS  @1440 heinens-downtown: no source-link icon wraps onto a line of its own
   PASS  @1440 heinens-downtown: a closed place never offers Directions as its primary action = ""
   PASS  @1440 heinens-downtown: the desktop sheet is centred over a full-viewport scrim = {"img":null,"over":[],"lone":0,"closed":true,"pri":"","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 katzs-delicatessen (fresh #p=): the rank line is the data's 19 of 264 (QA-50) = "No. 19 of 264 in Manhattan"
   PASS  @1440 katzs-delicatessen: nothing in the detail runs past the sheet's edge = []
   PASS  @1440 katzs-delicatessen: no source-link icon wraps onto a line of its own
   PASS  @1440 katzs-delicatessen: the desktop sheet is centred over a full-viewport scrim = {"img":null,"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
@@ -80,7 +106,7 @@
   PASS  @390 light cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @390 light cities/tokyo.html: no photo shown wider than its file = []
   PASS  @390 light cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @390 light cities/tokyo.html#all=1: 55 credits, none overflow their box = []
+  PASS  @390 light cities/tokyo.html#all=1: 53 credits, none overflow their box = []
   PASS  @390 light cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @390 light cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @390 light cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -108,7 +134,7 @@
   PASS  @390 dark cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @390 dark cities/tokyo.html: no photo shown wider than its file = []
   PASS  @390 dark cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @390 dark cities/tokyo.html#all=1: 55 credits, none overflow their box = []
+  PASS  @390 dark cities/tokyo.html#all=1: 53 credits, none overflow their box = []
   PASS  @390 dark cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @390 dark cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @390 dark cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -136,7 +162,7 @@
   PASS  @1440 light cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @1440 light cities/tokyo.html: no photo shown wider than its file = []
   PASS  @1440 light cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @1440 light cities/tokyo.html#all=1: 58 credits, none overflow their box = []
+  PASS  @1440 light cities/tokyo.html#all=1: 56 credits, none overflow their box = []
   PASS  @1440 light cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @1440 light cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @1440 light cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -145,7 +171,7 @@
   PASS  @1440 light cities/tokyo.html#view=atlas: top bar / city bar / tab bar fully opaque = []
   PASS  @1440 light cities/tokyo.html#view=atlas: the search placeholder fits unclipped = null
   PASS  @1440 light cities/tokyo.html#view=atlas: no photo shown wider than its file = []
-  PASS  @1440 light cities/tokyo.html#day=TAITO: 2 credits, none overflow their box = []
+  PASS  @1440 light cities/tokyo.html#day=TAITO: 0 credits, none overflow their box = []
   PASS  @1440 light cities/tokyo.html#day=TAITO: top bar / city bar / tab bar fully opaque = []
   PASS  @1440 light cities/tokyo.html#day=TAITO: the search placeholder fits unclipped = null
   PASS  @1440 light cities/tokyo.html#day=TAITO: no photo shown wider than its file = []
@@ -164,7 +190,7 @@
   PASS  @1440 dark cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @1440 dark cities/tokyo.html: no photo shown wider than its file = []
   PASS  @1440 dark cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @1440 dark cities/tokyo.html#all=1: 58 credits, none overflow their box = []
+  PASS  @1440 dark cities/tokyo.html#all=1: 56 credits, none overflow their box = []
   PASS  @1440 dark cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @1440 dark cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @1440 dark cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -173,7 +199,7 @@
   PASS  @1440 dark cities/tokyo.html#view=atlas: top bar / city bar / tab bar fully opaque = []
   PASS  @1440 dark cities/tokyo.html#view=atlas: the search placeholder fits unclipped = null
   PASS  @1440 dark cities/tokyo.html#view=atlas: no photo shown wider than its file = []
-  PASS  @1440 dark cities/tokyo.html#day=TAITO: 2 credits, none overflow their box = []
+  PASS  @1440 dark cities/tokyo.html#day=TAITO: 0 credits, none overflow their box = []
   PASS  @1440 dark cities/tokyo.html#day=TAITO: top bar / city bar / tab bar fully opaque = []
   PASS  @1440 dark cities/tokyo.html#day=TAITO: the search placeholder fits unclipped = null
   PASS  @1440 dark cities/tokyo.html#day=TAITO: no photo shown wider than its file = []

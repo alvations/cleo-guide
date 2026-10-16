@@ -153,9 +153,11 @@ jobs:
             fi
             git push origin HEAD:claude/peaceful-goodall-i0hsrt
           }
-          for i in 1 2 3; do
+          # the branch moves faster than a run lasts (a dozen lanes push to it), so a rejected push ("fetch first")
+          # is retried up to 6 times; a real conflict outside the built pages (return 2) still stops the job
+          for i in 1 2 3 4 5 6; do
             sync_and_push && exit 0
             [ $? -eq 2 ] && exit 1
-            sleep $((i * 10))
+            sleep $((5 + i * 5))
           done
           exit 1

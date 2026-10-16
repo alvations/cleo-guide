@@ -417,7 +417,6 @@ ${switcher}</div></div>
   <p class="facts">${facts}</p>
 ${heroHtml}
 </header>
-<div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">Start with</p></div>
 <nav class="rail" id="cleo-rail" aria-label="Collections" data-cleo-rail data-view="all" hidden>
 ${tiles.filter(t => t.cls === 'sig').map(tileHtml).join('\n')}
 ${mods.join('\n')}${free ? '\n' + tileHtml(free) : ''}
@@ -426,6 +425,8 @@ ${gapHtml.join('\n')}${closedTile ? '\n' + closedTile : ''}
 <button type="button" class="rail-i rail-all" data-cleo-all aria-pressed="false"><svg class="g ico" aria-hidden="true"><use href="#i-grid"/></svg><span class="t">Show all</span><span class="n">${recs.length}</span></button>
 </nav>
 <div class="railbar" data-cleo-rail hidden><button type="button" class="btn btn-icon btn-ghost" data-rail="-1" aria-label="Previous collections">${ico('chev-l')}</button><button type="button" class="btn btn-icon btn-ghost" data-rail="1" aria-label="Next collections">${ico('chev-r')}</button></div>
+<!-- QA-48 / QA-60 (B-04): the category bar sits above the phone lead card, so it is on the first screen on every page, not only where the hero is short -->
+<div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">Start with</p></div>
 <div class="g-rows vw view-gallery" id="cleo-rows-host"></div>
 <div class="toolbar" data-cleo-toolbar hidden>
 ${seg}
