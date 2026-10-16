@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T14:40:48.539Z",
+ "generated": "2026-10-16T16:23:06.358Z",
  "viewports": {
   "mobile": "390x844@3 touch",
   "desktop": "1440x900",
@@ -66,7 +66,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 1710,
-    "fcp": 200,
+    "fcp": 212,
     "fontSampleN": 400,
     "fontsDeclared": {
      "Bricolage Grotesque": 56,
@@ -105,14 +105,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 1956206,
-    "bytesAllResponses": 1956206,
+    "bytes": 1956857,
+    "bytesAllResponses": 1956857,
     "initial": {
-     "bytes": 1062900,
-     "gz": 752699
+     "bytes": 1063551,
+     "gz": 752940
     },
     "session": {
-     "bytes": 1956206
+     "bytes": 1956857
     },
     "offOriginBlocked": 0,
     "night": {
@@ -174,7 +174,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 1710,
-    "fcp": 196,
+    "fcp": 184,
     "fontSampleN": 400,
     "fontsDeclared": {
      "Bricolage Grotesque": 48,
@@ -184,7 +184,7 @@
     "fonts": {
      "all": {
       "Bricolage Grotesque 96pt ExtraBold": 694,
-      "Inter": 9316,
+      "Inter": 9314,
       "IPAGothic": 8,
       "WenQuanYi Zen Hei": 4,
       "Inter SemiBold": 6
@@ -213,14 +213,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 1968062,
-    "bytesAllResponses": 1968062,
+    "bytes": 1968713,
+    "bytesAllResponses": 1968713,
     "initial": {
-     "bytes": 1109999,
-     "gz": 799798
+     "bytes": 1110650,
+     "gz": 800039
     },
     "session": {
-     "bytes": 1968062
+     "bytes": 1968713
     },
     "offOriginBlocked": 0,
     "night": {
@@ -238,9 +238,9 @@
     "text": 13001
    },
    "cpu4x": {
-    "fcp": 308,
-    "dcl": 1210,
-    "loadMs": 1262
+    "fcp": 332,
+    "dcl": 1136,
+    "loadMs": 1171
    },
    "verdict": {
     "rows": {
@@ -290,11 +290,11 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "1922 KB · 1710 nodes · 196 ms · 308 ms"
+      "val": "1923 KB · 1710 nodes · 184 ms · 332 ms"
      },
      "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
       "pass": true,
-      "val": "781 KB (1,084 KB) · 735 KB (1,038 KB)"
+      "val": "781 KB (1,085 KB) · 735 KB (1,039 KB)"
      }
     },
     "passed": 11,
@@ -318,7 +318,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 392,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -361,7 +361,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 493,
-    "fcp": 216,
+    "fcp": 196,
     "fontSampleN": 148,
     "fontsDeclared": {
      "Bricolage Grotesque": 26,
@@ -395,14 +395,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 742214,
-    "bytesAllResponses": 742214,
+    "bytes": 742885,
+    "bytesAllResponses": 742885,
     "initial": {
-     "bytes": 742214,
-     "gz": 500379
+     "bytes": 742885,
+     "gz": 500628
     },
     "session": {
-     "bytes": 742214
+     "bytes": 742885
     },
     "offOriginBlocked": 0,
     "night": {
@@ -423,7 +423,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 612,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -464,7 +464,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 493,
-    "fcp": 224,
+    "fcp": 208,
     "fontSampleN": 172,
     "fontsDeclared": {
      "Bricolage Grotesque": 28,
@@ -498,14 +498,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 742214,
-    "bytesAllResponses": 742214,
+    "bytes": 742885,
+    "bytesAllResponses": 742885,
     "initial": {
-     "bytes": 742214,
-     "gz": 500379
+     "bytes": 742885,
+     "gz": 500628
     },
     "session": {
-     "bytes": 742214
+     "bytes": 742885
     },
     "offOriginBlocked": 0,
     "night": {
@@ -523,9 +523,9 @@
     "text": 3056
    },
    "cpu4x": {
-    "fcp": 324,
-    "dcl": 418,
-    "loadMs": 557
+    "fcp": 544,
+    "dcl": 549,
+    "loadMs": 690
    },
    "verdict": {
     "rows": {
@@ -575,7 +575,7 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "725 KB · 493 nodes · 224 ms · 324 ms"
+      "val": "725 KB · 493 nodes · 208 ms · 544 ms"
      },
      "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
       "pass": true,
@@ -603,7 +603,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 392,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -646,7 +646,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 431,
-    "fcp": 168,
+    "fcp": 92,
     "fontSampleN": 119,
     "fontsDeclared": {
      "Bricolage Grotesque": 24,
@@ -680,14 +680,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 660650,
-    "bytesAllResponses": 660650,
+    "bytes": 661321,
+    "bytesAllResponses": 661321,
     "initial": {
-     "bytes": 660650,
-     "gz": 421908
+     "bytes": 661321,
+     "gz": 422158
     },
     "session": {
-     "bytes": 660650
+     "bytes": 661321
     },
     "offOriginBlocked": 0,
     "night": {
@@ -708,7 +708,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 612,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -749,7 +749,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 431,
-    "fcp": 192,
+    "fcp": 120,
     "fontSampleN": 136,
     "fontsDeclared": {
      "Bricolage Grotesque": 26,
@@ -783,14 +783,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 660650,
-    "bytesAllResponses": 660650,
+    "bytes": 661321,
+    "bytesAllResponses": 661321,
     "initial": {
-     "bytes": 660650,
-     "gz": 421908
+     "bytes": 661321,
+     "gz": 422158
     },
     "session": {
-     "bytes": 660650
+     "bytes": 661321
     },
     "offOriginBlocked": 0,
     "night": {
@@ -808,9 +808,9 @@
     "text": 2547
    },
    "cpu4x": {
-    "fcp": 352,
-    "dcl": 445,
-    "loadMs": 663
+    "fcp": 396,
+    "dcl": 471,
+    "loadMs": 575
    },
    "verdict": {
     "rows": {
@@ -860,11 +860,11 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "645 KB · 431 nodes · 192 ms · 352 ms"
+      "val": "646 KB · 431 nodes · 120 ms · 396 ms"
      },
      "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
       "pass": true,
-      "val": "412 KB (645 KB) · 412 KB (645 KB)"
+      "val": "412 KB (646 KB) · 412 KB (646 KB)"
      }
     },
     "passed": 11,
@@ -888,7 +888,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 416,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -965,14 +965,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 698801,
-    "bytesAllResponses": 698801,
+    "bytes": 699472,
+    "bytesAllResponses": 699472,
     "initial": {
-     "bytes": 698801,
-     "gz": 454321
+     "bytes": 699472,
+     "gz": 454564
     },
     "session": {
-     "bytes": 698801
+     "bytes": 699472
     },
     "offOriginBlocked": 0,
     "night": {
@@ -993,7 +993,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 612,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -1034,7 +1034,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 558,
-    "fcp": 184,
+    "fcp": 168,
     "fontSampleN": 197,
     "fontsDeclared": {
      "Bricolage Grotesque": 31,
@@ -1068,14 +1068,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 698801,
-    "bytesAllResponses": 698801,
+    "bytes": 699472,
+    "bytesAllResponses": 699472,
     "initial": {
-     "bytes": 698801,
-     "gz": 454321
+     "bytes": 699472,
+     "gz": 454564
     },
     "session": {
-     "bytes": 698801
+     "bytes": 699472
     },
     "offOriginBlocked": 0,
     "night": {
@@ -1093,9 +1093,9 @@
     "text": 3355
    },
    "cpu4x": {
-    "fcp": 452,
-    "dcl": 538,
-    "loadMs": 686
+    "fcp": 308,
+    "dcl": 494,
+    "loadMs": 651
    },
    "verdict": {
     "rows": {
@@ -1145,11 +1145,11 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "682 KB · 558 nodes · 184 ms · 452 ms"
+      "val": "683 KB · 558 nodes · 168 ms · 308 ms"
      },
      "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
       "pass": true,
-      "val": "444 KB (682 KB) · 444 KB (682 KB)"
+      "val": "444 KB (683 KB) · 444 KB (683 KB)"
      }
     },
     "passed": 11,
@@ -1173,7 +1173,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 392,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -1216,7 +1216,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 678,
-    "fcp": 120,
+    "fcp": 132,
     "fontSampleN": 262,
     "fontsDeclared": {
      "Bricolage Grotesque": 31,
@@ -1253,14 +1253,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 884334,
-    "bytesAllResponses": 884334,
+    "bytes": 885005,
+    "bytesAllResponses": 885005,
     "initial": {
-     "bytes": 793580,
-     "gz": 540493
+     "bytes": 794251,
+     "gz": 540746
     },
     "session": {
-     "bytes": 884334
+     "bytes": 885005
     },
     "offOriginBlocked": 0,
     "night": {
@@ -1281,7 +1281,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 612,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -1322,7 +1322,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 678,
-    "fcp": 152,
+    "fcp": 164,
     "fontSampleN": 282,
     "fontsDeclared": {
      "Bricolage Grotesque": 32,
@@ -1359,14 +1359,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 884334,
-    "bytesAllResponses": 884334,
+    "bytes": 885005,
+    "bytesAllResponses": 885005,
     "initial": {
-     "bytes": 884334,
-     "gz": 631247
+     "bytes": 885005,
+     "gz": 631500
     },
     "session": {
-     "bytes": 884334
+     "bytes": 885005
     },
     "offOriginBlocked": 0,
     "night": {
@@ -1384,9 +1384,9 @@
     "text": 5292
    },
    "cpu4x": {
-    "fcp": 288,
-    "dcl": 723,
-    "loadMs": 769
+    "fcp": 336,
+    "dcl": 510,
+    "loadMs": 662
    },
    "verdict": {
     "rows": {
@@ -1436,11 +1436,11 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "864 KB · 678 nodes · 152 ms · 288 ms"
+      "val": "864 KB · 678 nodes · 164 ms · 336 ms"
      },
      "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
       "pass": true,
-      "val": "616 KB (864 KB) · 528 KB (775 KB)"
+      "val": "617 KB (864 KB) · 528 KB (776 KB)"
      }
     },
     "passed": 11,
@@ -1464,7 +1464,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 343,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -1507,7 +1507,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 440,
-    "fcp": 128,
+    "fcp": 104,
     "fontSampleN": 124,
     "fontsDeclared": {
      "Bricolage Grotesque": 26,
@@ -1541,14 +1541,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 504798,
-    "bytesAllResponses": 504798,
+    "bytes": 505469,
+    "bytesAllResponses": 505469,
     "initial": {
-     "bytes": 504798,
-     "gz": 265916
+     "bytes": 505469,
+     "gz": 266165
     },
     "session": {
-     "bytes": 504798
+     "bytes": 505469
     },
     "offOriginBlocked": 0,
     "night": {
@@ -1569,7 +1569,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 504,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -1610,7 +1610,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 440,
-    "fcp": 176,
+    "fcp": 144,
     "fontSampleN": 135,
     "fontsDeclared": {
      "Bricolage Grotesque": 30,
@@ -1644,14 +1644,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 504798,
-    "bytesAllResponses": 504798,
+    "bytes": 505469,
+    "bytesAllResponses": 505469,
     "initial": {
-     "bytes": 504798,
-     "gz": 265916
+     "bytes": 505469,
+     "gz": 266165
     },
     "session": {
-     "bytes": 504798
+     "bytes": 505469
     },
     "offOriginBlocked": 0,
     "night": {
@@ -1669,9 +1669,9 @@
     "text": 2221
    },
    "cpu4x": {
-    "fcp": 340,
-    "dcl": 415,
-    "loadMs": 541
+    "fcp": 312,
+    "dcl": 559,
+    "loadMs": 598
    },
    "verdict": {
     "rows": {
@@ -1721,11 +1721,11 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "493 KB · 440 nodes · 176 ms · 340 ms"
+      "val": "494 KB · 440 nodes · 144 ms · 312 ms"
      },
      "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
       "pass": true,
-      "val": "260 KB (493 KB) · 260 KB (493 KB)"
+      "val": "260 KB (494 KB) · 260 KB (494 KB)"
      }
     },
     "passed": 11,

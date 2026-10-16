@@ -25,7 +25,9 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | designer (e)–(i) trip.html + (j) base pressed state | 17e24c738 | — |
 | designer (a)–(d) share cards | 4f4fc8b67 | — |
 | QC-15 base focus in the sheet; QC-17 base line wraps; probe + shots refreshed | 70060b332 | — |
-| i18n batch 3 (page.trip.*), cleo:locale redraw on trip.html | this push | — |
+| i18n batch 3 (page.trip.*), cleo:locale redraw on trip.html | 0aa56b33f | — |
+| W9-1 recognition: badges (client/recognition.js from card attributes), Recognised lens + tray + rail door, detail row | 4cf7d7ebd | — |
+| W9-9 local favourites: parked patch + 7 pending en strings | this push | — |
 
 ## Next
 
@@ -44,11 +46,26 @@ Orchestrator order (2026-10-16 14:52Z):
    - trip.html: spacing tokens (`python3 design/beta/tools/snap-spacing.py`);
    - base: the pressed state on "Nearest to my base" (`--ink` fill), and the distance format as Atlas §3.4.
    - Then re-shoot (`w9-fe-c-probe.js`) and send the designer the SHA.
-3. W9-1 (wire recognition-ui.js; hooks listed in the README of the i18n prep), then W9-9.
+3. **W9-1: done (this push).**
+   - Badges come from platform rec data only. The server writes data-rec / data-rec0 / data-ra / data-rv; client/recognition.js draws them (the page-weight budget rules out server-side markup).
+   - The "Recognised" lens (`#rec=any|award|video|cited`), a tray fieldset, a rail door and the detail row.
+   - Gaps:
+     - the Gallery row cards (li.gc) and the Guidebook entries carry no badges yet; they show on the li.pl cards (list, Atlas, Gallery grid) and in the detail;
+     - video = 0 everywhere (platform's stated data gap).
+4. **W9-9: built and tested, parked until its ja.**
+   - The code is in `tools/beta/i18n-fec/w9-9-lf.patch`:
+     - render/city.js: data-lf (only where the page has the lens), a tray fieldset with a pill or the stated gap, a rail door;
+     - city.js: the lf lens, plus a header printing the rule;
+     - recognition-ui.js lf* helpers, fe-c.css, and the test-fe-c LF section.
+   - Its 7 strings are in `pending-en.json`.
+   - When the i18n lane writes `pending-ja.json`: `merge.py`, `git apply tools/beta/i18n-fec/w9-9-lf.patch`, `npm run beta`, the gates, push.
+   - Verified locally with a throwaway ja: 4 guides show the lens (128 places, all meeting the rule), 80 state the gap. Cleveland #lf=1 is exact. test-i18n passes.
 
 ## In flight
 
-Nothing unpushed. Waiting on: Atlas FE-1 for QC-17 (whether the carousel card wraps the base line or truncates the name).
+Nothing unpushed. Waiting on:
+- the i18n lane: pending-ja.json for W9-9's 7 keys;
+- Atlas FE-1: the carousel SHA for QC-17 (agreed: the line wraps).
 
 ## Notes
 

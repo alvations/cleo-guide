@@ -369,7 +369,7 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
 <body class="has-tabbar">
 ${siteBar({ depth, current: 'hub', rel: row.beta })}
 <main id="main" class="feb">
-<section class="chero" aria-labelledby="cn"><div class="inner">
+<section class="chero" data-cleo-masthead aria-labelledby="cn"><div class="inner">
 <div class="copy">
   <p class="kicker">${icon('pin', 'ico sm')}${esc(t(groups ? 'hub.kicker.archive' : 'hub.kicker'))} · ${plural('hub.pins', pins)}</p>
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
