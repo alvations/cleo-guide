@@ -48,7 +48,9 @@ function englishLeft(html) {
   for (let n; (n = walk.nextNode());) texts.push(n.nodeValue);
   doc.querySelectorAll('[aria-label], [title], [placeholder], [alt]').forEach(el => ['aria-label', 'title', 'placeholder', 'alt'].forEach(a => el.hasAttribute(a) && texts.push(el.getAttribute(a))));
   for (let s of texts) {
-    for (const d of DATA) s = s.split(d).join(' ');
+    // data is stripped case-insensitively: display-time sentence casing (lib/casing.js) may render a data label
+    // such as a signature title as "Testville gazette"; it is still data, not catalogue copy
+    for (const d of DATA) s = s.replace(new RegExp(d.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), ' ');
     const m = s.match(/[A-Za-z]{2,}/g); if (m) out.push(...m);
   }
   return out;
