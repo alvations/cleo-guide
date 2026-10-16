@@ -362,9 +362,13 @@ async function patterns(rel, vp) {
     const txt = m.map(e => e.textContent.trim()); return { markers: m.length, labelled: txt.filter(Boolean).length, numbered: txt.filter(t => /^\d+$/.test(t)).length,
       canvasDots: !!document.querySelector('.leaflet-overlay-pane canvas, .leaflet-overlay-pane path'), sample: txt.slice(0, 6) }; });
   check('P-16', C, pins.markers === 0 ? 'FAIL' : pins.labelled / pins.markers >= 0.9 ? 'PASS' : 'WARN', pins);
-  const badge = await page.evaluate(new Function(`${P_VIS} const e = [...document.querySelectorAll('main *')].filter(x => vis(x) && x.children.length < 3 && /without a (verified )?pin/i.test(x.textContent)); return e.map(x => x.textContent.replace(/\\s+/g, ' ').trim().slice(0, 100)).slice(0, 3);`));
-  const bn = badge.map(b => +((/(\d[\d,]*)\s+without/.exec(b) || [])[1] || 'NaN'));
-  check('P-17', C, !T.unpinned.length ? (badge.length ? 'WARN' : 'N/A') : ok(bn.includes(T.unpinned.length)), { unpinned: T.unpinned.length, badge });
+  // D-43 (2026-10-16): records with no coordinate get "n without a verified pin"; low-confidence pins stay on the map with
+  // "n approximate pin(s)". Both counts come from the build's JSON.
+  const badge = await page.evaluate(new Function(`${P_VIS} const e = [...document.querySelectorAll('main *')].filter(x => vis(x) && x.children.length < 3 && /without a (verified )?pin|approximate pins?/i.test(x.textContent)); return e.map(x => x.textContent.replace(/\\s+/g, ' ').trim().slice(0, 100)).slice(0, 4);`));
+  const noLL = T.P.filter(p => p.la == null || p.ln == null).length, low = T.P.filter(p => p.la != null && p.pv && p.pv.pin === 'low').length;
+  const nOf = rx => badge.map(b => +((rx.exec(b) || [])[1] || 'NaN'));
+  const p17ok = (!noLL || nOf(/(\d[\d,]*)\s+without/).includes(noLL)) && (!low || nOf(/(\d[\d,]*)\s+approximate/).includes(low));
+  check('P-17', C, !noLL && !low ? (badge.length ? 'WARN' : 'N/A') : ok(p17ok), { noCoordinate: noLL, lowPins: low, badge });
   // P-10 map view round trip
     await page.evaluate(() => { try { const m = window.Cleo && (Cleo.map || (Cleo.atlas && Cleo.atlas.map)); if (m && m.setView) m.setView(m.getCenter(), Math.min(m.getZoom() + 2, 17)); } catch (e) { /* ignore */ } });
   const mapBox = await page.locator('#cleo-map, .leaflet-container').first().boundingBox().catch(() => null);
