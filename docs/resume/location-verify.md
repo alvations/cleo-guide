@@ -25,7 +25,8 @@ The orchestrator does the review, `--accept`, rebuild and gates (§ Owner decisi
 | washington-dc | **committed** 6bfe353b: pin 58 · move 1 · no-match 31 — assist pass 40 · review 1 · hold 18 · reject 31 | **38** (orchestrator) |
 | miami-fl | **committed** 4f73fb2a (re-scored 855a21bc → pass 2): registry duplicate Fillmore open + CLOSED | **2** (orchestrator) |
 | erie-pa | **committed** 0929302d (re-scored): pin 39 · confirm 17 · move 1 · ambiguous 2 · shared 6 (registry dups Tandoori Hut ×2, Enrique's open+CLOSED) · no-match 14 — assist pass 27 · review 9 · hold 5 · no-change 12 · reject 26 | — (sent) |
-| philadelphia-pa | commit run in flight | — |
+| philadelphia-pa | **committed** e590eeb2 (re-scored 094f5550): pin 27 · confirm 15 · move 1 · ambiguous 2 · shared 2 (dup Manakeesh open+CLOSED) · no-match 31 — assist pass 25 · review 10 · hold 5 · no-change 3 · reject 35 | — (sent) |
+| singapore | commit run in flight (712 rows; ≤ 300 Nominatim → expect a budget stop, then resume runs) | — |
 
 Tool SHAs:
 
@@ -42,22 +43,22 @@ Tool SHAs:
 | c2306ba1 | name-only Nominatim fallback |
 | (git log: "circuit breaker") | per-host circuit breaker; 502 handled as a back-off |
 
-Tests: `node tools/location-verify.test.js`, 56 tests. Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
+Tests: `node tools/location-verify.test.js`, 58 tests. Also: adfb052d `--names` re-check mode · f29ae0f1 `--duplicates` → docs/geoverify/DUPLICATES.md (42 pairs). Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
 
 ## Next
 
-1. When "Location-verify report: philadelphia-pa" lands, send the orchestrator its assist summary. Helper:
-   `next.sh <prev> <next>` waits for prev's report commit, then pushes the next REQUEST (recreate it from this file's Notes
-   if the scratchpad is gone).
-2. Then singapore (≈3 resumable runs): one REQUEST each, all `commit=true`, `nominatim_max=300`.
-   Wait for each report commit before pushing the next REQUEST: concurrency keeps only the latest *pending* run.
-4. Remaining large non-US backlogs: singapore (OneMap needs the owner's secrets), saarland, okinawa, rhineland, aachen.
-   Phase-2 file URLs are still unconfirmed (see the doc § 2.2).
+1. `recheck.sh` (scratchpad) is running. It waits for "Location-verify report: singapore", pushes REQUEST
+   `city=san-francisco-ca`, `names=Koi Palace|Hotel Utah Saloon|Wild Side West`, `sources=nominatim,official,overpass,census`,
+   `commit=true`. When docs/geoverify/recheck/san-francisco-ca-* lands, it pushes the same for `orlando-fl`,
+   `names=ABC Commissary`.
+2. Combine both recheck .md files into **docs/geoverify/recheck-wikidata-2026-10-16.md** (verdict per row:
+   corroborated / moved / none found, with source URLs) and send it to the orchestrator.
+3. Singapore: if its report shows `skipped` rows (budget), push REQUEST singapore again (commit=true) until none remain.
+4. Then saarland, okinawa, rhineland, aachen (REQUEST each, commit=true).
 
 ## In flight
 
-- philadelphia-pa `commit=true` run (REQUEST on the branch); next.sh philadelphia-pa → singapore running in this session.
-- Nothing unpushed.
+- singapore `commit=true` run; recheck.sh queued behind it. Nothing unpushed.
 
 ## Notes
 

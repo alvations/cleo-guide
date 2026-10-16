@@ -97,7 +97,11 @@
   const far = x => byBase() ? C.baseKm(x) : C.dist && C.dist[pid(x)] != null ? C.dist[pid(x)] : 1e9;
   const apply = () => {
     if (Cleo.defer && (C.rank || S.day || S.sort)) Cleo.defer.all();   // a reorder must see every card (M3-06)
-    let n = 0; const areas = {}, tot = cards.length;
+    // PERF-08 (platform): under Cleo.defer.selective a lens stamps only what it shows, so the unstamped stubs count too —
+    // as shown when no lens is on (they are simply not built yet), as the lens decides when one is
+    const L0 = Cleo.lens.current(), lon = Cleo.lens.on(L0), stubs = Cleo.defer ? Cleo.defer.peek() : [], inL = lon ? stubs.filter(st => Cleo.lens.match(st, L0)) : stubs;
+    let n = inL.length; const areas = {}, tot = cards.length + stubs.length, stA = new Set();
+    inL.forEach(st => { stA.add(at(st, 'data-a')); areas[at(st, 'data-a')] = 1; });
     $$('ol.pls').forEach(ol => {
       const base = S.sort === 'az' ? (x, y) => $('.pl-n', x).textContent.localeCompare($('.pl-n', y).textContent)
         : S.sort === 'src' ? (x, y) => nsrc(y) - nsrc(x) || num(x) - num(y) : nearOn() ? (x, y) => far(x) - far(y) || num(x) - num(y) : (x, y) => num(x) - num(y);
@@ -112,7 +116,7 @@
       const dk = $('.pl-dist', c), dv = C.dist && C.dist[pid(c)];
       if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-dist"></span>'); $('.pl-dist', c).textContent = tt('city.away', '{d} away', { d: dv < 1 ? Math.round(dv * 100) * 10 + ' m' : dv.toFixed(1) + ' km' }); } else if (dk) dk.remove();
     });
-    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden]),noscript[data-cleo-defer]'); });
+    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden])') && !(s.querySelector('noscript[data-cleo-defer]') && (!lon || !s.hasAttribute('data-area') || stA.has(at(s, 'data-area')))); });
     if (sections.length > 1) {   // Near me: the nearest area comes first; otherwise the guide's area order
       const ord = sections.slice().sort((x, y) => nearOn() ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
       if (ord.some((x, i) => x !== $$('section.area')[i])) { const how = $('#how-we-choose'); ord.forEach(x => how.parentNode.insertBefore(x, how)); }
@@ -308,7 +312,8 @@
   ['mouseover', 'focusin', 'mouseout', 'focusout'].forEach((ev, i) => on(d, ev, e => {
     const c = e.target.closest && e.target.closest('li.pl'); if (c && !(e.relatedTarget && c.contains(e.relatedTarget))) hot(c, i < 2); }));
   const syncMarkers = () => { if (!map) return; try { map.stop(); } catch (e) {}
-    cards.forEach(c => { const k = markers[pid(c)]; if (!k) return; if (!c.hidden) { if (!dots.hasLayer(k)) k.addTo(dots); } else if (dots.hasLayer(k)) dots.removeLayer(k); }); feature(); };
+    // PERF-08: every marker — a stamped card or a deferred stub (no `hidden` of its own: the lens decides, Cleo.lens.shows)
+    Object.keys(markers).forEach(id => { const k = markers[id], c = byId[id] || stub[id]; if (!c) return; if (Cleo.lens.shows(c)) { if (!dots.hasLayer(k)) k.addTo(dots); } else if (dots.hasLayer(k)) dots.removeLayer(k); }); feature(); };
   let dots = null;   // the canvas layer group holding every dot
   const inCl = C.inCl = {}, feature = () => { if (map && C.feature) C.feature(); };
   const still = () => !window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -388,7 +393,7 @@
     else setTimeout(() => { if (!(C.fitDefault && C.fitDefault())) fitCore(); }, 0);   // the city core, or the last view of this city (atlas.js)
     return true;
   };
-  const fitLens = C.fitLens = () => { if (!live() || !map.getSize().x) return; const ll = cards.filter(c => !c.hidden && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
+  const fitLens = C.fitLens = () => { if (!live() || !map.getSize().x) return; const ll = cards.filter(c => !c.hidden).concat(Cleo.defer ? Cleo.defer.peek({ lens: Cleo.lens.current() }) : []).filter(c => markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
     if (ll.length) { auto = Date.now(); map.fitBounds(window.L.latLngBounds(ll), Object.assign(overMap(), { maxZoom: 15, animate: false })); } };
   // QA-44: the first view fits the city's core (pins within 3× the median distance of the median point, else 95 %) (a far outlier — a day trip, a mis-filed place — never zooms
   // the city out to a country); every place stays in the list, behind "Show all" and a zoom out
