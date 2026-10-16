@@ -81,6 +81,10 @@ Current rows:
     - New tokens: `--mask`, `--on-photo`, `--scrim-photo`, `--shade-text(-strong)`, `--on-night-hover`, `--on-night-line`, `--star`, `--city-glow`, `--print-ink/-paper/-rule`, `--r-xxs` (2px).
     - cleo.css and constellation.css are now at 0 raw colours. The grab bars use `--r-pill`.
     - FE-A has the names for fe-a.css (12 colours, 2 radii). Census script: count the beta/assets/*.css colours outside custom-property declarations (qc.js S-01).
+13. **R4 dot sign-off** (real/R4 on 45379fbf):
+    - **Light: signed off.** Circle 184 against canvas 230; square 92.
+    - **Dark: fix sent to FE-1.** The circle fill measured 90 against 77 (1.2:1) and read as rings. Use 45 % circles and 80 % squares, with targets of ≥ 2:1 and ≥ 4.5:1 measured on the tile.
+    - Hold "round 4 ready" until the dark set is re-shot and re-signed. The orchestrator has been told.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight
