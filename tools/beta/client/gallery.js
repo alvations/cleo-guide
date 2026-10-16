@@ -15,7 +15,17 @@
   // rows: chosen and drawn from the page JSON (same origin, cached by the
   // service worker), one row at a time as the last drawn row nears the viewport. No JSON (file://, offline first
   // visit): no rows — the All N grid below still holds every place.
-  const esc = C.esc, TIER = ['', 'Must see', 'Worth the detour', 'Deep cut'], attrs = {};
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n)
+  const tt = (k, e, v) => Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, (m, n) => (n in v ? v[n] : m)) : e;
+  const TIER = () => ['', tt('tier.1', 'Must see'), tt('tier.2', 'Worth the detour'), tt('tier.3', 'Deep cut')];
+  const places = n => n === 1 ? tt('hub.places.one', '1 place') : tt('hub.places', '{n} places', { n: n.toLocaleString('en-US') });
+  // the row subtitles arrive composed in English from the build (data/gallery/<page>.json): re-say them from the catalogue
+  const SUBS = [['gal.sub.sig', '{places} · the signature of {city}'], ['gal.sub.top', '{places} · the top tier, graded within each area'],
+    ['gal.sub.canon', '{places} · what {city} is known for'], ['gal.sub.food', '{places} · eat & drink'], ['gal.sub.col', '{places} · a collection'],
+    ['gal.sub.closed', '{places} · kept for the record, newest check first']].map(([k, e]) => [k, e, new RegExp('^' + e.replace(/[.*+?^${}()|[\]\\]/g, c => '\\' + c).replace('\\{places\\}', '([\\d,]+) places?').replace('\\{city\\}', '(.+)') + "$")]);   // double-quoted on purpose: test harnesses inline this file with String.replace (dollar-quote patterns are special there)
+  const subT = s => { for (const [k, e, re] of SUBS) { const m = re.exec(s); if (m) return tt(k, e, { places: places(+m[1].replace(/,/g, '')), city: m[2] }); } return s; };
+  const rowT = x => x[2] === 't' ? tt('tier.1', 'Must see') : x[2] === 'closed' ? tt('city.door.closed.t', 'Recently closed') : x[0];
+  const esc = C.esc, attrs = {};
   const att = (id, k) => { if (!attrs[id]) { const c = C.byId[id] || (Cleo.defer && Cleo.defer.peek().filter(x => x.id === 'p-' + id)[0]); attrs[id] = c || { getAttribute: () => null }; } return attrs[id].getAttribute(k); };
   // W7: covers are calm (neutral ground, kind icon, typographic initial or native name). The area pin art moved off the
   // cards to the place detail's locator, so a grid page no longer fetches one art file per area.
@@ -33,17 +43,17 @@
       : '<span class="plate i" data-i="' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '"></span>';
     const ids = (r.src || []).filter(x => x !== 'guide'), chips = ids.slice(0, 1).map(x => '<button type="button" class="src" data-src="' + esc(x) + '">' + esc(((info.src || {})[x] || [x])[0]) + '</button>').join(', ');
     return '<li class="gc' + (r.closed ? ' gc--closed' : '') + '" data-id="' + esc(r.id) + '"><a class="gc-a" href="#p-' + esc(r.id) + '"><span class="cover' + (r.closed ? ' closed' : '') + (r.kind === 'food' ? ' food' : '') + (r.ph ? ' has-ph' : '') + '" data-gl="' + esc(att(r.id, 'data-gl') || 'compass') + '" data-m="' + esc(att(r.id, 'data-m') || att(r.id, 'data-gl') || 'compass') + '" data-t="' + (r.t || 3) + '" data-comp="' + ((i || 0) % 5) + '"' + (col || (r.ph && r.ph[6]) ? ' style="' + (col ? '--ac:' + col + ';' : '') + (r.ph && r.ph[6] ? '--ph:' + esc(r.ph[6]) : '') + '"' : '') + ' aria-hidden="true">' + plate + '<span class="gl"><svg class="ico"><use href="#i-' + esc(att(r.id, 'data-gl') || 'compass') + '"/></svg></span>' + (r.kind === 'food' && !r.ph ? '<span class="dish">' + esc(r.d || 'Eat & drink') + '</span>' : '') + phImg(r.ph) + '</span>' + phCred(r.ph) +
-      '<span class="gc-b"><span class="pl-e">' + (r.closed ? 'Closed · kept for the record' : (r.t === 1 ? '<span class="badge t1">Must see</span> ' : TIER[r.t] ? '<span class="vh">' + TIER[r.t] + ' · </span>' : '') + esc(C.label('a', r.a)) + ' · ' + (r.kind === 'food' ? 'Eat &amp; drink' : 'See')) + '</span>' +
+      '<span class="gc-b"><span class="pl-e">' + (r.closed ? tt('gal.closed', 'Closed · kept for the record') : (r.t === 1 ? '<span class="badge t1">' + TIER()[1] + '</span> ' : TIER()[r.t] ? '<span class="vh">' + TIER()[r.t] + ' · </span>' : '') + esc(C.label('a', r.a)) + ' · ' + (r.kind === 'food' ? esc(tt('city.mode.food', 'Eat & drink')) : tt('gal.see', 'See'))) + '</span>' +
       '<span class="gc-n">' + esc(nm) + '</span>' + (r.w ? '<span class="gc-w">' + esc(String(r.w).replace(/<[^>]+>/g, '')) + '</span>' : '') + '</span></a>' +
-      '<p class="pl-s"><span class="lbl">Recommended by</span> ' + (chips || '<span class="added">Added by the guide (general knowledge)</span>') + (ids.length > 1 ? ' <span class="more">+' + (ids.length - 1) + ' more</span>' : '') + '</p>' +
-      '<button type="button" class="heart gc-save" data-ref="' + esc(r.id) + '" aria-pressed="false" aria-label="Save ' + esc(nm) + '"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></button></li>';
+      '<p class="pl-s"><span class="lbl">' + tt('card.recby', 'Recommended by') + '</span> ' + (chips || '<span class="added">' + tt('city.card.added', 'Added by the guide (general knowledge)') + '</span>') + (ids.length > 1 ? ' <span class="more">' + tt('gal.more', '+{n} more', { n: ids.length - 1 }) + '</span>' : '') + '</p>' +
+      '<button type="button" class="heart gc-save" data-ref="' + esc(r.id) + '" aria-pressed="false" data-nm="' + esc(nm) + '" aria-label="' + esc(tt('gal.save', 'Save {name}', { name: nm })) + '"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></button></li>';
   };
   // the rows + lead card come chosen from the build (lib/gallery.js → data/gallery/<page>.json, ~20 KB): the first
   // screen never fetches the whole page JSON (ROUND-5 gap #2). [title, subtitle, lens key, value, ★, n, records ≤ 12]
-  let lead = null;
+  let lead = null, allRows = [];
   const pending = [];
-  const rowHtml = (x, i) => '<section class="row g-row" aria-labelledby="gr-' + i + '"><header class="row-h"><div><h2 class="d2" id="gr-' + i + '">' + (x[4] ? '<span aria-hidden="true">★</span> ' : '') + esc(x[0]) + '</h2>' +
-    '<p class="sub">' + esc(x[1]) + '</p></div><button type="button" class="btn btn-ghost" data-g-see="' + esc(x[2]) + '" data-v="' + esc(x[3]) + '">See all ' + x[5] + '</button></header>' +
+  const rowHtml = (x, i) => '<section class="row g-row" aria-labelledby="gr-' + i + '"><header class="row-h"><div><h2 class="d2" id="gr-' + i + '">' + (x[4] ? '<span aria-hidden="true">★</span> ' : '') + esc(rowT(x)) + '</h2>' +
+    '<p class="sub">' + esc(subT(x[1])) + '</p></div><button type="button" class="btn btn-ghost" data-g-see="' + esc(x[2]) + '" data-v="' + esc(x[3]) + '">' + tt('gal.seeall', 'See all {n}', { n: x[5] }) + '</button></header>' +
     '<ol class="rail g-rail">' + x[6].map((r, k) => gcard(r, k)).join('') + '</ol></section>';
   let nRow = 0;
   const stampRow = () => { const x = pending.shift(); if (!x) return null; rowsHost.insertAdjacentHTML('beforeend', rowHtml(x, nRow++)); hearts(rowsHost); return rowsHost.lastElementChild; };
@@ -52,7 +62,7 @@
     if (started || !rowsHost || !Cleo.pageData) return; started = 1;
     const f = String(info.file || C.key).replace(/\//g, '--');
     (window.fetch ? fetch(Cleo.root + 'data/gallery/' + f + '.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }) : Promise.reject(new Error('no fetch'))).then(o => {
-      pending.push.apply(pending, o.rows); lead = o.lead;
+      pending.push.apply(pending, o.rows); lead = o.lead; allRows = o.rows;
       if ('IntersectionObserver' in window) io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target);
         // W7: not behind an open place sheet (a #p= deep link keeps the page light, ≤ 3,000 nodes); the next row waits for its close
         if (Cleo.sheet && Cleo.sheet.isOpen()) { const t = e.target, w = () => { if (Cleo.sheet.isOpen()) setTimeout(w, 600); else io.observe(t); }; setTimeout(w, 600); return; }
@@ -62,7 +72,7 @@
       // real place card (cover, name, Recommended by, heart) sits inside the first screen (ROUND-4 #2, B-01)
       const mh = $('.masthead'), slot = $('#cleo-lead');
       if (lead && mh && !$('.g-lead-card')) {
-        const ol = d.createElement('ol'); ol.className = 'g-lead-card vw view-gallery'; ol.setAttribute('aria-label', 'Start with'); ol.innerHTML = gcard(lead, 1);
+        const ol = d.createElement('ol'); ol.className = 'g-lead-card vw view-gallery'; ol.setAttribute('aria-label', tt('city.lead.k', 'Start with')); ol.innerHTML = gcard(lead, 1);
         const mq = window.matchMedia && matchMedia('(min-width: 1024px)');
         const place = () => { const host = !slot || (mq && mq.matches) ? mh : slot; if (ol.parentNode !== host) host.appendChild(ol); };
         place(); if (mq) { if (mq.addEventListener) mq.addEventListener('change', place); else if (mq.addListener) mq.addListener(place); }
@@ -73,8 +83,16 @@
 
   // hearts on row / lead cards: the same Cleo.saved.toggle(ref) as every card (SPEC §2.5)
   const hearts = root => { const s = Cleo.saved ? Cleo.saved.all() : {};
-    qa('button.gc-save', root).forEach(b => { const o = !!s[C.key + '/' + at(b, 'data-ref')]; b.setAttribute('aria-pressed', String(o)); b.setAttribute('aria-label', (o ? 'Saved: ' : 'Save ') + b.getAttribute('aria-label').replace(/^(Saved: |Save )/, '')); }); };
+    qa('button.gc-save', root).forEach(b => { const o = !!s[C.key + '/' + at(b, 'data-ref')]; b.setAttribute('aria-pressed', String(o)); b.setAttribute('aria-label', o ? tt('gal.saved', 'Saved: {name}', { name: at(b, 'data-nm') }) : tt('gal.save', 'Save {name}', { name: at(b, 'data-nm') })); }); };
   on(d, 'cleo:saved', () => hearts(d));
+  // i18n D-41: rows and the lead card drawn before the ja catalogue arrived are redrawn in it
+  on(d, 'cleo:locale', () => {
+    if (!rowsHost || !allRows.length) return;
+    const n = nRow; rowsHost.innerHTML = ''; nRow = 0; pending.length = 0; pending.push.apply(pending, allRows);
+    for (let i = 0; i < n; i++) stampRow();
+    const lc = $('.g-lead-card'); if (lc && lead) { lc.setAttribute('aria-label', tt('city.lead.k', 'Start with')); lc.innerHTML = gcard(lead, 1); hearts(lc); }
+    if (io) { io.disconnect(); watch(rowsHost.lastElementChild); }
+  });
   on(d, 'click', e => {
     const t = e.target; let b;
     if ((b = t.closest('button.gc-save')) && Cleo.saved) { Cleo.saved.toggle(C.key + '/' + at(b, 'data-ref')); }

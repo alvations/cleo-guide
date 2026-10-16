@@ -235,12 +235,12 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     const bad = [];
     for (const f of fs.readdirSync(path.join(__dirname, 'client')).filter(f => f.endsWith('.js'))) {
       const src = fs.readFileSync(path.join(__dirname, 'client', f), 'utf8');
-      for (const m of src.matchAll(/Cleo\.t\(\s*'([^']+)'\s*,\s*'((?:\\.|[^'\\])*)'/g)) {
+      for (const m of src.matchAll(/(?:Cleo\.t|\btt)\(\s*'([^']+)'\s*,\s*'((?:\\.|[^'\\])*)'/g)) {
         const enS = m[2].replace(/\\'/g, "'");
         if (en.strings[m[1]] !== enS) bad.push(`${f}: ${m[1]}`);
       }
     }
-    chk('client Cleo.t calls: key exists and English default == en.json', bad, []);
+    chk(`client Cleo.t / tt calls: key exists and English default == en.json`, bad, []);
   }
   // i18n D-41 (city pages): the built Tokyo page, swapped at runtime with the PSEUDO catalogue, has 0 English interface
   // strings. Data is exempt: a record's own words (DATA containers, as locale.js skips them) and any text that is a

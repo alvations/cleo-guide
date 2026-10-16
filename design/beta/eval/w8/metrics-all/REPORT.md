@@ -1,6 +1,6 @@
-# B-04 / B-20 sweep (167 pages measured)
+# B-04 / B-20 sweep (186 pages measured)
 
-- **B-04** (rail on the first phone screen, place pages): 0 failing of 75
+- **B-04** (rail on the first phone screen, place pages): 0 failing of 84
 - **B-20** (mobile taps < 44 px): 9 pages failing
 
 ## B-20 by node

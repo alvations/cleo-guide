@@ -682,6 +682,18 @@ async function fromOverpassBatch(http, rows, retry = false) {
 }
 
 const NOT_OFFICIAL = /(wikipedia|wikidata|google|apple\.com|openstreetmap|yelp|tripadvisor|facebook|instagram|mapquest|roadsideamerica|atlasobscura|untappd|opentable|mapcarta)/i;
+/**
+ * Third-party ordering / menu / reservation / aggregator hosts are NOT the place's own site: their schema.org geo is
+ * often a template or a different location. Generic shapes first (order…menu, …online-order…, …delivery…), then known
+ * platform hosts. Kept here, not in the docs.
+ */
+const ORDERING_HOST = [
+  /(^|\.)(order|ordering|orderonline|onlineorder|menu|menus|delivery|takeout|reserv|booking)[a-z0-9-]*\./i,
+  /order[a-z0-9-]*menu|menu[a-z0-9-]*order|online-?order|order-?online/i,
+  /(^|\.)(toasttab|clover|square\.site|squareup|chownow|slicelife|menufy|beyondmenu|grubhub|doordash|ubereats|postmates|seamless|opentable|resy|tock|exploretock|sevenrooms|yelp|tripadvisor|zomato|menupages|allmenus|restaurantji|singleplatform|popmenu|bentobox|spoton|owner\.com|gloriafood|hungerrush|foodbooking|eatstreet|ezcater)(\.|$)/i,
+];
+function isOrderingHost(host) { return ORDERING_HOST.some(rx => rx.test(String(host || '').toLowerCase())); }
+
 async function fromOfficial(http, place, website) {
   const cands = [], evidence = [], notes = [];
   let url = website;
@@ -689,6 +701,7 @@ async function fromOfficial(http, place, website) {
   if (!url) return { cands, evidence, notes };
   let u; try { u = new URL(url); } catch (_) { return { cands, evidence, notes }; }
   if (!/^https?:$/.test(u.protocol)) return { cands, evidence, notes };
+  if (isOrderingHost(u.host)) { notes.push(`${u.host} is an ordering/aggregator site, not the place's own: not used as "official"`); return { cands, evidence, notes }; }
   const robots = await http.request(`${u.origin}/robots.txt`, { accept: 'text/plain' });
   const robotsTxt = robots.status >= 200 && robots.status < 300 ? robots.body : (robots.status >= 400 && robots.status < 500 ? '' : null);
   if (robotsTxt === null) { notes.push(`robots.txt unreachable (${robots.error || 'HTTP ' + robots.status}); official site skipped (RFC 9309: assume disallow on server error)`); return { cands, evidence, notes }; }
@@ -1119,4 +1132,4 @@ if (require.main === module) {
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, isOrderingHost, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };

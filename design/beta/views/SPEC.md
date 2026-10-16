@@ -270,7 +270,7 @@ the body are always the record's `w` and `k`, verbatim. Never "we loved", never 
 | ![Closures + canon, mobile](screenshots/cleveland-insights-s2-m.jpg) | ![Source mix, desktop](screenshots/cleveland-insights-s1-d.jpg) |
 
 - **Header:** "{City} in numbers", the count line, and "Every number below is computed from the N places in this guide.
-  Every chart accounts for all of them, and every bar opens those places in the Gallery."
+  Every chart accounts for all of them." A bar opens places only when it is exactly a set of places (see the link rule below).
 - **Stat tiles** (2 columns on a phone, 6 on desktop): Places · Sights · Eat & drink · Pop culture · Named sources
   (+ citations) · Closed, kept (+ status date). A city with no pop-culture data says so in its tile.
 - **Charts** (1 column on a phone, 2 on desktop). Each is a card with a Didone title and a one-line caption naming the
@@ -281,10 +281,11 @@ the body are always the record's `w` and `k`, verbatim. Never "we loved", never 
 | **What each area is for** | 100 % stacked bars, a "whole city" row first | kind triad per area | Gallery `a=` + `mode=` / `c=` |
 | **Who recommends each area** | 100 % stacked bars | citations: the 5 most-cited sources + "Other sources" | Gallery `a=` + `src=` |
 | **Where the places are** | bars, area colours | places per area | Gallery `a=` |
-| **How far you walk** | bars | median straight-line km from each area's middle pin (open, verified pins) | Atlas `a=` |
+| **How far you walk** | bars | median straight-line km from each area's middle pin (open, verified pins) | none: plain bars, because a distance is a measure, not a set of places |
 | **Closures, kept for the record** | bars + a status-check table by month | closed per area | Gallery `a=` + `closed=1` |
-| **The signature canon** | bars | `guide.canon.dishes` (places whose own write-up names the dish) | Gallery `cz=` |
+| **The signature canon** | bars | `guide.canon.dishes` (places whose own write-up names the dish) | none: plain bars, because no filter selects "names this dish in its write-up" |
 | **The tier ladder per area** | stacked bars | open places by tier | Gallery `a=` + `t=` |
+| **Recognised places by area** (W9-1) | bars | open places with at least one recognition (award source, vetted creator video, or 3+ distinct sources), each counted once | none: plain bars, because no lens filter selects "recognised". Link the bars if such a filter ships |
 
 - **Chart rules** (from the dataviz method, validated):
   - one axis per chart, never two;
@@ -295,7 +296,11 @@ the body are always the record's `w` and `k`, verbatim. Never "we loved", never 
   - values at the bar ends;
   - a `<title>` tooltip on every mark;
   - **"Show as a table"** under every chart;
-  - every bar is a link to the lens;
+  - **link rule (amended 2026-10-16, ratifying the QC-01/02 build):** a bar is a link only when it is *exactly* a set of places that an existing lens filter reproduces, so the lens opens precisely the places the bar counts. Otherwise the bar is plain, with no link and no hover affordance that suggests one. That covers:
+    - a **measure** such as a distance or a median;
+    - a count that no filter can select (canon dishes, recognition).
+
+    Every chart with plain bars carries a footnote (`p.fn[data-plain]`) saying why, for example "Distances are measures, not lists of places, so these bars do not open anything." Mixed charts say that linked bars open exactly their places;
   - **every chart footnotes what it does not count** (closed places carry no tier; canon places without a named dish;
     "absent rather than zero-filled");
   - two renders per chart (a 640-wide and a 360-wide viewBox), so chart text stays ≥ 12 px at 390 px;

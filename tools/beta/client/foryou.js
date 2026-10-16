@@ -16,17 +16,21 @@
   };
   var why = function (c) { return c.hasAttribute('data-closed') ? [] : FY.filter(function (f) { return on.indexOf(f[0]) >= 0 && hit(c, f[3]); }); };
   var GL = { history: 'castle', food: 'bowl', pop: 'tv', outdoors: 'mountain', art: 'columns' };   // picker glyphs (city sprite)
-  var names = function (l) { return l.map(function (f) { return f[1]; }).join(' · '); };
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n)
+  var tt = function (k, e, v) { return Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
+  var lab = function (f) { return tt('fy.i.' + f[0], f[1]); };   // interest labels: the catalogue's fy.i.* (FE-B's landing rail uses the same)
+  var names = function (l) { return l.map(lab).join(' · '); };
 
   function set(list) {
     on = valid(list); store.set('interests', on);
     C.rank = on.length ? function (c) { return -why(c).length; } : null;
-    C.why = on.length ? function (c) { var w = why(c); return !w.length || C.S.day ? '' : 'First because: ' + names(w); } : null;
+    C.why = on.length ? function (c) { var w = why(c); return !w.length || C.S.day ? '' : tt('fy.because.on', 'First because: {names}', { names: names(w) }); } : null;
     var t = d.querySelector('[data-cleo-foryou]');
     if (t) { t.setAttribute('aria-pressed', String(!!on.length));
-      t.querySelector('.d').textContent = on.length ? names(FY.filter(function (f) { return on.indexOf(f[0]) >= 0; })) + ' first' : 'Tell it what you love'; }
+      t.querySelector('.d').textContent = on.length ? tt('fy.door.on', '{names} first', { names: names(FY.filter(function (f) { return on.indexOf(f[0]) >= 0; })) }) : tt('city.door.guide.d', 'Tell it what you love'); }
     C.apply();
   }
+  d.addEventListener('cleo:locale', function () { if (on.length) set(on); });   // i18n D-41: the door's line and the because line in the loaded catalogue
   // DES 15.10 .because: one line above the list while it is on (one control: Change); and the Near me note
   var line = function (id, cls) { var el = d.getElementById(id); if (!el) { d.getElementById('cleo-shown').insertAdjacentHTML('beforebegin', '<p class="' + cls + '" id="' + id + '" hidden></p>'); el = d.getElementById(id); } return el; };
   C.after.push(function () {
@@ -34,12 +38,12 @@
     el.hidden = !on.length || !!C.S.day;
     if (!el.hidden) {
       var n = C.cards.filter(function (c) { return why(c).length; }).length;
-      el.innerHTML = '<span><b>First because you picked ' + esc(ch.map(function (f) { return f[1]; }).join(' and ')) + ':</b> ' + n + ' places from those collections move up in their area. <span class="n">All ' + C.info.total + ' are still here.</span></span>' +
-        '<button type="button" data-cleo-foryou>Change</button>';
+      el.innerHTML = '<span><b>' + esc(tt('fy.line', 'First because you picked {names}:', { names: ch.map(lab).join(tt('fy.and', ' and ')) })) + '</b> ' + tt('fy.line.n', '{n} places from those collections move up in their area.', { n: n }) + ' <span class="n">' + tt('fy.line.all', 'All {n} are still here.', { n: C.info.total }) + '</span></span>' +
+        '<button type="button" data-cleo-foryou>' + tt('fy.change', 'Change') + '</button>';
     }
     var nn = line('cleo-nearline', 'shown device-note');
     nn.hidden = !(C.dist && C.S.sort === 'near');
-    if (!nn.hidden) nn.innerHTML = '<b>Nearest first.</b> Using your location for this visit only — never stored or sent. <button type="button" class="btn btn-quiet" data-cleo-near>Turn off</button>';
+    if (!nn.hidden) nn.innerHTML = '<b>' + tt('fy.near', 'Nearest first.') + '</b> ' + tt('fy.near.note', 'Using your location for this visit only — never stored or sent.') + ' <button type="button" class="btn btn-quiet" data-cleo-near>' + tt('fy.near.off', 'Turn off') + '</button>';
   });
 
   function paint() {
@@ -51,17 +55,17 @@
       if (Cleo.sheet) Cleo.sheet.close(); if (Cleo.tray) Cleo.tray.close(true);
       opener = from; pick = on.slice();
       var sub = function (f) {
-        if (f[3][0] === 'k:f') return 'Every place to eat and drink' + (C.info.sig ? ', the city’s own canon first' : '');
+        if (f[3][0] === 'k:f') return tt('fy.sub.food', 'Every place to eat and drink') + (C.info.sig ? tt('fy.sub.canon', ', the city’s own canon first') : '');
         return f[3].map(function (x) { return (C.info.cats || {})[x.slice(x.indexOf(':') + 1)]; }).filter(Boolean).slice(0, 3).join(', ');
       };
-      host.innerHTML = '<div class="tray fy" role="dialog" aria-modal="true" aria-labelledby="fy-h"><header><h2 id="fy-h">Your guide · ' + esc(C.info.name) + '</h2>' +
-        '<button type="button" class="btn btn-icon" data-fy="x" aria-label="Close">' + icon('close') + '</button></header><div class="scroll">' +
-        '<p class="d3">Who’s showing you around?</p><p class="intro">Tell your guide what you’re into. It puts those places first in every area — all ' + C.info.total +
-        ' places stay in the list and on the map.</p><fieldset><legend>I’m into…</legend>' +
+      host.innerHTML = '<div class="tray fy" role="dialog" aria-modal="true" aria-labelledby="fy-h"><header><h2 id="fy-h">' + esc(tt('fy.dlg.h', 'Your guide · {city}', { city: C.info.name })) + '</h2>' +
+        '<button type="button" class="btn btn-icon" data-fy="x" aria-label="' + tt('sheet.close', 'Close') + '">' + icon('close') + '</button></header><div class="scroll">' +
+        '<p class="d3">' + tt('fy.who', 'Who’s showing you around?') + '</p><p class="intro">' + tt('fy.intro', 'Tell your guide what you’re into. It puts those places first in every area — all {n} places stay in the list and on the map.', { n: C.info.total }) +
+        '</p><fieldset><legend>' + tt('fy.into', 'I’m into…') + '</legend>' +
         '<ul class="interests">' + FY.map(function (f) { return '<li><button type="button" class="interest" data-i="' + esc(f[0]) + '" aria-pressed="false"><span class="glyph">' + icon(GL[f[0]] || 'spark') + '</span>' +
-          '<span><b>' + esc(f[1]) + '</b><span class="d">' + f[2] + ' of ' + C.info.total + ' ' + esc(C.info.name) + ' places' + (sub(f) ? ' · ' + esc(sub(f)) : '') + '</span></span><span class="tick" aria-hidden="true"></span></button></li>'; }).join('') + '</ul>' +
-        '</fieldset><p class="sm">Remembered on this device only. No account, nothing sent anywhere.</p></div>' +
-        '<footer><button type="button" class="btn btn-quiet" data-fy="reset">Reset</button><button type="button" class="btn btn-primary" data-fy="go">Show me ' + esc(C.info.name) + ' my way</button></footer></div>';
+          '<span><b>' + esc(lab(f)) + '</b><span class="d">' + esc(tt('fy.count', '{n} of {total} {city} places', { n: f[2], total: C.info.total, city: C.info.name })) + (sub(f) ? ' · ' + esc(sub(f)) : '') + '</span></span><span class="tick" aria-hidden="true"></span></button></li>'; }).join('') + '</ul>' +
+        '</fieldset><p class="sm">' + tt('fy.local', 'Remembered on this device only. No account, nothing sent anywhere.') + '</p></div>' +
+        '<footer><button type="button" class="btn btn-quiet" data-fy="reset">' + tt('fy.reset', 'Reset') + '</button><button type="button" class="btn btn-primary" data-fy="go">' + esc(tt('fy.go', 'Show me {city} my way', { city: C.info.name })) + '</button></footer></div>';
       host.hidden = false; d.body.style.overflow = 'hidden'; paint();
       var f = host.querySelector('[data-i]'); (f || host.querySelector('[data-fy="x"]')).focus();
     }
@@ -83,7 +87,7 @@
   var tile = function (p) { var t = d.querySelector('[data-cleo-near]'); if (t) { t.setAttribute('aria-pressed', String(p)); t.removeAttribute('aria-busy'); } };
   C.near = function (b) {
     if (C.dist && b && b.hasAttribute('data-cleo-near')) { C.dist = null; tile(false); var r0 = Cleo.route.parse(); if (r0.sort === 'near') delete r0.sort; C.go(r0); C.apply(); return; }
-    if (!navigator.geolocation) { toast('This browser can’t share a location. Every place is still listed.'); return; }
+    if (!navigator.geolocation) { toast(tt('fy.nogeo', 'This browser can’t share a location. Every place is still listed.')); return; }
     var t = d.querySelector('[data-cleo-near]'); if (t) t.setAttribute('aria-busy', 'true');
     if (Cleo.defer) Cleo.defer.all();                                // every place needs its distance (M3-06 progressive render)
     navigator.geolocation.getCurrentPosition(function (pos) {
@@ -91,10 +95,10 @@
       C.cards.forEach(function (c) { var ll = (c.getAttribute('data-ll') || '').split(','); if (ll.length === 2) { var v = km(la, ln, +ll[0], +ll[1]); dist[C.pid(c)] = v; if (v < min) min = v; } });
       C.dist = dist; tile(true);                                     // held in memory for this page view only
       var r = Cleo.route.parse(); r.sort = 'near'; C.go(r); C.apply();
-      if (min > 50) toast('You’re about ' + Math.round(min) + ' km from the nearest place in ' + C.info.name + '. Distances are shown anyway.');
+      if (min > 50) toast(tt('fy.far', 'You’re about {km} km from the nearest place in {city}. Distances are shown anyway.', { km: Math.round(min), city: C.info.name }));
     }, function (err) {
       tile(false);
-      toast(err && err.code === 1 ? 'Location is off for this site, so nothing changed. Every place is still listed.' : 'We couldn’t get your location. Every place is still listed.');
+      toast(err && err.code === 1 ? tt('fy.denied', 'Location is off for this site, so nothing changed. Every place is still listed.') : tt('fy.failed', 'We couldn’t get your location. Every place is still listed.'));
     }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 });
   };
 

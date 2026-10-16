@@ -17,7 +17,9 @@
     toggle(r) { const b = been.all(); if (b[r]) delete b[r]; else b[r] = 1; store.set('been', b); paint(); return !!b[r]; } };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const icon = n => '<svg class="ico" aria-hidden="true"><use href="#i-' + n + '"/></svg>';
-  const pl = n => n + (n === 1 ? ' place' : ' places'), ar = n => n + (n === 1 ? ' area' : ' areas');
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n)
+  const tt = (k, e, v) => Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, (m, n) => (n in v ? v[n] : m)) : e;
+  const pl = n => n === 1 ? tt('hub.places.one', '1 place') : tt('hub.places', '{n} places', { n }), ar = n => n === 1 ? tt('city.areas.one', '1 area') : tt('city.areas', '{n} areas', { n });
   const trap = (host, close) => on(host, 'keydown', e => {
     if (e.key === 'Escape') { e.preventDefault(); close(); return; }
     if (e.key !== 'Tab') return;
@@ -44,16 +46,17 @@
   const rail = $('#cleo-rail'), shown = $('#cleo-shown'), lens = $('#cleo-lens'), applied = $('[data-cleo-applied]'), fi = $('#cleo-filter'), split = $('.split');
   // R7 gap 2(c): the placeholder is never clipped mid-letter — "Search {city}" where it fits, else "Search" (a narrow
   // phone pill, a long guide name), else none; re-fitted whenever the box changes size
-  if (fi) { const full = fi.placeholder, cv = d.createElement('canvas').getContext('2d'), fit = () => { if (!fi.clientWidth) return;
+  if (fi) { let full = fi.placeholder; const cv = d.createElement('canvas').getContext('2d'), fit = () => { if (!fi.clientWidth) return;
       const c = getComputedStyle(fi), room = fi.clientWidth - parseFloat(c.paddingLeft) - parseFloat(c.paddingRight); cv.font = c.fontWeight + ' ' + c.fontSize + ' ' + c.fontFamily;
-      fi.placeholder = cv.measureText(full).width <= room ? full : cv.measureText('Search').width <= room ? 'Search' : ''; };   // '': the icon-only pill (Atlas toolbar); the label names it
+      fi.placeholder = cv.measureText(full).width <= room ? full : cv.measureText(tt('city.search.short', 'Search')).width <= room ? tt('city.search.short', 'Search') : ''; };
+    on(d, 'cleo:locale', () => { full = tt('city.search', 'Search {city}', { city: info.name }); fit(); });   // i18n D-41   // '': the icon-only pill (Atlas toolbar); the label names it
     if (window.ResizeObserver) new ResizeObserver(fit).observe(fi); else on(window, 'resize', fit);
     if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit); }
   const shown0 = shown ? shown.innerHTML : '';
   const go = C.go = (r, rep) => Cleo.route.go(r, rep);
   const cur = () => { const r = {}; if (S.mode !== 'all') r.mode = S.mode; LENS.concat('sort').forEach(k => { if (S[k]) r[k] = S[k]; }); return r; };
-  const label = C.label = (k, v) => k === 'sig' ? (info.sig || {}).t || 'Signature' : k === 't' ? ['', 'Must see', 'Worth the detour', 'Deep cut'][v] : k === 'src' ? ((info.src || {})[v] || [v])[0] : k === 'closed' ? 'Recently closed' : k === 'mine' ? 'Your list'
-    : k === 'a' ? ((info.areas || {})[v] || {}).n || v : k === 'been' ? (v === 'hide' ? 'Hide been there' : 'Only been there') : k === 'q' ? '“' + v + '”' : (info.cats || {})[v] || v;
+  const label = C.label = (k, v) => k === 'sig' ? (info.sig || {}).t || tt('city.sig.t', 'Signature') : k === 't' ? ['', tt('tier.1', 'Must see'), tt('tier.2', 'Worth the detour'), tt('tier.3', 'Deep cut')][v] : k === 'src' ? ((info.src || {})[v] || [v])[0] : k === 'closed' ? tt('city.door.closed.t', 'Recently closed') : k === 'mine' ? tt('shell.saved', 'Your list')
+    : k === 'a' ? ((info.areas || {})[v] || {}).n || v : k === 'been' ? (v === 'hide' ? tt('city.been.hide', 'Hide been there') : tt('city.been.only', 'Only been there')) : k === 'q' ? '“' + v + '”' : (info.cats || {})[v] || v;
 
   on(d, 'click', e => {
     const t = e.target; let b;
@@ -107,41 +110,41 @@
       const y = C.why && C.why(c), w = $('.pl-why', c);
       if (y) { if (!w) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-why"></span>'); $('.pl-why', c).textContent = y; } else if (w) w.remove();
       const dk = $('.pl-dist', c), dv = C.dist && C.dist[pid(c)];
-      if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-dist"></span>'); $('.pl-dist', c).textContent = (dv < 1 ? Math.round(dv * 100) * 10 + ' m' : dv.toFixed(1) + ' km') + ' away'; } else if (dk) dk.remove();
+      if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-dist"></span>'); $('.pl-dist', c).textContent = tt('city.away', '{d} away', { d: dv < 1 ? Math.round(dv * 100) * 10 + ' m' : dv.toFixed(1) + ' km' }); } else if (dk) dk.remove();
     });
     sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden]),noscript[data-cleo-defer]'); });
     if (sections.length > 1) {   // Near me: the nearest area comes first; otherwise the guide's area order
       const ord = sections.slice().sort((x, y) => nearOn() ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
       if (ord.some((x, i) => x !== $$('section.area')[i])) { const how = $('#how-we-choose'); ord.forEach(x => how.parentNode.insertBefore(x, how)); }
     }
-    const nA = Object.keys(areas).length, act = LENS.filter(k => S[k] && k !== 'gap' && k !== 'day'), all = '<button class="btn btn-primary" data-cleo-all>Show all ' + tot + '</button>';
-    const gap = t => '<div class="gap"><span class="eyebrow">Stated gap</span>' + t + '</div>';
-    if (shown) shown.innerHTML = n === tot ? shown0 : n ? 'Showing <b>' + n + '</b> of ' + tot + ' places in ' + ar(nA) + '. Ordered by tier, then by number of named sources.'
-      : '<b>No places match.</b> Filters never hide places for good. <button class="btn btn-quiet" data-cleo-all>Clear filters (' + tot + ' places)</button>';
+    const nA = Object.keys(areas).length, act = LENS.filter(k => S[k] && k !== 'gap' && k !== 'day'), all = '<button class="btn btn-primary" data-cleo-all>' + tt('city.showall', 'Show all {n}', { n: tot }) + '</button>';
+    const gap = t => '<div class="gap"><span class="eyebrow">' + tt('city.gap.k', 'Stated gap') + '</span>' + t + '</div>';
+    if (shown) shown.innerHTML = n === tot ? shown0 : n ? tt('city.shown', 'Showing {n} of {total} places in {areas}', { n: '<b>' + n + '</b>', total: tot, areas: ar(nA) }) + tt('city.facts.order', '. Ordered by tier, then by number of named sources.')
+      : '<b>' + tt('city.empty', 'No places match.') + '</b> ' + tt('city.empty.note', 'Filters never hide places for good.') + ' <button class="btn btn-quiet" data-cleo-all>' + tt('city.empty.clear', 'Clear filters ({places})', { places: pl(tot) }) + '</button>';
     const lk = ['day', 'sig', 'src', 'gap', 'closed', 'mine', 'c', 'cz', 't', 'a'].filter(k => S[k])[0];
     let h = '';
     if (C.lens[lk]) h = C.lens[lk](n, nA, all);
-    else if (lk === 'closed') h = '<h2>Recently closed — kept for the record (' + n + ')</h2><p>Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.</p><div class="row">' + all + '</div>';
-    else if (lk === 'sig' && info.sig) h = '<span class="eyebrow">★ Signature · ' + esc(info.sig.why || '') + '</span><h2>' + esc(info.sig.t) + ' (' + n + ')</h2>' +
-      (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + pl(n) + ' across ' + ar(nA) + '.</p><div class="row">' + all + '</div>';
+    else if (lk === 'closed') h = '<h2>' + tt('city.closed.h', 'Recently closed — kept for the record ({n})', { n }) + '</h2><p>' + tt('city.closed.p', 'Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.') + '</p><div class="row">' + all + '</div>';
+    else if (lk === 'sig' && info.sig) h = '<span class="eyebrow">' + tt('city.sig.k', '★ Signature') + ' · ' + esc(info.sig.why || '') + '</span><h2>' + esc(info.sig.t) + ' (' + n + ')</h2>' +
+      (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + tt('city.across', '{places} across {areas}.', { places: pl(n), areas: ar(nA) }) + '</p><div class="row">' + all + '</div>';
     else if (lk === 'mine') {   // W8: a saved list becomes a day in one tap (the area with the most saved, open, pinned places)
       const per = {}; Object.keys(Cleo.saved ? Cleo.saved.all() : {}).forEach(r => { const c = r.slice(0, r.lastIndexOf('/')) === key && C.byId[r.slice(r.lastIndexOf('/') + 1)];
         if (c && !c.hasAttribute('data-closed') && c.getAttribute('data-ll')) per[c.getAttribute('data-a')] = (per[c.getAttribute('data-a')] || 0) + 1; });
-      const plan = Object.keys(per).some(a => per[a] >= 2) ? '<button type="button" class="btn btn-primary" data-cleo-dayfrom>' + icon('route') + '<span>Plan a day from these</span></button>' : '';
-      h = '<h2>Your list in ' + esc(info.name) + ' (' + n + ')</h2><p>Saved on this device. <a href="' + (Cleo.root || '../') + 'saved.html">All your lists</a></p><div class="row">' + plan + all + '</div>';
+      const plan = Object.keys(per).some(a => per[a] >= 2) ? '<button type="button" class="btn btn-primary" data-cleo-dayfrom>' + icon('route') + '<span>' + tt('city.dayfrom', 'Plan a day from these') + '</span></button>' : '';
+      h = '<h2>' + esc(tt('city.mine.h', 'Your list in {city} ({n})', { city: info.name, n })) + '</h2><p>' + tt('city.mine.p', 'Saved on this device.') + ' <a href="' + (Cleo.root || '../') + 'saved.html">' + tt('city.mine.all', 'All your lists') + '</a></p><div class="row">' + plan + all + '</div>';
     }
     else if (lk === 'src') {
       const s = (info.src || {})[S.src] || [S.src, n, 0, '', ''];
-      h = '<h2>Everything ' + esc(s[0]) + ' recommends in ' + esc(info.name) + ' (' + n + ')</h2>' + (s[5] ? '<p>' + esc(s[5]) + '</p>' : '') +
-        (s[2] ? '<p>All ' + s[2] + ' of its numbered entries are here.</p>' : '') +
-        '<div class="row">' + (s[4] ? '<a class="btn btn-ghost" href="' + esc(s[4]) + '" rel="noopener" target="_blank">Read the source ' + icon('external') + '</a>' : '') + all + '</div>';
+      h = '<h2>' + esc(tt('city.src.h', 'Everything {source} recommends in {city} ({n})', { source: s[0], city: info.name, n })) + '</h2>' + (s[5] ? '<p>' + esc(s[5]) + '</p>' : '') +
+        (s[2] ? '<p>' + tt('city.src.entries', 'All {n} of its numbered entries are here.', { n: s[2] }) + '</p>' : '') +
+        '<div class="row">' + (s[4] ? '<a class="btn btn-ghost" href="' + esc(s[4]) + '" rel="noopener" target="_blank">' + tt('city.src.read', 'Read the source') + ' ' + icon('external') + '</a>' : '') + all + '</div>';
     } else if (lk === 'gap') { const g = (info.gaps || [])[+S.gap] || ['', '']; h = gap('<p class="d3">' + esc(g[0]) + '</p><p>“' + esc(g[1]) + '”</p>') + '<div class="row">' + all + '</div>'; }
-    else if (lk) h = '<h2>' + esc(label(lk, S[lk])) + '</h2><p>' + pl(n) + ' across ' + ar(nA) + (lk === 't' ? ', graded within each area' : '') + '.</p>' +
+    else if (lk) h = '<h2>' + esc(label(lk, S[lk])) + '</h2><p>' + (lk === 't' ? tt('city.across.t', '{places} across {areas}, graded within each area.', { places: pl(n), areas: ar(nA) }) : tt('city.across', '{places} across {areas}.', { places: pl(n), areas: ar(nA) })) + '</p>' +
       (lk === 'cz' ? (info.gaps || []).filter(x => x[2].indexOf(S.cz) >= 0).map(x => gap('<p>“' + esc(x[1]) + '”</p>')).join('') : '') + '<div class="row">' + all + '</div>';
     if (lens) { lens.innerHTML = h; lens.hidden = !h; lens.classList.toggle('is-day', lk === 'day'); }
     const chips = act.filter(k => k !== 'day').concat(S.q ? ['q'] : []);
-    if (applied) applied.innerHTML = chips.map(k => { const l = esc(label(k, k === 'q' ? S.q : S[k])); return '<button class="chip-x" data-unset="' + k + '" aria-label="Remove ' + l + '">' + l + icon('close') + '</button>'; }).join('') +
-      (chips.length > 1 ? '<button class="clear" data-cleo-all>Clear all</button>' : '');
+    if (applied) applied.innerHTML = chips.map(k => { const l = esc(label(k, k === 'q' ? S.q : S[k])); return '<button class="chip-x" data-unset="' + k + '" aria-label="' + esc(tt('city.remove', 'Remove {name}', { name: label(k, k === 'q' ? S.q : S[k]) })) + '">' + l + icon('close') + '</button>'; }).join('') +
+      (chips.length > 1 ? '<button class="clear" data-cleo-all>' + tt('city.tray.clear', 'Clear all') + '</button>' : '');
     const nf = $('[data-cleo-nf]'); if (nf) nf.textContent = act.length || '';
     $$('button[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-mode') === S.mode)));
     if (rail) rail.setAttribute('data-view', S.mode);
@@ -169,7 +172,7 @@
     if (nav) { const ind = d.createElement('span'); ind.className = 'v-ind'; ind.setAttribute('aria-hidden', 'true'); nav.appendChild(ind);
       const place = () => { const b = $('button[aria-pressed="true"]', nav); if (!b || !b.offsetWidth) { ind.style.opacity = '0'; return; }
         ind.style.opacity = ''; ind.style.left = b.offsetLeft + 'px'; ind.style.width = b.offsetWidth + 'px'; ind.style.top = b.offsetTop + 'px'; ind.style.height = b.offsetHeight + 'px'; };
-      nav.classList.add('has-ind'); place(); on(window, 'resize', place); if (d.fonts && d.fonts.ready) d.fonts.ready.then(place);
+      nav.classList.add('has-ind'); place(); on(window, 'resize', place); on(d, 'cleo:locale', place);   // i18n D-41: the labels changed width if (d.fonts && d.fonts.ready) d.fonts.ready.then(place);
       on(d, 'cleo:view', () => { requestAnimationFrame(place); main.classList.remove('v-swap'); void main.offsetWidth; main.classList.add('v-swap');
         setTimeout(() => main.classList.remove('v-swap'), 400); }); } }
   // W8 grid density: an area's end actions take the rest of its last card row (a lone last card never sits by itself);
@@ -225,22 +228,23 @@
   // R7 gap 5 (food covers): food places never get photos (honesty rule), so their cover names the dish in display type
   // on the eat-and-drink tint, under the kind glyph — an intentional face, never a blank box that reads as "not loaded"
   const dishOf = c => { if (at(c, 'data-k') !== 'f') return ''; const x = $('.pl-e .in-d', c), t = x ? x.textContent.replace(/^\s*·\s*/, '').trim() : '';
-    return '<span class="pl-dish">' + esc(t || 'Eat & drink') + '</span>'; };
+    return '<span class="pl-dish">' + esc(t || tt('city.mode.food', 'Eat & drink')) + '</span>'; };
   const paint = () => {
     const s = Cleo.saved ? Cleo.saved.all() : {}, b = been.all();
     cards.forEach(c => {
       cover(c);
       const x = $('.pl-x', c), ref = key + '/' + pid(c); if (!x) return;
       // W7: the heart sits on the card's media, drawn by CSS (no extra nodes: DOM budget); the word stays for AT and search
-      if (!x.firstChild) x.innerHTML = '<button class="pl-save heart" aria-pressed="false">Save</button>';
+      if (!x.firstChild) x.innerHTML = '<button class="pl-save heart" aria-pressed="false">' + tt('sheet.save', 'Save') + '</button>';
       const btn = x.firstChild, o = !!s[ref], st = $('.stamp', c); x.hidden = false;
-      btn.setAttribute('aria-pressed', String(o)); btn.textContent = o ? 'Saved' : 'Save'; btn.setAttribute('aria-label', (o ? 'Saved: ' : 'Save ') + $('.pl-n', c).textContent);
-      if (b[ref] && !st) c.insertAdjacentHTML('beforeend', '<span class="stamp">Been<br>there</span>'); else if (!b[ref] && st) c.removeChild(st);
+      btn.setAttribute('aria-pressed', String(o)); btn.textContent = o ? tt('sheet.saved', 'Saved') : tt('sheet.save', 'Save'); btn.setAttribute('aria-label', o ? tt('gal.saved', 'Saved: {name}', { name: $('.pl-n', c).textContent }) : tt('gal.save', 'Save {name}', { name: $('.pl-n', c).textContent }));
+      if (b[ref] && !st) c.insertAdjacentHTML('beforeend', '<span class="stamp">' + esc(tt('city.stamp', 'Been there')).replace(' ', '<br>') + '</span>'); else if (!b[ref] && st) c.removeChild(st);
     });
     const mine = $('[data-cleo-mine]'), nm = Object.keys(s).filter(r => r.slice(0, r.lastIndexOf('/')) === key).length;
     if (mine) { mine.hidden = !nm && !S.mine; $('[data-cleo-mine-n]', mine).textContent = nm; $('[data-cleo-mine-n]', mine).className = 'n' + (nm === 1 ? ' one' : ''); }
   };
   on(d, 'cleo:saved', () => { paint(); if (S.mine) apply(); else syncMarkers(); });
+  on(d, 'cleo:locale', () => { $$('.stamp').forEach(x => x.remove()); paint(); apply(); });   // i18n D-41: redraw labels, lens and counts in the loaded catalogue
   // Platform hook (M3-06): later cards arrive from Cleo.defer (core.js) as their area nears the viewport, or all at
   // once before any lens/route. Adopt them so every lens, count and pin sees every place; stubs' pins become cards.
   on(d, 'cleo:stamped', e => { ((e.detail || {}).cards || []).forEach(c => { if (byId[pid(c)] === c) return; cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
@@ -251,7 +255,7 @@
   const tpaint = () => {
     $$('.pill', tray).forEach(b => { const k = at(b, 'data-f'); b.setAttribute('aria-pressed', String((k === 'base' ? ({ 'street!': 'street', satellite: 'satellite' })[store.get('base', 'map')] || 'light' : P[k] || '') === at(b, 'data-v'))); });
     const o = { gap: '' }; TK.forEach(k => { o[k] = P[k]; }); const n = count(o);
-    $('[data-tr="go"]', tray).textContent = n ? 'Show ' + pl(n) : 'No places match — clear a filter';
+    $('[data-tr="go"]', tray).textContent = n ? tt('city.tray.show', 'Show {places}', { places: pl(n) }) : tt('city.tray.none', 'No places match — clear a filter');
   };
   const thide = () => { tray.hidden = true; d.body.style.overflow = ''; };
   const T = Cleo.tray = {
