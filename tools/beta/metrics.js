@@ -612,7 +612,12 @@ async function sheetFlow(page) {
       const C = window.Cleo && Cleo.city; if (C && C.markers) for (const id of Object.keys(C.markers)) { const e = C.markers[id].getElement && C.markers[id].getElement(); if (e === pk) pk.setAttribute('data-qa-pin-id', id); }
       return true;
     });
+    // QA R7 (3ba696e8 re-sign; ratified by QA): the first label pin can take 1–1.5 s to draw after the toggle on either
+    // SHA, so the single look at +900 ms passed or failed on timing. Poll the same reachability rule for up to 3 s more
+    // (settled state); the rule itself, the bubble zoom-in and the W6/W7 paths are unchanged.
     let pinSel = await findPin();
+    for (let t = 0; t < 3000 && !pinSel && !await page.evaluate(() => !!document.querySelector('.leaflet-marker-icon')); t += 150) { await page.waitForTimeout(150); pinSel = await findPin(); }
+    if (!pinSel) pinSel = await findPin();
     // W7 (QA R7, additive): on the map-search phone, pins below zoom 15 gather into count bubbles; when no single pin is
     // in reach, a real tap on a bubble zooms in (up to 3 times), as a reader would, then the pin rule above applies
     for (let i = 0; i < 3 && !pinSel && await page.evaluate(() => !!document.querySelector('.ms-toggle')); i++) {

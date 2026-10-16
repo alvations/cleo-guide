@@ -1873,3 +1873,18 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **D-40 (a):** Gallery cards ask for 240 px on 3× phones when they have a 600–799 w copy, matching `cardSizes()`. Kanda Myōjin loads once. `beta:qa:w8p` Tokyo phone: 617 KB.
 - **QC-17 (with FE-C, whose half is 70060b332):** on the phone carousel, FE-C's base line ("1.9 km from … · 23 min walk") gets its own full-width row and wraps; the distance and the walk time are never cut. The carousel grows to the tallest card on show (`fitCar`: name, kind, sources, the credit inside the display:contents figure, and the base line; floor 196 px, cap 45 % of the screen), and the pin labels re-place clear of it. The card's text rows no longer carry `min-height:0`, which had let the grid squeeze them below their content inside the fixed-height card, so the wrapped kind and sources lines overlapped. The recognition row stays in the detail and the preview, not the carousel.
 - **atlas-ms:** the carousel credit check now reports the credit and card rectangles when it fails.
+
+
+- 2026-10-16 17:38Z · **Orchestrator** · check-in; QA NO on 3ba696e8 · commit: this entry's commit
+  - **QA verdict on 3ba696e8: NO.** Open High is 0; QA-70 and QA-71 are fixed.
+    - Three Med regressions (QC-26, QA-75, QA-76) all bisect to PERF-08 1538974d, the selective stamping.
+    - FE-2 has QC-26 fixed (probe 12/12). Platform and FE-2 are fixing QA-75 and QA-76.
+    - Timebox: fix forward by 18:20Z, otherwise revert 1538974d's FE parts.
+  - **w8p:**
+    - It went red on the head at 762 KB, from FE-C e1540ffd (the page JSON on the first screen) and a Kanda double load. FE-C b8a3a6ae and FE-A 8b06f542 fixed both: Tokyo is now 618 KB.
+    - The pin was 651 KB, measured by the orchestrator in a clean worktree.
+  - **QC:**
+    - Verified: QC-10, 15, 17, 19.
+    - New: QC-23 (Before it closed never visible), QC-24 (the "any" chip) and QC-25 (a raw status note on closed cards), routed to FE-C and FE-A. QC-26 is above.
+  - **FE-C's W9 audit** (78065c84): the gaps went to FE-B (W9-2 acc2/acc5, W9-6 acc1/acc4), platform (W9-8 pack test, W9-9 publisher typing) and location (7 closed places without a statusSource).
+  - **FE-A** (8b06f542): QA-72, QA-73, QC-22, QA-55 and R7-g6 in fe-a.css. FE-B: R7-g6 closed, with 0 letter-spacings and 7 shadows pinned.

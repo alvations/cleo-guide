@@ -162,4 +162,8 @@ A fresh independent subagent reviewed FE-A's ja draft against the new English. I
 |---|---|---|---|
 | `city.how.order` | …紹介文で引用しているものは出典のもので、日付を添えています。 | …解説で引用しているものは出典のもので、日付を添えています。 | The catalogue says 解説 for "write-up" everywhere else (`ins.why.can`, `ins.can.s`, `ins.p.can`); 紹介文 appeared only here. |
 
-**Total: 55 changes over twelve rounds.**
+## Round 13: FE-C `fresh.feed` (the city-page feed line, staged in `tools/beta/i18n-fec/pending-ja.json`; 0 changes)
+
+A fresh independent subagent kept the draft: このガイドの閉店と営業状況の確認をまとめたRSSフィードです。どのフィードリーダーでも読めます。 It is the reviewed `land.month.feed` with 全ガイドの → このガイドの, matching the English "across the guides" → "in this guide". It reads naturally after 更新をフォロー — .
+
+**Total: 55 changes over thirteen rounds.**
