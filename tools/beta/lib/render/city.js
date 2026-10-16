@@ -367,7 +367,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
-    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights },  // loaded on first use (C.need / views.js), precached by the SW
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base /* FE-C W9-5 hook */ },  // loaded on first use (C.need / views.js), precached by the SW
     views: VIEWS, dv: DV,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
@@ -386,7 +386,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     fs('src', 'Recommended by', srcList.map(x => pill('src', x.id, x.name, x.n)).join('')) +
     fs('c', 'Collection', cats.filter(c => cnt(r => r.g.includes(c.id))).map(c => pill('c', c.id, c.n.replace(/^★\s*/, ''), cnt(r => r.g.includes(c.id)))).join('')) +
     fs('cz', 'Cuisine', cuis.filter(c => cnt(r => r.cz.includes(c.id))).map(c => pill('cz', c.id, c.n, cnt(r => r.cz.includes(c.id)))).join('')) +
-    fs('sort', 'Sort within each area', pill('sort', '', 'Guide’s order (tier, then sources)') + pill('sort', 'src', 'Most sources first') + pill('sort', 'az', 'A–Z') + pill('sort', 'near', 'Nearest to me')) +
+    fs('sort', 'Sort within each area', pill('sort', '', 'Guide’s order (tier, then sources)') + pill('sort', 'src', 'Most sources first') + pill('sort', 'az', 'A–Z') + pill('sort', 'near', 'Nearest to me') + pill('sort', 'base', 'Nearest to my base').replace('<button', '<button hidden') /* FE-C W9-5 hook: base.js shows it */) +
     fs('been', 'Been there', pill('been', '', 'Show all') + pill('been', 'hide', 'Hide been there') + pill('been', 'only', 'Only been there')) +
     fs('base', 'Map style', pill('base', 'street', 'Street') + pill('base', 'light', 'Light') + pill('base', 'satellite', 'Satellite')) +
     `</div><footer><button type="button" class="btn btn-quiet" data-tr="clear">Clear all</button><button type="button" class="btn btn-primary" data-tr="go">Show ${recs.length} places</button></footer></div></div>`;
