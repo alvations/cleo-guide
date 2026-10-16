@@ -361,3 +361,14 @@ outside card entries. Output: `design/beta/eval/qc/f7fa616d/ja-probe.json`.
 |---|---|---|
 | QC-21 | **verified** | The QC ja probe on how-we-choose.html at 390 and 1440 (`design/beta/eval/qc/a498adf5/ja-probe-how-we-choose.json`, `qc-21-ja-method-table.jpg`): the five column headers and the h2 "Added by the guide" are now in Japanese. Still in English: the stated long paragraphs, and the country names used as row labels (proper nouns, not UI labels). |
 
+## Re-verify 2026-10-16 · 995e2529 (FE-B claims for QC-18, QC-19, QC-20)
+
+Clean worktree at `995e25294`, which contains 6583673c. Outputs are in `design/beta/eval/qc/995e2529/`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-18 | **verified** | Indicator vs the pressed segment: dx 0, dw 0 in ja Insights, en Atlas, ja Atlas and en Guidebook at 1440 (`qc-18-ja-indicator.png`). |
+| QC-19 | **open** | D-42 scan of the 5 pilot Guidebooks for price, rating, popularity or time wording without the note. Tokyo 0/5, New York 0/5, Chinatown 0/2 and Wheeling 0/1 are missing it; the named records (Barroco, kamo-to-negi, best-satay) now carry it. **Cleveland: 2/19 still lack it:** `cain-park` ("nationally top-rated juried outdoor art fair") and `tita-floras` ("the highest-rated Asian …", closed). |
+| QC-20 | **verified** | Hours wording carries "Prices, ratings and times are quoted from the source at the time of research (date)". The sheet's gap line now reads "We don’t track opening hours or prices · Check before you go." |
+| **QC-22** (new, Low) | open | Every city page's "How we choose" section (`section#how-we-choose p.sm`) still reads "No ratings, prices or opening hours are shown, because the guide doesn’t hold verified ones", which contradicts the D-42 quotes now shown with a dated note. Lane: FE-A (city page copy) with FE-B (D-42). `qc-22-method-copy.json`. |
+
