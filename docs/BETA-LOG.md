@@ -1680,3 +1680,13 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - Probes: `tools/beta/atlas-nav-ms.js`, run by `atlas-ms.js`. The atlas-ms "view kept" check now asserts centre, zoom, scrolls, count and focus. The baseline had 36 FAILs; now 0 FAIL.
   - Gates on 537cfb8c: validate, npm test, beta:check and atlas-ms all PASS.
   - Open: the W9-5 5/10/15-min base ring (FE-C's API is in), and SPEC-v3 rev 4 §3.6 one numbering in the detail (to verify with FE-A).
+
+- 2026-10-16 · **FE-C** · closes **W9-7** (Share cards) · 0f8598c0b (head 82556da37)
+  - `tools/beta/client/share-card.js` (new, lazy, loaded by core on the first tap):
+    - a 1080×1920 PNG drawn on canvas for a place (its sheet), a day (day mode), a list (Saved) or a trip (trip.html);
+    - same-origin pixels only: the place's committed photo or its calm cover, our own pins for the route (no tiles), the self-hosted faces;
+    - every card carries the source line and the checked date, and a photo card its short credit as text;
+    - a closed place reads "Closed · kept for the record" with no call to visit; a closed stop is flagged on its own line;
+    - preview with matching alt text, then Web Share with files where supported, a PNG download otherwise.
+  - Hooks: "Share as an image" as marked `FE-C W9-7 hook` lines in sheet.js, day.js and saved.js (FE-A told); core.js delegated tap (platform told).
+  - Tests: test-fe-c.js CARD (8,577 places: source and date on every card, closed stated, credit with photo; specs; every share action; lazy at the page version). Probe card section: six cases, including the map library blocked, all 1080×1920; 0 off-origin requests from tap to preview; Web Share image/png; download fallback; preview at 390/1440, light and dark. Cards: `design/beta/eval/w9/fe-c/cards/`.
