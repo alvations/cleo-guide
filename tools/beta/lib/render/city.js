@@ -271,7 +271,7 @@ function render(row, recs, ctx) {
   // home modules (M2-11, M2-05, M2-06, M3-02, M2-10) — only from fields that exist; they sit right after ★ in the rail
   const firstDay = areas.find(a => days[a.id]);
   const mods = [`<button type="button" class="rail-i door fy" data-cleo-foryou aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span class="k">${tr('city.door.guide.k')}</span><span class="t">${tr('city.door.guide.t')}</span><span class="d">${tr('city.door.guide.d')}</span></button>`];   // i18n D-41: the rail's doors
-  if (firstDay) mods.push(`<button type="button" class="rail-i door" data-cleo-day=""><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span class="k">${tr('city.door.day.k')}</span><span class="t">${esc(tr('city.door.day.t', { area: areaSplit(firstDay.n)[0] }))}</span><span class="d">${tr('city.door.day.d', { n: days[firstDay.id].length, areas: tn('city.areas', Object.keys(days).length) })}</span></button>`);
+  if (firstDay) mods.push(`<button type="button" class="rail-i door" data-cleo-day=""><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span class="k">${tr('city.door.day.k')}</span><span class="t">${esc(tr('city.door.day.t', { area: areaSplit(firstDay.n)[0] }))}</span><span class="d">${tr(Object.keys(days).length === 1 ? 'city.door.day.d.one' : 'city.door.day.d', { n: days[firstDay.id].length, a: Object.keys(days).length })}</span></button>`);
   const iFree = tiles.findIndex(t => t.key === 'c' && t.id === 'FREE');
   const free = iFree >= 0 ? tiles.splice(iFree, 1)[0] : null;
   if (free) free.cls = 'door';
