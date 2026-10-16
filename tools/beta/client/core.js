@@ -81,6 +81,7 @@
       t: /^[123]$/,
       closed: /^1$/,
       pg: /^[1-9]\d{0,4}$/,
+      base: ID,                                        // FE-C W9-5: your base, a place id of this guide
       all: /^1$/
     },
     ok: function (k, v) {
@@ -281,6 +282,39 @@
     },
     ll: function (el) { var v = (el && el.getAttribute('data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; }
   };
+
+  /* ---- lazy modules (FE-C W9): Cleo.need('base'|'share-card', cb) loads assets/js/<n>.js once, at the version the page
+   * declares (#cleo-city info.js, or #cleo-lazy on saved.html / trip.html), so the worker's cache-first copy is never stale. ---- */
+  var lz = {};
+  Cleo.need = function (n, cb) {
+    var q = lz[n]; if (q === true) { if (cb) cb(); return; }
+    if (q) { if (cb) q.push(cb); return; }
+    q = lz[n] = cb ? [cb] : [];
+    var v = '';
+    ['cleo-city', 'cleo-lazy'].forEach(function (x) { var el = document.getElementById(x), j = null; try { j = el && JSON.parse(el.textContent); } catch (e) {} j = j && (j.js || j); if (!v && j && j[n]) v = j[n]; });
+    var s = document.createElement('script'); s.src = Cleo.root + 'assets/js/' + n + '.js' + (v ? '?v=' + v : ''); s.async = true;
+    s.onload = function () { Cleo.need.done(n); };
+    s.onerror = function () { delete lz[n]; };
+    document.head.appendChild(s);
+  };
+  /** A module announces it has run (also when a test inlines it): queued callbacks fire, later need() calls run at once. */
+  Cleo.need.done = function (n) { var q = lz[n]; lz[n] = true; if (q && q.forEach) q.forEach(function (f) { try { f(); } catch (e) {} }); };
+
+  /* ---- your base (FE-C W9-5): one place per guide, from #…&base=<id> (this visit, wins) or Cleo.store 'mybase' {pageKey: id}
+   * (the store key 'base' is the map layer). Lookups only: distances, validation and the UI are base.js's, which loads
+   * only when a base is set here (or a place sheet opens, city.js). ---- */
+  var visit = {}, pageKey = function () { var m = document.getElementById('main'); return m && m.getAttribute('data-city') || ''; };
+  var mine = function () { var a = Cleo.store.get('mybase', {}); return a && typeof a === 'object' && !Array.isArray(a) ? a : {}; };
+  var seen = false, fromUrl = function () { var k = !seen && pageKey(); if (k) { seen = true; var b = Cleo.route.parse().base; if (b) visit[k] = b; } };   // once <main> exists
+  Cleo.base = {
+    page: pageKey,
+    all: function () { fromUrl(); var a = mine(); for (var k in visit) a[k] = visit[k]; return a; },
+    get: function (k) { k = k || pageKey(); var id = k && Cleo.base.all()[k]; return id && ID.test(id) ? { key: k, id: id, ref: k + '/' + id } : null; },
+    set: function (k, id) { fromUrl(); var a = mine(); if (id) { a[k] = visit[k] = id; } else { delete a[k]; delete visit[k]; } Cleo.store.set('mybase', a); emit('cleo:base', { key: k, id: id || null }); }
+  };
+  document.addEventListener('DOMContentLoaded', function () {
+    if (Object.keys(Cleo.base.all()).length && (Cleo.base.get() || document.getElementById('cleo-saved'))) Cleo.need('base');
+  });
 
   /* ---- map art (build-time SVG from verified pins, tools/beta/lib/art.js): place a locator dot ----
    * proj = {w,h,pad,box:[minLat,minLng,maxLat,maxLng],kx,ky}; returns [x,y] in the SVG's own units. */

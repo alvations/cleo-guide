@@ -27,6 +27,10 @@ function compactLd(ld) {
 const L10N_CSS = '.locales{display:flex;gap:2px;align-items:center;flex:none}.locales .btn{min-height:44px;min-width:44px;padding:0 10px;font-size:var(--fs-sm)}' +
   '.locales .btn[aria-pressed="true"]{background:var(--sand)}.on-night .locales .btn{color:var(--on-night)}.on-night .locales .btn[aria-pressed="true"]{background:rgba(255,255,255,.12)}' +
   '@media(max-width:899px){.locales .btn[aria-pressed="true"]{display:none}}html.cleo-l10n-wait body{visibility:hidden}' +
+  // QC-12: on desktop the switcher sits right of the spacer (CSS order keeps DOM and tab order), so a breadcrumb that
+  // re-measures on the web-font swap no longer moves it; the night toggle core.js un-hides keeps its space reserved.
+  '@media(min-width:900px){[data-cleo-shell=topbar] .spacer{order:1}[data-cleo-shell=topbar] .locales{order:2}[data-cleo-shell=topbar] .top-actions{order:3}' +
+  '[data-cleo-shell=topbar] .top-actions .theme-toggle[hidden]{display:inline-flex!important;visibility:hidden}}' +
   'html:lang(ja){--font-ui:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic",Meiryo,"Noto Sans JP","Noto Sans CJK JP","IPAGothic",sans-serif;' +
   '--font-display:"Bricolage Grotesque","Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic",Meiryo,"Noto Sans JP","Noto Sans CJK JP","IPAGothic",sans-serif}' +
   'html:lang(ja) body{line-break:strict;word-break:normal}@supports (word-break:auto-phrase){html:lang(ja) body{word-break:auto-phrase}}' +
