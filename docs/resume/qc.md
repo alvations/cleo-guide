@@ -50,13 +50,22 @@ never weakens a gate.
 
 ## In flight
 
-Nothing unpushed and no long run. r7 has signed off (PASS). Re-verify QC-13, 14, 30, 31, 32, 33 and 34 as lanes claim fixes. Use `qc-view-cls.js <root> <out>` for QC-33 (all views at 390/1440).
+D-46 (owner, 2c44f676: Atlas is the default; switcher Atlas, Gallery, Guidebook, Insights) harness update, committed in this push.
+- The probes read the page's declared default (`Cleo.city.info.dv`, else Atlas) instead of assuming Gallery: P-01 checks the label set (the order is P-29's job), and P-04, P-05, P-07, P-09, P-12 and J-06 were updated. P-11 is explicit (`view=gallery&pg=`) and also reports the pre-D-46 `#pg=`/`#all=1` links (WARN if they no longer open the Gallery).
+- New probes:
+  - P-29: a cold load opens Atlas at the first frame, the switcher is ordered Atlas first, CLS 0;
+  - P-30: a stored Gallery choice wins;
+  - P-31: with the map library blocked, a place card is on screen within 1.5 s, both cold and with `#view=atlas`.
+- Probe fixes: P-13, P-14 and P-15 open the phone Atlas list (`.ms-toggle`) before counting; P-14 accepts subset lines whose denominator is the lens count.
+- Tested on Tokyo and Cleveland at 390 and 1440, on dev before D-46 is implemented. P-29 FAILs as expected (dv=gallery); P-30 passes; P-31 `#view=atlas` gives a card in 377–481 ms.
+- Tokyo 390 re-test: P-13, P-14 and P-15 PASS with the phone Atlas list opened (reach 488/488, Atlas "Showing all 488 places"); P-30 PASS; P-31 `#view=atlas` card in 396 ms.
+
+Next: send the orchestrator the harness SHA, then re-run patterns once the D-46 implementation lands. Re-verify QC-13, 14, 30, 31, 32, 33 and 34 as lanes claim fixes.
 
 Next harness work:
 - Add a Contents-vs-lens count check to the COUNTS probe (QC-34 class) once FE-B fixes it.
 - Fold deep-link view CLS (qc-view-cls.js) into S-12 for city pages at 1440.
 - P-25 and P-26 must discount entries that carry the D-42 note.
-- P-13 and P-15 must open the phone Atlas "Show list" before measuring.
 - J-10 and J-11 should also run under `?lang=ja`.
 
 ## Notes
