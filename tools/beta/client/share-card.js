@@ -272,10 +272,14 @@
   }
   if (!d.getElementById('cleo-card-css')) {
     var css = d.createElement('style'); css.id = 'cleo-card-css';
-    css.textContent = '.card-dlg{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:rgba(20,18,16,.55);padding:16px}' +
-      '.card-dlg-b{background:var(--surface,#fff);color:var(--ink,#1c1a17);border-radius:var(--r-l,16px);padding:20px;display:grid;gap:12px;justify-items:center;max-width:min(420px,100%);max-height:100%;overflow:auto;box-shadow:var(--e-4,0 10px 40px rgba(0,0,0,.3))}' +
-      '.card-dlg-b h2{margin:0;font:600 var(--fs-lead,20px)/1.2 var(--font-ui,inherit);justify-self:start}.card-dlg-b img{width:min(270px,62vw);height:auto;border-radius:var(--r-m,10px);border:1px solid var(--line,#ddd)}' +
-      '.card-dlg-b p{margin:0}.card-dlg-a{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}';
+    // OV ledger (FE-C): the whole card always fits the screen. The 9:16 preview is sized from the viewport height (never cut
+    // at the top as a centred grid item taller than the screen was), and on a short landscape screen it sits beside the text.
+    css.textContent = '.card-dlg{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:rgba(20,18,16,.55);padding:16px;overflow:auto}' +
+      '.card-dlg-b{background:var(--surface,#fff);color:var(--ink,#1c1a17);border-radius:var(--r-l,16px);padding:20px;display:grid;gap:12px;justify-items:center;max-width:min(420px,100%);max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow:auto;box-shadow:var(--e-4,0 10px 40px rgba(0,0,0,.3))}' +
+      '.card-dlg-b h2{margin:0;font:600 var(--fs-lead,20px)/1.2 var(--font-ui,inherit);justify-self:start}.card-dlg-b img{aspect-ratio:9/16;width:auto;height:min(480px,110vw,calc(100vh - 250px));height:min(480px,110vw,calc(100dvh - 250px));min-height:160px;border-radius:var(--r-m,10px);border:1px solid var(--line,#ddd)}' +
+      '.card-dlg-b p{margin:0}.card-dlg-a{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}' +
+      '@media (orientation:landscape) and (max-height:600px){.card-dlg-b{grid-template-columns:auto minmax(200px,1fr);max-width:min(680px,100%);justify-items:start;align-items:center;column-gap:20px}' +
+      '.card-dlg-b img{grid-column:1;grid-row:1/span 3;height:calc(100vh - 72px);height:calc(100dvh - 72px);min-height:0}.card-dlg-b h2{grid-column:2;grid-row:1}.card-dlg-b .sm{grid-column:2;grid-row:2}.card-dlg-a{grid-column:2;grid-row:3;justify-content:flex-start}}';
     d.head.appendChild(css);
   }
 

@@ -56,6 +56,7 @@ async function context(browser, vp, o) {
     }
     if (u.origin + '/' !== BASE) { ctx.off++; return route.abort(); }
     const p = path.join(ROOT, decodeURIComponent(u.pathname));
+    if (o.slowMap && /leaflet\.js$/.test(u.pathname)) return sleep(o.slowMap).then(() => route.fulfill({ body: fs.readFileSync(p), headers: { 'content-type': TYPES['.js'] } })).catch(() => {});   // D-46: a slow map library
     if (!p.startsWith(ROOT) || !fs.existsSync(p) || fs.statSync(p).isDirectory()) return route.fulfill({ status: 404, body: 'not found' });
     return route.fulfill({ body: fs.readFileSync(p), headers: { 'content-type': TYPES[path.extname(p)] || 'application/octet-stream' } });
   });
@@ -66,7 +67,9 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function open(browser, vp, url, o) {
   const ctx = await context(browser, vp, o), page = await ctx.newPage(), errors = [];
   page.on('pageerror', e => errors.push(String(e).slice(0, 200)));
+  if (o.init) await page.addInitScript(o.init);
   await page.goto(BASE + url, { waitUntil: 'load' });
+  if (o.early) return { ctx, page, errors };
   await page.waitForFunction(() => document.querySelector('.leaflet-marker-icon') || document.documentElement.classList.contains('ms-nomap'), null, { timeout: 8000 }).catch(() => {});
   await sleep(o.wait || 900);
   return { ctx, page, errors };
@@ -274,7 +277,7 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
             if (!t.contains(hit) && hit.closest('li.pl') !== t.closest('li.pl')) cov.push((hit.className || hit.tagName).toString().slice(0, 30) + ' over ' + t.textContent.trim().slice(0, 24)); }
           return { seen, covered: cov.length, eg: cov.slice(0, 3) }; });
         // SPEC-v3 §2.2: the first screen is map + peek, no carousel; a pin tap brings the carousel — its titles are checked there
-        const car0 = await page.evaluate(() => { const L = document.querySelector('.listpane'), pk = document.querySelector('.ms-toggle'), r = pk.getBoundingClientRect(); return { carousel: !!L.offsetWidth, peek: Math.round(r.height), peekBottom: Math.round(innerHeight - r.bottom), text: pk.textContent.trim() }; });
+        const car0 = await page.evaluate(() => { const L = document.querySelector('.listpane'), pk = document.querySelector('.ms-toggle'), r = pk.getBoundingClientRect(); return { carousel: !!L.offsetWidth, peek: Math.round(r.height), peekBottom: Math.round(innerHeight - r.bottom), text: pk.innerText.replace(/\s+/g, ' ').trim() }; });   // the RENDERED text: R4b's flex row dropped its spaces ("351places here ·checked") while textContent kept them
         chk(`${key} phone: first screen is map + a 56 px list peek ("N places here · Show list"; SPEC-v3 rev 5a), no carousel`, !car0.carousel && car0.peek >= 55 && car0.peek <= 58 && car0.peekBottom <= 1 && /places? here( · checked [^·]+)? · Show list/.test(car0.text), car0);
         await page.evaluate(() => { const e = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].find(x => { const r = x.getBoundingClientRect(); return r.top > 140 && r.bottom < innerHeight - 120; }); if (e) e.click(); });
         await sleep(900);
@@ -359,6 +362,27 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         const b = document.querySelector('[data-ms-clear="q"]'); if (b) b.click(); await new Promise(r => setTimeout(r, 900)); return { t0, buttons: b0, t1: t() }; });
       chk(`${key} ${vk}: a search with no match says so ("No places match …", Clear search, Show all N); Clear search restores the places`, /^No places match/.test(r.t0) && r.buttons && /\d+ places? here/.test(r.t1), r);
       if (errors.length) chk(`${key} ${vk} empty search: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
+    }
+    // D-46 (Atlas is the default city view): with the map library 3 s late, the list is there at once (desktop: the list
+    // pane's cards; phones: the peek's count), and it is the page the map then opens on — the map's arrival changes
+    // nothing in it; no layout shift over the whole load (a cold load, no hash: the default first view)
+    for (const [vk, vp] of [['1440', D], ['390', M]]) {
+      // CLS split by owner: any shift of an Atlas element (the split, the chip row, the list head) counts in `atlas`; the page
+      // total is reported too (a header web-font swap, 0.0001, is outside Atlas: FE-B / platform)
+      const cls = () => { window.__cls = 0; window.__clsA = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.hadRecentInput) return; window.__cls += e.value;
+        if (e.sources.some(x => x.node && x.node.nodeType === 1 && x.node.closest('.split, .ms-bar, .ms-head, #cleo-map, .listpane'))) window.__clsA += e.value; })).observe({ type: 'layout-shift', buffered: true }); };
+      const { ctx, page, errors } = await open(browser, vp, url + '#view=atlas', { tiles: 'stub', slowMap: 3000, early: true, init: cls });   // the same first view as a hash-less load once Atlas is the default (FE-A's D-46 flip)
+      const look = () => page.evaluate(() => { const lp = document.querySelector('.listpane'), lr = lp.getBoundingClientRect(), H = document.documentElement;
+        const ids = [...lp.querySelectorAll('li.pl')].filter(c => { const r = c.getBoundingClientRect(); return r.height > 0 && r.top < Math.min(innerHeight, lr.bottom) && r.bottom > lr.top && getComputedStyle(c).visibility !== 'hidden' && getComputedStyle(lp).visibility !== 'hidden'; })
+          .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top || a.getBoundingClientRect().left - b.getBoundingClientRect().left).map(c => c.id);
+        const pk = document.querySelector('.ms-toggle'); return { view: H.getAttribute('data-view'), map: !!window.L, ready: H.classList.contains('ms-ready'), ids: ids.slice(0, 12), peek: pk && pk.offsetHeight ? pk.textContent.trim() : null, cls: +window.__cls.toFixed(4), atlas: +window.__clsA.toFixed(4) }; });
+      await sleep(1000); const e0 = await look();
+      await page.waitForFunction(() => document.querySelector('.leaflet-marker-icon'), null, { timeout: 8000 }).catch(() => {}); await sleep(1500); const e1 = await look();
+      if (vk === '1440') chk(`${key} ${vk} D-46: the map library 3 s late, the list is there at once (≤ 1 s) and is the page the map opens on; no Atlas element shifts (page CLS ≤ 0.001)`,
+        e0.view === 'atlas' && !e0.map && e0.ready && e0.ids.length >= 3 && e1.map && e0.ids.join() === e1.ids.join() && e1.atlas === 0 && e1.cls <= 0.001, { before: e0, after: e1 });
+      else chk(`${key} ${vk} D-46: the map library 3 s late, the peek's count is there at once and is the map's own; no Atlas element shifts (page CLS ≤ 0.001)`,
+        e0.view === 'atlas' && !e0.map && !!e0.peek && e1.map && e0.peek === e1.peek && e1.atlas === 0 && e1.cls <= 0.001, { before: e0, after: e1 });
+      if (errors.length) chk(`${key} ${vk} D-46 slow map: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
     }
   }
   await browser.close();

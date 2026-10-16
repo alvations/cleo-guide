@@ -13,6 +13,10 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- Overlay audit (owner directive, docs/BETA-OVERLAY-LEDGER.md; FE-B scope Guidebook / Insights / What changed / method):
+  probe tools/beta/feb-ov.js (7 pages x 6 viewports x 2 themes; OV_ONLY=<regex>). Rows OV-30..OV-35. Fixed OV-30
+  (Contents strip under the city bar) + OV-31 (strip scrolls away < 500 px tall). Open: OV-32/33/34 FE-A; OV-35 FE-B shell
+  (header + tab bar 33 % in landscape) — fix to OV-00 when the designer sets the budgets.
 - QC-34: Guidebook Contents follow the lens — syncLens (client/guidebook.js) recounts each chapter's Contents entry from
   the model's visible set on every lens change and drops chapters with 0 (as the chapters do). test-views-b: mode=food,
   q=, a= on 3 guides (counts == visible entries, total == "s of all N", a= keeps 1 chapter; cleared → full). Note for

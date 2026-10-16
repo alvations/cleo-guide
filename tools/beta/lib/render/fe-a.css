@@ -671,6 +671,11 @@ html.ph-fade main[data-city] figure.photo.in::before{opacity:0}
 html.ph-fade .view-gallery li.gc .cover.has-ph[style*="--ph"]::before{content:"";display:block;position:absolute;inset:0;z-index:2;background:var(--ph);pointer-events:none;transition:opacity 280ms var(--ease-out)}
 html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
 /* 2. Switching views: the switcher's selection slides to the new view (desktop pill row), and the page content fades in */
+/* FE-B OV (overlay ledger): below the desktop side column, the Guidebook Contents strip sticks under the city bar at its
+   measured bottom (guidebook.js sets --gb-toc-top), not the shared 105 px that left it 20–36 px under the bar */
+@media (max-width:1023px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{top:var(--gb-toc-top,105px)}}
+/* …and on a short screen (phone landscape) it scrolls away with the page instead of stacking a third bar (52 % chrome) */
+@media (max-width:1023px) and (max-height:500px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{position:static}}
 /* FE-B QC-33: a deep link into Guidebook / Insights painted the About + method section and the footer first, then the view
    mounted above them and pushed them down (load CLS 0.42–0.58 at 1440). Until the view host has content, it holds one
    viewport of room (data-view is set from the hash in <head>, before first paint), so they first paint below the fold. */
@@ -681,7 +686,7 @@ html .views[data-cleo-views] .v-ind{display:none}
 @media (min-width:1024px){
   html .views[data-cleo-views].has-ind{isolation:isolate}
   html main[data-city] .views[data-cleo-views].has-ind{position:relative}
-  html .views[data-cleo-views].has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);pointer-events:none;transition:left 240ms var(--ease-out),width 240ms var(--ease-out),top 240ms var(--ease-out)}
+  html .views[data-cleo-views].has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);pointer-events:none;left:0;top:0;transition:transform 240ms var(--ease-out),width 240ms var(--ease-out)}
   html .views[data-cleo-views].has-ind button[aria-pressed=true]{background:transparent;box-shadow:none}
 }
 @keyframes w8-vin{from{opacity:0}to{opacity:1}}
