@@ -290,6 +290,38 @@ async function finish(page, s0, opener, close) {
     await ctx.close();
   }
 
+  // PANEL-R3 #8: a fresh shared view (#view=atlas&at=…, Asakusa z 15) lists only what that map shows: every desktop list
+  // card and the first phone card (List mode; the phone opens on map + peek) are inside the visible bounds; the count
+  // and pill equal the places listed
+  if (PAGES.some(p => p[0] === 'tokyo')) for (const [vk, vp] of [['d', D], ['m', M]]) {
+    const vn = vk === 'd' ? '1440' : '390', { ctx, page, errors } = await open(browser, vp, 'beta/cities/tokyo.html#view=atlas&at=35.7148,139.7967,15', { wait: 2200 });
+    if (vk === 'm') { const tg = await page.$('.ms-toggle'); if (tg) { await tg.click().catch(() => {}); await sleep(700); } }
+    const r = await page.evaluate(() => { const m = Cleo.city.map(), b = m && m.getBounds(), c = m && m.getCenter();
+      const vis = [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden && e.getAttribute('data-ll'));
+      const out = vis.filter(e => !b.contains(e.getAttribute('data-ll').split(',').map(Number))).map(e => Cleo.city.name(e)).slice(0, 4);
+      const num = s => +((/([\d,]+)/.exec(s || '') || [0, '0'])[1].replace(/,/g, '')), tg = document.querySelector('.ms-toggle');
+      return { centre: c && [+c.lat.toFixed(4), +c.lng.toFixed(4), m.getZoom()], first: vis[0] && Cleo.city.name(vis[0]), shown: vis.length, out, count: num((document.querySelector('.ms-count') || {}).textContent), pill: tg ? num(tg.textContent) : null, list: document.documentElement.classList.contains('ms-list') }; });
+    chk(`R3 #8 tokyo ${vn}: a fresh #view=atlas&at=Asakusa z15 load lists only places inside the map (the first card included)`, r.centre && Math.abs(r.centre[0] - 35.7148) < 1e-3 && r.centre[2] === 15 && r.shown > 0 && r.out.length === 0, r);
+    if (errors.length) chk(`R3 #8 tokyo ${vn}: 0 page errors`, false, errors.slice(0, 2));
+    await ctx.close();
+  }
+
+  // PANEL-R3 #8 (2): after the reader zooms, the phone's count line and pill equal the places in view — or, until
+  // "Search this area" is tapped, that button is on screen (the counts are then the last searched area's, said so)
+  if (PAGES.some(p => p[0] === 'tokyo')) {
+    const { ctx, page, errors } = await open(browser, M, 'beta/cities/tokyo.html#view=atlas', { wait: 2200 });
+    await page.evaluate(() => { const m = Cleo.city.map(); m.fire('zoomstart'); m.setZoom(m.getZoom() + 2, { animate: false }); }); await sleep(900);
+    const r = await page.evaluate(() => { const C = Cleo.city, m = C.map(), num = s => +((/([\d,]+)/.exec(s || '') || [0, '0'])[1].replace(/,/g, ''));
+      const o = C.overMap(), sz = m.getSize(), L = window.L, tl = m.containerPointToLatLng(L.point(o.paddingTopLeft[0] - 24, o.paddingTopLeft[1] - 24)), br = m.containerPointToLatLng(L.point(sz.x - o.paddingBottomRight[0] + 24, sz.y - o.paddingBottomRight[1] + 24)), bb = L.latLngBounds(tl, br);
+      const all = [...document.querySelectorAll('li.pl')].concat(Cleo.defer && Cleo.defer.peek ? Cleo.defer.peek() : []).filter(c => !c.hidden && c.getAttribute('data-ll'));
+      const inView = all.filter(c => bb.contains(c.getAttribute('data-ll').split(',').map(Number))).length, tg = document.querySelector('.ms-toggle'), here = document.querySelector('.ms-here');
+      return { inView, count: num((document.querySelector('.ms-count') || {}).textContent), pill: tg ? num(tg.textContent) : null, pillText: tg && tg.textContent.trim(), here: !!here && !here.hidden && here.offsetHeight > 0 }; });
+    const fresh = r.pill === r.inView && (r.count === r.inView || !r.count);
+    chk(`R3 #8 tokyo 390: after a zoom the pill and count equal the places in view, or "Search this area" is offered`, fresh || r.here, r);
+    if (errors.length) chk(`R3 #8 tokyo 390 zoom: 0 page errors`, false, errors.slice(0, 2));
+    await ctx.close();
+  }
+
   // QA-71: after a place is opened and closed (card → detail → Back), swiping the phone carousel still moves the selection,
   // as it does before the round-trip: two swipes, the card in the middle is the selected one each time (QA's 5 pilots)
   for (const url of ['beta/cleveland.html', 'beta/cities/tokyo.html', 'beta/cities/newyork.html', 'beta/Singapore/chinatown.html', 'beta/cities/wheeling.html']) {
