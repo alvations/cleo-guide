@@ -278,6 +278,12 @@ if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.le
 emit('data/sources.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
   _doc: 'Every publisher cited on any beta place page: id, display name, text authority mark, total records citing it, and [pageKey, n] per page. Per-page detail (entries, place ids) is in data/places/<page>.json sourceIndex.',
   sources: siteSources(cityRows) }));
+// W9-9 acc1 (platform): the stated gap — every publisher the recognition rules could not type (never guessed), by page
+{ const rows = cityRows.filter(r => r.recog && r.recog.untyped.length).map(r => ({ page: r.key, untyped: r.recog.untyped }));
+  const typed = cityRows.reduce((a, r) => a + (r.recog ? r.recog.typed.sources : 0), 0), of = cityRows.reduce((a, r) => a + (r.recog ? r.recog.typed.of : 0), 0);
+  emit('data/recognition-untyped.json', JSON.stringify({ _generated: 'tools/beta/build.js (lib/recognition.js) — do not edit', v: 1,
+    _doc: 'Publishers left UNTYPED by the recognition rules (design/beta/RECOGNITION.md): no registry entry agrees on their key, host or domain, and no host rule applies. Typing them needs a registry entry (data/sources.json, owner), not a guess. They count against the local-favourites lens only by not qualifying.',
+    typed, of, pages: rows }, null, 1)); }
 // Site-wide "guide" index (FE-B hubs + landing rail): one row per place page, computed from the records.
 emit('data/guide.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
   _doc: 'Per place page: ★ signature (kind, title, line, n), hub tile line, food canon and pop-culture counts, day-plan and closed counts. Detail is in data/places/<page>.json guide.',
