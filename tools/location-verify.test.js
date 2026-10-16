@@ -240,6 +240,10 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const a = await LV.run({ ...base, http: mk('museum.example') }); assert.strictEqual(a.meta.hardFailure, false, 'official site down is not fatal');
     const b = await LV.run({ ...base, http: mk('www.wikidata.org') }); assert.strictEqual(b.meta.hardFailure, true, 'Wikidata down is fatal');
   });
+  await t('name-only Nominatim fallback finds a POI behind a descriptive address; graded med (hold)', () => {
+    const r = row('Park Pavilion Grill'); assert.strictEqual(r.outcome, 'pin'); assert.strictEqual(r.proposal.kind, 'osm-poi');
+    assert.strictEqual(r.proposal.grade, 'med'); assert.strictEqual(r.assist.verdict, 'hold');
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });
