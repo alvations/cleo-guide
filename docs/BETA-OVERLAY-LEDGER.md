@@ -44,7 +44,14 @@ Status: open → claimed (fix SHA) → verified (QC SHA). Owner: the lane that f
 
 | Id | Where (page · view · viewport · theme) | Instance | Measured | Owner | Status |
 |---|---|---|---|---|---|
-| OV-00 | all | **Budgets and behaviour rules** (chrome share, clear map, label coverage, auto-hide on pan or scroll, landscape) | to be set | designer | open |
+| OV-00 | all | **Budgets and behaviour rules** (chrome share, clear map, label coverage, auto-hide on pan or scroll, landscape) | **Set (bb2af8732)**, SPEC-v3 §2.0 for Atlas and DESIGN-SYSTEM §v2.12 site-wide:
+- Atlas at 390×664 at rest: chrome ≤ 32 %, clear ≥ 64 %. While panning: ≤ 10 % and ≥ 87 %, by auto-compact. The switch and chip rows and the peek hide on a pan and return after 1.2 s idle or a tap.
+- One icon-only 44×96 control stack (Locate plus Layers): no "Map" pill, and "Near me" once.
+- Attribution collapses to ⓘ after the first pan or 5 s.
+- Labels: ≤ 40 % of the width and 13 px, a count from the map area (7 at 390×664), coverage ≤ 8 %.
+- "Search this area" appears only after a pan, in a fixed slot.
+- Landscape: one 48 px bar, no peek.
+- Scroll pages: only the header stays. | designer | **set** |
 | OV-01 | Punggol · Atlas · phone · dark (live r7) | Three stacked fixed bars at the top (site header, view switch, chip row) never compact while the map is panned | from the screenshot: about a quarter of the screen is chrome before the map starts | FE-A (header, switch), FE-1 (chip row) | open |
 | OV-02 | same | "Search this area" floats mid-map on the first screen | visible on load | FE-1 | open: rev 5a hides it on the first screen (dev); verify |
 | OV-03 | same | Map label pills are large (14 px semibold plus a glyph). A long name ("Punggol Beach Massacre Site") spans about 60 % of the map width and covers pins | 2 pills ≈ 1/6 of the visible map | FE-1, FE-2 | open |
