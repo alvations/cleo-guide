@@ -2109,3 +2109,10 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - The owner said: "Let's make atlas the default view then the list. That will differentiate us from our competitors."
 - Recorded as D-46 (2c44f676). Atlas becomes the default; the switcher order is Atlas, Gallery, Guidebook, Insights.
 - Routed to FE-A (lead), platform, FE-1/FE-2, QA, QC and the designer. It ships in the next release with Atlas rev 5.
+
+## 2026-10-16 21:52Z · orchestrator check-in
+
+- The dev head b1a7fc6e is gated green (validate, npm test alone, beta:check; w2 dom 12/12).
+- The r7 deploy is live (4382a187). The R8 evaluator is running.
+- Atlas: real shots R4b committed on ffbb225a. R4 is held for D-46 and the dark-dot re-sign.
+- Platform: Tokyo phone LCP diagnosed (the Gallery lead card, 3.1 s). A build-time card brings it to 0.98 s; it's off pending i18n's (c) hook. Under D-46 the LCP target moves to the Atlas default, and platform measures that next.
