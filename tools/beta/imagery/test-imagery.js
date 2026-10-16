@@ -342,7 +342,11 @@ ok(fplan.findIndex(p => p.t.type === 'landmark') === fplan.filter(p => p.t.type 
     .filter(pg => !heroes.has(pg.key)).filter(pg => { const t = T.get(pg.key); return !t || !(t.skip || t.candidates.some(c => !c.refused) || (t.articles || []).length); }).map(pg => pg.key);
   ok(!bare.length, `every guide: a credited hero, a hero target to try, or a stated reason (Vietnam)${bare.length ? ': ' + bare.join(', ') : ''}`);
 }
-ok(['hero:singapore/queenstown', 'hero:singapore/dempsey-hill', 'hero:singapore/jalan-besar', 'hero:vietnam/hanoi'].every(k => (cm.targets.find(t => t.key === k) || {}).skip), 'R7-g1: the stated hero gaps (Queenstown, Dempsey Hill, Jalan Besar, Vietnam) carry their reason in the manifest');
+{ // R7-g1 / R8 gap #1a: Queenstown, Dempsey Hill and Jalan Besar carry a credited hero, a vetted candidate to try, or a stated reason; Vietnam always states its reason
+  const credited = new Set(JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits.filter(c => c.slot).map(c => 'hero:' + c.slot.key));
+  const t = k => cm.targets.find(x => x.key === k) || {};
+  ok(['hero:singapore/queenstown', 'hero:singapore/dempsey-hill', 'hero:singapore/jalan-besar'].every(k => credited.has(k) || t(k).skip || (t(k).candidates || []).some(c => !c.refused)) && t('hero:vietnam/hanoi').skip, 'R7-g1: the Singapore hero gaps have a hero, a vetted candidate or a stated reason; Vietnam states its reason');
+}
 { // --scope: what a run may fetch (W8)
   const sp = s => fc.plan(cm, { credits: [] }, { scope: s, keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip);
   const H = sp('heroes'), P = sp('priority'), PI = sp('pilots'), A = sp('all');
