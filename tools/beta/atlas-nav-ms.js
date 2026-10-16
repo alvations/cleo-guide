@@ -255,6 +255,33 @@ async function finish(page, s0, opener, close) {
     if (errors.length) chk(`#3 tokyo ${vn}: 0 page errors`, false, errors.slice(0, 2));
     await ctx.close();
   }
+  // PANEL-R3 #7: the desktop Atlas layout never shifts. After a card focus, card → detail → Escape / Back and Share, the
+  // map's top stays where it was, the search box stays on screen (top ≥ 56 px), and every ancestor of the map keeps
+  // scrollTop 0 (html and body are overflow:hidden in Atlas, so a shifted container can't be scrolled back by a mouse)
+  for (const [key, url] of PAGES) {
+    const { ctx, page, errors } = await open(browser, D, url + '#view=atlas');
+    const lay = () => page.evaluate(() => { const m = document.getElementById('cleo-map'), q = document.getElementById('cleo-filter'), anc = [];
+      for (let e = m && m.parentElement; e; e = e.parentElement) if (e.scrollTop) anc.push((e.id || e.tagName.toLowerCase() + '.' + String(e.className).split(' ')[0]) + ' ' + e.scrollTop);
+      if (document.scrollingElement.scrollTop) anc.push('document ' + document.scrollingElement.scrollTop);
+      const qr = q && q.getBoundingClientRect(); return { mapTop: m ? Math.round(m.getBoundingClientRect().top) : null, searchTop: qr ? Math.round(qr.top) : null, searchVis: !!qr && qr.height > 0 && qr.top >= 0, anc }; });
+    const L0 = await lay(), steps = {};
+    const same = x => x.mapTop === L0.mapTop && x.anc.length === 0 && x.searchVis && x.searchTop >= 56;
+    const id = await pickCard(page);
+    if (id) {
+      await page.focus(`#${id} .pl-n a`); await sleep(300); steps.focus = await lay();
+      await page.keyboard.press('Tab'); await page.keyboard.press('Tab'); await sleep(300); steps.tab = await lay();
+      await page.click(`#${id} .pl-n a`); await sleep(900); await page.keyboard.press('Escape'); await sleep(900); steps.esc = await lay();
+      await page.click(`#${id} .pl-n a`); await sleep(900); await page.goBack(); await sleep(900); steps.back = await lay();
+      await page.evaluate(() => { try { Object.defineProperty(navigator, 'share', { value: undefined, configurable: true }); } catch (e) {} });
+      await page.click(`#${id} .pl-n a`); await sleep(900); await page.click('#cleo-sheet [data-sh="share"]').catch(() => {}); await sleep(400); await page.keyboard.press('Escape'); await sleep(900); steps.share = await lay();
+    }
+    const bad = Object.keys(steps).filter(k => !same(steps[k]));
+    chk(`R3 #7 ${key} 1440: no layout shift — after card focus, Tab, card → detail → Escape / Back and Share the map top stays at ${L0.mapTop} px, the search box stays on screen (≥ 56 px), every map ancestor keeps scrollTop 0`,
+      !!id && L0.anc.length === 0 && L0.searchTop >= 56 && bad.length === 0, { start: L0, bad: bad.map(k => [k, steps[k]]) });
+    if (errors.length) chk(`R3 #7 ${key}: 0 page errors`, false, errors.slice(0, 2));
+    await ctx.close();
+  }
+
   // QA-71: after a place is opened and closed (card → detail → Back), swiping the phone carousel still moves the selection,
   // as it does before the round-trip: two swipes, the card in the middle is the selected one each time (QA's 5 pilots)
   for (const url of ['beta/cleveland.html', 'beta/cities/tokyo.html', 'beta/cities/newyork.html', 'beta/Singapore/chinatown.html', 'beta/cities/wheeling.html']) {
