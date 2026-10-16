@@ -347,10 +347,12 @@
     var ids = {}; d.places.forEach(function (p) { var c = document.getElementById('p-' + p.id) || stubs[p.id]; if (c && C.lens.match(c, L)) ids[p.id] = 1; });
     return { lens: L, ids: ids };
   }
-  // QC-10 (SPEC §5): after a switch by the user (focus still on the switcher), focus moves to the view's heading
-  function focusHead(el) {
-    var a = document.activeElement, sw = a && a.closest && a.closest('[data-cleo-views]');
-    var h = el.querySelector('h1'); if (sw && h) { if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+  // QC-10 (SPEC §5): after a switch by the user — ctx.user from views.js (used once: a lens redraw never moves focus), or focus
+  // still on the switcher — focus moves to the view's h1. Never on the initial load.
+  function focusHead(el, ctx) {
+    var a = document.activeElement, sw = a && a.closest && a.closest('[data-cleo-views]'), user = !!(ctx && ctx.user);
+    if (ctx) ctx.user = false;
+    var h = el.querySelector('h1'); if ((user || sw) && h) { if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
   }
   function mount(el, ctx) {
     host = el; ctx = ctx || {};
@@ -391,7 +393,7 @@
         window.addEventListener('hashchange', again); document.addEventListener('cleo:route', again);
         offR = function () { window.removeEventListener('hashchange', again); document.removeEventListener('cleo:route', again); };
       }
-      focusHead(el);
+      focusHead(el, ctx);
       return r;
     }, function () {
       if (host !== el) return;

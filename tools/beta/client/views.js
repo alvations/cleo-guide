@@ -5,6 +5,7 @@
   if (!C || !Cleo.route || Cleo.views) return;                  // once per page, even if the file is evaluated twice
   const $ = (s, el) => (el || d).querySelector(s), qa = (s, el) => [].slice.call((el || d).querySelectorAll(s));
   const at = (el, a) => el.getAttribute(a), on = (el, ev, f) => el && el.addEventListener(ev, f);
+  let byUser = '';
   const info = C.info, DEF = info.dv || 'atlas', NAME = { gallery: 'Gallery', atlas: 'Atlas', guidebook: 'Guidebook', insights: 'Insights' };
   const avail = (info.views || ['gallery', 'atlas']).filter(v => NAME[v]), store = Cleo.store || { get: (k, x) => x, set: () => {} };
   const nav = $('[data-cleo-views]'), host = $('#cleo-view'), live = $('#cleo-view-live'), split = $('.split'), lp = $('.listpane');
@@ -41,7 +42,8 @@
   };
   function mount(v) {
     const m = reg[v]; if (!m || m.on) return;
-    m.on = 1; if (host) { host.hidden = false; try { m.mount && m.mount(host, { key: C.key, file: info.file, city: C, total: info.total, go: C.go, view: v }); } catch (e) { if (window.console) console.error(e); } }
+    const user = byUser === v; byUser = '';   // FE-B QC-10: the module focuses its own heading once drawn after a user switch
+    m.on = 1; if (host) { host.hidden = false; try { m.mount && m.mount(host, { key: C.key, file: info.file, city: C, total: info.total, go: C.go, view: v, user }); } catch (e) { if (window.console) console.error(e); } }
 
     if (v === 'insights') grow();
   }
@@ -65,7 +67,12 @@
     if (v !== 'gallery' && Cleo.defer && Cleo.defer.resume) Cleo.defer.resume();   // the lazy observer takes over again
     if (v === 'gallery' && !C.gallery) need('gallery');            // the Gallery extras (rows, covers) load on first use
     if (!NAME[v] || v === 'gallery' || v === 'atlas') { if (host) host.hidden = true; }
-    else loadMod(v, () => { if (cur === v) mount(v); });
+    else {
+      // FE-B QC-10 (SPEC §5): a user switch to a drawn view takes focus to a heading at once — a placeholder h1 named for the
+      // view while its module and data load (focused below), then the module's own h1 when it is drawn (ctx.user)
+      if (o.user && host && !(reg[v] && reg[v].on)) { byUser = v; host.hidden = false; host.innerHTML = '<h1 class="d2" tabindex="-1" data-cleo-pending>' + NAME[v] + '</h1>'; }
+      loadMod(v, () => { if (cur === v) mount(v); });
+    }
     page();
     if (changed && !o.first) {
       if (C.beat) C.beat(html, 'view-in', 360);                      // ROUND-3 #5: cross-fade hook on a real switch (DES CSS)

@@ -41,7 +41,8 @@
    ]
   },
   "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
-  "hardFailure": false
+  "hardFailure": false,
+  "reassisted": "2026-10-16"
  },
  "summary": {
   "pin": 141,
@@ -7937,9 +7938,9 @@
     "date": "2026-10-11"
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -10343,9 +10344,9 @@
     "date": "2026-10-11"
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -11123,7 +11124,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -12808,9 +12809,9 @@
     "date": "2026-10-11"
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "hold",
     "why": [
-     "wikidata coordinate with an independent source within 40 m"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
@@ -13699,7 +13700,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "wikidata coordinate only: needs the address or a second source"
+     "wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source"
     ]
    }
   },
