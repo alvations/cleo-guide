@@ -240,7 +240,7 @@ for (const r of cityRows) {
     // W4 gap #6 (weight): the pin-source sentence (pv.src) moves to the provenance sidecar below; no client reads it
     prov: `data/prov/${r.fileKey}.json`,
     // D-39 (proposed, FE-B W8): `pq` = research date on records whose prose quotes a price or a rating (lib/quoted.js);
-    // views show "Prices and ratings are quoted from the source at the time of research (<pq>)". Prose itself untouched.
+    // views show "Prices, ratings and times are quoted from the source at the time of research (<pq>)". Prose itself untouched.
     // W8 FE-B: Guidebook chapters lead with a credited photo where one exists — per area, the first open SIGHT in view
     // order with a credited photo (imagery gate: never closed, never Vietnam; never a food place). Caption = TASL, linked.
     chapterPhotos: chapterPhotos(r),

@@ -1734,3 +1734,45 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - The sweep mode keeps ours, as before.
   - **QC** (2ed1ddce): QC-01/02/03 verified on 2bfff3fe; QC-10 is still open and went back to FE-B. The designer ratifies the SPEC §3.4 plain-bar wording.
   - **FE-A** got the designer's three food-cover changes. QC and the designer were given 530dc83b to work on.
+
+- 2026-10-16 15:15Z · **Orchestrator** · QA NO on 530dc83b; Atlas panel R3 80.7; Miami pins · commit: this entry's commit
+  - **Atlas panel round 3: 80.7** at 537cfb8c (min 74.0, SD 2.86); R0 56.1 → R1 63.8 → R2 70.9 → R3 80.7. The designer folded it into SPEC-v3 rev 5 (46f4abe3).
+  - **QA delta re-sign on 530dc83b: NO** (566d606e). QA-69 is verified and open High is 0. Two Med regressions against be74c82f:
+    - QA-70 (the phone Gallery map open is about 1.5 s slower; the Gallery B-07 pin step fails on Tokyo/NY). Platform is bisecting be74c82f..530dc83b.
+    - QA-71 (the carousel swipe after a `#p=` round trip). Routed to Atlas FE-2.
+  - **Miami location verify:** 2 of the 11 pass rows were accepted (Jungle Queen Riverboat, OSM POI; Superblue, official geo with the exact address).
+    - Held: 3 closed, 4 extended features, and 2 stale Wikidata coordinates for places that moved (Young At Art: the old Davie building; Locust Projects: the old Design District space).
+    - The location lane now treats Wikipedia as not independent of Wikidata, and guards against moved places (1b0da370).
+    - The four earlier Wikidata+Wikipedia accepts are being re-checked against OSM, official and Census sources.
+  - **Test harness:** test-views.js and test-views-b.js now inline client scripts through a replacer function, so `$&` in client code can't corrupt them (found by i18n).
+  - **Process:** two `npm test` runs at once in one container fail test-honesty and test-views spuriously (each passed alone). This is now a standing rule in BETA-RESUME.
+  - **Routing:**
+    - i18n catalogues FE-B's Guidebook/Insights views;
+    - FE-C does the designer's ten findings before W9-1/W9-9;
+    - FE-B owns QC-09 at 200 % and QC-10. The designer re-verified QC-09 PASS after 639d2b1b.
+
+- 2026-10-16 15:30Z · **Orchestrator** · Erie and Philadelphia pins; QC-15..20 routed; D-42 · commit: this entry's commit
+  - **Location verify:**
+    - Erie: 27 of the 27 pass rows accepted (cdb49bf8). 84 places, 0 missing.
+    - Philadelphia: 25 of the 25 pass rows accepted (062b61a3). 376 places, 0 missing.
+    - Beta is at 8,704 places. Both pushes passed validate, npm test (alone) and beta:check, and the merged head 062b61a3 was re-run green.
+    - Singapore is in flight.
+  - **QC pass on 530dc83b** (3b3f4eda): QC-06/07/08/09 verified, plus QC-10 on 639d2b1b. Six new findings, routed:
+    - QC-15 (base action drops focus, so Esc fails) → FE-C;
+    - QC-16 (ja Insights and method headings) → i18n;
+    - QC-17 (the carousel clips the base line) → Atlas FE-1 with FE-C;
+    - QC-18 (the ja switcher indicator offset, Low) → FE-B;
+    - QC-19 (a rating or popularity line without the D-39 note) and QC-20 (hours in prose) → FE-B, under **D-42**.
+  - **D-42** (docs/BETA-DECISIONS.md): extend D-39 to hours, keeping "label, don't strip". The note becomes "Prices, ratings and times are quoted from the source at the time of research (<date>)", and the sheet says "We don't track opening hours or prices."
+
+- 2026-10-16 15:40Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **QA-70 cause:** FE-2 and platform bisected it independently to 7e746d9b. On today's tip, four `:has()` rules on `<main>` in fe-a.css (197–198 and 201–202) cost about 0.8–1 s of main-thread time per map open. Platform showed that rekeying 197–198 alone still left Tokyo at 2,485 ms; all four removed gives 1,666 ms (be74c82f: 1,654 ms).
+    - FE-2 rekeys all four on script-set attributes.
+    - Platform adds a `:has()` lint with a shrink-only allowlist for 7 cleo.css selectors (PERF-16 → the designer).
+  - **QA-71:** green in FE-2's local tests; the push is pending.
+  - **Location-verify workflow:** a re-check mode for named rows (a74735f4), with names validated by node from env. The location lane's `--duplicates` report was approved.
+  - **Imagery:** plain `all` runs are retired (about 4% yield). Vetted-candidate waves are approved; wave 1 is 20 titles, 6 stated gaps, and run #54 is running. The Pullman Porter photo was refused.
+  - **Pushed today by the lanes:**
+    - FE-A: food covers per the designer (the cover word is never a source or award), B-20 tier links at 44 px, and the false pin-numbers sentence removed;
+    - FE-B: QC-10 follow-up (no focus move on a locale or lens redraw);
+    - i18n: every lane's interface is catalogued, and QC-16 is claimed (7bd091cd).

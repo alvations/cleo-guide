@@ -27,7 +27,7 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
 
 ## Next
 
-1. On the next pin (with QA-69): run the delta re-sign (`git diff --stat 2bfff3fe..<pin>`; re-run the touched rows; always Gallery B-07 on 5/5, run twice because it depends on scroll state). Run the commands below; compare with `design/beta/eval/w7/qa/resign-be74c82f/`.
+1. On the next pin (with QA-70 and QA-71): run the delta re-sign (`git diff --stat 530dc83b..<pin>`; re-run the touched rows; always Gallery B-07 on 5/5, run twice because it depends on scroll state). Run the commands below; compare with `design/beta/eval/w7/qa/resign-be74c82f/`.
 2. QC-01 is verified on 2bfff3fe; re-check it only if `insights.js` changed. Verify QC-01 there: every Insights link opens exactly its count; the canon bars are not links and carry the note.
 3. Re-check QA-70 (time to first pin after the pill tap: page-eval expression in `resign-530dc83b`, compare with be74c82f's 2.45 s / 2.72 s) and QA-71 (`w7.js --only atlasm` swipe, plus the open + Back + swipe probe). Run Gallery B-07 twice.
 4. Reply YES/NO to the orchestrator with the open High/Blocker count. YES needs: 0 open High/Blocker, every R7 row ✅, and no regression versus be74c82f.
@@ -56,10 +56,11 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## In flight
 
-- Nothing. Waiting on FE-A's QA-69 fix and the orchestrator's pin.
+- Nothing. Waiting on QA-70 (platform) and QA-71 (Atlas FE-2), then the orchestrator's pin.
 
 ## Notes
 
 - Before any re-sign, check every claimed SHA with `git merge-base --is-ancestor <sha> <pin>`. FE-A's commits once never reached origin.
-- Probe artefacts: QA-66 (fixed), QA-68 (open). Fix the probe to measure what is painted; never exempt an element.
+- Probe artefacts: QA-66 (fixed), QA-68 (probe fixed; re-check if the straddling state recurs).
+- D-42 (hours, label don't strip): when FE-B lands it, both honesty greps must allow exactly the new sentence. Fix the probe to measure what is painted; never exempt an element.
 - `/home/user/cleo-guide` has a local backup branch `backup/peaceful-goodall-local-2026-10-03` holding a stale October 3 history, intentionally not pushed.

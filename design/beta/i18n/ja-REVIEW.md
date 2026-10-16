@@ -99,4 +99,51 @@ FE-C staged these English strings in `tools/beta/i18n-fec/pending-en.json`. The 
 | `rec.label` | 評価・受賞 | 受賞・注目 | 評価 means tiers and star ratings in the catalogue; the site shows no ratings. |
 | `rec.tile.k` | 評価 | 注目 | Same clash with 評価; consistent with rec.label. |
 
-**Total: 34 changes over six rounds.**
+## Round 7: FE-B's Guidebook and Insights views (`gb.*`, `ins.*`; 11 changes, applied)
+
+These keys came in when the i18n lane catalogued `client/guidebook.js` and `client/insights.js` (approved by the orchestrator, FE-B told first). The Insights footnotes the platform writes into the page data are re-said from `ins.p.*` only when the catalogue's English equals the data text exactly. A fresh independent subagent reviewed the keys under the same brief, with access only to the two catalogues.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `gb.intro.t1` | 必見はまず{a}です。 | 必見の筆頭は{a}です。 | まず〜です read unnaturally for "start with"; 筆頭 says the list begins with {a}. |
+| `gb.intro.t2` | 必見はまず{a}と{b}です。 | 必見の筆頭は{a}と{b}です。 | Parallel to t1. |
+| `gb.intro.pop` | ここの{places}は、ポップカルチャーの巡礼ルートに含まれます。 | このエリアの{places}は、ポップカルチャーの巡礼ルートに含まれます。 | ここの was colloquial; "here" means this area. |
+| `gb.intro.closed.one` | ここの{places}は閉店しました。表示を付けて章の最後に残しています。 | このエリアの{places}は閉店しました。表示を付けて章の最後に残しています。 | Same as gb.intro.pop. |
+| `gb.intro.closed` | ここの{places}は閉店しました。表示を付けて章の最後に残しています。 | このエリアの{places}は閉店しました。表示を付けて章の最後に残しています。 | Same; identical to the .one form. |
+| `gb.dt.closed` | 閉店(掲載継続) | 閉店(記録として掲載) | "kept" is 記録として掲載 everywhere else. |
+| `gb.src.h` | 出典と方法 | 出典と調査方法 | 方法 alone was vague as an appendix heading. |
+| `gb.count.m` |  がこの絞り込みに一致します。 | がこの絞り込みに一致します。 | The English leading space left a stray space after Japanese text. |
+| `ins.spr.absent` |  そのようなピンが2件未満のエリアは、0で埋めずに省いています。 | そのようなピンが2件未満のエリアは、0で埋めずに省いています。 | Same stray-space fix (it follows a 。). |
+| `ins.src.t` | 各エリアを推薦しているのは | 各エリアを推薦している出典 | A heading should be a noun phrase. |
+| `ins.rec.cited` | 3件以上の出典が掲載 | 3件以上の出典に掲載 | "Cited by" is passive. |
+
+## Round 8: FE-C's second batch (43 new keys: `base.*`, `geo.walk.*`, `share.*`; 4 changes, applied)
+
+FE-C's pending list grew to 122 keys: the round-6 strings plus 43 new ones. At FE-C's request the i18n lane merged all 122 into en.json and ja.json together with FE-C's prepared client patch, in one commit. A fresh independent subagent reviewed the 43 new strings under the same brief.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `base.from` | 起点: | 拠点: | The から word order doesn't fit between distance and name, so it must be a label, and the catalogue's term is 拠点. |
+| `base.cleared.why` | 拠点を解除しました: {why}。 | 拠点が解除されました: {why}。 | The English is passive (the guide cleared it, not the user). |
+| `share.checked.to` | {date}まで営業状況を確認 | 営業状況は{date}時点で確認済み | まで read as "will check until"; the meaning is "checked as of". |
+| `share.more` | ほか{n}か所はリンクで | ほか{n}か所はリンク先に | リンクで read unfinished. |
+
+## Round 9: method, accessibility and 404 headings (`m.*`, `a.*`, `nf.*`), the updated banner, and FE-C's `trip.page.*` (2 changes, applied)
+
+QC-16: the method pages' headings, labels and buttons moved to the catalogue. The banner now says the method pages' longer explanations stay in English too, which matches what a visitor sees. A fresh independent subagent reviewed the strings under the same brief.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `note.text` | 日本語の画面表示: 機械翻訳し、別のAIによるレビューで確認したものです。各場所の解説と、方法のページの詳しい説明は英語のままです。 | 日本語の画面表示: 機械翻訳し、別のAIによるレビューで確認したものです。各場所の解説と、選定方法のページの詳しい説明は英語のままです。 | The catalogue translates "Method" as 選定方法. |
+| `trip.page.desc` | 保存した場所から数日間の旅程を作ります。1日1エリア、近い順、徒歩時間の目安つきで、閉店した場所は理由を添えて除外します。リンク1つ、印刷できる冊子、KMLに対応しています。 | 保存した場所から数日間の旅程を作ります。1日1エリア、近い順、徒歩時間の目安つきで、閉店した場所は理由を添えて除外します。リンク1つ、印刷できる冊子、KMLで使えます。 | 対応しています read like a spec sheet. |
+
+## Round 10: lane edits to existing strings (`city.how.order` by FE-A, 5bd4b3c4; `sheet.quoted` and `sheet.nohours` by FE-B for D-42, 6583673c; 2 changes, applied)
+
+FE-A removed a sentence from both languages, and the ja still flows (accepted as is). FE-B changed two strings and wrote their ja. A fresh independent subagent reviewed the three strings under the same brief.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `sheet.quoted` | 価格・評価・時間は、調査時点の出典からの引用です({d})。 | 価格・星評価・時間は、調査時点の出典からの引用です({d})。 | "Ratings" quoted from a source are review-site star ratings (星評価); 評価 means the guide's tiers. |
+| `sheet.nohours` | 営業時間と価格は追跡していません | 営業時間・価格は扱っていません | 追跡 read as monitoring; 扱っていません is the natural "we don't track". |
+
+**Total: 53 changes over ten rounds.**

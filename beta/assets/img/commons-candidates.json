@@ -38,16 +38,16 @@
   },
   "otherLandmarks": {
    "targets": 1151,
-   "skipped": 223,
-   "withArticle": 632
+   "skipped": 229,
+   "withArticle": 627
   },
   "candidates": {
-   "total": 423,
-   "high": 409,
+   "total": 444,
+   "high": 430,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 212,
+  "targetsWithHigh": 222,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -2818,7 +2818,24 @@
    "article": "https://en.wikipedia.org/wiki/Odori_Park",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Odori Park Sapporo.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Odori_Park_Sapporo.JPG",
+     "depicts": "Ōdōri Park in Sapporo in summer (Aug 2006)",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Odori Park, Sapporo; own work, Daigaku2051"
+    },
+    {
+     "file": "File:Odori Park (15982613668).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Odori_Park_(15982613668).jpg",
+     "depicts": "Ōdōri Park, Sapporo",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Odori Park; Flickr import"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#kyoto-international-manga-museum",
@@ -2893,7 +2910,24 @@
    "article": "https://en.wikipedia.org/wiki/Uluwatu_Temple",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Uluwatu temple, Bali.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Uluwatu_temple,_Bali.jpg",
+     "depicts": "Uluwatu Temple on its clifftop, Bali",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Uluwatu temple, Bali"
+    },
+    {
+     "file": "File:Uluwatu Temple Cliff, Bali.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Uluwatu_Temple_Cliff,_Bali.jpg",
+     "depicts": "Uluwatu Temple on its cliff above the sea, Bali",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Uluwatu Temple; in Category:Pura Luhur Uluwatu"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/bangkok#grand-palace-and-wat-phra-kaew",
@@ -2958,7 +2992,24 @@
    "article": "https://en.wikipedia.org/wiki/Bas%C3%ADlica_Minore_del_Santo_Ni%C3%B1o",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Basilica Minore del Santo Niño de Cebu facade (Osmeña Boulevard, Cebu City; 01-14-2023).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Basilica_Minore_del_Santo_Ni%C3%B1o_de_Cebu_facade_(Osme%C3%B1a_Boulevard,_Cebu_City;_01-14-2023).jpg",
+     "depicts": "The façade of the Basilica Minore del Santo Niño, Cebu City",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Basilica Minore del Santo Niño façade"
+    },
+    {
+     "file": "File:Basilica Minore del Santo Niño in Cebu City 02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Basilica_Minore_del_Santo_Ni%C3%B1o_in_Cebu_City_02.jpg",
+     "depicts": "Basilica Minore del Santo Niño, Cebu City",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Basilica Minore del Santo Niño"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/changi#jewel-changi-airport-and-hsbc-rain-vortex",
@@ -3033,7 +3084,24 @@
    "article": "https://en.wikipedia.org/wiki/Petronas_Towers",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Petronas Twin Towers in Kuala Lumpur (2) (10498382174).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Petronas_Twin_Towers_in_Kuala_Lumpur_(2)_(10498382174).jpg",
+     "depicts": "The Petronas Twin Towers, Kuala Lumpur",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Petronas Twin Towers"
+    },
+    {
+     "file": "File:The Petronas Twin Towers & KLCC Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Petronas_Twin_Towers_&_KLCC_Park.jpg",
+     "depicts": "The Petronas Twin Towers over KLCC Park",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Petronas Twin Towers"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/luang-prabang#luang-prabang-old-town-wat-xieng-thong",
@@ -3076,8 +3144,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Singapore_Zoo",
+   "skip": "candidate wave 1: Commons holds animal close-ups and the (refused) entrance sign, no view of the zoo itself — calm cover (stated)",
    "priority": "lead",
-   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -3177,8 +3245,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Coney_Island,_Singapore",
+   "skip": "candidate wave 1: no Commons file of Coney Island Park, Singapore turned up — calm cover (stated)",
    "priority": "lead",
-   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3238,6 +3306,20 @@
      "confidence": "high",
      "reason": "lead image (run #35)",
      "refused": "refused (W8): an information board — signage is the subject"
+    },
+    {
+     "file": "File:MacRitchie Reservoir.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:MacRitchie_Reservoir.jpg",
+     "depicts": "MacRitchie Reservoir, Singapore",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names MacRitchie Reservoir"
+    },
+    {
+     "file": "File:Sunset at Macritchie Reservoir (8128197465).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Macritchie_Reservoir_(8128197465).jpg",
+     "depicts": "MacRitchie Reservoir at sunset",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names MacRitchie Reservoir"
     }
    ]
   },
@@ -3587,8 +3669,8 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E9%B0%8A%E5%BE%A1%E6%AE%BF",
+   "skip": "candidate wave 1: no Commons file of the Former Aoyama Villa / Otaru Kihinkan turned up (searched English and Japanese) — calm cover (stated)",
    "priority": "row",
-   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3619,7 +3701,24 @@
    "article": "https://en.wikipedia.org/wiki/Historical_Village_of_Hokkaido",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:北海道開拓の村(Historical Village of Hokkaido) - panoramio (4).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%B5%B7%E9%81%93%E9%96%8B%E6%8B%93%E3%81%AE%E6%9D%91(Historical_Village_of_Hokkaido)_-_panoramio_(4).jpg",
+     "depicts": "Historical Village of Hokkaido, open-air museum buildings",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Historical Village of Hokkaido (北海道開拓の村)"
+    },
+    {
+     "file": "File:220722 Historical Village of Hokkaido Sapporo Hokkaido Japan44s5.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:220722_Historical_Village_of_Hokkaido_Sapporo_Hokkaido_Japan44s5.jpg",
+     "depicts": "Historical Village of Hokkaido",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Historical Village of Hokkaido"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#jozankei-onsen",
@@ -3819,7 +3918,24 @@
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kozanji Kyoto Kyoto09s5s4592.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kozanji_Kyoto_Kyoto09s5s4592.jpg",
+     "depicts": "Kōzan-ji temple, Kyoto",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Kozanji, Kyoto; in Category:Kōzan-ji (Kyoto)"
+    },
+    {
+     "file": "File:Kozanji Kyoto Kyoto11s5s4592.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kozanji_Kyoto_Kyoto11s5s4592.jpg",
+     "depicts": "Kōzan-ji temple, Kyoto",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Kozanji, Kyoto; in Category:Kōzan-ji (Kyoto)"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#marufukuro-former-nintendo-headquarters",
@@ -3863,8 +3979,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Nintendo_Museum",
+   "skip": "candidate wave 1: a brand venue; its exterior photos carry the brand, the branding is the subject — calm cover (stated)",
    "priority": "row",
-   "wikiLead": true,
    "candidates": []
   },
   {
@@ -4140,8 +4256,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Nipponbashi",
+   "skip": "candidate wave 1: a shop street whose every photo is dominated by signage (the lead image was refused for it) — calm cover (stated)",
    "priority": "row",
-   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -4294,7 +4410,24 @@
    "article": "https://en.wikipedia.org/wiki/Cantor_Arts_Center",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Cantor Arts Center Halperin Family Wing.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cantor_Arts_Center_Halperin_Family_Wing.JPG",
+     "depicts": "The Cantor Arts Center at Stanford (Halperin Family Wing)",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Cantor Arts Center"
+    },
+    {
+     "file": "File:B. Gerald Cantor Rodin Sculpture Garden at Stanford University; north entrance.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:B._Gerald_Cantor_Rodin_Sculpture_Garden_at_Stanford_University;_north_entrance.JPG",
+     "depicts": "The Rodin Sculpture Garden at Stanford",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Cantor Rodin Sculpture Garden (Rodin, d. 1917: public domain)"
+    }
+   ]
   },
   {
    "key": "landmark:siliconvalley#elizabeth-f-gamble-garden",
@@ -4306,6 +4439,7 @@
     "Gamble Garden"
    ],
    "pilot": false,
+   "skip": "candidate wave 1: Commons holds only flower close-ups of Gamble Garden — calm cover (stated)",
    "priority": "row",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
@@ -4350,7 +4484,24 @@
    "article": "https://en.wikipedia.org/wiki/Stanford_Memorial_Church",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Stanford Memorial Church (2025)-L1007381.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Stanford_Memorial_Church_(2025)-L1007381.jpg",
+     "depicts": "Stanford Memorial Church seen from the Main Quad",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Stanford Memorial Church; north façade from the Main Quad"
+    },
+    {
+     "file": "File:Stanford MainQuad.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Stanford_MainQuad.JPG",
+     "depicts": "Stanford University Main Quad",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names the Stanford Main Quad"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/bangkok#wat-arun",
@@ -4408,7 +4559,24 @@
    "article": "https://en.wikipedia.org/wiki/Kuang_Si_Falls",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kuang Si Falls and its turquoise tiered water pools in Luang Prabang province Laos.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kuang_Si_Falls_and_its_turquoise_tiered_water_pools_in_Luang_Prabang_province_Laos.jpg",
+     "depicts": "Kuang Si Falls and its turquoise tiered pools",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Kuang Si Falls; Basile Morin"
+    },
+    {
+     "file": "File:Main Cascade - Kuang Si Falls, Luang Prabang, Laos.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Main_Cascade_-_Kuang_Si_Falls,_Luang_Prabang,_Laos.jpg",
+     "depicts": "The main cascade of Kuang Si Falls",
+     "confidence": "high",
+     "reason": "candidate wave 1 (W8 vetting, 2026-10-16): title names Kuang Si Falls"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/mandai#night-safari",
@@ -4789,7 +4957,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Gotokuji_Temple_(Cat_Temple).jpg",
      "depicts": "Gōtoku-ji temple grounds",
      "confidence": "high",
-     "reason": "title names Gotokuji Temple (QA-63 re-lead)"
+     "reason": "title names Gotokuji Temple (QA-63 re-lead)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): an altar interior, not the temple or its cats (wrong subject)"
     },
     {
      "file": "File:Dedicated Maneki-nekos (招き猫) in Gotoku-ji (豪徳寺) - panoramio.jpg",
@@ -6521,7 +6690,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Cleveland_Museum_of_Art_-_south_facade.jpg",
      "depicts": "The south façade of the Cleveland Museum of Art",
      "confidence": "high",
-     "reason": "title names the Cleveland Museum of Art south façade (copied from the exterior category; QA-63)"
+     "reason": "title names the Cleveland Museum of Art south façade (copied from the exterior category; QA-63)",
+     "refused": "refused by visual review (W8, all run #48, R7-g1): big OPEN banners across the facade (signage rule)"
     },
     {
      "file": "File:Cleveland Museum of Art.jpg",
@@ -10726,7 +10896,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Pullman,_Chicago",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Pullman Chicago Clock Tower.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pullman_Chicago_Clock_Tower.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #52)",
+     "refused": "refused by visual review (W8, all run #52, R7-g1): the Pullman factory clock tower, not the Porter museum building (wrong subject)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#national-museum-of-mexican-art",

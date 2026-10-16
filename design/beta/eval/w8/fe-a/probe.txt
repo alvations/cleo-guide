@@ -106,7 +106,7 @@
   PASS  @390 light cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @390 light cities/tokyo.html: no photo shown wider than its file = []
   PASS  @390 light cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @390 light cities/tokyo.html#all=1: 58 credits, none overflow their box = []
+  PASS  @390 light cities/tokyo.html#all=1: 59 credits, none overflow their box = []
   PASS  @390 light cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @390 light cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @390 light cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -134,7 +134,7 @@
   PASS  @390 dark cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @390 dark cities/tokyo.html: no photo shown wider than its file = []
   PASS  @390 dark cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @390 dark cities/tokyo.html#all=1: 58 credits, none overflow their box = []
+  PASS  @390 dark cities/tokyo.html#all=1: 59 credits, none overflow their box = []
   PASS  @390 dark cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @390 dark cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @390 dark cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -162,7 +162,7 @@
   PASS  @1440 light cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @1440 light cities/tokyo.html: no photo shown wider than its file = []
   PASS  @1440 light cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @1440 light cities/tokyo.html#all=1: 57 credits, none overflow their box = []
+  PASS  @1440 light cities/tokyo.html#all=1: 58 credits, none overflow their box = []
   PASS  @1440 light cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @1440 light cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @1440 light cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -190,7 +190,7 @@
   PASS  @1440 dark cities/tokyo.html: the search placeholder fits unclipped = null
   PASS  @1440 dark cities/tokyo.html: no photo shown wider than its file = []
   PASS  @1440 dark cities/tokyo.html: no single-word last line in the dek or the stat line = []
-  PASS  @1440 dark cities/tokyo.html#all=1: 57 credits, none overflow their box = []
+  PASS  @1440 dark cities/tokyo.html#all=1: 58 credits, none overflow their box = []
   PASS  @1440 dark cities/tokyo.html#all=1: top bar / city bar / tab bar fully opaque = []
   PASS  @1440 dark cities/tokyo.html#all=1: the search placeholder fits unclipped = null
   PASS  @1440 dark cities/tokyo.html#all=1: no photo shown wider than its file = []
@@ -238,6 +238,11 @@
   PASS  imperial-palace-east-gardens: a wide copy sets the slot — media 960 px = slot 960 px, file 960 w, no band = {"cls":"hero-plate has-photo ph-fit","hw":960,"iw":960,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"none"}
   PASS  ueno-park: a narrow copy sits at its own width (720 ≤ 720) in side bands of its own tone, not sand = {"cls":"hero-plate has-photo ph-frame","hw":1024,"iw":720,"fw":720,"bg":"rgba(0, 0, 0, 0)","band":"color(srgb 0.533922 0.525294 0.512353) -720px 0px 0px 0px, c"}
   PASS  koishikawa-korakuen: a narrow copy sits at its own width (691 ≤ 960) in side bands of its own tone, not sand = {"cls":"hero-plate has-photo ph-frame","hw":1024,"iw":691,"fw":960,"bg":"rgba(0, 0, 0, 0)","band":"color(srgb 0.533922 0.525294 0.512353) -691px 0px 0px 0px, c"}
+# B-20 (FE-B sweep): the card "Must see" link is a ≥ 44 × 44 tap target on phones
+  PASS  @390 cities/akron.html#all=1: 39 tier links, none under 44 × 44 = []
+  PASS  @390 cities/ghent.html#all=1: 27 tier links, none under 44 × 44 = []
+  PASS  @390 cities/okinawa.html#all=1: 122 tier links, none under 44 × 44 = []
+  PASS  @390 cities/tokyo.html#all=1: 177 tier links, none under 44 × 44 = []
 # QC-07: Esc returns focus to the control that opened the sheet
   PASS  @390 .g-rows li.gc .gc-a #p-kanda-myojin: Enter opens the sheet, Esc returns focus to that same control = "gc-a #p-kanda-myojin"
   PASS  @390 #cleo-lead li.gc .gc-a #p-kanda-myojin: Enter opens the sheet, Esc returns focus to that same control = "gc-a #p-kanda-myojin"

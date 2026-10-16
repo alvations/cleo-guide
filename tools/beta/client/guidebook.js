@@ -19,12 +19,17 @@
   }
 })(typeof self !== 'undefined' ? self : this, function () {
   'use strict';
-  var TIER = { 1: 'Must see', 2: 'Worth the detour', 3: 'Deep cut' };
+  // i18n D-41: interface strings from the catalogue (Cleo.t, the page's head snippet); the English here equals en.json
+  // (test-i18n). In node (the gates) there is no Cleo, so the English is filled in place: output unchanged.
+  var tt = function (k, e, v) { var C = typeof self !== 'undefined' && self.Cleo; return C && C.t ? C.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
+  var TIER = { get 1() { return tt('tier.1', 'Must see'); }, get 2() { return tt('tier.2', 'Worth the detour'); }, get 3() { return tt('tier.3', 'Deep cut'); } };
+  var places = function (n) { return n === 1 ? tt('hub.places.one', '1 place') : tt('hub.places', '{n} places', { n: n }); };
   var LANG = { japan: 'ja', singapore: 'zh', vietnam: 'vi' };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
   var plural = function (n, w, pl) { return n + ' ' + (n === 1 ? w : (pl || w + 's')); };
   var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  var longDate = function (v) { var m = /^(\d{4})-(\d{2})(?:-(\d{2}))?/.exec(v || ''); return m ? (m[3] ? +m[3] + ' ' : '') + MONTHS[+m[2] - 1] + ' ' + m[1] : String(v || ''); };
+  var longDate = function (v) { var m = /^(\d{4})-(\d{2})(?:-(\d{2}))?/.exec(v || ''); if (!m) return String(v || ''); var mo = tt('land.month.names', MONTHS.join(',')).split(',')[+m[2] - 1];
+    return m[3] ? tt('gb.date', '{d} {month} {y}', { d: +m[3], month: mo, y: m[1] }) : tt('gb.date.m', '{month} {y}', { month: mo, y: m[1] }); };
   var shortArea = function (n) { return String(n || '').split(/\s+[(—–]\s*|\s+\(/)[0].trim(); };
 
   /* ---- the view model: one record set, view order = area order then rank (P-01 `rank` when the build ships it) ---- */
@@ -57,7 +62,7 @@
       hasPop: Object.keys(pop).length > 0, lang: LANG[d.country] || '', color: function (a) { return (d.colors || {})[a] || '#888'; } };
   }
   var srcShort = function (M, id) {
-    if (id === 'guide') return 'Added by the guide';
+    if (id === 'guide') return tt('sheet.added', 'Added by the guide');
     var s = M.src[id]; return s ? String(s.name).split(/\s+[·—(]\s*/)[0].slice(0, 34) : id;
   };
   var hoods = function (n) {
@@ -78,30 +83,30 @@
     var s = op.filter(function (x) { return x.p.kind !== 'food'; }), f = op.filter(function (x) { return x.p.kind === 'food'; });
     var t1 = op.filter(function (x) { return x.p.t === 1; }), pop = op.filter(function (x) { return x.k3 === 'pop'; });
     var top = mostCited(lst, true), cl = lst.length - op.length;
-    var out = [shortArea(a.n) + ' holds ' + plural(lst.length, 'place') + ' in this guide: ' + plural(s.length, 'sight') + ' and ' + plural(f.length, 'place') + ' to eat or drink.'];
-    if (t1.length) out.push((t1.length === 1 ? 'Its must-see is ' : 'Its must-sees start with ') + t1[0].name + (t1.length > 1 ? ' and ' + t1[1].name : '') + '.');
-    if (pop.length) out.push(plural(pop.length, 'place') + ' here belong to the pop-culture trail.');
-    if (top) out.push('The source that names the most of them is ' + srcShort(M, top[0]) + ' (' + top[1] + ').');
-    if (cl) out.push(plural(cl, 'place') + ' here ' + (cl === 1 ? 'has' : 'have') + ' closed; ' + (cl === 1 ? 'it stays' : 'they stay') + ' at the end of the chapter, flagged.');
+    var out = [tt('gb.intro.holds', '{area} holds {places} in this guide: {sights} and {food} to eat or drink.', { area: shortArea(a.n), places: places(lst.length), sights: s.length === 1 ? tt('gb.sights.one', '1 sight') : tt('gb.sights', '{n} sights', { n: s.length }), food: places(f.length) })];
+    if (t1.length) out.push(t1.length === 1 ? tt('gb.intro.t1.one', 'Its must-see is {a}.', { a: t1[0].name }) : t1[1] ? tt('gb.intro.t2', 'Its must-sees start with {a} and {b}.', { a: t1[0].name, b: t1[1].name }) : tt('gb.intro.t1', 'Its must-sees start with {a}.', { a: t1[0].name }));
+    if (pop.length) out.push(tt('gb.intro.pop', '{places} here belong to the pop-culture trail.', { places: places(pop.length) }));
+    if (top) out.push(tt('gb.intro.top', 'The source that names the most of them is {src} ({n}).', { src: srcShort(M, top[0]), n: top[1] }));
+    if (cl) out.push(cl === 1 ? tt('gb.intro.closed.one', '{places} here has closed; it stays at the end of the chapter, flagged.', { places: places(cl) }) : tt('gb.intro.closed', '{places} here have closed; they stay at the end of the chapter, flagged.', { places: places(cl) }));
     return out.join(' ');
   }
 
   function entry(M, x) {
     var p = x.p, ref = M.d.key + '/' + p.id;
     var tier = x.open ? '<span class="tier t' + p.t + '"><i class="tg t' + p.t + '" aria-hidden="true"></i>' + TIER[p.t] + '</span>'
-      : '<span class="flag closed">Closed · kept for the record</span>';
+      : '<span class="flag closed">' + tt('gal.closed', 'Closed · kept for the record') + '</span>';
     var rec = (p.src || []).map(function (s) {
       return '<button type="button" class="src' + (s === 'guide' ? ' added' : '') + '" data-src="' + esc(s) + '">' + esc(srcShort(M, s)) + '</button>';
     }).join('<span class="sep">, </span>');
     return '<li class="ge" id="gb-' + esc(p.id) + '" data-id="' + esc(p.id) + '" data-a="' + esc(p.a) + '" data-k3="' + x.k3 + '" data-rank="' + x.rank + '"' + (x.open ? '' : ' data-closed') + '>' +
-      '<h4><span class="rk" title="No. ' + x.rank + ' of ' + x.of + ' in ' + esc(shortArea((M.d.areas.filter(function (a) { return a.id === p.a; })[0] || {}).n || p.a)) + '">' + x.rank + '</span><a href="#p=' + encodeURIComponent(p.id) + '" data-cleo-entry>' + esc(x.name) +
+      '<h4><span class="rk" title="' + esc(tt('sheet.rank', 'No. {k} of {n} in {area}', { k: x.rank, n: x.of, area: shortArea((M.d.areas.filter(function (a) { return a.id === p.a; })[0] || {}).n || p.a) })) + '">' + x.rank + '</span><a href="#p=' + encodeURIComponent(p.id) + '" data-cleo-entry>' + esc(x.name) +
       (p.nat ? ' <span class="nat"' + (M.lang ? ' lang="' + M.lang + '"' : '') + '>' + esc(p.nat) + '</span>' : '') + '</a></h4>' +
       '<p class="ge-m">' + tier + (p.ad ? '<span class="ad">' + esc(p.ad) + '</span>' : '') + '</p>' +
-      (p.w ? '<p class="ge-w">' + esc(p.w) + '</p>' : '') + (p.k ? '<p class="gk">Look for: ' + esc(p.k) + '</p>' : '') +
+      (p.w ? '<p class="ge-w">' + esc(p.w) + '</p>' : '') + (p.k ? '<p class="gk">' + tt('sheet.look', 'Look for:') + ' ' + esc(p.k) + '</p>' : '') +
       // D-39 (proposed): prose that quotes a price or a rating is labelled as a dated quote, never edited (`pq` from build)
-      (p.pq ? '<p class="gq sm muted">Prices and ratings are quoted from the source at the time of research (' + esc(p.pq) + ').</p>' : '') +
-      '<p class="recby"><span>Recommended by</span> ' + rec + '</p>' +
-      '<button type="button" class="heart ge-save" data-cleo-ref="' + esc(ref) + '" aria-pressed="false" aria-label="Save ' + esc(x.name) + '">Save</button></li>';
+      (p.pq ? '<p class="gq sm muted">' + esc(tt('sheet.quoted', 'Prices, ratings and times are quoted from the source at the time of research ({d}).', { d: p.pq })) + '</p>' : '') +
+      '<p class="recby"><span>' + tt('card.recby', 'Recommended by') + '</span> ' + rec + '</p>' +
+      '<button type="button" class="heart ge-save" data-cleo-ref="' + esc(ref) + '" aria-pressed="false" aria-label="' + esc(tt('gal.save', 'Save {name}', { name: x.name })) + '">' + tt('sheet.save', 'Save') + '</button></li>';
   }
 
   /* ---- the whole guidebook as an HTML string (no DOM needed: node renders the same thing for the gates) ---- */
@@ -118,23 +123,23 @@
       var pop = op.filter(function (x) { return x.p.t !== 1 && x.k3 === 'pop'; });
       var gone = lst.filter(function (x) { return !x.open; });
       if (top.length + see.length + eat.length + pop.length + gone.length !== lst.length) throw new Error('guidebook section split lost records in ' + a.id);
-      var secs = [['top', 'Top picks', top], ['see', 'See', see], ['eat', 'Eat', eat], ['pop', 'Pop culture', pop], ['gone', 'Kept for the record', gone]]
+      var secs = [['top', tt('gb.top', 'Top picks'), top], ['see', tt('gal.see', 'See'), see], ['eat', tt('gb.eat', 'Eat'), eat], ['pop', tt('fy.i.pop', 'Pop culture'), pop], ['gone', tt('city.door.closed.k', 'Kept for the record'), gone]]
         .filter(function (s) { return s[2].length; })
         .map(function (s) { count += s[2].length; return '<section class="gs gs-' + s[0] + '"><h3 class="d3">' + s[1] + ' <span class="meta">' + s[2].length + '</span></h3><ol class="gl">' + s[2].map(function (x) { return entry(M, x); }).join('') + '</ol></section>'; });
       var art = ((d.art || {}).areas || {})[a.id];
       var cited = mostCited(lst, false), pinned = lst.filter(function (x) { var pv = x.p.pv || {}; return pv.pin === 'high' || pv.pin === 'med'; }).length;
       var checked = lst.reduce(function (m, x) { var c = (x.p.pv || {}).checked || ''; return c > m ? c : m; }, '');
       var canonHere = op.filter(function (x) { return canon[x.p.id]; }).length;
-      var side = '<aside class="facts-box" aria-label="' + esc(shortArea(a.n)) + ' in numbers">' +
+      var side = '<aside class="facts-box" aria-label="' + esc(tt('gb.side', '{area} in numbers', { area: shortArea(a.n) })) + '">' +
         (art ? '<img class="sil" src="' + esc(up + art.src) + '" alt="" width="' + art.w + '" height="' + art.h + '" loading="lazy" decoding="async">' : '') +
-        '<dl><dt>Places</dt><dd>' + lst.length + '</dd><dt>Sights · eat &amp; drink</dt><dd>' + (lst.length - lst.filter(function (x) { return x.p.kind === 'food'; }).length) + ' · ' + lst.filter(function (x) { return x.p.kind === 'food'; }).length + '</dd>' +
-        '<dt>Must see</dt><dd>' + top.length + '</dd>' + (canonHere ? '<dt>' + esc(g.canon.title) + '</dt><dd>' + canonHere + '</dd>' : '') +
-        '<dt>Closed, kept</dt><dd>' + gone.length + '</dd>' + (cited ? '<dt>Most-cited source</dt><dd>' + esc(srcShort(M, cited[0])) + ' (' + cited[1] + ')</dd>' : '') +
-        '<dt>Pins verified</dt><dd>' + pinned + ' of ' + lst.length + '</dd>' + (checked ? '<dt>Status checked</dt><dd>to <time>' + esc(checked) + '</time></dd>' : '') + '</dl></aside>';
+        '<dl><dt>' + tt('gb.dt.places', 'Places') + '</dt><dd>' + lst.length + '</dd><dt>' + esc(tt('gb.dt.kinds', 'Sights · eat & drink')) + '</dt><dd>' + (lst.length - lst.filter(function (x) { return x.p.kind === 'food'; }).length) + ' · ' + lst.filter(function (x) { return x.p.kind === 'food'; }).length + '</dd>' +
+        '<dt>' + TIER[1] + '</dt><dd>' + top.length + '</dd>' + (canonHere ? '<dt>' + esc(g.canon.title) + '</dt><dd>' + canonHere + '</dd>' : '') +
+        '<dt>' + tt('gb.dt.closed', 'Closed, kept') + '</dt><dd>' + gone.length + '</dd>' + (cited ? '<dt>' + tt('gb.dt.cited', 'Most-cited source') + '</dt><dd>' + esc(srcShort(M, cited[0])) + ' (' + cited[1] + ')</dd>' : '') +
+        '<dt>' + tt('gb.dt.pins', 'Pins verified') + '</dt><dd>' + tt('gb.of', '{a} of {b}', { a: pinned, b: lst.length }) + '</dd>' + (checked ? '<dt>' + tt('gb.dt.checked', 'Status checked') + '</dt><dd>' + tt('gb.to', 'to {d}', { d: '<time>' + esc(checked) + '</time>' }) + '</dd>' : '') + '</dl></aside>';
       var hd = hoods(a.n);
       // a chapter = shell (header, always mounted) + body (intro, sections, facts) — the body mounts on approach (gap #6)
       var shell = '<article class="ch" id="gb-area-' + esc(a.id) + '" data-area="' + esc(a.id) + '" aria-labelledby="gb-ch-' + esc(a.id) + '" style="--ac:' + esc(ac) + '">' +
-        '<header class="ch-h"><p class="eyebrow">Chapter ' + (n + 1) + ' of ' + A + '</p><h2 id="gb-ch-' + esc(a.id) + '" class="d1" tabindex="-1">' + esc(shortArea(a.n)) + '</h2>' + (hd ? '<p class="hoods">' + esc(hd) + '</p>' : '') + '</header>' +
+        '<header class="ch-h"><p class="eyebrow">' + tt('gb.chapter', 'Chapter {n} of {total}', { n: n + 1, total: A }) + '</p><h2 id="gb-ch-' + esc(a.id) + '" class="d1" tabindex="-1">' + esc(shortArea(a.n)) + '</h2>' + (hd ? '<p class="hoods">' + esc(hd) + '</p>' : '') + '</header>' +
         '<div class="ch-g" data-gb-body="' + esc(a.id) + '">';
       // W8: the chapter leads with a credited photo where one exists (build: chapterPhotos — open sights only, never Vietnam);
       // the TASL credit sits under the media (cap is generated by the imagery credit gate, already escaped)
@@ -154,17 +159,17 @@
       (cp0.set && cp0.set.length > 1 ? ' srcset="' + cp0.set.map(function (w) { return esc(up + w[0]) + ' ' + w[1] + 'w'; }).join(', ') + '" sizes="(min-width: 1024px) 760px, 92vw"' : '') +
       ' width="' + cp0.w + '" height="' + cp0.h + '" alt="' + esc(cp0.alt) + '" decoding="async" style="aspect-ratio:16/9;height:auto;object-fit:cover"><figcaption>' + cp0.cap + '</figcaption></figure>' : '';
     // W9-10: every number on the edition line is the page JSON's own (stats.total / stats.closed / stats.lastChecked)
-    var edl = ed ? '<p class="edition" data-edition="' + ed + '"><b>' + longDate(ed) + ' edition</b> · <span data-n="total">' + plural(st.total || M.N, 'place') + '</span>' +
-      ' · <span data-n="closed">' + (st.closed || 0) + ' closed</span>' + (st.lastChecked ? ' · <span data-d="checked">checked to <time datetime="' + esc(st.lastChecked) + '">' + longDate(st.lastChecked) + '</time></span>' : '') + '</p>' : '';
-    var cover = '<header class="gcover' + (cphoto ? ' has-photo' : '') + '">' + cphoto + '<p class="kicker">A field guide · ' + plural(A, 'chapter') + ' · ' + plural(M.N, 'place') + '</p>' +
+    var edl = ed ? '<p class="edition" data-edition="' + ed + '"><b>' + tt('gb.edition', '{date} edition', { date: longDate(ed) }) + '</b> · <span data-n="total">' + places(st.total || M.N) + '</span>' +
+      ' · <span data-n="closed">' + tt('city.facts.closed', '{n} closed', { n: st.closed || 0 }) + '</span>' + (st.lastChecked ? ' · <span data-d="checked">' + tt('gb.checkedto', 'checked to {d}', { d: '<time datetime="' + esc(st.lastChecked) + '">' + longDate(st.lastChecked) + '</time>' }) + '</span>' : '') + '</p>' : '';
+    var cover = '<header class="gcover' + (cphoto ? ' has-photo' : '') + '">' + cphoto + '<p class="kicker">' + tt('gb.kicker', 'A field guide · {chapters} · {places}', { chapters: A === 1 ? tt('gb.chapters.one', '1 chapter') : tt('gb.chapters', '{n} chapters', { n: A }), places: places(M.N) }) + '</p>' +
       '<h1 class="hero-t" tabindex="-1">' + esc(d.name) + (d.nat ? ' <span class="native"' + (M.lang ? ' lang="' + M.lang + '"' : '') + '>' + esc(d.nat) + '</span>' : '') + '</h1>' + edl +
       (g.tileLine && g.tileLine.text ? '<p class="lead">' + esc(g.tileLine.text) + '</p>' : '') +
-      '<p class="gfacts">' + [plural(st.sights || 0, 'sight'), plural(st.food || 0, 'place') + ' to eat and drink', plural(st.sources || 0, 'named source'),
-        (st.verifiedPins || 0) + ' of ' + (st.pins || 0) + ' pins verified'].concat(st.lastChecked ? ['status checked to ' + longDate(st.lastChecked)] : []).map(esc).join(' · ') + '</p>' +
-      (sig ? '<p class="gsig">★ ' + esc(sig.label || sig.title) + ': ' + plural(sig.n, 'place') + ', marked through the chapters.</p>' : '') + '</header>' + since(M, up);
+      '<p class="gfacts">' + [(st.sights || 0) === 1 ? tt('gb.sights.one', '1 sight') : tt('gb.sights', '{n} sights', { n: st.sights || 0 }), tt('gb.food', '{places} to eat and drink', { places: places(st.food || 0) }), (st.sources || 0) === 1 ? tt('gb.sources.one', '1 named source') : tt('gb.sources', '{n} named sources', { n: st.sources || 0 }),
+        tt('gb.pins', '{a} of {b} pins verified', { a: st.verifiedPins || 0, b: st.pins || 0 })].concat(st.lastChecked ? [tt('gb.statusto', 'status checked to {d}', { d: longDate(st.lastChecked) })] : []).map(esc).join(' · ') + '</p>' +
+      (sig ? '<p class="gsig">' + esc(tt('gb.sig', '★ {label}: {places}, marked through the chapters.', { label: sig.label || sig.title, places: places(sig.n) })) + '</p>' : '') + '</header>' + since(M, up);
     var nav = '<div class="bk" data-cleo-book>' +
-      '<nav class="toc" aria-label="Chapters"><p class="eyebrow">Contents</p><ol>' + toc.join('') + '</ol>' +
-      '<button type="button" class="btn btn-ghost" data-cleo-print>Print as booklet</button></nav>' +
+      '<nav class="toc" aria-label="' + tt('gb.toc.label', 'Chapters') + '"><p class="eyebrow">' + tt('gb.toc', 'Contents') + '</p><ol>' + toc.join('') + '</ol>' +
+      '<button type="button" class="btn btn-ghost" data-cleo-print>' + tt('gb.print', 'Print as booklet') + '</button></nav>' +
       '<div class="bk-main">' + cover;
     var app = appendix(M);
     // `lazy`: the same book, contents + chapter shells first; mount() fills each body (and the appendix) on approach
@@ -182,14 +187,14 @@
     var d = M.d, ed = edition(d); if (!ed) return '';
     var line = function (c) {
       // the closure's sourced note is on the place and on "What changed" (it can quote money: the views carry no prices)
-      if (c.kind === 'closed') return 'Closed, kept for the record: <a href="#p=' + encodeURIComponent(c.id) + '">' + esc(c.name) + '</a>';
-      if (c.kind === 'checked') return 'Open or closed status checked for ' + plural(c.n, 'place') + (c.closed ? ' (' + c.closed + ' found closed)' : '');
-      return plural(c.n, 'map pin') + ' verified';
+      if (c.kind === 'closed') return tt('gb.since.closed', 'Closed, kept for the record: {place}', { place: '<a href="#p=' + encodeURIComponent(c.id) + '">' + esc(c.name) + '</a>' });
+      if (c.kind === 'checked') return tt('gb.since.checked', 'Open or closed status checked for {places}', { places: places(c.n) }) + (c.closed ? tt('gb.since.found', ' ({n} found closed)', { n: c.closed }) : '');
+      return c.n === 1 ? tt('gb.since.pins.one', '1 map pin verified') : tt('gb.since.pins', '{n} map pins verified', { n: c.n });
     };
     var rows = (d.changes || []).filter(function (c) { return String(c.d).slice(0, 7) === ed; });
-    return '<section class="gb-since" id="gb-since" aria-labelledby="gb-since-h" data-edition="' + ed + '"><h2 class="d2" id="gb-since-h">Since the last edition</h2>' +
-      '<p>What changed in ' + esc(d.name) + ' during ' + longDate(ed) + ', from the dated checks on record.' +
-      (d.changesPage ? ' <a href="' + esc(root + d.changesPage) + '">Every change, with dates</a>' : '') + '</p>' +
+    return '<section class="gb-since" id="gb-since" aria-labelledby="gb-since-h" data-edition="' + ed + '"><h2 class="d2" id="gb-since-h">' + tt('gb.since.h', 'Since the last edition') + '</h2>' +
+      '<p>' + esc(tt('gb.since.p', 'What changed in {city} during {month}, from the dated checks on record.', { city: d.name, month: longDate(ed) })) +
+      (d.changesPage ? ' <a href="' + esc(root + d.changesPage) + '">' + tt('gb.since.all', 'Every change, with dates') + '</a>' : '') + '</p>' +
       '<ol class="since">' + rows.map(function (c) { return '<li data-kind="' + esc(c.kind) + '"><time datetime="' + esc(c.d) + '">' + longDate(c.d) + '</time> <span>' + line(c) + '</span></li>'; }).join('') + '</ol></section>';
   }
 
@@ -218,15 +223,15 @@
     });
     var rows = (M.d.sourceIndex || []).map(function (s) {
       var urls = per[s.id];
-      return '<li><b>' + esc(s.name) + '</b> <span class="meta">' + plural(s.n, 'place') + '</span>' +
+      return '<li><b>' + esc(s.name) + '</b> <span class="meta">' + places(s.n) + '</span>' +
         (urls.length ? '<ul class="urls">' + urls.map(function (u) { return '<li><a href="' + esc(u) + '" rel="noopener">' + esc(u) + '</a></li>'; }).join('') + '</ul>'
-          : '<p class="sm">No web address on record for this source.</p>') + '</li>';
+          : '<p class="sm">' + tt('gb.nourl', 'No web address on record for this source.') + '</p>') + '</li>';
     });
     var notes = (M.d.notes || []).map(function (n) { return '<section class="note"><h4>' + esc(n.title || n.k || '') + '</h4><p>' + esc(n.body || '') + '</p></section>'; });
-    return '<section class="gb-appendix" id="gb-sources" aria-labelledby="gb-src-h"><h2 class="d2" id="gb-src-h">Sources and method</h2>' +
-      '<p>Every source this guide cites for ' + esc(M.d.name) + ', with the number of places it recommends and the pages it was read from.</p>' +
+    return '<section class="gb-appendix" id="gb-sources" aria-labelledby="gb-src-h"><h2 class="d2" id="gb-src-h">' + tt('gb.src.h', 'Sources and method') + '</h2>' +
+      '<p>' + esc(tt('gb.src.p', 'Every source this guide cites for {city}, with the number of places it recommends and the pages it was read from.', { city: M.d.name })) + '</p>' +
       '<ol class="srclist">' + rows.join('') + '</ol>' +
-      (other.length ? '<h3 class="d3">Other pages the records cite</h3><ul class="urls">' + other.map(function (u) { return '<li><a href="' + esc(u) + '" rel="noopener">' + esc(u) + '</a></li>'; }).join('') + '</ul>' : '') + (notes.length ? '<div class="method">' + notes.join('') + '</div>' : '') + '</section>';
+      (other.length ? '<h3 class="d3">' + tt('gb.src.other', 'Other pages the records cite') + '</h3><ul class="urls">' + other.map(function (u) { return '<li><a href="' + esc(u) + '" rel="noopener">' + esc(u) + '</a></li>'; }).join('') + '</ul>' : '') + (notes.length ? '<div class="method">' + notes.join('') + '</div>' : '') + '</section>';
   }
 
   /* ---- browser: mount / unmount into the host FE-A's registry hands us ---- */
@@ -256,7 +261,7 @@
       a.hidden = !(book.by[a.getAttribute('data-area')] || []).some(function (x) { return !hid[x.p.id]; });
     });
     var line = el.querySelector('[data-gb-count]');
-    if (line) line.innerHTML = shown === all ? '<b>All ' + all + ' places</b>' : '<b>' + shown + ' of all ' + all + ' places</b> match this lens. <button type="button" class="btn btn-quiet" data-cleo-all>Show all ' + all + '</button>';
+    if (line) line.innerHTML = shown === all ? '<b>' + tt('gb.count.all', 'All {n} places', { n: all }) + '</b>' : '<b>' + tt('gb.count', '{s} of all {n} places', { s: shown, n: all }) + '</b>' + tt('gb.count.m', ' match this lens.') + ' <button type="button" class="btn btn-quiet" data-cleo-all>' + tt('city.showall', 'Show all {n}', { n: all }) + '</button>';
   }
   /* Lazy chapters (ROUND-3 gap #6): each chapter body is its own Cleo.chunks part (platform view chunks), so it mounts
    * as it nears the viewport, on a contents click or deep link (open()), and with everything else on Cleo.defer.all()
@@ -264,8 +269,11 @@
   var lazy = {};
   function open(aid) { var c = lazy[aid]; if (c) c.all(); }
   function areaOf(id) { var hit = null; (book ? book.order : []).some(function (x) { if (x.p.id === id) { hit = x.p.a; return true; } }); return hit; }
+  var lastCtx = null;
+  // i18n D-41: a book drawn before the ja catalogue arrived is drawn again in it
+  if (typeof document !== 'undefined') document.addEventListener('cleo:locale', function () { var el = host, c = Object.assign({}, lastCtx, { user: false }); if (!el) return; unmount(); mount(el, c); });   // a redraw never moves focus (QC-10)
   function mount(el, ctx) {
-    host = el; ctx = ctx || {};
+    host = el; ctx = ctx || {}; lastCtx = ctx;
     var C = window.Cleo || {}, main = document.getElementById('main'), key = ctx.key || (main && main.getAttribute('data-city'));
     el.classList.add('vw', 'view-guidebook'); el.setAttribute('aria-busy', 'true');
     return C.pageData(ctx.file || key).then(function (d) {
@@ -283,8 +291,9 @@
       syncSaved(el); syncLens(el);
       // QC-10 (SPEC §5): after a switch by the user (ctx.user from views.js, or focus still on the switcher / its placeholder
       // heading), focus moves to the book's heading; never on the initial load
-      var fa = document.activeElement, h1 = el.querySelector('h1');
-      if (h1 && (ctx.user || (fa && fa.closest && fa.closest('[data-cleo-views]')))) h1.focus({ preventScroll: true });
+      var h1 = el.querySelector('h1');
+      if (h1 && ctx.user) h1.focus({ preventScroll: true });
+      ctx.user = false;   // once per user switch: a locale or lens remount (same ctx) never moves focus
       var on = function (t, ev, f) { t.addEventListener(ev, f); off.push(function () { t.removeEventListener(ev, f); }); };
       on(el, 'click', function (e) {
         var b = e.target.closest('[data-cleo-print]'); if (b) { printAll(); return; }
@@ -308,7 +317,7 @@
     }, function () {
       if (host !== el) return;
       el.removeAttribute('aria-busy');
-      el.innerHTML = '<p class="state" data-cleo-state="view-failed">The guidebook couldn’t load just now. Every place is still in the list — switch to another view, or try again when you’re back online.</p>';
+      el.innerHTML = '<p class="state" data-cleo-state="view-failed">' + tt('gb.failed', 'The guidebook couldn’t load just now. Every place is still in the list — switch to another view, or try again when you’re back online.') + '</p>';
     });
   }
   function printAll() { var C = window.Cleo || {}; if (C.defer) C.defer.all(); if (host) syncLens(host); window.print(); }

@@ -20,18 +20,19 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | W9-5 base | f70222d9f | 65d061aed |
 | W9-7 share cards | 0f8598c0b | 9f503f9ff |
 | i18n prep, batch 1 + W9-1 render helper (unwired) | f15de9b4e | — |
-| i18n prep, batch 2: base.js, share-card.js, core walk; one combined patch | this push | — |
+| i18n prep, batch 2: base.js, share-card.js, core walk; one combined patch | 339a0e68f | — |
+| i18n batch 1 merged (79 keys, en + ja); trip.js on Cleo.t; test-i18n trip.html case | d1d476cbc | — |
+| designer (e)–(i) trip.html + (j) base pressed state | this push | — |
 
 ## Next
 
 Orchestrator order (2026-10-16 14:52Z):
-1. **i18n:**
-   - the i18n lane adds the 122 keys of `tools/beta/i18n-fec/pending-en.json` to en.json and ja.json themselves (they offered);
-   - then `git apply tools/beta/i18n-fec/fec-i18n.patch`, `npm run beta`, the gates, push;
-   - then add a test-i18n case for trip.html (runtime pseudo swap, 0 English outside data).
-   - If the patch no longer applies, regenerate it with `tools/beta/i18n-fec/apply.py`; the replacements are in the old scratch scripts, so redo them by hand from the patch hunks.
+1. **i18n batch 2:**
+   - the i18n lane writes `tools/beta/i18n-fec/pending-ja.json` for the 46 keys of pending-en.json;
+   - then: `merge.py`, `git apply fec-i18n.patch`, convert lib/render/trip.js to `t('trip.page.title' / '.desc' / '.nojs')`, `npm run beta`, the gates, push.
 2. **Designer findings (a)–(j)** (designer `session_011YjA2jku166RJrUyCiQV6B`), BEFORE W9-1:
-   - share-card: the calm glyph cover (`--cover-sight` / `--cover-food`, glyph 120 px in `--ink-3`), no initial on teal; the dark overlay only over a photo;
+   - DONE (this push): trip.html hairline cards, accent stop numbers and route, an --area dot, no h1 focus ring, "Sight · Must see", a Closed chip, the caveat on --sand, spacing snapped (CSS now in lib/render/fe-c-trip.css); base sort pressed state.
+   - TODO share-card: the calm glyph cover (`--cover-sight` / `--cover-food`, glyph 120 px in `--ink-3`), no initial on teal; the dark overlay only over a photo;
    - share-card: "Must see" as a `--sun-wash` / `--on-sun-wash` pill; the palette read from tokens with the light values forced; no #C23A1C, `--accent` only for day-route numbers;
    - share-card: the lowercase "cleo" wordmark with its star, and the real URL;
    - trip.html: hairline cards (drop the 4 px area border); stop numbers and the route in `--accent`; an 8 px `--area` dot before the eyebrow;
