@@ -801,6 +801,27 @@ html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail{transform:t
 /* desktop and tablet scroll pages: the view switch already rides in the header (≥ 1024), so the search row and the category
    rail are not sticky at all — only the header stays (§v2.12.2: ≤ 8 % at T2 / D) */
 @media (min-width:1024px){html body main[data-city]>.cbar,html[data-view=gallery] body main[data-city]>nav.rail#cleo-rail{position:relative;top:auto}}
+/* OV-09 (FE-C audit; SPEC-v3 §2.0 T2/D: the map pane stays clear): beside the Atlas map the place sheet takes the LIST
+   column's place (right, max(420px, 36%) wide = atlas.css's split column), under the header, never the map — the
+   selected pin stays in view (at 1024×768 the old left sheet left a 70 px strip of map) */
+@media (min-width:1024px){
+  html body main[data-city]>#cleo-sheet.overlay.side{inset:var(--bar-h) 0 0 auto;width:max(420px,36vw);justify-content:flex-end}
+  html body main[data-city]>#cleo-sheet.overlay.side>.sheet{width:100%;max-width:none;height:100%;max-height:none;border-radius:0;border-left:1px solid var(--line);box-shadow:none}
+}
+/* OV-10 / OV-11 (FE-C audit; DESIGN-SYSTEM §v2.12): outside Atlas, a modal sheet on a phone or tablet OWNS the screen under
+   its own back / close bar (.sh-nav), instead of stopping below the header and view switch (14-17 % at P1/P2; at 844×390
+   it slid under the header). Supersedes the FE-B QC-10 "phone sheets stop below the switcher" block above for these
+   views; phone Atlas keeps its map band above the sheet (PANEL-R2 #1) */
+@media (max-width:1023px){
+  html:not([data-view=atlas]) body main#main[data-city][data-views-on]:not([data-views-on=off]):not([hidden])>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side){top:0;z-index:80}
+  html:not([data-view=atlas]) body main#main[data-city][data-views-on]:not([data-views-on=off]):not([hidden])>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side) :is(.sheet,.tray){max-height:100dvh}
+}
+/* OV-33 / OV-34 (FE-B audit): the reading views (Guidebook, Insights) carry no Gallery chrome. The floating "Map" pill
+   duplicated the switch's Atlas segment over the text, and the Gallery toolbar stayed stuck under the city bar */
+html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.mappill,
+html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.toolbar{display:none!important}
+/* OV-00 P2 at rest (header 52 + switch row 52 ≤ 16 %): on phones and tablets the switch row is the switch itself, no padding */
+@media (max-width:1023px){html body main[data-city]>.cbar>.cbar-in{padding-block:0}}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
@@ -1243,3 +1264,5 @@ a.rb.rb-award{background:none}a.rb.rb-award::before{background:var(--sun-wash)}
 .gc-chk,.pv-chk{margin-top:var(--s-1)}.gc-b>.gc-chk{order:98}.gc-b>.gc-rec{order:99}
 /* QC-05: in Atlas the list head states it (atlas.js, FE-1, from the same city.empty.* keys): one empty state per view */
 html[data-view=atlas] [data-cleo-empty]{display:none}
+/* R8 gap #2c: "last checked <date>" never breaks inside (the masthead stat line, render/city.js + build.js link) */
+.masthead .facts a[data-cleo-changes]{white-space:nowrap}
