@@ -166,4 +166,12 @@ A fresh independent subagent reviewed FE-A's ja draft against the new English. I
 
 A fresh independent subagent kept the draft: このガイドの閉店と営業状況の確認をまとめたRSSフィードです。どのフィードリーダーでも読めます。 It is the reviewed `land.month.feed` with 全ガイドの → このガイドの, matching the English "across the guides" → "in this guide". It reads naturally after 更新をフォロー — .
 
-**Total: 55 changes over thirteen rounds.**
+## Round 14: FE-C batch 5, the QC-05 empty state (4 browser-only keys `city.empty.*`, staged in `tools/beta/i18n-fec/pending-ja.json`; 0 changes)
+
+A fresh independent subagent kept all four drafts:
+- 「{q}」 renders the English curly quotes;
+- 表記 is used rather than 綴り, since visitors may type kana, kanji or romaji;
+- 検索をクリア follows 絞り込みをクリア;
+- この絞り込み follows `gb.count.m`.
+
+**Total: 55 changes over fourteen rounds.**
