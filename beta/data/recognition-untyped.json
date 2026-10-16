@@ -1,0 +1,2901 @@
+{
+ "_generated": "tools/beta/build.js (lib/recognition.js) — do not edit",
+ "v": 1,
+ "_doc": "Publishers left UNTYPED by the recognition rules (design/beta/RECOGNITION.md): no registry entry agrees on their key, host or domain, and no host rule applies. Typing them needs a registry entry (data/sources.json, owner), not a guess. They count against the local-favourites lens only by not qualifying.",
+ "typed": 2183,
+ "of": 2552,
+ "pages": [
+  {
+   "page": "cleveland",
+   "untyped": [
+    {
+     "k": "BOURDAIN / TV",
+     "name": "Bourdain / TV",
+     "hosts": [
+      "clevelandmagazine.com"
+     ],
+     "places": 5
+    },
+    {
+     "k": "CLEVELAND.COM / THE PLAIN DEALER",
+     "name": "cleveland.com / The Plain Dealer",
+     "hosts": [
+      "cleveland.com"
+     ],
+     "places": 2
+    },
+    {
+     "k": "YOUR REQUEST",
+     "name": "Asked for by name",
+     "hosts": [
+      "news5cleveland.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "CLEVELAND MAGAZINE",
+     "name": "Cleveland Magazine",
+     "hosts": [
+      "clevelandmagazine.com"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "aachen",
+   "untyped": [
+    {
+     "k": "AACHENER ZEITUNG",
+     "name": "Aachener Zeitung",
+     "hosts": [
+      "aachener-zeitung.de"
+     ],
+     "places": 17
+    },
+    {
+     "k": "VISIT MAASTRICHT",
+     "name": "Visit Maastricht",
+     "hosts": [
+      "visitmaastricht.com"
+     ],
+     "places": 17
+    },
+    {
+     "k": "EIFELSTEIG",
+     "name": "Eifelsteig",
+     "hosts": [
+      "eifelsteig.de"
+     ],
+     "places": 15
+    },
+    {
+     "k": "EIFEL INFO",
+     "name": "Eifel Tourismus (eifel.info / eifel.de)",
+     "hosts": [
+      "eifel.info"
+     ],
+     "places": 12
+    },
+    {
+     "k": "NPEIFEL",
+     "name": "Nationalpark Eifel",
+     "hosts": [
+      "nationalpark-eifel.de"
+     ],
+     "places": 12
+    },
+    {
+     "k": "OSTBELGIEN.EU",
+     "name": "Ostbelgien.eu",
+     "hosts": [],
+     "places": 12
+    },
+    {
+     "k": "EIFELINFO",
+     "name": "Eifel Tourismus (eifel.info)",
+     "hosts": [
+      "eifel.info"
+     ],
+     "places": 11
+    },
+    {
+     "k": "EIFELDE",
+     "name": "Eifel.de (Eifel Tourismus)",
+     "hosts": [
+      "eifel.de"
+     ],
+     "places": 11
+    },
+    {
+     "k": "VISIT ZUID-LIMBURG",
+     "name": "Visit Zuid-Limburg",
+     "hosts": [
+      "visitzuidlimburg.nl"
+     ],
+     "places": 9
+    },
+    {
+     "k": "AACHENALTSTADT",
+     "name": "Aachen schöne Altstadt",
+     "hosts": [
+      "aachen-schoene-altstadt.de"
+     ],
+     "places": 7
+    },
+    {
+     "k": "BRF (OSTBELGIEN)",
+     "name": "BRF (Belgischer Rundfunk)",
+     "hosts": [
+      "brf.be"
+     ],
+     "places": 7
+    },
+    {
+     "k": "VISIT WALLONIA",
+     "name": "Visit Wallonia",
+     "hosts": [],
+     "places": 7
+    },
+    {
+     "k": "MERIAN",
+     "name": "Merian Reisemagazin (merian.de)",
+     "hosts": [
+      "merian.de"
+     ],
+     "places": 6
+    },
+    {
+     "k": "GAULT&MILLAU",
+     "name": "Gault&Millau Nederland",
+     "hosts": [
+      "gault-millau.nl"
+     ],
+     "places": 5
+    },
+    {
+     "k": "STR AACHEN",
+     "name": "StädteRegion Aachen (Freizeit-/Tourenportal)",
+     "hosts": [
+      "freizeitportal.staedteregion-aachen.de"
+     ],
+     "places": 5
+    },
+    {
+     "k": "WP",
+     "name": "WP",
+     "hosts": [],
+     "places": 5
+    },
+    {
+     "k": "GRENZ-ECHO",
+     "name": "Grenz-echo",
+     "hosts": [],
+     "places": 4
+    },
+    {
+     "k": "OSTBELGIENNET",
+     "name": "Ostbelgien.net",
+     "hosts": [
+      "ostbelgien.net"
+     ],
+     "places": 4
+    },
+    {
+     "k": "RURSEE",
+     "name": "Rursee-Touristik GmbH",
+     "hosts": [
+      "rursee.de"
+     ],
+     "places": 4
+    },
+    {
+     "k": "MUSEEN DE",
+     "name": "museen.de",
+     "hosts": [
+      "museen.de"
+     ],
+     "places": 4
+    },
+    {
+     "k": "GRACHTENBEANS",
+     "name": "Grachten Beans Coffee Guide",
+     "hosts": [
+      "grachtenbeans.nl"
+     ],
+     "places": 3
+    },
+    {
+     "k": "KLENKES",
+     "name": "Klenkes",
+     "hosts": [
+      "klenkes.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "KOFFIETJE",
+     "name": "Koffietje.nl",
+     "hosts": [
+      "koffietje.nl"
+     ],
+     "places": 3
+    },
+    {
+     "k": "OSTBELGIENDIREKT",
+     "name": "Ostbelgien Direkt",
+     "hosts": [
+      "ostbelgiendirekt.be"
+     ],
+     "places": 3
+    },
+    {
+     "k": "SCHWARZAUFWEISS",
+     "name": "Schwarzaufweiss — Reisemagazin",
+     "hosts": [
+      "schwarzaufweiss.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "HEIMBACH",
+     "name": "Stadt Heimbach",
+     "hosts": [
+      "heimbach-eifel.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "STADTLEBEN",
+     "name": "stadtleben.de",
+     "hosts": [
+      "stadtleben.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "HSO NRW",
+     "name": "AG Historische Stadt- und Ortskerne in NRW",
+     "hosts": [
+      "hso-nrw.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "BAUKUNST NRW",
+     "name": "Baukunst NRW (Architektenkammer NRW)",
+     "hosts": [
+      "baukunst-nrw.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "CHAPEAU",
+     "name": "Chapeau Magazine",
+     "hosts": [
+      "chapeaumagazine.com"
+     ],
+     "places": 2
+    },
+    {
+     "k": "EXPLOREMAASTRICHT",
+     "name": "Explore Maastricht (Maastricht Underground)",
+     "hosts": [
+      "exploremaastricht.nl"
+     ],
+     "places": 2
+    },
+    {
+     "k": "FOODIES",
+     "name": "Foodies Magazine",
+     "hosts": [
+      "foodiesmagazine.nl"
+     ],
+     "places": 2
+    },
+    {
+     "k": "LHM",
+     "name": "Leopold-Hoesch-Museum & Papiermuseum Düren",
+     "hosts": [
+      "leopoldhoeschmuseum.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "RIJKSMONUMENTEN",
+     "name": "Rijksmonumenten.nl",
+     "hosts": [
+      "rijksmonumenten.nl"
+     ],
+     "places": 2
+    },
+    {
+     "k": "HERZOGENRATH",
+     "name": "Stadt Herzogenrath",
+     "hosts": [
+      "herzogenrath.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "THERMAE",
+     "name": "Thermae 2000 (official)",
+     "hosts": [
+      "thermae.nl"
+     ],
+     "places": 2
+    },
+    {
+     "k": "TRAVELWORLDONLINE",
+     "name": "TravelWorldOnline Traveller",
+     "hosts": [
+      "travelworldonline.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "KATHOLISCH",
+     "name": "katholisch.de",
+     "hosts": [
+      "katholisch.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "TONLINE AC",
+     "name": "t-online Region Aachen (aachen.t-online.de)",
+     "hosts": [
+      "aachen.t-online.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "TOPAACHEN",
+     "name": "top-aachen",
+     "hosts": [
+      "top-aachen.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "ONEZUID",
+     "name": "1Zuid",
+     "hosts": [
+      "1zuid.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "EUREGIOZOO",
+     "name": "Aachener Tierpark Euregiozoo",
+     "hosts": [
+      "euregiozoo.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BONNEFANTEN",
+     "name": "Bonnefanten (official)",
+     "hosts": [
+      "bonnefanten.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BOTRANGE",
+     "name": "Botrange",
+     "hosts": [
+      "botrange.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BURGEN DE",
+     "name": "Burgen.de",
+     "hosts": [
+      "burgen.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BURGENWELT",
+     "name": "Burgenwelt.org",
+     "hosts": [
+      "burgenwelt.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "CENTRECHARLEMAGNE",
+     "name": "Centre Charlemagne — Neues Stadtmuseum Aachen",
+     "hosts": [
+      "centre-charlemagne.eu"
+     ],
+     "places": 1
+    },
+    {
+     "k": "COUVEN",
+     "name": "Couven-Museum Aachen",
+     "hosts": [
+      "couven-museum.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DUMONT",
+     "name": "DuMont Reise",
+     "hosts": [
+      "dumontreise.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "EIFEL TOUR",
+     "name": "Eifel-Tour (eifel-tour.de)",
+     "hosts": [
+      "eifel-tour.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "EIFELFUEHRER",
+     "name": "Eifelführer",
+     "hosts": [
+      "eifelfuehrer.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "ERLEBNIS REGION",
+     "name": "Erlebnis-Region (Euregio Maas-Rhein)",
+     "hosts": [
+      "erlebnis-region.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "FORTEN",
+     "name": "Forten.nl (Stichting Menno van Coehoorn)",
+     "hosts": [
+      "forten.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "GASTROGUIDE",
+     "name": "GastroGuide Euregio",
+     "hosts": [
+      "gastroguide-euregio.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "NSGEDENK",
+     "name": "Gedenkstätten NRW",
+     "hosts": [
+      "ns-gedenkstaetten.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "ROETGEN",
+     "name": "Gemeinde Roetgen",
+     "hosts": [
+      "roetgen.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "GULPENER",
+     "name": "Gulpener Bierbrouwerij (official)",
+     "hosts": [
+      "gulpener.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "GUTWIRTZ",
+     "name": "Gutwirtz",
+     "hosts": [
+      "gut-wirtz.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DRIELANDENPUNT",
+     "name": "Het Drielandenpunt (official)",
+     "hosts": [
+      "hetdrielandenpunt.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "HETROMEINSMUSEUM",
+     "name": "Het Romeins Museum (Thermenmuseum)",
+     "hosts": [
+      "hetromeinsmuseum.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "IKOB",
+     "name": "Ikob — Museum für Zeitgenössische Kunst",
+     "hosts": [
+      "ikob.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "IND EMR",
+     "name": "Industriemuseen Euregio Maas-Rhein",
+     "hosts": [
+      "industriemuseen-emr.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "ISG MONSCHAU",
+     "name": "Isg Monschau (Interessengemeinschaft Stadtbild)",
+     "hosts": [
+      "isgmonschau.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KAFFEENETZ",
+     "name": "Kaffee-Netz",
+     "hosts": [
+      "kaffee-netz.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KASTEELVALKENBURG",
+     "name": "Kasteelruïne & Fluweelengrot (official)",
+     "hosts": [
+      "kasteelvalkenburg.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KERSTSTADVALKENBURG",
+     "name": "Kerststad Valkenburg (official)",
+     "hosts": [
+      "kerststadvalkenburg.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KUNSTHAUS NRW",
+     "name": "Kunsthaus NRW Kornelimünster",
+     "hosts": [
+      "kunsthaus.nrw"
+     ],
+     "places": 1
+    },
+    {
+     "k": "LEB AACHEN",
+     "name": "Lebendiges Aachen",
+     "hosts": [
+      "lebendiges-aachen.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "LINHE",
+     "name": "Linhé (linhe.de)",
+     "hosts": [
+      "linhe.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "LUDWIGFORUM",
+     "name": "Ludwig Forum für Internationale Kunst",
+     "hosts": [
+      "ludwigforum.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MADEINOSTBELGIEN",
+     "name": "Made in Ostbelgien / Ostbelgien Info",
+     "hosts": [
+      "madeinostbelgien.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MEMORIAL",
+     "name": "Memorial Museums",
+     "hosts": [
+      "memorialmuseums.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MVMKELMIS",
+     "name": "Museum Vieille Montagne (MVM), Kelmis",
+     "hosts": [
+      "mvm-kelmis.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MUSZIT",
+     "name": "Museum Zitadelle Jülich",
+     "hosts": [
+      "museum-zitadelle.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "NATURPARKEIFEL",
+     "name": "Naturpark Hohes Venn-Eifel (DE side)",
+     "hosts": [
+      "naturpark-eifel.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "NATUURMONUMENTEN",
+     "name": "Natuurmonumenten",
+     "hosts": [
+      "natuurmonumenten.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "OOSTWEGEL",
+     "name": "Oostwegel Collection",
+     "hosts": [
+      "oostwegelcollection.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "OSTBELGIENINFO",
+     "name": "Ostbelgien Info",
+     "hosts": [
+      "ostbelgieninfo.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "PUURZUIDLIMBURG",
+     "name": "Puur Zuid-Limburg",
+     "hosts": [
+      "puurzuidlimburg.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "RTVMAASTRICHT",
+     "name": "RTV Maastricht",
+     "hosts": [
+      "rtvmaastricht.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "RATHAUSAACHEN",
+     "name": "Rathausaachen",
+     "hosts": [
+      "rathaus-aachen.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "CULTUREELERFGOED",
+     "name": "Rijksdienst voor het Cultureel Erfgoed",
+     "hosts": [
+      "kennis.cultureelerfgoed.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "ROETGEN TOUR",
+     "name": "Roetgen-Touristik",
+     "hosts": [
+      "roetgen-touristik.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "RUHRNACHRICHTEN",
+     "name": "Ruhr Nachrichten",
+     "hosts": [
+      "ruhrnachrichten.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "SCHLEMMER",
+     "name": "Schlemmer Atlas",
+     "hosts": [
+      "schlemmer-atlas.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "SCHLEMMERREGION",
+     "name": "Schlemmerregion Aachen-Eifel-Euregio",
+     "hosts": [
+      "schlemmerregion-aachen-eifel-euregio.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "WORRIKEN",
+     "name": "Sport- & Freizeitzentrum Worriken (Bütgenbach)",
+     "hosts": [
+      "worriken.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "AACHEN DE",
+     "name": "Stadt Aachen",
+     "hosts": [
+      "aachen.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "JUELICH",
+     "name": "Stadt Jülich",
+     "hosts": [
+      "juelich.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MECHERNICH",
+     "name": "Stadt Mechernich",
+     "hosts": [
+      "mechernich.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "STADTREGIONAC",
+     "name": "Stadtregionac",
+     "hosts": [
+      "tourenportal.staedteregion-aachen.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "STAYOKAY",
+     "name": "Stayokay City Tips",
+     "hosts": [
+      "stayokay.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "STILPUNKTE",
+     "name": "Stilpunkte",
+     "hosts": [
+      "stilpunkte.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "STRMODERNE",
+     "name": "Straße der Moderne",
+     "hosts": [
+      "strasse-der-moderne.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "SUERMONDT",
+     "name": "Suermondt-Ludwig-Museum",
+     "hosts": [
+      "suermondt-ludwig-museum.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "SUSA",
+     "name": "Susa (Maastricht student platform)",
+     "hosts": [
+      "susa.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "TOERISMEVAALS",
+     "name": "Toerisme Vaals (VVV Vaals)",
+     "hosts": [
+      "toerismevaals.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "TOP AACHEN",
+     "name": "Top Magazin Aachen (top-aachen.de)",
+     "hosts": [
+      "top-aachen.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "TOEPFEREIMUSEUM",
+     "name": "Töpfereimuseum Raeren",
+     "hosts": [
+      "toepfereimuseum.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "VARTA",
+     "name": "Varta-Guide",
+     "hosts": [
+      "varta-guide.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "VIABELGICA",
+     "name": "Via Belgica",
+     "hosts": [
+      "viabelgica.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "WNL",
+     "name": "WNL",
+     "hosts": [
+      "wnl.tv"
+     ],
+     "places": 1
+    },
+    {
+     "k": "ARTHIST",
+     "name": "arthistoricum.net",
+     "hosts": [
+      "arthistoricum.net"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BAUKUNST",
+     "name": "baukunst-nrw",
+     "hosts": [
+      "baukunst-nrw.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DE EIFEL",
+     "name": "de-eifel.de",
+     "hosts": [
+      "de-eifel.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "INLIMBURG",
+     "name": "inLimburg",
+     "hosts": [
+      "inlimburg.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KULTURSERVERNRW",
+     "name": "kulturserver NRW",
+     "hosts": [
+      "kulturserver-nrw.de"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "bruges",
+   "untyped": [
+    {
+     "k": "VISIT BRUGES",
+     "name": "Visit Bruges (official city tourism)",
+     "hosts": [
+      "visitbruges.be"
+     ],
+     "places": 45
+    },
+    {
+     "k": "DEKUST",
+     "name": "De Kust / Westtoer (coast tourism)",
+     "hosts": [
+      "dekust.be"
+     ],
+     "places": 15
+    },
+    {
+     "k": "GAULT&MILLAU",
+     "name": "Gault&Millau Belgium",
+     "hosts": [
+      "gaultmillau.be"
+     ],
+     "places": 14
+    },
+    {
+     "k": "MUSEABRUGGE",
+     "name": "Musea Brugge (municipal museums)",
+     "hosts": [
+      "museabrugge.be"
+     ],
+     "places": 7
+    },
+    {
+     "k": "VISITDAMME",
+     "name": "Toerisme Damme (official)",
+     "hosts": [
+      "visitdamme.be"
+     ],
+     "places": 7
+    },
+    {
+     "k": "CULINAIRE AMBIANCE",
+     "name": "Culinaire Ambiance",
+     "hosts": [
+      "culinaireambiance.com"
+     ],
+     "places": 5
+    },
+    {
+     "k": "OOSTENDE",
+     "name": "Stad Oostende (official)",
+     "hosts": [
+      "oostende.be"
+     ],
+     "places": 5
+    },
+    {
+     "k": "THEDISCOVERIESOF",
+     "name": "The Discoveries Of (travel editorial)",
+     "hosts": [
+      "thediscoveriesof.com"
+     ],
+     "places": 3
+    },
+    {
+     "k": "MYKNOKKE",
+     "name": "Visit Knokke-Heist (official)",
+     "hosts": [
+      "myknokke-heist.be"
+     ],
+     "places": 3
+    },
+    {
+     "k": "VISITOOSTENDE",
+     "name": "Visit Oostende (official)",
+     "hosts": [
+      "visitoostende.be"
+     ],
+     "places": 3
+    },
+    {
+     "k": "ANWB",
+     "name": "Anwb (travel)",
+     "hosts": [
+      "anwb.nl"
+     ],
+     "places": 2
+    },
+    {
+     "k": "BLANKENBERGE",
+     "name": "Blankenberge (official tourism)",
+     "hosts": [
+      "blankenberge.com"
+     ],
+     "places": 2
+    },
+    {
+     "k": "BRUGSEOMMELAND",
+     "name": "Brugse Ommeland (official regional tourism)",
+     "hosts": [
+      "brugseommeland.be"
+     ],
+     "places": 2
+    },
+    {
+     "k": "DAMMEONLINE",
+     "name": "Damme Online (heritage)",
+     "hosts": [
+      "damme-online.com"
+     ],
+     "places": 2
+    },
+    {
+     "k": "HANDMADEINBRUGGE",
+     "name": "Handmade in Brugge (city crafts org)",
+     "hosts": [
+      "handmadeinbrugge.be"
+     ],
+     "places": 2
+    },
+    {
+     "k": "INDAGARE",
+     "name": "Indagare (travel editorial)",
+     "hosts": [
+      "indagare.com"
+     ],
+     "places": 2
+    },
+    {
+     "k": "REISROUTES",
+     "name": "Reisroutes.be (travel editorial)",
+     "hosts": [
+      "reisroutes.be"
+     ],
+     "places": 2
+    },
+    {
+     "k": "TWERFTJE",
+     "name": "'t Werftje (official)",
+     "hosts": [
+      "twerftje.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "TENDUINEN",
+     "name": "Abdijmuseum Ten Duinen (official)",
+     "hosts": [
+      "tenduinen.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "ADORNES",
+     "name": "Adornesdomein (official)",
+     "hosts": [
+      "adornes.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BOURGOGNE",
+     "name": "Bourgogne des Flandres (official)",
+     "hosts": [
+      "bourgognedesflandres.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "RUBENS",
+     "name": "Brasserie Rubens (official)",
+     "hosts": [
+      "rubens-knokke.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DE HALVE MAAN",
+     "name": "Brouwerij De Halve Maan (official)",
+     "hosts": [
+      "halvemaan.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "FORTLAPIN",
+     "name": "Brouwerij Fort Lapin (via Visit Bruges)",
+     "hosts": [
+      "visitbruges.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "CHANGEINC",
+     "name": "Change Inc. (trade press)",
+     "hosts": [
+      "change.inc"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DEPLATE",
+     "name": "De Plate (Oostende heritage society)",
+     "hosts": [
+      "deplate.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DISHNTHEKITCHEN",
+     "name": "Dish 'n' the Kitchen (food editorial)",
+     "hosts": [
+      "dishnthekitchen.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "FLANDERSTODAY",
+     "name": "Flanders Today",
+     "hosts": [
+      "flanderstoday.eu"
+     ],
+     "places": 1
+    },
+    {
+     "k": "FOCUSWTV",
+     "name": "Focus & WTV (West-Flanders regional broadcaster)",
+     "hosts": [
+      "focus-wtv.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DEPANNE",
+     "name": "Gemeente De Panne (official)",
+     "hosts": [
+      "depanne.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "HETNIEUWSVWVL",
+     "name": "Het Nieuws van West-Vlaanderen",
+     "hosts": [
+      "hetnieuwsvanwestvlaanderen.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "HUNGRYFORMORE",
+     "name": "Hungry for More Magazine",
+     "hosts": [
+      "hungryformore-mag.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "ENSORHUIS",
+     "name": "James Ensorhuis (official)",
+     "hosts": [
+      "ensorhuis.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KENNISWEST",
+     "name": "Kenniswest",
+     "hosts": [
+      "kenniswest.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "LIBELLE",
+     "name": "Libelle Lekker (national magazine)",
+     "hosts": [
+      "libelle-lekker.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "GEOLIKE",
+     "name": "Martin's Brugge tourism listing",
+     "hosts": [
+      "secure.geo-like.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MONUMENTENWACHT",
+     "name": "Monumentenwacht Vlaanderen",
+     "hosts": [
+      "monumentenwacht.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "NAVIGO",
+     "name": "Navigo - Nationaal Visserijmuseum (official)",
+     "hosts": [
+      "navigomuseum.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "OOSTENDELOKAAL",
+     "name": "Oostende Lokaal",
+     "hosts": [
+      "oostendelokaal.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "PERMEKE",
+     "name": "Permekemuseum (official)",
+     "hosts": [
+      "permekemuseum.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "REBELATLAS",
+     "name": "Rebel Atlas (travel editorial)",
+     "hosts": [
+      "rebelatlas.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "SELGRIS",
+     "name": "Restaurant Sel Gris (official)",
+     "hosts": [
+      "selgris.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "ROBBREPORT",
+     "name": "Robb Report (luxury/press)",
+     "hosts": [
+      "robbreport.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "SINTSALVATOR",
+     "name": "Sint-Salvatorskathedraal (official)",
+     "hosts": [
+      "sintsalvatorskathedraal.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BRUGGE",
+     "name": "Stad Brugge (official city)",
+     "hosts": [
+      "brugge.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "STADBRUGGE",
+     "name": "Stad Brugge stadsgids",
+     "hosts": [
+      "stadbrugge.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "NIEUWPOORT",
+     "name": "Stad Nieuwpoort (official)",
+     "hosts": [
+      "nieuwpoort.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DEGARRE",
+     "name": "Staminee De Garre (official)",
+     "hosts": [
+      "degarre.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "THECHOCOLATELINE",
+     "name": "The Chocolate Line (official)",
+     "hosts": [
+      "thechocolateline.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "VINDEENFRITUUR",
+     "name": "Vindeenfrituur.be (editorial)",
+     "hosts": [
+      "vindeenfrituur.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "WAFFLESNBEER",
+     "name": "Waffles & Beer (Bruges food guide)",
+     "hosts": [
+      "wafflesnbeer.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "WIDEOYSTER",
+     "name": "WideOyster Magazine",
+     "hosts": [
+      "magazine.wideoyster.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "WORLDWIFE",
+     "name": "Worldwife (travel editorial)",
+     "hosts": [
+      "worldwife.nl"
+     ],
+     "places": 1
+    },
+    {
+     "k": "WOULDBECHEF",
+     "name": "Would Be Chef (food editorial)",
+     "hosts": [
+      "wouldbechef.be"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "brussels",
+   "untyped": [
+    {
+     "k": "VISIT.BRUSSELS",
+     "name": "visit.brussels",
+     "hosts": [
+      "visit.brussels"
+     ],
+     "places": 43
+    },
+    {
+     "k": "GAULT&MILLAU",
+     "name": "Gault&Millau België/Belgique",
+     "hosts": [
+      "gaultmillau.be"
+     ],
+     "places": 12
+    },
+    {
+     "k": "BRUSSELSMUSEUMS",
+     "name": "Brussels Museums",
+     "hosts": [
+      "brusselsmuseums.be"
+     ],
+     "places": 10
+    },
+    {
+     "k": "HERITAGEBRUSSELS",
+     "name": "urban.brussels / heritage.brussels",
+     "hosts": [
+      "monument.heritage.brussels"
+     ],
+     "places": 6
+    },
+    {
+     "k": "LEVIF",
+     "name": "Le Vif Weekend",
+     "hosts": [
+      "weekend.levif.be"
+     ],
+     "places": 4
+    },
+    {
+     "k": "BX1",
+     "name": "BX1 (Brussels regional TV/news)",
+     "hosts": [
+      "bx1.be"
+     ],
+     "places": 3
+    },
+    {
+     "k": "GRSH",
+     "name": "GRSH",
+     "hosts": [],
+     "places": 3
+    },
+    {
+     "k": "JEUNEAFRIQUE",
+     "name": "Jeune Afrique",
+     "hosts": [
+      "jeuneafrique.com"
+     ],
+     "places": 3
+    },
+    {
+     "k": "FINEARTS",
+     "name": "Finearts",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "MOEDERLAMBIC",
+     "name": "Moederlambic",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "TRAVELTOMORROW",
+     "name": "Travel Tomorrow",
+     "hosts": [
+      "traveltomorrow.com"
+     ],
+     "places": 2
+    },
+    {
+     "k": "ADMIRABLEARTNOUVEAU",
+     "name": "Admirable Façades / Art Nouveau Brussels",
+     "hosts": [
+      "admirable-artnouveau.brussels"
+     ],
+     "places": 1
+    },
+    {
+     "k": "AFRICAMUSEUM",
+     "name": "Africamuseum",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "ARTANDHISTORY",
+     "name": "Artandhistory",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "ATOMIUM",
+     "name": "Atomium",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "AUTOWORLD",
+     "name": "Autoworld",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "AUTRIQUE",
+     "name": "Autrique",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "BBP",
+     "name": "BBP",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "BELVUE",
+     "name": "Belvue",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "BLONDEEL",
+     "name": "Blondeel",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "BRASSERIESENNE",
+     "name": "Brasseriesenne",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "BRUSSELSEXPRESS",
+     "name": "Brussels Express",
+     "hosts": [
+      "brussels-express.eu"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BRUSSELSKITCHEN",
+     "name": "Brussels' Kitchen",
+     "hosts": [
+      "brusselskitchen.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BRUSSELSLIFE",
+     "name": "BrusselsLife.be",
+     "hosts": [
+      "brusselslife.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BRUZZ",
+     "name": "Bruzz",
+     "hosts": [
+      "bruzz.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "CBBD",
+     "name": "CBBD",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "CANTILLON",
+     "name": "Cantillon",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "CHOCOSTORY",
+     "name": "Chocostory",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "ANDERLECHT",
+     "name": "Commune d'Anderlecht",
+     "hosts": [
+      "anderlecht.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "SJTN",
+     "name": "Commune de Saint-Josse-ten-Noode",
+     "hosts": [
+      "sjtn.brussels"
+     ],
+     "places": 1
+    },
+    {
+     "k": "COUDENBERG",
+     "name": "Coudenberg",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "DESIGNMUSEUM",
+     "name": "Designmuseum",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "DOEATBETTER",
+     "name": "Doeatbetter",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "FLAGEY",
+     "name": "Flagey",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "FRANCOIS",
+     "name": "Francois",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "GERBAUD",
+     "name": "Gerbaud",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "HISTORIAEUROPA",
+     "name": "Historiaeuropa",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "INSIDEBRUSSELS",
+     "name": "Inside Brussels",
+     "hosts": [
+      "en.insidebrussels.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "LEVENTAIL",
+     "name": "L'Éventail",
+     "hosts": [
+      "eventail.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DHNET",
+     "name": "La DH / DH Les Sports+ (La Dernière Heure)",
+     "hosts": [
+      "dhnet.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "LABUVETTE",
+     "name": "Labuvette",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "LAMONNAIE",
+     "name": "Lamonnaie",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "LE SOIR",
+     "name": "Le Soir",
+     "hosts": [
+      "lesoir.be"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MAGRITTEMUSEUM",
+     "name": "Magrittemuseum",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "MAISONANTOINE",
+     "name": "Maisonantoine",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "MINIEUROPE",
+     "name": "Minieurope",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "POECHENELLE",
+     "name": "Poechenelle",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "RENEMAGRITTE",
+     "name": "Renemagritte",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "ROYDESPAGNE",
+     "name": "Roydespagne",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "TOONE",
+     "name": "Toone",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "TRAINWORLD",
+     "name": "Trainworld",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "VANBUUREN",
+     "name": "Vanbuuren",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "WATERLOO1815",
+     "name": "WATERLOO1815",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "WIELS",
+     "name": "Wiels",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "WITTAMER",
+     "name": "Wittamer",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "BEBRUSSELS",
+     "name": "be.brussels — Brussels-Capital Region",
+     "hosts": [
+      "be.brussels"
+     ],
+     "places": 1
+    },
+    {
+     "k": "GARDENSBRUSSELS",
+     "name": "gardens.brussels (Brussels-Capital green spaces)",
+     "hosts": [
+      "gardens.brussels"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "chicago",
+   "untyped": [
+    {
+     "k": "KEITHLEE",
+     "name": "Keithlee",
+     "hosts": [],
+     "places": 3
+    },
+    {
+     "k": "PORTNOY",
+     "name": "Portnoy",
+     "hosts": [],
+     "places": 2
+    }
+   ]
+  },
+  {
+   "page": "cincinnati",
+   "untyped": [
+    {
+     "k": "OHIO HISTORY",
+     "name": "Ohio History Connection / historical markers",
+     "hosts": [
+      "ohiohistory.org"
+     ],
+     "places": 4
+    },
+    {
+     "k": "DAVEPORTNOY",
+     "name": "Daveportnoy",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "STEFANJOHNSON",
+     "name": "Stefanjohnson",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "FOX19",
+     "name": "FOX19",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "NKYTRIBUNE",
+     "name": "Northern Kentucky Tribune",
+     "hosts": [
+      "nkytribune.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "USA TODAY 10BEST",
+     "name": "USA Today 10BEST",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "WKRC 12",
+     "name": "WKRC 12",
+     "hosts": [],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "columbus",
+   "untyped": [
+    {
+     "k": "BWNICK",
+     "name": "Bwnick",
+     "hosts": [],
+     "places": 4
+    },
+    {
+     "k": "CFA",
+     "name": "Cfa",
+     "hosts": [],
+     "places": 2
+    }
+   ]
+  },
+  {
+   "page": "dayton",
+   "untyped": [
+    {
+     "k": "DAYTONVISTAS",
+     "name": "Daytonvistas",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "GIRLABOUTDAYTON",
+     "name": "Girlaboutdayton",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "KAITS",
+     "name": "Kaits",
+     "hosts": [],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "hokkaido",
+   "untyped": [
+    {
+     "k": "JUSTONECOOKBOOK",
+     "name": "Just One Cookbook (Namiko Chen)",
+     "hosts": [
+      "justonecookbook.com"
+     ],
+     "places": 7
+    }
+   ]
+  },
+  {
+   "page": "liege",
+   "untyped": [
+    {
+     "k": "ERICBOSCHMAN",
+     "name": "Ericboschman",
+     "hosts": [
+      "moustique.lalibre.be"
+     ],
+     "places": 6
+    },
+    {
+     "k": "DARLEYNEWMAN",
+     "name": "Darley Newman — Travels with Darley (PBS)",
+     "hosts": [
+      "darley-newman.com"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "newyork",
+   "untyped": [
+    {
+     "k": "TIME OUT",
+     "name": "Time Out New York",
+     "hosts": [
+      "timeout.com"
+     ],
+     "places": 68
+    },
+    {
+     "k": "NYT",
+     "name": "The New York Times",
+     "hosts": [
+      "nytimes.com"
+     ],
+     "places": 18
+    },
+    {
+     "k": "I LOVE NY",
+     "name": "I Love NY (New York State tourism)",
+     "hosts": [
+      "iloveny.com"
+     ],
+     "places": 11
+    },
+    {
+     "k": "YELP",
+     "name": "Yelp",
+     "hosts": [],
+     "places": 6
+    },
+    {
+     "k": "CORNER",
+     "name": "Corner",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "HUDSON VALLEY",
+     "name": "Historic Hudson Valley (official)",
+     "hosts": [
+      "hudsonvalley.org"
+     ],
+     "places": 2
+    },
+    {
+     "k": "SECRETNYC",
+     "name": "Secretnyc",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "THE MET",
+     "name": "The Metropolitan Museum of Art (official)",
+     "hosts": [
+      "metmuseum.org"
+     ],
+     "places": 2
+    },
+    {
+     "k": "ABC7 NY",
+     "name": "ABC7 NY",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "ABC7NY",
+     "name": "ABC7NY",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "BROOKLYN PAPER",
+     "name": "Brooklyn Paper",
+     "hosts": [
+      "brooklynpaper.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DIA",
+     "name": "Dia Art Foundation (official)",
+     "hosts": [
+      "diaart.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DURYEA'S",
+     "name": "Duryea's Montauk (official)",
+     "hosts": [
+      "duryeas.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "GROUNDS FOR SCULPTURE",
+     "name": "Grounds For Sculpture (official)",
+     "hosts": [
+      "groundsforsculpture.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MENUPAGES",
+     "name": "Menupages",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "MONTAUK HS",
+     "name": "Montauk Historical Society (official)",
+     "hosts": [
+      "montaukhistoricalsociety.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MOTTSTREETGIRLS",
+     "name": "Mottstreetgirls",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "NOVACIRCLE",
+     "name": "Novacircle",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "OLD WESTBURY",
+     "name": "Old Westbury Gardens (official)",
+     "hosts": [
+      "oldwestburygardens.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "PARRISH",
+     "name": "Parrish Art Museum (official)",
+     "hosts": [
+      "parrishart.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "PRINCETON",
+     "name": "Princeton University (official)",
+     "hosts": [
+      "princeton.edu"
+     ],
+     "places": 1
+    },
+    {
+     "k": "ROBBREPORT",
+     "name": "Robbreport",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "STORM KING",
+     "name": "Storm King Art Center (official)",
+     "hosts": [
+      "stormking.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "TIKTOK/SOCIAL",
+     "name": "Tiktok/Social",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "WALKWAY",
+     "name": "Walkway Over the Hudson (official)",
+     "hosts": [
+      "walkway.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "WEST POINT",
+     "name": "West Point / U.S. Army (official)",
+     "hosts": [
+      "home.army.mil"
+     ],
+     "places": 1
+    },
+    {
+     "k": "WOLFFER",
+     "name": "Wolffer Estate Vineyard (official)",
+     "hosts": [
+      "wolffer.com"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "osaka",
+   "untyped": [
+    {
+     "k": "CREATOR RAMENADVENTURES",
+     "name": "Ramen Adventures (Brian MacDuckston)",
+     "hosts": [
+      "ramenadventures.com"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "philadelphia",
+   "untyped": [
+    {
+     "k": "ONE BITE (PORTNOY)",
+     "name": "One Bite (portnoy)",
+     "hosts": [],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "rhineland",
+   "untyped": [
+    {
+     "k": "KOELNDE",
+     "name": "koeln.de (Stadtportal)",
+     "hosts": [
+      "koeln.de"
+     ],
+     "places": 52
+    },
+    {
+     "k": "DÜSSELDORF TOURISMUS",
+     "name": "Düsseldorf Tourismus / visitduesseldorf",
+     "hosts": [
+      "visitduesseldorf.de"
+     ],
+     "places": 45
+    },
+    {
+     "k": "MIT VERGNÜGEN",
+     "name": "Mit Vergnügen",
+     "hosts": [
+      "mitvergnuegen.com"
+     ],
+     "places": 24
+    },
+    {
+     "k": "BAUKUNSTNRW",
+     "name": "baukunst-nrw",
+     "hosts": [
+      "baukunst-nrw.de"
+     ],
+     "places": 22
+    },
+    {
+     "k": "BONNDE",
+     "name": "Stadt Bonn (bonn.de)",
+     "hosts": [
+      "bonn.de"
+     ],
+     "places": 14
+    },
+    {
+     "k": "ROMANISCHEKIRCHEN",
+     "name": "Förderverein Romanische Kirchen Köln",
+     "hosts": [
+      "romanische-kirchen-koeln.de"
+     ],
+     "places": 11
+    },
+    {
+     "k": "BONN TOURISMUS",
+     "name": "Bonn Tourismus / visit-bonn-region",
+     "hosts": [
+      "visit-bonn-region.de"
+     ],
+     "places": 10
+    },
+    {
+     "k": "MRDUES",
+     "name": "Mr. Düsseldorf",
+     "hosts": [
+      "mrduesseldorf.de"
+     ],
+     "places": 9
+    },
+    {
+     "k": "MUSEENKOELN",
+     "name": "Museen der Stadt Köln",
+     "hosts": [
+      "museenkoeln.de"
+     ],
+     "places": 9
+    },
+    {
+     "k": "WZ",
+     "name": "Westdeutsche Zeitung",
+     "hosts": [
+      "wz.de"
+     ],
+     "places": 7
+    },
+    {
+     "k": "STADTKOELN",
+     "name": "Stadt Köln (offiziell)",
+     "hosts": [
+      "stadt-koeln.de"
+     ],
+     "places": 6
+    },
+    {
+     "k": "DASBERGISCHE",
+     "name": "Das Bergische (Naturarena Bergisches Land)",
+     "hosts": [
+      "dasbergische.de"
+     ],
+     "places": 4
+    },
+    {
+     "k": "INGL",
+     "name": "Bürgerportal Bergisch Gladbach (in-gl.de)",
+     "hosts": [
+      "in-gl.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "MUSENKUSS",
+     "name": "Musenkuss Düsseldorf (city cultural portal)",
+     "hosts": [
+      "musenkuss-duesseldorf.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "NATURREGIONSIEG",
+     "name": "Naturregion Sieg",
+     "hosts": [
+      "naturregion-sieg.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "PRINZ",
+     "name": "Prinz Düsseldorf",
+     "hosts": [
+      "prinz.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "RADREGION",
+     "name": "RadRegionRheinland / Region Köln-Bonn",
+     "hosts": [
+      "radregionrheinland.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "SWD",
+     "name": "SWD",
+     "hosts": [
+      "swd-ag.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "SIEBENGEBIRGE",
+     "name": "Siebengebirge.com",
+     "hosts": [
+      "siebengebirge.com"
+     ],
+     "places": 3
+    },
+    {
+     "k": "LEVERKUSENDE",
+     "name": "Stadt Leverkusen (leverkusen.de)",
+     "hosts": [
+      "leverkusen.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "NEUSSDE",
+     "name": "Stadt Neuss (neuss.de)",
+     "hosts": [
+      "neuss.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "SIEGBURGDE",
+     "name": "Stadt Siegburg / Tourismus Siegburg",
+     "hosts": [
+      "siegburg.de"
+     ],
+     "places": 3
+    },
+    {
+     "k": "BENTODAISUKI",
+     "name": "Bento Daisuki",
+     "hosts": [
+      "bento-daisuki.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "VISITBONN",
+     "name": "Bonn Tourismus (visit-bonn-region.de)",
+     "hosts": [
+      "visit-bonn-region.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "GEHEIMTIPP",
+     "name": "Geheimtipp Köln",
+     "hosts": [
+      "geheimtipp-koeln.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "GENERAL-ANZEIGER BONN",
+     "name": "General-Anzeiger Bonn",
+     "hosts": [
+      "general-anzeiger-bonn.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "KUNSTSAMMLUNG",
+     "name": "Kunstsammlung Nordrhein-Westfalen (official)",
+     "hosts": [
+      "kunstsammlung.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "LVR",
+     "name": "Landschaftsverband Rheinland (LVR)",
+     "hosts": [
+      "lvr.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "NATURPARKBERG",
+     "name": "Naturpark Bergisches Land",
+     "hosts": [
+      "naturparkbergischesland.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "DORMAGENDE",
+     "name": "Stadt Dormagen (dormagen.de)",
+     "hosts": [
+      "dormagen.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "TAGESKARTE",
+     "name": "Tageskarte (gastro trade press)",
+     "hosts": [
+      "tageskarte.io"
+     ],
+     "places": 2
+    },
+    {
+     "k": "THEDORF",
+     "name": "The Dorf (Düsseldorf lifestyle magazine)",
+     "hosts": [
+      "thedorf.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "THEDUESSELDORFER",
+     "name": "The Düsseldorfer",
+     "hosts": [
+      "the-duesseldorfer.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "TIME OUT",
+     "name": "Time Out",
+     "hosts": [
+      "timeout.com"
+     ],
+     "places": 2
+    },
+    {
+     "k": "TONLINE",
+     "name": "t-online Köln",
+     "hosts": [
+      "koeln.t-online.de"
+     ],
+     "places": 2
+    },
+    {
+     "k": "MEINBADHONNEF",
+     "name": "Bad Honnef Tourismus (meinbadhonnef.de)",
+     "hosts": [
+      "meinbadhonnef.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BAUKULTURNRW",
+     "name": "Baukultur Nordrhein-Westfalen",
+     "hosts": [
+      "baukultur.nrw"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BAYER",
+     "name": "Bayer AG (bayer.com)",
+     "hosts": [
+      "bayer.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "CREMAGAZIN",
+     "name": "Crema Magazin (coffee)",
+     "hosts": [
+      "cremagazin.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BROTINSTITUT",
+     "name": "Deutsches Brotinstitut",
+     "hosts": [
+      "brotinstitut.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "DEUTSCHLANDVEGAN",
+     "name": "Deutschland is(s)t vegan",
+     "hosts": [
+      "deutschlandistvegan.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "VISITDUS",
+     "name": "Düsseldorf Tourismus (visitduesseldorf.de)",
+     "hosts": [
+      "visitduesseldorf.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "EGHN",
+     "name": "European Garden Heritage Network",
+     "hosts": [
+      "eghn.org"
+     ],
+     "places": 1
+    },
+    {
+     "k": "JAPANDIGEST",
+     "name": "Japan Digest",
+     "hosts": [
+      "japandigest.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KOLUMBA",
+     "name": "Kolumba – Kunstmuseum des Erzbistums Köln",
+     "hosts": [
+      "kolumba.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KOLLWITZ",
+     "name": "Käthe Kollwitz Museum Köln",
+     "hosts": [
+      "kollwitz.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KOELNMAG",
+     "name": "Köln-Magazin",
+     "hosts": [
+      "koeln-magazin.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KOENIGSALLEE",
+     "name": "Königsallee Düsseldorf (official boulevard site)",
+     "hosts": [
+      "koenigsallee-duesseldorf.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "LIFEINDUS",
+     "name": "Life in Düsseldorf",
+     "hosts": [
+      "lifeinduesseldorf.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MELATEN",
+     "name": "Melatenfriedhof.de",
+     "hosts": [
+      "melatenfriedhof.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "MAKK",
+     "name": "Museum für Angewandte Kunst Köln",
+     "hosts": [
+      "makk.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "NRWSTIFTUNG",
+     "name": "NRW-Stiftung",
+     "hosts": [
+      "nrw-stiftung.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "NATURPARKRHEINLAND",
+     "name": "Naturpark Rheinland",
+     "hosts": [
+      "naturpark-rheinland.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "RHEINISCHEART",
+     "name": "Rheinische Art (Kunstmagazin)",
+     "hosts": [
+      "rheinische-art.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "RHEINTOPF",
+     "name": "Rheintopf (Rhineland food magazine)",
+     "hosts": [
+      "rheintopf.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BEDBURGDE",
+     "name": "Stadt Bedburg (bedburg.de)",
+     "hosts": [
+      "bedburg.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "BERGHEIMCITY",
+     "name": "Stadt Bergheim (city.bergheim.de)",
+     "hosts": [
+      "city.bergheim.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "RHEINBACHDE",
+     "name": "Stadt Rheinbach (rheinbach.de)",
+     "hosts": [
+      "rheinbach.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "TROISDORFDE",
+     "name": "Stadt Troisdorf (troisdorf.de)",
+     "hosts": [
+      "troisdorf.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "VERLIEBTINJAPAN",
+     "name": "Verliebt in Japan",
+     "hosts": [
+      "verliebt-in-japan.de"
+     ],
+     "places": 1
+    },
+    {
+     "k": "WALLRAF",
+     "name": "Wallraf-Richartz-Museum & Fondation Corboud",
+     "hosts": [
+      "wallraf.museum"
+     ],
+     "places": 1
+    },
+    {
+     "k": "KOELNER",
+     "name": "koelner.de",
+     "hosts": [
+      "koelner.de"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "sanfrancisco",
+   "untyped": [
+    {
+     "k": "TIME OUT",
+     "name": "Time Out SF",
+     "hosts": [
+      "timeout.com"
+     ],
+     "places": 85
+    },
+    {
+     "k": "PATCH",
+     "name": "Patch (local news)",
+     "hosts": [
+      "patch.com"
+     ],
+     "places": 2
+    },
+    {
+     "k": "AXIOS",
+     "name": "Axios",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "CLIO",
+     "name": "Clio",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "HMDB",
+     "name": "HMDB",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "LIVINGNEWDEAL",
+     "name": "Livingnewdeal",
+     "hosts": [],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "siliconvalley",
+   "untyped": [
+    {
+     "k": "YELP",
+     "name": "Yelp business listing (hours/access cross-check)",
+     "hosts": [
+      "yelp.com"
+     ],
+     "places": 21
+    },
+    {
+     "k": "VISIT SAN JOSE",
+     "name": "Visit San Jose",
+     "hosts": [
+      "sanjose.org"
+     ],
+     "places": 12
+    },
+    {
+     "k": "ABC7 BAY AREA",
+     "name": "ABC7 Bay Area",
+     "hosts": [],
+     "places": 4
+    },
+    {
+     "k": "VISIT CALIFORNIA",
+     "name": "Visit California",
+     "hosts": [
+      "visitcalifornia.com"
+     ],
+     "places": 4
+    },
+    {
+     "k": "EDIBLESV",
+     "name": "Ediblesv",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "FOODGAL",
+     "name": "Foodgal",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "INMENLO",
+     "name": "Inmenlo",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "LOCAL NEWS MATTERS",
+     "name": "Local News Matters",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "LOS ALTOS TOWN CRIER",
+     "name": "Los Altos Town Crier",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "MMAG",
+     "name": "Mmag",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "MVVOICE",
+     "name": "Mvvoice",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "SANJOSECOM",
+     "name": "Sanjosecom",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "SANJOSESPOTLIGHT",
+     "name": "Sanjosespotlight",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "SJINSIDE",
+     "name": "Sjinside",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "SMITHSONIAN",
+     "name": "Smithsonian",
+     "hosts": [],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "tokyo",
+   "untyped": [
+    {
+     "k": "PAOLOFROMTOKYO",
+     "name": "Paolo fromTOKYO",
+     "hosts": [
+      "youtube.com"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "washingtondc",
+   "untyped": [
+    {
+     "k": "SMITHSONIAN",
+     "name": "Smithsonian Institution",
+     "hosts": [
+      "si.edu"
+     ],
+     "places": 7
+    },
+    {
+     "k": "VIRGINIA",
+     "name": "Virginia.org (Virginia Tourism Corporation)",
+     "hosts": [
+      "virginia.org"
+     ],
+     "places": 3
+    },
+    {
+     "k": "TIMEOUT",
+     "name": "Timeout",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "USA TODAY 10BEST",
+     "name": "USA Today 10BEST",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "ADORKANDHERFORK",
+     "name": "Adorkandherfork",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "CITYCAST",
+     "name": "Citycast",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "KEITHLEE",
+     "name": "Keithlee",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "NOVAPARKS",
+     "name": "Novaparks",
+     "hosts": [
+      "novaparks.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "URNOVAFOODIE",
+     "name": "Urnovafoodie",
+     "hosts": [],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "wheeling",
+   "untyped": [
+    {
+     "k": "BILLONTHEROAD",
+     "name": "Billontheroad",
+     "hosts": [
+      "billontheroad.com"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "youngstown",
+   "untyped": [
+    {
+     "k": "THE VINDICATOR",
+     "name": "The Vindicator",
+     "hosts": [
+      "vindy.com"
+     ],
+     "places": 2
+    },
+    {
+     "k": "NE OHIO FAMILY FUN",
+     "name": "Northeast Ohio Family Fun",
+     "hosts": [
+      "northeastohiofamilyfun.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "ROGERS MARKET",
+     "name": "Rogers Flea Market · Columbiana County",
+     "hosts": [
+      "rogersohio.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "YOUNGSTOWN FLEA",
+     "name": "The Youngstown Flea",
+     "hosts": [
+      "youngstownflea.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "YOUNGSTOWN LIVE",
+     "name": "Youngstown Live (Mahoning County CVB)",
+     "hosts": [
+      "youngstownlive.com"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "singapore/toa-payoh",
+   "untyped": [
+    {
+     "k": "GHIBOJISAN",
+     "name": "Ghib Ojisan (YouTube)",
+     "hosts": [
+      "youtube.com"
+     ],
+     "places": 1
+    }
+   ]
+  },
+  {
+   "page": "vietnam/ho-chi-minh-city",
+   "untyped": [
+    {
+     "k": "MIGRATIONOLOGY",
+     "name": "Mark Wiens (Migrationology) (YouTube + blog)",
+     "hosts": [
+      "migrationology.com"
+     ],
+     "places": 3
+    }
+   ]
+  }
+ ]
+}
