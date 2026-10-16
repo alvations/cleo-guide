@@ -6,10 +6,10 @@ These shots use **stub street tiles**: the sandbox can't reach tile hosts. Real-
 - **What changed since R3** (each item has a probe check or a measurement in docs/BETA-LOG.md):
   - **R3 #1, phone first screen:**
     - the view switch is its own 52 px row under the header (QC-09);
-    - the chip row reads search (sticky, always visible), All / Sights / Eat & drink, Top picks, Area, Filters, with no counts;
+    - the chip row (48 px, rev 5a) reads All / Sights / Eat & drink, Top picks, Area, Filters, with no counts; search is the header's icon, which opens the in-page search row over the chips (B-03: 13–14);
     - two labelled pills, "Near me" and "Map";
     - the Key is in Filters;
-    - the 64 px peek reads "N places here · checked <date> · Show list".
+    - the 56 px peek (rev 5a) reads "N places here · checked <date> · Show list".
   - **R3 #2, counts and numbers:**
     - one list ranked by map priority, with no area grouping, no area chips and no "area n of N";
     - no rank badges;
@@ -19,8 +19,8 @@ These shots use **stub street tiles**: the sandbox can't reach tile hosts. Real-
   - **R3 #3, text:** card sources at 16 px, stickers and cover text at 14 px. Only credits are smaller.
   - **R3 #4, dots and glyphs:**
     - no sun on dots or pills;
-    - sight dots are light 7 px circles, food dots dark 8 px squares;
-    - glyph overrides as step 0, plus new nouns (Great Lakes Brewing → bottle, Free Stamp → frame, The Arcade → bag, Kabuki-za → ticket);
+    - sight dots are light 7 px circles, food dots dark 8 px squares (dark mode: --ink 45 % / 80 %);
+    - glyph overrides as step 0, plus new nouns (Great Lakes Brewing → bottle, Free Stamp → frame, The Arcade → bag, Kabuki-za → ticket); kit bag and spire, with spire for churches only;
     - the location dot is a placed box;
     - pill gaps are measured at ≥ 4 px.
   - **R3 #5, desktop header:**
@@ -34,5 +34,6 @@ These shots use **stub street tiles**: the sandbox can't reach tile hosts. Real-
     - QC-13 lens totals;
     - QC-17 the carousel grows to its tallest card (nothing clipped);
     - R7-g4 (b) pin → off-page card, (d) check date on the first phone screen, (e) For you / Your day / Near me in the desktop list head;
-    - QC-14 spacing on the 4-pt scale.
+    - QC-14 spacing on the 4-pt scale;
+    - B-20 source chips at 44 px (0 under 44 on the 5 pilots); "Search this area" hidden on the first screen.
 - **Not in this round** (FE-2's lane, atlas-nav.js): the 108 px layout shift (#7) and the desktop deep link (R7-g4 c).
