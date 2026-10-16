@@ -60,6 +60,10 @@ SKIP = {
 BRAND_STORE = re.compile(r"Mandarake|Pok[eé]mon Center|Nintendo KYOTO|Animate |Jump Shop|Kiddy Land|Gashapon|Capcom Store|PARCO Character|Kotobukiya|Character Street|Super Potato|Anime Center|Characters World", re.I)
 VENUE_NAME = re.compile(r"\b(Theat(?:re|er)|Opera House|Playhouse|Ballpark|Arena|Stadium|Concert Hall)\b", re.I)
 SKIP.update({
+ 'dayton#eastwood-metropark': 'no Commons file of the park found (wave 4 search) — calm cover (stated, W8)',
+ 'dayton#englewood-metropark': 'no Commons file of the park found (wave 4 search) — calm cover (stated, W8)',
+})
+SKIP.update({
  'tokyo#nihonbashi-bridge': 'no Commons file shows the whole bridge (the expressway runs overhead); the kirin close-up and the view from the bridge were refused — calm cover (stated, W8)',
  'wheeling#meadowcroft-rockshelter-and-historic-village': 'R7 QA-63: the only other Commons photo is under 640 px; every file is a rock close-up — calm cover (stated)',
  'wheeling#pennsylvania-trolley-museum': 'R7 QA-63: every Commons photo shows a trolley (equipment) rather than the place — calm cover (stated)',

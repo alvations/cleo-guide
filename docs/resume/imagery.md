@@ -24,6 +24,8 @@
 
 - This push: the dispatch run reviewed (design/beta/imagery-runs/run-60.md): 24 kept, 6 refused, Zwin '?', Mattress Factory refused and stated. Leads 25/25, first row 51/51, tier-1 503/1003. w8p is green again at 618 KB (FE-C b8a3a6ae took the page JSON off the first screen; FE-A 8b06f542 fixed the gallery 720 sizes).
 
+- This push: Zwin 32.jpg refused per the orchestrator (a plain beach; 'Het Zwin.JPG' is next). Candidate wave 4: 19 vetted titles for the still-open Ghent, Antwerp, Dayton, Saarland and State College targets (Gravensteen, OLV Antwerp, Kazerne Dossin, Carillon Park, Westcott House, NMUSAF, Ludwigskirche, Hauptmarkt Trier, Cusanusstift, Horseshoe Curve). Eastwood and Englewood MetroParks are stated gaps (no file found). Not found yet: MSK Gent, Zoo Planckendael, Kudaka, Diekirch, Musée lorrain. Next: dispatch `all` at budget 600 and review it.
+
 **In flight:**
 - Run #48's 32 refusals are APPLIED in this push (orchestrator's final list, recorded in design/beta/imagery-runs/run-48.md). CREDITS 580 → 548.
 - D-40a data has LANDED: 38 lead/first-row cards have a 720 copy ≤ 45 KB. 7 are in `NO720` in recompress.js (busy or tall photos that only fit by shrinking below 600 px) and keep 500 + 960. The cap went from 55 to 45 KB because 55 measured Tokyo phone@3× at 703 KB once the 720-aware `sizes` was applied; 45 measures 691 KB. Platform still has to switch `cardSizes()` to the 720 copy (asked); until then phones load the 500 and Tokyo is 649 KB.

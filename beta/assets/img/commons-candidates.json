@@ -38,16 +38,16 @@
   },
   "otherLandmarks": {
    "targets": 1151,
-   "skipped": 240,
-   "withArticle": 627
+   "skipped": 242,
+   "withArticle": 625
   },
   "candidates": {
-   "total": 526,
-   "high": 512,
-   "med": 14,
+   "total": 544,
+   "high": 522,
+   "med": 22,
    "low": 0
   },
-  "targetsWithHigh": 265,
+  "targetsWithHigh": 271,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -9493,7 +9493,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kazerne_Dossin",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kazerne Dossin - het Memoriaal, Mechelen 2013.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kazerne_Dossin_-_het_Memoriaal,_Mechelen_2013.jpg",
+     "depicts": "The Kazerne Dossin memorial, Mechelen",
+     "confidence": "med",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names Kazerne Dossin memorial"
+    }
+   ]
   },
   {
    "key": "landmark:antwerp#kmska-koninklijk-museum-voor-schone-kunsten",
@@ -9566,7 +9576,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Onze-Lieve-Vrouwekerk",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:0 Onze-Lieve-Vrouwekathedraal - Antwerp (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:0_Onze-Lieve-Vrouwekathedraal_-_Antwerp_(1).jpg",
+     "depicts": "The Cathedral of Our Lady, Antwerp",
+     "confidence": "high",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names the cathedral"
+    },
+    {
+     "file": "File:Onze-Lieve-Vrouwekathedraal Antwerpen.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Onze-Lieve-Vrouwekathedraal_Antwerpen.jpg",
+     "depicts": "The Cathedral of Our Lady, Antwerp",
+     "confidence": "high",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names the cathedral"
+    }
+   ]
   },
   {
    "key": "landmark:antwerp#sint-romboutskathedraal-and-toren",
@@ -9994,7 +10021,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Zwin_32.jpg",
      "depicts": "The Zwin nature reserve, Knokke",
      "confidence": "high",
-     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Zwin; FrDr (2022)"
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Zwin; FrDr (2022)",
+     "refused": "refused by orchestrator review (W8): a plain beach, not the reserve's salt marsh (wrong subject)"
     },
     {
      "file": "File:Het Zwin.JPG",
@@ -12186,7 +12214,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Carillon_Historical_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Deeds Carillon Carillon Historical Park Dayton Ohio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Deeds_Carillon_Carillon_Historical_Park_Dayton_Ohio.jpg",
+     "depicts": "The Deeds Carillon in Carillon Historical Park",
+     "confidence": "high",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names the park and carillon"
+    },
+    {
+     "file": "File:Deeds Carillon.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Deeds_Carillon.JPG",
+     "depicts": "The Deeds Carillon, Carillon Historical Park",
+     "confidence": "med",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names the Deeds Carillon"
+    }
+   ]
   },
   {
    "key": "landmark:dayton#clifton-mill",
@@ -12236,7 +12281,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Five_Rivers_MetroParks",
-   "wikiLead": true,
+   "skip": "no Commons file of the park found (wave 4 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -12250,7 +12295,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Five_Rivers_MetroParks",
-   "wikiLead": true,
+   "skip": "no Commons file of the park found (wave 4 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -12265,7 +12310,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Westcott_House_(Springfield,_Ohio)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Westcott house.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Westcott_house.jpg",
+     "depicts": "The Westcott House, Springfield, Ohio",
+     "confidence": "med",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names Westcott House"
+    }
+   ]
   },
   {
    "key": "landmark:dayton#fraze-pavilion",
@@ -12339,6 +12394,20 @@
      "confidence": "high",
      "reason": "lead image (run #40)",
      "refused": "refused by visual review (W8, all run #40, R7-g1): the museum emblem, not a photo (not-a-photo rule)"
+    },
+    {
+     "file": "File:National Museum of the U.S. Air Force.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Museum_of_the_U.S._Air_Force.jpg",
+     "depicts": "The National Museum of the U.S. Air Force",
+     "confidence": "high",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names the museum"
+    },
+    {
+     "file": "File:National Museum of the United States Air Force - 53312911763.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Museum_of_the_United_States_Air_Force_-_53312911763.jpg",
+     "depicts": "The National Museum of the U.S. Air Force",
+     "confidence": "med",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names the museum"
     }
    ]
   },
@@ -12616,7 +12685,24 @@
    "pilot": false,
    "article": "https://nl.wikipedia.org/wiki/Gravensteen",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Burg Gravensteen Gent.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Burg_Gravensteen_Gent.jpg",
+     "depicts": "The Gravensteen castle, Ghent",
+     "confidence": "high",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names Gravensteen"
+    },
+    {
+     "file": "File:Gent Burg Gravensteen 13.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_Burg_Gravensteen_13.jpg",
+     "depicts": "The Gravensteen castle, Ghent",
+     "confidence": "high",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names Gravensteen"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#kasteel-van-ooidonk",
@@ -20608,7 +20694,24 @@
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Hauptmarkt_(Trier)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hauptmarkt Trier SK.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hauptmarkt_Trier_SK.jpg",
+     "depicts": "The Hauptmarkt, Trier, with St. Gangolf, the Marktkreuz and the Steipe",
+     "confidence": "high",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): description names Hauptmarkt and Marktkreuz"
+    },
+    {
+     "file": "File:Hauptmarkt Trier.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hauptmarkt_Trier.jpg",
+     "depicts": "The Hauptmarkt, Trier",
+     "confidence": "high",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names Hauptmarkt Trier"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#homburger-schlossberghohlen",
@@ -20633,7 +20736,24 @@
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Ludwigskirche_(Saarbr%C3%BCcken)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Saarbruecken-Ludwigskirche.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Saarbruecken-Ludwigskirche.jpg",
+     "depicts": "The Ludwigskirche, Saarbrücken",
+     "confidence": "high",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names Ludwigskirche (PD, Hugo 2006)"
+    },
+    {
+     "file": "File:Ludwigskirche.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ludwigskirche.jpg",
+     "depicts": "The Ludwigskirche, Saarbrücken",
+     "confidence": "med",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): Wolfgang Staudt 2007, CC BY 2.0"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#memorial-de-verdun",
@@ -21060,7 +21180,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cusanusstift",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bernkastel-Kues Cusanusstift.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bernkastel-Kues_Cusanusstift.jpg",
+     "depicts": "The Cusanusstift (St. Nikolaus-Hospital), Bernkastel-Kues, from the east",
+     "confidence": "high",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names Cusanusstift"
+    },
+    {
+     "file": "File:St. Nikolaus-Hospital.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:St._Nikolaus-Hospital.JPG",
+     "depicts": "The St. Nikolaus-Hospital, Bernkastel-Kues",
+     "confidence": "med",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): Woscho 2010, CC BY-SA 3.0"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#stiftskirche-st-arnual",
@@ -22983,7 +23120,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Horseshoe_Curve_(Pennsylvania)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Horseshoe Curve P6170086.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Horseshoe_Curve_P6170086.JPG",
+     "depicts": "The Horseshoe Curve near Altoona",
+     "confidence": "med",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names Horseshoe Curve"
+    },
+    {
+     "file": "File:Horseshoe Curve aerial photo, March 2006.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Horseshoe_Curve_aerial_photo,_March_2006.jpg",
+     "depicts": "The Horseshoe Curve from above (USGS orthoimage)",
+     "confidence": "med",
+     "reason": "candidate wave 4 (W8 vetting, 2026-10-16): title names Horseshoe Curve"
+    }
+   ]
   },
   {
    "key": "landmark:statecollege#mount-nittany-mike-lynch-overlook",
