@@ -187,13 +187,17 @@
     if (!!T !== topWas) { topWas = !!T; C.auto();
       if (T) { topV = [map.getCenter(), map.getZoom()]; const ll = Object.keys(T).map(id => C.markers[id].getLatLng()); if (ll.length) map.fitBounds(window.L.latLngBounds(ll), Object.assign(C.overMap(), { maxZoom: 16, animate: !C.still() })); }
       else if (topV) { map.setView(topV[0], topV[1], { animate: !C.still() }); topV = null; } } };
+  // the list's order is the ranking (map priority) — set as each card's CSS order while the sections and lists step aside
+  // (display: contents), so the list reads as ONE ranked list with no DOM moves; a chosen sort keeps the guide's order
+  const flat = () => { const on = atlas() && !S.sort; qa('li.pl').forEach(c => { const v = on ? String(MP[C.pid(c)] == null ? 99999 : MP[C.pid(c)]) : ''; if (c.style.order !== v) c.style.order = v; }); };
+  C.flat = flat;
   const msArea = C.msArea = more => {
     const map = C.map();
     // the list always pages by 48 in Atlas (a day route excepted): filtered to the map area while the map is up and
     // "Search as I move" is on; the whole lens when there is no map (or "Show all") — never every card at once
     // QA-45 (G1): "Show all N in one list" — one tap puts every place in one scrollable list (all stamped, unpaged), as
     // the Gallery pager's "Show all on one page" does; "Only show this map area" / a pan of the map pages it again
-    if (!atlas() || S.day || C.msOne) { topMap(null); C.msTop = null; if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
+    if (!atlas() || S.day || C.msOne) { topMap(null); C.msTop = null; flat(); if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
     const T = topOn() ? topSet() : null; topMap(T);
     const area = !T && !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
     if (more !== true && C.navKeep && C.navKeep()) { if (C.msPaint) C.msPaint(); return; }   // a round-trip keeps the list it left (atlas-nav.js)
@@ -205,12 +209,15 @@
     // order the list is shown in; page 1 reuses the cards the page already rendered, so a first fit builds ≤ 1 page
     const ord = {}; C.sections.forEach((s, i) => { ord[at(s, 'data-area')] = i; });
         const all = qa('li.pl').filter(c => !c.hidden).concat(lensStubs());
-    const inn = all.filter(inB).sort((x, y) => !llOf(x) - !llOf(y) || (S.sort ? 0 : (ord[at(x, 'data-a')] || 0) - (ord[at(y, 'data-a')] || 0) || C.num(x) - C.num(y)));
+    // §2.3: the list follows the bounds, ranked by map priority — not grouped by area (a chosen sort keeps its own order)
+    const mpOf = x => (MP[C.pid(x)] == null ? 1e9 : MP[C.pid(x)]);
+    const inn = all.filter(inB).sort((x, y) => !llOf(x) - !llOf(y) || (S.sort ? 0 : mpOf(x) - mpOf(y) || (ord[at(x, 'data-a')] || 0) - (ord[at(y, 'data-a')] || 0) || C.num(x) - C.num(y)));
     // only the cards on show are built: exactly these ids (Cleo.defer.stampIds splits their chunks), never the whole area
     const show = {}, need = new Set(); inn.slice(0, lim).concat(inn.filter(keep)).forEach(c => { show[C.pid(c)] = 1; if (!C.byId[C.pid(c)]) need.add('p-' + C.pid(c)); });   // the selected / open place always shows
     // while the map is still on its way, page what is already built: its own first fit picks the page to build
     if (need.size && Cleo.defer && (map || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
     lastShow = show; qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
+    flat();
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
     // the first map-area pass has picked the page (or there is no map / the reader asked for all): the list can be drawn
     if (area || C.msAll || H.classList.contains('ms-nomap') || !C.loadMap) H.classList.add('ms-ready');
@@ -419,7 +426,7 @@
     tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k));
   };
   // cards stamped later (a deep link, a route that builds more) join the page only if it shows them: a kept list stays the list
-  C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (!atlas()) return; if (lastShow && H.classList.contains('ms-on')) qa('li.pl:not(.ms-out)').forEach(c => { if (!c.hidden && !lastShow[C.pid(c)] && c !== selC && !c.classList.contains('is-target')) c.classList.add('ms-out'); }); requestAnimationFrame(() => { paintMs(); fitCar(); }); }); on(d, 'cleo:saved', paintMs);
+  C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (!atlas()) return; if (lastShow && H.classList.contains('ms-on')) qa('li.pl:not(.ms-out)').forEach(c => { if (!c.hidden && !lastShow[C.pid(c)] && c !== selC && !c.classList.contains('is-target')) c.classList.add('ms-out'); }); flat(); requestAnimationFrame(() => { paintMs(); fitCar(); }); }); on(d, 'cleo:saved', paintMs);
   // phones: List ⇄ Map. The list is the full-screen image-first list of the places in the map area (Back closes it).
   // FE-A's shared card face, except the carousel; phone thumbs ask for the 500w copy (carousel 120px, list 240px)
   const face = () => { const car = atlas() && !desk() && !listOn; if (lp) lp.classList.toggle('w7-cards', atlas() && !car);
@@ -457,7 +464,7 @@
     if (H.classList.contains('ms-nomap')) C.onNoMap();
     msArea();
   };
-  C.msOut = () => { listOn = false; unpark(); undeco(); if (lp) lp.classList.remove('w7-cards'); closePoi(); held(); };
+  C.msOut = () => { listOn = false; qa('li.pl').forEach(c => { c.style.order = ''; }); unpark(); undeco(); if (lp) lp.classList.remove('w7-cards'); closePoi(); held(); };
 
   /* ---- locate-me: opt-in, one reading, memory only ---- */
   let meL = null;   // `me` (the reader's location, memory only) is declared at the top: feature() reads it

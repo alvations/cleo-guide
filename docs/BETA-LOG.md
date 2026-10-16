@@ -1954,3 +1954,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **QC register:** verified 24, open 3 (QC-04 Med; QC-13, QC-14 Low), High 0. QC-05 verified on e353df08.
 - **Location lane:** QC-25 closure sources batches 1 and 2 landed. Sokolowski's corrected to closed 2020. Decisions sent for batch 2; batches 3–4 next.
 - **FE-1:** sent a note asking it to confirm the desktop list never waits on `.ms-ready` when the map can't mount (rule 4).
+- **One ranked list (§2.3, R3 #2):**
+  - Beside the map, desktop and in the phone list, the list follows the bounds ranked by map priority and is not grouped by area. Each card takes its rank as its CSS `order` (atlas.js `flat()`); the sections and lists step aside (`display: contents`), so no card moves in the DOM. msOut clears the orders, so the other views are untouched.
+  - There are no area headings, no "N places · area n of N" and no area-chip row. Area lives in the bar's Area button and in Filters. A chosen sort (Most sources, A–Z, Nearest) keeps its own order.
+  - The page msArea builds is the top 40 by map priority in view.
+  - The count strings above the first card are the count line and "Show all N", nothing else.
+- **B-21 (0 px text):** the "‹" breadcrumb (phone, and desktop below 1280) no longer sets `font-size:0`. The link keeps its text at its real size (it stays the accessible name) and shows as a chevron (text-indent with a pseudo-element).
+- **Raised, not changed:**
+  - metrics B-20 on the phone counts FE-C's "Cited by N sources" badges (`a.rb-cited`, 32 px tall) in the Atlas list. Reported to FE-C.
+  - metrics B-03 reads 15 controls on 3 pilots against a limit of 14. The spec's phone chrome is header 4 + switcher 4 + chips 7 = 15, and the switcher row is required (QC-09). Raised with QA and the designer.
