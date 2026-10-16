@@ -97,7 +97,7 @@
     function fill(t, mt, tail) {
       var vars = {};
       t.names.forEach(function (n, i) { vars[n] = mt[i + 1]; });
-      if (t.k === 'land.month.h' && vars.month) vars.month = month(vars.month);
+      if ((t.k === 'land.month.h' || t.k === 'land.month.lede') && vars.month) vars.month = month(vars.month);   // FE-B W9-2: the month now opens the lede
       return t.to.replace(/\{([a-z]+)\}/g, function (x, n) { return n in vars ? vars[n] : x; }) + (tail || '');
     }
     // a placeholder holds plain text or exactly one element, never an element plus text ("{source}" ≠ "<b>X</b> + 1 more")

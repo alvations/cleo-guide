@@ -13,6 +13,7 @@
  */
 const { esc, prose, jsonInline } = require('../html');
 const RU = require('./recognition-ui');            // FE-C W9-1 hook: recognition badges (platform data only)
+const FU = require('./fresh-ui');                  // FE-C W9-2 hook: the "Follow changes" line
 const { TIER } = require('../model');
 const { t: tr, tn } = require('../i18n');   // platform W9-8: the offline-pack strings come from the catalogue; i18n D-41: every interface string
 /** Every catalogue string the W9-8 offline pack and the offline map line use (test-i18n renders it in `pseudo`). */
@@ -385,7 +386,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
-    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition /* FE-C W9-5 / W9-7 / W9-1 hook */ },  // loaded on first use (C.need / views.js), precached by the SW
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition, fresh: ctx.assetsV.fresh /* FE-C W9-5 / W9-7 / W9-1 / W9-2 hook */ },  // loaded on first use (C.need / views.js), precached by the SW
     views: VIEWS, dv: DV,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
@@ -467,7 +468,7 @@ ${cardsHtml}
 <section class="howto" id="how-we-choose" aria-labelledby="hwc-h"><h2 class="d2" id="hwc-h">${tr('page.method')}</h2>
 <p>${tr('city.how.p')}</p>
 <dl>${[1, 2, 3].map(n => `<dt><i class="tg t${n}" aria-hidden="true"></i> ${tr('tier.' + n)}</dt><dd>${tr('city.how.t' + n)}</dd>`).join('')}</dl>
-<p class="sm">${tr('city.how.order')}</p>
+<p class="sm">${tr('city.how.order')}</p>${FU.follow(row, up) /* FE-C W9-2 hook */}
 </section>
 </div>
 <aside class="mappane" aria-label="${tr('city.map.label')}">
