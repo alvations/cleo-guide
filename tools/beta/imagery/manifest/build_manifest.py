@@ -79,6 +79,7 @@ SKIP.update({
  'youngstown#dave-grohl-alley': 'candidate wave 3: an alley of modern murals — copyrighted artwork is the subject — calm cover (stated)',
  'youngstown#past-times-arcade': 'candidate wave 3: an arcade (a venue) — never a photo — calm cover (stated)',
  'bruges#garnaalvissers-te-paard-oostduinkerke': 'candidate wave 3: a living tradition — the horseback shrimp fishers themselves are the subject (people rule) — calm cover (stated)',
+ 'pittsburgh#mattress-factory': 'run #58/60: the only large Commons photo was refused (an aerial); every other Commons photo of the Mattress Factory is 400 px wide, under the 640 px floor — calm cover (stated)',
  'chicago#site-of-the-great-chicago-fire-pillar-of-fire': 'R7-g1: the only Commons lead image is a DeKoven Street view of parked cars; no file shows the site or the Pillar of Fire sculpture — calm cover (stated)',
  'chicago#360-chicago-875-north-michigan-avenue': 'venue (paid observation deck, like Shibuya Sky) — never a photo',
  'kyoto#marufukuro-former-nintendo-headquarters': 'no Commons file shows the 1930 Marufukuro building (only the later research centre and a name plate) — gap stated',
