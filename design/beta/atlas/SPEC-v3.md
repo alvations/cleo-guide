@@ -1,7 +1,7 @@
 # Atlas map, spec v3: "places on a map, not numbers on a grid"
 
 - **Owner:** the designer, for the Atlas review loop ([`PANEL.md`](PANEL.md)). The Atlas lane builds it.
-- **Status:** revision 5a (FE-1 conflicts, 2026-10-16), revision 5 after PANEL-R3 (80.7 / 100; R2 70.9, R1 63.8, R0 56.1; [`PANEL-R3.md`](PANEL-R3.md)). Earlier revisions folded in R0 to R2. Revision 2 folded in PANEL-R0 ([`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
+- **Status:** Atlas is the **default city view** (owner decision D-46; switcher order Atlas, Gallery, Guidebook, Insights; first screen in §1.7). Revision 5a (FE-1 conflicts, 2026-10-16), revision 5 after PANEL-R3 (80.7 / 100; R2 70.9, R1 63.8, R0 56.1; [`PANEL-R3.md`](PANEL-R3.md)). Earlier revisions folded in R0 to R2. Revision 2 folded in PANEL-R0 ([`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
 - **Prototypes:** [`proto/`](proto/), shot at 1440×900 and 390×844, in light and dark. They use real coordinates on a flat stub basemap; see §6.
 - **Rule 6:** no brand names. The owner's reference is written as "the real-estate map-search pattern".
 - **Owner direction:** combine the best patterns of every product kind and don't copy one (§10). The map-search navigation is the frame, not the whole product.
@@ -149,6 +149,36 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
 - Every place remains reachable through the list's "Show all" and through its dot, with or without tiles. Without the map library, the list is unchanged.
 
 ---
+
+### 1.7 Atlas is the default view: the cold first screen (D-46)
+
+The owner made Atlas the default city view (D-46): "make atlas the default view then the list". The R5 evaluator rewarded Gallery's art-led first screen. A cold Atlas load (no hash, no saved view) has to earn that back without giving up the map. The R4 real shots show the gap. At 390 the first screen is a grey map, eight text pills and one line of text: no photo, and nothing about the city beyond its name. At 1440 the list column has photos, but the page never introduces the city.
+
+**Phone (390):**
+- **Photos in the peek.** The 56 px peek's 44 px row leads with up to **3 thumbnails** (40 × 40, `--r-s`) of the top in-bounds places by `mp` that have an honest photo. Then comes the line, "351 places here · Show list". If fewer places have photos, show fewer; a glyph tile is never used as a fill-in here. The peek height doesn't change, so clear map stays at 75.4 %. Only these 3 images load eagerly (the §7 budget). The thumbnails are decoration (`alt=""`); the row's accessible name is the line.
+- **The city intro opens the list.** The list sheet (from the peek) starts with the intro Gallery's masthead used to carry:
+  - the city name in display type;
+  - the page's one-line dek;
+  - "N places picked by M sources".
+  It scrolls away with the list.
+- **The lead place.** The first card in the list sheet is the top place by `mp` with an honest photo, drawn full-width at 3:2. That holds on the cold, unfiltered load only; every other state uses the normal card.
+
+**Desktop (1440):**
+- **A compact intro tops the list column**, not the map: the city name (`--font-display`, `--fs-d2`), the dek (one line, clamped) and "N places picked by M sources". At most 88 px; it scrolls away with the list. The count line sits under it unchanged.
+- **The lead card.** On the cold, unfiltered load, the first card spans both list columns at 3:2. It's the lead place, the top place by `mp` with an honest photo. Every other state uses the two-column grid.
+- **No photos on the map itself.** Pills stay text plus glyph (§1.2).
+
+**Without the map** (tiles blocked or no map library):
+- **Phone:** falls back to the photo list. The R4 shot `tokyo-390-light-8-tiles-blocked.jpg` gets this right, and it is the most art-led Atlas state there is.
+- **Desktop map art**, three fixes from that shot:
+  - (a) it uses §1.1's neutral circle and square dots, **not area colours** (rev 5 removed them, and the fallback still draws a rainbow);
+  - (b) places outside the fitted bounds are dropped, not stacked as rings on the left edge;
+  - (c) one "Map unavailable" notice, not two (the duplicate is FE-1's pending QC-05 item).
+
+**Acceptance (cold load, no hash and no saved view, on Tokyo, Cleveland and Chinatown):**
+- At 390, at least one photo is visible on the first screen (the peek thumbnails), and clear map is still ≥ 75 %.
+- At 1440, the city name, its dek and the lead place's photo sit above the fold of the list column.
+- With tiles blocked, no area colour and no edge-stacked marker is drawn.
 
 ## 2. Slice 2: chrome and the list (after slice 1)
 
@@ -395,6 +425,7 @@ The R0 findings sit in these slices: #1, #5 (pins), #6, #7 in slice 1; #3, #8, #
 | PANEL-R3 #6 (1.8) | No-photo covers | §2.3 (rev 4) unchanged: designed list cover; previews and carousel have no media block. R3's preview still had an empty 170 px cover. |
 | PANEL-R3 #7 (1.3, High 5/8), #8 | 108 px layout shift; stale counts | FE-2, §3.2 and §2.3 count rule. Process note: the FE probe must measure the map's top and ancestor scrollTop, not window scroll. |
 | FE-1 rev 5 conflicts (2026-10-16) | The required switcher row puts the phone first screen at 73.9 % clear and 15 controls above the first card (B-03 ≤ 14); the spire glyph drew a cross and stood for every faith | §2.2 rev 5a: search only in the header, a 48 px chip row and a 56 px peek give 75.4 % clear (50.7 % at 200 %) and 14 controls. §1.2: the kit spire with no faith mark, for churches only; other houses of worship fall through to their kind glyph. |
+| Owner decision D-46 (2026-10-16) | Atlas becomes the default view, ahead of Gallery | §1.7: photos in the phone peek, a city intro and a lead card on the cold load, and no-map fixes. Order and labels are in DESIGN-SYSTEM §v2.11. |
 | Owner direction (relayed by the panel, 2026-10-11) | Don't copy one product; combine the best of each, keep the map-search navigation, don't neglect the other features | §10: a combination table built from existing beta features, plus a non-regression rule for Gallery, Guidebook, Insights and the detail (§10.1). |
 | PANEL-R0 AO-5 (rejected in part) | Must-sees stand out | Kept: the sun-wash pill stays the Must-see signal. |
 
