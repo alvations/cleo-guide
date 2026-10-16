@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T14:19:51.909Z",
+ "generated": "2026-10-16T16:22:02.994Z",
  "viewports": {
   "mobile": "390x844@3 touch",
   "desktop": "1440x900",
@@ -23,7 +23,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 392,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -66,7 +66,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 493,
-    "fcp": 220,
+    "fcp": 184,
     "fontSampleN": 148,
     "fontsDeclared": {
      "Bricolage Grotesque": 26,
@@ -100,14 +100,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 742214,
-    "bytesAllResponses": 742214,
+    "bytes": 742885,
+    "bytesAllResponses": 742885,
     "initial": {
-     "bytes": 742214,
-     "gz": 500379
+     "bytes": 742885,
+     "gz": 500628
     },
     "session": {
-     "bytes": 742214
+     "bytes": 742885
     },
     "offOriginBlocked": 0,
     "night": {
@@ -128,7 +128,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 612,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -169,7 +169,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 493,
-    "fcp": 184,
+    "fcp": 208,
     "fontSampleN": 172,
     "fontsDeclared": {
      "Bricolage Grotesque": 28,
@@ -203,14 +203,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 742214,
-    "bytesAllResponses": 742214,
+    "bytes": 742885,
+    "bytesAllResponses": 742885,
     "initial": {
-     "bytes": 742214,
-     "gz": 500379
+     "bytes": 742885,
+     "gz": 500628
     },
     "session": {
-     "bytes": 742214
+     "bytes": 742885
     },
     "offOriginBlocked": 0,
     "night": {
@@ -228,9 +228,9 @@
     "text": 3056
    },
    "cpu4x": {
-    "fcp": 444,
-    "dcl": 163,
-    "loadMs": 647
+    "fcp": 448,
+    "dcl": 428,
+    "loadMs": 701
    },
    "verdict": {
     "rows": {
@@ -280,7 +280,7 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "725 KB · 493 nodes · 184 ms · 444 ms"
+      "val": "725 KB · 493 nodes · 208 ms · 448 ms"
      },
      "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
       "pass": true,
