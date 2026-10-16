@@ -311,7 +311,8 @@
   // parks pins underneath. Fit inside the uncovered band (QA-34; the day route sits above the carousel too).
   const overMap = C.overMap = () => { const m = el0().getBoundingClientRect(), lp = $('.listpane'), bar = $('.ms-bar'), H = d.documentElement; let t = 0, b = 0;
     if (!desk() && H.classList.contains('atlas-m') && !H.classList.contains('ms-list')) {
-      if (lp && lp.offsetHeight) b = Math.max(0, m.bottom - lp.getBoundingClientRect().top);
+      // the bottom overlay: the carousel after a selection, else the 64 px list peek (SPEC-v3 §2.2)
+      const pk = $('.ms-toggle'), bo = lp && lp.offsetHeight ? lp : pk && pk.offsetHeight ? pk : null; if (bo) b = Math.max(0, m.bottom - bo.getBoundingClientRect().top);
       if (bar && bar.offsetHeight) t = Math.max(0, bar.getBoundingClientRect().bottom - m.top); }
     return { paddingTopLeft: [32, 24 + t], paddingBottomRight: [32, 24 + b] }; };
   const fitArea = C.fitArea = a => { if (!live() || !map.getSize().x) return; const ll = cards.concat(Cleo.defer ? Cleo.defer.peek() : []).filter(c => at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());

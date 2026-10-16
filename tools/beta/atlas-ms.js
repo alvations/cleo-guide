@@ -140,7 +140,7 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         // pan: the list follows the map
         await page.evaluate(() => { const m = Cleo.city.map(); m.setZoom(m.getZoom() + 2, { animate: false }); });
         await sleep(700); const s1 = await state(page);
-        chk(`${key} desktop: zooming in changes the list count (search as I move the map)`, nIn(s1) < nIn(s0) && /more outside/.test(s1.more), [s0.count, s1.count, s1.more]);
+        chk(`${key} desktop: zooming in changes the list count (search as I move the map); "Show all N" offered`, nIn(s1) < nIn(s0) && /Show all/.test(s1.more), [s0.count, s1.count, s1.more]);
         await page.evaluate(() => { const m = Cleo.city.map(); const s = m.getSize(); m.panBy([s.x * 0.45, s.y * 0.35], { animate: false }); });
         await sleep(700); const s2 = await state(page);
         chk(`${key} desktop: panning changes the list count`, nIn(s2) !== nIn(s1), [s1.count, s2.count]);
@@ -151,6 +151,15 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         chk(`${key} desktop: "Show all" restores every place`, nIn(s3) === total && s3.cardsVisible > 0, [s3.count, total]);
         await page.click('.ms-more [data-ms="area"]'); await sleep(300);
         await page.evaluate(v => { Cleo.city.map().setView([v[0], v[1]], v[2], { animate: false }); }, v0); await sleep(600);   // back to the first view for the sync checks
+        // SPEC-v3 §2.4: one best-places control, "Top picks" — the first 30 by map priority; ≤ 30 places on the map, a count line naming it
+        const tp = await page.evaluate(async () => { const b = document.querySelector('.ms-bar .ms-top'); if (!b) return { btn: false };
+          const best = [...document.querySelectorAll('.ms-bar :is(.ms-top,.ms-must)')].filter(e => e.offsetWidth).length;
+          b.click(); await new Promise(r => setTimeout(r, 1200)); const C = Cleo.city, m = C.map();
+          const onMap = Object.keys(C.markers).filter(id => C.dots.hasLayer(C.markers[id])).length, line = document.querySelector('.ms-head .ms-count').textContent.trim(), pressed = b.getAttribute('aria-pressed');
+          b.click(); await new Promise(r => setTimeout(r, 1200)); const back = Object.keys(C.markers).filter(id => C.dots.hasLayer(C.markers[id])).length;
+          return { btn: true, best, onMap, line, pressed, back, total: Object.keys(C.markers).length }; });
+        chk(`${key} desktop: one best-places control ("Top picks"): on → ≤ 30 places on the map and "Top N picks"; off → every place back`,
+          tp.btn && tp.best === 1 && tp.onMap > 0 && tp.onMap <= 30 && /^Top \d+ picks/.test(tp.line) && tp.pressed === 'true' && tp.back === tp.total, tp);
         // hover sync: card → pin and pin → card
         const hv = await page.evaluate(async () => {
           // SPEC-v3: a featured place's pill lights; a dot-only place shows as a labelled pill while hovered
@@ -219,7 +228,8 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         chk(`${key} phone: "not a place" records stay listed and never draw on the map`, np.ids.length >= 1 && !np.onMap.length, np);
       }
       if (!dark) {
-        const pp = await page.evaluate(() => { const lp = document.querySelector('.listpane').getBoundingClientRect(), bar = document.querySelector('.ms-bar').getBoundingClientRect();
+        // the bottom overlay is the 64 px list peek on the first screen (SPEC-v3 §2.2), the carousel after a selection
+        const pp = await page.evaluate(() => { const L = document.querySelector('.listpane'), lp = (L.offsetWidth ? L : document.querySelector('.ms-toggle')).getBoundingClientRect(), bar = document.querySelector('.ms-bar').getBoundingClientRect();
           const ps = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].map(e => (e.firstElementChild || e).getBoundingClientRect());
           return { pins: ps.length, under: ps.filter(r => r.bottom > lp.top + 2 || r.top < bar.bottom - 2).length, discs: Cleo.city.discs || 0 }; });
         chk(`${key} phone: ≤ 8 labelled pins, none under the carousel or the chip row; ≤ 10 density discs`, pp.pins <= 8 && pp.under === 0 && pp.discs <= 10, pp);
@@ -250,6 +260,11 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
             const x = (r.left + r.right) / 2, y = (r.top + r.bottom) / 2, hit = document.elementFromPoint(x, y); if (!hit) continue; seen++;
             if (!t.contains(hit) && hit.closest('li.pl') !== t.closest('li.pl')) cov.push((hit.className || hit.tagName).toString().slice(0, 30) + ' over ' + t.textContent.trim().slice(0, 24)); }
           return { seen, covered: cov.length, eg: cov.slice(0, 3) }; });
+        // SPEC-v3 §2.2: the first screen is map + peek, no carousel; a pin tap brings the carousel — its titles are checked there
+        const car0 = await page.evaluate(() => { const L = document.querySelector('.listpane'), pk = document.querySelector('.ms-toggle'), r = pk.getBoundingClientRect(); return { carousel: !!L.offsetWidth, peek: Math.round(r.height), peekBottom: Math.round(innerHeight - r.bottom), text: pk.textContent.trim() }; });
+        chk(`${key} phone: first screen is map + a 64 px list peek ("N places here · Show list"), no carousel`, !car0.carousel && car0.peek >= 60 && car0.peek <= 72 && car0.peekBottom <= 1 && /places? here · Show list/.test(car0.text), car0);
+        await page.evaluate(() => { const e = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].find(x => { const r = x.getBoundingClientRect(); return r.top > 140 && r.bottom < innerHeight - 120; }); if (e) e.click(); });
+        await sleep(900);
         const cvMap = await cover();
         // the city is named on the first screen (QA-40)
         const city = await page.evaluate(() => { const n = Cleo.city.info.name, e = [...document.querySelectorAll('.ms-city, header, h1')].find(x => { const r = x.getBoundingClientRect(); return r.width && r.top >= 0 && r.bottom <= innerHeight && x.textContent.includes(n) && getComputedStyle(x).visibility !== 'hidden'; }); return !!e; });

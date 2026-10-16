@@ -293,7 +293,8 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('…with no map= in the URL (map-first is the Atlas default, not a route)', !/map=/.test(w.location.hash), w.location.hash);
     // the view switcher sits in FE-A's search bar (.cbar) when the page has one, else at the end of the chip row
     const vw = d.querySelector('[data-cleo-views]');
-    chk('…one chip row on top holds the toolbar and Must see / Saved / Sort; the switcher stays in reach (search bar or chip row)', !!bar && !!bar.querySelector('[data-cleo-toolbar]') && !!bar.querySelector('.ms-must') && !!bar.querySelector('.ms-mine') && !!bar.querySelector('.ms-sort select') && !!vw && !!(vw.closest('.cbar') || vw.closest('.ms-bar')));
+    // SPEC-v3 §2.4 (rev 4): the bar's one best-places control is Top picks (.ms-top); Must see moved to Filters → Tier
+    chk('…one chip row on top holds the toolbar and Top picks / Saved / Sort; the switcher stays in reach (search bar or chip row)', !!bar && !!bar.querySelector('[data-cleo-toolbar]') && !!bar.querySelector('.ms-top') && !bar.querySelector('.ms-must') && !!bar.querySelector('.ms-mine') && !!bar.querySelector('.ms-sort select') && !!vw && !!(vw.closest('.cbar') || vw.closest('.ms-bar')));
     const N = w.Cleo.city.info.total;
     chk('without the map library the results line counts every place', new RegExp('All ' + N.toLocaleString('en-US') + ' places').test(d.querySelector('.ms-count').textContent), d.querySelector('.ms-count').textContent);
     const n0 = w.history.length; tog.click(); await sleep(20);
@@ -303,8 +304,9 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     tog.click(); await sleep(20);
     d.querySelector('.area-end [data-cleo-map]').click(); await sleep(30);
     chk('"See these n on the map" names its area (map=<A>) and returns to the map', /map=[A-Z]/.test(w.location.hash) && !html.classList.contains('ms-list'), w.location.hash);
-    d.querySelector('.ms-must').click(); await sleep(30);
-    chk('the Must see chip is the t=1 lens', /t=1/.test(w.location.hash) && d.querySelector('.ms-must').getAttribute('aria-pressed') === 'true', w.location.hash);
+    // SPEC-v3 §2.4: the bar's best-places control is Top picks (top=1); Must see (t=1) is a Filters → Tier lens
+    d.querySelector('.ms-top').click(); await sleep(30);
+    chk('the Top picks chip is the top=1 route and shows pressed', /top=1/.test(w.location.hash) && d.querySelector('.ms-top').getAttribute('aria-pressed') === 'true', w.location.hash);
     chk('no js errors (phone)', errs.length === 0, errs.slice(0, 2));
     ({ d, w, errs } = boot(page, { hash: '#view=atlas&map=1', mobile: true })); await sleep(150);
     chk('#view=atlas&map=1 still opens the map', d.documentElement.classList.contains('atlas-m') && !d.documentElement.classList.contains('ms-list'));

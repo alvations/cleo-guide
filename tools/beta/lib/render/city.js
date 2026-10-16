@@ -132,14 +132,18 @@ const named = r => (r.src || []).filter(s => s !== 'guide').length;
 const orderArea = list => list.map((r, i) => [r, i]).sort(([x, i], [y, j]) =>
   (x.closed ? 1 : 0) - (y.closed ? 1 : 0) || x.t - y.t || named(y) - named(x) || i - j).map(p => p[0]);
 
-// the map pin's glyph for a sight with no collection glyph (SPEC-v3 §1.2): the type noun in the place's OWN NAME, from a
-// fixed table — a pictogram, never a category or cuisine tag; worship is the torii on Japan pages, the lantern elsewhere
-const NOUN = [[/\b(museum|gallery|library|hall|institute)\b/i, 'columns'], [/\b(church|cathedral|chapel|synagogue|basilica|temple|shrine|mosque)\b/i, 'worship'],
-  [/\b(park|gardens?|reservation|preserve|arboretum|conservatory|trail)\b/i, 'leaf'], [/\b(beach|lake|river|falls|pier|harbou?r)\b/i, 'wave'],
-  [/\b(tower|lighthouse|observatory|bridge)\b/i, 'tower'], [/\b(theat(?:re|er)|playhouse|stadium|arena)\b/i, 'ticket'],
-  [/\b(market|shop|bookstore)\b/i, 'awning'], [/\b(cemetery|memorial|monument)\b/i, 'flag']];
-const mapGlyphOf = (r, gl, japan) => { if (r.kind === 'food' || gl !== 'compass') return ''; const hit = NOUN.find(([re]) => re.test(r.n));
-  return !hit ? '' : hit[1] === 'worship' ? (japan ? 'torii' : 'lantern') : hit[1]; };
+// the map pin's glyph for a sight (SPEC-v3 §1.2, rev 4): the type noun in the place's OWN NAME first, then its collection's
+// glyph, then the compass — a pictogram, never a category or cuisine tag. Japanese place-name suffixes count as nouns
+// (Sensō-ji, Meiji Jingū, Kabuki-za, Rikugi-en, Takeshita-dōri). Worship is the torii for a shrine; a temple is the lantern
+// (on non-Japan pages a church, synagogue or mosque is the lantern too — the torii is Shinto-specific)
+const NOUN = [[/-(?:jinja|gū|gu|taisha)\b|\b(?:jinja|jingū|jingu|taisha|myōjin|shrine)\b/i, 'torii'], [/-(?:ji|dera|in)\b|\b(?:temple|church|cathedral|chapel|synagogue|basilica|mosque)\b/i, 'worship'],
+  [/-jō\b|\b(?:castle|palace)\b/i, 'castle'], [/-za\b|\b(?:theat(?:re|er)|playhouse|stadium|arena)\b/i, 'ticket'],
+  [/\b(?:museum|gallery|library|hall|institute)\b/i, 'columns'], [/-(?:en|teien)\b|\b(?:park|gardens?|reservation|preserve|arboretum|conservatory|trail)\b/i, 'leaf'],
+  [/\b(?:beach|lake|river|falls|pier|harbou?r)\b/i, 'wave'], [/\b(?:tower|lighthouse|observatory|bridge)\b/i, 'tower'],
+  [/yokoch[oō]\b|-d[oō]ri\b|-gai\b|sh[oō]tengai\b|\b(?:market|shop|bookstore|arcade)\b/i, 'awning'], [/\b(?:cemetery|memorial|monument)\b/i, 'flag']];
+const mapGlyphOf = (r, gl, japan) => { if (r.kind === 'food') return ''; const hit = NOUN.find(([re]) => re.test(r.n));
+  const g = !hit ? gl : hit[1] === 'worship' ? 'lantern' : hit[1] === 'torii' && !japan ? 'lantern' : hit[1];
+  return g && g !== gl ? g : ''; };
 const glyphOf = (r, page) => { const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
   return r.kind === 'food' ? glyphFor(r.cz[0], czN[0], true) : glyphFor(r.g.find(g => g !== 'ICON' && g !== 'FREE') || r.g[0], '', false); };
 

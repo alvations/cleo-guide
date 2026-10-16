@@ -1629,3 +1629,23 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **PERF-08 (Platform):** atlas.js asks `Cleo.lens.shows(c)` / `Cleo.defer.peek({ lens })` for unstamped stubs (featured pins, msArea, the count) — no-ops until Platform turns `selective` on.
 - B-20: the phone search pill's input now fills the 44 px pill, border included (it measured 52 × 42).
 - B-08 (Wheeling phone, pre-existing on origin): with tiles blocked the phone opens the list; tabbing scrolled a card title half under the list's top edge at the chip row. The phone list now has `scroll-padding-block: 56px 24px`, so focus scrolling keeps context above the focused item (B-08 ✅ 0).
+
+### FE Atlas (FE-1) — SPEC-v3 rev 4: phone first screen (PANEL-R2 #2), Top picks (R2 #3, §2.4), count line (§2.3), dots and glyphs (R2 #6)
+- **Phone first screen (§2.2):**
+  - The map plus a 64 px list peek ("288 places here · Show list"; a tap opens the list). The carousel appears only after a selection (pin, dot, card, search result) or Near me, and the selected place is panned into the uncovered band. Escape (decided in the capture phase, so closing the detail never also drops the carousel) or a tap on empty map brings the peek back.
+  - The map controls are two labelled 44 px pills, "Near me" and "Map" (the style on show; it cycles to Satellite). At ≤ 300 px wide they keep the glyph and aria-label.
+  - The Key is never on the map on phones: it is the last section of Filters ("Map key"). Area is already the first.
+  - The header shows the back chevron (to the parent page) and the city name, with no breadcrumb trail and no wordmark.
+  - The kind chips carry no counts.
+  - Carousel cards are 282 px wide with a 72 px thumbnail. The name, kind line and "Recommended by" wrap and never truncate; the selected-state carousel is 196 px tall so nothing is cut.
+  - `C.overMap()` counts the peek as covered, so the fit and the pin labels keep clear of it.
+- **Top picks (§2.4):** the bar's Must see chip is replaced by ONE best-places control, "Top picks": the first 30 (desktop) or 12 (phone) places by map priority. Turning it on fits the map to the picks and leaves only them on the map. The count line reads "Top 30 picks"; "Show all 488" or turning it off restores every place and the reader's previous view. The route key is `top=1`, registered with a validator. Must see stays as information (the sun-wash pill, the card sticker, the Tier section in Filters).
+- **Count line (§2.3):** "354 places here · Top ranked" plus one "Show all 488". "N more outside this area" is removed. **Measurement-rule change for QA to ratify:** `qa/w7.js` atlasd "zoom/pan changes the count; "N more outside" offered" looks for the text "more outside", which §2.3 deliberately removes. The equivalent signal is the "Show all N" button (my atlas-ms check now asserts that). I haven't edited QA's harness.
+- **Measurement-rule note for QA (B-01 in Atlas on phones):** the spec's first phone screen has no card on it (map + peek), so `metrics --view atlas` B-01 "screens to first card" reads null on the phone. A card is one tap away (the peek). Please ratify a peek-aware rule for Atlas, or tell me to put a card on the first phone screen.
+- **Cards:** no rank number on Atlas cards (§2.3: the order is the ranking). "Recommended by" names two sources then "+n more".
+- **Dots (R2 #6):** an 8 px circle for sights and an 8 px rounded square for eat & drink (key updated to match).
+- **Map glyphs (R2 #6, rev 4 order):** the type noun in the place's own name first, then the collection glyph, then the compass. Japanese suffixes count as nouns: -ji / -dera / -in → lantern, -jinja / -gū / -taisha → torii, -jō → castle, -za → ticket, -en / -teien → leaf, yokochō / -dōri / -gai → awning. Built per place at build time (`data-mg`).
+- New atlas-ms checks: the phone first screen is map + a 64 px peek with no carousel (the carousel title and credit checks now run after a pin tap); Top picks (one best-places control, ≤ 30 on the map, count line names it, off restores every place); pins are measured against whichever bottom overlay is showing.
+- Not mine, red on origin too (6872dd51): w2 a11y Tokyo desktop dark, contrast 4.14 on `.food[data-gl=lantern] > .v.plate[lang=ja]` (FE-A's cover plate); reported to FE-A.
+- `tools/beta/test-fe-a.js` phone chip-row check: it expected the bar's `.ms-must` chip; per SPEC-v3 §2.4 it now expects the one best-places control `.ms-top` and **no** `.ms-must` in the bar (stricter: it also catches a second best-places control).
+- `test-fe-a.js` phone: "the Must see chip is the t=1 lens" → "the Top picks chip is the top=1 route and shows pressed" (the chip it clicked no longer exists; Must see stays reachable as Filters → Tier, t=1).
