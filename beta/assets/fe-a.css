@@ -958,7 +958,7 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   html.atlas-m[data-view=atlas] body>:is(.method,.footer){display:none}
   /* phones: the view switch is FE-A's own 52 px row under the header (the city bar, as in every other view — QC-09,
      DESIGN-SYSTEM §v2.11: four segments visible, one tap per switch), fixed over the map; the chip row sits under it */
-  html.atlas-m[data-view=atlas]{--car-h:150px;--cbar-o:var(--cbar-h,52px);--row-top:calc(var(--bar-h) + var(--cbar-o) + 8px)}
+  html.atlas-m[data-view=atlas]{--car-h:150px;--cbar-o:var(--cbar-h,52px);--row-top:calc(var(--bar-h) + var(--cbar-o))}   /* rev 5a: the chip row is 48 px (2 + 44 + 2) from the switcher's foot */
   html.atlas-m[data-view=atlas] main[data-city]>.cbar{display:block;position:fixed;z-index:31;top:var(--bar-h);left:0;right:0;margin:0;background:var(--paper);border-bottom:1px solid var(--line)}
   html.atlas-m[data-view=atlas] main[data-city]>.cbar>.cbar-in{box-sizing:border-box;height:var(--cbar-o);min-height:0;padding-top:0;padding-bottom:0;display:flex;align-items:center}   /* exactly the offset the chip row and the map use */
   html.atlas-m[data-view=atlas] main>.masthead{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);min-height:0;padding:0;margin:0}
@@ -966,10 +966,9 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   html.atlas-m[data-view=atlas] .split .mappane{display:block;position:fixed;z-index:20;inset:calc(var(--bar-h) + var(--cbar-o)) 0 0 0;height:auto;padding:0;border:0;border-radius:0;background:var(--sand)}
   html.atlas-m[data-view=atlas] .split .mappane .map,html.atlas-m[data-view=atlas] #cleo-map{border-radius:0;border:0;min-height:0;height:100%}
   /* the chip row */
-  html.atlas-m[data-view=atlas] .ms-bar{position:fixed;z-index:30;left:0;right:0;top:var(--row-top);padding:0 var(--s-3) var(--s-2);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  html.atlas-m[data-view=atlas] .ms-bar{position:fixed;z-index:30;left:0;right:0;top:var(--row-top);height:48px;box-sizing:border-box;padding:2px var(--s-3);align-items:center;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   html.atlas-m[data-view=atlas] .ms-bar::-webkit-scrollbar{display:none}
   html.atlas-m[data-view=atlas] .ms-bar :is(.toolbar,.ms-x){display:contents}
-  html.atlas-m[data-view=atlas] .ms-bar .toolbar>.spill{order:0;position:sticky;left:0;z-index:2}
   html.atlas-m[data-view=atlas] .ms-bar .modes{order:1}html.atlas-m[data-view=atlas] .ms-bar .ms-top{order:2}
   html.atlas-m[data-view=atlas] .ms-bar .area-btn{order:3}html.atlas-m[data-view=atlas] .ms-bar [data-cleo-tray]:not(.area-btn){order:4}
   html.atlas-m[data-view=atlas] .ms-bar .applied{order:5}
@@ -980,15 +979,15 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   html.atlas-m[data-view=atlas] .ms-bar :is(.area-btn,[data-cleo-tray]){flex:none;background:var(--surface)}
   html.atlas-m[data-view=atlas] .ms-bar .applied{display:flex;gap:var(--s-2)}
   html.atlas-m[data-view=atlas] .ms-bar .area-chips{display:none}
-  /* FE-A's search pill in the chip row: a 44 px search button until focused, then it opens (no overflow at 390) */
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill{position:relative;flex:0 0 var(--tap);width:var(--tap);min-width:var(--tap);height:var(--tap);min-height:var(--tap);padding:0;justify-content:center;overflow:hidden;transition:flex-basis var(--dur-2) var(--ease-out),width var(--dur-2) var(--ease-out)}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill .hint{display:none}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill #cleo-filter{position:absolute!important;inset:-1px;min-height:var(--tap);width:100%;padding:0 var(--s-3) 0 var(--s-8)!important;color:transparent;cursor:pointer}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill #cleo-filter::placeholder{color:transparent}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill>.ico{position:absolute;left:13px;top:13px;width:18px;height:18px;pointer-events:none}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q){flex-basis:min(240px,62vw);width:min(240px,62vw)}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q) #cleo-filter{color:var(--ink);cursor:text}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:focus-within #cleo-filter::placeholder{color:var(--ink-3)}
+  /* rev 5a §2.2: no search chip in the row — the header's search icon is the phone search (B-03: 14 controls). In Atlas
+     that icon opens FE-A's in-page search (atlas.js) as a full-width 44 px row over the chip row; empty and unfocused it
+     folds to nothing (1 px, transparent, no hit area), so focus never lands on an invisible box */
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill{position:fixed;z-index:31;left:var(--s-3);top:var(--row-top);width:1px;height:1px;min-height:0;min-width:0;padding:0;overflow:hidden;opacity:0;clip-path:inset(50%);box-shadow:var(--e-2)}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill :is(#cleo-filter,.hint,.ico){width:1px;height:1px;min-height:0;padding:0;border:0}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q){right:var(--s-3);width:auto;height:var(--tap);opacity:1;clip-path:none;overflow:visible}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q) .hint{display:none}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q) #cleo-filter{position:absolute!important;inset:0;width:100%;height:var(--tap);padding:0 var(--s-3) 0 var(--s-8)!important;border:1px solid var(--line-strong);color:var(--ink);cursor:text}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q)>.ico{position:absolute;left:13px;top:13px;width:18px;height:18px;pointer-events:none;z-index:1}
   /* the carousel: the same cards, side by side; sections and lists step aside (display: contents) */
   html.atlas-m[data-view=atlas] .listpane{display:flex;align-items:stretch;gap:var(--s-2);position:fixed;z-index:25;left:0;right:0;bottom:12px;height:var(--car-h);margin:0;padding:0 var(--s-4);overflow-x:auto;overflow-y:hidden;
     scroll-snap-type:x mandatory;scroll-padding:0 var(--s-4);overscroll-behavior:contain;background:none;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -1031,13 +1030,14 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   html.atlas-m[data-view=atlas] .ms-toggle{display:inline-flex;align-items:center;gap:var(--s-2);position:fixed;z-index:35;left:50%;bottom:calc(var(--car-h) + 24px);transform:translateX(-50%);min-height:var(--tap);padding:0 var(--s-5);border-radius:var(--r-pill);box-shadow:var(--e-4);white-space:nowrap}
   html.atlas-m.ms-list[data-view=atlas] .ms-toggle{bottom:14px}
   /* the first screen: map + a 64 px list peek ("128 places here · Show list"); the carousel comes after a selection (.ms-car) */
-  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car){--car-h:16px}
+  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car){--car-h:8px}   /* the pills sit 28 px above the 56 px peek */
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list){--car-h:196px}   /* names and "Recommended by" wrap, never truncate (§2.3, §3.3): the selected-state carousel is as tall as they need */
   html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car) .listpane{display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car) .ms-toggle{left:0;right:0;bottom:0;transform:none;width:100%;min-height:64px;padding:var(--s-3) var(--s-4) var(--s-4);flex-direction:column;justify-content:flex-start;gap:var(--s-2);
+  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car) .ms-toggle{left:0;right:0;bottom:0;transform:none;width:100%;min-height:56px;box-sizing:border-box;padding:7px var(--s-4) 0;border-width:1px 0 0;flex-direction:column;justify-content:flex-start;gap:0;
     border-radius:var(--r-l) var(--r-l) 0 0;background:var(--surface);color:var(--ink);font:400 var(--fs-body)/1.2 var(--font-ui);box-shadow:var(--e-4)}
   html.atlas-m[data-view=atlas] .ms-toggle .ms-handle{display:block;width:36px;height:4px;border-radius:2px;background:var(--line-strong)}
   html.atlas-m[data-view=atlas] .ms-toggle b{font-weight:600}
+  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car) .ms-toggle>span{display:flex;align-items:center;min-height:var(--tap)}   /* rev 5a peek: 8 top + 4 handle + a 44 px tap row = 56 */
   html.atlas-m.ms-list[data-view=atlas] .split::after{content:"";position:fixed;z-index:34;left:0;right:0;bottom:0;height:72px;background:var(--paper);border-top:1px solid var(--line)}   /* the Map pill sits in its own band, never over a card */
   html.atlas-m.ms-nomap[data-view=atlas] .ms-toggle{display:none}
   /* list mode: the map area's places as a full-screen image-first list */
@@ -1054,7 +1054,7 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   html.atlas-m.ms-list[data-view=atlas] .listpane section.area>:not(ol){display:none}
   html.atlas-m.ms-nomap[data-view=atlas] .split .mappane{display:none}
   /* "Search this area" after a pan */
-  html.atlas-m[data-view=atlas] .ms-here{display:inline-flex;align-items:center;gap:var(--s-2);position:absolute;z-index:690;left:50%;top:calc(var(--cbar-o) + 112px);transform:translateX(-50%);min-height:var(--tap);padding:0 var(--s-5);border:0;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:600 var(--fs-ui)/1 var(--font-ui);box-shadow:var(--e-4);white-space:nowrap}
+  html.atlas-m[data-view=atlas] .ms-here{display:inline-flex;align-items:center;gap:var(--s-2);position:absolute;z-index:690;left:50%;top:56px;transform:translateX(-50%);min-height:var(--tap);padding:0 var(--s-5);border:0;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:600 var(--fs-ui)/1 var(--font-ui);box-shadow:var(--e-4);white-space:nowrap}
   html.atlas-m[data-view=atlas] .ms-here[hidden],html.atlas-m.ms-list[data-view=atlas] .ms-here{display:none}
   html.atlas-m[data-view=atlas] .leaflet-top{top:calc(var(--cbar-o) + 62px)}
   /* two labelled 44 px pills (SPEC-v3 §2.2): "Near me" and "Map" (cycles to Satellite); at 200 % they keep the glyph and aria-label */
@@ -1096,6 +1096,9 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
 }
 /* rev 5 §2.3 / §5 (R3 #3): card text ≥ 14 px, and the name, why and sources at 16 — only credits (and the attribution) are smaller */
 html[data-view=atlas] #cleo-grid li.pl .pl-s :is(.lbl,.src,a,button){font-size:var(--fs-body);line-height:1.4}   /* not .pl-s itself: FE-A hides the extra sources' separators at font-size 0 */
+/* B-20: the 16 px source chip keeps FE-A's 28 px line + 2 × 8 px padding = the 44 px tap height (line-height 1.4 made it 38–40);
+   a long name stops at the card edge with an ellipsis, the full name in its title */
+html[data-view=atlas] #cleo-grid li.pl .pl-s .src{line-height:28px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
 html[data-view=atlas] #cleo-grid li.pl :is(.sticker,.ms-bd span,.pl-e a.tier,.pl-e a.tier span,.pl-vert){font-size:var(--fs-sm)}
 /* rev 5 §2.3 (R3 #2): no rank badges on Atlas cards in any sort — the order is the ranking; ranks stay in the Guidebook */
 html[data-view=atlas] #cleo-grid li.pl .pl-num{display:none}
