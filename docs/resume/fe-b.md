@@ -13,6 +13,14 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- W9-6 acc1 + acc4 (paste a link): build.js writes data/source-hosts.json v2 from each source's domains AND every cited
+  URL's host (2,227 hosts; gotokyo.org → GO Tokyo), plus 32 lazily-loaded shards data/source-urls/<djb2 % 32>.json keyed
+  by the normalised URL (host without www. + path, no query/hash/index.html/trailing slash) for an exact "Recommended on
+  this page" match. Wording "Everything {source} recommends, in {N guides}"; no match = "No guide cites {host} yet." +
+  "Suggest this source" (issues/new?labels=source-suggestion). Tests in test-hubs (gotokyo, 20 sampled cited URLs, own-JSON
+  only fetches).
+- W9-2 acc2 + acc5: "This month in Cleo" + retiring count (lib/changes.js RETIRING); HOURS adds "Open 24h" / "open later"
+  (6ef26636d → a44d836fb).
 - R7-g6 closed: after FE-A (8b06f542) + Atlas (7c280435) snaps, 0 raw letter-spacings and 7 raw shadows (all per-element
   or the pill focus ring); test-views-b pins ls == 0, sh <= 7.
 - QC-19 rest: lib/quoted.js POPULARITY adds top-/highest-/best-/well-/most-/five-star-rated (cain-park, tita-floras).

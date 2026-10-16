@@ -735,6 +735,9 @@ html body .topbar .crumbs a>.sh{display:none}
 @media (max-width:899px){html body .topbar .crumbs a>.sh{display:inline}html body .topbar .crumbs a>.lg{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 /* QA-55 (Guidebook part): the cover facts and the ★ signature line are prose; they read at the body size, not 14 px */
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) :is(.gfacts,.gsig){font-size:var(--fs-body);line-height:1.5}
+/* Designer nit: a tap or deep link focuses the dialog itself (tabindex -1), which shows no ring; a keyboard open still
+   focuses ✕ with its ring */
+html body #cleo-sheet .sheet.detail:focus{outline:none}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).

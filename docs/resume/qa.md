@@ -17,6 +17,7 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
   - 387f1306: pre-measure on b5f0afa1;
   - f00f2312: pre-measure on 0ecf62aa;
   - c5dbeef3: QC rows, QC-01 reproduced.
+- The 3ba696e8 delta re-sign: NO on QC-26, QA-75 and QA-76 (the last two from PERF-08, 1538974d). QA-70 verified. B-07 probe fix (3 s pin wait) ratified; on the same probe the pin is 5/5 twice, and be74c82f fails 4/5 (QA-69).
 - Register hygiene on 995e2529: every "claim not on origin" SHA is on origin. Verified QA-59c, QA-59d, QA-71 and R7-g3. New: QA-72, QA-73, QA-74. The open R7 gap list and owners were sent to the orchestrator.
 - The 530dc83b delta re-sign: NO on QA-70 and QA-71; QA-69 verified.
 - The 2bfff3fe delta re-sign: NO on QA-69 only; QC-01 and QA-61 verified; QA-68 probe fix in `metrics.js`.
@@ -57,12 +58,13 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## In flight
 
-- `metrics.js --all` on 995e2529 (R7-g5, 180 pages) is running in `/home/user/qa-head`. Its output goes to the scratchpad, `head/mall.json`. When it finishes, record the failing-page counts for B-02/04/05/08/20 on R7-g5. If the run is lost, rerun it on the next pin.
-- Waiting on QA-70 (Atlas FE-2) and the orchestrator's pin. FE-B claims are coming for R7-g6, R7-g2 (g)/(h) and R7-g5 (hubs, landing).
+- Nothing running. Waiting on the next pin, which should carry QC-26 (FE-2), QA-75/76 (platform), the w8p fix (FE-C/FE-A) and the claims made after the pin: QA-74, QA-55 parts, R7-g6 (0 raw letter-spacings, 7 shadows), R7-g2 (g)/(h), R7-g5 hubs and landing, and the W9 audit rows.
+- On the next pin, re-run `views.js --only links`, `w7.js --only lens`, the QC-26 probe (`resign-3ba696e8/qc26-ab.log` method), `motion-probe.js`, the font probe for QA-55, metrics with B-07, and w8p.
 
 ## Notes
 
 - Before any re-sign, check every claimed SHA with `git merge-base --is-ancestor <sha> <pin>`. FE-A's commits once never reached origin.
 - Probe artefacts: QA-66 (fixed), QA-68 (probe fixed; re-check if the straddling state recurs).
 - D-42 (hours, label don't strip): when FE-B lands it, both honesty greps must allow exactly the new sentence. Fix the probe to measure what is painted; never exempt an element.
+- The untracked raw folder `design/beta/eval/w7/qa/premeasure-0ecf62aa/` was deleted by mistake on 2026-10-16 (never committed). Its findings live in the register rows (QA-67 and others), so nothing cited is lost.
 - `/home/user/cleo-guide` has a local backup branch `backup/peaceful-goodall-local-2026-10-03` holding a stale October 3 history, intentionally not pushed.

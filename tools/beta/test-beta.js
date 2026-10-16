@@ -348,14 +348,14 @@ const lensOutcome = (b, label) => {
     // PERF-08: a lens builds only what it shows (Cleo.defer.selective); QA's (a)–(h) replace "any lens stamps every card"
     lensOutcome({ w, d }, 'a lens (food mode)');
     {   // (g) with the lens on, a #p= deep link to a place OUTSIDE it stamps and shows it (filters yield)
-      const out = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"[^>]*data-k="s"/g)].map(m => m[1]).find(id => !d.getElementById('p-' + id));
+      const sIds = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"[^>]*data-k="s"/g)].map(m => m[1]), out = sIds.find(id => !d.getElementById('p-' + id)) || sIds[sIds.length - 1];   // unbuilt if any (selective), else any sight
       w.location.hash = '#mode=food&p=' + out; await sleep(40);
       const oc = d.getElementById('p-' + out);
       chk('(g) lens on: a #p= link to a place outside the lens stamps it and shows it', !!oc && !oc.hidden && oc.classList.contains('is-target'), true);
     }
     {   // (g) a typed search with the lens on: focusing the search builds every card, so a place outside the lens is findable
       w.location.hash = '#mode=food'; await sleep(40);
-      const sId = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"[^>]*data-k="s"/g)].map(m => m[1]).find(id => !d.getElementById('p-' + id));
+      const sIds2 = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"[^>]*data-k="s"/g)].map(m => m[1]), sId = sIds2.find(id => !d.getElementById('p-' + id)) || sIds2[sIds2.length - 2];
       const fi = d.getElementById('cleo-filter');
       fi.dispatchEvent(new w.FocusEvent('focusin', { bubbles: true }));
       const name = (d.getElementById('p-' + sId) || { querySelector: () => null }).querySelector('.pl-n');
@@ -444,11 +444,12 @@ const lensOutcome = (b, label) => {
     chk('no js errors', errs, e => e.length === 0);
   }
   {   // PERF-08 (h): under a selective lens every unstamped place keeps its map pin, and the map shows exactly the lens
+      // (the DOM < total part only while Cleo.defer.selective is on; it is off again after QA-75/76)
     const tags = [...rd('beta/' + TOKYO).matchAll(/<li class="pl[ "][^>]*>/g)].map(m => m[0]).filter(t => / data-ll="/.test(t) && !/ data-np[ =>]/.test(t));
     const h = boot({ leaflet: true, io: true, hash: '#view=atlas&mode=food' }); await sleep(700);
     const C = h.w.Cleo.city, onMap = C.dots ? C.dots.getLayers().length : -1;
     chk('(h) a lens on Atlas: markers == pinned (stamped or not), and the dots shown == the pinned places the lens shows',
-      [Object.keys(C.markers).length, onMap, h.d.querySelectorAll('li.pl').length < total].join(), `${tags.length},${tags.filter(t => / data-k="f"/.test(t)).length},true`);
+      [Object.keys(C.markers).length, onMap, !h.w.Cleo.defer.selective || h.d.querySelectorAll('li.pl').length < total].join(), `${tags.length},${tags.filter(t => / data-k="f"/.test(t)).length},true`);
     chk('… no js errors (h)', h.errs, e => e.length === 0);
   }
 
