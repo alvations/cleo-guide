@@ -31,6 +31,7 @@ never weakens a gate.
 3. For each pass: a clean worktree on the pinned SHA, then commit only `qc.json`, `summary.md` and the evidence.
 
 - `f7fa616d`: QC-16 verified; new QC-21 (Low, i18n); QC-18 observed fixed (unclaimed).
+- `a498adf5`: QC-21 verified.
 
 ## In flight
 
