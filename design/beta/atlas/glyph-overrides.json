@@ -1,0 +1,6 @@
+{
+  "_doc": "SPEC-v3 §1.2 step 0: per-place glyph overrides, used only where neither the name's type noun nor a collection names the kind. Keyed by '<page key>/<place id>'. Designer-owned; every entry names its reason.",
+  "cleveland/free-stamp": {"gl": "frame", "why": "public sculpture (art)"},
+  "cleveland/the-arcade-old-arcade": {"gl": "bag", "why": "a shopping arcade"},
+  "cleveland/a-christmas-story-house-and-museum": {"gl": "frame", "why": "a film-set museum house"}
+}

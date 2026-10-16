@@ -1,7 +1,7 @@
 # Atlas map, spec v3: "places on a map, not numbers on a grid"
 
 - **Owner:** the designer, for the Atlas review loop ([`PANEL.md`](PANEL.md)). The Atlas lane builds it.
-- **Status:** revision 4, after PANEL-R2 (70.9 / 100; R1 63.8, R0 56.1; [`PANEL-R2.md`](PANEL-R2.md)). Revision 3 folded in PANEL-R1 ([`PANEL-R1.md`](PANEL-R1.md)). Revision 2 folded in PANEL-R0 ([`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
+- **Status:** revision 5, after PANEL-R3 (80.7 / 100; R2 70.9, R1 63.8, R0 56.1; [`PANEL-R3.md`](PANEL-R3.md)). Earlier revisions folded in R0 to R2. Revision 2 folded in PANEL-R0 ([`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
 - **Prototypes:** [`proto/`](proto/), shot at 1440×900 and 390×844, in light and dark. They use real coordinates on a flat stub basemap; see §6.
 - **Rule 6:** no brand names. The owner's reference is written as "the real-estate map-search pattern".
 - **Owner direction:** combine the best patterns of every product kind and don't copy one (§10). The map-search navigation is the frame, not the whole product.
@@ -34,7 +34,7 @@ This brings back the live map-centred guide's calm. That guide has one big map, 
 | Level | What | Drawn as | DOM cost |
 |---|---|---|---|
 | **Featured pin** | The best places in view (§1.3), up to **N = 16 desktop / 8 phone** (prototype: Tokyo 16 / 8). 24 read as busy in review, so the count was lowered. | A **labelled pill**: one kind glyph + the short name (§1.2) | One divIcon each, so ≤ 16 nodes |
-| **Place dot** | Every other place in view | A **7 px marker** in **one quiet neutral**, with a thin surface halo. **Kind by shape** (R1 #4; R2 #6, where 3 px squares beside 3.5 px circles couldn't be told apart at 390): a sight is an **8 px circle** (`--ink` at 38 %); eat & drink is an **8 px square** with a 1 px radius (`--ink` at 62 %). Both carry a 1.5 px surface halo. The sizes are diameters and side lengths, the same on every viewport, never radii. In dark mode the alphas drop to 30 % / 50 %, so the field stays quiet. **Tier hint:** a Must-see that isn't featured is drawn in `--sun` with a 1 px `--on-sun-wash` ring. A **closed** dot is hollow with a 1.5 px diagonal slash, so "closed" is an icon at every zoom, not only a shade (R0 #7). Canvas `tolerance: 19` gives every dot a 44 px hit circle (R0 #5). **No number and no area colours.** Area colour returns only when an area filter is active, and in the Key. | **Zero**: one shared canvas layer (`L.canvas()` circleMarkers) |
+| **Place dot** | Every other place in view | A **7 px marker** in **one quiet neutral**, with a thin surface halo. **Kind by shape** (R1 #4; R2 #6, where 3 px squares beside 3.5 px circles couldn't be told apart at 390): a sight is a **7 px circle** (`--ink` at 30 %); eat & drink is an **8 px square** with a 1 px radius (`--ink` at 72 %). That makes it light-round versus dark-square, distinguishable by eye at 390, which is rev 5's fix after R3's sign-off check failed. Both carry a 1.5 px surface halo. The sizes are diameters and side lengths, the same on every viewport, never radii. In dark mode the alphas drop to 30 % / 50 %, so the field stays quiet. **No tier colour on dots** (rev 5, R3 #4): must-sees are 36 % of places, so sun-coloured dots turned the light map into confetti and singled out nothing. All dots are neutral. A **closed** dot is hollow with a 1.5 px diagonal slash, so "closed" is an icon at every zoom, not only a shade (R0 #7). Canvas `tolerance: 19` gives every dot a 44 px hit circle (R0 #5). **No number and no area colours.** Area colour returns only when an area filter is active, and in the Key. | **Zero**: one shared canvas layer (`L.canvas()` circleMarkers) |
 | **Density disc** (replaces clusters) | Only where dots would overlap into a blob: more than 12 dots inside 28 px, which in practice means region zoom (≤ 11) | A soft **`--sand` disc at 80 % opacity** with a 1 px `--line` ring, sized by count (24 / 32 / 40 px) and **no number**. It reads as "lots here". | Canvas, zero nodes |
 
 - **No count bubbles and no rank numbers on the map, at any zoom.**
@@ -58,6 +58,8 @@ This brings back the live map-centred guide's calm. That guide has one big map, 
     2. otherwise, the glyph of the place's first collection (`glyphs.json`);
     3. otherwise, `compass`.
     - The name table, English nouns: museum, gallery, library, hall, institute → `columns`; church, cathedral, chapel, synagogue, basilica → `spire` (`torii` or `lantern` on Japan pages, per `glyphs.json`); park, garden, reservation, preserve, arboretum, conservatory, trail → `leaf`; beach, lake, river, falls, pier, harbor → `wave`; tower, lighthouse, observatory, bridge → `tower`; theatre or theater, playhouse, stadium, arena → `ticket`; market, shop, bookstore → `bag`; cemetery, memorial, monument → `flag`.
+    - More English nouns (rev 5, R3 #4): brewing, brewery, distillery, winery, taproom → `bottle` (Great Lakes Brewing); arcade → `bag`; statue, sculpture → `frame`.
+    - **Step 0, per-place overrides:** [`glyph-overrides.json`](glyph-overrides.json), for the few places whose name and collections say nothing about the kind (Free Stamp is public art → `frame`). It is designer-owned, and every entry carries its reason.
     - **Romanised Japanese suffixes** (Japan pages): -ji, -dera, -in → `lantern`; -jinja, -gū, -taisha → `torii`; -jō → `castle`; -za → `ticket` (so Kabuki-za is a theatre); -en, -teien → `leaf`; yokochō, -dōri, -gai → `bag`. A suffix matches only at the end of a word, so Asakusa doesn't match -sa.
     - Only the name is read, never the description. This picks a pictogram, not a category or cuisine tag, so the cuisine rule in CLAUDE.md is untouched.
     - Measured: Cleveland gets 8 distinct sight glyphs (75 of 148 sights matched), Pittsburgh 8 (57 of 111). **R2 found Cleveland still drawing the compass for every sight, so the name step isn't built yet.** It is a build-time field (`gl` per place) in the Atlas data, so the client does no regex work.
@@ -67,7 +69,7 @@ This brings back the live map-centred guide's calm. That guide has one big map, 
   - The map name is the place name up to the first ", ", " — " or " – ", with any parenthesis dropped. For example, "Nonbei Yokochō, Shibuya" becomes **Nonbei Yokochō**, and "Chess Collection — Cleveland Public Library…" becomes **Chess Collection**.
   - The full name appears in the tooltip, the preview, the card and the detail.
   - If a pill does not fit, it becomes a dot rather than truncating or overlapping (§1.3).
-- **Must-see:** shown by the pill's **own treatment**: a **`--sun-wash` fill** with a `--sun` border at 55 % and `--on-sun-wash` text and glyph. There is no extra mark. Other featured places keep the surface pill, so the map reads as warm pills (the best) and white pills (good).
+- **Must-see on the map** (rev 5): **no sun treatment on pills.** The featured set is drawn from the top of `mp`, and nearly every featured place is a must-see, so in R3's real shots every pill was sun-wash and the map read beige. **All pills use the surface treatment.** Must-see shows in the preview, the card sticker and Filters → Tier. The map's job is names and where.
 - **Saved:** a 14 px `--accent` heart chip sits on the pill's top-right corner, on a surface ring. Saved places are **always featured**: they are added first and count toward N.
 - **Closed:**
   - The pill uses a `--line-strong` dashed border and a `--sand` fill; glyph and name are in `--ink-3`.
@@ -139,7 +141,7 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
 - Tokyo zoomed in two steps from the default: **named labels ≥ 10**.
 - 390×844: ≤ 8 labelled pills, with no pill under the chip row, the peek or the carousel. **No count bubble at all** (R0 asked the largest ≤ 99). **Density discs on the phone first screen ≤ 10** (0 at the default zoom 12; discs only draw at zoom ≤ 11).
 - Every pin's hit area is ≥ 44 × 44 px; every dot's canvas hit circle is ≥ 44 px.
-- **(R1)** Sight and eat & drink dots differ by shape. **Phone, two zoom steps in from the default: ≥ 4 named pins** on Tokyo, Cleveland and New York. **0 overlapping labels.** **Cleveland shows ≥ 3 distinct sight glyphs.** No `warn` record draws on the map.
+- **(R1)** Sight and eat & drink dots differ by shape. **(R3)** Before shipping, the designer signs off on `real/R*/tokyo-390-light-1-default.jpg`. On R3's shot the sign-off **failed**: about 40 % of the dots were sun-coloured, and the squares and circles were too alike. **No pin label box covers the location marker:** the location dot counts as a placed box in the collision walk. **Phone, two zoom steps in from the default: ≥ 4 named pins** on Tokyo, Cleveland and New York. **0 overlapping labels.** **Cleveland shows ≥ 3 distinct sight glyphs.** No `warn` record draws on the map.
 - Every featured pin exposes `data-kind` and an aria-label with its kind; a closed pin's aria-label contains "Closed".
 - Pan and zoom produce no more than 16 + 1 marker DOM nodes. Page DOM ≤ 3,000. Dots render on canvas in one neutral (two shades by kind).
 - `#p=` opens the place selected and labelled at zoom ≥ 15, **clear of the panel** (§3.2).
@@ -153,6 +155,9 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
 ### 2.1 Desktop: one bar, map ≤ 120 px from the top (AO-3)
 
 - **The site header shrinks to 56 px:** wordmark, breadcrumb and the view switch (Gallery · **Atlas** · Guidebook · Insights) on the right.
+  - **The switch lives inside the header** (R3 #5, High 8/8): it was rendered at y = −17 with a 98 px pill over the header and the bar. It is a 40 px segmented control, vertically centred in the 56 px header (top 8, bottom 48). It never overlaps the 52 px control bar or the filter tokens.
+  - **Header links never wrap.** "How we choose" moves into the footer and the overflow menu below 1280 px, rather than wrapping.
+  - **The breadcrumb fits or shortens whole segments.** At ≥ 1280 it reads "Japan › Tokyo" in full. Below that, only the city shows ("‹ Tokyo"), and segments are never clipped mid-word or overprinted.
 - **One control bar, 52 px**, directly above the map and list, holding left to right:
   - the **search pill**: "Search Tokyo · place, dish, area";
   - kind chips: **All / Sights / Eat & drink**. They are segmented and carry no counts;
@@ -169,7 +174,10 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
 ### 2.2 Phone: the map is the screen (AO-6, R0 #3, #9, #12)
 
 - **Header** (52 px): back, the city name, and search and saved icons. **No breadcrumb on phones** (R1 #15, R2 #2: it collided). The city name truncates only if it alone exceeds the row, which no current city does.
-- **One floating chip row** over the map: **All / Sights / Eat & drink / Must see / Filters**. It scrolls sideways if it must; chips carry no counts.
+- **One floating chip row** over the map: **search icon, All / Sights / Eat & drink / Top picks / Area / Filters**. It scrolls sideways if it must.
+  - **Chips carry no counts.** R3 still showed "All 488 · Sights 263 · Eat & drink 225", which are three more count strings.
+  - **Area is a chip on the 390 first screen** (R3 #1, `areaFound`). It opens the area list directly.
+  - **The search icon stays first and visible** whichever chip is selected.
   - **Top picks** is one toggle (§2.4). When it is on, the chip itself turns ink (`--ink` fill, `--paper` text). There is no second "×" pill and no badge echoing it.
   - **Filters** opens a sheet whose **first section is Area**, so a neighbourhood is two taps away (Filters → the area). Picking one closes the sheet and fits the map to that area (R0 #12). Source, sort, closed places and the Key follow.
 - **Bottom: a 64 px list peek**, not the carousel. It shows the drag handle and one line, "128 places here · Show list". Tapping or dragging it opens the full list sheet. This replaces the floating "List" pill.
@@ -201,7 +209,8 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
   - **List cards:** the calm v2 cover at exactly the photo's 4:3 box (`--sand` ground, the place's kind glyph at 30 px in `--ink-3`, and the area name at 13 px `--ink-2` bottom-left). It is designed, not empty, and a no-photo card is the same height as its neighbours.
   - **The desktop preview and phone carousel cards have no media block at all** when there's no photo. The preview becomes a text card that leads with a 40 px `--sand` glyph chip beside the name. There are no empty 16:9 or 170 px frames anywhere.
 - **On the photo:** only the heart (top-right) and the Must-see sticker (top-left).
-- **No rank number on Atlas cards.** The list order *is* the ranking. "No. 1" per area read as noise in a city-wide list, so ranks stay in the Guidebook.
+- **No rank number on Atlas cards or carousel cards**, in any sort. R3 still showed "★ 1" badges, which read as a star rating, and kept them under "Nearest". The list order *is* the ranking. "No. 1" per area read as noise in a city-wide list, so ranks stay in the Guidebook and in the detail's single rank line (§3.6).
+- **No "pin N" anywhere.** Pins carry no numbers, so the detail never says "pin 4". The Gallery and lens copy "Numbers on the cards match the pins on the map" in `cities/*.html` goes (FE-A).
 
 ### 2.4 One control for the best places: "Top picks" (R2 #3)
 
@@ -375,6 +384,14 @@ The R0 findings sit in these slices: #1, #5 (pins), #6, #7 in slice 1; #3, #8, #
 | PANEL-R2 #10 | View not in the URL; the toast | §3.5, unchanged. FE-2. |
 | PANEL-R2 #11, #13 | Four numbering systems in the detail; pin select scrolls the list to the footer | §3.6: one numbering; `scrollIntoView` nearest. |
 | PANEL-R2 #14 | Recommender label unclear or truncated | §2.3: "Recommended by", never truncated, two names + "+n more". |
+| PANEL-R3 (80.7; head 537cfb8c) | Score context | R1, R3 and R4 are up sharply. Resolved: round-trip view and focus, deep-link pin, near-me, the desktop map's position, skip links, shareable view. R6 fell (−1.4) because of the desktop header (#5). |
+| PANEL-R3 #1 (4.5) | Phone first screen | §2.2: Area is a chip on the first screen, chips carry no counts, search stays visible. The labelled controls and the Key in Filters are unchanged, but R3 shots still show three icon-only controls including a map ⓘ. |
+| PANEL-R3 #2 (2.9) | Counts and numbers contradict; Must see shown 4 ways; "pin N" copy; rank badges under Nearest | §2.2: no chip counts. §2.3: no rank badges in any sort, no "pin N", drop the "numbers match the pins" copy. §2.4: Top picks. §3.6: one rank number. |
+| PANEL-R3 #3 (2.5) | Text and targets | §2.3 and §5, unchanged; still unbuilt in places (12 px text). |
+| PANEL-R3 #4 (2.4) | Dot field confetti; glyph errors; location dot under a label | §1.1 rev 5: no sun on dots, light circle vs dark square, sign-off failed on R3. §1.2: no sun on pills; more nouns plus `glyph-overrides.json` (Free Stamp, The Arcade). §1.6: the location marker counts as a box. |
+| PANEL-R3 #5 (1.9, High 8/8) | Desktop header off-screen; header link wraps; breadcrumb clipped | §2.1 rev 5: the switch sits inside the 56 px header, the link doesn't wrap, whole-segment breadcrumb. |
+| PANEL-R3 #6 (1.8) | No-photo covers | §2.3 (rev 4) unchanged: designed list cover; previews and carousel have no media block. R3's preview still had an empty 170 px cover. |
+| PANEL-R3 #7 (1.3, High 5/8), #8 | 108 px layout shift; stale counts | FE-2, §3.2 and §2.3 count rule. Process note: the FE probe must measure the map's top and ancestor scrollTop, not window scroll. |
 | Owner direction (relayed by the panel, 2026-10-11) | Don't copy one product; combine the best of each, keep the map-search navigation, don't neglect the other features | §10: a combination table built from existing beta features, plus a non-regression rule for Gallery, Guidebook, Insights and the detail (§10.1). |
 | PANEL-R0 AO-5 (rejected in part) | Must-sees stand out | Kept: the sun-wash pill stays the Must-see signal. |
 

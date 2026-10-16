@@ -149,26 +149,55 @@ jobs:
 
       - name: Commit the report (dispatch with dry_run=false, or a REQUEST with commit=true)
         if: ${{ env.COMMIT == 'true' }}
+        env:
+          # the re-run below (reviews committed mid-run) must see the same sources as the verify step
+          ONEMAP_EMAIL: ${{ secrets.ONEMAP_EMAIL }}
+          ONEMAP_PASSWORD: ${{ secrets.ONEMAP_PASSWORD }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BASE=$(git rev-parse HEAD)   # the commit this run checked out
           git add -- "$REPORT_PREFIX"*
           if git diff --cached --quiet; then echo "No report change."; exit 0; fi
           if [ "$MODE" = sweep ]; then msg="Location-verify status sweep, shard $SHARD (proposals only; review + --accept + gates before any registry change)"
           else msg="Location-verify report: $CITY (proposals only; review + --accept + gates before any registry change)"; fi
           git commit -m "$msg"
+          # A reviewer may commit review decisions to this city's report while the job runs. Our copy carried the
+          # reviews as they were at checkout, so keeping it would drop those decisions. Instead: start from the
+          # branch's copy and re-run from the response cache; the tool carries every review.* forward (a proposal
+          # that moved > 5 m marks its review stale, and --accept refuses stale reviews).
+          rerun_carrying_reviews() {
+            git checkout origin/claude/peaceful-goodall-i0hsrt -- "$REPORT_PREFIX"*
+            args=(--city "$CITY" --scope "$SCOPE" --nominatim-max "$NOMINATIM_MAX")
+            [ "$LIMIT" != "0" ] && args+=(--limit "$LIMIT")
+            node tools/location-verify.js "${args[@]}" || return 1
+            changed=$(git status --porcelain | awk '{print $2}' | grep -v '^docs/geoverify/' || true)
+            [ -z "$changed" ] || { echo "::error::the re-run touched files outside docs/geoverify/:"; echo "$changed"; return 1; }
+            git add -- "$REPORT_PREFIX"*
+            git diff --cached --quiet || git commit -m "Location-verify report: $CITY re-run from cache to carry review decisions committed mid-run"
+          }
           # Other lanes push to this branch while the job runs. This job adds only docs/geoverify/<city>.*; any merge
-          # conflict outside that stops the job; a conflict on our own report keeps ours (it is the fresh run).
+          # conflict outside that stops the job. On our own report: if the branch changed it since BASE (city mode),
+          # take the branch's copy and re-run (above); otherwise keep ours (it is the fresh run).
           for i in 1 2 3; do
             git fetch origin claude/peaceful-goodall-i0hsrt || { sleep $((i * 10)); continue; }
+            reviewed_midrun=false
+            if [ "$MODE" = city ] && ! git diff --quiet "$BASE" origin/claude/peaceful-goodall-i0hsrt -- "$REPORT_PREFIX"*; then
+              reviewed_midrun=true; echo "The branch changed $REPORT_PREFIX* during the run; its review decisions will be carried."
+            fi
             if ! git merge --no-edit origin/claude/peaceful-goodall-i0hsrt; then
               conflicted=$(git diff --name-only --diff-filter=U)
               if printf '%s\n' "$conflicted" | grep -v -F -- "$REPORT_PREFIX" | grep -q .; then
                 echo "::error::merge conflict outside the report:"; printf '%s\n' "$conflicted"; git merge --abort; exit 1
               fi
-              while IFS= read -r f; do [ -n "$f" ] && git checkout --ours -- "$f" && git add -- "$f"; done <<< "$conflicted"
+              side=--ours; [ "$reviewed_midrun" = true ] && side=--theirs
+              while IFS= read -r f; do [ -n "$f" ] && git checkout "$side" -- "$f" && git add -- "$f"; done <<< "$conflicted"
               git commit --no-edit
             fi
+            if [ "$reviewed_midrun" = true ]; then
+              rerun_carrying_reviews || { echo "::error::the cached re-run that carries mid-run reviews failed"; exit 1; }
+            fi
+            BASE=$(git rev-parse origin/claude/peaceful-goodall-i0hsrt)   # handled up to here; a later retry checks only newer changes
             git push origin HEAD:claude/peaceful-goodall-i0hsrt && exit 0
             sleep $((i * 10))
           done

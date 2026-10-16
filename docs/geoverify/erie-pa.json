@@ -1,0 +1,6698 @@
+{
+ "meta": {
+  "tool": "tools/location-verify.js 0.1.0",
+  "city": "erie-pa",
+  "generated": "2026-10-16",
+  "scope": [
+   "unverified",
+   "low",
+   "status"
+  ],
+  "sources": [
+   "wikidata",
+   "wikipedia",
+   "nominatim",
+   "overpass",
+   "official",
+   "census"
+  ],
+  "rowsInScope": 79,
+  "rowsChecked": 79,
+  "anchor": {
+   "lat": 42.0968,
+   "lng": -80.09333,
+   "radiusM": 150000
+  },
+  "mode": "live",
+  "userAgent": "CleoGuideLocationVerify/0.1.0 (https://github.com/alvations/cleo-guide; location-verify proposals, reviewed by a person) node",
+  "rule": "PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).",
+  "phase2": {
+   "houseFiles": [],
+   "abr": null,
+   "onemap": null
+  },
+  "requests": {
+   "network": 282,
+   "cacheHits": 6,
+   "nominatim": 144,
+   "failures": [
+    "overpass-api.de HTTP 502",
+    "overpass-api.de HTTP 502",
+    "overpass-api.de HTTP 502"
+   ],
+   "byHost": {
+    "www.wikidata.org": {
+     "requests": 87,
+     "failed": 0
+    },
+    "nominatim.openstreetmap.org": {
+     "requests": 144,
+     "failed": 0
+    },
+    "voodoobrewery.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "northcountrybrewpub.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "baldwinreynolds.org": {
+     "requests": 2,
+     "failed": 0
+    },
+    "en.wikipedia.org": {
+     "requests": 5,
+     "failed": 0
+    },
+    "www.eriechildrensmuseum.org": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.eriecemeteryassoc.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.timbercreektapandtable.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.riversidebrewing.co": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.springfields.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "bigrailbrewing.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.dcnr.pa.gov": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.asburywoods.org": {
+     "requests": 2,
+     "failed": 0
+    },
+    "firefightershistoricalmuseum.org": {
+     "requests": 2,
+     "failed": 0
+    },
+    "overpass-api.de": {
+     "requests": 7,
+     "failed": 3
+    },
+    "overpass.private.coffee": {
+     "requests": 3,
+     "failed": 0
+    },
+    "geocoding.geo.census.gov": {
+     "requests": 12,
+     "failed": 0
+    }
+   }
+  },
+  "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
+  "hardFailure": false
+ },
+ "summary": {
+  "confirm": 17,
+  "pin": 39,
+  "no-match": 14,
+  "ambiguous": 2,
+  "shared-object": 6,
+  "move": 1
+ },
+ "rows": [
+  {
+   "name": "Stanganelli's Italian Foods",
+   "current": {
+    "address": "602 E 25th St, Erie, PA 16503",
+    "lat": 42.117891,
+    "lng": -80.0609611,
+    "source": "WebSearch place result for 602 E 25th St, Erie (Stanganelli's)",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.11798,
+    "lng": -80.06088,
+    "address": "602 East 25th Street, Erie, Pennsylvania 16503",
+    "matchedName": "Stanganelli's Italian Foods",
+    "sourceUrl": "https://www.openstreetmap.org/node/8540835201",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 12,
+    "osmObject": {
+     "id": "node/8540835201",
+     "class": "shop=supermarket",
+     "addresstype": "shop",
+     "name": "Stanganelli's Italian Foods",
+     "address": "602 East 25th Street, Erie, Pennsylvania 16503",
+     "houseNumber": "602",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Stanganelli's Italian Foods",
+     "lat": 42.11798,
+     "lng": -80.06088,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/8540835201",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=supermarket",
+     "osm": "node/8540835201",
+     "addresstype": "shop",
+     "distanceFromCurrentM": 12
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (12 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "1201 Kitchen — CLOSED",
+   "current": {
+    "address": "1201 State St, Erie, PA 16501",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "closed",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.12347,
+    "lng": -80.08086,
+    "address": "1201 State Street, Erie, Pennsylvania 16501",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/809639306",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/809639306",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "1201 State Street, Erie, Pennsylvania 16501",
+     "houseNumber": "1201",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.12347,
+     "lng": -80.08086,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/809639306",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/809639306",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.12347,
+     "lng": -80.08085,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/9051666414",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "node/9051666414",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "1201 STATE ST, ERIE, PA, 16501",
+    "lat": 42.12346,
+    "lng": -80.08117,
+    "distanceM": 25,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1201%20State%20St%2C%20Erie%2C%20PA%2016501&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 25 m away (“1201 STATE ST, ERIE, PA, 16501”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Mazza Vineyards",
+   "current": {
+    "address": "11815 East Lake Rd, North East, PA 16428",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 42.25199,
+     "lng": -79.7984,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/63047313",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/63047313",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 42.25099,
+     "lng": -79.80025,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/63047313",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/63047313",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Voodoo Brewery (The Compound)",
+   "current": {
+    "address": "834 Bessemer St, Meadville, PA 16335",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "official",
+    "lat": 41.6428,
+    "lng": -80.15824,
+    "address": "834 Bessemer Street, Meadville, PA 16335",
+    "matchedName": "Voodoo Brewing Company - Production Facility and Event Pub",
+    "sourceUrl": "https://voodoobrewery.com/",
+    "retrieved": "2026-10-16",
+    "licence": "the place's own website (fact read from its schema.org markup / page; robots.txt honoured)",
+    "grade": "high",
+    "gradeWhy": [
+     "official published coordinate"
+    ],
+    "nameSim": 0.45,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 41.6461,
+     "lng": -80.1561,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/453388817",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/453388817",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 41.6434,
+     "lng": -80.15751,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/177947011",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/177947011",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Voodoo Brewery",
+     "lat": 41.63736,
+     "lng": -80.15471,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/984106938",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=pub",
+     "osm": "way/984106938",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Voodoo Brewery",
+     "lat": 41.63727,
+     "lng": -80.15475,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/2599082509",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=pub",
+     "osm": "node/2599082509",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "official",
+     "name": "Voodoo Brewing Company - Production Facility and Event Pub",
+     "lat": 41.6428,
+     "lng": -80.15824,
+     "grade": "high",
+     "nameSim": 0.45,
+     "sourceUrl": "https://voodoobrewery.com/",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "official",
+     "name": "Voodoo Brewing Company - Colorado Springs",
+     "lat": 38.89725,
+     "lng": -104.84172,
+     "grade": "low",
+     "nameSim": 0.45,
+     "sourceUrl": "https://voodoobrewery.com/",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "official schema.org geo, but it names “Voodoo Brewing Company - Production Facility and Event Pub” (similarity 0.45): may be the venue, not the place"
+    ]
+   }
+  },
+  {
+   "name": "North Country Brewing Company",
+   "current": {
+    "address": "141 S Main St, Slippery Rock, PA 16057",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 41.06369,
+    "lng": -80.05576,
+    "address": "Church Alley, Slippery Rock, Pennsylvania 16057",
+    "matchedName": "North Country Brewing Company",
+    "sourceUrl": "https://www.openstreetmap.org/node/1262117220",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/1262117220",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "North Country Brewing Company",
+     "address": "Church Alley, Slippery Rock, Pennsylvania 16057",
+     "houseNumber": null,
+     "tags": {
+      "website": "https://northcountrybrewpub.com/"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 41.06354,
+     "lng": -80.05577,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/19338744",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/19338744",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "North Country Brewing Company",
+     "lat": 41.06369,
+     "lng": -80.05576,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/1262117220",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/1262117220",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "141 S MAIN ST, SLIPPERY ROCK, PA, 16057",
+    "lat": 41.06355,
+    "lng": -80.05582,
+    "distanceM": 16,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=141%20S%20Main%20St%2C%20Slippery%20Rock%2C%20PA%2016057&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 16 m away (“141 S MAIN ST, SLIPPERY ROCK, PA, 16057”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Baldwin-Reynolds House Museum",
+   "current": {
+    "address": "639 Terrace St, Meadville, PA 16335",
+    "lat": 41.646528,
+    "lng": -80.152278,
+    "source": "Wikipedia infobox (Baldwin-Reynolds House), 41.646528,-80.152278",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": null,
+   "notes": [
+    "a med candidate 72 m away does not outrank the current high pin"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 41.64511,
+     "lng": -80.15303,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/63960431",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/63960431",
+     "addresstype": "place",
+     "distanceFromCurrentM": 169
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Baldwin-Reynolds House",
+     "lat": 41.64593,
+     "lng": -80.15195,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/1108798956",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=museum",
+     "osm": "way/1108798956",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": 72
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Pymatuning Spillway (Where the Ducks Walk on the Fish)",
+   "current": {
+    "address": "12318 Hartstown Rd, Linesville, PA 16424",
+    "lat": 41.63102,
+    "lng": -80.44028,
+    "source": "PA Bucket List / Uncovering PA GPS for Linesville Spillway; note lng -80.440 is just W of the stated bbox but correct for Linesville",
+    "confidence": "med",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Goodell Gardens & Homestead",
+   "current": {
+    "address": "221 Waterford St, Edinboro, PA 16412",
+    "lat": 41.87695,
+    "lng": -80.12303,
+    "source": "WebSearch address-level result for 221 Waterford St, Edinboro; matches town/block",
+    "confidence": "med",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 41.8817,
+    "lng": -80.12248,
+    "address": "Edinboro, Pennsylvania",
+    "matchedName": "Goodell Gardens & Homestead",
+    "sourceUrl": "https://www.openstreetmap.org/way/1013192075",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": 530,
+    "osmObject": {
+     "id": "way/1013192075",
+     "class": "leisure=garden",
+     "addresstype": "garden",
+     "name": "Goodell Gardens & Homestead",
+     "address": "Edinboro, Pennsylvania",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "extended feature: 530 m between centroid and the pinned entrance/point is expected; no move proposed"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 41.87691,
+     "lng": -80.12272,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/52838712",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/52838712",
+     "addresstype": "place",
+     "distanceFromCurrentM": 26
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Goodell Gardens & Homestead",
+     "lat": 41.8817,
+     "lng": -80.12248,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1013192075",
+     "retrieved": "2026-10-16",
+     "osmClass": "leisure=garden",
+     "osm": "way/1013192075",
+     "addresstype": "garden",
+     "distanceFromCurrentM": 530
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "221 WATERFORD ST, EDINBORO, PA, 16412",
+    "lat": 41.8769,
+    "lng": -80.12268,
+    "distanceM": 534,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=221%20Waterford%20St%2C%20Edinboro%2C%20PA%2016412&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current med pin (530 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Edinboro Lake",
+   "current": {
+    "address": "Edinboro, PA 16412",
+    "lat": 41.88472,
+    "lng": -80.13611,
+    "source": "Wikipedia infobox (Edinboro Lake), 41.88472,-80.13611 (named feature)",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 41.8847,
+    "lng": -80.1361,
+    "address": null,
+    "matchedName": "Edinboro Lake",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q19461536",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": 2,
+    "osmObject": null,
+    "coordDecimals": 1,
+    "multiSite": true,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Edinboro_Lake",
+      "distanceM": 3
+     }
+    ]
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Edinboro Lake",
+     "lat": 41.8847,
+     "lng": -80.1361,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q19461536",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 2
+    },
+    {
+     "kind": "wikidata",
+     "name": "Edinboro Lake Dam",
+     "lat": 41.87667,
+     "lng": -80.13639,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q48985544",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 896
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Edinboro Lake",
+     "lat": 41.88472,
+     "lng": -80.13611,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Edinboro_Lake",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 0
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (2 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Living Treasures Animal Park (Moraine)",
+   "current": {
+    "address": "268 Fox Rd, New Castle, PA 16101",
+    "lat": 40.968618,
+    "lng": -80.214726,
+    "source": "WebSearch place result for 268 Fox Rd, New Castle (Living Treasures Wild Animal Park of Moraine)",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 40.96856,
+    "lng": -80.21423,
+    "address": "268 Fox Road, New Castle, Pennsylvania 16101",
+    "matchedName": "Living Treasures \"Wild\" Animal Park",
+    "sourceUrl": "https://www.openstreetmap.org/way/723013182",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 42,
+    "osmObject": {
+     "id": "way/723013182",
+     "class": "tourism=zoo",
+     "addresstype": "tourism",
+     "name": "Living Treasures \"Wild\" Animal Park",
+     "address": "268 Fox Road, New Castle, Pennsylvania 16101",
+     "houseNumber": "268",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "extended feature: 42 m between centroid and the pinned entrance/point is expected; no move proposed"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Living Treasures \"Wild\" Animal Park",
+     "lat": 40.96856,
+     "lng": -80.21423,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/723013182",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=zoo",
+     "osm": "way/723013182",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": 42
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (42 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Old Stone House",
+   "current": {
+    "address": "PA-8 at PA-173, Slippery Rock, PA 16057",
+    "lat": 41.0127,
+    "lng": -80.00217,
+    "source": "HMDB historical marker (m=42640): 41 0.762'N, 80 0.13'W",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": null,
+   "notes": [
+    "a med candidate 122 m away does not outrank the current high pin"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Old Stone House",
+     "lat": 41.01161,
+     "lng": -80.00209,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/367967195",
+     "retrieved": "2026-10-16",
+     "osmClass": "historic=building",
+     "osm": "node/367967195",
+     "addresstype": "historic",
+     "distanceFromCurrentM": 122
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Wolf Creek Narrows Natural Area",
+   "current": {
+    "address": "Mountville Rd, Slippery Rock, PA 16057",
+    "lat": 41.063668,
+    "lng": -80.088181,
+    "source": "Uncovering PA parking-area coordinate (Miller Rd access to the natural area)",
+    "confidence": "med",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "ambiguous",
+   "proposal": null,
+   "notes": [
+    "candidates disagree by 1564 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Wolf Creek Narrows Natural Area",
+     "lat": 41.06796,
+     "lng": -80.08395,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/935647467",
+     "retrieved": "2026-10-16",
+     "osmClass": "leisure=nature_reserve",
+     "osm": "way/935647467",
+     "addresstype": "nature_reserve",
+     "distanceFromCurrentM": 594
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Wolf Creek Narrows Natural Area",
+     "lat": 41.05665,
+     "lng": -80.09505,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1381194310",
+     "retrieved": "2026-10-16",
+     "osmClass": "leisure=nature_reserve",
+     "osm": "way/1381194310",
+     "addresstype": "nature_reserve",
+     "distanceFromCurrentM": 970
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Passavant House",
+   "current": {
+    "address": "243 S Main St, Zelienople, PA 16063",
+    "lat": 40.79306,
+    "lng": -80.13694,
+    "source": "Wikipedia infobox (Passavant House), 243 S Main St Zelienople, 40.79306,-80.13694",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 40.79306,
+    "lng": -80.13694,
+    "address": null,
+    "matchedName": "Passavant House",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q7142556",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": 1,
+    "osmObject": null,
+    "coordDecimals": 3,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Passavant_House",
+      "distanceM": 0
+     }
+    ]
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Passavant House",
+     "lat": 40.79306,
+     "lng": -80.13694,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q7142556",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 1
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Passavant House",
+     "lat": 40.79306,
+     "lng": -80.13694,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Passavant_House",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 1
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (1 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Hagen History Center",
+   "current": {
+    "address": "356 W 6th St, Erie, PA 16507",
+    "lat": 42.12639,
+    "lng": -80.09333,
+    "source": "Wikipedia infobox (Watson-Curtze Mansion) - same building at 356 W 6th St, Erie",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": null,
+   "notes": [
+    "a med candidate 49 m away does not outrank the current high pin"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.12679,
+     "lng": -80.09358,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/855384668",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/855384668",
+     "addresstype": "building",
+     "distanceFromCurrentM": 49
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Watson-Curtze Mansion",
+     "lat": 42.12678,
+     "lng": -80.09362,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/7977022499",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=museum",
+     "osm": "node/7977022499",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": 50
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Erie County Historical Society",
+     "lat": 42.12713,
+     "lng": -80.0934,
+     "grade": "low",
+     "nameSim": 0.326,
+     "sourceUrl": "https://www.openstreetmap.org/node/9908557572",
+     "retrieved": "2026-10-16",
+     "osmClass": "office=association",
+     "osm": "node/9908557572",
+     "addresstype": "office",
+     "distanceFromCurrentM": 82
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "expERIEnce Children's Museum",
+   "current": {
+    "address": "420 French St, Erie, PA 16507",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.13124,
+    "lng": -80.08503,
+    "address": "420 French Street, Erie, Pennsylvania 16507",
+    "matchedName": "ExpERIEnce Childrens Museum",
+    "sourceUrl": "https://www.openstreetmap.org/way/1018837422",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1018837422",
+     "class": "tourism=museum",
+     "addresstype": "tourism",
+     "name": "ExpERIEnce Childrens Museum",
+     "address": "420 French Street, Erie, Pennsylvania 16507",
+     "houseNumber": "420",
+     "tags": {
+      "website": "https://www.eriechildrensmuseum.org",
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "ExpERIEnce Childrens Museum",
+     "lat": 42.13124,
+     "lng": -80.08503,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1018837422",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=museum",
+     "osm": "way/1018837422",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Perry Monument",
+   "current": {
+    "address": "Crystal Point, Presque Isle State Park, Erie, PA 16505",
+    "lat": 42.15478,
+    "lng": -80.08978,
+    "source": "HMDB marker (m=129899) + Wikidata Q49541498: 42.15478,-80.08978",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 42.15472,
+    "lng": -80.08972,
+    "address": null,
+    "matchedName": "Perry Monument",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q49541498",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": 8,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Perry Monument",
+     "lat": 42.15472,
+     "lng": -80.08972,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q49541498",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 8
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (8 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Erie Cemetery",
+   "current": {
+    "address": "2116 Chestnut St, Erie, PA 16502",
+    "lat": 42.11139,
+    "lng": -80.08472,
+    "source": "Wikipedia infobox (Erie Cemetery), 42.11139,-80.08472 (named feature)",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 42.11139,
+    "lng": -80.08472,
+    "address": null,
+    "matchedName": "Erie Cemetery",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5388282",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": 0,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Erie_Cemetery",
+      "distanceM": 0
+     }
+    ]
+   },
+   "notes": [
+    "official site http://www.eriecemeteryassoc.com/erie_cemetery.html/ answered HTTP 400 — NOT closure evidence (sites move, break and block bots)"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Erie Cemetery",
+     "lat": 42.11139,
+     "lng": -80.08472,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q5388282",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 0
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Erie Cemetery",
+     "lat": 42.11139,
+     "lng": -80.08472,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Erie_Cemetery",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 0
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (0 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Dobbins Landing",
+   "current": {
+    "address": "1 State St, Erie, PA 16507",
+    "lat": 42.1376318,
+    "lng": -80.0906432,
+    "source": "Apple Maps place coordinate for Dobbins Landing (1 Dobbins Ln/State St), 42.1376318,-80.0906432",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "wikidata",
+    "lat": 42.1377,
+    "lng": -80.0907,
+    "address": null,
+    "matchedName": "Dobbins Landing",
+    "sourceUrl": "https://www.wikidata.org/wiki/Q5286542",
+    "retrieved": "2026-10-16",
+    "licence": "CC0-1.0 (Wikidata structured data)",
+    "grade": "high",
+    "gradeWhy": [
+     "wikidata published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": 9,
+    "osmObject": null,
+    "coordDecimals": 4,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Dobbins Landing",
+     "lat": 42.1377,
+     "lng": -80.0907,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q5286542",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 9
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (9 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Frontier Park",
+   "current": {
+    "address": "1501 W 6th St, Erie, PA 16505",
+    "lat": 42.1167243,
+    "lng": -80.1170048,
+    "source": "TopoZone / Waze place for Frontier Park, 1501 W 6th St Erie",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.11694,
+    "lng": -80.11745,
+    "address": "1501, Erie, Pennsylvania 16505",
+    "matchedName": "Frontier Park",
+    "sourceUrl": "https://www.openstreetmap.org/way/41594587",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": null,
+     "postcode": true
+    },
+    "distanceM": 43,
+    "osmObject": {
+     "id": "way/41594587",
+     "class": "leisure=park",
+     "addresstype": "park",
+     "name": "Frontier Park",
+     "address": "1501, Erie, Pennsylvania 16505",
+     "houseNumber": "1501",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "extended feature: 43 m between centroid and the pinned entrance/point is expected; no move proposed"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 42.11678,
+     "lng": -80.11964,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1039618910",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/1039618910",
+     "addresstype": "place",
+     "distanceFromCurrentM": 217
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.11774,
+     "lng": -80.11545,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/827098234",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/827098234",
+     "addresstype": "building",
+     "distanceFromCurrentM": 171
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 42.11878,
+     "lng": -80.1181,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/262972315",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/262972315",
+     "addresstype": "place",
+     "distanceFromCurrentM": 246
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Frontier Park",
+     "lat": 42.11694,
+     "lng": -80.11745,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/41594587",
+     "retrieved": "2026-10-16",
+     "osmClass": "leisure=park",
+     "osm": "way/41594587",
+     "addresstype": "park",
+     "distanceFromCurrentM": 43
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (43 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Tandoori Hut",
+   "current": {
+    "address": "2605 Washington Ave, Erie, PA 16508",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "shared-object",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.10041,
+    "lng": -80.10417,
+    "address": "2605 Washington Avenue, Erie, Pennsylvania 16508",
+    "matchedName": "Tandoori Hut Indian Cuisine",
+    "sourceUrl": "https://www.openstreetmap.org/node/8529356114",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "low",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/8529356114",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Tandoori Hut Indian Cuisine",
+     "address": "2605 Washington Avenue, Erie, Pennsylvania 16508",
+     "houseNumber": "2605",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "shared object: OSM node/8529356114 also matched Tandoori Hut Indian Cuisine; graded low"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Tandoori Hut Indian Cuisine",
+     "lat": 42.10041,
+     "lng": -80.10417,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/8529356114",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/8529356114",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "low / shared OSM object"
+    ]
+   }
+  },
+  {
+   "name": "Saigon Nights",
+   "current": {
+    "address": "2430 W 8th St, Erie, PA 16505",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.10785,
+    "lng": -80.13798,
+    "address": "2430 West 8th Street, Erie, Pennsylvania 16505",
+    "matchedName": "Saigon Nights",
+    "sourceUrl": "https://www.openstreetmap.org/node/7854737335",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7854737335",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Saigon Nights",
+     "address": "2430 West 8th Street, Erie, Pennsylvania 16505",
+     "houseNumber": "2430",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Saigon Nights",
+     "lat": 42.10785,
+     "lng": -80.13798,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7854737335",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/7854737335",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Ariana Halal Kitchen",
+   "current": {
+    "address": "1315 Parade St, Erie, PA 16503",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.12563,
+    "lng": -80.0716,
+    "address": "1315 Parade Street, Erie, Pennsylvania 16503",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/878401420",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/878401420",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "1315 Parade Street, Erie, Pennsylvania 16503",
+     "houseNumber": "1315",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.12563,
+     "lng": -80.0716,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/878401420",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/878401420",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Annapurna Kitchen",
+     "lat": 42.12561,
+     "lng": -80.07161,
+     "grade": "low",
+     "nameSim": 0.5,
+     "sourceUrl": "https://www.openstreetmap.org/node/8171805525",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/8171805525",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "1315 PARADE ST, ERIE, PA, 16503",
+    "lat": 42.12566,
+    "lng": -80.07196,
+    "distanceM": 30,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1315%20Parade%20St%2C%20Erie%2C%20PA%2016503&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 30 m away (“1315 PARADE ST, ERIE, PA, 16503”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Like My Thai",
+   "current": {
+    "address": "827 State St, Erie, PA 16501",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.12685,
+    "lng": -80.08323,
+    "address": "827 State Street, Erie, Pennsylvania 16501",
+    "matchedName": "Like My Thai",
+    "sourceUrl": "https://www.openstreetmap.org/node/7697713697",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7697713697",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Like My Thai",
+     "address": "827 State Street, Erie, Pennsylvania 16501",
+     "houseNumber": "827",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Like My Thai",
+     "lat": 42.12685,
+     "lng": -80.08323,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7697713697",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/7697713697",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Amigo Taqueria & Botanas",
+   "current": {
+    "address": "5630 Peach St Unit A7, Erie, PA 16509",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Amigo Taqueria & Botanas",
+     "lat": 42.07132,
+     "lng": -80.09494,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/9885151912",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/9885151912",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Samurai Kitchen + Sushi",
+   "current": {
+    "address": "2767 W 12th St, Erie, PA 16505",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Samuri Kitchen & Sushi",
+     "lat": 42.10037,
+     "lng": -80.14339,
+     "grade": "low",
+     "nameSim": 0.789,
+     "sourceUrl": "https://www.openstreetmap.org/way/829821725",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/829821725",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Erie Curry House",
+   "current": {
+    "address": "3740 Peach St, Erie, PA 16508",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.09732,
+    "lng": -80.08181,
+    "address": "3740 Peach Street, Erie, Pennsylvania 16508",
+    "matchedName": "Erie Curry House",
+    "sourceUrl": "https://www.openstreetmap.org/node/13093284345",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/13093284345",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Erie Curry House",
+     "address": "3740 Peach Street, Erie, Pennsylvania 16508",
+     "houseNumber": "3740",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Erie Curry House",
+     "lat": 42.09732,
+     "lng": -80.08181,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/13093284345",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/13093284345",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Shawarma King",
+   "current": {
+    "address": "1042 W 26th St, Erie, PA 16508",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.10395,
+    "lng": -80.09596,
+    "address": "1042 West 26th Street, Erie, Pennsylvania 16508",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/917944853",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/917944853",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "1042 West 26th Street, Erie, Pennsylvania 16508",
+     "houseNumber": "1042",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Coppola’s Pizzeria",
+     "lat": 42.10394,
+     "lng": -80.09596,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/node/8525580254",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/8525580254",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.10395,
+     "lng": -80.09596,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/917944853",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/917944853",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "1042 W 26TH ST, ERIE, PA, 16508",
+    "lat": 42.10396,
+    "lng": -80.09537,
+    "distanceM": 49,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1042%20W%2026th%20St%2C%20Erie%2C%20PA%2016508&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 49 m away (“1042 W 26TH ST, ERIE, PA, 16508”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Shish Kabob Restaurant",
+   "current": {
+    "address": "1023 State St, Erie, PA 16501",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.12495,
+    "lng": -80.08179,
+    "address": "1023 State Street, Erie, Pennsylvania 16501",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/826572619",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/826572619",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "1023 State Street, Erie, Pennsylvania 16501",
+     "houseNumber": "1023",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.12495,
+     "lng": -80.08179,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/826572619",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/826572619",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Chippers Seafood & Southern Fusion",
+     "lat": 42.12495,
+     "lng": -80.08177,
+     "grade": "low",
+     "nameSim": 0.08,
+     "sourceUrl": "https://www.openstreetmap.org/node/8764853980",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/8764853980",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "1023 STATE ST, ERIE, PA, 16501",
+    "lat": 42.12527,
+    "lng": -80.08237,
+    "distanceM": 60,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1023%20State%20St%2C%20Erie%2C%20PA%2016501&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "med: needs a second independent source within 50 m (Census point is 60 m away)"
+    ]
+   }
+  },
+  {
+   "name": "Enrique's Southeast Mexico Taqueria & Tortilleria — CLOSED",
+   "current": {
+    "address": "22 N Park Row, Erie, PA 16501",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "closed",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "shared-object",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.12998,
+    "lng": -80.08622,
+    "address": "22 North Park Row, Erie, Pennsylvania 16501",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1016678162",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "low",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1016678162",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "22 North Park Row, Erie, Pennsylvania 16501",
+     "houseNumber": "22",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500",
+    "shared object: OSM way/1016678162 also matched Enrique's Southeast Mexico Taqueria & Tortilleria, Ippa Pizza Napoletana, Dina's Authentic Dominican Kitchen; graded low"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.12998,
+     "lng": -80.08622,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1016678162",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1016678162",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Flagship City Food Hall",
+     "lat": 42.12998,
+     "lng": -80.08623,
+     "grade": "low",
+     "nameSim": 0.032,
+     "sourceUrl": "https://www.openstreetmap.org/node/9281300333",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=food_court",
+     "osm": "node/9281300333",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Enrique's Southeast Mexico Taqueria & Tortilleria",
+     "lat": 42.1122,
+     "lng": -80.09465,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/9440678382",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/9440678382",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "low / shared OSM object"
+    ]
+   }
+  },
+  {
+   "name": "Fine Restaurant & Bar",
+   "current": {
+    "address": "2330 E 38th St, Erie, PA 16510",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.12129,
+    "lng": -80.0158,
+    "address": "2330 East 38th Street, Erie, Pennsylvania 16510",
+    "matchedName": "Fine Restaurant & Bar",
+    "sourceUrl": "https://www.openstreetmap.org/node/7578562309",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7578562309",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Fine Restaurant & Bar",
+     "address": "2330 East 38th Street, Erie, Pennsylvania 16510",
+     "houseNumber": "2330",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Fine Restaurant & Bar",
+     "lat": 42.12129,
+     "lng": -80.0158,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7578562309",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/7578562309",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Everest Restaurant",
+   "current": {
+    "address": "222 W Plum St, Edinboro, PA 16412",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 41.87698,
+    "lng": -80.13345,
+    "address": "222 West Plum Street, Edinboro, Pennsylvania 16412",
+    "matchedName": "Everest",
+    "sourceUrl": "https://www.openstreetmap.org/node/12208942786",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/12208942786",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Everest",
+     "address": "222 West Plum Street, Edinboro, Pennsylvania 16412",
+     "houseNumber": "222",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Everest",
+     "lat": 41.87698,
+     "lng": -80.13345,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/12208942786",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/12208942786",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 0.9, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Dominico",
+   "current": {
+    "address": "132 Cussewago Square, Meadville, PA 16335",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "TimberCreek Tap & Table",
+   "current": {
+    "address": "11191 Highline Dr, Meadville, PA 16335",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 41.62049,
+    "lng": -80.2032,
+    "address": "11191 Highline Drive, Meadville, Pennsylvania 16335",
+    "matchedName": "TimberCreek Tap & Table",
+    "sourceUrl": "https://www.openstreetmap.org/node/2821026221",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/2821026221",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "TimberCreek Tap & Table",
+     "address": "11191 Highline Drive, Meadville, Pennsylvania 16335",
+     "houseNumber": "11191",
+     "tags": {
+      "website": "http://www.timbercreektapandtable.com/"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "official site http://www.timbercreektapandtable.com/ answered HTTP 403 — NOT closure evidence (sites move, break and block bots)",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "TimberCreek Tap & Table",
+     "lat": 41.62049,
+     "lng": -80.2032,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/2821026221",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=bar",
+     "osm": "node/2821026221",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Edinboro Hotel Bar",
+   "current": {
+    "address": "100 Meadville St, Edinboro, PA 16412",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 41.87382,
+    "lng": -80.13227,
+    "address": "100 Meadville Street, Edinboro, Pennsylvania 16412",
+    "matchedName": "Edinboro Hotel Bar",
+    "sourceUrl": "https://www.openstreetmap.org/node/9327362730",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/9327362730",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Edinboro Hotel Bar",
+     "address": "100 Meadville Street, Edinboro, Pennsylvania 16412",
+     "houseNumber": "100",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Edinboro Hotel Bar",
+     "lat": 41.87382,
+     "lng": -80.13227,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/9327362730",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/9327362730",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Riverside Brewing Co.",
+   "current": {
+    "address": "1 Fountain Ave, Cambridge Springs, PA 16403",
+    "lat": 41.80575,
+    "lng": -80.05333,
+    "source": "Wikipedia (Riverside Inn, Cambridge Springs) property coordinate for 1 Fountain St, 41.80575,-80.05333",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 41.80576,
+    "lng": -80.05317,
+    "address": "1 Fountain Avenue, Cambridge Springs, Pennsylvania 16403",
+    "matchedName": "Riverside Brewing Company",
+    "sourceUrl": "https://www.openstreetmap.org/way/1089130205",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.872,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 14,
+    "osmObject": {
+     "id": "way/1089130205",
+     "class": "craft=brewery",
+     "addresstype": "craft",
+     "name": "Riverside Brewing Company",
+     "address": "1 Fountain Avenue, Cambridge Springs, Pennsylvania 16403",
+     "houseNumber": "1",
+     "tags": {
+      "website": "https://www.riversidebrewing.co/",
+      "building": "yes",
+      "opening_hours": "Tu 16:00-20:00; We-Sa 11:00-22:00; Su 10:00-20:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "official site schema.org address: One Fountain Street, Cambridge Springs, PA 16403 (no geo)",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Riverside Brewing Company",
+     "lat": 41.80576,
+     "lng": -80.05317,
+     "grade": "high",
+     "nameSim": 0.872,
+     "sourceUrl": "https://www.openstreetmap.org/way/1089130205",
+     "retrieved": "2026-10-16",
+     "osmClass": "craft=brewery",
+     "osm": "way/1089130205",
+     "addresstype": "craft",
+     "distanceFromCurrentM": 14
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (14 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Edinboro Chocolaterie",
+   "current": {
+    "address": "114 Erie St, Edinboro, PA 16412",
+    "lat": 41.874915,
+    "lng": -80.131754,
+    "source": "WebSearch place result for 114 Erie St, Edinboro (Edinboro Chocolaterie)",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 41.8751,
+     "lng": -80.13186,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/467250840",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/467250840",
+     "addresstype": "place",
+     "distanceFromCurrentM": 23
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Iron Bridge Inn",
+   "current": {
+    "address": "1438 Perry Hwy, Mercer, PA 16137",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 41.15838,
+    "lng": -80.22631,
+    "address": "1438 Perry Highway, Springfield Township, Pennsylvania 16137",
+    "matchedName": "Iron Bridge Inn",
+    "sourceUrl": "https://www.openstreetmap.org/way/525242578",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/525242578",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Iron Bridge Inn",
+     "address": "1438 Perry Highway, Springfield Township, Pennsylvania 16137",
+     "houseNumber": "1438",
+     "tags": {
+      "website": "https://www.springfields.com/",
+      "building": "commercial",
+      "building:levels": "1"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Iron Bridge Inn",
+     "lat": 41.15838,
+     "lng": -80.22631,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/525242578",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/525242578",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Big Rail Brewing",
+   "current": {
+    "address": "2158 Mercer Butler Pike, Grove City, PA 16127",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 41.13289,
+    "lng": -80.13473,
+    "address": "2158 Mercer Butler Pike, Grove City, Pennsylvania 16127",
+    "matchedName": "Big Rail Brewing",
+    "sourceUrl": "https://www.openstreetmap.org/way/1086554048",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1086554048",
+     "class": "amenity=pub",
+     "addresstype": "amenity",
+     "name": "Big Rail Brewing",
+     "address": "2158 Mercer Butler Pike, Grove City, Pennsylvania 16127",
+     "houseNumber": "2158",
+     "tags": {
+      "website": "https://bigrailbrewing.com/",
+      "building": "yes",
+      "opening_hours": "We-Th 17:00-21:00; Fr-Sa 13:00-22:00; Su 13:00-19:00",
+      "check_date:currency:XBT": "2025-11-17"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "official site schema.org address: 22113 Us Highway 6 And 19 Cambridge Springs, PA, United States, Pennsylvania 16403 (no geo)",
+    "official site schema.org address: 2158 Mercer Butler Pike, Grove City, PA 16127 (no geo)",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Big Rail Brewing",
+     "lat": 41.13289,
+     "lng": -80.13473,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1086554048",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=pub",
+     "osm": "way/1086554048",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Della Terra",
+   "current": {
+    "address": "100 N Main St, Zelienople, PA 16063",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "North Main Street",
+     "lat": 40.79621,
+     "lng": -80.13715,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/19330840",
+     "retrieved": "2026-10-16",
+     "osmClass": "highway=primary",
+     "osm": "way/19330840",
+     "addresstype": "road",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Della Terra",
+     "lat": 43.10473,
+     "lng": -79.11338,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6657882623",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=deli",
+     "osm": "node/6657882623",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "The Turn Club",
+   "current": {
+    "address": "1298 Freedom Rd, Cranberry Township, PA 16066",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "ShuBrew",
+   "current": {
+    "address": "205 S Main St, Zelienople, PA 16063",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "South Main Street",
+     "lat": 40.78965,
+     "lng": -80.1358,
+     "grade": "low",
+     "nameSim": 0.1,
+     "sourceUrl": "https://www.openstreetmap.org/way/121593926",
+     "retrieved": "2026-10-16",
+     "osmClass": "highway=primary",
+     "osm": "way/121593926",
+     "addresstype": "road",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Bar Rōnin",
+   "current": {
+    "address": "948 W Erie Plaza Dr, Erie, PA 16505",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.10677,
+    "lng": -80.13446,
+    "address": "948 West Erie Plaza Drive, Erie, Pennsylvania 16505",
+    "matchedName": "Bar Rōnin",
+    "sourceUrl": "https://www.openstreetmap.org/node/9239177053",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/9239177053",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Bar Rōnin",
+     "address": "948 West Erie Plaza Drive, Erie, Pennsylvania 16505",
+     "houseNumber": "948",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Bar Rōnin",
+     "lat": 42.10677,
+     "lng": -80.13446,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/9239177053",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/9239177053",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "El Amigo Mexican Grill",
+   "current": {
+    "address": "333 State St, Erie, PA 16507",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.13199,
+    "lng": -80.08636,
+    "address": "333 State Street, Erie, Pennsylvania 16507",
+    "matchedName": "El Amigo Mexican Grill",
+    "sourceUrl": "https://www.openstreetmap.org/node/7570295960",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7570295960",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "El Amigo Mexican Grill",
+     "address": "333 State Street, Erie, Pennsylvania 16507",
+     "houseNumber": "333",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "El Amigo Mexican Grill",
+     "lat": 42.13199,
+     "lng": -80.08636,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7570295960",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/7570295960",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Serafini's Trattoria",
+   "current": {
+    "address": "417 State St, Erie, PA 16501",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.13099,
+    "lng": -80.08601,
+    "address": "417 State Street, Erie, Pennsylvania 16501",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/809653274",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/809653274",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "417 State Street, Erie, Pennsylvania 16501",
+     "houseNumber": "417",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.13099,
+     "lng": -80.08601,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/809653274",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/809653274",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "417 STATE ST, ERIE, PA, 16501",
+    "lat": 42.13117,
+    "lng": -80.0863,
+    "distanceM": 31,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=417%20State%20St%2C%20Erie%2C%20PA%2016501&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 31 m away (“417 STATE ST, ERIE, PA, 16501”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Black Monk Brewery",
+   "current": {
+    "address": "3721 W 12th St, Erie, PA 16505",
+    "lat": 42.09201,
+    "lng": -80.16552,
+    "source": "WebSearch place result for 3721 W 12th St, Erie (Black Monk Brewery)",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 42.09224,
+     "lng": -80.16571,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/854276192",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/854276192",
+     "addresstype": "place",
+     "distanceFromCurrentM": 31
+    },
+    {
+     "kind": "osm-other",
+     "name": "West 12th Street",
+     "lat": 42.10706,
+     "lng": -80.12625,
+     "grade": "low",
+     "nameSim": 0.143,
+     "sourceUrl": "https://www.openstreetmap.org/way/60046281",
+     "retrieved": "2026-10-16",
+     "osmClass": "highway=primary",
+     "osm": "way/60046281",
+     "addresstype": "road",
+     "distanceFromCurrentM": 3646
+    },
+    {
+     "kind": "osm-other",
+     "name": "West 12th Street",
+     "lat": 42.10634,
+     "lng": -80.12766,
+     "grade": "low",
+     "nameSim": 0.143,
+     "sourceUrl": "https://www.openstreetmap.org/way/58672886",
+     "retrieved": "2026-10-16",
+     "osmClass": "highway=primary",
+     "osm": "way/58672886",
+     "addresstype": "road",
+     "distanceFromCurrentM": 3506
+    },
+    {
+     "kind": "osm-other",
+     "name": "West 12th Street",
+     "lat": 42.10766,
+     "lng": -80.12405,
+     "grade": "low",
+     "nameSim": 0.143,
+     "sourceUrl": "https://www.openstreetmap.org/way/58672883",
+     "retrieved": "2026-10-16",
+     "osmClass": "highway=primary",
+     "osm": "way/58672883",
+     "addresstype": "road",
+     "distanceFromCurrentM": 3839
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Tipsy Bean Cafe",
+   "current": {
+    "address": "2425 Peach St, Erie, PA 16502",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.11247,
+    "lng": -80.07538,
+    "address": "2425 Peach Street, Erie, Pennsylvania 16502",
+    "matchedName": "Tipsy Bean",
+    "sourceUrl": "https://www.openstreetmap.org/node/8349742459",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/8349742459",
+     "class": "amenity=cafe",
+     "addresstype": "amenity",
+     "name": "Tipsy Bean",
+     "address": "2425 Peach Street, Erie, Pennsylvania 16502",
+     "houseNumber": "2425",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Tipsy Bean",
+     "lat": 42.11247,
+     "lng": -80.07538,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/8349742459",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=cafe",
+     "osm": "node/8349742459",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 0.9, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Brew Ha Ha at the Colony",
+   "current": {
+    "address": "2612 W 8th St, Erie, PA 16505",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.10652,
+    "lng": -80.142,
+    "address": "2612 West 8th Street, Erie, Pennsylvania 16505",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1068285476",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1068285476",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "2612 West 8th Street, Erie, Pennsylvania 16505",
+     "houseNumber": "2612",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.10652,
+     "lng": -80.142,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1068285476",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1068285476",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Brew HaHa",
+     "lat": 42.10654,
+     "lng": -80.14201,
+     "grade": "low",
+     "nameSim": 0.636,
+     "sourceUrl": "https://www.openstreetmap.org/node/7854903457",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=cafe",
+     "osm": "node/7854903457",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "2612 W 8TH ST, ERIE, PA, 16505",
+    "lat": 42.10611,
+    "lng": -80.14195,
+    "distanceM": 46,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2612%20W%208th%20St%2C%20Erie%2C%20PA%2016505&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 46 m away (“2612 W 8TH ST, ERIE, PA, 16505”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Ember+Forge",
+   "current": {
+    "address": "401 State St, Erie, PA 16507",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.13138,
+    "lng": -80.08623,
+    "address": "401 State Street, Erie, Pennsylvania 16501",
+    "matchedName": "Ember + Forge",
+    "sourceUrl": "https://www.openstreetmap.org/node/6910916385",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name + address agree",
+     "postcode disagrees"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": false
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6910916385",
+     "class": "amenity=cafe",
+     "addresstype": "amenity",
+     "name": "Ember + Forge",
+     "address": "401 State Street, Erie, Pennsylvania 16501",
+     "houseNumber": "401",
+     "tags": {
+      "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-19:00; Su 08:00-15:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Ember + Forge",
+     "lat": 42.13138,
+     "lng": -80.08623,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6910916385",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=cafe",
+     "osm": "node/6910916385",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "401 STATE ST, ERIE, PA, 16501",
+    "lat": 42.13129,
+    "lng": -80.08638,
+    "distanceM": 16,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=401%20State%20St%2C%20Erie%2C%20PA%2016507&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 16 m away (“401 STATE ST, ERIE, PA, 16501”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Stefanelli's Candies",
+   "current": {
+    "address": "2054 W 8th St, Erie, PA 16505",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.11081,
+    "lng": -80.12993,
+    "address": "2054 West 8th Street, Erie, Pennsylvania 16505",
+    "matchedName": "Stefanelli's Candies",
+    "sourceUrl": "https://www.openstreetmap.org/node/7977136405",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7977136405",
+     "class": "shop=chocolate",
+     "addresstype": "shop",
+     "name": "Stefanelli's Candies",
+     "address": "2054 West 8th Street, Erie, Pennsylvania 16505",
+     "houseNumber": "2054",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Stefanelli's Candies",
+     "lat": 42.11081,
+     "lng": -80.12993,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7977136405",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=chocolate",
+     "osm": "node/7977136405",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Tandoori Hut Indian Cuisine",
+   "current": {
+    "address": "2605 Washington Ave, Erie, PA 16508",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "shared-object",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.10041,
+    "lng": -80.10417,
+    "address": "2605 Washington Avenue, Erie, Pennsylvania 16508",
+    "matchedName": "Tandoori Hut Indian Cuisine",
+    "sourceUrl": "https://www.openstreetmap.org/node/8529356114",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "low",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/8529356114",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Tandoori Hut Indian Cuisine",
+     "address": "2605 Washington Avenue, Erie, Pennsylvania 16508",
+     "houseNumber": "2605",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "shared object: OSM node/8529356114 also matched Tandoori Hut; graded low"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Tandoori Hut Indian Cuisine",
+     "lat": 42.10041,
+     "lng": -80.10417,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/8529356114",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/8529356114",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "low / shared OSM object"
+    ]
+   }
+  },
+  {
+   "name": "Courtyard Winery",
+   "current": {
+    "address": "10021 W Main Rd, North East, PA 16428",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.20128,
+    "lng": -79.87197,
+    "address": "10021 West Main Street, North East, Pennsylvania 16428",
+    "matchedName": "Courtyard Winery",
+    "sourceUrl": "https://www.openstreetmap.org/way/1063601670",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1063601670",
+     "class": "craft=winery",
+     "addresstype": "craft",
+     "name": "Courtyard Winery",
+     "address": "10021 West Main Street, North East, Pennsylvania 16428",
+     "houseNumber": "10021",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Courtyard Winery",
+     "lat": 42.20128,
+     "lng": -79.87197,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1063601670",
+     "retrieved": "2026-10-16",
+     "osmClass": "craft=winery",
+     "osm": "way/1063601670",
+     "addresstype": "craft",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Heritage Wine Cellars",
+   "current": {
+    "address": "12160 E Main St, North East, PA 16428",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.23434,
+    "lng": -79.78798,
+    "address": "12160 East Main Street, North East, Pennsylvania 16428",
+    "matchedName": "Heritage Wine Cellars",
+    "sourceUrl": "https://www.openstreetmap.org/node/8184393493",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/8184393493",
+     "class": "craft=winery",
+     "addresstype": "craft",
+     "name": "Heritage Wine Cellars",
+     "address": "12160 East Main Street, North East, Pennsylvania 16428",
+     "houseNumber": "12160",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Heritage Wine Cellars",
+     "lat": 42.23434,
+     "lng": -79.78798,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/8184393493",
+     "retrieved": "2026-10-16",
+     "osmClass": "craft=winery",
+     "osm": "node/8184393493",
+     "addresstype": "craft",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "6 Mile Cellars",
+   "current": {
+    "address": "5727 Firman Rd, Erie, PA 16510",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.14395,
+    "lng": -79.96794,
+    "address": "5727 Firman Road, Erie, Pennsylvania 16510",
+    "matchedName": "6 Mile Cellars",
+    "sourceUrl": "https://www.openstreetmap.org/way/854300953",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/854300953",
+     "class": "craft=winery",
+     "addresstype": "craft",
+     "name": "6 Mile Cellars",
+     "address": "5727 Firman Road, Erie, Pennsylvania 16510",
+     "houseNumber": "5727",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "6 Mile Cellars",
+     "lat": 42.14395,
+     "lng": -79.96794,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/854300953",
+     "retrieved": "2026-10-16",
+     "osmClass": "craft=winery",
+     "osm": "way/854300953",
+     "addresstype": "craft",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Schaefer's Auto Art",
+   "current": {
+    "address": "3705 Hershey Rd, Erie, PA 16506",
+    "lat": 42.04365,
+    "lng": -80.13418,
+    "source": "Uncovering PA and PA Bucket List roadside-attraction guides publish 42.0436499,-80.1341789 for the site",
+    "confidence": "med",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "move",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.04436,
+    "lng": -80.13473,
+    "address": "Hershey Road, McKean Township, Pennsylvania 16506",
+    "matchedName": "Schaefer's Auto Art",
+    "sourceUrl": "https://www.openstreetmap.org/node/9592256630",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 91,
+    "osmObject": {
+     "id": "node/9592256630",
+     "class": "tourism=artwork",
+     "addresstype": "tourism",
+     "name": "Schaefer's Auto Art",
+     "address": "Hershey Road, McKean Township, Pennsylvania 16506",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.04371,
+     "lng": -80.13415,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1041796043",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1041796043",
+     "addresstype": "building",
+     "distanceFromCurrentM": 7
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Schaefer's Auto Art",
+     "lat": 42.04436,
+     "lng": -80.13473,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/9592256630",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=artwork",
+     "osm": "node/9592256630",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": 91
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number null, street true)"
+    ]
+   }
+  },
+  {
+   "name": "Erie Bluffs State Park",
+   "current": {
+    "address": "11122 West Lake Rd, Girard, PA 16417",
+    "lat": 42.0164,
+    "lng": -80.3719,
+    "source": "Wikipedia infobox: 42°00'59\"N 80°22'19\"W",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "ambiguous",
+   "proposal": null,
+   "notes": [
+    "candidates disagree by 3330 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "wikidata",
+     "name": "Erie Bluffs State Park",
+     "lat": 42.0083,
+     "lng": -80.4108,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.wikidata.org/wiki/Q5388273",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 3338
+    },
+    {
+     "kind": "wikipedia",
+     "name": "Erie Bluffs State Park",
+     "lat": 42.0164,
+     "lng": -80.372,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Erie_Bluffs_State_Park",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": 8
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Splash Lagoon Indoor Water Park Resort",
+   "current": {
+    "address": "8091 Peach St, Erie, PA 16509",
+    "lat": 42.048,
+    "lng": -80.078,
+    "source": "Wikipedia (Splash Lagoon) infobox: 42°02'53\"N 80°04'41\"W",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.04808,
+    "lng": -80.07769,
+    "address": "8091 Peach Street, Erie, Pennsylvania 16509",
+    "matchedName": "Splash Lagoon",
+    "sourceUrl": "https://www.openstreetmap.org/way/826283408",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 27,
+    "osmObject": {
+     "id": "way/826283408",
+     "class": "leisure=water_park",
+     "addresstype": "leisure",
+     "name": "Splash Lagoon",
+     "address": "8091 Peach Street, Erie, Pennsylvania 16509",
+     "houseNumber": "8091",
+     "tags": {
+      "building": "yes",
+      "opening_hours": "Mo-Su 11:00-19:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Splash Lagoon",
+     "lat": 42.04808,
+     "lng": -80.07769,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/826283408",
+     "retrieved": "2026-10-16",
+     "osmClass": "leisure=water_park",
+     "osm": "way/826283408",
+     "addresstype": "leisure",
+     "distanceFromCurrentM": 27
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (27 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Asbury Woods",
+   "current": {
+    "address": "4105 Asbury Rd, Erie, PA 16506",
+    "lat": 42.06092,
+    "lng": -80.17621,
+    "source": "Good For PA park listing published coordinate for Asbury Woods Nature Center",
+    "confidence": "med",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.054,
+    "lng": -80.18073,
+    "address": "4105, Erie, Pennsylvania 16506",
+    "matchedName": "Asbury Woods",
+    "sourceUrl": "https://www.openstreetmap.org/way/1250099888",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": null,
+     "postcode": true
+    },
+    "distanceM": 855,
+    "osmObject": {
+     "id": "way/1250099888",
+     "class": "leisure=park",
+     "addresstype": "park",
+     "name": "Asbury Woods",
+     "address": "4105, Erie, Pennsylvania 16506",
+     "houseNumber": "4105",
+     "tags": {
+      "website": "https://www.asburywoods.org/",
+      "opening_hours": "sunrise-sunset"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "extended feature: 855 m between centroid and the pinned entrance/point is expected; no move proposed"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.06153,
+     "lng": -80.172,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/815582714",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/815582714",
+     "addresstype": "building",
+     "distanceFromCurrentM": 354
+    },
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.06153,
+     "lng": -80.172,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/815582714",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/815582714",
+     "addresstype": "building",
+     "distanceFromCurrentM": 354
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Asbury Woods",
+     "lat": 42.054,
+     "lng": -80.18073,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1250099888",
+     "retrieved": "2026-10-16",
+     "osmClass": "leisure=park",
+     "osm": "way/1250099888",
+     "addresstype": "park",
+     "distanceFromCurrentM": 855
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number true, street null)"
+    ]
+   }
+  },
+  {
+   "name": "Wayne Blockhouse",
+   "current": {
+    "address": "Soldiers & Sailors Home grounds, 560 E 3rd St, Erie, PA 16507",
+    "lat": 42.13978,
+    "lng": -80.07423,
+    "source": "TopoQuest named-feature 'General Wayne Blockhouse' N42.13978 W80.07423 (NAD83); corroborated by HMDB marker",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": null,
+   "notes": [
+    "a med candidate 35 m away does not outrank the current high pin",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "General Anthony Wayne Blockhouse",
+     "lat": 42.14008,
+     "lng": -80.07437,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/823145925",
+     "retrieved": "2026-10-16",
+     "osmClass": "historic=building",
+     "osm": "way/823145925",
+     "addresstype": "historic",
+     "distanceFromCurrentM": 35
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Firefighters Historical Museum",
+   "current": {
+    "address": "428 Chestnut St, Erie, PA 16507",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "official",
+    "lat": 42.12739,
+    "lng": -80.09472,
+    "address": "428 Chestnut St, Erie, PA 16507",
+    "matchedName": "Firefighters Historical Museum",
+    "sourceUrl": "https://firefightershistoricalmuseum.org/",
+    "retrieved": "2026-10-16",
+    "licence": "the place's own website (fact read from its schema.org markup / page; robots.txt honoured)",
+    "grade": "high",
+    "gradeWhy": [
+     "official published coordinate"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": null,
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": [
+     {
+      "kind": "osm-poi",
+      "sourceUrl": "https://www.openstreetmap.org/node/9123099876",
+      "distanceM": 2
+     }
+    ]
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Firefighters Historical Museum",
+     "lat": 42.12737,
+     "lng": -80.09473,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/9123099876",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=museum",
+     "osm": "node/9123099876",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "official",
+     "name": "Firefighters Historical Museum",
+     "lat": 42.12739,
+     "lng": -80.09472,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://firefightershistoricalmuseum.org/",
+     "retrieved": "2026-10-16",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "official site's schema.org geo"
+    ]
+   }
+  },
+  {
+   "name": "North Pier Lighthouse",
+   "current": {
+    "address": "North Pier, Presque Isle State Park, Erie, PA 16505",
+    "lat": 42.1567,
+    "lng": -80.0706,
+    "source": "Wikipedia (Erie Harbor North Pier Light) infobox: 42°09'24\"N 80°04'14\"W",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Enrique's Southeast Mexico Taqueria & Tortilleria",
+   "current": {
+    "address": "22 N Park Row, Erie, PA 16501",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "shared-object",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.12998,
+    "lng": -80.08622,
+    "address": "22 North Park Row, Erie, Pennsylvania 16501",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1016678162",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "low",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1016678162",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "22 North Park Row, Erie, Pennsylvania 16501",
+     "houseNumber": "22",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500",
+    "shared object: OSM way/1016678162 also matched Enrique's Southeast Mexico Taqueria & Tortilleria — CLOSED, Ippa Pizza Napoletana, Dina's Authentic Dominican Kitchen; graded low"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.12998,
+     "lng": -80.08622,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1016678162",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1016678162",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Flagship City Food Hall",
+     "lat": 42.12998,
+     "lng": -80.08623,
+     "grade": "low",
+     "nameSim": 0.032,
+     "sourceUrl": "https://www.openstreetmap.org/node/9281300333",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=food_court",
+     "osm": "node/9281300333",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Enrique's Southeast Mexico Taqueria & Tortilleria",
+     "lat": 42.1122,
+     "lng": -80.09465,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/9440678382",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/9440678382",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "low / shared OSM object"
+    ]
+   }
+  },
+  {
+   "name": "Lawrence Park Dinor",
+   "current": {
+    "address": "4019 Main St, Erie, PA 16511",
+    "lat": 42.15028,
+    "lng": -80.01444,
+    "source": "Wikipedia/Wikidata (NRHP-listed Lawrence Park Dinor) infobox: 42°09'01\"N 80°00'52\"W",
+    "confidence": "high",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "status"
+   ],
+   "outcome": "confirm",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.15058,
+    "lng": -80.01435,
+    "address": "4019 Main Street, Erie, Pennsylvania 16511",
+    "matchedName": "Lawrence Park Dinor",
+    "sourceUrl": "https://www.openstreetmap.org/way/810570067",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": 34,
+    "osmObject": {
+     "id": "way/810570067",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Lawrence Park Dinor",
+     "address": "4019 Main Street, Erie, Pennsylvania 16511",
+     "houseNumber": "4019",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "extended feature: 34 m between centroid and the pinned entrance/point is expected; no move proposed",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Lawrence Park Dinor",
+     "lat": 42.15058,
+     "lng": -80.01435,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/810570067",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/810570067",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 34
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "no-change",
+    "why": [
+     "confirms the current high pin (34 m); nothing to review"
+    ]
+   }
+  },
+  {
+   "name": "Smugglers' Wharf",
+   "current": {
+    "address": "3 State St, Erie, PA 16507",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.13765,
+    "lng": -80.09022,
+    "address": "3 State Street, Erie, Pennsylvania 16507",
+    "matchedName": "Smugglers' Wharf",
+    "sourceUrl": "https://www.openstreetmap.org/node/7774544244",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7774544244",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Smugglers' Wharf",
+     "address": "3 State Street, Erie, Pennsylvania 16507",
+     "houseNumber": "3",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Smugglers' Wharf",
+     "lat": 42.13765,
+     "lng": -80.09022,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7774544244",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/7774544244",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Oliver's Rooftop",
+   "current": {
+    "address": "130 E Front St, Erie, PA 16507",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 42.13692,
+     "lng": -80.08158,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/11904663",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/11904663",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 42.13593,
+     "lng": -80.08379,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/11904663",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/11904663",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Hampton Inn & Suites East Erie Bayfront",
+     "lat": 42.13589,
+     "lng": -80.08823,
+     "grade": "low",
+     "nameSim": 0.128,
+     "sourceUrl": "https://www.openstreetmap.org/way/845799565",
+     "retrieved": "2026-10-16",
+     "osmClass": "tourism=hotel",
+     "osm": "way/845799565",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Flip Cafe",
+   "current": {
+    "address": "103 Meadville St, Edinboro, PA 16412",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 41.87397,
+    "lng": -80.13183,
+    "address": "103 Meadville Street, Edinboro, Pennsylvania 16412",
+    "matchedName": "Flip Cafe",
+    "sourceUrl": "https://www.openstreetmap.org/way/1063619056",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1063619056",
+     "class": "amenity=cafe",
+     "addresstype": "amenity",
+     "name": "Flip Cafe",
+     "address": "103 Meadville Street, Edinboro, Pennsylvania 16412",
+     "houseNumber": "103",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Flip Cafe",
+     "lat": 41.87397,
+     "lng": -80.13183,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1063619056",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=cafe",
+     "osm": "way/1063619056",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Blissful Meads",
+   "current": {
+    "address": "847 Market St, Meadville, PA 16335",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 41.64027,
+    "lng": -80.15263,
+    "address": "847 Market Street, Meadville, Pennsylvania 16335",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1149024070",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1149024070",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "847 Market Street, Meadville, Pennsylvania 16335",
+     "houseNumber": "847",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 41.64027,
+     "lng": -80.15263,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1149024070",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1149024070",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "847 MARKET ST, MEADVILLE, PA, 16335",
+    "lat": 41.64058,
+    "lng": -80.15265,
+    "distanceM": 34,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=847%20Market%20St%2C%20Meadville%2C%20PA%2016335&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 34 m away (“847 MARKET ST, MEADVILLE, PA, 16335”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Presque Isle Wine Cellars",
+   "current": {
+    "address": "9440 Buffalo Rd, North East, PA 16428",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "John's Wildwood Pizzeria",
+   "current": {
+    "address": "6008 Knowledge Pkwy, Erie, PA 16510",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.11854,
+    "lng": -79.96791,
+    "address": "6008 Knowledge Parkway, Erie, Pennsylvania 16510",
+    "matchedName": "John's Wildwood Pizzeria",
+    "sourceUrl": "https://www.openstreetmap.org/node/7616947746",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7616947746",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "John's Wildwood Pizzeria",
+     "address": "6008 Knowledge Parkway, Erie, Pennsylvania 16510",
+     "houseNumber": "6008",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "John's Wildwood Pizzeria",
+     "lat": 42.11854,
+     "lng": -79.96791,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7616947746",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/7616947746",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Pineapple Eddie Southern Bistro",
+   "current": {
+    "address": "1402 W 10th St, Erie, PA 16502",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.11451,
+    "lng": -80.11331,
+    "address": "1402 West 10th Street, Erie, Pennsylvania 16502",
+    "matchedName": "Pineapple Eddie Southern Bistro",
+    "sourceUrl": "https://www.openstreetmap.org/way/1063934035",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1063934035",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Pineapple Eddie Southern Bistro",
+     "address": "1402 West 10th Street, Erie, Pennsylvania 16502",
+     "houseNumber": "1402",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Pineapple Eddie Southern Bistro",
+     "lat": 42.11451,
+     "lng": -80.11331,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1063934035",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/1063934035",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Ippa Pizza Napoletana",
+   "current": {
+    "address": "22 N Park Row, Erie, PA 16501",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "shared-object",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.12998,
+    "lng": -80.08622,
+    "address": "22 North Park Row, Erie, Pennsylvania 16501",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1016678162",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "low",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1016678162",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "22 North Park Row, Erie, Pennsylvania 16501",
+     "houseNumber": "22",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "shared object: OSM way/1016678162 also matched Enrique's Southeast Mexico Taqueria & Tortilleria — CLOSED, Enrique's Southeast Mexico Taqueria & Tortilleria, Dina's Authentic Dominican Kitchen; graded low"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.12998,
+     "lng": -80.08622,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1016678162",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1016678162",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Flagship City Food Hall",
+     "lat": 42.12998,
+     "lng": -80.08623,
+     "grade": "low",
+     "nameSim": 0.054,
+     "sourceUrl": "https://www.openstreetmap.org/node/9281300333",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=food_court",
+     "osm": "node/9281300333",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "low / shared OSM object"
+    ]
+   }
+  },
+  {
+   "name": "Bro Man's Birria N' Burgers",
+   "current": {
+    "address": "3558 W 26th St, Erie, PA 16506",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.08203,
+    "lng": -80.15481,
+    "address": "3558 West 26th Street, Erie, Pennsylvania 16506",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/815578380",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/815578380",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "3558 West 26th Street, Erie, Pennsylvania 16506",
+     "houseNumber": "3558",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.08203,
+     "lng": -80.15481,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/815578380",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/815578380",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "3558 W 26TH ST, ERIE, PA, 16506",
+    "lat": 42.08183,
+    "lng": -80.1546,
+    "distanceM": 28,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=3558%20W%2026th%20St%2C%20Erie%2C%20PA%2016506&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 28 m away (“3558 W 26TH ST, ERIE, PA, 16506”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Marley's Island Caribbean",
+   "current": {
+    "address": "3018 State St, Erie, PA 16508",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.10798,
+    "lng": -80.07134,
+    "address": "3018 State Street, Erie, Pennsylvania 16508",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/914767592",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/914767592",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "3018 State Street, Erie, Pennsylvania 16508",
+     "houseNumber": "3018",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.10798,
+     "lng": -80.07134,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/914767592",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/914767592",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": {
+    "source": "census",
+    "matched": true,
+    "matchedAddress": "3018 STATE ST, ERIE, PA, 16508",
+    "lat": 42.10837,
+    "lng": -80.07138,
+    "distanceM": 43,
+    "sourceUrl": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=3018%20State%20St%2C%20Erie%2C%20PA%2016508&benchmark=Public_AR_Current&format=json",
+    "retrieved": "2026-10-16",
+    "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
+   },
+   "assist": {
+    "verdict": "review",
+    "why": [
+     "med + second source: US Census point 43 m away (“3018 STATE ST, ERIE, PA, 16508”; interpolated, read it)"
+    ]
+   }
+  },
+  {
+   "name": "Lucky Louie's Beer & Wieners",
+   "current": {
+    "address": "8238 Perry Hwy, Erie, PA 16509",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.06394,
+    "lng": -80.03474,
+    "address": "8238 Perry Highway, Erie, Pennsylvania 16509",
+    "matchedName": "Lucky Louie’s Beer & Wieners",
+    "sourceUrl": "https://www.openstreetmap.org/node/7931266260",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7931266260",
+     "class": "shop=beverages",
+     "addresstype": "shop",
+     "name": "Lucky Louie’s Beer & Wieners",
+     "address": "8238 Perry Highway, Erie, Pennsylvania 16509",
+     "houseNumber": "8238",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Lucky Louie’s Beer & Wieners",
+     "lat": 42.06394,
+     "lng": -80.03474,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7931266260",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=beverages",
+     "osm": "node/7931266260",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Born & Braised",
+   "current": {
+    "address": "802 W 18th St, Erie, PA 16502",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "",
+     "lat": 42.11226,
+     "lng": -80.09516,
+     "grade": "low",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/936355282",
+     "retrieved": "2026-10-16",
+     "osmClass": "place=house",
+     "osm": "way/936355282",
+     "addresstype": "place",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   }
+  },
+  {
+   "name": "Avonia Tavern",
+   "current": {
+    "address": "7321 W Lake Rd, Fairview, PA 16415",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.04764,
+    "lng": -80.2619,
+    "address": "7321 West Lake Road, Fairview Township, Pennsylvania 16415",
+    "matchedName": "Avonia Tavern",
+    "sourceUrl": "https://www.openstreetmap.org/way/815769469",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/815769469",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Avonia Tavern",
+     "address": "7321 West Lake Road, Fairview Township, Pennsylvania 16415",
+     "houseNumber": "7321",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Avonia Tavern",
+     "lat": 42.04764,
+     "lng": -80.2619,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/815769469",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/815769469",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Whippy Dip",
+   "current": {
+    "address": "2527 Chestnut St, Erie, PA 16502",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.10903,
+    "lng": -80.08201,
+    "address": "2527 Chestnut Street, Erie, Pennsylvania 16502",
+    "matchedName": "Whippy Dip",
+    "sourceUrl": "https://www.openstreetmap.org/node/7569974873",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7569974873",
+     "class": "amenity=ice_cream",
+     "addresstype": "amenity",
+     "name": "Whippy Dip",
+     "address": "2527 Chestnut Street, Erie, Pennsylvania 16502",
+     "houseNumber": "2527",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Whippy Dip",
+     "lat": 42.10903,
+     "lng": -80.08201,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7569974873",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=ice_cream",
+     "osm": "node/7569974873",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Flagship City Food Hall",
+   "current": {
+    "address": "22 N Park Row, Erie, PA 16501",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.12998,
+    "lng": -80.08623,
+    "address": "22 North Park Row, Erie, Pennsylvania 16501",
+    "matchedName": "Flagship City Food Hall",
+    "sourceUrl": "https://www.openstreetmap.org/node/9281300333",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/9281300333",
+     "class": "amenity=food_court",
+     "addresstype": "amenity",
+     "name": "Flagship City Food Hall",
+     "address": "22 North Park Row, Erie, Pennsylvania 16501",
+     "houseNumber": "22",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Flagship City Food Hall",
+     "lat": 42.12998,
+     "lng": -80.08623,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/9281300333",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=food_court",
+     "osm": "node/9281300333",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  },
+  {
+   "name": "Dina's Authentic Dominican Kitchen",
+   "current": {
+    "address": "22 N Park Row, Erie, PA 16501",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "shared-object",
+   "proposal": {
+    "kind": "osm-address",
+    "lat": 42.12998,
+    "lng": -80.08622,
+    "address": "22 North Park Row, Erie, Pennsylvania 16501",
+    "matchedName": null,
+    "sourceUrl": "https://www.openstreetmap.org/way/1016678162",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "low",
+    "gradeWhy": [
+     "exact address point (the building, not a named place)"
+    ],
+    "nameSim": 0,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1016678162",
+     "class": "building=yes",
+     "addresstype": "building",
+     "name": "",
+     "address": "22 North Park Row, Erie, Pennsylvania 16501",
+     "houseNumber": "22",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "shared object: OSM way/1016678162 also matched Enrique's Southeast Mexico Taqueria & Tortilleria — CLOSED, Enrique's Southeast Mexico Taqueria & Tortilleria, Ippa Pizza Napoletana; graded low"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-address",
+     "name": "",
+     "lat": 42.12998,
+     "lng": -80.08622,
+     "grade": "med",
+     "nameSim": 0,
+     "sourceUrl": "https://www.openstreetmap.org/way/1016678162",
+     "retrieved": "2026-10-16",
+     "osmClass": "building=yes",
+     "osm": "way/1016678162",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Flagship City Food Hall",
+     "lat": 42.12998,
+     "lng": -80.08623,
+     "grade": "low",
+     "nameSim": 0.042,
+     "sourceUrl": "https://www.openstreetmap.org/node/9281300333",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=food_court",
+     "osm": "node/9281300333",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "low / shared OSM object"
+    ]
+   }
+  },
+  {
+   "name": "Westside Market on Powell",
+   "current": {
+    "address": "1119 Powell Ave, Erie, PA 16505",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-30",
+    "status": "open",
+    "statusSource": null,
+    "statusChecked": "2026-08-30"
+   },
+   "scope": [
+    "unverified",
+    "status"
+   ],
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 42.09239,
+    "lng": -80.16736,
+    "address": "1119 Powell Avenue, Erie, Pennsylvania 16505",
+    "matchedName": "Westside Market on Powell",
+    "sourceUrl": "https://www.openstreetmap.org/node/12717385700",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": true
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/12717385700",
+     "class": "shop=supermarket",
+     "addresstype": "shop",
+     "name": "Westside Market on Powell",
+     "address": "1119 Powell Avenue, Erie, Pennsylvania 16505",
+     "houseNumber": "1119",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Westside Market on Powell",
+     "lat": 42.09239,
+     "lng": -80.16736,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/12717385700",
+     "retrieved": "2026-10-16",
+     "osmClass": "shop=supermarket",
+     "osm": "node/12717385700",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "assist": {
+    "verdict": "pass",
+    "why": [
+     "OSM POI, name 1, house number + street match"
+    ]
+   }
+  }
+ ]
+}

@@ -6,14 +6,14 @@
 - 128c3bac: 7 run-#40 refusals (Pillar of Fire is a stated gap), PNG→JPEG in recompress, all-format size gate, wider NOT_A_PHOTO + a PNG-lead guard (R7-g1, R7-g7).
 - run #46 / 67621b28: 720w backfill on 71 rows.
 - 9a7c4819: manifest generator + vetted candidates committed to `tools/beta/imagery/manifest/`. They were previously scratch-only.
-- This push: D-40 (a) code. recompress.js derives a ≤ 55 KB 720 for lead/first-row Commons cards from the committed 960 (`needs720`, `priority720`, `P720_KB`). fetch-commons asks priority targets for 500/720/960. Tests are in, with the data check PENDING (`D40A_PENDING` in test-imagery.js).
+- d36f7b49: D-40 (a) code. recompress.js derives a ≤ 55 KB (now 45 KB) 720 for lead/first-row Commons cards from the committed 960 (`needs720`, `priority720`, `P720_KB`). fetch-commons asks priority targets for 500/720/960. Tests are in, with the data check PENDING at the time (`D40A_PENDING` in test-imagery.js).
+- df29c10b: run #48 review (`design/beta/imagery-runs/run-48.md`).
+- This push: run #48's 32 refusals applied; D-40a data landed (cap 45 KB, `NO720` exceptions); pending flag off.
 
 **In flight:**
-- The `all` budget-1200 run was dispatched by the orchestrator at about 13:36Z on 2026-10-16. **NOT YET REVIEWED.** The baseline before it: CREDITS 309 rows at f47945e9, coverage heroes 76 + 8 stated, leads 20/27, first row 42/56, tier-1 216/1017, 507 targets to try.
-- **Run #48** (`all` budget 1200) committed d2d40ef3: 271 new rows, tier-1 216 → 487/1017, 236 targets left. REVIEWED: flags are in `design/beta/imagery-runs/run-48.md` (15 refuse, 10 signage, 23 '?'). Sent to the orchestrator. **Waiting on its refusal list; nothing applied yet.**
-- Run #50 (push on d36f7b49, scope priority) is running. Its recompress uses the new D-40a code, so it should add the 45 lead/first-row 720 copies on the runner.
-- D-40 (a) data is NOT yet landed. Run #50 should add it; if it doesn't, run the local recompress after #50 lands. A dry run shows all 45 at ≤ 55 KB; Tokyo is about +30 KB → ≈ 676 KB.
-- Asked platform (session_01USPS1inq7bUDfyw89evKMA) to make `cardSizes()` return `CARD_SIZES_720` whenever a 720 copy exists. Waiting on its SHA.
+- Run #48's 32 refusals are APPLIED in this push (orchestrator's final list, recorded in design/beta/imagery-runs/run-48.md). CREDITS 580 → 548.
+- D-40a data has LANDED: 38 lead/first-row cards have a 720 copy ≤ 45 KB. 7 are in `NO720` in recompress.js (busy or tall photos that only fit by shrinking below 600 px) and keep 500 + 960. The cap went from 55 to 45 KB because 55 measured Tokyo phone@3× at 703 KB once the 720-aware `sizes` was applied; 45 measures 691 KB. Platform still has to switch `cardSizes()` to the 720 copy (asked); until then phones load the 500 and Tokyo is 649 KB.
+- Next `all` run (budget 1200, 236 targets): dispatched by imagery right after this push; see the run id in the next checkpoint. NOT YET REVIEWED.
 
 **Next:**
 1. When the run commits: `git pull` (resolve CREDITS conflicts BY HAND, never `--theirs`). List the new rows, i.e. CREDITS rows whose `commonsTitle` is not in `git show f47945e9:beta/assets/img/CREDITS.json`, grouped by city as `id ← file | depicts`, flagging doubtful ones. Then send the orchestrator: coverage (`node tools/beta/imagery/coverage.js`), remaining (`node tools/beta/imagery/fetch-commons.js --dry-run --scope all`), and `npm run beta:qa:w8p` (Tokyo phone@3×).
@@ -24,14 +24,11 @@
    - remove the CREDITS rows and their files with a count-asserted script;
    - `cd tools && npm run beta && npm run validate && npm test && npm run beta:check`;
    - push and verify with ls-remote.
-3. After #50 lands (if it didn't add the 720s, add them locally):
-   - run `NODE_PATH=<sharp> node tools/beta/imagery/recompress.js` to add the 45 copies;
-   - set `D40A_PENDING = false` in test-imagery.js;
-   - run the gates plus `npm run beta:qa:w8p`;
-   - push.
-   Once platform's `cardSizes` change is in, re-run w8p. If Tokyo phone@3× is over 700 KB, lower `P720_KB` and re-derive.
+3. When platform's `cardSizes` change lands, re-run `npm run beta:qa:w8p`. It should be ≈ 691 KB. If Tokyo phone@3× is over 700 KB, lower `P720_KB`, delete the lead/first-row 720 variants, re-derive with recompress, and add any new skips to `NO720`.
+4. Review the dispatched run as in step 1. Write `design/beta/imagery-runs/run-<N>.md` and send the flagged rows to the orchestrator.
 
 **Notes:**
+- Known gap: when the runner fetches a new priority row, `store()` derives its 720 at q82 and recompress then re-encodes it to ≤ 45 KB. A busy photo can be scaled below 600 px while keeping its `-720` name. Check new priority rows in each review and add any such row to `NO720`.
 - sharp for local runs is at `NODE_PATH=<scratch>/sh/node_modules`. In a fresh session: `cd tools && npm install --no-save sharp`.
 - The Actions workflow `beta-fetch-unsplash.yml` belongs to the orchestrator; never edit it. Runs: push → scope priority; dispatch → `scope` + `budget`. The image hosts are blocked in this sandbox, so all fetching happens on Actions.
 - Refusal scope: a photo-fault reason applies to every target; a slot or duplicate reason stays local (`refusalIsGlobal`).

@@ -32,15 +32,21 @@ Current rows:
   - rev 2 (PANEL-R0): cd327e9f
   - §10 one-up: 195c41ea, 4e9e2051
 - **Tokens:** tracking and ring tokens in 8ca6dea6.
+- **Views SPEC §3.4 Insights link rule** (plain bars for measures, footnote why, W9-1 recognised chart): f0497626. QC was told.
+- **QC-09 verification and the corrected < 300 px spec:** 7878c6f1.
 
 ## Next
 
 1. **QC-14 follow-up.** FE-B is done: fe-b.css 38f57e81, and a re-run of the tool finds 0. FE-A (fe-a.css, 118) and FE-1 (atlas.css, 42) were asked to run `python3 design/beta/tools/snap-spacing.py <file>` *after* their priority rows. Re-measure each lane's file when it pushes. Once all three are at 0, tell the R7 QA lane (session_017FLWXa5zgGWvqNo4C3UsvH) that QC-14 is ready to verify.
-2. **When PANEL-R3 lands** (`design/beta/atlas/PANEL-R3.md`):
-   - fold the findings into SPEC-v3 §9 plus the affected sections;
-   - commit with the finding ids in the message;
-   - brief FE-1 (layout, pins, chrome, list) and FE-2 (round-trip, near-me, URL, keyboard);
-   - send the panel only "round N ready at <sha>", through FE or the orchestrator.
+2. **PANEL-R3 (80.7) folded into SPEC-v3 rev 5:**
+   - no sun on dots or pills;
+   - light circle vs dark square, with a sign-off on real shots;
+   - the glyph nouns and `glyph-overrides.json`;
+   - phone chips: Area, no counts;
+   - the desktop switch inside the 56 px header;
+   - no rank badges and no "pin N".
+
+   FE-1 and FE-2 have been briefed. **Next:** when a new head lands, the designer signs off on `real/R4/tokyo-390-light-1-default.jpg` dots; then send the panel "round 4 ready" through FE or the orchestrator. Remind FE-A about the "Numbers on the cards match the pins" copy.
 3. **QC-09 re-verify.** On 2026-10-16, against head 055e2e6d (build 7e746d9bc):
    - **390 px: PASS.**
    - **200 %: FAIL.** The segments are 29 × 44. The spec is now corrected to a 2 × 2 glyph-only grid under 300 px, and the fe-a.css rule went to FE-A and FE-B.
