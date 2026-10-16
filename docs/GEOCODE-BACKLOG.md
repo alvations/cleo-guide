@@ -10,7 +10,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
 (reaches the map servers this sandbox cannot) or any Places-API channel.
 
 ## aachen
-- registry entries: **205** · verified pins: **204** (high 158 · med 46 · low 0)
+- registry entries: **204** · verified pins: **203** (high 157 · med 46 · low 0)
 - ⚠️ **UNVERIFIED** in registry (1) — held by the gate, need the helper:
     - Take One — CLOSED
 
@@ -1713,7 +1713,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - White Yak
 
 ## pittsburgh-pa
-- registry entries: **212** · verified pins: **212** (high 173 · med 38 · low 1)
+- registry entries: **210** · verified pins: **210** (high 172 · med 37 · low 1)
 - ↻ **low-confidence** (1) — re-verify to an exact place pin:
     - Duncan & Miller Glass Museum
 
@@ -1846,7 +1846,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - À la Table du Bon Roi Stanislas
 
 ## san-francisco-ca
-- registry entries: **579** · verified pins: **508** (high 455 · med 53 · low 0)
+- registry entries: **579** · verified pins: **508** (high 454 · med 54 · low 0)
 - ⚠️ **UNVERIFIED** in registry (71) — held by the gate, need the helper:
     - Absinthe Brasserie & Bar
     - April Jean
@@ -2530,7 +2530,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Zanesville Museum of Art
 
 ## youngstown-oh
-- registry entries: **64** · verified pins: **64** (high 52 · med 7 · low 5)
+- registry entries: **62** · verified pins: **62** (high 51 · med 6 · low 5)
 - ↻ **low-confidence** (5) — re-verify to an exact place pin:
     - Casa Di Canzonetta
     - Idora Park Experience

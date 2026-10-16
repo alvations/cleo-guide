@@ -232,7 +232,7 @@
   // the carousel: the card nearest the middle after a swipe settles is the selected one
   let st = 0, qSwipe = 0;
   on(lp, 'scroll', () => {
-    if (desk() || !atlas() || H.classList.contains('ms-list') || (C.navHold && C.navHold())) return;
+    if (desk() || !atlas() || H.classList.contains('ms-list') || (C.navScrollHold ? C.navScrollHold() : C.navHold && C.navHold())) return;
     clearTimeout(st); st = setTimeout(() => {
       const mid = lp.getBoundingClientRect().left + lp.clientWidth / 2;
       const c = qa('li.pl', lp).filter(x => x.offsetWidth && !x.hidden).sort((x, y) => { const a = x.getBoundingClientRect(), b = y.getBoundingClientRect(); return Math.abs(a.left + a.width / 2 - mid) - Math.abs(b.left + b.width / 2 - mid); })[0];

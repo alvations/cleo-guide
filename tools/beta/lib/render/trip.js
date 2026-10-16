@@ -6,16 +6,17 @@
  * Print: a booklet, with the cover and the left-out list on their own pages and one day a page.
  */
 const { head, siteBar, footer } = require('./common');
+const { t } = require('../i18n');                   // i18n D-41
 
 const CSS = require('fs').readFileSync(require('path').join(__dirname, 'fe-c-trip.css'), 'utf8').replace(/\/\*[^]*?\*\//g, '').replace(/\n\s*/g, '');
 
 function render(ctx) {
-  return `${head({ page: 'trip', title: 'Trips · Cleo', description: 'Make a trip of several days from places you saved: one area a day, nearest next, walking estimates, closed places left out with the reason. One link, a printable booklet and KML.', rel: 'trip.html', depth: 0, assetsV: ctx.assetsV })
+  return `${head({ page: 'trip', title: t('page.trip.title'), description: t('page.trip.desc'), rel: 'trip.html', depth: 0, assetsV: ctx.assetsV })
     .replace('</head>', `<link rel="stylesheet" href="${ctx.feaCss}">\n<style>${CSS}</style>\n</head>`)}
 <body>
 ${siteBar({ depth: 0, current: 'saved', rel: 'trip.html' })}
 <main id="main" class="trip-page wrap">
-<section id="cleo-trip" class="tp-root" aria-live="polite"><p>Trips are made in your browser from places you saved, so this page needs its script. Every guide and your saved list work without it.</p></section>
+<section id="cleo-trip" class="tp-root" aria-live="polite"><p>${t('page.trip.nojs')}</p></section>
 </main>
 ${footer({ depth: 0 })}
 <script src="assets/js/trip.js?v=${ctx.assetsV.trip}" defer></script>

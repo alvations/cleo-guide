@@ -24,15 +24,14 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | i18n batch 1 merged (79 keys, en + ja); trip.js on Cleo.t; test-i18n trip.html case | d1d476cbc | — |
 | designer (e)–(i) trip.html + (j) base pressed state | 17e24c738 | — |
 | designer (a)–(d) share cards | 4f4fc8b67 | — |
-| QC-15 base focus in the sheet; QC-17 base line wraps; probe + shots refreshed | this push | — |
+| QC-15 base focus in the sheet; QC-17 base line wraps; probe + shots refreshed | 70060b332 | — |
+| i18n batch 3 (page.trip.*), cleo:locale redraw on trip.html | this push | — |
 
 ## Next
 
 Orchestrator order (2026-10-16 14:52Z):
-1. **i18n batch 2:**
-   - the i18n lane writes `tools/beta/i18n-fec/pending-ja.json` for the 46 keys of pending-en.json;
-   - then: `merge.py`, `git apply fec-i18n.patch`, convert lib/render/trip.js to `t('trip.page.title' / '.desc' / '.nojs')`, `npm run beta`, the gates, push.
-2. **Designer findings (a)–(j)** (designer `session_011YjA2jku166RJrUyCiQV6B`), BEFORE W9-1:
+1. **i18n: done.** All FE-C strings are in en + ja (see tools/beta/i18n-fec/README.md for new ones).
+2. **Designer findings (a)–(j): SIGNED OFF by the designer at 70060b332.** (designer `session_011YjA2jku166RJrUyCiQV6B`), BEFORE W9-1:
    - DONE (this push): trip.html hairline cards, accent stop numbers and route, an --area dot, no h1 focus ring, "Sight · Must see", a Closed chip, the caveat on --sand, spacing snapped (CSS now in lib/render/fe-c-trip.css); base sort pressed state.
    - DONE (4f4fc8b67): the share-card items. Re-shot; designer re-review asked.
    - (was) share-card: the calm glyph cover (`--cover-sight` / `--cover-food`, glyph 120 px in `--ink-3`), no initial on teal; the dark overlay only over a photo;
@@ -49,7 +48,7 @@ Orchestrator order (2026-10-16 14:52Z):
 
 ## In flight
 
-Nothing unpushed. Waiting on: the i18n lane for the en + ja of 122 keys.
+Nothing unpushed. Waiting on: Atlas FE-1 for QC-17 (whether the carousel card wraps the base line or truncates the name).
 
 ## Notes
 
