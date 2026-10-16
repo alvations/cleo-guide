@@ -272,6 +272,33 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     chk('landing: share card is the US country card', /og:image" content="[^"]*\/assets\/og\/country-us\.png"/.test(h));
   }
 
+  // ---- QA-65 (D-39 in the place detail): every card carries data-pq exactly when its record has `pq`, same date;
+  // the detail sheet prints the Guidebook's sentence for those records and for no other
+  {
+    const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(dir, e.name))) : e.name.endsWith('.html') ? [path.join(dir, e.name)] : []);
+    const badPq = []; let nPq = 0;
+    for (const f of walk(BETA)) {
+      const h = fs.readFileSync(f, 'utf8'); if (!/data-cleo-page="city"/.test(h)) continue;
+      const file = (/"file":"([^"]+)"/.exec(h) || [])[1], j = load(file + '.json');
+      const card = Object.fromEntries((h.match(/<li class="pl[ "][^>]*>/g) || []).map(t => [(/\bid="p-([^"]*)"/.exec(t) || [])[1], (/\bdata-pq="([^"]*)"/.exec(t) || [])[1] || null]));
+      for (const pl of j.places) { if (pl.pq) nPq++; if ((card[pl.id.replace(/&/g, '&amp;')] || null) !== (pl.pq || null)) badPq.push(`${file}#${pl.id}: card ${card[pl.id]} vs ${pl.pq}`); }
+    }
+    chk(`QA-65: data-pq on exactly the ${nPq} cards whose record quotes a price or rating, same date as the page JSON`, !badPq.length && nPq > 100, badPq.slice(0, 4));
+    const sheetNote = async (page, id) => {
+      let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
+        (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+      const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + '#view=gallery&p=' + id,
+        beforeParse(w) { w.Element.prototype.scrollIntoView = function () {}; w.matchMedia = () => ({ matches: false, addListener() {}, removeListener() {} });
+          w.fetch = () => Promise.resolve({ ok: false, status: 404 }); } });
+      await sleep(400);
+      const sh = dom.window.document.querySelector('#cleo-sheet'), gq = sh && sh.querySelector('.gq');
+      const out = [!!(sh && !sh.hidden && sh.querySelector('#sh-t')), gq ? gq.textContent : null]; dom.window.close(); return out;
+    };
+    const tj = load('tokyo.json'), pq = tj.places.find(pl => pl.id === 'tempura-abe-honten'), plain = tj.places.find(pl => !pl.pq && !pl.closed);
+    const [open1, t1] = await sheetNote('cities/tokyo.html', pq.id), [open2, t2] = await sheetNote('cities/tokyo.html', plain.id);
+    chk(`QA-65: the detail of tempura-abe-honten carries the D-39 note with its date (${pq.pq}); ${plain.id} carries none`,
+      open1 && t1 === `Prices and ratings are quoted from the source at the time of research (${pq.pq}).` && open2 && t2 === null, [open1, t1, open2, t2]);
+  }
   console.log(failures ? `\n>>> FAIL — ${failures} FE-B view check(s) failed` : '\n>>> PASS — FE-B views: Guidebook + Insights hold every place, numbers add up, hub links resolve');
   process.exitCode = failures ? 1 : 0;
 })();
