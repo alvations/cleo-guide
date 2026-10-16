@@ -43,6 +43,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
+const P2 = require('./location-verify-phase2.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const GEOCODES = path.join(ROOT, 'data', 'geocodes.json');
@@ -55,6 +56,7 @@ const ENDPOINT = {
   wikipedia: 'https://en.wikipedia.org/w/api.php',
   nominatim: 'https://nominatim.openstreetmap.org/search',
   overpass: 'https://overpass-api.de/api/interpreter',
+  census: 'https://geocoding.geo.census.gov/geocoder/locations/onelineaddress',
 };
 const LICENCE = {
   wikidata: 'CC0-1.0 (Wikidata structured data)',
@@ -63,7 +65,7 @@ const LICENCE = {
   official: "the place's own website (fact read from its schema.org markup / page; robots.txt honoured)",
 };
 // Per-host minimum spacing between requests (ms). Every source is queried single-threaded.
-const SPACING = { 'nominatim.openstreetmap.org': 1100, 'overpass-api.de': 5000, 'www.wikidata.org': 300, 'en.wikipedia.org': 300, default: 2000 };
+const SPACING = { 'geocoding.geo.census.gov': 1000, 'www.onemap.gov.sg': 500, 'nominatim.openstreetmap.org': 1100, 'overpass-api.de': 5000, 'www.wikidata.org': 300, 'en.wikipedia.org': 300, default: 2000 };
 
 // ───────────────────────────────────────────────────────── pure helpers (unit-tested) ──
 
@@ -160,6 +162,11 @@ function gradeCandidate(c, place) {
     if (sim >= 0.85 && (ag.houseNumber === true || (ag.houseNumber === null && ag.street === true))) { grade = 'high'; why.push('OSM place object, name + address agree'); }
     else if (sim >= 0.85) { grade = 'med'; why.push('OSM place object, name agrees, address not corroborated'); }
     else why.push(`OSM object name similarity ${sim} < 0.85`);
+  } else if (c.kind === 'gov-address') {
+    if (c.exactGovAddress) { grade = 'med'; why.push(`official house coordinate (${c.source}): exact postcode + street + number, an address point`); }
+  } else if (c.kind === 'onemap') {
+    if (ag.postcode !== false && (c.buildingMatch >= 0.8 || sim >= 0.8)) { grade = 'high'; why.push('OneMap building for the exact postal code, building name matches'); }
+    else if (ag.postcode !== false) { grade = 'med'; why.push('OneMap point for the exact postal code (one building per postcode); building name not matched'); }
   } else if (c.kind === 'osm-address' && (/^(highway|route|boundary|landuse|place=(?!house|address))/.test(c.osmClass || '') || (/^place=/.test(c.osmClass || '') && /^way\//.test(c.osm || '')))) {
     why.push(`street/area-level OSM object (${c.osmClass}), not an address point`);
   } else if (c.kind === 'osm-address') {
@@ -185,7 +192,7 @@ function decide(place, graded) {
   const notes = [];
   const good = graded.filter(c => GRADE_RANK[c.grade] >= 2);
   if (!good.length) return { outcome: 'no-match', proposal: null, notes };
-  const pref = { official: 5, wikidata: 4, wikipedia: 3, 'osm-poi': 2, 'osm-address': 1 };
+  const pref = { official: 5, onemap: 4.5, wikidata: 4, wikipedia: 3, 'osm-poi': 2, 'gov-address': 1.5, 'osm-address': 1 };
   good.sort((a, b) => GRADE_RANK[b.grade] - GRADE_RANK[a.grade] || (pref[b.kind] || 0) - (pref[a.kind] || 0) || b.nameSim - a.nameSim);
   const best = good[0];
   const ext = isExtended(place.name);
@@ -262,11 +269,19 @@ function reviewAssist(row) {
   const ag = p.addressAgreement || {};
   const exactAddr = ag.houseNumber === true && ag.street === true;
   const corroborated = (p.corroboratedBy || []).length > 0;
-  if (p.grade === 'med') return { verdict: 'hold', why: ['med: needs a second independent source within 50 m'] };
+  if (p.grade === 'med') {
+    const ss = row.secondSource;
+    if (ss && ss.matched && ss.distanceM <= 50 && (p.addressAgreement || {}).houseNumber !== false)
+      return { verdict: 'review', why: [`med + second source: US Census point ${ss.distanceM} m away (“${ss.matchedAddress}”; interpolated, read it)`] };
+    return { verdict: 'hold', why: ['med: needs a second independent source within 50 m' + (ss ? (ss.matched ? ` (Census point is ${ss.distanceM} m away)` : ' (Census: no match)') : '')] };
+  }
   if (p.kind === 'osm-poi') return exactAddr && p.nameSim >= 0.85
     ? { verdict: 'pass', why: [`OSM POI, name ${p.nameSim}, house number + street match`] }
     : { verdict: 'hold', why: [`OSM POI without an exact address match (house number ${ag.houseNumber}, street ${ag.street})`] };
-  if (p.kind === 'official') return { verdict: 'pass', why: ["official site's schema.org geo"] };
+  if (p.kind === 'official') return p.nameSim >= 0.6
+    ? { verdict: 'pass', why: ["official site's schema.org geo"] }
+    : { verdict: 'hold', why: [`official schema.org geo, but it names “${p.matchedName}” (similarity ${p.nameSim}): may be the venue, not the place`] };
+  if (p.kind === 'onemap') return { verdict: 'pass', why: ['OneMap building for the exact postal code with a matching building name'] };
   if (p.kind === 'wikidata' || p.kind === 'wikipedia') return exactAddr || corroborated
     ? { verdict: 'pass', why: [`${p.kind} coordinate with ${exactAddr ? 'matching address' : 'an independent source within 40 m'}`] }
     : { verdict: 'hold', why: [`${p.kind} coordinate only: needs the address or a second source`] };
@@ -274,11 +289,17 @@ function reviewAssist(row) {
 }
 
 const LIFECYCLE = /^(disused|was|abandoned|closed|demolished|removed|razed|destroyed):/;
-/** Closure evidence carried by OSM tags (lifecycle prefixes, shop=vacant). Returns [{type, detail}]. */
+const ACTIVE_MAIN = /^(amenity|shop|leisure|tourism|craft|office|club|healthcare|historic|attraction|sport)$/;
+/**
+ * Closure evidence carried by OSM tags (lifecycle prefixes, shop=vacant). Returns [{type, detail}]. A lifecycle tag on
+ * an object that still has an ACTIVE main feature tag means the building was repurposed (a roller rink in a former
+ * church: was:amenity=place_of_worship + leisure=sports_centre), not that the place closed, so it does not count.
+ */
 function osmClosureEvidence(tags) {
   const ev = [];
+  const active = Object.entries(tags || {}).some(([k, v]) => ACTIVE_MAIN.test(k) && v && v !== 'no' && v !== 'vacant');
   for (const [k, v] of Object.entries(tags || {})) {
-    if (LIFECYCLE.test(k) && !/^(was|old):?name/.test(k)) ev.push({ type: 'osm-lifecycle', detail: `${k}=${v}` });
+    if (LIFECYCLE.test(k) && !/^(was|old):?name/.test(k) && !active) ev.push({ type: 'osm-lifecycle', detail: `${k}=${v}` });
     if (k === 'shop' && v === 'vacant') ev.push({ type: 'osm-vacant', detail: 'shop=vacant' });
     if (k === 'opening_hours' && /^\s*closed\s*$/i.test(v)) ev.push({ type: 'osm-hours-closed', detail: 'opening_hours=closed' });
   }
@@ -427,7 +448,7 @@ class Http {
     if (this.cacheDir && !this.fixtures) fs.mkdirSync(this.cacheDir, { recursive: true });
   }
   key(method, url, body) { return crypto.createHash('sha1').update(`${method} ${url}\n${body || ''}`).digest('hex'); }
-  async request(url, { method = 'GET', body = null, accept = 'application/json', host } = {}) {
+  async request(url, { method = 'GET', body = null, accept = 'application/json', host, headers: extra = null } = {}) {
     const h = host || new URL(url).host;
     if (this.fixtures) {
       const f = matchFixture(this.fixtures, method, url, body);
@@ -441,7 +462,11 @@ class Http {
     }
     if (this.count >= this.max) return { status: 0, body: '', error: 'request budget exhausted', budget: true };
     if (h === 'nominatim.openstreetmap.org' && this.nomCount >= this.nomMax) return { status: 0, body: '', error: 'nominatim budget exhausted', budget: true };
-    if (this.backoffUntil[h] && Date.now() < this.backoffUntil[h]) return { status: 0, body: '', error: `${h} backing off after 429/503` };
+    if (this.backoffUntil[h] && Date.now() < this.backoffUntil[h]) {
+      const w = this.backoffUntil[h] - Date.now();
+      if (w > 120000) return { status: 0, body: '', error: `${h} backing off after 429/503` };
+      await new Promise(r => setTimeout(r, w)); // wait it out (polite), then try once
+    }
     const gap = SPACING[h] || SPACING.default, wait = (this.last[h] || 0) + gap - Date.now();
     if (wait > 0) await new Promise(r => setTimeout(r, wait));
     this.count++; if (h === 'nominatim.openstreetmap.org') this.nomCount++;
@@ -449,7 +474,7 @@ class Http {
     const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 30000);
     try {
       const r = await fetch(url, { method, body, signal: ctl.signal, redirect: 'follow',
-        headers: Object.assign({ 'User-Agent': UA, 'Api-User-Agent': UA, Accept: accept }, body ? { 'Content-Type': 'application/x-www-form-urlencoded' } : {}) });
+        headers: Object.assign({ 'User-Agent': UA, 'Api-User-Agent': UA, Accept: accept }, body ? { 'Content-Type': 'application/x-www-form-urlencoded' } : {}, extra || {}) });
       let text = await r.text(); if (text.length > 2000000) text = text.slice(0, 2000000);
       const res = { url, status: r.status, body: text, retrieved: new Date().toISOString().slice(0, 10) };
       if (r.status === 429 || r.status === 503 || r.status === 504) {
@@ -505,9 +530,12 @@ async function fromWikidata(http, place, anchor) {
     const url = `https://www.wikidata.org/wiki/${f.qid}`;
     cands.push({ kind: 'wikidata', source: 'wikidata', name: f.label, lat: f.lat, lng: f.lng, street: f.street, postcode: f.postcode,
       address: f.street, sourceUrl: url, retrieved: g.retrieved, licence: LICENCE.wikidata, linked });
-    if (f.dissolved) evidence.push({ type: 'wikidata-P576', detail: `dissolved/abolished/demolished ${f.dissolved}`, sourceUrl: url, retrieved: g.retrieved });
-    if (f.closed) evidence.push({ type: 'wikidata-P3999', detail: `date of official closure ${f.closed}`, sourceUrl: url, retrieved: g.retrieved });
-    if (f.stateOfUse.length) evidence.push({ type: 'wikidata-P5817', detail: `state of use ${f.stateOfUse.join(', ')} (a person reads the value)`, sourceUrl: url, retrieved: g.retrieved, informational: true });
+    // Closure statements belong to THIS item; they count only if the item is the place (linked QID, or the chosen
+    // proposal, or within 150 m of the current pin) — a same-name item (the 1868 lighthouse) is not evidence.
+    const ev = { linked, lat: f.lat, lng: f.lng, sourceUrl: url, retrieved: g.retrieved };
+    if (f.dissolved) evidence.push({ type: 'wikidata-P576', detail: `dissolved/abolished/demolished ${f.dissolved}`, ...ev });
+    if (f.closed) evidence.push({ type: 'wikidata-P3999', detail: `date of official closure ${f.closed}`, ...ev });
+    if (f.stateOfUse.length) evidence.push({ type: 'wikidata-P5817', detail: `state of use ${f.stateOfUse.join(', ')} (a person reads the value)`, ...ev, informational: true });
     website = website || f.website; enwiki = enwiki || f.enwiki;
   }
   return { cands, evidence, website, enwiki };
@@ -566,11 +594,11 @@ async function fromNominatim(http, place, anchor) {
 }
 
 /** One Overpass query for a batch of rows that have a point: named objects within 80 m, including lifecycle tags. */
-async function fromOverpassBatch(http, rows) {
+async function fromOverpassBatch(http, rows, retry = false) {
   const pts = rows.filter(r => r.point);
   if (!pts.length) return {};
   const parts = pts.map(r => `nwr(around:80,${r.point.lat},${r.point.lng})[~"^(name|old_name|was:name|disused:name)$"~"."];`).join('\n');
-  const q = `[out:json][timeout:60];\n(\n${parts}\n);\nout tags center 400;`;
+  const q = `[out:json][timeout:${retry ? 90 : 60}];\n(\n${parts}\n);\nout tags center 400;`;
   const res = await http.json(ENDPOINT.overpass, { method: 'POST', body: qs({ data: q }), host: 'overpass-api.de' });
   const els = (res.json && res.json.elements) || [];
   const out = {};
@@ -619,9 +647,29 @@ async function fromOfficial(http, place, website) {
   return { cands, evidence, notes };
 }
 
+/**
+ * Second source for med rows at US addresses: the US Census Geocoder (no key; TIGER address ranges, independent of OSM).
+ * Its point is INTERPOLATED along the street, so it never proposes a pin; it only reports how far it falls from the
+ * proposal, for the reviewer's "second independent source within 50 m" check.
+ */
+const US_ADDR = /,\s*[A-Z]{2}\s+\d{5}(?:-\d{4})?\b/;
+async function censusSecondSource(http, row) {
+  const addr = row.current.address;
+  if (!addr || !US_ADDR.test(addr) || !row.proposal) return null;
+  const clean = addr.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim();
+  const url = `${ENDPOINT.census}?${qs({ address: clean, benchmark: 'Public_AR_Current', format: 'json' })}`;
+  const r = await http.json(url);
+  const m = r.json && r.json.result && (r.json.result.addressMatches || [])[0];
+  if (!m || !m.coordinates) return { source: 'census', matched: false, sourceUrl: url, retrieved: r.retrieved, note: r.error || (r.json ? 'no address match' : `HTTP ${r.status}`) };
+  const lat = m.coordinates.y, lng = m.coordinates.x;
+  return { source: 'census', matched: true, matchedAddress: m.matchedAddress, lat: round5(lat), lng: round5(lng),
+    distanceM: haversineM(row.proposal.lat, row.proposal.lng, lat, lng), sourceUrl: url, retrieved: r.retrieved,
+    licence: 'US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)' };
+}
+
 // ───────────────────────────────────────────────────────── the run ──
 
-async function checkRow(http, place, anchor, sources) {
+async function checkRow(http, place, anchor, sources, ctx = {}) {
   const cands = [], evidence = [], notes = [];
   let website = null, enwiki = null;
   if (sources.has('wikidata')) { const w = await fromWikidata(http, place, anchor); cands.push(...w.cands); evidence.push(...w.evidence); website = w.website; enwiki = w.enwiki; }
@@ -633,6 +681,9 @@ async function checkRow(http, place, anchor, sources) {
     if (!website && c.tags && (c.tags.website || c.tags['contact:website']) && nameSim(place.name, c.name) >= 0.85) website = c.tags.website || c.tags['contact:website'];
   }
   if (sources.has('official')) { const o = await fromOfficial(http, place, website); cands.push(...o.cands); evidence.push(...o.evidence); notes.push(...o.notes); }
+  if (ctx.houseSets && ctx.houseSets.length) { const h = P2.houseCandidate(ctx.houseSets, place, ctx.today); if (h) cands.push(h); }
+  if (ctx.onemapToken) cands.push(...await P2.fromOneMap(http, place, ctx.onemapToken, nameSim));
+  if (ctx.abr) { const g = P2.abrGuard(ctx.abr, place, haversineM); if (g) notes.push(g); }
   const graded = cands.map(c => Object.assign(c, gradeCandidate(c, place)));
   return { graded, evidence, notes };
 }
@@ -669,11 +720,18 @@ async function run(opts) {
   }
 
   const http = opts.http || new Http({ fixtures: opts.fixtures, cacheDir: opts.cache, ttlDays: opts.ttlDays, maxRequests: opts.maxRequests, nominatimMax: opts.nominatimMax, today });
+  const ctx = { today, houseSets: opts.houseSets || [], abr: opts.abr || null, onemapToken: null };
+  meta.phase2 = { houseFiles: ctx.houseSets.map(h => ({ label: h.label, points: h.count, licence: h.licence })), abr: ctx.abr ? { towns: ctx.abr.count } : null, onemap: null };
+  if (rows.some(r => P2.sgPostcode(r.e.address))) {
+    const t = opts.onemapToken !== undefined ? { token: opts.onemapToken, note: opts.onemapToken ? null : 'OneMap skipped (no token)' } : (opts.mode === 'live' ? await P2.onemapToken() : { token: null, note: 'OneMap skipped (not a live run)' });
+    ctx.onemapToken = t.token; meta.phase2.onemap = t.token ? 'used' : t.note;
+    if (t.note) console.log(t.note);
+  }
   const checked = [];
   for (const r of rows) {
     const place = { name: r.name, address: r.e.address, current: pickCurrent(r.e) };
     if (http.count >= http.max) { checked.push({ r, place, skipped: 'request budget exhausted (rerun resumes from cache)' }); continue; }
-    const res = await checkRow(http, place, anchor, sources);
+    const res = await checkRow(http, place, anchor, sources, ctx);
     checked.push({ r, place, res });
   }
   // Overpass: lifecycle tags near each row's point (current pin, or the proposed one), batched 20 per query.
@@ -684,7 +742,11 @@ async function run(opts) {
       const p = c.place.current.lat != null ? { lat: c.place.current.lat, lng: c.place.current.lng } : (d.proposal ? { lat: d.proposal.lat, lng: d.proposal.lng } : null);
       return { place: c.place, point: p };
     }).filter(x => x.point);
-    for (let i = 0; i < pts.length; i += 20) Object.assign(ov, await fromOverpassBatch(http, pts.slice(i, i + 20)));
+    for (let i = 0; i < pts.length; i += 10) {
+      let got = await fromOverpassBatch(http, pts.slice(i, i + 10));
+      if (Object.values(got).some(x => x.error)) got = await fromOverpassBatch(http, pts.slice(i, i + 10), true); // one retry after the back-off
+      Object.assign(ov, got);
+    }
   }
   const count = {};
   for (const c of checked) {
@@ -698,7 +760,10 @@ async function run(opts) {
         for (const n of o.near) for (const e of osmClosureEvidence(n.tags)) ev.push({ ...e, sourceUrl: n.url, retrieved: o.retrieved, distanceM: n.d });
         if (o.error) c.res.notes.push(`overpass: ${o.error}`);
       }
-      const seen = new Set(); const evidence = ev.filter(e => { const k = e.type + e.detail + e.sourceUrl; if (seen.has(k)) return false; seen.add(k); return true; });
+      const cur = c.place.current;
+      const isThePlace = e => e.linked || (d.proposal && d.outcome !== 'conflict' && e.sourceUrl === d.proposal.sourceUrl)
+        || (cur.lat != null && e.lat != null && haversineM(cur.lat, cur.lng, e.lat, e.lng) <= 150);
+      const seen = new Set(); const evidence = ev.filter(e => !/^wikidata-/.test(e.type) || isThePlace(e)).filter(e => { const k = e.type + e.detail + e.sourceUrl; if (seen.has(k)) return false; seen.add(k); return true; });
       row.outcome = d.outcome; row.proposal = d.proposal; row.notes = d.notes.concat(c.res.notes);
       const sp = statusProposal(c.place, evidence);
       if (sp) { row.statusOutcome = sp.outcome; row.statusProposal = sp.proposal; count[sp.outcome] = (count[sp.outcome] || 0) + 1; }
@@ -710,12 +775,16 @@ async function run(opts) {
     report.rows.push(row);
   }
   demoteSharedObjects(report.rows);
+  if (sources.has('census')) for (const row of report.rows)
+    if (row.proposal && row.proposal.grade === 'med' && row.outcome !== 'shared-object') row.secondSource = await censusSecondSource(http, row);
   for (const row of report.rows) row.assist = reviewAssist(row);
   for (const row of report.rows) count[row.outcome] = (count[row.outcome] || 0) + 1;
   report.summary = count;
   meta.requests = { network: http.count, cacheHits: http.cacheHits, nominatim: http.nomCount, failures: http.failures.slice(0, 50) };
   if (report.rows.some(r => (r.candidates || []).some(c => /^osm/.test(c.kind)) || (r.evidence || []).some(e => /^osm/.test(e.type))))
     meta.attribution = 'Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright';
+  if (report.rows.some(r => (r.candidates || []).some(c => c.kind === 'onemap'))) meta.attributionOneMap = P2.ONEMAP_LICENCE;
+  if (report.rows.some(r => (r.candidates || []).some(c => c.kind === 'gov-address'))) meta.attributionGov = ctx.houseSets.map(h => `${h.label}: ${h.licence}`).join(' · ');
   meta.hardFailure = http.failures.length > 0 && http.count > 0 && http.failures.length / http.count > 0.25;
   return report;
 }
@@ -766,11 +835,15 @@ function toMarkdown(rep) {
       : (r.plan ? esc(r.plan.join('; ')) : '—');
     const o = r.proposal && r.proposal.osmObject;
     const osm = o ? `OSM ${o.id} ${o.class || ''}${o.addresstype ? ' · addresstype=' + o.addresstype : ''}${o.name ? ' · name “' + esc(o.name) + '”' : ' · (no name)'}${o.address ? ' · ' + esc(o.address) : ''}${Object.keys(o.tags).length ? ' · ' + esc(Object.entries(o.tags).map(([k, v]) => k + '=' + v).join(', ')) : ''}` : '';
-    const ev = [osm, (r.statusProposal ? `**${r.statusProposal.suggest}**: ` : '') + (r.evidence || []).map(e => `${esc(e.detail)} ([src](${e.sourceUrl}))`).join('; '), (r.notes || []).map(esc).join('; ')].filter(Boolean).join(' — ');
+    const ss = r.secondSource ? (r.secondSource.matched ? `2nd source: [Census](${r.secondSource.sourceUrl}) ${r.secondSource.distanceM} m (“${esc(r.secondSource.matchedAddress)}”)` : `2nd source: Census ${esc(r.secondSource.note)}`) : '';
+    const ev = [osm, ss, (r.statusProposal ? `**${r.statusProposal.suggest}**: ` : '') + (r.evidence || []).map(e => `${esc(e.detail)} ([src](${e.sourceUrl}))`).join('; '), (r.notes || []).map(esc).join('; ')].filter(Boolean).join(' — ');
     L.push(`| ${esc(r.name)} | ${now} | ${r.scope.join(', ')} | ${r.outcome}${r.statusOutcome ? ' + ' + r.statusOutcome : ''} | ${r.assist ? `**${r.assist.verdict}**: ${esc(r.assist.why.join('; '))}` : ''} | ${p} | ${ev} |`);
   }
   L.push('');
   if (m.attribution) L.push(`_${m.attribution}_`, '');
+  if (m.attributionOneMap) L.push(`_${m.attributionOneMap}_`, '');
+  if (m.attributionGov) L.push(`_House coordinates: ${m.attributionGov}_`, '');
+  if (m.phase2 && m.phase2.onemap && m.phase2.onemap !== 'used') L.push(`_${m.phase2.onemap}._`, '');
   L.push('Review: set `review.decision` in the JSON to `accept` (coordinate) or `accept-closed` (closure confirmed — also set `review.statusSource`), with `review.by` and `review.why`; then run `node tools/location-verify.js --accept <this json>` locally and the gates.');
   return L.join('\n') + '\n';
 }
@@ -839,7 +912,7 @@ function accept(reportPath, o = {}) {
 // ───────────────────────────────────────────────────────── CLI ──
 
 function parseArgs(argv) {
-  const o = { scope: ['unverified', 'low', 'status'], sources: ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official'], out: path.join(ROOT, 'docs', 'geoverify'),
+  const o = { scope: ['unverified', 'low', 'status'], sources: ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official', 'census'], out: path.join(ROOT, 'docs', 'geoverify'),
     cache: process.env.LV_CACHE_DIR || path.join(os.homedir(), '.cache', 'cleo-location-verify'), ttlDays: 30, maxRequests: 3000, nominatimMax: 300 };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i], v = () => { const x = argv[++i]; if (x == null) throw Object.assign(new Error(`${a} needs a value`), { code: 1 }); return x; };
@@ -858,6 +931,8 @@ function parseArgs(argv) {
     else if (a === '--today') o.today = v();
     else if (a === '--shard') { o.shard = v(); if (!/^\d+\/\d+$/.test(o.shard)) throw Object.assign(new Error('--shard i/n, e.g. 1/3'), { code: 1 }); }
     else if (a === '--max-minutes') o.maxMinutes = parseFloat(v());
+    else if (a === '--house-file') { const [f, licence] = v().split('::'); (o.houseFiles = o.houseFiles || []).push({ f: path.resolve(f), licence }); }
+    else if (a === '--abr-file') o.abrFile = path.resolve(v());
     else if (a === '--status-sweep') { o.scope = ['all']; o.sources = ['wikidata', 'overpass', 'official']; o.nominatimMax = 0; o.city = o.city || 'all'; o.statusSweep = true; }
     else if (a === '--backlog') o.backlog = true;
     else if (a === '--accept') o.accept = path.resolve(v());
@@ -865,7 +940,7 @@ function parseArgs(argv) {
     else throw Object.assign(new Error(`unknown option ${a}`), { code: 1 });
   }
   if (o.statusSweep && !o.outGiven) o.out = path.join(ROOT, 'docs', 'geoverify', 'status');
-  const okScope = ['unverified', 'low', 'med', 'high', 'status', 'all'], okSrc = ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official'];
+  const okScope = ['unverified', 'low', 'med', 'high', 'status', 'all'], okSrc = ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official', 'census'];
   for (const s of o.scope) if (!okScope.includes(s)) throw Object.assign(new Error(`unknown scope ${s}`), { code: 1 });
   for (const s of o.sources) if (!okSrc.includes(s)) throw Object.assign(new Error(`unknown source ${s}`), { code: 1 });
   return o;
@@ -907,6 +982,8 @@ async function main() {
 
 async function main1(o) {
   let mode = 'live', fixtures = null;
+  if (o.houseFiles && !o.houseSets) o.houseSets = o.houseFiles.map(h => { const s = P2.loadHouseCoords(h.f, { licence: h.licence }); console.log(`house coordinates: ${s.label} — ${s.count} points (${s.skipped} skipped)`); return s; });
+  if (o.abrFile && !o.abr) { o.abr = P2.loadAbr(o.abrFile); console.log(`ABR: ${o.abr.count} town points`); }
   if (o.fixturesPath) {
     const fx = JSON.parse(fs.readFileSync(o.fixturesPath, 'utf8')); mode = 'fixtures';
     fixtures = fx.responses || fx;

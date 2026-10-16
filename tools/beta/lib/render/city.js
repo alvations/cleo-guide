@@ -22,6 +22,7 @@ function offlineStrings(city, n) {
 }
 const { head, siteBar, footer, BETA_BASE } = require('./common');
 const { rowsOf: galleryRows } = require('../gallery');
+const { sentence, ownWords } = require('../casing');
 const COUNTRIES = (() => { try { return JSON.parse(require('fs').readFileSync(require('path').resolve(__dirname, '../../../../data/countries.json'), 'utf8')).countries; } catch (e) { return []; } })();
 
 const shortArea = n => String(n || '').split(/\s+[(—–]\s*|\s+\(/)[0].trim();
@@ -106,6 +107,9 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
 const { motifSvg, motifOf, photoFor, figureHtml, heroFor, heroHtml: heroPhotoHtml, heroPreload } = require('../../imagery');   // imagery lane hooks
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+// R7 gap 3: the photo's dominant colour (imagery recompress.js, photo.color) rides on its figure as --ph, the placeholder
+// the photo fades in from (city.js marks the figure .in when its image has loaded)
+const tinted = (html, ph) => ph && /^#[0-9a-f]{6}$/i.test(ph.color || '') ? html.replace(/^<figure class="/, `<figure style="--ph:${ph.color}" class="`) : html;
 const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
 
 /* ---- stated gaps: verbatim from the page's own method notes (never a keyword tag on a place) ---- */
@@ -144,7 +148,7 @@ function card(r, num, ctx) {
   const { page, srcById, areaName } = ctx;
   const aName = areaName(r.a);
   const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
-  const dish = r.kind === 'food' && czN[0] ? czN[0].split(/ & |, | \(/)[0] : '';
+  const dish = r.kind === 'food' && czN[0] ? (ctx.SC || String)(czN[0].split(/ & |, | \(/)[0]) : '';
   const gl = glyphOf(r, page), mg = mapGlyphOf(r, gl, ctx.japan);
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
@@ -174,7 +178,7 @@ function card(r, num, ctx) {
     r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', r.warn && 'data-warn', r.np && 'data-np'].filter(Boolean).join(' ');
   // W7 media slot (contract in docs/BETA-LOG.md): the calm cover (.pl-cover), a credited photo laid over it when the imagery
   // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
-  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? figureHtml(ph, ctx.up || '', 'photo pl-photo') : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
+  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="Map pin ${num}">${num}</span>` : `<span class="pl-num" aria-label="Map pin ${num}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${isNote ? 'Your guide’s note' : 'Look for'}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
@@ -243,14 +247,16 @@ function render(row, recs, ctx) {
   for (const a of areas) { const pl = (gd.plans || {})[a.id]; if (pl && pl.ids && pl.ids.length) days[a.id] = pl.ids; }
 
   /* -- collections: ★ signature first, Must see, the page's collections, two sources, the dish rail, stated gaps -- */
-  const cats = page.CATS || [], cuis = page.CUISINES || [];
+  // W8 (owner): UI labels are sentence case at display time (lib/casing.js, DESIGN-SYSTEM §v2.6); data is never edited
+  const own = ownWords(name, m.h1Native, row.nat, ...areasAll.map(a => a.n)), SC = x => sentence(x, own);
+  const cats = (page.CATS || []).map(c => Object.assign({}, c, { n: SC(c.n) })), cuis = (page.CUISINES || []).map(c => Object.assign({}, c, { n: SC(c.n) }));
   const cnt = f => recs.filter(f).length;
   const tiles = [];
   const star = cats.filter(c => /^★/.test(c.n) && cnt(r => r.g.includes(c.id)));
   const namedSrc = srcList.filter(s => s.id !== 'guide');
   star.forEach(c => tiles.push({ cls: 'sig', key: 'c', id: c.id, t: c.n.replace(/^★\s*/, ''), n: cnt(r => r.g.includes(c.id)), g: glyphFor(c.id, c.n), badge: 1 }));
   // no ★ collection in the data: the guide's own signature is the publisher it was built on (most-cited source)
-  const sig = !star.length && G.signature && G.signature.n ? G.signature : null;   // no ★ collection: the city's canon / pop culture
+  const sig = !star.length && G.signature && G.signature.n ? Object.assign({}, G.signature, { title: SC(G.signature.title) }) : null;   // no ★ collection: the city's canon / pop culture
   if (sig && sig.kind === 'collection' && sig.c && cats.some(c => c.id === sig.c[0])) {
     const c = cats.find(x => x.id === sig.c[0]); tiles.push({ cls: 'sig', key: 'c', id: c.id, t: c.n, n: cnt(r => r.g.includes(c.id)), g: glyphFor(c.id, c.n), badge: 1, d: sig.line });
   } else if (sig) tiles.push({ cls: 'sig', key: 'sig', id: '1', t: sig.title, n: sig.ids.length, g: sig.kind === 'food' ? glyphFor((sig.cz || [])[0], sig.title, true) : 'star4', badge: 1, d: sig.line });
@@ -273,7 +279,7 @@ function render(row, recs, ctx) {
   if (recs.some(r => r.la != null)) mods.push(`<button type="button" class="rail-i door" data-cleo-near aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-locate"/></svg><span class="k">Near me</span><span class="t">Nearest first</span><span class="d">Asks once · never stored</span></button>`);
   const nClosed = cnt(r => r.closed);
   const closedTile = nClosed ? `<button type="button" class="rail-i gap" data-closed="1" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-archive"/></svg><span class="k">Kept for the record</span><span class="t">Recently closed</span><span class="n${nClosed === 1 ? ' one' : ''}">${nClosed}</span></button>` : '';
-  const gaps = statedGaps(page);
+  const gaps = statedGaps(page).map(g => Object.assign({}, g, { title: SC(g.title) }));
   const tileHtml = t => `<button type="button" class="rail-i${t.cls ? ' ' + t.cls : ''}" data-${t.key}="${esc(t.id)}"${t.only ? ` data-only="${t.only}"` : ''} aria-pressed="false">` +
     (t.tg ? '<i class="tg t1 g" aria-hidden="true"></i>' : t.g ? `<svg class="g ico" aria-hidden="true"><use href="#i-${t.g}"/></svg>` : '') +
     (t.badge ? '<span class="k">★ Signature</span>' : t.k ? `<span class="k">${esc(t.k)}</span>` : '') +
@@ -282,7 +288,7 @@ function render(row, recs, ctx) {
 
   /* -- area chapters -- */
   const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
-  const cardCtx = { japan: row.country === 'japan', page, srcById, areaName, prov, lang, up, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
+  const cardCtx = { japan: row.country === 'japan', page, srcById, areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : ['Elsewhere', ''];
@@ -330,7 +336,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     `<p class="pack-done sm" data-pack-done data-l="${esc(pkL('saved'))}" hidden></p>` +
     `<p class="pack-msg sm" data-pack-msg role="status" aria-live="polite" data-l-saving="${esc(pkL('saving'))}" data-l-failed="${esc(pkL('failed'))}" data-l-removed="${esc(pkL('removed'))}"></p>` +
     `<p><button type="button" class="btn btn-ghost" data-pack="remove" hidden>${esc(pkL('remove'))}</button></p></section>`;
-  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }) : ''}</div>`;
+  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? tinted(heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }), heroPhoto) : ''}</div>`;
   // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
   // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
   const DV = 'gallery';
@@ -411,7 +417,6 @@ ${switcher}</div></div>
   <p class="facts">${facts}</p>
 ${heroHtml}
 </header>
-<div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">Start with</p></div>
 <nav class="rail" id="cleo-rail" aria-label="Collections" data-cleo-rail data-view="all" hidden>
 ${tiles.filter(t => t.cls === 'sig').map(tileHtml).join('\n')}
 ${mods.join('\n')}${free ? '\n' + tileHtml(free) : ''}
@@ -420,6 +425,8 @@ ${gapHtml.join('\n')}${closedTile ? '\n' + closedTile : ''}
 <button type="button" class="rail-i rail-all" data-cleo-all aria-pressed="false"><svg class="g ico" aria-hidden="true"><use href="#i-grid"/></svg><span class="t">Show all</span><span class="n">${recs.length}</span></button>
 </nav>
 <div class="railbar" data-cleo-rail hidden><button type="button" class="btn btn-icon btn-ghost" data-rail="-1" aria-label="Previous collections">${ico('chev-l')}</button><button type="button" class="btn btn-icon btn-ghost" data-rail="1" aria-label="Next collections">${ico('chev-r')}</button></div>
+<!-- QA-48 / QA-60 (B-04): the category bar sits above the phone lead card, so it is on the first screen on every page, not only where the hero is short -->
+<div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">Start with</p></div>
 <div class="g-rows vw view-gallery" id="cleo-rows-host"></div>
 <div class="toolbar" data-cleo-toolbar hidden>
 ${seg}

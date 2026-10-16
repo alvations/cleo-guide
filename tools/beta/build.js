@@ -22,6 +22,7 @@ const { normalise, nativeOf } = require('./lib/model');
 const stats = require('./lib/stats');
 const { pageSources, siteSources } = require('./lib/sources');
 const art = require('./lib/art');
+const { sentence, ownWords } = require('./lib/casing');               // W8 owner rule: sentence case for data labels
 const imagery = require('./imagery');                              // imagery lane: motifs, photo manifest, credit gate
 const quoted = require('./lib/quoted');                            // D-39: price/rating prose is labelled, not stripped
 const { guide } = require('./lib/guide');
@@ -69,6 +70,10 @@ for (const r of cityRows) {
   // Live prose carries hand-typed counts that drift (Cleveland: "143 sights and 40" vs 148 + 46). Rewrite
   // the engine's count phrase from the computed numbers before any renderer sees it.
   for (const f of ['standfirst', 'description']) if (m[f]) m[f] = stats.fixProseCounts(m[f], r.stats);
+  // W8 (owner): the ★ signature's display label in sentence case (lib/casing.js), for the landing, hubs and Guidebook;
+  // `title` stays the data's own (grouping key); the page's own place names keep their capitals
+  const sg = r.guide && r.guide.signature;
+  if (sg && sg.title) sg.label = sentence(sg.title, ownWords(r.name, r.nat, m.h1Native, ...(r.data.AREAS || []).map(a => a.n)));
 }
 // Hub/landing aggregates: renderers read these, never re-count.
 for (const c of reg.countries) { c.stats = stats.countryStats(reg, c); c.pages = stats.countryPages(reg, c); }
@@ -191,6 +196,13 @@ function chapterPhotos(r) {
   }
   return out;
 }
+/** W9-10 FE-B: the Guidebook edition cover's photo = the guide's own credited hero (same shape as a chapter photo). */
+function coverPhoto(r) {
+  if (r.country === 'vietnam') return null;
+  const ph = imagery.heroFor(r); if (!ph || !ph.credit) return null;
+  return { src: ph.src, w: ph.w, h: ph.h, alt: ph.credit.depicts, set: (ph.widths || []).map(w => [w.src, w.w]),
+    cap: require('./imagery/photos').captionHtml(ph.credit) };
+}
 for (const r of cityRows) {
   const page = r.data, areaN = Object.fromEntries((page.AREAS || []).map(a => [a.id, city.shortArea(a.n)]));
   const pi = searchPages.length;
@@ -224,6 +236,8 @@ for (const r of cityRows) {
     // W8 FE-B: Guidebook chapters lead with a credited photo where one exists — per area, the first open SIGHT in view
     // order with a credited photo (imagery gate: never closed, never Vietnam; never a food place). Caption = TASL, linked.
     chapterPhotos: chapterPhotos(r),
+    // W9-10: the edition cover's credited hero photo (or null) and this guide's full "What changed" page
+    coverPhoto: coverPhoto(r), changesPage: `changes/${r.fileKey}.html`,
     // W9-1 / W9-9 (platform): per-page recognition summary; per place `rec` {award, video, cited} and `lf` ride on places[]
     recognition: r.recog,
     places: r.recs.map(x => (x.pv && x.pv.src ? Object.assign({}, x, { pv: Object.assign({}, x.pv, { src: undefined }) }) : x))
@@ -365,8 +379,9 @@ const shellFiles = ['./index.html', './saved.html', './trip.html', './manifest.w
   .concat(fontFiles)
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too
-  .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`));
-const version = sha(JSON.stringify(assetsV) + feaV + generated.join() + fontFiles.join() + cityRows.map(r => r.art && r.art.map ? r.art.map.v : '').join());
+  .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`))
+  .concat(i18n.files().map(([rel]) => './' + rel));                 // i18n D-41: catalogues, so a chosen locale works offline
+const version = sha(JSON.stringify(assetsV) + i18n.files().map(([, b]) => sha(b)).join() /* i18n D-41 */ + feaV + generated.join() + fontFiles.join() + cityRows.map(r => r.art && r.art.map ? r.art.map.v : '').join());
 emit('sw.js', swSource(version, shellFiles));
 
 // ---------------------------------------------------------------- gate, then write (or check)

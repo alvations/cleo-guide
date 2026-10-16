@@ -103,6 +103,104 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     ok(await p2.evaluate(() => !localStorage.getItem('cleo:v1:days')), `@${w} opening a shared day stores nothing`);
     ok(!e2.length, `@${w} 0 page errors on reopen`, e2.slice(0, 2)); await ctx2.close();
   }
+  console.log('# place detail (QA-51, QA-59b/d, R7 2d, closures)');
+  for (const w of [390, 1440]) {
+    const ctx = await ctxFor(b, w);
+    for (const [u, id] of [['cities/tokyo.html', 'kanda-myojin'], ['cities/tokyo.html', 'asukayama-park'], ['cleveland.html', 'terminal-tower-observation-deck'], ['cleveland.html', 'west-side-market'], ['cleveland.html', 'heinens-downtown'], ['cities/newyork.html', 'katzs-delicatessen']]) {
+      const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u + '#p=' + id, { waitUntil: 'load' }); await page.waitForTimeout(1500);
+      const r = await page.evaluate(() => { const h = document.getElementById('cleo-sheet'), sh = h.querySelector('.sheet'), im = h.querySelector('.hero-plate img');
+        const fw = im ? +((/-(\d+)\.(?:jpe?g|webp)$/.exec(im.currentSrc) || [])[1] || 0) : 0;
+        const over = [...h.querySelectorAll('.content *')].filter(e => e.getClientRects().length && e.getBoundingClientRect().right > sh.getBoundingClientRect().right + 1).map(e => e.className || e.tagName).slice(0, 3);
+        const lone = [...h.querySelectorAll('.srclist .acts > *')].filter(e => { const rs = [...e.getClientRects()]; return rs.length > 1 && rs[rs.length - 1].width < 30; }).length;
+        const pri = h.querySelector('.actions .btn-primary'), hr = h.getBoundingClientRect(), sr = sh.getBoundingClientRect();
+        return { img: im ? [fw, Math.round(im.getBoundingClientRect().width)] : null, over, lone, closed: !!h.querySelector('.closed-banner'), pri: pri ? pri.textContent.trim() : '',
+          scrim: getComputedStyle(h).backgroundColor, full: Math.round(hr.left) === 0 && Math.round(hr.width) === innerWidth, centred: Math.abs((sr.left + sr.right) / 2 - innerWidth / 2) < 2 }; });
+      { const file = u.replace(/^cities\//, '').replace(/\.html$/, ''), j = JSON.parse(fs.readFileSync(path.join(ROOT, 'beta/data/places', file + '.json'), 'utf8'));
+        const rec = j.places.find(p => p.id === id), n = j.places.filter(p => p.a === rec.a).length, t = await page.evaluate(() => (document.querySelector('#cleo-sheet .sh-rank') || {}).textContent || '');
+        ok(t.startsWith(`No. ${rec.rank} of ${n} `), `@${w} ${id} (fresh #p=): the rank line is the data's ${rec.rank} of ${n} (QA-50)`, t); }
+      if (r.img) ok(r.img[1] <= r.img[0], `@${w} ${id}: the detail photo is never upscaled (file ${r.img[0]} w shown at ${r.img[1]} px)`);
+      ok(!r.over.length, `@${w} ${id}: nothing in the detail runs past the sheet's edge`, r.over);
+      ok(!r.lone, `@${w} ${id}: no source-link icon wraps onto a line of its own`);
+      if (r.closed) ok(!/Directions/.test(r.pri), `@${w} ${id}: a closed place never offers Directions as its primary action`, r.pri);
+      if (w === 1440) ok(r.full && r.centred && !/rgba\(0, 0, 0, 0\)|transparent/.test(r.scrim), `@${w} ${id}: the desktop sheet is centred over a full-viewport scrim`, r);
+      await page.close();
+    }
+    await ctx.close();
+  }
+  console.log('# polish (R7 gap 2a/b/c/e): credits fit their boxes, bars opaque, placeholder whole, no upscaled photo');
+  for (const w of [390, 1440]) for (const scheme of ['light', 'dark']) {
+    const ctx = await ctxFor(b, w, scheme);
+    for (const u of ['cleveland.html', 'cities/tokyo.html', 'cities/tokyo.html#all=1', 'cities/tokyo.html#view=atlas', 'cities/tokyo.html#day=TAITO', 'Singapore/chinatown.html']) {
+      const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u, { waitUntil: 'load' }); await page.waitForTimeout(1300);
+      await page.evaluate(async () => { for (let y = 0; y < 3000; y += 600) { scrollTo(0, y); await new Promise(r => setTimeout(r, 80)); } scrollTo(0, 400); });
+      await page.waitForTimeout(400);
+      const r = await page.evaluate(() => { const vis = e => e.getClientRects().length && getComputedStyle(e).display !== 'none' && getComputedStyle(e).visibility !== 'hidden';
+        const creds = [...document.querySelectorAll('figcaption, .gc-cred, .hero-credit, .credit, [class*="cred"]')].filter(vis);
+        const over = creds.filter(e => e.scrollHeight > e.clientHeight + 1 || e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim().slice(0, 40));
+        const alpha = c => { const m = /\/\s*([\d.]+)\s*\)$|rgba\([^)]*,\s*([\d.]+)\)$/.exec(c); return m ? +(m[1] || m[2]) : 1; };
+        const bars = [...document.querySelectorAll('.topbar, .cbar, .tabbar')].filter(vis).map(e => [e.className.split(' ')[0], alpha(getComputedStyle(e).backgroundColor)]).filter(x => x[1] < 1);
+        const i = document.getElementById('cleo-filter'); let ph = null;
+        if (i && vis(i) && i.clientWidth) { const c = getComputedStyle(i), cv = document.createElement('canvas').getContext('2d'); cv.font = c.fontWeight + ' ' + c.fontSize + ' ' + c.fontFamily;
+          ph = cv.measureText(i.placeholder).width <= i.clientWidth - parseFloat(c.paddingLeft) - parseFloat(c.paddingRight) + 0.5 ? null : i.placeholder; }
+        const up = [...document.querySelectorAll('main img[srcset], #cleo-sheet img[srcset]')].filter(e => vis(e) && e.complete && e.currentSrc).map(e => {
+          const fw = +((/-(\d+)\.(?:jpe?g|webp|png)$/.exec(e.currentSrc) || [])[1] || 0); return [e.currentSrc.split('/').pop(), fw, Math.round(e.getBoundingClientRect().width)]; })
+          .filter(x => x[1] && x[2] > x[1] + 1);
+        return { n: creds.length, over, bars, ph, up }; });
+      // R7 2(g): the dek and the masthead stat line never end on a single word or token (scrolled to the top)
+      const widows = await page.evaluate(() => { scrollTo(0, 0); const out = [];
+        for (const el of document.querySelectorAll('main > .masthead :is(.g-lead, .dek, .facts)')) {
+          if (!el.getClientRects().length || getComputedStyle(el).display === 'none') continue;
+          const words = [], tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+          for (let n; (n = tw.nextNode());) for (const m of n.textContent.matchAll(/\S+/g)) { const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length); const b = r.getClientRects()[0]; if (b) words.push([Math.round(b.top), m[0]]); }
+          const lines = [...new Set(words.map(x => x[0]))]; if (lines.length < 2) continue;
+          const last = words.filter(x => x[0] === lines[lines.length - 1]).map(x => x[1]).filter(t => !/^[·•|—-]$/.test(t));
+          if (last.length < 2) out.push(el.className + ': "' + last.join(' ') + '"');
+        } return out; });
+      const tag = `@${w} ${scheme} ${u}`;
+      ok(!r.over.length, `${tag}: ${r.n} credits, none overflow their box`, r.over.slice(0, 3));
+      ok(!r.bars.length, `${tag}: top bar / city bar / tab bar fully opaque`, r.bars);
+      ok(!r.ph, `${tag}: the search placeholder fits unclipped`, r.ph);
+      ok(!r.up.length, `${tag}: no photo shown wider than its file`, r.up.slice(0, 3));
+      if (!/view=atlas|day=/.test(u)) ok(!widows.length, `${tag}: no single-word last line in the dek or the stat line`, widows);
+      await page.close();
+    }
+    await ctx.close();
+  }
+  console.log('# delight (R7 gap 3): photos fade in from their dominant colour; view switch slides and cross-fades');
+  for (const rm of ['no-preference', 'reduce']) {
+    const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', reducedMotion: rm });
+    await ctx.route('**/*', r => { const u = r.request().url();
+      if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u)) return r.fulfill({ status: 200, contentType: 'image/png', body: TILE });
+      if (!u.startsWith(BASE)) return r.abort('blockedbyclient');
+      const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname));
+      if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
+      return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
+    const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);
+    const ph = await page.evaluate(() => { const f = document.querySelector('main figure.photo[style*="--ph"]'); if (!f) return null; const b = getComputedStyle(f, '::before');
+      return { ph: f.style.getPropertyValue('--ph'), bg: b.backgroundColor, dur: parseFloat(b.transitionDuration) * 1000, inn: f.classList.contains('in'), op: b.opacity, fade: document.documentElement.classList.contains('ph-fade') }; });
+    const hex = c => '#' + (c.match(/\d+/g) || []).slice(0, 3).map(x => (+x).toString(16).padStart(2, '0')).join('');
+    if (rm === 'no-preference') {
+      ok(ph && ph.fade && hex(ph.bg) === ph.ph.toLowerCase() && ph.dur > 0 && ph.dur <= 300, 'a photo\'s placeholder is its dominant colour, fading ≤ 300 ms', ph);
+      ok(ph && ph.inn && +ph.op === 0, 'once the image has loaded the placeholder is gone', ph && [ph.inn, ph.op]);
+    } else ok(ph && ph.dur === 0, 'reduced motion: the placeholder clears with no transition', ph && ph.dur);
+    const ind = () => page.evaluate(() => { const i = document.querySelector('nav.views .v-ind'), b = document.querySelector('nav.views button[aria-pressed="true"]');
+      return i && b ? { left: Math.round(i.getBoundingClientRect().left), on: Math.round(b.getBoundingClientRect().left), w: Math.round(i.getBoundingClientRect().width), bw: Math.round(b.getBoundingClientRect().width), dur: parseFloat(getComputedStyle(i).transitionDuration) * 1000 } : null; });
+    const i0 = await ind();
+    await page.evaluate(() => { window.__an = []; const t0 = performance.now(); const tick = () => { document.getAnimations().forEach(a => { const e = a.effect && a.effect.target; if (e && e.parentElement && e.parentElement.id === 'main') window.__an.push(Math.round(a.effect.getComputedTiming().duration)); }); if (performance.now() - t0 < 350) requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
+    await page.click('nav.views button[data-view="guidebook"]'); await page.waitForTimeout(500);
+    const i1 = await ind(), an = await page.evaluate(() => window.__an);
+    ok(i0 && i1 && i1.left !== i0.left && Math.abs(i1.left - i1.on) <= 1 && Math.abs(i1.w - i1.bw) <= 1, `${rm}: the switcher's selection moves onto the new view`, [i0, i1]);
+    if (rm === 'no-preference') ok(i1.dur > 0 && i1.dur <= 300 && an.length > 0 && Math.max(...an) <= 300, 'the selection slides and the content cross-fades, each ≤ 300 ms', [i1.dur, [...new Set(an)]]);
+    else ok(i1.dur === 0 && an.length === 0, 'reduced motion: no slide, no cross-fade', [i1.dur, an.length]);
+    await ctx.close();
+  }
+  { const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, javaScriptEnabled: false, serviceWorkers: 'block' });
+    await ctx.route('**/*', r => { const u = r.request().url(); if (!u.startsWith(BASE)) return r.abort('blockedbyclient');
+      const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname)); if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
+      return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
+    const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(600);
+    const c = await page.evaluate(() => { const f = document.querySelector('main figure.photo[style*="--ph"]'); return f ? getComputedStyle(f, '::before').content : 'no photo'; });
+    ok(c === 'none' || c === 'normal', 'without JS no placeholder ever covers a photo', c); await ctx.close(); }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
   process.exit(fails ? 1 : 0);

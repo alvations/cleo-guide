@@ -309,8 +309,12 @@ function viewFrom(title, names, depicts = '') {
   const named = s => namesPlace(names, s);
   return named(m[2]) && !named(m[1]) && !named(depicts);
 }
-/** Maps, heraldry, flags, montages and logos are not a photo of the place (W8: town-article lead images). */
-const NOT_A_PHOTO = /\b(maps?|locator|location map|coat of arms|coats of arms|flag of|seal of|emblem|montage|collage|logo)\b/i;
+/** Maps, heraldry, flags, emblems, diagrams, posters, montages and logos are not a photo of the place (W8: town-article
+ *  lead images; R7: the NMUSAF emblem got through as "museum"). Checked on the title, object name and vetted depicts. */
+const NOT_A_PHOTO = /\b(maps?|locator|location map|coats? of arms|flags?|seals?|emblems?|crests?|insignias?|badges?|logos?|logotypes?|diagrams?|posters?|montages?|collages?)\b/i;
+/** A PNG (or other non-JPEG) bitmap is suspect — most are emblems, maps or diagrams: accept it only with a vetted
+ *  candidate's depicts that says it is a photograph of the place (R7-g7). */
+const suspectFormat = (mime, depicts) => !/^image\/jpeg$/i.test(mime || '') && !String(depicts || '').trim() && 'a PNG/non-JPEG lead image with no vetted depicts — likely an emblem, map or diagram, not a photo';
 /** A refusal about the photo itself (signage, gloom, close-up, wrong subject) holds for every target; one about the
  *  slot (a duplicate of another hero or card, repeating a lead card's subject) holds only for the target it names. */
 const refusalIsGlobal = reason => !/duplicat|same file|repeats|already|place card|is the [\w ]*hero|the [\w ]+ hero is/i.test(reason || '');
@@ -406,7 +410,8 @@ async function main() {
     if (subjectRefused(ARTWORK, t, `${pg.title} ${obj} ${desc}`)) return { why: 'a print, painting or drawing — artwork, not a photo of the place today' };
     { const pr = performerRefused(t, `${pg.title} ${obj} ${desc}`); if (pr) return { why: pr }; }
     if (viewFrom(pg.title, t.names, depicts)) return { why: 'the view FROM the place ("… from <place>"), not the place itself' };
-    if (NOT_A_PHOTO.test(`${pg.title} ${obj}`)) return { why: 'a map, coat of arms, flag, montage or logo — not a photo of the place' };
+    if (subjectRefused(NOT_A_PHOTO, t, `${pg.title} ${obj} ${depicts}`)) return { why: 'a map, coat of arms, flag, emblem, insignia, badge, diagram, poster, montage or logo — not a photo of the place' };
+    { const sf = suspectFormat(ii.mime, depicts); if (sf) return { why: sf }; }
     if (subjectRefused(SIGNAGE, t, `${pg.title} ${obj} ${desc}`)) return { why: 'title or description suggests signage, lettering, a logo or advertising is the subject' };
     if (subjectRefused(CLOSEUP, t, `${pg.title} ${obj} ${desc} ${cats.join(' | ')}`)) return { why: 'title, description or categories suggest equipment, people or a close-up is the subject, not the place' };
     if (!namesPlace(t.names, pg.title, obj, desc, cats.join('|'))) return { why: `title, description and categories do not name ${t.label}` };
@@ -604,4 +609,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { suspectFormat, DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };

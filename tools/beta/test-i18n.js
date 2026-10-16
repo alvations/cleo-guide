@@ -41,7 +41,8 @@ const ctx = { assetsV: { core: 'x', css: 'x' } };
 function englishLeft(html) {
   const doc = new JSDOM(html).window.document, out = [];
   // <time> holds a date the runtime formats for the locale (Intl), not catalogue copy
-  doc.querySelectorAll('script, style, svg, link, meta, title, time').forEach(n => n.remove());
+  // i18n D-41: the switcher's language names are endonyms (each in its own language, lang="…"), not catalogue copy
+  doc.querySelectorAll('script, style, svg, link, meta, title, time, [data-cleo-locale]').forEach(n => n.remove());
   const walk = doc.createTreeWalker(doc.body || doc.documentElement, 4);
   const texts = [];
   for (let n; (n = walk.nextNode());) texts.push(n.nodeValue);
@@ -133,10 +134,93 @@ const missing = man.generated.filter(p => !/hreflang="x-default"/.test(fs.readFi
 chk(`every generated page (${man.generated.length}) carries hreflang x-default`, missing.slice(0, 10), []);
 chk('catalogue published at beta/assets/i18n/en.json', fs.existsSync(path.join(BETA, 'assets', 'i18n', 'en.json')), true);
 
-console.log('\n== LOCALE SWITCHER hidden until a second reviewed locale ==');
-chk('reviewed locales today', i18n.reviewed().map(l => l.locale), ['en']);
-chk('switcher renders nothing', shell.localeSwitch(), '');
-chk('no page ships a switcher', man.generated.filter(p => /data-cleo-locale/.test(fs.readFileSync(path.join(BETA, p), 'utf8'))).slice(0, 5), []);
+// ---------------------------------------------------------------- i18n D-41: the AI-reviewed Japanese tier
+console.log('\n== D-41: OFFERED LOCALES (human + AI tier) ==');
+const ja = JSON.parse(fs.readFileSync(path.join(__dirname, 'i18n', 'ja.json'), 'utf8'));
+chk('offered locales = en (human) + ja (ai)', i18n.offered().map(l => `${l.locale}:${l.tier}`), ['en:human', 'ja:ai']);
+chk('human-reviewed locales = [en] (reviewed: true stays a human sign-off)', i18n.reviewed().map(l => l.locale), ['en']);
+chk('ja is labelled honestly: reviewed false, review.by ai, translator + reviewer + date', [ja.reviewed, ja.review && ja.review.by, !!(ja.review && ja.review.translator && ja.review.reviewer && ja.review.date)], [false, 'ai', true]);
+const ph = v => (v.match(/\{[a-z]+\}/g) || []).sort().join(',');
+chk('every en key exists in ja', Object.keys(en.strings).filter(k => !(k in ja.strings)), []);
+chk('no ja key without an en source', Object.keys(ja.strings).filter(k => !(k in en.strings)), []);
+chk('every ja string keeps the en placeholders', Object.keys(en.strings).filter(k => ph(en.strings[k]) !== ph(ja.strings[k] || '')), []);
+const byEn = {};
+Object.keys(en.strings).forEach(k => (byEn[en.strings[k]] = byEn[en.strings[k]] || new Set()).add(ja.strings[k]));
+chk('identical en strings → identical ja (the runtime swap matches by text)', Object.keys(byEn).filter(e => byEn[e].size > 1), []);
+chk('land.month.names: 12 names', ja.strings['land.month.names'].split(',').length, 12);
+chk('ja carries the AI-tier note (ja + en sentence + report label)', [!!ja.note.text, /machine-translated and checked by a second AI review\. Place write-ups stay in English\./.test(ja.note.en), /Report a wrong phrase/.test(ja.note.report)], [true, true, true]);
+chk('catalogue published at beta/assets/i18n/ja.json', fs.existsSync(path.join(BETA, 'assets', 'i18n', 'ja.json')), true);
 
-console.log(failures ? `\n>>> FAIL — ${failures} i18n check(s) failed` : '\n>>> PASS — i18n: pseudo-locale 0 hard-coded strings, hreflang, switcher hidden');
-process.exit(failures ? 1 : 0);
+console.log('\n== D-41: SWITCHER + hreflang on every page ==');
+i18n.setLocale('en');
+const sw = shell.localeSwitch();
+chk('switcher renders en + ja buttons with lang attributes', [/data-cleo-locale="en"[^>]*lang="en"/.test(sw), /data-cleo-locale="ja"[^>]*lang="ja"/.test(sw), /aria-label="Language"/.test(sw)], [true, true, true]);
+chk('switcher buttons are real <button>s (keyboard reachable)', (sw.match(/<button type="button"/g) || []).length, 2);
+const h2 = common.head({ page: 'x', title: 'x', description: 'x', rel: 'cities/testville.html', depth: 1, assetsV: ctx.assetsV });
+chk('head: hreflang ja → ?lang=ja, en + x-default → the page', [/hreflang="ja" href="[^"]*testville\.html\?lang=ja"/.test(h2), /hreflang="en" href="[^"]*testville\.html"/.test(h2), /hreflang="x-default"/.test(h2)], [true, true, true]);
+chk('head: ≥ 44 px switcher targets + Japanese system-font fallback + phrase line breaking (no CDN)', [/\.locales \.btn\{min-height:44px;min-width:44px/.test(h2), /html:lang\(ja\)\{--font-ui:[^}]*"Yu Gothic"/.test(h2), /word-break:auto-phrase/.test(h2), !/https?:\/\/[^"]*fonts/.test(h2)], [true, true, true, true]);
+chk('head: pre-paint snippet touches storage only inside try/catch (read + the en-page switcher write)', (h2.match(/localStorage/g) || []).length === 2 && (h2.match(/try\{[^{}]*localStorage\.(getItem|setItem)\([^{}]*\}catch\(\w+\)\{\}/g) || []).length === 2, true);
+const pages = man.generated.map(p => [p, fs.readFileSync(path.join(BETA, p), 'utf8')]);
+chk(`every generated page (${pages.length}) carries hreflang ja + en + x-default`, pages.filter(([, x]) => !(/hreflang="ja"/.test(x) && /hreflang="en"/.test(x) && /hreflang="x-default"/.test(x))).map(([p]) => p).slice(0, 10), []);
+chk('every generated page ships the switcher and the snippet that injects locale.js', pages.filter(([, x]) => !(/data-cleo-locale="ja"/.test(x) && /s\.src="[^"]*assets\/js\/locale\.js/.test(x))).map(([p]) => p).slice(0, 10), []);
+chk('no page loads locale.js eagerly (en pays no locale JS; platform eager-JS budget)', pages.filter(([, x]) => /<script[^>]+src="[^"]*locale\.js/.test(x)).map(([p]) => p).slice(0, 10), []);
+const swSrc = fs.readFileSync(path.join(BETA, 'sw.js'), 'utf8');
+chk('service worker precaches the catalogues (a chosen locale works offline)', [/assets\/i18n\/en\.json/.test(swSrc), /assets\/i18n\/ja\.json/.test(swSrc)], [true, true]);
+
+console.log('\n== D-41: RUNTIME (client/locale.js) ==');
+const LOCALE_JS = fs.readFileSync(path.join(__dirname, 'client', 'locale.js'), 'utf8');
+/** Run locale.js over a built page in jsdom. cats: { en, <l> } catalogues the stub fetch serves. */
+async function runtime(html, url, cats, stored) {
+  const dom = new JSDOM(html, { url, runScripts: 'outside-only' });
+  const w = dom.window;
+  if (stored) w.localStorage.setItem('cleo:v1:locale', JSON.stringify(stored));
+  w.fetch = u => { const l = u.split('/').pop().replace(/\.json$/, ''); return cats[l] ? Promise.resolve({ ok: true, json: () => Promise.resolve(cats[l]) }) : Promise.reject(new Error('404')); };
+  w.eval(LOCALE_JS.replace("document.currentScript && document.currentScript.src || ''", JSON.stringify(url.replace(/[^/]*$/, '') + 'assets/js/locale.js')));
+  await new Promise(r => setTimeout(r, 30));
+  return w.document;
+}
+const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.entries(en.strings).map(([k, v]) => [k, i18n.pseudoText(v)])) };
+(async () => {
+  const CATS = { en: i18n.EN, ja };
+  // the What changed page and the landing, built in English, swapped at runtime with the PSEUDO catalogue: the runtime
+  // must reach every catalogue string the build-time pseudo render reaches (0 English left outside data)
+  shell.setSite(reg, {});
+  const chgEn = changes.page(row, ctx);
+  const dP = await runtime(chgEn, 'https://example.test/beta/changes/testville.html?lang=ja', { en: i18n.EN, ja: PSEUDO });
+  chk('runtime pseudo swap, What changed page: no English left', englishLeft(dP.documentElement.outerHTML), []);
+  shell.setSite(reg2, {});
+  const lpEn = landing.render(reg2, lctx);
+  const dL = await runtime(lpEn, 'https://example.test/beta/index.html?lang=ja', { en: i18n.EN, ja: PSEUDO });
+  chk('runtime pseudo swap, landing: no English left', left(dL.documentElement.outerHTML), []);
+  const hpEn = hub.renderCountry(reg2.rows[4], reg2, lctx).html;
+  const dH = await runtime(hpEn, 'https://example.test/beta/Testland/index.html?lang=ja', { en: i18n.EN, ja: PSEUDO });
+  chk('runtime pseudo swap, country hub: no English left', left(dH.documentElement.outerHTML), []);
+
+  // the real Japanese catalogue on real built pages
+  for (const rel of ['index.html', 'Japan/index.html', 'cities/tokyo.html']) {
+    if (!fs.existsSync(path.join(BETA, rel))) continue;
+    const html = fs.readFileSync(path.join(BETA, rel), 'utf8');
+    const dj = await runtime(html, `https://example.test/beta/${rel}`, CATS, 'ja');
+    const note = dj.querySelector('.l10n-note');
+    chk(`${rel} in ja: <html lang="ja">, AI note shown (ja + en sentence + report link), ja button pressed`,
+      [dj.documentElement.lang, !!note, note && note.getAttribute('lang'), !!(note && note.querySelector('span[lang="en"]') && /Place write-ups stay in English/.test(note.textContent)), !!(note && note.querySelector('a[href^="https://github.com/alvations/cleo-guide/issues/new"]')), dj.querySelector('[data-cleo-locale="ja"]').getAttribute('aria-pressed')],
+      ['ja', true, 'ja', true, true, 'true']);
+    chk(`${rel} in ja: the shell is Japanese (skip link, nav label, footer heading)`, [dj.querySelector('.skip').textContent, dj.querySelector('.footer .fh') && dj.querySelector('.footer .fh').textContent], [ja.strings['shell.skip'], ja.strings['foot.destinations']]);
+    chk(`${rel} in ja: counts take the numeric template ("21 guides" → 21件のガイド, never "{country} guides")`, (dj.body.textContent.match(/\d+のガイド/g) || []).slice(0, 3), []);
+    const de = await runtime(html, `https://example.test/beta/${rel}`, CATS, 'en');
+    chk(`${rel} in en: no AI note, <html lang="en">, en button pressed`, [!!de.querySelector('.l10n-note'), de.documentElement.lang, de.querySelector('[data-cleo-locale="en"]').getAttribute('aria-pressed')], [false, 'en', 'true']);
+    const dq = await runtime(html, `https://example.test/beta/${rel}?lang=ja`, CATS);
+    chk(`${rel}?lang=ja: applies ja and remembers it`, [dq.documentElement.lang, dq.defaultView.localStorage.getItem('cleo:v1:locale')], ['ja', '"ja"']);
+    const df = await runtime(html, `https://example.test/beta/${rel}`, { en: i18n.EN }, 'ja');
+    chk(`${rel}: catalogue fetch fails → falls back to English, no note`, [df.documentElement.lang, !!df.querySelector('.l10n-note')], ['en', false]);
+  }
+  // storage that throws (sandboxes): the runtime still runs and stays in English
+  const dT = new JSDOM(fs.readFileSync(path.join(BETA, 'index.html'), 'utf8'), { url: 'https://example.test/beta/index.html', runScripts: 'outside-only' }).window;
+  Object.defineProperty(dT, 'localStorage', { get() { throw new Error('denied'); } });
+  dT.fetch = () => Promise.reject(new Error('x'));
+  let threw = false; try { dT.eval(LOCALE_JS); } catch (e) { threw = true; }
+  chk('locale.js survives a throwing localStorage', [threw, dT.document.documentElement.lang], [false, 'en']);
+
+  console.log(failures ? `\n>>> FAIL — ${failures} i18n check(s) failed` : '\n>>> PASS — i18n: pseudo-locale 0 hard-coded strings, hreflang, switcher offers en + ja (AI tier, labelled)');
+  process.exit(failures ? 1 : 0);
+})();

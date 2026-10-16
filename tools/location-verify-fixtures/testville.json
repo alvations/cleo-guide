@@ -203,6 +203,61 @@
      "status": "open",
      "statusSource": "synthetic test fixture — not a real place",
      "statusChecked": "2026-01-01"
+    },
+    "Haus Probe Cafe": {
+     "address": "Probestraße 12a, 99999 Testdorf, Germany",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Marina Test Tower": {
+     "address": "1 Test Bay Road, Singapore 099999",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Census Near Deli": {
+     "address": "77 Elm St, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Census Far Deli": {
+     "address": "88 Oak St, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Old Light Tower": {
+     "address": "1 Cape Rd, Testville, ZZ 99901",
+     "lat": 0.504,
+     "lng": -30.504,
+     "source": "synthetic test fixture — not a real place",
+     "verified": "2026-01-01",
+     "confidence": "high",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
     }
    }
   }
@@ -569,6 +624,184 @@
      "extratags": {}
     }
    ]
+  },
+  {
+   "host": "www.onemap.gov.sg",
+   "params": {
+    "searchVal": "099999"
+   },
+   "body": {
+    "found": 1,
+    "results": [
+     {
+      "SEARCHVAL": "MARINA TEST TOWER",
+      "BLK_NO": "1",
+      "ROAD_NAME": "TEST BAY ROAD",
+      "BUILDING": "MARINA TEST TOWER",
+      "ADDRESS": "1 TEST BAY ROAD MARINA TEST TOWER SINGAPORE 099999",
+      "POSTAL": "099999",
+      "LATITUDE": "0.50550",
+      "LONGITUDE": "-30.50550"
+     }
+    ]
+   }
+  },
+  {
+   "host": "nominatim.openstreetmap.org",
+   "params": {
+    "q": "77 Elm St, Testville, ZZ 99901"
+   },
+   "body": [
+    {
+     "lat": "0.509",
+     "lon": "-30.509",
+     "category": "building",
+     "type": "yes",
+     "addresstype": "building",
+     "osm_type": "way",
+     "osm_id": 8008,
+     "name": "",
+     "namedetails": {},
+     "address": {
+      "house_number": "77",
+      "road": "Elm Street",
+      "city": "Testville",
+      "postcode": "99901"
+     },
+     "extratags": {
+      "building": "yes"
+     }
+    }
+   ]
+  },
+  {
+   "host": "nominatim.openstreetmap.org",
+   "params": {
+    "q": "88 Oak St, Testville, ZZ 99901"
+   },
+   "body": [
+    {
+     "lat": "0.491",
+     "lon": "-30.491",
+     "category": "building",
+     "type": "yes",
+     "addresstype": "building",
+     "osm_type": "way",
+     "osm_id": 8009,
+     "name": "",
+     "namedetails": {},
+     "address": {
+      "house_number": "88",
+      "road": "Oak Street",
+      "city": "Testville",
+      "postcode": "99901"
+     },
+     "extratags": {
+      "building": "yes"
+     }
+    }
+   ]
+  },
+  {
+   "host": "geocoding.geo.census.gov",
+   "params": {
+    "address": "77 Elm St, Testville, ZZ 99901"
+   },
+   "body": {
+    "result": {
+     "addressMatches": [
+      {
+       "matchedAddress": "77 ELM ST, TESTVILLE, ZZ, 99901",
+       "coordinates": {
+        "x": -30.5092,
+        "y": 0.5091
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "host": "geocoding.geo.census.gov",
+   "params": {
+    "address": "88 Oak St, Testville, ZZ 99901"
+   },
+   "body": {
+    "result": {
+     "addressMatches": [
+      {
+       "matchedAddress": "88 OAK ST, TESTVILLE, ZZ, 99901",
+       "coordinates": {
+        "x": -30.495,
+        "y": 0.491
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "host": "www.wikidata.org",
+   "params": {
+    "action": "wbsearchentities",
+    "search": "Old Light Tower"
+   },
+   "body": {
+    "search": [
+     {
+      "id": "Q999002"
+     }
+    ]
+   }
+  },
+  {
+   "host": "www.wikidata.org",
+   "params": {
+    "action": "wbgetentities",
+    "ids": "Q999002"
+   },
+   "body": {
+    "entities": {
+     "Q999002": {
+      "id": "Q999002",
+      "labels": {
+       "en": {
+        "value": "Old Light Tower"
+       }
+      },
+      "claims": {
+       "P625": [
+        {
+         "rank": "normal",
+         "mainsnak": {
+          "snaktype": "value",
+          "datavalue": {
+           "value": {
+            "latitude": 0.518,
+            "longitude": -30.504
+           }
+          }
+         }
+        }
+       ],
+       "P576": [
+        {
+         "rank": "normal",
+         "mainsnak": {
+          "snaktype": "value",
+          "datavalue": {
+           "value": {
+            "time": "+1893-00-00T00:00:00Z"
+           }
+          }
+         }
+        }
+       ]
+      },
+      "sitelinks": {}
+     }
+    }
+   }
   }
  ]
 }

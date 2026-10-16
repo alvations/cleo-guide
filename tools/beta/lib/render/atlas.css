@@ -242,7 +242,7 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m.ms-list[data-view=atlas] .split::after{content:"";position:fixed;z-index:34;left:0;right:0;bottom:0;height:72px;background:var(--paper);border-top:1px solid var(--line)}   /* the Map pill sits in its own band, never over a card */
   html.atlas-m.ms-nomap[data-view=atlas] .ms-toggle{display:none}
   /* list mode: the map area's places as a full-screen image-first list */
-  html.atlas-m.ms-list[data-view=atlas] .listpane{display:block;top:calc(var(--bar-h) + var(--cbar-o) + 66px);bottom:72px;height:auto;padding:4px 16px 24px;overflow-x:hidden;overflow-y:auto;scroll-snap-type:none;background:var(--paper)}
+  html.atlas-m.ms-list[data-view=atlas] .listpane{scroll-padding-block:56px 24px;display:block;top:calc(var(--bar-h) + var(--cbar-o) + 66px);bottom:72px;height:auto;padding:4px 16px 24px;overflow-x:hidden;overflow-y:auto;scroll-snap-type:none;background:var(--paper)}
   html.atlas-m.ms-list[data-view=atlas] .ms-bar{background:var(--paper);top:calc(var(--bar-h) + var(--cbar-o));height:66px;padding-top:0;padding-bottom:0;border-bottom:1px solid var(--line)}
   html.atlas-m.ms-list[data-view=atlas] .ms-head{padding:8px 0 4px}
   html.atlas-m.ms-list[data-view=atlas] .listpane section.area>:not(ol):not(h2):not(.area-end){display:none}

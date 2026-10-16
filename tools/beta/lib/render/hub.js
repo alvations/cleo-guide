@@ -29,6 +29,7 @@ const imagery = require('../../imagery');                          // imagery la
 const { captionHtml } = require('../../imagery/photos');
 const { fmt, sumStats } = require('../stats');
 const { t, tn } = require('../i18n');                // W5 gap #7: every hub/tile string comes from the catalogue
+const { sentence, ownWords } = require('../casing');  // W8 owner rule: sentence case for data labels
 const { CANON, fold } = require('../guide');         // dish synonyms (dedup of the hub "Known for" line)
 
 const BETA = path.resolve(__dirname, '..', '..', '..', '..', 'beta');
@@ -81,7 +82,9 @@ function facts(row) {
   const recs = row.recs || [];
   const d = row.data;
   const gs = row.guide && row.guide.signature;
-  const star = gs && gs.kind === 'collection' && gs.n ? { id: (gs.c || [])[0], name: gs.title, n: gs.n } : gs ? null : (d.CATS || []).filter(c => /★/.test(c.n)).map(c => ({ id: c.id, name: c.n.replace(/★\s*/, ''), n: recs.filter(x => (x.g || []).includes(c.id)).length }))
+  // W8 (owner): collection labels are sentence case at display time (lib/casing.js); the page's own place names keep capitals
+  const SC = x => sentence(x, ownWords(row.name, row.nat, ...(d.AREAS || []).map(a => a.n)));
+  const star = gs && gs.kind === 'collection' && gs.n ? { id: (gs.c || [])[0], name: gs.label || SC(gs.title), n: gs.n } : gs ? null : (d.CATS || []).filter(c => /★/.test(c.n)).map(c => ({ id: c.id, name: SC(c.n.replace(/★\s*/, '')), n: recs.filter(x => (x.g || []).includes(c.id)).length }))
     .filter(c => c.n > 0)[0] || null;
   const cz = {};
   recs.forEach(x => (x.cz || []).forEach(z => { cz[z] = (cz[z] || 0) + 1; }));

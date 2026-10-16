@@ -1,0 +1,30 @@
+== load: LCP / CLS / TBT (4× CPU, median of 3) ==
+  ✅ index.html                     phone LCP   404 ms  CLS 0.000  TBT   472 ms
+  ✅ index.html                     desk  LCP   912 ms  CLS 0.001  TBT   582 ms
+  ❌ cleveland.html                 phone LCP   424 ms  CLS 0.294  TBT   561 ms
+  ✅ cleveland.html                 desk  LCP   372 ms  CLS 0.041  TBT   609 ms
+  ❌ cities/tokyo.html              phone LCP   508 ms  CLS 0.315  TBT   538 ms
+  ✅ cities/tokyo.html              desk  LCP   488 ms  CLS 0.041  TBT   807 ms
+  ✅ cities/tokyo.html#view=atlas   phone LCP   408 ms  CLS 0.000  TBT  1003 ms
+  ✅ cities/tokyo.html#view=atlas   desk  LCP   540 ms  CLS 0.003  TBT  2017 ms
+  ❌ cities/newyork.html            phone LCP   464 ms  CLS 0.341  TBT   538 ms
+  ✅ cities/newyork.html            desk  LCP   396 ms  CLS 0.039  TBT   665 ms
+  ❌ Singapore/chinatown.html       phone LCP   332 ms  CLS 0.312  TBT   303 ms
+  ✅ Singapore/chinatown.html       desk  LCP   368 ms  CLS 0.040  TBT   350 ms
+  ❌ cities/wheeling.html           phone LCP   904 ms  CLS 0.341  TBT   338 ms
+  ✅ cities/wheeling.html           desk  LCP   400 ms  CLS 0.059  TBT   373 ms
+  ✅ Japan/index.html               phone LCP   280 ms  CLS 0.000  TBT   109 ms
+  ✅ Japan/index.html               desk  LCP   292 ms  CLS 0.000  TBT   128 ms
+  ✅ Singapore/index.html           phone LCP   328 ms  CLS 0.000  TBT   155 ms
+  ✅ Singapore/index.html           desk  LCP   328 ms  CLS 0.000  TBT   128 ms
+== inp: Tokyo main interactions (4× CPU, median of 3) ==
+  ❌ phone collection filter (Gallery)    INP   448 ms  (448, 376, 544)
+  ✅ phone open a place                   INP   144 ms  (160, 144, 144)
+  ✅ phone switch view → Guidebook        INP   152 ms  (152, 184, 144)
+  ❌ phone switch view → Atlas            INP  1528 ms  (1528, 1648, 1448)
+  ❌ desk  collection filter (Gallery)    INP   544 ms  (576, 520, 544)
+  ✅ desk  open a place                   INP   144 ms  (136, 144, 152)
+  ✅ desk  switch view → Guidebook        INP   160 ms  (136, 160, 168)
+  ❌ desk  switch view → Atlas            INP   464 ms  (464, 472, 464)
+
+>>> 9 row(s) miss the targets (LCP ≤ 2.0 s, CLS ≤ 0.05 phone; INP ≤ 200 ms)
