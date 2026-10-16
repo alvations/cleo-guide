@@ -32,23 +32,24 @@
   // W7: a credited photo (lib/gallery.js ph) laid over the calm cover, the same slot as the grid card's figure.pl-photo
   const root = Cleo.root || '../';
   // D-40 (a): a card with a 600–799 w copy asks for 240 px on 3× phones, as platform's cardSizes() does for the lists
-  const phImg = p => p ? '<img class="gc-img" src="' + esc(root + p[0]) + '"' + (p[5] && p[5].length > 1 ? ' srcset="' + p[5].map(x => esc(root + x[0]) + ' ' + x[1] + 'w').join(', ') + '" sizes="(min-resolution: 2.5dppx) and (max-width: 1023px) ' + (p[5].some(x => x[1] >= 600 && x[1] < 800) ? '240px' : '166px') + ', (min-width: 1024px) 300px, 80vw"' : '') +
-    ' width="' + p[1] + '" height="' + p[2] + '" alt="" loading="lazy" decoding="async">' : '';
+  const phImg = (p, eager) => p ? '<img class="gc-img" src="' + esc(root + p[0]) + '"' + (p[5] && p[5].length > 1 ? ' srcset="' + p[5].map(x => esc(root + x[0]) + ' ' + x[1] + 'w').join(', ') + '" sizes="(min-resolution: 2.5dppx) and (max-width: 1023px) ' + (p[5].some(x => x[1] >= 600 && x[1] < 800) ? '240px' : '166px') + ', (min-width: 1024px) 300px, 80vw"' : '') +
+    ' width="' + p[1] + '" height="' + p[2] + '" alt=""' + (eager ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">' : '';   // PERF-18: the lead is first-screen
   // the TASL credit, as text under the media (the card is one link; the linked credit is in the place detail)
   const phCred = p => p ? '<span class="gc-cred">' + esc(p[4]) + '</span>' : '';
   const CJK = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\uf900-\ufaff]/;
-  const gcard = (r, i) => {
+  const gcard = (r, i, eager) => {
     const nat = r.nat && r.n.slice(-r.nat.length - 2) === '(' + r.nat + ')' ? r.nat : '', g = Array.from(nat);
     const nm = nat ? r.n.slice(0, -nat.length - 2).trim() : r.n.replace(/\s*[—–-]+\s*CLOSED\b.*$/i, ''), col = ((info.areas || {})[r.a] || {}).c;
     const plate = g.length && g.length <= 4 && CJK.test(nat) ? '<span class="plate v"' + (info.lang ? ' lang="' + info.lang + '"' : '') + '>' + esc(nat) + '</span>'
       : '<span class="plate i" data-i="' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '"></span>';
     const ids = (r.src || []).filter(x => x !== 'guide'), chips = ids.slice(0, 1).map(x => '<button type="button" class="src" data-src="' + esc(x) + '">' + esc(((info.src || {})[x] || [x])[0]) + '</button>').join(', ');
-    return '<li class="gc' + (r.closed ? ' gc--closed' : '') + '" data-id="' + esc(r.id) + '"><a class="gc-a" href="#p-' + esc(r.id) + '"><span class="cover' + (r.closed ? ' closed' : '') + (r.kind === 'food' ? ' food' : '') + (r.ph ? ' has-ph' : '') + '" data-gl="' + esc(att(r.id, 'data-gl') || 'compass') + '" data-m="' + esc(att(r.id, 'data-m') || att(r.id, 'data-gl') || 'compass') + '" data-t="' + (r.t || 3) + '" data-comp="' + ((i || 0) % 5) + '"' + (col || (r.ph && r.ph[6]) ? ' style="' + (col ? '--ac:' + col + ';' : '') + (r.ph && r.ph[6] ? '--ph:' + esc(r.ph[6]) : '') + '"' : '') + ' aria-hidden="true">' + plate + '<span class="gl"><svg class="ico"><use href="#i-' + esc(att(r.id, 'data-gl') || 'compass') + '"/></svg></span>' + (r.kind === 'food' && !r.ph && r.d ? '<span class="dish">' + esc(r.d) + '</span>' : '') + phImg(r.ph) + '</span>' + phCred(r.ph) +
+    return '<li class="gc' + (r.closed ? ' gc--closed' : '') + '" data-id="' + esc(r.id) + '"><a class="gc-a" href="#p-' + esc(r.id) + '"><span class="cover' + (r.closed ? ' closed' : '') + (r.kind === 'food' ? ' food' : '') + (r.ph ? ' has-ph' : '') + '" data-gl="' + esc(att(r.id, 'data-gl') || 'compass') + '" data-m="' + esc(att(r.id, 'data-m') || att(r.id, 'data-gl') || 'compass') + '" data-t="' + (r.t || 3) + '" data-comp="' + ((i || 0) % 5) + '"' + (col || (r.ph && r.ph[6]) ? ' style="' + (col ? '--ac:' + col + ';' : '') + (r.ph && r.ph[6] ? '--ph:' + esc(r.ph[6]) : '') + '"' : '') + ' aria-hidden="true">' + plate + '<span class="gl"><svg class="ico"><use href="#i-' + esc(att(r.id, 'data-gl') || 'compass') + '"/></svg></span>' + (r.kind === 'food' && !r.ph && r.d ? '<span class="dish">' + esc(r.d) + '</span>' : '') + phImg(r.ph, eager) + '</span>' + phCred(r.ph) +
       '<span class="gc-b"><span class="pl-e">' + (r.closed ? tt('gal.closed', 'Closed · kept for the record') : (r.t === 1 ? '<span class="badge t1">' + TIER()[1] + '</span> ' : TIER()[r.t] ? '<span class="vh">' + TIER()[r.t] + ' · </span>' : '') + esc(C.label('a', r.a)) + ' · ' + (r.kind === 'food' ? esc(tt('city.mode.food', 'Eat & drink')) : tt('gal.see', 'See'))) + '</span>' +
       '<span class="gc-n">' + esc(nm) + '</span>' + (r.w ? '<span class="gc-w">' + esc(String(r.w).replace(/<[^>]+>/g, '')) + '</span>' : '') + '</span></a>' +
       '<p class="pl-s"><span class="lbl">' + tt('card.recby', 'Recommended by') + '</span> ' + (chips || '<span class="added">' + tt('city.card.added', 'Added by the guide (general knowledge)') + '</span>') + (ids.length > 1 ? ' <span class="more">' + tt('gal.more', '+{n} more', { n: ids.length - 1 }) + '</span>' : '') + '</p>' +
       '<button type="button" class="heart gc-save" data-ref="' + esc(r.id) + '" aria-pressed="false" data-nm="' + esc(nm) + '" aria-label="' + esc(tt('gal.save', 'Save {name}', { name: nm })) + '"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></button></li>';
   };
+  C.gcard = gcard;   // PERF-18: test-beta compares it with the build's lead card (lib/render/lead-card.js)
   // the rows + lead card come chosen from the build (lib/gallery.js → data/gallery/<page>.json, ~20 KB): the first
   // screen never fetches the whole page JSON (ROUND-5 gap #2). [title, subtitle, lens key, value, ★, n, records ≤ 12]
   let lead = null, allRows = [];
@@ -80,8 +81,11 @@
       // the lead card: floats in the hero on desktop; on phones and tablets it is the first card under the hero, so a
       // real place card (cover, name, Recommended by, heart) sits inside the first screen (ROUND-4 #2, B-01)
       const mh = $('.masthead'), slot = $('#cleo-lead');
-      if (lead && mh && !$('.g-lead-card')) {
-        const ol = d.createElement('ol'); ol.className = 'g-lead-card vw view-gallery'; ol.setAttribute('aria-label', tt('city.lead.k', 'Start with')); ol.innerHTML = gcard(lead, 1);
+      // PERF-18 (platform, marked): the build already rendered this card into the phone slot (lib/render/lead-card.js) so it
+      // paints with the HTML; adopt it — place it (masthead on desktop), hearts, g-lead-on — and draw one only when absent
+      let ol = $('.g-lead-card');
+      if (lead && mh) {
+        if (!ol) { ol = d.createElement('ol'); ol.className = 'g-lead-card vw view-gallery'; ol.setAttribute('aria-label', tt('city.lead.k', 'Start with')); ol.innerHTML = gcard(lead, 1, true); }
         const mq = window.matchMedia && matchMedia('(min-width: 1024px)');
         const place = () => { const host = !slot || (mq && mq.matches) ? mh : slot; if (ol.parentNode !== host) host.appendChild(ol); };
         place(); if (mq) { if (mq.addEventListener) mq.addEventListener('change', place); else if (mq.addListener) mq.addListener(place); }
@@ -99,7 +103,7 @@
     if (!rowsHost || !allRows.length) return;
     const n = nRow; rowsHost.innerHTML = ''; nRow = 0; pending.length = 0; pending.push.apply(pending, allRows);
     for (let i = 0; i < n; i++) stampRow();
-    const lc = $('.g-lead-card'); if (lc && lead) { lc.setAttribute('aria-label', tt('city.lead.k', 'Start with')); lc.innerHTML = gcard(lead, 1); hearts(lc); }
+    const lc = $('.g-lead-card'); if (lc && lead) { lc.setAttribute('aria-label', tt('city.lead.k', 'Start with')); lc.innerHTML = gcard(lead, 1, true); hearts(lc); }
     if (io) { io.disconnect(); watch(rowsHost.lastElementChild); }
   });
   on(d, 'click', e => {

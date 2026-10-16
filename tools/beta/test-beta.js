@@ -351,6 +351,25 @@ const lensOutcome = (b, label) => {
     chk('Cleo.lens.match: a card with only the nosearch line does not match q=oct; it matches its name', [b.w.Cleo.lens.match(el, { q: 'oct' }), b.w.Cleo.lens.match(el, { q: 'kanda' })].join(), 'false,true');
     chk('… no js errors (nosearch)', b.errs, e => e.length === 0);
   }
+  console.log('\n== PERF-18: the build\'s lead card == client/gallery.js gcard(lead, 1, true) (no template drift) ==');
+  for (const page of [TOKYO, 'cleveland.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html']) {
+    const b = boot({ page }); await sleep(250);
+    // the build's renderer (lib/render/lead-card.js leadLi) on the page's own data — compared whether or not it is switched on
+    const LC = require('./lib/lead-card'), info = b.w.Cleo.city.info, pageHtml = rd('beta/' + page);
+    const gf = path.join(BETA, 'data/gallery', String(b.w.Cleo.city.info.file || '').replace(/\//g, '--') + '.json'), gj = fs.existsSync(gf) ? JSON.parse(fs.readFileSync(gf, 'utf8')) : {};
+    if (!gj.lead) { chk(`${page}: no lead card in the data → none rendered by the build`, !b.d.querySelector('#cleo-lead .g-lead-card'), true); continue; }
+    const box = b.d.createElement('ol'); box.innerHTML = LC.leadLi(gj.lead, info, pageHtml, b.w.Cleo.root || '../');
+    const ssr = box.querySelector('li.gc');
+    chk(`${page}: the build renders the lead card into the page only while lead-card.js ENABLED (now ${LC.ENABLED})`, !!b.d.querySelector('#cleo-lead .g-lead-card'), LC.ENABLED);
+    b.w.eval(fs.readFileSync(path.join(BETA, 'assets/js/gallery.js'), 'utf8'));   // the lazy view module, as the browser would load it
+    const C = b.w.Cleo.city, tmp = b.d.createElement('ol'); if (C.gcard && gj.lead) tmp.innerHTML = C.gcard(gj.lead, 1, true);
+    const cli = tmp.querySelector('li.gc');
+    const diff = !ssr || !cli ? 'missing: ssr ' + !!ssr + ', client ' + !!cli : ssr.outerHTML === cli.outerHTML ? 'same'
+      : (() => { const x = ssr.outerHTML, y = cli.outerHTML; let i = 0; while (i < x.length && x[i] === y[i]) i++; return 'build …' + x.slice(Math.max(0, i - 40), i + 60) + ' ≠ client …' + y.slice(Math.max(0, i - 40), i + 60); })();
+    chk(`${page}: the server-rendered lead card equals gallery.js gcard() for the same lead`, diff, 'same');
+    chk(`${page}: the lead photo is eager and high priority (first screen)`, !ssr.querySelector('img') || (ssr.querySelector('img').getAttribute('fetchpriority') === 'high' && !ssr.querySelector('img').hasAttribute('loading')), true);
+    chk(`${page}: … no js errors`, b.errs, e => e.length === 0);
+  }
   console.log('\n== PROGRESSIVE RENDERING (M3-06): deferred cards stay reachable ==');
   {
     const html = rd('beta/' + TOKYO);
