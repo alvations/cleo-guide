@@ -1836,6 +1836,32 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - With the fix it passes.
     - It prints SKIP where playwright is missing.
 
+### FE Atlas (FE-1) — SPEC-v3 rev 5 (PANEL-R3 #4 part) · FE-B R7-g6 shadows
+- **No sun on the map:** dots and pills carry no tier colour. Sights are light 7 px circles (`--ink` at 30 %) and eat & drink dark 8 px squares (`--ink` at 72 %; dark mode 30 % / 50 %), both with a 1.5 px surface halo. Every pill uses the surface treatment, and Must see shows in the preview, the card sticker and Filters → Tier. The Key drops its Must-see pill and draws the dots as on the map.
+- **Glyphs:**
+  - Step 0 is the per-place overrides in `design/beta/atlas/glyph-overrides.json` (Free Stamp → frame, The Arcade → bag, A Christmas Story House → frame), read at build time.
+  - New nouns: brewing / brewery / distillery / winery / taproom → bottle (Great Lakes Brewing); statue / sculpture → frame; market / shop / bookstore / arcade / yokochō / -dōri / -gai → bag.
+  - Worship outside Japan → spire.
+  - Two original line glyphs were added on the 24 px grid: `bag` and `spire`. `frame` comes from the design kit.
+- **Labels:**
+  - The location dot after Near me is a placed box, so no label covers it.
+  - After placing by estimate, `feature()` measures the real rendered pills. A pill nearer than 4 px to one already kept goes back to a dot; the selected and saved places stay labelled.
+- **FE-B R7-g6:** `.pp .pp-h` now uses `var(--ring-quiet)`, and the `.pp-1.sel` sun ring is removed (no sun on pills). The Key dots drop their 1 px surface halo rather than take the 4 px `--ring-surface`, which would swamp a 7 px dot. That leaves 3 fewer raw shadows in atlas.css.
+- The duplicate map-pane DOM move in msIn is dropped: atlas-nav.js (FE-2) owns the map-first Tab order.
+
+- 2026-10-16 17:02Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Deploy pin 3ba696e8:** QA's suite is running; B-07 is being A/B-tested against be74c82f with the same probe. Platform's first-pin shows the pin is back at the be74c82f level (Tokyo 1,653 vs 1,564 ms; NY 1,807 vs 1,760 ms).
+  - **Landed since 16:22Z:**
+    - platform: the `:has()` lint in npm test (cf6e0357), `npm run checkpoint` wrapping sync-push.sh (eedeac35), the sync-push fix for an uncommitted beta/ regeneration plus a test (43d9a895), and the R8 measurement kit draft (5f977955);
+    - FE-B: R7-g6 (letter-spacing 6, tabular 100 %, chart tokens), R7-g2 g/h, R7-g5 hubs/landing at 0 failing, QC-19 complete, QA-55 for hubs, and the switcher probe waiting for the transition;
+    - FE-A: §3.6 one visible number, designer follow-ups, and the deep-link keep-in-view;
+    - FE-C: W9-1 badges on every card type and the Recognised filter; W9-9 parked for ja;
+    - i18n: QC-21 and W8-I18N-MAPRACE;
+    - designer: QA-74 (motion ≤ 300 ms) and QA-55 footnotes at 14 px;
+    - QC: QC-11 and QC-12 verified;
+    - location: the Hotel Utah accept, orphans classified, and the daily Nominatim ledger, with a scheduled task at 03:17 UTC (trig_01P2RWA4kn9SKwApTwLdtSrm);
+    - imagery: waves 2 and 3 (Pittsburgh, DC, Bruges, Youngstown).
+  - **Gates on 7c280435:** validate, npm test (alone) and beta:check are all green.
 ## FE-A — QA-72, QC-22, QA-73, QA-55 (Guidebook), R7-g6 tokens, D-40 (a) Gallery sizes (2026-10-16)
 - **QA-72:** the detail's "Read what <source> says" link wraps inside its button. The label is in `.lbl` and the icon rides the last word (QA-59d). The button is ≥ 44 px. The Met at 390 is now 350 px wide and inside the sheet (was 455 px).
 - **QA-59b:** the nav row has no "k of N" since ad23309d (§3.6), so nothing is left to clip. The probe asserts it on 40 New York places.

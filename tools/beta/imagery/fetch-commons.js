@@ -188,7 +188,7 @@ const authorProblems = a => [!a && 'empty', a && a.length > 60 && 'longer than 6
 const SIGNAGE = /\b(logos?|signage|signboards?|signs?|billboards?|advertis\w*|letters|lettering|info(?:rmation)? boards?|map boards?|notice ?boards?|interpretive (?:panels?|signs?|boards?)|signposts?|plaques?|historical markers?|(?<!wikivoyage )banners?)\b/i;
 /** Equipment, people or close-ups as the subject (owner review, W7: a "RiverScape, Dayton" file showed hands on a
  * drone controller): refused for every slot. Checked against the title, description and visible categories. */
-const CLOSEUP = /\b(drone controllers?|controllers?|remote controls?|remotes?|hands|holding|selfies?|portraits?|close-?ups?|equipment|figurines?|statuettes?|lotus(?:es)?|macro)\b|\(detail\)/i;
+const CLOSEUP = /\b(drone controllers?|controllers?|remote controls?|remotes?|hands|holding|selfies?|portraits?|close-?ups?|equipment|figurines?|statuettes?|maneki-?nekos?|lotus(?:es)?|macro)\b|\(detail\)/i;
 /** Rescan hits a person looked at and kept (W7 review): the file's subject is the place; the matched word is incidental. */
 const RESCAN_KEPT = {
   'File:Brooklyn Bridge, Downtown Manhattan, and Freedom Tower, golden hour (20137848066).jpg': 'kept after review (W7): moody but strong — cables, skyline and light; not dull',

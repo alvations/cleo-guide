@@ -146,4 +146,12 @@ FE-A removed a sentence from both languages, and the ja still flows (accepted as
 | `sheet.quoted` | 価格・評価・時間は、調査時点の出典からの引用です({d})。 | 価格・星評価・時間は、調査時点の出典からの引用です({d})。 | "Ratings" quoted from a source are review-site star ratings (星評価); 評価 means the guide's tiers. |
 | `sheet.nohours` | 営業時間と価格は追跡していません | 営業時間・価格は扱っていません | 追跡 read as monitoring; 扱っていません is the natural "we don't track". |
 
-**Total: 53 changes over ten rounds.**
+## Round 11: FE-C batch 4, the local favourites lens (W9-9; 7 new keys `lf.*`, staged in `tools/beta/i18n-fec/pending-ja.json`; 1 change, applied)
+
+A fresh independent subagent reviewed the seven strings under the same brief: accuracy, natural UI Japanese, consistency with the catalogue (絞り込み, 確認済みのクリエイター, 数合わせ, 出典), placeholders and length. Six were kept as drafted.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `lf.gap` | ここで該当する場所は{min}か所に満たず({n}か所)、当ガイドの出典台帳に種別が登録されている出典も{total}件中{typed}件のため、数合わせはせず、この絞り込みは表示しません。 | ここで該当する場所は{min}か所に満たない({n}か所)ため、数合わせはせず、この絞り込みは表示しません。当ガイドの出典台帳に種別が登録されている出典は{total}件中{typed}件です。 | The draft's も…のため made the typed-source count a second reason for hiding the lens, and も reads wrongly when typed = total. The English only states the count. |
+
+**Total: 54 changes over eleven rounds.**

@@ -759,12 +759,11 @@ a.pp{color:inherit;text-decoration:none}a.pp:focus{outline:none}a.pp:focus-visib
 .pp>span::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:7px;margin-left:-5px;background:inherit;clip-path:polygon(0 0,100% 0,50% 100%)}   /* the tail */
 .pp>span>b{font-weight:600}
 .pp .ico{flex:none;width:16px;height:16px;color:var(--ink-2);stroke-width:1.5}
-.pp-1>span{background:var(--sun-wash);color:var(--on-sun-wash);border-color:color-mix(in srgb,var(--sun) 55%,transparent)}.pp-1 .ico{color:var(--on-sun-wash)}
+/* rev 5 (R3 #4): no sun treatment on pills — every pill is the surface pill; Must see shows in the preview, the card sticker and Filters → Tier */
 .pp-x>span{background:var(--sand);color:var(--ink-3);border:1px dashed var(--line-strong)}.pp-x .ico{color:var(--ink-3)}
-.pp .pp-h{position:absolute;right:-7px;top:-8px;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--surface);box-shadow:0 0 0 1px var(--line);color:var(--accent);font:normal var(--fs-xs)/1 var(--font-ui)}
+.pp .pp-h{position:absolute;right:-7px;top:-8px;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--surface);box-shadow:var(--ring-quiet);color:var(--accent);font:normal var(--fs-xs)/1 var(--font-ui)}
 .pp.hot>span,.pp:hover>span{border-color:var(--ink);box-shadow:var(--shadow)}
 .pp.sel>span{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:var(--shadow)}.pp.sel .ico{color:var(--paper)}
-.pp-1.sel>span{box-shadow:0 0 0 2px var(--sun),var(--shadow)}
 .day-on .leaflet-marker-icon.pp{display:none}                                         /* a day shows its numbered stops only */
 
 /* ---- map controls: one family of 44 px buttons ---- */
@@ -777,7 +776,7 @@ a.pp{color:inherit;text-decoration:none}a.pp:focus{outline:none}a.pp:focus-visib
 .leaflet-container .m-legend summary::-webkit-details-marker{display:none}
 :is(.leaflet-container .m-legend,.ms-key) ul{list-style:none;margin:0;padding:2px 12px 12px;display:grid;gap:8px;font-size:var(--fs-meta);line-height:1.3;color:var(--ink-2)}
 :is(.leaflet-container .m-legend,.ms-key) li{display:flex;align-items:center;gap:10px}
-:is(.leaflet-container .m-legend,.ms-key) .kd{flex:none;width:8px;height:8px;border-radius:50%;background:color-mix(in srgb,var(--ink) 38%,var(--paper));box-shadow:0 0 0 1px var(--surface)}:is(.leaflet-container .m-legend,.ms-key) .kd.f{width:8px;height:8px;border-radius:1.5px;background:color-mix(in srgb,var(--ink) 62%,var(--paper));margin-left:2px}   /* eat & drink: a rounded square */
+:is(.leaflet-container .m-legend,.ms-key) .kd{flex:none;width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--ink) 30%,var(--paper))}:is(.leaflet-container .m-legend,.ms-key) .kd.f{width:8px;height:8px;border-radius:1px;background:color-mix(in srgb,var(--ink) 72%,var(--paper));margin-left:2px}   /* eat & drink: a rounded square */
 :is(.m-legend,.ms-key) b.pp{position:relative;display:inline-block;flex:none;width:140px;height:32px}:is(.m-legend,.ms-key) b.pp>span{left:0;top:0;transform:none;cursor:default}:is(.m-legend,.ms-key) b.pp>span::after{display:none}
 .leaflet-container .leaflet-control-zoom a{width:44px;height:44px;line-height:44px;background:var(--surface);color:var(--ink);border-color:var(--line)}
 html .leaflet-container .leaflet-control-attribution{background:color-mix(in srgb,var(--surface) 85%,transparent);color:var(--ink-2)}
@@ -1068,3 +1067,4 @@ html[data-view=atlas] .ms-ring .chip[aria-pressed=true]{background:var(--ink);co
 .rb-award{background:var(--sun-wash);color:var(--on-sun-wash)}
 .sheet .fact .pl-rec{margin:0}
 .sheet .fact .pl-rec[hidden]{display:flex}
+.gc-rec{display:flex;margin-top:var(--s-1)}.gc-rec .rb{min-height:24px;pointer-events:none}.ge-rec{margin:var(--s-1) 0}

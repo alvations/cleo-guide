@@ -13,6 +13,7 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- R7-g6 shadows: 9 distinct raw after Atlas's snaps (7c280435); test-views-b ceiling lowered to 10 (R7 bar).
 - QC-19 rest: lib/quoted.js POPULARITY adds top-/highest-/best-/well-/most-/five-star-rated (cain-park, tita-floras).
 - QA-55 (FE-B): hub .theme-w and landing .archive at --fs-body (16 px).
 - feb-switcher.js waits for running animations (2 s cap) instead of 600 ms; + a reduced-motion control run.
