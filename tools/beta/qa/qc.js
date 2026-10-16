@@ -455,7 +455,7 @@ async function patterns(rel, vp) {
   const vh = hits(VALUE), ih = hits(INVENT);
   check('P-25', C, ok(VIEWS.every(v => !vh[v].length) && !sorts.some(s => VALUE.test(s) || /rating|popular/i.test(s))), { hits: vh, sortOptions: sorts });
   const photos = await o.page.evaluate(new Function(`${P_VIS} return [...document.querySelectorAll('main img')].filter(i => vis(i) && !/\\.svg(\\?|$)/.test(i.currentSrc || i.src) && i.naturalWidth > 64)
-    .map(i => { const f = i.closest('figure, .gc, .cover, .photo, [class*=img], li, article') || i.parentElement; return { src: (i.currentSrc || i.src).split('/').slice(-1)[0], credit: /photo|©|cc |public domain|wikimedia|courtesy/i.test(f ? f.innerText + (i.getAttribute('title') || '') + (i.alt || '') : '') }; }).slice(0, 80);`));
+    .map(i => { const f = i.closest('figure, .gc, .cover, .photo, [class*=img], li, article') || i.parentElement; return { src: (i.currentSrc || i.src).split('/').slice(-1)[0], credit: /photo|©|cc |public domain|wikimedia|courtesy/i.test(f ? f.textContent + (i.getAttribute('title') || '') + (i.alt || '') : '') };   // textContent: content-visibility:auto cards report no innerText off-screen }).slice(0, 80);`));
   check('P-26', C, ok(VIEWS.every(v => !ih[v].length) && photos.every(p => p.credit)), { hits: ih, photos: photos.length, uncredited: photos.filter(p => !p.credit).slice(0, 5) });
   P_TEXT_CACHE[rel] = texts.gallery;
   await o.ctx.close();
@@ -654,6 +654,7 @@ async function keyboard(page, maxTabs = 60) {
       return { tag: a.tagName, t: (a.getAttribute('aria-label') || a.textContent || a.value || '').replace(/\s+/g, ' ').trim().slice(0, 40), view: a.getAttribute('data-view'), ring, onscreen: r.bottom > 0 && r.top < innerHeight && r.width > 0,
         inDialog: !!a.closest('[role=dialog]'), skip: /skip/i.test(a.textContent || ''), prevChanged }; });
     if (stops.length && st.prevChanged && !stops[stops.length - 1].ring) stops[stops.length - 1].ring = 'style-change';
+    if (st.tag !== 'BODY' && !st.onscreen) { await page.waitForTimeout(700); st.onscreen = await page.evaluate(() => { const r = document.activeElement.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight && r.width > 0; }); }   // smooth scrolling may still be running
     stops.push(st);
   }
   return stops;
@@ -829,7 +830,10 @@ const SWEEP = new Function('cfg', `${P_VIS}
   // S-11 contrast (and S-09 credit contrast)
   const lum = c => { const m = /rgba?\\(([^)]+)\\)/.exec(c); if (!m) return null; const p = m[1].split(/[ ,\\/]+/).filter(Boolean).map(Number); return p; };
   const L = p => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f(p[0]) + 0.7152 * f(p[1]) + 0.0722 * f(p[2]); };
-  const bgOf = e => { let layers = []; for (let n = e; n && n.nodeType === 1; n = n.parentElement) { const s = getComputedStyle(n);
+  // background = the ancestor chain. Known limit: a positioned sibling under the text (a sliding pressed-state indicator,
+  // pointer-events:none) is not seen, so every S-11 FAIL is checked on a screenshot before it is filed.
+  const bgOf = e => bgAnc(e);
+  const bgAnc = e => { let layers = []; for (let n = e; n && n.nodeType === 1; n = n.parentElement) { const s = getComputedStyle(n);
       if (s.backgroundImage && s.backgroundImage !== 'none' && !/gradient/.test(s.backgroundImage)) return null; if (/gradient/.test(s.backgroundImage)) return null;
       if (n.tagName === 'IMG' || n.tagName === 'PICTURE') return null;
       const c = lum(s.backgroundColor); if (c && (c[3] === undefined || c[3] > 0)) { layers.push(c); if (c[3] === undefined || c[3] >= 1) break; } }
@@ -838,7 +842,7 @@ const SWEEP = new Function('cfg', `${P_VIS}
   const ratio = (fg, bg) => { const a = fg[3] === undefined ? 1 : fg[3]; const f = fg.slice(0, 3).map((v, k) => v * a + bg[k] * (1 - a)); const l1 = L(f), l2 = L(bg); return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05); };
   const fails = [], seenC = new Set(); let tested = 0, unknown = 0; const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   for (let n; (n = tw.nextNode()) && tested < 2500;) { const t = n.textContent.trim(); if (t.length < 2) continue; const e = n.parentElement; if (!e || !vis(e) || e.closest('svg,noscript,script,style')) continue;
-    const r = e.getBoundingClientRect(); if (r.top > innerHeight * 8) continue; tested++;
+    const r = e.getBoundingClientRect(); if (r.width <= 2 || r.height <= 2) continue;   // visually hidden text if (r.top > innerHeight * 8) continue; tested++;
     const s = getComputedStyle(e); const fg = lum(s.color); const bg = bgOf(e); if (!fg || !bg) { unknown++; continue; }
     const px = parseFloat(s.fontSize), bold = +s.fontWeight >= 700; const large = px >= 24 || (bold && px >= 18.66);
     const cr = ratio(fg, bg); const need = large ? 3 : 4.5;
@@ -850,6 +854,7 @@ const SWEEP = new Function('cfg', `${P_VIS}
     const hidden = /hidden|clip/.test(s.overflowX + s.overflowY); if (!hidden) return; const ownText = [...e.childNodes].some(c => c.nodeType === 3 && c.textContent.trim());
     if (!ownText && e.children.length) return;
     if (e.matches('button, a, [role=button]') && e.querySelector('svg') && bx.width <= 52) return;   // icon control with a hidden text label
+    if (Math.abs(parseFloat(s.textIndent)) >= bx.width * 0.9 || /^(100|200)%$/.test(s.textIndent)) return;   // text-indent image replacement: the label is hidden on purpose
     const over = e.scrollWidth > e.clientWidth + 2 || e.scrollHeight > e.clientHeight + 4; if (!over) return;
     const d = { el: (e.tagName.toLowerCase() + '.' + String(e.className).split(' ')[0]).slice(0, 36), t: e.textContent.trim().slice(0, 40) };
     if (s.textOverflow === 'ellipsis' || +s.webkitLineClamp > 0 || s.webkitLineClamp !== 'none' && s.webkitLineClamp) trunc.push(d); else if (e.textContent.trim().length > 1 && !/sr-only|vh|visually/.test(e.className)) clip.push(d); });
