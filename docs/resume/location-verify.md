@@ -43,24 +43,21 @@ Tool SHAs:
 | c2306ba1 | name-only Nominatim fallback |
 | (git log: "circuit breaker") | per-host circuit breaker; 502 handled as a back-off |
 
-Tests: `node tools/location-verify.test.js`, 60 tests. Also: adfb052d `--names` re-check mode · f29ae0f1 `--duplicates` → docs/geoverify/DUPLICATES.md (42 pairs). Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
+Tests: `node tools/location-verify.test.js`, 61 tests. Also: adfb052d `--names` re-check mode · f29ae0f1 `--duplicates` → docs/geoverify/DUPLICATES.md (42 pairs). Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
 
 ## Next
 
-1. Re-check chain (`q.sh` from the separate worktree `scratchpad/qwt`, never the main checkout):
-   - The SF names re-check is in flight; Orlando (ABC Commissary) is pushed automatically when SF's recheck file lands.
-   - Then combine `docs/geoverify/recheck/*.md` into **docs/geoverify/recheck-wikidata-2026-10-16.md**.
-2. Singapore re-run: REQUEST `city=singapore … commit=true`, repeated until no `skipped` rows remain.
-3. Duplicates:
-   - Pittsburgh and Youngstown are done (18aaf4b8).
-   - Waiting on the orchestrator: an orphan-registry cleanup vs per-twin research (all other pairs are registry-only).
-   - Aachen "- CLOSED" hyphen record still to fix.
-4. Location-verify page-scope filter (on-page rows first), pending the orchestrator.
-5. Then saarland, okinawa, rhineland, aachen.
+1. Singapore re-run 1 is in flight (58b8579d; per-region anchors, budget rows skipped).
+   - When "Location-verify report: singapore" lands after 58b8579d, summarise it.
+   - If any rows are `skipped`, push the same REQUEST again with `scratchpad/q.sh req …`.
+   - Repeat until 0 skipped, then send the orchestrator the final SHA. It accepts Singapore in one batch, holding
+     Founder Bak Kut Teh until then.
+2. Then saarland, okinawa, rhineland, aachen, one REQUEST each, commit=true.
+3. Waiting on the orchestrator: a decision on the ORPHANS.md (d) list (12 entries: archive with a reason, or keep).
 
 ## In flight
 
-- SF names re-check run; q.sh chain (bb9l…) waiting to push Orlando. Nothing unpushed.
+- Singapore re-run 1 (commit=true). Nothing unpushed.
 
 ## Notes
 
@@ -68,6 +65,9 @@ Tests: `node tools/location-verify.test.js`, 60 tests. Also: adfb052d `--names` 
 - **Re-score without network:** `node tools/location-verify.js --reassist docs/geoverify/<city>.json` (assist column only; reviews untouched). Never on a city whose run is in flight.
 - **Never run queue scripts in the main checkout**: a background script once committed REQUEST inside a manual merge. Use `scratchpad/q.sh` (own worktree, detached at origin, only REQUEST).
 - **Beta merge conflicts**: take theirs for beta/*, rebuild (`npm run beta`), then gates. Never hand-merge generated files.
+- **Scope (385f6189):** default is page ∪ dataset. The ~2,000 "orphans" are almost all (b), dataset rows held for a
+  pin. `--orphans` → ORPHANS.md; `--duplicates` → DUPLICATES.md. Both keep a Decisions log.
+- **Re-check (4573ae25):** 3 corroborated, Hotel Utah moved 71 m. The orchestrator applied it in f9e717dc.
 - **Queue step:** fetch until `git log origin/<branch>` shows "Location-verify report: <prev>", pull, write REQUEST
   (`city=<next>` with scope `unverified,low,status`, limit 0, nominatim_max 300, `commit=true`), commit, push, verify
   with ls-remote.

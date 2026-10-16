@@ -379,7 +379,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-insights, [data-cleo-insights]) .chart a:focus-visible rect{stroke:var(--focus);stroke-width:3px;paint-order:fill}
 :is(.view-insights, [data-cleo-insights]) .legend{display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-4);list-style:none;margin:var(--s-2) 0 0;padding:0;font-size:var(--fs-meta);color:var(--ink-2)}
 :is(.view-insights, [data-cleo-insights]) .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:var(--s-2)}
-:is(.view-insights, [data-cleo-insights]) .fn{font-size:var(--fs-xs);color:var(--ink-3);margin:var(--s-2) 0 0}
+:is(.view-insights, [data-cleo-insights]) .fn{font-size:var(--fs-sm);color:var(--ink-3);margin:var(--s-2) 0 0}
 /* QA-55 (FE-B W8): the chart and page subtitles are prose a reader reads — body size (≥ 16 px); footnotes stay small */
 :is(.view-insights, [data-cleo-insights]) :is(.ins-h, .icard) > .sub{font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink-2)}
 :is(.view-insights, [data-cleo-insights]) .tbl{margin-top:var(--s-2);font-size:var(--fs-meta)}
@@ -411,7 +411,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
   .views[data-cleo-views] button:active { transform: scale(.97); }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .gc-a:hover .cover, :is(.vw, [data-cleo-book], [data-cleo-insights]) .gc-a:focus-visible .cover { transform: translateY(-3px); box-shadow: var(--e-2), inset 0 -5px 0 var(--ac); }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover { transition: transform var(--dur-3, 240ms) var(--ease-out, ease-out), box-shadow var(--dur-3, 240ms); }
-  :is(.vw, [data-cleo-book], [data-cleo-insights]) .gc-a:hover .cover .me { animation: w2-ring 700ms var(--ease-out, ease-out) 1; }
+  :is(.vw, [data-cleo-book], [data-cleo-insights]) .gc-a:hover .cover .me { animation: w2-ring var(--dur-pop) var(--ease-out, ease-out) 1; }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .pager .pg { transition: background-color var(--dur-2, 160ms), transform var(--dur-1, 100ms); }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .pager .pg:active { transform: scale(.94); }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .chart rect.bar { transition: opacity var(--dur-2, 160ms); }
@@ -505,8 +505,8 @@ html[data-view="gallery"] .split .pl-cover[data-comp="4"] .g-art { width: 62%; r
 @media (prefers-reduced-motion: no-preference) {
   /* save heart + stamp: pop on the tap only (the W3 rules popped every saved heart on load) */
   .heart[aria-pressed="true"]:not(:focus) .ico, .pl-save[aria-pressed="true"]:not(:focus)::before, .sv-heart[aria-pressed="true"]:not(:focus)::before { animation: none; }
-  :is(.view-guidebook, [data-cleo-book]) .ge-save[aria-pressed="true"]:focus { animation: w3-pop 340ms var(--ease-spring, cubic-bezier(.34,1.56,.64,1)) 1; }
-  .sheet [data-sh="been"][aria-pressed="true"]:focus { animation: w3-pop 340ms var(--ease-spring, cubic-bezier(.34,1.56,.64,1)) 1; }
+  :is(.view-guidebook, [data-cleo-book]) .ge-save[aria-pressed="true"]:focus { animation: w3-pop var(--dur-pop) var(--ease-spring) 1; }
+  .sheet [data-sh="been"][aria-pressed="true"]:focus { animation: w3-pop var(--dur-pop) var(--ease-spring) 1; }
   /* rail doors press in: collection doors, Gallery row cards, the lead card */
   .rail-i, .vw .gc-a { transition: transform var(--dur-1, 100ms) var(--ease-out, ease-out), box-shadow var(--dur-2, 160ms); }
   .rail-i:active, .vw .gc-a:active { transform: scale(.97); }
