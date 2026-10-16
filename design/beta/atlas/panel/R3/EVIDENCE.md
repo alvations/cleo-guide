@@ -39,7 +39,7 @@ Light and dark gave the same numbers.
 
 - **One bar.** The search pill, chips and sort share a single row.
 - **Map.** It starts 108 px from the top (was 208) and takes 64 % of the width (was 60 %), against a 36 % list. The
-  document doesn't scroll (`docScroll 0`).
+  window doesn't scroll (`docScroll 0`), but see the erratum at the end: an inner container does.
 - **View switch.** Gallery / Atlas / Guidebook / Insights moved into the header, and it is **partly off-screen**:
   - At 1440, 1280 and 1024 px wide the switch buttons sit at y = −17 px, so their top 17 of 44 px is clipped. The
     pill's background (98 px tall) overlaps the 56 px header and the bar below it.
@@ -156,3 +156,16 @@ counts and "43 places · area 1 of 13" all show together.
 - Keyboard: skip links, the map at stop 28, rings on every stop, and arrow-key pan.
 - 200 %: 35 % clear map.
 - Library blocked: every place is listed.
+
+## Erratum (issued during round-3 scoring, to all eight panelists)
+
+"The document doesn't scroll" was true only of the window, and only at load. Three panelists spotted this in the shots;
+the lead then measured it on all four desktop pages (`scrollY` stays 0 throughout).
+- **The shift.** Opening a place's detail from a list card shifts the whole Atlas layout up by 108 px inside its
+  container: the map's top moves from 108 to 0. The search and filter bar goes under the header, and the
+  offline-download panel ("Take <city> with you … 3.8 MB on this device") slides in at the bottom.
+- **It persists.** It stays that way after Escape or Back, and after a mouse-wheel scroll over the list.
+- **The map view is still kept.** `viewKept` is true, and the centre, zoom, list scroll and focus are restored.
+- **Keyboard focus too.** Tab-focusing a card shows the same shift in `shots/tokyo-1440-keyboard-card-focus.jpg`.
+- **Evidence:** `shots/tokyo-1440-after-detail-close.jpg`, `cleveland-1440-after-detail-close.jpg`,
+  `tokyo-1440-detail-from-card.jpg`.
