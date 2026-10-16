@@ -2,7 +2,7 @@
 
 _Generated 2026-10-16 from data/geocodes.json and the committed docs/geoverify/<city>.json reports. Report only: fixing is a research / data job. For each pair the status evidence is shown so the current one can be decided against a real source (CLAUDE.md 4c)._
 
-**38 pair(s)** — open + CLOSED: 6 · one OSM object: 9 · similar names, same spot: 23
+**34 pair(s)** — open + CLOSED: 6 · one OSM object: 10 · similar names, same spot: 18
 
 ## open + CLOSED
 
@@ -28,6 +28,7 @@ _Generated 2026-10-16 from data/geocodes.json and the committed docs/geoverify/<
 | erie-pa | Ippa Pizza Napoletana | open · 2026-08-30 ·  | Dina's Authentic Dominican Kitchen | open · 2026-08-30 ·  | both resolved to OSM way/1016678162 in docs/geoverify/erie-pa.json |
 | miami-fl | The Fillmore Miami Beach (Jackie Gleason Theater) | open · 2026-10-02 · Songkick venue page lists 2026 shows (e.g. WOODZ 31 Jul 2026) https://www.songkick.com/venues/244628-fillmore-miami-beach-at-jackie-gleason- | The Fillmore Miami Beach (Jackie Gleason Theater) — CLOSED | closed · 2026-10-03 · Miami New Times + WLRN (Mar 2024): closed 31 May 2022, no reopening found (geocode w8); w7's Songkick-listing 'open' rejected as unconfirmed | both resolved to OSM way/590186839 in docs/geoverify/miami-fl.json |
 | philadelphia-pa | Manakeesh Cafe Bakery & Grill | open · 2026-10-03 · Zabihah listing (record created Sep 2024) https://www.zabihah.com/biz/Philadelphia/Manakeesh-Cafe-Bakery/rXnLzCA3v8 ; Visit Philly halal gui | Manakeesh Cafe Bakery & Grill — CLOSED | closed · 2026-10-03 · West Philly Local (westphillylocal.com/tag/manakeesh): the Lebanese cafe at 45th & Walnut permanently closed after 15 years, last day Tue 17 | both resolved to OSM node/2108022395 in docs/geoverify/philadelphia-pa.json |
+| singapore | Eng Seng Restaurant (Joo Chiat) — CLOSED | closed · 2026-08-26 · EdgeProp / Yahoo News SG: freehold corner shophouse sold S$8.55M, ceased operations 31 Aug 2025 (relocated to 9007 Tampines) | Eng Seng Restaurant — CLOSED (Joo Chiat) | closed · 2026-09-02 · EdgeProp / Yahoo News SG: freehold corner shophouse sold S$8.55M, ceased operations 31 Aug 2025 (relocated to 9007 Tampines) | both resolved to OSM way/285163475 in docs/geoverify/singapore.json |
 
 ## similar names, same spot
 
@@ -35,7 +36,6 @@ _Candidates only: a stall in a hawker centre, a sub-temple or a restaurant on a 
 
 | city | name A | A: status · checked · source | name B | B: status · checked · source | why |
 |---|---|---|---|---|---|
-| aachen | Het Romeins Museum (Thermenmuseum) - CLOSED | open · 2026-09-01 ·  | Het Romeins Museum (Thermenmuseum) — CLOSED | closed · 2026-09-01 · https://www.hetromeinsmuseum.nl/geschiedenis | name similarity 1, 0 m apart |
 | columbus-oh | Red Brick Tavern | open · 2026-08-24 · Facebook (Historic Red Brick Tavern) active; operating restaurant | The Red Brick Tavern | open · 2026-08-24 · historicredbricktavern.com; reopened Feb 2023 by Massey Bros; Yelp active Aug 2026 | name similarity 1, 0 m apart |
 | kyoto | Ryōan-ji | open · 2026-10-02 · UNESCO World Heritage listing (active property); https://whc.unesco.org/en/list/688/maps | Ryōan-ji Seigen-in (龍安寺 西源院) | open · 2026-10-02 · Rurubu spot listing https://rurubu.jp/andmore/spot/80027181 (discovery listing); checked 2026-10-02 | name similarity 0.9, 0 m apart |
 | new-york-ny | Wah Fung No 1 | open · 2026-08-10 · NYC research pass 2026-08-10 — fact-checked open via 2026 sources (Michelin/Eater/Infatuation/official) | Wah Fung No. 1 Fast Food | open · 2026-08-10 · NYC research pass 2026-08-10 — fact-checked open via 2026 sources (Michelin/Eater/Infatuation/official) | name similarity 0.9, 10 m apart |
@@ -43,11 +43,7 @@ _Candidates only: a stall in a hawker centre, a sub-temple or a restaurant on a 
 | osaka | Dōtonbori | open · 2026-10-03 · public street / canal district | Kani Doraku Dōtonbori Honten (かに道楽 道頓堀本店) | open · 2026-10-03 · carried over from dataset record (not re-checked in W7E); MapFan spot listing live 2026-10-03 https://mapfan.com/spots/S5CQC,E0,W56CP0 | name similarity 0.9, 22 m apart |
 | saarland | Brasserie Excelsior | open · 2026-08-31 ·  | Brasserie L'Excelsior | open · 2026-08-31 ·  | name similarity 0.914, 0 m apart |
 | saarland | Place Stanislas, Place de la Carrière & Place d'Alliance | open · 2026-08-31 ·  | Place Stanislas (Nancy) | open · 2026-08-31 ·  | name similarity 0.9, 0 m apart |
-| saarland | Villa Majorelle | open · 2026-08-31 ·  | Villa Majorelle (Nancy) | open · 2026-08-31 ·  | name similarity 1, 0 m apart |
-| saarland | Palais des Ducs de Lorraine – Musée Lorrain | open · 2026-08-31 ·  | Palais des ducs de Lorraine – Musée Lorrain (Nancy) | open · 2026-08-31 ·  | name similarity 1, 0 m apart |
-| saarland | Porte de la Craffe | open · 2026-08-31 ·  | Porte de la Craffe (Nancy) | open · 2026-08-31 ·  | name similarity 1, 0 m apart |
 | saarland | Basilique Saint-Epvre | open · 2026-08-31 ·  | Basilique Saint-Epvre & Ville Vieille (Nancy) | open · 2026-08-31 ·  | name similarity 0.9, 0 m apart |
-| saarland | Parc de la Pépinière | open · 2026-08-31 ·  | Parc de la Pépinière (Nancy) | open · 2026-08-31 ·  | name similarity 1, 0 m apart |
 | saarland | Cathédrale Notre-Dame-de-l'Annonciation de Nancy | open · 2026-08-31 ·  | Cathédrale Notre-Dame-de-l'Annonciation (Nancy) | open · 2026-08-31 ·  | name similarity 0.904, 0 m apart |
 | silicon-valley-ca | Android Lawn Statues | open · 2026-08-14 · Wikipedia/Atlas Obscura; outdoor installation still on site next to Google Visitor Center | Google Android Lawn Statues & Visitor Experience | open · 2026-08-14 · Public installation next to Google Visitor Center; Wikipedia/Atlas Obscura active listings | name similarity 0.9, 10 m apart |
 | silicon-valley-ca | SoFA District & SoFA Market | open · 2026-08-14 · SoFA Market open daily 11am-9pm; Yelp updated Aug 2026 | SoFA District | open · 2026-08-14 · Active downtown arts/entertainment district; Visit San Jose listing | name similarity 0.9, 0 m apart |
@@ -77,3 +73,5 @@ _Candidates only: a stall in a hawker centre, a sub-temple or a restaurant on a 
 | 2026-10-16 | silicon-valley-ca | Cantor Arts Center / … & Rodin Sculpture Garden; Android Lawn Statues / Google … Visitor Experience; SoFA District / … & SoFA Market | **pending** — registry-only (neither name is on the page); to clear with the orphan cleanup | — |
 
 **Finding (2026-10-16):** of the 42 pairs, only the 2 Pittsburgh pairs were duplicated on a live page. The 2 Youngstown pairs were page name + orphan alias. Every other pair is **registry-only**: neither name is on its city's page (held, renamed or merged by consolidate). They don't affect the guide; they are stale registry entries. Each city's `--geocheck` prints "registry has N entries not on the page" (orphans), about 2,000 in total. The open + CLOSED twins are all of this kind: chicago Edzo's, erie Enrique's, miami Fillmore, philadelphia Manakeesh, singapore Chợ Nổi Cái Bè and Denzy Gelato.
+| 2026-10-16 | aachen | "Het Romeins Museum (Thermenmuseum) - CLOSED" (hyphen) | **registry alias removed**: not on the page, and wrongly marked status open with no statusSource. The page record "— CLOSED" (status closed, source hetromeinsmuseum.nl/geschiedenis) is kept, and the alias is noted in its `note`. | same Wikidata Q153193 pin |
+| 2026-10-16 | saarland | 4 × "<name> (Nancy)" aliases | **merged**: registry-only aliases of on-page names (see ORPHANS.md Decisions) | identical pins |

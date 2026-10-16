@@ -189,10 +189,10 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
   -webkit-mask: var(--g, var(--g-star4)) center / contain no-repeat; mask: var(--g, var(--g-star4)) center / contain no-repeat; }
 .rail-i.sig::after { background: var(--city-on); width: 26px; height: 26px; }
 .rail-i:has(.g, .ico)::after { display: none; }
-@media (hover: hover) { .rail-i:hover::after { animation: bob var(--dur-4) var(--ease-spring); } }
-.rail-i:active::after, .rail-i[aria-pressed="true"]::after { animation: bob var(--dur-4) var(--ease-spring); }
-@media (hover: hover) { .rail-i:hover .g, .rail-i:hover .ico { animation: bob var(--dur-4) var(--ease-spring); } }
-.rail-i:active .g, .rail-i:active .ico, .rail-i[aria-pressed="true"] .g { animation: bob var(--dur-4) var(--ease-spring); }   /* glyph responds to tap (M1-14) */
+@media (hover: hover) { .rail-i:hover::after { animation: bob var(--dur-pop) var(--ease-out); } }
+.rail-i:active::after, .rail-i[aria-pressed="true"]::after { animation: bob var(--dur-pop) var(--ease-out); }
+@media (hover: hover) { .rail-i:hover .g, .rail-i:hover .ico { animation: bob var(--dur-pop) var(--ease-out); } }
+.rail-i:active .g, .rail-i:active .ico, .rail-i[aria-pressed="true"] .g { animation: bob var(--dur-pop) var(--ease-out); }   /* glyph responds to tap (M1-14) */
 @media (min-width: 900px) { .rail-i { min-height: 76px; min-width: 132px; font-size: var(--fs-lead); } .rail-i.sig { min-width: 232px; min-height: 92px; font-size: var(--fs-lead); } }
 
 /* ---------- 6. Toolbar (filled by city.js: .modes · #cleo-filter · .shown) ---------- */
@@ -525,14 +525,14 @@ html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-
   }
   .overlay:not(.side) .sheet { animation: w2-sheet-up var(--dur-3) var(--ease-out); }
   .overlay.side .sheet { animation: w2-sheet-in var(--dur-3) var(--ease-out); }
-  .pl-save[aria-pressed="true"] { animation: w2-ring 520ms var(--ease-out) 1; }
+  .pl-save[aria-pressed="true"] { animation: w2-ring var(--dur-pop) var(--ease-out) 1; }
   .pl:hover { transform: translateY(-2px); }
-  .pl:hover .pl-glyph { animation: bob var(--dur-4) var(--ease-spring); }
-  .pl[data-t="1"]:hover .tg.t1, .tier.t1:hover .tg { transform: rotate(45deg); transition: transform var(--dur-3) var(--ease-spring); }
+  .pl:hover .pl-glyph { animation: bob var(--dur-pop) var(--ease-out); }
+  .pl[data-t="1"]:hover .tg.t1, .tier.t1:hover .tg { transform: rotate(45deg); transition: transform var(--dur-3) var(--ease-out); }
   .rail-i.sig { background-image: linear-gradient(105deg, transparent 40%, color-mix(in srgb, var(--city-on) 18%, transparent) 50%, transparent 60%); background-size: 220% 100%; background-repeat: no-repeat; background-position: -160% 0; }
-  .rail-i.sig:hover { animation: w2-sheen 900ms var(--ease-out) 1; }
-  .tile:hover .art svg { animation: w2-twinkle 1.6s ease-in-out infinite; }
-  .tile .art svg { transition: transform var(--dur-4) var(--ease-out); }
+  .rail-i.sig:hover { animation: w2-sheen var(--dur-pop) var(--ease-out) 1; }
+  /* (v2) no looping tile twinkle: every moment is one-shot and ≤ 300 ms */
+  .tile .art svg { transition: transform var(--dur-3) var(--ease-out); }
   .tile:hover .art svg { transform: scale(1.06) translateY(-2px); }
   .btn, .pill, .rail-i, .src { transition: transform var(--dur-1) var(--ease-out), background-color var(--dur-2), box-shadow var(--dur-2), color var(--dur-2); }
   .btn:active, .pill:active, .rail-i:active { transform: scale(.97); }
@@ -661,12 +661,12 @@ html .pin-n:not(.sel):not(.day) { box-shadow: inset 0 -3px 0 var(--ac, transpare
 @keyframes w3-stamp { 0% { transform: rotate(-14deg) scale(1.6); } 60% { transform: rotate(-6deg) scale(.94); } 100% { transform: rotate(-8deg) scale(1); } }
 @keyframes w3-door { 0% { transform: none; } 40% { transform: translateY(-3px) rotate(-8deg); } 100% { transform: none; } }
 @media (prefers-reduced-motion: no-preference) {
-  .pl-save[aria-pressed="true"]::before, .heart[aria-pressed="true"] .ico, .sv-heart[aria-pressed="true"]::before { animation: w3-pop 380ms var(--ease-spring, cubic-bezier(.34,1.56,.64,1)) 1; }
-  .stamp.stamp-in:not([hidden]) { animation: w3-stamp 360ms var(--ease-out) 1; }   /* PERF-16: city.js beat() adds .stamp-in on the tap only */
-  .rail-i[aria-pressed="true"] > .g, .rail-i[aria-pressed="true"] > .ico { animation: w3-door 420ms var(--ease-spring, ease-out) 1; }
+  .pl-save[aria-pressed="true"]::before, .heart[aria-pressed="true"] .ico, .sv-heart[aria-pressed="true"]::before { animation: w3-pop var(--dur-pop) var(--ease-spring) 1; }
+  .stamp.stamp-in:not([hidden]) { animation: w3-stamp var(--dur-pop) var(--ease-out) 1; }   /* PERF-16: city.js beat() adds .stamp-in on the tap only */
+  .rail-i[aria-pressed="true"] > .g, .rail-i[aria-pressed="true"] > .ico { animation: w3-door var(--dur-pop) var(--ease-out) 1; }
   .rail-i.door:active > .ico { transform: scale(.9); transition: transform var(--dur-1) var(--ease-out); }
-  .pills .pill[aria-pressed="true"], .modes button[aria-pressed="true"] { animation: w3-pop 300ms var(--ease-out) 1; }
-  .pin-n.sel { animation: w3-pop 320ms var(--ease-out) 1; }
+  .pills .pill[aria-pressed="true"], .modes button[aria-pressed="true"] { animation: w3-pop var(--dur-pop) var(--ease-out) 1; }
+  .pin-n.sel { animation: w3-pop var(--dur-pop) var(--ease-out) 1; }
 }
 
 /* 16.6 Landing hero wanderlust (ROUND-2 gap #4, designer half): a night panorama of the six country motifs the imagery

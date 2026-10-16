@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 15:40Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 16:22Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -30,13 +30,11 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- **The candidate 530dc83b is NO** (QA 566d606e, 15:05Z). QA-69 and QC-01 are verified, and open High is 0. Two Med regressions against be74c82f block the re-sign:
-  - **QA-70** (the phone Gallery map open is about 1.5 s slower; the B-07 pin step fails on Tokyo/NY).
-    - Cause, bisected by both FE-2 and platform: 7e746d9b, FE-B's switcher CSS. **Four** `:has()` rules on `<main>` in fe-a.css (197–198 and 201–202) are re-checked on every mutation in main.
-    - Fix (FE-2, briefed 15:33Z): key them on `main[data-views-on]` and `main[data-overlay-on]`, attributes the script sets. Platform measured Tokyo with all four removed at 1,666 ms, against 1,654 ms on be74c82f.
-    - Platform lands a `:has()` lint right after, with a shrink-only allowlist for 7 cleo.css selectors (PERF-16, the designer's).
-  - **QA-71** (the carousel swipe after the `#p=` round trip): FE-2 has it green locally and is confirming the probe catches the bug.
-- **Next:** when FE-2 pushes (both fixes, or QA-71 first), verify the SHAs and gate the head, then pin it. QA runs a delta re-sign: time to first pin, the swipe after a round trip, Gallery B-07 twice, and the touched rows. FE-2 suggests B-07's fixed 900 ms wait should poll up to about 3 s; that is QA's call.
+- **The deploy candidate is pinned at `3ba696e8743112fcc5407e05e5daf6b3184caad4`** (16:20Z). QA is running the delta re-sign; asked 16:20Z.
+  - The pin contains QC-01 (2bfff3fe), QA-69 (69ca3690), QA-71 (fd54b823, verified by QA in 178d9e05) and **QA-70 (a7b4a980)**. In a7b4a980, all four `:has()`-over-main rules are rekeyed to `data-views-on` and `data-overlay-on`; FE-2 measures Tokyo and NY first pin at about 0.95 s.
+  - validate, npm test (alone) and beta:check are green. It merges cleanly into `claude/cleveland-page-creation-pant4l`.
+  - Platform measures first pin against be74c82f, then wires the `:has()` lint. No product-code pushes from platform until QA rules.
+- The previous candidate, 530dc83b, was NO on QA-70 and QA-71 (566d606e). Both are now fixed in the pin.
 - Not blocking: QA-61 and QA-68. QA-67 is fixed (f08f892d).
 - **On YES:**
   1. `git push origin <sha>:refs/heads/beta-deploy-r7`;
