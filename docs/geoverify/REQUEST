@@ -1,6 +1,6 @@
-city=chicago-il
+city=washington-dc
 scope=unverified,low,status
 limit=0
 nominatim_max=300
 commit=true
-# commit run (dry run was clean: pass 52, review 8, hold 18, reject 44)
+# queue: next after chicago-il

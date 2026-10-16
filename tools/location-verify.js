@@ -193,7 +193,11 @@ function decide(place, graded) {
   const good = graded.filter(c => GRADE_RANK[c.grade] >= 2);
   if (!good.length) return { outcome: 'no-match', proposal: null, notes };
   const pref = { official: 5, onemap: 4.5, wikidata: 4, wikipedia: 3, 'osm-poi': 2, 'gov-address': 1.5, 'osm-address': 1 };
-  good.sort((a, b) => GRADE_RANK[b.grade] - GRADE_RANK[a.grade] || (pref[b.kind] || 0) - (pref[a.kind] || 0) || b.nameSim - a.nameSim);
+  // Parks, reserves and other extended features are pinned at the main entrance: an OSM object named "… (Main Entrance)"
+  // or tagged entrance=* outranks a centroid of the same grade.
+  const ext0 = isExtended(place.name);
+  good.forEach(c => { c.entrance = ext0 && /\bentrance\b/i.test(c.name || '') || !!(c.tags && c.tags.entrance); });
+  good.sort((a, b) => GRADE_RANK[b.grade] - GRADE_RANK[a.grade] || (ext0 ? (b.entrance - a.entrance) : 0) || (pref[b.kind] || 0) - (pref[a.kind] || 0) || b.nameSim - a.nameSim);
   const best = good[0];
   const ext = isExtended(place.name);
   const spread = ext ? 1500 : 150;
@@ -210,6 +214,7 @@ function decide(place, graded) {
     matchedName: best.name || null, sourceUrl: best.sourceUrl, retrieved: best.retrieved, licence: best.licence,
     grade, gradeWhy: best.why, nameSim: best.nameSim, addressAgreement: best.addr, distanceM: null,
     osmObject: best.osm ? osmEvidence(best) : null,
+    coordDecimals: best.coordDecimals == null ? null : best.coordDecimals, multiSite: !!best.multiSite, entrance: !!best.entrance,
     corroboratedBy: agree.map(c => ({ kind: c.kind, sourceUrl: c.sourceUrl, distanceM: haversineM(c.lat, c.lng, best.lat, best.lng) })) };
   const cur = place.current;
   if (cur.lat == null || cur.lng == null) return { outcome: 'pin', proposal, notes };
@@ -261,11 +266,28 @@ function demoteSharedObjects(rows) {
  *         an OSM POI without an exact address match) — logged in review.why when found.
  *   reject low, shared-object, conflict, ambiguous, or no proposal.
  */
+const SYSTEM_NAME = /\b(skyliner|gondola|monorail|railway|rail line|line|system|network|route|cruise|tour|trolley|ferry|shuttle)\b/i;
+/** The registry record names a PART ("Resort (Gran Destino Tower)") that the matched name does not carry. */
+function namesAPart(placeName, matched) {
+  const q = (String(placeName).match(/\(([^)]+)\)/) || [])[1];
+  if (!q || !matched) return false;
+  const words = normName(q).split(' ').filter(w => w.length > 3);
+  const m = normName(matched);
+  return words.length > 0 && !words.some(w => m.includes(w)) && /\b(tower|wing|building|hall|terminal|pavilion|lodge|station|gate|entrance|annex|center|centre)\b/i.test(q);
+}
 function reviewAssist(row) {
   const p = row.proposal;
+  const conf = String((row.current && row.current.confidence) || '').toLowerCase();
+  if (p && row.outcome === 'confirm' && GRADE_RANK[conf] >= GRADE_RANK[p.grade]) return { verdict: 'no-change', why: [`confirms the current ${conf} pin (${p.distanceM} m); nothing to review`] };
   if (!p || ['no-match', 'ambiguous', 'planned', 'skipped'].includes(row.outcome)) return { verdict: 'reject', why: ['no proposal'] };
   if (row.outcome === 'shared-object' || p.grade === 'low') return { verdict: 'reject', why: ['low / shared OSM object'] };
-  if (row.outcome === 'conflict') return { verdict: 'hold', why: [`conflict: ${p.distanceM} m from the current pin — look at both`] };
+  if (row.outcome === 'conflict') return p.entrance
+    ? { verdict: 'review', why: [`entrance object “${p.matchedName}” is ${p.distanceM} m from the current pin — parks are pinned at the main entrance; check which is right`] }
+    : { verdict: 'hold', why: [`conflict: ${p.distanceM} m from the current pin — look at both`] };
+  const coarse = (p.kind === 'wikidata' || p.kind === 'wikipedia') && p.coordDecimals != null && p.coordDecimals < 4;
+  if (coarse) return { verdict: 'hold', why: [`${p.kind} coordinate has ${p.coordDecimals} decimals (≈ ${p.coordDecimals <= 2 ? '1 km' : '100 m'} coarse) — needs a precise source`] };
+  if (p.multiSite || ((p.kind === 'wikidata' || p.kind === 'wikipedia') && SYSTEM_NAME.test(row.name))) return { verdict: 'hold', why: ['a multi-site system or route, not one place — pick the stop/point by hand'] };
+  if (namesAPart(row.name, p.matchedName)) return { verdict: 'hold', why: [`the record names a part (“${(row.name.match(/\(([^)]+)\)/) || [])[1]}”) but the match is the whole (“${p.matchedName}”)`] };
   const ag = p.addressAgreement || {};
   const exactAddr = ag.houseNumber === true && ag.street === true;
   const corroborated = (p.corroboratedBy || []).length > 0;
@@ -369,6 +391,13 @@ function claimValues(entity, pid) {
   return (pref.length ? pref : cl.filter(c => c.rank !== 'deprecated')).map(c => c.mainsnak)
     .filter(s => s && s.snaktype === 'value' && s.datavalue).map(s => s.datavalue.value);
 }
+/** Decimal places of a coordinate as published (28.595 → 3). Fewer than 4 is ≈ 100 m coarse. */
+function decimals(x) { const m = String(x).match(/\.(\d+)/); return m ? m[1].replace(/0+$/, '').length : 0; }
+/** Wikidata precision (degrees) → decimal places; else count the published digits. */
+function coordDecimals(lat, lng, precisionDeg) {
+  if (precisionDeg && precisionDeg > 0) return Math.max(0, Math.round(-Math.log10(precisionDeg)));
+  return Math.min(decimals(lat), decimals(lng));
+}
 function wikidataFacts(entity) {
   const coord = claimValues(entity, 'P625')[0];
   const t = v => (v && v.time ? v.time.replace(/^\+/, '').slice(0, 10).replace(/-00/g, '') : null);
@@ -376,6 +405,8 @@ function wikidataFacts(entity) {
     qid: entity.id,
     label: (entity.labels && (entity.labels.en || Object.values(entity.labels)[0]) || {}).value || null,
     lat: coord ? coord.latitude : null, lng: coord ? coord.longitude : null,
+    coordDecimals: coord ? coordDecimals(coord.latitude, coord.longitude, coord.precision) : null,
+    coordCount: ((entity.claims || {}).P625 || []).filter(c => c.rank !== 'deprecated').length,
     website: claimValues(entity, 'P856')[0] || null,
     street: (claimValues(entity, 'P6375')[0] || {}).text || null,
     postcode: claimValues(entity, 'P281')[0] || null,
@@ -537,7 +568,7 @@ async function fromWikidata(http, place, anchor) {
     if (!linked && nameSim(place.name, f.label || '') < 0.8) continue;
     const url = `https://www.wikidata.org/wiki/${f.qid}`;
     cands.push({ kind: 'wikidata', source: 'wikidata', name: f.label, lat: f.lat, lng: f.lng, street: f.street, postcode: f.postcode,
-      address: f.street, sourceUrl: url, retrieved: g.retrieved, licence: LICENCE.wikidata, linked });
+      address: f.street, sourceUrl: url, retrieved: g.retrieved, licence: LICENCE.wikidata, linked, coordDecimals: f.coordDecimals, multiSite: f.coordCount > 1 });
     // Closure statements belong to THIS item; they count only if the item is the place (linked QID, or the chosen
     // proposal, or within 150 m of the current pin) — a same-name item (the 1868 lighthouse) is not evidence.
     const ev = { linked, lat: f.lat, lng: f.lng, sourceUrl: url, retrieved: g.retrieved };
@@ -563,7 +594,7 @@ async function fromWikipedia(http, place, anchor, enwikiTitle) {
   if (anchor && haversineM(anchor.lat, anchor.lng, c.lat, c.lon) > anchor.radiusM) return { cands: [] };
   const url = `https://en.wikipedia.org/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`;
   return { cands: [{ kind: 'wikipedia', source: 'wikipedia', name: page.title.replace(/\s*\([^)]*\)$/, ''), lat: c.lat, lng: c.lon,
-    sourceUrl: url, retrieved: r.retrieved, licence: LICENCE.wikipedia, linked: !!(enwikiTitle || raw) }] };
+    sourceUrl: url, retrieved: r.retrieved, licence: LICENCE.wikipedia, linked: !!(enwikiTitle || raw), coordDecimals: coordDecimals(c.lat, c.lon) }] };
 }
 
 const OSM_PLACE_CLASSES = /^(amenity|shop|tourism|leisure|historic|craft|office|building|man_made|club|healthcare|natural|waterway|bridge|railway|aeroway)$/;
@@ -1053,4 +1084,4 @@ if (require.main === module) {
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
