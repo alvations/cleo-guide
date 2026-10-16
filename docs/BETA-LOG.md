@@ -1827,3 +1827,16 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **Keyboard (FE-2's (b)):** on desktop, msIn puts the map pane before the list in the DOM, so Tab reaches the map and its pins before the list. The explicit grid columns keep the layout; msOut restores the order.
 - **R2 #8:** the desktop preview and the phone carousel have no media block when there's no photo. The preview leads with a 40 px `--sand` glyph chip beside the name.
 - **R2 #7:** the phone ⓘ is itself a 44 × 44 button (no pseudo hit area), inside the one-line 20 px strip; attribution links get a ≥ 24 px tall hit box. Photo-credit links in cards are unchanged: padding them made the credit's scrollHeight exceed its box (QA "credits are whole").
+
+### FE Atlas (FE-1) — SPEC-v3 rev 5 (PANEL-R3 #4 part) · FE-B R7-g6 shadows
+- **No sun on the map:** dots and pills carry no tier colour. Sights are light 7 px circles (`--ink` at 30 %) and eat & drink dark 8 px squares (`--ink` at 72 %; dark mode 30 % / 50 %), both with a 1.5 px surface halo. Every pill uses the surface treatment, and Must see shows in the preview, the card sticker and Filters → Tier. The Key drops its Must-see pill and draws the dots as on the map.
+- **Glyphs:**
+  - Step 0 is the per-place overrides in `design/beta/atlas/glyph-overrides.json` (Free Stamp → frame, The Arcade → bag, A Christmas Story House → frame), read at build time.
+  - New nouns: brewing / brewery / distillery / winery / taproom → bottle (Great Lakes Brewing); statue / sculpture → frame; market / shop / bookstore / arcade / yokochō / -dōri / -gai → bag.
+  - Worship outside Japan → spire.
+  - Two original line glyphs were added on the 24 px grid: `bag` and `spire`. `frame` comes from the design kit.
+- **Labels:**
+  - The location dot after Near me is a placed box, so no label covers it.
+  - After placing by estimate, `feature()` measures the real rendered pills. A pill nearer than 4 px to one already kept goes back to a dot; the selected and saved places stay labelled.
+- **FE-B R7-g6:** `.pp .pp-h` now uses `var(--ring-quiet)`, and the `.pp-1.sel` sun ring is removed (no sun on pills). The Key dots drop their 1 px surface halo rather than take the 4 px `--ring-surface`, which would swamp a 7 px dot. That leaves 3 fewer raw shadows in atlas.css.
+- The duplicate map-pane DOM move in msIn is dropped: atlas-nav.js (FE-2) owns the map-first Tab order.

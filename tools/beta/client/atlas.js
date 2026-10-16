@@ -19,6 +19,7 @@
   const pl = n => n.toLocaleString('en-US') + (n === 1 ? ' place' : ' places'), rec = id => C.byId[id] || C.stub(id);
   const llOf = c => { const v = (at(c, 'data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; };
   const atlas = () => C.view === 'atlas', desk = () => C.desk();
+  let me = null;   // the reader's location after Near me (memory only, never stored)
   // PERF-08: with selective stamping a lens stamps only the cards it shows; an unstamped stub has no `hidden`, so ask the lens
   const shows = c => (Cleo.lens && Cleo.lens.shows ? Cleo.lens.shows(c) : !c.hidden);
   const lensStubs = () => (Cleo.defer ? Cleo.defer.peek(Cleo.lens && Cleo.lens.current ? { lens: Cleo.lens.current() } : undefined) : []);
@@ -37,12 +38,14 @@
   const isT1 = c => at(c, 'data-t') === '1' && !c.hasAttribute('data-closed');
   // dots (SPEC-v3 §1.1, refined): ONE quiet neutral — ink at 38 % for sights, 62 % for eat & drink (mixed into the page
   // ground so the canvas needs no alpha), hollow when closed, a thin surface halo. Area colour only under an area filter.
-  // Kind by shape (R1 #4, R2 #6): a sight is an 8 px circle, eat & drink an 8 px rounded square; dark mode drops to 30 % / 50 %.
-  // A Must-see that isn't featured is a --sun dot with an --on-sun-wash ring; a closed dot is hollow with a diagonal slash.
+  // Kind by shape (SPEC-v3 §1.1 rev 5): a sight is a light 7 px circle (--ink at 30 %), eat & drink a dark 8 px square
+  // (--ink at 72 %; dark mode 30 % / 50 %), both with a 1.5 px surface halo. No tier colour on dots: must-sees are a
+  // third of the places, so sun dots read as confetti. A closed dot is hollow with a diagonal slash. Area colour only
+  // under an area filter.
   const darkOn = () => { const t = H.getAttribute('data-theme'); return t === 'dark' || (t !== 'light' && !!window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches); };
-  C.dotStyle = c => { const cl = c.hasAttribute('data-closed'), f = at(c, 'data-k') === 'f', dk = darkOn(), t1 = isT1(c) && !S.a;
-    const a = S.a ? areaC(c) : t1 ? tok.sun : mix(tok.ink, tok.paper, f ? (dk ? 0.5 : 0.62) : (dk ? 0.3 : 0.38));
-    return { radius: f ? 4 : t1 ? 5 : 4, shape: f ? 'sq' : '', slash: cl, weight: cl ? 1.5 : 1, color: cl ? a : t1 ? tok.onSun : tok.surface, opacity: 1, fillColor: a, fillOpacity: cl ? 0 : 1 }; };
+  C.dotStyle = c => { const cl = c.hasAttribute('data-closed'), f = at(c, 'data-k') === 'f', dk = darkOn();
+    const a = S.a ? areaC(c) : mix(tok.ink, tok.paper, f ? (dk ? 0.5 : 0.72) : 0.3);
+    return { radius: f ? 4 : 3.5, shape: f ? 'sq' : '', slash: cl, weight: 1.5, color: cl ? a : tok.surface, opacity: 1, fillColor: a, fillOpacity: cl ? 0 : 1 }; };
   let lastA = S.a;   // an area filter turns its area colour on for the dots (and off again)
   C.after.push(() => { if (S.a !== lastA) { lastA = S.a; restyle(); } });
   const restyle = () => { readTok(); Object.keys(C.markers).forEach(id => { const c = rec(id); if (c) C.markers[id].setStyle(C.dotStyle(c)); }); if (C.feature) C.feature(); };
@@ -106,25 +109,36 @@
     const inV = vis.filter(id => b.contains(C.markers[id].getLatLng()));
     const first = id => (id === sel ? 0 : sv[id] ? 1 : 2);
     const cand = inV.slice().sort((x, y) => first(x) - first(y) || (MP[x] - MP[y]));
-    const placed = [], want = {}, anc = {}, sz = map.getSize(), ob = atlas() ? C.overMap() : null;   // a pill never sits under the chip row or the carousel
+    const placed = [], want = {}, anc = {}, order = [], sz = map.getSize(), ob = atlas() ? C.overMap() : null;   // a pill never sits under the chip row or the carousel
     const topL = ob ? ob.paddingTopLeft[1] - 24 : 0, botL = ob ? sz.y - (ob.paddingBottomRight[1] - 24) : sz.y;
     // nor under a map control, the List / Map pill or "Search this area" (rects in map-container px)
     const mr = map.getContainer().getBoundingClientRect(), avoid = [...map.getContainer().querySelectorAll('.leaflet-control')].concat([$('.ms-toggle'), $('.ms-here'), $('#cleo-poi')])
       .filter(e => e && e.offsetWidth && !e.closest('[hidden]')).map(e => { const q = e.getBoundingClientRect(); return { l: q.left - mr.left - 4, r: q.right - mr.left + 4, t: q.top - mr.top - 4, b: q.bottom - mr.top + 4 }; });
+    // the reader's location dot is a placed box: no label ever covers it (rev 5, R3 #4)
+    if (me) { const q = map.latLngToContainerPoint(me); placed.push({ l: q.x - 11, r: q.x + 11, t: q.y - 11, b: q.y + 11 }); }
+    const meN = me ? 1 : 0;
     for (const id of cand) {
-      if (placed.length >= N && first(id) === 2) break;
+      if (placed.length - meN >= N && first(id) === 2) break;
       const c = rec(id); if (c.hasAttribute('data-closed') && first(id) === 2) continue;   // closed: never featured unless saved / selected
       const p = map.latLngToContainerPoint(C.markers[id].getLatLng()), w = boxOf(c, nameOf(id));
       const fits = r => { const hit = q => r.l < q.r && r.r > q.l && r.t < q.b && r.b > q.t; return !(r.t < topL || r.b > botL || r.l < 0 || r.r > sz.x || placed.some(hit) || avoid.some(hit)); };
       let a = ANCH.find(x => fits(boxAt(p, w, x)));
       if (!a) { if (first(id) === 2) continue; a = 't'; }   // saved / selected: always labelled, above
-      placed.push(boxAt(p, w, a)); want[id] = 1; anc[id] = a;
+      placed.push(boxAt(p, w, a)); want[id] = 1; anc[id] = a; order.push(id);
     }
     Object.keys(pins).forEach(id => { if (!want[id]) { map.removeLayer(pins[id]); delete pins[id]; } });
     Object.keys(want).forEach(id => { const c = rec(id), cls = pinCls(c, sv[id]);
       if (pins[id] && pins[id]._cls !== cls) { map.removeLayer(pins[id]); delete pins[id]; }
       if (!pins[id]) { pins[id] = mkPin(id, c, sv[id]).addTo(map); pins[id]._cls = cls; const e0 = pins[id].getElement(); if (e0) { e0.setAttribute('data-id', id); e0.setAttribute('data-a', at(c, 'data-a')); } }
       const el = pins[id].getElement(); if (el) { el.classList.toggle('sel', id === sel); el.classList.toggle('hot', id === hoverId); ANCH.forEach(x => el.classList.toggle('pp-a' + x, x !== 't' && anc[id] === x)); } });
+    // the estimate placed them; the real pills decide (rev 5, R3 #4: label boxes ≥ 4 px apart, measured, not guessed) — a pill
+    // nearer than 4 px to one already kept (or over the location dot) goes back to a dot; the selected and saved ones stay
+    { const mr = map.getContainer().getBoundingClientRect(), kept = [];
+      if (me) { const q = map.latLngToContainerPoint(me); kept.push({ left: mr.left + q.x - 11, right: mr.left + q.x + 11, top: mr.top + q.y - 11, bottom: mr.top + q.y + 11 }); }
+      const near = (a, b) => a.left < b.right + 4 && a.right > b.left - 4 && a.top < b.bottom + 4 && a.bottom > b.top - 4;
+      order.forEach(id => { const k = pins[id], e = k && k.getElement(), sp = e && e.firstElementChild; if (!sp) return; const r = sp.getBoundingClientRect(); if (!r.width) return;
+        if (first(id) === 2 && kept.some(q => near(r, q))) { map.removeLayer(k); delete pins[id]; return; }
+        kept.push(r); }); }
     // density discs (region zoom only): > 12 dots inside a 28 px cell read as one soft, unnumbered disc; a click zooms in
     if (!discL) discL = L.layerGroup().addTo(map); discL.clearLayers(); C.discs = 0;
     vis.forEach(id => { const k = C.markers[id]; if (k.options.opacity === 0) k.setStyle(C.dotStyle(rec(id))); });
@@ -417,8 +431,7 @@
       // the footer go to the end of the list column, since the document does not scroll in Atlas
       const sp = $('[data-cleo-search]'); park(tb, bar, x); if (sp && tb) park(sp, tb, tb.firstChild); const tw = $('.topbar .wrap'); park(nav, tw || bar, tw ? $('.top-actions', tw) : null);   // the view switch: the header's right
       if (achips) park(achips, head, $('.ms-more', head).nextSibling);
-      [$('main>.about'), $('body>.method'), $('body>.footer')].forEach(el => park(el, lp, null));
-      if (mp && lp && split && mp.parentNode === split) park(mp, split, lp); }   // Tab reaches the map (its pins) before the list; columns are explicit
+      [$('main>.about'), $('body>.method'), $('body>.footer')].forEach(el => park(el, lp, null)); }   // the map-first DOM order (Tab reaches the map before the list) is atlas-nav.js's (FE-2)
     if (desk() && listOn) listMode(false);
     if (H.classList.contains('ms-nomap')) C.onNoMap();
     msArea();
@@ -426,7 +439,7 @@
   C.msOut = () => { listOn = false; unpark(); undeco(); if (lp) lp.classList.remove('w7-cards'); closePoi(); held(); };
 
   /* ---- locate-me: opt-in, one reading, memory only ---- */
-  let me = null, meL = null;
+  let meL = null;   // `me` (the reader's location, memory only) is declared at the top: feature() reads it
   const locate = b => {
     const map = C.map(), live = $('#cleo-view-live'), say = t => { if (live) live.textContent = t; b.title = t; };
     if (!map) return;
@@ -476,7 +489,7 @@
       const k = (cls, gl, t) => '<b class="pp ' + cls + '"><span><svg class="ico" aria-hidden="true"><use href="#i-' + gl + '"/></svg><b>' + t + '</b></span></b>';
       const fk = d.getElementById('i-forkknife') ? 'forkknife' : 'bowl';
       const paint = () => { const ar = S.a ? [S.a] : []; g.querySelector('ul').innerHTML = '<li>' + k('pp-s', 'columns', 'Sight') + '</li><li>' + k('pp-f', fk, 'Eat &amp; drink') + '</li>' +
-        '<li>' + k('pp-s pp-1', 'columns', 'Must see') + '</li><li>' + k('pp-s pp-x', 'columns', 'Closed') + '</li>' +
+        '<li>' + k('pp-s pp-x', 'columns', 'Closed') + '</li>' +
         '<li class="k"><i class="kd"></i><i class="kd f"></i>More places · zoom in to see their names</li>' +
         ar.map(a => '<li class="k"><i class="kd" style="background:' + areaC({ getAttribute: () => a, hasAttribute: () => false }) + '"></i>' + C.esc(((C.info.areas || {})[a] || {}).n || a) + '</li>').join('') +
         '<li class="k">' + (store.get('base', 'map') === 'street!' ? '<button type="button" class="btn btn-quiet" data-base="map">Back to the calm map</button>' : '<button type="button" class="btn btn-quiet" data-base="street">Show street detail</button>') + '</li>'; };

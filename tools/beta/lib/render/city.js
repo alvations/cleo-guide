@@ -63,6 +63,9 @@ const ICONS = {
   steam: '<path d="M3.5 14.5c0 3.2 3.8 5.5 8.5 5.5s8.5-2.3 8.5-5.5z"/><path d="M8.5 11c-1.2-1.6 1.2-2.6 0-4.4M12 11c-1.2-1.6 1.2-2.6 0-4.4M15.5 11c-1.2-1.6 1.2-2.6 0-4.4"/>',
   wave: '<path d="M2.5 8.5c2.4 0 2.4-2 4.75-2S9.6 8.5 12 8.5s2.4-2 4.75-2 2.35 2 4.75 2M2.5 13.5c2.4 0 2.4-2 4.75-2s2.35 2 4.75 2 2.4-2 4.75-2 2.35 2 4.75 2M2.5 18.5c2.4 0 2.4-2 4.75-2s2.35 2 4.75 2 2.4-2 4.75-2 2.35 2 4.75 2"/>',   // design/beta/tools/build-css.py NEW
   flag: '<path d="M5 21V3.5M5 4h12l-2.5 4L17 12H5"/>',
+  frame: '<rect x="3.5" y="4.5" width="17" height="15" rx="1"/><path d="M6.5 16.5l4-5 3 3.5 2-2.2 2 3.7"/><circle cx="15.5" cy="8.5" r="1.3"/>',   // design/beta/tools/build-css.py NEW
+  bag: '<path d="M5.5 8h13l-1 12.5h-11z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/>',   // FE-1, original: a shopping bag (markets, arcades, shopping streets)
+  spire: '<path d="M12 2.5v3M10.5 4h3"/><path d="M12 5.5l-4.5 6.5v8.5h9V12z"/><path d="M10.5 20.5v-4a1.5 1.5 0 0 1 3 0v4"/>',   // FE-1, original: a church spire (worship outside Japan)
   awning: '<path d="M3 9l2-5h14l2 5"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v8.5h14V12M10 20.5v-5h4v5"/>',
   moon: '<path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/><path d="M17 4l.5 1.3 1.3.5-1.3.5L17 7.6l-.5-1.3-1.3-.5 1.3-.5z"/>',
   bubble: '<path d="M4 4.5h16v11.5H10.5L5.5 20v-4H4z"/><path d="M12 6.8l1.1 2.4 2.6.3-1.9 1.7.5 2.5-2.3-1.3-2.3 1.3.5-2.5-1.9-1.7 2.6-.3z"/>',
@@ -134,17 +137,22 @@ const named = r => (r.src || []).filter(s => s !== 'guide').length;
 const orderArea = list => list.map((r, i) => [r, i]).sort(([x, i], [y, j]) =>
   (x.closed ? 1 : 0) - (y.closed ? 1 : 0) || x.t - y.t || named(y) - named(x) || i - j).map(p => p[0]);
 
-// the map pin's glyph for a sight (SPEC-v3 §1.2, rev 4): the type noun in the place's OWN NAME first, then its collection's
-// glyph, then the compass — a pictogram, never a category or cuisine tag. Japanese place-name suffixes count as nouns
-// (Sensō-ji, Meiji Jingū, Kabuki-za, Rikugi-en, Takeshita-dōri). Worship is the torii for a shrine; a temple is the lantern
-// (on non-Japan pages a church, synagogue or mosque is the lantern too — the torii is Shinto-specific)
-const NOUN = [[/-(?:jinja|gū|gu|taisha)\b|\b(?:jinja|jingū|jingu|taisha|myōjin|shrine)\b/i, 'torii'], [/-(?:ji|dera|in)\b|\b(?:temple|church|cathedral|chapel|synagogue|basilica|mosque)\b/i, 'worship'],
+// the map pin's glyph for a sight (SPEC-v3 §1.2, rev 5): step 0 a per-place override (design/beta/atlas/glyph-overrides.json,
+// designer-owned, each with its reason), then the type noun in the place's OWN NAME, then its collection's glyph, then the
+// compass — a pictogram, never a category or cuisine tag. Japanese place-name suffixes count as nouns (Sensō-ji, Meiji
+// Jingū, Kabuki-za, Rikugi-en, Takeshita-dōri). Worship: the torii for a shrine, the lantern for a temple on Japan pages,
+// the spire elsewhere (the torii is Shinto-specific)
+const GLYPH_OVR = (() => { try { return JSON.parse(require('fs').readFileSync(require('path').resolve(__dirname, '../../../../design/beta/atlas/glyph-overrides.json'), 'utf8')); } catch (e) { return {}; } })();
+const NOUN = [[/-(?:jinja|gū|gu|taisha)\b|\b(?:jinja|jingū|jingu|taisha|myōjin|shrine)\b/i, 'torii'], [/-(?:ji|dera|in)\b|\btemple\b/i, 'temple'],
+  [/\b(?:church|cathedral|chapel|synagogue|basilica|mosque)\b/i, 'church'],
   [/-jō\b|\b(?:castle|palace)\b/i, 'castle'], [/-za\b|\b(?:theat(?:re|er)|playhouse|stadium|arena)\b/i, 'ticket'],
+  [/\b(?:brewing|brewery|distillery|winery|taproom)\b/i, 'bottle'], [/\b(?:statue|sculpture)\b/i, 'frame'],
   [/\b(?:museum|gallery|library|hall|institute)\b/i, 'columns'], [/-(?:en|teien)\b|\b(?:park|gardens?|reservation|preserve|arboretum|conservatory|trail)\b/i, 'leaf'],
   [/\b(?:beach|lake|river|falls|pier|harbou?r)\b/i, 'wave'], [/\b(?:tower|lighthouse|observatory|bridge)\b/i, 'tower'],
-  [/yokoch[oō]\b|-d[oō]ri\b|-gai\b|sh[oō]tengai\b|\b(?:market|shop|bookstore|arcade)\b/i, 'awning'], [/\b(?:cemetery|memorial|monument)\b/i, 'flag']];
-const mapGlyphOf = (r, gl, japan) => { if (r.kind === 'food') return ''; const hit = NOUN.find(([re]) => re.test(r.n));
-  const g = !hit ? gl : hit[1] === 'worship' ? 'lantern' : hit[1] === 'torii' && !japan ? 'lantern' : hit[1];
+  [/yokoch[oō]\b|-d[oō]ri\b|-gai\b|sh[oō]tengai\b|\b(?:market|shop|bookstore|arcade)\b/i, 'bag'], [/\b(?:cemetery|memorial|monument)\b/i, 'flag']];
+const mapGlyphOf = (r, gl, japan, key) => { if (r.kind === 'food') return '';
+  const o = GLYPH_OVR[key + '/' + r.id], hit = !o && NOUN.find(([re]) => re.test(r.n));
+  const g = o ? o.gl : !hit ? gl : hit[1] === 'temple' ? (japan ? 'lantern' : 'spire') : hit[1] === 'church' ? 'spire' : hit[1] === 'torii' && !japan ? 'spire' : hit[1];
   return g && g !== gl ? g : ''; };
 const glyphOf = (r, page) => { const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
   return r.kind === 'food' ? glyphFor(r.cz[0], czN[0], true) : glyphFor(r.g.find(g => g !== 'ICON' && g !== 'FREE') || r.g[0], '', false); };
@@ -155,7 +163,7 @@ function card(r, num, ctx) {
   const aName = areaName(r.a);
   const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
   const dish = r.kind === 'food' ? (ctx.SC || String)(dishOf(czN, ctx.srcNames)) : '';   // food covers (c): the dish or cuisine, never a source or award
-  const gl = glyphOf(r, page), mg = mapGlyphOf(r, gl, ctx.japan);
+  const gl = glyphOf(r, page), mg = mapGlyphOf(r, gl, ctx.japan, ctx.key);
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
   const eyebrow = r.closed
@@ -295,7 +303,7 @@ function render(row, recs, ctx) {
 
   /* -- area chapters -- */
   const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
-  const cardCtx = { japan: row.country === 'japan', page, srcById, srcNames: Object.values(srcById || {}).map(x => x && (x.name || x.n)).filter(Boolean), areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
+  const cardCtx = { japan: row.country === 'japan', key: row.key, page, srcById, srcNames: Object.values(srcById || {}).map(x => x && (x.name || x.n)).filter(Boolean), areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : [tr('city.elsewhere'), ''];   // i18n D-41: chapter strings
