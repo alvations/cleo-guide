@@ -257,7 +257,7 @@
     q = lz[n] = cb ? [cb] : [];
     var v = '';
     ['cleo-city', 'cleo-lazy'].forEach(function (x) { var el = document.getElementById(x), j = null; try { j = el && JSON.parse(el.textContent); } catch (e) {} j = j && (j.js || j); if (!v && j && j[n]) v = j[n]; });
-    if (!v) v = { offline: '__V_offline__', mapfail: '__V_mapfail__', pack: '__V_pack__' }[n] || '';   // build.js fills these in
+    if (!v) v = { offline: '__V_offline__', mapfail: '__V_mapfail__', pack: '__V_pack__', srcview: '__V_srcview__' }[n] || '';   // build.js fills these in (srcview: FE-B D-53)
     var s = document.createElement('script'); s.src = Cleo.root + 'assets/js/' + n + '.js' + (v ? '?v=' + v : ''); s.async = true;
     s.onload = function () { Cleo.need.done(n); };
     s.onerror = function () { delete lz[n]; };
