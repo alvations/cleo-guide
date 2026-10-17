@@ -45,7 +45,7 @@
  *   licence CC0 / PDM / CC BY / CC BY-SA, any version (NC/ND never requested, refused if seen); a JPEG ≥ the slot's
  *   widest size; the title names the place, confirmed by a second name word, the town or a tag (the matched field is
  *   recorded); the fetch-commons subject classifiers; laundering text and "photo by <someone else>"; historic items
- *   (a year before 1950 in the title or tags) refused until the captioned-year rule (D-50) is in the gate; dedup
+ *   (a year before 1950 in the title or tags) carry era/date/institution for the dated caption (D-50), never on a hero or food; dedup
  *   against existing credits, refused Commons files and earlier refused picks (same landing URL or same file title).
  */
 const fs = require('fs');
@@ -143,6 +143,8 @@ function pages(ph) {
   if (ph.source === 'wikimedia') return /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(ph.pageUrl) ? { sourceUrl: ph.pageUrl, provider: 'wikimedia-commons', commonsTitle: decodeURIComponent(ph.pageUrl.split('/wiki/')[1]).replace(/_/g, ' ') } : { why: 'no Commons File: page' };
   return /^https:\/\//.test(ph.pageUrl) ? { sourceUrl: ph.pageUrl, ...(/^https:\/\//.test(ph.creatorUrl) ? { authorUrl: ph.creatorUrl } : {}), provider: 'openverse' } : { why: 'no https landing page' };
 }
+/** The holding institution's display name for a historic Openverse item ("smithsonian_american_art_museum" → "Smithsonian American Art Museum"). */
+const institutionOf = ph => String(ph.provider || ph.source || 'Openverse').replace(/[_-]+/g, ' ').replace(/\b\w/g, ch => ch.toUpperCase()).replace(/^Flickr$/, 'Flickr').replace(/^Wikimedia$/, 'Wikimedia Commons');
 /** {pick} or {why}. `seen`: landing URLs and Commons titles already credited / refused. */
 function judge(ph, t, seen) {
   const lic = ff.licenceOf(ph.code, ph.ver === 'N/A' ? '1.0' : ph.ver);
@@ -154,13 +156,17 @@ function judge(ph, t, seen) {
   if (fc.authorProblems(ph.creator).length) return { why: `author "${ph.creator}" is not a clean name` };
   if (ph.filetype && ph.filetype !== 'jpg') return { why: `not a JPEG (${ph.filetype})` };
   if (ph.width && ph.width < Math.max(...t.widths)) return { why: `only ${ph.width} px wide (needs ${Math.max(...t.widths)})` };
-  if (HISTORIC.test(`${ph.title} ${(ph.tags || []).join(' ')}`)) return { why: 'historic item (a year before 1950) — waits for the captioned-year rule (D-50)' };
+  // D-50 (now in the gate): a historic item (a year before 1950) carries its year and holding institution in the caption;
+  // never for a hero (it can't stand in for today's city) or a food place
+  const yr = (HISTORIC.exec(`${ph.title} ${(ph.tags || []).join(' ')}`) || [])[1];
+  if (yr && (t.cls === 'hero' || t.cls === 'food')) return { why: `historic item (${yr}) — never for a ${t.cls === 'hero' ? 'hero' : 'food place'} (D-50)` };
+  const hist = yr ? { era: 'historic', date: yr, institution: institutionOf(ph) } : {};
   const m = ff.matches(ph, Object.assign({ radius: 1.5 }, t, { town: t.town || ff.townWords(t.page) }));
   if (m.why) return { why: m.why };
   const rf = ff.refusal(ph, t); if (rf) return { why: rf.why };
   const field = m.ok.geo != null ? 'geo' : 'title' + ((t.town || []).some(w => ff.nameWords(ph.title).concat([String(ph.title).toLowerCase()]).join(' ').includes(w)) ? '+town' : (ph.tags || []).length ? '+tags' : '');
   return { pick: { id: `ov-${ph.id}`, openverseId: ph.id, source: ph.source, provider: ph.provider, title: ph.title, creator: ph.creator.trim(), ...pg, ...lic,
-    imageUrl: ph.imageUrl, thumb: ph.thumb, width: ph.width, height: ph.height, matched: `${field}: ${m.ok.inTitle.join(', ')}`, review: 'pending' } };
+    imageUrl: ph.imageUrl, thumb: ph.thumb, width: ph.width, height: ph.height, matched: `${field}: ${m.ok.inTitle.join(', ')}`, ...hist, review: 'pending' } };
 }
 
 // ---------------------------------------------------------------- network
@@ -306,7 +312,7 @@ async function credit(o) {
       title: String(p.title || p.label).trim(), depicts: p.label.replace(/\s*\([^)]*\)\s*$/, '').trim(), author: p.creator,
       ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), sourceUrl: p.sourceUrl, licence: p.licence, licenceUrl: p.licenceUrl,
       provider: p.provider === 'wikimedia-commons' || p.source === 'wikimedia' ? 'wikimedia-commons' : p.source === 'flickr' ? 'flickr' : 'openverse',
-      ...(p.commonsTitle ? { commonsTitle: p.commonsTitle } : {}), ...(p.cls === 'food' ? { identifies: p.matched } : {}), via: 'openverse', openverseSource: p.source, openverseProvider: p.provider, openverseId: p.openverseId,
+      ...(p.commonsTitle ? { commonsTitle: p.commonsTitle } : {}), ...(p.cls === 'food' ? { identifies: p.matched } : {}), ...(p.era ? { era: p.era, date: p.date, institution: p.institution } : {}), via: 'openverse', openverseSource: p.source, openverseProvider: p.provider, openverseId: p.openverseId,
       width: main.w, height: main.h, ...(variants.length ? { variants } : {}), modified: `resized to ${fc.widthList(out.map(v => v.w))} px wide`,
       fetched: today, confidence: 'med', review: `ok (${(review[p.id] || {}).reason || 'contact-sheet review'})`, matched: p.matched,
     });
