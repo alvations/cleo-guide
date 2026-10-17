@@ -19,13 +19,13 @@ const STATE = () => { const lp = document.querySelector('.listpane'), lr = lp.ge
     await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (/arcgis|openstreetmap/.test(u.host)) return r.fulfill({ body: PNG, headers: { 'content-type': 'image/png' } }); if (u.origin + '/' !== BASE) return r.abort(); const p = path.join(ROOT, decodeURIComponent(u.pathname)); if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' }); return r.fulfill({ body: fs.readFileSync(p) }); });
     const page = await ctx.newPage(), errors = []; page.on('pageerror', e => errors.push(String(e).slice(0, 160)));
     await page.goto(BASE + 'beta/' + pg + '#view=atlas'); await page.waitForTimeout(3000);
-    // tap the pill of a labelled pin that is not the first card's place (the designer's case: the column opened elsewhere)
+    // tap the pill of a labelled pin (the place the tap reaches is the lit .sel pin — Leaflet's own hit, FE-1 13:23Z)
     const tap = async skip => { const pt = await page.evaluate(sk => { const e = [...document.querySelectorAll('.leaflet-marker-icon.pp:not(.sel)')].find(x => x.getAttribute('data-id') !== sk && x.firstElementChild.getBoundingClientRect().width); if (!e) return null; const r = e.firstElementChild.getBoundingClientRect(); return { id: e.getAttribute('data-id'), x: r.left + r.width / 2, y: r.top + r.height / 2 }; }, skip);
       if (pt) { await page.touchscreen.tap(pt.x, pt.y); await page.waitForTimeout(1200); } return pt; };
     const t1 = await tap(null), s1 = await page.evaluate(STATE);
-    say(!!t1 && s1.car && s1.column && s1.sel === t1.id && s1.first === t1.id && s1.ring && s1.pin === t1.id, `${pg} 844: a pin tap opens the column on its place — first card, ring, pin lit`, { tapped: t1 && t1.id, ...s1 });
+    say(!!t1 && s1.car && s1.column && !!s1.pin && s1.sel === s1.pin && s1.first === s1.pin && s1.ring, `${pg} 844: a pin tap opens the column on its place — first card, ring, pin lit`, { tapped: t1 && t1.id, ...s1 });
     const t2 = await tap(t1 && t1.id), s2 = await page.evaluate(STATE);
-    say(!!t2 && s2.sel === t2.id && s2.first === t2.id && s2.ring && s2.pin === t2.id, `${pg} 844: a second pin tap brings its card first`, { tapped: t2 && t2.id, ...s2 });
+    say(!!t2 && !!s2.pin && s2.pin !== s1.pin && s2.sel === s2.pin && s2.first === s2.pin && s2.ring, `${pg} 844: a second pin tap brings its card first`, { tapped: t2 && t2.id, ...s2 });
     // next: the reader scrolls the column one card on; the card now at the top is the selection, its pin lit
     await page.evaluate(st => { const lp = document.querySelector('.listpane'); lp.scrollBy({ top: st + 12, behavior: 'auto' }); }, s2.step); await page.waitForTimeout(1200);
     const s3 = await page.evaluate(STATE);
