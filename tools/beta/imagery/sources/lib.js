@@ -268,15 +268,20 @@ function creditRow(adapter, it, row, t, main, small, today) {
 
 // ---------------------------------------------------------------- plan + run
 /** Targets with at least one un-refused candidate in imagery's commons-candidates.json (BOX: none). */
-let LIVE = null;
-function commonsLive() {
-  if (LIVE) return LIVE;
-  LIVE = new Set();
+let LIVE = null, SKIP = null;
+function readCommons() {
+  LIVE = new Set(); SKIP = new Map();
   const f = path.join(BETA, 'assets/img/commons-candidates.json');
-  if (BOX || !fs.existsSync(f)) return LIVE;
-  for (const t of JSON.parse(fs.readFileSync(f, 'utf8')).targets || []) if (!t.skip && (t.candidates || []).some(c => !c.refused)) LIVE.add(t.depicts);
-  return LIVE;
+  if (BOX || !fs.existsSync(f)) return;
+  for (const t of JSON.parse(fs.readFileSync(f, 'utf8')).targets || []) {
+    if (t.skip) SKIP.set(t.depicts, t.skip === true ? 'skip' : String(t.skip));
+    else if ((t.candidates || []).some(c => !c.refused)) LIVE.add(t.depicts);
+  }
 }
+function commonsLive() { if (!LIVE) readCommons(); return LIVE; }
+/** Targets imagery marks `skip` (venue, brand store, copyrighted art, stated gap): the gate refuses ANY photo on them
+ *  (test-imagery "no credited photo for a skipped target"), so they are never staged or credited here (run #111 lesson). */
+function commonsSkip() { if (!SKIP) readCommons(); return SKIP; }
 function plan(adapter, o) {
   const credits = loadCredits();
   const have = new Set(credits.credits.filter(c => c.record).map(c => `${c.record.page}#${c.record.id}`));
@@ -286,6 +291,7 @@ function plan(adapter, o) {
   for (const r of rows) {
     const t = targetCheck(r.target);
     const skip = t.why || (r.refused ? `refused at research: ${r.refused}` : '') ||
+      (commonsSkip().has(`${t.page}#${t.id}`) ? `imagery marks this target skip ("${commonsSkip().get(`${t.page}#${t.id}`)}"); the gate refuses any photo on it — ask imagery to lift it` : '') ||
       (have.has(`${t.page}#${t.id}`) ? 'already has a credited photo' : '') ||
       (!RANK[r.confidence] ? `confidence "${r.confidence}" (high or med only)` : RANK[r.confidence] < RANK[o.min] ? `below --min ${o.min}` : '') ||
       (o.mode === 'credit' && r.review !== 'ok' ? (r.review ? `review: ${r.review}` : 'not reviewed yet (contact sheet first)') : '') ||
