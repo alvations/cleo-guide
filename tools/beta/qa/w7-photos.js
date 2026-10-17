@@ -3,7 +3,9 @@
  * Beta QA — Wave 7 photo + credit honesty audit (static; QA lane). Independent of test-imagery.js.
  * For every row in beta/assets/img/CREDITS.json and every <img> of a photo in the built beta pages:
  *   · licence is free (CC0 / PD / CC BY / CC BY-SA, any version; or "Copyrighted free use", approved W8, linked to its
- *     Commons template), never NC/ND; licenceUrl is the matching CC deed
+ *     Commons template), never NC/ND; Flickr rows (provider "flickr"): the flickr.com photo page, the author's profile
+ *     link in the caption, CC0 / PDM / CC BY / CC BY-SA with the deed, NKCR only from a Flickr Commons institution;
+ *   · no row whose review is not "ok" is rendered in any built page or data JSON; licenceUrl is the matching CC deed
  *   · sourceUrl is the commons.wikimedia.org File: page of commonsTitle; author is a clean name (no markup, no
  *     newline, no "User:", ≤ 60 chars, no licence text, no date)
  *   · the record is on its page, open, a sight (never food), not a venue (bar/shop/market/mall/hawker/theatre/arena/
@@ -27,20 +29,32 @@ const R = { checks: [], rows: [] }; let fails = 0;
 const check = (name, ok, ev) => { R.checks.push({ name, ok: ok === null ? null : !!ok, ev }); if (ok === false) fails++; console.log(`  ${ok === null ? 'INFO' : ok ? 'PASS' : 'FAIL'}  ${name}` + (ev !== undefined ? ' = ' + JSON.stringify(ev).slice(0, 400) : '')); };
 const FREE = /^(CC0 1\.0|Public domain|CC BY(-SA)? \d\.\d( [A-Z]{2})?|Copyrighted free use)$/;   // "Copyrighted free use": approved W8 (IMAGERY.md), any use, no conditions   // a ported licence keeps its jurisdiction (e.g. "CC BY 3.0 US")
 const VENUE = /\b(BAR|SHOP|SHOPPING|MARKET|MALL|HAWKER|THEATRE|THEATER|ARENA|ENTERTAINMENT|NIGHTLIFE|STADIUM|MUSIC|VENUE|CLUB)\b/;
-const bad = { lic: [], src: [], author: [], food: [], venue: [], closed: [], vn: [], missing: [] };
+const bad = { lic: [], src: [], author: [], food: [], venue: [], closed: [], vn: [], missing: [], flickr: [] };
+// Flickr rows (imagery fetch-flickr.js, b4f78ca54; orchestrator 2026-10-17): the photo page, the author's profile link, a free
+// licence with its deed; "No known copyright restrictions" only from a Flickr Commons institution account
+const FLICKR_LIC = /^(CC0 1\.0|Public domain|CC BY(-SA)? \d\.\d)$/, NKCR = 'No known copyright restrictions', NKCR_URL = 'https://www.flickr.com/commons/usage/';
+const isFlickr = c => c.provider === 'flickr';
 const seenT = {}, seenS = {}, dupes = [];
 for (const c of CR) {
   const id = c.file;
-  if (!FREE.test(c.licence || '') || /NC|ND/.test(c.licence)) bad.lic.push(id + ' ' + c.licence);
+  if (isFlickr(c)) {
+    const pm = /^https:\/\/www\.flickr\.com\/photos\/([^/?#\s]+)\/(\d+)\/$/.exec(c.sourceUrl || '');
+    if (!pm) bad.flickr.push(id + ' photo page ' + c.sourceUrl); else if (c.flickrId && String(c.flickrId) !== pm[2]) bad.flickr.push(id + ' flickrId ' + c.flickrId + ' ≠ ' + pm[2]);
+    if (!/^https:\/\/www\.flickr\.com\/(photos|people)\/[^/?#\s]+\/$/.test(c.authorUrl || '')) bad.flickr.push(id + ' profile ' + c.authorUrl);
+    if (c.licence === NKCR) { if (c.licenceUrl !== NKCR_URL || !(c.flickrCommons || c.institution)) bad.flickr.push(id + ' NKCR without a Flickr Commons institution (flickrCommons/institution) or with url ' + c.licenceUrl); }
+    else if (!FLICKR_LIC.test(c.licence || '')) bad.flickr.push(id + ' licence ' + c.licence);
+    else if (/^CC BY/.test(c.licence)) { const [, kind, ver] = /^CC (BY(?:-SA)?) (\d\.\d)/.exec(c.licence); if (!new RegExp('^https://creativecommons\\.org/licenses/' + kind.toLowerCase() + '/' + ver.replace('.', '\\.') + '/?$').test(c.licenceUrl || '')) bad.flickr.push(id + ' deed ' + c.licenceUrl); }
+    else if (!/^https:\/\/creativecommons\.org\/publicdomain\/(zero|mark)\/1\.0\/?$/.test(c.licenceUrl || '')) bad.flickr.push(id + ' deed ' + c.licenceUrl);
+  } else if (!FREE.test(c.licence || '') || /NC|ND/.test(c.licence)) bad.lic.push(id + ' ' + c.licence);
   else if (/^CC BY/.test(c.licence)) { const [, kind, ver, jur] = /^CC (BY(?:-SA)?) (\d\.\d)(?: ([A-Z]{2}))?/.exec(c.licence), deed = `https://creativecommons.org/licenses/${kind.toLowerCase()}/${ver}` + (jur ? '/' + jur.toLowerCase() : ''); if (!new RegExp('^' + deed.replace(/[.]/g, '\\.') + '(/|/deed\\.[a-z]+)?$').test(c.licenceUrl)) bad.lic.push(id + ' url ' + c.licenceUrl); }
   else if (c.licence === 'Copyrighted free use') { if (c.licenceUrl !== 'https://commons.wikimedia.org/wiki/Template:Copyrighted_free_use') bad.lic.push(id + ' url ' + c.licenceUrl); }
   else if (!/^https:\/\/creativecommons\.org\/(publicdomain|licenses)\//.test(c.licenceUrl || '') && !/wikipedia|wikimedia/.test(c.licenceUrl || '')) bad.lic.push(id + ' url ' + c.licenceUrl);
   const want = 'https://commons.wikimedia.org/wiki/' + (c.commonsTitle || '').replace(/ /g, '_');
-  if (!c.commonsTitle || decodeURIComponent(c.sourceUrl) !== decodeURIComponent(want)) bad.src.push(id + ' ' + c.sourceUrl);
+  if (!isFlickr(c) && (!c.commonsTitle || decodeURIComponent(c.sourceUrl) !== decodeURIComponent(want))) bad.src.push(id + ' ' + c.sourceUrl);
   const a = String(c.author || '');
   if (!a || a.length > 60 || /[<>\n\r]|User:|wikivoyage|wikipedia\)|\bCC\b|licen[cs]e|\d{4}-\d\d|https?:/i.test(a)) bad.author.push(id + ' "' + a.slice(0, 80) + '"');
   for (const f of [c.file, ...(c.variants || []).map(v => v.file)]) if (!fs.existsSync(path.join(PH, f))) bad.missing.push(f);
-  const k = c.commonsTitle; if (seenT[k]) dupes.push(k + ' ← ' + seenT[k] + ' & ' + id); seenT[k] = id;
+  const k = isFlickr(c) ? 'flickr:' + c.flickrId : c.commonsTitle; if (seenT[k]) dupes.push(k + ' ← ' + seenT[k] + ' & ' + id); seenT[k] = id;
   if (c.sha1) { if (seenS[c.sha1]) dupes.push('sha1 ' + c.sha1 + ' ← ' + seenS[c.sha1] + ' & ' + id); seenS[c.sha1] = id; }
   let rec = null, pg = null;
   if (c.record) { pg = places[c.record.page] || places[c.record.page.replace(/\//g, '--')]; rec = pg && pg.places.find(p => p.id === c.record.id);
@@ -51,7 +65,8 @@ for (const c of CR) {
   R.rows.push({ file: c.file, slot: c.slot ? c.slot.type + ':' + c.slot.key : null, record: c.record ? c.record.page + '#' + c.record.id : null, name: rec ? rec.n : null, kind: rec ? rec.kind : null, g: rec ? rec.g : null, depicts: c.depicts, title: c.title, author: c.author, licence: c.licence, confidence: c.confidence });
 }
 check(`every licence free (CC0/PD/CC BY/CC BY-SA) with its deed URL — ${CR.length} rows`, !bad.lic.length, bad.lic);
-check('every source is the Commons File: page of its title', !bad.src.length, bad.src.slice(0, 8));
+check('every source is the Commons File: page of its title (Commons rows)', !bad.src.length, bad.src.slice(0, 8));
+check(`Flickr rows (${CR.filter(isFlickr).length}): flickr.com/photos/<user>/<id>/ page, author profile link, a free licence with its deed (NKCR only from a Flickr Commons institution)`, !bad.flickr.length, bad.flickr.slice(0, 8));
 check('every author is a clean name (no markup/URL/licence/date, ≤ 60 chars)', !bad.author.length, bad.author);
 check('every file and variant exists', !bad.missing.length, bad.missing);
 check('no Commons file (title or sha1) in two rows', !dupes.length, dupes);
@@ -77,7 +92,8 @@ for (const f of pages) {
   while ((m = re.exec(h))) { const c = byFile[m[1]]; if (!c) continue;
     const nx = h.indexOf('assets/img/photos/', m.index + m[0].length), win = h.slice(m.index, Math.min(nx < 0 ? h.length : nx, m.index + 4000));
     const okc = win.includes(c.author.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')) && win.includes('href="' + c.licenceUrl + '"') && (win.includes('href="' + c.sourceUrl + '"') || win.includes('href="' + c.sourceUrl.replace(/&/g, '&amp;') + '"'));
-    if (!okc) nocap.push(rel + ' ' + m[1]); }
+    const okp = !isFlickr(c) || win.includes('href="' + c.authorUrl + '"');   // Flickr: the author's profile link is in the caption
+    if (!okc || !okp) nocap.push(rel + ' ' + m[1] + (okc ? ' (no author profile link)' : '')); }
   for (const fg of figs) { const m2 = /photos\/([^"' ,]+?\.(?:jpg|webp|png))/.exec(fg); if (m2 && byFile[m2[1]] && /hero/.test(fg.slice(0, 200))) heroF = heroF || byFile[m2[1]].file; }
   if (heroF) { const n = (h.match(new RegExp(heroF.replace(/-960\.jpg$/, '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length; const asCard = figs.filter(fg => !/hero/.test(fg.slice(0, 200)) && fg.includes(heroF.replace(/-960\.jpg$/, ''))).length; if (asCard) reuse.push(rel + ' ' + heroF); }
 }
@@ -85,6 +101,12 @@ check(`every photo URL in ${pages.length} built pages has a credit row`, !uncred
 check('every server-rendered photo <img> is followed by its own credit (author + licence deed link + File: page link)', !nocap.length, nocap.slice(0, 6));
 check('no Vietnam page carries a photo of a Vietnamese place (other countries\' cards allowed)', !vnp.length, vnp);
 check('no hub/city hero photo is reused as a card on the same page (server-rendered)', !reuse.length, reuse);
+// a row whose review is not "ok" (imagery: Flickr rows start "pending") is never rendered: no built page or data JSON names its files
+const unrev = CR.filter(c => c.review != null && c.review !== 'ok'), unrevF = new Set(unrev.flatMap(c => [c.file, ...(c.variants || []).map(v => v.file)]));
+const shown = [];
+if (unrevF.size) { const walkJ = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walkJ(path.join(d, e.name)) : /\.(json|html)$/.test(e.name) && e.name !== 'CREDITS.json' ? [path.join(d, e.name)] : []);
+  for (const f of walkJ(BETA)) { const t = fs.readFileSync(f, 'utf8'); for (const fi of unrevF) if (t.includes(fi)) shown.push(path.relative(BETA, f) + ' ' + fi); } }
+check(`no row whose review is not "ok" is rendered (${unrev.length} such rows)`, !shown.length, shown.slice(0, 8));
 const unused = CR.filter(c => !use[c.file] && !(c.variants || []).some(v => use[v.file]));
 check('credit rows whose photo no built page references (client-drawn rows may still use them)', null, unused.map(c => c.file));
 // contact sheet
