@@ -9,9 +9,9 @@
 .sheet .fact .pl-rec{margin:0}
 .pl>.pl-rec.closed{display:none}   /* QC-23: a closed place's row shows in its detail only */
 .gc-rec{display:flex;margin-top:var(--s-1)}.gc-rec .rb{min-height:24px;pointer-events:none}.ge-rec{margin:var(--s-1) 0}
-/* FE-C (W9-2) the quiet "Status checked <d Mon>" card line (client/fresh.js): real text, data-nosearch. Ink-3 on paper. */
+/* FE-C (W9-2) the quiet "Checked <d Mon>" card line (R8 D12) (client/fresh.js): real text, data-nosearch. Ink-3 on paper. */
 .pl .pl-chk{order:97;grid-column:1/-1}
-.pl-chk{display:block;margin:var(--s-1) 0 0;font-size:var(--fs-xs);line-height:1.4;color:var(--ink-3)}
+.pl-chk{display:block;margin:var(--s-1) 0 0;font-size:var(--fs-xs);line-height:1.4;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .feedline a{font-weight:600}
 .lf-gap{margin:0;font-size:var(--fs-sm);color:var(--ink-2);max-width:62ch}.lf-gap .lbl{display:block;font-weight:600;color:var(--ink);margin-bottom:var(--s-1)}.lf-rule{max-width:62ch;color:var(--ink-2)}
 /* FE-C (QC-05) the stated empty state (client/empty.js), in the lens slot; Atlas states it in its list head (FE-1) */
@@ -80,3 +80,35 @@ html body #cleo-sheet .sheet .actions .btn{min-height:44px}
 /* the decorative grab handle no longer takes a row above the nav: the sheet's top edge is its opaque nav bar */
 html body #cleo-sheet .sheet.detail>.grab{position:absolute;top:4px;left:50%;transform:translateX(-50%);margin:0;z-index:7;pointer-events:none}
 @media (min-width:1024px){html body #cleo-sheet .sheet.detail>.grab{display:none}}
+/* SPEC-v3 §2.0.7 landscape selection side card (client/side.js): ONE 320 px card on the right, full height under the bar;
+   the map keeps the rest. Inside .mappane, so the detail sheet and toasts stay above it */
+#cleo-side{position:absolute;top:0;right:0;bottom:0;width:var(--side-w,320px);z-index:1000;display:flex;flex-direction:column;background:var(--surface);color:var(--ink);border-left:1px solid var(--line);box-shadow:var(--shadow-lg);overflow:clip;contain:layout paint}
+#cleo-side[hidden]{display:none}
+#cleo-side:focus{outline:none}
+#cleo-side:focus-visible{outline:2px solid var(--focus,var(--ink));outline-offset:-2px}
+#cleo-side .sd-top{flex:none;display:flex;align-items:center;gap:2px;padding:2px 4px 2px var(--s-3,12px);border-bottom:1px solid var(--line);min-height:48px}
+#cleo-side .sd-pos{flex:1 1 auto;font-size:var(--fs-xs);color:var(--ink-3);white-space:nowrap}
+#cleo-side .sd-top .btn-icon{width:44px;height:44px;min-width:44px}
+#cleo-side .sd-top .btn-icon[disabled]{opacity:.38}
+#cleo-side .sd-body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+#cleo-side .sd-ph{margin:0}
+#cleo-side .sd-ph img{display:block;width:100%;height:116px;object-fit:cover;background:var(--sand)}
+#cleo-side .sd-ph figcaption{padding:4px var(--s-3,12px) 0;font-size:var(--fs-xs);color:var(--ink-3);line-height:1.35}
+#cleo-side .sd-body.np{display:grid;grid-template-columns:64px 1fr;gap:var(--s-3,12px);padding:var(--s-3,12px) var(--s-3,12px) 0;align-items:start}
+#cleo-side .sd-tile{display:grid;place-items:center;width:64px;height:64px;border-radius:var(--r-m);background:var(--cover-sight,var(--sand));color:var(--ink)}
+#cleo-side .sd-tile.food{background:var(--cover-food,var(--sand))}
+#cleo-side .sd-tile .ico{width:28px;height:28px;opacity:.55}
+#cleo-side .sd-tx{padding:var(--s-2,8px) var(--s-3,12px) var(--s-3,12px)}
+#cleo-side .np .sd-tx{padding:0 0 var(--s-3,12px)}
+#cleo-side .sd-tx>p{margin:0 0 4px}
+#cleo-side .sd-k,#cleo-side .sd-cl{font-size:var(--fs-xs);color:var(--ink-3)}
+#cleo-side .sd-cl{font-weight:600;color:var(--ink-2)}
+#cleo-side .sd-n{margin:0 0 4px;font:600 var(--fs-d3)/1.25 var(--font-ui)}
+#cleo-side .sd-n a{color:inherit;text-decoration:none;display:inline-block;padding-block:4px}
+#cleo-side .sd-n a:hover{text-decoration:underline}
+#cleo-side .sd-w{font-size:var(--fs-sm);color:var(--ink-2);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
+#cleo-side .sd-by{font-size:var(--fs-sm);color:var(--ink-2)}
+#cleo-side .sd-tx>.pl-chk,#cleo-side .sd-tx>.pl-approx{display:block;font-size:var(--fs-xs);color:var(--ink-3)}
+#cleo-side .sd-acts{flex:none;display:flex;gap:6px;padding:6px 8px;border-top:1px solid var(--line);background:var(--surface)}
+#cleo-side .sd-acts>.btn{flex:1 1 auto;min-width:0;min-height:44px;padding-inline:8px;gap:6px;justify-content:center;white-space:nowrap}
+#cleo-side .sd-acts>.btn>span{overflow:hidden;text-overflow:ellipsis}
