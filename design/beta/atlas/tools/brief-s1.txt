@@ -1,0 +1,26 @@
+
+SUPPLEMENTARY CRITERION S1: information density and statistics noise.
+- It is scored 0 to 10 and reported separately. It is NOT part of the 100-point total.
+- Score it from your persona's point of view, against the anchors below, and cite evidence for every point lost, as for the rubric rows.
+
+Question. Across the surfaces (the landing page, a country hub, Atlas, Gallery, Guidebook and the place sheet):
+- Does each first screen show numbers a traveller can act on, or standing counts and method detail that crowd the decision?
+- Does each card make clear why the place is worth going to?
+- Is the method and coverage information still findable for a reader who wants it?
+
+Anchors:
+- Full marks: every number shown helps a decision, every card says why the place is worth it, and the method is one obvious step away.
+- About 80%: mostly useful, with a few standing counts or method lines in the way.
+- About 50%: counts and method detail compete with the reasons to go.
+- About 20%: numbers crowd out the reasons, or the method can't be found.
+
+Evidence:
+- density/DENSITY.md and density/density.json in this round's pack. They give, per surface and viewport, from visible text only: the number tokens on the first screen, the count phrases, the digits as a share of the text, how many cards carry a sentence, and whether a method link is visible.
+- density/shots/*.jpg.
+- The views/ shots and the Atlas shots.
+
+Return S1 as one extra table after your Scores table:
+### Supplementary S1
+| Criterion | Max | Score | Evidence for each point lost |
+|---|---|---|---|
+| S1 Information density and statistics noise | 10 | <score> | <evidence> |
