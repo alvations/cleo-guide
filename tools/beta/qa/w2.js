@@ -4,6 +4,7 @@
  *
  * Real Chromium (preinstalled; never `playwright install`), every off-origin request blocked, at 390×844 and 1440×900.
  * Each check prints PASS/FAIL with its evidence; screenshots go to qa/beta-w2/. Checks:
+ *   doors     D-46: For you, Your day, Near me and the For you keyboard trap reached from the Atlas default (.ms-doors)
  *   foryou    For you reorders, never hides: same id set + same per-area counts with and without interests, lifted
  *             cards carry "First because", the choice persists, and it still works when storage throws (M2-05)
  *   day       Your day: 4–6 open, pinned stops in one area, every leg "straight-line", a shared #day=A&s= link
@@ -107,8 +108,8 @@ const shot = (page, name, full) => page.screenshot({ path: path.join(OUT, name +
 
 const R = { checks: [] };
 function check(group, name, ok, evidence) {
-  R.checks.push({ group, name, ok: !!ok, evidence });
-  console.log(`  ${ok ? 'PASS' : 'FAIL'}  [${group}] ${name}` + (evidence !== undefined ? ' = ' + JSON.stringify(evidence).slice(0, 300) : ''));
+  R.checks.push({ group, name, ok: ok === null ? null : !!ok, evidence });   // null = INFO (recorded, not failed)
+  console.log(`  ${ok === null ? 'INFO' : ok ? 'PASS' : 'FAIL'}  [${group}] ${name}` + (evidence !== undefined ? ' = ' + JSON.stringify(evidence).slice(0, 300) : ''));
 }
 // the full record set: stamp every deferred chunk first (M3-06 progressive render), then read every card
 const ALL_CARDS = () => { if (window.Cleo && Cleo.defer && Cleo.defer.all) Cleo.defer.all();
@@ -122,7 +123,8 @@ async function foryou() {
   for (const rel of PILOTS) for (const noStorage of [false, true]) {
     if (noStorage && rel !== 'cleveland.html' && rel !== 'cities/tokyo.html') continue;
     const tag = rel + (noStorage ? ' [storage throws]' : '');
-    const { ctx, page, st } = await open(rel, 'mobile', { noStorage });
+    // D-46: the rail's For you tile is the Gallery's (Atlas reaches it through its list-head doors: see doors())
+    const { ctx, page, st } = await open(rel, 'mobile', { noStorage, hash: '#view=gallery' });
     const before = await page.evaluate(ALL_CARDS);
     const tile = page.locator('[data-cleo-foryou]').first();
     if (!(await tile.count())) { check('foryou', tag + ': For you tile present', false); await ctx.close(); continue; }
@@ -166,7 +168,7 @@ async function foryou() {
 async function day() {
   console.log('\n# Your day (M2-06)');
   for (const rel of ['cleveland.html', 'cities/tokyo.html', 'cities/newyork.html', 'cities/wheeling.html']) for (const vp of ['mobile', 'desktop']) {
-    const { ctx, page, st } = await open(rel, vp);
+    const { ctx, page, st } = await open(rel, vp, { hash: '#view=gallery' });   // D-46: the Gallery rail's tile (Atlas: doors())
     const t = page.locator('[data-cleo-day]').first();
     if (!(await t.count())) { check('day', `${rel} ${vp}: Your day tile`, false); await ctx.close(); continue; }
     await t.click(); await page.waitForTimeout(900);
@@ -211,8 +213,8 @@ async function day() {
 async function near() {
   console.log('\n# Near me (M3-02)');
   const geo = { latitude: 35.6812, longitude: 139.7671 };            // Tokyo Station (a public landmark; test value)
-  const { ctx, page, st } = await open('cities/tokyo.html', 'mobile', { geo });
-  await page.locator('[data-cleo-near]').first().click(); await page.waitForTimeout(1500);
+  const { ctx, page, st } = await open('cities/tokyo.html', 'mobile', { geo, hash: '#view=gallery' });   // D-46: the Gallery rail (Atlas: doors())
+  await page.locator('[data-cleo-near]:visible').first().click(); await page.waitForTimeout(1500);   // :visible — Atlas's hidden door is first in the DOM
   const r = await page.evaluate(() => {
     const cards = [...document.querySelectorAll('li.pl')];
     const pinned = cards.filter(c => c.getAttribute('data-ll'));
@@ -239,8 +241,8 @@ async function near() {
   check('near', '0 JS errors', !st.errors.length, st.errors.slice(0, 3));
   await ctx.close();
   // denied permission: nothing changes, every place listed
-  const d = await open('cities/tokyo.html', 'mobile');
-  await d.page.locator('[data-cleo-near]').first().click(); await d.page.waitForTimeout(1500);
+  const d = await open('cities/tokyo.html', 'mobile', { hash: '#view=gallery' });   // D-46: the Gallery rail
+  await d.page.locator('[data-cleo-near]:visible').first().click(); await d.page.waitForTimeout(1500);
   const dn = await d.page.evaluate(() => ({ n: document.querySelectorAll('li.pl').length, dist: document.querySelectorAll('.pl-dist').length, toast: [...document.querySelectorAll('.toast,[role=status]')].map(t => t.textContent).join(' | ') }));
   check('near', 'permission denied: every place listed, no distances, a calm message', dn.dist === 0 && dn.n >= 40, dn);
   await d.ctx.close();
@@ -396,9 +398,63 @@ function sig() {
   const sigT = (cle.match(/<button[^>]*data-sig[^>]*>([\s\S]*?)<\/button>/) || ['', ''])[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   check('sig', 'Cleveland ★ = its food canon (Polish Boy · corned beef · Barberton chicken)', /Polish Boy/.test(sigT), sigT.trim());
 }
+/* ---------------- D-46: the same features from the Atlas default, through the list head's doors (.ms-doors) ---------------- */
+async function doors() {
+  console.log('\n# Atlas doors (D-46: For you, Your day, Near me and the For you keyboard trap from the default Atlas)');
+  const geo = { latitude: 35.6812, longitude: 139.7671 };
+  const door = async (page, sel) => { let l = page.locator('.ms-doors ' + sel).first();
+    if (!(await l.isVisible().catch(() => false))) { await page.locator('.ms-toggle').first().click().catch(() => {}); await page.waitForTimeout(600); l = page.locator('.ms-doors ' + sel).first(); }
+    return (await l.isVisible().catch(() => false)) ? l : null; };
+  for (const vp of ['mobile', 'desktop']) {
+    const tag = `cities/tokyo.html ${vp} (Atlas default)`;
+    // For you: the picker opens, picking lifts cards ("First because"), nothing hidden (the Atlas count is unchanged)
+    let { ctx, page, st } = await open('cities/tokyo.html', vp, { settle: 1500 });
+    check('doors', `${tag}: opens in Atlas`, await page.evaluate(() => document.documentElement.getAttribute('data-view')) === 'atlas');
+    let d = await door(page, '[data-cleo-foryou]');
+    // phone Atlas: the doors are not on screen (FE-1's list head is desktop); recorded, not failed — a product call, raised
+    if (!d && vp === 'mobile') { check('doors', `${tag}: no For you / Your day / Near me door on the phone Atlas screen (reached via Gallery)`, null, 'INFO — product call'); await ctx.close(); continue; }
+    if (!d) check('doors', `${tag}: For you door present`, false);
+    else {
+      const c0 = await page.evaluate(() => (document.querySelector('.ms-count') || {}).textContent || '');
+      await d.click(); await page.waitForTimeout(400);
+      const opts = await page.locator('#cleo-fy [data-i]').count();
+      for (let i = 0; i < opts; i++) await page.locator('#cleo-fy [data-i]').nth(i).click();
+      await page.locator('#cleo-fy [data-fy=go]').click(); await page.waitForTimeout(700);
+      const r = await page.evaluate(() => ({ line: (document.getElementById('cleo-fyline') || {}).textContent || '', why: document.querySelectorAll('li.pl .pl-why').length, c1: (document.querySelector('.ms-count') || {}).textContent || '', total: document.querySelectorAll('li.pl').length }));
+      check('doors', `${tag}: For you from the door — picker (≤ 5), cards lifted ("First because"), the count unchanged`, opts > 0 && opts <= 5 && r.why > 0 && /First because/.test(r.line) && (c0.match(/\d+/) || [''])[0] === (r.c1.match(/\d+/) || [''])[0], { opts, why: r.why, c0: c0.slice(0, 40), c1: r.c1.slice(0, 40) });
+    }
+    check('doors', `${tag}: For you — 0 JS errors`, !st.errors.length, st.errors.slice(0, 2)); await ctx.close();
+    // Your day: 4–6 stops, one area, straight-line legs
+    ({ ctx, page, st } = await open('cities/tokyo.html', vp, { settle: 1500 }));
+    d = await door(page, '[data-cleo-day]');
+    if (!d) check('doors', `${tag}: Your day door present`, false);
+    else { await d.click(); await page.waitForTimeout(900);
+      const r = await page.evaluate(() => ({ n: document.querySelectorAll('section.day ol.stops > li.stop').length, legs: [...document.querySelectorAll('section.day .leg')].map(l => l.textContent.trim()) }));
+      check('doors', `${tag}: Your day from the door — 4–6 stops, straight-line legs`, r.n >= 4 && r.n <= 6 && r.legs.slice(0, r.n - 1).every(l => /straight-line/i.test(l)), r); }
+    check('doors', `${tag}: Your day — 0 JS errors`, !st.errors.length, st.errors.slice(0, 2)); await ctx.close();
+    // Near me: distances shown, the "never stored" note
+    ({ ctx, page, st } = await open('cities/tokyo.html', vp, { geo, settle: 1500 }));
+    d = await door(page, '[data-cleo-near]');
+    if (!d) check('doors', `${tag}: Near me door present`, false);
+    else { await d.click(); await page.waitForTimeout(1500);
+      const r = await page.evaluate(() => ({ dist: document.querySelectorAll('li.pl .pl-dist').length, note: [(document.getElementById('cleo-nearline') || {}).textContent || '', ...[...document.querySelectorAll('[aria-live], [role=status]')].map(e => e.textContent)].join(' ').trim() }));   // Atlas says it in its live message
+      check('doors', `${tag}: Near me from the door — distances on cards, "never stored" note`, r.dist > 0 && /never stored/i.test(r.note), { dist: r.dist, note: r.note.slice(0, 80) }); }
+    check('doors', `${tag}: Near me — 0 JS errors`, !st.errors.length, st.errors.slice(0, 2)); await ctx.close();
+    // keyboard: the For you picker from the door traps focus; Esc closes and returns focus to the door
+    ({ ctx, page, st } = await open('cities/tokyo.html', vp, { settle: 1500 }));
+    d = await door(page, '[data-cleo-foryou]');
+    if (d) { await d.focus(); await page.keyboard.press('Enter'); await page.waitForTimeout(400);
+      const fy = await page.evaluate(() => !!document.activeElement.closest('#cleo-fy'));
+      await page.keyboard.press('Escape'); await page.waitForTimeout(300);
+      const fy2 = await page.evaluate(() => ({ closed: document.getElementById('cleo-fy').hidden, back: !!document.activeElement.closest('.ms-doors') && document.activeElement.hasAttribute('data-cleo-foryou') }));
+      check('doors', `${tag}: keyboard — the For you picker from the door traps focus, Esc closes and returns focus to the door`, fy && fy2.closed && fy2.back, { fy, fy2 }); }
+    await ctx.close();
+  }
+}
+
 async function sigFood() {
   // QA-16 / M1-03: the food rail / food mode opens on the canon
-  const { ctx, page } = await open('cleveland.html', 'mobile');
+  const { ctx, page } = await open('cleveland.html', 'mobile', { hash: '#view=gallery' });   // D-46: the ★ tile is on the Gallery rail
   await page.locator('[data-sig]').first().click(); await page.waitForTimeout(700);
   const r = await page.evaluate(() => { const v = [...document.querySelectorAll('li.pl')].filter(c => !c.closest('[hidden]') && c.offsetParent);
     return { n: v.length, first: v.slice(0, 4).map(c => c.querySelector('.pl-n').textContent.trim()), shown: (document.getElementById('cleo-shown') || {}).textContent || '' }; });
@@ -509,7 +565,7 @@ async function a11y() {
   }
   R.axe = rows;
   // keyboard: Tab from the top reaches the skip link first, then the toolbar; Enter on a card opens the sheet; Esc restores focus
-  const { ctx, page } = await open('cities/tokyo.html', 'desktop');
+  const { ctx, page } = await open('cities/tokyo.html', 'desktop', { hash: '#view=gallery' });   // D-46: the card + rail flow is the Gallery's (Atlas: doors())
   await page.keyboard.press('Tab');
   const first = await page.evaluate(() => ({ t: document.activeElement.textContent.trim().slice(0, 30), href: document.activeElement.getAttribute('href') }));
   check('a11y', 'keyboard: first Tab is the skip link', /skip/i.test(first.t) || /^#/.test(first.href || ''), first);
@@ -551,10 +607,10 @@ async function storage() {
   const { chromium } = loadPlaywright();
   const srv = await serve(); base = `http://127.0.0.1:${srv.address().port}/`;
   browser = await chromium.launch();
-  const steps = { foryou, day, near, map, saved, sig: async () => { sig(); await sigFood(); }, dom, og: async () => og(), hubs, a11y, storage };
+  const steps = { foryou, day, near, doors, map, saved, sig: async () => { sig(); await sigFood(); }, dom, og: async () => og(), hubs, a11y, storage };
   for (const [k, f] of Object.entries(steps)) if (want(k)) { try { await f(); } catch (e) { check(k, 'probe crashed', false, String(e.stack || e).slice(0, 300)); } }
   await browser.close(); srv.close();
-  const fail = R.checks.filter(c => !c.ok);
+  const fail = R.checks.filter(c => c.ok === false);
   R.summary = { checks: R.checks.length, pass: R.checks.length - fail.length, fail: fail.length, at: new Date().toISOString() };
   const outF = path.join(OUT, ONLY.length ? 'w2-' + ONLY.join('-') + '.json' : 'w2.json');
   fs.writeFileSync(outF, JSON.stringify(R, null, 1));

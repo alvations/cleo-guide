@@ -1,6 +1,6 @@
 /* Cleo beta — empty.js (FE-C, QC-05). The stated empty state when a search or filters match no place: it says so (naming
  * the search text), offers "Clear search" (the search only, other filters stay) and "Show all N", in the lens slot above
- * the list (Gallery, the Atlas list) and on the map (Atlas, phone and desktop). While nothing is shown, no "All N" mode
+ * the list (Gallery; Atlas states it in its own list head, FE-1, from the same catalogue keys). While nothing is shown, no "All N" mode
  * chip stays pressed: it would claim a set the page isn't showing. Loaded on the first empty result (city.js FE-C hook). */
 (function () {
   'use strict';
@@ -20,8 +20,6 @@
     var body = (q ? '<p>' + esc(Cleo.t('city.empty.qnote', 'Try another spelling, or search for a dish or an area.')) + '</p>' : '') + '<div class="row">' + acts + '</div>';
     var lens = d.getElementById('cleo-lens');
     if (lens) { lens.insertAdjacentHTML('afterbegin', '<div class="empty-st" data-cleo-empty><h2>' + esc(head) + '</h2>' + body + '</div>'); lens.hidden = false; }
-    var mp = d.querySelector('.mappane');
-    if (mp) mp.insertAdjacentHTML('beforeend', '<div class="map-empty" data-cleo-empty role="status"><p class="h">' + esc(head) + '</p>' + body + '</div>');
     [].forEach.call(d.querySelectorAll('button[data-mode][aria-pressed="true"]'), function (b) { b.setAttribute('aria-pressed', 'false'); });
   }
   Cleo.empty = { draw: draw };
