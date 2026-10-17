@@ -17,6 +17,19 @@
  * "Search this area" on the first screen; toasts still up at idle; duplicate controls on one screen; compaction during a
  * move. Graded against the designer's OV-00 budgets (bb2af873); the distributions are kept for trend.
  *
+ * Rulings encoded (orchestrator / designer, 2026-10-16/17), so the measure stays the same from SHA to SHA:
+ *   - chrome = fixed layers and sticky BARS (≥ 60 % of the frame width); a sticky side column, a pane that scrolls on its own
+ *     and an open sheet's backdrop are not chrome; sheet bands are measured inside the dialog;
+ *   - a control is shown only if its centre is inside the viewport and every clipping ancestor;
+ *   - search: one control per form / role=search; a results list's "Search all guides" row and its "clear" are content;
+ *   - label coverage, width, count and gaps are measured on the PAINTED pill, never the transparent 44 px tap area (a tap
+ *     area drawn as a pseudo-element hit-tests to its host, so a label point must also be inside the painted box); the tap
+ *     area itself is governed by B-07 and the collision checks;
+ *   - the credit collapses to ⓘ on P1 / P2 / L / T1 only; at T2 / D it is one line ≤ 20 px, inside the pane, over nothing;
+ *   - a pan is a drag that moves the map: if a start point selects a dot instead, the drag retries from a free point and the
+ *     miss is reported (dragFromDot); pan budgets are not graded when the map never moved.
+ * MEASURE runs as a template-literal Function body: no backslash escapes in it (they collapse); parse numbers instead.
+ *
  * Usage (from tools/): NODE_PATH=$(npm root -g) node beta/qa/qc-overlay.js --label <sha> [--root <checkout>]
  *   [--pages punggol,tokyo] [--vps 390x844,390x664,844x390,768x1024,1024x768,1440x900] [--themes light,dark]
  *   [--views atlas,gallery,guidebook,insights,sheet] [--jobs 4] [--shots 120]
