@@ -10,6 +10,7 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
 
 ## Done
 
+- New npm-test guard `tools/beta/qa/test-reachable-styles.js` (bbaf111a8 regression; QA-85 open for `.pl-why`, KNOWN in the guard). The T2 Atlas collisions are carried from r7 (QA-86, FE-1, Low). `page-eval.js` gained the `t2` viewport. D-55 (efc897c78) restates B-25 for the interim pin against r7.
 - FE-2 asked QC (it reached QA) whether Atlas chromePan still fails at T1/T2/D. QA's B-25 on dbb8bf96 (Tokyo and Cleveland): 5 / 11 / 6 % while panning, against budgets 8 / 15 / 12, so none fail. Answered, pointing FE-2 to QC for S-17. Evidence: `design/beta/eval/w7/qa/overlay-dbb8bf96-atlas-pan/`.
 - Interim claims on 032f1a8e (`tools/beta/qa/claims-r8i.js`, new): QA-82, R8-v27b, R8-FEC, R8-FEB-prune and QA-84 (phone Atlas doors) verified; the adeabcd63 lead card is verified except its photo ratio (QA-83, Low, FE-A: 4:3, not 3:2). Evidence: `design/beta/eval/w7/qa/claims-032f1a8e/`.
 - lensPage flip 80a2b3a0 (PERF-21) verified: gates plus perf08-regress green; the current lenspage-accept (row 0) passes 52/52 against the pin. Evidence: `design/beta/eval/w7/qa/lenspage-80a2b3a0/`.
