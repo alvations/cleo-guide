@@ -347,6 +347,60 @@ for each eligible target with no credit row
 
 ---
 
+## 10. Pexels: API terms on stored copies, and yield (image sources lane, 2026-10-17 14:20Z)
+
+Asked by the orchestrator after D-51. Research was done with WebSearch only, so quotes are from search summaries of Pexels' own
+pages. Nothing is mapped or staged; the orchestrator decides.
+
+**(1) Storing or self-hosting versus hotlinking.** No Pexels page found requires hotlinking or forbids stored copies.
+- The Terms grant a licence to "download, use, copy, modify or adapt the Content for commercial or non-commercial purposes"
+  ([Terms](https://www.pexels.com/terms-of-service/)).
+- The API help centre talks only about caching API *responses* ("24 hours is a good amount of time to cache responses for") and notes
+  that the returned image URLs are stable ([rate-limit help](https://help.pexels.com/hc/en-us/articles/900006470063-What-steps-can-I-take-to-avoid-hitting-the-rate-limit)).
+- It also says "API users are bound to the same Terms and Conditions as Pexels users"
+  ([What is the Pexels API?](https://help.pexels.com/hc/en-us/articles/900005304306-What-is-the-Pexels-API)).
+- Unlike Unsplash (D-51), there is no hotlink-only rule. Caveat: the absence is not proven. No page states "you may store
+  downloaded files" in so many words.
+
+**(2) Attribution.**
+- The licence says "attribution is not required" ([licence](https://www.pexels.com/license/)).
+- The API guidelines ask for "a prominent link to Pexels" (a text link or the logo) and to "credit our photographers when possible
+  (e.g. 'Photo by John Doe on Pexels' with a link to the photo page)"
+  ([API docs](https://www.pexels.com/api/documentation/); [credit help](https://help.pexels.com/hc/en-us/articles/900005851903-How-should-I-give-credit-Can-I-use-your-logo)).
+- Our TASL caption ("Photo by <name> on Pexels", source link, licence link) satisfies both.
+
+**(3) Limits.**
+- 200 requests an hour and 20,000 a month, by default ([API docs](https://www.pexels.com/api/documentation/)).
+- "Abuse of the API, including … attempting to work around the rate limit, will lead to termination."
+- The API is to "enhance" a product, not replicate Pexels. Wallpaper and image-gallery apps count as replicating, and so does
+  redistributing on other stock platforms ([wallpaper help](https://help.pexels.com/hc/en-us/articles/4405588861721-Can-I-use-the-API-as-a-wallpaper-app)).
+- Building ML/AI datasets is prohibited without permission.
+- A guide that uses a few landmark photos inside place cards is not a gallery app.
+
+**(4) Derivatives.** "You can modify the photos and videos from Pexels" ([licence](https://www.pexels.com/license/)). Our resized
+500/720/960 JPEG copies are covered. The limits concern selling unaltered copies, implied endorsement by people or brands, and use in
+trademarks; none applies here.
+
+**Yield sample.** 5 searches over the 41 gaps no other source covers (15 tier-1: Japan 6, Germany/Belgium 9; 26 Singapore first-24):
+
+| Target | Result |
+|---|---|
+| tokyo#takeshita-dori | 2 titled hits ("Crowded Takeshita Street, Harajuku in Tokyo, Japan" 15829196; "Vibrant Nightlife at Takeshita Street in Tokyo" 30961867) |
+| kyoto#to-ji | 1 maybe (15830266, a Kyoto pagoda alley tagged "Toji", title does not name Tō-ji) |
+| saarland#bremmer-calmont-klettersteig | 1 near-miss (18610633, "Aerial View of Moselle River Bend near Bremm": the Calmont slope, not the climbing route) |
+| singapore/punggol#punggol-point-park | 0 |
+| singapore/toa-payoh / balestier sights | 0 |
+
+The estimate is about 3–6 usable photos out of the 41: some Japan landmarks, a few German ones, and almost none for the Singapore
+neighbourhood sights.
+
+**Recommendation: no, not now.**
+- The licence and the API terms permit what we would do: stored, resized, credited, sights only.
+- But the realistic yield is a handful of photos, and that doesn't justify a new key, a new gate path (the Pexels licence string is
+  still not in LICENCE_OK) and a contact-sheet review cycle.
+- Revisit only if the Japan tier-1 gaps become a priority. If so, ask the owner to confirm the API terms page and add PEXELS_API_KEY.
+  The pexels.js adapter is already written and tested.
+
 ## 9. Sources (all found through WebSearch; quotes are from search summaries)
 
 **Google**
