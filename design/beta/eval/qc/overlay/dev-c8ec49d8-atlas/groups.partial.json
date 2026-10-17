@@ -1,1 +1,144 @@
-[]
+[
+ {
+  "kind": "duplicates",
+  "view": "atlas",
+  "vp": "390x844",
+  "runs": 4,
+  "pages": [
+   "cleveland.html",
+   "cities/aachen.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search ×2 (search cleveland + Search Cleveland)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 4,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "duplicates",
+  "view": "atlas",
+  "vp": "390x664",
+  "runs": 4,
+  "pages": [
+   "cleveland.html",
+   "cities/aachen.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search ×2 (search cleveland + Search Cleveland)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 4,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "dragFromDot",
+  "view": "atlas",
+  "vp": "390x844",
+  "runs": 2,
+  "pages": [
+   "cleveland.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "2 start point(s) near the centre did not pan",
+  "budget": "a drag anywhere on the map pans",
+  "owner": "Atlas FE-1",
+  "of": 4,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "dragFromDot",
+  "view": "atlas",
+  "vp": "390x664",
+  "runs": 2,
+  "pages": [
+   "cleveland.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "2 start point(s) near the centre did not pan",
+  "budget": "a drag anywhere on the map pans",
+  "owner": "Atlas FE-1",
+  "of": 4,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "duplicates",
+  "view": "atlas",
+  "vp": "768x1024",
+  "runs": 2,
+  "pages": [
+   "cleveland.html"
+  ],
+  "themes": [
+   "dark",
+   "light"
+  ],
+  "worst": "search ×2 (search cleveland + Search Cleveland)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "dark",
+  "shot": null
+ },
+ {
+  "kind": "dragFromDot",
+  "view": "atlas",
+  "vp": "1024x768",
+  "runs": 2,
+  "pages": [
+   "cleveland.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "1 start point(s) near the centre did not pan",
+  "budget": "a drag anywhere on the map pans",
+  "owner": "Atlas FE-1",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "attributionDesk",
+  "view": "atlas",
+  "vp": "1024x768",
+  "runs": 2,
+  "pages": [
+   "cleveland.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "28 px tall; inside the map pane; over: nothing",
+  "budget": "one line ≤ 20 px, inside the map pane, over no control or label",
+  "owner": "Atlas FE-1",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ }
+]
