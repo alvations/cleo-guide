@@ -8,7 +8,7 @@
 ## Task
 
 The designer owns three things:
-- design system v2: `design/beta/tokens.css`, the `design/beta/css/{contract,views,v2}.css` base layer and `beta/assets/constellation.css`, all built into `beta/assets/cleo.css` by `design/beta/tools/build-css.py`;
+- design system v2: `design/beta/tokens.css`, the `design/beta/css/{constellation,contract,views,v2}.css` base layer, all built into `beta/assets/cleo.css` by `design/beta/tools/build-css.py`;
 - the Atlas spec, `design/beta/atlas/SPEC-v3.md`;
 - the casing rule, in `design/beta/casing/`.
 
