@@ -2266,3 +2266,19 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Dev head 77b960fa is gated green, with eager JS at 39.28 KB (headroom restored).
 - FE-A's chrome pass (853ea52c) closed six overlay rows; the phone at rest is now 16 % chrome.
 - The compaction API question is settled by budget: city pages key on html.ov-c, and shell pages keep their own small controller.
+
+## 2026-10-17 01:10Z · orchestrator check-in
+
+- Dev head 399119259 is gated green (validate, npm test alone, beta:check, initial DOM 12/12).
+- **Photo runs #71–#74 were red at the gates step, and the cause was hidden.** run-tests' `process.exit(1)` dropped the piped
+  output, so the CI log stopped mid-suite with no FAIL row. 9a453fa7e fixed that by setting exitCode, and run #74 then named
+  two causes:
+  - test-beta: `cities/sanfrancisco.html` is 832 KB raw with wave 5c's photos, over the 820 KB ceiling. Gzip is 132 of 160.
+    Dev is 815 KB without the photos. Routed to platform: cut ≥ 30 KB from the city-page template and add a headroom row.
+    The ceiling is not raised. Imagery holds re-dispatch until the trim lands.
+  - test-dom-budget reported FAIL instead of SKIP on a runner without Playwright, because `w2.js` throws "playwright not
+    found". The orchestrator widened the skip match. It still PASSes with Chromium and SKIPs without it.
+- **QC's S-17 audit of live r7 landed** (43eeee68a): 5,172 runs graded against OV-00, adding 16 High and 7 Med rows.
+  - The ledger now holds 41 High/Med rows that aren't closed: 28 open and 13 claimed.
+  - Open by owner: Atlas FE-1 12, FE-B 11, FE-A 5 (plus 6 claimed), FE-C 2 (plus 1 claimed).
+  - Each lane was sent its row list. QC verifies the claimed rows and posts a dev-head count.
