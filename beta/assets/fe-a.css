@@ -1245,3 +1245,7 @@ a.rb.rb-award{background:none}a.rb.rb-award::before{background:var(--sun-wash)}
 html[data-view=atlas] [data-cleo-empty]{display:none}
 /* R8 gap #2c: "last checked <date>" never breaks inside (the masthead stat line, render/city.js + build.js link) */
 .masthead .facts a[data-cleo-changes]{white-space:nowrap}
+/* R8 gap #5a: a label span inside a filled (primary) button takes the button's own text colour. The sheet's "Read what
+   <source> says" / "Visit the official site" wraps its text in .lbl (QA-72), which :root .lbl (v2.css) painted ink-3 on
+   ink: 2.87:1. Ghost buttons ("Area", "Filters") keep their ink-3 label. */
+:root .btn-primary .lbl{color:inherit}
