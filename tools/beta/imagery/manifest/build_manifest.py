@@ -398,6 +398,17 @@ for line in open(f'{S}/cands.tsv', encoding='utf-8'):
         continue
     cands[key].append(c)
 
+# R8 run #77: a file refused for its own fault (not a slot reason) is refused for every target that lists it, so a later
+# wave can never re-introduce it. Mirrors refusalIsGlobal in fetch-commons.js.
+_LOCAL = re.compile(r'duplicat|same file|repeats|already|place card|is the [\w ]*hero|the [\w ]+ hero is', re.I)
+_glob = {}
+for _k, _cs in cands.items():
+    for _c in _cs:
+        if _c.get('refused') and not _LOCAL.search(_c['refused']): _glob.setdefault(_c['file'], f"{_c['refused']} (on {_k})")
+for _k, _cs in cands.items():
+    for _c in _cs:
+        if not _c.get('refused') and _c['file'] in _glob: _c['refused'] = 'refused for another target: ' + _glob[_c['file']]
+
 # W8: what a visitor sees first on each guide — the gallery's lead card, then its first rail row
 PRIO = {}
 for fn in sorted(glob.glob('beta/data/gallery/*.json')):

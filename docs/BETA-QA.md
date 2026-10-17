@@ -1428,3 +1428,29 @@ First readings on dev (`--quick`: Tokyo and Punggol, phone / landscape / desktop
     - the widest phone label at 63 % of the map width.
   - 17 open High/Med rows.
   - One new **High** defect: **QA-80**, the landscape view switch hidden under the header.
+
+## 2026-10-17 · QA · D-46 and QA-80 verified on dev c24dd319 · session_017FLWXa5zgGWvqNo4C3UsvH
+
+I tested in a clean worktree of c24dd319, the orchestrator's gated head, which contains FE-A fc1fbb91.
+
+- **QA-80 ✅ verified.**
+  - Setup: 844×390; Tokyo, Cleveland and Punggol × Atlas, Gallery, Guidebook and Insights (12 cells, map rendered).
+  - All four switch buttons are the topmost element at their centres, and a real tap switches the view in 12/12.
+  - Leftovers (Low) are logged as **QA-82**: the icon-only buttons are 44×40, and in landscape Atlas the "last checked" link is laid out under the map, invisible but focusable.
+- **D-46 ✅ verified:**
+  - `views.js --only default` 8/8: no hash and nothing stored → Atlas; the switcher order is Atlas · Gallery · Guidebook · Insights; a stored Guidebook wins.
+  - Legacy `#pg=2` and `#all=1` → Gallery; a bare URL and `#p=` → Atlas (390 and 1440).
+  - `w2 --only dom` 12/12: Tokyo 2,638 / 2,687, NY 2,516 / 2,573.
+  - The metrics default run (now Atlas) on the 5 pilots:
+    - **B-01a ✅**: clear map 75 %, tray "N places here · … · Show list", ≥ 3 named;
+    - **B-24 ✅**: CLS 0 / ≤ 0.0001, view at paint = atlas;
+    - B-03 ✅ 12–13; B-07, B-08 and B-20 ✅; G1 ✅.
+  - B-01b is WARN (no peek photos or desktop intro yet).
+  - `w4.js`: "default is Atlas" now passes. The 3 FAILs left are the known stale rows (D-41 language switcher, the Insights table fallback).
+- **FE-A's "FE-A D-46" test re-specs: nothing weakened.** I read `test-fe-a.js`, `w7-fe-a-probe.js`, `w8-fe-a-probe.js`, `test-beta.js`, `test-views.js` and `offline-pack.js`.
+  - Gallery checks are pinned to `#view=gallery`, and the default checks are inverted to Atlas.
+  - New checks: a stored Gallery choice wins over the default; in the Atlas default a lens tap keeps Atlas; the Atlas default preloads no Gallery hero; a W8 QA-80 landscape probe.
+  - The widow check now covers the Gallery URLs only, the same scope as before, since a bare URL is Atlas.
+- **QA harnesses:** no Gallery-default assumption is left (`default-view.js`; metrics B-01, B-04, B-07; w4, w5, w7; views).
+- **OV-41** (no-map note over "Keep offline", FE-1) is in QC's ledger.
+- Evidence: `design/beta/eval/w7/qa/d46-c24dd319/`.

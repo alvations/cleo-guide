@@ -447,7 +447,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   return `${headHtml}
 <body>
 ${sprite}
-${siteBar({ depth, current: 'city', rel: row.beta })}
+${siteBar({ depth, current: 'city', rel: row.beta, city: name /* FE-B §v2.12 3a: "Search {city}" */ })}
 <main id="main" data-city="${esc(row.key)}">
 <div class="cbar"><div class="cbar-in"><div class="spill" role="search" data-cleo-search hidden>${ico('search')}<label class="vh" for="cleo-filter">${esc(tr('city.search', { city: name }))}</label><input id="cleo-filter" type="search" placeholder="${esc(tr('city.search', { city: name }))}" autocomplete="off" enterkeyhint="search"><span class="hint" aria-hidden="true">${tr('city.search.hint')}</span></div>
 ${switcher}<script>(function(h,n){var w=document.querySelector('.topbar .wrap'),a=w&&w.querySelector('.top-actions');if(h.classList.contains('atlas-d')&&h.getAttribute('data-view')==='atlas'&&n&&a){n.setAttribute('data-pre','');w.insertBefore(n,a)}})(document.documentElement,document.currentScript.previousElementSibling)</script></div></div>
