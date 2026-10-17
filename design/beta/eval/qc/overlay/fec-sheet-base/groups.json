@@ -1,0 +1,360 @@
+[
+ {
+  "kind": "chromeScroll",
+  "view": "sheet",
+  "vp": "390x664",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": 20.4,
+  "budget": "≤ 8 % after a 600 px scroll",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/chromeScroll_sheet_390x664_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "sheet",
+  "vp": "390x664",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": "top bar alpha 0.4",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/translucentChrome_sheet_390x664_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "chromeRest",
+  "view": "sheet",
+  "vp": "844x390",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": 18.8,
+  "budget": "≤ 13 %",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/chromeRest_sheet_844x390_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "chromeScroll",
+  "view": "sheet",
+  "vp": "844x390",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": 34.4,
+  "budget": "≤ 13 % after a 600 px scroll",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/chromeScroll_sheet_844x390_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "sheet",
+  "vp": "844x390",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": "top bar alpha 0.4",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/translucentChrome_sheet_844x390_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "chromeScroll",
+  "view": "sheet",
+  "vp": "390x844",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": 16.2,
+  "budget": "≤ 7 % after a 600 px scroll",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/chromeScroll_sheet_390x844_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "sheet",
+  "vp": "390x844",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": "top bar alpha 0.4",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/translucentChrome_sheet_390x844_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "chromeScroll",
+  "view": "sheet",
+  "vp": "768x1024",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": 13,
+  "budget": "≤ 6 % after a 600 px scroll",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/chromeScroll_sheet_768x1024_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "sheet",
+  "vp": "768x1024",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": "top bar alpha 0.4",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/translucentChrome_sheet_768x1024_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "chromeRest",
+  "view": "sheet",
+  "vp": "1024x768",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": 14.6,
+  "budget": "≤ 8 %",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/chromeRest_sheet_1024x768_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "chromeScroll",
+  "view": "sheet",
+  "vp": "1024x768",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": 22.9,
+  "budget": "≤ 8 % after a 600 px scroll",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/chromeScroll_sheet_1024x768_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "sheet",
+  "vp": "1024x768",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": "top bar alpha 0.4",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-base/shots/translucentChrome_sheet_1024x768_light_cleveland-html.jpg"
+ },
+ {
+  "kind": "controlCovered",
+  "view": "sheet",
+  "vp": "1024x768",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": "apple maps under share",
+  "budget": "none: every shown control is reachable",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "chromeRest",
+  "view": "sheet",
+  "vp": "1440x900",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": 41.1,
+  "budget": "≤ 8 %",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "chromeScroll",
+  "view": "sheet",
+  "vp": "1440x900",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": 100,
+  "budget": "≤ 8 % after a 600 px scroll",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "sheet",
+  "vp": "1440x900",
+  "runs": 2,
+  "pages": [
+   "cleveland.html",
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": "top bar alpha 0.4",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "controlCovered",
+  "view": "sheet",
+  "vp": "1440x900",
+  "runs": 1,
+  "pages": [
+   "cleveland.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": "google maps under div.actions",
+  "budget": "none: every shown control is reachable",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cleveland.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "controlCollision",
+  "view": "sheet",
+  "vp": "1024x768",
+  "runs": 1,
+  "pages": [
+   "cities/tokyo.html"
+  ],
+  "themes": [
+   "light"
+  ],
+  "worst": "google maps / share",
+  "budget": "none",
+  "owner": "FE-C (sheet)",
+  "of": 2,
+  "worstPage": "cities/tokyo.html",
+  "worstTheme": "light",
+  "shot": null
+ }
+]

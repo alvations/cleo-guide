@@ -1,0 +1,386 @@
+[
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "768x1024",
+  "runs": 20,
+  "pages": [
+   "index.html",
+   "Japan/index.html",
+   "Germany/index.html",
+   "Belgium/index.html",
+   "Singapore/index.html",
+   "Singapore/singapore-old.html",
+   "Vietnam/index.html",
+   "trip.html",
+   "how-we-choose.html",
+   "accessibility.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "your list ×2; search ×4 (search every place + A city, a dish, a shrine + search + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/duplicates_page_768x1024_light_index-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "page",
+  "vp": "390x844",
+  "runs": 18,
+  "pages": [
+   "index.html",
+   "Japan/index.html",
+   "Germany/index.html",
+   "Belgium/index.html",
+   "Singapore/index.html",
+   "Singapore/singapore-old.html",
+   "Vietnam/index.html",
+   "how-we-choose.html",
+   "accessibility.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "top bar alpha 0.96",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-B (hubs, landing, trip, saved, method)",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/translucentChrome_page_390x844_light_index-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "390x844",
+  "runs": 18,
+  "pages": [
+   "index.html",
+   "Japan/index.html",
+   "Germany/index.html",
+   "Belgium/index.html",
+   "Singapore/index.html",
+   "Singapore/singapore-old.html",
+   "Vietnam/index.html",
+   "how-we-choose.html",
+   "accessibility.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "your list ×2; search ×4 (search every place + A city, a dish, a shrine + search + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/duplicates_page_390x844_light_index-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "page",
+  "vp": "390x664",
+  "runs": 18,
+  "pages": [
+   "index.html",
+   "Japan/index.html",
+   "Germany/index.html",
+   "Belgium/index.html",
+   "Singapore/index.html",
+   "Singapore/singapore-old.html",
+   "Vietnam/index.html",
+   "how-we-choose.html",
+   "accessibility.html"
+  ],
+  "themes": [
+   "dark",
+   "light"
+  ],
+  "worst": "top bar alpha 0.96",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-B (hubs, landing, trip, saved, method)",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "dark",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/translucentChrome_page_390x664_dark_index-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "390x664",
+  "runs": 18,
+  "pages": [
+   "index.html",
+   "Japan/index.html",
+   "Germany/index.html",
+   "Belgium/index.html",
+   "Singapore/index.html",
+   "Singapore/singapore-old.html",
+   "Vietnam/index.html",
+   "how-we-choose.html",
+   "accessibility.html"
+  ],
+  "themes": [
+   "dark",
+   "light"
+  ],
+  "worst": "your list ×2; search ×4 (search every place + A city, a dish, a shrine + search + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "dark",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/duplicates_page_390x664_dark_index-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "page",
+  "vp": "844x390",
+  "runs": 18,
+  "pages": [
+   "index.html",
+   "Japan/index.html",
+   "Germany/index.html",
+   "Belgium/index.html",
+   "Singapore/index.html",
+   "Singapore/singapore-old.html",
+   "Vietnam/index.html",
+   "how-we-choose.html",
+   "accessibility.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "top bar alpha 0.96",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-B (hubs, landing, trip, saved, method)",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/translucentChrome_page_844x390_light_index-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "page",
+  "vp": "768x1024",
+  "runs": 18,
+  "pages": [
+   "index.html",
+   "Japan/index.html",
+   "Germany/index.html",
+   "Belgium/index.html",
+   "Singapore/index.html",
+   "Singapore/singapore-old.html",
+   "Vietnam/index.html",
+   "how-we-choose.html",
+   "accessibility.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "top bar alpha 0.96",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-B (hubs, landing, trip, saved, method)",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/translucentChrome_page_768x1024_light_index-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "page",
+  "vp": "1024x768",
+  "runs": 18,
+  "pages": [
+   "index.html",
+   "Japan/index.html",
+   "Germany/index.html",
+   "Belgium/index.html",
+   "Singapore/index.html",
+   "Singapore/singapore-old.html",
+   "Vietnam/index.html",
+   "how-we-choose.html",
+   "accessibility.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "top bar alpha 0.96",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-B (hubs, landing, trip, saved, method)",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/translucentChrome_page_1024x768_light_index-html.jpg"
+ },
+ {
+  "kind": "translucentChrome",
+  "view": "page",
+  "vp": "1440x900",
+  "runs": 18,
+  "pages": [
+   "index.html",
+   "Japan/index.html",
+   "Germany/index.html",
+   "Belgium/index.html",
+   "Singapore/index.html",
+   "Singapore/singapore-old.html",
+   "Vietnam/index.html",
+   "how-we-choose.html",
+   "accessibility.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "top bar alpha 0.96",
+  "budget": "opaque, no blur (b2f587a8)",
+  "owner": "FE-B (hubs, landing, trip, saved, method)",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/translucentChrome_page_1440x900_light_index-html.jpg"
+ },
+ {
+  "kind": "controlCovered",
+  "view": "sheet",
+  "vp": "768x1024",
+  "runs": 12,
+  "pages": [
+   "cities/harrisburg.html",
+   "cities/miami.html",
+   "cities/osaka.html",
+   "cities/saarland.html",
+   "cities/siliconvalley.html",
+   "cities/statecollege.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "all 24 harrisburg · york · lancaster pic under div.actions; read visit hershey & harrisburg under div.actions",
+  "budget": "none: every shown control is reachable",
+  "owner": "FE-C (sheet)",
+  "of": 168,
+  "worstPage": "cities/harrisburg.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/controlCovered_sheet_768x1024_light_cities-harrisburg-html.jpg"
+ },
+ {
+  "kind": "controlCollision",
+  "view": "sheet",
+  "vp": "768x1024",
+  "runs": 10,
+  "pages": [
+   "cities/cincinnati.html",
+   "cities/kyoto.html",
+   "Singapore/holland-village.html",
+   "Singapore/potong-pasir-macpherson.html",
+   "Vietnam/ho-chi-minh-city.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "all 62 cincinnati picks citing wikipedia / save; all 62 cincinnati picks citing wikipedia / directions; read wikipedia / directions",
+  "budget": "none",
+  "owner": "FE-C (sheet)",
+  "of": 168,
+  "worstPage": "cities/cincinnati.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/controlCollision_sheet_768x1024_light_cities-cincinnati-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "1024x768",
+  "runs": 4,
+  "pages": [
+   "index.html",
+   "trip.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search ×3 (search every place + A city, a dish, a shrine + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/duplicates_page_1024x768_light_index-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "1440x900",
+  "runs": 4,
+  "pages": [
+   "index.html",
+   "trip.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search ×3 (search every place + A city, a dish, a shrine + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/duplicates_page_1440x900_light_index-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "844x390",
+  "runs": 2,
+  "pages": [
+   "index.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search ×3 (search every place + A city, a dish, a shrine + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 22,
+  "worstPage": "index.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/duplicates_page_844x390_light_index-html.jpg"
+ },
+ {
+  "kind": "controlCovered",
+  "view": "sheet",
+  "vp": "390x844",
+  "runs": 2,
+  "pages": [
+   "Singapore/jurong.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "all 2 jurong picks citing michelin guide under directions",
+  "budget": "none: every shown control is reachable",
+  "owner": "FE-C (sheet)",
+  "of": 168,
+  "worstPage": "Singapore/jurong.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fec-sheet-all/shots/controlCovered_sheet_390x844_light_Singapore-jurong-html.jpg"
+ }
+]
