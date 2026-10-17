@@ -15,7 +15,7 @@ const { esc, prose, jsonInline } = require('../html');
 const RU = require('./recognition-ui');            // FE-C W9-1 hook: recognition badges (platform data only)
 const FU = require('./fresh-ui');                  // FE-C W9-2 hook: the "Follow changes" line
 const dotJoin = s => String(s).replace(/ · /g, '\u00a0· ');   // FE-C R8 #2c hook: a "·" separator binds to the word before it (no line starts with "·")
-const { TIER, publicName } = require('../model');   // publicName: FE-B R8 gap #2d
+const { TIER, publicName, sourceRole, recName } = require('../model');   // publicName: FE-B R8 gap #2d
 const { t: tr, tn } = require('../i18n');   // platform W9-8: the offline-pack strings come from the catalogue; i18n D-41: every interface string
 /** Every catalogue string the W9-8 offline pack and the offline map line use (test-i18n renders it in `pseudo`). */
 function offlineStrings(city, n) {
@@ -175,15 +175,22 @@ function card(r, num, ctx) {
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
   const eyebrow = r.closed
     ? esc(tr(pv.checked ? 'city.card.closed.c' : 'city.card.closed', { d: pv.checked }))   // i18n D-41; QC-25: the clean closed line, never the status note
-    : `${tier(r.t)} <span class="in"><span class="in-a">${esc(tr('city.card.within', { area: aName }))}</span>${dish ? `<span class="in-d"><span class="sep"> · </span>${esc(dish)}</span>` : ''}</span>`;   // in-a: hidden where the list is grouped by area (W7 card)
+    : `${(r.recby && !r.recby.length) ? `<span class="kind">${esc(tr(r.kind === 'food' ? 'card.kind.food' : 'card.kind.sight'))}</span>` /* FE-B D-53: no tier badge without an independent recommender */ : tier(r.t)} <span class="in"><span class="in-a">${esc(tr('city.card.within', { area: aName }))}</span>${dish ? `<span class="in-d"><span class="sep"> · </span>${esc(dish)}</span>` : ''}</span>`;   // in-a: hidden where the list is grouped by area (W7 card)
   // Recommended by: every publisher is a chip that opens its source view (M1-10); CSS shows three, then "+N".
-  const ids = (r.src || []).filter(s => s !== 'guide');
+  // FE-B D-53 (trust): only real recommenders are named here (r.recby, build.js via lib/model.js recommendersOf) — never a rating
+  // platform, the place's own site or general knowledge. With none, the line says so (+ the official site as a link, as a
+  // source of facts, never a recommender); every source stays listed in the place detail.
+  const ids = r.recby || (r.src || []).filter(s => s !== 'guide');
+  const own = !ids.length && (r.src || []).map(id => srcById[id]).find(x => x && x.role === 'own' && (x.entries || []).some(e => /^https?:/.test(e.url)));
   // literal ', ' stays for screen readers / copy; DES's cleo.css 15.3 glues a drawn comma to each name (QA-18)
   // R8 photo headroom (platform): no `type="button"` on chips (−14 B each); a city page has no <form> (test-beta guards it)
-  const chips = ids.map(id => { const s = srcById[id] || { name: id }; return `<button class="src${s.authority ? ' auth' : ''}" data-src="${esc(id)}">${esc(s.name.split(' · ')[0])}</button>`; });
+  const chips = ids.map(id => { const s = srcById[id] || { name: id }; return `<button class="src${s.authority ? ' auth' : ''}" data-src="${esc(id)}">${esc(recName(s.name.split(' · ')[0]))}</button>`; });
   let rec = chips.slice(0, 3).join(', ');
   if (chips.length > 3) rec += ` <span class="more">+${chips.length - 3}</span><span class="rest">, ${chips.slice(3).join(', ')}</span>`;
   if ((r.src || []).includes('guide')) rec += (rec ? ', ' : '') + `<span class="added">${tr('city.card.added')}</span>`;   // i18n D-41
+  const noRec = !ids.length && !(r.src || []).includes('guide');
+  const recLine = noRec ? `<p class="pl-s pl-norec"><span class="norec">${tr('card.norec')}</span>${own ? ` · <a class="own" href="${esc(own.entries.find(e => /^https?:/.test(e.url)).url)}" rel="noopener">${tr('card.official')}</a>` : ''}</p>`
+    : `<p class="pl-s"${ids.length > 1 ? ` data-more="${ids.length - 1}"` : ''}><span class="lbl">${tr('card.recby')}</span> ${rec}</p>`;
   // native script is printed ONCE (ROUND-1 #4): a trailing native aside is wrapped as .nat; the client sets it on the
   // plate (≤ 7 glyphs) and DES's cleo.css then hides the title copy visually (kept for screen readers + search).
   const nat = r.nat && r.n.endsWith(`(${r.nat})`) ? r.nat : '';
@@ -196,7 +203,7 @@ function card(r, num, ctx) {
   const attrs = [`data-k="${r.kind === 'food' ? 'f' : 's'}"`, `data-t="${r.t}"`, `data-a="${esc(r.a)}"`, `data-n="${num}"`, `data-gl="${gl}"`, mg && `data-mg="${mg}"`, `data-m="${motifOf(r, gl)}"`,   // data-m: cover motif by kind id (imagery, ROUND-4 #6)
    
     r.g.length && `data-g="${esc(r.g.join(' '))}"`, r.cz.length && `data-cz="${esc(r.cz.join(' '))}"`,
-    r.src && r.src.length && `data-src="${esc(r.src.join(' '))}"`,
+    r.src && r.src.length && `data-src="${esc(r.src.join(' '))}"`, r.recby && r.recby.join(' ') !== (r.src || []).filter(x => x !== 'guide').join(' ') && `data-recby="${esc(r.recby.join(' '))}"` /* FE-B D-53: only when it differs from data-src */,
     r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', RU.attr(r) /* FE-C W9-1 hook */, RU.lfAttr(r, ctx.lfOn) /* FE-C W9-9 hook */, r.warn && 'data-warn', r.np && 'data-np', r.pq && `data-pq="${esc(r.pq)}"`].filter(Boolean).join(' ');   // data-pq: FE-B D-39 (QA-65)
   // W7 media slot (contract in docs/BETA-LOG.md): the calm cover (.pl-cover), a credited photo laid over it when the imagery
   // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
@@ -206,7 +213,7 @@ function card(r, num, ctx) {
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span>` : `<span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w && !/^https?:\/\/\S+$/.test(r.w) ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${tr(isNote ? 'city.card.note' : 'city.card.look')}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
-<p class="pl-s"${ids.length > 1 ? ` data-more="${ids.length - 1}"` : ''}><span class="lbl">${tr('card.recby')}</span> ${rec}</p>${RU.html(r, srcById) /* FE-C W9-1 hook */}</li>`;   // i18n D-41: the card's labels
+${recLine}${RU.html(r, srcById) /* FE-C W9-1 hook */}</li>`;   // i18n D-41: the card's labels
 }
 
 /* ---- "For you" (M2-05): interests → collection / cuisine IDS only (Wenwen rule: never a dish or name keyword).
@@ -440,7 +447,7 @@ ${(ord => { noRepeat(ord); return ord.map((r, j) => card(r, j + 1, cardCtx)).joi
     `<button type="button" class="btn btn-icon" data-tr="x" aria-label="${tr('city.tray.close')}">${ico('close')}</button></header><div class="scroll">` +
     (areas.length > 1 ? fs('area', tr('city.tray.area'), areas.map(a => pill('a', a.id, areaSplit(a.n)[0], cnt(r => r.a === a.id))).join('')) : '') +
     fs('tier', `${tr('city.tray.tier')} <span class="sm">${tr('city.tray.tier.note')}</span>`, [1, 2, 3].map(t => pill('t', String(t), tr('tier.' + t), cnt(r => r.t === t && !r.closed))).join('')) +
-    fs('src', tr('card.recby'), srcList.map(x => pill('src', x.id, x.name, x.n)).join('')) +
+    fs('src', tr('card.recby'), srcList.filter(x => sourceRole(x) === 'rec').map(x => pill('src', x.id, recName(x.name), x.n)).join(''))   /* FE-B D-53: recommenders only */ +
     fs('c', tr('city.tray.c'), cats.filter(c => cnt(r => r.g.includes(c.id))).map(c => pill('c', c.id, c.n.replace(/^★\s*/, ''), cnt(r => r.g.includes(c.id)))).join('')) +
     fs('cz', tr('city.tray.cz'), cuis.filter(c => cnt(r => r.cz.includes(c.id))).map(c => pill('cz', c.id, c.n, cnt(r => r.cz.includes(c.id)))).join('')) +
     fs('sort', tr('city.tray.sort'), pill('sort', '', tr('city.sort.guide')) + pill('sort', 'src', tr('city.sort.src')) + pill('sort', 'az', 'A–Z') + pill('sort', 'near', tr('city.sort.near')) + pill('sort', 'base', tr('city.sort.base')).replace('<button', '<button hidden') /* FE-C W9-5 hook: base.js shows it */) +

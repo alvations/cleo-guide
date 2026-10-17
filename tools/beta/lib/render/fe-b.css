@@ -351,3 +351,6 @@ html.ov-c .tabbar:focus-within{transform:none}
   .feb .tile.card.np .card-media .cover { padding: 0; }
   .feb .tile.card.np .card-media .native { display: none; }
 }
+/* FE-B D-53: a card with no independent recommender says so plainly; the place's own site is a link, never a recommender */
+:is(.pl-norec,.recby.norec){font-size:var(--fs-meta);color:var(--ink-2)}:is(.pl-norec,.recby.norec) .norec{color:var(--ink-2)}
+:is(.pl-norec,.recby.norec) a.own{display:inline-flex;align-items:center;min-height:var(--tap);color:var(--ink-2);font-weight:600}
