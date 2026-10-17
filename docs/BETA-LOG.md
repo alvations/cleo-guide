@@ -2658,3 +2658,5 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Fixes:** QC-36 (platform), photo-run failures (imagery 6b501134b).
   - **Panel R4:** 5/8 returns in.
   - **Interim pin waits on:** QA's recby-scan, FE-B's Insights relabel, QC's OV-123 re-grade.
+- **QC-36 (the count line's wording never swaps under the reader):** under a lens, whenever the Atlas list follows the map (not Show all, not no-map, and desktop "search as I move" not off), the line uses the settled wording "N places here, of all T" from the first paint. Only the number updates when the map lands. "N of all T places" (atl.c.of) stays for Show all and no-map. Both i18n keys are kept.
+  - Checked on Tokyo `#view=atlas&t=1` with the map library 3 s late: one phrasing from first paint, at 1440 and at 390.
