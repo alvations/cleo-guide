@@ -241,9 +241,42 @@ function accentFor(skins, skin, key) {
   return (s && skins.bySkin[s] && skins.bySkin[s].light) ? Object.assign({}, DEFAULT_ACC, skins.bySkin[s]) : DEFAULT_ACC;
 }
 
+// ---------------------------------------------------------------- designed food covers (DESIGN-SYSTEM §v2.7a)
+// Food places never get a photo, so their cover is designed: the city's own ground tile (the recipe's `t`) under a
+// large kit glyph and the dish word. Imagery owns the art; FE-A places it in the existing cover box. The ground ships as
+// two CSS-ready url() values (no request): --ink at 5 % on the light theme, the dark theme's --ink at 7 %.
+const FOOD_INK = { light: ['#1C1917', .05], dark: ['#F2EEEA', .07] };
+const uri = s => `url("data:image/svg+xml,${s.replace(/"/g, "'").replace(/[<>#%{}]/g, c => encodeURIComponent(c))}")`;
+/** Ground tile → { light, dark } url() strings; each well under 1 KB. */
+function foodGround(spec) {
+  const tl = T[spec.t[0]](...spec.t.slice(1));
+  const one = ([c, o]) => uri(`<svg xmlns="http://www.w3.org/2000/svg" width="${tl.w}" height="${tl.h}"><path fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="1.2" stroke-linecap="round" d="${tl.d}"/></svg>`);
+  return { light: one(FOOD_INK.light), dark: one(FOOD_INK.dark), tile: spec.t[0] };
+}
+/**
+ * The no-repeat rule: adjacent food covers never show the same glyph twice running. Each primary glyph (what the
+ * renderer's glyphFor picks from the cuisine) has a short ladder of next-best kit glyphs from the same cuisine family;
+ * forkknife is the last resort.
+ */
+const FOOD_GLYPH_LADDER = {
+  bowl: ['steam', 'noodles'], noodles: ['bowl', 'steam'], sushi: ['fish', 'bowl'], dumpling: ['steam', 'bowl'], cup: ['cake', 'steam'],
+  bottle: ['cocktail', 'cup'], cocktail: ['bottle', 'cup'], cake: ['ice', 'cup'], ice: ['cake', 'cup'], fish: ['sushi', 'bowl'],
+  sandwich: ['bread', 'forkknife'], bread: ['sandwich', 'cake'], flame: ['forkknife', 'bowl'], cloche: ['forkknife', 'cup'],
+  dango: ['cake', 'cup'], lantern: ['bottle', 'cup'], steam: ['bowl', 'dumpling'], forkknife: ['bowl', 'cup'],
+};
+/** Primary glyphs of a row's food cards, in order → the glyphs to draw, with no glyph twice running. */
+function foodGlyphs(primary) {
+  const out = [];
+  primary.forEach((g, i) => {
+    const prev = out[i - 1], next = primary[i + 1];
+    out.push(g !== prev ? g : ((FOOD_GLYPH_LADDER[g] || []).concat('forkknife', 'bowl', 'cup').find(x => x !== prev && x !== next) || g));
+  });
+  return out;
+}
+
 /**
  * Build every motif. Returns { files: {relPath: svgString}, index } — `index` is the documented model FE lanes read:
- *   index.pages[pageKey]       = { night, ink, why }           (paths relative to beta/)
+ *   index.pages[pageKey]       = { night, ink, why, food: {light, dark, tile} }   (paths relative to beta/; food = §v2.7a cover ground url()s)
  *   index.countries[countryKey] = { night, ink, why }
  *   index.collections[kind]     = { night, ink, why }, index.themes[themeKey] (aliases)  and index.collectionKind(id, name) maps a CATS entry to a kind.
  */
@@ -256,7 +289,11 @@ function buildMotifs({ cityRows, countries, tokensCss }) {
     files[base + '.ink.svg'] = svg(spec, acc, 'ink', title);
     bucket[key] = { night: base + '.svg', ink: base + '.ink.svg', why: spec.why };
   };
-  for (const r of cityRows) put(index.pages, r.key, r.fileKey, cityRecipe(r), accentFor(skins, null, r.key), `${r.name || r.key} — motif`);
+  for (const r of cityRows) {
+    const spec = cityRecipe(r);
+    put(index.pages, r.key, r.fileKey, spec, accentFor(skins, null, r.key), `${r.name || r.key} — motif`);
+    index.pages[r.key].food = foodGround(spec);   // §v2.7a: the food cover's ground (FE-A sets it as --food-ground / --food-ground-dark)
+  }
   for (const c of countries) {
     const spec = COUNTRIES[c.key] ? COUNTRIES[c.key]() : fallback('country-' + c.key, c.key);
     put(index.countries, c.key, c.key, spec, accentFor(skins, COUNTRY_SKIN[c.key]), `${c.name || c.key} — motif`);
@@ -271,7 +308,7 @@ function buildMotifs({ cityRows, countries, tokensCss }) {
   return { files, index };
 }
 
-module.exports = { buildMotifs, collectionKind, cityRecipe, readSkins, RECIPES, COLLECTIONS, COLLECTION_ID };
+module.exports = { foodGround, foodGlyphs, FOOD_GLYPH_LADDER, buildMotifs, collectionKind, cityRecipe, readSkins, RECIPES, COLLECTIONS, COLLECTION_ID };
 
 if (require.main === module) {
   const { buildRegistry, ROOT } = require('../lib/registry');
