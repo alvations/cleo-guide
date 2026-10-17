@@ -27,6 +27,10 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
   views.js): a3da0b4b.
 
 ## Next
+- **17 Oct afternoon, pushed:** D-43 approximate-pin halo 9aaaf0ba (own canvas pane `navHalo`, Key swatch); OV-03 label
+  coverage = QC measure artefact (tap area counted) → QC fixed d7891c1f, painted pills 0 failing on c8ec49d8; landscape docked
+  carousel emptied the map's labels → fixed 4f550bd5 (`side()` right pad + feature() avoid), probe fe2/label-clear.js.
+  OV-102 T1/T2/D chromePan passes (QA B-25 + QC c8ec49d8): left alone. QC = session_01MYsz5PHtY39stLxc8rMmqj (not 017FL…, that's QA).
 - **D-46 phone doors (orchestrator 10:27Z): pushed 71aff91b.** `.ms-doors` shown in phone list mode (atlas-nav.css); phone list
   mode keeps the map mode's pads (`C.overMap` wrapper) so a lens from a door keeps the count; w2 doors fails a missing phone
   door (16/16). §2.0.7 Atlas icon → map in list mode (FE-1 ask); `a[data-nav-pin]` opener for FE-C's `Cleo.side`.

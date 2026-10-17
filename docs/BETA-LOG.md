@@ -2589,3 +2589,4 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **QA-83 (Low, FE-A):** the lead photo renders 4:3, not 3:2.
   - **Owner action:** the EUROPEANA_API_KEY Actions secret.
   - **Round 4** waits on FE-A's NYC header fix and FE-1's phone search/drag fixes.
+- **Desktop credit 28 px at T2/D (QC c8ec49d8, 171/171 runs):** the licence links' 4 px padding gives them a 24 px hit box (R2 #7). It was meant to leave the line alone, but the links render inline-block, so the padding grew the row to 28 px. A matching −4 px margin now cancels it: the row is 20 px at 1440×900 and 1024×768, and the links keep their 24 px hit box. Phone is unchanged at 20 px.
