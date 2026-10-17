@@ -268,10 +268,9 @@ function slotCheck(t) {
 }
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+/** One total-time cap over headers AND body (net.js): a stalled body is a per-file timeout, never a hung run (R8). */
 async function get(url, opts = {}) {
-  const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), opts.timeout || 30000);
-  try { return await fetch(url, { headers: { 'User-Agent': UA, 'Api-User-Agent': UA, Accept: opts.accept || 'application/json' }, signal: ctl.signal, redirect: 'follow' }); }
-  finally { clearTimeout(timer); }
+  return require('./net').fetchCapped(url, { headers: { 'User-Agent': UA, 'Api-User-Agent': UA, Accept: opts.accept || 'application/json' }, redirect: 'follow' }, opts.timeout || 30000);
 }
 const qs = o => Object.entries(o).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&');
 
@@ -391,7 +390,7 @@ async function main() {
   const api = async params => { if (calls >= o.budget) throw Object.assign(new Error('budget'), { budget: true }); calls++; await sleep(o.delay);
     const r = await get(`${API}?${qs(Object.assign({ format: 'json', formatversion: 2, maxlag: 5 }, params))}`);
     if (!r.ok) die(`Commons API → HTTP ${r.status}; stopping.`, 4);
-    return r.json(); };
+    try { return await r.json(); } catch (e) { throw Object.assign(new Error('api body'), { budget: true, why: `Commons API body ${e.timeout ? 'stalled' : 'unreadable'} — stopping; the next run resumes` }); } };
   fs.mkdirSync(PHOTO_DIR, { recursive: true });
   const today = new Date().toISOString().slice(0, 10);
   const widthsOf = t => widthsFor(t, o), maxOf = t => { const w = widthsOf(t); return w[w.length - 1]; };
@@ -499,7 +498,8 @@ async function main() {
     const img = await get(t.thumburl, { accept: 'image/*', timeout: 60000 }).catch(e => ({ ok: false, status: 0, headers: { get: () => String(e.message) } }));
     if (img.status === 429 || img.status >= 500) { imgFails++; return { why: `image host HTTP ${img.status} — stopping; the next run resumes`, stop: true }; }
     if (!img.ok) { imgFails++; return { why: `thumbnail → HTTP ${img.status}` }; }
-    const buf = await sharp(Buffer.from(await img.arrayBuffer())).resize({ width: w }).jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+    let raw; try { raw = Buffer.from(await img.arrayBuffer()); } catch (e) { imgFails++; return { why: `thumbnail body ${e.timeout ? 'stalled (timed out)' : 'failed'} — skipped` }; }
+    const buf = await sharp(raw).resize({ width: w }).jpeg({ quality: 82, mozjpeg: true }).toBuffer();
     const m = await sharp(buf).metadata(), file = `${base}-${m.width}.${ext === 'png' ? 'jpg' : ext}`;
     fs.writeFileSync(path.join(PHOTO_DIR, file), buf); imgBytes += buf.length;
     await sleep(o.delay);
@@ -544,7 +544,7 @@ async function main() {
       const type = img.headers.get('content-type') || '';
       if (img.status === 429 || img.status >= 500) { drop(out); imgFails++; throw Object.assign(new Error(`image host answered HTTP ${img.status}`), { budget: true, why: `image host HTTP ${img.status} — stopping; the next run resumes` }); }
       if (!img.ok || !/^image\//.test(type)) { imgFails++; drop(out); return { why: `thumbnail ${url} → HTTP ${img.status} ${type}` }; }
-      const buf = Buffer.from(await img.arrayBuffer());
+      let buf; try { buf = Buffer.from(await img.arrayBuffer()); } catch (e) { imgFails++; drop(out); return { why: `thumbnail ${url} body ${e.timeout ? 'stalled (timed out)' : 'failed'} — skipped` }; }
       const file = `${base}-${tw}.${ext}`;
       fs.writeFileSync(path.join(PHOTO_DIR, file), buf); imgBytes += buf.length;
       out.push({ file, w: tw, h: th, kb: Math.round(buf.length / 1024), bytes: buf.length });
