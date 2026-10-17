@@ -79,6 +79,8 @@
     const t = e.target; if (!t || !t.closest || !atlas()) return;
     if (t.closest('#cleo-poi a.ms-pv')) { rec(); frozen = last; opener = pvFrom || null; return; }
     if (t.closest('#cleo-poi')) return;
+    // a selection card elsewhere (FE-C's landscape side card, Cleo.side) marks its detail link data-nav-pin: like the preview
+    if (t.closest('a[data-nav-pin]')) { rec(); frozen = last; opener = { pin: 1 }; return; }
     // the preview only ever opens from the map (a pin, the pill a hovered dot shows, or a dot on the canvas): focus goes
     // back to the open place's pin, which stays labelled while it is selected
     if (t.closest('#cleo-map')) { pvFrom = { pin: 1 }; return; }
