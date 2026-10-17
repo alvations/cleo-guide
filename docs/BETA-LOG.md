@@ -2482,3 +2482,7 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **Desktop credit:** no Leaflet prefix (`setPrefix(false)`), 11/16 px, 20 px tall, per the designer's ruling. It stays full, not folded.
 - **Landscape:** the list band under the bar is gone; the list is the side column. The old side.js branch in `select()` is removed.
 - **Label coverage** counts the painted pill area.
+- **D-46 desktop lead card (the last D-46 item):** the build now marks the Atlas lead.
+  - **What gets marked:** render/city.js marks atlas.js's map-priority #1 `.pl-lead` (tier, then rank within its area by named sources, pin number and area order), and only when that card has a photo. On Tokyo that is Edo-Tokyo Museum. 32 city pages get a lead; the rest open on a photo-less rank 1 and draw no lead.
+  - **When it spans:** client/city.js sets `html.cleo-lensed` while a lens, sort, day plan or Near me reorders the list. The span at 3:2 applies only without that class, so only on a cold, unfiltered load.
+  - **New test-fe-a row:** the Tokyo lead is checked, with at most one lead per page and never a photo-less one.
