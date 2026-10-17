@@ -129,7 +129,7 @@
 
   /* ---- Gallery pager (SPEC §2.3): 24 / 48 per page; lenses, search, #p= and print use the full set ---- */
   const grid = $('#cleo-grid'), size = () => (!window.matchMedia || matchMedia('(min-width: 640px)').matches ? 48 : 24);
-  let pager = null;
+  let pager = null, pagerH = '';
   if (Cleo.defer && grid) Cleo.defer.paged = () => cur === 'gallery';   // PERF-21: core.js leaves a lens's other pages unstamped
   const setPg = o => { const r = Cleo.route.parse(); delete r.p; delete r.pg; delete r.all; Object.assign(r, o); C.go(r); if (grid) grid.scrollIntoView({ block: 'start' }); };
   function page() {
@@ -179,8 +179,10 @@
     // page 1 may reach past the live cards (still deferred): keep their sections in layout; cleo:stamped re-pages
     const keep = new Set(ord ? ord.slice(a, b).filter(o => !o.el).map(o => o.a)
       : pend && b > live.length ? Cleo.defer.peek().slice(0, b - live.length).map(x => x.getAttribute('data-a')) : []);
-    qa('li.pl').forEach(c => c.classList.remove('pg-off'));
-    live.forEach(c => { const i = pos(c); if (i < a || i >= b) c.classList.add('pg-off'); });
+    // FE-C INP hook (open a place): only the cards whose page state changes are touched — clearing and re-adding pg-off on
+    // every card restyled the whole list on each route change (a #p= open included), though nothing had moved
+    const off = new Set(); live.forEach(c => { const i = pos(c); if (i < a || i >= b) off.add(c); });
+    qa('li.pl').forEach(c => { const o = off.has(c); if (c.classList.contains('pg-off') !== o) c.classList.toggle('pg-off', o); });
     secs.forEach(s => s.classList.toggle('pg-empty', !s.querySelector('li.pl:not([hidden]):not(.pg-off)') && !keep.has(at(s, 'data-area'))));
     if (!pager) { pager = d.createElement('nav'); pager.className = 'pager g-pager vw view-gallery'; pager.setAttribute('aria-label', tt('views.pages', 'Pages of places'));
       const how = $('#how-we-choose'); if (how) how.parentNode.insertBefore(pager, how); else if (lp) lp.appendChild(pager);
@@ -195,10 +197,11 @@
     }
     const line = !N ? tt('views.none', 'No places match —') + ' <button type="button" class="btn btn-quiet" data-cleo-all>' + tt('views.none.all', 'show all {n}', { n: T }) + '</button>'
       : tt('views.showing', 'Showing {range} of {n}', { range: '<b>' + (a + 1) + '–' + b + '</b>', n: N.toLocaleString('en-US') }) + (N === T ? tt('views.all', ' — all {places}', { places: pl(T) }) : tt('views.inguide', ' (all {places} in the guide)', { places: pl(T) }));
-    pager.innerHTML = (nums.length ? '<div class="pg-n"><button type="button" class="pg" data-pg="' + Math.max(1, pg - 1) + '"' + (pg === 1 ? ' disabled' : '') + ' aria-label="' + tt('views.prev', 'Previous page') + '">‹</button>' + nums.join('') +
+    const ph = (nums.length ? '<div class="pg-n"><button type="button" class="pg" data-pg="' + Math.max(1, pg - 1) + '"' + (pg === 1 ? ' disabled' : '') + ' aria-label="' + tt('views.prev', 'Previous page') + '">‹</button>' + nums.join('') +
       '<button type="button" class="pg" data-pg="' + Math.min(pages, pg + 1) + '"' + (pg === pages ? ' disabled' : '') + ' aria-label="' + tt('views.next', 'Next page') + '">›</button></div>' : '') +
       '<p class="pg-line tot" aria-live="polite">' + line + '</p>' +
       (pages > 1 || all ? '<p><button type="button" class="btn btn-ghost showall" data-pg="' + (all ? 'paged' : 'all') + '">' + (all ? tt('views.per', 'Show {n} per page', { n: per }) : tt('views.onepage', 'Show all {n} on one page', { n: N.toLocaleString('en-US') })) + '</button></p>' : '');
+    if (ph !== pagerH) pager.innerHTML = pagerH = ph;   // FE-C INP hook: the same pager isn't redrawn
     if (Cleo.emit) Cleo.emit('cleo:paged', { a, b, n: N });
   }
   C.after.push(page);
