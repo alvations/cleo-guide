@@ -26,9 +26,12 @@
   var label = function (p) { var n = String(p.n).replace(/\s+[—–-]+\s*CLOSED\b.*$/, ''), nat = p.nat && n.slice(-p.nat.length - 2) === '(' + p.nat + ')' ? p.nat : ''; return nat ? n.slice(0, -nat.length - 2).trim() : n; };
   var shortArea = function (n) { return String(n || '').split(/\s+[(—–]\s*|\s+\(/)[0]; };
   /** "Recommended by X + n more" from a place's source ids and the guide's source index (honest when only the guide). */
+  // FE-B D-53 (trust): only real recommenders (the record's recby, authorities first) — never a rating platform or the place's
+  // own site; their names without an "(official …)" tail (lib/model.js recName). None: "No independent source yet"
   function srcLine(p, names) {
-    var s = (p.src || []).filter(function (k) { return k !== 'guide'; });
-    return !s.length ? Cleo.t('city.card.added', 'Added by the guide (general knowledge)') : s.length > 1 ? Cleo.t('src.recby.more', 'Recommended by {src} + {n} more', { src: names[s[0]] || s[0], n: s.length - 1 }) : Cleo.t('card.recby', 'Recommended by') + ' ' + (names[s[0]] || s[0]);
+    var s = p.recby || (p.src || []).filter(function (k) { return k !== 'guide'; }), nm = function (k) { return String(names[k] || k).replace(/\s*\(official\b[^)]*\)/ig, '').trim(); };
+    return !s.length ? ((p.src || []).indexOf('guide') >= 0 ? Cleo.t('city.card.added', 'Added by the guide (general knowledge)') : Cleo.t('card.norec', 'No independent source yet'))
+      : s.length > 1 ? Cleo.t('src.recby.more', 'Recommended by {src} + {n} more', { src: nm(s[0]), n: s.length - 1 }) : Cleo.t('card.recby', 'Recommended by') + ' ' + nm(s[0]);
   }
   var latest = function (ps) { return ps.map(function (p) { return (p.pv || {}).checked || ''; }).filter(Boolean).sort().pop() || ''; };
 
@@ -39,11 +42,12 @@
     var G = I.guide || { src: {}, areas: {}, colors: {} }, out = { kind: kind, lines: [], stops: [], route: [], url: I.url || '' };
     if (kind === 'place') {
       var p = I.places[0], closed = isClosed(p), pv = p.pv || {};
-      out.food = p.kind === 'food'; out.tier = closed ? 0 : p.t; out.glyph = I.glyph || '';
+      var nr = p.recby && !p.recby.length && (p.src || []).indexOf('guide') < 0;   // FE-B D-53: no independent recommender → its kind, no tier
+      out.food = p.kind === 'food'; out.tier = closed || nr ? 0 : p.t; out.glyph = I.glyph || '';
       out.eyebrow = (G.name || '') + (G.areas[p.a] ? ' · ' + shortArea(G.areas[p.a]) : '');
       out.title = label(p); out.nat = p.nat || '';
       out.photo = I.photo || null;
-      out.closed = closed; out.status = closed ? Cleo.t('gal.closed', 'Closed · kept for the record') : TIER(p.t);
+      out.closed = closed; out.status = closed ? Cleo.t('gal.closed', 'Closed · kept for the record') : nr ? (out.food ? Cleo.t('card.kind.food', 'Eat & drink') : Cleo.t('card.kind.sight', 'Sight')) : TIER(p.t);
       out.source = srcLine(p, G.src);
       out.checked = pv.checked ? (closed ? Cleo.t('share.checked.closed', 'Closed when checked · {date}', { date: pv.checked }) : Cleo.t('trip.checked', 'Open when last checked · {date}', { date: pv.checked })) : '';
       out.why = closed ? '' : (p.w || '');

@@ -24,6 +24,19 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
   named a platform/own site after "Recommended by"; after: 0; 14 no-recommender cards (newyork 12, pittsburgh 1,
   rhineland 1). New keys: card.norec, card.official, card.kind.food/.sight (ja needs i18n review).
   Still to adopt `recby` (contract sent): FE-A gallery.js/saved.js, FE-C sheet byline/share-card/trip, FE-1 atlas.js.
+- **D-53 part 2 (FE-B surfaces).** Insights "Who recommends each area" names only recommenders (lib/views.js: top-5 from
+  recby + guide; platforms/own sites stay counted under "Other sources", totals unchanged). Paste a link: renderSource
+  moved from eager search.js to lazy **client/srcview.js** (search.js keeps a stub → Cleo.need('srcview'); version via
+  core.js `__V_srcview__`). build.js flags non-recommender rows (source-hosts row[5] = 1, source-urls row[6] = 1) → "Places
+  that cite <host>" / "Places that cite this page" (keys srch.src.cites, srch.src.page.cites). Board names via recName.
+  Eager JS headroom 0.07 → 0.83 KB. test-hubs: JSDOM ResourceLoader serves assets/js lazily; a never-settling run now
+  FAILs (it used to exit 0 silently); new D-53 row on source-host flags. test-i18n evals srcview.js (i18n heads-up).
+- **QA-87 (Med) fixed.** (a) "Added by the guide" no longer follows "Recommended by": guide-only cards read "No independent
+  source yet · Added by the guide (general knowledge)"; mixed cards keep it on its own `.pl-s.pl-add` line (FE-C's sheet reads
+  `.pl-s .added`). Same in Guidebook, the build lead card (lead-card.js, platform) and gallery.js gcard (FE-A) — the two
+  stay identical (test-beta PERF-18). 58 → 0. Guard + seeded row (CLEO_BETA_SELFTEST_GK). (b) sourceRole: "(developer,
+  official)" and "<X> official site/history" are own sites (unless a board): Kin Sunrise Beach, Keppel Land, Handel's,
+  Ginoza Village. beta:check now: 51 no-recommender cards (45 of them guide-only).
 
 - §3a end-to-end (6cc48f129 + FE-A 276fc6f2): allguides.js loads on the first cleo:city-search with a query (also a #q= deep
   link). S-17 rule on Tokyo: one search at 390 and 1440 in every view; left (FE-A): city field + header icon both visible

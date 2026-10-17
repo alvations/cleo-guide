@@ -40,7 +40,7 @@ const HOOK_ONLY = new Set([
 ]);
 // Open register rows: reported as KNOWN (not a failure) until fixed, so npm test stays a usable gate. Remove an entry
 // when its row is verified; a KNOWN class that is styled again prints a notice to do so.
-const KNOWN = { 'pl-why': 'QA-85 (bbaf111a8 cut the For you "why" chip rule; 69128c498 did not restore it)' };
+const KNOWN = {};
 let pass = 0, fail = 0; const seenKnown = new Set();
 const check = (name, ok, info) => { ok ? pass++ : fail++; console.log(`  ${ok ? 'PASS' : 'FAIL'}  ${name}${info === undefined ? '' : ' = ' + JSON.stringify(info)}`); };
 

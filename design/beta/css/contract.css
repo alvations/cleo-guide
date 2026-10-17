@@ -556,6 +556,8 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
 .because b { font-weight: 600; }
 .because .n { color: var(--ink-2); }
 .because button, .because a { margin-left: auto; min-height: var(--tap); padding: 0 var(--s-4); border-radius: var(--r-pill); border: 1px solid var(--line-strong); background: var(--surface); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; }
+.pl-why { display: inline-flex; align-items: center; gap: var(--s-1); margin-left: var(--s-2); padding: 2px var(--s-2); border-radius: var(--r-pill); background: var(--surface);
+  color: var(--city-ink); font: 600 var(--fs-xs)/var(--lh-xs) var(--font-ui); vertical-align: 1px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--city) 40%, transparent); }
 
 
 

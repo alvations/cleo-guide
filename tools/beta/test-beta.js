@@ -128,6 +128,10 @@ let refusedRec = '';   // FE-B D-53: a record seeded with "Recommended by Yelp" 
 try { execFileSync(process.execPath, [path.join(__dirname, 'build.js'), '--check'], { stdio: 'pipe', env: Object.assign({}, process.env, { CLEO_BETA_SELFTEST_RECBY: '1' }) }); }
 catch (e) { refusedRec = String(e.stderr); }
 chk('trust guard refuses "Recommended by" a rating platform', /refused to write[\s\S]*"Recommended by" names a non-recommender[^\n]*yelp/.test(refusedRec), true);
+let refusedGk = '';   // QA-87: general knowledge after the label must be refused too
+try { execFileSync(process.execPath, [path.join(__dirname, 'build.js'), '--check'], { stdio: 'pipe', env: Object.assign({}, process.env, { CLEO_BETA_SELFTEST_GK: '1' }) }); }
+catch (e) { refusedGk = String(e.stderr); }
+chk('trust guard refuses general knowledge after "Recommended by"', /refused to write[\s\S]*followed by general knowledge/.test(refusedGk), true);
 
 // ── 3. guards on every beta page ────────────────────────────────────────────
 console.log('\n== GUARDS: every beta page (new engine + mirrors) ==');

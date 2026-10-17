@@ -38,6 +38,9 @@ function assertCityPage(row, html, recs) {
     .filter(id => roleOf[id] !== 'rec');
   const offName = [...html.matchAll(/<p class="pl-s"[^>]*><span class="lbl">[^<]*<\/span>([\s\S]*?)<\/p>/g)].filter(m => /\(official\b|\b(?:yelp|tripadvisor)\b/i.test(m[1].replace(/<[^>]+>/g, '')));
   if (offName.length) errs.push(`"Recommended by" text reads "(official…)" or a platform: ${offName.length} card(s)`);
+  // QA-87: general knowledge ("Added by the guide", ADD / FADD) is never after the label either
+  const gk = [...html.matchAll(/<p class="pl-s"[^>]*><span class="lbl">[^<]*<\/span>([\s\S]*?)<\/p>/g)].filter(m => /class="added"|data-src="guide"/.test(m[1]));
+  if (gk.length) errs.push(`"Recommended by" is followed by general knowledge ("Added by the guide"): ${gk.length} card(s)`);
   if (notRec.length) errs.push(`"Recommended by" names a non-recommender (rating platform, own site or unknown): ${[...new Set(notRec)].slice(0, 4).join(', ')}`);
   const ld = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html);
   const open = recs.filter(r => !r.closed).length;

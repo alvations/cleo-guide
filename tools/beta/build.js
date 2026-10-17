@@ -18,7 +18,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { buildRegistry, ROOT } = require('./lib/registry');
 const { rowsOf: galleryRows } = require('./lib/gallery');
-const { normalise, nativeOf, publicName, sourceRole, recommendersOf } = require('./lib/model');
+const { normalise, nativeOf, publicName, sourceRole, recommendersOf, recName } = require('./lib/model');
 const stats = require('./lib/stats');
 const { pageSources, siteSources } = require('./lib/sources');
 const art = require('./lib/art');
@@ -99,6 +99,8 @@ if (process.env.CLEO_BETA_SELFTEST_RECBY) {
   if (victim) { victim.sources.list.push({ id: 'yelp', name: 'Yelp', url: 'https://example.invalid/', role: 'rec' });
     victim.recs[0].src = (victim.recs[0].src || []).concat('yelp'); victim.recs[0].recby = ['yelp']; }
 }
+// QA-87 self-test: general knowledge seeded as a recommender — the guard must refuse it too
+if (process.env.CLEO_BETA_SELFTEST_GK) { const victim = cityRows.find(r => r.gen === 'new' && r.recs.length); if (victim) victim.recs[0].recby = ['guide']; }
 
 if (args.has('--list')) {
   for (const r of reg.rows) console.log(r.gen.padEnd(7), r.kind.padEnd(12), (r.country || '-').padEnd(10), r.live, r.counts ? `${r.counts.P}+${r.counts.F}` : '');
@@ -311,9 +313,9 @@ if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.le
       const sid = g[k], nu = /^https?:\/\//.test(u || '') && normURL(u); if (!nu || !sid || sid === 'guide' || !byId[sid]) continue;
       addH(nu.h, sid);
       const b = urls[bucket(nu.h)], rows = (b[nu.key] = b[nu.key] || []);
-      if (!rows.some(y => y[0] === r.beta && y[2] === x.id)) rows.push([r.beta, r.name, x.id, x.n, sid, publicName(byId[sid].name)]);
+      if (!rows.some(y => y[0] === r.beta && y[2] === x.id)) rows.push([r.beta, r.name, x.id, x.n, sid, recName(publicName(byId[sid].name))].concat(byId[sid].role === 'rec' ? [] : [1]));   /* FE-B D-53: 1 = cites, never recommends */
     }
-    for (const [h, set] of Object.entries(per)) for (const sid of set) { const s = byId[sid]; (hosts[h] = hosts[h] || []).push([r.beta, r.name, s.id, publicName(s.name), s.n]); /* R8 #2d: public names */ }
+    for (const [h, set] of Object.entries(per)) for (const sid of set) { const s = byId[sid]; (hosts[h] = hosts[h] || []).push([r.beta, r.name, s.id, recName(publicName(s.name)), s.n].concat(s.role === 'rec' ? [] : [1])); /* R8 #2d: public names */ }
   }
   for (const h of Object.keys(hosts)) hosts[h].sort((x, y) => y[4] - x[4] || (x[0] < y[0] ? -1 : 1));
   emit('data/source-hosts.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 2,
@@ -475,8 +477,8 @@ for (const [rel, body] of out) {
 }
 // FE-B D-53 (rule 3, holding state): REPORT the cards with no independent recommender per city, so the count trends to 0
 // as the location lane sources or drops them (never a failure; the guard above fails only a wrong "Recommended by")
-{ const nr = cityRows.map(r => [r.key, r.recs.filter(x => x.recby && !x.recby.length && !(x.src || []).includes('guide')).length]).filter(x => x[1]).sort((a, b) => b[1] - a[1]);
-  console.log(`  D-53: ${nr.reduce((t, x) => t + x[1], 0)} cards with no independent source yet${nr.length ? ' — ' + nr.map(x => x[0] + ' ' + x[1]).join(', ') : ''}`); }
+{ const nr = cityRows.map(r => [r.key, r.recs.filter(x => x.recby && !x.recby.length).length, r.recs.filter(x => x.recby && !x.recby.length && (x.src || []).includes('guide')).length]).filter(x => x[1]).sort((a, b) => b[1] - a[1]);
+  console.log(`  D-53: ${nr.reduce((t, x) => t + x[1], 0)} cards with no independent source yet (${nr.reduce((t, x) => t + x[2], 0)} of them added by the guide)${nr.length ? ' — ' + nr.map(x => x[0] + ' ' + x[1]).join(', ') : ''}`); }
 const summary = `${generated.length} pages, ${cityRows.length} place pages indexed, ${totalLive} places (beta == live)`;
 if (args.has('--check')) {
   if (stale) { console.error(`>>> FAIL — ${stale} beta file(s) differ from a fresh build; run \`npm run beta\`.`); process.exit(1); }
