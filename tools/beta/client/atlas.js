@@ -594,9 +594,10 @@
     // OV-00 §2.0.7 landscape (height < 500): one 48 px bar — the chip row folds away (its Filters button rides in the header,
     // atlas.css), and the kind chips and Top picks move into the Filters sheet, so it holds kind, Top picks and Area
     if (!desk() && land()) { const sc = $('#cleo-tray .scroll'), md = $('.modes', tb || bar), tp = $('.ms-top'); if (sc) { if (tp) park(tp, sc, sc.firstChild); if (md) park(md, sc, sc.firstChild); } }
-    // OV-41 (platform): on phones the list is a fixed, scrolling pane, so the page's offline-pack section (shown in Atlas when
-    // there is no map) would sit in the page flow under it, covered; it rides at the end of the list instead
-    if (!desk()) { const pk = $('main>section.pack[data-cleo-pack]'); if (pk && lp) park(pk, lp, null); }
+    // OV-41 (platform): the page's offline-pack section (shown in Atlas when there is no map) rides at the end of the list —
+    // in the page flow it sat under the phone's fixed list pane, covered, and on desktop below a document that never scrolls;
+    // with a live map fe-a.css hides it wherever it is (the Layers popover holds the pack)
+    { const pk = $('main>section.pack[data-cleo-pack]'); if (pk && lp) park(pk, lp, null); }
     if (!desk()) { park(tb, bar, x); } else {   // phones: the view switch stays in FE-A's city bar, its own row under the header (QC-09)
       // desktop (SPEC-v3 §2.1): ONE bar — the search pill (in the toolbar), the chips, then the view switch; the notes and
       // the footer go to the end of the list column, since the document does not scroll in Atlas
