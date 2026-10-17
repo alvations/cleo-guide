@@ -109,7 +109,7 @@ function creditProblems(c) {
     if (!c.authorUrl || !/^https:\/\/(?:www\.)?flickr\.com\/(?:photos|people)\/[^\s/]+\/?$/.test(c.authorUrl)) p.push('a Flickr row needs the author\'s flickr.com/photos/<user> profile as authorUrl');
     if (isUnsplash(c)) p.push('a Flickr row cannot carry the Unsplash License');
   }
-  if (/^No known copyright restrictions$/i.test(String(c.licence || '').trim()) && (c.provider !== 'flickr' || c.licenceUrl !== FLICKR_NKCR_URL)) p.push(`"No known copyright restrictions" is a Flickr Commons statement: provider flickr and licenceUrl ${FLICKR_NKCR_URL}`);
+  if (/^No known copyright restrictions$/i.test(String(c.licence || '').trim()) && (c.provider !== 'flickr' || c.licenceUrl !== FLICKR_NKCR_URL || c.flickrCommons !== true)) p.push(`"No known copyright restrictions" is a Flickr Commons statement: only from a Flickr Commons institution account (flickrCommons: true), provider flickr, licenceUrl ${FLICKR_NKCR_URL}`);
   if (isUnsplash(c)) {
     if (c.licenceUrl !== UNSPLASH_LICENCE_URL) p.push(`Unsplash License needs licenceUrl ${UNSPLASH_LICENCE_URL}`);
     if (c.sourceUrl && !/^https:\/\/unsplash\.com\/photos\/[^\s/]+/.test(c.sourceUrl)) p.push('Unsplash License needs an unsplash.com/photos/… sourceUrl');
@@ -145,6 +145,7 @@ function loadPhotos(betaDir, pages) {
     set.push({ src: `${PHOTO_DIR}/${c.file}`, w: main.w, h: main.h });
     return set.sort((a, b) => a.w - b.w);
   };
+  const pending = [];
   credits.forEach((c, i) => {
     const where = `${CREDITS} credits[${i}]${c && c.file ? ` (${c.file})` : ''}`;
     const p = creditProblems(c || {});
@@ -154,6 +155,9 @@ function loadPhotos(betaDir, pages) {
     byFile.set(c.file, c);
     for (const v of c.variants || []) byFile.set(v.file, c);
     if (!files.includes(c.file)) { errors.push(`${where}: no such file in beta/${PHOTO_DIR}/`); return; }
+    // a row found automatically (Openverse / Flickr) stays dark until a person approved it on the contact sheet: review must
+    // read "ok…" (orchestrator, R8). A Commons row vetted before its fetch carries no review field and renders as before.
+    if (c.review != null && !/^ok\b/i.test(String(c.review))) { pending.push(c.file); return; }
     if (c.slot) {
       if (vietnamSlot(c.slot)) { errors.push(`${where}: Vietnam has no freedom of panorama — no Vietnam hub hero photo`); return; }
       const sk = `${c.slot.type}:${c.slot.key}`, buf = fs.readFileSync(path.join(dir, c.file));
@@ -187,7 +191,7 @@ function loadPhotos(betaDir, pages) {
     if (!EXT.test(f)) errors.push(`beta/${PHOTO_DIR}/${f}: not an image this pipeline accepts (.jpg/.png/.webp)`);
     else if (!byFile.has(f) && !credits.some(c => c && c.file === f)) errors.push(`beta/${PHOTO_DIR}/${f}: photo has no credit row in ${CREDITS} — uncredited photos are refused`);
   }
-  return { byPage, bySlot, credits, errors };
+  return { byPage, bySlot, credits, errors, pending };
 }
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

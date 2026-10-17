@@ -36,6 +36,8 @@
 
 - R8 'expand the images' (orchestrator 01:51Z), done: (0) global-refusal fix a784ee83 + re-dispatch; fetch-openverse.js 65d2db93 (discover → contact sheets → review TSV → --credit); D-49 food eligibility (this push). The gate requires an identifying source page and an `identifies` field for a food photo; food targets only from vetted titles; coverage adds first-24 and all-eligible figures. Baseline: tier-1 sights 508/897, first-24 215/1153, all eligible 522/8029. Next: Commons geosearch + P18 discovery (Actions-side), food waves.
 
+- 03:00Z round: run #82 (orchestrator-reviewed) kept 258, and its 9 refusals are applied (f2d128f9). The venue rule now uses the primary tag only. Cover words never use a compound fragment (5b24223f). Pending rows never render; no-known-restrictions requires flickrCommons; fetch-unsplash is now a planner (be6862ae). Coverage: tier-1 sights 766/1052 (the venue fix grew the base), first-24 293/1153, all eligible 780/8189. Next: food waves once QA's w7-photos D-49 SHA lands; Openverse sheets once the workflow step (130845ad) commits its first run; the sources lane will send its photos.js/recompress.js diff for review.
+
 **In flight:**
 - Run #48's 32 refusals are APPLIED in this push (orchestrator's final list, recorded in design/beta/imagery-runs/run-48.md). CREDITS 580 → 548.
 - D-40a data has LANDED: 38 lead/first-row cards have a 720 copy ≤ 45 KB. 7 are in `NO720` in recompress.js (busy or tall photos that only fit by shrinking below 600 px) and keep 500 + 960. The cap went from 55 to 45 KB because 55 measured Tokyo phone@3× at 703 KB once the 720-aware `sizes` was applied; 45 measures 691 KB. Platform still has to switch `cardSizes()` to the 720 copy (asked); until then phones load the 500 and Tokyo is 649 KB.

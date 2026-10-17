@@ -231,7 +231,7 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
       const att = await page.evaluate(() => { const a = document.querySelector('.leaflet-control-attribution'), r = a && a.getBoundingClientRect(); if (!r || !r.width) return null;
         const hit = el => { const b = el && el.getBoundingClientRect(); return !!b && b.width && !(b.right < r.left || b.left > r.right || b.bottom < r.top || b.top > r.bottom); };
         // PANEL-R1 #2: a real tap on every map control hits that control (locate first), and the credit is one line ≤ 20 px
-        const ctl = [...document.querySelectorAll('.leaflet-control-container .am-ctl')].map(e => { const b = e.getBoundingClientRect(), h = b.width && document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+        const ctl = [...document.querySelectorAll('.leaflet-control-container .am-ctl')].filter(e => e.getBoundingClientRect().width).map(e => { const b = e.getBoundingClientRect(), h = b.width && document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
           return { c: e.className.toString().replace('am-ctl ', '').slice(0, 20), hitOwn: !!h && e.contains(h), coveredBy: h && !e.contains(h) ? h.className.toString().slice(0, 30) : null, overlaps: hit(e) }; });
         return { box: [Math.round(r.top), Math.round(r.bottom)], h: Math.round(r.height), pill: hit(document.querySelector('.ms-toggle')), carousel: hit(document.querySelector('.listpane')), bar: hit(document.querySelector('.ms-bar')),
           here: hit(document.querySelector('.ms-here:not([hidden])')), ctl, locateCoveredBy: (ctl.find(c => /m-locate/.test(c.c)) || {}).coveredBy || null }; });
@@ -279,8 +279,8 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
             if (!t.contains(hit) && hit.closest('li.pl') !== t.closest('li.pl')) cov.push((hit.className || hit.tagName).toString().slice(0, 30) + ' over ' + t.textContent.trim().slice(0, 24)); }
           return { seen, covered: cov.length, eg: cov.slice(0, 3) }; });
         // SPEC-v3 §2.2: the first screen is map + peek, no carousel; a pin tap brings the carousel — its titles are checked there
-        const car0 = await page.evaluate(() => { const L = document.querySelector('.listpane'), pk = document.querySelector('.ms-toggle'), r = pk.getBoundingClientRect(); return { carousel: !!L.offsetWidth, peek: Math.round(r.height), peekBottom: Math.round(innerHeight - r.bottom), text: pk.innerText.replace(/\s+/g, ' ').trim() }; });   // the RENDERED text: R4b's flex row dropped its spaces ("351places here ·checked") while textContent kept them
-        chk(`${key} phone: first screen is map + a 56 px list peek ("N places here · Show list"; SPEC-v3 rev 5a), no carousel`, !car0.carousel && car0.peek >= 55 && car0.peek <= 58 && car0.peekBottom <= 1 && /places? here( · checked [^·]+)? · Show list/.test(car0.text), car0);
+        const car0 = await page.evaluate(() => { const L = document.querySelector('.listpane'), pk = document.querySelector('.ms-toggle'), r = pk.getBoundingClientRect(); return { carousel: !!L.offsetWidth, peek: Math.round(r.height), peekBottom: Math.round(innerHeight - r.bottom), text: pk.innerText.replace(/\s+/g, ' ').trim(), th: pk.querySelectorAll('.ms-th img').length, photos: document.querySelectorAll('#cleo-grid li.pl:not(.ms-out) figure.pl-photo img').length }; });   // the RENDERED text: R4b's flex row dropped its spaces ("351places here ·checked") while textContent kept them
+        chk(`${key} phone: first screen is map + a 56 px list peek ("[photos] N places here · Show list"; SPEC-v3 rev 5a, D-46 §1.7: up to 3 photo thumbnails, ≥ 1 where the places on show have photos, no date), no carousel`, !car0.carousel && car0.peek >= 55 && car0.peek <= 58 && car0.peekBottom <= 1 && /^\d[\d,]* places? here · Show list$/.test(car0.text) && car0.th <= 3 && (car0.photos === 0 || car0.th >= 1), car0);
         await page.evaluate(() => { const e = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].find(x => { const r = x.getBoundingClientRect(); return r.top > 140 && r.bottom < innerHeight - 120; }); if (e) e.click(); });
         await sleep(900);
         const cvMap = await cover();
@@ -385,6 +385,21 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
       else chk(`${key} ${vk} D-46: the map library 3 s late, the peek's count is there at once and is the map's own; no Atlas element shifts (page CLS ≤ 0.001)`,
         e0.view === 'atlas' && !e0.map && !!e0.peek && e1.map && e0.peek === e1.peek && e1.atlas === 0 && e1.cls <= 0.001, { before: e0, after: e1 });
       if (errors.length) chk(`${key} ${vk} D-46 slow map: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
+    }
+    // OV-00 §2.0.7 landscape (844 × 390): ONE 48 px bar (chrome ≤ 13 %) — Filters in the header, the kind chips and Top picks in
+    // its sheet, no peek ("List" in the control stack, vertically centred); a pin tap shows a 320 px side card that no control covers
+    {
+      const { ctx, page, errors } = await open(browser, Object.assign({}, M, { viewport: { width: 844, height: 390 } }), url + '#view=atlas', { tiles: 'stub' });
+      const r = await page.evaluate(() => { const vis = q => { const e = document.querySelector(q); if (!e) return null; const b = e.getBoundingClientRect(); return b.width && b.height && getComputedStyle(e).display !== 'none' ? b : null; };
+        const top = Math.max(...['[data-cleo-shell=topbar]', 'main>.cbar', '.ms-bar'].map(q => { const b = vis(q); return b ? b.bottom : 0; })), pk = vis('.ms-toggle');
+        const f = document.querySelector('.ms-bar [data-cleo-tray]:not(.area-btn)'), fb = f && f.getBoundingClientRect(), fh = fb && document.elementFromPoint(fb.left + fb.width / 2, fb.top + fb.height / 2);
+        const st = document.querySelector('.leaflet-bottom.leaflet-right').getBoundingClientRect(), sc = document.querySelector('#cleo-tray .scroll');
+        return { chrome: +((top + (pk ? innerHeight - pk.top : 0)) / innerHeight * 100).toFixed(1), filters: !!fh && f.contains(fh) && fb.bottom <= 48, sheet: !!sc && !!sc.querySelector('.modes') && !!sc.querySelector('.ms-top'), list: !!vis('.leaflet-container .m-list'), mid: Math.round((st.top + st.bottom) / 2 - (48 + innerHeight) / 2) }; });
+      const pin = await page.evaluate(() => { const e = [...document.querySelectorAll('.leaflet-marker-icon.pp')].map(x => x.firstElementChild.getBoundingClientRect()).find(b => b.left > 12 && b.right < innerWidth - 64 && b.top > 56); return e ? [e.left + e.width / 2, e.top + e.height / 2] : null; });   // any label clear of the control stack
+      let sc = null; if (pin) { await page.mouse.click(pin[0], pin[1]); await sleep(900); sc = await page.evaluate(() => { const l = document.querySelector('.listpane').getBoundingClientRect(), st = document.querySelector('.leaflet-bottom.leaflet-right').getBoundingClientRect(); return { car: document.documentElement.classList.contains('ms-car'), w: Math.round(l.width), right: Math.round(innerWidth - l.right), clear: st.right <= l.left }; }); }
+      chk(`${key} L OV-00 §2.0.7: one 48 px bar (chrome ≤ 13 %), Filters in the header, kind + Top picks in its sheet, no peek, "List" in the centred control stack; a pin tap shows a 320 px side card clear of the controls`,
+        r.chrome <= 13 && r.filters && r.sheet && r.list && Math.abs(r.mid) <= 30 && !!sc && sc.car && sc.w === 320 && sc.right <= 12 && sc.clear, { r, sc });
+      if (errors.length) chk(`${key} L OV-00 §2.0.7: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
     }
     // OV-00 §2.0.3 (D-47): one icon-only control stack (phone: Locate + Layers, ≤ 44 × 96 px; desktop: + / − then Layers, no
     // locate on the map), no control named "Map"; Layers opens Map / Satellite radios (arrow keys), the Key; Esc closes it and
