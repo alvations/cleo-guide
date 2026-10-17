@@ -56,7 +56,7 @@ const UA = 'CleoGuideBeta/1.0 (https://github.com/alvations/cleo-guide; beta ima
 const LICENCES = {
   'CC0 1.0': 'https://creativecommons.org/publicdomain/zero/1.0/',
   'Public domain': null,                              // the adapter gives the institution's own rights statement URL
-  'No known restrictions (LoC, published before 1930)': null,   // LoC wording, gate-accepted only on a historic LoC row dated ≤ 1929
+  'No known restrictions': null,   // LoC wording, gate-accepted only on a historic LoC row dated ≤ 1929
   'Pexels License': 'https://www.pexels.com/license/',
   'Pixabay Content License': 'https://pixabay.com/service/license-summary/',
 };
@@ -220,7 +220,7 @@ function itemProblems(it, row, t, adapter) {
   if (!it.licence || !(it.licence in LICENCES || /^CC BY(-SA)? \d\.\d( [A-Z]{2,3})?$/.test(it.licence))) return `licence "${it.licence || 'unknown'}" is not accepted`;
   if (!it.licenceUrl || !/^https:\/\/\S+$/.test(it.licenceUrl)) return 'no https licence/rights URL';
   if (STOCK.includes(adapter.id) && t.rec.kind !== 'sight') return 'stock licence: landmarks and heroes only';
-  if (/^No known restrictions \(LoC/.test(it.licence) && !(row.era === 'historic' && +((/\b(1[5-9]\d\d)\b/.exec(it.date || '') || [])[1] || 9999) <= 1929)) return '"No known restrictions" is accepted only for a historic LoC item dated 1929 or earlier';
+  if (/^No known restrictions$/.test(it.licence || '') && !(row.era === 'historic' && +((/\b(1[5-9]\d\d)\b/.exec(it.date || '') || [])[1] || 9999) <= 1929)) return '"No known restrictions" is accepted only for a historic LoC item dated 1929 or earlier';
   if (row.era === 'historic') {
     if (!it.date) return 'historic photo without a date in the API record';
     if (!/^yes\b/i.test(row.stillLooks)) return 'historic photo: stillLooks is not "yes" (the place must still look like this)';
@@ -258,7 +258,7 @@ function creditRow(adapter, it, row, t, main, small, today) {
     ...(row.era === 'historic' ? { era: 'historic', date: it.date } : it.date ? { date: it.date } : {}),
     width: main.w, height: main.h, variants: small ? [{ file: small.file, width: small.w, height: small.h }] : [],
     modified: `resized to ${small ? `${small.w} and ` : ''}${main.w} px wide`,
-    fetched: today, confidence: row.confidence || 'med', evidence: row.identityEvidence || '', reviewed: 'contact sheet',
+    fetched: today, confidence: row.confidence || 'med', evidence: row.identityEvidence || '', review: /^ok\b/.test(row.review || '') ? row.review : 'pending',   // photos.js: only review ok… renders
   };
 }
 

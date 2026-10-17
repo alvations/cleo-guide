@@ -9,22 +9,25 @@
   if (!box || !Cleo.saved || !Cleo.store) return;
   var st = Cleo.store, NT = ' rel="noopener" target="_blank"';
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n).
+  // Values are escaped before they are filled in, so the English output is unchanged.
+  var tt = function (k, e, v) { return Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
   var ico = function (n) { return '<svg class="ico" aria-hidden="true"><use href="#i-' + n + '"/></svg>'; };
   var pg = function (r) { return r.slice(0, r.lastIndexOf('/')); }, idOf = function (r) { return r.slice(r.lastIndexOf('/') + 1); };
   var lists = function () { var l = st.get('lists', []); return Array.isArray(l) ? l.filter(function (x) { return x && x.id && Array.isArray(x.r); }) : []; };
   var setLists = function (l) { st.set('lists', l); };
   var been = function () { var b = st.get('been', {}); return b && typeof b === 'object' ? b : {}; };
   var toast = function (m) { var el = d.createElement('p'); el.className = 'toast'; el.setAttribute('role', 'status'); el.textContent = m; d.body.appendChild(el); setTimeout(function () { el.remove(); }, 2600); };
-  d.addEventListener('cleo:toast', function (e) { toast(e.detail === 'Link copied' ? 'Link copied — it opens this exact list.' : String(e.detail)); });
+  d.addEventListener('cleo:toast', function (e) { toast(e.detail === 'Link copied' ? tt('lst.copied', 'Link copied — it opens this exact list.') : String(e.detail)); });
   var data = {}, map = null, L0 = 0, view = [];
 
   function state() {
     var r = Cleo.route.parse(), s = Cleo.saved.all(), b = been(), ls = lists();
-    if (r.list) return { shared: true, name: r.n || 'A shared list', refs: Cleo.listCodec.decode(r.list) };
+    if (r.list) return { shared: true, name: r.n || tt('lst.shared.name', 'A shared list'), refs: Cleo.listCodec.decode(r.list) };
     var v = r.v || 'all', l = ls.filter(function (x) { return x.id === v; })[0];
-    if (v === 'been') return { v: v, name: 'Been there', refs: Object.keys(b) };
+    if (v === 'been') return { v: v, name: tt('city.been', 'Been there'), refs: Object.keys(b) };
     if (l) return { v: v, list: l, name: l.n, refs: l.r.slice() };
-    return { v: 'all', name: 'All saved', refs: Object.keys(s).sort(function (x, y) { return (s[y].t || 0) - (s[x].t || 0); }) };
+    return { v: 'all', name: tt('lst.all', 'All saved'), refs: Object.keys(s).sort(function (x, y) { return (s[y].t || 0) - (s[x].t || 0); }) };
   }
   function load(keys) {
     return Promise.all(keys.map(function (k) {
@@ -48,50 +51,50 @@
     var srcs = (p.src || []).filter(function (x) { return x !== 'guide'; }).map(function (x) { return D.src[x] || x; });
     var href = D.href + '#p=' + encodeURIComponent(id), saved = Cleo.saved.has(ref), b = !!been()[ref], pos = ll(p);
     var inL = lists().map(function (l) { return '<label><input type="checkbox" data-sl="' + esc(l.id) + '" data-ref="' + esc(ref) + '"' + (l.r.indexOf(ref) >= 0 ? ' checked' : '') + '>' + esc(l.n) + '</label>'; }).join('');
-    var eye = closed ? 'Closed since it was saved — kept for the record' + ((p.pv || {}).checked ? ', checked ' + esc(p.pv.checked) : '')
-      : '<span class="tier t' + p.t + '">' + ['', 'Must see', 'Worth the detour', 'Deep cut'][p.t] + '</span> <span class="in">· ' + esc(area) + ' · ' + esc(D.name) + '</span>';
+    var eye = closed ? ((p.pv || {}).checked ? tt('lst.closed.c', 'Closed since it was saved — kept for the record, checked {d}', { d: esc(p.pv.checked) }) : tt('lst.closed', 'Closed since it was saved — kept for the record'))
+      : '<span class="tier t' + p.t + '">' + ['', tt('tier.1', 'Must see'), tt('tier.2', 'Worth the detour'), tt('tier.3', 'Deep cut')][p.t] + '</span> <span class="in">· ' + esc(area) + ' · ' + esc(D.name) + '</span>';
     return '<li class="pl' + (closed ? ' pl--closed' : '') + '" id="sv-' + esc(k.replace(/\//g, '--') + '-' + id) + '" data-t="' + p.t + '"' + (closed ? ' data-closed' : '') + ' style="--area:' + esc(col) + '">' +
       '<div class="pl-cover" aria-hidden="true">' + (g.length && g.length <= 7 ? '<span class="pl-vert' + (g.length > 4 ? ' long' : '') + '">' + esc(g.join('')) + '</span>'
         : '<span class="pl-ini">' + esc((base.replace(/^(The|La|Le|El|Il)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '</span>') + '</div>' +
-      '<p class="pl-e"><span class="pl-num" aria-label="Number ' + (i + 1) + ' on the map">' + (i + 1) + '</span> ' + eye + '</p>' +
+      '<p class="pl-e"><span class="pl-num" aria-label="' + tt('lst.num', 'Number {n} on the map', { n: i + 1 }) + '">' + (i + 1) + '</span> ' + eye + '</p>' +
       '<h3 class="pl-n"><a href="' + esc(href) + '">' + esc(base) + (nat ? ' <span class="nat">(' + esc(nat) + ')</span>' : '') + '</a></h3>' +
       (p.w ? '<p class="pl-w">' + esc(p.w) + '</p>' : '') +
-      '<p class="pl-s"><span class="lbl">Recommended by</span> <span>' + (srcs.length ? esc(srcs.slice(0, 3).join(', ')) + (srcs.length > 3 ? ' +' + (srcs.length - 3) : '') : 'Added by the guide (general knowledge)') + '</span></p>' +
-      (S.shared ? '' : '<p class="pl-x"><button type="button" class="pl-save" data-sv="save" data-ref="' + esc(ref) + '" aria-pressed="' + saved + '" aria-label="' + (saved ? 'Saved: ' : 'Save ') + esc(base) + '">' + (saved ? 'Saved' : 'Save') + '</button></p>') +
+      '<p class="pl-s"><span class="lbl">' + tt('card.recby', 'Recommended by') + '</span> <span>' + (srcs.length ? esc(srcs.slice(0, 3).join(', ')) + (srcs.length > 3 ? ' +' + (srcs.length - 3) : '') : tt('city.card.added', 'Added by the guide (general knowledge)')) + '</span></p>' +
+      (S.shared ? '' : '<p class="pl-x"><button type="button" class="pl-save" data-sv="save" data-ref="' + esc(ref) + '" aria-pressed="' + saved + '" aria-label="' + (saved ? tt('gal.saved', 'Saved: {name}', { name: esc(base) }) : tt('gal.save', 'Save {name}', { name: esc(base) })) + '">' + (saved ? tt('sheet.saved', 'Saved') : tt('sheet.save', 'Save')) + '</button></p>') +
       '<div class="sv-x">' + (S.shared ? '' :
-        '<details><summary class="btn btn-ghost">' + ico('list') + 'Lists</summary><div class="pop">' + (inL || '<span class="sm">No named lists yet — make one with “New list”.</span>') + '</div></details>' +
-        '<button type="button" class="btn btn-ghost" data-sv="been" data-ref="' + esc(ref) + '" aria-pressed="' + b + '">' + ico('stamp') + (b ? 'Been there ✓' : 'Been there') + '</button>') +
-      (pos ? '<details><summary class="btn btn-ghost">' + ico('directions') + 'Open in maps</summary><div class="pop">' +
+        '<details><summary class="btn btn-ghost">' + ico('list') + tt('lst.lists', 'Lists') + '</summary><div class="pop">' + (inL || '<span class="sm">' + tt('lst.nolists', 'No named lists yet — make one with “New list”.') + '</span>') + '</div></details>' +
+        '<button type="button" class="btn btn-ghost" data-sv="been" data-ref="' + esc(ref) + '" aria-pressed="' + b + '">' + ico('stamp') + (b ? tt('sheet.been.on', 'Been there ✓') : tt('city.been', 'Been there')) + '</button>') +
+      (pos ? '<details><summary class="btn btn-ghost">' + ico('directions') + tt('day.maps', 'Open in maps') + '</summary><div class="pop">' +
         '<a class="btn btn-quiet" href="https://maps.apple.com/?daddr=' + pos + '"' + NT + '>Apple Maps</a><a class="btn btn-quiet" href="https://www.google.com/maps/search/?api=1&amp;query=' + pos + '"' + NT + '>Google Maps</a>' +
         '<a class="btn btn-quiet" href="https://www.openstreetmap.org/?mlat=' + p.la + '&amp;mlon=' + p.ln + '#map=17/' + p.la + '/' + p.ln + '"' + NT + '>OpenStreetMap</a></div></details>' : '') + '</div>' +
-      (b ? '<span class="stamp">Been<br>there</span>' : '') + '</li>';
+      (b ? '<span class="stamp">' + esc(tt('city.stamp', 'Been there')).replace(' ', '<br>') + '</span>' : '') + '</li>';
   }
 
   function paint() {
     var S = state(), ls = lists(), s = Cleo.saved.all(), b = been();
     var keys = S.refs.map(pg).filter(function (k, i, a) { return k && a.indexOf(k) === i; });
-    var tabs = S.shared ? '' : '<nav class="sv-tabs listtabs" aria-label="Your lists">' +
-      [['all', 'All saved', Object.keys(s).length], ['been', 'Been there', Object.keys(b).length]].concat(ls.map(function (l) { return [l.id, l.n, l.r.length]; }))
+    var tabs = S.shared ? '' : '<nav class="sv-tabs listtabs" aria-label="' + tt('saved.h1', 'Your lists') + '">' +
+      [['all', tt('lst.all', 'All saved'), Object.keys(s).length], ['been', tt('city.been', 'Been there'), Object.keys(b).length]].concat(ls.map(function (l) { return [l.id, l.n, l.r.length]; }))
         .map(function (t) { return '<button type="button" class="pill" data-sv="tab" data-v="' + esc(t[0]) + '" aria-pressed="' + (S.v === t[0]) + '">' + esc(t[1]) + '<span class="n">' + t[2] + '</span></button>'; }).join('') +
-      '<button type="button" class="pill new" data-sv="new">' + ico('plus') + 'New list</button></nav>';
-    var acts = (S.list ? '<div class="listmenu"><button type="button" class="btn btn-ghost" data-sv="rename">' + ico('edit') + 'Rename</button><button type="button" class="btn btn-quiet danger" data-sv="delete">Delete list</button></div>' : '') +
-      '<div class="sv-acts exportbar"><span class="lbl">Take it with you</span>' + (S.shared ? ''
-      : '<button type="button" class="btn btn-primary" data-sv="share"' + (S.refs.length ? '' : ' disabled') + '>' + ico('share') + 'Share link</button>') +
+      '<button type="button" class="pill new" data-sv="new">' + ico('plus') + tt('lst.new', 'New list') + '</button></nav>';
+    var acts = (S.list ? '<div class="listmenu"><button type="button" class="btn btn-ghost" data-sv="rename">' + ico('edit') + tt('lst.rename', 'Rename') + '</button><button type="button" class="btn btn-quiet danger" data-sv="delete">' + tt('lst.delete', 'Delete list') + '</button></div>' : '') +
+      '<div class="sv-acts exportbar"><span class="lbl">' + tt('lst.take', 'Take it with you') + '</span>' + (S.shared ? ''
+      : '<button type="button" class="btn btn-primary" data-sv="share"' + (S.refs.length ? '' : ' disabled') + '>' + ico('share') + tt('lst.share', 'Share link') + '</button>') +
       // FE-C W9-7 hook: a portrait share image of this list (share-card.js, loaded on tap by core)
-      (S.refs.length ? '<button type="button" class="btn btn-ghost" data-cleo-card="list" data-refs="' + esc(Cleo.listCodec.encode(S.refs)) + '" data-name="' + esc(S.name) + '">' + ico('share') + 'Share as an image</button>' : '') +
-      (S.refs.length ? '<details class="exp"><summary class="btn btn-ghost">' + ico('download') + 'Export</summary><div class="pop"><button type="button" class="btn btn-quiet" data-sv="kml">KML (Google Earth, My Maps)</button>' +
-        '<button type="button" class="btn btn-quiet" data-sv="geojson">GeoJSON</button>' + (S.shared ? '' : '<button type="button" class="btn btn-quiet" data-sv="json">Backup of all lists (JSON)</button>') + '</div></details>' : '') +
+      (S.refs.length ? '<button type="button" class="btn btn-ghost" data-cleo-card="list" data-refs="' + esc(Cleo.listCodec.encode(S.refs)) + '" data-name="' + esc(S.name) + '">' + ico('share') + tt('card.share.image', 'Share as an image') + '</button>' : '') +
+      (S.refs.length ? '<details class="exp"><summary class="btn btn-ghost">' + ico('download') + tt('lst.export', 'Export') + '</summary><div class="pop"><button type="button" class="btn btn-quiet" data-sv="kml">' + tt('lst.kml', 'KML (Google Earth, My Maps)') + '</button>' +
+        '<button type="button" class="btn btn-quiet" data-sv="geojson">GeoJSON</button>' + (S.shared ? '' : '<button type="button" class="btn btn-quiet" data-sv="json">' + tt('lst.json', 'Backup of all lists (JSON)') + '</button>') + '</div></details>' : '') +
       // FE-C W9-4 hook: "Make a trip" from this list (trip.html builds it; nothing here is written)
-      (S.refs.length ? '<a class="btn btn-ghost" data-cleo-trip href="trip.html#' + (S.shared ? 'list=' + Cleo.listCodec.encode(S.refs) + '&amp;n=' + encodeURIComponent(S.name) : 'from=' + encodeURIComponent(S.v)) + '">Make a trip</a>' : '') +
-      (S.shared ? '' : '<button type="button" class="btn btn-ghost" data-sv="pick">Import backup</button><input type="file" accept="application/json,.json" data-sv="import" hidden>') +
+      (S.refs.length ? '<a class="btn btn-ghost" data-cleo-trip href="trip.html#' + (S.shared ? 'list=' + Cleo.listCodec.encode(S.refs) + '&amp;n=' + encodeURIComponent(S.name) : 'from=' + encodeURIComponent(S.v)) + '">' + tt('trip.make', 'Make a trip') + '</a>' : '') +
+      (S.shared ? '' : '<button type="button" class="btn btn-ghost" data-sv="pick">' + tt('lst.import', 'Import backup') + '</button><input type="file" accept="application/json,.json" data-sv="import" hidden>') +
       '</div>';
-    var head = S.shared ? '<div class="sv-banner banner shared"><span class="eyebrow">Shared with you</span><h2>' + esc(S.name) + '</h2><p>A shared list of ' + S.refs.length + ' places — read only. It came as a link; nothing was stored on a server.</p>' +
-      '<p><button type="button" class="btn" data-sv="copy">' + ico('copy') + 'Save a copy</button></p></div>' : '<div class="listhead"><span class="eyebrow">' + (S.list ? 'Your list' : 'Saved') + '</span><h2 class="d2">' + esc(S.name) + '</h2><p class="device-note">' + S.refs.length + (S.refs.length === 1 ? ' place' : ' places') + ' · saved on this device only — no account needed.</p></div>';
-    box.innerHTML = '<div class="sv-top">' + head + tabs + acts + '<div id="sv-form"></div></div><div class="sv-split"><div class="sv-map" id="sv-map" role="img" aria-label="Map of the places in this list"><p class="note">The map appears when it can load. Every place is listed either way.</p></div><div id="sv-body"><p>Loading ' + S.refs.length + ' places…</p></div></div>';
+    var head = S.shared ? '<div class="sv-banner banner shared"><span class="eyebrow">' + tt('lst.shared.k', 'Shared with you') + '</span><h2>' + esc(S.name) + '</h2><p>' + tt('lst.shared.p', 'A shared list of {n} places — read only. It came as a link; nothing was stored on a server.', { n: S.refs.length }) + '</p>' +
+      '<p><button type="button" class="btn" data-sv="copy">' + ico('copy') + tt('lst.copy', 'Save a copy') + '</button></p></div>' : '<div class="listhead"><span class="eyebrow">' + (S.list ? tt('shell.saved', 'Your list') : tt('sheet.saved', 'Saved')) + '</span><h2 class="d2">' + esc(S.name) + '</h2><p class="device-note">' + (S.refs.length === 1 ? tt('lst.note.one', '1 place · saved on this device only — no account needed.') : tt('lst.note', '{n} places · saved on this device only — no account needed.', { n: S.refs.length })) + '</p></div>';
+    box.innerHTML = '<div class="sv-top">' + head + tabs + acts + '<div id="sv-form"></div></div><div class="sv-split"><div class="sv-map" id="sv-map" role="img" aria-label="' + tt('lst.map', 'Map of the places in this list') + '"><p class="note">' + tt('lst.map.note', 'The map appears when it can load. Every place is listed either way.') + '</p></div><div id="sv-body"><p>' + tt('lst.loading', 'Loading {n} places…', { n: S.refs.length }) + '</p></div></div>';
     if (!S.refs.length) {
-      d.getElementById('sv-body').innerHTML = '<div class="sv-empty"><h2>' + (S.v === 'been' ? 'No “been there” stamps yet' : S.list ? 'This list is empty' : 'Nothing saved yet') + '</h2><p>' +
-        (S.list ? 'Add places from any card here with “Lists”, or save places in a guide first.' : 'Tap Save on any place in a guide and it appears here, on this device. Mark places you’ve visited with “Been there” in their sheet.') +
-        '</p><a class="btn btn-primary" href="index.html">Browse the guides</a></div>';
+      d.getElementById('sv-body').innerHTML = '<div class="sv-empty"><h2>' + (S.v === 'been' ? tt('lst.empty.been', 'No “been there” stamps yet') : S.list ? tt('lst.empty.list', 'This list is empty') : tt('lst.empty.all', 'Nothing saved yet')) + '</h2><p>' +
+        (S.list ? tt('lst.empty.list.p', 'Add places from any card here with “Lists”, or save places in a guide first.') : tt('lst.empty.all.p', 'Tap Save on any place in a guide and it appears here, on this device. Mark places you’ve visited with “Been there” in their sheet.')) +
+        '</p><a class="btn btn-primary" href="index.html">' + tt('trip.browse', 'Browse the guides') + '</a></div>';
       view = []; drawMap(); return;
     }
     load(keys).then(function () {
@@ -99,15 +102,15 @@
       view = S.refs.filter(function (r) { return gone.indexOf(r) < 0; });
       var html = keys.map(function (k) {
         var D = data[k], rs = view.filter(function (r) { return pg(r) === k; }); if (!D || !rs.length) return '';
-        return '<section class="sv-city"><h2><a href="' + esc(D.href) + '">' + esc(D.name) + '</a><span class="sm">' + rs.length + (rs.length === 1 ? ' place' : ' places') + '</span></h2><ul class="saved-cards">' +
+        return '<section class="sv-city"><h2><a href="' + esc(D.href) + '">' + esc(D.name) + '</a><span class="sm">' + (rs.length === 1 ? tt('srch.place.n1', '1 place') : tt('srch.places.n', '{n} places', { n: rs.length })) + '</span></h2><ul class="saved-cards">' +
           rs.map(function (r) { return card(r, n++, S); }).join('') + '</ul></section>';
       }).join('');
       // order the map numbers the same way the cards are numbered (grouped by city)
       view = [].concat.apply([], keys.map(function (k) { return view.filter(function (r) { return pg(r) === k; }); }));
-      if (gone.length) html += '<ul class="saved-cards"><li class="gone">' + gone.length + (gone.length === 1 ? ' saved place is' : ' saved places are') + ' no longer listed in a guide (' + esc(gone.map(idOf).join(', ')) + '). ' +
-        (S.shared ? 'The link may be older than the guide.' : '<button type="button" class="btn btn-quiet" data-sv="forget">Remove from this list</button>') + '</li></ul>';
+      if (gone.length) html += '<ul class="saved-cards"><li class="gone">' + (gone.length === 1 ? tt('lst.gone.one', '1 saved place is no longer listed in a guide ({ids}).', { ids: esc(gone.map(idOf).join(', ')) }) : tt('lst.gone', '{n} saved places are no longer listed in a guide ({ids}).', { n: gone.length, ids: esc(gone.map(idOf).join(', ')) })) + ' ' +
+        (S.shared ? tt('lst.gone.old', 'The link may be older than the guide.') : '<button type="button" class="btn btn-quiet" data-sv="forget">' + tt('lst.forget', 'Remove from this list') + '</button>') + '</li></ul>';
       d.getElementById('sv-body').innerHTML = html; drawMap();
-    }, function () { d.getElementById('sv-body').innerHTML = '<p>' + S.refs.length + ' saved places. The guides’ data couldn’t load to show them; try again when online.</p>'; });
+    }, function () { d.getElementById('sv-body').innerHTML = '<p>' + tt('lst.fail', '{n} saved places. The guides’ data couldn’t load to show them; try again when online.', { n: S.refs.length }) + '</p>'; });
   }
 
   function drawMap() {
@@ -141,7 +144,7 @@
   }
   function form(label, val, ok) {
     var f = d.getElementById('sv-form');
-    f.innerHTML = '<form class="sv-form"><label for="sv-in">' + esc(label) + '</label><input id="sv-in" maxlength="60" required value="' + esc(val) + '"><button class="btn btn-primary">Save</button><button type="button" class="btn btn-quiet" data-sv="cancel">Cancel</button></form>';
+    f.innerHTML = '<form class="sv-form"><label for="sv-in">' + esc(label) + '</label><input id="sv-in" maxlength="60" required value="' + esc(val) + '"><button class="btn btn-primary">' + tt('sheet.save', 'Save') + '</button><button type="button" class="btn btn-quiet" data-sv="cancel">' + tt('trip.cancel', 'Cancel') + '</button></form>';
     var i = f.querySelector('input'); i.focus(); i.select();
     f.querySelector('form').onsubmit = function (e) { e.preventDefault(); var v = i.value.trim(); if (v) ok(v); };
   }
@@ -153,11 +156,11 @@
     if (k === 'tab') location.hash = '#v=' + encodeURIComponent(b.getAttribute('data-v'));
     else if (k === 'save') { Cleo.saved.toggle(ref); }
     else if (k === 'been') { var bb = been(); if (bb[ref]) delete bb[ref]; else bb[ref] = 1; st.set('been', bb); paint(); }
-    else if (k === 'share') Cleo.share(name + ' — Cleo', location.href.split('#')[0] + '#list=' + Cleo.listCodec.encode(S.refs) + '&n=' + encodeURIComponent(S.v === 'all' ? 'My Cleo list' : name));
-    else if (k === 'copy') { var nl = { id: uid(), n: name, r: S.refs.slice() }; setLists(ls.concat([nl])); Cleo.saved.add(S.refs); location.hash = '#v=' + nl.id; toast('Saved a copy: “' + name + '”, ' + S.refs.length + ' places.'); }
-    else if (k === 'new') form('Name your new list', '', function (v) { var nl = { id: uid(), n: v, r: [] }; setLists(lists().concat([nl])); location.hash = '#v=' + nl.id; });
-    else if (k === 'rename') form('Rename this list', name, function (v) { setLists(lists().map(function (l) { if (l.id === S.v) l.n = v; return l; })); paint(); });
-    else if (k === 'delete') { if (window.confirm('Delete the list “' + name + '”? The places stay saved.')) { setLists(ls.filter(function (l) { return l.id !== S.v; })); location.hash = '#v=all'; } }
+    else if (k === 'share') Cleo.share(name + ' — Cleo', location.href.split('#')[0] + '#list=' + Cleo.listCodec.encode(S.refs) + '&n=' + encodeURIComponent(S.v === 'all' ? tt('lst.mine', 'My Cleo list') : name));
+    else if (k === 'copy') { var nl = { id: uid(), n: name, r: S.refs.slice() }; setLists(ls.concat([nl])); Cleo.saved.add(S.refs); location.hash = '#v=' + nl.id; toast(tt('lst.copied.n', 'Saved a copy: “{name}”, {n} places.', { name: name, n: S.refs.length })); }
+    else if (k === 'new') form(tt('lst.new.label', 'Name your new list'), '', function (v) { var nl = { id: uid(), n: v, r: [] }; setLists(lists().concat([nl])); location.hash = '#v=' + nl.id; });
+    else if (k === 'rename') form(tt('lst.rename.label', 'Rename this list'), name, function (v) { setLists(lists().map(function (l) { if (l.id === S.v) l.n = v; return l; })); paint(); });
+    else if (k === 'delete') { if (window.confirm(tt('lst.delete.q', 'Delete the list “{name}”? The places stay saved.', { name: name }))) { setLists(ls.filter(function (l) { return l.id !== S.v; })); location.hash = '#v=all'; } }
     else if (k === 'pick') d.querySelector('input[data-sv="import"]').click();
     else if (k === 'cancel') d.getElementById('sv-form').innerHTML = '';
     else if (k === 'forget') {
@@ -182,7 +185,7 @@
     if (t.matches && t.matches('[data-sl]')) {
       var id = t.getAttribute('data-sl'), ref = t.getAttribute('data-ref');
       setLists(lists().map(function (l) { if (l.id === id) { var i = l.r.indexOf(ref); if (t.checked && i < 0) l.r.push(ref); if (!t.checked && i >= 0) l.r.splice(i, 1); } return l; }));
-      var keep = t.closest('details'); paint(); if (keep) toast(t.checked ? 'Added to the list.' : 'Removed from the list.');
+      var keep = t.closest('details'); paint(); if (keep) toast(t.checked ? tt('lst.added', 'Added to the list.') : tt('lst.removed', 'Removed from the list.'));
     } else if (t.matches && t.matches('[data-sv="import"]') && t.files && t.files[0]) {
       var rd = new FileReader();
       rd.onload = function () {
@@ -190,14 +193,15 @@
           var j = JSON.parse(rd.result); if (!j || j.cleo !== 'lists') throw new Error('not a Cleo backup');
           var s = Cleo.saved.all(); Object.keys(j.saved || {}).forEach(function (r) { if (!s[r]) s[r] = j.saved[r]; }); st.set('saved', s);
           var bb = been(); Object.keys(j.been || {}).forEach(function (r) { bb[r] = 1; }); st.set('been', bb);
-          var ls = lists(), have = ls.map(function (l) { return l.id; }); (Array.isArray(j.lists) ? j.lists : []).forEach(function (l) { if (l && l.id && Array.isArray(l.r) && have.indexOf(l.id) < 0) ls.push({ id: String(l.id), n: String(l.n || 'Imported list'), r: l.r.map(String) }); });
-          setLists(ls); Cleo.emit('cleo:saved', {}); toast('Backup restored on this device.');
-        } catch (err) { toast('That file isn’t a Cleo backup, so nothing changed.'); }
+          var ls = lists(), have = ls.map(function (l) { return l.id; }); (Array.isArray(j.lists) ? j.lists : []).forEach(function (l) { if (l && l.id && Array.isArray(l.r) && have.indexOf(l.id) < 0) ls.push({ id: String(l.id), n: String(l.n || tt('lst.imported', 'Imported list')), r: l.r.map(String) }); });
+          setLists(ls); Cleo.emit('cleo:saved', {}); toast(tt('lst.restored', 'Backup restored on this device.'));
+        } catch (err) { toast(tt('lst.notbackup', 'That file isn’t a Cleo backup, so nothing changed.')); }
       };
       rd.readAsText(t.files[0]);
     }
   });
   window.addEventListener('hashchange', paint);
   d.addEventListener('cleo:saved', function () { if (!d.querySelector('.sv-x details[open]')) paint(); });
+  d.addEventListener('cleo:locale', paint);   // i18n D-41: drawn before the catalogue arrived, drawn again in it
   paint();
 })();

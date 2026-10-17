@@ -449,7 +449,7 @@ for line in open(f'{S}/cands.tsv', encoding='utf-8'):
 
 # R8 run #77: a file refused for its own fault (not a slot reason) is refused for every target that lists it, so a later
 # wave can never re-introduce it. Mirrors refusalIsGlobal in fetch-commons.js.
-_LOCAL = re.compile(r'duplicat|same file|repeats|already|place card|is the [\w ]*hero|the [\w ]+ hero is', re.I)
+_LOCAL = re.compile(r'second pick|duplicat|same file|repeats|already|place card|is the [\w ]*hero|the [\w ]+ hero is', re.I)
 _glob = {}
 for _k, _cs in cands.items():
     for _c in _cs:
@@ -457,6 +457,10 @@ for _k, _cs in cands.items():
 for _k, _cs in cands.items():
     for _c in _cs:
         if not _c.get('refused') and _c['file'] in _glob: _c['refused'] = 'refused for another target: ' + _glob[_c['file']]
+
+# mirrors fetch-flickr.js flickrGap: which stated gaps a reviewed candidate may fill
+_GAP_OK = re.compile(r'no (?:commons )?(?:file|photo|honest|usable|view)|nothing usable|only (?:details|interiors|animal|bird|night|vehicles|a 19\d\d photo|photos of the old|files naming)|under 640|every (?:commons )?photo|not found|turned up|no lead image|both vetted|refused', re.I)
+_GAP_NEVER = re.compile(r'venue|food|artwork|sculpture|freedom of panorama|\bFoP\b|brand|signage|closed|vietnam|character|graffiti|mural|copyright|themed|\bride\b|crowd|casino|store\b', re.I)
 
 # W8: what a visitor sees first on each guide — the gallery's lead card, then its first rail row
 PRIO = {}
@@ -531,8 +535,8 @@ for key, (d, p) in recs.items():
     # secondary theme tags (Alta Vista Terrace: ICON, ARCH, SPORT), which never make a sight a venue (orchestrator, R8)
     if p['kind'] != 'food' and ((p.get('g') or [None])[0] in VENUE or re.match(r'\s*(?:[a-z]+ )?store\b', str(p.get('k') or ''), re.I)):   # D-49: food is its own subject
         t['skip'] = f"venue ({(p.get('g') or ['k'])[0]}) — never a photo"
-    elif key in SKIP:
-        t['skip'] = SKIP[key]
+    elif key in SKIP and not (_GAP_OK.search(SKIP[key]) and not _GAP_NEVER.search(SKIP[key]) and any(not c.get('refused') for c in cands.get(f'landmark:{key}', []))):
+        t['skip'] = SKIP[key]   # a "no usable Commons photo" gap lifts once a reviewed candidate exists (R8 discovery); rule gaps never do
     elif VENUE_NAME.search(p['n']):
         t['skip'] = f"venue ({VENUE_NAME.search(p['n']).group(1).lower()}) — never a photo (named so; W8 guard for records without a venue tag)"
     elif BRAND_STORE.search(p['n']):
