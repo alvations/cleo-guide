@@ -81,6 +81,8 @@
     const t = e.target; if (!t || !t.closest || !atlas()) return;
     if (t.closest('#cleo-poi a.ms-pv')) { rec(); frozen = last; opener = pvFrom || null; return; }
     if (t.closest('#cleo-poi')) return;
+    // a selection card elsewhere (FE-C's landscape side card, Cleo.side) marks its detail link data-nav-pin: like the preview
+    if (t.closest('a[data-nav-pin]')) { rec(); frozen = last; opener = { pin: 1 }; return; }
     // the preview only ever opens from the map (a pin, the pill a hovered dot shows, or a dot on the canvas): focus goes
     // back to the open place's pin, which stays labelled while it is selected
     if (t.closest('#cleo-map')) { pvFrom = { pin: 1 }; return; }
@@ -204,7 +206,8 @@
     setTimeout(() => { ready = true; if (!hasP() && !last) last = snapNow(); writeAt(); }, 1600);
     if (parseAt() && !atDone && !userAt) C.atView();
     if (open && open.fresh) C.freshPlace();
-    setTimeout(() => motion(m), 0);   // after this file has run (motion is defined below)
+    setTimeout(() => motion(m), 0);
+    setTimeout(() => halo(m), 0);   // after this file has run (motion is defined below)
   };
   // QA-76: until the map's first fit (city core, saved or shared view, area, lens or place) has landed, the map still
   // shows the page's starting centre, and a map-area pass there published "450 places here · Show all 488" for a
@@ -304,6 +307,17 @@
       n.textContent = tt('atl.near.note', 'Nearest first, from where you are. {assume}. Your location stays on this device and is gone when you reload.', { assume: tt('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') }); }
     else if (n) n.remove();
   };
+  // phone list mode: the map sits behind the list, so "N places here" keeps the area the reader last saw — the map
+  // mode's pads (chip row, peek or carousel), not a bare map; a lens applied from the list (For you, the doors) recounts
+  // the same area instead of a larger one (D-46 doors, w2 "the count unchanged")
+  { const om = C.overMap; let pad0 = null; const cp = o => ({ paddingTopLeft: o.paddingTopLeft.slice(), paddingBottomRight: o.paddingBottomRight.slice() });
+    if (om) C.overMap = () => { const ph = !desktop() && H.classList.contains('atlas-m'), lst = ph && H.classList.contains('ms-list');
+      if (lst && pad0) return cp(pad0); const o = om(); if (ph && !lst) pad0 = cp(o); return o; }; }
+  // §2.0.7 (designer 3793b1d15, "List: the way back is the switch's Atlas icon"): in phone list mode the switch's Atlas
+  // segment, already pressed, goes back to the map — the only way back in landscape (no Map pill there); one history step,
+  // as the pill and Escape do, so Back and the round trip stay coherent. Focus stays on the segment.
+  on(d, 'click', e => { const b = e.target.closest && e.target.closest('[data-cleo-views] button[data-view="atlas"]');
+    if (!b || !atlas() || desktop() || !H.classList.contains('ms-list') || !C.listMode) return; C.listMode(false, true); }, true);
   // OV-00 "Near me once": in Atlas the list head's Near me door takes the map's own reading (the dot, the map on the reader,
   // nearest first, walking times); pressed again it clears, as before (foryou.js C.near)
   on(d, 'click', e => { const b = e.target.closest && e.target.closest('[data-cleo-near]'); if (!b || !atlas() || !C.map() || !C.locate || C.dist) return;
@@ -390,6 +404,32 @@
       k._navG = requestAnimationFrame(step); };
     C.hotId = function (id, o) { const r = hot0.apply(this, arguments); if (atlas()) grow(id, !!o); return r; }; C.hotId._nav = 1;
   };
+
+  /* ---- D-43 (designer re-rule): an approximate pin sits on a soft uncertainty halo — "around here" (SPEC-v3 §1.1) ---- */
+  // a 20 px disc, --ink at 10 % (light) / 16 % (dark), no stroke, under the dot or the pill's anchor; drawn on its own
+  // canvas pane below the dots, only while that place's dot is on the map (lens, ring and disc rules still apply). A pin
+  // the data lane upgrades (info.prov no longer 'l…') loses it by itself. The Key's "Approximate pin" swatch is atlas.js's.
+  const lowIds = () => { const pv = (C.info && C.info.prov) || {}; return Object.keys(pv).filter(id => String(pv[id]).charAt(0) === 'l'); };
+  C.navLow = () => lowIds().some(id => C.markers && C.markers[id]);
+  const halo = m => {
+    const L = window.L; if (!L || !m.createPane) return; if (!m.getPane('navHalo')) { const pn = m.createPane('navHalo'); pn.style.zIndex = 390; pn.style.pointerEvents = 'none'; }
+    const cv = L.canvas({ pane: 'navHalo', padding: 0.2 }), lay = L.layerGroup().addTo(m), H0 = {};
+    const ink = () => { const dk = H.getAttribute('data-theme') === 'dark' || (H.getAttribute('data-theme') !== 'light' && !!window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+      return { c: (getComputedStyle(H).getPropertyValue('--ink') || '#1C1917').trim(), o: dk ? 0.16 : 0.1 }; };
+    const sync = () => { const k0 = ink(), on0 = {};
+      lowIds().forEach(id => { const k = C.markers[id]; if (!k) return;
+        if (!k._navHaloW) { k._navHaloW = 1; const st0 = k.setStyle; k.setStyle = function () { const r = st0.apply(this, arguments); soon(); return r; }; }   // a disc or a pin hides / shows the dot: follow it
+        if (!k._map) return; const pinned = !!(C.pinOf && C.pinOf(id)); if (!pinned && !(k.options.opacity > 0)) return; on0[id] = 1;
+        let h = H0[id]; if (!h) { h = H0[id] = L.circleMarker(k.getLatLng(), { renderer: cv, radius: 10, stroke: false, fillColor: k0.c, fillOpacity: k0.o, interactive: false }); h._navHalo = id; }
+        else h.setStyle({ fillColor: k0.c, fillOpacity: k0.o });
+        if (!lay.hasLayer(h)) h.addTo(lay); });
+      Object.keys(H0).forEach(id => { if (!on0[id] && lay.hasLayer(H0[id])) lay.removeLayer(H0[id]); }); };
+    let q = 0; const soon = () => { if (q) return; q = requestAnimationFrame(() => { q = 0; sync(); }); };
+    m.on('moveend zoomend', soon); C.after.push(soon); on(d, 'cleo:stamped', soon);
+    const f0 = C.feature; if (f0 && !f0._navHalo) { C.feature = function () { const r = f0.apply(this, arguments); soon(); return r; }; C.feature._navHalo = 1; }   // pins and density discs re-place: follow them
+    if (window.MutationObserver) new MutationObserver(soon).observe(H, { attributes: true, attributeFilter: ['data-theme'] });
+    C.navHalos = () => Object.keys(H0).filter(id => lay.hasLayer(H0[id]));   // probes: the places drawn with a halo now
+    soon(); };
 
   /* ---- the share toast says what the link opens (§3.5) ---- */
   const share0 = Cleo.share;

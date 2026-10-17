@@ -447,6 +447,18 @@ html.atlas-m[data-view=atlas] .leaflet-container .m-list{display:none}
   html.atlas-m[data-view=atlas] .leaflet-container .m-list{display:inline-flex;width:44px;height:44px;border-radius:50%;padding:0;justify-content:center;box-shadow:var(--shadow-sm)}
   html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right{top:50%;bottom:auto!important;transform:translateY(-50%)}
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) .leaflet-bottom.leaflet-right{right:332px}
+  /* the list in landscape (designer 3793b1d15): it scrolls under the one bar — no 72 px bottom band. The way back is the
+     switch's Atlas icon (FE-2's nav hook); until it lands, a 44 px floating Map button (bottom-right), not a bar */
+  html.atlas-m.ms-list[data-view=atlas] .split::after{display:none}
+  html.atlas-m.ms-list[data-view=atlas] .listpane{bottom:0}
+  html.atlas-m.ms-list[data-view=atlas] .ms-toggle{left:auto;right:12px;bottom:12px;transform:none;width:44px;min-width:44px;padding:0;justify-content:center}
+  html.atlas-m.ms-list[data-view=atlas] .ms-toggle>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) .listpane{top:calc(var(--bar-h) + 8px);bottom:8px;left:auto;right:8px;width:320px;height:auto;flex-direction:column;overflow-x:hidden;overflow-y:auto;scroll-snap-type:y mandatory;padding:0}
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:none;width:auto;height:auto;scroll-snap-align:start}
 }
+/* OV-03: a cut name (atlas.js) shows whole on hover, focus or selection */
+:is(.pp.sel,.pp.hot,.pp:hover,a.pp:focus-visible)>span>b[data-full]{font-size:0}
+:is(.pp.sel,.pp.hot,.pp:hover,a.pp:focus-visible)>span>b[data-full]::after{content:attr(data-full);font-size:var(--pp-fs,var(--fs-sm))}
+@media (max-width:1023px){html.atlas-m{--pp-fs:13px}}
+/* designer (QC: 30 px tall, cap 20): the desktop credit is one 20 px line — 11 px on a 16 px line, 2 px × 8 px padding */
+html.atlas-d[data-view=atlas] .leaflet-control-attribution{font-size:11px;line-height:16px;padding:2px 8px}

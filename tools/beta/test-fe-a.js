@@ -228,7 +228,8 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
       chk('typing a search writes q= into the URL and filters', /(^#|&)q=temple/.test(h1) && n1 < all0, [h1, n1, all0]);
       w.location.hash = '#view=gallery'; await sleep(80);
       chk('a link without q= clears the search (box and filter)', fq.value === '' && !w.Cleo.city.S.q && !/q=/.test(w.location.hash) && [...d.querySelectorAll('li.pl')].every(c => !c.hidden), [fq.value, w.Cleo.city.S.q]);
-      w.history.back(); await sleep(120);
+      // polls (≤ 2 s) instead of a fixed 120 ms: under the full suite's load the popstate round-trip ran late (same assertion)
+      w.history.back(); for (let t = 0; t < 40 && !(fq.value === 'temple' && w.Cleo.city.S.q === 'temple'); t++) await sleep(50);
       chk('Back restores the search', fq.value === 'temple' && w.Cleo.city.S.q === 'temple' && /q=temple/.test(w.location.hash), [fq.value, w.location.hash]);
       chk('no js errors (search route)', errs.length === 0, errs.slice(0, 2)); }
     ({ d, w, errs } = boot(page, { hash: '#view=bogus' })); await sleep(100);
@@ -355,7 +356,7 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
       const dn = s => s.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
       if (!lead || !a || a[1] !== lead.id || !lead.n.startsWith(dn(a[2]))) bad.push([path.relative(BETA, f), a && a[1], lead && lead.id]);
     }
-    chk(`"Start with" links and names the lead card's place on all ${pages.length} place pages`, pages.length >= 84 && !bad.length, bad.length ? bad.slice(0, 4) : pages.length);
+    chk(`"Start with" links and names the lead card's place on all ${pages.length} place pages`, pages.length === JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'beta', 'data', 'manifest.json'), 'utf8')).pages.filter(p => p.kind === 'city').length /* FE-B: every city page — 82 since one city, one page (the Singapore/ copies of Hanoi and Hoi An are moved pointers) */ && !bad.length, bad.length ? bad.slice(0, 4) : pages.length);
   }
 
   console.log('# W8: "No. k of n in {area}" — n is the area\'s full count and k ≤ n (R7 gap 2f), every place on every page');

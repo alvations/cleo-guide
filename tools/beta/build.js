@@ -366,6 +366,9 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
     const h = (r.kind === 'archive-hub' ? hub.renderArchive : hub.renderCountry)(r, reg, ctx);
     html = h.html;
     errors.push(...assertHubPage(r.beta, html, h.expect, totals));
+  } else if (r.kind === 'moved') {
+    html = method.movedPage(r, ctx);                 // FE-B: one city, one page — a pointer to the city's own folder
+    if (!reg.rows.some(x => x.beta === r.movedTo && x.kind === 'city')) errors.push(`${r.beta}: moved to a page that is not built (${r.movedTo})`);
   } else { errors.push(`${r.live}: no beta renderer for kind '${r.kind}' yet`); continue; }
   errors.push(...assertPage(r.beta, html));
   emit(r.beta, html);
@@ -386,7 +389,7 @@ const generated = reg.rows.filter(r => r.gen === 'new').map(r => r.beta).concat(
 emit('data/manifest.json', JSON.stringify({
   v: 1, _doc: 'Written by tools/beta/build.js. `generated` pages are owned by the new beta generator; tools/beta-restyle.py must skip them. `pages` maps every live page to its beta source.',
   generated,
-  pages: reg.rows.map(r => ({ live: r.live, beta: r.beta, key: r.key, kind: r.kind, gen: r.gen, country: r.country,
+  pages: reg.rows.map(r => ({ live: r.live, beta: r.beta, key: r.key, kind: r.kind, gen: r.gen, country: r.country, ...(r.movedTo ? { movedTo: r.movedTo } : {}),
     counts: r.counts ? { P: r.counts.P, F: r.counts.F } : null })),
   totals: { pages: cityRows.length, places: totalLive },
 }, null, 1));
@@ -446,6 +449,18 @@ for (const [rel, body] of out) {
   const same = fs.existsSync(p) && fs.readFileSync(p).equals(buf);
   if (args.has('--check')) { if (!same) { stale++; console.error('  STALE ' + rel); } continue; }
   if (!same) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, buf); wrote++; }
+}
+// FE-B (one city, one page): a `moved` page's old derived files (its What changed page, feed, data slices, share card,
+// art, motifs) are no longer built — remove any still on disk (a merge from a tree built before can bring them back), so
+// the beta page set stays == the manifest. Only paths named for a moved page's key, and only ones this build did not emit.
+{
+  const keys = reg.rows.filter(r => r.kind === 'moved').map(r => r.fileKey), named = rel => keys.some(k => rel.split('/').some(seg => seg === k || seg.startsWith(k + '.')));
+  const walk = d => !fs.existsSync(path.join(BETA, d)) ? [] : fs.readdirSync(path.join(BETA, d), { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(d + '/' + e.name) : [d + '/' + e.name]);
+  for (const rel of ['changes', 'feeds', 'data', 'assets/og', 'assets/art', 'assets/img/motifs'].flatMap(walk)) {
+    if (!named(rel) || out.has(rel)) continue;
+    if (args.has('--check')) { stale++; console.error('  STALE (moved page leftover) ' + rel); } else { fs.unlinkSync(path.join(BETA, rel)); wrote++; }
+  }
+  if (!args.has('--check')) for (const k of keys) { const d = path.join(BETA, 'assets/art', k); if (fs.existsSync(d) && !fs.readdirSync(d).length) fs.rmdirSync(d); }
 }
 const summary = `${generated.length} pages, ${cityRows.length} place pages indexed, ${totalLive} places (beta == live)`;
 if (args.has('--check')) {

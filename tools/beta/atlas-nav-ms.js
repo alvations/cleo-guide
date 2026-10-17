@@ -31,6 +31,7 @@ const OUT = arg('--out', '');
 const BASE = 'https://cleo.local/';
 const M = { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true };
 const D = { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 };
+const LS = { viewport: { width: 844, height: 390 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true };   // a phone in landscape
 const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
 // a flat 256 px stub tile, drawn here (no tile host is ever contacted)
 const TILE = (() => { const zlib = require('zlib'), T = []; for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; T[n] = c >>> 0; }
@@ -357,6 +358,44 @@ async function finish(page, s0, opener, close) {
     const lines = String(q.stdout || '').split('\n').filter(l => /^(PASS|FAIL)  rings/.test(l));
     if (!lines.length) chk(`rings ${rel}: probe ran`, false, String(q.stderr || '').slice(0, 300));
     lines.forEach(l => chk('R3 #9/#14 ' + l.replace(/^(PASS|FAIL)  /, '').replace(/  \{.*$/, ''), /^PASS/.test(l), l.replace(/^.*?  \{/, '{').slice(0, 300))); }
+
+  // §2.0.7 (designer 3793b1d15): in phone list mode the switch's Atlas icon is the way back to the map — the only one in
+  // landscape. 844×390 and 390×844: open the list (the stack's List icon, else the pill), tap the Atlas segment
+  if (PAGES.some(p => p[0] === 'tokyo')) for (const [vn, vp] of [['844', LS], ['390', M]]) {
+    const { ctx, page, errors } = await open(browser, vp, 'beta/cities/tokyo.html#view=atlas');
+    const st = () => page.evaluate(() => { const m = Cleo.city.map(), c = m && m.getCenter(), H = document.documentElement;
+      const bot = [...document.querySelectorAll('body *')].filter(e => { const s = getComputedStyle(e); if (s.position !== 'fixed' && s.position !== 'sticky') return false; const r = e.getBoundingClientRect(); return r.height >= 40 && r.width >= innerWidth * 0.5 && r.bottom >= innerHeight - 2 && r.top > innerHeight * 0.5 && s.visibility !== 'hidden' && +s.opacity > 0; }).map(e => e.tagName.toLowerCase() + '.' + String(e.className).split(' ')[0]);
+      const a = document.activeElement;
+      return { list: H.classList.contains('ms-list'), view: H.getAttribute('data-view'), count: ((document.querySelector('.ms-count') || {}).textContent || '').replace(/\s+/g, ' ').trim(), c: c && [c.lat, c.lng], z: m && m.getZoom(),
+        bottomBars: bot, focus: a ? (a.closest('#cleo-map') ? 'map' : a.matches('[data-cleo-views] button[data-view="atlas"]') ? 'atlas-icon' : a.tagName.toLowerCase() + '.' + String(a.className).split(' ')[0]) : null }; });
+    const s0 = await st();
+    const li = await page.$('.m-list') || await page.$('.ms-toggle'); if (li) { await li.tap().catch(() => li.evaluate(b => b.click())); await sleep(700); }
+    const s1 = await st();
+    const ai = await page.$('[data-cleo-views] button[data-view="atlas"]'); if (ai) { await ai.tap().catch(() => ai.evaluate(b => b.click())); await sleep(800); }
+    const s2 = await st(), px = s0.c && s2.c ? await page.evaluate(([a, b]) => { const m = Cleo.city.map(), p = m.latLngToContainerPoint(a), q = m.latLngToContainerPoint(b); return Math.round(Math.hypot(p.x - q.x, p.y - q.y)); }, [s0.c, s2.c]) : null;
+    chk(`§2.0.7 tokyo ${vn}: in list mode the switch's Atlas icon goes back to the map — list off, no fixed bar at the bottom${vn === '844' ? '' : ' (bar: the Map pill is allowed in portrait)'}, focus on the map or the icon, the view and count kept`,
+      s1.list && !s2.list && s2.view === 'atlas' && (vn !== '844' || !s2.bottomBars.length) && ['map', 'atlas-icon'].includes(s2.focus) && px !== null && px <= 1 && s2.z === s0.z && (/[\d,]+/.exec(s2.count) || [''])[0] === (/[\d,]+/.exec(s1.count) || ['-'])[0],
+      { opened: s1.list, back: !s2.list, bottomBars: s2.bottomBars, focus: s2.focus, px, z: [s0.z, s2.z], count: [s1.count.slice(0, 30), s2.count.slice(0, 30)] });
+    if (errors.length) chk(`§2.0.7 tokyo ${vn}: 0 page errors`, false, errors.slice(0, 2));
+    await ctx.close(); }
+
+  // D-43 (SPEC-v3 §1.1, designer re-rule): every approximate pin (info.prov 'l…') on the map sits on a 20 px soft halo
+  // (radius 10, no stroke, --ink at 10 % light / 16 % dark), no exact pin has one, the Key shows "Approximate pin", and the
+  // halo redraw shifts no layout. Okinawa holds 195 of the 235 low pins.
+  if (!ONLY || ONLY.split(',').includes('okinawa')) for (const [vn, vp] of [['1440', D], ['390', M]]) for (const scheme of ['light', 'dark']) {
+    const { ctx, page, errors } = await open(browser, Object.assign({ colorScheme: scheme }, vp), 'beta/cities/okinawa.html#view=atlas');
+    await page.evaluate(() => { window.__cls = 0; try { new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) window.__cls += e.value; })).observe({ type: 'layout-shift', buffered: false }); } catch (e) {} });
+    await page.evaluate(() => { const m = Cleo.city.map(); m.panBy([60, 40], { animate: false }); }); await sleep(700);
+    const r = await page.evaluate(() => { const C = Cleo.city, pv = C.info.prov || {}, h = C.navHalos ? C.navHalos() : [];
+      const lowOn = Object.keys(pv).filter(id => String(pv[id])[0] === 'l' && C.markers[id] && C.markers[id]._map && (C.pinOf(id) || C.markers[id].options.opacity > 0));
+      const st = h.length ? (() => { const m = C.map(); let o = null; m.eachLayer(l => { if (!o && l._navHalo) o = { r: l.getRadius(), stroke: l.options.stroke, op: l.options.fillOpacity }; }); return o; })() : null;
+      return { halos: h.length, lowOn: lowOn.length, exact: h.filter(id => String(pv[id])[0] !== 'l').length, missing: lowOn.filter(id => !h.includes(id)).length, st,
+        key: [...document.querySelectorAll('.ms-key li')].some(l => /Approximate pin/.test(l.textContent) && l.querySelector('.ms-halo-k')), cls: +window.__cls.toFixed(4) }; });
+    const op = scheme === 'dark' ? 0.16 : 0.1;
+    chk(`D-43 okinawa ${vn} ${scheme}: every approximate pin on the map has its 20 px soft halo (no stroke, --ink ${op * 100} %), no exact pin has one, the Key says "Approximate pin", no layout shift`,
+      r.halos > 0 && r.missing === 0 && r.exact === 0 && r.st && r.st.r === 10 && r.st.stroke === false && Math.abs(r.st.op - op) < 1e-9 && r.key && r.cls === 0, r);
+    if (errors.length) chk(`D-43 okinawa ${vn} ${scheme}: 0 page errors`, false, errors.slice(0, 2));
+    await ctx.close(); }
 
   // SPEC-v3 §3.7 (R8 gap 3) map motion: each reader-started moment ≤ 300 ms (the preview grows from its pin, fades on close;
   // the phone carousel lifts in; a hovered dot grows), and no animation at all under reduced motion (tools/beta/fe2/motion.js)

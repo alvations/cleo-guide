@@ -27,6 +27,10 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
   views.js): a3da0b4b.
 
 ## Next
+- **D-46 phone doors (orchestrator 10:27Z): pushed 71aff91b.** `.ms-doors` shown in phone list mode (atlas-nav.css); phone list
+  mode keeps the map mode's pads (`C.overMap` wrapper) so a lens from a door keeps the count; w2 doors fails a missing phone
+  door (16/16). §2.0.7 Atlas icon → map in list mode (FE-1 ask); `a[data-nav-pin]` opener for FE-C's `Cleo.side`.
+  atlas-ms 349 PASS. i18n lane edits atlas-nav.js string literals (tt, `// i18n D-41`): no new literals from me without `tt`.
 - **OV-00 §2.0.3 Near me once (ratified):** bdb591b4 — the list head's `[data-cleo-near]` door runs the map's locate in
   Atlas (`C.locate` exported in atlas.js); atlas-nav-ms desktop near-me takes the door or `.m-locate`. Full atlas-ms 298 PASS on
   the pushed head. FE-1 then removes the desktop `.m-locate`: re-run on their SHA. Map motion (R8 gap 3) pushed 09f82449, green.
