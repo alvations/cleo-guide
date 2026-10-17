@@ -62,7 +62,7 @@ for (const r of cityRows) {
   // a rating platform, the place's own site or the guide's general knowledge is never "Recommended by". `recby` rides on
   // the record (page JSON → every client surface) beside `src`, which keeps every source visible.
   { const byId = {}; r.sources.list.forEach(s => { s.role = sourceRole(s); byId[s.id] = s; });
-    r.recs.forEach(x => { x.recby = recommendersOf(x.src, byId); }); }
+    r.recs.forEach(x => { x.recby = recommendersOf(x.src, byId, x.n); }); }
   r.recog = recognition.pageRecognition(r, r.recs, r.sources.list, ROOT);   // W9-1/W9-9: badges + local favourites from source keys only
   r.stats = stats.pageStats(r, r.recs);           // every number the page prints — M1-20
   // D-39 (QA-65): a record whose own prose quotes a price or rating carries `pq` (the research date) on the record
@@ -100,6 +100,9 @@ if (process.env.CLEO_BETA_SELFTEST_RECBY) {
     victim.recs[0].src = (victim.recs[0].src || []).concat('yelp'); victim.recs[0].recby = ['yelp']; }
 }
 // QA-87 self-test: general knowledge seeded as a recommender — the guard must refuse it too
+// QA-87 rule 3 self-test: a source named for the place itself seeded as its recommender — refused
+if (process.env.CLEO_BETA_SELFTEST_SELF) { const victim = cityRows.find(r => r.gen === 'new' && r.recs.length);
+  if (victim) { const x = victim.recs[0]; victim.sources.list.push({ id: 'self-seed', name: x.n, url: 'https://example.invalid/' }); x.src = (x.src || []).concat('self-seed'); x.recby = ['self-seed']; } }
 if (process.env.CLEO_BETA_SELFTEST_GK) { const victim = cityRows.find(r => r.gen === 'new' && r.recs.length); if (victim) victim.recs[0].recby = ['guide']; }
 
 if (args.has('--list')) {
@@ -305,7 +308,7 @@ if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.le
   const bucket = h => { let v = 5381; for (let i = 0; i < h.length; i++) v = ((v * 33) ^ h.charCodeAt(i)) >>> 0; return v % 32; };
   const hosts = {}, urls = Array.from({ length: 32 }, () => ({}));
   for (const r of cityRows) {
-    const list = (r.sources && r.sources.list) || [], byId = Object.fromEntries(list.map(s => [s.id, s])), g = {}, per = {};
+    const list = (r.sources && r.sources.list) || [], byId = Object.fromEntries(list.map(s => [s.id, s])), g = {}, per = {}, recSet = new Set(r.recs.flatMap(x => x.recby || []));
     for (const s of list) for (const e of s.entries || []) g[e.key] = s.id;
     const addH = (h, sid) => { if (h && sid && sid !== 'guide' && byId[sid]) (per[h] = per[h] || new Set()).add(sid); };
     for (const s of list) for (const dom of s.domains || []) addH(String(dom).toLowerCase().replace(/^www\./, ''), s.id);
@@ -313,9 +316,9 @@ if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.le
       const sid = g[k], nu = /^https?:\/\//.test(u || '') && normURL(u); if (!nu || !sid || sid === 'guide' || !byId[sid]) continue;
       addH(nu.h, sid);
       const b = urls[bucket(nu.h)], rows = (b[nu.key] = b[nu.key] || []);
-      if (!rows.some(y => y[0] === r.beta && y[2] === x.id)) rows.push([r.beta, r.name, x.id, x.n, sid, recName(publicName(byId[sid].name))].concat(byId[sid].role === 'rec' ? [] : [1]));   /* FE-B D-53: 1 = cites, never recommends */
+      if (!rows.some(y => y[0] === r.beta && y[2] === x.id)) rows.push([r.beta, r.name, x.id, x.n, sid, recName(publicName(byId[sid].name))].concat((x.recby || []).includes(sid) ? [] : [1]));   /* FE-B D-53: 1 = cites, never recommends */
     }
-    for (const [h, set] of Object.entries(per)) for (const sid of set) { const s = byId[sid]; (hosts[h] = hosts[h] || []).push([r.beta, r.name, s.id, recName(publicName(s.name)), s.n].concat(s.role === 'rec' ? [] : [1])); /* R8 #2d: public names */ }
+    for (const [h, set] of Object.entries(per)) for (const sid of set) { const s = byId[sid]; (hosts[h] = hosts[h] || []).push([r.beta, r.name, s.id, recName(publicName(s.name)), s.n].concat(recSet.has(s.id) ? [] : [1]));   /* QA-87: recommends somewhere on this page, or only cites */ /* R8 #2d: public names */ }
   }
   for (const h of Object.keys(hosts)) hosts[h].sort((x, y) => y[4] - x[4] || (x[0] < y[0] ? -1 : 1));
   emit('data/source-hosts.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 2,

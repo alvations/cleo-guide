@@ -1,7 +1,7 @@
 # Atlas map, spec v3: "places on a map, not numbers on a grid"
 
 - **Owner:** the designer, for the Atlas review loop ([`PANEL.md`](PANEL.md)). The Atlas lane builds it.
-- **Status:** Atlas is the **default city view** (owner decision D-46; switcher order Atlas, Gallery, Guidebook, Insights; first screen in §1.7). Revision 5a (FE-1 conflicts, 2026-10-16), revision 5 after PANEL-R3 (80.7 / 100; R2 70.9, R1 63.8, R0 56.1; [`PANEL-R3.md`](PANEL-R3.md)). Earlier revisions folded in R0 to R2. Revision 2 folded in PANEL-R0 ([`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
+- **Status:** Atlas is the **default city view** (owner decision D-46; switcher order Atlas, Gallery, Guidebook, Insights; first screen in §1.7). Revision 5b after PANEL-R4 (85.3; [`PANEL-R4.md`](PANEL-R4.md)), revision 5a (FE-1 conflicts, 2026-10-16), revision 5 after PANEL-R3 (80.7 / 100; R2 70.9, R1 63.8, R0 56.1; [`PANEL-R3.md`](PANEL-R3.md)). Earlier revisions folded in R0 to R2. Revision 2 folded in PANEL-R0 ([`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
 - **Prototypes:** [`proto/`](proto/), shot at 1440×900 and 390×844, in light and dark. They use real coordinates on a flat stub basemap; see §6.
 - **Rule 6:** no brand names. The owner's reference is written as "the real-estate map-search pattern".
 - **Owner direction:** combine the best patterns of every product kind and don't copy one (§10). The map-search navigation is the frame, not the whole product.
@@ -75,6 +75,7 @@ This brings back the live map-centred guide's calm. That guide has one big map, 
   - The full name appears in the tooltip, the preview, the card and the detail.
   - If a pill does not fit, it becomes a dot rather than truncating or overlapping (§1.3).
 - **Must-see on the map** (rev 5): **no sun treatment on pills.** The featured set is drawn from the top of `mp`, and nearly every featured place is a must-see, so in R3's real shots every pill was sun-wash and the map read beige. **All pills use the surface treatment.** Must-see shows in the preview, the card sticker and Filters → Tier. The map's job is names and where.
+- **Must-see mark** (rev 5b, PANEL-R4 #2: with no signal at all, must-sees didn't stand out in the dot field): a Must-see pill (`.pp-1`) keeps the surface fill but sets its name in **600** (others 500) and ends with a **10 px four-point star** (`--g-star4`, mask) in `--city-ink`, 4 px after the name. It is a trailing mark, so §1.2's one leading glyph holds. A Must-see **dot** is **9 px** (others 7 px), same neutral and halo. No sun, no fill change: the map still reads as names, and the computed style differs (weight, `::after`, size). Acceptance: `.pp-1>span` font-weight ≠ `.pp:not(.pp-1)>span`; a Must-see dot's width is 9 px; the legend row reads "★ Must see".
 - **Saved:** a 14 px `--accent` heart chip sits on the pill's top-right corner, on a surface ring. Saved places are **always featured**: they are added first and count toward N.
 - **Closed:**
   - The pill uses a `--line-strong` dashed border and a `--sand` fill; glyph and name are in `--ink-3`.
@@ -84,11 +85,11 @@ This brings back the live map-centred guide's calm. That guide has one big map, 
 - **Hover** (on the map, or from its card in the list): the border becomes `--ink`, with `--shadow` and the top z-index. If the place was a dot, it temporarily becomes a labelled pill.
 - **Selected:**
   - The fill becomes **`--ink`**, with name and glyph in **`--paper`**. A short stem points to the exact coordinate. This is the only dark marker on the map.
-  - A Must-see keeps a 2 px `--sun` ring.
+  - A Must-see keeps its star, in `--paper` (rev 5b; the sun ring is gone).
   - The selected place is always labelled.
 - **Focus:** a 2 px `--focus` outline at a 2 px offset.
 - **Markup and name** (R0 #6, #7): each featured pin is a link, `<a href="#p=<id>">`, with `data-kind="sight|food"` and an `aria-label` built as *full name, kind, [Must see], [Closed], [saved]*, for example "Sensō-ji, sight, Must see, saved" or "Heinen's, eat and drink, Closed". The kind is never colour or fill alone: the glyph differs (a place glyph vs the fork-and-knife or cup) and so does the label.
-- **Dark mode:** pins are defined by tokens, so they flip automatically. A Must-see pill becomes `#3B2C10` with `#FBE3B0` text.
+- **Dark mode:** pins are defined by tokens, so they flip automatically. The Must-see star uses `--city-ink`, which has a dark value, so it stays AA on the dark surface.
 
 ### 1.3 Which places are featured (the "map priority")
 
@@ -134,7 +135,7 @@ As you zoom in, more places fit, so more names appear. That is the progressive d
 The legend opens a small popover with four rows:
 - **Sight**: a pill with a lantern glyph;
 - **Eat & drink**: a pill with the fork glyph and the sun bar;
-- **Must see**: a sun-wash pill;
+- **Must see**: a pill with a trailing ★ and a bold name;
 - **Closed**: a dashed pill.
 
 It ends with a dot row, "More places · zoom in to see their names". With an area filter on, it also shows the area colours. Count bubbles are no longer explained, because they no longer exist.
@@ -351,7 +352,7 @@ B-01a (≥ 75 % at P1 at rest, chrome only) stays ratified. Rev 5a meets it at 7
 
 - **The problem:** Must-see is an editorial tier graded **within each area**, so it covers 177 of Tokyo's 488 places (36 %). As a one-tap filter it barely narrows the map. It also appeared three ways at once: a token, a chip and a badge.
 - **The fix:** the bar's toggle becomes **Top picks**, the first N places by `mp` (§1.3): **30 on desktop, 12 on phones**, the same set as the default fit. Because `mp` round-robins across areas, Top picks covers the whole city and never collapses into downtown. The count line reads "Top 30 picks · Show all 488".
-- **Must see stays as information:** the sun-wash pill treatment on the map, the sticker on cards, and a "Tier" section in Filters (Must see / Worth a look / Deep cut). There, the honest count reads "Must see · 177 across 13 areas". It is never a second bar control.
+- **Must see stays as information:** the trailing star on map pills (rev 5b), the sticker on cards, and a "Tier" section in Filters (Must see / Worth a look / Deep cut). There, the honest count reads "Must see · 177 across 13 areas". It is never a second bar control.
 - **Copy:** drop "— numbered to match the map" everywhere (the lens intro in `tools/beta/client/city.js`, FE-A). Map markers carry no numbers outside day mode (§1.1, §10), so the sentence is false.
 - **Acceptance:** exactly one best-places control is visible; with Top picks on, ≤ 30 pins and dots (desktop) or ≤ 12 (phone) and a count line that names it; the string "numbered to match the map" appears nowhere in Atlas.
 
@@ -491,7 +492,7 @@ The R0 findings sit in these slices: #1, #5 (pins), #6, #7 in slice 1; #3, #8, #
 
 | Source | Finding | Answer in this spec |
 |---|---|---|
-| Orchestrator review of slice 1 (2026-10-11) | The pill carried three leading marks (area dot, star, glyph) | §1.2: one glyph only. Must-see is shown by the sun-wash fill. |
+| Orchestrator review of slice 1 (2026-10-11) | The pill carried three leading marks (area dot, star, glyph) | §1.2: one leading glyph only. Must-see was shown by the sun-wash fill (until rev 5); since rev 5b it is a trailing star and a bold name. |
 | 〃 | Hundreds of dots in six or more area colours read as confetti | §1.1: one neutral, with two shades by kind. Area colour appears only under an area filter and in the Key. |
 | 〃 | Truncated labels ("Imperial Palace East …") | §1.2: short names, never truncated. A pill that collides becomes a dot. |
 | 〃 | Are 24 pills too many? | §1.1: lowered to N = 16 desktop / 8 phone, measured in the prototype. |
@@ -543,11 +544,17 @@ The R0 findings sit in these slices: #1, #5 (pins), #6, #7 in slice 1; #3, #8, #
 | PANEL-R3 #5 (1.9, High 8/8) | Desktop header off-screen; header link wraps; breadcrumb clipped | §2.1 rev 5: the switch sits inside the 56 px header, the link doesn't wrap, whole-segment breadcrumb. |
 | PANEL-R3 #6 (1.8) | No-photo covers | §2.3 (rev 4) unchanged: designed list cover; previews and carousel have no media block. R3's preview still had an empty 170 px cover. |
 | PANEL-R3 #7 (1.3, High 5/8), #8 | 108 px layout shift; stale counts | FE-2, §3.2 and §2.3 count rule. Process note: the FE probe must measure the map's top and ancestor scrollTop, not window scroll. |
+| PANEL-R4 (85.3; head 7a21f2f6) | Score context | No blockers. Resolved: desktop header, 108 px shift, duplicate Must-see controls, "pin N", out-of-view deep links, pin → card scroll, breadcrumbs, empty no-photo preview, 200 % zoom. |
+| PANEL-R4 #1 (3.6) | Phone hides names; chrome moves | FE-1/FE-2 to the panel's acceptance. Design: the phone **List / Map toggle carries its word** (the one worded control); zoom and locate stay icon-only (OV-00 control budget) with aria-labels and a tooltip on press. |
+| PANEL-R4 #2 (2.6) | Dense dots; must-sees don't stand out (`.pp-1` has no CSS) | §1.1 rev 5b Must-see mark: bold name + trailing 10 px star on pills, 9 px dots. |
+| PANEL-R4 #3 (2.0) | 12 px text, small targets | DESIGN-SYSTEM §v2.7c: card and preview text ≥ 14 px (photo credits exempt); rail/grid cards and the preview have median ≥ 16 px; compact rows (D-49) keep a 14 px floor. Non-pin targets ≥ 44 px or a 44 px hit area. |
+| PANEL-R4 #7 (High 6/8) | Recommender cut to one letter on desktop grid cards (fe-a.css `.pl-s .src` nowrap ellipsis) | DESIGN-SYSTEM §v2.7b: cards say "By {source} +N", the source has priority (min about 12ch), "+N more" shortens to "+N" and "· Checked" gives way before the name is cut. |
+| PANEL-R4 #8 (0.75) | No-photo food results | §v2.7b: a photo-less detail opens on the 64 px tile or the mini-map, never a full-size blank; the mini-map never covers a hero photo. |
 | FE-1 rev 5 conflicts (2026-10-16) | The required switcher row puts the phone first screen at 73.9 % clear and 15 controls above the first card (B-03 ≤ 14); the spire glyph drew a cross and stood for every faith | §2.2 rev 5a: search only in the header, a 48 px chip row and a 56 px peek give 75.4 % clear (50.7 % at 200 %) and 14 controls. §1.2: the kit spire with no faith mark, for churches only; other houses of worship fall through to their kind glyph. |
 | Owner directive OV-00 (2026-10-16, Punggol phone screenshot) | Fixed layers that don't move and take the space: three bars, a mid-map pill, wide labels, "Map" and "Near me" text pills, a wide attribution, a cut chip row | §2.0: budgets per viewport at rest and while panning, auto-compact, an icon-only control stack, collapsing attribution, label caps and coverage, the "Search this area" slot, chip-row fades, landscape. DESIGN-SYSTEM §v2.12 for every other view. Ledger: docs/BETA-OVERLAY-LEDGER.md. |
 | Owner decision D-46 (2026-10-16) | Atlas becomes the default view, ahead of Gallery | §1.7: photos in the phone peek, a city intro and a lead card on the cold load, and no-map fixes. Order and labels are in DESIGN-SYSTEM §v2.11. |
 | Owner direction (relayed by the panel, 2026-10-11) | Don't copy one product; combine the best of each, keep the map-search navigation, don't neglect the other features | §10: a combination table built from existing beta features, plus a non-regression rule for Gallery, Guidebook, Insights and the detail (§10.1). |
-| PANEL-R0 AO-5 (rejected in part) | Must-sees stand out | Kept: the sun-wash pill stays the Must-see signal. |
+| PANEL-R0 AO-5 (rejected in part) | Must-sees stand out | Kept: Must-sees stand out. Rev 5 dropped the sun fill (the map read beige); rev 5b marks them with a trailing star, a bold name and a 9 px dot. |
 
 ## 10. Slice 4, "one-up": combine the best patterns, don't copy one product (owner direction, 2026-10-11)
 

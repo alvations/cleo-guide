@@ -34,14 +34,17 @@ Wait for "round 5 ready at `<sha>`". Then follow the same steps as round 4:
    - Dry-run the probe first if the Atlas DOM changed. It now handles the list sheet, Top picks, the Near me door and
      `#at=`.
    - Check `real/R5/SHOT-SHA.txt` equals the head (or the set named in the announcement).
+   - **New for R5 (the orchestrator asked, 17 Oct 16:07Z):** `NODE_PATH=$(npm root -g) node design/beta/atlas/tools/density-probe.js --root ../panel-r5 --out design/beta/atlas/panel/R5/density`.
 3. **`EVIDENCE.md`:** measured facts only. Check every "visible" claim against a shot or computed visibility, because
    `innerText` includes screen-reader-only text (round 4's erratum).
-4. **Brief:** copy `panel/R4/PANELIST-BRIEF.txt` and change R4 → R5. Build the prompts from the scratchpad
-   `r4prompts.json` (common-r4 → common-r5, R3 → R4, panel-r4 → panel-r5).
+4. **Brief:** copy `panel/R4/PANELIST-BRIEF.txt` and change R4 → R5. Then append `design/beta/atlas/tools/brief-s1.txt`:
+   the supplementary criterion S1 (information density), scored /10 and reported separately from the 100-point total. The
+   charter fixes the rubric; folding S1 into the total is the orchestrator's call. Build the prompts from `design/beta/atlas/tools/panel-prompts-r4.json` (a durable copy of the scratchpad
+   `r4prompts.json`) (common-r4 → common-r5, R3 → R4, panel-r4 → panel-r5).
 5. **Eight panelists**, then `save-return.py 5 <ID> <agentId>`. Push as returns arrive.
 6. **Gates:** `npm run validate && npm test && npm run beta:check`, chained with `&&`. Never commit on a red gate; rerun a
    suspected flake first.
-7. **Report and send:** write `PANEL-R5.md`, push, verify with ls-remote, then send it to the orchestrator, the designer,
+7. **Report and send:** write `PANEL-R5.md` (add an S1 table: per-panelist S1, its mean, and findings), push, verify with ls-remote, then send it to the orchestrator, the designer,
    FE-1 and FE-2.
 
 ## In flight

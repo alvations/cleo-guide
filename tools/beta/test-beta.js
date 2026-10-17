@@ -132,6 +132,10 @@ let refusedGk = '';   // QA-87: general knowledge after the label must be refuse
 try { execFileSync(process.execPath, [path.join(__dirname, 'build.js'), '--check'], { stdio: 'pipe', env: Object.assign({}, process.env, { CLEO_BETA_SELFTEST_GK: '1' }) }); }
 catch (e) { refusedGk = String(e.stderr); }
 chk('trust guard refuses general knowledge after "Recommended by"', /refused to write[\s\S]*followed by general knowledge/.test(refusedGk), true);
+let refusedSelf = '';   // QA-87 rule 3: a source named for the place itself is its own site, never its recommender
+try { execFileSync(process.execPath, [path.join(__dirname, 'build.js'), '--check'], { stdio: 'pipe', env: Object.assign({}, process.env, { CLEO_BETA_SELFTEST_SELF: '1' }) }); }
+catch (e) { refusedSelf = String(e.stderr); }
+chk('trust guard refuses the place\'s own site after "Recommended by"', /refused to write[\s\S]*names the place's own site: self-seed/.test(refusedSelf), true);
 
 // ── 3. guards on every beta page ────────────────────────────────────────────
 console.log('\n== GUARDS: every beta page (new engine + mirrors) ==');

@@ -37,21 +37,31 @@ Round 4 is held until D-46 lands. Dark dots are signed off (R4b). FE-2 is green 
 - Rev 4 phone first screen (peek, labelled pills, Key in Filters), Top picks, count line, 8 px dots, noun-first glyphs. Merged with FE-2 slices 1–2: the paged list survives late stamping, a swipe after Back, preview with no media, nearest-edge scroll. See BETA-LOG "SPEC-v3 rev 4" and the merge notes.
 
 ## Next
-- **Round 4 is announced at 7a21f2f60** (designer signed off; FE-2 verified it with atlas-ms 394/0 in a clean worktree; the orchestrator relays to the panel).
-- **Since R4 (pushed):**
-  - 1000f52c: the folded credit is one ⓘ circle in dark;
-  - 68b83c0c: D-53 preview recommenders, photo-less carousel cards fit their text;
-  - 963febc6: landscape side column opens on the selected place (ringed), OV-41 desktop pack reachable;
-  - 40535c29 / 75bb37bb: one search on phone Atlas, a drag from a dot pans, the no-pin note sits above the credit, the desktop credit is 20 px.
-- **Open:**
-  - The designer's "only the selected pin shows": not reproduced (neighbour labels stay: Tokyo 6→6 / 4→5 / 7→8 at 390 / 844 / 1440). The exact shot has been asked for.
-  - INP 232 → ≤ 200 on the desktop switch.
-  - T1/T2/D pan compaction, only if QC's re-measure still flags it (FE-2 offered).
-  - R8 gap 4 and FE-A's tokens (atlas.css :41 / :102 / :289).
-  - The §v2.7b no-photo card spec, when FE-A lands it.
-- **Coordination:**
-  - FE-2 owns atlas-nav.js and the probes fe2/side-sync.js and label-clear.js.
-  - The side-column scroll sync is mine (select() and swiped() in atlas.js).
+- **Panel R4 = 85.31 on 7a21f2f6** (design/beta/atlas/PANEL-R4.md, d6a53b0d), no blockers. Waiting for "round 5 ready at <sha>".
+- **Pushed after R4:**
+  - 4ee65ff2 QC-36: one count-line wording from the first paint;
+  - 72ec46eb PERF-24c: the switch paints first (round trip ~400 → ~50 ms desk);
+  - 1000f52c the ⓘ circle;
+  - 68b83c0c D-53 preview and photo-less carousel cards.
+- **R5 share for FE-1** (orchestrator 16:01Z, FE-2's split 16:00Z). Each finding has its acceptance criteria in PANEL-R4.md:
+  - **#1 (phone):**
+    - clear map ≥ 75 % at 390;
+    - ≥ 3 names readable after "Show list" without scrolling;
+    - the area found within 1 tap;
+    - after two zoom steps a list control stays and the chip row returns within 0.3 s;
+    - only the List/Map toggle carries a word (designer rev 5b); zoom and locate stay icon-only with aria-labels.
+  - **#4b–d (counts):** the Top picks peek says "Top 12 picks"; no "of all N" beside "Show all M"; one indicator per area filter.
+  - **#6c:** no bare leading digit in the preview ("1 Must see within …").
+  - **#3 (targets):** view switch, search input and credit links each get a 44 px box or hit area. Card text: min ≥ 14, median ≥ 16.
+  - **#5b–e (layout):** hearts never paint over the sticky list head; the area token aligned; nothing past the right edge at 1024.
+  - **#2 (support FE-2):** .pp-1 per designer rev 5b:
+    - name weight 600;
+    - a 10 px star4 ::after in --city-ink (--paper when selected);
+    - a 9 px must-see dot;
+    - the star adds ~14 px to the pill, so re-check --pp-max and cutNm.
+  - **#9:** the desktop area chip off-screen.
+- **FE-2 takes** #1e, #4a, #4e, #5a, #6a, #6b (via a hook in their layer) and #10b. FE-A takes #7 (the recommender cut in fe-a.css). The designer takes #8 and #10–12.
+- **PERF-24c follow-up (orchestrator):** platform is verifying "time to view complete". The pressed segment paints over the old view (no blank frame), then the new view follows one frame later. If platform wants the new view's first content in the same frame as the pressed state, revisit.
 
 ## In flight
 - Nothing uncommitted.

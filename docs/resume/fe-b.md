@@ -37,6 +37,20 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
   stay identical (test-beta PERF-18). 58 → 0. Guard + seeded row (CLEO_BETA_SELFTEST_GK). (b) sourceRole: "(developer,
   official)" and "<X> official site/history" are own sites (unless a board): Kin Sunrise Beach, Keppel Land, Handel's,
   Ginoza Village. beta:check now: 51 no-recommender cards (45 of them guide-only).
+- **QA-87 rule 3 (orchestrator).** lib/model.js `isSelf(s, place)`: a source whose name or domain is the place's own name is
+  that place's own site (Atomium, kinsunrisebeach.com, Red Star Line…), unless a board page (board name outside the
+  parenthetical, board-only domain, "(via …)"). recommendersOf(src, byId, placeName). Dutch/German/French "officieel /
+  officiële site / offizielle Seite / site officiel" and 公式 count as own. Paste-a-link flag = not in any recby on that
+  page. Guard checks isSelf per card; seeded CLEO_BETA_SELFTEST_SELF. Insights' "Added by the guide" series: waiting on
+  the orchestrator's ruling (moving it to "Other sources" would relabel general knowledge as sourced).
+- **QC r4 search ×2.** On the current head every page shows exactly one search at 390/768/1024/1440 (the 4 named pages
+  already pass). Found instead: fe-a.css hid the header icon at ≥1024 on Trip and Saved too, leaving 0 → scoped to
+  `html[data-cleo-page=city]` (marked edit in FE-A's file) + a test-hubs row.
+- **Insights guide series (orchestrator ruling).** "Added by the guide (general knowledge) — not a recommendation" (key
+  ins.src.guide), --ink-3 swatch, after the ranked recommenders, never merged into "Other sources"; totals unchanged.
+- FE-C owns the remaining non-city "search ×2" (footer link + 404 button). FE-A added recby to gallery row data.
+- Open: SV's yelp source name "Yelp business listing (hours/access cross-check)" shows in full under the sheet's "Other
+  sources" (FE-C note) — a publicName rule could shorten it; FE-A asks for role in info.src for row cards' "Official site".
 
 - §3a end-to-end (6cc48f129 + FE-A 276fc6f2): allguides.js loads on the first cleo:city-search with a query (also a #q= deep
   link). S-17 rule on Tokyo: one search at 390 and 1440 in every view; left (FE-A): city field + header icon both visible
@@ -151,6 +165,13 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
   W9-6 paste a link: 273190b6. W9-2 landing month module + RSS: 087a88ab. R7-g2b opaque tab bar: 39a5e3e0.
 
 ## Next
+
+0. **Guidebook paging for switch INP (orchestrator, from platform's handoff, after the D-53 Insights relabel — done
+   452df651e).** A switch to Guidebook adds ~1,029 own elements to a ~2,633-element page; the cost is one whole-DOM
+   restyle on the html[data-view] flip. Build only the visible chapter/rows; keep the rest as deferred data or noscript
+   (shed/lensPage pattern). Keep every place reachable (chapter anchors, search, count lines, #p= deep links, print),
+   no-JS intact, CLS 0, eager ≤ 40. Measure switch → Guidebook INP and "time to view complete" before/after with perf.js
+   (CDP input; docs/resume/platform.md "Handoff"), on top of FE-1's PERF-24c (72ec46eb).
 
 1. Pull, read this file, run the gates; read notifications.
 2. Follow up: FE-A has the a.tier B-20 finding (all 9 pages); Atlas FE-1 has the phone-Atlas switcher placement.
