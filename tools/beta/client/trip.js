@@ -132,10 +132,11 @@
   // display name: the native aside and the data's " — CLOSED" marker are dropped (the marker shows as a Closed chip; data keeps it)
   var label = function (p) { var n = String(p.n).replace(/\s+[—–-]+\s*CLOSED\b.*$/, ''), nat = p.nat && n.slice(-p.nat.length - 2) === '(' + p.nat + ')' ? p.nat : ''; return nat ? n.slice(0, -nat.length - 2).trim() : n; };
   var cap = function (s) { s = String(s); return s.charAt(0).toUpperCase() + s.slice(1); };   // sentence case: the first word of a label (§v2.6)
+  // FE-B D-53 (trust): only real recommenders (recby, authorities first), by their public names; none → "No independent source yet"
   function firstSource(x) {
-    var D = data[x.key], s = (x.p.src || []).filter(function (k) { return k !== 'guide'; });
-    if (!s.length) return Cleo.t('city.card.added', 'Added by the guide (general knowledge)');
-    return s.length > 1 ? Cleo.t('src.recby.more', 'Recommended by {src} + {n} more', { src: D.src[s[0]] || s[0], n: s.length - 1 }) : Cleo.t('card.recby', 'Recommended by') + ' ' + (D.src[s[0]] || s[0]);
+    var D = data[x.key], s = x.p.recby || (x.p.src || []).filter(function (k) { return k !== 'guide'; }), nm = String(D.src[s[0]] || s[0]).replace(/\s*\(official\b[^)]*\)/ig, '').trim();
+    if (!s.length) return (x.p.src || []).indexOf('guide') >= 0 ? Cleo.t('city.card.added', 'Added by the guide (general knowledge)') : Cleo.t('card.norec', 'No independent source yet');
+    return s.length > 1 ? Cleo.t('src.recby.more', 'Recommended by {src} + {n} more', { src: nm, n: s.length - 1 }) : Cleo.t('card.recby', 'Recommended by') + ' ' + nm;
   }
   // a closed place's status source (pv.ss: the URL platform's model takes from the geocodes status note) as a link named by its host
   function srcLink(l) {
@@ -261,7 +262,7 @@
             var p = x.p, nx = u.items[i + 1], lw = nx ? Cleo.geo.walk(legs[i + 1]) : null;
             return '<li class="tstop"><span class="n" aria-hidden="true">' + (i + 1) + '</span><div class="tstop-b">' +
               '<a class="go" href="' + esc(Cleo.root + D.href + '#p=' + encodeURIComponent(p.id)) + '"><span class="vh">' + esc(Cleo.t('trip.stop.n', 'Stop {n}:', { n: i + 1 })) + ' </span>' + esc(label(p)) + '</a>' +
-              '<span class="sm">' + esc(cap(p.kind === 'food' ? Cleo.t('day.kind.food', 'eat & drink') : Cleo.t('day.kind.sight', 'sight'))) + (tier(p.t) ? ' · ' + esc(tier(p.t)) : '') + '</span>' +
+              '<span class="sm">' + esc(cap(p.kind === 'food' ? Cleo.t('day.kind.food', 'eat & drink') : Cleo.t('day.kind.sight', 'sight'))) + (tier(p.t) && !(p.recby && !p.recby.length && (p.src || []).indexOf('guide') < 0) /* FE-B D-53: no tier without a recommender */ ? ' · ' + esc(tier(p.t)) : '') + '</span>' +
               '<p class="tstop-src">' + esc(firstSource(x)) + '</p>' +
               (p.pv && p.pv.checked ? '<p class="chk">' + esc(Cleo.t('trip.checked', 'Open when last checked · {date}', { date: p.pv.checked })) + '</p>' : '') + '</div>' +
               (lw ? '<p class="leg">' + esc(Cleo.t('trip.leg', '{walk} to stop {n}', { walk: lw.text, n: i + 2 })) +
