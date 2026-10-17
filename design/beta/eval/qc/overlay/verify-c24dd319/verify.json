@@ -1,0 +1,242 @@
+{
+ "label": "c24dd319",
+ "root": "/tmp/claude-0/-home-user-cleo-guide/435ea876-e2ae-5b30-9781-4928f13076cc/scratchpad/qc-dev-c24dd319",
+ "res": {
+  "OV-01": {
+   "pass": true,
+   "cities/tokyo.html": {
+    "rest": 31.3,
+    "pan": 7.2,
+    "switchDuringPan": "hidden"
+   },
+   "cleveland.html": {
+    "rest": 31.3,
+    "pan": 7.2,
+    "switchDuringPan": "hidden"
+   },
+   "Singapore/punggol.html": {
+    "rest": 31.3,
+    "pan": 7.2,
+    "switchDuringPan": "hidden"
+   },
+   "shot": "design/beta/eval/qc/overlay/verify-c24dd319/shots/OV-01-punggol-390x664-after-pan.jpg"
+  },
+  "OV-02": {
+   "pass": true,
+   "tokyo.html 390x844": {
+    "atLoad": false,
+    "afterPan": true,
+    "top": 160,
+    "lowestBar": 152,
+    "dx": 0,
+    "onNextMove": false
+   },
+   "tokyo.html 390x664": {
+    "atLoad": false,
+    "afterPan": true,
+    "top": 160,
+    "lowestBar": 152,
+    "dx": 0,
+    "onNextMove": false
+   },
+   "cleveland.html 390x844": {
+    "atLoad": false,
+    "afterPan": true,
+    "top": 160,
+    "lowestBar": 152,
+    "dx": 0,
+    "onNextMove": false
+   },
+   "cleveland.html 390x664": {
+    "atLoad": false,
+    "afterPan": true,
+    "top": 160,
+    "lowestBar": 152,
+    "dx": 0,
+    "onNextMove": false
+   },
+   "punggol.html 390x844": {
+    "atLoad": false,
+    "afterPan": true,
+    "top": 160,
+    "lowestBar": 152,
+    "dx": 0,
+    "onNextMove": false
+   },
+   "shot": "design/beta/eval/qc/overlay/verify-c24dd319/shots/OV-02-punggol-390-after-pan.jpg",
+   "punggol.html 390x664": {
+    "atLoad": false,
+    "afterPan": true,
+    "top": 160,
+    "lowestBar": 152,
+    "dx": 0,
+    "onNextMove": false
+   }
+  },
+  "OV-05": {
+   "pass": true,
+   "tokyo.html 390x844": {
+    "atLoad": [
+     174,
+     20
+    ],
+    "afterPan": [
+     34,
+     20
+    ]
+   },
+   "tokyo.html 390x664": {
+    "atLoad": [
+     174,
+     20
+    ],
+    "afterPan": [
+     34,
+     20
+    ]
+   },
+   "cleveland.html 390x844": {
+    "atLoad": [
+     174,
+     20
+    ],
+    "afterPan": [
+     34,
+     20
+    ]
+   },
+   "cleveland.html 390x664": {
+    "atLoad": [
+     174,
+     20
+    ],
+    "afterPan": [
+     34,
+     20
+    ]
+   },
+   "punggol.html 390x844": {
+    "atLoad": [
+     174,
+     20
+    ],
+    "afterPan": [
+     34,
+     20
+    ]
+   },
+   "punggol.html 390x664": {
+    "atLoad": [
+     174,
+     20
+    ],
+    "afterPan": [
+     34,
+     20
+    ]
+   }
+  },
+  "OV-07": {
+   "pass": true,
+   "tokyo.html 390x844": {
+    "rest": 24.8,
+    "pan": 5.7,
+    "idle": 24.8,
+    "mapDuringPan": [
+     52,
+     792
+    ],
+    "mapAtRest": [
+     52,
+     792
+    ]
+   },
+   "tokyo.html 390x664": {
+    "rest": 31.3,
+    "pan": 7.2,
+    "idle": 31.3,
+    "mapDuringPan": [
+     52,
+     612
+    ],
+    "mapAtRest": [
+     52,
+     612
+    ]
+   },
+   "cleveland.html 390x844": {
+    "rest": 24.8,
+    "pan": 5.7,
+    "idle": 24.8,
+    "mapDuringPan": [
+     52,
+     792
+    ],
+    "mapAtRest": [
+     52,
+     792
+    ]
+   },
+   "cleveland.html 390x664": {
+    "rest": 31.3,
+    "pan": 7.2,
+    "idle": 31.3,
+    "mapDuringPan": [
+     52,
+     612
+    ],
+    "mapAtRest": [
+     52,
+     612
+    ]
+   },
+   "punggol.html 390x844": {
+    "rest": 24.8,
+    "pan": 5.7,
+    "idle": 24.8,
+    "mapDuringPan": [
+     52,
+     792
+    ],
+    "mapAtRest": [
+     52,
+     792
+    ]
+   },
+   "punggol.html 390x664": {
+    "rest": 31.3,
+    "pan": 7.2,
+    "idle": 31.3,
+    "mapDuringPan": [
+     52,
+     612
+    ],
+    "mapAtRest": [
+     52,
+     612
+    ]
+   }
+  },
+  "OV-06": {
+   "pass": true,
+   "cities/tokyo.html": {
+    "overflow": true,
+    "mask": true,
+    "pseudo": false,
+    "cls": "ms-bar ms-fr"
+   },
+   "cleveland.html": {
+    "overflow": true,
+    "mask": true,
+    "pseudo": false,
+    "cls": "ms-bar ms-fr"
+   },
+   "Singapore/punggol.html": {
+    "overflow": true,
+    "mask": true,
+    "pseudo": false,
+    "cls": "ms-bar ms-fr"
+   }
+  }
+ }
+}
