@@ -25,6 +25,8 @@
   'use strict';
   const Cleo = window.Cleo || {}, C = Cleo.city, d = document, H = d.documentElement; if (!C || C.placeOpen) return;
   const $ = (s, el) => (el || d).querySelector(s), on = (el, ev, f, o) => el && el.addEventListener(ev, f, o);
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n)
+  const tt = (k, e, v) => Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, (m, x) => x in v ? v[x] : m) : e;
   const atlas = () => C.view === 'atlas' || (!C.view && H.getAttribute('data-view') === 'atlas'), lp = () => $('.listpane');
   const route = () => Cleo.route.parse(), hasP = () => !!placeId();
   // the open place: #…&p=<id>, or a card's own #p-<id> anchor
@@ -222,8 +224,10 @@
   // plain #anchor would re-route the page). They show on focus, like the page's own, and only in Atlas (atlas-nav.css).
   const firstCard = () => [].slice.call(d.querySelectorAll('.listpane li.pl:not([hidden]):not(.ms-out) .pl-n a')).filter(a => a.getClientRects().length)[0];
   const skips = () => { const s0 = $('a.skip'); if (!s0 || $('.ms-skip')) return;
-    s0.insertAdjacentHTML('afterend', '<a class="skip ms-skip" href="#cleo-map" data-skip="map">Skip to the map</a><a class="skip ms-skip" href="#cleo-grid" data-skip="list">Skip to the results</a>'); };
+    s0.insertAdjacentHTML('afterend', '<a class="skip ms-skip" href="#cleo-map" data-skip="map">' + tt('atl.skip.map', 'Skip to the map') + '</a><a class="skip ms-skip" href="#cleo-grid" data-skip="list">' + tt('atl.skip.list', 'Skip to the results') + '</a>'); };
   skips();
+  // i18n D-41: skip links drawn before the catalogue arrived, said again in it
+  on(d, 'cleo:locale', () => { const m = $('a.ms-skip[data-skip="map"]'), l = $('a.ms-skip[data-skip="list"]'); if (m) m.textContent = tt('atl.skip.map', 'Skip to the map'); if (l) l.textContent = tt('atl.skip.list', 'Skip to the results'); });
   on(d, 'click', e => { const a = e.target.closest && e.target.closest('a.ms-skip'); if (!a) return; e.preventDefault();
     if (a.getAttribute('data-skip') === 'map') { const m = C.map(), el = m ? m.getContainer() : $('#cleo-map'); if (!el) return; if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0'); el.focus({ preventScroll: true }); }
     else { const l = firstCard(); if (l) l.focus({ preventScroll: true }); if (l && !desktop()) { const li = l.closest('li.pl'), lp0 = lp(); if (li && lp0) lp0.scrollLeft = li.offsetLeft - (lp0.clientWidth - li.offsetWidth) / 2; } } });
@@ -269,7 +273,7 @@
   const flat = () => {
     const S = C.S || {}, want = atlas() && ((S.sort === 'near' && !!C.dist) || byBase()), pane = lp(); if (!pane) return;
     if (want) {
-      if (!nearSec) { nearSec = d.createElement('section'); nearSec.className = 'ms-near'; nearSec.setAttribute('aria-label', 'Nearest first'); nearSec.innerHTML = '<ol class="pls"></ol>'; }
+      if (!nearSec) { nearSec = d.createElement('section'); nearSec.className = 'ms-near'; nearSec.setAttribute('aria-label', tt('city.door.near.t', 'Nearest first')); nearSec.innerHTML = '<ol class="pls"></ol>'; }
       const ol = nearSec.firstChild, s0 = $('section.area', pane);
       if (!nearSec.parentNode) { if (!s0) return; s0.parentNode.insertBefore(nearSec, s0); }
       const all = [].slice.call(pane.querySelectorAll('li.pl'));
@@ -293,11 +297,11 @@
     [].slice.call(d.querySelectorAll('.listpane li.pl')).forEach(c => { const k = $('.ms-k', c), sp = $('.ms-d', c), v = on1 && C.dist[C.pid(c)];
       if (v == null || v === false) { if (sp) sp.remove(); return; }
       if (!k) return; const t = fmtD(v) + ' · ';
-      if (!sp) { k.insertAdjacentHTML('afterbegin', '<span class="ms-d" title="' + C.esc(G && G.ASSUME || 'Walk times are straight-line, about 80 m a minute') + '"></span>'); }
+      if (!sp) { k.insertAdjacentHTML('afterbegin', '<span class="ms-d" title="' + C.esc((G && G.ASSUME ? tt('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') : tt('atl.walk', 'Walk times are straight-line, about 80 m a minute'))) + '"></span>'); }
       $('.ms-d', c).textContent = t; });
     const head = $('.ms-head'); if (!head) return; let n = $('.ms-near-n', head);
     if (on1 && (C.S || {}).sort === 'near') { if (!n) { n = d.createElement('p'); n.className = 'ms-near-n'; const ref = $('.ms-more', head); head.insertBefore(n, ref ? ref.nextSibling : null); }
-      n.textContent = 'Nearest first, from where you are. ' + ((G && G.ASSUME) || 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') + '. Your location stays on this device and is gone when you reload.'; }
+      n.textContent = tt('atl.near.note', 'Nearest first, from where you are. {assume}. Your location stays on this device and is gone when you reload.', { assume: tt('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') }); }
     else if (n) n.remove();
   };
   // OV-00 "Near me once": in Atlas the list head's Near me door takes the map's own reading (the dot, the map on the reader,
@@ -333,13 +337,13 @@
     if (!g) { g = d.createElement('div'); g.className = 'ms-ring'; g.setAttribute('role', 'group'); bar.appendChild(g);
       on(g, 'click', e => { const b = e.target.closest('button[data-ring]'); if (!b) return; const r = route(); delete r.p; delete r.pg; delete r.all;
         const v = b.getAttribute('data-ring'); if (v && r.ring !== v) r.ring = v; else delete r.ring; C.go(r); }); }
-    const n = ringMin(), nm = Cleo.base.name ? Cleo.base.name() : 'your base';
+    const n = ringMin(), nm = Cleo.base.name ? Cleo.base.name() : tt('atl.base.you', 'your base');
     if (n && Cleo.defer && Cleo.defer.all && Cleo.defer.peek && Cleo.defer.peek().length) { Cleo.defer.all(); setTimeout(() => C.apply(), 0); }   // every place is judged, stamped or not
-    g.setAttribute('aria-label', 'Walking distance from your base, ' + nm);
-    g.innerHTML = '<span class="ms-ring-l">Within a walk of ' + C.esc(nm) + '</span>' + RING.map(x => '<button type="button" class="chip" data-ring="' + x + '" aria-pressed="' + (n === x) + '">' + x + ' min</button>').join('') +
-      (n ? '<button type="button" class="chip" data-ring="" aria-label="Any distance">Any</button>' : '') +
-      '<span class="vh">' + C.esc((G && G.ASSUME) || 'Walk times are straight-line, about 80 m a minute') + '</span>';
-    g.title = (G && G.ASSUME) || '';
+    g.setAttribute('aria-label', tt('atl.ring', 'Walking distance from your base, {name}', { name: nm }));
+    g.innerHTML = '<span class="ms-ring-l">' + tt('atl.ring.l', 'Within a walk of {name}', { name: C.esc(nm) }) + '</span>' + RING.map(x => '<button type="button" class="chip" data-ring="' + x + '" aria-pressed="' + (n === x) + '">' + tt('atl.min', '{n} min', { n: x }) + '</button>').join('') +
+      (n ? '<button type="button" class="chip" data-ring="" aria-label="' + tt('atl.any.l', 'Any distance') + '">' + tt('atl.any', 'Any') + '</button>' : '') +
+      '<span class="vh">' + C.esc((G && G.ASSUME ? tt('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') : tt('atl.walk', 'Walk times are straight-line, about 80 m a minute'))) + '</span>';
+    g.title = G && G.ASSUME ? tt('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') : '';
     drawRing();
   };
   C.after.push(paintRing); on(d, 'cleo:base', () => setTimeout(() => { if (C.apply) C.apply(); }, 0)); on(d, 'cleo:base-ready', () => setTimeout(() => { if (C.apply) C.apply(); }, 0));
@@ -395,7 +399,7 @@
     const m = C.map(), own = String(url).split('#')[0] === location.href.split('#')[0];
     if (m && own && ready && !/(?:^|[#&])at=/.test(url)) { url = String(url); url += (url.indexOf('#') < 0 ? '#' : /#$/.test(url) ? '' : '&') + 'at=' + encodeURIComponent(fmt(m)); }
     const h = (String(url).split('#')[1] || ''), p = /(?:^|&)p=([^&]+)/.exec(h), at0 = /(?:^|&)at=/.test(h);
-    const c = p && C.byId[decodeURIComponent(p[1])], what = c ? C.name(c) + (at0 ? ' on this map view' : '') : at0 ? 'this map view' : 'this page';
-    try { return navigator.clipboard.writeText(url).then(() => { if (Cleo.emit) Cleo.emit('cleo:toast', 'Link copied · opens ' + what); }, () => share0.call(this, title, url)); } catch (e) { return share0.apply(this, arguments); }
+    const c = p && C.byId[decodeURIComponent(p[1])], what = c ? (at0 ? tt('atl.copied.on', 'Link copied · opens {name} on this map view', { name: C.name(c) }) : tt('atl.copied.name', 'Link copied · opens {name}', { name: C.name(c) })) : at0 ? tt('atl.copied.view', 'Link copied · opens this map view') : tt('atl.copied.page', 'Link copied · opens this page');
+    try { return navigator.clipboard.writeText(url).then(() => { if (Cleo.emit) Cleo.emit('cleo:toast', what); }, () => share0.call(this, title, url)); } catch (e) { return share0.apply(this, arguments); }
   };
 })();
