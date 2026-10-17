@@ -18,7 +18,7 @@ removed only when EVERY selector in its list is dead; a list with some live sele
 """
 import os, re, sys, glob
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-SOURCES = ['beta/assets/constellation.css', 'design/beta/css/contract.css', 'design/beta/css/views.css', 'design/beta/css/v2.css']
+SOURCES = ['design/beta/css/constellation.css', 'design/beta/css/contract.css', 'design/beta/css/views.css', 'design/beta/css/v2.css']
 
 def universe():
     txt = []
