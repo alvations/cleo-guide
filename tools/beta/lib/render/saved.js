@@ -5,6 +5,7 @@
  * the page glue CSS. client/saved.js fills it from the per-page datasets (beta/data/places/<page>.json).
  */
 const { head, siteBar, footer } = require('./common');
+const { t } = require('../i18n');   // i18n D-41: the frame's strings from the catalogue
 
 const ICONS = {
   heart: '<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/>',
@@ -23,14 +24,14 @@ const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden=
 // page CSS lives in ./fe-a.css (shared with the city page) → beta/assets/fe-a.css
 
 function render(ctx) {
-  return `${head({ page: 'saved', title: 'Your lists · Cleo', description: 'Places you saved on this device, from every Cleo guide — named lists, been-there stamps, a map, and export to your maps app.', rel: 'saved.html', depth: 0, assetsV: ctx.assetsV })
+  return `${head({ page: 'saved', title: t('saved.title'), description: t('saved.desc'), rel: 'saved.html', depth: 0, assetsV: ctx.assetsV })
     .replace('</head>', `<link rel="stylesheet" href="${ctx.feaCss}">\n</head>`)}
 <body>
 ${sprite}
 ${siteBar({ depth: 0, current: 'saved', rel: 'saved.html' })}
 <main id="main" class="saved-page">
-<header class="masthead"><h1>Your lists</h1><p class="stats">Saved on this device only — no account, nothing leaves your browser unless you share a link or export a file.</p></header>
-<section id="cleo-saved" class="sv-root" aria-live="polite"><p>Your saved places appear here once the page script runs. Every guide works without it.</p></section>
+<header class="masthead"><h1>${t('saved.h1')}</h1><p class="stats">${t('saved.stats')}</p></header>
+<section id="cleo-saved" class="sv-root" aria-live="polite"><p>${t('saved.nojs')}</p></section>
 </main>
 ${footer({ depth: 0 })}
 <script src="assets/js/saved.js?v=${ctx.assetsV.saved}" defer></script>

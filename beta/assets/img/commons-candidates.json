@@ -22,10 +22,10 @@
   "candidates[].flags": "people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it"
  },
  "summary": {
-  "targets": 1494,
+  "targets": 1519,
   "byType": {
    "hero": 89,
-   "landmark": 1405
+   "landmark": 1430
   },
   "heroes": {
    "targets": 89,
@@ -33,18 +33,18 @@
   },
   "pilotLandmarks": {
    "targets": 184,
-   "skipped": 60,
+   "skipped": 56,
    "withHigh": 107
   },
   "otherLandmarks": {
-   "targets": 1221,
-   "skipped": 200,
-   "withArticle": 699
+   "targets": 1246,
+   "skipped": 181,
+   "withArticle": 727
   },
   "candidates": {
-   "total": 1322,
+   "total": 1414,
    "high": 1197,
-   "med": 125,
+   "med": 217,
    "low": 0
   },
   "targetsWithHigh": 650,
@@ -56,10 +56,7 @@
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
    "landmark:tokyo#animate-ikebukuro-flagship-store — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:cleveland#holden-arboretum-and-stebbins-gulch — only plant close-ups on Commons — none shows the arboretum (gap stated)",
-   "landmark:cleveland#solstice-steps-lakewood-park — no Commons file names the Solstice Steps (gap stated, not filled)",
-   "landmark:newyork#bronx-zoo — no Commons file of the zoo itself turned up (gap stated)",
    "landmark:newyork#queens-museum — only 1939 archive scans on Commons — not the museum today (gap stated)",
-   "landmark:wheeling#salt-fork-state-park — no Commons file of the park landscape turned up (gap stated)",
    "landmark:wheeling#the-wilds — no Commons photo of The Wilds turned up (gap stated)"
   ]
  },
@@ -3220,8 +3217,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Singapore_Zoo",
-   "skip": "candidate wave 1: Commons holds animal close-ups and the (refused) entrance sign, no view of the zoo itself — calm cover (stated)",
    "priority": "lead",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -3232,6 +3229,21 @@
      "confidence": "high",
      "reason": "lead image of the cited article (run #25)",
      "refused": "refused by visual review (W8): the entrance sign is the subject (signage rule)"
+    },
+    {
+     "file": "File:Singapore Zoo.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Singapore_Zoo.JPG",
+     "depicts": "Singapore Zoo",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-3, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Antilopine kangaroo.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Antilopine_kangaroo.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 0 m, names it in description (cm-4, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-4): an animal is the subject, not the zoo"
     }
    ]
   },
@@ -3323,7 +3335,18 @@
    "article": "https://en.wikipedia.org/wiki/Coney_Island,_Singapore",
    "skip": "candidate wave 1: no Commons file of Coney Island Park, Singapore turned up — calm cover (stated)",
    "priority": "lead",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Entrance to Pulau Serangoon from Punggol Promenade Nature Walk.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Entrance_to_Pulau_Serangoon_from_Punggol_Promenade_Nature_Walk.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-5, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-5): an empty road to a gate, not the park"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/siem-reap#angkor-wat",
@@ -3638,7 +3661,6 @@
     "Historic Village"
    ],
    "pilot": true,
-   "skip": "R7 QA-63: the only other Commons photo is under 640 px; every file is a rock close-up — calm cover (stated)",
    "priority": "row",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
@@ -3658,6 +3680,21 @@
      "confidence": "high",
      "reason": "title names Meadowcroft Rockshelter; summary CC BY-SA 2.0, Lee Paxton (573 px only)",
      "refused": "refused (W8): too small (573 px wide; minimum 640)"
+    },
+    {
+     "file": "File:Meadowcroft Rockshelter 03.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Meadowcroft_Rockshelter_03.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 39 m, names it in title (cm-6, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-6): second pick (cm-7 shows the rockshelter)"
+    },
+    {
+     "file": "File:Meadowcroft Rockshelter 02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Meadowcroft_Rockshelter_02.jpg",
+     "depicts": "Meadowcroft Rockshelter 02",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 39 m, names it in title (cm-7, reviewed 2026-10-17)"
     }
    ]
   },
@@ -3745,9 +3782,19 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E9%B0%8A%E5%BE%A1%E6%AE%BF",
-   "skip": "candidate wave 1: no Commons file of the Former Aoyama Villa / Otaru Kihinkan turned up (searched English and Japanese) — calm cover (stated)",
    "priority": "row",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nishin-Goten1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nishin-Goten1.jpg",
+     "depicts": "Nishin-Goten1",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-1, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#goryokaku",
@@ -4029,7 +4076,18 @@
    "pilot": false,
    "skip": "no Commons file shows the 1930 Marufukuro building (only the later research centre and a name plate) — gap stated",
    "priority": "row",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nintendo headquarters (1930).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nintendo_headquarters_(1930).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 4 m, names it in description (cm-2, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-2): detail: a doorway close-up, not the building"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#nintendo-kyoto",
@@ -5726,7 +5784,7 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Nihonbashi",
-   "skip": "no Commons file shows the whole bridge (the expressway runs overhead); the kirin close-up and the view from the bridge were refused — calm cover (stated, W8)",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -5753,6 +5811,21 @@
      "confidence": "high",
      "reason": "(re-lead W8)",
      "refused": "refused by visual review (W8, all run #40): a close-up of the kirin bronze, not the bridge (close-up rule)"
+    },
+    {
+     "file": "File:The Kilometre Zero of road in Japan in Nihonbashi, Chuo, Tokyo.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Kilometre_Zero_of_road_in_Japan_in_Nihonbashi,_Chuo,_Tokyo.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 18 m, names it in title (cm-51, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-51): detail: the zero-mile marker plate, not the bridge"
+    },
+    {
+     "file": "File:Nihonbashi 03.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nihonbashi_03.jpg",
+     "depicts": "Nihonbashi 03",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-52, reviewed 2026-10-17)"
     }
    ]
   },
@@ -7143,8 +7216,25 @@
     "Solstice Step"
    ],
    "pilot": true,
-   "skip": "no Commons file names the Solstice Steps (gap stated, not filled)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Solstice Steps Sunset.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Solstice_Steps_Sunset.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 10 m, names it in title (cm-14, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-14): a generic sunset; the steps are not shown"
+    },
+    {
+     "file": "File:Lakewood Park Solstice Steps (51268007153).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lakewood_Park_Solstice_Steps_(51268007153).jpg",
+     "depicts": "Lakewood Park Solstice Steps (51268007153)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 14 m, names it in title (cm-15, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:cleveland#squires-castle",
@@ -7529,7 +7619,26 @@
    ],
    "pilot": true,
    "skip": "no Commons file of the zoo itself turned up (gap stated)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kale for Breakfast - Flickr - Marcela McGreal.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kale_for_Breakfast_-_Flickr_-_Marcela_McGreal.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 36 m, names it in category (cm-35, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-35): an animal is the subject"
+    },
+    {
+     "file": "File:Bronze Rhino (40556248681).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bronze_Rhino_(40556248681).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 35 m, names it in category (cm-36, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-36): a sculpture (US: no freedom of panorama for sculpture)"
+    }
+   ]
   },
   {
    "key": "landmark:newyork#brooklyn-botanic-garden",
@@ -8741,8 +8850,18 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Salt_Fork_State_Park",
-   "skip": "no Commons file of the park landscape turned up (gap stated)",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kennedy Stone House 001.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kennedy_Stone_House_001.jpg",
+     "depicts": "Kennedy Stone House 001",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-53, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:wheeling#the-wilds",
@@ -8954,6 +9073,67 @@
    ]
   },
   {
+   "key": "landmark:aachen#burg-frankenberg",
+   "type": "landmark",
+   "depicts": "aachen#burg-frankenberg",
+   "label": "Burg Frankenberg",
+   "names": [
+    "Burg Frankenberg",
+    "Burg Frankenberg (Aachen)"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:BurgFrankenberg10.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:BurgFrankenberg10.jpg",
+     "depicts": "BurgFrankenberg10",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 38 m, names it in title (cm-61, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Burg Frankenberg - Ludwig Schleiden ca 1830.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Burg_Frankenberg_-_Ludwig_Schleiden_ca_1830.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-62, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-62): an undated historic engraving (D-50 needs a dated caption); second pick"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#burg-hengebach",
+   "type": "landmark",
+   "depicts": "aachen#burg-hengebach",
+   "label": "Burg Hengebach",
+   "names": [
+    "Burg Hengebach"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Blick von Burg Hengebach auf die Kirchen St. Salvator und St. Clemens - panoramio (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Blick_von_Burg_Hengebach_auf_die_Kirchen_St._Salvator_und_St._Clemens_-_panoramio_(1).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 23 m, names it in title (cm-69, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-69): the view FROM the castle, not of it"
+    },
+    {
+     "file": "File:Vorhof der Burg Hengebach - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Vorhof_der_Burg_Hengebach_-_panoramio.jpg",
+     "depicts": "Vorhof der Burg Hengebach - panoramio",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 23 m, names it in title (cm-70, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#burg-monschau",
    "type": "landmark",
    "depicts": "aachen#burg-monschau",
@@ -9054,6 +9234,53 @@
    "candidates": []
   },
   {
+   "key": "landmark:aachen#burg-wilhelmstein",
+   "type": "landmark",
+   "depicts": "aachen#burg-wilhelmstein",
+   "label": "Burg Wilhelmstein",
+   "names": [
+    "Burg Wilhelmstein"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Optreden Joris in Wilhelmstein.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Optreden_Joris_in_Wilhelmstein.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 17 m, names it in category (cm-86, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-86): identifiable people (concert crowd) are the subject"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#carl-alexander-park-grube-carl-alexander",
+   "type": "landmark",
+   "depicts": "aachen#carl-alexander-park-grube-carl-alexander",
+   "label": "Carl-Alexander-Park (Grube Carl-Alexander)",
+   "names": [
+    "Carl-Alexander-Park",
+    "Grube Carl Alexander"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Grube_Carl_Alexander",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Carl-Alexander-Park, Baesweiler (22).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Carl-Alexander-Park,_Baesweiler_(22).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-87, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-87): an information sign"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#carolus-thermen-bad-aachen",
    "type": "landmark",
    "depicts": "aachen#carolus-thermen-bad-aachen",
@@ -9086,6 +9313,38 @@
    ],
    "pilot": false,
    "candidates": []
+  },
+  {
+   "key": "landmark:aachen#couven-museum",
+   "type": "landmark",
+   "depicts": "aachen#couven-museum",
+   "label": "Couven-Museum",
+   "names": [
+    "Couven-Museum",
+    "Couven Museum"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Couven_Museum",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Aachen Couvenmuseum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen_Couvenmuseum.jpg",
+     "depicts": "Aachen Couvenmuseum",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-54, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Aachen Couvenmuseum Tür.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen_Couvenmuseum_T%C3%BCr.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 14 m, names it in title (cm-55, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-55): second pick (cm-54)"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#domschatzkammer-aachen",
@@ -9198,6 +9457,35 @@
    ]
   },
   {
+   "key": "landmark:aachen#elisengarten-mit-archaologischer-vitrine",
+   "type": "landmark",
+   "depicts": "aachen#elisengarten-mit-archaologischer-vitrine",
+   "label": "Elisengarten (mit Archäologischer Vitrine)",
+   "names": [
+    "Elisengarten"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Aachen, Elisengarten, 2011-07 CN-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen,_Elisengarten,_2011-07_CN-01.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 25 m, names it in title (cm-63, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-63): second pick (cm-64 shows the archaeological vitrine)"
+    },
+    {
+     "file": "File:Ac-elisengarten201304.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ac-elisengarten201304.jpg",
+     "depicts": "Ac-elisengarten201304",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 3 m, names it in title (cm-64, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#energeticon",
    "type": "landmark",
    "depicts": "aachen#energeticon",
@@ -9235,6 +9523,35 @@
    ]
   },
   {
+   "key": "landmark:aachen#fort-sint-pieter",
+   "type": "landmark",
+   "depicts": "aachen#fort-sint-pieter",
+   "label": "Fort Sint Pieter",
+   "names": [
+    "Fort Sint Pieter"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:2016 Maastricht, Fort St Pieter 03.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:2016_Maastricht,_Fort_St_Pieter_03.JPG",
+     "depicts": "2016 Maastricht, Fort St Pieter 03",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 36 m, names it in category (cm-74, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:2016 Maastricht, Fort St Pieter 02.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:2016_Maastricht,_Fort_St_Pieter_02.JPG",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 36 m, names it in category (cm-75, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-75): second pick (cm-74)"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#grotten-noord-sint-pietersberg",
    "type": "landmark",
    "depicts": "aachen#grotten-noord-sint-pietersberg",
@@ -9252,6 +9569,38 @@
      "depicts": "Passage inside the Northern Caves (cave interior is the place)",
      "confidence": "high",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Noordelijk Gangenstelsel (= Grotten Noord); from Category:Noordelijk Gangenstelsel listing"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#helpoort",
+   "type": "landmark",
+   "depicts": "aachen#helpoort",
+   "label": "Helpoort",
+   "names": [
+    "Helpoort",
+    "Maastricht"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Maastricht",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Helpoort06.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Helpoort06.JPG",
+     "depicts": "Helpoort06",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 13 m, names it in title (cm-76, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:WLM - Minke Wagenaar - 07-07-07 Maastricht 045.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:WLM_-_Minke_Wagenaar_-_07-07-07_Maastricht_045.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 5 m, names it in description (cm-77, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-77): second pick (cm-76)"
     }
    ]
   },
@@ -9332,6 +9681,29 @@
    "candidates": []
   },
   {
+   "key": "landmark:aachen#internationales-zeitungsmuseum-izm",
+   "type": "landmark",
+   "depicts": "aachen#internationales-zeitungsmuseum-izm",
+   "label": "Internationales Zeitungsmuseum (IZM)",
+   "names": [
+    "Internationales Zeitungsmuseum"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Internationales_Zeitungsmuseum",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Großes Haus von Aachen, Zeitungsmuseum, 2010.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gro%C3%9Fes_Haus_von_Aachen,_Zeitungsmuseum,_2010.jpg",
+     "depicts": "Großes Haus von Aachen, Zeitungsmuseum, 2010",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-56, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#jugendstil-wasserkraftwerk-heimbach",
    "type": "landmark",
    "depicts": "aachen#jugendstil-wasserkraftwerk-heimbach",
@@ -9390,6 +9762,53 @@
    ]
   },
   {
+   "key": "landmark:aachen#kunsthaus-nrw-ehem-reichsabtei-kornelimunster",
+   "type": "landmark",
+   "depicts": "aachen#kunsthaus-nrw-ehem-reichsabtei-kornelimunster",
+   "label": "Kunsthaus NRW / ehem. Reichsabtei Kornelimünster",
+   "names": [
+    "Kunsthaus NRW / ehem. Reichsabtei Kornelimünster",
+    "Kunsthaus Nordrhein-Westfalen Kornelimünster"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Kunsthaus_Nordrhein-Westfalen_Kornelim%C3%BCnster",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kornelimuenster Ehrenhof Eingang 7318.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kornelimuenster_Ehrenhof_Eingang_7318.jpg",
+     "depicts": "Kornelimuenster Ehrenhof Eingang 7318",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-78, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#kupferhof-grunenthal",
+   "type": "landmark",
+   "depicts": "aachen#kupferhof-grunenthal",
+   "label": "Kupferhof Grünenthal",
+   "names": [
+    "Kupferhof Grünenthal"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Kupferhof_Gr%C3%BCnenthal",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Stolberg Grünenthal.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Stolberg_Gr%C3%BCnenthal.jpg",
+     "depicts": "Stolberg Grünenthal",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-81, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#leopold-hoesch-museum-duren",
    "type": "landmark",
    "depicts": "aachen#leopold-hoesch-museum-duren",
@@ -9442,6 +9861,38 @@
    ]
   },
   {
+   "key": "landmark:aachen#marschiertor",
+   "type": "landmark",
+   "depicts": "aachen#marschiertor",
+   "label": "Marschiertor",
+   "names": [
+    "Marschiertor"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Marschiertor",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Fundamente der Marschiertor-Vorburg 1.jpeg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fundamente_der_Marschiertor-Vorburg_1.jpeg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 22 m, names it in title (cm-59, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-59): a construction dig, not the gate"
+    },
+    {
+     "file": "File:Fundamente der Marschiertor-Vorburg 2.jpeg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fundamente_der_Marschiertor-Vorburg_2.jpeg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 22 m, names it in title (cm-60, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-60): a construction dig, not the gate"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#museum-vieille-montagne-mvm-kelmis",
    "type": "landmark",
    "depicts": "aachen#museum-vieille-montagne-mvm-kelmis",
@@ -9463,6 +9914,37 @@
      "depicts": "Vieille Montagne directorate building housing the museum",
      "confidence": "high",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Vieille Montagne building in Kelmis; file in Category:Museum Vieille Montagne"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#museum-zinkhutter-hof",
+   "type": "landmark",
+   "depicts": "aachen#museum-zinkhutter-hof",
+   "label": "Museum Zinkhütter Hof",
+   "names": [
+    "Museum Zinkhütter Hof"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Museum_Zinkh%C3%BCtter_Hof",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Zinkhütter Hof, Stolberg (8).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Zinkh%C3%BCtter_Hof,_Stolberg_(8).JPG",
+     "depicts": "Zinkhütter Hof, Stolberg (8)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-82, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Fafnir Cabriolet, Typ 472.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fafnir_Cabriolet,_Typ_472.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 25 m, names it in description (cm-83, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-83): an exhibit close-up (vintage car)"
     }
    ]
   },
@@ -9491,6 +9973,67 @@
      "depicts": "Eifel National Park landscape",
      "confidence": "med",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Eifel National Park (misspelt); content not described"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#naturschutzgebiet-struffelt",
+   "type": "landmark",
+   "depicts": "aachen#naturschutzgebiet-struffelt",
+   "label": "Naturschutzgebiet Struffelt",
+   "names": [
+    "Naturschutzgebiet Struffelt"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Struffelt Brücke.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Struffelt_Br%C3%BCcke.JPG",
+     "depicts": "Struffelt Brücke",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 20 m, names it in description (cm-88, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Struffelter Heide 2.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Struffelter_Heide_2.JPG",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 29 m, names it in category (cm-89, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-89): second pick (cm-88)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#naturzentrum-haus-ternell",
+   "type": "landmark",
+   "depicts": "aachen#naturzentrum-haus-ternell",
+   "label": "Naturzentrum Haus Ternell",
+   "names": [
+    "Naturzentrum Haus Ternell",
+    "Haus Ternell"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Haus_Ternell",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Eupen-Naturzentrum Haus Ternell (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Eupen-Naturzentrum_Haus_Ternell_(1).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-66, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-66): road and gate dominate"
+    },
+    {
+     "file": "File:Eupen-Naturzentrum Haus Ternell (2).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Eupen-Naturzentrum_Haus_Ternell_(2).jpg",
+     "depicts": "Eupen-Naturzentrum Haus Ternell (2)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 11 m, names it in title (cm-67, reviewed 2026-10-17)"
     }
    ]
   },
@@ -9553,6 +10096,35 @@
    "candidates": []
   },
   {
+   "key": "landmark:aachen#papiermuseum-duren",
+   "type": "landmark",
+   "depicts": "aachen#papiermuseum-duren",
+   "label": "Papiermuseum Düren",
+   "names": [
+    "Papiermuseum Düren"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Fassade des Papiermuseums Düren, Architektur Klaus Hollenbeck.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fassade_des_Papiermuseums_D%C3%BCren,_Architektur_Klaus_Hollenbeck.jpg",
+     "depicts": "Fassade des Papiermuseums Düren, Architektur Klaus Hollenbeck",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 14 m, names it in category (cm-72, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Papiermuseum Düren Maschinen-Papier-Fabriken Heinrich August Schoeller Söhne (Brief an Bürgermeister Hoffmann vom 7. Juli 1909).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Papiermuseum_D%C3%BCren_Maschinen-Papier-Fabriken_Heinrich_August_Schoeller_S%C3%B6hne_(Brief_an_B%C3%BCrgermeister_Hoffmann_vom_7._Juli_1909).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 14 m, names it in title (cm-73, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-73): a document in a vitrine, not the museum"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#pontstra-e-and-pontviertel-studentenviertel",
    "type": "landmark",
    "depicts": "aachen#pontstra-e-and-pontviertel-studentenviertel",
@@ -9565,6 +10137,69 @@
    "pilot": false,
    "skip": "venue (NIGHT) — never a photo",
    "candidates": []
+  },
+  {
+   "key": "landmark:aachen#ponttor",
+   "type": "landmark",
+   "depicts": "aachen#ponttor",
+   "label": "Ponttor",
+   "names": [
+    "Ponttor"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Ponttor",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Aachen-Ponttor (1).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen-Ponttor_(1).JPG",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 34 m, names it in title (cm-57, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-57): second pick (cm-58 shows the gate passage)"
+    },
+    {
+     "file": "File:Aachen-Ponttor (5).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen-Ponttor_(5).JPG",
+     "depicts": "Aachen-Ponttor (5)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 16 m, names it in title (cm-58, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#propsteikirche-st-kornelius",
+   "type": "landmark",
+   "depicts": "aachen#propsteikirche-st-kornelius",
+   "label": "Propsteikirche St. Kornelius",
+   "names": [
+    "Propsteikirche St. Kornelius",
+    "Propsteikirche St. Korneliu",
+    "Propsteikirche Saint Kornelius",
+    "Propsteikirche Saint Korneliu"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Korneliuskapelle.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Korneliuskapelle.JPG",
+     "depicts": "Korneliuskapelle",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 35 m, names it in description (cm-79, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:OktogonaleKuppel.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:OktogonaleKuppel.JPG",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 35 m, names it in description (cm-80, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-80): ceiling detail; second pick (cm-79)"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#rotes-haus-scheibler-museum",
@@ -9595,6 +10230,28 @@
    ]
   },
   {
+   "key": "landmark:aachen#rursee-schifffahrt",
+   "type": "landmark",
+   "depicts": "aachen#rursee-schifffahrt",
+   "label": "Rursee-Schifffahrt",
+   "names": [
+    "Rursee-Schifffahrt"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Rurseeschifffahrt - Rurberg.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rurseeschifffahrt_-_Rurberg.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 15 m, names it in title (cm-71, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-71): a ticket booth, not the boat cruises"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#rurtalsperre-schwammenauel-and-rursee",
    "type": "landmark",
    "depicts": "aachen#rurtalsperre-schwammenauel-and-rursee",
@@ -9620,6 +10277,32 @@
      "depicts": "Rursee lake at Rurberg",
      "confidence": "high",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rursee"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#rwth-aachen-hauptgebaude-and-reiff-museum",
+   "type": "landmark",
+   "depicts": "aachen#rwth-aachen-hauptgebaude-and-reiff-museum",
+   "label": "RWTH Aachen Hauptgebäude & Reiff-Museum",
+   "names": [
+    "RWTH Aachen Hauptgebäude & Reiff-Museum",
+    "RWTH Aachen Hauptgebäude",
+    "Reiff-Museum",
+    "RWTH Aachen"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/RWTH_Aachen",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:1196-18-rwth-aachen-hg-von-hendrik-brixius.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:1196-18-rwth-aachen-hg-von-hendrik-brixius.jpg",
+     "depicts": "1196-18-rwth-aachen-hg-von-hendrik-brixius",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-65, reviewed 2026-10-17)"
     }
    ]
   },
@@ -9858,6 +10541,59 @@
    "candidates": []
   },
   {
+   "key": "landmark:aachen#wurmtal-naturschutzgebiet",
+   "type": "landmark",
+   "depicts": "aachen#wurmtal-naturschutzgebiet",
+   "label": "Wurmtal (Naturschutzgebiet)",
+   "names": [
+    "Wurmtal"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:NSG Wurmtal - Städteregion Aachen - NRW - Deutschland (2).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:NSG_Wurmtal_-_St%C3%A4dteregion_Aachen_-_NRW_-_Deutschland_(2).jpg",
+     "depicts": "NSG Wurmtal - Städteregion Aachen - NRW - Deutschland (2)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 1 m, names it in title (cm-84, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:NSG Wurmtal - Städteregion Aachen - NRW - Deutschland.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:NSG_Wurmtal_-_St%C3%A4dteregion_Aachen_-_NRW_-_Deutschland.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 1 m, names it in title (cm-85, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-85): second pick (cm-84)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#wustung-wollseifen",
+   "type": "landmark",
+   "depicts": "aachen#wustung-wollseifen",
+   "label": "Wüstung Wollseifen",
+   "names": [
+    "Wüstung Wollseifen",
+    "Wollseifen"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Wollseifen",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Wollseifen Dreiborn 05.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Wollseifen_Dreiborn_05.jpg",
+     "depicts": "Wollseifen Dreiborn 05",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-68, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#zitadelle-julich-and-museum-zitadelle",
    "type": "landmark",
    "depicts": "aachen#zitadelle-julich-and-museum-zitadelle",
@@ -9950,6 +10686,32 @@
    "candidates": []
   },
   {
+   "key": "landmark:akron#cascade-locks-park-and-mustill-store",
+   "type": "landmark",
+   "depicts": "akron#cascade-locks-park-and-mustill-store",
+   "label": "Cascade Locks Park & Mustill Store",
+   "names": [
+    "Cascade Locks Park & Mustill Store",
+    "Cascade Locks Park",
+    "Mustill Store",
+    "Cascade Locks Historic District"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Cascade_Locks_Historic_District",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Ohio and Erie Canal Lock 14, Cascade Locks Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ohio_and_Erie_Canal_Lock_14,_Cascade_Locks_Park.jpg",
+     "depicts": "Ohio and Erie Canal Lock 14, Cascade Locks Park",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-91, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:akron#derby-downs-all-american-soap-box-derby",
    "type": "landmark",
    "depicts": "akron#derby-downs-all-american-soap-box-derby",
@@ -10006,6 +10768,51 @@
      "depicts": "Glamorgan Castle exterior from SE grounds",
      "confidence": "high",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Glamorgan Castle Alliance OH; NRHP 72001043"
+    }
+   ]
+  },
+  {
+   "key": "landmark:akron#glendale-steps",
+   "type": "landmark",
+   "depicts": "akron#glendale-steps",
+   "label": "Glendale Steps",
+   "names": [
+    "Glendale Steps",
+    "Glendale Step"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Glendale Steps 2024-10-15.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Glendale_Steps_2024-10-15.jpg",
+     "depicts": "Glendale Steps 2024-10-15",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 9 m, names it in title (cm-92, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:akron#goodyear-airdock",
+   "type": "landmark",
+   "depicts": "akron#goodyear-airdock",
+   "label": "Goodyear Airdock",
+   "names": [
+    "Goodyear Airdock"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Goodyear_Airdock",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Goodyear Airdock exterior.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Goodyear_Airdock_exterior.jpg",
+     "depicts": "Goodyear Airdock exterior",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-90, reviewed 2026-10-17)"
     }
    ]
   },
@@ -10698,7 +11505,6 @@
     "Basilica of the Holy Blood"
    ],
    "pilot": false,
-   "skip": "both vetted Commons files refused (run #60 close-up, run #64 a painted triptych) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -10717,6 +11523,21 @@
      "confidence": "high",
      "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Basiliek van het Heilig Bloed",
      "refused": "refused by visual review (W8, run #64): a painted triptych inside, not the basilica (artwork rule)"
+    },
+    {
+     "file": "File:HeiligBlutBasilika Brügge 3.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:HeiligBlutBasilika_Br%C3%BCgge_3.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 3 m, names it in category (cm-8, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-8): second pick (cm-9 shows the chapel)"
+    },
+    {
+     "file": "File:HeiligBlutBasilika Brügge 2.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:HeiligBlutBasilika_Br%C3%BCgge_2.jpg",
+     "depicts": "HeiligBlutBasilika Brügge 2",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 3 m, names it in category (cm-9, reviewed 2026-10-17)"
     }
    ]
   },
@@ -10900,8 +11721,25 @@
     "Concessie"
    ],
    "pilot": false,
-   "skip": "only files naming a nearby building or an address, not the quarter (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:De Haan Belle Vue R02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:De_Haan_Belle_Vue_R02.jpg",
+     "depicts": "De Haan Belle Vue R02",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 31 m, names it in title (cm-11, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:De Haan Beaufort R01 - Koninklijk Plein 6.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:De_Haan_Beaufort_R01_-_Koninklijk_Plein_6.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 23 m, names it in title (cm-12, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-12): second pick (cm-11)"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#garnaalvissers-te-paard-oostduinkerke",
@@ -11117,7 +11955,6 @@
     "Zwin"
    ],
    "pilot": false,
-   "skip": "both vetted Commons files refused (a plain beach; a housing estate) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -11136,6 +11973,13 @@
      "confidence": "high",
      "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Het Zwin",
      "refused": "refused by visual review (W8, run #64): a housing estate and road, not the Zwin reserve (wrong subject)"
+    },
+    {
+     "file": "File:Zwin Natuur Park visitor center with stork nests, Knokke-Heist, 2024.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Zwin_Natuur_Park_visitor_center_with_stork_nests,_Knokke-Heist,_2024.jpg",
+     "depicts": "Zwin Natuur Park visitor center with stork nests, Knokke-Heist, 2024",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 22 m, names it in title (cm-10, reviewed 2026-10-17)"
     }
    ]
   },
@@ -12861,8 +13705,18 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Peggy_Notebaert_Nature_Museum",
-   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:ChicagoNature (6).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:ChicagoNature_(6).jpg",
+     "depicts": "ChicagoNature (6)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-13, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#promontory-point",
@@ -13783,8 +14637,26 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Billy_Ireland_Cartoon_Library_%26_Museum",
-   "skip": "only details/interiors (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Billy Ireland Cartoon Library and Museum lobby.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Billy_Ireland_Cartoon_Library_and_Museum_lobby.jpg",
+     "depicts": "Billy Ireland Cartoon Library and Museum lobby",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-16, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Anti-Mormon cartoon.jpeg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Anti-Mormon_cartoon.jpeg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 34 m, names it in category (cm-17, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-17): an artwork from the collection (cartoon print), not the library"
+    }
+   ]
   },
   {
    "key": "landmark:columbus#columbus-museum-of-art",
@@ -14483,8 +15355,18 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/McConnells_Mill_State_Park",
-   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:McConnells Mill Bridge and Creek.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:McConnells_Mill_Bridge_and_Creek.jpg",
+     "depicts": "McConnells Mill Bridge and Creek",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-18, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:erie#meadville-market-house",
@@ -15001,7 +15883,25 @@
     "Werregarenstraat"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Graffiti-Free Zone in Gent - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Graffiti-Free_Zone_in_Gent_-_panoramio.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 11 m, names it in category (cm-19, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-19): second pick (cm-20 shows the street)"
+    },
+    {
+     "file": "File:Werregarenstraat - Graffiti-Free Zone - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Werregarenstraat_-_Graffiti-Free_Zone_-_panoramio.jpg",
+     "depicts": "Werregarenstraat - Graffiti-Free Zone - panoramio",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 18 m, names it in title (cm-20, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:harrisburg#1719-hans-herr-house",
@@ -15066,8 +15966,25 @@
     "Appalachian Trail Museum"
    ],
    "pilot": false,
-   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Pine Grove Iron Works, PA - Appalachian Trail Museum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pine_Grove_Iron_Works,_PA_-_Appalachian_Trail_Museum.jpg",
+     "depicts": "Pine Grove Iron Works, PA - Appalachian Trail Museum",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 28 m, names it in title (cm-24, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Appalachian Trail Museum, Pine Grove Iron Works, PA.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Appalachian_Trail_Museum,_Pine_Grove_Iron_Works,_PA.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 35 m, names it in title (cm-25, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-25): second pick (cm-24)"
+    }
+   ]
   },
   {
    "key": "landmark:harrisburg#carlisle-fairgrounds-carlisle-events-car-shows",
@@ -15416,7 +16333,26 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/National_Civil_War_Museum",
    "skip": "only details/interiors (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Two Confederate Knives.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Two_Confederate_Knives.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 22 m, names it in category (cm-21, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-21): artifacts in a case (knives), not the museum"
+    },
+    {
+     "file": "File:Bowie Knife.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bowie_Knife.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 22 m, names it in category (cm-22, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-22): artifacts in a case, not the museum"
+    }
+   ]
   },
   {
    "key": "landmark:harrisburg#pennsylvania-state-capitol",
@@ -15577,8 +16513,18 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/The_Hershey_Story",
-   "skip": "only details/interiors (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:The Hershey Story.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Hershey_Story.jpg",
+     "depicts": "The Hershey Story",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-23, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:harrisburg#u-s-army-heritage-and-education-center",
@@ -15727,6 +16673,22 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the entrance with taxis in front (vehicles rule)"
+    },
+    {
+     "file": "File:旭山動物園‐レッサーパンダ1 - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E6%97%AD%E5%B1%B1%E5%8B%95%E7%89%A9%E5%9C%92%E2%80%90%E3%83%AC%E3%83%83%E3%82%B5%E3%83%BC%E3%83%91%E3%83%B3%E3%83%801_-_panoramio.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 26 m, names it in title (cm-26, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-26): an animal is the subject"
+    },
+    {
+     "file": "File:旭山動物園‐レッサーパンダ2 - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E6%97%AD%E5%B1%B1%E5%8B%95%E7%89%A9%E5%9C%92%E2%80%90%E3%83%AC%E3%83%83%E3%82%B5%E3%83%BC%E3%83%91%E3%83%B3%E3%83%802_-_panoramio.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 26 m, names it in title (cm-27, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-27): an animal is the subject"
     }
    ]
   },
@@ -16715,7 +17677,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Indianapolis_Zoo",
-   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -16726,6 +17688,21 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the entrance arch sign is the subject (signage rule)"
+    },
+    {
+     "file": "File:IndyZoo-Entrance.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:IndyZoo-Entrance.jpg",
+     "depicts": "IndyZoo-Entrance",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-28, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Indianapolis zoo entrance.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Indianapolis_zoo_entrance.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 27 m, names it in title (cm-29, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-29): signage close-up; second pick (cm-28)"
     }
    ]
   },
@@ -17435,8 +18412,18 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E4%BF%9D%E6%B4%A5%E5%B3%A1",
-   "skip": "no file found (only boat-as-subject or dusk shots) (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hozukyo.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hozukyo.jpg",
+     "depicts": "Hozukyo",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-30, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#ine-no-funaya-ine-boathouses",
@@ -19073,7 +20060,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/International_Crane_Foundation",
-   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -19084,6 +20071,21 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): a close-up of a crane, not the place (close-up rule)"
+    },
+    {
+     "file": "File:International Crane Foundation Baraboo 2026(1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:International_Crane_Foundation_Baraboo_2026(1).jpg",
+     "depicts": "International Crane Foundation Baraboo 2026(1)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 38 m, names it in title (cm-33, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:International Crane Foundation Baraboo 2026(2).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:International_Crane_Foundation_Baraboo_2026(2).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 29 m, names it in title (cm-34, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-34): second pick (cm-33)"
     }
    ]
   },
@@ -19178,8 +20180,26 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/National_Mustard_Museum",
-   "skip": "only details/interiors (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:National Mustard Museum - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Mustard_Museum_-_panoramio.jpg",
+     "depicts": "National Mustard Museum - panoramio",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-31, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:National Mustard Museum (77129).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Mustard_Museum_(77129).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 3 m, names it in title (cm-32, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-32): second pick (cm-31)"
+    }
+   ]
   },
   {
    "key": "landmark:madison#olbrich-botanical-gardens-and-thai-pavilion",
@@ -21652,8 +22672,17 @@
     "宇江城城跡"
    ],
    "pilot": false,
-   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:宇江城城跡（久米島町）.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%AE%87%E6%B1%9F%E5%9F%8E%E5%9F%8E%E8%B7%A1%EF%BC%88%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%EF%BC%89.jpg",
+     "depicts": "宇江城城跡（久米島町）",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 26 m, names it in title (cm-37, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#yomitan-yachimun-no-sato-pottery-village",
@@ -21814,6 +22843,21 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the entrance sign is the subject (signage rule)"
+    },
+    {
+     "file": "File:Ski Patrol Disney Blizzard Beach Florida.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ski_Patrol_Disney_Blizzard_Beach_Florida.jpg",
+     "depicts": "Ski Patrol Disney Blizzard Beach Florida",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-41, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Blizzard Beach Disney Water Park - panoramio (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Blizzard_Beach_Disney_Water_Park_-_panoramio_(1).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 37 m, names it in title (cm-42, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-42): second pick (cm-41)"
     }
    ]
   },
@@ -22051,7 +23095,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Gatorland",
-   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -22062,6 +23106,21 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the lettered gator-mouth entrance is the subject (signage rule)"
+    },
+    {
+     "file": "File:Gatorland (24972220574).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gatorland_(24972220574).jpg",
+     "depicts": "Gatorland (24972220574)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 16 m, names it in title (cm-38, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Gatorland (25307180310).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gatorland_(25307180310).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 16 m, names it in title (cm-39, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-39): second pick (cm-38)"
     }
    ]
   },
@@ -22342,8 +23401,18 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kilimanjaro_Safaris",
-   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:AK Safari.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:AK_Safari.JPG",
+     "depicts": "AK Safari",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-40, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#lake-apopka-wildlife-drive",
@@ -24349,6 +25418,21 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the gate lettering is the subject (signage rule)"
+    },
+    {
+     "file": "File:Philadelphia Zoo entrance, Philadelphia, Pennsylvania, USA-27June2010.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Philadelphia_Zoo_entrance,_Philadelphia,_Pennsylvania,_USA-27June2010.jpg",
+     "depicts": "Philadelphia Zoo entrance, Philadelphia, Pennsylvania, USA-27June2010",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-43, reviewed 2026-10-17)"
+    },
+    {
+     "file": "File:Desert Crocodile Philadelphia Zoo.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Desert_Crocodile_Philadelphia_Zoo.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 20 m, names it in title (cm-44, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-44): an animal is the subject; second pick (cm-43)"
     }
    ]
   },
@@ -27336,8 +28420,25 @@
     "Römische Villa Nennig"
    ],
    "pilot": false,
-   "skip": "only details/interiors (mosaic photos/archival excavation images; no villa or shelter exterior found) (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nennig (Perl), Roman excavations.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nennig_(Perl),_Roman_excavations.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 15 m, names it in category (cm-45, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-45): second pick (cm-46, the Roman mosaic, public domain)"
+    },
+    {
+     "file": "File:Nennig (Perl), Roman mosaic.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nennig_(Perl),_Roman_mosaic.jpg",
+     "depicts": "Nennig (Perl), Roman mosaic",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 20 m, names it in category (cm-46, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#romisches-weinschiff-stella-noviomagi",
@@ -27895,8 +28996,26 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/CuriOdyssey",
-   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:I'm here, I'll check it out. (25812242043).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:I'm_here,_I'll_check_it_out._(25812242043).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 28 m, names it in description (cm-47, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-47): signage only"
+    },
+    {
+     "file": "File:Zephyr exhibit (26415020005).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Zephyr_exhibit_(26415020005).jpg",
+     "depicts": "Zephyr exhibit (26415020005)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 28 m, names it in description (cm-48, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#de-young-museum",
@@ -28382,6 +29501,22 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the entrance sign is the subject (signage rule)"
+    },
+    {
+     "file": "File:Execution machine.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Execution_machine.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 17 m, names it in description (cm-49, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-49): a single exhibit machine, not the museum"
+    },
+    {
+     "file": "File:The French Execution.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_French_Execution.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 15 m, names it in description (cm-50, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-50): a single exhibit machine, not the museum"
     }
    ]
   },
