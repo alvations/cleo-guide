@@ -284,4 +284,12 @@ A fresh independent subagent reviewed the six new `mf.*` / `state.*` strings fro
 | `moved.p` | このガイドは国ごとのページに移りました。すべての場所と出典も一緒に移り、何も削除していません。 | このガイドは、その国のページに移転しました。すべての場所と出典もそのまま移し、削除したものはありません。 | 移転 now matches title / h / desc; 国ごとのページ suggested a set of per-country pages. |
 | `moved.go` | {name}へ移動 | {name}のガイドを開く | {name}へ移動 sounded like travelling to the city; the link opens the guide. |
 
-**Total: 102 changes over twenty-two rounds.**
+## Round 23: D-53, FE-B's "No independent source yet" (c25877272; card.norec, card.official, card.kind.sight, card.kind.food; 1 change, applied)
+
+A fresh independent subagent kept card.official 公式サイト, which is the short form of sheet.official. It kept the two kind labels, which equal srch.sight and city.mode.food, as the identical-en rule requires.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `card.norec` | 独立した出典はまだありません | 第三者の出典はまだありません | 独立した read as a calque ("separate, standalone"). 第三者の says "not the place itself", which matches D-53's rule that the place's own site never counts. It keeps 出典, and まだ still carries "yet". |
+
+**Total: 103 changes over twenty-three rounds.**
