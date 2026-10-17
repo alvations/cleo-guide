@@ -110,8 +110,11 @@ const minify = (f, src) => {
 };
 // Atlas FE-2: client/atlas-nav.js (the map's interaction state) ships inside assets/js/atlas.js — one request, and it
 // always runs right after atlas.js. Each file keeps its own source so the two Atlas lanes never edit the same lines.
-const RIDES = { 'atlas.js': ['atlas-nav.js'] }, RIDERS = new Set([].concat(...Object.values(RIDES)));
-const clientSrc = f => [f].concat(RIDES[f] || []).map(x => fs.readFileSync(path.join(CLIENT, x), 'utf8')).join('\n');
+// Platform (eager-JS budget, 2026-10-17): shared helpers only lazy modules and page scripts use go IN FRONT of each user
+// (one source in client/, guarded so the first copy defines it) instead of in the eager core.js
+const LEADS = { 'base.js': ['geo.js'], 'trip.js': ['geo.js', 'codec.js'], 'share-card.js': ['geo.js', 'codec.js'], 'saved.js': ['codec.js'], 'atlas.js': ['geo.js'] };
+const RIDES = { 'atlas.js': ['atlas-nav.js'] }, RIDERS = new Set([].concat(...Object.values(RIDES), ...Object.values(LEADS)));
+const clientSrc = f => (LEADS[f] || []).concat([f], RIDES[f] || []).map(x => fs.readFileSync(path.join(CLIENT, x), 'utf8')).join('\n');
 // core.js goes last: its Cleo.need() carries the build's version of the lazy platform modules (__V_<name>__ → hash), so a
 // page without a version map (landing, hubs) still asks for the exact URL the worker precached
 for (const f of fs.readdirSync(CLIENT).filter(f => f.endsWith('.js') && !RIDERS.has(f)).sort((x, y) => (x === 'core.js') - (y === 'core.js') || (x < y ? -1 : x > y ? 1 : 0))) {
