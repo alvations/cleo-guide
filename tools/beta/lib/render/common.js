@@ -17,7 +17,10 @@ const BETA_BASE = LIVE_BASE + '/beta';
  *  every place is still listed; Tokyo's head drops ≈ 90 KB. Other JSON-LD types pass through untouched. */
 function compactLd(ld) {
   if (!ld || ld['@type'] !== 'ItemList' || !Array.isArray(ld.itemListElement)) return ld;
-  return Object.assign({}, ld, { itemListElement: ld.itemListElement.map(e => (e && e.item ? { '@type': 'ListItem', position: e.position, name: e.item.name, url: e.item.url } : e)) });
+  // R8 photo headroom (platform): a deep link on this page is written relative (`#p=<id>`). schema.org types `url` as
+  // @id, so JSON-LD resolves it against the page; ≈ 66 B per place (SF −33 KB raw)
+  const rel = u => (typeof u === 'string' && ld.url && u.indexOf(ld.url + '#') === 0 ? u.slice(ld.url.length) : u);
+  return Object.assign({}, ld, { itemListElement: ld.itemListElement.map(e => (e && e.item ? { '@type': 'ListItem', position: e.position, name: e.item.name, url: rel(e.item.url) } : e)) });
 }
 
 // i18n D-41: a second, offered locale (human- or AI-reviewed) is applied in the browser by client/locale.js. The pre-paint

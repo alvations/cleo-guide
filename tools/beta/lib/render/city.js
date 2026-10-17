@@ -178,7 +178,8 @@ function card(r, num, ctx) {
   // Recommended by: every publisher is a chip that opens its source view (M1-10); CSS shows three, then "+N".
   const ids = (r.src || []).filter(s => s !== 'guide');
   // literal ', ' stays for screen readers / copy; DES's cleo.css 15.3 glues a drawn comma to each name (QA-18)
-  const chips = ids.map(id => { const s = srcById[id] || { name: id }; return `<button type="button" class="src${s.authority ? ' auth' : ''}" data-src="${esc(id)}">${esc(s.name.split(' · ')[0])}</button>`; });
+  // R8 photo headroom (platform): no `type="button"` on chips (−14 B each); a city page has no <form> (test-beta guards it)
+  const chips = ids.map(id => { const s = srcById[id] || { name: id }; return `<button class="src${s.authority ? ' auth' : ''}" data-src="${esc(id)}">${esc(s.name.split(' · ')[0])}</button>`; });
   let rec = chips.slice(0, 3).join(', ');
   if (chips.length > 3) rec += ` <span class="more">+${chips.length - 3}</span><span class="rest">, ${chips.slice(3).join(', ')}</span>`;
   if ((r.src || []).includes('guide')) rec += (rec ? ', ' : '') + `<span class="added">${tr('city.card.added')}</span>`;   // i18n D-41
