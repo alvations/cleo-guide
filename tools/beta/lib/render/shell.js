@@ -122,7 +122,9 @@ function localeSwitch() {
  * @param rel     the page's beta-relative path (drives the breadcrumb)
  * @param onNight true when the bar floats over the landing's night hero
  */
-function siteBar({ depth, current, rel, onNight = false }) {
+// §v2.12 3a (one search per screen): the header search names its scope — "Search {city}" on a city page (opt `city`),
+// "Search all guides" elsewhere — and on the landing it is hidden (same shell), because its hero field is the one search
+function siteBar({ depth, current, rel, onNight = false, city = '' }) {
   const up = '../'.repeat(depth);
   const cur = k => current === k ? ' aria-current="page"' : '';
   return `${sprite()}<a class="skip" href="#main">${t('shell.skip')}</a>
@@ -133,21 +135,20 @@ function siteBar({ depth, current, rel, onNight = false }) {
   <span class="spacer"></span>
   <div class="top-actions">
     <button type="button" class="btn btn-icon theme-toggle" aria-pressed="false" aria-label="${t('shell.night')}" data-cleo-theme hidden>${icon('moon')}</button>
-    <a class="btn btn-icon" href="${up}index.html#search" aria-label="${t('shell.search')}" data-cleo-search-open>${icon('search')}</a>
+    <a class="btn btn-icon" href="${up}index.html#search" aria-label="${city ? t('shell.search.city', { city: esc(city) }) : t('shell.search')}" data-cleo-search-open${current === 'landing' ? ' hidden' : ''}>${icon('search')}</a>
     <a class="btn btn-icon count-dot" href="${up}saved.html" aria-label="${t('shell.saved')}" data-cleo-saved-link${cur('saved')}>${icon('heart')}<span class="vh" data-cleo-saved-count></span></a>
   </div>
 </div></header>
 <div class="banners" data-cleo-banners aria-live="polite"></div>`;
 }
 
-/** Mobile tab bar (hidden ≥ 900 px by the stylesheet). Pages that show it add class="has-tabbar" to <body>. */
+/** Mobile tab bar (hidden ≥ 900 px by the stylesheet). Pages that show it add class="has-tabbar" to <body>.
+ * §v2.12 3 (one control per action): search and your list live in the header, so the tab bar carries the sections only. */
 function tabBar({ depth, current }) {
   const up = '../'.repeat(depth);
   const cur = k => current === k ? ' aria-current="page"' : '';
   return `<nav class="tabbar" aria-label="${t('shell.tab.label')}">
 <a href="${up}index.html"${cur('landing')}>${icon('compass')}<span>${t('shell.tab.explore')}</span></a>
-<a href="${up}index.html#search" data-cleo-search-open>${icon('search')}<span>${t('shell.tab.search')}</span></a>
-<a href="${up}saved.html"${cur('saved')}>${icon('heart')}<span>${t('shell.tab.saved')}</span></a>
 <a href="${up}how-we-choose.html"${cur('method')}>${icon('seal')}<span>${t('shell.tab.method')}</span></a>
 </nav>`;
 }

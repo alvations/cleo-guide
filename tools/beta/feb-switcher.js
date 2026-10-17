@@ -18,7 +18,10 @@ const page0 = process.argv[2] || 'cities/tokyo.html', view0 = process.argv[3] ||
       const g = document.querySelector('[data-cleo-views]'), bs = [...g.querySelectorAll('button[data-view]')];
       return { tag: g.tagName, role: g.getAttribute('role'), label: g.getAttribute('aria-label'), pressed: bs.filter(x => x.getAttribute('aria-pressed') === 'true').map(x => x.dataset.view),
         segs: bs.map(x => { const r = x.getBoundingClientRect(); const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
-          return { v: x.dataset.view, w: Math.round(r.width), h: Math.round(r.height), vis: r.width > 0 && r.bottom > 0 && r.top < innerHeight && r.right <= innerWidth + 1, hit: !!hit && x.contains(hit) }; }) };
+          // the TAP target (WCAG 2.5.8): a 36 px visual box with a ::after hit extender counts at its hit height — hit-test
+          // 1 px inside a 44 px band centred on the segment
+          const cy = r.y + r.height / 2, band = [cy - 21, cy + 21].every(y => { const t = document.elementFromPoint(r.x + r.width / 2, y); return !!t && x.contains(t); });
+          return { v: x.dataset.view, w: Math.round(r.width), h: band ? Math.max(44, Math.round(r.height)) : Math.round(r.height), box: Math.round(r.height), vis: r.width > 0 && r.bottom > 0 && r.top < innerHeight && r.right <= innerWidth + 1, hit: !!hit && x.contains(hit) }; }) };
     });
     const s0 = await st();
     const small = s0.segs.filter(x => !x.vis || x.w < (w < 300 ? 60 : 44) || x.h < 44);   // < 300 px: the 2 x 2 grid, each >= 60 x 44

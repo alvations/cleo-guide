@@ -26,7 +26,7 @@
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/tokens.css?v=09e04bd80a">
 <link rel="stylesheet" href="assets/cleo.css?v=e854a935b4">
-<link rel="stylesheet" href="assets/fe-b.css?v=fe08bd87af">
+<link rel="stylesheet" href="assets/fe-b.css?v=f7db3675de">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Cleo","url":"https://alvations.github.io/cleo-guide/beta/","potentialAction":{"@type":"SearchAction","target":"https://alvations.github.io/cleo-guide/beta/?q={q}","query-input":"required name=q"}}</script>
 <script src="assets/js/core.js?v=f2aaa83c09" defer></script>
@@ -42,7 +42,7 @@
   <span class="spacer"></span>
   <div class="top-actions">
     <button type="button" class="btn btn-icon theme-toggle" aria-pressed="false" aria-label="Night edition" data-cleo-theme hidden><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg></button>
-    <a class="btn btn-icon" href="index.html#search" aria-label="Search every place" data-cleo-search-open><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-search"/></svg></a>
+    <a class="btn btn-icon" href="index.html#search" aria-label="Search all guides" data-cleo-search-open hidden><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-search"/></svg></a>
     <a class="btn btn-icon count-dot" href="saved.html" aria-label="Your list" data-cleo-saved-link><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg><span class="vh" data-cleo-saved-count></span></a>
   </div>
 </div></header>
@@ -53,7 +53,7 @@
   <h1 class="d-hero" id="hero-h">Where to <em>next</em>?</h1>
   <p class="sub">8,702 places across 84 guides in 6 countries. Every one recommended by named sources, pinned to the door and checked open.</p>
   <form class="search" id="search" role="search" action="index.html" method="get" data-cleo-search>
-    <svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><label class="vh" for="cleo-q">Search every place</label>
+    <svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><label class="vh" for="cleo-q">Search all guides</label>
     <input id="cleo-q" name="q" type="search" placeholder="A city, a dish, a shrine…" autocomplete="off" enterkeyhint="search">
     <button class="btn btn-primary" type="submit"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><span>Search</span></button>
   </form>
@@ -434,12 +434,10 @@
 </div></footer>
 <nav class="tabbar" aria-label="Sections">
 <a href="index.html" aria-current="page"><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-compass"/></svg><span>Explore</span></a>
-<a href="index.html#search" data-cleo-search-open><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><span>Search</span></a>
-<a href="saved.html"><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg><span>Your list</span></a>
 <a href="how-we-choose.html"><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Method</span></a>
 </nav>
 <script src="assets/js/states.js?v=96744046c4" defer></script>
-<script src="assets/js/search.js?v=088baa3bbc" defer></script>
+<script src="assets/js/search.js?v=9045bb38af" defer></script>
 <script src="assets/js/landing.js?v=284d39397d" defer></script>
 <script src="assets/js/interests.js?v=59a083a858" defer></script>
 </body>
