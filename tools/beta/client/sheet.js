@@ -204,7 +204,7 @@
       // W8 (R7 2d): a side panel only beside the Atlas map; elsewhere a centred dialog over a scrim
       var show = function () {
         held = opens++ > 0 && !user && !!navigator.userActivation && Date.now() - gest > 1000;   // PERF-19 (platform)
-        card = c; byNav = navs > 0; host.innerHTML = build(c); held = false; host.hidden = false; host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
+        card = c; byNav = navs > 0; host.innerHTML = build(c); held = false; host.hidden = false; d.documentElement.classList.add('sheet-on');   /* FE-C OV-40 hook */ host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
         if (!host.classList.contains('side')) d.body.style.overflow = 'hidden';
         // designer: ✕ (with its ring) on a keyboard open; the dialog itself, ringless, on a tap or a deep link
         (kb ? q('[data-sh="x"]', host) : q('.sheet', host)).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c); if (q('img[data-hsrc], img[data-hsrcset]', host)) unhold(c);
@@ -221,7 +221,7 @@
     },
     close: function (fromRoute) {
       if (host.hidden) return;
-      host.hidden = true; host.innerHTML = ''; d.body.style.overflow = '';
+      host.hidden = true; host.innerHTML = ''; d.body.style.overflow = ''; d.documentElement.classList.remove('sheet-on');   // FE-C OV-40 hook: toasts clear the sheet's buttons
       var back = card, op = opener; card = null; opener = null;
       if (op && op.isConnected && op.getClientRects().length && op.focus) op.focus({ preventScroll: true });
       else if (back) { var l = q('.pl-n a', back); if (l && l.focus) l.focus({ preventScroll: true }); }
