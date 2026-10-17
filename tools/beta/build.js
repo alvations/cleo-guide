@@ -99,6 +99,8 @@ if (process.env.CLEO_BETA_SELFTEST_RECBY) {
   if (victim) { victim.sources.list.push({ id: 'yelp', name: 'Yelp', url: 'https://example.invalid/', role: 'rec' });
     victim.recs[0].src = (victim.recs[0].src || []).concat('yelp'); victim.recs[0].recby = ['yelp']; }
 }
+// QA-87 self-test: general knowledge seeded as a recommender — the guard must refuse it too
+if (process.env.CLEO_BETA_SELFTEST_GK) { const victim = cityRows.find(r => r.gen === 'new' && r.recs.length); if (victim) victim.recs[0].recby = ['guide']; }
 
 if (args.has('--list')) {
   for (const r of reg.rows) console.log(r.gen.padEnd(7), r.kind.padEnd(12), (r.country || '-').padEnd(10), r.live, r.counts ? `${r.counts.P}+${r.counts.F}` : '');
@@ -475,8 +477,8 @@ for (const [rel, body] of out) {
 }
 // FE-B D-53 (rule 3, holding state): REPORT the cards with no independent recommender per city, so the count trends to 0
 // as the location lane sources or drops them (never a failure; the guard above fails only a wrong "Recommended by")
-{ const nr = cityRows.map(r => [r.key, r.recs.filter(x => x.recby && !x.recby.length && !(x.src || []).includes('guide')).length]).filter(x => x[1]).sort((a, b) => b[1] - a[1]);
-  console.log(`  D-53: ${nr.reduce((t, x) => t + x[1], 0)} cards with no independent source yet${nr.length ? ' — ' + nr.map(x => x[0] + ' ' + x[1]).join(', ') : ''}`); }
+{ const nr = cityRows.map(r => [r.key, r.recs.filter(x => x.recby && !x.recby.length).length, r.recs.filter(x => x.recby && !x.recby.length && (x.src || []).includes('guide')).length]).filter(x => x[1]).sort((a, b) => b[1] - a[1]);
+  console.log(`  D-53: ${nr.reduce((t, x) => t + x[1], 0)} cards with no independent source yet (${nr.reduce((t, x) => t + x[2], 0)} of them added by the guide)${nr.length ? ' — ' + nr.map(x => x[0] + ' ' + x[1]).join(', ') : ''}`); }
 const summary = `${generated.length} pages, ${cityRows.length} place pages indexed, ${totalLive} places (beta == live)`;
 if (args.has('--check')) {
   if (stale) { console.error(`>>> FAIL — ${stale} beta file(s) differ from a fresh build; run \`npm run beta\`.`); process.exit(1); }

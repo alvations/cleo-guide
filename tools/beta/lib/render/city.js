@@ -189,10 +189,11 @@ function card(r, num, ctx) {
   const chips = ids.map(id => { const s = srcById[id] || { name: id }; return `<button class="src${s.authority ? ' auth' : ''}" data-src="${esc(id)}">${esc(recName(s.name.split(' · ')[0]))}</button>`; });
   let rec = chips.slice(0, 3).join(', ');
   if (chips.length > 3) rec += ` <span class="more">+${chips.length - 3}</span><span class="rest">, ${chips.slice(3).join(', ')}</span>`;
-  if ((r.src || []).includes('guide')) rec += (rec ? ', ' : '') + `<span class="added">${tr('city.card.added')}</span>`;   // i18n D-41
-  const noRec = !ids.length && !(r.src || []).includes('guide');
-  const recLine = noRec ? `<p class="pl-s pl-norec"><span class="norec">${tr('card.norec')}</span>${own ? ` · <a class="own" href="${esc(own.entries.find(e => /^https?:/.test(e.url)).url)}" rel="noopener">${tr('card.official')}</a>` : ''}</p>`
-    : `<p class="pl-s"${ids.length > 1 ? ` data-more="${ids.length - 1}"` : ''}><span class="lbl">${tr('card.recby')}</span> ${rec}</p>`;
+  // FE-B D-53 / QA-87: general knowledge is never "Recommended by" — "Added by the guide" is its own line (.pl-s .added: FE-C's
+  // sheet reads it), or follows "No independent source yet" when the guide is the only attribution
+  const added = (r.src || []).includes('guide') ? `<span class="added">${tr('city.card.added')}</span>` : '';
+  const recLine = !ids.length ? `<p class="pl-s pl-norec"><span class="norec">${tr('card.norec')}</span>${added ? ` · ${added}` : ''}${own ? ` · <a class="own" href="${esc(own.entries.find(e => /^https?:/.test(e.url)).url)}" rel="noopener">${tr('card.official')}</a>` : ''}</p>`
+    : `<p class="pl-s"${ids.length > 1 ? ` data-more="${ids.length - 1}"` : ''}><span class="lbl">${tr('card.recby')}</span> ${rec}</p>` + (added ? `<p class="pl-s pl-add">${added}</p>` : '');
   // native script is printed ONCE (ROUND-1 #4): a trailing native aside is wrapped as .nat; the client sets it on the
   // plate (≤ 7 glyphs) and DES's cleo.css then hides the title copy visually (kept for screen readers + search).
   const nat = r.nat && r.n.endsWith(`(${r.nat})`) ? r.nat : '';
