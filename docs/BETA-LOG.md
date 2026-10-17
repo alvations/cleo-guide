@@ -2468,6 +2468,9 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 
 - **OV-41 (platform):** on phones, Atlas's list is a fixed, scrolling pane. With no map, the page's offline-pack section stayed in the page flow under that pane, where it was covered. The pack now goes at the end of the phone list (`park` into the listpane). In a simulated platform run, Keep is visible and its hit test lands on its own button.
 - **Esc from a selected place** moves focus back to that place's pin, or to the map if the pin is gone. It retries once at 260 ms, after the carousel animation.
-- **Desktop credit:** no Leaflet prefix (`setPrefix(false)`), 11/16 px, 20 px tall, per the designer's ruling. It stays full, not folded.
+- **Desktop credit:** no Leaflet prefix (`setPrefix(false)`), 12/16 px (w7 keeps credit text ≥ 12 px), 20 px tall, per the designer's ruling. It stays full, not folded.
 - **Landscape:** the list band under the bar is gone; the list is the side column. The old side.js branch in `select()` is removed.
 - **Label coverage** counts the painted pill area.
+- **QC L partial on 61954288:**
+  - **日本語 × Filters at 844×390 (7 pages):** reproduced. In landscape Atlas, Filters (fixed at right 304 px) and the views switch both float over the topbar's spacer. The language button reached under Filters on pages with long titles: on Akron its right edge was at 513 px, against Filters starting at 496. The spacer now reserves both (`flex:1 0 248px`), so the title side shrinks instead. Checked: 0 overlaps on Akron, Harrisburg, Potong Pasir, Katong, Youngstown and HCMC.
+  - **Youngstown label at 41.9 %:** already fixed by dc6cbc198 (`cutNm`), which postdates 61954288. It now measures 36.5 % of the map width at 844×390.
