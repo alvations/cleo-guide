@@ -39,7 +39,7 @@ Wait for "round 5 ready at `<sha>`". Then follow the same steps as round 4:
    `innerText` includes screen-reader-only text (round 4's erratum).
 4. **Brief:** copy `panel/R4/PANELIST-BRIEF.txt` and change R4 → R5. Then append `design/beta/atlas/tools/brief-s1.txt`:
    the supplementary criterion S1 (information density), scored /10 and reported separately from the 100-point total. The
-   charter fixes the rubric; folding S1 into the total is the orchestrator's call. Build the prompts from `design/beta/atlas/tools/panel-prompts-r4.json` (a durable copy of the scratchpad
+   charter fixes the rubric. The orchestrator approved this at 16:20Z: S1 sits outside the 100, with no charter change. Build the prompts from `design/beta/atlas/tools/panel-prompts-r4.json` (a durable copy of the scratchpad
    `r4prompts.json`) (common-r4 → common-r5, R3 → R4, panel-r4 → panel-r5).
 5. **Eight panelists**, then `save-return.py 5 <ID> <agentId>`. Push as returns arrive.
 6. **Gates:** `npm run validate && npm test && npm run beta:check`, chained with `&&`. Never commit on a red gate; rerun a
@@ -49,7 +49,8 @@ Wait for "round 5 ready at `<sha>`". Then follow the same steps as round 4:
 
 ## In flight
 
-Nothing. Round 4 is reported (85.31) and sent. Waiting for round 5.
+Nothing. Round 4 is reported (85.31) and sent. Waiting for round 5. The orchestrator notes that FE-1 and FE-B have successor
+sessions, so the timing may shift.
 
 ## Notes
 
