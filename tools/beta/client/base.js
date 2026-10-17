@@ -116,7 +116,7 @@
     else { var at = [d.getElementById('cleo-lead'), d.getElementById('cleo-view'), d.querySelector('main .split')].filter(vis)[0] || (main && main.querySelector('section.area'));
       if (at && at.previousSibling !== el) at.parentNode.insertBefore(el, at); else if (!at && main && !el.parentNode) main.appendChild(el); }
     var on = C && C.S && C.S.sort === 'base';
-    var h = '<p><span class="eyebrow">' + esc(Cleo.t('base.yours', 'Your base')) + '</span> <b>' + esc(short(b.p)) + '</b>. ' + esc(Cleo.t('base.note', 'Every card shows how far it is.')) + ' ' + esc(Cleo.t('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route')) + '.</p><p class="base-acts">' +
+    var h = '<p><span class="eyebrow">' + esc(Cleo.t('base.yours', 'Your base')) + '</span> <b>' + esc(short(b.p)) + '</b>. ' + esc(Cleo.t('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route')) + '.</p><p class="base-acts">' +
       (C ? '<button type="button" class="btn btn-ghost" data-cleo-base="sort" aria-pressed="' + on + '">' + esc(on ? Cleo.t('base.sort.on', 'Nearest to my base ✓') : Cleo.t('city.sort.base', 'Nearest to my base')) + '</button>' : '') +
       '<button type="button" class="btn btn-quiet" data-cleo-base="clear">' + esc(Cleo.t('base.clear', 'Clear my base')) + '</button></p>';
     if (el._h !== h) { el.innerHTML = h; el._h = h; }
@@ -171,7 +171,8 @@
   d.addEventListener('cleo:view', function () { schedule(); });
   var css = d.createElement('style');
   css.textContent = '.pl .pl-base{order:99;grid-column:1/-1}.pl-base,.gc-base,.ge-base,.ms-pv-base{white-space:normal;overflow-wrap:anywhere;min-width:0;max-width:100%}.pl-base,.gc-base,.ge-base{margin:4px 0 0;font:500 var(--fs-sm)/1.35 var(--font-ui);color:var(--ink-2)}.ms-pv-base{display:block;margin-top:2px;font-size:var(--fs-sm);color:var(--ink-2)}' +
-    '.base-note{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:8px 0;padding:8px 12px;border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface);font-size:var(--fs-sm);color:var(--ink-2)}' +
+    // OV-12 (OV-00): the note is in-flow and compact: one sentence (the card lines already show the distance), tight leading
+    '.base-note{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:center;margin:6px 0;padding:6px 10px;border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface);font-size:var(--fs-sm);line-height:var(--lh-xs,1.35);color:var(--ink-2)}' +
     '.base-note p{margin:0}.base-note b{color:var(--ink)}.base-acts{display:flex;flex-wrap:wrap;gap:var(--s-2)}.base-acts .btn{min-height:var(--tap)}.base-acts .btn[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}.ms-head .base-note{margin:6px 0 0}';
   d.head.appendChild(css);
 

@@ -616,3 +616,59 @@ Evidence is in `design/beta/eval/qc/dev-cceabd64/`.
 S-17 is `tools/beta/qa/qc-overlay.js` (9a2a10c8). It measures the ledger's §1–6 (`docs/BETA-OVERLAY-LEDGER.md`, which QC keeps). The method is in the file header: an 8 px point grid classified by the topmost element, at load, during a pan or scroll, and at idle. Every page × view × 6 viewports × light/dark is 5,172 runs per SHA. qc.js runs S-17 on the default view in every sweep. The full audits of r7 b54b3745 and dev are running; their ledger rows (OV-08+) follow.
 
 **QC-35 (Med, Atlas FE-1)**, found in the Punggol test on dev 9a2a10c8: the phone Atlas peek tray renders "17places here ·checked 3 Oct· Show list". Rev 5a's `.ms-toggle>span{display:flex}` (648aa9c3) makes the count, the new `.ms-chk` date (dfd5e652) and the text flex items, and the whitespace between them collapses. r7 shows "17 places here · Show list". Evidence: `design/beta/eval/qc/overlay/qc-35-tray-{dev,r7}.png`.
+
+## S-17 audit · live r7 (`beta-deploy-r7` @ b54b3745) · graded against OV-00 (bb2af873)
+
+`qc-overlay.js --root <r7 worktree>` covered every page × view × 6 viewports × light/dark: 5,172 runs, 0 errors, 128 failing groups. Outputs are in `design/beta/eval/qc/overlay/r7-b54b3745/` (`summary.md`, `groups.json`, `s17.json.gz`, 128 shots of the worst run per group). Ledger rows OV-101 to OV-123 come from `qc-overlay-ledger.js --label r7-b54b3745 --skip controlCollision`: 23 rows, 16 High and 7 Med.
+
+| Metric (r7, all pages) | median / p90 / max | Budget (P1 phone) |
+|---|---|---|
+| Atlas chrome at rest, % of height | 28.6 / 59.4 / 59.4 (landscape 59 %) | ≤ 25 (L ≤ 13) |
+| Atlas clear map, % of viewport, labels excluded | 58.5 / 75.9 / 75.9 | ≥ 72 |
+| Atlas label coverage, % of map | 9.5 / 22.7 / 36.6 | ≤ 8 |
+| Atlas widest label, % of map width | 38.9 / 65.3 / 84.2 | ≤ 40 |
+| Sheet chrome at rest | 27.7 / 41.1 / 60.7 | ≤ 13 |
+
+Notes on the method:
+- **Control collisions are not in these rows.** The r7 run counted the bounding box of an inline link that wraps (a photo credit in the sheet) as a collision. The probe now tests collisions per line box (`getClientRects`); collisions are re-measured on dev and in a re-run of r7.
+- **The grader treats rule budgets ("collapses to ⓘ … after 5 s") as rules, Med**, not as numbers.
+- **The live-site worst cases match the owner's screenshot:**
+  - Atlas chrome is 28.6 % on P1, 36.1 % on P2 and 59.4 % in landscape;
+  - nothing hides during a pan (all 168 Atlas runs per viewport);
+  - the map credit stays 170 px wide on phones and 458 px on desktop after a pan;
+  - the widest label is up to 84 % of the map width.
+- **Not seen on r7: QA-80 / OV-100** (the landscape switch under the header) is a dev-only regression. S-17's new `controlCovered` check reproduces it on dev.
+- `npm test` under the audit's CPU load failed twice in test-fe-a, on different assertions each time (search, view switch). Alone on a quiet machine it passes 133/133. That's load-sensitive timing, not a regression.
+
+## Overlay ledger re-verify · dev c14306d9 (contains 399119259) · claimed rows
+
+`tools/beta/qa/qc-ov-verify.js` runs one targeted check per claim, measuring exactly what the claim says; chrome shares use S-17's MEASURE. Evidence is in `design/beta/eval/qc/overlay/verify-c14306d9/`.
+
+**Verified:**
+- OV-08: share card wholly on screen, 9:16, no scroll at 4 viewports.
+- OV-09: FE-A part; at 1024 the sheet covers 0 px² of the map and the selected pin is visible.
+- OV-11: the 844×390 sheet owns the top band.
+- OV-30: the Contents strip is not covered.
+- OV-31, OV-32: landscape Guidebook and Insights at 12.5 %, at rest and after a scroll.
+- OV-33: no Map pill.
+- OV-34: no Gallery toolbar in the reading views.
+- OV-35: L 12.5 %; P1 5.7 % after a scroll.
+- OV-36: the strip is away after a scroll (5.7 / 7.2 / 4.7 %).
+- OV-40: the toast is clear of the sheet's action bar at 6 viewports. Left over: at 1440 it sits over "Clear my base" for up to 4 s.
+
+**Back to open:**
+- **OV-01:** a pan doesn't reach `Cleo.chrome.compact` (FE-1's hook is missing). Called by hand, `compact()` hides the switch, but its 52 px band stays as an empty dark strip, so chrome is 31.3 % → 31.3 %.
+- **OV-12:** the base note is 117 px on phone, against ≤ 100.
+
+**QC-35 verified** (the tray reads "17 places here · checked 3 Oct · Show list").
+
+Ledger format: FE-C's OV-12 and OV-40 edits had dropped the Severity cell, which is now restored (OV-12 Low, OV-40 High). A "Format" note in the ledger says every row keeps 7 cells.
+
+**Addendum on c24dd319** (contains FE-1's f2babf91):
+- **OV-01** is now verified: chrome during a pan is 7.2 % (P2) and 5.7 % (P1), with the switch hidden; at rest it is 31.3 / 24.8 %.
+- **OV-02** verified: "Search this area" is absent at load, offered after a pan 8 px under the bar and centred, and gone on the next move.
+- **OV-05** verified: the credit is 174 px at load and 34 px after a pan.
+- **OV-06** verified: the chip row has a mask fade.
+- **OV-07** verified: chrome is back at idle and the map never resizes.
+
+`qc-ov-verify.js` gained these checks. The full dev S-17 audit runs on c24dd319.

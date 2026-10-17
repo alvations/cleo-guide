@@ -2266,3 +2266,63 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Dev head 77b960fa is gated green, with eager JS at 39.28 KB (headroom restored).
 - FE-A's chrome pass (853ea52c) closed six overlay rows; the phone at rest is now 16 % chrome.
 - The compaction API question is settled by budget: city pages key on html.ov-c, and shell pages keep their own small controller.
+
+## 2026-10-17 · FE-1 · OV-00 Atlas (SPEC-v3 §2.0), first slices: OV-07, OV-05, OV-02, OV-06
+
+- **OV-07, compacting on pan (§2.0.2, through FE-A's `Cleo.chrome`):**
+  - The reader's own drag (> 8 px from where it started) or a user pinch/zoom calls `compact(true)`. moveend calls `idle(1200)`; a tap on empty map calls `compact(false)`.
+  - Never while a place is selected (the carousel), in the phone list, in landscape or on desktop. A programmatic fit never compacts.
+  - Under `html.ov-c`, the chip row slides up under the header with FE-A's switch row, the peek slides down, and the control stack drops to 12 px from the bottom. All of it is instant under reduced motion.
+  - The phone map pane now fills the screen under the header at rest too, with the bars overlaying it, so nothing resizes. The "Search this area" and `.leaflet-top` offsets were moved so their page positions don't change.
+  - Labels re-place 240 ms after each toggle.
+  - Measured on Tokyo and Cleveland:
+    - P1 390×844: chrome 24.6 % at rest (budget ≤ 25), 6.2 % panning (≤ 8);
+    - P2 390×664: 31.3 % (≤ 32), 7.8 % (≤ 10);
+    - the map box is unchanged.
+- **OV-05:** the phone credit is the one-line "© OpenStreetMap · Esri" at load. It folds to its ⓘ (24 px visual, 44 px hit area, the popover keeps the full credit) on the reader's first pan or after 5 s. The folded width is 34 px.
+- **OV-02:** "Search this area" leaves when the next move starts. It returns only when the view differs from the area last searched by more than 25 %, measured as 1 − overlap/union, so a zoom in counts as much as a pan. While compacted it sits 8 px under the header.
+- **OV-06:** the chip row fades 24 px on each edge that has more chips beyond it (`.ms-fl` / `.ms-fr`), and scroll-snaps to chip starts. The open search row is never faded.
+- **New atlas-ms checks** (Tokyo, Cleveland, Chinatown):
+  - P1 / P2 chrome at rest and while panning, with the map unchanged, the controls at 12 px and everything back after idle;
+  - the credit folds after a pan, and the chip row fades exactly where it overflows;
+  - a 24 px pan from a freshly searched area offers nothing.
+- **Header:** my duplicate phone `--bar-h:52px` is gone. FE-A's (25d4f9ef) is the one source, and it also keeps their 48 px landscape header.
+## FE-A — QA-80 (High): the landscape view switch is reachable again; D-46: Atlas is the default view (2026-10-17)
+- **QA-80:** at 844×390 the switch sat under the one-bar header. Its row (`.cbar`) is a stacking context (z 45 in scroll views, fixed z 31 in phone Atlas), below the header's 46.
+  - Fix: in landscape the row makes no stacking context (`z-index:auto`). In phone Atlas, where it's `position:fixed` at height 0, it goes to z 47.
+  - The switch is icon-only (44 px segments; the label stays the accessible name) and sits between the language switch and search, covering nothing.
+  - The W8 probe asserts that every switch button and header control is topmost at its centre in all four views, and that a tap switches.
+- **D-46:**
+  - core.js `DEFAULT: 'atlas'` and `VIEWS` order (marked edits, platform's OK); render DV `atlas`; switcher order Atlas, Gallery, Guidebook, Insights; views.js avail order. Precedence is unchanged (hash → stored → default). `#pg=`/`#all=1` imply Gallery. The Gallery hero preload skips itself under Atlas.
+  - **Tests re-specified to the owner decision; none weakened.** test-fe-a: default Atlas, a stored Gallery choice wins, `#view=gallery` deep link, legacy pager links, lens keeps the view, storage blocked.
+  - Gallery-layout checks that relied on the Gallery default now name `#view=gallery` (all marked "FE-A D-46"): test-beta pager and (e) paging; test-views default rows; offline-pack's keep/remove steps; the W7/W8 probes.
+  - Measured on the flipped head: `w2 --only dom` Tokyo 2,794 (390) / 2,839 (1440), NY 2,654; eager JS 39.21 KB; npm test, validate, beta:check and both FE-A probes are green.
+- **Found while doing this** (reported to the Atlas lane): in phone Atlas with the map unavailable, "Map unavailable right now — every place is listed…" (`.ms-nomap-n`) intercepts taps on the list's "Keep offline" control.
+## 2026-10-17 01:10Z · orchestrator check-in
+
+- Dev head 399119259 is gated green (validate, npm test alone, beta:check, initial DOM 12/12).
+- **Photo runs #71–#74 were red at the gates step, and the cause was hidden.** run-tests' `process.exit(1)` dropped the piped
+  output, so the CI log stopped mid-suite with no FAIL row. 9a453fa7e fixed that by setting exitCode, and run #74 then named
+  two causes:
+  - test-beta: `cities/sanfrancisco.html` is 832 KB raw with wave 5c's photos, over the 820 KB ceiling. Gzip is 132 of 160.
+    Dev is 815 KB without the photos. Routed to platform: cut ≥ 30 KB from the city-page template and add a headroom row.
+    The ceiling is not raised. Imagery holds re-dispatch until the trim lands.
+  - test-dom-budget reported FAIL instead of SKIP on a runner without Playwright, because `w2.js` throws "playwright not
+    found". The orchestrator widened the skip match. It still PASSes with Chromium and SKIPs without it.
+- **QC's S-17 audit of live r7 landed** (43eeee68a): 5,172 runs graded against OV-00, adding 16 High and 7 Med rows.
+  - The ledger now holds 41 High/Med rows that aren't closed: 28 open and 13 claimed.
+  - Open by owner: Atlas FE-1 12, FE-B 11, FE-A 5 (plus 6 claimed), FE-C 2 (plus 1 claimed).
+  - Each lane was sent its row list. QC verifies the claimed rows and posts a dev-head count.
+
+## 2026-10-17 01:20Z · orchestrator
+
+- **D-47:** the Atlas §2.0.3 probe rules are ratified. The Layers popover replaces `.m-base`, and desktop near-me is the
+  list head's control. QA and FE-2 make their checks accept both controls first; FE-1 then flips.
+- **D-48:** PERF-19's photo hold branched on the absence of a user gesture, so it lowered the measured session weight
+  without changing a real session. It is not accepted. Platform replaces it with PERF-19b, a uniform rule (500w at once,
+  960w after 250 ms). Standing rule: no behaviour may branch on human versus scripted input.
+- Gap #6, CSS half: 449 KB on Tokyo against ≤ 250 KB. The designer leads: cleo.css −90 KB, FE-A's fe-a.css −60 KB, and
+  constellation.css loaded only where the art layer renders. Each cut is proven by real-shot parity.
+- Photo budget: imagery measured ~914 B raw per credited photo, with +18–27 KB still to come on the big US guides.
+  Platform's city-template cut target is raised to ≥ 40 KB. Imagery drops the duplicate title on the Commons link
+  (~40 B/photo). Its srcset-trim idea is declined, because width-descriptor srcset ignores `src`.

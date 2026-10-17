@@ -83,9 +83,14 @@ const MEASURE = new Function(`
   const ctrlSel = 'button, a[href], input, select, [role=button], summary';
   const controls = [...document.querySelectorAll(ctrlSel)].filter(e => shown(e) && !e.closest('.leaflet-marker-pane') && !e.closest(CONTENT) && (fixedAnc(e) || (mapC && !mapC.contains(e) && mr && (() => { const r = e.getBoundingClientRect(); return r.left < mr.right && r.right > mr.left && r.top < mr.bottom && r.bottom > mr.top; })()) || (mapC && mapC.contains(e)) || (dlg && dlg.contains(e) && fixedAnc(e))));
   const onTop = e => { const r = e.getBoundingClientRect(); const x = Math.min(Math.max(r.left + r.width / 2, 0), W - 1), y = Math.min(Math.max(r.top + r.height / 2, 0), H - 1); const t = document.elementFromPoint(x, y); return !!t && (t === e || e.contains(t) || t.contains(e)); };
+  const name = e => (e.getAttribute('aria-label') || e.textContent || e.value || e.getAttribute('title') || '').replace(/\\s+/g, ' ').trim().toLowerCase().slice(0, 40);
+  // a chrome or map control that is shown but covered at its centre by another layer cannot be used (QA-80: the landscape
+  // view switch under the header). Behind an open sheet is expected, so those are not counted.
+  const under = e => { const r = e.getBoundingClientRect(); return document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); };   // a list behind the map (phone map mode) is not a covered control
+  out.covered = controls.filter(e => !onTop(e) && !(dlg && !dlg.contains(e)) && !(mapC && !mapC.contains(e) && mapC.contains(under(e))) && (() => { const r = e.getBoundingClientRect(); return r.top >= 0 && r.bottom <= H && r.left >= 0 && r.right <= W; })())
+    .map(e => { const r = e.getBoundingClientRect(); const t = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return name(e) + ' under ' + (t ? (t.closest('button,a,input') ? name(t.closest('button,a,input')) || t.tagName : (t.className && typeof t.className === 'string' ? t.tagName.toLowerCase() + '.' + t.className.split(' ')[0] : t.tagName.toLowerCase())) : '?'); }).slice(0, 6);
   for (let i = controls.length - 1; i >= 0; i--) if (!onTop(controls[i])) controls.splice(i, 1);
   const R = e => e.getBoundingClientRect(), hit = (a, b, m = 1) => Math.min(a.right, b.right) - Math.max(a.left, b.left) > m && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > m;
-  const name = e => (e.getAttribute('aria-label') || e.textContent || e.value || e.getAttribute('title') || '').replace(/\\s+/g, ' ').trim().toLowerCase().slice(0, 40);
   if (mapC) {
     const tb = e => { const g = document.createRange(); g.selectNodeContents(e); const r = g.getBoundingClientRect(); const s = e.getBoundingClientRect(); return r.width > s.width ? r : s; };
     const labs = [...document.querySelectorAll('.leaflet-marker-pane .pp, .leaflet-tooltip')].filter(e => (e.textContent || '').trim().length > 1 && cs(e).visibility !== 'hidden' && cs(e).display !== 'none' && (() => { const r = tb(e); return r.width > 0 && r.bottom > mr.top && r.top < mr.bottom && r.right > mr.left && r.left < mr.right; })());
@@ -102,7 +107,9 @@ const MEASURE = new Function(`
     let cp = []; controls.forEach(c => pins.forEach(p => { if (!c.contains(p) && !p.contains(c) && hit(R(c), R(p), 2) && document.elementFromPoint((Math.max(R(c).left, R(p).left) + Math.min(R(c).right, R(p).right)) / 2, (Math.max(R(c).top, R(p).top) + Math.min(R(c).bottom, R(p).bottom)) / 2) !== p) cp.push(name(c) + ' / ' + ((p.textContent || '').trim().slice(0, 20) || 'pin')); }));
     out.controlPin = cp.length; out.controlPinSample = [...new Set(cp)].slice(0, 4);
   }
-  let cc = []; controls.forEach((a, i) => controls.slice(i + 1).forEach(b => { if (!a.contains(b) && !b.contains(a) && hit(R(a), R(b), 2)) cc.push(name(a) + ' / ' + name(b)); }));
+  // per line box: an inline link that wraps has a bounding box over two lines, which is not a collision
+  const boxes = e => { const l = [...e.getClientRects()].filter(q => q.width > 1 && q.height > 1); return l.length ? l : [R(e)]; };
+  let cc = []; controls.forEach((a, i) => controls.slice(i + 1).forEach(b => { if (!a.contains(b) && !b.contains(a) && boxes(a).some(x => boxes(b).some(y => hit(x, y, 2)))) cc.push(name(a) + ' / ' + name(b)); }));
   out.controlCollisions = cc.length; out.controlCollisionSample = [...new Set(cc)].slice(0, 4);
   const here = [...document.querySelectorAll('.ms-here, button, a')].find(e => shown(e) && /search this area/i.test(e.textContent || ''));
   out.searchHere = !!here;
@@ -136,7 +143,7 @@ async function main() {
   const man = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'manifest.json'), 'utf8')).pages;
   const places = {}; for (const f of fs.readdirSync(path.join(BETA, 'data', 'places'))) { if (!f.endsWith('.json')) continue;
     try { const d = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'places', f), 'utf8')); if (d.beta) places[d.beta] = d; } catch (e) { /* skip */ } }
-  let pages = man.map(m => m.beta).concat(['trip.html', 'saved.html', 'how-we-choose.html', 'accessibility.html']).filter(p => fs.existsSync(path.join(BETA, p)));
+  let pages = man.map(m => m.beta).concat(['trip.html', 'saved.html', 'how-we-choose.html', 'accessibility.html', 'changes/tokyo.html', 'changes/cleveland.html', 'changes/singapore--punggol.html'])   // What changed: one shell, three samples.filter(p => fs.existsSync(path.join(BETA, p)));
   if (filt.length) pages = pages.filter(p => filt.some(k => p.includes(k)));
   const jobs = [];
   for (const p of pages) { const d = places[p]; const city = !!(d && d.places && d.places.length);
@@ -219,6 +226,7 @@ async function main() {
     if (L.topAlpha != null && (L.topAlpha < 1 || L.topBlur)) push('translucentChrome', 'top bar alpha ' + L.topAlpha + (L.topBlur ? ' + backdrop blur' : ''), 'opaque, no blur (b2f587a8)', r);
     if (r.toastLate && r.toastLate.length) push('toast', r.toastLate.join(' | '), 'leaves within 4 s', r);
     if (L.duplicates && L.duplicates.length) push('duplicates', L.duplicates.join('; '), 'one control per action', r);
+    if (L.covered && L.covered.length) push('controlCovered', L.covered.join('; '), 'none: every shown control is reachable', r);
     if (L.controlCollisions) push('controlCollision', L.controlCollisionSample.join('; '), 'none', r);
     if (L.controlPin) push('controlOverPin', L.controlPin + ': ' + (L.controlPinSample || []).join('; '), 'none', r);
     if (L.labelControl) push('labelOverControl', L.labelControl, 'none', r);

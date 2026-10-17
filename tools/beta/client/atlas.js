@@ -257,6 +257,7 @@
     // while the map is still on its way, page what is already built: its own first fit picks the page to build
     if (need.size && Cleo.defer && (map || pre || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
     lastShow = show; qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
+    if (area && map) lastB = map.getBounds();   // the area last searched (OV-02's 25 % rule)
     if (area) shed();   // D-46 DOM budget: the off-page cards go back to the deferred pool
     H.classList.add('ms-paged');   // INP: until this first pass, desktop Atlas lays out no card (atlas.css) — a Guidebook-built list was 488 cards reflowed per forced layout
     flat();
@@ -280,7 +281,7 @@
   C.after.push(() => { if (!atlas()) return; const q = S.q || ''; if (q !== lastQ) { lastQ = q; if (q && C.fitLens && C.map()) { C.msOne = C.msAll = false; C.fitLens(); } } msArea(); });
 
   /* ---- "Search this area" (phones, after the reader pans or zooms; never live, so the carousel never jumps) ---- */
-  let hereB = null;
+  let hereB = null, lastB = null;
   const here = o => {
     if (!hereB && o) { hereB = d.createElement('button'); hereB.type = 'button'; hereB.className = 'btn ms-here'; hereB.innerHTML = C.icon('pin') + '<span>Search this area</span>'; mp.appendChild(hereB);
       on(hereB, 'click', () => { C.msAll = C.msOne = false; msArea(); if (lp) lp.scrollLeft = 0; }); }
@@ -524,16 +525,18 @@
   C.onNoMap = () => { C.msN = null; if (atlas() && !desk()) listMode(true); msArea(); };
   // rev 5a §2.2: on phones the header's search icon is the search — in Atlas it opens the in-page search row over the
   // chip row (and keeps the reader on the map) instead of the site search panel; a typed search keeps the row open
-  const fq = $('#cleo-filter'), sq = () => { const s = fq && fq.closest('.spill'); if (s) s.classList.toggle('has-q', !!fq.value); };
+  const fq = $('#cleo-filter'), sq = () => { const s = fq && fq.closest('.spill'); if (s) s.classList.toggle('has-q', !!fq.value); if (bar) bar.classList.toggle('ms-q', !!(fq && fq.value)); };
   on(fq, 'input', sq);
   d.addEventListener('click', e => { const a = e.target.closest && e.target.closest('[data-cleo-search-open]'); if (!a || !fq || !atlas() || desk() || !fq.closest('.ms-bar')) return;
     e.preventDefault(); e.stopPropagation(); fq.focus(); }, true);
   on(fq, 'keydown', e => { if (e.key === 'Escape' && !fq.value && !desk()) { e.stopPropagation(); fq.blur(); } });
   // a #p= that routed before this file arrived: select it now (selected + labelled on the map, SPEC-v3 §1.4)
   const routeSel = () => { const p = Cleo.route.parse().p, c = p && C.byId[p]; if (c && selC !== c) select(c, 'route'); };
+  // OV-06 (SPEC-v3 §2.0.6): the phone chip row fades on each edge that has more chips beyond it, so it reads as scrollable
+  const edge = () => { if (!bar) return; const o = bar.scrollWidth - bar.clientWidth > 2; bar.classList.toggle('ms-fl', o && bar.scrollLeft > 2); bar.classList.toggle('ms-fr', o && bar.scrollLeft < bar.scrollWidth - bar.clientWidth - 2); };
   C.msIn = () => {
     setTimeout(() => H.classList.add('ms-ready', 'ms-paged'), 3000);   // never hold the list longer than this, map or not
-    build(); unpark(); deco(); face(); setTimeout(routeSel, 0); sq();
+    build(); unpark(); deco(); face(); setTimeout(routeSel, 0); sq(); if (bar && !bar._e) { bar._e = 1; on(bar, 'scroll', edge, { passive: true }); on(window, 'resize', edge); } requestAnimationFrame(edge);
     const x = $('.ms-x', bar);
     // phones: the chip row carries FE-A's search pill (in the toolbar) and the switcher last; desktop: area chips in the results head
     if (!desk()) { park(tb, bar, x); } else {   // phones: the view switch stays in FE-A's city bar, its own row under the header (QC-09)
@@ -553,7 +556,7 @@
   const locate = b => {
     const map = C.map(), live = $('#cleo-view-live'), say = t => { if (live) live.textContent = t; b.title = t; };
     if (!map) return;
-    if (me) { C.fly(me); return; }
+    if (me) { if (!(C.onLocate && C.onLocate(me))) C.fly(me); return; }   // a second press (after Near me was cleared) sorts again
     if (!navigator.geolocation) { say('This browser can’t share a location.'); return; }
     b.classList.add('busy');
     navigator.geolocation.getCurrentPosition(p => {
@@ -566,6 +569,7 @@
     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
   };
 
+  C.locate = locate;   // atlas-nav.js: the list head's Near me door runs this same reading (OV-00: Near me once)
   C.atlasTools = (L, el) => {
     const map = C.map(); if (!map) return;
     const dk = desk();
@@ -583,7 +587,10 @@
       const box = ac.getContainer(), tog = o => { const b = $('.m-attr-i', box), pp = $('.m-attr-pop', box); if (!b || !pp) return; pp.hidden = !o; b.setAttribute('aria-expanded', String(o)); };
       on(box, 'click', e => { if (e.target.closest('.m-attr-i')) tog($('.m-attr-pop', box).hidden); });
       on(d, 'keydown', e => { if (e.key === 'Escape') tog(false); });
-      map.on('click dragstart', () => tog(false)); }
+      map.on('click dragstart', () => tog(false));
+      // OV-05 (SPEC-v3 §2.0.3): the one-line credit is there without interaction at load, and folds to its ⓘ (24 px, a 44 px
+      // hit area, the full credit one tap away) on the reader's first pan or after 5 s
+      const fold = () => box.classList.add('m-attr-c'); setTimeout(fold, 5000); map.once('dragstart', fold); }
     ctl(dk ? 'topleft' : 'bottomright', () => { const b = btn('m-locate', 'Near me: show my location on the map (stays on this device)', C.icon('locate') + (dk ? '' : '<span>Near me</span>')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
     ctl(dk ? 'topright' : 'bottomright', () => {
       const s = btn('m-base', '', C.icon('grid') + '<span></span>');
@@ -611,15 +618,27 @@
     if (dk) ctl('bottomleft', keyBox); else { const sc = $('#cleo-tray .scroll'); if (sc && !$('.ms-key', sc)) sc.appendChild(keyBox()); }
     // map moves → the list follows (desktop, live) / "Search this area" (phones, after the reader moves the map)
     let user = 0, mt = 0;
-    map.on('dragstart', () => { user = 1; closePoi(); });
-    map.on('zoomstart', () => { if (Date.now() - C.autoAt() > 1500 && Date.now() - quiet > 1500) user = 1; });
+    map.on('dragstart', () => { user = 1; closePoi(); p0 = map.getCenter(); });
+    map.on('zoomstart', () => { if (Date.now() - C.autoAt() > 1500 && Date.now() - quiet > 1500) { user = 1; tuck(); } });
+    // OV-00 (SPEC-v3 §2.0.2, FE-A's Cleo.chrome): the reader's own drag (> 8 px) or pinch tucks the chip row, the switch row
+    // and the peek away; they come back 1.2 s after the map settles, or on a tap on empty map. A programmatic fit never
+    // tucks, nor does anything while a place is selected (the carousel is the reader's focus), nor landscape (one bar)
+    let p0 = null; const tuck = () => { if (!desk() && !H.classList.contains('ms-car') && !H.classList.contains('ms-list') && innerHeight >= 500 && Cleo.chrome) Cleo.chrome.compact(true); };
+    map.on('drag', () => { if (p0 && map.latLngToContainerPoint(p0).distanceTo(map.getSize().divideBy(2)) > 8) { p0 = null; tuck(); } });
+    map.on('moveend', () => { if (Cleo.chrome && Cleo.chrome.on && !desk()) Cleo.chrome.idle(1200); });
     map.on('move zoom', place);
-    map.on('click', () => { closePoi(); unselect(); car(false); });   // an empty-map click clears the selection (phones: back to the peek)
+    // OV-02 (SPEC-v3 §2.0.5): "Search this area" leaves when the next move starts, and comes back only if the view then
+    // differs from the area last searched by more than 25 % (1 − their overlap / their union)
+    map.on('movestart', () => here(false));
+    const moved = () => { const b = lastB, v = map.getBounds(); if (!b) return 1; const sp = (x, y) => Math.max(0, y - x);
+      const ia = sp(Math.max(b.getWest(), v.getWest()), Math.min(b.getEast(), v.getEast())) * sp(Math.max(b.getSouth(), v.getSouth()), Math.min(b.getNorth(), v.getNorth()));
+      const ar = x => sp(x.getWest(), x.getEast()) * sp(x.getSouth(), x.getNorth()), un = ar(v) + ar(b) - ia; return un ? 1 - ia / un : 0; };   // 1 − intersection/union: a pan, a zoom in or a zoom out alike
+    map.on('click', () => { closePoi(); unselect(); car(false); if (Cleo.chrome) Cleo.chrome.compact(false); });   // an empty-map click clears the selection (phones: back to the peek)
     map.on('moveend zoomend', () => C.feature());
     map.on('moveend', () => {
       const u = user; user = 0; place(); if (!atlas() || (C.navHold && C.navHold())) return; keepView();   // a detail is open or closing (atlas-nav.js)
       if (desk()) { clearTimeout(mt); mt = setTimeout(msArea, 180); return; }
-      if (u) { if (H.classList.contains('ms-on')) here(true); return; }   // the reader moved the map: offer, never jump
+      if (u) { if (H.classList.contains('ms-on') && moved() > 0.25) here(true); return; }   // the reader moved the map: offer, never jump (OV-02: only past a 25 % change)
       if (Date.now() - quiet < 1200) return;      // the carousel's own gentle pan never reshuffles the carousel
       msArea();
     });
@@ -655,5 +674,7 @@
     C.auto(); m.fitBounds(bb, Object.assign(o, { maxZoom: 16, animate: false })); return true;
   };
   const unselect = () => { if (!selC) return; selC.classList.remove('is-sel', 'is-focus'); selC = null; C.feature(); };
+  // the bars tucked or back: the labels' free area changed (overMap reads the bars' boxes), so re-place them once settled
+  if (window.MutationObserver) { let was = H.classList.contains('ov-c'); new MutationObserver(() => { const n = H.classList.contains('ov-c'); if (n !== was) { was = n; setTimeout(() => { if (C.feature) C.feature(); }, 240); } }).observe(H, { attributes: true, attributeFilter: ['class'] }); }
   if (atlas()) C.msIn();
 })();

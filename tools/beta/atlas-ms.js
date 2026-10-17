@@ -384,6 +384,31 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         e0.view === 'atlas' && !e0.map && !!e0.peek && e1.map && e0.peek === e1.peek && e1.atlas === 0 && e1.cls <= 0.001, { before: e0, after: e1 });
       if (errors.length) chk(`${key} ${vk} D-46 slow map: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
     }
+    // OV-00 (SPEC-v3 §2.0.1-2): the reader's own drag tucks the chip row, the switch row and the peek (FE-A's Cleo.chrome),
+    // the map never resizes, the control stack follows the peek to 12 px; all back 1.2 s after the map settles
+    for (const [pk, vh, rest, pan] of [['P1', 844, 25, 8], ['P2', 664, 32, 10]]) {
+      const { ctx, page, errors } = await open(browser, Object.assign({}, M, { viewport: { width: 390, height: vh } }), url + '#view=atlas', { tiles: 'stub' });
+      const ch = () => page.evaluate(() => { const vis = s => { const e = document.querySelector(s); if (!e) return [0, 0]; const r = e.getBoundingClientRect(); return [Math.max(0, r.top), Math.min(innerHeight, r.bottom)]; };
+        const top = Math.max(...['[data-cleo-shell=topbar]', 'main>.cbar', '.ms-bar'].map(s => vis(s)[1])), p = vis('.ms-toggle'), m = document.getElementById('cleo-map').getBoundingClientRect();
+        return { ovc: document.documentElement.classList.contains('ov-c'), chrome: +((top + (p[1] > p[0] ? innerHeight - p[0] : 0)) / innerHeight * 100).toFixed(1), map: [Math.round(m.top), Math.round(m.height)], ctl: Math.round(innerHeight - document.querySelector('.leaflet-bottom.leaflet-right').getBoundingClientRect().bottom) }; });
+      const r0 = await ch(), c0 = await page.evaluate(() => { const r = document.getElementById('cleo-map').getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; });
+      await page.mouse.move(c0[0], c0[1]); await page.mouse.down(); for (let i = 1; i <= 10; i++) { await page.mouse.move(c0[0] - i * 20, c0[1] - i * 8); await sleep(16); }
+      await sleep(300); const r1 = await ch(); await page.mouse.up(); await sleep(1700); const r2 = await ch();
+      chk(`${key} ${pk} OV-00: chrome ≤ ${rest} % at rest, ≤ ${pan} % while the reader pans (the bars tuck), the map never resizes, the controls follow the peek to 12 px, and all return 1.2 s after the map settles`,
+        !r0.ovc && r0.chrome <= rest && r1.ovc && r1.chrome <= pan && r1.map.join() === r0.map.join() && r1.ctl === 12 && !r2.ovc && r2.chrome === r0.chrome && r2.map.join() === r0.map.join(), { rest: r0, panning: r1, idle: r2 });
+      if (pk === 'P1') {
+        // OV-05: the credit folded to its ⓘ after that first pan; OV-06: the chip row fades exactly on the edges that overflow
+        const r3 = await page.evaluate(() => { const a = document.querySelector('.leaflet-control-attribution'), b = document.querySelector('.ms-bar'), ar = a.getBoundingClientRect();
+          return { folded: a.classList.contains('m-attr-c'), w: Math.round(ar.width), over: b.scrollWidth - b.clientWidth > 2, fr: b.classList.contains('ms-fr'), fl: b.classList.contains('ms-fl'), atStart: b.scrollLeft <= 2 }; });
+        chk(`${key} P1 OV-05/06: the map credit folds to its ⓘ (≤ 44 px) after the first pan; the chip row fades only on an edge with more chips beyond it`, r3.folded && r3.w <= 44 && r3.fr === (r3.over && r3.atStart) && !r3.fl === r3.atStart, r3);
+        // OV-02: from a freshly searched area, a small pan (well under a 25 % change of the view) never offers "Search this area"
+        await page.evaluate(() => { const b = document.querySelector('.ms-here:not([hidden])'); if (b) b.click(); }); await sleep(500);
+        await page.mouse.move(c0[0], c0[1]); await page.mouse.down(); for (let i = 1; i <= 3; i++) { await page.mouse.move(c0[0] + i * 8, c0[1]); await sleep(16); } await page.mouse.up(); await sleep(700);
+        const h2 = await page.evaluate(() => { const b = document.querySelector('.ms-here'); return !!b && !b.hidden && b.offsetHeight > 0; });
+        chk(`${key} P1 OV-02: a 24 px pan does not offer "Search this area" (only a > 25 % change of the view does)`, !h2, { offered: h2 });
+      }
+      if (errors.length) chk(`${key} ${pk} OV-00 pan: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
+    }
   }
   await browser.close();
   fs.writeFileSync(path.join(OUT, 'probe.json'), JSON.stringify({ ok, states: R }, null, 1) + '\n');

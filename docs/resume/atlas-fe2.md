@@ -27,6 +27,10 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
   views.js): a3da0b4b.
 
 ## Next
+- **OV-00 §2.0.3 Near me once (ratified):** bdb591b4 — the list head's `[data-cleo-near]` door runs the map's locate in
+  Atlas (`C.locate` exported in atlas.js); atlas-nav-ms desktop near-me takes the door or `.m-locate`. Full atlas-ms 298 PASS on
+  the pushed head. FE-1 then removes the desktop `.m-locate`: re-run on their SHA. Map motion (R8 gap 3) pushed 09f82449, green.
+- OV-03 / OV-118..120 (labels: width ≤ 40 %, 13 px, coverage ≤ 8 %, count ≤ 7) with FE-1: asked FE-1 for the split.
 - **R8 gap 3 map motion (SPEC-v3 §3.7), mine per FE-1 23:41Z:** built in atlas-nav.js `motion()` + atlas-nav.css: the desktop preview
   grows from the pin (origin = pin point, scale .94→1 / 200 ms), closes with a 120 ms fade (an inert `.ms-ghost` copy); the phone
   carousel lifts in (translateY 12 px, 200 ms) only when the reader opens it; a hovered dot eases 7→11 px in ≤ 8 redraws;
