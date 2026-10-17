@@ -228,7 +228,8 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
       chk('typing a search writes q= into the URL and filters', /(^#|&)q=temple/.test(h1) && n1 < all0, [h1, n1, all0]);
       w.location.hash = '#view=gallery'; await sleep(80);
       chk('a link without q= clears the search (box and filter)', fq.value === '' && !w.Cleo.city.S.q && !/q=/.test(w.location.hash) && [...d.querySelectorAll('li.pl')].every(c => !c.hidden), [fq.value, w.Cleo.city.S.q]);
-      w.history.back(); await sleep(120);
+      // polls (≤ 2 s) instead of a fixed 120 ms: under the full suite's load the popstate round-trip ran late (same assertion)
+      w.history.back(); for (let t = 0; t < 40 && !(fq.value === 'temple' && w.Cleo.city.S.q === 'temple'); t++) await sleep(50);
       chk('Back restores the search', fq.value === 'temple' && w.Cleo.city.S.q === 'temple' && /q=temple/.test(w.location.hash), [fq.value, w.location.hash]);
       chk('no js errors (search route)', errs.length === 0, errs.slice(0, 2)); }
     ({ d, w, errs } = boot(page, { hash: '#view=bogus' })); await sleep(100);
