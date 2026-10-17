@@ -164,7 +164,8 @@
       (chips.length > 1 ? '<button class="clear" data-cleo-all>' + tt('city.tray.clear', 'Clear all') + '</button>' : '');
     const nf = $('[data-cleo-nf]'); if (nf) nf.textContent = act.length || '';
     $$('button[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-mode') === S.mode)));
-    C.none = [n, S.q || '', tot]; if ((!n || Cleo.empty) && Cleo.need) Cleo.need('empty', () => Cleo.empty && Cleo.empty.draw.apply(null, C.none));   // FE-C QC-05 hook: the stated empty state (empty.js)
+    // §v2.12 3a: cleo:city-search {q, n} feeds FE-B's "Search all guides" row
+    C.none = [n, S.q || '', tot]; if (Cleo.emit) Cleo.emit('cleo:city-search', { q: S.q || '', n }); if ((!n || Cleo.empty) && Cleo.need) Cleo.need('empty', () => Cleo.empty && Cleo.empty.draw.apply(null, C.none));   // FE-C QC-05 hook: the stated empty state (empty.js)
     if (rail) rail.setAttribute('data-view', S.mode);
     $$('.rail-i').forEach(a => {
       // doors keep their own state (QA-27: For you stays pressed after a reload restores stored interests)

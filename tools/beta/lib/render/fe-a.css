@@ -846,3 +846,6 @@ html.atlas-m[data-view=atlas] [data-cleo-pack]{display:none!important}
   html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button>.ico{display:inline-block}
   html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 }
+/* §v2.12 3a (designer, owner OV-00): one search per screen. From 1024 the city field is the search on a city page, so the
+   header's search icon is not drawn there (FE-B's search.js sends the icon and "/" to the city field below 1024) */
+@media (min-width:1024px){html body .topbar [data-cleo-search-open]{display:none}}
