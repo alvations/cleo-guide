@@ -23,6 +23,7 @@ const serve = () => new Promise(res => { const s = http.createServer((q, r) => {
 }); s.listen(0, '127.0.0.1', () => res(s)); });
 
 const parts = execFileSync('python3', [path.join(ROOT, 'design/beta/tools/build-css.py'), '--parts', ASSETS]).toString().trim().split(/\s+/);
+const BYTEXT = new Map(parts.map(p => [fs.readFileSync(path.join(ASSETS, p), 'utf8'), p]));
 const IMPORT = parts.map(p => `@import url("${p}");`).join('\n');
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (['assets', 'data', 'feeds'].includes(e.name) ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.relative(BETA, path.join(d, e.name))] : []);
 const ALL = walk(BETA).sort();
@@ -42,16 +43,25 @@ const sizes = Object.fromEntries(parts.map(p => [p, fs.statSync(path.join(ASSETS
   const browser = await chromium.launch({ executablePath: fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined });
   let loads = 0;
   async function sweep([w, h], theme, urls, opts = {}) {
-    const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: theme, hasTouch: w < 900, isMobile: w < 900, reducedMotion: 'no-preference' });
-    await ctx.route('**/assets/cleo.css*', r => r.fulfill({ status: 200, contentType: 'text/css', body: IMPORT }));
+    const ctx = await browser.newContext({ serviceWorkers: 'block', viewport: { width: w, height: h }, colorScheme: theme, hasTouch: w < 900, isMobile: w < 900, reducedMotion: 'no-preference' });
+    // each piece as its own top-level <link> in place of cleo.css: @import children come back after a navigation under the
+    // parent's id (ambiguous offsets), top-level sheets don't
+    await ctx.route(r => /\.html$|\/$/.test(new URL(r).pathname), async (route, req) => {
+      if (req.resourceType() !== 'document') return route.continue();
+      let f = path.join(ROOT, decodeURIComponent(new URL(req.url()).pathname)); try { if (fs.statSync(f).isDirectory()) f = path.join(f, 'index.html'); } catch (e) { return route.continue(); }
+      const html = fs.readFileSync(f, 'utf8').replace(/<link rel="stylesheet" href="([^"]*?)cleo\.css[^"]*">/, (m, pre) => parts.map(p => `<link rel="stylesheet" href="${pre}${p}">`).join(''));
+      route.fulfill({ status: 200, contentType: 'text/html', body: html }); });
     await ctx.route(/tile\.openstreetmap|arcgisonline|unpkg|cdnjs|jsdelivr/, r => r.abort());
     if (opts.noLeaflet) await ctx.route(/vendor\/leaflet\/leaflet\.js/, r => r.abort());
     if (opts.seed) await ctx.addInitScript(opts.seed);
     const page = await ctx.newPage(); const cdp = await ctx.newCDPSession(page);
     const sheets = {};
-    cdp.on('CSS.styleSheetAdded', e => { const b = path.basename((e.header.sourceURL || '').split('?')[0]); if (parts.includes(b)) sheets[e.header.styleSheetId] = b; });
+    cdp.on('CSS.styleSheetAdded', e => { const b = path.basename((e.header.sourceURL || '').split('?')[0]); sheets[e.header.styleSheetId] = parts.includes(b) ? b : null; });
     await cdp.send('DOM.enable'); await cdp.send('CSS.enable'); await cdp.send('CSS.startRuleUsageTracking');
-    const take = async () => { const { coverage } = await cdp.send('CSS.takeCoverageDelta'); for (const c of coverage) if (c.used && sheets[c.styleSheetId]) used[sheets[c.styleSheetId]].push([c.startOffset, c.endOffset]); };
+    // Chromium reuses cached @import sheets after a navigation under NEW ids without a styleSheetAdded event, so an
+    // unknown id is resolved once by its text (each piece's text is unique)
+    const resolve = async sid => { if (sid in sheets) return sheets[sid]; let t = ''; try { t = (await cdp.send('CSS.getStyleSheetText', { styleSheetId: sid })).text; } catch (e) { /* gone */ } sheets[sid] = BYTEXT.get(t) || null; return sheets[sid]; };
+    const take = async () => { const { coverage } = await cdp.send('CSS.takeCoverageDelta'); for (const c of coverage) { if (!c.used) continue; const n = await resolve(c.styleSheetId); if (n) used[n].push([c.startOffset, c.endOffset]); } };
     for (const u of urls) {
       const [url, act] = Array.isArray(u) ? u : [u];
       await page.goto(base + url, { waitUntil: 'load' }).catch(() => {}); await page.waitForTimeout(600);
