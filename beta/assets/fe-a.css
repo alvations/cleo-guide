@@ -1285,3 +1285,6 @@ html[data-view=atlas] [data-cleo-empty]{display:none}
    <source> says" / "Visit the official site" wraps its text in .lbl (QA-72), which :root .lbl (v2.css) painted ink-3 on
    ink: 2.87:1. Ghost buttons ("Area", "Filters") keep their ink-3 label. */
 :root .btn-primary .lbl{color:inherit}
+/* OV ledger (OV-00 §3): a toast never covers a sheet's buttons. While a place sheet is open, toasts (base set/clear, save,
+   share) rise above its action bar. */
+html.sheet-on .toast{bottom:calc(env(safe-area-inset-bottom,0px) + 112px)}   /* sheet.js sets .sheet-on (not :has on :root: QA-70) */
