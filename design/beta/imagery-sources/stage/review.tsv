@@ -1,0 +1,46 @@
+n	target	source	itemId	verdict
+1	landmark:chicago#garfield-park-conservatory	loc	2011636231	ok
+2	landmark:chicago#lincoln-park-zoo	loc	2011634195	refuse: only a giraffe in an enclosure, not the zoo
+3	landmark:chicago#pullman-national-historical-park	loc	il0042	ok
+4	landmark:chicago#willis-tower-skydeck	loc	2011634501	refuse: second choice (5 is the clearer tower view)
+5	landmark:chicago#willis-tower-skydeck	loc	2011636232	ok
+6	landmark:chicago#wrigley-field	loc	2020722070	ok
+7	landmark:chicago#wrigley-field	loc	2011630442	refuse: a ball game in progress, players as subject; 6 is better
+8	landmark:cincinnati#cincinnati-music-hall	loc	2016809644	ok
+9	landmark:cincinnati#findlay-market	loc	2016632931	ok
+10	landmark:cincinnati#findlay-market	loc	2016632929	refuse: second choice (diners in the foreground; 9 is better)
+11	landmark:cincinnati#great-american-ball-park-and-reds-hall-of-fame	loc	2016632882	refuse: second choice (aerial; 12 is the clearer view)
+12	landmark:cincinnati#great-american-ball-park-and-reds-hall-of-fame	loc	2016632965	ok
+13	landmark:cincinnati#over-the-rhine-historic-district	loc	2016632869	refuse: generic aerial, the district is not identifiable
+14	landmark:columbus#short-north-arts-district	loc	2010630103	refuse: a mural is the subject (artist copyright; US has no freedom of panorama for art)
+15	landmark:indianapolis#indiana-world-war-memorial-plaza	loc	2016631789	refuse: second choice (aerial; 16 is the plaza itself)
+16	landmark:indianapolis#indiana-world-war-memorial-plaza	loc	2016632039	ok
+17	landmark:miami#hollywood-beach-broadwalk	loc	2020721021	refuse: resort hotel and beach; the Broadwalk is not visible
+18	landmark:miami#little-haiti-cultural-complex	loc	2020720657	ok
+19	landmark:miami#little-haiti-cultural-complex	loc	2020720659	refuse: a painted post (artwork) is the subject
+20	landmark:newyork#bryant-park	loc	2011632474	refuse: an office tower beside the park; the park itself is barely shown
+21	landmark:philadelphia#citizens-bank-park	loc	2019689499	ok
+22	landmark:philadelphia#fort-mifflin	loc	2011630500	ok
+23	landmark:philadelphia#fort-mifflin	loc	pa0682	refuse: low-quality aerial; 22 is better
+24	landmark:philadelphia#italian-market-south-9th-street	loc	2019688749	ok
+25	landmark:philadelphia#johnson-house-historic-site	loc	pa0754	ok
+26	landmark:philadelphia#philadelphia-museum-of-art-and-the-rocky-steps	loc	2011633567	ok
+27	landmark:philadelphia#philadelphia-museum-of-art-and-the-rocky-steps	loc	2019689180	refuse: the Rocky statue (1980 sculpture, artist copyright) is the subject
+28	landmark:philadelphia#philadelphia-zoo	loc	2019688877	ok
+29	landmark:philadelphia#philadelphia-zoo	loc	2019688853	refuse: second choice (a lion sculpture in front; 28 is the gatehouses)
+30	landmark:philadelphia#reading-terminal-market	loc	2011633394	refuse: a 1934 poster, not a photograph of the market
+31	landmark:philadelphia#reading-terminal-market	loc	2019688780	refuse: a single vendor stall (one shop counter), not the market
+32	landmark:philadelphia#rocky-statue	loc	2011630517	refuse: 1980 sculpture by A. Thomas Schomberg; artist copyright, US has no freedom of panorama for art
+33	landmark:philadelphia#simeone-foundation-automotive-museum	loc	pa4142	refuse: a single car on a studio ground; does not show the museum
+34	landmark:sanfrancisco#cable-cars-powell-hyde-and-powell-mason	loc	2013630202	ok
+35	landmark:sanfrancisco#cable-cars-powell-hyde-and-powell-mason	loc	2011630099	refuse: second choice (34 is better)
+36	landmark:sanfrancisco#chinatown-dragon-gate-and-grant-avenue	loc	2013630549	ok
+37	landmark:sanfrancisco#ferry-plaza-farmers-market-foodwise	loc	2013630063	ok
+38	landmark:sanfrancisco#fort-mason	loc	ca1039	refuse: poor 1930s print, the place is not recognisable
+39	landmark:sanfrancisco#fort-mason	loc	ca0647	refuse: poor 1930s print, the place is not recognisable
+40	landmark:sanfrancisco#ghirardelli-square	loc	2013631791	refuse: distant waterfront; Ghirardelli Square is not identifiable
+41	landmark:sanfrancisco#haight-and-ashbury-haight-ashbury	loc	2011631796	refuse: one shopfront, not the district
+42	landmark:sanfrancisco#japantown-peace-pagoda	loc	2011636270	ok
+43	landmark:sanfrancisco#japantown-peace-pagoda	loc	hig2011002764	refuse: second choice (42 is better)
+44	landmark:sanfrancisco#san-francisco-city-hall	loc	2011633074	refuse: second choice (45 is the full facade)
+45	landmark:sanfrancisco#san-francisco-city-hall	loc	2011630100	ok
