@@ -300,6 +300,24 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const live = tg.flatMap(t => (t.candidates || []).filter(c => !c.refused && glob.has(c.file)).map(c => `${t.key} ${c.file}`));
   ok(!live.length, `manifest: no target lists a file refused for its own fault as a live candidate${live.length ? ': ' + live.slice(0, 5).join('; ') : ''}`);
 }
+{ // R8 owner directive: fetch-openverse.js — discovery across all Openverse sources; nothing credited before review
+  const fo = require('./fetch-openverse');
+  const t = { key: 'landmark:singapore/balestier#x', label: 'Goh Chor Tua Pek Kong Temple', names: [], page: 'singapore/balestier', town: ['balestier'], widths: [500, 720] };
+  const r = (o) => fo.norm(Object.assign({ id: 'a1', title: 'Goh Chor Tua Pek Kong Temple, Balestier', tags: [], creator: 'Some Photographer', creator_url: 'https://www.flickr.com/photos/sp/', foreign_landing_url: 'https://www.flickr.com/photos/sp/123/',
+    url: 'https://live.staticflickr.com/1/123_b.jpg', width: 1024, height: 768, license: 'by', license_version: '2.0', source: 'flickr', provider: 'flickr', filetype: 'jpg' }, o));
+  const j = fo.judge(r({}), t, new Set());
+  ok(j.pick && j.pick.provider === 'flickr' && j.pick.sourceUrl === 'https://www.flickr.com/photos/sp/123/' && j.pick.authorUrl === 'https://www.flickr.com/photos/sp/' && j.pick.licence === 'CC BY 2.0' && j.pick.review === 'pending' && /^title/.test(j.pick.matched),
+    'fetch-openverse: a matching Flickr result becomes a review-pending pick with full TASL and the matched field');
+  ok(fo.judge(r({ license: 'by-nc' }), t, new Set()).why && fo.judge(r({ width: 400 }), t, new Set()).why && fo.judge(r({ title: 'Goh Chor Tua Pek Kong Temple 1932' }), t, new Set()).why &&
+    fo.judge(r({}), t, new Set(['https://www.flickr.com/photos/sp/123/'])).why && fo.judge(r({ title: 'A temple' }), t, new Set()).why,
+    'fetch-openverse: NC, too small, historic (pre-1950, D-50), already credited/refused, and unnamed results are refused');
+  ok(fo.pages(r({ source: 'wikimedia', foreign_landing_url: 'https://commons.wikimedia.org/wiki/File:X_y.jpg' })).commonsTitle === 'File:X y.jpg' && fo.pages(r({ source: 'smithsonian_x', foreign_landing_url: 'https://collections.si.edu/obj/1' })).provider === 'openverse' && fo.pages(r({ source: 'met', foreign_landing_url: 'http://x' })).why,
+    'fetch-openverse: Commons results keep their File: page, museum results their https landing page; others are refused');
+  ok(fo.ruleGap('venue (BAR) — never a photo') && !fo.ruleGap('no file found (wave 5 search)') && !fo.ruleGap(undefined), 'fetch-openverse: rule gaps stay closed; "no usable Commons photo" gaps are open to Openverse');
+  const ts = fo.targets({ classes: [], keys: [], pending: false });
+  ok(ts.length > 0 && ts.every((x, i) => i === 0 || fo.CLASSES.indexOf(ts[i - 1].cls) <= fo.CLASSES.indexOf(x.cls)) && !ts.some(x => x.cls === 'food') && !ts.some(x => /^landmark:vietnam\//.test(x.key)),
+    'fetch-openverse: targets are ordered hero → priority → tier 1 → other, no food until D-49, never Vietnam');
+}
 { // R8 owner directive: fetch-flickr.js fills only the stated gaps, with honest licences, matching and laundering guards
   const ff = require('./fetch-flickr');
   ok(ff.flickrGap('no file found (wave 5 search) — calm cover (stated, W8)') && ff.flickrGap('both vetted Commons files refused (a plain beach; a housing estate)') &&
