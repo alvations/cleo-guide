@@ -300,6 +300,12 @@
       n.textContent = 'Nearest first, from where you are. ' + ((G && G.ASSUME) || 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') + '. Your location stays on this device and is gone when you reload.'; }
     else if (n) n.remove();
   };
+  // phone list mode: the map sits behind the list, so "N places here" keeps the area the reader last saw — the map
+  // mode's pads (chip row, peek or carousel), not a bare map; a lens applied from the list (For you, the doors) recounts
+  // the same area instead of a larger one (D-46 doors, w2 "the count unchanged")
+  { const om = C.overMap; let pad0 = null; const cp = o => ({ paddingTopLeft: o.paddingTopLeft.slice(), paddingBottomRight: o.paddingBottomRight.slice() });
+    if (om) C.overMap = () => { const ph = !desktop() && H.classList.contains('atlas-m'), lst = ph && H.classList.contains('ms-list');
+      if (lst && pad0) return cp(pad0); const o = om(); if (ph && !lst) pad0 = cp(o); return o; }; }
   // OV-00 "Near me once": in Atlas the list head's Near me door takes the map's own reading (the dot, the map on the reader,
   // nearest first, walking times); pressed again it clears, as before (foryou.js C.near)
   on(d, 'click', e => { const b = e.target.closest && e.target.closest('[data-cleo-near]'); if (!b || !atlas() || !C.map() || !C.locate || C.dist) return;
