@@ -1,0 +1,62 @@
+
+# phone
+  PASS  cities/tokyo.html phone Your day: renders (37 new classed elements ≥ 8) = 37
+  PASS  cities/tokyo.html phone Your day: every rendered component has its own CSS rule = {}
+  FAIL  cities/tokyo.html phone Your day: the stop number is a filled badge and the day summary is not inline (not browser defaults) = {"stops":6,"nBg":"rgba(0, 0, 0, 0)","sumDisp":"block","stopDisp":"grid"}
+  PASS  cities/tokyo.html phone Your day: 0 JS errors = []
+  PASS  cities/tokyo.html phone For you picker: renders (32 new classed elements ≥ 4) = 32
+  FAIL  cities/tokyo.html phone For you picker: every rendered component has its own CSS rule = {"ul.interests":1,"button.interest":5,"span.glyph":5,"span.d":5,"span.tick":5}
+  PASS  cities/tokyo.html phone For you picked: renders (544 new classed elements ≥ 1) = 544
+  FAIL  cities/tokyo.html phone For you picked: every rendered component has its own CSS rule = {"p.because":1}
+  KNOWN cities/tokyo.html phone For you picked: span.pl-why unstyled — QA-85 (bbaf111a8 cut the For you "why" chip rule; 69128c498 did not restore it)
+  PASS  cities/tokyo.html phone For you picked: 0 JS errors = []
+  PASS  cities/tokyo.html phone Near me: renders (203 new classed elements ≥ 2) = 203
+  PASS  cities/tokyo.html phone Near me: every rendered component has its own CSS rule = {}
+  PASS  cities/tokyo.html phone Near me: 0 JS errors = []
+  PASS  cities/tokyo.html phone place sheet (#p=): renders (96 new classed elements ≥ 8) = 96
+  PASS  cities/tokyo.html phone place sheet (#p=): every rendered component has its own CSS rule = {}
+  PASS  cities/tokyo.html phone place sheet (#p=): 0 JS errors = []
+  PASS  cities/tokyo.html phone share image dialog: renders (6 new classed elements ≥ 2) = 6
+  PASS  cities/tokyo.html phone share image dialog: every rendered component has its own CSS rule = {}
+  PASS  cities/tokyo.html phone share image dialog: 0 JS errors = []
+  PASS  cities/tokyo.html phone Show all: renders (9 new classed elements ≥ 1) = 9
+  PASS  cities/tokyo.html phone Show all: every rendered component has its own CSS rule = {}
+  PASS  cities/tokyo.html phone Show all: 0 JS errors = []
+  PASS  cities/tokyo.html phone saved heart is filled (aria-pressed=true, fill not none) = {"saved":5,"fill":"rgb(122, 42, 42)","color":"rgb(28, 25, 23)"}
+  PASS  cities/tokyo.html phone saved: 0 JS errors = []
+  PASS  trip.html phone: 2+ saved places seeded = 3
+  PASS  trip.html phone (2+ saved places): renders (31 new classed elements ≥ 4) = 31
+  PASS  trip.html phone (2+ saved places): every rendered component has its own CSS rule = {}
+  PASS  trip.html phone (2+ saved places): 0 JS errors = []
+
+# desktop
+  PASS  cities/tokyo.html desktop Your day: renders (206 new classed elements ≥ 8) = 206
+  FAIL  cities/tokyo.html desktop Your day: every rendered component has its own CSS rule = {"div.daysum":1}
+  FAIL  cities/tokyo.html desktop Your day: the stop number is a filled badge and the day summary is not inline (not browser defaults) = {"stops":6,"nBg":"rgba(0, 0, 0, 0)","sumDisp":"block","stopDisp":"grid"}
+  PASS  cities/tokyo.html desktop Your day: 0 JS errors = []
+  PASS  cities/tokyo.html desktop For you picker: renders (31 new classed elements ≥ 4) = 31
+  FAIL  cities/tokyo.html desktop For you picker: every rendered component has its own CSS rule = {"ul.interests":1,"button.interest":5,"span.glyph":5,"span.d":5,"span.tick":5}
+  PASS  cities/tokyo.html desktop For you picked: renders (544 new classed elements ≥ 1) = 544
+  FAIL  cities/tokyo.html desktop For you picked: every rendered component has its own CSS rule = {"p.because":1}
+  KNOWN cities/tokyo.html desktop For you picked: span.pl-why unstyled — QA-85 (bbaf111a8 cut the For you "why" chip rule; 69128c498 did not restore it)
+  PASS  cities/tokyo.html desktop For you picked: 0 JS errors = []
+  PASS  cities/tokyo.html desktop Near me: renders (666 new classed elements ≥ 2) = 666
+  PASS  cities/tokyo.html desktop Near me: every rendered component has its own CSS rule = {}
+  PASS  cities/tokyo.html desktop Near me: 0 JS errors = []
+  PASS  cities/tokyo.html desktop place sheet (#p=): renders (96 new classed elements ≥ 8) = 96
+  PASS  cities/tokyo.html desktop place sheet (#p=): every rendered component has its own CSS rule = {}
+  PASS  cities/tokyo.html desktop place sheet (#p=): 0 JS errors = []
+  PASS  cities/tokyo.html desktop share image dialog: renders (6 new classed elements ≥ 2) = 6
+  PASS  cities/tokyo.html desktop share image dialog: every rendered component has its own CSS rule = {}
+  PASS  cities/tokyo.html desktop share image dialog: 0 JS errors = []
+  PASS  cities/tokyo.html desktop Show all: renders (310 new classed elements ≥ 1) = 310
+  PASS  cities/tokyo.html desktop Show all: every rendered component has its own CSS rule = {}
+  PASS  cities/tokyo.html desktop Show all: 0 JS errors = []
+  PASS  cities/tokyo.html desktop saved heart is filled (aria-pressed=true, fill not none) = {"saved":5,"fill":"rgb(122, 42, 42)","color":"rgb(28, 25, 23)"}
+  PASS  cities/tokyo.html desktop saved: 0 JS errors = []
+  PASS  trip.html desktop: 2+ saved places seeded = 3
+  PASS  trip.html desktop (2+ saved places): renders (33 new classed elements ≥ 4) = 33
+  PASS  trip.html desktop (2+ saved places): every rendered component has its own CSS rule = {}
+  PASS  trip.html desktop (2+ saved places): 0 JS errors = []
+
+>>> FAIL — reachable states styled: 47/54
