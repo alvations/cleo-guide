@@ -622,4 +622,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { accountOf, widthList, suspectFormat, DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { loadSharp, accountOf, widthList, suspectFormat, DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
