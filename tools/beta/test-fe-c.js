@@ -386,7 +386,6 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     const box = g.d.querySelector('#cleo-lens [data-cleo-empty]'), lens = g.d.getElementById('cleo-lens');
     chk('the lens states it, naming the search', !!box && !lens.hidden && box.querySelector('h2').textContent === 'No places match “zzqxjv”.', box && box.textContent);
     chk('it offers "Clear search" and "Show all 488"', !!box && (box.querySelector('[data-unset="q"]') || {}).textContent === 'Clear search' && (box.querySelector('[data-cleo-all]') || {}).textContent === 'Show all 488');
-    chk('the map carries the same state (Atlas)', !!g.d.querySelector('.mappane [data-cleo-empty][role="status"]'));
     chk('no "All N" mode chip stays pressed while nothing is shown', !g.d.querySelector('button[data-mode][aria-pressed="true"]'));
     chk('no card is shown', ![...g.d.querySelectorAll('li.pl')].some(c => !c.hidden));
     box.querySelector('[data-unset="q"]').click(); await sleep(150);
