@@ -487,6 +487,7 @@ const lensOutcome = (b, label) => {
     const hosts = [...new Set([...fs.readFileSync(path.join(BETA, 'assets/js/city.js'), 'utf8').matchAll(/tileLayer\('https:\/\/([^/']+)/g)].map(m => m[1]))];
     // Tiles that never load (blocked network): after 4 errors the dead map gives way to the schematic + VOICE copy.
     const W = d.defaultView, el = d.getElementById('cleo-map'), hs = {};
+    W.eval(fs.readFileSync(path.join(BETA, 'assets/js/mapfail.js'), 'utf8'));   // the lazy module core.js's Cleo.mapFallback shim loads (eager-JS budget)
     W.Cleo.watchTiles({ on: (ev, fn) => { hs[ev] = fn; } }, () => W.Cleo.mapFallback(el, null));
     for (let i = 0; i < 4; i++) hs.tileerror();
     chk('tiles failed → schematic + "The map couldn’t load" line', [el.getAttribute('data-tiles'), !!el.querySelector('.map-art img'), /map couldn’t load/.test(el.textContent)].join(), 'failed,true,true');

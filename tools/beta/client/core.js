@@ -297,6 +297,7 @@
     q = lz[n] = cb ? [cb] : [];
     var v = '';
     ['cleo-city', 'cleo-lazy'].forEach(function (x) { var el = document.getElementById(x), j = null; try { j = el && JSON.parse(el.textContent); } catch (e) {} j = j && (j.js || j); if (!v && j && j[n]) v = j[n]; });
+    if (!v) v = { offline: '__V_offline__', mapfail: '__V_mapfail__', pack: '__V_pack__' }[n] || '';   // build.js fills these in
     var s = document.createElement('script'); s.src = Cleo.root + 'assets/js/' + n + '.js' + (v ? '?v=' + v : ''); s.async = true;
     s.onload = function () { Cleo.need.done(n); };
     s.onerror = function () { delete lz[n]; };
@@ -343,25 +344,9 @@
   // the build-time schematic inside #cleo-map: kept before a map mount clears it, so a fallback re-shows it (platform W7)
   (function () { var m = document.getElementById('cleo-map'), i = m && m.querySelector('.map-art img'); if (i) m._cleoArt = i; })();
 
-  /* ---- tiles failed: drop the dead map, show the build-time schematic + the VOICE.md copy ---- */
-  Cleo.mapFallback = function (el, map) {
-    try { if (map && map.remove) map.remove(); } catch (e) {}
-    var art = el.getAttribute('data-art'), alt = el.getAttribute('data-art-alt') || '';
-    el.innerHTML = (art ? '<figure class="map-art map-fallback"><img alt="" decoding="async" style="max-width:100%;height:auto"><figcaption></figcaption></figure>'
-      : '<div class="map-fallback"><p></p></div>');
-    var img = el.querySelector('img'), kept = el._cleoArt;
-    // reuse the page's own schematic <img> (stashed below before the map cleared it): no second fetch of map.svg
-    if (img && kept && kept.getAttribute('src') === art) { kept.alt = alt; kept.style.cssText = img.style.cssText; img.parentNode.replaceChild(kept, img); img = null; }
-    if (img) { img.src = art; img.alt = alt; }
-    var cap = el.querySelector('figcaption, p');
-    var off = el.getAttribute('data-l-offline');   // W9-8: "Map unavailable · all N places listed" (catalogue string, rendered by the build)
-    cap.innerHTML = (off ? '<strong class="map-off">' + off.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }) + '</strong><br>' : '') +
-      '<strong>The map couldn\u2019t load.</strong> The list still has every place, address and source. ' +
-      'We\u2019re showing map art from our own pins until tiles return. <button type="button" class="map-retry">Try again</button>';
-    cap.querySelector('button').addEventListener('click', function () { location.reload(); });
-    el.setAttribute('data-tiles', 'failed');
-    emit('cleo:tiles-failed', {});
-  };
+  /* ---- tiles failed: the schematic + VOICE.md copy live in the lazy assets/js/mapfail.js (eager-JS budget): only a map
+   * that fails ever needs them; it is in the worker's shell and every pack, so it works offline ---- */
+  Cleo.mapFallback = function (el, map) { Cleo.need('mapfail', function () { Cleo.mapFallback(el, map); }); };
 
   /* ---- progressive rendering (M3-06; tools/beta/lib/chunk.js): later cards ship inside
    * <noscript data-cleo-defer> — raw text while JS runs, real HTML when it doesn't. Stamp a chunk as its list
@@ -615,27 +600,6 @@
   document.addEventListener('DOMContentLoaded', paintCount);
 
   /* ---- offline: register the service worker on http(s) only ---- */
-  /* "Keep this page offline": the page + every same-origin file it loaded (CSS, JS, fonts, art) + its dataset. Runs
-   * once the worker is active on every visit (the first page of a visit loads before the worker controls it), and on
-   * demand via Cleo.offline.save(). Resolves {n, ok} from the worker, or rejects when there is no worker. */
-  Cleo.offline = {
-    urls: function () {
-      var o = location.origin, out = [location.href.split('#')[0]], main = document.getElementById('main'), key = main && main.getAttribute('data-city');
-      try { (performance.getEntriesByType('resource') || []).forEach(function (r) { if (r.name.indexOf(o) === 0) out.push(r.name); }); } catch (e) {}
-      if (key) out.push(Cleo.root + 'data/places/' + key.replace(/\//g, '--') + '.json');
-      return out.filter(function (u, i) { return out.indexOf(u) === i; });
-    },
-    save: function () {
-      if (!navigator.serviceWorker) return Promise.reject(new Error('no service worker'));
-      return navigator.serviceWorker.ready.then(function (reg) {
-        return new Promise(function (ok) {
-          var t = setTimeout(function () { ok({ n: 0, ok: 0, timeout: true }); }, 15000);
-          navigator.serviceWorker.addEventListener('message', function h(e) { if (e.data && e.data.type === 'cached') { clearTimeout(t); navigator.serviceWorker.removeEventListener('message', h); emit('cleo:offline', e.data); ok(e.data); } });
-          reg.active.postMessage({ type: 'cache', urls: Cleo.offline.urls() });
-        });
-      });
-    }
-  };
   /* ---- W9-8 offline city pack: "Keep <city> offline" (data/packs/<page>.json, service worker cache `cleo-packs`, which a
    * deploy never wipes). Content never depends on it: no worker, no Cache Storage, or any storage failure → the control
    * stays hidden or says so, and the page works as before. Tiles are never cached (the pack lists none). ---- */
@@ -647,7 +611,7 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', packLoad); else packLoad();
   if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol) && Cleo.root) {
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register(Cleo.root + 'sw.js').then(function () { return Cleo.offline.save(); }).catch(function () {});
+      navigator.serviceWorker.register(Cleo.root + 'sw.js').then(function () { Cleo.need('offline', function () { Cleo.offline.save().catch(function () {}); }); }).catch(function () {});
     });
   }
 })();
