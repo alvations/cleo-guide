@@ -409,6 +409,17 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     ok(await page.evaluate(() => document.documentElement.getAttribute('data-view')) === 'gallery', '@844×390: a tap on the Gallery segment switches the view');
     await ctx.close();
   }
+  // designer (D-46 desktop sign-off): the header never overflows. The longest crumbs, Atlas (switch in the header) and
+  // Gallery, en and ja, at 1024 / 1280 / 1440: .topbar scrollWidth ≤ clientWidth and every visible control inside the viewport
+  for (const w of [1024, 1280, 1440]) for (const pg of ['cities/newyork.html', 'cities/washingtondc.html', 'Singapore/potong-pasir-macpherson.html', 'Vietnam/ho-chi-minh-city.html']) for (const lang of ['en', 'ja']) for (const view of ['atlas', 'gallery']) {
+    const ctx = await ctxFor(b, w, 'light', 900), page = await ctx.newPage(); await page.goto(BASE + 'beta/' + pg + '#view=' + view, { waitUntil: 'load' }); await page.waitForTimeout(900);
+    if (lang === 'ja') { await page.click('[data-cleo-locale=ja]'); await page.waitForTimeout(1000); }
+    const r = await page.evaluate(() => { const tb = document.querySelector('.topbar'), wr = tb.querySelector('.wrap');
+      const out = [...tb.querySelectorAll('a,button')].filter(e => e.offsetParent && getComputedStyle(e).visibility !== 'hidden').filter(e => { const r = e.getBoundingClientRect(); return r.right > innerWidth + 0.5 || r.left < -0.5; }).map(e => (e.getAttribute('aria-label') || e.textContent.trim()).slice(0, 20));
+      return { fits: wr.scrollWidth <= wr.clientWidth && tb.scrollWidth <= tb.clientWidth, out }; });
+    ok(r.fits && !r.out.length, `@${w} ${lang} ${view} ${pg}: the header fits (no overflow, every control in view)`, r);
+    await ctx.close();
+  }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
   process.exit(fails ? 1 : 0);

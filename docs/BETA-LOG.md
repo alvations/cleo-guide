@@ -2563,7 +2563,29 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **D-53 (trust):** no rating platform or own site in "Recommended by", on every surface, with a build guard (FE-B). The data side goes to the location lane: 73 Yelp-only records (SV 67, NYC 6), the `--sourcecheck` gate re-checked, and the NYC Wah Fung duplicate.
   - **D-49 × "Start with":** one starting place per view (FE-A); Tokyo's Atlas names Kanda Myōjin while Edo-Tokyo Museum spans.
   - **Round 4** shoots once FE-A's header SHA and FE-1's L SHA are on origin.
+
+## 2026-10-17 · FE-1 · QC b1c7939f: phone Atlas search ×2 and drag-from-dot
+
+- **What QC saw as "the city field peeking out" ("ex" beside All)** is the "N places not on the map" note (`.nopin`). fe-c.css puts it at top 60 px on phones, under the chip row; my bottom rule lost on load order. It now sits above the credit at the bottom left (`.mappane>.nopin`, `top:auto`; 700–728 against the credit at 740 at 390×844).
+- **Search ×2:** the in-page city field on phone Atlas was a 1 px focus target that still hit-tested, so QC counted it as a second search. At rest it is now `visibility:hidden`: not drawn, not hit, not tabbed to. The header's search icon sets `.ms-open` and focuses it; it closes on blur when empty.
+  - Checked at 390×844 and 390×664 in en and ja: 1 search at rest; the icon opens and focuses the field; typing filters; Escape closes it; Tab never reaches it.
+- **A drag from a dot selected instead of panning:** hovering a dot draws its pin under the pointer. The canvas then saw a mouseout and removed the pin, then a mouseover and drew it again. A press during that flicker began on the pin's link or was lost. The hover pin now takes no pointer events and has no tab stop, so the press reaches the dot and Leaflet tells a tap from a drag.
+  - Checked: QC's 8 pages (Bruges, Chicago, Erie, Harrisburg, Madison, Osaka, Philadelphia, Saarland) all pan from the map centre. A tap on a dot still selects it, by mouse and by touch.
+  - New atlas-ms row (P1): the hover pin takes no pointer events; a drag from a dot pans and opens nothing; a tap still selects.
+- This should also clear QC's chromePan, clearPan and phone attribution rows on Bruges and Chicago: their pan began on a dot, so nothing tucked or folded.
 - **OV-106 / OV-115–117 (one search per screen below 1024):** outside Atlas, the city field folds away while empty and unfocused. It is clipped, not removed, so FE-B's header icon can still focus it, and `:focus-within` or a typed query brings it back.
   - In landscape the empty city bar takes no height.
   - Measured on Tokyo, Gallery and Guidebook, at 768×1024 and 844×390: no field at rest, the icon opens it, and a typed query keeps it.
 - **QC-06 (768 Atlas):** the header switch segments are 44 × 44 on a 48 px track, with the QA-82 tooltip. feb-switcher.js passes at every width.
+- **Header never overflows (designer's D-46 desktop sign-off condition):**
+  - **Fix:** in desktop Atlas, where the switch rides in the header, "Destinations" leaves the header. It stays in the menu and footer. The crumb now shrinks per segment with an ellipsis; atlas.css had held it at flex:none.
+  - **Before:** it failed on NYC, DC and HCMC at 1440, and on Potong Pasir at 1024 and 1440 (the saved ♡ was clipped).
+  - **After:** all fit at 1024, 1280 and 1440, en and ja, in Atlas and Gallery.
+  - **New check:** the w8 probe now asserts that the header's scrollWidth ≤ clientWidth and every control is in view, on those 4 pages × 3 widths × 2 languages × 2 views.
+- 2026-10-17 12:45Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Head f3983b4a3:** validate and beta:check pass (8,691 places, beta == live). The full npm test is running, with its log kept whole; the result goes in the next entry.
+  - **Photo run #111:** gates passed at 12:40Z, and the commit step is running. It is the first photo run to reach a commit since about 03:30.
+  - **CSS cut bbaf111a8 regressed day plans and the saved heart.** The designer is asked to revert it whole. The orchestrator's own revert was blocked by the auto-mode classifier (another lane's commit on the shared branch), so the owning lane does it. The interim pin is blocked until then.
+  - **QA-83 (Low, FE-A):** the lead photo renders 4:3, not 3:2.
+  - **Owner action:** the EUROPEANA_API_KEY Actions secret.
+  - **Round 4** waits on FE-A's NYC header fix and FE-1's phone search/drag fixes.

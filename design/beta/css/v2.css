@@ -134,8 +134,8 @@
 :root .g-lead-card .gc, html:root[data-view=gallery] .g-lead-slot .gc { background: transparent; border: 0; box-shadow: none; padding: 0; }
 :root .tg.t1, :root .tier.t1 { color: var(--ink); }
 :root .heart { background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink); border: 0; box-shadow: var(--shadow-sm); }
-
-
+:root .heart[aria-pressed="true"] { color: var(--accent); }
+:root .heart[aria-pressed="true"] svg { fill: currentColor; }
 @media (hover: hover) { :root :is(.gc, .pl, .tile, .dest > a):hover :is(.cover, .pl-cover, .art) { filter: brightness(.97); } }
 :root :is(.gc, .pl, .tile, .dest > a):active :is(.cover, .pl-cover, .art) { transform: scale(.99); }
 
@@ -178,7 +178,7 @@
 :root .leaflet-control-zoom a, :root .leaflet-bar a { background: var(--surface); color: var(--ink); border-color: var(--line); }
 :root .pin-n:not(.sel):not(.day) { --acq: color-mix(in oklab, var(--ac, var(--ink-3)) var(--area-mix), var(--area-mute));
   border-color: var(--surface); box-shadow: inset 0 -2px 0 var(--acq), var(--shadow-sm); background: var(--surface); color: var(--ink); font-weight: 600; }
-
+:root .pin-n.sel { background: var(--ink); color: var(--paper); border-color: var(--surface); }
 :root .pin-n.day { background: var(--accent); color: var(--on-accent); }
 
 :root .pin-cl:is(.hot, :hover, :focus-visible) span { background: var(--ink); color: var(--paper); text-shadow: none; }
@@ -186,7 +186,8 @@
 /* know-before box: a quiet sand note, no area edge */
 :root .pl-k:has(.lbl) { border-left: 0; background: var(--sand); border-radius: var(--r-s); }
 :root .lookfor .tag { border-color: var(--line); color: var(--ink-2); }
-
+/* sheet hero: the calm cover, without the locator inset */
+:root .detail .hero-plate :is(.loc, .map) { display: none !important; }
 
 /* ---------- V2.14 the sun highlight (W7 amendment: Gen Z wanderlust, kept classy) ----------
    ONE warm, flat highlight per screen family: the sticker badge for a data-backed distinction ("Must see" — never on a
@@ -196,7 +197,7 @@
   font: 600 var(--fs-xs)/1 var(--font-ui); letter-spacing: var(--track-eyebrow); padding: var(--s-2) var(--s-3); border-radius: var(--r-pill); box-shadow: none; }
 :root .sticker .ico, :root .tier.t1:not(.lg) .ico { width: 13px; height: 13px; color: currentColor; }
 
-
+:root .heart[aria-pressed="true"] { box-shadow: var(--ring-sun), var(--shadow-sm); }
 @media (prefers-reduced-motion: no-preference) {
   :root .heart[aria-pressed="true"] svg { animation: v2-pop var(--dur-pop) var(--ease-spring) 1; }
   @keyframes v2-pop { 0% { transform: scale(.7); } 60% { transform: scale(1.18); } 100% { transform: scale(1); } }
@@ -211,8 +212,8 @@
    document.startViewTransition(), and give the sheet's media the same name. Browsers without view transitions get the
    .v2-grow FLIP fallback (FE-A sets --gx/--gy/--gs from the tapped rect). Nothing autoplays; reduced motion = no animation. */
 ::view-transition-group(cleo-grow) { animation-duration: var(--dur-grow); animation-timing-function: var(--ease-grow); }
-
-
+::view-transition-old(cleo-grow), ::view-transition-new(cleo-grow) { animation-duration: var(--dur-grow); animation-timing-function: var(--ease-grow); height: 100%; object-fit: cover; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: var(--dur-2); }
 @media (prefers-reduced-motion: no-preference) {
   @keyframes v2-grow { from { transform: translate(var(--gx, 0), var(--gy, 24px)) scale(var(--gs, .96)); opacity: .6; } to { transform: none; opacity: 1; } }
 }
