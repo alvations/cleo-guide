@@ -295,14 +295,16 @@ async function load(rel, { url, storageThrows = false, fetchFails = false, seed 
     const viaBtn = d.activeElement && d.activeElement.id; d.activeElement.blur();
     d.body.dispatchEvent(new w.KeyboardEvent('keydown', { key: '/', bubbles: true, cancelable: true }));
     const viaSlash = d.activeElement && d.activeElement.id;
-    // the row's code is lazy: the field's first focus asks Cleo.need for allguides.js (jsdom does not fetch it — run it here)
+    // the row's code is lazy: the first cleo:city-search with a query asks Cleo.need for allguides.js (jsdom does not fetch
+    // it — run it here; on load it draws from Cleo.city.none, as after a #q= deep link)
+    w.Cleo.city = Object.assign(w.Cleo.city || {}, { none: [0, 'ramen', 194] });
+    d.dispatchEvent(new w.CustomEvent('cleo:city-search', { detail: { q: 'ramen', n: 0 } }));
     const asked = [...d.querySelectorAll('script[src]')].some(x => /assets\/js\/allguides\.js/.test(x.getAttribute('src')));
     w.eval(rd('assets/js/allguides.js'));
-    d.dispatchEvent(new w.CustomEvent('cleo:city-search', { detail: { q: 'ramen', n: 0 } }));
     const a = d.querySelector('[data-cleo-all-slot] a[data-cleo-all-guides]');
     const ev = new w.KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }); let nav = null;
     try { d.getElementById('cleo-filter').dispatchEvent(ev); } catch (e) { nav = String(e); }
-    chk('city field is the one search: header button + "/" focus it; first focus lazy-loads allguides.js; "Search all guides for “ramen”" row; Enter with 0 hits runs it',
+    chk('city field is the one search: header button + "/" focus it; the first query lazy-loads allguides.js; "Search all guides for “ramen”" row; Enter with 0 hits runs it',
       [viaBtn, viaSlash, asked, a && a.textContent, a && a.getAttribute('href'), ev.defaultPrevented, errors.length],
       v => v[0] === 'cleo-filter' && v[1] === 'cleo-filter' && v[2] === true && v[3] === 'Search all guides for “ramen”' && /index\.html\?q=ramen#search$/.test(v[4]) && v[5] === true && v[6] === 0);
     d.dispatchEvent(new w.CustomEvent('cleo:city-search', { detail: { q: '', n: 0 } }));

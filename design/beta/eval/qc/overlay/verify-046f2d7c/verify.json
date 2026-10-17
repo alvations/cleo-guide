@@ -1,0 +1,114 @@
+{
+ "label": "046f2d7c",
+ "root": "/tmp/claude-0/-home-user-cleo-guide/435ea876-e2ae-5b30-9781-4928f13076cc/scratchpad/qc-dev-046f2d7c",
+ "res": {
+  "OV-08": {
+   "pass": true,
+   "390x664": {
+    "dialog": true,
+    "inside": true,
+    "img": [
+     233,
+     414
+    ],
+    "ratio": 1.78,
+    "imgIn": true,
+    "heading": true,
+    "scrolls": false
+   },
+   "844x390": {
+    "dialog": true,
+    "inside": true,
+    "img": [
+     179,
+     318
+    ],
+    "ratio": 1.78,
+    "imgIn": true,
+    "heading": true,
+    "scrolls": false
+   },
+   "shot": "design/beta/eval/qc/overlay/verify-046f2d7c/shots/OV-08-card-844x390.jpg",
+   "768x1024": {
+    "dialog": true,
+    "inside": true,
+    "img": [
+     270,
+     480
+    ],
+    "ratio": 1.78,
+    "imgIn": true,
+    "heading": true,
+    "scrolls": false
+   },
+   "1024x768": {
+    "dialog": true,
+    "inside": true,
+    "img": [
+     270,
+     480
+    ],
+    "ratio": 1.78,
+    "imgIn": true,
+    "heading": true,
+    "scrolls": false
+   }
+  },
+  "OV-12": {
+   "pass": true,
+   "390x844#view=gallery": {
+    "note": true,
+    "h": 92,
+    "shown": true,
+    "cap": 100
+   },
+   "390x844#view=atlas": {
+    "note": true,
+    "h": 92,
+    "shown": true,
+    "cap": 100
+   },
+   "1440x900#view=gallery": {
+    "note": true,
+    "h": 58,
+    "shown": true,
+    "cap": 80
+   }
+  },
+  "OV-40": {
+   "pass": true,
+   "390x844": {
+    "clicked": true,
+    "toast": false,
+    "sheet": true
+   },
+   "shot390x844": "design/beta/eval/qc/overlay/verify-046f2d7c/shots/OV-40-toast-390x844.jpg",
+   "390x664": {
+    "clicked": true,
+    "toast": false,
+    "sheet": true
+   },
+   "844x390": {
+    "clicked": true,
+    "toast": false,
+    "sheet": true
+   },
+   "768x1024": {
+    "clicked": true,
+    "toast": false,
+    "sheet": true
+   },
+   "1024x768": {
+    "clicked": true,
+    "toast": false,
+    "sheet": true
+   },
+   "1440x900": {
+    "clicked": true,
+    "toast": false,
+    "sheet": true
+   },
+   "shot1440x900": "design/beta/eval/qc/overlay/verify-046f2d7c/shots/OV-40-toast-1440x900.jpg"
+  }
+ }
+}

@@ -354,6 +354,10 @@
      *  deploy (2026-10-16): QA-75 (FE-A 752a77fc), QA-76 (FE-2 4aba38b3) and QC-26 (FE-2 3929ad4b) fixed and guarded —
      *  tools/beta/qa/perf08-regress.sh and test-beta's QA-75 guard. See BETA-PERF-AUDIT PERF-08. */
     selective: true,
+    /** PERF-21: under a selective lens the Gallery pager builds only the lens's current page (views.js), and routed()
+     *  leaves the lens's other pages unstamped. Desktop filter INP ≈ 490 → ≈ 105 ms (4× CPU). ON since QA accepted the
+     *  restated PERF-08 (a)/(b) (tools/beta/qa/lenspage-accept.js, 2026-10-17). */
+    lensPage: true,
     /** Every card in document (= view) order, stamped or not, WITHOUT stamping: [{id:'p-…', a, el|null, ns|null}].
      *  Lets the Gallery pager place a deep link on its page and stamp only that page (platform W7, R6 gap #5). */
     order: function () {
@@ -545,7 +549,9 @@
   // under a selective lens the cards it leaves unstamped are outside it: their lists' height spacers fold away and the lazy
   // observer waits; when the lens clears both come back (scrolling then builds every card, as with no lens)
   // a selective lens: its matching cards, its #p= place, and every view chunk (a view's own list must meet the lens too)
-  var lensNow = function (lr) { D.stampLens(lr); if (lr.p) stampPlace(); VC.slice().forEach(function (c) { c.all(); }); };
+  // PERF-21: where a pager builds the lens's own page (views.js Gallery: D.paged()), a lens with no text query leaves the
+  // rest of its matches unstamped; counts, sections and pins read them as stubs
+  var lensNow = function (lr) { if (!(D.lensPage && D.paged && D.paged() && !lr.q && lr.all !== '1')) D.stampLens(lr); if (lr.p) stampPlace(); VC.slice().forEach(function (c) { c.all(); }); };
   var lensed = function () { return !!D.selective && D.pending().length > 0 && Cleo.lens.on(Cleo.lens.current()); };
   var gaps = function () { var off = lensed(); [].forEach.call(document.querySelectorAll('.cleo-defer-gap[data-est]'), function (g) { g.style.display = off ? 'none' : ''; }); };
   var routed = function () { if (!D.pending().length && !VC.length) return; var q = quiet(); if (q === 'p') stampPlace();

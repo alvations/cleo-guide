@@ -1,67 +1,67 @@
 # Location-verify report — singapore
 
-_Generated 2026-10-16 by `tools/location-verify.js 0.1.0` · mode **live** · scope unverified, low, status · 712 of 712 rows in scope._
+_Generated 2026-10-17 by `tools/location-verify.js 0.1.0` · mode **live** · scope unverified, low, status · 701 of 701 rows in scope._
 
 > PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).
 
+7 registry row(s) on neither the page nor the dataset were left out (orphans; `--include-orphans` to check them).
+
 City anchor (median of high-confidence pins): 1.36709, 103.86838 · candidates farther than 150 km are discarded as same-name-elsewhere.
 
-Requests: 344 network · 914 cache hits · 300 Nominatim · failures: www.majesticsaigon.com.vn CERT_HAS_EXPIRED; overpass-api.de HTTP 504; overpass-api.de HTTP 502; overpass-api.de HTTP 502
+Requests: 327 network · 1226 cache hits · 300 Nominatim · failures: www.majesticsaigon.com.vn CERT_HAS_EXPIRED; overpass-api.de HTTP 504
 
-Failed requests by host: www.majesticsaigon.com.vn 1/1 · overpass-api.de 3/9}
+Failed requests by host: www.majesticsaigon.com.vn 1/1 · overpass-api.de 1/13}
 
-OSM lifecycle (closure) evidence missing for 30 row(s): both Overpass instances failed for their batch. Coordinates are unaffected.
+OSM lifecycle (closure) evidence missing for 10 row(s): both Overpass instances failed for their batch. Coordinates are unaffected.
 
 ## Summary
 
 | outcome | rows |
 |---|---|
-| status-needs-check | 1 |
-| pin | 40 |
-| no-match | 100 |
-| ambiguous | 8 |
-| shared-object | 2 |
-| conflict | 6 |
-| skipped | 527 |
-| confirm | 27 |
+| status-needs-check | 2 |
+| pin | 64 |
+| no-match | 175 |
+| ambiguous | 14 |
+| conflict | 10 |
+| confirm | 29 |
+| skipped | 407 |
 | move | 2 |
 
-Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 · review 1 · no-change 24
+Review assist (advice against the accept bar): hold 68 · reject 598 · pass 9 · review 2 · no-change 24
 
 ## Rows
 
 | place | now | scope | outcome | assist | proposal | evidence |
 |---|---|---|---|---|---|---|
-| Hawker Chan (Liao Fan Hong Kong Soya Sauce Chicken Rice & Noodle) | UNVERIFIED | unverified | pin | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 1.28299, 103.84293 **high** · new pin · “Hawker Chan” · [wikidata](https://www.wikidata.org/wiki/Q111180930) 2026-10-16 | overpass: HTTP 500 |
-| Toa Payoh Heritage Trail | 1.3323, 103.8457 (low) | low | no-match | **reject**: no proposal | — | overpass: HTTP 500 |
-| Kor Panich (K. Panich) | UNVERIFIED | unverified | pin | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 13.7521, 100.4984 **high** · new pin · “Kor Panich” · [wikidata](https://www.wikidata.org/wiki/Q115802214) 2026-10-16 | overpass: HTTP 500 |
+| Hawker Chan (Liao Fan Hong Kong Soya Sauce Chicken Rice & Noodle) | UNVERIFIED | unverified | pin | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 1.28299, 103.84293 **high** · new pin · “Hawker Chan” · [wikidata](https://www.wikidata.org/wiki/Q111180930) 2026-10-16 |  |
+| Toa Payoh Heritage Trail | 1.3323, 103.8457 (low) | low | no-match | **reject**: no proposal | — |  |
+| Kor Panich (K. Panich) | UNVERIFIED | unverified | pin | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 13.7521, 100.4984 **high** · new pin · “Kor Panich” · [wikidata](https://www.wikidata.org/wiki/Q115802214) 2026-10-16 |  |
 | Khao Soi Mae Sai | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
-| Founder Bak Kut Teh (Balestier) | UNVERIFIED | unverified | pin | **pass**: OSM POI, name 1, house number + street match | 1.32435, 103.85109 **high** · new pin · “Founder Bak Kut Teh” · [osm-poi](https://www.openstreetmap.org/node/4491834991) 2026-10-16 | OSM node/4491834991 amenity=restaurant · addresstype=amenity · name “Founder Bak Kut Teh” · 347 Balestier Road, Singapore, 329777 · check_date=2022-10-27 — overpass: HTTP 500 |
+| Founder Bak Kut Teh (Balestier) | UNVERIFIED | unverified | pin | **pass**: OSM POI, name 1, house number + street match | 1.32435, 103.85109 **high** · new pin · “Founder Bak Kut Teh” · [osm-poi](https://www.openstreetmap.org/node/4491834991) 2026-10-16 | OSM node/4491834991 amenity=restaurant · addresstype=amenity · name “Founder Bak Kut Teh” · 347 Balestier Road, Singapore, 329777 · check_date=2022-10-27 |
 | He Zhong Carrot Cake | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
-| Banh Mi Phuong | 15.87843, 108.332071 (low) | low | ambiguous | **reject**: no proposal | — | candidates disagree by 95578 m; overpass: HTTP 500 |
-| Warung Babi Guling Ibu Oka | UNVERIFIED | unverified | pin | **hold**: med: needs a second independent source within 50 m | -8.50576, 115.26435 **med** · new pin · “Warung Babi Guling Ibu Oka” · [osm-poi](https://www.openstreetmap.org/way/705065779) 2026-10-16 | OSM way/705065779 amenity=restaurant · addresstype=amenity · name “Warung Babi Guling Ibu Oka” · 2 Jalan Tegal Sari, Ubud, Bali 80571 · building=yes, opening_hours=Mo-Su 11:00-18:00 — overpass: HTTP 500 |
+| Banh Mi Phuong | 15.87843, 108.332071 (low) | low | ambiguous | **reject**: no proposal | — | candidates disagree by 95578 m |
+| Warung Babi Guling Ibu Oka | UNVERIFIED | unverified | pin | **hold**: med: needs a second independent source within 50 m | -8.50576, 115.26435 **med** · new pin · “Warung Babi Guling Ibu Oka” · [osm-poi](https://www.openstreetmap.org/way/705065779) 2026-10-16 | OSM way/705065779 amenity=restaurant · addresstype=amenity · name “Warung Babi Guling Ibu Oka” · 2 Jalan Tegal Sari, Ubud, Bali 80571 · building=yes, opening_hours=Mo-Su 11:00-18:00 |
 | Sate Khas Senayan | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
 | Gudeg Yu Djum | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
 | Restoran Pagi Sore | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Zubuchon | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
-| Rico's Lechon | 10.32514, 123.91924 (low) | low | no-match | **reject**: no proposal | — | overpass: HTTP 500 |
+| Rico's Lechon | 10.32514, 123.91924 (low) | low | no-match | **reject**: no proposal | — |  |
 | The Aristocrat Restaurant | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
 | Manam Comfort Filipino | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
 | Rangoon Tea House | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
 | Cuisine Wat Damnak | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
 | Romdeng — CLOSED | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
 | Tamarind | UNVERIFIED | unverified | ambiguous | **reject**: no proposal | — | candidates disagree by 11427 m |
-| Eng Seng Restaurant (Joo Chiat) — CLOSED | UNVERIFIED | unverified | shared-object | **reject**: low / shared OSM object | 1.31437, 103.90595 **low** · new pin · “Eng Seng Restaurant” · [osm-poi](https://www.openstreetmap.org/way/285163475) 2026-10-16 | OSM way/285163475 amenity=restaurant · addresstype=amenity · name “Eng Seng Restaurant” · Joo Chiat Place, Singapore, 423991 · building=yes, building:levels=1 — overpass: HTTP 500; shared object: OSM way/285163475 also matched Eng Seng Restaurant — CLOSED (Joo Chiat); graded low |
-| Eng Seng Restaurant — CLOSED (Joo Chiat) | UNVERIFIED | unverified | shared-object | **reject**: low / shared OSM object | 1.31437, 103.90595 **low** · new pin · “Eng Seng Restaurant” · [osm-poi](https://www.openstreetmap.org/way/285163475) 2026-10-16 | OSM way/285163475 amenity=restaurant · addresstype=amenity · name “Eng Seng Restaurant” · Joo Chiat Place, Singapore, 423991 · building=yes, building:levels=1 — overpass: HTTP 500; shared object: OSM way/285163475 also matched Eng Seng Restaurant (Joo Chiat) — CLOSED; graded low |
-| Rahmath Cheese Prata | 1.3344, 103.852 (low) | low | no-match | **reject**: no proposal | — | overpass: HTTP 500 |
+| Eng Seng Restaurant (Joo Chiat) — CLOSED | UNVERIFIED | unverified | pin | **review**: closed place: a pin keeps its story on the map — the reviewer decides whether it gets one | 1.31437, 103.90595 **med** · new pin · “Eng Seng Restaurant” · [osm-poi](https://www.openstreetmap.org/way/285163475) 2026-10-16 | OSM way/285163475 amenity=restaurant · addresstype=amenity · name “Eng Seng Restaurant” · Joo Chiat Place, Singapore, 423991 · building=yes, building:levels=1 |
+| Rahmath Cheese Prata | 1.3344, 103.852 (low) | low | no-match | **reject**: no proposal | — |  |
 | Hungry Wok | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
 | Bun Bo Hue 14B | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
-| Banh Xeo 46A | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number true, street false) | 10.7896, 106.6913 **high** · new pin · “Bánh Xèo 46A” · [osm-poi](https://www.openstreetmap.org/node/3506699501) 2026-10-16 | OSM node/3506699501 amenity=restaurant · addresstype=amenity · name “Bánh Xèo 46A” · 46A Ðinh Công Tráng, Thành phố Hồ Chí Minh, 71008 — overpass: HTTP 500 |
-| Bun Thit Nuong Chi Tuyen | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number null, street true) | 10.76195, 106.69356 **high** · new pin · “Bún Thịt Nướng - Chị Tuyền” · [osm-poi](https://www.openstreetmap.org/node/6141692745) 2026-10-16 | OSM node/6141692745 amenity=restaurant · addresstype=amenity · name “Bún Thịt Nướng - Chị Tuyền” · Cô Giang, Thành phố Hồ Chí Minh, 71011 — overpass: HTTP 500 |
+| Banh Xeo 46A | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number true, street false) | 10.7896, 106.6913 **high** · new pin · “Bánh Xèo 46A” · [osm-poi](https://www.openstreetmap.org/node/3506699501) 2026-10-16 | OSM node/3506699501 amenity=restaurant · addresstype=amenity · name “Bánh Xèo 46A” · 46A Ðinh Công Tráng, Thành phố Hồ Chí Minh, 71008 |
+| Bun Thit Nuong Chi Tuyen | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number null, street true) | 10.76195, 106.69356 **high** · new pin · “Bún Thịt Nướng - Chị Tuyền” · [osm-poi](https://www.openstreetmap.org/node/6141692745) 2026-10-16 | OSM node/6141692745 amenity=restaurant · addresstype=amenity · name “Bún Thịt Nướng - Chị Tuyền” · Cô Giang, Thành phố Hồ Chí Minh, 71011 |
 | Che Hien Khanh | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
-| Bo Kho Ganh | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.76179, 106.673 **med** · new pin · “Bò kho gánh” · [osm-poi](https://www.openstreetmap.org/node/13396683121) 2026-10-16 | OSM node/13396683121 amenity=restaurant · addresstype=amenity · name “Bò kho gánh” · Sư Vạn Hạnh, Thành phố Hồ Chí Minh, 72522 — overpass: HTTP 500 |
+| Bo Kho Ganh | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.76179, 106.673 **med** · new pin · “Bò kho gánh” · [osm-poi](https://www.openstreetmap.org/node/13396683121) 2026-10-16 | OSM node/13396683121 amenity=restaurant · addresstype=amenity · name “Bò kho gánh” · Sư Vạn Hạnh, Thành phố Hồ Chí Minh, 72522 |
 | Com Tam Bai Rac | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
-| Bun Rieu Ganh | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number null, street true) | 10.77391, 106.69893 **high** · new pin · “Bún riêu ganh” · [osm-poi](https://www.openstreetmap.org/node/11491076669) 2026-10-16 | OSM node/11491076669 amenity=cafe · addresstype=amenity · name “Bún riêu ganh” · Lê Thánh Tôn, Thành phố Hồ Chí Minh, 71009 — overpass: HTTP 500 |
+| Bun Rieu Ganh | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number null, street true) | 10.77391, 106.69893 **high** · new pin · “Bún riêu ganh” · [osm-poi](https://www.openstreetmap.org/node/11491076669) 2026-10-16 | OSM node/11491076669 amenity=cafe · addresstype=amenity · name “Bún riêu ganh” · Lê Thánh Tôn, Thành phố Hồ Chí Minh, 71009 |
 | Bo La Lot Co Lieng | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Huê Ký Mì Gia | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Hủ Tiếu Sa Tế Quảng Ký | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
@@ -73,23 +73,22 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | Là Việt Coffee | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Layla - Eatery & Bar | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | The Enigma Mansion | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
-| Hudson Rooms | UNVERIFIED | unverified | no-match | **reject**: no proposal | — |  |
 | Chè Kỳ Đồng | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Book Street (Duong Sach Nguyen Van Binh) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Ong Bon Pagoda (Nhi Phu Temple) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Ho Thi Ky Flower & Food Market | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
-| Huyen Sy Church | UNVERIFIED | unverified, status | pin | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 10.75467, 106.41503 **high** · new pin · “Huyện Sỹ Church (St. Philip the Apostle)” · [wikidata](https://www.wikidata.org/wiki/Q10800886) 2026-10-16 | overpass: HTTP 500 |
-| Tan Dinh Market | 10.79222, 106.69056 (med) | status | conflict | **hold**: conflict: 265 m from the current pin — look at both | 10.7899, 106.69 **high** · 265 m · “Tan Dinh Market” · [wikidata](https://www.wikidata.org/wiki/Q31994680) 2026-10-16 | overpass: HTTP 500 |
-| Saigon River Park (Thu Thiem Riverfront) | 10.772908, 106.709389 (high) | status | no-match | **reject**: no proposal | — | overpass: HTTP 500 |
+| Huyen Sy Church | UNVERIFIED | unverified, status | pin | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 10.75467, 106.41503 **high** · new pin · “Huyện Sỹ Church (St. Philip the Apostle)” · [wikidata](https://www.wikidata.org/wiki/Q10800886) 2026-10-16 |  |
+| Tan Dinh Market | 10.79222, 106.69056 (med) | status | conflict | **hold**: conflict: 265 m from the current pin — look at both | 10.7899, 106.69 **high** · 265 m · “Tan Dinh Market” · [wikidata](https://www.wikidata.org/wiki/Q31994680) 2026-10-16 |  |
+| Saigon River Park (Thu Thiem Riverfront) | 10.772908, 106.709389 (high) | status | no-match | **reject**: no proposal | — |  |
 | FITO Museum (Traditional Vietnamese Medicine) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Hu Tieu Ty Lum | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Hủ Tiếu Sa Tế Tô Ký | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Dimsum Tiến Phát | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Cà Phê Ba Lù | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
-| Phá Lấu Tám Ký (Tiều) | UNVERIFIED | unverified, status | pin | **pass**: OSM POI, name 1, house number + street match | 10.75287, 106.65769 **high** · new pin · “Tâm Ký Phá lấu” · [osm-poi](https://www.openstreetmap.org/node/13668396348) 2026-10-16 | OSM node/13668396348 amenity=restaurant · addresstype=amenity · name “Tâm Ký Phá lấu” · 823 Nguyễn Trãi, Thành phố Hồ Chí Minh, 72723 — overpass: HTTP 500 |
+| Phá Lấu Tám Ký (Tiều) | UNVERIFIED | unverified, status | pin | **pass**: OSM POI, name 1, house number + street match | 10.75287, 106.65769 **high** · new pin · “Tâm Ký Phá lấu” · [osm-poi](https://www.openstreetmap.org/node/13668396348) 2026-10-16 | OSM node/13668396348 amenity=restaurant · addresstype=amenity · name “Tâm Ký Phá lấu” · 823 Nguyễn Trãi, Thành phố Hồ Chí Minh, 72723 |
 | Chè Tường Phong | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
-| Khổ Qua Cà Ớt | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.7551, 106.67454 **med** · new pin · “Khổ qua cà ớt” · [osm-poi](https://www.openstreetmap.org/way/1529700704) 2026-10-16 | OSM way/1529700704 amenity=restaurant · addresstype=amenity · name “Khổ qua cà ớt” · 120 Đường Bùi Hữu Nghĩa, Thành phố Hồ Chí Minh, 72721 · building=yes — overpass: HTTP 500 |
-| Va Thanh | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.75461, 106.67696 **med** · new pin · “Va Thành” · [osm-poi](https://www.openstreetmap.org/way/1525476289) 2026-10-16 | OSM way/1525476289 amenity=restaurant · addresstype=amenity · name “Va Thành” · 40 Huỳnh Mẫn Đạt, Thành phố Hồ Chí Minh, 72721 · building=yes — overpass: HTTP 500 |
+| Khổ Qua Cà Ớt | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.7551, 106.67454 **med** · new pin · “Khổ qua cà ớt” · [osm-poi](https://www.openstreetmap.org/way/1529700704) 2026-10-16 | OSM way/1529700704 amenity=restaurant · addresstype=amenity · name “Khổ qua cà ớt” · 120 Đường Bùi Hữu Nghĩa, Thành phố Hồ Chí Minh, 72721 · building=yes |
+| Va Thanh | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.75461, 106.67696 **med** · new pin · “Va Thành” · [osm-poi](https://www.openstreetmap.org/way/1525476289) 2026-10-16 | OSM way/1525476289 amenity=restaurant · addresstype=amenity · name “Va Thành” · 40 Huỳnh Mẫn Đạt, Thành phố Hồ Chí Minh, 72721 · building=yes |
 | Bún Num Bò Chóc Tư Xê | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | An's Saigon | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.80611, 106.73226 **med** · new pin · “An's Saigon” · [osm-poi](https://www.openstreetmap.org/node/12958243459) 2026-10-16 | OSM node/12958243459 amenity=restaurant · addresstype=amenity · name “An's Saigon” · Tống Hữu Định, Thành phố Hồ Chí Minh, 71108 · website=https://www.anssaigon.com/, check_date=2025-06-24, opening_hours=11:00-14:30,17:30+ |
 | Mi Lanh Yoo Chun | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number null, street true) | 10.72827, 106.71013 **high** · new pin · “Mì lạnh Yoo Chun” · [osm-poi](https://www.openstreetmap.org/node/11348772196) 2026-10-16 | OSM node/11348772196 amenity=restaurant · addresstype=amenity · name “Mì lạnh Yoo Chun” · Nguyễn Văn Linh, Thành phố Hồ Chí Minh, 72912 |
@@ -180,131 +179,131 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | Hủ Tiếu 44 | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Hủ Tiếu Cá Thảo | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Hủ Tiếu Bà Sẩm | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
-| Kẹo Dừa Bến Tre (Thanh Long) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bánh Cống Cô Út | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Nem Nướng Thanh Vân | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bánh Tét Lá Cẩm Nhà Họ Huỳnh | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Galerie Quynh | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Salon Saigon | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Craig Thomas Gallery | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| San Art | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| MoT+++ | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| The Factory Contemporary Arts Centre | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Ao Dai Museum (Bao Tang Ao Dai) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Phap Hoa Pagoda | 10.7825, 106.67917 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Phung Son Pagoda (Chua Go) | 10.75528, 106.64833 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| Kẹo Dừa Bến Tre (Thanh Long) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bánh Cống Cô Út | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.02119, 105.76389 **med** · new pin · “bánh cống Cô Út” · [osm-poi](https://www.openstreetmap.org/node/5251645331) 2026-10-17 | OSM node/5251645331 amenity=restaurant · addresstype=amenity · name “bánh cống Cô Út” · Hẻm 1, Thành phố Cần Thơ, 94000 · opening_hours=Mo-Su 08:00-18:00 |
+| Nem Nướng Thanh Vân | UNVERIFIED | unverified, status | pin | **pass**: OSM POI, name 1, house number + street match | 10.03237, 105.78334 **high** · new pin · “Nem nướng Thanh Vân” · [osm-poi](https://www.openstreetmap.org/node/2108427820) 2026-10-17 | OSM node/2108427820 amenity=restaurant · addresstype=amenity · name “Nem nướng Thanh Vân” · 17 Hòa Bình, Thành phố Cần Thơ, 94000 |
+| Bánh Tét Lá Cẩm Nhà Họ Huỳnh | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Galerie Quynh | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Salon Saigon | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Craig Thomas Gallery | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| San Art | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.7899, 106.70993 **med** · new pin · “Sàn Art” · [osm-poi](https://www.openstreetmap.org/node/4223495589) 2026-10-17 | OSM node/4223495589 tourism=artwork · addresstype=tourism · name “Sàn Art” · Hẻm 48 Mê Linh, Thành phố Hồ Chí Minh, 72331 |
+| MoT+++ | UNVERIFIED | unverified, status | ambiguous | **reject**: no proposal | — | candidates disagree by 165358 m |
+| The Factory Contemporary Arts Centre | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Ao Dai Museum (Bao Tang Ao Dai) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Phap Hoa Pagoda | 10.7825, 106.67917 (med) | status | no-match | **reject**: no proposal | — |  |
+| Phung Son Pagoda (Chua Go) | 10.75528, 106.64833 (med) | status | no-match | **reject**: no proposal | — |  |
 | Giac Vien Pagoda | UNVERIFIED | unverified, status | pin | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 10.76302, 106.63924 **high** · new pin · “Giác Viên Pagoda” · [wikidata](https://www.wikidata.org/wiki/Q10748412) 2026-10-16 |  |
-| Cho Quan Church | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| Cho Quan Church | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | September 23 Park (Cong Vien 23 Thang 9) | 10.7694, 106.6938 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 10.7694, 106.6938 **high** · 0 m · “September 23 Park” · [wikidata](https://www.wikidata.org/wiki/Q10752046) 2026-10-16 |  |
 | Le Van Tam Park | 10.78861, 106.69372 (high) | status | confirm | **no-change**: confirms the current high pin (1 m); nothing to review | 10.78861, 106.69372 **high** · 1 m · “Le Van Tam Park” · [wikidata](https://www.wikidata.org/wiki/Q10752054) 2026-10-16 |  |
-| Bach Dang Wharf & Saigon Waterbus | 10.777385, 106.707055 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| Bach Dang Wharf & Saigon Waterbus | 10.777385, 106.707055 (med) | status | no-match | **reject**: no proposal | — |  |
 | Ba Chieu Market | UNVERIFIED | unverified, status | pin | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 10.80139, 106.69889 **high** · new pin · “Ba Chieu Market” · [wikidata](https://www.wikidata.org/wiki/Q11839857) 2026-10-16 |  |
-| A O Show | 10.7767, 106.70322 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Golden Dragon Water Puppet Theatre | 10.7762, 106.6923 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Le Cong Kieu Antique Street | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| A O Show | 10.7767, 106.70322 (high) | status | no-match | **reject**: no proposal | — |  |
+| Golden Dragon Water Puppet Theatre | 10.7762, 106.6923 (high) | status | no-match | **reject**: no proposal | — |  |
+| Le Cong Kieu Antique Street | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | An Dong Market | UNVERIFIED | unverified, status | pin | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 10.7581, 106.67218 **high** · new pin · “An Dong Market” · [wikidata](https://www.wikidata.org/wiki/Q32032749) 2026-10-16 |  |
-| Ton That Dam Old Market (Cho Cu) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Hai Thuong Lan Ong Traditional Medicine Street | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| 14 Ton That Dam Apartment | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Little Japan (Le Thanh Ton) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Sri Thendayuthapani Temple (Chua Ong) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| Ton That Dam Old Market (Cho Cu) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Hai Thuong Lan Ong Traditional Medicine Street | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| 14 Ton That Dam Apartment | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Little Japan (Le Thanh Ton) | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.77978, 106.70506 **med** · new pin · “Little Japan district” · [osm-poi](https://www.openstreetmap.org/node/6161305887) 2026-10-17 | OSM node/6161305887 tourism=attraction · addresstype=tourism · name “Little Japan district” · Hẻm 8A Đường Thái Văn Lung, Thành phố Hồ Chí Minh, 71016 |
+| Sri Thendayuthapani Temple (Chua Ong) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Jeanne d'Arc Church (Nga Sau) | UNVERIFIED | unverified, status | pin | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 10.75694, 106.66719 **high** · new pin · “Jeanne d'Arc Church” · [wikidata](https://www.wikidata.org/wiki/Q10800896) 2026-10-16 |  |
 | Hotel Continental Saigon | 10.7769, 106.7025 (high) | status | confirm | **no-change**: confirms the current high pin (5 m); nothing to review | 10.77694, 106.7025 **high** · 5 m · “Hotel Continental Saigon” · [wikidata](https://www.wikidata.org/wiki/Q5911405) 2026-10-16 |  |
 | Hotel Majestic Saigon | 10.7731, 106.7061 (high) | status | confirm | **no-change**: confirms the current high pin (5 m); nothing to review | 10.77306, 106.70611 **high** · 5 m · “Hotel Majestic” · [wikidata](https://www.wikidata.org/wiki/Q3063149) 2026-10-16 | robots.txt unreachable (CERT_HAS_EXPIRED); official site skipped (RFC 9309: assume disallow on server error) |
-| Rex Hotel Rooftop Garden Bar | 10.77583, 106.7015 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Saigon Centre & Takashimaya | 10.77306, 106.70083 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| Rex Hotel Rooftop Garden Bar | 10.77583, 106.7015 (high) | status | no-match | **reject**: no proposal | — |  |
+| Saigon Centre & Takashimaya | 10.77306, 106.70083 (high) | status | no-match | **reject**: no proposal | — |  |
 | Dam Sen Cultural Park | 10.765556, 106.638111 (high) | status | confirm | **no-change**: confirms the current high pin (62 m); nothing to review | 10.76611, 106.63806 **high** · 62 m · “Dam Sen Cultural Park” · [wikidata](https://www.wikidata.org/wiki/Q2056423) 2026-10-16 | extended feature: 62 m between centroid and the pinned entrance/point is expected; no move proposed |
-| Sax n Art Jazz Club | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Nhau Nhau | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Firkin Bar | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Rabbit Hole | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Telephone Bar | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| The Alley Cocktail Bar & Kitchen | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| The Gin House | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| 2 Lam Son | 10.776461, 106.703032 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| PK Maltroom | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| NOB Natural Wine Bar | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| MAD Wine Bar & Eatery | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Chill Skybar | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Social Club Rooftop Bar | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Saigon Saigon Bar | 10.776062, 106.703631 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Pasteur Street Brewing (Original Taproom) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Heart of Darkness Craft Brewery | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| East West Brewing Co. | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| BiaCraft Artisan Ales | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Winking Seal Beer Co. | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Rooster Beers | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Te Te TapHouse | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Lacaph | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| The Hummingbird Cafe & Roastery | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| BEL by Building Coffee | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Cháo Lòng Bà Út | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bánh Mì Cụ Lý | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Kem Vi Bổn | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bánh Canh Cua 194 Võ Văn Tần | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bún Thang 50 | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Cháo Lòng Đặng Thanh Mai | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bánh Mì Tăng | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bánh Cuốn Hải Nam | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Cơm Tấm Thuận Kiều | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bún Bò Dồi Chiên Cô Minh | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Súp Cua Cô Bông | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bún Riêu Cua Ốc Thanh Hải | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Gỏi Khô Bò Công Viên Lê Văn Tám | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bánh Mì Bảy Quang | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Hủ Tiếu Cá Nam Lợi | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Xôi Gà Bà Chiểu | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bún Mọc Thanh Mai | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Cháo Lòng Cô Ba | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Mì Vịt Tiềm Quảng Huê Viên | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Cơm Tấm Cô Phượng | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Akuna | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| Sax n Art Jazz Club | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Nhau Nhau | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 11.9211, 107.22694 **med** · new pin · “Suối Đắk Nhau” · [osm-poi](https://www.openstreetmap.org/way/1192038142) 2026-10-17 | OSM way/1192038142 waterway=stream · addresstype=stream · name “Suối Đắk Nhau” · Đak Xuyên, Thành phố Đồng Nai 67310 |
+| Firkin Bar | UNVERIFIED | unverified, status | pin | **pass**: OSM POI, name 1, house number + street match | 10.77595, 106.7052 **high** · new pin · “Firkin Bar” · [osm-poi](https://www.openstreetmap.org/node/7056292087) 2026-10-17 | OSM node/7056292087 amenity=bar · addresstype=amenity · name “Firkin Bar” · 20 Mạc Thị Bưởi, Thành phố Hồ Chí Minh, 71016 |
+| Rabbit Hole | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number null, street true) | 10.77767, 106.69764 **high** · new pin · “Quán Bar Rabbit Hole” · [osm-poi](https://www.openstreetmap.org/node/9584814615) 2026-10-17 | OSM node/9584814615 amenity=bar · addresstype=amenity · name “Quán Bar Rabbit Hole” · Nam Kỳ Khởi Nghĩa, Thành phố Hồ Chí Minh, 71009 |
+| Telephone Bar | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number null, street true) | 10.77084, 106.69161 **high** · new pin · “Telephone bar” · [osm-poi](https://www.openstreetmap.org/node/6513116085) 2026-10-17 | OSM node/6513116085 amenity=bar · addresstype=amenity · name “Telephone bar” · Nguyễn Văn Tráng, Thành phố Hồ Chí Minh, 71009 |
+| The Alley Cocktail Bar & Kitchen | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| The Gin House | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.76958, 106.69014 **med** · new pin · “The Gin House” · [osm-poi](https://www.openstreetmap.org/node/6198233886) 2026-10-17 | OSM node/6198233886 amenity=bar · addresstype=amenity · name “The Gin House” · Hẻm 26 Tôn Thất Tùng, Thành phố Hồ Chí Minh, 71009 |
+| 2 Lam Son | 10.776461, 106.703032 (med) | status | no-match | **reject**: no proposal | — |  |
+| PK Maltroom | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| NOB Natural Wine Bar | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| MAD Wine Bar & Eatery | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Chill Skybar | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.77042, 106.69434 **med** · new pin · “Quán Chill Skybar” · [osm-poi](https://www.openstreetmap.org/node/1969579818) 2026-10-17 | OSM node/1969579818 amenity=bar · addresstype=amenity · name “Quán Chill Skybar” · Lê Lai, Thành phố Hồ Chí Minh, 71009 |
+| Social Club Rooftop Bar | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.78238, 106.69732 **med** · new pin · “Social Club Rooftop Bar” · [osm-poi](https://www.openstreetmap.org/node/9671017352) 2026-10-17 | OSM node/9671017352 amenity=bar · addresstype=amenity · name “Social Club Rooftop Bar” · Nguyễn Thị Minh Khai, Thành phố Hồ Chí Minh, 72421 · check_date=2026-08-27 |
+| Saigon Saigon Bar | 10.776062, 106.703631 (high) | status | ambiguous | **reject**: no proposal | — | candidates disagree by 1759 m |
+| Pasteur Street Brewing (Original Taproom) | UNVERIFIED | unverified, status | ambiguous | **reject**: no proposal | — | candidates disagree by 643 m |
+| Heart of Darkness Craft Brewery | UNVERIFIED | unverified, status | ambiguous | **reject**: no proposal | — | candidates disagree by 470 m |
+| East West Brewing Co. | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number null, street true) | 10.77315, 106.69608 **high** · new pin · “East West Brewing Co” · [osm-poi](https://www.openstreetmap.org/node/4740808923) 2026-10-17 | OSM node/4740808923 shop=beverages · addresstype=shop · name “East West Brewing Co” · Lý Tự Trọng, Thành phố Hồ Chí Minh, 71009 |
+| BiaCraft Artisan Ales | UNVERIFIED | unverified, status | ambiguous | **reject**: no proposal | — | candidates disagree by 1054 m |
+| Winking Seal Beer Co. | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Rooster Beers | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Te Te TapHouse | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Lacaph | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| The Hummingbird Cafe & Roastery | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| BEL by Building Coffee | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Cháo Lòng Bà Út | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bánh Mì Cụ Lý | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.78592, 106.69441 **med** · new pin · “Bánh Mì Cụ Lý” · [osm-poi](https://www.openstreetmap.org/node/7874139285) 2026-10-17 | OSM node/7874139285 amenity=fast_food · addresstype=amenity · name “Bánh Mì Cụ Lý” · Hẻm 187 Hai Bà Trưng, Thành phố Hồ Chí Minh, 72421 |
+| Kem Vi Bổn | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bánh Canh Cua 194 Võ Văn Tần | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bún Thang 50 | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Cháo Lòng Đặng Thanh Mai | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bánh Mì Tăng | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bánh Cuốn Hải Nam | UNVERIFIED | unverified, status | pin | **pass**: OSM POI, name 1, house number + street match | 10.76874, 106.68347 **high** · new pin · “Bánh Cuốn Hải Nam” · [osm-poi](https://www.openstreetmap.org/node/3641662433) 2026-10-17 | OSM node/3641662433 amenity=restaurant · addresstype=amenity · name “Bánh Cuốn Hải Nam” · 11A Cao Thắng, Thành phố Hồ Chí Minh, 72420 · opening_hours=Mo-Su 07:30-10:45 |
+| Cơm Tấm Thuận Kiều | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.7692, 106.6894 **med** · new pin · “Quán Cơm Tấm Thuận Kiều” · [osm-poi](https://www.openstreetmap.org/node/5404230421) 2026-10-17 | OSM node/5404230421 amenity=restaurant · addresstype=amenity · name “Quán Cơm Tấm Thuận Kiều” · 24 Tôn Thất Tùng, Thành phố Hồ Chí Minh, 71009 |
+| Bún Bò Dồi Chiên Cô Minh | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Súp Cua Cô Bông | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bún Riêu Cua Ốc Thanh Hải | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Gỏi Khô Bò Công Viên Lê Văn Tám | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bánh Mì Bảy Quang | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Hủ Tiếu Cá Nam Lợi | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Xôi Gà Bà Chiểu | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bún Mọc Thanh Mai | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Cháo Lòng Cô Ba | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Mì Vịt Tiềm Quảng Huê Viên | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Cơm Tấm Cô Phượng | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.44932, 107.17361 **med** · new pin · “Cơm Tấm” · [osm-poi](https://www.openstreetmap.org/node/5621311806) 2026-10-17 | OSM node/5621311806 amenity=restaurant · addresstype=amenity · name “Cơm Tấm” · Võ Nguyên Giáp, Thành phố Hồ Chí Minh, 78107 |
+| Akuna | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
 | Long Trieu (The Royal Pavilion) | 10.773911, 106.704769 (med) | status | confirm | **hold**: the record names a part (“The Royal Pavilion”) but the match is the whole (“Saigon Times Square”) | 10.77391, 106.70477 **high** · 0 m · “Saigon Times Square” · [wikidata](https://www.wikidata.org/wiki/Q6352680) 2026-10-16 | upgrade confidence med → high |
-| CieL | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Coco Dining | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Vietnam House | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Hoa Tuc | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Quince Saigon | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| The Albion by Kirk Westaway | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Hoi An Sense | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| ST25 by KOTO | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Madame Lam | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Nephele | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| NÔM | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Sóno | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Chị Mơ | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Tales by Chapter | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Hum Garden | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Du Yên | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Okra FoodBar | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Apero | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Propaganda Bistro | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Quán Ăn Ngự Bình | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bà Cô Lốc Cốc | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Banh Canh Cua Ba Ba | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bún Riêu Yến | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Mặn Mòi | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Sol Kitchen & Bar | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Đảo Thạnh An (Thanh An Island) | 10.47, 106.975 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| CieL | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Coco Dining | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Vietnam House | UNVERIFIED | unverified, status | ambiguous | **reject**: no proposal | — | candidates disagree by 85919 m |
+| Hoa Tuc | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Quince Saigon | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| The Albion by Kirk Westaway | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Hoi An Sense | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| ST25 by KOTO | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Madame Lam | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Nephele | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| NÔM | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Sóno | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Chị Mơ | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Tales by Chapter | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Hum Garden | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Du Yên | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number true, street false) | 10.80426, 106.74447 **high** · new pin · “Du Yên” · [osm-poi](https://www.openstreetmap.org/node/12412162635) 2026-10-17 | OSM node/12412162635 amenity=restaurant · addresstype=amenity · name “Du Yên” · 26B Đường số 10, Thành phố Hồ Chí Minh, 71108 · check_date=2024-12-13 |
+| Okra FoodBar | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Apero | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Propaganda Bistro | UNVERIFIED | unverified, status | pin | **pass**: OSM POI, name 0.9, house number + street match | 10.77871, 106.69809 **high** · new pin · “Nhà Hàng Propaganda Saigon Bistro” · [osm-poi](https://www.openstreetmap.org/node/4183849494) 2026-10-17 | OSM node/4183849494 amenity=restaurant · addresstype=amenity · name “Nhà Hàng Propaganda Saigon Bistro” · 21 Hàn Thuyên, Thành phố Hồ Chí Minh, 71016 · website=http://www.propaganda.vn/, opening_hours=Mo-Su 07:30-23:00 |
+| Quán Ăn Ngự Bình | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bà Cô Lốc Cốc | UNVERIFIED | unverified, status | pin | **hold**: OSM POI without an exact address match (house number null, street true) | 10.78337, 106.69637 **high** · new pin · “Ốc Bà Cô Lốc Cốc” · [osm-poi](https://www.openstreetmap.org/node/13934909701) 2026-10-17 | OSM node/13934909701 amenity=restaurant · addresstype=amenity · name “Ốc Bà Cô Lốc Cốc” · Trần Cao Vân, Thành phố Hồ Chí Minh, 72421 |
+| Banh Canh Cua Ba Ba | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bún Riêu Yến | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Mặn Mòi | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.77868, 106.69216 **med** · new pin · “Mặn Mòi, Tao Đàn” · [osm-poi](https://www.openstreetmap.org/node/4340906490) 2026-10-17 | OSM node/4340906490 amenity=restaurant · addresstype=amenity · name “Mặn Mòi, Tao Đàn” · Võ Văn Tần, Thành phố Hồ Chí Minh, 72421 · website=https://manmoi.vn/mon-an/ |
+| Sol Kitchen & Bar | UNVERIFIED | unverified, status | pin | **pass**: OSM POI, name 1, house number + street match | 10.77406, 106.69709 **high** · new pin · “Sol Kitchen & Bar” · [osm-poi](https://www.openstreetmap.org/node/12057391969) 2026-10-17 | OSM node/12057391969 amenity=restaurant · addresstype=amenity · name “Sol Kitchen & Bar” · 112 Lý Tự Trọng, Thành phố Hồ Chí Minh, 71009 |
+| Đảo Thạnh An (Thanh An Island) | 10.47, 106.975 (med) | status | no-match | **reject**: no proposal | — |  |
 | Chùa Hoằng Pháp (Hoang Phap Temple) | 10.9003, 106.5818 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 10.9003, 106.5818 **high** · 0 m · “Hoằng Pháp Temple” · [wikidata](https://www.wikidata.org/wiki/Q4356187) 2026-10-16 |  |
-| Chùa núi Châu Thới (Chau Thoi Mountain Temple) | 10.914927, 106.804527 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Chùa Hội Khánh (Hoi Khanh Temple) | 10.98103, 106.65964 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Phố lồng đèn Lương Nhữ Học (Lantern Street) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Cầu Ba Son (Thu Thiem 2 Bridge) | 10.77955, 106.71017 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| Chùa núi Châu Thới (Chau Thoi Mountain Temple) | 10.914927, 106.804527 (high) | status | no-match | **reject**: no proposal | — |  |
+| Chùa Hội Khánh (Hoi Khanh Temple) | 10.98103, 106.65964 (high) | status | confirm | **reject**: no proposal | — | a med candidate 89 m away does not outrank the current high pin |
+| Phố lồng đèn Lương Nhữ Học (Lantern Street) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Cầu Ba Son (Thu Thiem 2 Bridge) | 10.77955, 106.71017 (high) | status | no-match | **reject**: no proposal | — |  |
 | Cầu Mống (Mong Bridge) | 10.768, 106.7037 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 10.768, 106.7037 **high** · 0 m · “Mong Bridge” · [wikidata](https://www.wikidata.org/wiki/Q16481264) 2026-10-16 |  |
-| Chùa Nam Thiên Nhất Trụ (One Pillar Pagoda of the South) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| Chùa Nam Thiên Nhất Trụ (One Pillar Pagoda of the South) | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.84359, 106.76316 **med** · new pin · “Chùa Nam Thiên Nhất Trụ” · [osm-poi](https://www.openstreetmap.org/way/589315586) 2026-10-17 | OSM way/589315586 amenity=place_of_worship · addresstype=amenity · name “Chùa Nam Thiên Nhất Trụ” · Đường Dân Chủ, Thành phố Hồ Chí Minh, 71319 · building=yes |
 | Vườn quốc gia Cát Tiên (Cat Tien National Park) | 11.5, 107.333 (high) | status | conflict | **hold**: conflict: 26085 m from the current pin — look at both | 11.34722, 107.15139 **high** · 26085 m · “Cát Tiên National Park” · [wikidata](https://www.wikidata.org/wiki/Q1421202) 2026-10-16 |  |
 | Đền thờ Trần Hưng Đạo (Tran Hung Dao Temple) | 10.79106, 106.69441 (high) | status | confirm | **no-change**: confirms the current high pin (1 m); nothing to review | 10.79107, 106.69441 **high** · 1 m · “Tran Hung Dao Temple” · [wikidata](https://www.wikidata.org/wiki/Q10841726) 2026-10-16 |  |
-| Chùa Vạn Đức (Van Duc Temple) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Tu viện Khánh An (Khanh An Monastery) | 10.855, 106.69389 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Nhà thờ Hạnh Thông Tây (Hanh Thong Tay Church) | 10.82028, 106.68333 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Công viên Lê Thị Riêng (Le Thi Rieng Park) | 10.7851, 106.6644 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bảo tàng Chiến dịch Hồ Chí Minh (Ho Chi Minh Campaign Museum) | 10.780915, 106.699078 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Công viên Gia Định (Gia Dinh Park) | 10.80167, 106.6775 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bảo tàng Biệt động Sài Gòn - Gia Định (Saigon Special Forces Museum) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Hầm vũ khí bí mật Biệt động Sài Gòn (Secret Weapons Bunker) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bảo tàng Lực lượng vũ trang miền Đông Nam Bộ (Southeast Armed Forces Museum) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Làng sơn mài Tương Bình Hiệp (Tuong Binh Hiep Lacquer Village) | 11.00778, 106.63028 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
+| Chùa Vạn Đức (Van Duc Temple) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Tu viện Khánh An (Khanh An Monastery) | 10.855, 106.69389 (med) | status | conflict | **hold**: conflict: 36412 m from the current pin — look at both | 11.06019, 106.95383 **med** · 36412 m · “Tu viện Khánh An” · [osm-poi](https://www.openstreetmap.org/way/979788706) 2026-10-17 | OSM way/979788706 amenity=place_of_worship · addresstype=amenity · name “Tu viện Khánh An” · Đường tỉnh 768, Thái An, Thành phố Đồng Nai |
+| Nhà thờ Hạnh Thông Tây (Hanh Thong Tay Church) | 10.82028, 106.68333 (med) | status | conflict | **hold**: conflict: 3285 m from the current pin — look at both | 10.83725, 106.65871 **med** · 3285 m · “Nhà thờ Hạnh Thông Tây (phụ)” · [osm-poi](https://www.openstreetmap.org/way/262963859) 2026-10-17 | OSM way/262963859 amenity=place_of_worship · addresstype=amenity · name “Nhà thờ Hạnh Thông Tây (phụ)” · Hẻm 688 Quang Trung, Thành phố Hồ Chí Minh, 71427 · building=yes |
+| Công viên Lê Thị Riêng (Le Thi Rieng Park) | 10.7851, 106.6644 (high) | status | confirm + status-needs-check | **reject**: no proposal | — | **needs-check (possible closure)**: was:landuse=cemetery ([src](https://www.openstreetmap.org/way/32735042)) — a med candidate 32 m away does not outrank the current high pin; overpass: HTTP 500 |
+| Bảo tàng Chiến dịch Hồ Chí Minh (Ho Chi Minh Campaign Museum) | 10.780915, 106.699078 (med) | status | conflict | **hold**: conflict: 879 m from the current pin — look at both | 10.78698, 106.70424 **high** · 879 m · “Bảo tàng Chiến dịch Hồ Chí Minh” · [osm-poi](https://www.openstreetmap.org/way/165887838) 2026-10-17 | OSM way/165887838 tourism=museum · addresstype=tourism · name “Bảo tàng Chiến dịch Hồ Chí Minh” · 2 Lê Duẩn, Thành phố Hồ Chí Minh, 71016 · building=yes — overpass: HTTP 500 |
+| Công viên Gia Định (Gia Dinh Park) | 10.80167, 106.6775 (med) | status | conflict | **hold**: conflict: 1246 m from the current pin — look at both | 10.81247, 106.67444 **med** · 1246 m · “Công viên Gia Định” · [osm-poi](https://www.openstreetmap.org/relation/17583696) 2026-10-17 | OSM relation/17583696 leisure=park · addresstype=park · name “Công viên Gia Định” · Thành phố Hồ Chí Minh, 72223 — overpass: HTTP 500 |
+| Bảo tàng Biệt động Sài Gòn - Gia Định (Saigon Special Forces Museum) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Hầm vũ khí bí mật Biệt động Sài Gòn (Secret Weapons Bunker) | UNVERIFIED | unverified, status | no-match | **reject**: no proposal | — |  |
+| Bảo tàng Lực lượng vũ trang miền Đông Nam Bộ (Southeast Armed Forces Museum) | UNVERIFIED | unverified, status | pin | **hold**: med: needs a second independent source within 50 m | 10.79941, 106.66574 **med** · new pin · “Bảo tàng Lực lượng Vũ trang miền Đông Nam Bộ” · [osm-poi](https://www.openstreetmap.org/way/376923094) 2026-10-17 | OSM way/376923094 tourism=museum · addresstype=tourism · name “Bảo tàng Lực lượng Vũ trang miền Đông Nam Bộ” · Phạm Văn Hai, Thành phố Hồ Chí Minh, 72122 — overpass: HTTP 500 |
+| Làng sơn mài Tương Bình Hiệp (Tuong Binh Hiep Lacquer Village) | 11.00778, 106.63028 (med) | status | no-match | **reject**: no proposal | — | overpass: HTTP 500 |
 | Làng bưởi Tân Triều (Tan Trieu Pomelo Village) | 10.97028, 106.84417 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Chợ Kim Biên (Kim Bien Market) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Tuyến Metro số 1 Bến Thành - Suối Tiên (Metro Line 1) | 10.7708, 106.6978 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
@@ -376,8 +375,8 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | Dinh Thượng Thơ (Office of the Interior) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Khách sạn Grand Sài Gòn (Hotel Grand Saigon) | 10.773861, 106.705639 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Trường THPT chuyên Lê Hồng Phong (Lycée Petrus Ký) | 10.763889, 106.681667 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Trường THPT Nguyễn Thị Minh Khai (Trường Áo Tím / Gia Long) | 10.778889, 106.686944 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 10.77889, 106.68694 **high** · 0 m · “Nguyen Thi Minh Khai High School” · [wikidata](https://www.wikidata.org/wiki/Q7022973) 2026-10-16 |  |
-| Trường THPT Marie Curie | 10.7824, 106.6908 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 10.7824, 106.6908 **high** · 0 m · “Marie Curie High School” · [wikidata](https://www.wikidata.org/wiki/Q656313) 2026-10-16 | robots.txt disallows / for CleoGuideLocationVerify; skipped |
+| Trường THPT Nguyễn Thị Minh Khai (Trường Áo Tím / Gia Long) | 10.778889, 106.686944 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 10.77889, 106.68694 **high** · 0 m · “Nguyen Thi Minh Khai High School” · [wikidata](https://www.wikidata.org/wiki/Q7022973) 2026-10-16 | overpass: HTTP 500 |
+| Trường THPT Marie Curie | 10.7824, 106.6908 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 10.7824, 106.6908 **high** · 0 m · “Marie Curie High School” · [wikidata](https://www.wikidata.org/wiki/Q656313) 2026-10-16 | robots.txt disallows / for CleoGuideLocationVerify; skipped; overpass: HTTP 500 |
 | Cầu Phú Mỹ (Phu My Bridge) | 10.7449917, 106.7444556 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Hầm Thủ Thiêm / Đường hầm sông Sài Gòn (Saigon River Tunnel) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Kênh Nhiêu Lộc - Thị Nghè (Nhieu Loc Canal) | 10.795531, 106.689111 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
@@ -411,13 +410,13 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | Little Bear | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Mía Dining | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | LUNE (Lüne) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Kong Meng San Phor Kark See Monastery | 1.3614, 103.836 (high) | status | confirm | **no-change**: confirms the current high pin (4 m); nothing to review | 1.36144, 103.836 **high** · 4 m · “Kong Meng San Phor Kark See Monastery” · [wikidata](https://www.wikidata.org/wiki/Q2890360) 2026-10-16 |  |
+| Kong Meng San Phor Kark See Monastery | 1.3614, 103.836 (high) | status | confirm | **no-change**: confirms the current high pin (4 m); nothing to review | 1.36144, 103.836 **high** · 4 m · “Kong Meng San Phor Kark See Monastery” · [wikidata](https://www.wikidata.org/wiki/Q2890360) 2026-10-16 | overpass: HTTP 500 |
 | HSBC TreeTop Walk | 1.3608847, 103.8091766 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | MacRitchie Reservoir Park | 1.34361, 103.83111 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bishan Public Library | 1.3498333, 103.848877 (high) | status | confirm | **no-change**: confirms the current high pin (14 m); nothing to review | 1.34984, 103.849 **high** · 14 m · “Bishan Public Library” · [wikidata](https://www.wikidata.org/wiki/Q4917325) 2026-10-16 |  |
-| Kwong Wai Siew Peck San Theng | 1.345723, 103.84337 (med) | status | move | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 1.3459, 103.8428 **high** · 66 m · “Kwong Wai Siew Peck San Theng” · [wikidata](https://www.wikidata.org/wiki/Q6450554) 2026-10-16 |  |
+| Bishan Public Library | 1.3498333, 103.848877 (high) | status | confirm | **no-change**: confirms the current high pin (14 m); nothing to review | 1.34984, 103.849 **high** · 14 m · “Bishan Public Library” · [wikidata](https://www.wikidata.org/wiki/Q4917325) 2026-10-16 | overpass: HTTP 500 |
+| Kwong Wai Siew Peck San Theng | 1.345723, 103.84337 (med) | status | move | **hold**: wikidata coordinate only (Wikipedia mirrors Wikidata): needs the address or an OSM / official / Census source | 1.3459, 103.8428 **high** · 66 m · “Kwong Wai Siew Peck San Theng” · [wikidata](https://www.wikidata.org/wiki/Q6450554) 2026-10-16 | overpass: HTTP 500 |
 | Central Catchment Nature Reserve | 1.367, 103.8 (med) | status | confirm | **hold**: wikidata coordinate has 2 decimals (≈ 1 km coarse) — needs a precise source | 1.36667, 103.8 **high** · 37 m · “Central Catchment Nature Reserve” · [wikidata](https://www.wikidata.org/wiki/Q5060520) 2026-10-16 | extended feature: 37 m between centroid and the pinned entrance/point is expected; no move proposed |
-| Junction 8 | 1.3506444, 103.848775 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 1.35064, 103.84878 **high** · 0 m · “Junction 8” · [wikidata](https://www.wikidata.org/wiki/Q6311694) 2026-10-16 | overpass: HTTP 500 |
+| Junction 8 | 1.3506444, 103.848775 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 1.35064, 103.84878 **high** · 0 m · “Junction 8” · [wikidata](https://www.wikidata.org/wiki/Q6311694) 2026-10-16 |  |
 | Bishan ActiveSG Stadium & Sports Centre | 1.3545444, 103.851475 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Old Upper Thomson Road (former Grand Prix circuit) | 1.3832, 103.8191056 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Tse Tho Aum Temple | 1.361957582, 103.838193892 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
@@ -451,15 +450,13 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | Kings Cart Coffee (Bishan Library) | 1.3498333, 103.848877 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Thus Coffee | 1.3726757, 103.8295321 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Grin Affair | 1.3489143, 103.848662285 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Canopy Garden Dining — CLOSED | 1.3625, 103.8475 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Denzy Gelato (Bishan) — CLOSED | 1.3492165, 103.8491735 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Yue Lai Xiang Delights | 1.3572844, 103.8393967 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Potong Pasir Sloping-Roof HDB (Blk 101-142) | 1.3328, 103.8672 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Bidadari Park & Alkaff Lake | 1.339833, 103.873333 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Alkaff Upper Serangoon Mosque | 1.3330372, 103.8704843 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | St Andrew's Village | 1.330635, 103.865946 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Lorong Koo Chye Sheng Hong Temple | 1.32627, 103.89192 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Sri Manmatha Karuneshvarar Temple | 1.3089333, 103.8659361 (high) | status | confirm | **no-change**: confirms the current high pin (7 m); nothing to review | 1.30893, 103.866 **high** · 7 m · “Sri Manmatha Karuneshvarar Temple” · [wikidata](https://www.wikidata.org/wiki/Q7586158) 2026-10-16 | overpass: HTTP 500 |
+| Sri Manmatha Karuneshvarar Temple | 1.3089333, 103.8659361 (high) | status | confirm | **no-change**: confirms the current high pin (7 m); nothing to review | 1.30893, 103.866 **high** · 7 m · “Sri Manmatha Karuneshvarar Temple” · [wikidata](https://www.wikidata.org/wiki/Q7586158) 2026-10-16 |  |
 | Sennett Estate | 1.3317451, 103.874219 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Bidadari Cemetery Heritage & Memorial Garden | 1.335425, 103.8720028 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | The Woodleigh Mall & Woodleigh Village | 1.3379161, 103.8723492 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
@@ -467,9 +464,9 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | MacPherson Estate & MacPherson Road Heritage | 1.33, 103.886 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Potong Pasir Town & Block 142 Landmark | 1.3332041, 103.8669926 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Istana Bidadari (former royal palace site) | 1.3355, 103.872 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Sri Siva Durga Temple | 1.331778, 103.8668528 (high) | status | confirm | **no-change**: confirms the current high pin (16 m); nothing to review | 1.33178, 103.867 **high** · 16 m · “Sri Siva Durga Temple” · [wikidata](https://www.wikidata.org/wiki/Q7586273) 2026-10-16 | overpass: HTTP 500 |
-| Alkaff Gardens (former Japanese-style lake garden) | 1.334167, 103.873972 (high) | status | confirm + status-needs-check | **no-change**: confirms the current high pin (0 m); nothing to review | 1.33417, 103.87397 **high** · 0 m · “Alkaff Gardens” · [wikidata](https://www.wikidata.org/wiki/Q60761293) 2026-10-16 | **needs-check (possible closure)**: dissolved/abolished/demolished 1964 ([src](https://www.wikidata.org/wiki/Q60761293)) — overpass: HTTP 500 |
-| The Fishball Story | 1.328593, 103.885378 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 1.32859, 103.88538 **high** · 0 m · “The Fishball Story” · [wikidata](https://www.wikidata.org/wiki/Q111941839) 2026-10-16 | overpass: HTTP 500 |
+| Sri Siva Durga Temple | 1.331778, 103.8668528 (high) | status | confirm | **no-change**: confirms the current high pin (16 m); nothing to review | 1.33178, 103.867 **high** · 16 m · “Sri Siva Durga Temple” · [wikidata](https://www.wikidata.org/wiki/Q7586273) 2026-10-16 |  |
+| Alkaff Gardens (former Japanese-style lake garden) | 1.334167, 103.873972 (high) | status | confirm + status-needs-check | **no-change**: confirms the current high pin (0 m); nothing to review | 1.33417, 103.87397 **high** · 0 m · “Alkaff Gardens” · [wikidata](https://www.wikidata.org/wiki/Q60761293) 2026-10-16 | **needs-check (possible closure)**: dissolved/abolished/demolished 1964 ([src](https://www.wikidata.org/wiki/Q60761293)) |
+| The Fishball Story | 1.328593, 103.885378 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 1.32859, 103.88538 **high** · 0 m · “The Fishball Story” · [wikidata](https://www.wikidata.org/wiki/Q111941839) 2026-10-16 |  |
 | Old Fisherman (老渔翁) | 1.32658, 103.88505 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Tian Seng Fried Prawn Mee | 1.32658, 103.88505 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Victor Veggie (Victor's Vegetarian Food) | 1.32658, 103.88505 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
@@ -513,14 +510,14 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | No Monkey Business | 1.3290324, 103.8696278 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | EVERY | 1.3315158, 103.8683822 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Beans.Factory | 1.3379161, 103.8723492 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Bishan-Ang Mo Kio Park | 1.367, 103.833 (med) | status | confirm | **hold**: wikidata coordinate has 2 decimals (≈ 1 km coarse) — needs a precise source | 1.36667, 103.83333 **high** · 52 m · “Bishan-Ang Mo Kio Park” · [wikidata](https://www.wikidata.org/wiki/Q866299) 2026-10-16 | extended feature: 52 m between centroid and the pinned entrance/point is expected; no move proposed; overpass: HTTP 500 |
+| Bishan-Ang Mo Kio Park | 1.367, 103.833 (med) | status | confirm | **hold**: wikidata coordinate has 2 decimals (≈ 1 km coarse) — needs a precise source | 1.36667, 103.83333 **high** · 52 m · “Bishan-Ang Mo Kio Park” · [wikidata](https://www.wikidata.org/wiki/Q866299) 2026-10-16 | extended feature: 52 m between centroid and the pinned entrance/point is expected; no move proposed |
 | Kebun Baru Birdsinging Club | 1.374026, 103.840563 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Ang Mo Kio Town Garden West | 1.3743688, 103.8434332 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 1.37437, 103.84343 **high** · 0 m · “Ang Mo Kio Town Garden West” · [wikidata](https://www.wikidata.org/wiki/Q4761854) 2026-10-16 | overpass: HTTP 500 |
+| Ang Mo Kio Town Garden West | 1.3743688, 103.8434332 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 1.37437, 103.84343 **high** · 0 m · “Ang Mo Kio Town Garden West” · [wikidata](https://www.wikidata.org/wiki/Q4761854) 2026-10-16 |  |
 | Ang Mo Kio Town Garden East | 1.3695, 103.85 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Windsor Nature Park | 1.35889, 103.82823 (high) | status | confirm | **no-change**: confirms the current high pin (655 m); nothing to review | 1.3575, 103.8225 **high** · 655 m · “Windsor Nature Park” · [wikidata](https://www.wikidata.org/wiki/Q98597001) 2026-10-16 | extended feature: 655 m between centroid and the pinned entrance/point is expected; no move proposed; overpass: HTTP 500 |
+| Windsor Nature Park | 1.35889, 103.82823 (high) | status | confirm | **no-change**: confirms the current high pin (655 m); nothing to review | 1.3575, 103.8225 **high** · 655 m · “Windsor Nature Park” · [wikidata](https://www.wikidata.org/wiki/Q98597001) 2026-10-16 | extended feature: 655 m between centroid and the pinned entrance/point is expected; no move proposed |
 | MacRitchie TreeTop Walk | 1.3610473, 103.8113955 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Lower Peirce Reservoir Park | 1.3712, 103.8244 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 1.3712, 103.8244 **high** · 0 m · “Lower Peirce Reservoir Park” · [wikidata](https://www.wikidata.org/wiki/Q28404017) 2026-10-16 | overpass: HTTP 500 |
-| Thomson Nature Park | 1.386471, 103.821074 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 1.38647, 103.82107 **high** · 0 m · “Thomson Nature Park” · [wikidata](https://www.wikidata.org/wiki/Q65117977) 2026-10-16 | overpass: HTTP 500 |
+| Lower Peirce Reservoir Park | 1.3712, 103.8244 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 1.3712, 103.8244 **high** · 0 m · “Lower Peirce Reservoir Park” · [wikidata](https://www.wikidata.org/wiki/Q28404017) 2026-10-16 |  |
+| Thomson Nature Park | 1.386471, 103.821074 (high) | status | confirm | **no-change**: confirms the current high pin (0 m); nothing to review | 1.38647, 103.82107 **high** · 0 m · “Thomson Nature Park” · [wikidata](https://www.wikidata.org/wiki/Q65117977) 2026-10-16 |  |
 | Ang Mo Kio Heritage Trail | 1.3696, 103.8485 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Church of Christ the King | 1.3619, 103.85241 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Block 259, the 'Clover Block' | 1.368643099, 103.831544286 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
@@ -571,7 +568,6 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | Casuarina Curry | 1.377191, 103.82806 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Song Kee Fishball Noodle | 1.37277209302753, 103.854457955288 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Soi 19 Thai Wanton Mee | 1.376763, 103.840874 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Grub — CLOSED | 1.36524685, 103.836371986196 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Crunch & Cups | 1.36891617080101, 103.834499516963 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Rasa Sayang Western Food | 1.36733858334, 103.848576335 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | 3 Sisters Prawn Noodle | 1.3741076, 103.8388639 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
@@ -655,7 +651,6 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | Naked Ice Cream | 1.3616938, 103.8864375 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Al-Falah | 1.3727416, 103.8859111 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | BakeOpedia (The Bread Rack) | 1.3546545, 103.8768877 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Amber Ember — CLOSED | 1.353525, 103.87797 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Seng Kee Mushroom Minced Meat Noodle | 1.3634, 103.8667 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Swee Heng Wanton Noodle | 1.3642326, 103.8665271 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Wang Da Shen Chicken Wing & Satay | 1.3642326, 103.8665271 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
@@ -703,15 +698,12 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | Dong Jin Yuan Dian Xin | 1.3540401, 103.8899682 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Roasted Pork Belly Nasi Lemak | 1.3540401, 103.8899682 (high) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Happy Oven | 1.3726, 103.88575 (med) | status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Chợ Nổi Cái Bè (Cái Bè Floating Market) | UNVERIFIED | unverified, status | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Holland Village Market & Food Centre | UNVERIFIED | unverified | pin | **hold**: extended feature (street, district, park, island…): pin the entrance / most-visited point by hand | 1.31102, 103.79476 **high** · new pin · “Holland Village Market & Food Centre” · [wikidata](https://www.wikidata.org/wiki/Q107803937) 2026-10-16 |  |
-| Punggol Coast Hawker Centre | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Singapore Fried Hokkien Mee (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | 99 South Buona Vista Braised Duck | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Hock Hai (Hong Lim) Curry Chicken Noodle (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Whampoa Traditional Fried Oyster (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Pin Wei Hong Kong Style Chee Cheong Fun (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| The Punggol Settlement | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Ming Fa Fishball Noodles | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | 363 Katong Laksa (Holland Village) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Holland V Fried Bee Hoon | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
@@ -725,7 +717,6 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | Kedai Salima (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Huay Kwang Thai Wanton Mee (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Ah Fong Noodle (Holland Village) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| Balestier Plaza | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Wicked Good (Balestier) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | House of Tau Sar Piah — CLOSED | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Cafe de Hong Kong (Balestier) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
@@ -736,7 +727,6 @@ Review assist (advice against the accept bar): hold 46 · reject 637 · pass 4 �
 | Punggol Promenade (Nature Walk & Riverside Walk) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Punggol Heritage Trail (Old Punggol Road) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | Jade's Chicken (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
-| 75 Ah Balling Peanut Soup (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | One Soy (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | You Fu Ban Mian & Pao Fan (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
 | What The Puff! (Punggol Coast) | UNVERIFIED | unverified | skipped | **reject**: no proposal | — | Nominatim budget for this run reached (rerun resumes from cache) |
