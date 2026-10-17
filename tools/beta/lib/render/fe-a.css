@@ -833,8 +833,11 @@ html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.toolba
 @media (max-width:1023px){html body main[data-city]{--cbar-h:53px}html body main[data-city]>.cbar>.cbar-in{padding-block:0;min-height:0}}   /* OV-113: T1 at rest 52 + 53 = 10.3 % (≤ 11) */
 /* OV (platform, marked block): the "Keep <city> offline" control is in-flow page content; in the phone/tablet Atlas
    layout the full-bleed map and its bars are fixed over the page, so the control would sit under them, covered and
-   unreachable (overlay audit: tools/beta/qa/overlay/platform-overlay.js). It is offered in every other view instead. */
-html.atlas-m[data-view=atlas] [data-cleo-pack]{display:none!important}
+   unreachable (overlay audit: tools/beta/qa/overlay/platform-overlay.js). It is offered in every other view instead.
+   OV-38/OV-41: while Atlas has a live map, the control lives in the map's Layers popover (FE-1, Cleo.pack.mount), on
+   phones AND desktop (one control, not two); with no map (ms-nomap: no library or no tiles) the list is the whole page
+   and its own control is the one offered. */
+html[data-view=atlas]:not(.ms-nomap) [data-cleo-pack]{display:none!important}
 /* /OV platform */
 /* OV-101 (T1, 768–1023 phone-style Atlas, ≤ 18 % at rest): the view switch rides in the header row, as in landscape
    (QA-80 pattern: icon-only 44 px segments, labels kept as names, painted above the header, covering nothing), so the

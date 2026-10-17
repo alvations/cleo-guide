@@ -49,6 +49,7 @@ const ICONS = {
   map: '<path d="M3 6.5l6-2.5 6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/>',
   list: '<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',
   sliders: '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
+  chart: '<path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',   // FE-C (designer, from FE-A): Insights' view-switch glyph, not the Filters one (icons.json)
   close: '<path d="M6 6l12 12M18 6L6 18"/>',
   directions: '<path d="M12 2.8l9.2 9.2-9.2 9.2L2.8 12z"/><path d="M9 14.5v-2.5a1.5 1.5 0 0 1 1.5-1.5h4.5M13 8.5l2 2-2 2"/>',
   share: '<path d="M12 3v12M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12.5V20h14v-7.5"/>',
@@ -385,7 +386,7 @@ ${(ord => { noRepeat(ord); return ord.map((r, j) => card(r, j + 1, cardCtx)).joi
   // default; a legacy pager link (#pg= / #all=1) implies Gallery
   const DV = 'atlas';
   const VIEWS = ['atlas', 'gallery'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
-  const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'sliders'] };   // i18n D-41: views, tray, masthead
+  const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'chart' /* FE-C: was sliders = the Filters glyph */] };   // i18n D-41: views, tray, masthead
   // FE-B QC-09 (DESIGN-SYSTEM §v2.11): a labelled group of four pressed-state toggles, never a <nav> (axe: no group role on
   // nav); four segments at every width, one tap per switch; data-label = the visible tooltip when only the glyph shows
   const switcher = `<div class="views" data-cleo-views role="group" aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}" data-label="${VLBL[v][0]}">${ico(VLBL[v][1])}<span class="l">${VLBL[v][0]}</span></button>`).join('')}</div>`;
@@ -400,7 +401,7 @@ ${(ord => { noRepeat(ord); return ord.map((r, j) => card(r, j + 1, cardCtx)).joi
     `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x);if(x==='atlas')document.documentElement.classList.add(!window.matchMedia||matchMedia('(min-width:1024px)').matches?'atlas-d':'atlas-m')})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
-  const used = new Set(['search', 'grid', 'map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
+  const used = new Set(['search', 'grid', 'map', 'list', 'sliders', 'chart', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
   tiles.forEach(t => t.g && used.add(t.g));
   for (const mm of cardsHtml.matchAll(/data-[gm][lg]="([a-z0-9-]+)"/g)) used.add(mm[1]);
   const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${[...used].filter(k => ICONS[k]).sort().map(k => `<symbol id="i-${k}" viewBox="0 0 24 24">${ICONS[k]}</symbol>`).join('')}</svg>`;

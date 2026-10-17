@@ -16,7 +16,10 @@
   const $ = (s, el) => (el || d).querySelector(s), qa = (s, el) => [].slice.call((el || d).querySelectorAll(s));
   const at = (el, a) => el.getAttribute(a), on = (el, ev, f) => el && el.addEventListener(ev, f);
   const S = C.S, store = Cleo.store || { get: (k, x) => x, set: () => {} }, lp = $('.listpane'), mp = $('.mappane');
-  const pl = n => n.toLocaleString('en-US') + (n === 1 ? ' place' : ' places'), rec = id => C.byId[id] || C.stub(id);
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n).
+  // Values are escaped before they are filled in, so the English output is unchanged.
+  const tt = (k, e, v) => Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, (m, x) => x in v ? v[x] : m) : e;
+  const pl = n => n === 1 ? tt('srch.place.n1', '1 place') : tt('srch.places.n', '{n} places', { n: n.toLocaleString('en-US') }), rec = id => C.byId[id] || C.stub(id);
   const llOf = c => { const v = (at(c, 'data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; };
   const atlas = () => C.view === 'atlas', desk = () => C.desk();
   let me = null;   // the reader's location after Near me (memory only, never stored)
@@ -78,13 +81,13 @@
   const short = nm => nm.replace(/\s*\([^)]*\)/g, '').split(/, | — | – /)[0].trim() || nm;
   const pinHtml = (c, nm, sv) => { const cl = c.hasAttribute('data-closed');
     return '<span><svg class="ico" aria-hidden="true"><use href="#i-' + C.esc(glyph(c)) + '"/></svg>' +
-      '<b' + (cutNm(nm, cl) !== short(nm) ? ' data-full="' + C.esc(short(nm) + (cl ? ' · Closed' : '')) + '"' : '') + '>' + C.esc(cutNm(nm, cl)) + (cl ? ' · Closed' : '') + '</b>' + (sv ? '<em class="pp-h" aria-hidden="true">♥</em>' : '') + '</span>'; };
+      '<b' + (cutNm(nm, cl) !== short(nm) ? ' data-full="' + C.esc(short(nm) + (cl ? ' · ' + tt('sheet.closed', 'Closed') : '')) + '"' : '') + '>' + C.esc(cutNm(nm, cl)) + (cl ? ' · ' + tt('sheet.closed', 'Closed') : '') + '</b>' + (sv ? '<em class="pp-h" aria-hidden="true">♥</em>' : '') + '</span>'; };
   // OV-03: the name itself is cut to the label's cap (a CSS ellipsis would leave the whole name in the layout); the full name
   // is the link's aria-label / title, and shows on hover, focus or selection (atlas.css b[data-full]::after)
   const cutNm = (nm, cl) => { const t = short(nm), mx = Math.max(6, Math.floor((capW() - (desk() ? 48 : 40) - (cl ? 56 : 0)) / (desk() ? 8 : 7))); return t.length <= mx ? t : t.slice(0, mx - 1).trimEnd() + '…'; };
   const pinCls = (c, sv) => 'pp pp-' + (at(c, 'data-k') === 'f' ? 'f' : 's') + (isT1(c) ? ' pp-1' : '') + (c.hasAttribute('data-closed') ? ' pp-x' : '') + (sv ? ' pp-sv' : '');
   // the pin's accessible name (SPEC-v3 §1.2): full name, kind, [Must see], [Closed], [saved] — the kind never by colour alone
-  const pinLabel = (c, nm, sv) => [nm, at(c, 'data-k') === 'f' ? 'eat and drink' : 'sight', isT1(c) && !c.hasAttribute('data-closed') && 'Must see', c.hasAttribute('data-closed') && 'Closed', sv && 'saved'].filter(Boolean).join(', ');
+  const pinLabel = (c, nm, sv) => [nm, at(c, 'data-k') === 'f' ? tt('atl.pin.f', 'eat and drink') : tt('atl.pin.s', 'sight'), isT1(c) && !c.hasAttribute('data-closed') && tt('tier.1', 'Must see'), c.hasAttribute('data-closed') && tt('sheet.closed', 'Closed'), sv && tt('atl.pin.saved', 'saved')].filter(Boolean).join(', ');
   // each featured pin IS a link to its place (<a href="#…p=id">): one Tab stop, the marker element itself (keyboard: true)
   let PinIcon = null;
   const pinIcon = o => { const L = window.L; if (!PinIcon) PinIcon = L.DivIcon.extend({ createIcon: function () { const a = d.createElement('a'); a.href = this.options.href; a.innerHTML = this.options.html; this._setIconStyles(a, 'icon');
@@ -286,7 +289,7 @@
     if (!pager && lp) { pager = d.createElement('p'); pager.className = 'ms-pager g-pager'; lp.insertBefore(pager, $('#how-we-choose', lp));
       on(pager, 'click', e => { const b = e.target.closest('button'); if (!b) return; if (at(b, 'data-pg') === 'all') { C.msAll = C.msOne = true; msArea(); } else { lim += PER; msArea(true); } }); }
     const left = inn.length - lim;
-    if (pager) { pager.hidden = left <= 0; pager.innerHTML = left > 0 ? '<button type="button" class="btn btn-ghost">Show ' + Math.min(PER, left) + ' more</button> <button type="button" class="btn btn-quiet" data-pg="all">Show all ' + inn.length.toLocaleString('en-US') + ' in one list</button> <span>' + lim.toLocaleString('en-US') + ' of ' + pl(inn.length) + (area ? ' in this area' : '') + '</span>' : ''; }
+    if (pager) { pager.hidden = left <= 0; pager.innerHTML = left > 0 ? '<button type="button" class="btn btn-ghost">' + tt('atl.more', 'Show {n} more', { n: Math.min(PER, left) }) + '</button> <button type="button" class="btn btn-quiet" data-pg="all">' + tt('atl.one', 'Show all {n} in one list', { n: inn.length.toLocaleString('en-US') }) + '</button> <span>' + (area ? tt('atl.of.area', '{n} of {places} in this area', { n: lim.toLocaleString('en-US'), places: pl(inn.length) }) : tt('atl.of', '{n} of {places}', { n: lim.toLocaleString('en-US'), places: pl(inn.length) })) + '</span>' : ''; }
     deco(); face(); C.msN = area ? [inn.length, all.length - inn.length] : null; C.msTop = T ? [inn.length, all.length] : null; H.classList.add('ms-on'); held(); here(false);
     if (C.msPaint) C.msPaint();
   };
@@ -301,7 +304,7 @@
   /* ---- "Search this area" (phones, after the reader pans or zooms; never live, so the carousel never jumps) ---- */
   let hereB = null, lastB = null;
   const here = o => {
-    if (!hereB && o) { hereB = d.createElement('button'); hereB.type = 'button'; hereB.className = 'btn ms-here'; hereB.innerHTML = C.icon('pin') + '<span>Search this area</span>'; mp.appendChild(hereB);
+    if (!hereB && o) { hereB = d.createElement('button'); hereB.type = 'button'; hereB.className = 'btn ms-here'; hereB.innerHTML = C.icon('pin') + '<span>' + tt('atl.here', 'Search this area') + '</span>'; mp.appendChild(hereB);
       on(hereB, 'click', () => { C.msAll = C.msOne = false; msArea(); if (lp) lp.scrollLeft = 0; }); }
     if (hereB) hereB.hidden = !o;
   };
@@ -419,14 +422,14 @@
     if (c.hasAttribute('data-ms') || (c.classList.contains('ms-out') && H.classList.contains('ms-on'))) return; c.setAttribute('data-ms', '');
     const t1 = at(c, 'data-t') === '1', cl = c.hasAttribute('data-closed'), a = ((info.areas || {})[at(c, 'data-a')] || {}).n || '';
     const inT = ($('.pl-e .in', c) || {}).textContent || '', dish = inT.split(' · ').slice(1).join(' · ').trim();
-    const g = (at(c, 'data-g') || '').split(' ').filter(x => x && x !== 'FREE' && x !== 'ICON')[0], kind = dish || (at(c, 'data-k') === 'f' ? 'Eat & drink' : ((info.cats || {})[g] || 'Sight'));
+    const g = (at(c, 'data-g') || '').split(' ').filter(x => x && x !== 'FREE' && x !== 'ICON')[0], kind = dish || (at(c, 'data-k') === 'f' ? tt('city.mode.food', 'Eat & drink') : ((info.cats || {})[g] || tt('srch.sight', 'Sight')));
     const ss = (at(c, 'data-src') || '').split(' ').filter(x => x && x !== 'guide'), s0 = ss[0];
     const fig = $('figure.pl-photo', c), cap = fig && $('figcaption', fig), cl0 = cap && [].slice.call(cap.querySelectorAll('a')).pop();
     c.insertAdjacentHTML('afterbegin', '<span class="ms-bd">' +
-      (cl ? '<span class="sticker ms-cl">Closed</span>' : t1 ? '<span class="sticker ms-st">Must see</span>' : '') + '</span>' +
-      (cl0 ? '<a class="ms-cr" href="' + C.esc(cl0.href) + '" target="_blank" rel="noopener" title="' + C.esc(cap.textContent.trim()) + '" aria-label="Photo credit: ' + C.esc(cap.textContent.trim()) + '">©</a>' : ''));
+      (cl ? '<span class="sticker ms-cl">' + tt('sheet.closed', 'Closed') + '</span>' : t1 ? '<span class="sticker ms-st">' + tt('tier.1', 'Must see') + '</span>' : '') + '</span>' +
+      (cl0 ? '<a class="ms-cr" href="' + C.esc(cl0.href) + '" target="_blank" rel="noopener" title="' + C.esc(cap.textContent.trim()) + '" aria-label="' + tt('atl.credit', 'Photo credit: {c}', { c: C.esc(cap.textContent.trim()) }) + '">©</a>' : ''));
     const nm = $('.pl-n', c); if (nm) nm.insertAdjacentHTML('afterend', '<p class="ms-k"><span class="ms-a">' + C.esc(a) + ' · </span>' + C.esc(kind) + '</p>' +
-      '<p class="ms-rec">' + (s0 ? 'Recommended by <b>' + ss.slice(0, 2).map(x => C.esc(((info.src || {})[x] || [x])[0])).join('</b>, <b>') + '</b>' + (ss.length > 2 ? ' +' + (ss.length - 2) + ' more' : '') : 'Added by the guide') + '</p>');
+      '<p class="ms-rec">' + (s0 ? tt('card.recby', 'Recommended by') + ' <b>' + ss.slice(0, 2).map(x => C.esc(((info.src || {})[x] || [x])[0])).join('</b>, <b>') + '</b>' + (ss.length > 2 ? ' ' + tt('gal.more', '+{n} more', { n: ss.length - 2 }) : '') : tt('sheet.added', 'Added by the guide')) + '</p>');
     const im = fig && $('img', fig); if (im && !im.hasAttribute('data-sizes0')) im.setAttribute('data-sizes0', im.getAttribute('sizes') || '');
   });
   // D-46 DOM budget (FE-A: Tokyo Atlas 3,587 nodes against 3,000): a card off the map-area page goes back into a deferred
@@ -445,27 +448,45 @@
   const undeco = () => { qa('li.pl img[data-sizes0]').forEach(im => { im.setAttribute('sizes', at(im, 'data-sizes0')); im.removeAttribute('data-sizes0'); });
     qa('li.pl[data-ms]').forEach(x => x.removeAttribute('data-ms')); qa('li.pl :is(.ms-bd,.ms-cr,.ms-k,.ms-rec)').forEach(x => x.remove()); };
   on(d, 'cleo:stamped', () => { if (atlas()) { deco(); face(); } });
+  // i18n D-41: what Atlas drew before the catalogue arrived is said again in it. locale.js fires cleo:locale inside the
+  // paint hold, after city.js's own apply() (which re-runs the pager, count line and Key via C.after); this re-says the
+  // once-built bar, head, card faces and map controls, and puts the bar's aria-label back on its own key
+  on(d, 'cleo:locale', () => {
+    const set = (el, t) => { if (el) el.textContent = t; }, lab = (el, t) => { if (el) { el.setAttribute('aria-label', t); if (el.title) el.title = t; } };
+    if (bar) { bar.setAttribute('aria-label', tt('atl.bar', 'Search and filter the map')); set($('.ms-top span', bar), tt('gb.top', 'Top picks'));
+      set($('.ms-mine span', bar), tt('sheet.saved', 'Saved')); set($('.ms-sort .vh', bar), tt('atl.sort', 'Sort places'));
+      const so = SORT(); qa('.ms-sort option', bar).forEach((o, i) => set(o, (so[i] || [])[1] || o.textContent)); }
+    if (head) { set($('.ms-nomap-n', head), tt('atl.nomap', 'Map unavailable right now — every place is listed here.')); set($('.ms-live span', head), tt('atl.live', 'Search as I move the map'));
+      set($('[data-cleo-foryou] span', head), tt('city.door.guide.t', 'For you')); set($('[data-cleo-day] span', head), tt('city.door.day.k', 'Your day')); set($('[data-cleo-near] span', head), tt('city.door.near.k', 'Near me')); }
+    if (hereB) set($('span', hereB), tt('atl.here', 'Search this area'));
+    lab($('.am-ctl.m-list'), tt('atl.m.list', 'Show the list')); lab($('.am-ctl.m-locate'), tt('city.door.near.k', 'Near me'));
+    lab($('.m-layers'), tt('atl.layers', 'Map style and key')); lab($('.m-layers-pop'), tt('atl.layers', 'Map style and key')); lab($('.m-styles'), tt('atl.style', 'Map style'));
+    set($('.m-styles [data-base="map"]'), tt('city.map.label', 'Map')); set($('.m-styles [data-base="satellite"]'), tt('city.base.satellite', 'Satellite'));
+    lab($('.m-attr-i'), tt('atl.credits', 'Map credits')); set($('.ms-key legend'), tt('atl.key', 'Map key'));
+    if (atlas()) { undeco(); deco(); face(); if (C.msPaint) C.msPaint(); }
+  });
 
   /* ---- the Atlas chrome (moved off the eager path): filter bar, results line, List / Map pill ---- */
   const split = $('.split'), tb = $('[data-cleo-toolbar]'), nav = $('[data-cleo-views]'), achips = $('.area-chips');
   let moved = [], bar = null, head = null, tog = null, listOn = false, pushedList = 0;
   const park = (el, host, before) => { if (el && el.parentNode !== host) { moved.push([el, el.parentNode, el.nextSibling]); host.insertBefore(el, before || null); } };
   const unpark = () => moved.splice(0).reverse().forEach(([el, par, nx]) => { if (nx && nx.parentNode === par) par.insertBefore(el, nx); else par.appendChild(el); });
-  const SORT = [['', 'Top ranked'], ['src', 'Most sources'], ['az', 'A–Z'], ['near', 'Nearest to me']];
+  const SORT0 = [['', 'atl.sort.top', 'Top ranked'], ['src', 'atl.sort.src', 'Most sources'], ['az', 'atl.sort.az', 'A–Z'], ['near', 'city.sort.near', 'Nearest to me']];
+  const SORT = () => SORT0.map(x => [x[0], tt(x[1], x[2])]);   // i18n D-41: said in the catalogue at render time
   function build() {
     if (bar || !split) return;
-    bar = d.createElement('div'); bar.className = 'ms-bar'; bar.setAttribute('role', 'search'); bar.setAttribute('aria-label', 'Search and filter the map');
-    bar.innerHTML = '<div class="ms-x"><button type="button" class="chip ms-top" aria-pressed="false">' + C.icon('star4') + '<span>Top picks</span></button>' +
-      '<button type="button" class="chip ms-mine" aria-pressed="false">' + C.icon('heart') + '<span>Saved</span> <span class="n"></span></button>' +
-      '<label class="ms-sort"><span class="vh">Sort places</span><select>' + SORT.map(x => '<option value="' + x[0] + '">' + x[1] + '</option>').join('') + '</select></label></div>';
+    bar = d.createElement('div'); bar.className = 'ms-bar'; bar.setAttribute('role', 'search'); bar.setAttribute('aria-label', tt('atl.bar', 'Search and filter the map'));   // its own key: never the generic "Search {city}"
+    bar.innerHTML = '<div class="ms-x"><button type="button" class="chip ms-top" aria-pressed="false">' + C.icon('star4') + '<span>' + tt('gb.top', 'Top picks') + '</span></button>' +
+      '<button type="button" class="chip ms-mine" aria-pressed="false">' + C.icon('heart') + '<span>' + tt('sheet.saved', 'Saved') + '</span> <span class="n"></span></button>' +
+      '<label class="ms-sort"><span class="vh">' + tt('atl.sort', 'Sort places') + '</span><select>' + SORT().map(x => '<option value="' + x[0] + '">' + x[1] + '</option>').join('') + '</select></label></div>';
     split.parentNode.insertBefore(bar, split); H.classList.add('ms-built');   // the bar takes the space held for it, in the same frame
     head = d.createElement('div'); head.className = 'ms-head';
-    head.innerHTML = '<p class="ms-nomap-n">Map unavailable right now — every place is listed here.</p><div class="ms-row"><p class="ms-count" aria-live="polite"></p>' +
-      '<label class="ms-live"><input type="checkbox"> <span>Search as I move the map</span></label></div><p class="ms-more"></p>' +
+    head.innerHTML = '<p class="ms-nomap-n">' + tt('atl.nomap', 'Map unavailable right now — every place is listed here.') + '</p><div class="ms-row"><p class="ms-count" aria-live="polite"></p>' +
+      '<label class="ms-live"><input type="checkbox"> <span>' + tt('atl.live', 'Search as I move the map') + '</span></label></div><p class="ms-more"></p>' +
       // R7-g4 (e): the rail's doors, reachable in desktop Atlas without horizontal scroll (city.js handles them by attribute)
-      '<p class="ms-doors"><button type="button" class="btn btn-quiet" data-cleo-foryou aria-haspopup="dialog">' + C.icon('spark') + '<span>For you</span></button>' +
-      '<button type="button" class="btn btn-quiet" data-cleo-day="">' + C.icon('route') + '<span>Your day</span></button>' +
-      '<button type="button" class="btn btn-quiet" data-cleo-near aria-pressed="false">' + C.icon('locate') + '<span>Near me</span></button></p>';
+      '<p class="ms-doors"><button type="button" class="btn btn-quiet" data-cleo-foryou aria-haspopup="dialog">' + C.icon('spark') + '<span>' + tt('city.door.guide.t', 'For you') + '</span></button>' +
+      '<button type="button" class="btn btn-quiet" data-cleo-day="">' + C.icon('route') + '<span>' + tt('city.door.day.k', 'Your day') + '</span></button>' +
+      '<button type="button" class="btn btn-quiet" data-cleo-near aria-pressed="false">' + C.icon('locate') + '<span>' + tt('city.door.near.k', 'Near me') + '</span></button></p>';
     if (lp) lp.insertBefore(head, lp.firstChild);
     const lv = $('.ms-live input', head); lv.checked = C.msLive = store.get('msLive', true) !== false;
     on(lv, 'change', () => { C.msLive = lv.checked; store.set('msLive', lv.checked); msArea(); });
@@ -494,7 +515,7 @@
   const paintMs = C.msPaint = () => {
     if (!head) return;
     const pend = lensStubs().length, N = qa('li.pl').filter(c => !c.hidden).length + pend, n = C.msN, onA = !!n && H.classList.contains('ms-on'), all = !!C.msOne || (!!C.msAll && !!C.map());
-    const tot = '<span class="ms-sortby" title="Ordered by tier within each area, then by number of named sources">' + (SORT.filter(x => x[0] === (S.sort || ''))[0] || SORT[0])[1] + '</span>';
+    const tot = '<span class="ms-sortby" title="' + tt('atl.order.t', 'Ordered by tier within each area, then by number of named sources') + '">' + (SORT().filter(x => x[0] === (S.sort || ''))[0] || SORT()[0])[1] + '</span>';
     const tp = C.msTop, total = (C.info && C.info.total) || 0, lensOn = !!(Cleo.lens && Cleo.lens.on && Cleo.lens.on(Cleo.lens.current()));
     // QC-05: a search (or lens) that matches nothing says so and offers the way back — never a blank map and "0"
     const none = !tp && N === 0 && total > 0;
@@ -502,14 +523,16 @@
     if (none) { const T = (k, e, v) => C.esc(Cleo.t ? Cleo.t(k, e, v) : e);
       $('.ms-count', head).innerHTML = S.q ? T('city.empty.q', 'No places match “{q}”.', { q: S.q }) : T('city.empty.f', 'No places match these filters.');
       $('.ms-more', head).innerHTML = (S.q ? '<button type="button" class="btn btn-quiet" data-ms-clear="q">' + T('city.empty.search', 'Clear search') + '</button> ' : '') + '<button type="button" class="btn btn-quiet" data-ms-clear="all">' + T('city.showall', 'Show all {n}', { n: total.toLocaleString('en-US') }) + '</button>'; }
-    else $('.ms-count', head).innerHTML = tp ? 'Top <b>' + tp[0].toLocaleString('en-US') + '</b> picks · ' + tot
-      : onA ? '<b>' + n[0].toLocaleString('en-US') + '</b> ' + (n[0] === 1 ? 'place' : 'places') + ' here' + (lensOn && total ? ', of all ' + total.toLocaleString('en-US') : '') + ' · ' + tot
+    else $('.ms-count', head).innerHTML = tp ? tt('atl.c.top', 'Top {n} picks', { n: '<b>' + tp[0].toLocaleString('en-US') + '</b>' }) + ' · ' + tot
+      : onA ? (lensOn && total ? (n[0] === 1 ? tt('atl.c.here.of.one', '{n} place here, of all {total}', { n: '<b>' + n[0].toLocaleString('en-US') + '</b>', total: total.toLocaleString('en-US') }) : tt('atl.c.here.of', '{n} places here, of all {total}', { n: '<b>' + n[0].toLocaleString('en-US') + '</b>', total: total.toLocaleString('en-US') }))
+        : n[0] === 1 ? tt('atl.c.here.one', '{n} place here', { n: '<b>' + n[0].toLocaleString('en-US') + '</b>' }) : tt('atl.c.here', '{n} places here', { n: '<b>' + n[0].toLocaleString('en-US') + '</b>' })) + ' · ' + tot
       // QC-13: under a lens the line keeps the total — "43 of all 488 places"
-      : lensOn && total && N < total ? '<b>' + N.toLocaleString('en-US') + '</b> of all ' + total.toLocaleString('en-US') + ' places · ' + tot
-      : (all ? 'Showing all <b>' : 'All <b>') + N.toLocaleString('en-US') + '</b> ' + (N === 1 ? 'place' : 'places') + ' · ' + tot;
-    if (!none) $('.ms-more', head).innerHTML = tp ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + tp[1].toLocaleString('en-US') + '</button>'
-      : onA && n[1] ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + (n[0] + n[1]).toLocaleString('en-US') + '</button>'
-      : all ? '<button type="button" class="btn btn-quiet" data-ms="area">' + (C.map() ? 'Only show this map area' : 'Show ' + PER + ' at a time') + '</button>' : '';
+      : lensOn && total && N < total ? tt('atl.c.of', '{n} of all {total} places', { n: '<b>' + N.toLocaleString('en-US') + '</b>', total: total.toLocaleString('en-US') }) + ' · ' + tot
+      : (all ? (N === 1 ? tt('atl.c.showing.one', 'Showing all {n} place', { n: '<b>' + N.toLocaleString('en-US') + '</b>' }) : tt('atl.c.showing', 'Showing all {n} places', { n: '<b>' + N.toLocaleString('en-US') + '</b>' }))
+        : N === 1 ? tt('atl.c.all.one', 'All {n} place', { n: '<b>' + N.toLocaleString('en-US') + '</b>' }) : tt('atl.c.all', 'All {n} places', { n: '<b>' + N.toLocaleString('en-US') + '</b>' })) + ' · ' + tot;
+    if (!none) $('.ms-more', head).innerHTML = tp ? '<button type="button" class="btn btn-quiet" data-ms="all">' + tt('city.showall', 'Show all {n}', { n: tp[1].toLocaleString('en-US') }) + '</button>'
+      : onA && n[1] ? '<button type="button" class="btn btn-quiet" data-ms="all">' + tt('city.showall', 'Show all {n}', { n: (n[0] + n[1]).toLocaleString('en-US') }) + '</button>'
+      : all ? '<button type="button" class="btn btn-quiet" data-ms="area">' + (C.map() ? tt('atl.area', 'Only show this map area') : tt('atl.per', 'Show {n} at a time', { n: PER })) + '</button>' : '';
     $('.ms-live', head).hidden = !C.map() || !desk();   // its 44 px row is reserved (atlas.css .ms-row), so it arriving with the map moves nothing (D-46)
     $('.ms-top').setAttribute('aria-pressed', String(!!C.msTop)); $('.ms-mine', bar).setAttribute('aria-pressed', String(!!S.mine));
     const sv = Cleo.saved ? Object.keys(Cleo.saved.all()).filter(r => r.slice(0, r.lastIndexOf('/')) === C.key).length : 0; $('.ms-mine .n', bar).textContent = sv || '';
@@ -519,12 +542,12 @@
     // photo (no glyph stand-ins); their names are in the peek's label. "checked <date>" moved to the list's count line
     const pkT = desk() || listOn ? [] : qa('#cleo-grid li.pl:not(.ms-out):not([hidden])').map(c => [c, $('figure.pl-photo img', c)]).filter(x => x[1] && (x[1].currentSrc || x[1].getAttribute('src')))
       .sort((a, b) => (MP[C.pid(a[0])] == null ? 1e9 : MP[C.pid(a[0])]) - (MP[C.pid(b[0])] == null ? 1e9 : MP[C.pid(b[0])])).slice(0, 3).map(x => [C.name(x[0]) || C.pid(x[0]), x[1].currentSrc || x[1].getAttribute('src')]);
-    if (!none && listOn && !desk() && checked()) $('.ms-count', head).insertAdjacentHTML('beforeend', ' · <span class="ms-chk">checked ' + checked() + '</span>');
-    tog.innerHTML = listOn ? C.icon('map') + '<span>Map</span>' : desk() || H.classList.contains('ms-car') ? C.icon('list') + '<span>List · ' + k.toLocaleString('en-US') + '</span>'
-      : none ? '<i class="ms-handle" aria-hidden="true"></i><span>No places match · Show the list</span>'
+    if (!none && listOn && !desk() && checked()) $('.ms-count', head).insertAdjacentHTML('beforeend', ' · <span class="ms-chk">' + tt('atl.checked', 'checked {d}', { d: checked() }) + '</span>');
+    tog.innerHTML = listOn ? C.icon('map') + '<span>' + tt('city.map.label', 'Map') + '</span>' : desk() || H.classList.contains('ms-car') ? C.icon('list') + '<span>' + tt('atl.tog.list.n', 'List · {n}', { n: k.toLocaleString('en-US') }) + '</span>'
+      : none ? '<i class="ms-handle" aria-hidden="true"></i><span>' + tt('atl.tog.none', 'No places match · Show the list') + '</span>'
       : '<i class="ms-handle" aria-hidden="true"></i><span class="ms-pk">' + (pkT.length ? '<span class="ms-th" aria-hidden="true">' + pkT.map(x => '<img src="' + C.esc(x[1]) + '" alt="" width="40" height="40" decoding="async">').join('') + '</span>' : '') +
-        '<span><b>' + k.toLocaleString('en-US') + '</b> ' + (k === 1 ? 'place' : 'places') + ' here · Show list</span></span>';   // the phone peek (SPEC-v3 §1.7)
-    tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k) + (pkT.length ? ', led by ' + (pkT.length > 1 ? pkT.slice(0, -1).map(x => x[0]).join(', ') + ' and ' + pkT[pkT.length - 1][0] : pkT[0][0]) : ''));
+        '<span>' + (k === 1 ? tt('atl.tog.n.one', '{n} place here · Show list', { n: '<b>' + k.toLocaleString('en-US') + '</b>' }) : tt('atl.tog.n', '{n} places here · Show list', { n: '<b>' + k.toLocaleString('en-US') + '</b>' })) + '</span></span>';   // the phone peek (SPEC-v3 §1.7)
+    tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? tt('atl.tog.map', 'Show the map') : pkT.length ? tt('atl.tog.led', 'Show the list of {places}, led by {names}', { places: pl(k), names: pkT.length > 1 ? pkT.slice(0, -1).map(x => x[0]).join(tt('atl.comma', ', ')) + tt('fy.and', ' and ') + pkT[pkT.length - 1][0] : pkT[0][0] }) : tt('atl.tog.list', 'Show the list of {places}', { places: pl(k) }));
   };
   // cards stamped later (a deep link, a route that builds more) join the page only if it shows them: a kept list stays the list
   // a source chip the card's width cuts (ellipsis) carries its whole name as a title — only those, so pages stay lean
@@ -591,15 +614,15 @@
     const map = C.map(), live = $('#cleo-view-live'), say = t => { if (live) live.textContent = t; b.title = t; };
     if (!map) return;
     if (me) { if (!(C.onLocate && C.onLocate(me))) C.fly(me); return; }   // a second press (after Near me was cleared) sorts again
-    if (!navigator.geolocation) { say('This browser can’t share a location.'); return; }
+    if (!navigator.geolocation) { say(tt('atl.geo.no', 'This browser can’t share a location.')); return; }
     b.classList.add('busy');
     navigator.geolocation.getCurrentPosition(p => {
       const m = C.map(); b.classList.remove('busy'); if (!m) return; me = window.L.latLng(p.coords.latitude, p.coords.longitude); b.setAttribute('aria-pressed', 'true');
       if (!meL) meL = window.L.layerGroup().addTo(m); meL.clearLayers();
       if (p.coords.accuracy) window.L.circle(me, { radius: p.coords.accuracy, className: 'me-acc', weight: 1, interactive: false }).addTo(meL);
       window.L.circleMarker(me, { radius: 7, weight: 2, fillOpacity: 1, interactive: false, className: 'me' }).addTo(meL);
-      say('You are here — shown on this device only, never stored, gone when you reload.'); car(true); if (!(C.onLocate && C.onLocate(me))) C.fly(me);   // atlas-nav.js: nearest first
-    }, err => { b.classList.remove('busy'); say(err && err.code === 1 ? 'Location permission was declined. Nothing was stored.' : 'Couldn’t get your location.'); },
+      say(tt('atl.geo.here', 'You are here — shown on this device only, never stored, gone when you reload.')); car(true); if (!(C.onLocate && C.onLocate(me))) C.fly(me);   // atlas-nav.js: nearest first
+    }, err => { b.classList.remove('busy'); say(err && err.code === 1 ? tt('atl.geo.denied', 'Location permission was declined. Nothing was stored.') : tt('atl.geo.failed', 'Couldn’t get your location.')); },
     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
   };
 
@@ -617,7 +640,7 @@
       ac.setPosition('bottomleft');
       ac._update = function () { up.call(this); const el = this._container; if (!el) return; const full = el.innerHTML; el.classList.add('m-attr');
         el.innerHTML = '<span class="m-attr-s">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · Esri</span>' +
-          '<button type="button" class="m-attr-i" aria-expanded="false" aria-label="Map credits">ⓘ</button><div class="m-attr-pop" role="note" hidden>' + full + '</div>'; };
+          '<button type="button" class="m-attr-i" aria-expanded="false" aria-label="' + tt('atl.credits', 'Map credits') + '">ⓘ</button><div class="m-attr-pop" role="note" hidden>' + full + '</div>'; };
       ac._update();
       const box = ac.getContainer(), tog = o => { const b = $('.m-attr-i', box), pp = $('.m-attr-pop', box); if (!b || !pp) return; pp.hidden = !o; b.setAttribute('aria-expanded', String(o)); };
       on(box, 'click', e => { if (e.target.closest('.m-attr-i')) tog($('.m-attr-pop', box).hidden); });
@@ -631,12 +654,13 @@
       const g = d.createElement('fieldset'); g.className = 'ms-key';
       const k = (cls, gl, t) => '<b class="pp ' + cls + '"><span><svg class="ico" aria-hidden="true"><use href="#i-' + gl + '"/></svg><b>' + t + '</b></span></b>';
       const fk = d.getElementById('i-forkknife') ? 'forkknife' : 'bowl';
-      const paint = () => { const ar = S.a ? [S.a] : []; g.querySelector('ul').innerHTML = '<li>' + k('pp-s', 'columns', 'Sight') + '</li><li>' + k('pp-f', fk, 'Eat &amp; drink') + '</li>' +
-        '<li>' + k('pp-s pp-x', 'columns', 'Closed') + '</li>' +
-        '<li class="k"><i class="kd"></i><i class="kd f"></i>More places · zoom in to see their names</li>' +
+      const paint = () => { const ar = S.a ? [S.a] : []; g.querySelector('ul').innerHTML = '<li>' + k('pp-s', 'columns', tt('srch.sight', 'Sight')) + '</li><li>' + k('pp-f', fk, C.esc(tt('city.mode.food', 'Eat & drink'))) + '</li>' +
+        '<li>' + k('pp-s pp-x', 'columns', tt('sheet.closed', 'Closed')) + '</li>' +
+        (C.navLow && C.navLow() ? '<li class="k"><i class="kd ms-halo-k"></i>' + C.esc(tt('sheet.pin.approx', 'Approximate pin')) + '</li>' : '') +   // D-43 (atlas-nav.js draws the halo)
+        '<li class="k"><i class="kd"></i><i class="kd f"></i>' + tt('atl.key.more', 'More places · zoom in to see their names') + '</li>' +
         ar.map(a => '<li class="k"><i class="kd" style="background:' + areaC({ getAttribute: () => a, hasAttribute: () => false }) + '"></i>' + C.esc(((C.info.areas || {})[a] || {}).n || a) + '</li>').join('') +
-        '<li class="k">' + (store.get('base', 'map') === 'street!' ? '<button type="button" class="btn btn-quiet" data-base="map">Back to the calm map</button>' : '<button type="button" class="btn btn-quiet" data-base="street">Show street detail</button>') + '</li>'; };
-      g.innerHTML = '<legend>Map key</legend><ul class="m-legend-l"></ul>'; paint();
+        '<li class="k">' + (store.get('base', 'map') === 'street!' ? '<button type="button" class="btn btn-quiet" data-base="map">' + tt('atl.base.calm', 'Back to the calm map') + '</button>' : '<button type="button" class="btn btn-quiet" data-base="street">' + tt('atl.base.street', 'Show street detail') + '</button>') + '</li>'; };
+      g.innerHTML = '<legend>' + tt('atl.key', 'Map key') + '</legend><ul class="m-legend-l"></ul>'; paint();
       on(g, 'click', e => { const b = e.target.closest('[data-base]'); if (!b) return; C.setBase(at(b, 'data-base')); paint(); });
       C.after.push(paint);
       return g;
@@ -644,13 +668,13 @@
     // OV-00 §2.0.3 (D-47): phones get ONE icon-only stack, bottom-right — Locate, then Layers; desktop gets + / − then Layers,
     // top-left, and no locate on the map (the list head's "Near me" is the one). Layers opens a small popover: Map / Satellite
     // as a radio pair, the Key, and the offline pack (platform's Cleo.pack.mount). Esc closes it and returns focus to Layers
-    if (!dk) ctl('bottomright', () => { const b = btn('m-list', 'Show the list', C.icon('list')); on(b, 'click', () => listMode(true, true)); return b; });   // §2.0.7: landscape's List (no peek); hidden in portrait
-    if (!dk) ctl('bottomright', () => { const b = btn('m-locate', 'Near me', C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
+    if (!dk) ctl('bottomright', () => { const b = btn('m-list', tt('atl.m.list', 'Show the list'), C.icon('list')); on(b, 'click', () => listMode(true, true)); return b; });   // §2.0.7: landscape's List (no peek); hidden in portrait
+    if (!dk) ctl('bottomright', () => { const b = btn('m-locate', tt('city.door.near.k', 'Near me'), C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
     ctl(dk ? 'topleft' : 'bottomright', () => {
       const w = d.createElement('div'); w.className = 'am-ctl m-layers-w';
-      w.innerHTML = '<button type="button" class="m-layers" aria-label="Map style and key" title="Map style and key" aria-expanded="false" aria-controls="m-layers-pop">' + C.icon('grid') + '</button>' +
-        '<div class="m-layers-pop" id="m-layers-pop" role="dialog" aria-label="Map style and key" hidden><div class="m-styles" role="radiogroup" aria-label="Map style">' +
-        '<button type="button" role="radio" data-base="map">Map</button><button type="button" role="radio" data-base="satellite">Satellite</button></div><div class="m-pack"></div></div>';
+      w.innerHTML = '<button type="button" class="m-layers" aria-label="' + tt('atl.layers', 'Map style and key') + '" title="' + tt('atl.layers', 'Map style and key') + '" aria-expanded="false" aria-controls="m-layers-pop">' + C.icon('grid') + '</button>' +
+        '<div class="m-layers-pop" id="m-layers-pop" role="dialog" aria-label="' + tt('atl.layers', 'Map style and key') + '" hidden><div class="m-styles" role="radiogroup" aria-label="' + tt('atl.style', 'Map style') + '">' +
+        '<button type="button" role="radio" data-base="map">' + tt('city.map.label', 'Map') + '</button><button type="button" role="radio" data-base="satellite">' + tt('city.base.satellite', 'Satellite') + '</button></div><div class="m-pack"></div></div>';
       const b = $('.m-layers', w), pop = $('.m-layers-pop', w), rs = qa('[role=radio]', w);
       const lab = () => { const sat = store.get('base', 'map') === 'satellite'; rs.forEach(r => { const on1 = (at(r, 'data-base') === 'satellite') === sat; r.setAttribute('aria-checked', String(on1)); r.tabIndex = on1 ? 0 : -1; }); };
       const open = o => { pop.hidden = !o; b.setAttribute('aria-expanded', String(o)); if (o) { lab(); const hst = $('.m-pack', pop); if (Cleo.pack && Cleo.pack.mount) Cleo.pack.mount(hst); (rs.find(r => r.tabIndex === 0) || rs[0]).focus(); } };

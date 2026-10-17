@@ -2460,6 +2460,15 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - test-i18n gains two pseudo checks, both of which fail on the old file.
     - Review round 20 made 3 changes.
   - **Insights:** the singular closed-place note is now in ja (`ins.p.tier.one`).
+- 2026-10-17 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · W8-I18N-ATLAS: Atlas (the default view) in ja.
+  - **What changed:** 64 new `atl.*` keys (swapSkip) plus about 15 reused keys, through a local `tt` in atlas.js and atlas-nav.js. String literals only; each edit is marked `// i18n D-41`.
+  - **Redraw:** a `cleo:locale` handler re-says what Atlas built before the catalogue arrived: the bar, head, card faces, map controls and skip links. It also puts the bar's aria-label back on its own key, which fixes the `Search {city}` hijack.
+  - **locale.js:**
+    - It swaps cards stamped later (`cleo:stamped`, a capture listener, so it runs before page handlers) and the `data-l*` templates. That fixes stamped-later cards in Gallery too, plus the pack size and mapfail's offline line.
+    - It shrank (CleoLocale flag, store helpers, one attribute regex), so the eager counter rose only 0.03 KB: 39.32 → 39.35 of 40. locale.js counts there, but it is fetched only for non-en readers.
+  - **English:** byte-identical, proven by a noise-free 32-state real-browser DOM snapshot.
+  - **Tests:** a real-browser Atlas pseudo test and a jsdom stamped-card/data-l test, both of which fail on the old code.
+  - **Review:** round 21 made 7 changes; the running total is 94 changes over 21 rounds.
 
 ## 2026-10-17 11:15Z · orchestrator check-in
 

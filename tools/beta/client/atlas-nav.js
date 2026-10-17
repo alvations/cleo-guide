@@ -25,6 +25,8 @@
   'use strict';
   const Cleo = window.Cleo || {}, C = Cleo.city, d = document, H = d.documentElement; if (!C || C.placeOpen) return;
   const $ = (s, el) => (el || d).querySelector(s), on = (el, ev, f, o) => el && el.addEventListener(ev, f, o);
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n)
+  const tt = (k, e, v) => Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, (m, x) => x in v ? v[x] : m) : e;
   const atlas = () => C.view === 'atlas' || (!C.view && H.getAttribute('data-view') === 'atlas'), lp = () => $('.listpane');
   const route = () => Cleo.route.parse(), hasP = () => !!placeId();
   // the open place: #…&p=<id>, or a card's own #p-<id> anchor
@@ -204,7 +206,8 @@
     setTimeout(() => { ready = true; if (!hasP() && !last) last = snapNow(); writeAt(); }, 1600);
     if (parseAt() && !atDone && !userAt) C.atView();
     if (open && open.fresh) C.freshPlace();
-    setTimeout(() => motion(m), 0);   // after this file has run (motion is defined below)
+    setTimeout(() => motion(m), 0);
+    setTimeout(() => halo(m), 0);   // after this file has run (motion is defined below)
   };
   // QA-76: until the map's first fit (city core, saved or shared view, area, lens or place) has landed, the map still
   // shows the page's starting centre, and a map-area pass there published "450 places here · Show all 488" for a
@@ -224,8 +227,10 @@
   // plain #anchor would re-route the page). They show on focus, like the page's own, and only in Atlas (atlas-nav.css).
   const firstCard = () => [].slice.call(d.querySelectorAll('.listpane li.pl:not([hidden]):not(.ms-out) .pl-n a')).filter(a => a.getClientRects().length)[0];
   const skips = () => { const s0 = $('a.skip'); if (!s0 || $('.ms-skip')) return;
-    s0.insertAdjacentHTML('afterend', '<a class="skip ms-skip" href="#cleo-map" data-skip="map">Skip to the map</a><a class="skip ms-skip" href="#cleo-grid" data-skip="list">Skip to the results</a>'); };
+    s0.insertAdjacentHTML('afterend', '<a class="skip ms-skip" href="#cleo-map" data-skip="map">' + tt('atl.skip.map', 'Skip to the map') + '</a><a class="skip ms-skip" href="#cleo-grid" data-skip="list">' + tt('atl.skip.list', 'Skip to the results') + '</a>'); };
   skips();
+  // i18n D-41: skip links drawn before the catalogue arrived, said again in it
+  on(d, 'cleo:locale', () => { const m = $('a.ms-skip[data-skip="map"]'), l = $('a.ms-skip[data-skip="list"]'); if (m) m.textContent = tt('atl.skip.map', 'Skip to the map'); if (l) l.textContent = tt('atl.skip.list', 'Skip to the results'); });
   on(d, 'click', e => { const a = e.target.closest && e.target.closest('a.ms-skip'); if (!a) return; e.preventDefault();
     if (a.getAttribute('data-skip') === 'map') { const m = C.map(), el = m ? m.getContainer() : $('#cleo-map'); if (!el) return; if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0'); el.focus({ preventScroll: true }); }
     else { const l = firstCard(); if (l) l.focus({ preventScroll: true }); if (l && !desktop()) { const li = l.closest('li.pl'), lp0 = lp(); if (li && lp0) lp0.scrollLeft = li.offsetLeft - (lp0.clientWidth - li.offsetWidth) / 2; } } });
@@ -271,7 +276,7 @@
   const flat = () => {
     const S = C.S || {}, want = atlas() && ((S.sort === 'near' && !!C.dist) || byBase()), pane = lp(); if (!pane) return;
     if (want) {
-      if (!nearSec) { nearSec = d.createElement('section'); nearSec.className = 'ms-near'; nearSec.setAttribute('aria-label', 'Nearest first'); nearSec.innerHTML = '<ol class="pls"></ol>'; }
+      if (!nearSec) { nearSec = d.createElement('section'); nearSec.className = 'ms-near'; nearSec.setAttribute('aria-label', tt('city.door.near.t', 'Nearest first')); nearSec.innerHTML = '<ol class="pls"></ol>'; }
       const ol = nearSec.firstChild, s0 = $('section.area', pane);
       if (!nearSec.parentNode) { if (!s0) return; s0.parentNode.insertBefore(nearSec, s0); }
       const all = [].slice.call(pane.querySelectorAll('li.pl'));
@@ -295,11 +300,11 @@
     [].slice.call(d.querySelectorAll('.listpane li.pl')).forEach(c => { const k = $('.ms-k', c), sp = $('.ms-d', c), v = on1 && C.dist[C.pid(c)];
       if (v == null || v === false) { if (sp) sp.remove(); return; }
       if (!k) return; const t = fmtD(v) + ' · ';
-      if (!sp) { k.insertAdjacentHTML('afterbegin', '<span class="ms-d" title="' + C.esc(G && G.ASSUME || 'Walk times are straight-line, about 80 m a minute') + '"></span>'); }
+      if (!sp) { k.insertAdjacentHTML('afterbegin', '<span class="ms-d" title="' + C.esc((G && G.ASSUME ? tt('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') : tt('atl.walk', 'Walk times are straight-line, about 80 m a minute'))) + '"></span>'); }
       $('.ms-d', c).textContent = t; });
     const head = $('.ms-head'); if (!head) return; let n = $('.ms-near-n', head);
     if (on1 && (C.S || {}).sort === 'near') { if (!n) { n = d.createElement('p'); n.className = 'ms-near-n'; const ref = $('.ms-more', head); head.insertBefore(n, ref ? ref.nextSibling : null); }
-      n.textContent = 'Nearest first, from where you are. ' + ((G && G.ASSUME) || 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') + '. Your location stays on this device and is gone when you reload.'; }
+      n.textContent = tt('atl.near.note', 'Nearest first, from where you are. {assume}. Your location stays on this device and is gone when you reload.', { assume: tt('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') }); }
     else if (n) n.remove();
   };
   // phone list mode: the map sits behind the list, so "N places here" keeps the area the reader last saw — the map
@@ -346,13 +351,13 @@
     if (!g) { g = d.createElement('div'); g.className = 'ms-ring'; g.setAttribute('role', 'group'); bar.appendChild(g);
       on(g, 'click', e => { const b = e.target.closest('button[data-ring]'); if (!b) return; const r = route(); delete r.p; delete r.pg; delete r.all;
         const v = b.getAttribute('data-ring'); if (v && r.ring !== v) r.ring = v; else delete r.ring; C.go(r); }); }
-    const n = ringMin(), nm = Cleo.base.name ? Cleo.base.name() : 'your base';
+    const n = ringMin(), nm = Cleo.base.name ? Cleo.base.name() : tt('atl.base.you', 'your base');
     if (n && Cleo.defer && Cleo.defer.all && Cleo.defer.peek && Cleo.defer.peek().length) { Cleo.defer.all(); setTimeout(() => C.apply(), 0); }   // every place is judged, stamped or not
-    g.setAttribute('aria-label', 'Walking distance from your base, ' + nm);
-    g.innerHTML = '<span class="ms-ring-l">Within a walk of ' + C.esc(nm) + '</span>' + RING.map(x => '<button type="button" class="chip" data-ring="' + x + '" aria-pressed="' + (n === x) + '">' + x + ' min</button>').join('') +
-      (n ? '<button type="button" class="chip" data-ring="" aria-label="Any distance">Any</button>' : '') +
-      '<span class="vh">' + C.esc((G && G.ASSUME) || 'Walk times are straight-line, about 80 m a minute') + '</span>';
-    g.title = (G && G.ASSUME) || '';
+    g.setAttribute('aria-label', tt('atl.ring', 'Walking distance from your base, {name}', { name: nm }));
+    g.innerHTML = '<span class="ms-ring-l">' + tt('atl.ring.l', 'Within a walk of {name}', { name: C.esc(nm) }) + '</span>' + RING.map(x => '<button type="button" class="chip" data-ring="' + x + '" aria-pressed="' + (n === x) + '">' + tt('atl.min', '{n} min', { n: x }) + '</button>').join('') +
+      (n ? '<button type="button" class="chip" data-ring="" aria-label="' + tt('atl.any.l', 'Any distance') + '">' + tt('atl.any', 'Any') + '</button>' : '') +
+      '<span class="vh">' + C.esc((G && G.ASSUME ? tt('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') : tt('atl.walk', 'Walk times are straight-line, about 80 m a minute'))) + '</span>';
+    g.title = G && G.ASSUME ? tt('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') : '';
     drawRing();
   };
   C.after.push(paintRing); on(d, 'cleo:base', () => setTimeout(() => { if (C.apply) C.apply(); }, 0)); on(d, 'cleo:base-ready', () => setTimeout(() => { if (C.apply) C.apply(); }, 0));
@@ -400,6 +405,32 @@
     C.hotId = function (id, o) { const r = hot0.apply(this, arguments); if (atlas()) grow(id, !!o); return r; }; C.hotId._nav = 1;
   };
 
+  /* ---- D-43 (designer re-rule): an approximate pin sits on a soft uncertainty halo — "around here" (SPEC-v3 §1.1) ---- */
+  // a 20 px disc, --ink at 10 % (light) / 16 % (dark), no stroke, under the dot or the pill's anchor; drawn on its own
+  // canvas pane below the dots, only while that place's dot is on the map (lens, ring and disc rules still apply). A pin
+  // the data lane upgrades (info.prov no longer 'l…') loses it by itself. The Key's "Approximate pin" swatch is atlas.js's.
+  const lowIds = () => { const pv = (C.info && C.info.prov) || {}; return Object.keys(pv).filter(id => String(pv[id]).charAt(0) === 'l'); };
+  C.navLow = () => lowIds().some(id => C.markers && C.markers[id]);
+  const halo = m => {
+    const L = window.L; if (!L || !m.createPane) return; if (!m.getPane('navHalo')) { const pn = m.createPane('navHalo'); pn.style.zIndex = 390; pn.style.pointerEvents = 'none'; }
+    const cv = L.canvas({ pane: 'navHalo', padding: 0.2 }), lay = L.layerGroup().addTo(m), H0 = {};
+    const ink = () => { const dk = H.getAttribute('data-theme') === 'dark' || (H.getAttribute('data-theme') !== 'light' && !!window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+      return { c: (getComputedStyle(H).getPropertyValue('--ink') || '#1C1917').trim(), o: dk ? 0.16 : 0.1 }; };
+    const sync = () => { const k0 = ink(), on0 = {};
+      lowIds().forEach(id => { const k = C.markers[id]; if (!k) return;
+        if (!k._navHaloW) { k._navHaloW = 1; const st0 = k.setStyle; k.setStyle = function () { const r = st0.apply(this, arguments); soon(); return r; }; }   // a disc or a pin hides / shows the dot: follow it
+        if (!k._map) return; const pinned = !!(C.pinOf && C.pinOf(id)); if (!pinned && !(k.options.opacity > 0)) return; on0[id] = 1;
+        let h = H0[id]; if (!h) { h = H0[id] = L.circleMarker(k.getLatLng(), { renderer: cv, radius: 10, stroke: false, fillColor: k0.c, fillOpacity: k0.o, interactive: false }); h._navHalo = id; }
+        else h.setStyle({ fillColor: k0.c, fillOpacity: k0.o });
+        if (!lay.hasLayer(h)) h.addTo(lay); });
+      Object.keys(H0).forEach(id => { if (!on0[id] && lay.hasLayer(H0[id])) lay.removeLayer(H0[id]); }); };
+    let q = 0; const soon = () => { if (q) return; q = requestAnimationFrame(() => { q = 0; sync(); }); };
+    m.on('moveend zoomend', soon); C.after.push(soon); on(d, 'cleo:stamped', soon);
+    const f0 = C.feature; if (f0 && !f0._navHalo) { C.feature = function () { const r = f0.apply(this, arguments); soon(); return r; }; C.feature._navHalo = 1; }   // pins and density discs re-place: follow them
+    if (window.MutationObserver) new MutationObserver(soon).observe(H, { attributes: true, attributeFilter: ['data-theme'] });
+    C.navHalos = () => Object.keys(H0).filter(id => lay.hasLayer(H0[id]));   // probes: the places drawn with a halo now
+    soon(); };
+
   /* ---- the share toast says what the link opens (§3.5) ---- */
   const share0 = Cleo.share;
   if (share0) Cleo.share = function (title, url) {
@@ -408,7 +439,7 @@
     const m = C.map(), own = String(url).split('#')[0] === location.href.split('#')[0];
     if (m && own && ready && !/(?:^|[#&])at=/.test(url)) { url = String(url); url += (url.indexOf('#') < 0 ? '#' : /#$/.test(url) ? '' : '&') + 'at=' + encodeURIComponent(fmt(m)); }
     const h = (String(url).split('#')[1] || ''), p = /(?:^|&)p=([^&]+)/.exec(h), at0 = /(?:^|&)at=/.test(h);
-    const c = p && C.byId[decodeURIComponent(p[1])], what = c ? C.name(c) + (at0 ? ' on this map view' : '') : at0 ? 'this map view' : 'this page';
-    try { return navigator.clipboard.writeText(url).then(() => { if (Cleo.emit) Cleo.emit('cleo:toast', 'Link copied · opens ' + what); }, () => share0.call(this, title, url)); } catch (e) { return share0.apply(this, arguments); }
+    const c = p && C.byId[decodeURIComponent(p[1])], what = c ? (at0 ? tt('atl.copied.on', 'Link copied · opens {name} on this map view', { name: C.name(c) }) : tt('atl.copied.name', 'Link copied · opens {name}', { name: C.name(c) })) : at0 ? tt('atl.copied.view', 'Link copied · opens this map view') : tt('atl.copied.page', 'Link copied · opens this page');
+    try { return navigator.clipboard.writeText(url).then(() => { if (Cleo.emit) Cleo.emit('cleo:toast', what); }, () => share0.call(this, title, url)); } catch (e) { return share0.apply(this, arguments); }
   };
 })();
