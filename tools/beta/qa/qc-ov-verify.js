@@ -51,6 +51,37 @@ const first = rel => { const d = placesFile(rel); return (d.places.find(p => !(p
       ev[rel] = { rest: L.band, pan: D.band, switchDuringPan: sw.found && sw.onTop ? 'on screen' : 'hidden' }; ok = ok && L.band <= 32 && !(sw.found && sw.onTop);
       if (rel === CITIES[2]) ev.shot = await shot(page, 'OV-01-punggol-390x664-after-pan'); await ctx.close(); }
     row('OV-01', ok, ev); }
+  // OV-02 / OV-05 / OV-07 (FE-1 f2babf91), phone Atlas: no "Search this area" at load; after a large pan it is offered, centred
+  // just under the lowest bar, and gone when the next move starts. The credit is one line at load and folds to ⓘ after the
+  // first pan. During a pan the chrome is ≤ 8 % (P1) / 10 % (P2) and the map does not resize; it comes back after idle.
+  if (want('OV-02') || want('OV-05') || want('OV-07')) { const e2 = {}, e5 = {}, e7 = {}; let ok2 = true, ok5 = true, ok7 = true;
+    const st = page => page.evaluate(() => { const vis = e => { if (!e) return false; const r = e.getBoundingClientRect(), c = getComputedStyle(e); return r.height > 0 && r.width > 0 && c.visibility !== 'hidden' && +c.opacity > 0.05 && !e.closest('[hidden]'); };
+      const h = [...document.querySelectorAll('.ms-here, button')].find(e => vis(e) && /search this area/i.test(e.textContent || '')); const m = [...document.querySelectorAll('.leaflet-container')].find(vis); const a = m && m.querySelector('.leaflet-control-attribution');
+      const hr = h && h.getBoundingClientRect(); const bars = [...document.querySelectorAll('header, [data-cleo-views], .ms-bar')].filter(vis).map(e => e.getBoundingClientRect().bottom).filter(b => b < innerHeight / 2);
+      return { here: !!h, hereTop: hr ? Math.round(hr.top) : null, hereDx: hr ? Math.round(hr.left + hr.width / 2 - innerWidth / 2) : null, lowestBar: bars.length ? Math.round(Math.max(...bars)) : 0,
+        attrW: a && vis(a) ? Math.round(a.getBoundingClientRect().width) : 0, attrH: a && vis(a) ? Math.round(a.getBoundingClientRect().height) : 0, mapRect: m ? [Math.round(m.getBoundingClientRect().top), Math.round(m.getBoundingClientRect().height)] : null }; });
+    for (const rel of CITIES) for (const vp of ['390x844', '390x664']) { const { ctx, page } = await open(rel, '#view=atlas', vp, 'dark'); const k = rel.replace(/^.*\//, '') + ' ' + vp;
+      const L = await page.evaluate(MEASURE), s0 = await st(page);
+      const mb = await page.locator('.leaflet-container').filter({ visible: true }).first().boundingBox(); const cx = mb.x + mb.width / 2, cy = mb.y + mb.height / 2;
+      await page.mouse.move(cx, cy); await page.mouse.down(); for (let i = 1; i <= 10; i++) { await page.mouse.move(cx - 14 * i, cy - 16 * i); await page.waitForTimeout(30); }
+      const D = await page.evaluate(MEASURE), sD = await st(page); await page.mouse.up(); await page.waitForTimeout(400); const sA = await st(page);
+      await page.waitForTimeout(1400); const I = await page.evaluate(MEASURE), sI = await st(page);
+      await page.mouse.move(cx, cy); await page.mouse.down(); await page.mouse.move(cx - 30, cy - 10, { steps: 3 }); await page.waitForTimeout(150); const sN = await st(page); await page.mouse.up();
+      e2[k] = { atLoad: s0.here, afterPan: sA.here || sI.here, top: sI.hereTop, lowestBar: sI.lowestBar, dx: sI.hereDx, onNextMove: sN.here };
+      ok2 = ok2 && !s0.here && (sA.here || sI.here) && !sN.here && (sI.hereTop == null || (sI.hereTop >= sI.lowestBar && sI.hereTop <= sI.lowestBar + 24 && Math.abs(sI.hereDx) <= 8));
+      e5[k] = { atLoad: [s0.attrW, s0.attrH], afterPan: [sI.attrW, sI.attrH] }; ok5 = ok5 && s0.attrH <= 28 && sI.attrW <= 48;
+      const cap = vp === '390x844' ? 8 : 10; e7[k] = { rest: L.band, pan: D.band, idle: I.band, mapDuringPan: sD.mapRect, mapAtRest: s0.mapRect };
+      ok7 = ok7 && D.band <= cap && Math.abs(I.band - L.band) <= 2 && JSON.stringify(sD.mapRect) === JSON.stringify(s0.mapRect);
+      if (rel === CITIES[2] && vp === '390x844') { e2.shot = await shot(page, 'OV-02-punggol-390-after-pan'); } await ctx.close(); }
+    if (want('OV-02')) row('OV-02', ok2, e2); if (want('OV-05')) row('OV-05', ok5, e5); if (want('OV-07')) row('OV-07', ok7, e7); }
+  // OV-06: the Atlas chip row fades on each overflowing edge (mask or gradient), phone
+  if (want('OV-06')) { const ev = {}; let ok = true;
+    for (const rel of CITIES) { const { ctx, page } = await open(rel, '#view=atlas', '390x844', 'dark');
+      const r = await page.evaluate(() => { const sc = [...document.querySelectorAll('.ms-bar *, .ms-bar')].find(e => e.scrollWidth > e.clientWidth + 8 && e.getBoundingClientRect().height > 0); if (!sc) return { overflow: false };
+        const c = getComputedStyle(sc), m = (c.maskImage || c.webkitMaskImage || ''); const pse = ['::before', '::after'].map(p => getComputedStyle(sc.parentElement, p).backgroundImage + getComputedStyle(sc, p).backgroundImage).join(' ');
+        return { overflow: true, mask: /gradient/.test(m), pseudo: /gradient/.test(pse), cls: sc.className }; });
+      ev[rel] = r; ok = ok && (!r.overflow || r.mask || r.pseudo); await ctx.close(); }
+    row('OV-06', ok, ev); }
   // OV-08: share-card dialog wholly on screen, 9:16 image, no scroll, at 390×664, 844×390, 768×1024, 1024×768
   if (want('OV-08')) { const ev = {}; let ok = true;
     for (const vp of ['390x664', '844x390', '768x1024', '1024x768']) { const { ctx, page } = await open('cities/tokyo.html', '#view=gallery&p=' + first('cities/tokyo.html'), vp);

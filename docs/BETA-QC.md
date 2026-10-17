@@ -663,3 +663,12 @@ Notes on the method:
 **QC-35 verified** (the tray reads "17 places here · checked 3 Oct · Show list").
 
 Ledger format: FE-C's OV-12 and OV-40 edits had dropped the Severity cell, which is now restored (OV-12 Low, OV-40 High). A "Format" note in the ledger says every row keeps 7 cells.
+
+**Addendum on c24dd319** (contains FE-1's f2babf91):
+- **OV-01** is now verified: chrome during a pan is 7.2 % (P2) and 5.7 % (P1), with the switch hidden; at rest it is 31.3 / 24.8 %.
+- **OV-02** verified: "Search this area" is absent at load, offered after a pan 8 px under the bar and centred, and gone on the next move.
+- **OV-05** verified: the credit is 174 px at load and 34 px after a pan.
+- **OV-06** verified: the chip row has a mask fade.
+- **OV-07** verified: chrome is back at idle and the map never resizes.
+
+`qc-ov-verify.js` gained these checks. The full dev S-17 audit runs on c24dd319.
