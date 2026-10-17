@@ -1,0 +1,168 @@
+[
+ {
+  "kind": "labelCov",
+  "view": "atlas",
+  "vp": "844x390",
+  "runs": 24,
+  "pages": [
+   "cities/bruges.html",
+   "cities/chicago.html",
+   "cities/erie.html",
+   "cities/harrisburg.html",
+   "cities/madison.html",
+   "cities/osaka.html",
+   "cities/philadelphia.html",
+   "cities/saarland.html",
+   "cities/tokyo.html",
+   "cities/wheeling.html",
+   "cities/youngstown.html",
+   "Singapore/bangkok.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": 10.2,
+  "budget": "≤ 8 % of the map",
+  "owner": "Atlas FE-1 + FE-2",
+  "of": 24,
+  "worstPage": "cities/chicago.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/dev-b1c7939f-panrecheck/shots/labelCov_atlas_844x390_light_cities-chicago-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "atlas",
+  "vp": "390x844",
+  "runs": 24,
+  "pages": [
+   "cities/bruges.html",
+   "cities/chicago.html",
+   "cities/erie.html",
+   "cities/harrisburg.html",
+   "cities/madison.html",
+   "cities/osaka.html",
+   "cities/philadelphia.html",
+   "cities/saarland.html",
+   "cities/tokyo.html",
+   "cities/wheeling.html",
+   "cities/youngstown.html",
+   "Singapore/bangkok.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search ×2 (search bruges + Search Bruges)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 24,
+  "worstPage": "cities/bruges.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/dev-b1c7939f-panrecheck/shots/duplicates_atlas_390x844_light_cities-bruges-html.jpg"
+ },
+ {
+  "kind": "labelCov",
+  "view": "atlas",
+  "vp": "390x844",
+  "runs": 22,
+  "pages": [
+   "cities/bruges.html",
+   "cities/chicago.html",
+   "cities/erie.html",
+   "cities/harrisburg.html",
+   "cities/madison.html",
+   "cities/osaka.html",
+   "cities/philadelphia.html",
+   "cities/saarland.html",
+   "cities/tokyo.html",
+   "cities/wheeling.html",
+   "cities/youngstown.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": 11.5,
+  "budget": "≤ 8 % of the map",
+  "owner": "Atlas FE-1 + FE-2",
+  "of": 24,
+  "worstPage": "cities/madison.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/dev-b1c7939f-panrecheck/shots/labelCov_atlas_390x844_light_cities-madison-html.jpg"
+ },
+ {
+  "kind": "dragFromDot",
+  "view": "atlas",
+  "vp": "390x844",
+  "runs": 16,
+  "pages": [
+   "cities/bruges.html",
+   "cities/erie.html",
+   "cities/harrisburg.html",
+   "cities/madison.html",
+   "cities/osaka.html",
+   "cities/philadelphia.html",
+   "cities/wheeling.html",
+   "Singapore/bangkok.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "1 start point(s) near the centre did not pan",
+  "budget": "a drag anywhere on the map pans",
+  "owner": "Atlas FE-1",
+  "of": 24,
+  "worstPage": "cities/bruges.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/dev-b1c7939f-panrecheck/shots/dragFromDot_atlas_390x844_light_cities-bruges-html.jpg"
+ },
+ {
+  "kind": "dragFromDot",
+  "view": "atlas",
+  "vp": "844x390",
+  "runs": 14,
+  "pages": [
+   "cities/chicago.html",
+   "cities/madison.html",
+   "cities/osaka.html",
+   "cities/philadelphia.html",
+   "cities/saarland.html",
+   "cities/tokyo.html",
+   "cities/wheeling.html",
+   "cities/youngstown.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "1 start point(s) near the centre did not pan",
+  "budget": "a drag anywhere on the map pans",
+  "owner": "Atlas FE-1",
+  "of": 24,
+  "worstPage": "cities/chicago.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/dev-b1c7939f-panrecheck/shots/dragFromDot_atlas_844x390_light_cities-chicago-html.jpg"
+ },
+ {
+  "kind": "controlCovered",
+  "view": "atlas",
+  "vp": "844x390",
+  "runs": 2,
+  "pages": [
+   "cities/harrisburg.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "日本語 under filters",
+  "budget": "none: every shown control is reachable",
+  "owner": "Atlas FE-1",
+  "of": 24,
+  "worstPage": "cities/harrisburg.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/dev-b1c7939f-panrecheck/shots/controlCovered_atlas_844x390_light_cities-harrisburg-html.jpg"
+ }
+]

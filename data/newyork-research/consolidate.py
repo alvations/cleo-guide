@@ -98,7 +98,7 @@ SRC_LABEL={
  "NYSPARKS":"NY STATE PARKS","STORMKING":"STORM KING","DIAART":"DIA","WALKWAYORG":"WALKWAY","WESTPOINT":"WEST POINT",
  "GFS":"GROUNDS FOR SCULPTURE","PRINCETON":"PRINCETON","PARRISHART":"PARRISH","OLDWESTBURY":"OLD WESTBURY",
  "MONTAUKHS":"MONTAUK HS","WOLFFER":"WOLFFER","BROOKLYNPAPER":"BROOKLYN PAPER","DURYEAS":"DURYEA'S",
- "VENDY":"VENDY AWARDS",
+ "VENDY":"VENDY AWARDS","GAYOT":"GAYOT",
 }
 # alias merges (same k chip)
 ALIAS={"TIMEOUTNY":"TIMEOUT","NYCTOURISM":"NYCGO","EATER":"EATERNY"}
@@ -137,6 +137,20 @@ def norm_sources(x):
         if key in seen: continue
         seen.append(key); out.append(pair)
     return out or [["WIKIPEDIA",""]]
+
+# ---- source overlay (QC 2026-10-17): credible-source upgrades + alias merges, see _source_overlay.json ----
+_OV_PATH=os.path.join(D,"_source_overlay.json")
+_OV=json.load(open(_OV_PATH)) if os.path.exists(_OV_PATH) else {}
+for _alias,_canon in _OV.get("merge",{}).items():
+    _a=next((x for x in sights+food if x.get("n")==_alias),None)
+    _c=next((x for x in sights+food if x.get("n")==_canon),None)
+    if _a and _c:
+        _c.setdefault("sources",[]).extend(t for t in _a.get("sources",[]) if t not in _c["sources"])
+        for _b in (sights,food):
+            if _a in _b: _b.remove(_a)
+for _x in sights+food:
+    for _t in _OV.get("add",{}).get(_x.get("n"),[]):
+        if _t[0] not in {canon(t[0]) for t in _x.get("sources",[])}: _x.setdefault("sources",[]).append(list(_t))
 
 P=[]; F=[]; used_keys_S=set(); used_keys_F=set()
 for x in sights:
