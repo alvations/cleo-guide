@@ -1342,8 +1342,16 @@ html body #cleo-sheet .sheet .actions{padding:5px 16px calc(5px + env(safe-area-
 html body #cleo-sheet .sheet .actions .btn{min-height:44px}
 @media (max-height:720px){html body #cleo-sheet .sheet.detail .sh-nav{min-height:48px;padding-block:2px}html body #cleo-sheet .sheet.detail>.close{top:2px;margin-top:2px;margin-bottom:-46px}}
 @media (orientation:portrait) and (max-width:1023px){
-  html body #cleo-sheet .sheet .actions{transition:transform var(--dur-2,200ms) ease-out}
-  html body #cleo-sheet .sheet.detail.acts-away .actions{transform:translateY(calc(100% + 2px))}}
+  /* the sheet is a column: nav · the scroll area (.sh-body) · the action bar in flow, so no control is ever under the
+     bar at rest (OV-111 residual: controlCovered / controlCollision). Away (scrolling down), the bar leaves the flow and
+     slides out; the body grows at its bottom edge, so nothing on screen moves. */
+  html body #cleo-sheet .sheet.detail{display:flex;flex-direction:column;overflow:hidden;overflow:clip;position:relative}   /* clip: the column itself never scrolls */
+  html body #cleo-sheet .sheet.detail>*{flex:none}
+  html body #cleo-sheet .sheet.detail>.sh-body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+  html body #cleo-sheet .sheet.detail>.sh-nav{position:sticky;top:0}   /* the opaque bar at the sheet's top edge */
+  html body #cleo-sheet .sheet.detail>.close{position:absolute;margin:0;right:10px}
+  html body #cleo-sheet .sheet.detail>.actions{position:static;transition:transform var(--dur-2,200ms) ease-out}
+  html body #cleo-sheet .sheet.detail.acts-away>.actions{position:absolute;left:0;right:0;bottom:0;transform:translateY(calc(100% + 2px))}}
 @media (orientation:portrait) and (max-width:1023px) and (prefers-reduced-motion:reduce){html body #cleo-sheet .sheet .actions{transition:none}}
 @media (orientation:landscape) and (max-height:599px),(min-width:1024px){
   html body #cleo-sheet .sheet.detail{display:flex;flex-direction:column}
