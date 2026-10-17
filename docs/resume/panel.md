@@ -64,7 +64,7 @@ Done this round (pushed):
 stops): UX a49e3a50d97d7d7f7, FE a165071778f44ebd6, Z1 ab24ba082a21691f2, Z2 a48ad59d152f3bc0d, X1 abf35cbb60079002e,
 X2 a1e12c33f6bd86f1c, B1 a9a64c7f2da0d3a38, B2 a523b25d3a8b07481.
 
-Returns saved so far: none.
+Returns saved so far: Z2 87, X2 86.5, B1 79, X1 87.5, Z1 87.5. Still running: UX, FE, B2.
 
 **If the session stops**, re-run each missing panelist with `panel/R4/PANELIST-BRIEF.txt` (copied to the scratchpad as
 `common-r4.txt`), its persona card (the same as R3's prompts, with R2 → R3 and panel-r3 → panel-r4), and its
