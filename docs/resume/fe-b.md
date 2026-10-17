@@ -166,6 +166,13 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Next
 
+0. **Guidebook paging for switch INP (orchestrator, from platform's handoff, after the D-53 Insights relabel — done
+   452df651e).** A switch to Guidebook adds ~1,029 own elements to a ~2,633-element page; the cost is one whole-DOM
+   restyle on the html[data-view] flip. Build only the visible chapter/rows; keep the rest as deferred data or noscript
+   (shed/lensPage pattern). Keep every place reachable (chapter anchors, search, count lines, #p= deep links, print),
+   no-JS intact, CLS 0, eager ≤ 40. Measure switch → Guidebook INP and "time to view complete" before/after with perf.js
+   (CDP input; docs/resume/platform.md "Handoff"), on top of FE-1's PERF-24c (72ec46eb).
+
 1. Pull, read this file, run the gates; read notifications.
 2. Follow up: FE-A has the a.tier B-20 finding (all 9 pages); Atlas FE-1 has the phone-Atlas switcher placement.
 3. Re-run one page after either fix: `tools/beta/feb-metrics-batch.sh 1 <page-regex>` (delete that page's JSON first).
