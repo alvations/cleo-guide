@@ -22,32 +22,32 @@
   "candidates[].flags": "people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it"
  },
  "summary": {
-  "targets": 1602,
+  "targets": 1609,
   "byType": {
    "hero": 89,
-   "landmark": 1513
+   "landmark": 1520
   },
   "heroes": {
    "targets": 89,
    "withHigh": 53
   },
   "pilotLandmarks": {
-   "targets": 190,
+   "targets": 192,
    "skipped": 56,
-   "withHigh": 113
+   "withHigh": 115
   },
   "otherLandmarks": {
-   "targets": 1323,
+   "targets": 1328,
    "skipped": 181,
-   "withArticle": 777
+   "withArticle": 778
   },
   "candidates": {
-   "total": 1552,
-   "high": 1322,
-   "med": 230,
+   "total": 1560,
+   "high": 1329,
+   "med": 231,
    "low": 0
   },
-  "targetsWithHigh": 729,
+  "targetsWithHigh": 735,
   "gaps": [
    "landmark:tokyo#mandarake-complex-akihabara — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:tokyo#super-potato-akihabara — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
@@ -2852,6 +2852,35 @@
    ]
   },
   {
+   "key": "landmark:singapore/chinatown#tian-tian-hainanese-chicken-rice",
+   "type": "landmark",
+   "depicts": "singapore/chinatown#tian-tian-hainanese-chicken-rice",
+   "label": "Tian Tian Hainanese Chicken Rice",
+   "names": [
+    "Tian Tian Hainanese Chicken Rice"
+   ],
+   "pilot": true,
+   "priority": "lead",
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Tian Tian Hainanese Chicken Rice, Singapore.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tian_Tian_Hainanese_Chicken_Rice,_Singapore.JPG",
+     "depicts": "stall/storefront at Tian Tian, Maxwell Food Centre (2008)",
+     "confidence": "high",
+     "reason": "food wave 1 (D-49, 2026-10-17): title names Tian Tian Hainanese Chicken Rice"
+    },
+    {
+     "file": "File:Food 天天海南雞飯, 麥士威熟食中心, 隨拍, 新加坡, Tian Tian Hainanese Chicken Rice, Maxwell Food Centre, Snapshot, Singapore (23591563750).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Food_%E5%A4%A9%E5%A4%A9%E6%B5%B7%E5%8D%97%E9%9B%9E%E9%A3%AF,_%E9%BA%A5%E5%A3%AB%E5%A8%81%E7%86%9F%E9%A3%9F%E4%B8%AD%E5%BF%83,_%E9%9A%A8%E6%8B%8D,_%E6%96%B0%E5%8A%A0%E5%9D%A1,_Tian_Tian_Hainanese_Chicken_Rice,_Maxwell_Food_Centre,_Snapshot,_Singapore_(23591563750).jpg",
+     "depicts": "dish (chicken rice) at Tian Tian, Maxwell Food Centre",
+     "confidence": "high",
+     "reason": "food wave 1 (D-49, 2026-10-17): title names Tian Tian Hainanese Chicken Rice, Maxwell Food Centre"
+    }
+   ]
+  },
+  {
    "key": "landmark:wheeling#wheeling-suspension-bridge",
    "type": "landmark",
    "depicts": "wheeling#wheeling-suspension-bridge",
@@ -3142,6 +3171,28 @@
    "priority": "lead",
    "wikiLead": true,
    "candidates": []
+  },
+  {
+   "key": "landmark:singapore/jalan-besar#hill-street-tai-hwa-pork-noodle",
+   "type": "landmark",
+   "depicts": "singapore/jalan-besar#hill-street-tai-hwa-pork-noodle",
+   "label": "Hill Street Tai Hwa Pork Noodle",
+   "names": [
+    "Hill Street Tai Hwa Pork Noodle"
+   ],
+   "pilot": false,
+   "priority": "lead",
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hill Street Tai Hwa Pork Noodle.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hill_Street_Tai_Hwa_Pork_Noodle.jpg",
+     "depicts": "stall at Hill Street Tai Hwa Pork Noodle (Restaurants in Singapore category)",
+     "confidence": "high",
+     "reason": "food wave 1 (D-49, 2026-10-17): title names Hill Street Tai Hwa Pork Noodle"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/kuala-lumpur#petronas-twin-towers",
@@ -3621,6 +3672,28 @@
    "priority": "row",
    "wikiLead": true,
    "candidates": []
+  },
+  {
+   "key": "landmark:singapore/chinatown#song-fa-bak-kut-teh",
+   "type": "landmark",
+   "depicts": "singapore/chinatown#song-fa-bak-kut-teh",
+   "label": "Song Fa Bak Kut Teh",
+   "names": [
+    "Song Fa Bak Kut Teh"
+   ],
+   "pilot": true,
+   "priority": "row",
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Song Fa Bak Kut Teh, New Bridge Rd, Singapore (2023) 05.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Song_Fa_Bak_Kut_Teh,_New_Bridge_Rd,_Singapore_(2023)_05.jpg",
+     "depicts": "dish/interior at Song Fa, New Bridge Rd (2023)",
+     "confidence": "high",
+     "reason": "food wave 1 (D-49, 2026-10-17): title names Song Fa Bak Kut Teh, New Bridge Rd"
+    }
+   ]
   },
   {
    "key": "landmark:wheeling#centre-market-historic-district",
@@ -4638,6 +4711,50 @@
    ]
   },
   {
+   "key": "landmark:singapore/bangkok#raan-jay-fai",
+   "type": "landmark",
+   "depicts": "singapore/bangkok#raan-jay-fai",
+   "label": "Raan Jay Fai",
+   "names": [
+    "Raan Jay Fai"
+   ],
+   "pilot": false,
+   "priority": "row",
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Phat Khi Mao Raan Jay Fai.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Phat_Khi_Mao_Raan_Jay_Fai.jpg",
+     "depicts": "dish (drunken noodles) at Raan Jay Fai",
+     "confidence": "high",
+     "reason": "food wave 1 (D-49, 2026-10-17): title names Raan Jay Fai"
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/bangkok#thip-samai",
+   "type": "landmark",
+   "depicts": "singapore/bangkok#thip-samai",
+   "label": "Thip Samai",
+   "names": [
+    "Thip Samai"
+   ],
+   "pilot": false,
+   "priority": "row",
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Phat thai - Bangkok - 2017-06-16 (001).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Phat_thai_-_Bangkok_-_2017-06-16_(001).jpg",
+     "depicts": "dish (phat thai) at Thip Samai",
+     "confidence": "med",
+     "reason": "food wave 1 (D-49, 2026-10-17): description names Thip Samai (Ghost Gate Phat Thai)"
+    }
+   ]
+  },
+  {
    "key": "landmark:singapore/bangkok#wat-arun",
    "type": "landmark",
    "depicts": "singapore/bangkok#wat-arun",
@@ -4664,6 +4781,29 @@
    "priority": "row",
    "wikiLead": true,
    "candidates": []
+  },
+  {
+   "key": "landmark:singapore/katong-joo-chiat#chin-mee-chin-confectionery",
+   "type": "landmark",
+   "depicts": "singapore/katong-joo-chiat#chin-mee-chin-confectionery",
+   "label": "Chin Mee Chin Confectionery",
+   "names": [
+    "Chin Mee Chin Confectionery"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Chin_Mee_Chin_Confectionery",
+   "priority": "row",
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Chin Mee Chin Confectionery (2025) - img 07.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chin_Mee_Chin_Confectionery_(2025)_-_img_07.jpg",
+     "depicts": "photo at Chin Mee Chin Confectionery (2025; subject not seen - storefront/interior/dish)",
+     "confidence": "high",
+     "reason": "food wave 1 (D-49, 2026-10-17): title names Chin Mee Chin Confectionery"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/kuala-lumpur#batu-caves",
@@ -33282,6 +33422,28 @@
      "depicts": "Former residence of Tan Teng Niah, Little India",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Residence of Tan Teng Niah (category listing)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/little-india#komala-vilas",
+   "type": "landmark",
+   "depicts": "singapore/little-india#komala-vilas",
+   "label": "Komala Vilas",
+   "names": [
+    "Komala Vilas",
+    "Komala Vila"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Komala Vilas Singapore.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Komala_Vilas_Singapore.jpg",
+     "depicts": "Komala Vilas, Serangoon Road (in Serangoon Road category; likely storefront)",
+     "confidence": "high",
+     "reason": "food wave 1 (D-49, 2026-10-17): title names Komala Vilas"
     }
    ]
   },
