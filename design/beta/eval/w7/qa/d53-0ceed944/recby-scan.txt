@@ -1,0 +1,11 @@
+"Recommended by" paragraphs scanned: 8686 in 260 files
+  PASS  rating platform after the label: 0 []
+  FAIL  general knowledge after the label (built pages): 58 {'cities/pittsburgh.html': 9, 'cities/youngstown.html': 6, 'cleveland.html': 43}; with no independent recommender at all: 45 {'cities/pittsburgh.html': 2, 'cities/youngstown.html': 6, 'cleveland.html': 37}
+  REVIEW  "official" chip after the label (own site fails D-53; an independent public body is fine): Vietnam/ho-chi-minh-city.html keppel "Keppel Land (developer, official)" ×1
+  REVIEW  "official" chip after the label (own site fails D-53; an independent public body is fine): cities/okinawa.html yuirail "Okinawa Urban Monorail (Yui Rail) official navi" ×1
+  REVIEW  "official" chip after the label (own site fails D-53; an independent public body is fine): cities/okinawa.html ginozavillage "Ginoza Village official site (宜野座村)" ×1
+  REVIEW  "official" chip after the label (own site fails D-53; an independent public body is fine): cities/okinawa.html kinsunrise "Kin Sunrise Beach official site" ×1
+  REVIEW  "official" chip after the label (own site fails D-53; an independent public body is fine): cities/osaka.html osakacity "Osaka City official (city.osaka.lg.jp)" ×5
+  REVIEW  "official" chip after the label (own site fails D-53; an independent public body is fine): cities/osaka.html feelkobe "Feel Kobe — Kobe Tourism Bureau official guide" ×7
+  REVIEW  "official" chip after the label (own site fails D-53; an independent public body is fine): cities/youngstown.html handels-history "Handel&#39;s official history" ×1
+  INFO  "No independent source yet" cards (built pages): 5 {'cities/newyork.html': 3, 'cities/pittsburgh.html': 1, 'cities/rhineland.html': 1}
