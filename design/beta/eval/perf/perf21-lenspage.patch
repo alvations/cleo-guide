@@ -1,3 +1,4 @@
+# APPLIED 2026-10-17 (lensPage ON after QA accepted the restated PERF-08 (a)/(b)); kept for the record.
 # PERF-21 lensPage (platform): the Gallery pager builds only a lens's current page (filter INP ≈ 105 ms desktop / 128 ms phone
 # at 4× CPU). Parked off the eager path until QA rules on restating PERF-08 (a)/(b). Apply: git apply design/beta/eval/perf/perf21-lenspage.patch; then set
 # lensPage: true in core.js and restate test-beta's (a)/(b) as QA rules.
