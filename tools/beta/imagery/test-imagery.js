@@ -271,7 +271,7 @@ ok(!fc.RESCAN_KEPT['File:Meadowcroft Rockshelter 07.jpg'], 'R7 QA-63: Meadowcrof
   { // D-40 option a over the committed photos: every lead / first-row Commons card with a 960 also carries its ≤ 55 KB 720 copy
     const rows = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits;
     const prio = new Set(JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'commons-candidates.json'), 'utf8')).targets.filter(t => t.priority && t.type !== 'hero').map(t => t.depicts));
-    const missing = rows.filter(r => rc.needs720(r, prio)).map(r => r.file);
+    const missing = rows.filter(r => rc.needs720(r, prio)).map(r => r.file);   // needs720 already skips rows recompress marked no720 (a copy over its cap was dropped)
     const heavy = rows.filter(rc.hasLarge).flatMap(r => rc.filesOf(r)).filter(f => /-7\d\d\.jpe?g$/i.test(f.file) && fs.statSync(path.join(BETA, 'assets', 'img', 'photos', f.file)).size > rc.P720_KB * 1024).map(f => f.file);
     ok(Object.keys(rc.NO720).every(f => rows.some(r => r.file === f) && rows.find(r => r.file === f).variants.every(v => !/-(4|5)\d\d\.jpe?g$/i.test(v.file) || /-500\./.test(v.file))) && Object.values(rc.NO720).every(Boolean), 'D-40 option a: each NO720 exception is a credited 500 + 960 card with its reason, never a shrunken sub-600 copy');
     // Landed 2026-10-16 (run #50 + local recompress). Set D40A_PENDING to report rather than fail a missing copy, e.g.
