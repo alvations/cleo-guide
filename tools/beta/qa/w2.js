@@ -4,7 +4,7 @@
  *
  * Real Chromium (preinstalled; never `playwright install`), every off-origin request blocked, at 390×844 and 1440×900.
  * Each check prints PASS/FAIL with its evidence; screenshots go to qa/beta-w2/. Checks:
- *   doors     D-46: For you, Your day, Near me and the For you keyboard trap reached from the Atlas default (.ms-doors)
+ *   doors     D-46: For you, Your day, Near me and the For you keyboard trap reached from the Atlas default (.ms-doors), phone and desktop
  *   foryou    For you reorders, never hides: same id set + same per-area counts with and without interests, lifted
  *             cards carry "First because", the choice persists, and it still works when storage throws (M2-05)
  *   day       Your day: 4–6 open, pinned stops in one area, every leg "straight-line", a shared #day=A&s= link
@@ -411,8 +411,8 @@ async function doors() {
     let { ctx, page, st } = await open('cities/tokyo.html', vp, { settle: 1500 });
     check('doors', `${tag}: opens in Atlas`, await page.evaluate(() => document.documentElement.getAttribute('data-view')) === 'atlas');
     let d = await door(page, '[data-cleo-foryou]');
-    // phone Atlas: the doors are not on screen (FE-1's list head is desktop); recorded, not failed — a product call, raised
-    if (!d && vp === 'mobile') { check('doors', `${tag}: no For you / Your day / Near me door on the phone Atlas screen (reached via Gallery)`, null, 'INFO — product call'); await ctx.close(); continue; }
+    // phone Atlas too (D-46: Atlas is the default, so the Gallery's features must be reachable from it): the doors sit in
+    // the list head, in list mode (the door() helper opens the list first); a missing door fails on either viewport
     if (!d) check('doors', `${tag}: For you door present`, false);
     else {
       const c0 = await page.evaluate(() => (document.querySelector('.ms-count') || {}).textContent || '');
