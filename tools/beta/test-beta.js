@@ -518,7 +518,10 @@ const lensOutcome = (b, label) => {
     if (raw > biggest[1]) biggest = [p, raw, z];
   }
   chk('city pages over 820 KB raw / 160 KB gzip', over, a => a.length === 0);
-  console.log(`        (largest: ${biggest[0]} ${biggest[1]} KB raw, ${biggest[2]} KB gzip)`);
+  // R8 (platform): photo waves add ≈ 0.9 KB raw per credited card photo, so the headroom is printed on every run
+  console.log(`  INFO  largest city page: ${biggest[0]} ${biggest[1]} KB raw (headroom ${820 - biggest[1]} KB of 820), ${biggest[2]} KB gzip (headroom ${160 - biggest[2]} KB of 160)`);
+  // the card source chips carry no type="button" (R8 headroom): only safe while no city page has a form to submit
+  chk('city pages carry no <form> (untyped buttons stay non-submitting)', manifest.pages.filter(p => p.kind === 'city' && /<form[\s>]/i.test(fs.readFileSync(path.join(BETA, p.beta), 'utf8'))).map(p => p.beta), a => a.length === 0);
   // Platform W2 (RFC §7.5): W0 set 80 KB raw when the landing was 19 KB; W2 adds the cross-city rail, country heroes and
   // inline motif art. What a first visit pays is the gzip transfer: ≤ 24 KB gzip, with a ≤ 120 KB raw backstop.
   chk('landing ≤ 24 KB gzip / ≤ 120 KB raw', [KB(gz('index.html')), KB(size('index.html'))].join('/'), v => { const [g, r] = v.split('/').map(Number); return g <= 24 && r <= 120; });
