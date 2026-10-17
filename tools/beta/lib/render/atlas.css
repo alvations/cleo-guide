@@ -393,3 +393,15 @@ html.atlas-m[data-view=atlas] .m-attr.m-attr-c .m-attr-i::before{content:"";posi
   html.atlas-m[data-view=atlas] .ms-bar.ms-fl.ms-fr{-webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
   html.atlas-m[data-view=atlas] .ms-bar:is(:focus-within,.ms-q){-webkit-mask-image:none;mask-image:none}   /* the open search row (a child) is never faded */
 }
+/* OV-03 (SPEC-v3 §2.0.4): labels have a max width (--pp-max from atlas.js: 40 % of the phone map, 220 px on desktop) and end
+   in an ellipsis; hovered, focused or selected, a label shows its whole name and rides above the rest. Phone pills are
+   13 px / 600, 28 px tall with a 14 px glyph and 8 px sides, inside a 44 px hit area */
+.pp>span{max-width:var(--pp-max,220px)}
+.pp>span>b{min-width:0;overflow:hidden;text-overflow:ellipsis}
+:is(.pp.sel,.pp.hot,.pp:hover,a.pp:focus-visible)>span{max-width:none}
+.leaflet-marker-icon.pp:is(:hover,:focus-visible,.sel){z-index:9000!important}
+@media (max-width:1023px){
+  html.atlas-m .pp>span{height:28px;padding:0 var(--s-2);gap:6px;font-size:13px}   /* no transform here: the anchors (pp-ar / pp-al / pp-ab) set it */
+  html.atlas-m .pp>span>svg.ico{width:14px;height:14px}
+  html.atlas-m .pp>span::before{inset:-8px -2px}   /* 28 + 2 × 8 = the 44 px hit area */
+}

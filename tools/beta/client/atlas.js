@@ -95,22 +95,35 @@
     k.on('mouseout', () => { const r = C.byId[id]; if (r) r.classList.remove('is-hover'); });
     return k; };
   // the label box a pill needs, in px (Inter 600 14 px ≈ 8 px a character), for the greedy collision check
-  const boxOf = (c, nm) => 48 + short(nm).length * 8 + (c.hasAttribute('data-closed') ? 56 : 0);
+  // OV-03 (SPEC-v3 §2.0.4): a label is at most 40 % of the phone map's width (220 px on desktop); longer names end in an
+  // ellipsis (the full name stays in the link's aria-label and title, and shows on hover, focus or selection)
+  const capW = () => { const m = C.map(); return desk() ? 220 : Math.floor((m ? m.getSize().x : innerWidth) * 0.4) - 1; };
+  const boxOf = (c, nm) => Math.min(capW(), (desk() ? 48 : 40) + short(nm).length * (desk() ? 8 : 7) + (c.hasAttribute('data-closed') ? 56 : 0));
   // four anchors, tried in turn before a pill gives way to a dot (SPEC-v3 §1.3): above (with the stem), right, left, below
   const ANCH = ['t', 'r', 'l', 'b'];
   const boxAt = (p, w, a) => a === 't' ? { l: p.x - w / 2 - 2, r: p.x + w / 2 + 2, t: p.y - 41, b: p.y + 2 } : a === 'b' ? { l: p.x - w / 2 - 2, r: p.x + w / 2 + 2, t: p.y + 2, b: p.y + 38 }
     : a === 'r' ? { l: p.x + 2, r: p.x + w + 6, t: p.y - 18, b: p.y + 18 } : { l: p.x - w - 6, r: p.x - 2, t: p.y - 18, b: p.y + 18 };
   let ft = 0;
   C.feature = () => { clearTimeout(ft); ft = setTimeout(feature, 120); };
+  // phones: the map runs under FE-A's switch row now (OV-00: nothing resizes when the bars tuck), so the top pad is the
+  // lowest VISIBLE top bar — the switch row or the chip row (both off-screen while tucked) — even before the chip row is built
+  { const om = C.overMap; C.overMap = () => { const o = om(); if (desk() || !H.classList.contains('atlas-m') || H.classList.contains('ms-list')) return o;
+    const mt = $('#cleo-map').getBoundingClientRect().top, lo = Math.max(0, ...['main>.cbar', '.ms-bar'].map(q => { const e = $(q), r = e && e.getBoundingClientRect(); return r && r.height ? r.bottom - mt : 0; }));
+    o.paddingTopLeft[1] = Math.max(o.paddingTopLeft[1], 24 + lo); return o; }; }
   const feature = () => {
     const map = C.map(), L = window.L; if (!map || !L || !map.getSize().x) return;
-    const N = desk() ? 16 : 8, sv = savedSet(), sel = selC && C.pid(selC), b = atlas() ? box() : map.getBounds(), z = map.getZoom();
+    let N = 8; const sv = savedSet(), sel = selC && C.pid(selC), b = atlas() ? box() : map.getBounds(), z = map.getZoom();
     const vis = Object.keys(C.markers).filter(id => { const c = rec(id); return c && shows(c) && C.dots.hasLayer(C.markers[id]); });
     const inV = vis.filter(id => b.contains(C.markers[id].getLatLng()));
     const first = id => (id === sel ? 0 : sv[id] ? 1 : 2);
     const cand = inV.slice().sort((x, y) => first(x) - first(y) || (MP[x] - MP[y]));
     const placed = [], want = {}, anc = {}, order = [], sz = map.getSize(), ob = atlas() ? C.overMap() : null;   // a pill never sits under the chip row or the carousel
     const topL = ob ? ob.paddingTopLeft[1] - 24 : 0, botL = ob ? sz.y - (ob.paddingBottomRight[1] - 24) : sz.y;
+    // OV-03: the label count follows the clear map's area (§2.0.4): phone ÷ 24k px² (3–8, 10 in landscape), tablet ÷ 26k
+    // (≤ 12), desktop ÷ 30k (≤ 16); and the union of pills stays within 8 / 7 / 6 % of the map (checked on the real pills)
+    { const ar = sz.x * Math.max(0, botL - topL), cl = (v, lo, hi) => Math.max(lo, Math.min(hi, Math.floor(v)));
+      N = desk() ? cl(ar / 30000, 3, 16) : innerWidth >= 768 ? cl(ar / 26000, 3, 12) : cl(ar / 24000, 3, innerHeight < 500 ? 10 : 8); }
+    map.getContainer().style.setProperty('--pp-max', capW() + 'px');
     // nor under a map control, the List / Map pill or "Search this area" (rects in map-container px)
     const mr = map.getContainer().getBoundingClientRect(), avoid = [...map.getContainer().querySelectorAll('.leaflet-control')].concat([$('.ms-toggle'), $('.ms-here'), $('#cleo-poi')])
       .filter(e => e && e.offsetWidth && !e.closest('[hidden]')).map(e => { const q = e.getBoundingClientRect(); return { l: q.left - mr.left - 4, r: q.right - mr.left + 4, t: q.top - mr.top - 4, b: q.bottom - mr.top + 4 }; });
@@ -140,9 +153,10 @@
     { const mr = map.getContainer().getBoundingClientRect(), kept = [];
       if (me) { const q = map.latLngToContainerPoint(me); kept.push({ left: mr.left + q.x - 11, right: mr.left + q.x + 11, top: mr.top + q.y - 11, bottom: mr.top + q.y + 11 }); }
       const near = (a, b) => a.left < b.right + 4 && a.right > b.left - 4 && a.top < b.bottom + 4 && a.bottom > b.top - 4;
+      let cov = 0; const lim = (desk() ? 0.06 : innerWidth >= 768 ? 0.07 : 0.08) * sz.x * sz.y;   // OV-03 coverage: a pill past it goes back to a dot
       order.forEach(id => { const k = pins[id], e = k && k.getElement(), sp = e && e.firstElementChild; if (!sp) return; const r = sp.getBoundingClientRect(); if (!r.width) return;
-        if (first(id) === 2 && kept.some(q => near(r, q))) { map.removeLayer(k); delete pins[id]; return; }
-        kept.push(r); }); }
+        if (first(id) === 2 && (kept.some(q => near(r, q)) || cov + r.width * r.height > lim)) { map.removeLayer(k); delete pins[id]; return; }
+        cov += r.width * r.height; kept.push(r); }); }
     // density discs (region zoom only): > 12 dots inside a 28 px cell read as one soft, unnumbered disc; a click zooms in
     if (!discL) discL = L.layerGroup().addTo(map); discL.clearLayers(); C.discs = 0;
     vis.forEach(id => { const k = C.markers[id]; if (k.options.opacity === 0) k.setStyle(C.dotStyle(rec(id))); });

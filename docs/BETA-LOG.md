@@ -2326,3 +2326,23 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Photo budget: imagery measured ~914 B raw per credited photo, with +18–27 KB still to come on the big US guides.
   Platform's city-template cut target is raised to ≥ 40 KB. Imagery drops the duplicate title on the Commons link
   (~40 B/photo). Its srcset-trim idea is declined, because width-descriptor srcset ignores `src`.
+
+## 2026-10-17 · FE-1 · OV-03 labels (SPEC-v3 §2.0.4)
+
+- **Width:** a label is at most 40 % of the phone map's width (155 px at 390; 220 px on desktop) and ends in an ellipsis. The full name stays in the link's aria-label and title, and a hovered, focused or selected label shows it whole and rides above the rest.
+- **Phone pills:** 13 px / 600, 28 px tall with a 14 px glyph and 8 px sides, inside a 44 px hit area.
+- **Count from the area:**
+  - phone: ⌊clear map ÷ 24,000 px²⌋, clamped 3–8 (10 in landscape);
+  - tablet: ÷ 26,000, ≤ 12;
+  - desktop: ÷ 30,000, ≤ 16.
+- **Coverage:** measured on the real pills, a label that would push their union past 8 % (phone) / 7 % (tablet) / 6 % (desktop) of the map goes back to a dot.
+- **Measured** on Tokyo, Cleveland and Punggol:
+  - P1: 5–6 labels, coverage 7.1–8.0 %, widest 40 %;
+  - P2: 4 labels, 6.7–7.3 %;
+  - desktop: 7–8 labels, 5.5–6.0 %, widest 23.9 % of the pane.
+  - QC's graded Punggol numbers were 13 % coverage and a 56 % widest label.
+- **Fixed on the way:**
+  - The phone pill rule had set `transform`, which overrode the right / left / below anchors, so every phone label drew as if above its pin. One then reached 7 px into the chip row. The rule no longer sets it.
+  - The phone `overMap` top pad is now the lowest visible top bar, FE-A's switch row included, now that the map runs under it.
+- **Rule change, my own check:** "tokyo desktop: 12–16 labelled pins" is now "5–16 labelled pins covering ≤ 6 % of the map". SPEC-v3 §2.0.4 caps desktop coverage at 6 %, which allows about 7–9 pills of 220 × 32 px, so the old 12 floor contradicts it.
+- **D-46 flip (fc1fbb91):** Atlas links no longer carry a view key, so my preview → detail check accepts either `view=atlas` or no view key.
