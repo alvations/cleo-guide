@@ -27,6 +27,11 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
   views.js): a3da0b4b.
 
 ## Next
+- **R8 gap 3 map motion (SPEC-v3 §3.7), mine per FE-1 23:41Z:** built in atlas-nav.js `motion()` + atlas-nav.css: the desktop preview
+  grows from the pin (origin = pin point, scale .94→1 / 200 ms), closes with a 120 ms fade (an inert `.ms-ghost` copy); the phone
+  carousel lifts in (translateY 12 px, 200 ms) only when the reader opens it; a hovered dot eases 7→11 px in ≤ 8 redraws;
+  pins transition box-shadow; card ring is `--ring-select` via a 120 ms box-shadow; select's panInside 0.35→0.3 s (atlas.js).
+  Probe tools/beta/fe2/motion.js (run by atlas-nav-ms): Tokyo + Cleveland, 1440 + 390, motion + reduced (0 animations).
 0. D-46 (Atlas becomes the default view; FE-A flips `DV` in lib/render/city.js): atlas-nav-ms "D-46" checks are in and SKIP
    until the page's dv is atlas. Simulated in a worktree (DV='atlas' on origin 7954c6eb): 28/28 PASS (bare URL lands in
    Atlas with only #at= written; card → detail → Esc/Back from a bare URL keeps the view; a #at= link without view= reopens
