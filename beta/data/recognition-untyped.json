@@ -2,8 +2,8 @@
  "_generated": "tools/beta/build.js (lib/recognition.js) — do not edit",
  "v": 1,
  "_doc": "Publishers left UNTYPED by the recognition rules (design/beta/RECOGNITION.md): no registry entry agrees on their key, host or domain, and no host rule applies. Typing them needs a registry entry (data/sources.json, owner), not a guess. They count against the local-favourites lens only by not qualifying.",
- "typed": 2173,
- "of": 2558,
+ "typed": 2174,
+ "of": 2569,
  "pages": [
   {
    "page": "cleveland",
@@ -1872,7 +1872,7 @@
      "hosts": [
       "timeout.com"
      ],
-     "places": 78
+     "places": 84
     },
     {
      "k": "NYT",
@@ -1894,7 +1894,7 @@
      "k": "6SQFT",
      "name": "6SQFT",
      "hosts": [],
-     "places": 3
+     "places": 6
     },
     {
      "k": "ABC7 NY",
@@ -1929,6 +1929,18 @@
      "places": 2
     },
     {
+     "k": "FORGOTTEN NY",
+     "name": "Forgotten NY",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "HISTORIC DISTRICTS COUNCIL",
+     "name": "Historic Districts Council",
+     "hosts": [],
+     "places": 2
+    },
+    {
      "k": "HUDSON VALLEY",
      "name": "Historic Hudson Valley (official)",
      "hosts": [
@@ -1949,6 +1961,12 @@
      "places": 2
     },
     {
+     "k": "SMITHSONIAN",
+     "name": "Smithsonian",
+     "hosts": [],
+     "places": 2
+    },
+    {
      "k": "THE MET",
      "name": "The Metropolitan Museum of Art (official)",
      "hosts": [
@@ -1963,8 +1981,38 @@
      "places": 2
     },
     {
+     "k": "9/11 MEMORIAL & MUSEUM",
+     "name": "9/11 Memorial & Museum",
+     "hosts": [],
+     "places": 1
+    },
+    {
      "k": "ABC7NY",
      "name": "ABC7NY",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "ARCHITECTURAL RECORD",
+     "name": "Architectural Record",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "BRITANNICA",
+     "name": "Britannica",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "BRONX TIMES",
+     "name": "Bronx Times",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "CENTRAL PARK CONSERVANCY",
+     "name": "Central Park Conservancy",
      "hosts": [],
      "places": 1
     },
@@ -1985,12 +2033,6 @@
      "places": 1
     },
     {
-     "k": "FORGOTTEN NY",
-     "name": "Forgotten NY",
-     "hosts": [],
-     "places": 1
-    },
-    {
      "k": "FRESHKILLS PARK (NYC PARKS)",
      "name": "Freshkills Park (NYC Parks)",
      "hosts": [],
@@ -2005,8 +2047,14 @@
      "places": 1
     },
     {
-     "k": "HISTORIC DISTRICTS COUNCIL",
-     "name": "Historic Districts Council",
+     "k": "HUFFPOST",
+     "name": "Huffpost",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "LANDMARK WEST!",
+     "name": "Landmark West!",
      "hosts": [],
      "places": 1
     },
@@ -2033,6 +2081,12 @@
     {
      "k": "NY LANDMARKS CONSERVANCY",
      "name": "NY Landmarks Conservancy",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "NY1",
+     "name": "NY1",
      "hosts": [],
      "places": 1
     },
@@ -2103,17 +2157,17 @@
      "places": 1
     },
     {
-     "k": "SMITHSONIAN",
-     "name": "Smithsonian",
-     "hosts": [],
-     "places": 1
-    },
-    {
      "k": "STORM KING",
      "name": "Storm King Art Center (official)",
      "hosts": [
       "stormking.org"
      ],
+     "places": 1
+    },
+    {
+     "k": "THE BOWERY BOYS",
+     "name": "The Bowery Boys",
+     "hosts": [],
      "places": 1
     },
     {
@@ -2142,6 +2196,12 @@
      "hosts": [
       "home.army.mil"
      ],
+     "places": 1
+    },
+    {
+     "k": "WILDLIFE CONSERVATION SOCIETY",
+     "name": "Wildlife Conservation Society",
+     "hosts": [],
      "places": 1
     },
     {
