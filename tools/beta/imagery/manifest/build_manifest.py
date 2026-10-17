@@ -60,6 +60,14 @@ SKIP = {
 BRAND_STORE = re.compile(r"Mandarake|Pok[eé]mon Center|Nintendo KYOTO|Animate |Jump Shop|Kiddy Land|Gashapon|Capcom Store|PARCO Character|Kotobukiya|Character Street|Super Potato|Anime Center|Characters World", re.I)
 VENUE_NAME = re.compile(r"\b(Theat(?:re|er)|Opera House|Playhouse|Ballpark|Arena|Stadium|Concert Hall)\b", re.I)
 SKIP.update({
+ 'aachen#boekhandel-dominicanen': 'venue (bookshop) (wave 5 search) — calm cover (stated, W8)',
+ 'kyoto#hozugawa-river-cruise-hozu-gorge': 'no file found (only boat-as-subject or dusk shots) (wave 5 search) — calm cover (stated, W8)',
+ 'rhineland#museum-insel-hombroich': 'the only Commons photo found shows an Erwin Heerich pavilion, a modern artwork (wave 5 search) — calm cover (stated, W8)',
+})
+SKIP.update({
+ 'orlando#tree-of-life-disney': 'its distinctive content is the carved animal relief: sculpture, which the US gives no freedom of panorama — calm cover (stated, R8, orchestrator ruling 2026-10-16)',
+})
+SKIP.update({
  'orlando#frozen-ever-after': 'indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)',
  'orlando#remys-ratatouille-adventure': 'indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)',
  'orlando#star-wars-rise-of-the-resistance': 'indoor themed ride: the attraction is its themed sets, characters and sculpture (copyrighted design; the US has no freedom of panorama for art), and its show building does not show the ride — calm cover (stated, R8, orchestrator ruling 2026-10-16)',
