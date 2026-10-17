@@ -2590,3 +2590,14 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Owner action:** the EUROPEANA_API_KEY Actions secret.
   - **Round 4** waits on FE-A's NYC header fix and FE-1's phone search/drag fixes.
 - **Desktop credit 28 px at T2/D (QC c8ec49d8, 171/171 runs):** the licence links' 4 px padding gives them a 24 px hit box (R2 #7). It was meant to leave the line alone, but the links render inline-block, so the padding grew the row to 28 px. A matching −4 px margin now cancels it: the row is 20 px at 1440×900 and 1024×768, and the links keep their 24 px hit box. Phone is unchanged at 20 px.
+- 2026-10-17 13:25Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Head 0ceed9445:** validate and beta:check pass (the D-53 line reads 5 no-recommender cards). npm test is running; the 12:40Z head passed every suite (50/50 place pages).
+  - **Round 4:** real shots r4 are on 75bb37bb. The designer signed off on one condition, the landscape column opening on the selected place (FE-1 with FE-2). QC's round-4 S-17 is running.
+  - **CSS cut redone:** 69128c498 (−29.6 KB, state families protected, 384 parity shots) is accepted in place of the full revert.
+  - **D-53 render landed:** FE-B c25877272, 576 → 0.
+  - **Decisions:** D-54, D-55, D-56.
+  - **Photo runs:**
+    - #111 failed in its commit step on 4 LoC credits for wave-6 skipped targets.
+    - 12d279bcf moves the keep step after the commit step.
+    - #114 (pre-guard) is expected to fail the same way; #117 has the guard.
+  - **Eager JS 39.93/40:** the plan is set (countLine deletion, FE-C lazy second frame, lazy sheet.js after r8).
