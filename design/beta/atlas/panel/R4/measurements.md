@@ -6,21 +6,21 @@ Product tree: `../panel-r4`. Tiles: stub = flat neutral land colour; basemap NOT
 
 | page | vp | theme | map share % (box / clear) | map width % | chrome above map px | visible markers (pins / clusters) | numbered labels | named labels | must-see pins | covered marker centres | targets < 44 px (< 24) | contrast fails / checked | min text px (card / chrome / pin) | nodes | first load KB (raw / text-gz) | canvas dots shown / density discs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| tokyo | 1440 | light | 57 / 55 | 64 | 104 | 7 (7 / 0) | 0 | 7 | 7 | 0 | 15 (2) | 0 / 65 | 12 / 13 / 14 | 2620 | 1835 / 670 | 352 / 0 |
+| tokyo | 1440 | light | 57 / 55 | 64 | 104 | 7 (7 / 0) | 0 | 7 | 7 | 0 | 15 (2) | 0 / 65 | 12 / 13 / 14 | 2620 | 1846 / 682 | 352 / 0 |
 | tokyo | 1440 | dark | 57 / 55 | 64 | 104 | 7 (7 / 0) | 0 | 7 | 7 | 0 | 15 (2) | 0 / 65 | 12 / 13 / 14 | 2620 | 1846 / 682 | 352 / 0 |
 | tokyo | 390 | light | 94 / 73 | 100 | 152 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 7 (0) | 0 / 30 | undefined / 14 / 13 | 2615 | 2407 / 1242 | 355 / 0 |
 | tokyo | 390 | dark | 94 / 73 | 100 | 152 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 7 (0) | 0 / 30 | undefined / 14 / 13 | 2615 | 2407 / 1242 | 355 / 0 |
 | cleveland | 1440 | light | 57 / 55 | 64 | 104 | 8 (8 / 0) | 0 | 8 | 8 | 0 | 19 (5) | 0 / 81 | 12 / 13 / 14 | 2143 | 1397 / 629 | 80 / 0 |
 | cleveland | 1440 | dark | 57 / 55 | 64 | 104 | 8 (8 / 0) | 0 | 8 | 8 | 0 | 19 (5) | 0 / 81 | 12 / 13 / 14 | 2143 | 1397 / 629 | 80 / 0 |
-| cleveland | 390 | light | 94 / 73 | 100 | 152 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 7 (0) | 0 / 29 | undefined / 14 / 13 | 2084 | 1926 / 1158 | 69 / 0 |
-| cleveland | 390 | dark | 94 / 73 | 100 | 152 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 7 (0) | 0 / 29 | undefined / 14 / 13 | 2084 | 1712 / 944 | 69 / 0 |
+| cleveland | 390 | light | 94 / 73 | 100 | 152 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 7 (0) | 0 / 29 | undefined / 14 / 13 | 2084 | 1712 / 944 | 69 / 0 |
+| cleveland | 390 | dark | 94 / 73 | 100 | 152 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 7 (0) | 0 / 29 | undefined / 14 / 13 | 2084 | 2028 / 1260 | 69 / 0 |
 | chinatown | 1440 | light | 57 / 55 | 64 | 104 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 17 (5) | 0 / 74 | 12 / 13 / 14 | 1381 | 907 / 348 | 9 / 0 |
 | chinatown | 1440 | dark | 57 / 55 | 64 | 104 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 17 (5) | 0 / 74 | 12 / 13 / 14 | 1381 | 907 / 348 | 9 / 0 |
-| chinatown | 390 | light | 94 / 73 | 100 | 152 | 5 (5 / 0) | 0 | 5 | 5 | 0 | 6 (0) | 0 / 27 | undefined / 14 / 13 | 1300 | 1441 / 882 | 9 / 0 |
+| chinatown | 390 | light | 94 / 73 | 100 | 152 | 5 (5 / 0) | 0 | 5 | 5 | 0 | 6 (0) | 0 / 27 | undefined / 14 / 13 | 1300 | 1232 / 672 | 9 / 0 |
 | chinatown | 390 | dark | 94 / 73 | 100 | 152 | 5 (5 / 0) | 0 | 5 | 5 | 0 | 6 (0) | 0 / 27 | undefined / 14 / 13 | 1300 | 1441 / 882 | 9 / 0 |
 | newyork | 1440 | light | 57 / 55 | 64 | 104 | 8 (8 / 0) | 0 | 8 | 8 | 0 | 19 (4) | 0 / 78 | 12 / 13 / 14 | 2544 | 1793 / 681 | 332 / 0 |
 | newyork | 1440 | dark | 57 / 55 | 64 | 104 | 8 (8 / 0) | 0 | 8 | 8 | 0 | 19 (4) | 0 / 78 | 12 / 13 / 14 | 2544 | 1793 / 681 | 332 / 0 |
-| newyork | 390 | light | 94 / 73 | 100 | 152 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 7 (0) | 0 / 27 | undefined / 14 / 13 | 2509 | 2055 / 944 | 388 / 0 |
+| newyork | 390 | light | 94 / 73 | 100 | 152 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 7 (0) | 0 / 27 | undefined / 14 / 13 | 2509 | 2349 / 1238 | 388 / 0 |
 | newyork | 390 | dark | 94 / 73 | 100 | 152 | 6 (6 / 0) | 0 | 6 | 6 | 0 | 7 (0) | 0 / 27 | undefined / 14 / 13 | 2509 | 2349 / 1238 | 388 / 0 |
 
 Full per-state data (zoomed, selected, pan, list mode, tiles/library blocked, round-trip, deep link, 200 %, keyboard, tasks) is in `measurements.json`.
@@ -147,10 +147,12 @@ Full per-state data (zoomed, selected, pan, list mode, tiles/library blocked, ro
 - `shots/T2-cleveland-1440-area.jpg` — T2: cleveland neighbourhood chosen
 - `shots/T2-cleveland-1440-lunch.jpg` — T2: cleveland Eat & drink in that area
 - `shots/T2-cleveland-390-area.jpg` — T2: cleveland neighbourhood chosen
+- `shots/T2-cleveland-390-lunch-list.jpg` — T2: cleveland Eat & drink, the phone list
 - `shots/T2-cleveland-390-lunch.jpg` — T2: cleveland Eat & drink in that area
 - `shots/T2-tokyo-1440-area.jpg` — T2: tokyo neighbourhood chosen
 - `shots/T2-tokyo-1440-lunch.jpg` — T2: tokyo Eat & drink in that area
 - `shots/T2-tokyo-390-area.jpg` — T2: tokyo neighbourhood chosen
+- `shots/T2-tokyo-390-lunch-list.jpg` — T2: tokyo Eat & drink, the phone list
 - `shots/T2-tokyo-390-lunch.jpg` — T2: tokyo Eat & drink in that area
 - `shots/T3-tokyo-1440-located.jpg` — T3: after locate-me at the fixed spot
 - `shots/T3-tokyo-1440-food-near.jpg` — T3: Eat & drink after locate-me
@@ -159,4 +161,5 @@ Full per-state data (zoomed, selected, pan, list mode, tiles/library blocked, ro
 - `shots/T4-cleveland-1440-closed-place.jpg` — T4: a closed place opened in Atlas
 - `shots/T5-tokyo-1440-share.jpg` — T5: share from the detail
 - `shots/T5-tokyo-1440-reopen-view.jpg` — T5: reopening the URL copied while looking at Asakusa
+- `shots/T5-tokyo-390-share.jpg` — T5: share from the detail
 - `shots/T5-tokyo-390-reopen-view.jpg` — T5: reopening the URL copied while looking at Asakusa
