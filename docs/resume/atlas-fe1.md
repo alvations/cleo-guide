@@ -1,29 +1,30 @@
 # Atlas FE-1 checkpoint (layout, pins, chrome, list)
 
 ## Task
-SPEC-v3 rev 5 for panel round 4 (R3 scored 80.7), plus QC / QA items. In order:
-1. The `atlas-ms` check "cleveland phone: two zoom steps in → ≥ 4 named pins" is red on origin (reads 3). Find the commit that turned it red; fix the band or the label density. Never loosen the check without the designer's sign-off.
-2. QC-17: done (this push).
-3. Rev 5 (`design/beta/atlas/SPEC-v3.md`, 46f4abe3), in this order:
-   - #1 phone first screen: Area chip, no counts on chips, search icon always visible, two labelled pills, Key in Filters;
-   - #2 counts: no rank badges, one Must-see indicator, no "Filters 1" echo for Top picks;
-   - #4 dots: no sun colour; sight 7 px at `--ink` 30 %, food 8 px square at 72 %; glyph overrides JSON plus new nouns; the locate dot counts as a placed box; real pill widths with a 4 px gap;
-   - #5 desktop header: a 40 px switch inside the 56 px header; "How we choose" in the overflow below 1280; breadcrumb in full at ≥ 1280;
-   - #6 no-photo preview: no media;
-   - #3 text: ≥ 14 px, and 16 px for name, why and sources.
-4. R7-g4:
-   - (a) phone pin hit area ≥ 44 px tall;
-   - (b) a pin click brings an out-of-page card into the list and into view;
-   - (c) desktop `#p=` deep link: scrollY 0 (with FE-2);
-   - (d) "last checked" on the first phone screen;
-   - (e) desktop For you / Your day / Near me reachable without horizontal scroll.
-5. QC-04: the no-pin badge. QC-05: an empty state for a search with no match. QC-13: the count line under a lens.
-6. FE-B:
-   - three raw shadows to tokens (`.pp .pp-h`, `.kd`, `.pp-1.sel`);
-   - the phone switcher parked last in `.ms-bar` goes off-screen (QC-09). Make it its own full-width 52 px row.
-7. QC-14: run `python3 design/beta/tools/snap-spacing.py tools/beta/lib/render/atlas.css`, then check 390 and 1440.
+D-46 (Atlas is the default view) and OV-00 (SPEC-v3 §2.0) for the panel's round 4, in the orchestrator's order:
+1. The stamping hold (D-46 DOM ≤ 2,900, INP ≤ 200 ms): local, in the gates. It works by shed() off-page cards → deferred noscript, plus city.js C.forget, plus PER 36.
+2. The 52 px phone header. FE-A already set --bar-h 52 on phones (25d4f9ef), so reconcile with mine.
+3. OV-00 Atlas (OV-02..07, docs/BETA-OVERLAY-LEDGER.md), through FE-A's Cleo.chrome (compact / idle, html.ov-c):
+   - pan compaction;
+   - an icon-only stack (Locate + Layers popover);
+   - attribution collapsing to ⓘ;
+   - label caps (40 % width, count from the area, ≤ 8 % coverage);
+   - "Search this area" only after a > 25 % bounds change;
+   - chip-row edge fades;
+   - landscape.
+4. D-46:
+   - peek thumbnails (3 × 40 px, names in the aria-label, no "+N more");
+   - the phone list-sheet intro (FE-A's .at-intro) with a 3:2 lead card;
+   - .pl-lead on a desktop cold load;
+   - the no-map fallback: neutral art, no edge ticks, one "Map unavailable".
+5. R8:
+   - gap 4: 44 px phone map targets, the last-checked date on the first screen, the doors at 1440, B-07 84/84, the D-43 20 px soft halo plus a Key swatch;
+   - gap 3 (motion) is FE-2's;
+   - FE-A's tokens (atlas.css:41/102/289).
+Round 4 is held until D-46 lands. Dark dots are signed off (R4b). FE-2 is green on e0b79e23.
 
 ## Done (pushed)
+- e0b79e23 INP 18.5 s → 0.45 s (.ms-paged), D-46 list at once (predict()), CLS, peek spaces · c8fd0768 INP pass 2 (256 ms).
 - ec71a4ad pre-R4: B-20 source chip 44 px (+ ellipsis, title on cut chips), QC-05 in catalogue strings (FE-C hides theirs), rev 5a phone chrome (search via the header icon, 48 px chip row, 56 px peek, "Search this area" at 160 and hidden on the first screen), kit bag/spire with spire for churches only, dark dots 45 % / 80 %. Atlas metrics on 5 pilots: B-20 0, B-03 13–14, B-08 0.
 - 03c9fc58 QC-17 · 0e8faff9 phone switcher row + chip order · 4888cd5a desktop header (#5), no rank badges, QC-05 · 0118f115 one ranked list (#2), B-21 · bbe11d60 card text 16/14 (#3) · (this push) QC-13, R7-g4 (d) checked date in the peek, (e) desktop doors; QC-04 met by FE-C.
 - d2b6ead3 checkpoint + push script · 66c2a8e1 QC-14 spacing, R7-g4 (b) probe · 45379fbf local/R4 evidence, SHOTS-REQUEST = R4.
