@@ -2646,3 +2646,10 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **D-56** is applied to 29 venue skips, with lifts by name only (k=venue pattern kept).
   - **Designer:** two more cut misses fixed (34 rules at 844×390); the sweep now forces every area to render.
   - **FE-C:** open a place accepted (harness overhead traced); perf.js moves to CDP dispatch.
+- 2026-10-17 15:30Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Gates:** all green.
+  - **QC round-4 views:** complete; only OV-123 was open, and FE-C fixed it.
+  - **D-55 INP condition:** passes, with dev better than live on every row (platform 9cd09473, CDP input).
+  - **Fixes:** QC-36 (platform), photo-run failures (imagery 6b501134b).
+  - **Panel R4:** 5/8 returns in.
+  - **Interim pin waits on:** QA's recby-scan, FE-B's Insights relabel, QC's OV-123 re-grade.
