@@ -209,71 +209,81 @@ async function main() {
     } catch (e) { r.error = e.message.slice(0, 160); }
     await ctx.close(); return r;
   };
+  // the release-gating views first (orchestrator 11:15Z): the cold first screen and Atlas, then the sheet, the landing and
+  // other pages, Guidebook; a graded partial (summary.partial.md, groups.partial.json) every 500 runs
+  const PRI = { default: 0, atlas: 1, sheet: 2, page: 3, guidebook: 4, gallery: 5, insights: 6 }; jobs.sort((a, b) => PRI[a.view] - PRI[b.view]);
   const queue = jobs.slice();
   await Promise.all(Array.from({ length: JOBS }, async () => { while (queue.length) { const j = queue.shift(); const r = await run(j); results.push(r);
-    if (++done % 50 === 0) console.log(`  ${done}/${jobs.length}`); } }));
-  // OV-00 budgets (designer, bb2af873: SPEC-v3 §2.0 for Atlas, DESIGN-SYSTEM §v2.12 for every other view)
-  const VK = { '390x844': 'P1', '390x664': 'P2', '844x390': 'L', '768x1024': 'T1', '1024x768': 'T2', '1440x900': 'D' };
-  const ATLAS = { P1: [25, 8, 72, 90, 8, 8], P2: [32, 10, 64, 87, 7, 8], L: [13, 13, 80, 80, 10, 8], T1: [18, 8, 78, 90, 12, 7], T2: [15, 15, 90, 90, 16, 6], D: [12, 12, 92, 92, 16, 6] };   // chrome rest/pan, clear rest/pan, label count, label cover
-  const OTHER = { P1: [13, 7], P2: [16, 8], L: [13, 13], T1: [11, 6], T2: [8, 8], D: [8, 8] };                                                                 // chrome rest / after a 600 px scroll
-  const PHONE = { P1: 1, P2: 1, L: 1, T1: 1 };
-  const city = r => r.view !== 'page';
-  const owner = (kind, r) => {
-    if (r.view === 'default') return kind === 'defaultNotAtlas' ? 'FE-A (D-46 default)' : 'FE-A (header, switch) + Atlas FE-1 (chip row, peek)';
-    if (r.view === 'atlas') return /^chrome/.test(kind) ? 'FE-A (header, switch) + Atlas FE-1 (chip row, peek)' : /^label/.test(kind) ? 'Atlas FE-1 + FE-2' : kind === 'duplicates' ? 'FE-B (search.js) + FE-A (city search) + designer' : 'Atlas FE-1';
-    if (kind === 'duplicates') return 'FE-B (search.js) + FE-A (city search) + designer';
-    if (r.view === 'sheet') return 'FE-C (sheet)';
-    if (r.view === 'gallery') return 'FE-A';
-    if (r.view === 'guidebook' || r.view === 'insights') return 'FE-B';
-    return 'FE-B (hubs, landing, trip, saved, method)'; };
-  const flags = [], push = (kind, value, budget, r) => flags.push({ kind, value, budget, r, owner: owner(kind, r) });
-  results.forEach(r => { if (!r.load) { if (r.error) push('error', r.error, '—', r); return; } const v = VK[r.vp], L = r.load, D = r.during, map = r.view === 'atlas' && L.map;
-    if (r.view === 'default') { const [cr, , kr] = ATLAS[v]; const clear = v === 'T2' || v === 'D' ? L.clearPane : L.clearVP;
-      if (L.view !== 'atlas') push('defaultNotAtlas', 'opens ' + L.view, 'Atlas (D-46)', r);
-      else { if (L.band > cr) push('firstScreenChrome', L.band, '≤ ' + cr + ' %', r); if (clear < kr) push('firstScreenClear', clear, '≥ ' + kr + ' %', r); }
-      if (r.toastLate && r.toastLate.length) push('toast', r.toastLate.join(' / '), 'leaves within 4 s', r); return; }
-    if (map) { const [cr, cp, kr, kp, lc, lv] = ATLAS[v]; const clear = x => (v === 'T2' || v === 'D' ? x.clearPane : x.clearVP);
-      if (L.band > cr) push('chromeRest', L.band, '≤ ' + cr + ' %', r);
-      if (D && D.band > cp) push('chromePan', D.band, '≤ ' + cp + ' % at 300 ms into a pan', r);
-      if (clear(L) < kr) push('clearRest', clear(L), '≥ ' + kr + ' %', r);
-      if (D && clear(D) < kp) push('clearPan', clear(D), '≥ ' + kp + ' % during a pan', r);
-      if (L.labels > lc) push('labelCount', L.labels, '≤ ' + lc, r);
-      if (L.labelCov > lv) push('labelCov', L.labelCov, '≤ ' + lv + ' % of the map', r);
-      if (PHONE[v] ? L.widestLabel > 40 : L.labelMaxPx > 220) push('labelWidth', PHONE[v] ? L.widestLabel + ' % (' + L.widestLabelText + ')' : L.labelMaxPx + ' px (' + L.widestLabelText + ')', PHONE[v] ? '≤ 40 % of the map width' : '≤ 220 px', r);
-      if (L.labelGap) push('labelGap', L.labelGap + ' pairs < 4 px', '≥ 4 px apart', r);
-      if (L.searchHere) push('searchHereOnLoad', 'shown at load', 'absent at load', r);
-      // designer ruling 10:41Z: at T2 / D the full credit stays, but it is one line (≤ 20 px), inside the map pane, over nothing
-      if (!PHONE[v] && L.attrW && (L.attrH > 20 || L.attrIn === false || (L.attrHit || []).length)) push('attributionDesk', `${L.attrH} px tall; ${L.attrIn ? 'inside' : 'outside'} the map pane; over: ${(L.attrHit || []).join(', ') || 'nothing'}`, 'one line ≤ 20 px, inside the map pane, over no control or label', r);
-      if (PHONE[v] && r.idle && r.idle.attrW > 60) push('attribution',   // SPEC-v3 §2.0.3 (b7df8c3f): the desktop credit stays full, T2 / D exempt
-        r.idle.attrW + ' px wide 1.5 s after a pan', 'collapses to ⓘ on the first pan or after 5 s', r);
-      if (PHONE[v] && L.mapControl) push('mapControl', 'a control named "Map"', 'none on phone', r);
-      if (PHONE[v] && L.nearMe > 1) push('nearMeTwice', L.nearMe, 'once per screen', r); }
-    else if (city(r) || r.view === 'page') { const [cr, ca] = OTHER[v];
-      if (L.band > cr) push('chromeRest', L.band, '≤ ' + cr + ' %', r);
-      if (D && r.move !== 'none' && D.band > ca) push('chromeScroll', D.band, '≤ ' + ca + ' % after a 600 px scroll', r); }
-    if (L.topAlpha != null && (L.topAlpha < 1 || L.topBlur)) push('translucentChrome', 'top bar alpha ' + L.topAlpha + (L.topBlur ? ' + backdrop blur' : ''), 'opaque, no blur (b2f587a8)', r);
-    if (r.toastLate && r.toastLate.length) push('toast', r.toastLate.join(' | '), 'leaves within 4 s', r);
-    if (L.duplicates && L.duplicates.length) push('duplicates', L.duplicates.join('; '), 'one control per action', r);
-    if (L.covered && L.covered.length) push('controlCovered', L.covered.join('; '), 'none: every shown control is reachable', r);
-    if (L.controlCollisions) push('controlCollision', L.controlCollisionSample.join('; '), 'none', r);
-    if (L.controlPin) push('controlOverPin', L.controlPin + ': ' + (L.controlPinSample || []).join('; '), 'none', r);
-    if (L.labelControl) push('labelOverControl', L.labelControl, 'none', r);
-    if (r.error) push('error', r.error, '—', r); });
-  // shots for the worst instance of each (kind, view, vp) group, up to --shots
-  const groups = {}; flags.forEach(f => { const g = [f.kind, f.r.view === 'page' ? 'page' : f.r.view, f.r.vp].join('|'); (groups[g] = groups[g] || []).push(f); });
-  const gl = Object.entries(groups).map(([g, l]) => ({ g, l, worst: l.slice().sort((a, b) => (typeof b.value === 'number' ? b.value : parseFloat(b.value) || 0) * (/clear/.test(b.kind) ? -1 : 1) - (typeof a.value === 'number' ? a.value : parseFloat(a.value) || 0) * (/clear/.test(a.kind) ? -1 : 1))[0] }));
+    if (++done % 50 === 0) console.log(`  ${done}/${jobs.length}`); if (done % 500 === 0) { try { writeOut(grade(), false); } catch (e) { console.log('partial: ' + e.message); } } } }));
+  const gl = grade();
   let s = 0; for (const x of gl) { if (s >= NSHOTS) break; const w = x.worst.r; const name = [x.worst.kind, w.view, w.vp, w.theme, w.page.replace(/[^a-z0-9]+/gi, '-')].join('_');
     await run({ ...w }, name); x.shot = path.relative(OUTROOT, path.join(SHOTS, name + '.jpg')); s++; }
   await browser.close(); srv.close();
-  fs.writeFileSync(path.join(OUT, 's17.json'), JSON.stringify({ label: LABEL, root: ROOT, n: results.length, results }, null, 0));
-  const pctl = (k, get) => { const v = results.map(get).filter(x => x != null).sort((a, b) => a - b); if (!v.length) return '—'; const q = p => v[Math.min(v.length - 1, Math.floor(v.length * p))]; return `${q(0.5)} / ${q(0.9)} / ${v[v.length - 1]}`; };
-  const md = [`# S-17 overlay and chrome · ${LABEL}`, '', `${results.length} runs (${new Set(results.map(r => r.page)).size} pages; viewports ${vps.join(', ')}; themes ${themes.join(', ')}; views ${views.join(', ')}). Errors: ${results.filter(r => r.error).length}.`, '',
-    '## Distributions (median / p90 / max)', '', '| Metric | All | Atlas | Sheet |', '|---|---|---|---|'];
-  for (const [k, lab] of [['band', 'chrome bands % of height (load)'], ['chromeArea', 'chrome area % (load)'], ['clearVP', 'clear map % of viewport (labels excluded)'], ['clearPane', 'clear map % of pane'], ['labels', 'label count'], ['labelCov', 'label coverage % of map'], ['widestLabel', 'widest label % of map width']])
-    md.push(`| ${lab} | ${pctl(k, r => r.load && r.load[k])} | ${pctl(k, r => r.view === 'atlas' && r.load ? r.load[k] : null)} | ${pctl(k, r => r.view === 'sheet' && r.load ? r.load[k] : null)} |`);
-  md.push('', '## Instance groups (kind · view · viewport): runs, worst, screenshot', '', '| Kind | View | Viewport | Failing runs / of (pages) | Budget | Worst | Page · theme | Owner | Shot |', '|---|---|---|---|---|---|---|---|---|');
-  gl.sort((a, b) => b.l.length - a.l.length).forEach(x => { const w = x.worst.r; const of = results.filter(r => r.view === w.view && r.vp === w.vp).length; md.push(`| ${x.worst.kind} | ${w.view} | ${w.vp} | ${x.l.length} / ${of} (${new Set(x.l.map(f => f.r.page)).size}) | ${x.worst.budget} | ${String(x.worst.value).replace(/\|/g, '\\|').slice(0, 90)} | ${w.page} · ${w.theme} | ${x.worst.owner} | ${x.shot ? '`' + x.shot + '`' : '—'} |`); });
-  fs.writeFileSync(path.join(OUT, 'summary.md'), md.join('\n') + '\n');
-  fs.writeFileSync(path.join(OUT, 'groups.json'), JSON.stringify(gl.map(x => ({ kind: x.worst.kind, view: x.worst.r.view, vp: x.worst.r.vp, runs: x.l.length, pages: [...new Set(x.l.map(f => f.r.page))], themes: [...new Set(x.l.map(f => f.r.theme))], worst: x.worst.value, budget: x.worst.budget, owner: x.worst.owner, of: results.filter(r => r.view === x.worst.r.view && r.vp === x.worst.r.vp).length, worstPage: x.worst.r.page, worstTheme: x.worst.r.theme, shot: x.shot || null })), null, 1));
-  console.log('wrote', path.relative(OUTROOT, OUT), results.length, 'runs,', flags.length, 'flags,', gl.length, 'groups');
+  writeOut(gl, true);
+  function grade() {
+    // OV-00 budgets (designer, bb2af873: SPEC-v3 §2.0 for Atlas, DESIGN-SYSTEM §v2.12 for every other view)
+    const VK = { '390x844': 'P1', '390x664': 'P2', '844x390': 'L', '768x1024': 'T1', '1024x768': 'T2', '1440x900': 'D' };
+    const ATLAS = { P1: [25, 8, 72, 90, 8, 8], P2: [32, 10, 64, 87, 7, 8], L: [13, 13, 80, 80, 10, 8], T1: [18, 8, 78, 90, 12, 7], T2: [15, 15, 90, 90, 16, 6], D: [12, 12, 92, 92, 16, 6] };   // chrome rest/pan, clear rest/pan, label count, label cover
+    const OTHER = { P1: [13, 7], P2: [16, 8], L: [13, 13], T1: [11, 6], T2: [8, 8], D: [8, 8] };                                                                 // chrome rest / after a 600 px scroll
+    const PHONE = { P1: 1, P2: 1, L: 1, T1: 1 };
+    const city = r => r.view !== 'page';
+    const owner = (kind, r) => {
+      if (r.view === 'default') return kind === 'defaultNotAtlas' ? 'FE-A (D-46 default)' : 'FE-A (header, switch) + Atlas FE-1 (chip row, peek)';
+      if (r.view === 'atlas') return /^chrome/.test(kind) ? 'FE-A (header, switch) + Atlas FE-1 (chip row, peek)' : /^label/.test(kind) ? 'Atlas FE-1 + FE-2' : kind === 'duplicates' ? 'FE-B (search.js) + FE-A (city search) + designer' : 'Atlas FE-1';
+      if (kind === 'duplicates') return 'FE-B (search.js) + FE-A (city search) + designer';
+      if (r.view === 'sheet') return 'FE-C (sheet)';
+      if (r.view === 'gallery') return 'FE-A';
+      if (r.view === 'guidebook' || r.view === 'insights') return 'FE-B';
+      return 'FE-B (hubs, landing, trip, saved, method)'; };
+    const flags = [], push = (kind, value, budget, r) => flags.push({ kind, value, budget, r, owner: owner(kind, r) });
+    results.forEach(r => { if (!r.load) { if (r.error) push('error', r.error, '—', r); return; } const v = VK[r.vp], L = r.load, D = r.during, map = r.view === 'atlas' && L.map;
+      if (r.view === 'default') { const [cr, , kr] = ATLAS[v]; const clear = v === 'T2' || v === 'D' ? L.clearPane : L.clearVP;
+        if (L.view !== 'atlas') push('defaultNotAtlas', 'opens ' + L.view, 'Atlas (D-46)', r);
+        else { if (L.band > cr) push('firstScreenChrome', L.band, '≤ ' + cr + ' %', r); if (clear < kr) push('firstScreenClear', clear, '≥ ' + kr + ' %', r); }
+        if (r.toastLate && r.toastLate.length) push('toast', r.toastLate.join(' / '), 'leaves within 4 s', r); return; }
+      if (map) { const [cr, cp, kr, kp, lc, lv] = ATLAS[v]; const clear = x => (v === 'T2' || v === 'D' ? x.clearPane : x.clearVP);
+        if (L.band > cr) push('chromeRest', L.band, '≤ ' + cr + ' %', r);
+        if (D && D.band > cp) push('chromePan', D.band, '≤ ' + cp + ' % at 300 ms into a pan', r);
+        if (clear(L) < kr) push('clearRest', clear(L), '≥ ' + kr + ' %', r);
+        if (D && clear(D) < kp) push('clearPan', clear(D), '≥ ' + kp + ' % during a pan', r);
+        if (L.labels > lc) push('labelCount', L.labels, '≤ ' + lc, r);
+        if (L.labelCov > lv) push('labelCov', L.labelCov, '≤ ' + lv + ' % of the map', r);
+        if (PHONE[v] ? L.widestLabel > 40 : L.labelMaxPx > 220) push('labelWidth', PHONE[v] ? L.widestLabel + ' % (' + L.widestLabelText + ')' : L.labelMaxPx + ' px (' + L.widestLabelText + ')', PHONE[v] ? '≤ 40 % of the map width' : '≤ 220 px', r);
+        if (L.labelGap) push('labelGap', L.labelGap + ' pairs < 4 px', '≥ 4 px apart', r);
+        if (L.searchHere) push('searchHereOnLoad', 'shown at load', 'absent at load', r);
+        // designer ruling 10:41Z: at T2 / D the full credit stays, but it is one line (≤ 20 px), inside the map pane, over nothing
+        if (!PHONE[v] && L.attrW && (L.attrH > 20 || L.attrIn === false || (L.attrHit || []).length)) push('attributionDesk', `${L.attrH} px tall; ${L.attrIn ? 'inside' : 'outside'} the map pane; over: ${(L.attrHit || []).join(', ') || 'nothing'}`, 'one line ≤ 20 px, inside the map pane, over no control or label', r);
+        if (PHONE[v] && r.idle && r.idle.attrW > 60) push('attribution',   // SPEC-v3 §2.0.3 (b7df8c3f): the desktop credit stays full, T2 / D exempt
+          r.idle.attrW + ' px wide 1.5 s after a pan', 'collapses to ⓘ on the first pan or after 5 s', r);
+        if (PHONE[v] && L.mapControl) push('mapControl', 'a control named "Map"', 'none on phone', r);
+        if (PHONE[v] && L.nearMe > 1) push('nearMeTwice', L.nearMe, 'once per screen', r); }
+      else if (city(r) || r.view === 'page') { const [cr, ca] = OTHER[v];
+        if (L.band > cr) push('chromeRest', L.band, '≤ ' + cr + ' %', r);
+        if (D && r.move !== 'none' && D.band > ca) push('chromeScroll', D.band, '≤ ' + ca + ' % after a 600 px scroll', r); }
+      if (L.topAlpha != null && (L.topAlpha < 1 || L.topBlur)) push('translucentChrome', 'top bar alpha ' + L.topAlpha + (L.topBlur ? ' + backdrop blur' : ''), 'opaque, no blur (b2f587a8)', r);
+      if (r.toastLate && r.toastLate.length) push('toast', r.toastLate.join(' | '), 'leaves within 4 s', r);
+      if (L.duplicates && L.duplicates.length) push('duplicates', L.duplicates.join('; '), 'one control per action', r);
+      if (L.covered && L.covered.length) push('controlCovered', L.covered.join('; '), 'none: every shown control is reachable', r);
+      if (L.controlCollisions) push('controlCollision', L.controlCollisionSample.join('; '), 'none', r);
+      if (L.controlPin) push('controlOverPin', L.controlPin + ': ' + (L.controlPinSample || []).join('; '), 'none', r);
+      if (L.labelControl) push('labelOverControl', L.labelControl, 'none', r);
+      if (r.error) push('error', r.error, '—', r); });
+    const groups = {}; flags.forEach(f => { const g = [f.kind, f.r.view === 'page' ? 'page' : f.r.view, f.r.vp].join('|'); (groups[g] = groups[g] || []).push(f); });
+    const gl = Object.entries(groups).map(([g, l]) => ({ g, l, worst: l.slice().sort((a, b) => (typeof b.value === 'number' ? b.value : parseFloat(b.value) || 0) * (/clear/.test(b.kind) ? -1 : 1) - (typeof a.value === 'number' ? a.value : parseFloat(a.value) || 0) * (/clear/.test(a.kind) ? -1 : 1))[0] }));
+    return gl;
+  }
+  function writeOut(gl, final) {
+    const sfx = final ? '' : '.partial';
+    if (final) fs.writeFileSync(path.join(OUT, 's17.json'), JSON.stringify({ label: LABEL, root: ROOT, n: results.length, results }, null, 0));
+    const pctl = (k, get) => { const v = results.map(get).filter(x => x != null).sort((a, b) => a - b); if (!v.length) return '—'; const q = p => v[Math.min(v.length - 1, Math.floor(v.length * p))]; return `${q(0.5)} / ${q(0.9)} / ${v[v.length - 1]}`; };
+    const md = [`# S-17 overlay and chrome · ${LABEL}`, '', `${results.length} runs (${new Set(results.map(r => r.page)).size} pages; viewports ${vps.join(', ')}; themes ${themes.join(', ')}; views ${views.join(', ')}). Errors: ${results.filter(r => r.error).length}.`, '',
+      '## Distributions (median / p90 / max)', '', '| Metric | All | Atlas | Sheet |', '|---|---|---|---|'];
+    for (const [k, lab] of [['band', 'chrome bands % of height (load)'], ['chromeArea', 'chrome area % (load)'], ['clearVP', 'clear map % of viewport (labels excluded)'], ['clearPane', 'clear map % of pane'], ['labels', 'label count'], ['labelCov', 'label coverage % of map'], ['widestLabel', 'widest label % of map width']])
+      md.push(`| ${lab} | ${pctl(k, r => r.load && r.load[k])} | ${pctl(k, r => r.view === 'atlas' && r.load ? r.load[k] : null)} | ${pctl(k, r => r.view === 'sheet' && r.load ? r.load[k] : null)} |`);
+    md.push('', '## Instance groups (kind · view · viewport): runs, worst, screenshot', '', '| Kind | View | Viewport | Failing runs / of (pages) | Budget | Worst | Page · theme | Owner | Shot |', '|---|---|---|---|---|---|---|---|---|');
+    gl.sort((a, b) => b.l.length - a.l.length).forEach(x => { const w = x.worst.r; const of = results.filter(r => r.view === w.view && r.vp === w.vp).length; md.push(`| ${x.worst.kind} | ${w.view} | ${w.vp} | ${x.l.length} / ${of} (${new Set(x.l.map(f => f.r.page)).size}) | ${x.worst.budget} | ${String(x.worst.value).replace(/\|/g, '\\|').slice(0, 90)} | ${w.page} · ${w.theme} | ${x.worst.owner} | ${x.shot ? '`' + x.shot + '`' : '—'} |`); });
+    fs.writeFileSync(path.join(OUT, 'summary' + sfx + '.md'), md.join('\n') + '\n');
+    fs.writeFileSync(path.join(OUT, 'groups' + sfx + '.json'), JSON.stringify(gl.map(x => ({ kind: x.worst.kind, view: x.worst.r.view, vp: x.worst.r.vp, runs: x.l.length, pages: [...new Set(x.l.map(f => f.r.page))], themes: [...new Set(x.l.map(f => f.r.theme))], worst: x.worst.value, budget: x.worst.budget, owner: x.worst.owner, of: results.filter(r => r.view === x.worst.r.view && r.vp === x.worst.r.vp).length, worstPage: x.worst.r.page, worstTheme: x.worst.r.theme, shot: x.shot || null })), null, 1));
+    console.log('wrote', path.relative(OUTROOT, OUT), results.length, 'runs,', gl.reduce((n, x) => n + x.l.length, 0), 'flags,', gl.length, 'groups', final ? '' : '(partial)');
+  }
 }
