@@ -182,7 +182,7 @@
     const map = C.map(); if (!map || !C.markers[id]) return; hoverId = o ? id : (hoverId === id ? null : hoverId);
     if (pins[id]) { const el = pins[id].getElement(); if (el) el.classList.toggle('hot', o); pins[id].setZIndexOffset(o ? 1000 : isT1(rec(id)) ? 600 : 0); return; }
     if (hoverPin) { map.removeLayer(hoverPin); hoverPin = null; }
-    if (o) { const c = rec(id); hoverPin = mkPin(id, c, savedSet()[id]).addTo(map); hoverPin._id = id; hoverPin.setZIndexOffset(1000); const el = hoverPin.getElement(); if (el) { el.classList.add('hot'); el.style.pointerEvents = 'none'; el.tabIndex = -1; } }   // QC b1c7939f: the hover pin is drawn, never hit — under the pointer it flickered (canvas mouseout → removed → mouseover → re-added), so a press began on it or was lost and a drag from a dot selected instead of panning; the dot under it takes the press, and Leaflet tells a tap from a drag
+    if (o) { const c = rec(id); hoverPin = mkPin(id, c, savedSet()[id]).addTo(map); hoverPin._id = id; hoverPin.setZIndexOffset(1000); const el = hoverPin.getElement(); if (el) { el.classList.add('hot', 'ms-hov'); el.style.pointerEvents = 'none'; el.tabIndex = -1; } }   // QC b1c7939f: the hover pin is drawn, never hit — under the pointer it flickered (canvas mouseout → removed → mouseover → re-added), so a press began on it or was lost and a drag from a dot selected instead of panning; the dot under it takes the press, and Leaflet tells a tap from a drag
   };
   C.hotPin = (c, o) => C.hotId(C.pid(c), o);
 
@@ -330,7 +330,7 @@
     if (!c) return;
     if (!desk()) car(true);
     if (selC && selC !== c) { selC.classList.remove('is-sel', 'is-focus'); pinSel(selC, false); }
-    const again = selC === c; selC = c; c.classList.add('is-sel', 'is-focus'); pinSel(c, true);
+    const again = selC === c, prev = selC; selC = c; c.classList.add('is-sel', 'is-focus'); pinSel(c, true);
     if (c.classList.contains('ms-out')) msArea(true);
     if (desk()) {
       // the list pane scrolls, the page never does; once more after late stamping above it settles
@@ -348,8 +348,13 @@
       return;
     }
     // a near card glides into place; a far one (more than two widths away) jumps — a long glide is slow and reads as noise
-    if (lp && lp.scrollTo && !H.classList.contains('ms-list')) { qSwipe = Date.now(); const x = c.offsetLeft - (lp.clientWidth - c.offsetWidth) / 2;
-      lp.scrollTo({ left: x, behavior: C.still() || Math.abs(x - lp.scrollLeft) > 2 * lp.clientWidth ? 'auto' : 'smooth' }); }
+    if (lp && lp.scrollTo && !H.classList.contains('ms-list')) { qSwipe = Date.now();
+      if (land()) {   // R4 (designer): landscape's side column scrolls down, and the selected place is its FIRST card — at once on a first selection
+        const top = sm => { if (selC !== c) return; const dy = c.getBoundingClientRect().top - lp.getBoundingClientRect().top - 4; if (!c.offsetHeight || Math.abs(dy) < 1) return;   // 4 px: its ring shows qSwipe = Date.now();
+          lp.scrollTo({ top: lp.scrollTop + dy, behavior: sm && !C.still() && Math.abs(dy) <= 2 * lp.clientHeight ? 'smooth' : 'auto' }); };
+        top(!!prev); [120, 350, 650].forEach(t => setTimeout(() => top(false), t));   // again while cards above it are stamped and change height
+      } else { const x = c.offsetLeft - (lp.clientWidth - c.offsetWidth) / 2;
+        lp.scrollTo({ left: x, behavior: C.still() || Math.abs(x - lp.scrollLeft) > 2 * lp.clientWidth ? 'auto' : 'smooth' }); } }
     // the carousel now covers the bottom: keep the selected place in the uncovered band (no move when it already is)
     const map = C.map(), k = C.markers[C.pid(c)];
     // (not for a #p= route or under an open detail: atlas-nav.js places those, out from under the sheet)
@@ -368,9 +373,11 @@
     if (desk() || !atlas() || H.classList.contains('ms-list')) return;
     if (held2()) { clearTimeout(st); st = setTimeout(swiped, 300); return; }
     clearTimeout(st); st = setTimeout(() => {
-      const mid = lp.getBoundingClientRect().left + lp.clientWidth / 2;
-      const c = qa('li.pl', lp).filter(x => x.offsetWidth && !x.hidden).sort((x, y) => { const a = x.getBoundingClientRect(), b = y.getBoundingClientRect(); return Math.abs(a.left + a.width / 2 - mid) - Math.abs(b.left + b.width / 2 - mid); })[0];
-      if (c && c !== selC) select(c, Date.now() - qSwipe < 900 ? 'pinned' : 'swipe');
+      // the phone carousel's selection is the card in the middle; landscape's side column (vertical) is led by its top card —
+      // read across, every card of a column ties, and the first in the DOM was re-selected over the reader's own pin (R4)
+      const pr = lp.getBoundingClientRect(), mid = pr.left + lp.clientWidth / 2, v = land();
+      const c = qa('li.pl', lp).filter(x => x.offsetWidth && !x.hidden && !x.classList.contains('ms-out')).sort((x, y) => { const a = x.getBoundingClientRect(), b = y.getBoundingClientRect(); return v ? Math.abs(a.top - pr.top - 4) - Math.abs(b.top - pr.top - 4) : Math.abs(a.left + a.width / 2 - mid) - Math.abs(b.left + b.width / 2 - mid); })[0];
+      if (c && c !== selC && !(v && Date.now() - qSwipe < 900)) select(c, Date.now() - qSwipe < 900 ? 'pinned' : 'swipe');   // landscape: our own scroll never re-selects (it is placing the selection first)
       fitCar();
     }, 140);
   };
@@ -594,9 +601,10 @@
     // OV-00 §2.0.7 landscape (height < 500): one 48 px bar — the chip row folds away (its Filters button rides in the header,
     // atlas.css), and the kind chips and Top picks move into the Filters sheet, so it holds kind, Top picks and Area
     if (!desk() && land()) { const sc = $('#cleo-tray .scroll'), md = $('.modes', tb || bar), tp = $('.ms-top'); if (sc) { if (tp) park(tp, sc, sc.firstChild); if (md) park(md, sc, sc.firstChild); } }
-    // OV-41 (platform): on phones the list is a fixed, scrolling pane, so the page's offline-pack section (shown in Atlas when
-    // there is no map) would sit in the page flow under it, covered; it rides at the end of the list instead
-    if (!desk()) { const pk = $('main>section.pack[data-cleo-pack]'); if (pk && lp) park(pk, lp, null); }
+    // OV-41 (platform): the page's offline-pack section (shown in Atlas when there is no map) rides at the end of the list —
+    // in the page flow it sat under the phone's fixed list pane, covered, and on desktop below a document that never scrolls;
+    // with a live map fe-a.css hides it wherever it is (the Layers popover holds the pack)
+    { const pk = $('main>section.pack[data-cleo-pack]'); if (pk && lp) park(pk, lp, null); }
     if (!desk()) { park(tb, bar, x); } else {   // phones: the view switch stays in FE-A's city bar, its own row under the header (QC-09)
       // desktop (SPEC-v3 §2.1): ONE bar — the search pill (in the toolbar), the chips, then the view switch; the notes and
       // the footer go to the end of the list column, since the document does not scroll in Atlas
