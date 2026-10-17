@@ -579,6 +579,7 @@ man = {
   'candidates[].flags': 'people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it',
  },
  'summary': summ,
+ 'rules': {'_doc': 'the photo rules other fetchers apply to places with no target here (fetch-openverse.js)', 'venueTags': sorted(VENUE), 'venueName': VENUE_NAME.pattern, 'brandStore': BRAND_STORE.pattern},
  'targets': targets,
 }
 json.dump(man, open('beta/assets/img/commons-candidates.json', 'w'), ensure_ascii=False, indent=1)
