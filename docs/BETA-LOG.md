@@ -2495,3 +2495,10 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **What gets marked:** render/city.js marks atlas.js's map-priority #1 `.pl-lead` (tier, then rank within its area by named sources, pin number and area order), and only when that card has a photo. On Tokyo that is Edo-Tokyo Museum. 32 city pages get a lead; the rest open on a photo-less rank 1 and draw no lead.
   - **When it spans:** client/city.js sets `html.cleo-lensed` while a lens, sort, day plan or Near me reorders the list. The span at 3:2 applies only without that class, so only on a cold, unfiltered load.
   - **New test-fe-a row:** the Tokyo lead is checked, with at most one lead per page and never a photo-less one.
+- **QA-82 (landscape, 844×390):**
+  - (a) The icon-only switch segments are now 44 × 44, on a 48 px track.
+  - (b) A segment shows its name as a tooltip on keyboard focus, press or hover. The button's overflow is now visible so the tooltip isn't clipped.
+  - (c) In landscape Atlas, the masthead's "last checked" link (laid out under the map) is visibility:hidden, so it no longer takes focus unseen.
+  
+  Probe: 0 covered focusables at load on Cleveland and Tokyo.
+- **Platform overlay finding:** the landscape Gallery rail was still sticky at top:101px, because the ≥768 sticky rule out-ranked the landscape reset. It now scrolls away, and "Keep Tokyo offline" hit-tests to itself in light and dark.
