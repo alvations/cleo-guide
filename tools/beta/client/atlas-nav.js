@@ -204,7 +204,8 @@
     setTimeout(() => { ready = true; if (!hasP() && !last) last = snapNow(); writeAt(); }, 1600);
     if (parseAt() && !atDone && !userAt) C.atView();
     if (open && open.fresh) C.freshPlace();
-    setTimeout(() => motion(m), 0);   // after this file has run (motion is defined below)
+    setTimeout(() => motion(m), 0);
+    setTimeout(() => halo(m), 0);   // after this file has run (motion is defined below)
   };
   // QA-76: until the map's first fit (city core, saved or shared view, area, lens or place) has landed, the map still
   // shows the page's starting centre, and a map-area pass there published "450 places here · Show all 488" for a
@@ -399,6 +400,32 @@
       k._navG = requestAnimationFrame(step); };
     C.hotId = function (id, o) { const r = hot0.apply(this, arguments); if (atlas()) grow(id, !!o); return r; }; C.hotId._nav = 1;
   };
+
+  /* ---- D-43 (designer re-rule): an approximate pin sits on a soft uncertainty halo — "around here" (SPEC-v3 §1.1) ---- */
+  // a 20 px disc, --ink at 10 % (light) / 16 % (dark), no stroke, under the dot or the pill's anchor; drawn on its own
+  // canvas pane below the dots, only while that place's dot is on the map (lens, ring and disc rules still apply). A pin
+  // the data lane upgrades (info.prov no longer 'l…') loses it by itself. The Key's "Approximate pin" swatch is atlas.js's.
+  const lowIds = () => { const pv = (C.info && C.info.prov) || {}; return Object.keys(pv).filter(id => String(pv[id]).charAt(0) === 'l'); };
+  C.navLow = () => lowIds().some(id => C.markers && C.markers[id]);
+  const halo = m => {
+    const L = window.L; if (!L || !m.createPane) return; if (!m.getPane('navHalo')) { const pn = m.createPane('navHalo'); pn.style.zIndex = 390; pn.style.pointerEvents = 'none'; }
+    const cv = L.canvas({ pane: 'navHalo', padding: 0.2 }), lay = L.layerGroup().addTo(m), H0 = {};
+    const ink = () => { const dk = H.getAttribute('data-theme') === 'dark' || (H.getAttribute('data-theme') !== 'light' && !!window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+      return { c: (getComputedStyle(H).getPropertyValue('--ink') || '#1C1917').trim(), o: dk ? 0.16 : 0.1 }; };
+    const sync = () => { const k0 = ink(), on0 = {};
+      lowIds().forEach(id => { const k = C.markers[id]; if (!k) return;
+        if (!k._navHaloW) { k._navHaloW = 1; const st0 = k.setStyle; k.setStyle = function () { const r = st0.apply(this, arguments); soon(); return r; }; }   // a disc or a pin hides / shows the dot: follow it
+        if (!k._map) return; const pinned = !!(C.pinOf && C.pinOf(id)); if (!pinned && !(k.options.opacity > 0)) return; on0[id] = 1;
+        let h = H0[id]; if (!h) { h = H0[id] = L.circleMarker(k.getLatLng(), { renderer: cv, radius: 10, stroke: false, fillColor: k0.c, fillOpacity: k0.o, interactive: false }); h._navHalo = id; }
+        else h.setStyle({ fillColor: k0.c, fillOpacity: k0.o });
+        if (!lay.hasLayer(h)) h.addTo(lay); });
+      Object.keys(H0).forEach(id => { if (!on0[id] && lay.hasLayer(H0[id])) lay.removeLayer(H0[id]); }); };
+    let q = 0; const soon = () => { if (q) return; q = requestAnimationFrame(() => { q = 0; sync(); }); };
+    m.on('moveend zoomend', soon); C.after.push(soon); on(d, 'cleo:stamped', soon);
+    const f0 = C.feature; if (f0 && !f0._navHalo) { C.feature = function () { const r = f0.apply(this, arguments); soon(); return r; }; C.feature._navHalo = 1; }   // pins and density discs re-place: follow them
+    if (window.MutationObserver) new MutationObserver(soon).observe(H, { attributes: true, attributeFilter: ['data-theme'] });
+    C.navHalos = () => Object.keys(H0).filter(id => lay.hasLayer(H0[id]));   // probes: the places drawn with a halo now
+    soon(); };
 
   /* ---- the share toast says what the link opens (§3.5) ---- */
   const share0 = Cleo.share;

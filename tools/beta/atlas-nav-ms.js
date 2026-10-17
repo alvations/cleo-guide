@@ -379,6 +379,24 @@ async function finish(page, s0, opener, close) {
     if (errors.length) chk(`§2.0.7 tokyo ${vn}: 0 page errors`, false, errors.slice(0, 2));
     await ctx.close(); }
 
+  // D-43 (SPEC-v3 §1.1, designer re-rule): every approximate pin (info.prov 'l…') on the map sits on a 20 px soft halo
+  // (radius 10, no stroke, --ink at 10 % light / 16 % dark), no exact pin has one, the Key shows "Approximate pin", and the
+  // halo redraw shifts no layout. Okinawa holds 195 of the 235 low pins.
+  if (!ONLY || ONLY.split(',').includes('okinawa')) for (const [vn, vp] of [['1440', D], ['390', M]]) for (const scheme of ['light', 'dark']) {
+    const { ctx, page, errors } = await open(browser, Object.assign({ colorScheme: scheme }, vp), 'beta/cities/okinawa.html#view=atlas');
+    await page.evaluate(() => { window.__cls = 0; try { new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) window.__cls += e.value; })).observe({ type: 'layout-shift', buffered: false }); } catch (e) {} });
+    await page.evaluate(() => { const m = Cleo.city.map(); m.panBy([60, 40], { animate: false }); }); await sleep(700);
+    const r = await page.evaluate(() => { const C = Cleo.city, pv = C.info.prov || {}, h = C.navHalos ? C.navHalos() : [];
+      const lowOn = Object.keys(pv).filter(id => String(pv[id])[0] === 'l' && C.markers[id] && C.markers[id]._map && (C.pinOf(id) || C.markers[id].options.opacity > 0));
+      const st = h.length ? (() => { const m = C.map(); let o = null; m.eachLayer(l => { if (!o && l._navHalo) o = { r: l.getRadius(), stroke: l.options.stroke, op: l.options.fillOpacity }; }); return o; })() : null;
+      return { halos: h.length, lowOn: lowOn.length, exact: h.filter(id => String(pv[id])[0] !== 'l').length, missing: lowOn.filter(id => !h.includes(id)).length, st,
+        key: [...document.querySelectorAll('.ms-key li')].some(l => /Approximate pin/.test(l.textContent) && l.querySelector('.ms-halo-k')), cls: +window.__cls.toFixed(4) }; });
+    const op = scheme === 'dark' ? 0.16 : 0.1;
+    chk(`D-43 okinawa ${vn} ${scheme}: every approximate pin on the map has its 20 px soft halo (no stroke, --ink ${op * 100} %), no exact pin has one, the Key says "Approximate pin", no layout shift`,
+      r.halos > 0 && r.missing === 0 && r.exact === 0 && r.st && r.st.r === 10 && r.st.stroke === false && Math.abs(r.st.op - op) < 1e-9 && r.key && r.cls === 0, r);
+    if (errors.length) chk(`D-43 okinawa ${vn} ${scheme}: 0 page errors`, false, errors.slice(0, 2));
+    await ctx.close(); }
+
   // SPEC-v3 §3.7 (R8 gap 3) map motion: each reader-started moment ≤ 300 ms (the preview grows from its pin, fades on close;
   // the phone carousel lifts in; a hovered dot grows), and no animation at all under reduced motion (tools/beta/fe2/motion.js)
   for (const rel of ['cities/tokyo.html', 'cleveland.html']) { if (ONLY && !ONLY.split(',').some(k => rel.includes(k))) continue;
