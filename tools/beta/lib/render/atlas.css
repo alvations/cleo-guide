@@ -53,8 +53,10 @@ html[data-view=atlas] .ms-bar>.toolbar{display:contents}
 html[data-view=atlas] .ms-bar :is(.map-toggle,.applied:empty){display:none!important}
 html[data-view=atlas] .ms-bar .applied{flex:0 0 auto;width:auto}
 html[data-view=atlas] .ms-bar .ms-x{display:contents}
-html[data-view=atlas] .ms-bar .chip{flex:none;display:inline-flex;align-items:center;gap:var(--s-2);min-height:var(--tap);padding:0 var(--s-4);border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-ui)/1 var(--font-ui);cursor:pointer;white-space:nowrap}
+html[data-view=atlas] .ms-bar .chip{flex:none;display:inline-flex;align-items:center;gap:var(--s-2);min-height:var(--tap);padding:0 var(--s-4);border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);font:500 var(--fs-ui)/1 var(--font-ui);cursor:pointer;white-space:nowrap}
 html[data-view=atlas] .ms-bar .chip .ico{width:16px;height:16px}html[data-view=atlas] .ms-bar .chip .n{color:var(--ink-3)}
+/* designer (d46-desktop): Area and Filters wear the kind chips' style (ink-2, --line, surface) so they never read as disabled; only pressed differs */
+html[data-view=atlas] .ms-bar :is(.area-btn,.toolbar>[data-cleo-tray]){border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);font-weight:500}
 html[data-view=atlas] .ms-bar .chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 html[data-view=atlas] .ms-bar .chip[aria-pressed=true] :is(.n,.tg){color:var(--paper)}
 html[data-view=atlas] .ms-bar .ms-mine[aria-pressed=false] .ico{color:var(--accent)}
@@ -124,7 +126,7 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
 .ms-pv-t .ms-pv-n{display:flex;align-items:center;gap:var(--s-2)}   /* R2 #8: no photo → a text card led by a 40 px glyph chip */
 .ms-pv-g{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:var(--r-m);background:var(--sand);color:var(--ink-3)}.ms-pv-g .ico{width:22px;height:22px}
 /* R2 #7: licence links get a ≥ 24 px tall hit box without moving the line */
-html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
+html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0;margin:calc(-1 * var(--s-1)) 0}   /* the margin cancels it when the link is inline-block (QC c8ec49d8: a 28 px credit row; budget ≤ 20) */
 .ms-pv-m .pl-cover{position:relative;width:100%;height:100%;margin:0;border-radius:0;aspect-ratio:auto}
 .ms-pv-b{display:grid;gap:var(--s-1);padding:var(--s-3) var(--s-4) var(--s-4)}
 .ms-pv-e{font-size:var(--fs-xs);color:var(--ink-3);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
@@ -192,7 +194,9 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
      bar's Area button and in Filters) */
   html.atlas-d[data-view=atlas] .split>.listpane{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-6) var(--s-4);align-content:start}
   html.atlas-d[data-view=atlas] .split>.listpane>*{grid-column:1/-1;order:999999}
-  html.atlas-d[data-view=atlas] .split>.listpane>.ms-head{order:-2;margin-bottom:-8px}html.atlas-d[data-view=atlas] .split>.listpane>.lens{order:-1}
+  html.atlas-d[data-view=atlas] .split>.listpane>.ms-head{order:-2;margin-bottom:-8px}
+  /* designer (d46-desktop): 16 px from the Atlas intro to the count line, not 60 (the grid's 24 px gap + the head's 16 px top + the row's inner space) */
+  html.atlas-d[data-view=atlas] .split>.listpane:has(>.at-intro)>.ms-head{margin-top:-28px;padding-top:0}html.atlas-d[data-view=atlas] .split>.listpane>.lens{order:-1}
   html.atlas-d[data-view=atlas] .listpane :is(section.area,section.area>ol.pls){display:contents}
   html.atlas-d[data-view=atlas] .listpane section.area>:not(ol){display:none}
   html.atlas-d[data-view=atlas] .listpane li.pl{grid-column:auto}
@@ -234,12 +238,12 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   /* rev 5a §2.2: no search chip in the row — the header's search icon is the phone search (B-03: 14 controls). In Atlas
      that icon opens FE-A's in-page search (atlas.js) as a full-width 44 px row over the chip row; empty and unfocused it
      folds to nothing (1 px, transparent, no hit area), so focus never lands on an invisible box */
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill{position:fixed;z-index:31;left:var(--s-3);top:var(--row-top);width:1px;height:1px;min-height:0;min-width:0;padding:0;overflow:hidden;opacity:0;clip-path:inset(50%);box-shadow:var(--e-2)}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill{position:fixed;z-index:31;left:var(--s-3);top:var(--row-top);width:1px;height:1px;min-height:0;min-width:0;padding:0;overflow:hidden;opacity:0;clip-path:inset(50%);visibility:hidden;box-shadow:var(--e-2)}   /* QC b1c7939f: at rest it is not drawn, hit or tabbed to — the header's search icon is the one search (it sets .ms-open, then focuses) */
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill :is(#cleo-filter,.hint,.ico){width:1px;height:1px;min-height:0;padding:0;border:0}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q){right:var(--s-3);width:auto;height:var(--tap);opacity:1;clip-path:none;overflow:visible}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q) .hint{display:none}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q) #cleo-filter{position:absolute!important;inset:0;width:100%;height:var(--tap);padding:0 var(--s-3) 0 var(--s-8)!important;border:1px solid var(--line-strong);color:var(--ink);cursor:text}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q)>.ico{position:absolute;left:13px;top:13px;width:18px;height:18px;pointer-events:none;z-index:1}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q,.ms-open){right:var(--s-3);width:auto;height:var(--tap);opacity:1;clip-path:none;overflow:visible;visibility:visible}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q,.ms-open) .hint{display:none}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q,.ms-open) #cleo-filter{position:absolute!important;inset:0;width:100%;height:var(--tap);padding:0 var(--s-3) 0 var(--s-8)!important;border:1px solid var(--line-strong);color:var(--ink);cursor:text}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q,.ms-open)>.ico{position:absolute;left:13px;top:13px;width:18px;height:18px;pointer-events:none;z-index:1}
   /* the carousel: the same cards, side by side; sections and lists step aside (display: contents) */
   html.atlas-m[data-view=atlas] .listpane{display:flex;align-items:stretch;gap:var(--s-2);position:fixed;z-index:25;left:0;right:0;bottom:12px;height:var(--car-h);margin:0;padding:0 var(--s-4);overflow-x:auto;overflow-y:hidden;
     scroll-snap-type:x mandatory;scroll-padding:0 var(--s-4);overscroll-behavior:contain;background:none;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -333,7 +337,7 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   html.atlas-m[data-view=atlas] .topbar .crumbs>a:last-of-type::before{content:"‹";position:absolute;inset:0;display:grid;place-items:center;text-indent:0;font:400 28px/1 var(--font-ui)}
   html.atlas-m[data-view=atlas] .topbar .crumbs .here{font:600 var(--fs-lead)/1.2 var(--font-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   html.atlas-m[data-view=atlas] .topbar .brand{display:none}   /* phones: back + the city name (SPEC-v3 §2.2) */
-  html.atlas-m[data-view=atlas] .nopin{bottom:calc(var(--car-h) + 80px);right:auto;left:12px}
+  html.atlas-m[data-view=atlas] .mappane>.nopin{top:auto;bottom:calc(var(--car-h) + 108px);right:auto;left:12px}   /* QC b1c7939f: fe-c.css puts it at top 60, under the chip row; it sits above the credit instead */
   html.atlas-m[data-view=atlas] #cleo-poi{display:none!important}
 }
 @media (min-width:600px) and (max-width:1023px){html.atlas-m.ms-list[data-view=atlas] .listpane .pls{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -373,12 +377,13 @@ html.atlas-d[data-view=atlas] .topbar .views[data-cleo-views][hidden]{display:gr
    bottom. The map pane fills the screen under the header at rest too (the bars overlay it): nothing resizes. Instant under
    reduced motion */
 @media (max-width:1023px){
-  html.atlas-m[data-view=atlas] :is(.ms-bar,.ms-toggle,.leaflet-bottom){transition:transform var(--dur-2) var(--ease-out),bottom var(--dur-2) var(--ease-out)}
+  html.atlas-m[data-view=atlas] :is(.ms-bar,.ms-toggle,.leaflet-bottom){transition:transform var(--dur-2) var(--ease-out)}
   html.atlas-m.ov-c[data-view=atlas]:not(.ms-list):not(.ms-car) .ms-bar{transform:translateY(calc(-1 * (var(--cbar-o) + 48px)));pointer-events:none}
   html.atlas-m.ov-c[data-view=atlas]:not(.ms-list):not(.ms-car) .ms-bar:focus-within{transform:none;pointer-events:auto}
   html.atlas-m.ov-c[data-view=atlas]:not(.ms-list):not(.ms-car) .ms-toggle{transform:translateY(100%);pointer-events:none}
-  html.atlas-m.ov-c[data-view=atlas]:not(.ms-list):not(.ms-car) .leaflet-bottom{bottom:12px}
-  html.atlas-m.ov-c[data-view=atlas] .ms-here{top:8px}   /* 8 px under the lowest visible top bar: the header, while tucked */
+  /* transform only, so the tuck is no layout shift (FE-2's D-43 probe read 0.0012 CLS from bottom/top here) */
+  html.atlas-m.ov-c[data-view=atlas]:not(.ms-list):not(.ms-car) .leaflet-bottom{transform:translateY(calc(var(--car-h) + 64px))}
+  html.atlas-m.ov-c[data-view=atlas] .ms-here{transform:translate(-50%,calc(-48px - var(--cbar-o)))}   /* 8 px under the lowest visible top bar: the header, while tucked */
 }
 @media (max-width:1023px) and (prefers-reduced-motion:reduce){html.atlas-m[data-view=atlas] :is(.ms-bar,.ms-toggle,.leaflet-bottom){transition:none}}
 /* OV-05: the phone credit folds to its ⓘ after the first pan or 5 s (the popover keeps the full credit with links) */
@@ -440,11 +445,14 @@ html.atlas-m[data-view=atlas] .leaflet-container .m-list{display:none}
 @media (max-width:1023px) and (max-height:499px) and (orientation:landscape){
   html.atlas-m[data-view=atlas] .ms-bar{z-index:61;height:0;padding:0;overflow:visible;background:none;border:0;pointer-events:none;-webkit-mask-image:none;mask-image:none}   /* above the header (its Filters button rides there); 0 px tall, it covers nothing */
   html.atlas-m[data-view=atlas] .ms-bar>*:not(.toolbar),html.atlas-m[data-view=atlas] .ms-bar .toolbar>*:not([data-cleo-tray]),html.atlas-m[data-view=atlas] .ms-bar .area-btn{display:none!important}
+  /* QC L: Filters (fixed at right 304) and the views switch float over the spacer, so the spacer reserves both (248 px): the title side shrinks, never the slot */
+  html.atlas-m[data-view=atlas] .topbar .spacer{flex:1 0 248px}
   html.atlas-m[data-view=atlas] .ms-bar .toolbar>[data-cleo-tray]:not(.area-btn){position:fixed;z-index:61;top:2px;right:304px;width:44px;height:44px;min-width:0;padding:0;justify-content:center;pointer-events:auto;box-shadow:none}
   html.atlas-m[data-view=atlas] .ms-bar .toolbar>[data-cleo-tray]:not(.area-btn)>:not(.ico):not(svg){position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   html.atlas-m[data-view=atlas]:not(.ms-list) .ms-toggle{display:none}
   html.atlas-m[data-view=atlas] .leaflet-container .m-list{display:inline-flex;width:44px;height:44px;border-radius:50%;padding:0;justify-content:center;box-shadow:var(--shadow-sm)}
   html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right{top:50%;bottom:auto!important;transform:translateY(-50%)}
+  html.atlas-m.ov-c[data-view=atlas]:not(.ms-list):not(.ms-car) .leaflet-bottom.leaflet-right{transform:translateY(-50%)}   /* the centred stack stays put while tucked */
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) .leaflet-bottom.leaflet-right{right:332px}
   /* the list in landscape (designer 3793b1d15): it scrolls under the one bar — no 72 px bottom band. The way back is the
      switch's Atlas icon (FE-2's nav hook); until it lands, a 44 px floating Map button (bottom-right), not a bar */
@@ -460,4 +468,4 @@ html.atlas-m[data-view=atlas] .leaflet-container .m-list{display:none}
 :is(.pp.sel,.pp.hot,.pp:hover,a.pp:focus-visible)>span>b[data-full]::after{content:attr(data-full);font-size:var(--pp-fs,var(--fs-sm))}
 @media (max-width:1023px){html.atlas-m{--pp-fs:13px}}
 /* designer (QC: 30 px tall, cap 20): the desktop credit is one 20 px line — 11 px on a 16 px line, 2 px × 8 px padding */
-html.atlas-d[data-view=atlas] .leaflet-control-attribution{font-size:11px;line-height:16px;padding:2px 8px}
+html.atlas-d[data-view=atlas] .leaflet-control-attribution{font-size:12px;line-height:16px;padding:2px 8px}

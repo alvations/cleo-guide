@@ -2488,9 +2488,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 
 - **OV-41 (platform):** on phones, Atlas's list is a fixed, scrolling pane. With no map, the page's offline-pack section stayed in the page flow under that pane, where it was covered. The pack now goes at the end of the phone list (`park` into the listpane). In a simulated platform run, Keep is visible and its hit test lands on its own button.
 - **Esc from a selected place** moves focus back to that place's pin, or to the map if the pin is gone. It retries once at 260 ms, after the carousel animation.
-- **Desktop credit:** no Leaflet prefix (`setPrefix(false)`), 11/16 px, 20 px tall, per the designer's ruling. It stays full, not folded.
+- **Desktop credit:** no Leaflet prefix (`setPrefix(false)`), 12/16 px (w7 keeps credit text ≥ 12 px), 20 px tall, per the designer's ruling. It stays full, not folded.
 - **Landscape:** the list band under the bar is gone; the list is the side column. The old side.js branch in `select()` is removed.
 - **Label coverage** counts the painted pill area.
+- **QC L partial on 61954288:**
+  - **日本語 × Filters at 844×390 (7 pages):** reproduced. In landscape Atlas, Filters (fixed at right 304 px) and the views switch both float over the topbar's spacer. The language button reached under Filters on pages with long titles: on Akron its right edge was at 513 px, against Filters starting at 496. The spacer now reserves both (`flex:1 0 248px`), so the title side shrinks instead. Checked: 0 overlaps on Akron, Harrisburg, Potong Pasir, Katong, Youngstown and HCMC.
+  - **Youngstown label at 41.9 %:** already fixed by dc6cbc198 (`cutNm`), which postdates 61954288. It now measures 36.5 % of the map width at 844×390.
 - 2026-10-17 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · W8-I18N-STATES.
   - **What changed:** mapfail.js and states.js now go through Cleo.t, with new `mf.*` and `state.*` keys (swapSkip). The English is byte-identical. test-i18n gains a pseudo check.
   - **Review:** round 22 covered these strings plus FE-B's `moved.*` pages. 「{name}は移動しました」 read as if the city moved, so it is now 「{name}のガイドは移転しました」.
@@ -2500,6 +2503,13 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **What gets marked:** render/city.js marks atlas.js's map-priority #1 `.pl-lead` (tier, then rank within its area by named sources, pin number and area order), and only when that card has a photo. On Tokyo that is Edo-Tokyo Museum. 32 city pages get a lead; the rest open on a photo-less rank 1 and draw no lead.
   - **When it spans:** client/city.js sets `html.cleo-lensed` while a lens, sort, day plan or Near me reorders the list. The span at 3:2 applies only without that class, so only on a cold, unfiltered load.
   - **New test-fe-a row:** the Tokyo lead is checked, with at most one lead per page and never a photo-less one.
+- **QA-82 (landscape, 844×390):**
+  - (a) The icon-only switch segments are now 44 × 44, on a 48 px track.
+  - (b) A segment shows its name as a tooltip on keyboard focus, press or hover. The button's overflow is now visible so the tooltip isn't clipped.
+  - (c) In landscape Atlas, the masthead's "last checked" link (laid out under the map) is visibility:hidden, so it no longer takes focus unseen.
+  
+  Probe: 0 covered focusables at load on Cleveland and Tokyo.
+- **Platform overlay finding:** the landscape Gallery rail was still sticky at top:101px, because the ≥768 sticky rule out-ranked the landscape reset. It now scrolls away, and "Keep Tokyo offline" hit-tests to itself in light and dark.
 
 - 2026-10-17 12:00Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
   - **Head b1c7939f6 gated green:** validate, beta:check, and npm test twice. The first npm test (11:40Z, b681fb041) reported one failed suite; only the last 15 lines were kept, so its name was lost, and two full re-runs passed. It is recorded as unresolved, and npm test logs are now saved whole.
@@ -2522,6 +2532,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - FE-1: the L rows (日本語 × Filters on 7 pages; the 41.9 % Youngstown label). I first asked FE-1 to wire `.pl-lead`, then corrected it within minutes, because FE-A's adeabcd63 had landed.
     - Designer: desktop sign-off on real shots.
   - **Dispatched:** beta-atlas-real-shots label d46-desktop on b1c7939f.
+- **Designer (d46-desktop):**
+  - Area and Filters in the Atlas bar now wear the kind chips' style (`--ink-2` text, `--line` border, surface; only the pressed state differs), so they no longer read as disabled.
+  - The Atlas intro sits 16 px above the count line, down from about 60.
+  - The lead card's Atlas order is signed off; FE-1 checked that `.pl-lead` is the Atlas #1 and holds still through `.ms-ready`.
+- **Phone tuck:** transform only. `.leaflet-bottom` and `.ms-here` no longer animate `bottom` or `top`. The 0.0012 pan shift FE-2 saw is the credit folding on the first pointerdown; it has `hadRecentInput: true`, so CLS excludes it.
 - 2026-10-17 12:10Z · orchestrator · lane reports · session_01PCNcUkfa5S1N1BKGzZA4xx
   - **b0bc93cf5: a failed photo run keeps its discovery work** (imagery and image-sources asks). commons-discovered.json, openverse-candidates.json and both sheet folders are committed alone, after a JSON check; no build or page reads them. Photos and CREDITS still need green gates. Simulated in a scratch repo.
   - **Stage defaults** are now met, europeana, smithsonian, loc. The next stage log shows whether the two keys are set.
@@ -2540,3 +2555,38 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     Open a place goes to FE-C, who owns the sheet; the switches and the round trip stay with platform.
   - **QA:** PERF-21 verified. Asked to verify adeabcd63, d6bb8367a, a027955b9 and db9f8a746 ahead of the interim pin. The pin waits for the designer's desktop D-46 sign-off and QC's Atlas re-run.
   - **FE-B** fixed test-beta's red page set (db9f8a746). **i18n:** Atlas and Your lists are in ja; the eager counter is +0.03 KB, all of it locale.js, which only non-English readers fetch.
+- 2026-10-17 12:15Z · orchestrator · D-46 desktop review and D-53 · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Real shots d46-desktop on b1c7939f** (0ed160e99): the designer signs off desktop D-46 on one condition.
+    - The condition (FE-A, first): the NYC header overflows at 1440 and clips the saved ♡. Destinations leaves the header first, then the crumb truncates.
+    - FE-1, in its L push: the intro → count gap becomes 16 px, and Area and Filters take the plain chip style.
+    - §v2.7b is signed off with FE-A's fixes and the compact-row alignment.
+  - **D-53 (trust):** no rating platform or own site in "Recommended by", on every surface, with a build guard (FE-B). The data side goes to the location lane: 73 Yelp-only records (SV 67, NYC 6), the `--sourcecheck` gate re-checked, and the NYC Wah Fung duplicate.
+  - **D-49 × "Start with":** one starting place per view (FE-A); Tokyo's Atlas names Kanda Myōjin while Edo-Tokyo Museum spans.
+  - **Round 4** shoots once FE-A's header SHA and FE-1's L SHA are on origin.
+
+## 2026-10-17 · FE-1 · QC b1c7939f: phone Atlas search ×2 and drag-from-dot
+
+- **What QC saw as "the city field peeking out" ("ex" beside All)** is the "N places not on the map" note (`.nopin`). fe-c.css puts it at top 60 px on phones, under the chip row; my bottom rule lost on load order. It now sits above the credit at the bottom left (`.mappane>.nopin`, `top:auto`; 700–728 against the credit at 740 at 390×844).
+- **Search ×2:** the in-page city field on phone Atlas was a 1 px focus target that still hit-tested, so QC counted it as a second search. At rest it is now `visibility:hidden`: not drawn, not hit, not tabbed to. The header's search icon sets `.ms-open` and focuses it; it closes on blur when empty.
+  - Checked at 390×844 and 390×664 in en and ja: 1 search at rest; the icon opens and focuses the field; typing filters; Escape closes it; Tab never reaches it.
+- **A drag from a dot selected instead of panning:** hovering a dot draws its pin under the pointer. The canvas then saw a mouseout and removed the pin, then a mouseover and drew it again. A press during that flicker began on the pin's link or was lost. The hover pin now takes no pointer events and has no tab stop, so the press reaches the dot and Leaflet tells a tap from a drag.
+  - Checked: QC's 8 pages (Bruges, Chicago, Erie, Harrisburg, Madison, Osaka, Philadelphia, Saarland) all pan from the map centre. A tap on a dot still selects it, by mouse and by touch.
+  - New atlas-ms row (P1): the hover pin takes no pointer events; a drag from a dot pans and opens nothing; a tap still selects.
+- This should also clear QC's chromePan, clearPan and phone attribution rows on Bruges and Chicago: their pan began on a dot, so nothing tucked or folded.
+- **OV-106 / OV-115–117 (one search per screen below 1024):** outside Atlas, the city field folds away while empty and unfocused. It is clipped, not removed, so FE-B's header icon can still focus it, and `:focus-within` or a typed query brings it back.
+  - In landscape the empty city bar takes no height.
+  - Measured on Tokyo, Gallery and Guidebook, at 768×1024 and 844×390: no field at rest, the icon opens it, and a typed query keeps it.
+- **QC-06 (768 Atlas):** the header switch segments are 44 × 44 on a 48 px track, with the QA-82 tooltip. feb-switcher.js passes at every width.
+- **Header never overflows (designer's D-46 desktop sign-off condition):**
+  - **Fix:** in desktop Atlas, where the switch rides in the header, "Destinations" leaves the header. It stays in the menu and footer. The crumb now shrinks per segment with an ellipsis; atlas.css had held it at flex:none.
+  - **Before:** it failed on NYC, DC and HCMC at 1440, and on Potong Pasir at 1024 and 1440 (the saved ♡ was clipped).
+  - **After:** all fit at 1024, 1280 and 1440, en and ja, in Atlas and Gallery.
+  - **New check:** the w8 probe now asserts that the header's scrollWidth ≤ clientWidth and every control is in view, on those 4 pages × 3 widths × 2 languages × 2 views.
+- 2026-10-17 12:45Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Head f3983b4a3:** validate and beta:check pass (8,691 places, beta == live). The full npm test is running, with its log kept whole; the result goes in the next entry.
+  - **Photo run #111:** gates passed at 12:40Z, and the commit step is running. It is the first photo run to reach a commit since about 03:30.
+  - **CSS cut bbaf111a8 regressed day plans and the saved heart.** The designer is asked to revert it whole. The orchestrator's own revert was blocked by the auto-mode classifier (another lane's commit on the shared branch), so the owning lane does it. The interim pin is blocked until then.
+  - **QA-83 (Low, FE-A):** the lead photo renders 4:3, not 3:2.
+  - **Owner action:** the EUROPEANA_API_KEY Actions secret.
+  - **Round 4** waits on FE-A's NYC header fix and FE-1's phone search/drag fixes.
+- **Desktop credit 28 px at T2/D (QC c8ec49d8, 171/171 runs):** the licence links' 4 px padding gives them a 24 px hit box (R2 #7). It was meant to leave the line alone, but the links render inline-block, so the padding grew the row to 28 px. A matching −4 px margin now cancels it: the row is 20 px at 1440×900 and 1024×768, and the links keep their 24 px hit box. Phone is unchanged at 20 px.

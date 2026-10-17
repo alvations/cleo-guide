@@ -672,3 +672,23 @@ Ledger format: FE-C's OV-12 and OV-40 edits had dropped the Severity cell, which
 - **OV-07** verified: chrome is back at idle and the map never resizes.
 
 `qc-ov-verify.js` gained these checks. The full dev S-17 audit runs on c24dd319.
+
+## S-17 rulings and probe fixes (2026-10-17)
+
+The probe header in `tools/beta/qa/qc-overlay.js` is S-17's README, and every ruling is encoded there.
+
+**OV-03 label coverage: painted pill, not tap area** (orchestrator ruling 12:18Z). A tap area drawn as a pseudo-element hit-tests to its host span. So a label point must also fall inside the painted element's own box; tap-area points count as pin. Hand checks on c8ec49d8:
+
+| Page and viewport | Label coverage | Labels | Widest |
+|---|---|---|---|
+| New York 844×390 dark | 6.5 % (was 10.4 %); matches FE-2's painted 6.5 % | 4 | 242 px = 28.7 % |
+| Youngstown 844×390 light | 6.2 % | 3 | 36.5 % |
+| Youngstown 390×844 light | 7.1 % | 6 | 39.7 % |
+
+The tap area stays under B-07 and the collision checks.
+
+**Probe fixes this session, each found in a reading that didn't add up:**
+- **Escaping:** MEASURE runs as a template-literal body, so `\(`, `\b` and `\s` collapsed. The transparent test dropped every label (count, width and gap passed vacuously on the 8984b094 partial, now annotated); the "clear" exclusion never applied. Now there are no escapes, and alpha is parsed numerically.
+- **Scrolling panes:** a pane that scrolls on its own is content on a non-scrolling page. This was the desktop Atlas list column, raised by FE-1: T2 now reads 14.1 %, not 16.7–18.8 %.
+- **Row sampling:** rows every 4 px, so band edges are exact.
+- **Drag start:** the pan drag starts on free map and retries if the map doesn't move. A press inside a canvas dot's tap tolerance selects instead of panning; that's reported as dragFromDot on 8 pages.
