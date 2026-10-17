@@ -436,7 +436,8 @@
       const a = {}; [].forEach.call(c.attributes, x => { a[x.name] = x.value; });
       const st = { id: c.id, stub: true, getAttribute: k => (Object.prototype.hasOwnProperty.call(a, k) ? a[k] : null), hasAttribute: k => Object.prototype.hasOwnProperty.call(a, k), _a: a };
       const n = d.createElement('noscript'); n.setAttribute('data-cleo-defer', ''); n.setAttribute('data-n', '1'); n.setAttribute('style', 'display:contents'); n.textContent = '\n' + c.outerHTML + '\n';
-      c.parentNode.replaceChild(n, c); const id = C.pid(c), i = C.cards.indexOf(c); if (i >= 0) C.cards.splice(i, 1); if (C.byId[id] === c) delete C.byId[id]; C.stubs[id] = st; }); };   // forgotten by city.js; its place keeps a stub
+      c.parentNode.replaceChild(n, c); const id = C.pid(c), i = C.cards.indexOf(c); if (i >= 0) C.cards.splice(i, 1); if (C.byId[id] === c) delete C.byId[id]; C.stubs[id] = st; });   // forgotten by city.js; its place keeps a stub
+    if (Cleo.defer.resume) Cleo.defer.resume(); };   // platform's contract (5): the lazy observer re-watches the lists' new chunks
   const undeco = () => { qa('li.pl img[data-sizes0]').forEach(im => { im.setAttribute('sizes', at(im, 'data-sizes0')); im.removeAttribute('data-sizes0'); });
     qa('li.pl[data-ms]').forEach(x => x.removeAttribute('data-ms')); qa('li.pl :is(.ms-bd,.ms-cr,.ms-k,.ms-rec)').forEach(x => x.remove()); };
   on(d, 'cleo:stamped', () => { if (atlas()) { deco(); face(); } });
