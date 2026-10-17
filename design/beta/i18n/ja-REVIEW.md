@@ -292,4 +292,13 @@ A fresh independent subagent kept card.official 公式サイト, which is the sh
 |---|---|---|---|
 | `card.norec` | 独立した出典はまだありません | 第三者の出典はまだありません | 独立した read as a calque ("separate, standalone"). 第三者の says "not the place itself", which matches D-53's rule that the place's own site never counts. It keeps 出典, and まだ still carries "yet". |
 
-**Total: 103 changes over twenty-three rounds.**
+## Round 24: FE-B's paste-a-link "cites" headings (d850c7ead; srch.src.cites, srch.src.page.cites), plus one consistency fix; 2 changes, applied
+
+A fresh independent subagent kept srch.src.page.cites 「このページを出典とする場所」.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `srch.src.cites` | {host} を出典とする場所（{guides}） | {guides}に載っている、{host}を出典とする場所 | The stray space before を is gone. The parenthetical lost "in {guides}". It now uses the same frame as its sibling srch.src.all, which the same code path chooses. |
+| `land.month.lede` | …掲載（うち…もの）… | …掲載(うち…もの)… | Full-width → ASCII parentheses: the catalogue's style in 53 other strings. |
+
+**Total: 105 changes over twenty-four rounds.**

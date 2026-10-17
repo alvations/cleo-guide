@@ -50,23 +50,19 @@ Wait for "round 4 ready at `<sha>`" from the front-end lane, the orchestrator or
 
 ## In flight
 
-Round 3 is reported and sent. Waiting for "round 4 ready". Per `atlas-fe1.md`, it is held on D-46 and the R4b peek
-word-space fix.
-
-**Pre-round-4 probe dry run** on origin `1726b7fd` (worktree `../panel-pre4`; output in the scratchpad only, never scored).
-D-46 and rev 5 changed the DOM, so the probe was adapted:
-- "Must see" is no longer a bar control. T1 taps "Top picks" when there's no Must-see chip and logs which it tapped.
-- Locate-me is the list head's "Near me" door (`[data-cleo-near]`) or `.m-locate`. T3 logs which it used.
-- The phone has a list sheet behind `.ms-toggle`, not a carousel. The phone round-trip opens the list first
-  (`listOpenedFirst`), and T1 phone counts the names readable in the list.
-- The share hash can be `#at=…` with no `view=`, so `mapViewInUrl` accepts `#`.
-- A `tap()` helper logs a scripted click when a real tap can't land, instead of crashing.
-- New `header-<page>-<1440|1280|1024>` task: view-switch rects in the header, "How we choose" text lines, breadcrumb cut
-  or overlap, and bar controls under the header.
-- New `layoutKept` on every round-trip.
-
-The full four-page dry run passes on `1726b7fd` (exit 0, all 8 round-trips opened), and the views check is clean. T4 now finds the
-closed place from the page records when its card is not stamped. The probe is committed, so round 4 can start directly.
+**Round 4 on head `7a21f2f60bffb22ce5b7c558e92b9cafba88a7fe`.** The orchestrator announced it at 13:49Z ("announced by FE-1 and
+FE-2; the designer signed off").
+- **Worktree:** `../panel-r4`. `../panel-r3` stays as the views base.
+- **Evidence chain** (running in the background): probe → `panel/R4`, views-regress → `panel/R4/views`, atlas-ms →
+  `panel/R4/ms`.
+- **Real-tile shots:** `real/round4/SHOT-SHA.txt` = `7a21f2f6`, 172 jpgs. `real/R4/` is the older `704dd37f`, so use
+  `real/round4/` unless `R4/` is re-shot on this exact SHA.
+- **Brief:** `panel/R4/PANELIST-BRIEF.txt`, with the orchestrator's method note (the card focus ring is on the card).
+  The probe counts it too.
+- **Panelist prompts:** the R3 prompts with common-r3 → common-r4, and "Prev" = the LAST section of
+  `panel/R3/panelists/<id>.md`.
+- **Next:** write `EVIDENCE.md` once the probe is done, launch the eight panelists, save each return, run the gates, write
+  `PANEL-R4.md`, then send it to the orchestrator, the designer, FE-1 and FE-2.
 
 ## Notes
 
