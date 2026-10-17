@@ -1,4 +1,6 @@
 {
-  "_doc": "Empty: batch 6 (QC-04 approximate pins) merged with its ja. New FE-C strings go here, then ask the i18n lane for pending-ja.json.",
-  "strings": {}
+  "_doc": "FE-C batch 7 (designer ruling on R8 D12, card meta): the per-card status date, shortened. Browser-only (Cleo.t in client/fresh.js), under the swapSkip prefix sheet.; {d} is a short date in the page's language (\"2 Oct\", ja 10月2日). The detail keeps sheet.status (\"Status checked {d}\").",
+  "strings": {
+    "sheet.chk": "Checked {d}"
+  }
 }
