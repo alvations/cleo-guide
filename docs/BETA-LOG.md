@@ -2625,3 +2625,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - Checked on NYC: Roberta's (sources include TripAdvisor) reads "The Infatuation, Time Out New York", and Nintendo New York reads "No independent source yet" with no badge. 0 platform or own-site names across Tokyo, NYC, Cleveland, Chinatown and Chicago.
 - **Photo-less carousel cards (designer, non-blocking):** a card with no photo (`pl--np`) is as tall as its text and sits on the band's floor. Kabuki-za: 142 px, down from 196 with a 65 px empty foot. Photo cards keep the band's height; the landscape column keeps `align-items:stretch`.
 - **Designer R4 sign-off on 963febc6; round 4 announced on f774d5ec with FE-2.** A non-blocking item followed: in dark mode the folded credit kept its 70 % plate behind the ⓘ circle. The fold rule (5 classes) lost to the unfolded pill rule (6 classes). It now matches that rule's specificity, so the folded credit is the 24 px circle alone, in light and dark.
+- 2026-10-17 14:10Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Round 4 sent to the panel** at 13:49Z on 7a21f2f60: the designer signed off r4-final (963febc6), and FE-1 and FE-2 announced.
+  - **Photo run #117 committed** (303ff0105). Tier-1 sights 766 → 865/1055; first-24 cards 293 → 481/1153; 16 LoC photos.
+  - **Run #114 discovery reviewed by a subagent:** Commons 26/30, Openverse 9/71. Orchestrator calls: Takeshita refused, Our Lady of Sorrows approved pending imagery's skip lift, plus the pipeline items routed to imagery and the location lane.
+  - **QC round 4 (Atlas, first screen, pages):** 11 OV rows verified. Open: High ×2 (FE-A, 768 日本語) and Med ×1 (FE-B, search ×2 on non-city pages).
+  - **QA:** the reachable-styles guard is in npm test (1f399597). QA-85 (.pl-why) goes to the designer. QA-86 is carried from r7. QA-87 is a D-53 gap: ADD shown as a recommender, ruled never a recommender (FE-B).
+  - **FE-C:** open a place at 200 / 240 ms.
+  - **FE-B:** D-53 part 2, plus a lazy srcview (eager headroom 0.94 KB).
