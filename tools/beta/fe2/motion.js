@@ -23,8 +23,12 @@ const SAMPLE = () => { const seen = new Set(), out = []; let on = true;
       if (calm) say(an.length === 0, `${tag}: ${name} — no animation under reduced motion`, { n: an.length, an: an.slice(0, 4) });
       else say(!long.length && (!want || an.some(want)), `${tag}: ${name} — every animation ≤ 300 ms` + (want ? ', the moment plays' : ''), { n: an.length, long, an: (want ? an.filter(want).concat(an.filter(a => !want(a))) : an).slice(0, 4) });
       return an; };
-    const pinBox = () => page.evaluate(() => { const mr = document.querySelector('#cleo-map').getBoundingClientRect(), poi = document.querySelector('#cleo-poi'), pr = poi && !poi.hidden ? poi.getBoundingClientRect() : null;
-      const e = [...document.querySelectorAll('.leaflet-marker-icon.pp:not(.sel)')].find(x => { const r = x.getBoundingClientRect(); return r.left > mr.left + 160 && r.right < mr.right - 160 && r.top > mr.top + 300 && r.top < mr.bottom - 120 && (!pr || r.left > pr.right + 40 || r.right < pr.left - 40); });
+    // any unselected pin whose whole pill is in the clear map (below the bar, above the phone pill / carousel or left of
+    // the list, 12 px from the sides, clear of an open preview); the reader taps the pill's centre
+    const pinBox = () => page.evaluate(() => { const q = s => document.querySelector(s), box = e => e ? e.getBoundingClientRect() : null, mr = box(q('#cleo-map')), poi = q('#cleo-poi'), pr = poi && !poi.hidden ? box(poi) : null;
+      const bar = box(q('.ms-bar')), tg = box(q('.ms-toggle')), lp = box(q('.listpane')), ph = innerWidth < 1024;
+      const top = Math.max(mr.top, bar && bar.height ? bar.bottom : 0) + 12, bot = Math.min(mr.bottom, ph && tg && tg.height ? tg.top : mr.bottom, ph && lp && lp.height && lp.top > mr.top + 100 ? lp.top : mr.bottom) - 12, lft = mr.left + 12, rgt = Math.min(mr.right, !ph && lp ? lp.left : mr.right) - 12;
+      const e = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp:not(.sel)')].find(x => { const s = box(x.firstElementChild); return s && s.width && s.left >= lft && s.right <= rgt && s.top >= top && s.bottom <= bot && (!pr || s.left > pr.right + 40 || s.right < pr.left - 40 || s.bottom < pr.top - 40 || s.top > pr.bottom + 40); });
       if (!e) return null; const s = e.firstElementChild.getBoundingClientRect(), r = e.getBoundingClientRect(); return { id: e.getAttribute('data-id'), x: s.left + s.width / 2, y: s.top + s.height / 2, px: r.left, py: r.top }; });
     if (vn === '1440') {
       // 1. card hover → its pin turns hot (one short transition)

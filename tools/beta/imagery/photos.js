@@ -31,8 +31,9 @@ const CREDITS = 'assets/img/CREDITS.json';
 const EXT = /\.(jpe?g|png|webp)$/i;
 const REQUIRED = ['file', 'sourceUrl', 'author', 'licence', 'licenceUrl', 'depicts'];   // + record or slot
 /** Free licences only (CC0, public domain, CC BY, CC BY-SA, any version). NC / ND are refused. */
-const LICENCE_OK = /^(CC0(?: 1\.0)?|Public domain|PD(?:-[\w.-]+)?|CC BY(?:-SA)? \d\.\d(?: [A-Z]{2,3})?|Copyrighted free use|Unsplash License)$/i;
+const LICENCE_OK = /^(CC0(?: 1\.0)?|Public domain|PD(?:-[\w.-]+)?|CC BY(?:-SA)? \d\.\d(?: [A-Z]{2,3})?|Copyrighted free use|No known copyright restrictions|Unsplash License)$/i;
 const UNSPLASH_LICENCE_URL = 'https://unsplash.com/license';
+const FLICKR_NKCR_URL = 'https://www.flickr.com/commons/usage/';   // Flickr's "No known copyright restrictions" (The Commons) statement
 const SLOT_TYPES = ['hero', 'cover'];
 const LICENCE_BAD = /\b(NC|ND)\b|non-?commercial|no-?deriv/i;
 
@@ -50,7 +51,8 @@ const SCHEMA = {
   width: 'optional: pixel width (read from the file when omitted)',
   height: 'optional: pixel height (read from the file when omitted)',
   variants: 'optional: [{ file, width, height }] — smaller sizes of the same image for srcset (same credit; e.g. the 480 px copy of a 960 px file)',
-  provider: 'optional: "wikimedia-commons" | "unsplash" — who hosts the source page (Commons rows must link a commons.wikimedia.org File: page)',
+  provider: 'optional: "wikimedia-commons" | "flickr" | "unsplash" — who hosts the source page (Commons rows must link a commons.wikimedia.org File: page; Flickr rows a flickr.com/photos/<user>/<id> page and the author\'s profile as authorUrl)',
+  authorUrl: 'optional (required for Flickr): https URL of the author\'s profile — the credit links the author',
   color: 'optional: the photo\'s dominant colour "#rrggbb" (recompress.js) — a fade-in placeholder behind the image; exposed as photo.color',
 };
 
@@ -102,6 +104,12 @@ function creditProblems(c) {
     });
   }
   if (c.provider === 'wikimedia-commons' && c.sourceUrl && !/^https:\/\/commons\.wikimedia\.org\/wiki\/File:[^\s]+$/.test(c.sourceUrl)) p.push('a Wikimedia Commons row needs its commons.wikimedia.org/wiki/File: page as sourceUrl');
+  if (c.provider === 'flickr') {   // R8: Flickr Creative Commons via Openverse / the Flickr API (fetch-flickr.js)
+    if (c.sourceUrl && !/^https:\/\/(?:www\.)?flickr\.com\/photos\/[^\s/]+\/\d+\/?$/.test(c.sourceUrl)) p.push('a Flickr row needs its flickr.com/photos/<user>/<id> page as sourceUrl');
+    if (!c.authorUrl || !/^https:\/\/(?:www\.)?flickr\.com\/(?:photos|people)\/[^\s/]+\/?$/.test(c.authorUrl)) p.push('a Flickr row needs the author\'s flickr.com/photos/<user> profile as authorUrl');
+    if (isUnsplash(c)) p.push('a Flickr row cannot carry the Unsplash License');
+  }
+  if (/^No known copyright restrictions$/i.test(String(c.licence || '').trim()) && (c.provider !== 'flickr' || c.licenceUrl !== FLICKR_NKCR_URL)) p.push(`"No known copyright restrictions" is a Flickr Commons statement: provider flickr and licenceUrl ${FLICKR_NKCR_URL}`);
   if (isUnsplash(c)) {
     if (c.licenceUrl !== UNSPLASH_LICENCE_URL) p.push(`Unsplash License needs licenceUrl ${UNSPLASH_LICENCE_URL}`);
     if (c.sourceUrl && !/^https:\/\/unsplash\.com\/photos\/[^\s/]+/.test(c.sourceUrl)) p.push('Unsplash License needs an unsplash.com/photos/… sourceUrl');
@@ -191,14 +199,15 @@ function captionHtml(c, opts = {}) {
   }
   const title = c.title || c.depicts;
   const lic = `<a href="${esc(c.licenceUrl)}" rel="license noopener" target="_blank">${esc(c.licence)}</a>`;
-  if (opts.full) return `“${esc(title)}” by ${esc(c.author)}, ${lic}, via <a href="${esc(c.sourceUrl)}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${c.modified ? ` — ${esc(c.modified)}` : ''}`;
+  if (opts.full) return `“${esc(title)}” by ${c.provider === 'flickr' && c.authorUrl && httpsUrl(c.authorUrl) ? `<a href="${esc(c.authorUrl)}" rel="noopener" target="_blank">${esc(c.author)}</a>` : esc(c.author)}, ${lic}, via <a href="${esc(c.sourceUrl)}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${c.modified ? ` — ${esc(c.modified)}` : ''}`;
   // CC BY / BY-SA ask only that changes be indicated: "(resized)" for the pipeline's size copies, else the note as written
   // a derivative's second creator stays named in the short line too ("derivative work by O.J.")
   const deriv = (/derivative work by ([^;]+)/i.exec(c.modified || '') || [])[1];
   const changed = !c.modified ? '' : /^resized\b/i.test(c.modified) ? ` (resized${deriv ? `; derivative work by ${esc(deriv.trim())}` : ''})` : ` (${esc(c.modified)})`;
-  return `Photo: ${esc(c.author)} · ${lic} · <a href="${esc(c.sourceUrl)}" aria-label="“${esc(title)}” on ${esc(hostOf(c.sourceUrl))}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${changed}`;
+  const who = c.provider === 'flickr' && c.authorUrl && httpsUrl(c.authorUrl) ? `<a href="${esc(c.authorUrl)}" rel="noopener" target="_blank">${esc(c.author)}</a>` : esc(c.author);   // Flickr: the author links their profile
+  return `Photo: ${who} · ${lic} · <a href="${esc(c.sourceUrl)}" aria-label="“${esc(title)}” on ${esc(hostOf(c.sourceUrl))}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${changed}`;
 }
-function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m ? m[1].replace(/^commons\.wikimedia\.org$/, 'Wikimedia Commons') : 'source'; }
+function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m ? m[1].replace(/^commons\.wikimedia\.org$/, 'Wikimedia Commons').replace(/^flickr\.com$/, 'Flickr') : 'source'; }
 
 /** Default `sizes` for a card photo: one inset column on phones, two on tablets, a quarter of the page on desktop grids.
  *  Pass opts.sizes to figureHtml for anything smaller (thumbnails, carousels). */

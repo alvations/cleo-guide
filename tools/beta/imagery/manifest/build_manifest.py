@@ -60,6 +60,51 @@ SKIP = {
 BRAND_STORE = re.compile(r"Mandarake|Pok[eé]mon Center|Nintendo KYOTO|Animate |Jump Shop|Kiddy Land|Gashapon|Capcom Store|PARCO Character|Kotobukiya|Character Street|Super Potato|Anime Center|Characters World", re.I)
 VENUE_NAME = re.compile(r"\b(Theat(?:re|er)|Opera House|Playhouse|Ballpark|Arena|Stadium|Concert Hall)\b", re.I)
 SKIP.update({
+ 'chicago#12th-street-beach': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'cincinnati#alms-park': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'columbus#ama-motorcycle-hall-of-fame-museum': 'no file found (only a sign photo) (wave 6 search) — calm cover (stated, W8)',
+ 'dayton#americas-packard-museum': 'only details/interiors (cars inside) (wave 6 search) — calm cover (stated, W8)',
+ 'hokkaido#akan-international-crane-center-grus': 'no file found (only crane/animal photos) (wave 6 search) — calm cover (stated, W8)',
+ 'osaka#abe-no-seimei-shrine': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'philadelphia#academy-of-music': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/balestier#balestier-art-deco-shophouses': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/bangkok#chatuchak-weekend-market': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/holland-village#holland-drive-market-and-food-centre': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/newton-novena#cairnhill-conservation-area': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/punggol#matilda-house': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/toa-payoh#block-53-the-vip-block': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/upper-serangoon#chee-tong-temple': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'statecollege#american-philatelic-center-match-factory': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'wheeling#belmont-county-victorian-mansion-museum': "no file found (possible lead: 'Mansion 001.JPG' in Category:Barnesville, Ohio - unverified) (wave 6 search) — calm cover (stated, W8)",
+ 'youngstown#arms-family-museum': "no file found (Category 'W. Arms House' exists, 13 files, titles not surfaced) (wave 6 search) — calm cover (stated, W8)",
+ 'akron#akron-fossils-and-science-center': "only details/interiors (exhibit shots; 'AFSC Creek.jpg' unseen) (wave 6 search) — calm cover (stated, W8)",
+ 'cincinnati#american-legacy-tours-queen-city-underground': 'no file found (tour; subject is the crypts/tunnels) (wave 6 search) — calm cover (stated, W8)',
+ 'columbus#anti-saloon-league-museum': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'dayton#benjamin-and-marian-schuster-performing-arts-center': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'indianapolis#bottleworks-district-and-the-garage-food-hall': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'orlando#alexander-springs': 'no file found (Category:Alexander Springs exists, ~10 files, titles not surfaced) (wave 6 search) — calm cover (stated, W8)',
+ 'osaka#aizen-do-shoman-in': "no file found (exact titles not confirmed; Category:Shōman-in holds 'Aizendo Shoman-in (Osaka Tennoji-ku) Temple hdsr S5 ...' series - read the category to get exact names) (wave 6 search) — calm cover (stated, W8)",
+ 'pittsburgh#aspinwall-riverfront-park': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/ang-mo-kio#ang-mo-kio-heritage-trail': 'no file found (trail, no single subject) (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/balestier#balestier-market': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/bishan#kwong-wai-siew-peck-san-theng': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/marina-bay#esplanade-theatres-on-the-bay': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/newton-novena#tan-tock-seng-hospital-heritage-museum': "no file found (only general hospital photos, e.g. 'Tan Tock Seng Hospital 3, Aug 06.JPG' - not the museum) (wave 6 search) — calm cover (stated, W8)",
+ 'singapore/potong-pasir-macpherson#istana-bidadari-former-royal-palace-site': 'no file found (site only, palace gone) (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/toa-payoh#church-of-the-risen-christ': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/upper-serangoon#hougang-heritage-trail': 'no file found (trail, no single subject; not searched) (wave 6 search) — calm cover (stated, W8)',
+ 'wheeling#capitol-theatre': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'youngstown#canfield-fairgrounds': 'only details/interiors (Big Lock feature with people/padlocks only) (wave 6 search) — calm cover (stated, W8)',
+ 'akron#boston-mills-brandywine-ski-resorts': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'columbus#blendon-woods-metro-park': 'no file found (only scanned report pages) (wave 6 search) — calm cover (stated, W8)',
+ 'erie#baldwin-reynolds-house-museum': 'no file found (Category:Baldwin-Reynolds House has 4 files, titles not surfaced) (wave 6 search) — calm cover (stated, W8)',
+ 'ghent#de-vooruit-viernulvier': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'harrisburg#carlisle-indian-school-cemetery': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'orlando#american-space-museum-and-space-walk-of-fame': 'modern artwork, no FoP (only file found is the Apollo Monument of the Space Walk of Fame; 18 other files in category not surfaced) (wave 6 search) — calm cover (stated, W8)',
+ 'newyork#african-burial-ground-national-monument': 'modern memorial sculpture, no US FoP (wave 6 search) — calm cover (stated, W8)',
+ 'washingtondc#air-force-memorial': 'modern memorial sculpture (the spires), no US FoP (wave 6 search) — calm cover (stated, W8)',
+})
+SKIP.update({
  'akron#massillon-museum-massmu': 'no file found (wave 5 search) — calm cover (stated, W8)',
  'akron#sojourner-truth-legacy-plaza': 'modern artwork, no US FoP (wave 5 search) — calm cover (stated, W8)',
  'cincinnati#21c-museum-hotel-cincinnati': 'venue (wave 5 search) — calm cover (stated, W8)',
@@ -398,6 +443,17 @@ for line in open(f'{S}/cands.tsv', encoding='utf-8'):
         continue
     cands[key].append(c)
 
+# R8 run #77: a file refused for its own fault (not a slot reason) is refused for every target that lists it, so a later
+# wave can never re-introduce it. Mirrors refusalIsGlobal in fetch-commons.js.
+_LOCAL = re.compile(r'duplicat|same file|repeats|already|place card|is the [\w ]*hero|the [\w ]+ hero is', re.I)
+_glob = {}
+for _k, _cs in cands.items():
+    for _c in _cs:
+        if _c.get('refused') and not _LOCAL.search(_c['refused']): _glob.setdefault(_c['file'], f"{_c['refused']} (on {_k})")
+for _k, _cs in cands.items():
+    for _c in _cs:
+        if not _c.get('refused') and _c['file'] in _glob: _c['refused'] = 'refused for another target: ' + _glob[_c['file']]
+
 # W8: what a visitor sees first on each guide — the gallery's lead card, then its first rail row
 PRIO = {}
 for fn in sorted(glob.glob('beta/data/gallery/*.json')):
@@ -459,7 +515,8 @@ for k in HERO_VN:
 
 landmarks = []
 for key, (d, p) in recs.items():
-    if d['country'] == 'vietnam' or p['kind'] == 'food' or (p.get('t') != 1 and key not in PRIO) or 'CLOSED' in p['n']: continue
+    # tier-1 and first-row places always; any other place once a candidate wave vetted titles for it (R8 gap #1c)
+    if d['country'] == 'vietnam' or p['kind'] == 'food' or (p.get('t') != 1 and key not in PRIO and f'landmark:{key}' not in cands) or 'CLOSED' in p['n']: continue
     g = set(p.get('g') or [])
     art = wiki_of(p)
     pilot = d['key'] in PILOTS

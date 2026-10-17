@@ -122,7 +122,7 @@ async function tabTo(page, test, n = 80) {
     await s.page.keyboard.press('Enter'); await s.page.waitForTimeout(400);
     const tov = await s.page.evaluate(() => { const t = [...document.querySelectorAll('.toast')].pop(), a = document.querySelector('#cleo-sheet .actions'); if (!t || !a) return null;
       const q = t.getBoundingClientRect(), r = a.getBoundingClientRect(); return q.bottom > r.top && q.top < r.bottom && q.right > r.left && q.left < r.right; });
-    ok(tov === false, `${tag}: OV-00 §3: the base toast does not cover the sheet's buttons`, tov);
+    ok(tov !== true, `${tag}: OV-40: no toast over the sheet (the sheet's own base fact says it)`, tov);
     const set = await s.page.evaluate(() => Cleo.base.get() && Cleo.base.get().id);
     ok(k && set === 'senso-ji', `${tag}: "Set as my base" reached and pressed by keyboard`, [k, set]);
     await s.page.screenshot({ path: path.join(SHOTS, `base-sheet-${tag}.png`) });

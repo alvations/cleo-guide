@@ -175,16 +175,18 @@
     if (t && !q('.cap-t', cap)) cap.insertAdjacentHTML('afterbegin', '<span class="cap-t">' + esc(t.getAttribute('title')) + '</span> · ');
     if (im) { var mw = Math.max.apply(0, (im.getAttribute('srcset') || '').split(',').map(function (z) { return parseInt((/\s(\d+)w\s*$/.exec(z) || [])[1], 10) || 0; }).concat([+im.getAttribute('width') || 0]));
       im.setAttribute('sizes', '(min-width: 1024px) min(1024px, 88vw), 100vw'); im.setAttribute('loading', 'eager');
-      if (held) ['srcset', 'src'].forEach(function (k) { if (im.hasAttribute(k)) { im.setAttribute('data-h' + k, im.getAttribute(k)); im.removeAttribute(k); } });   // PERF-19 (platform)
+      if (held && im.hasAttribute('srcset')) { var set = im.getAttribute('srcset'), sm = set.split(',').map(function (z) { var m = /^\s*(\S+)\s+(\d+)w\s*$/.exec(z); return m ? [m[1], +m[2]] : null; })   // PERF-19b
+          .filter(Boolean).sort(function (a, b) { return (a[1] >= 500 ? a[1] : 1e6 + a[1]) - (b[1] >= 500 ? b[1] : 1e6 + b[1]); })[0];
+        if (sm) { im.setAttribute('data-hsrcset', set); im.setAttribute('srcset', sm[0] + ' ' + sm[1] + 'w'); } }   // one candidate, same `sizes`: laid out exactly as the full set
       if (mw) { im.style.maxWidth = mw + 'px'; x.style.setProperty('--ph-max', mw + 'px'); } }
     return x.outerHTML; };
-  // PERF-19 (platform, marked): a sheet opened by script with no user gesture (a route change, a deep-link sweep) holds
-  // its full-size photo until it has stayed open 250 ms, so a run of sheets replaced at machine speed does not fetch
-  // every 960 w file. A tap or key in the last second, the page's own first deep link, or a browser without the
-  // userActivation API (and so jsdom): loads at once, as before.
-  var held = false, opens = 0, gest = 0, unhold = function (c) { setTimeout(function () { if (card !== c || host.hidden) return;
-    [].forEach.call(host.querySelectorAll('img[data-hsrc], img[data-hsrcset]'), function (im) { ['srcset', 'src'].forEach(function (k) { var v = im.getAttribute('data-h' + k); if (v != null) { im.setAttribute(k, v); im.removeAttribute('data-h' + k); } }); }); }, 250); };
-  ['pointerdown', 'keydown'].forEach(function (t) { d.addEventListener(t, function () { gest = Date.now(); }, true); });
+  // PERF-19b (platform, marked; D-48: one rule for every open, whatever opened it): the sheet's photo starts on the card's
+  // own 500 w file (usually cached from the list, so it shows at once) and upgrades to the full srcset once the sheet has
+  // stayed open 250 ms; a sheet closed or replaced sooner never fetches the 960 w file. Only the page's cold first deep
+  // link (#p= in the URL it loaded with) asks for the full file at once: it IS the first screen. Same box either way (the
+  // img keeps its width/height and max-width), so the swap shifts nothing.
+  var held = false, opens = 0, coldP = !!(Cleo.route.parse().p || /^#p-/.test(location.hash)), unhold = function (c) { setTimeout(function () { if (card !== c || host.hidden) return;
+    [].forEach.call(host.querySelectorAll('img[data-hsrcset]'), function (im) { im.setAttribute('srcset', im.getAttribute('data-hsrcset')); im.removeAttribute('data-hsrcset'); }); }, 250); };
   // /platform
   var grow = null, opener = null, tap = null;   // tap: the link or button just activated (mouse, touch or Enter), the sheet's opener
   d.addEventListener('click', function (e) {
@@ -198,16 +200,19 @@
     open: function (c) {
       // QC-07: remember the control that opened the sheet (a row card, a grid card, a pin, a search hit), so Esc / Close
       // returns focus to it, not to some other card for the same place; a stepped-through sheet keeps the first opener
-      var ae = tap && Date.now() - tap[1] < 1500 && tap[0].isConnected ? tap[0] : d.activeElement, kb = !!(tap && Date.now() - tap[1] < 1500 && tap[2]), user = !!(tap && Date.now() - tap[1] < 1500); tap = null;
+      var ae = tap && Date.now() - tap[1] < 1500 && tap[0].isConnected ? tap[0] : d.activeElement, kb = !!(tap && Date.now() - tap[1] < 1500 && tap[2]); tap = null;
       if (host.hidden && ae && ae !== d.body && !host.contains(ae)) opener = ae;
       if (Cleo.tray) Cleo.tray.close(true);
       // W8 (R7 2d): a side panel only beside the Atlas map; elsewhere a centred dialog over a scrim
       var show = function () {
-        held = opens++ > 0 && !user && !!navigator.userActivation && Date.now() - gest > 1000;   // PERF-19 (platform)
+        held = !(coldP && opens === 0); opens++;   // PERF-19b (platform)
         card = c; byNav = navs > 0; host.innerHTML = build(c); held = false; host.hidden = false; d.documentElement.classList.add('sheet-on');   /* FE-C OV-40 hook */ host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
         if (!host.classList.contains('side')) d.body.style.overflow = 'hidden';
         // designer: ✕ (with its ring) on a keyboard open; the dialog itself, ringless, on a tap or a deep link
-        (kb ? q('[data-sh="x"]', host) : q('.sheet', host)).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c); if (q('img[data-hsrc], img[data-hsrcset]', host)) unhold(c);
+        (kb ? q('[data-sh="x"]', host) : q('.sheet', host)).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c); if (q('img[data-hsrcset]', host)) unhold(c);
+        // PERF-19b: where the stylesheet leaves the photo's ratio to the file (desktop: aspect-ratio auto, fixed height), a
+        // not-yet-decoded photo drew a 334 px box, then 516 px (a 0.01 shift); its own width/height reserve the box first
+        var hi = q('.hero-plate img[width][height]', host); if (hi && getComputedStyle(hi).aspectRatio === 'auto') hi.style.aspectRatio = 'auto ' + hi.getAttribute('width') + ' / ' + hi.getAttribute('height');
       };
       // W7 gap #1, the signature moment (design/beta/style/v2/MOTION.md): the tapped card media grows into the sheet's media.
       // Only on a real tap of that card (≤ 1 s ago), only where view transitions exist and motion is allowed; otherwise as before.
