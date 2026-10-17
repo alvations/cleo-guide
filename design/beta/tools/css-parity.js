@@ -40,6 +40,20 @@ const OTHER = ['index.html', 'Japan/index.html', 'trip.html', 'saved.html', 'how
       await page.screenshot({ path: path.join(OUT, `${w}x${h}-${theme}-${name}-scrolled.png`) }).catch(() => {}); n++;
     }
     await ctx.close();
+    // states a cold load never shows: a reader with saved places, a day plan, an open place, For you
+    const sctx = await browser.newContext({ serviceWorkers: 'block', viewport: { width: w, height: h }, colorScheme: theme, reducedMotion: 'reduce', hasTouch: w < 900, isMobile: w < 900 });
+    await sctx.route(/tile\.openstreetmap|arcgisonline/, r => r.abort());
+    await sctx.addInitScript(() => { try { localStorage.setItem('cleo:v1:saved', JSON.stringify({ 'tokyo/kanda-myojin': { t: 1 }, 'tokyo/imperial-palace-east-gardens': { t: 2 }, 'tokyo/yasukuni-shrine': { t: 3 } })); } catch (e) { /* storage blocked */ } });
+    const sp = await sctx.newPage();
+    for (const [u, name] of [['cities/tokyo.html#view=gallery', 'S-tokyo-gallery'], ['cities/tokyo.html#view=atlas', 'S-tokyo-atlas'], ['saved.html', 'S-saved'], ['trip.html', 'S-trip'],
+      ['cities/tokyo.html#day=CHUO', 'S-tokyo-day'], ['cities/tokyo.html#view=gallery&p=kanda-myojin', 'S-tokyo-detail'], ['cities/tokyo.html#view=gallery&fy=1', 'S-tokyo-foryou']]) {
+      await sp.goto(base + u, { waitUntil: 'load' }).catch(() => {}); await sp.waitForTimeout(1200);
+      await sp.addStyleTag({ content: '*{caret-color:transparent!important} .leaflet-tile{visibility:hidden!important}' }).catch(() => {});
+      await sp.screenshot({ path: path.join(OUT, `${w}x${h}-${theme}-${name}.png`) }).catch(() => {}); n++;
+      await sp.evaluate(() => scrollTo(0, 900)).catch(() => {}); await sp.waitForTimeout(250);
+      await sp.screenshot({ path: path.join(OUT, `${w}x${h}-${theme}-${name}-scrolled.png`) }).catch(() => {}); n++;
+    }
+    await sctx.close();
   }
   await browser.close(); srv.close();
   console.log(`css-parity: ${n} shots → ${OUT}`);
