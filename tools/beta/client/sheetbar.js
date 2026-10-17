@@ -10,13 +10,16 @@
   var STEP = 24;
   function wire(sh) {
     if (!sh || sh._cleoBar) return; sh._cleoBar = true;
-    var last = sh.scrollTop, away = false;
+    // portrait: the scroll area is .sh-body (the bar sits under it, in flow); landscape / desktop: the sheet itself
+    var sc = sh.querySelector(':scope > .sh-body') || sh, last = 0, away = false;
     var set = function (on) { if (on !== away) { away = on; sh.classList.toggle('acts-away', on); } };
-    sh.addEventListener('scroll', function () {
-      var st = sh.scrollTop, end = st + sh.clientHeight >= sh.scrollHeight - 4;
+    var onScroll = function (e) {
+      var el = e.currentTarget; if (getComputedStyle(el).overflowY === 'visible') return;
+      var st = el.scrollTop, end = st + el.clientHeight >= el.scrollHeight - 4;
       if (end || st <= 0) { set(false); last = st; return; }
       if (st - last >= STEP) { set(true); last = st; } else if (last - st >= STEP) { set(false); last = st; }
-    }, { passive: true });
+    };
+    sh.addEventListener('scroll', onScroll, { passive: true }); if (sc !== sh) sc.addEventListener('scroll', onScroll, { passive: true });
     sh.addEventListener('focusin', function (e) { if (e.target.closest && e.target.closest('.actions')) set(false); });
   }
   Cleo.sheetbar = function () { wire(d.querySelector('#cleo-sheet .sheet.detail')); };
