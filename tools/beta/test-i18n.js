@@ -366,6 +366,7 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     D.items.push(['k', 'k1', '神社', 's', 0, 0, '東山']);
     sw.Cleo = { root: '', t: fillP, fold: x => x.toLowerCase(), search: (d, q) => d.items.filter(it => it[2].includes(q) || q === '全').map(it => ({ it, pg: d.pages.find(pg => pg[0] === it[0]) })) };
     sw.eval(fs.readFileSync(path.join(__dirname, 'client', 'search.js'), 'utf8'));
+    sw.eval(fs.readFileSync(path.join(__dirname, 'client', 'srcview.js'), 'utf8'));   // FE-B D-53: the paste-a-link view moved here (lazy)
     const C = sw.Cleo, el = sw.document.getElementById('o'), left = [];
     const scan = (tag, root) => { const tw = sw.document.createTreeWalker(root, 4); for (let n; (n = tw.nextNode());) if (/[A-Za-z]{3,}/.test(n.nodeValue)) left.push(tag + ': ' + n.nodeValue.trim().slice(0, 50));
       root.querySelectorAll('[aria-label],[placeholder]').forEach(e => ['aria-label', 'placeholder'].forEach(x => { const v = e.getAttribute(x); if (v && /[A-Za-z]{3,}/.test(v)) left.push(tag + ' @' + x + ': ' + v); })); };
@@ -374,6 +375,8 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     const IX = { hosts: { 'ab.cd': [['cities/t.html', '東京', 's1', '雑誌', 1], ['cities/k.html', '京都', 's1', '雑誌', 3]] } };
     C.renderSource(el, IX, 'ab.cd', [['cities/t.html', '東京', 'p1', '場所1', 0, 'エリア']], 'ab.cd'); scan('source', el);
     C.renderSource(el, IX, 'xy.zz', null, 'xy.zz'); scan('no source', el);
+    IX.hosts['ef.gh'] = [['cities/t.html', '東京', 's2', '公式', 2, 1]];   // FE-B D-53: a platform / own site cites, never recommends
+    C.renderSource(el, IX, 'ef.gh', [['cities/t.html', '東京', 'p2', '場所2', 0, 'エリア', 1]], 'ef.gh'); scan('cites', el);
     sw.document.querySelector('[data-cleo-search-open]').dispatchEvent(new sw.MouseEvent('click', { bubbles: true }));
     const panel = sw.document.querySelector('.searchpanel'); if (panel) { scan('panel', panel); if (/[A-Za-z]{3,}/.test(panel.getAttribute('aria-label'))) left.push('panel @aria-label'); }
     chk('search.js (top-bar panel, results, empty, failed, paste-a-link) under the pseudo catalogue: 0 English interface strings', [!!panel, left.slice(0, 12)], [true, []]);

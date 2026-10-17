@@ -18,7 +18,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { buildRegistry, ROOT } = require('./lib/registry');
 const { rowsOf: galleryRows } = require('./lib/gallery');
-const { normalise, nativeOf, publicName, sourceRole, recommendersOf } = require('./lib/model');
+const { normalise, nativeOf, publicName, sourceRole, recommendersOf, recName } = require('./lib/model');
 const stats = require('./lib/stats');
 const { pageSources, siteSources } = require('./lib/sources');
 const art = require('./lib/art');
@@ -311,9 +311,9 @@ if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.le
       const sid = g[k], nu = /^https?:\/\//.test(u || '') && normURL(u); if (!nu || !sid || sid === 'guide' || !byId[sid]) continue;
       addH(nu.h, sid);
       const b = urls[bucket(nu.h)], rows = (b[nu.key] = b[nu.key] || []);
-      if (!rows.some(y => y[0] === r.beta && y[2] === x.id)) rows.push([r.beta, r.name, x.id, x.n, sid, publicName(byId[sid].name)]);
+      if (!rows.some(y => y[0] === r.beta && y[2] === x.id)) rows.push([r.beta, r.name, x.id, x.n, sid, recName(publicName(byId[sid].name))].concat(byId[sid].role === 'rec' ? [] : [1]));   /* FE-B D-53: 1 = cites, never recommends */
     }
-    for (const [h, set] of Object.entries(per)) for (const sid of set) { const s = byId[sid]; (hosts[h] = hosts[h] || []).push([r.beta, r.name, s.id, publicName(s.name), s.n]); /* R8 #2d: public names */ }
+    for (const [h, set] of Object.entries(per)) for (const sid of set) { const s = byId[sid]; (hosts[h] = hosts[h] || []).push([r.beta, r.name, s.id, recName(publicName(s.name)), s.n].concat(s.role === 'rec' ? [] : [1])); /* R8 #2d: public names */ }
   }
   for (const h of Object.keys(hosts)) hosts[h].sort((x, y) => y[4] - x[4] || (x[0] < y[0] ? -1 : 1));
   emit('data/source-hosts.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 2,
