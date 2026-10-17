@@ -2591,3 +2591,13 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Round 4** waits on FE-A's NYC header fix and FE-1's phone search/drag fixes.
 - **Desktop credit 28 px at T2/D (QC c8ec49d8, 171/171 runs):** the licence links' 4 px padding gives them a 24 px hit box (R2 #7). It was meant to leave the line alone, but the links render inline-block, so the padding grew the row to 28 px. A matching −4 px margin now cancels it: the row is 20 px at 1440×900 and 1024×768, and the links keep their 24 px hit box. Phone is unchanged at 20 px.
 - **OV-41 on desktop (platform):** with no map, the offline-pack section stayed in MAIN below a desktop Atlas document that never scrolls, so a reader could not reach Keep. Tokyo: Keep at y 971 in a 900 px viewport, and at y 859 in 768. The section now parks at the end of the list pane on every layout; with a live map, fe-a.css hides it wherever it is. Checked by wheel-scrolling the list at 1440×900 and 1024×768: Keep comes into view and the hit test lands on it.
+- **R4 landscape blocker: the side column didn't start with the selected place (designer).** Two causes:
+  - `select()` scrolled the column sideways (a no-op in a vertical column).
+  - The carousel's "card in the middle" reader measured across the column, where every card ties, so after a tap it re-selected the first card in DOM order. Tapping Tokyo Daijingu ended on Imperial Palace East Gardens: pin and card disagreed.
+  - **Fixes:**
+    - In landscape, `select()` scrolls the column so the selected card is first, 4 px down so its ring shows. It is instant on a first selection and re-placed at 120/350/650 ms while cards above it are stamped.
+    - The reader takes the top card, and never re-selects during our own scroll.
+    - A spacer after the list (order last) lets even the last card scroll up to first.
+    - The selected card wears `--ring-select`.
+  - Checked on Tokyo and Chinatown at 844×390, mouse and touch: the selected card is first (y 60), ringed, and is the tapped pin's place. FE-2 writes the probe (fe2/side-sync.js).
+- **atlas-ms drag-from-dot row:** it now looks only at the transient hover pin (`.ms-hov`). Featured pins are permanent labels you can click; the row's first run read one of them on Chinatown as the hover pin.
