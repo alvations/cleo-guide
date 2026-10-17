@@ -261,13 +261,12 @@
   // a ≥ 24 px scroll down (here) or the reader's own pan (the Atlas lane calls compact/idle) and come back on a scroll
   // up, focus inside them, a sheet, or idle. html.ov-c is the hook every lane styles its own bars on
   const CH = Cleo.chrome = { on: false, t: 0,
-    compact(v) { clearTimeout(CH.t); if (v && (d.querySelector('.overlay:not([hidden])') || (d.activeElement && d.activeElement.closest && d.activeElement.closest('.cbar,#cleo-rail,.ms-bar')))) v = false;
+    compact(v) { clearTimeout(CH.t); if (v && d.querySelector('.overlay:not([hidden])')) v = false;   // focus inside a bar reveals it by CSS (:focus-within)
       if (v !== CH.on) { CH.on = v; html.classList.toggle('ov-c', v); } },
     idle(ms) { clearTimeout(CH.t); CH.t = setTimeout(() => CH.compact(false), ms || 1200); } };
   { let y0 = window.scrollY || 0, acc = 0;
     on(window, 'scroll', () => { const y = window.scrollY || 0, dy = y - y0; y0 = y; if (y < 24) { acc = 0; CH.compact(false); return; }
-      acc = (acc > 0) === (dy > 0) ? acc + dy : dy; if (acc >= 24) CH.compact(true); else if (acc <= -24) CH.compact(false); }, { passive: true });
-    on(d, 'focusin', e => { if (e.target.closest && e.target.closest('.cbar,#cleo-rail,.ms-bar')) CH.compact(false); }); }
+      acc = (acc > 0) === (dy > 0) ? acc + dy : dy; if (acc >= 24) CH.compact(true); else if (acc <= -24) CH.compact(false); }, { passive: true }); }
   const mn0 = d.getElementById('main');
   if (nav) { nav.hidden = false; if (mn0) mn0.setAttribute('data-views-on', ''); }
   { const ov = ['cleo-sheet', 'cleo-fy', 'cleo-tray'].map(i => d.getElementById(i)).filter(Boolean);   // the old :has(>.overlay:not([hidden]):not(.side)) test
