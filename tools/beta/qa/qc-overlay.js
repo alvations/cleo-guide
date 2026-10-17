@@ -115,6 +115,8 @@ const MEASURE = new Function(`
     const near = (a, b) => !(a.right + 4 <= b.left || b.right + 4 <= a.left || a.bottom + 4 <= b.top || b.bottom + 4 <= a.top);
     let lg = 0; labs.forEach((a, i) => labs.slice(i + 1).forEach(b => { if (near(tb(a), tb(b))) lg++; })); out.labelGap = lg;
     const at = [...mapC.querySelectorAll('.leaflet-control-attribution')].find(shown); out.attrW = at ? Math.round(R(at).width) : 0;
+    if (at) { const q = R(at); out.attrH = Math.round(q.height); out.attrIn = q.left >= mr.left - 1 && q.right <= mr.right + 1 && q.top >= mr.top - 1 && q.bottom <= mr.bottom + 1;
+      out.attrHit = controls.filter(c => !at.contains(c) && !c.contains(at) && hit(q, R(c), 1)).map(name).concat(labs.filter(l => hit(q, tb(l), 1)).map(l => 'label ' + l.textContent.trim().slice(0, 20))).slice(0, 4); }
     let lc = 0; labs.forEach(a => controls.forEach(c => { if (!c.contains(a) && !a.contains(c) && hit(tb(a), R(c))) lc++; })); out.labelControl = lc;
     let cp = []; controls.forEach(c => pins.forEach(p => { if (!c.contains(p) && !p.contains(c) && hit(R(c), R(p), 2) && document.elementFromPoint((Math.max(R(c).left, R(p).left) + Math.min(R(c).right, R(p).right)) / 2, (Math.max(R(c).top, R(p).top) + Math.min(R(c).bottom, R(p).bottom)) / 2) !== p) cp.push(name(c) + ' / ' + ((p.textContent || '').trim().slice(0, 20) || 'pin')); }));
     out.controlPin = cp.length; out.controlPinSample = [...new Set(cp)].slice(0, 4);
@@ -240,6 +242,8 @@ async function main() {
       if (PHONE[v] ? L.widestLabel > 40 : L.labelMaxPx > 220) push('labelWidth', PHONE[v] ? L.widestLabel + ' % (' + L.widestLabelText + ')' : L.labelMaxPx + ' px (' + L.widestLabelText + ')', PHONE[v] ? '≤ 40 % of the map width' : '≤ 220 px', r);
       if (L.labelGap) push('labelGap', L.labelGap + ' pairs < 4 px', '≥ 4 px apart', r);
       if (L.searchHere) push('searchHereOnLoad', 'shown at load', 'absent at load', r);
+      // designer ruling 10:41Z: at T2 / D the full credit stays, but it is one line (≤ 20 px), inside the map pane, over nothing
+      if (!PHONE[v] && L.attrW && (L.attrH > 20 || L.attrIn === false || (L.attrHit || []).length)) push('attributionDesk', `${L.attrH} px tall; ${L.attrIn ? 'inside' : 'outside'} the map pane; over: ${(L.attrHit || []).join(', ') || 'nothing'}`, 'one line ≤ 20 px, inside the map pane, over no control or label', r);
       if (PHONE[v] && r.idle && r.idle.attrW > 60) push('attribution',   // SPEC-v3 §2.0.3 (b7df8c3f): the desktop credit stays full, T2 / D exempt
         r.idle.attrW + ' px wide 1.5 s after a pan', 'collapses to ⓘ on the first pan or after 5 s', r);
       if (PHONE[v] && L.mapControl) push('mapControl', 'a control named "Map"', 'none on phone', r);
