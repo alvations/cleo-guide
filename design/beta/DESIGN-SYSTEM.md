@@ -161,6 +161,52 @@ Food places are never photographed (§v2.7). So a food cover has to be *designed
 - No two adjacent covers repeat a glyph.
 - `test-imagery.js` still refuses food photos.
 
+## v2.7b No-photo cards: a photo is the only thing that takes a photo's space (owner directive, D-49, 2026-10-17)
+
+> Owner: "Expand the image so that we don't have so many blanks on the beta site." On Washington DC's Atlas list (phone, the default view), the list opens on two full-screen beige "Chinese" covers. Only 8 of the first 54 cards have a photo. The sources lane counts 496 photo-less food cards among the first 24 cards of 79 guides.
+
+A designed cover at full photo size still reads as a blank: it takes a photo's space without being one. Real photos of places (D-49, food included) will raise coverage, but never to 100 %. So **the photo-less card changes shape, not the order:** ranking is never changed for photos, photo cards keep their size, and the layout adapts.
+
+**Which variant, by container** (the build marks a photo-less card `li.pl.pl--np`, and the list container states its layout):
+
+| Container | Photo card | Photo-less card |
+|---|---|---|
+| **Single-column lists:** phone Atlas list sheet, phone Gallery lists, search results, saved, trip | unchanged | **A. compact row** |
+| **Rails and multi-column grids:** Gallery rails, the desktop and tablet Atlas list, Gallery grids | unchanged | **B. quote card** (same cell, so rows stay aligned and order holds) |
+
+**A. Compact row** (about 112 px tall, against about 370 px for a photo card at 390):
+- A two-column grid: a **64 × 64 tile** on the left (`--r-m`), then the text column.
+- **The tile** is the designed mini-cover: `--cover-food` or `--cover-sight`, the city pattern (§v2.7a) and the kit glyph at 28 px in `--ink` 55 %. It carries no word.
+- **The text column**, top to bottom:
+  - the tier chip with area · kind (`.pl-e`);
+  - the name (`.pl-n`, UI 600, `--fs-d3`);
+  - the why line clamped to 2 lines (`.pl-w`, `--fs-sm`, `--ink-2`);
+  - Recommended by (`.pl-s`).
+- 12 px vertical padding, with a hairline (`--line`) between rows. The heart stays a 44 px target at top-right.
+
+**B. Quote card** (the cell keeps its size; the cover area is filled with the place's own words):
+- **Ground:** the cover area is `--cover-food` or `--cover-sight` plus the city pattern.
+- **Text:** the **first sentence of the why line** (`.pl-w`, cut at the first sentence end, ≤ 140 characters, ending in "…" if cut). UI face 600 at `--fs-lead`, `--ink`, at most 4 lines, `text-wrap: pretty`, inset 16 px.
+- **Marks:** a 40 px opening quote mark in the display face, `--ink-3`, top-left. The kit glyph at 20 px in `--ink-3`, bottom-right.
+- **Below the cover:** the card no longer repeats the why line, and its "Recommended by" line names whose words they are.
+- **No why line** (rare): the §v2.7a designed cover, where the word is the place's own dish or its name, **never a bare cuisine label** ("Chinese", "Asian").
+
+**Rules:**
+- **(b) No two identical covers adjacent** in any list, rail or grid row. Identical means the same glyph *and* the same word. Quote cards are unique by their text. Tiles follow the imagery no-repeat ladder (`FOOD_GLYPH_LADDER`).
+- **(c) Order is the ranking.** No photo-first reordering, dense packing or grouping. The D-46 lead card (SPEC-v3 §1.7) is rank 1 drawn large *only if it has a photo*; otherwise there is no lead card.
+- **Budgets:**
+  - DOM: A and B reuse the card's existing nodes. The tile is the `.pl-cover` element resized, and B places `.pl-w` in the cover area with grid areas. No node is added, so the DOM budget holds.
+  - OV-00 is unaffected: these are content, not overlays.
+  - The full-size empty-cover rules go, which removes CSS too.
+- AA: text on the covers is ≥ 15:1 in both themes, and the glyph is decorative (`aria-hidden`).
+
+**Acceptance** (DC, Tokyo and State College, 390 and 1440, light and dark; real shots before and after):
+- In single-column lists, no photo-less card is taller than 120 px. The first phone screen of DC's Atlas list shows ≥ 4 cards (about 1.5 today).
+- In rails and grids, every photo-less cover has ≥ 20 characters of visible text: no blank tile.
+- Every photo card's size is unchanged.
+- The list order equals `data-rank` order.
+- No two adjacent covers share glyph and word.
+
 ## v2.8 Page patterns
 
 | Page | Pattern |
