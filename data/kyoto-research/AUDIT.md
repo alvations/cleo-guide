@@ -345,3 +345,7 @@ statuscheck / buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. 
 - **Status note for re-check:** NAVITIME labels 伏見十石舟・三十石船 "(休業中)" — may be seasonal/temporary suspension;
   Jikkokubune kept `open` (record cites a current operator page) — verify against fushimi-jikkokubune official before next refresh.
 - Still held: 96 UNVERIFIED (Gion/Kibune/Arashiyama kaiseki & bars with landmark-only addresses; Nara sweets).
+
+## 2026-10-17 — Wikipedia link fix: the 16 UNESCO component records
+
+Found in the photo review. All 16 "Historic Monuments of Ancient Kyoto" component records (Tō-ji, Kinkaku-ji, Nijō Castle, Byōdō-in and the rest) cited the **group** article `Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)`. Its Wikidata lead image is Kinkaku-ji, so every one of them would have pulled the wrong picture. Each now cites its own en.wikipedia article, verified by WebSearch on 2026-10-17. The fix is in `SIGHTS_KYOTO_UNESCO.json` and also in its generator `_kyoto_unesco.py` (a `WIKI` map), so a re-run keeps it. The UNESCO source (whc.unesco.org/en/list/688) is unchanged. Only the `s` field of those 16 records changed in the dataset.

@@ -18,7 +18,7 @@ const os = require('os');
 
 // The suites ARE package.json "test:serial" (one source of truth: a suite added there runs here too). The seconds are a
 // scheduling hint only (longest first); an unknown suite counts as 30 s.
-const HINT = { 'beta/qa/test-count-lines.js': 12, 'beta/test-css-min.js': 3, 'beta/qa/test-no-input-sniffing.js': 1, 'beta/qa/test-reachable-styles.js': 78, 'beta/qa/recby-scan.py': 1, 'beta/test-fe-a.js': 118, 'beta/test-views.js': 116, 'beta/qa/test-honesty.js': 53, 'beta/test-beta.js': 35,
+const HINT = { 'beta/qa/one-search.js': 60, 'beta/qa/test-count-lines.js': 12, 'beta/test-css-min.js': 3, 'beta/qa/test-no-input-sniffing.js': 1, 'beta/qa/test-reachable-styles.js': 78, 'beta/qa/recby-scan.py': 1, 'beta/test-fe-a.js': 118, 'beta/test-views.js': 116, 'beta/qa/test-honesty.js': 53, 'beta/test-beta.js': 35,
   'beta/test-hubs.js': 34, 'beta/qa/test-contract.js': 14, 'beta/imagery/test-imagery.js': 10, 'test-singapore.js': 8, 'test.js': 4 };
 const SUITES = require('./package.json').scripts['test:serial'].split('&&').map(c => c.trim().split(/\s+/))
   .map(([cmd, ...args]) => [cmd, args, HINT[args[0]] != null ? HINT[args[0]] : 30]);

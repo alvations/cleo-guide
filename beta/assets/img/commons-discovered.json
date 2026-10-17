@@ -1,7 +1,7 @@
 {
  "_generated": "tools/beta/imagery/discover-commons.js — review verdicts in tools/beta/imagery/manifest/discover-review.tsv",
  "v": 1,
- "n": 331,
+ "n": 368,
  "targets": {
   "hero:singapore/dempsey-hill": [],
   "landmark:hokkaido#former-aoyama-villa-otaru-kihinkan": [
@@ -5764,6 +5764,752 @@
   "landmark:cleveland#jesse-owens-statue": [],
   "landmark:cleveland#cleveland-convention-center-urban-farm": [],
   "landmark:cleveland#voinovich-bicentennial-park-and-cleveland-lighthouse-view": [],
-  "landmark:cleveland#cleveland-script-signs-all-six": []
+  "landmark:cleveland#cleveland-script-signs-all-six": [],
+  "landmark:cleveland#goodtime-iii": [
+   {
+    "file": "File:Goodtime III in 2019.jpg",
+    "how": "geosearch 21 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Susan Barnum",
+    "width": 4048,
+    "height": 3036,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Goodtime_III_in_2019.jpg/330px-Goodtime_III_in_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Goodtime III in 2019",
+    "id": "cm-332",
+    "key": "landmark:cleveland#goodtime-iii",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:cleveland#butcher-and-the-brewer": [],
+  "landmark:cleveland#greater-cleveland-aquarium-shark-gallery-and-seatube": [],
+  "landmark:cleveland#veterans-memorial-detroit-superior-bridge-streetcar-deck": [],
+  "landmark:cleveland#mini-guardians-of-traffic": [],
+  "landmark:cleveland#leif-erikson-bust": [],
+  "landmark:cleveland#cleveland-center-of-gravity-mural": [],
+  "landmark:cleveland#the-foundry": [],
+  "landmark:cleveland#brewboat-cle": [],
+  "landmark:cleveland#wendy-park-and-the-monarch-migration": [],
+  "landmark:cleveland#ball-ball-waffle": [],
+  "landmark:cleveland#negative-space-gallery": [],
+  "landmark:cleveland#ingenuity-cleveland": [],
+  "landmark:cleveland#lake-view-cemetery-dam": [],
+  "landmark:cleveland#grave-of-alan-freed": [],
+  "landmark:cleveland#the-fine-arts-garden": [],
+  "landmark:cleveland#apollo-12-moon-rock": [],
+  "landmark:cleveland#wade-park-and-wade-lagoon": [],
+  "landmark:cleveland#cleveland-botanical-garden": [
+   {
+    "file": "File:Cleveland Botanical Garden (53368640824).jpg",
+    "how": "geosearch 4 m",
+    "field": "title",
+    "licence": "CC BY 2.0",
+    "author": "Erik Drost",
+    "width": 8256,
+    "height": 5504,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Cleveland_Botanical_Garden_%2853368640824%29.jpg/330px-Cleveland_Botanical_Garden_%2853368640824%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Cleveland Botanical Garden (53368640824)",
+    "id": "cm-333",
+    "key": "landmark:cleveland#cleveland-botanical-garden",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:cleveland#museum-of-contemporary-art-cleveland-moca": [
+   {
+    "file": "File:MOCA Cleveland (14779676617).jpg",
+    "how": "geosearch 6 m",
+    "field": "category",
+    "licence": "CC BY 2.0",
+    "author": "Erik Drost",
+    "width": 3000,
+    "height": 1591,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/MOCA_Cleveland_%2814779676617%29.jpg/330px-MOCA_Cleveland_%2814779676617%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "MOCA Cleveland (14779676617)",
+    "id": "cm-334",
+    "key": "landmark:cleveland#museum-of-contemporary-art-cleveland-moca",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:cleveland#cleveland-history-center-and-euclid-beach-carousel": [],
+  "landmark:cleveland#chinese-cultural-garden": [],
+  "landmark:cleveland#rockefeller-park-greenhouse": [
+   {
+    "file": "File:Rockefeller Park Greenhouse (23937129086).jpg",
+    "how": "geosearch 7 m",
+    "field": "title",
+    "licence": "CC BY 2.0",
+    "author": "Erik Drost",
+    "width": 6000,
+    "height": 4000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Rockefeller_Park_Greenhouse_%2823937129086%29.jpg/330px-Rockefeller_Park_Greenhouse_%2823937129086%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Rockefeller Park Greenhouse (23937129086)",
+    "id": "cm-335",
+    "key": "landmark:cleveland#rockefeller-park-greenhouse",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:cleveland#cozad-bates-house": [
+   {
+    "file": "File:Cozad-Bates House Cleveland Ohio.jpg",
+    "how": "geosearch 10 m",
+    "field": "title",
+    "licence": "CC BY-SA 1.0",
+    "author": "Christopher Busta-Peck",
+    "width": 2583,
+    "height": 1313,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cozad-Bates_House_Cleveland_Ohio.jpg/330px-Cozad-Bates_House_Cleveland_Ohio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Cozad-Bates House Cleveland Ohio",
+    "id": "cm-336",
+    "key": "landmark:cleveland#cozad-bates-house",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:cleveland#hessler-court": [],
+  "landmark:cleveland#moonstruck-cle-vintage": [],
+  "landmark:cleveland#chateau-hough-vineyards": [],
+  "landmark:cleveland#baseball-heritage-museum-at-league-park": [],
+  "landmark:cleveland#deep-roots-experience": [
+   {
+    "file": "File:InBloomAsiaArmour.jpg",
+    "how": "geosearch 2 m",
+    "field": "description",
+    "licence": "CC BY-SA 4.0",
+    "author": "A4Studiocle",
+    "width": 3024,
+    "height": 3834,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/InBloomAsiaArmour.jpg/330px-InBloomAsiaArmour.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "InBloomAsiaArmour",
+    "id": "cm-337",
+    "key": "landmark:cleveland#deep-roots-experience",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:cleveland#woodland-cemetery": [],
+  "landmark:cleveland#the-childrens-museum-of-cleveland": [],
+  "landmark:cleveland#the-trumpet-man": [],
+  "landmark:cleveland#land-of-the-warres": [],
+  "landmark:cleveland#george-masavegs-art-home": [],
+  "landmark:cleveland#junkyard-playground": [],
+  "landmark:cleveland#morgana-run-trail": [],
+  "landmark:cleveland#st-stanislaus-church": [],
+  "landmark:cleveland#harvey-pekar-statue": [],
+  "landmark:cleveland#liberty-row": [],
+  "landmark:cleveland#lakefront-nature-preserve": [],
+  "landmark:cleveland#great-lakes-brewing-co-the-bullet-holes": [],
+  "landmark:cleveland#barrio-tremont": [],
+  "landmark:cleveland#taste-of-tremont": [],
+  "landmark:cleveland#tremont-skyline-view-and-abbey-ave-script-sign": [],
+  "landmark:cleveland#towpath-mounds": [],
+  "landmark:cleveland#towpath-trail": [],
+  "landmark:cleveland#the-pizza-mural": [],
+  "landmark:cleveland#intermuseum-conservation-association-ica-art-conservation": [],
+  "landmark:cleveland#heisman-house-plaque": [],
+  "landmark:cleveland#red-line-greenway": [],
+  "landmark:cleveland#superelectric-pinball-parlor": [],
+  "landmark:cleveland#stone-mad-pub-indoor-bocce": [],
+  "landmark:cleveland#gordon-square-arts-district-murals": [],
+  "landmark:cleveland#edgewater-park-and-beach": [],
+  "landmark:cleveland#the-willow-at-edgewater-park": [],
+  "landmark:cleveland#memphis-kiddie-park": [],
+  "landmark:cleveland#rays-indoor-mountain-bike-park": [],
+  "landmark:cleveland#b-a-sweetie-candy-company": [],
+  "landmark:cleveland#madison-park": [],
+  "landmark:cleveland#lakewood-public-library": [],
+  "landmark:cleveland#rocky-river-park": [],
+  "landmark:cleveland#wordens-ledges": [],
+  "landmark:cleveland#whipps-ledges": [],
+  "landmark:cleveland#henry-church-rock": [],
+  "landmark:cleveland#mill-creek-falls-overlook": [],
+  "landmark:cleveland#viaduct-park": [],
+  "landmark:cleveland#skyline-overlook-trailhead": [],
+  "landmark:cleveland#observatory-park": [],
+  "landmark:cleveland#gardenview-horticultural-park": [],
+  "landmark:cleveland#judys-jungle": [],
+  "landmark:cleveland#prestons-h-o-p-e-playground": [],
+  "landmark:cleveland#polka-hall-of-fame": [],
+  "landmark:cleveland#sims-park-and-lakefront-trail": [],
+  "landmark:cleveland#lakefront-lodge": [],
+  "landmark:cleveland#fairport-harbor-marine-museum-and-lighthouse": [],
+  "landmark:cleveland#gravity-hill": [],
+  "landmark:cleveland#chagrin-falls-popcorn-shop": [],
+  "landmark:cleveland#mapleside-farms": [],
+  "landmark:cleveland#cleveland-orchestra-at-blossom-music-center": [],
+  "landmark:cleveland#cascade-park": [],
+  "landmark:cleveland#east-falls-riverwalk": [],
+  "landmark:cleveland#a-bench-by-the-road": [],
+  "landmark:cleveland#amherst-veterans-mural": [],
+  "landmark:cleveland#balto-the-sled-dog": [],
+  "landmark:cleveland#international-womens-air-and-space-museum": [],
+  "landmark:cleveland#cuyahoga-valley-scenic-railroad": [],
+  "landmark:cleveland#beachland-ballroom-and-tavern": [],
+  "landmark:cleveland#transformer-station": [],
+  "landmark:cleveland#karamu-house": [],
+  "landmark:cleveland#dunham-tavern-museum-and-gardens": [],
+  "landmark:cleveland#loganberry-books": [],
+  "landmark:cleveland#nature-center-at-shaker-lakes": [],
+  "landmark:cleveland#cleveland-institute-of-art-cinematheque": [],
+  "landmark:cleveland#hale-farm-and-village": [
+   {
+    "file": "File:Hale Farm & Village, Bath - panoramio.jpg",
+    "how": "geosearch 35 m",
+    "field": "title",
+    "licence": "CC BY 3.0",
+    "author": "Bob Linsdell",
+    "width": 2048,
+    "height": 1536,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Hale_Farm_%26_Village%2C_Bath_-_panoramio.jpg/330px-Hale_Farm_%26_Village%2C_Bath_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Hale Farm & Village, Bath - panoramio",
+    "id": "cm-338",
+    "key": "landmark:cleveland#hale-farm-and-village",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:cleveland#neorsd-not-a-place-but-on-the-list": [],
+  "landmark:cleveland#lolly-the-trolley": [],
+  "landmark:columbus#topiary-park": [
+   {
+    "file": "File:Topiary Park.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Fuzheado",
+    "width": 4080,
+    "height": 1152,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Topiary_Park.jpg/330px-Topiary_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Topiary Park",
+    "id": "cm-339",
+    "key": "landmark:columbus#topiary-park",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#thurber-house": [
+   {
+    "file": "File:Thurber House Columbus Ohio.jpeg",
+    "how": "geosearch 13 m",
+    "field": "title",
+    "licence": "CC BY 4.0",
+    "author": "Sebastian Wallroth",
+    "width": 2448,
+    "height": 3264,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Thurber_House_Columbus_Ohio.jpeg/330px-Thurber_House_Columbus_Ohio.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Thurber House Columbus Ohio",
+    "id": "cm-340",
+    "key": "landmark:columbus#thurber-house",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#the-oval-at-ohio-state": [],
+  "landmark:columbus#olentangy-trail": [],
+  "landmark:columbus#italian-village": [],
+  "landmark:columbus#ohio-history-center-and-ohio-village": [],
+  "landmark:columbus#national-veterans-memorial-and-museum": [
+   {
+    "file": "File:National Veterans Memorial and Museum 2018.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Antony-22",
+    "width": 4608,
+    "height": 3456,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/National_Veterans_Memorial_and_Museum_2018.jpg/330px-National_Veterans_Memorial_and_Museum_2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "National Veterans Memorial and Museum 2018",
+    "id": "cm-341",
+    "key": "landmark:columbus#national-veterans-memorial-and-museum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#central-ohio-fire-museum": [
+   {
+    "file": "File:Engine House No. 16, Central Ohio Fire Museum.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Nyttend",
+    "width": 2816,
+    "height": 2112,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Engine_House_No._16%2C_Central_Ohio_Fire_Museum.jpg/330px-Engine_House_No._16%2C_Central_Ohio_Fire_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Engine House No. 16, Central Ohio Fire Museum",
+    "id": "cm-342",
+    "key": "landmark:columbus#central-ohio-fire-museum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#columbus-museum-of-art-at-the-pizzuti": [
+   {
+    "file": "File:Pizzuti Collection.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Ɱ",
+    "width": 4785,
+    "height": 3507,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Pizzuti_Collection.jpg/330px-Pizzuti_Collection.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Pizzuti Collection",
+    "id": "cm-343",
+    "key": "landmark:columbus#columbus-museum-of-art-at-the-pizzuti",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#schiller-park": [
+   {
+    "file": "File:German Village June 2013 09 (Schiller Park).jpg",
+    "how": "geosearch 20 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Michael Barera",
+    "width": 3072,
+    "height": 2304,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/German_Village_June_2013_09_%28Schiller_Park%29.jpg/330px-German_Village_June_2013_09_%28Schiller_Park%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "German Village June 2013 09 (Schiller Park)",
+    "id": "cm-344",
+    "key": "landmark:columbus#schiller-park",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#jack-nicklaus-museum": [],
+  "landmark:columbus#orton-geological-museum": [],
+  "landmark:columbus#chadwick-arboretum-and-learning-gardens": [
+   {
+    "file": "File:Chadwick Arboretum1.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 2.5",
+    "author": "Analogue Kid",
+    "width": 3488,
+    "height": 2616,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Chadwick_Arboretum1.JPG/330px-Chadwick_Arboretum1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Chadwick Arboretum1",
+    "id": "cm-345",
+    "key": "landmark:columbus#chadwick-arboretum-and-learning-gardens",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#kelton-house-museum-and-garden": [],
+  "landmark:columbus#jeffrey-mansion": [],
+  "landmark:columbus#green-lawn-cemetery": [
+   {
+    "file": "File:Greenlawn Cemetery.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Analogue Kid",
+    "width": 2272,
+    "height": 1704,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Greenlawn_Cemetery.jpg/330px-Greenlawn_Cemetery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Greenlawn Cemetery",
+    "id": "cm-346",
+    "key": "landmark:columbus#green-lawn-cemetery",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#camp-chase-confederate-cemetery": [
+   {
+    "file": "File:Camp chase 1.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Georgeccampbell",
+    "width": 800,
+    "height": 600,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Camp_chase_1.jpg/330px-Camp_chase_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Camp chase 1",
+    "id": "cm-347",
+    "key": "landmark:columbus#camp-chase-confederate-cemetery",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#field-of-corn-cornhenge": [],
+  "landmark:columbus#dublin-link": [
+   {
+    "file": "File:Dublin Link 01.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Ɱ",
+    "width": 5585,
+    "height": 3634,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Dublin_Link_01.jpg/330px-Dublin_Link_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Dublin Link 01",
+    "id": "cm-348",
+    "key": "landmark:columbus#dublin-link",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#indian-run-falls": [
+   {
+    "file": "File:Walkway to Indian Run Falls 1.jpg",
+    "how": "geosearch 9 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Sixflashphoto",
+    "width": 2848,
+    "height": 4288,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Walkway_to_Indian_Run_Falls_1.jpg/330px-Walkway_to_Indian_Run_Falls_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Walkway to Indian Run Falls 1",
+    "id": "cm-349",
+    "key": "landmark:columbus#indian-run-falls",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#highbanks-metro-park": [],
+  "landmark:columbus#inniswood-metro-gardens": [
+   {
+    "file": "File:Iris flowers.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Игоревич",
+    "width": 1600,
+    "height": 1200,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Iris_flowers.JPG/330px-Iris_flowers.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Iris flowers",
+    "id": "cm-350",
+    "key": "landmark:columbus#inniswood-metro-gardens",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#ama-motorcycle-hall-of-fame-museum": [],
+  "landmark:columbus#the-wagnalls-memorial": [
+   {
+    "file": "File:Wagnalls Memorial Library.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC0 1.0",
+    "author": "Ɱ",
+    "width": 6000,
+    "height": 4000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Wagnalls_Memorial_Library.jpg/330px-Wagnalls_Memorial_Library.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Wagnalls Memorial Library",
+    "id": "cm-351",
+    "key": "landmark:columbus#the-wagnalls-memorial",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#orange-johnson-house": [
+   {
+    "file": "File:Orange Johnson House — Worthington, Ohio.jpg",
+    "how": "geosearch 14 m",
+    "field": "title",
+    "licence": "CC BY-SA 2.0",
+    "author": "Pythaglio",
+    "width": 1800,
+    "height": 1145,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Orange_Johnson_House_%E2%80%94_Worthington%2C_Ohio.jpg/330px-Orange_Johnson_House_%E2%80%94_Worthington%2C_Ohio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Orange Johnson House — Worthington, Ohio",
+    "id": "cm-352",
+    "key": "landmark:columbus#orange-johnson-house",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#hanby-house": [
+   {
+    "file": "File:Benjamin Hanby House.jpg",
+    "how": "geosearch 35 m",
+    "field": "title",
+    "licence": "Public domain",
+    "author": "Nyttend",
+    "width": 2816,
+    "height": 2112,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Benjamin_Hanby_House.jpg/330px-Benjamin_Hanby_House.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Benjamin Hanby House",
+    "id": "cm-353",
+    "key": "landmark:columbus#hanby-house",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#columbus-commons": [],
+  "landmark:columbus#union-station-arch-at-mcferson-commons": [
+   {
+    "file": "File:McFerson Commons 01.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Ɱ",
+    "width": 4699,
+    "height": 3278,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/McFerson_Commons_01.jpg/330px-McFerson_Commons_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "McFerson Commons 01",
+    "id": "cm-354",
+    "key": "landmark:columbus#union-station-arch-at-mcferson-commons",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#columbus-metropolitan-library-main-library": [
+   {
+    "file": "File:CML Main Library 01.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Ɱ",
+    "width": 5828,
+    "height": 3888,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/CML_Main_Library_01.jpg/330px-CML_Main_Library_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "CML Main Library 01",
+    "id": "cm-355",
+    "key": "landmark:columbus#columbus-metropolitan-library-main-library",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#schumacher-gallery": [],
+  "landmark:columbus#columbus-idea-foundry": [
+   {
+    "file": "File:Columbus Idea Foundry.jpg",
+    "how": "geosearch 7 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Mbrickn",
+    "width": 4032,
+    "height": 3024,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Columbus_Idea_Foundry.jpg/330px-Columbus_Idea_Foundry.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Columbus Idea Foundry",
+    "id": "cm-356",
+    "key": "landmark:columbus#columbus-idea-foundry",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#early-television-museum": [
+   {
+    "file": "File:Murphy A58V at the Early Television Museum June 2022.jpg",
+    "how": "geosearch 40 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "DogsRNice",
+    "width": 6000,
+    "height": 4000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Murphy_A58V_at_the_Early_Television_Museum_June_2022.jpg/330px-Murphy_A58V_at_the_Early_Television_Museum_June_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Murphy A58V at the Early Television Museum June 2022",
+    "id": "cm-357",
+    "key": "landmark:columbus#early-television-museum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#anti-saloon-league-museum": [],
+  "landmark:columbus#sharon-woods-metro-park": [],
+  "landmark:columbus#blendon-woods-metro-park": [],
+  "landmark:columbus#slate-run-living-historical-farm": [],
+  "landmark:columbus#hayden-run-falls": [],
+  "landmark:columbus#red-brick-tavern": [
+   {
+    "file": "File:Red Brick Tavern.jpg",
+    "how": "geosearch 22 m",
+    "field": "title",
+    "licence": "Public domain",
+    "author": "Unknown author",
+    "width": 4599,
+    "height": 2677,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Red_Brick_Tavern.jpg/330px-Red_Brick_Tavern.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Red Brick Tavern",
+    "id": "cm-358",
+    "key": "landmark:columbus#red-brick-tavern",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:columbus#prairie-oaks-metro-park": [],
+  "landmark:dayton#huffman-prairie-flying-field": [
+   {
+    "file": "File:1904WrightFlyer.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Wright Brothers",
+    "width": 1920,
+    "height": 1080,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/1904WrightFlyer.jpg/330px-1904WrightFlyer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "1904WrightFlyer",
+    "id": "cm-359",
+    "key": "landmark:dayton#huffman-prairie-flying-field",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:dayton#wright-dunbar-interpretive-center": [],
+  "landmark:dayton#sunwatch-indian-village": [
+   {
+    "file": "File:SunWatchVillage.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Andrew Sawyer a.k.a. Asawyer sunwatch",
+    "width": 2048,
+    "height": 1536,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/SunWatchVillage.jpg/330px-SunWatchVillage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "SunWatchVillage",
+    "id": "cm-360",
+    "key": "landmark:dayton#sunwatch-indian-village",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:dayton#riverscape-metropark": [],
+  "landmark:dayton#dayton-arcade": [
+   {
+    "file": "File:Dayton - Dayton Arcade 4th Street (OHPTC) - 51019570536.jpg",
+    "how": "geosearch 25 m",
+    "field": "title",
+    "licence": "CC BY 2.0",
+    "author": "Ohio Redevelopment Projects - ODSA",
+    "width": 4032,
+    "height": 3024,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Dayton_-_Dayton_Arcade_4th_Street_%28OHPTC%29_-_51019570536.jpg/330px-Dayton_-_Dayton_Arcade_4th_Street_%28OHPTC%29_-_51019570536.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Dayton - Dayton Arcade 4th Street (OHPTC) - 51019570536",
+    "id": "cm-361",
+    "key": "landmark:dayton#dayton-arcade",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:dayton#woodland-cemetery-and-arboretum": [],
+  "landmark:dayton#cox-arboretum-metropark": [
+   {
+    "file": "File:Butterfly House at Cox Arboretum and Gardens MetroPark, 2010.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Texas141",
+    "width": 2816,
+    "height": 2112,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Butterfly_House_at_Cox_Arboretum_and_Gardens_MetroPark%2C_2010.jpg/330px-Butterfly_House_at_Cox_Arboretum_and_Gardens_MetroPark%2C_2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Butterfly House at Cox Arboretum and Gardens MetroPark, 2010",
+    "id": "cm-362",
+    "key": "landmark:dayton#cox-arboretum-metropark",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:dayton#wright-brothers-memorial": [],
+  "landmark:dayton#americas-packard-museum": [
+   {
+    "file": "File:Packard museum snoke.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 3.0",
+    "author": "Chad Snoke",
+    "width": 3008,
+    "height": 2000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Packard_museum_snoke.JPG/330px-Packard_museum_snoke.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Packard museum snoke",
+    "id": "cm-363",
+    "key": "landmark:dayton#americas-packard-museum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:dayton#old-court-house": [
+   {
+    "file": "File:Old Montgomery County Courthouse - Dayton, Ohio (2021).jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Steve Morgan",
+    "width": 4803,
+    "height": 3028,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Old_Montgomery_County_Courthouse_-_Dayton%2C_Ohio_%282021%29.jpg/330px-Old_Montgomery_County_Courthouse_-_Dayton%2C_Ohio_%282021%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Old Montgomery County Courthouse - Dayton, Ohio (2021)",
+    "id": "cm-364",
+    "key": "landmark:dayton#old-court-house",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:dayton#paul-laurence-dunbar-house-historic-site": [],
+  "landmark:dayton#clifton-gorge-state-nature-preserve": [
+   {
+    "file": "File:Little Miami River through Clifton Gorge.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 2.5",
+    "author": "Moofpocket",
+    "width": 2048,
+    "height": 1536,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Little_Miami_River_through_Clifton_Gorge.JPG/330px-Little_Miami_River_through_Clifton_Gorge.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Little Miami River through Clifton Gorge",
+    "id": "cm-365",
+    "key": "landmark:dayton#clifton-gorge-state-nature-preserve",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:dayton#john-bryan-state-park": [
+   {
+    "file": "File:Little Miami River through Clifton Gorge.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 2.5",
+    "author": "Moofpocket",
+    "width": 2048,
+    "height": 1536,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Little_Miami_River_through_Clifton_Gorge.JPG/330px-Little_Miami_River_through_Clifton_Gorge.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Little Miami River through Clifton Gorge",
+    "id": "cm-366",
+    "key": "landmark:dayton#john-bryan-state-park",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:dayton#little-miami-scenic-trail": [
+   {
+    "file": "File:Yellow Springs Station.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 2.0",
+    "author": "Jamie Holly",
+    "width": 3008,
+    "height": 2000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Yellow_Springs_Station.jpg/330px-Yellow_Springs_Station.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Yellow Springs Station",
+    "id": "cm-367",
+    "key": "landmark:dayton#little-miami-scenic-trail",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:dayton#island-metropark": [],
+  "landmark:dayton#deeds-point-metropark": [],
+  "landmark:dayton#hills-and-dales-metropark": [],
+  "landmark:dayton#wegerzyn-gardens-metropark": [],
+  "landmark:dayton#heritage-center-of-clark-county": [
+   {
+    "file": "File:Former municipal building in Springfield, Ohio.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Nyttend",
+    "width": 2112,
+    "height": 2816,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Former_municipal_building_in_Springfield%2C_Ohio.jpg/330px-Former_municipal_building_in_Springfield%2C_Ohio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Former municipal building in Springfield, Ohio",
+    "id": "cm-368",
+    "key": "landmark:dayton#heritage-center-of-clark-county",
+    "cls": "other",
+    "review": "pending"
+   }
+  ]
  }
 }
