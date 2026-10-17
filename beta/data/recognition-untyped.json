@@ -2,8 +2,8 @@
  "_generated": "tools/beta/build.js (lib/recognition.js) — do not edit",
  "v": 1,
  "_doc": "Publishers left UNTYPED by the recognition rules (design/beta/RECOGNITION.md): no registry entry agrees on their key, host or domain, and no host rule applies. Typing them needs a registry entry (data/sources.json, owner), not a guess. They count against the local-favourites lens only by not qualifying.",
- "typed": 2176,
- "of": 2576,
+ "typed": 2179,
+ "of": 2585,
  "pages": [
   {
    "page": "cleveland",
@@ -1872,7 +1872,7 @@
      "hosts": [
       "timeout.com"
      ],
-     "places": 91
+     "places": 123
     },
     {
      "k": "NYT",
@@ -1894,17 +1894,41 @@
      "k": "6SQFT",
      "name": "6SQFT",
      "hosts": [],
-     "places": 7
+     "places": 10
     },
     {
      "k": "AMNY",
      "name": "Amny",
      "hosts": [],
-     "places": 5
+     "places": 8
     },
     {
      "k": "ABC7 NY",
      "name": "ABC7 NY",
+     "hosts": [],
+     "places": 6
+    },
+    {
+     "k": "FORGOTTEN NY",
+     "name": "Forgotten NY",
+     "hosts": [],
+     "places": 5
+    },
+    {
+     "k": "VILLAGE VOICE",
+     "name": "Village Voice",
+     "hosts": [],
+     "places": 5
+    },
+    {
+     "k": "EDIBLE QUEENS",
+     "name": "Edible Queens",
+     "hosts": [],
+     "places": 4
+    },
+    {
+     "k": "NEWS 12",
+     "name": "News 12",
      "hosts": [],
      "places": 4
     },
@@ -1917,32 +1941,32 @@
      "places": 3
     },
     {
-     "k": "EDIBLE QUEENS",
-     "name": "Edible Queens",
-     "hosts": [],
-     "places": 3
-    },
-    {
-     "k": "FORGOTTEN NY",
-     "name": "Forgotten NY",
-     "hosts": [],
-     "places": 3
-    },
-    {
      "k": "HISTORIC DISTRICTS COUNCIL",
      "name": "Historic Districts Council",
      "hosts": [],
      "places": 3
     },
     {
-     "k": "VILLAGE VOICE",
-     "name": "Village Voice",
+     "k": "AMSTERDAM NEWS",
+     "name": "Amsterdam News",
      "hosts": [],
-     "places": 3
+     "places": 2
+    },
+    {
+     "k": "CENTRAL PARK CONSERVANCY",
+     "name": "Central Park Conservancy",
+     "hosts": [],
+     "places": 2
     },
     {
      "k": "CORNER",
      "name": "Corner",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "HELL GATE",
+     "name": "Hell Gate",
      "hosts": [],
      "places": 2
     },
@@ -1973,8 +1997,14 @@
      "places": 2
     },
     {
-     "k": "NEWS 12",
-     "name": "News 12",
+     "k": "NYC LANDMARKS COMMISSION",
+     "name": "NYC Landmarks Commission",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "NEW YORK SUN",
+     "name": "New York Sun",
      "hosts": [],
      "places": 2
     },
@@ -2023,12 +2053,6 @@
      "places": 1
     },
     {
-     "k": "AMSTERDAM NEWS",
-     "name": "Amsterdam News",
-     "hosts": [],
-     "places": 1
-    },
-    {
      "k": "ARCHITECTURAL RECORD",
      "name": "Architectural Record",
      "hosts": [],
@@ -2043,12 +2067,6 @@
     {
      "k": "BRONX TIMES",
      "name": "Bronx Times",
-     "hosts": [],
-     "places": 1
-    },
-    {
-     "k": "CENTRAL PARK CONSERVANCY",
-     "name": "Central Park Conservancy",
      "hosts": [],
      "places": 1
     },
@@ -2115,20 +2133,20 @@
      "places": 1
     },
     {
+     "k": "NBC NEW YORK",
+     "name": "NBC New York",
+     "hosts": [],
+     "places": 1
+    },
+    {
      "k": "NYC EDC",
      "name": "NYC Edc",
      "hosts": [],
      "places": 1
     },
     {
-     "k": "NYC LANDMARKS COMMISSION",
-     "name": "NYC Landmarks Commission",
-     "hosts": [],
-     "places": 1
-    },
-    {
-     "k": "NEW YORK SUN",
-     "name": "New York Sun",
+     "k": "NATIONAL TRUST FOR HISTORIC PRESERVATION",
+     "name": "National Trust For Historic Preservation",
      "hosts": [],
      "places": 1
     },
@@ -2167,6 +2185,12 @@
      "places": 1
     },
     {
+     "k": "POETS.ORG (ACADEMY OF AMERICAN POETS)",
+     "name": "Poets.org (academy OF American Poets)",
+     "hosts": [],
+     "places": 1
+    },
+    {
      "k": "PRINCETON",
      "name": "Princeton University (official)",
      "hosts": [
@@ -2181,8 +2205,20 @@
      "places": 1
     },
     {
+     "k": "ROBERT SIETSEMA",
+     "name": "Robert Sietsema",
+     "hosts": [],
+     "places": 1
+    },
+    {
      "k": "SCOTT'S PIZZA TOURS",
      "name": "Scott's Pizza Tours",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "SMITHSONIAN MAGAZINE",
+     "name": "Smithsonian Magazine",
      "hosts": [],
      "places": 1
     },
