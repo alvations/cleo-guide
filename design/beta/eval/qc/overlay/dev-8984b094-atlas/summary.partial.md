@@ -18,3 +18,5 @@
 
 | Kind | View | Viewport | Failing runs / of (pages) | Budget | Worst | Page · theme | Owner | Shot |
 |---|---|---|---|---|---|---|---|---|
+
+> **QC note, 12:10Z: label figures in this partial are void.** A regex escaping bug in the probe (MEASURE is a template-literal body, so `\(` collapsed to `(`) treated each transparent pin wrapper as the painted pill. The label list was empty, so labelCount, labelWidth and labelGap passed vacuously. Fixed at the next QC commit and re-measured on b1c7939f. The cold first-screen readings here (chrome, clear map) don't depend on labels and stand: 500 runs, 0 failing.
