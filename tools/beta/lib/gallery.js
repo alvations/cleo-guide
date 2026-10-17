@@ -7,7 +7,7 @@
  * collections / cuisines, Recently closed. View order inside a row: area order, then rank (open first, tier, named
  * sources, live order). Row: [title, subtitle, lens key, value, ★, n, records ≤ 12].
  */
-const SLIM = ['id', 'n', 'nat', 'a', 'closed', 't', 'src', 'w', 'kind', 'la', 'ln'];
+const SLIM = ['id', 'n', 'nat', 'a', 'closed', 't', 'src', 'recby', 'w', 'kind', 'la', 'ln'];   // recby: FE-B D-53, the row cards name real recommenders only (sent only when it differs from src minus guide)
 let PH = {};                                   // W7: credited photos for this page (imagery lane, credit-gated), by place id
 const { captionHtml } = require('../imagery/photos');
 const { sentence, ownWords } = require('./casing');
@@ -19,7 +19,7 @@ let CZ = {}, OWN = null;                       // W8: cuisine names by id, for a
 const { dishOf: pickDish } = require('./dish');
 const dishOf = r => { const n = r.kind === 'food' ? pickDish((r.cz || []).map(id => CZ[id]).filter(Boolean)) : ''; return n ? sentence(n, OWN) : ''; };   // food covers (c): never a source or award
 // a why line that is only a URL (statecollege's legacy w = website) is no why line: it never becomes a quote cover
-const slim = r => Object.assign(Object.fromEntries(SLIM.filter(k => r[k] != null && r[k] !== '' && r[k] !== false && !(k === 'w' && /^https?:\/\/\S+$/.test(r[k]))).map(k => [k, r[k]])), phOf(r) ? { ph: phOf(r) } : {}, dishOf(r) ? { d: dishOf(r) } : {});
+const slim = r => Object.assign(Object.fromEntries(SLIM.filter(k => r[k] != null && r[k] !== '' && r[k] !== false && !(k === 'w' && /^https?:\/\/\S+$/.test(r[k])) && !(k === 'recby' && r[k].join(' ') === (r.src || []).filter(x => x !== 'guide').join(' '))).map(k => [k, r[k]])), phOf(r) ? { ph: phOf(r) } : {}, dishOf(r) ? { d: dishOf(r) } : {});
 const pl = n => n + (n === 1 ? ' place' : ' places');
 
 function rowsOf(j, name) {
