@@ -516,13 +516,14 @@ for k in HERO_VN:
 landmarks = []
 for key, (d, p) in recs.items():
     # tier-1 and first-row places always; any other place once a candidate wave vetted titles for it (R8 gap #1c)
-    if d['country'] == 'vietnam' or p['kind'] == 'food' or (p.get('t') != 1 and key not in PRIO and f'landmark:{key}' not in cands) or 'CLOSED' in p['n']: continue
+    # D-49: a food place becomes a target only once a wave vetted titles that identify THAT place (never generic stock)
+    if d['country'] == 'vietnam' or (p['kind'] == 'food' and f'landmark:{key}' not in cands) or (p.get('t') != 1 and key not in PRIO and f'landmark:{key}' not in cands) or 'CLOSED' in p['n']: continue
     g = set(p.get('g') or [])
     art = wiki_of(p)
     pilot = d['key'] in PILOTS
     t = {'key': f'landmark:{key}', 'type': 'landmark', 'depicts': key, 'label': p['n'], 'names': names_of(key, p, art), 'pilot': pilot}
     if art: t['article'] = art
-    if g & VENUE:
+    if g & VENUE and p['kind'] != 'food':   # D-49: a food place is its own subject; venue tags rule out SIGHTS only
         t['skip'] = f"venue ({', '.join(sorted(g & VENUE))}) — never a photo"
     elif key in SKIP:
         t['skip'] = SKIP[key]
@@ -533,7 +534,7 @@ for key, (d, p) in recs.items():
     elif re.match(r'Pok[eé] Lid', p['n']):
         t['skip'] = 'Poké Lid manhole cover: copyrighted character artwork, and Japan has no freedom of panorama for art (W8 gap stated)'
     if key in PRIO: t['priority'] = PRIO[key]
-    if art and 'skip' not in t: t['wikiLead'] = True
+    if art and 'skip' not in t and p['kind'] != 'food': t['wikiLead'] = True   # D-49: food only from vetted, identifying titles
     c = cands.pop(f'landmark:{key}', [])
     if c:
         t.update({'searchedVia': 'WebSearch allowed_domains=[commons.wikimedia.org]', 'searched': '2026-10-11'})

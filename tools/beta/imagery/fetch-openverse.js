@@ -29,8 +29,7 @@
  *                        for anonymous users and 20 results per page; a 429 stops the run cleanly, the next one resumes)
  *   --delay <ms>         pause between API calls (default 1500)
  *   --picks <n>          picks kept per target for review (default 2)
- *   --class <c>          only hero | priority | tier1 | other | food (repeatable); default every class but food, in that
- *                        order (food joins once the credit gate takes D-49 food photos)
+ *   --class <c>          only hero | priority | tier1 | other | food (repeatable); default every class, in that order
  *   --key <target>       only this target (repeatable)
  *   --source <s>         only this Openverse source (repeatable), e.g. flickr, wikimedia, smithsonian_*
  *   --include-pending    also search places that still have live Commons candidates (default: skip them)
@@ -127,8 +126,8 @@ function targets(o = { classes: [], keys: [], pending: false }) {
         la: p.la, ln: p.ln, town: ff.townWords(d.key, d.name || d.title), widths: cls === 'priority' ? [500, 720, 960] : [500, 720], food });
     }
   }
-  // food (D-49) only when asked for by --class food, until the credit gate accepts food photos
-  const want = o.classes.length ? o.classes : CLASSES.filter(c => c !== 'food');
+  // food (D-49) last: only a photo that identifies THAT place (the gate requires the identifying field)
+  const want = o.classes.length ? o.classes : CLASSES;
   const pick = out.filter(x => want.includes(x.cls) && (!o.keys.length || o.keys.includes(x.key)));
   return pick.sort((a, b) => CLASSES.indexOf(a.cls) - CLASSES.indexOf(b.cls));
 }
@@ -306,7 +305,7 @@ async function credit(o) {
       title: String(p.title || p.label).trim(), depicts: p.label.replace(/\s*\([^)]*\)\s*$/, '').trim(), author: p.creator,
       ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), sourceUrl: p.sourceUrl, licence: p.licence, licenceUrl: p.licenceUrl,
       provider: p.provider === 'wikimedia-commons' || p.source === 'wikimedia' ? 'wikimedia-commons' : p.source === 'flickr' ? 'flickr' : 'openverse',
-      ...(p.commonsTitle ? { commonsTitle: p.commonsTitle } : {}), via: 'openverse', openverseSource: p.source, openverseProvider: p.provider, openverseId: p.openverseId,
+      ...(p.commonsTitle ? { commonsTitle: p.commonsTitle } : {}), ...(p.cls === 'food' ? { identifies: p.matched } : {}), via: 'openverse', openverseSource: p.source, openverseProvider: p.provider, openverseId: p.openverseId,
       width: main.w, height: main.h, ...(variants.length ? { variants } : {}), modified: `resized to ${fc.widthList(out.map(v => v.w))} px wide`,
       fetched: today, confidence: 'med', review: `ok (${(review[p.id] || {}).reason || 'contact-sheet review'})`, matched: p.matched,
     });
