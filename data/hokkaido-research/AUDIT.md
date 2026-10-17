@@ -403,3 +403,46 @@ DOTO 56/55, SOYA 20/20. 514 discovered, food 275 = 53.5 %. 118 UNVERIFIED held (
   (NAVITIME address Soga 263 ≠ record Kondō 425-6 — possible relocation, re-check), Yōtei/Kyōgoku etc. address-only.
 - Still held: 102 UNVERIFIED (gourmet: Muroran Aji no Daiō / Ippei, Nanbantei, Hakodate ramen, Otaru Amatō/Kōzushi,
   Sapporo bars/cafés; Snow Miku Sky Town ★ — NAVITIME confirms Domestic Terminal 4F, no coordinate).
+
+## 2026-10-17 — Collection tagger: whole-word keyword matching (all Japan cities)
+
+`tools/japan_consolidate.collections()` used to match keywords as raw substrings, which produced false tags. Some examples: "war" inside Warner/ward/ware/award gave CASTLE; "villa" inside village gave CASTLE; "art" inside start/part/quarter gave MUS; "spa" inside space/spanning gave ONSEN; "gusuku" inside Aragusuku gave UNESCO; "-ji" inside "-jima" gave TEMPLE; "gion" inside region gave NIGHT. It now matches whole words only, the same rule `is_anime()` uses. A plural "s"/"es" is allowed, and suffix keywords ("-ji", "-jo", "-en") keep only the trailing boundary. Every lost tag was checked by hand against its context. True tags the boundary rule would have lost got **explicit synonyms**, rather than a looser match: prehistoric, historical, battlefield, warrior, warship (CASTLE); hachimangu/hachimangū (TEMPLE); forested, lakeside, wildflower, bellflower (NATURE); artefact, artifact (MUS). The regression test is `tools/test-japan-tags.py`, which runs in `npm test`. Only the `g` field changed; no place, source or pin moved. A tag "gained" here was previously crowded out by a false tag under the four-collection cap.
+
+**34 places changed** · tags lost 35 (CASTLE 19, MUS 6, TEMPLE 2, NATURE 2, ONSEN 2, NIGHT 2, VIEW 1, POP 1) · tags gained 5 (NATURE 3, ONSEN 1, VIEW 1).
+
+| Place | Lost | Gained |
+|---|---|---|
+| Nikka Whisky Yoichi Distillery (ニッカウヰスキー余市蒸溜所) | VIEW | — |
+| Otaru City General Museum (小樽市総合博物館) | CASTLE | — |
+| Lake Tōya (洞爺湖) | MUS | — |
+| Furepe Waterfall (フレペの滝) | POP | — |
+| Lake Shikaribetsu (然別湖) | CASTLE | — |
+| Rokkatei Art Village Nakasatsunai (六花亭 中札内美術村) | CASTLE | — |
+| Tokachi Millennium Forest (十勝千年の森) | MUS | — |
+| Shimamui Coast, Shakotan (島武意海岸) | MUS | — |
+| Niseko Annupuri (ニセコアンヌプリ) | CASTLE | — |
+| Sushiya-dōri — Otaru Sushi Street (寿司屋通り) | CASTLE | — |
+| Hachimanzaka Slope (八幡坂) | TEMPLE | — |
+| Cape Nosappu (納沙布岬) | CASTLE | — |
+| Ningle Terrace, Furano (ニングルテラス) | CASTLE | — |
+| Takushinkan Gallery, Biei (拓真館) | NATURE | — |
+| Hakuchō Ōhashi Bridge, Muroran (白鳥大橋) | ONSEN | — |
+| Sapporo Pirka Kotan — Ainu Culture Promotion Center (サッポロピリカコタン) | CASTLE | — |
+| Yunokawa Onsen, Hakodate (湯の川温泉) | MUS | — |
+| Lake Akan Ainu Kotan (阿寒湖アイヌコタン) | CASTLE | NATURE |
+| Niseko Tokyu Grand Hirafu (ニセコ東急 グラン・ヒラフ) | CASTLE | — |
+| Ueno Farm, Asahikawa (上野ファーム) | NIGHT | — |
+| Hakodate Arena (函館アリーナ) | NIGHT | — |
+| Tokachidake Bōgakudai Observatory (十勝岳望岳台) | CASTLE | — |
+| Maeda Forest Park (前田森林公園) | CASTLE | — |
+| Kamuiwakka Hot Falls, Shiretoko (カムイワッカ湯の滝) | CASTLE | — |
+| Biei Shirogane Onsen (白金温泉) | CASTLE | — |
+| Banei Tokachi — Obihiro Racecourse (ばんえい十勝・帯広競馬場) | NATURE | — |
+| Sendai-han Shiraoi Moto-Jin'ya Site & Museum (仙台藩白老元陣屋跡・資料館) | TEMPLE | NATURE |
+| ES CON FIELD HOKKAIDO — Hokkaido Ballpark F Village (エスコンフィールドHOKKAIDO) | CASTLE, MUS | ONSEN, VIEW |
+| Niseko Village Ski Resort (ニセコビレッジ) | CASTLE | — |
+| Makkari Onsen (まっかり温泉) | CASTLE | — |
+| Snow Crystal Museum, Asahikawa (雪の美術館) | CASTLE | — |
+| Shiryōkaku Fort (四稜郭) | MUS | NATURE |
+| Ten ni Tsuzuku Michi — Road to Heaven, Shari (天に続く道) | CASTLE | — |
+| Sapporo Salmon Museum (札幌市豊平川さけ科学館) | ONSEN | — |

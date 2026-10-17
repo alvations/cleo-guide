@@ -368,3 +368,69 @@ Per-agent logs `_okinawa_W10*_notes.md` hold every query, kept/dropped/held lead
 - **Build:** rebuild-city --build → 513 places, **425 on page**; --sourcecheck PASS · --geocheck PASS (high 149 · med 81 · low 195)
   · --statuscheck CONSISTENT · --buildcheck PASS · npm validate DATA OK · npm test ALL PASS. Pinned per area: CHUBU 85/95 ·
   HOKBU 78/92 · KRM 19/30 · MYK 40/50 · NAHA 103/121 · NANBU 52/65 · YAEYA 48/60. Japan hub card + CITIES row updated.
+
+## 2026-10-17 — Collection tagger: whole-word keyword matching (all Japan cities)
+
+`tools/japan_consolidate.collections()` used to match keywords as raw substrings, which produced false tags. Some examples: "war" inside Warner/ward/ware/award gave CASTLE; "villa" inside village gave CASTLE; "art" inside start/part/quarter gave MUS; "spa" inside space/spanning gave ONSEN; "gusuku" inside Aragusuku gave UNESCO; "-ji" inside "-jima" gave TEMPLE; "gion" inside region gave NIGHT. It now matches whole words only, the same rule `is_anime()` uses. A plural "s"/"es" is allowed, and suffix keywords ("-ji", "-jo", "-en") keep only the trailing boundary. Every lost tag was checked by hand against its context. True tags the boundary rule would have lost got **explicit synonyms**, rather than a looser match: prehistoric, historical, battlefield, warrior, warship (CASTLE); hachimangu/hachimangū (TEMPLE); forested, lakeside, wildflower, bellflower (NATURE); artefact, artifact (MUS). The regression test is `tools/test-japan-tags.py`, which runs in `npm test`. Only the `g` field changed; no place, source or pin moved. A tag "gained" here was previously crowded out by a false tag under the four-collection cap.
+
+**57 places changed** · tags lost 63 (CASTLE 27, MUS 17, UNESCO 7, MKT 3, VIEW 2, GARDEN 2, TEMPLE 2, NATURE 1, ONSEN 1, ICON 1) · tags gained 12 (NATURE 8, POP 1, TEMPLE 1, MKT 1, GARDEN 1).
+
+| Place | Lost | Gained |
+|---|---|---|
+| Bios Hill (ビオスの丘) | MUS, VIEW | — |
+| National Theatre Okinawa (国立劇場おきなわ) | MKT | — |
+| Urasoe Art Museum (浦添市美術館) | CASTLE | — |
+| Ryukyu Glass Village, Itoman (琉球ガラス村) | CASTLE | — |
+| Nyatiya Cave 'Sennin-gama', Ie Island (ニャティヤ洞) | MUS | — |
+| Ōgimi Village Bashōfu Hall, Kijoka (大宜味村立芭蕉布会館) | CASTLE | — |
+| Fukuji Dam & Lake Fukujō, Higashi (福地ダム・福上湖) | CASTLE | — |
+| Tokei Beach & Heart Rock, Kouri Island (ティーヌ浜) | MUS | — |
+| Furuzamami Beach, Zamami Island (古座間味ビーチ) | CASTLE | — |
+| Sunset Beach, Chatan (サンセットビーチ) | CASTLE, MUS | — |
+| Okinawa World & Gyokusendo Cave (おきなわワールド 玉泉洞) | CASTLE | — |
+| Yomitan Yachimun no Sato Pottery Village (やちむんの里) | CASTLE | — |
+| Tatami-ishi, Kume Island (畳石) | CASTLE | — |
+| ASMUI Spiritual Hikes (former Daisekirinzan, 大石林山) | CASTLE | — |
+| Cape Hedo (辺戸岬) | CASTLE | — |
+| Mihama American Village (美浜アメリカンビレッジ) | CASTLE | NATURE |
+| Ikei Beach, Ikei Island (伊計ビーチ) | MUS | — |
+| Taketomi Island & village (竹富島) | CASTLE, MUS | — |
+| Miyara Dunchi (宮良殿内) | VIEW | — |
+| Sakaemachi Market (栄町市場) | CASTLE | POP |
+| Bise Fukugi Tree Road (備瀬のフクギ並木) | CASTLE | — |
+| Fukushū-en Garden (福州園) | MUS | — |
+| Nago Pineapple Park (ナゴパイナップルパーク) | MUS | — |
+| DMM Kariyushi Aquarium (DMMかりゆし水族館) | CASTLE, GARDEN | — |
+| Yubu Island water-buffalo crossing (由布島) | MUS | — |
+| Ishigaki Yaima Village (石垣やいま村) | CASTLE | — |
+| Aragusuku Beach, Miyako (新城海岸) | UNESCO, CASTLE | — |
+| Emerald Beach, Ocean Expo Park (エメラルドビーチ) | MUS | — |
+| Toyosaki Chura-Sun Beach (豊崎美らSUNビーチ) | MUS | — |
+| Nakanoshima Beach, Shimoji Island (中の島ビーチ) | MUS | — |
+| Kouri Ōhashi Bridge & Kouri Island (古宇利大橋・古宇利島) | MUS | NATURE |
+| Takatsukiyama Observatory, Zamami (高月山展望台) | CASTLE | — |
+| Ishigaki-jima Limestone Cave (石垣島鍾乳洞) | TEMPLE | — |
+| Aharen-enchi Viewpoint, Tokashiki (阿波連園地) | GARDEN | — |
+| Okitsura pilgrimage — Gushikawa, Uruma (沖ツラ聖地 具志川公民館・具志川ビーチ) | MUS | NATURE |
+| Nakamura House (中村家住宅) | UNESCO | — |
+| Urasoe Yōdore Royal Mausoleum & Urasoe Castle ruins (浦添ようどれ・浦添城跡) | NATURE | — |
+| Kondoi Beach, Taketomi Island (コンドイ浜) | CASTLE | — |
+| Great Akagi Trees of Shuri Kinjō (首里金城の大アカギ) | UNESCO | TEMPLE |
+| Kayauchi Banta cliff, Kunigami (茅打バンタ) | MUS | — |
+| Koza Music Town (コザ・ミュージックタウン) | MUS | MKT |
+| Mekaru Tomb Site, Shintoshin (銘苅墓跡群) | ONSEN | — |
+| Inazaki Observatory, Zamami (稲崎展望台) | MUS | — |
+| Nishibama Beach, Aka Island (ニシバマビーチ) | TEMPLE | — |
+| Poké Lid — Growlithe over Mihama fireworks, Depot Island Boardwalk, Chatan (ポケふた ガーディ 北谷町美浜) | CASTLE | NATURE |
+| Poké Lid — Solrock & Skiploom, Kumiodori Park, Urasoe (ポケふた ソルロック×ポポッコ 組踊公園) | ICON | NATURE |
+| Naha City Museum of History (那覇市歴史博物館) — CLOSED | UNESCO, CASTLE | — |
+| Naha Traditional Arts & Crafts Center, Tenbusu Naha (那覇市伝統工芸館) | CASTLE | — |
+| Poké Lid — Wartortle & Sandygast, Michi-no-Eki Itoman (ポケふた カメール×スナバァ 道の駅いとまん) | UNESCO | NATURE |
+| Poké Lid — Axew & Jangmo-o on a Hārī boat, Michi-no-Eki Toyosaki (ポケふた キバゴ×ジャラコ 道の駅豊崎) | UNESCO | NATURE |
+| Poké Lid — Growlithe, Zamami Village (ポケふた ガーディ 座間味村) | CASTLE | NATURE |
+| Kouri Ocean Tower, Kouri Island (古宇利オーシャンタワー) | CASTLE | — |
+| JUNGLIA Okinawa theme park, Nakijin/Nago (ジャングリア沖縄) | MKT | — |
+| Ta-taki Falls, Ōgimi (ター滝) | CASTLE | — |
+| Yanbaru Kuina Ecological Exhibit 'Kuina no Mori', Kunigami (ヤンバルクイナ生態展示学習施設 クイナの森) | CASTLE | — |
+| Imgya Marine Garden, Gusukube (イムギャーマリンガーデン) | UNESCO | GARDEN |
+| Shima Soba Ichiban-chi Ishigaki Honten (島そば一番地 石垣本店) | MKT | — |

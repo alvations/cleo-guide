@@ -78,15 +78,18 @@ KW={
          "skytree","tokyo tower","dotonbori","dōtonbori","osaka castle","shuri","churaumi","sapporo clock","odori"],
  "UNESCO":["unesco","world heritage","world cultural heritage","sekai isan","gusuku","shiretoko","nikko","nikkō"],
  "TEMPLE":["temple","-ji","shrine","jinja","taisha","jingu","jingū","tenmangu","pagoda","utaki","utaki","buddhist",
-           "zen","hongan","inari","hachiman","torii"],
+           "zen","hongan","inari","hachiman","torii","hachimangu","hachimangū"],
  "CASTLE":["castle","-jo","palace","gosho","villa","historic","heritage","samurai","ninja","machiya","old town",
-           "preserved district","memorial","peace","battle","war","gusuku","residence","ruins","edo"],
+           "preserved district","memorial","peace","battle","war","gusuku","residence","ruins","edo",
+           "prehistoric","historical","battlefield","warrior","warship"],
  "GARDEN":["garden","teien","-en","tea house","teahouse","tea ceremony","moss","bamboo","rikugien","koishikawa",
            "kenroku","korakuen","sankeien"],
- "MUS":["museum","gallery","art","bijutsukan","hakubutsukan","digital art","teamlab","exhibition","aquarium","science"],
+ "MUS":["museum","gallery","art","bijutsukan","hakubutsukan","digital art","teamlab","exhibition","aquarium","science",
+        "artefact","artifact"],
  "NATURE":["park","nature","mountain","mt.","lake","gorge","valley","forest","beach","island","cape","coast","falls",
            "waterfall","national park","trail","hike","flower","lavender","cherry blossom","sakura","koyo","momiji",
-           "snorkel","reef","mangrove","caldera","volcano","marsh","wetland","drift ice"],
+           "snorkel","reef","mangrove","caldera","volcano","marsh","wetland","drift ice","forested","lakeside","wildflower",
+           "bellflower"],
  "ONSEN":["onsen","sento","sentō","hot spring","bathhouse","ryokan","rotenburo","spa","jigokudani","ashiyu","foot bath"],
  "MKT":["market","ichiba","shotengai","shōtengai","arcade","shopping street","depachika","dori","nishiki","kuromon",
         "tsukiji","toyosu","makishi","nijo","nijō","morning market","asaichi","kappabashi","ameyoko"],
@@ -121,14 +124,29 @@ def anime_note(x):
     note="★ Anime & pop culture — "+a
     return note+(" · "+x["k"] if x.get("k") else "")
 
+# Keyword match on WHOLE WORDS (same rule as is_anime): a raw substring test once tagged "Warner Bros" CASTLE ("war"),
+# Edogawa CASTLE ("edo"), "village" CASTLE ("villa") and "space" ONSEN ("spa"). A keyword matches only when it is not
+# glued to other letters; a trailing plural "s"/"es" is allowed (temples, gardens). Keywords that start with "-"
+# ("-ji", "-jo", "-en") are romanized suffixes and keep only the trailing boundary. Need another spelling? Add it to KW
+# as its own keyword; never loosen this rule.
+_KW_RE={}
+def _kw_hit(hay, kws):
+    for k in kws:
+        r=_KW_RE.get(k)
+        if r is None:
+            lead='' if not k[:1].isalpha() else r'(?<![a-zā-ūō])'
+            r=_KW_RE[k]=re.compile(lead+re.escape(k)+r'(?:e?s)?(?![a-zā-ūō])')
+        if r.search(hay): return True
+    return False
+
 def collections(x, is_food):
     g=list(x.get("g",[]))
     hay=(x.get("n","")+" "+x.get("w","")+" "+x.get("k","")+" "+" ".join(x.get("cz",[]))).lower()
     if is_food:
-        if any(k in hay for k in ["market","ichiba","depachika","yokocho","yokochō","shotengai"]): g.append("MKT")
+        if _kw_hit(hay, ["market","ichiba","depachika","yokocho","yokochō","shotengai"]): g.append("MKT")
     else:
         for cid,kws in KW.items():
-            if any(k in hay for k in kws): g.append(cid)
+            if _kw_hit(hay, kws): g.append(cid)
         if re.search(r'\bfree\b|free admission|no admission|free entry|admission free', hay): g.append("FREE")
         if not g and not is_anime(x, hay): g.append("CASTLE")
     if is_anime(x, hay): g.insert(0,"ANIME")

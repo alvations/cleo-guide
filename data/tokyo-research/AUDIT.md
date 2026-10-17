@@ -428,3 +428,58 @@ Searches this session: ~75 (discovery/corroboration ~30, pins ~45).
 ## 2026-10-17 — Category fix: performance venues out of "Castles, Palaces & History"
 
 From the designer's R4 review. **Kabuki-za** was filed under CASTLE. The same test (a theatre, hall or arena filed under castles/palaces) also catches **Ryōgoku Kokugikan** (the sumo hall) and **Yoyogi National Gymnasium** (an arena). CASTLE is removed from their research-file `g` in `SIGHTS_TOKYO_W2.json`. They keep ICON plus MUS or NATURE/FREE from the keyword pass. The Japan CATS have no performing-arts collection, so whether to add one is a design decision; it is not made here. **Tokyo Opera City** is CASTLE only by keyword ("memorial") and ONSEN only by a substring false positive ("spa" inside "space"). That comes from the tagger, not the research file, and is raised as a tagger fix (whole-word keyword matching) rather than patched per record.
+
+## 2026-10-17 — Collection tagger: whole-word keyword matching (all Japan cities)
+
+`tools/japan_consolidate.collections()` used to match keywords as raw substrings, which produced false tags. Some examples: "war" inside Warner/ward/ware/award gave CASTLE; "villa" inside village gave CASTLE; "art" inside start/part/quarter gave MUS; "spa" inside space/spanning gave ONSEN; "gusuku" inside Aragusuku gave UNESCO; "-ji" inside "-jima" gave TEMPLE; "gion" inside region gave NIGHT. It now matches whole words only, the same rule `is_anime()` uses. A plural "s"/"es" is allowed, and suffix keywords ("-ji", "-jo", "-en") keep only the trailing boundary. Every lost tag was checked by hand against its context. True tags the boundary rule would have lost got **explicit synonyms**, rather than a looser match: prehistoric, historical, battlefield, warrior, warship (CASTLE); hachimangu/hachimangū (TEMPLE); forested, lakeside, wildflower, bellflower (NATURE); artefact, artifact (MUS). The regression test is `tools/test-japan-tags.py`, which runs in `npm test`. Only the `g` field changed; no place, source or pin moved. A tag "gained" here was previously crowded out by a false tag under the four-collection cap.
+
+**46 places changed** · tags lost 49 (MUS 19, CASTLE 10, NATURE 8, ONSEN 5, TEMPLE 3, GARDEN 2, NIGHT 1, VIEW 1) · tags gained 7 (NATURE 2, VIEW 2, NIGHT 1, MKT 1, FREE 1).
+
+| Place | Lost | Gained |
+|---|---|---|
+| Jimbōchō Book Town (神保町古書店街) | MUS | — |
+| Kappabashi Dōgu-gai (かっぱ橋道具街) | CASTLE | — |
+| Shinjuku Gyoen National Garden (新宿御苑) | NATURE | — |
+| Shinjuku Golden Gai (新宿ゴールデン街) | CASTLE, MUS | — |
+| Koishikawa Kōrakuen (小石川後楽園) | NATURE | — |
+| Nihonbashi Bridge (日本橋) | MUS | — |
+| Shimokitazawa (下北沢) | CASTLE | — |
+| Nikkō Tōshō-gū (日光東照宮) | MUS | NATURE |
+| The National Art Center, Tokyo (国立新美術館) | ONSEN | — |
+| Kyū-Shiba-rikyū Gardens (旧芝離宮恩賜庭園) | NATURE | — |
+| Ikegami Honmon-ji (池上本門寺) | NIGHT | — |
+| Kegon Falls (華厳滝) | TEMPLE | — |
+| Rinnō-ji (輪王寺) | MUS | — |
+| Oshino Hakkai (忍野八海) | CASTLE | — |
+| Tokyu Kabukichō Tower (東急歌舞伎町タワー) | MUS | VIEW |
+| Kagurazaka (神楽坂) | MUS | — |
+| Tsukiji Hongan-ji (築地本願寺) | MUS | — |
+| Meguro Sky Garden (目黒天空庭園) | CASTLE | NATURE |
+| Gokoku-ji (護国寺) | MUS | — |
+| Tokyo Dome City (東京ドームシティ) | NATURE | — |
+| Ameya-Yokochō (Ameyoko, アメ横) | CASTLE, GARDEN | NIGHT |
+| Omoide Yokochō (思い出横丁) | CASTLE | — |
+| Asakura Museum of Sculpture (朝倉彫塑館) | NATURE | — |
+| Shinjuku Central Park (新宿中央公園) | VIEW | — |
+| Tokyo Opera City (東京オペラシティ) | ONSEN | — |
+| Warner Bros. Studio Tour Tokyo — The Making of Harry Potter | CASTLE | — |
+| Shakujii Park (石神井公園) | ONSEN | — |
+| Ōji Inari Shrine (王子稲荷神社) | GARDEN | — |
+| Yamamoto-tei, Shibamata (山本亭) | TEMPLE | — |
+| Kaminarimon (雷門) | MUS | — |
+| Bishamonten Zenkoku-ji (毘沙門天 善國寺) | MUS | — |
+| Odaiba Marine Park (お台場海浜公園) | MUS | — |
+| Sompo Museum of Art (SOMPO美術館) | NATURE | — |
+| Nihon Minka-en Open Air Museum (日本民家園) | TEMPLE | — |
+| Nintendo TOKYO & Pokémon Center Shibuya (Shibuya PARCO 6F) | ONSEN | — |
+| Toyosu Senkyaku Banrai (豊洲 千客万来) | NATURE | — |
+| Shinkyō Bridge, Nikkō (神橋) | MUS | — |
+| Edo-Tokyo Museum | NATURE | — |
+| Toyama Park & Hakoneyama | CASTLE, MUS | VIEW |
+| Gyosen Park | CASTLE | — |
+| Animate Ikebukuro Flagship Store (アニメイト池袋本店) | MUS | — |
+| Ultraman Shopping Street, Soshigaya (ウルトラマン商店街) | MUS | MKT |
+| Tokyo Anime Center, DNP Plaza Shibuya (東京アニメセンター) | ONSEN | FREE |
+| Nihombashi Mitsukoshi Main Store (日本橋三越本店) | MUS | — |
+| Seiseki-Sakuragaoka — Whisper of the Heart pilgrimage (聖蹟桜ヶ丘 耳をすませば) | MUS | — |
+| Gashapon Department Store Ikebukuro Main Store (ガシャポンのデパート 池袋総本店) | MUS | — |

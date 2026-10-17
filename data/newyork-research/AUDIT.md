@@ -410,3 +410,45 @@ Wave 3 begins with the t3 city canon (bialys, knishes, the Little Italy cannoli 
 **Possible promotion (not made):** Sahadi's, a James Beard America's Classic, is at t3. A tier change is an editorial call, so it is flagged here and not changed.
 
 **Counts after wave 2j + 3a:** single-source t1 0 · **t2 44** · **t3 48**. `--sourcecheck`: 92 single-source, 4 Yelp-only held by GATE 0.
+
+## 2026-10-17 — D-54 wave 3b: tier 3, tea, coffee, desserts, neighbourhood restaurants and parks (27 second-sourced)
+
+Same method as before. New labels: SPRUDGE, EDIBLE BROOKLYN, REFINERY29. Lysée's second source is World's 50 Best's 2026 profile of Eunji Lee as North America's Best Pastry Chef. Alley Pond Environmental Center was **not** counted, because the sources found describe the park and its tulip tree, not the center.
+
+| Place | Second source added |
+|---|---|
+| Xing Fu Tang | Infatuation |
+| Devocion | Village Voice |
+| Lady M Cake Boutique | Wikipedia |
+| Spot Dessert Bar | Infatuation |
+| Fan-Fan Doughnuts | Infatuation + Time Out |
+| Lysee | Time Out + World's 50 Best |
+| Wah Fung No. 1 Fast Food | Untapped Cities |
+| Raku | Time Out |
+| Ruffian | Time Out |
+| Cervo's | Village Voice + NYC Tourism |
+| Winner | Gothamist |
+| Ops | Infatuation + Brooklyn Magazine |
+| Full Moon Pizzeria | Infatuation + News 12 |
+| Havana Cafe | Infatuation + News 12 |
+| Amdo Kitchen | Infatuation + Village Voice |
+| I Love Paraguay | Infatuation |
+| Felix Roasting Co. | Sprudge |
+| Tacoway Beach | Edible Brooklyn |
+| Bronx Night Market | 6sqft + ABC7 NY |
+| Orchard Beach | Wikipedia + Untapped Cities |
+| Fearless Girl | Wikipedia |
+| New Asha | NYC Tourism + amNY |
+| Columbus Park | Wikipedia + Untapped Cities |
+| High Rock Park | NY1 + Wikipedia |
+| Soft Swerve | DNAinfo + Gayot |
+| Maman | Infatuation |
+| Bibble & Sip | Refinery29 |
+
+**Flags:**
+- **Maman** (239 Centre St): The Infatuation's page now titles it "Marché Maman". It may have been renamed and needs a 4c name check.
+- **Spot Dessert Bar:** its pre-existing source key is MENUPAGES, which is a directory, not a recommender. With Infatuation added it passes ≥2 credible on paper, but in practice it has one real recommender.
+
+**Carried forward (t3, no credible second source yet):** Green-Wood Catacombs, The New York Earth Room and The Broken Kilometer (only Dia, the owner), SculptureCenter, Serendipity 3, Jacob's Pickles, Milk Bar, Sey Coffee, Partners Coffee, Abraço, Fabrique Bakery, Ralph's Famous Italian Ices, McGee's Pub, Alley Pond Environmental Center.
+
+**Counts after wave 3b:** single-source t1 0 · **t2 44** · **t3 21**. `--sourcecheck`: 65 single-source.

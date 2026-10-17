@@ -335,3 +335,53 @@ Yield 0.08/search — MapFan has no spot pages for most newer shops; **channel e
 needing one address/coordinate confirmation: Tsunechan (MapFan 34.5654961,135.4734859, street no. unseen), Jungle Nipponbashi (page
 S44W,J,27RTY matches 3-4-16, coords unseen). **Final W7 build: 499 discovered, 369 rendered (159 sights + 210 food)**, ANIME 34, 4 gates PASS,
 validate + npm test PASS, all 9 areas OK.
+
+## 2026-10-17 — Collection tagger: whole-word keyword matching (all Japan cities)
+
+`tools/japan_consolidate.collections()` used to match keywords as raw substrings, which produced false tags. Some examples: "war" inside Warner/ward/ware/award gave CASTLE; "villa" inside village gave CASTLE; "art" inside start/part/quarter gave MUS; "spa" inside space/spanning gave ONSEN; "gusuku" inside Aragusuku gave UNESCO; "-ji" inside "-jima" gave TEMPLE; "gion" inside region gave NIGHT. It now matches whole words only, the same rule `is_anime()` uses. A plural "s"/"es" is allowed, and suffix keywords ("-ji", "-jo", "-en") keep only the trailing boundary. Every lost tag was checked by hand against its context. True tags the boundary rule would have lost got **explicit synonyms**, rather than a looser match: prehistoric, historical, battlefield, warrior, warship (CASTLE); hachimangu/hachimangū (TEMPLE); forested, lakeside, wildflower, bellflower (NATURE); artefact, artifact (MUS). The regression test is `tools/test-japan-tags.py`, which runs in `npm test`. Only the `g` field changed; no place, source or pin moved. A tag "gained" here was previously crowded out by a false tag under the four-collection cap.
+
+**41 places changed** · tags lost 45 (CASTLE 17, MUS 14, NATURE 6, GARDEN 3, ONSEN 2, TEMPLE 1, VIEW 1, NIGHT 1) · tags gained 10 (NATURE 5, MKT 2, FREE 1, VIEW 1, POP 1).
+
+| Place | Lost | Gained |
+|---|---|---|
+| Tempozan Giant Ferris Wheel | CASTLE | — |
+| Kitano Ijinkan (Kitano-chō) | TEMPLE | — |
+| Akashi Kaikyō Bridge | ONSEN | — |
+| Kōyasan — Okunoin | MUS | NATURE |
+| Wakayama Castle | NATURE | — |
+| Taishō 'Little Okinawa' (Hirao) | CASTLE, MUS | — |
+| Osaka Tenmangū | CASTLE | — |
+| Shinsaibashi-suji Shopping Arcade | MUS | MKT |
+| Kitashinchi | MUS | — |
+| Tennōji Park & Tenshiba | CASTLE | NATURE |
+| Osaka Tsuruhashi Market | CASTLE | — |
+| Ebisubashi & the Glico Running Man sign | MUS | — |
+| Jan Jan Yokochō | CASTLE | — |
+| Sennichimae Doguyasuji | CASTLE | — |
+| LUCUA Characters World — Pokémon Center Osaka & Nintendo OSAKA | CASTLE | — |
+| Tetsujin-28 Monument (Shin-Nagata, Kobe) | MUS | NATURE |
+| Kobe Anpanman Children's Museum & Mall | GARDEN | FREE |
+| Maishima Incineration Plant (舞洲工場) | MUS | VIEW |
+| Tempozan Marketplace / Naniwa Kuishinbo Yokocho | CASTLE, MUS | POP |
+| Hiraoka Shrine (枚岡神社) | CASTLE | — |
+| Suntory Yamazaki Distillery (山崎蒸溜所) | GARDEN, VIEW | — |
+| Furuichi Kofun Group — Konda Gobyōyama Kofun (誉田御廟山古墳) | MUS | — |
+| GLION MUSEUM (Chikkō Red Brick Warehouse) | CASTLE | — |
+| Sōrakuen Garden (相楽園) | NATURE | — |
+| Osaka Museum of Housing and Living (大阪くらしの今昔館) | NATURE | — |
+| Super Nintendo World (Universal Studios Japan) | GARDEN | NATURE |
+| Hello Kitty Smile (Awaji Island) | CASTLE | NATURE |
+| Takarazuka Grand Theater (Takarazuka Revue) | NATURE | — |
+| Tsuyu no Tenjinsha (Ohatsu Tenjin) | CASTLE | — |
+| Isshin-ji (一心寺) | MUS | — |
+| Smartball New Star | MUS | — |
+| Osaka municipal ferries (Tempozan & Taishō crossings) | NATURE | — |
+| Kirara Kujō Shopping Street (キララ九条商店街) | CASTLE | MKT |
+| Yasui Shrine (安居神社) | CASTLE | — |
+| Super Potato Osaka (Den Den Town) | MUS | — |
+| Misono Building (味園ビル) — CLOSED | CASTLE | — |
+| Kiddy Land Umeda | MUS | — |
+| Gashapon Department Store HEP FIVE (Umeda) | MUS, NIGHT | — |
+| Kiyomizu-dera, Osaka (清水寺, Tamade no Taki) | CASTLE | — |
+| Senbonmatsu Ōhashi — the 'Megane-bashi' loop bridge (千本松大橋) | NATURE | — |
+| Namihaya Ōhashi (なみはや大橋) | ONSEN | — |

@@ -128,6 +128,46 @@ The gate counted Yelp as 0 all along. The problem was that **build-newyork.py ha
 - (b) SV's 62 are pruned with an audit trail (`_rejected_no_credible.json`).
 - Hainan Chicken House → t1.
 
+## D-54 second-source waves + D-53 + photo-review fixes — 2026-10-17
+
+Overall the NYC single-source count went **t1 30 → 0 · t2 204 → 44 · t3 77 → 21**. Each wave appends a section to `data/newyork-research/AUDIT.md`, with per-place sources, what was not counted, carried-forward records and flags. Sources go into `_source_overlay.json` ("add" / "tier"), and any new key needs a `SRC_LABEL` entry in `consolidate.py`.
+
+| Wave | Commit | Result |
+|---|---|---|
+| 1 | 6b6aae69 | t1 → 0 |
+| 2a–2c | | sights + city canon, t2 207 → 135 |
+| 2d–2f | 9c3f6d162 | food + bars, t2 → 89 |
+| 2g–2i | 504dacc4d | t2 → 48; Deluxe Green Bo t2 → t3 on the merit bar |
+| 2j + 3a | 3c3a7496d | t2 → 44, t3 78 → 48 |
+| 3b | this push | t3 → 21 |
+
+**D-53** (3c3a7496d): 42 of 51 "No independent source yet" cards sourced. Each is a per-article `D53_<NAME>_<n>` S/FS entry beside ADD/FADD, never relabelled. The edits were made by `scratchpad/cle_d53.py` with record-count asserts. Cleveland, Youngstown and Pittsburgh now have AUDIT.md files. The cards that found no source are LEGO Fifth Ave, Konditorei Heinemann, Transformer Station, Lakewood Public Library, Madison Park and Banter (Van Aken).
+
+**Photo-review fixes** (504dacc4d):
+- Kyoto: 16 UNESCO records now cite their own article (the generator `_kyoto_unesco.py` has a `WIKI` map).
+- Akron: Brady's Leap's Kent link is dropped.
+- Tokyo: Kabuki-za, the Kokugikan and Yoyogi lose CASTLE.
+
+**Open with the orchestrator:**
+- New Malaysia vs West New Malaysia (possible duplicate).
+- SGD Tofu House Flushing (branch unconfirmed).
+- Golden Lake Pavilion (possible rename, unresolved).
+- Siam Cafe cuisine.
+- Handel's address.
+- Sahadi's (possible t3 promotion).
+
+**Carry-forwards** (no credible second source after a search) are listed per wave in AUDIT.md. Don't re-search them unless a new outlet is named.
+
+**Japan tagger (approved, this push):** whole-word matching in `japan_consolidate.collections()`, synonyms for the true tags it would have lost, `tools/test-japan-tags.py`, and a per-city diff in each Japan AUDIT.md (206 places re-tagged).
+
+**Queued from the orchestrator's 15:37Z and 15:48Z calls:**
+- Tokyo performing-arts category: count the venues; if there are 4 or more, add it and send the list for designer sign-off.
+- New Malaysia vs West New Malaysia: 4c duplicate/status check.
+- Siam Cafe: re-tag only if a second source agrees with Scene.
+- Handel's and Glizzys: make address, pin and text agree (4a).
+- Banter: keep only sources about the Van Aken location.
+- Sahadi's: promote it if it outranks its region's tier holders.
+
 ## In flight
 
 - Nothing. The Nominatim allowance for 2026-10-17 is spent (300, Singapore). Next: the 2026-10-18 03:17 UTC wake → Singapore again.

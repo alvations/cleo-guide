@@ -349,3 +349,40 @@ statuscheck / buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. 
 ## 2026-10-17 — Wikipedia link fix: the 16 UNESCO component records
 
 Found in the photo review. All 16 "Historic Monuments of Ancient Kyoto" component records (Tō-ji, Kinkaku-ji, Nijō Castle, Byōdō-in and the rest) cited the **group** article `Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)`. Its Wikidata lead image is Kinkaku-ji, so every one of them would have pulled the wrong picture. Each now cites its own en.wikipedia article, verified by WebSearch on 2026-10-17. The fix is in `SIGHTS_KYOTO_UNESCO.json` and also in its generator `_kyoto_unesco.py` (a `WIKI` map), so a re-run keeps it. The UNESCO source (whc.unesco.org/en/list/688) is unchanged. Only the `s` field of those 16 records changed in the dataset.
+
+## 2026-10-17 — Collection tagger: whole-word keyword matching (all Japan cities)
+
+`tools/japan_consolidate.collections()` used to match keywords as raw substrings, which produced false tags. Some examples: "war" inside Warner/ward/ware/award gave CASTLE; "villa" inside village gave CASTLE; "art" inside start/part/quarter gave MUS; "spa" inside space/spanning gave ONSEN; "gusuku" inside Aragusuku gave UNESCO; "-ji" inside "-jima" gave TEMPLE; "gion" inside region gave NIGHT. It now matches whole words only, the same rule `is_anime()` uses. A plural "s"/"es" is allowed, and suffix keywords ("-ji", "-jo", "-en") keep only the trailing boundary. Every lost tag was checked by hand against its context. True tags the boundary rule would have lost got **explicit synonyms**, rather than a looser match: prehistoric, historical, battlefield, warrior, warship (CASTLE); hachimangu/hachimangū (TEMPLE); forested, lakeside, wildflower, bellflower (NATURE); artefact, artifact (MUS). The regression test is `tools/test-japan-tags.py`, which runs in `npm test`. Only the `g` field changed; no place, source or pin moved. A tag "gained" here was previously crowded out by a false tag under the four-collection cap.
+
+**28 places changed** · tags lost 29 (CASTLE 10, MUS 9, VIEW 4, NATURE 2, GARDEN 1, TEMPLE 1, NIGHT 1, ONSEN 1) · tags gained 3 (POP 2, NATURE 1).
+
+| Place | Lost | Gained |
+|---|---|---|
+| Marufukuro — former Nintendo headquarters (丸福樓) | MUS | — |
+| Nintendo KYOTO | CASTLE | — |
+| Nishiki Tenmangū | CASTLE | POP |
+| Nijō Jinya | NATURE | — |
+| Teramachi & Shinkyōgoku arcades | CASTLE | POP |
+| Fushimi Sake District | MUS | — |
+| Hōkai-ji (Hino Yakushi) | CASTLE | — |
+| Rokuharamitsu-ji | MUS | — |
+| Yasui Konpira-gū | GARDEN | — |
+| Kitano Tenmangū | CASTLE | — |
+| Ine no Funaya (Ine boathouses) | MUS | — |
+| Hōsen-in | VIEW | — |
+| Jingo-ji | CASTLE | — |
+| Kurama Onsen | CASTLE | — |
+| Iwatayama Monkey Park | TEMPLE | — |
+| Daikaku-ji | VIEW | — |
+| Heian Jingū | VIEW | — |
+| Isui-en | MUS | — |
+| Ninna-ji | CASTLE | — |
+| Kōfuku-ji | CASTLE | NATURE |
+| Chōken-ji (長建寺), Fushimi | MUS | — |
+| Saidai-ji (西大寺), Nara | MUS, VIEW | — |
+| Fukuchiyama Castle (福知山城) | NIGHT | — |
+| Hosomi Museum (細見美術館) | ONSEN | — |
+| Sanbō-in, Daigo-ji (醍醐寺 三宝院) | MUS | — |
+| Ryōgen-in, Daitoku-ji (龍源院) | NATURE | — |
+| Ōta Shrine (大田神社), Kamigamo | MUS | — |
+| Kisshōin Tenmangū (吉祥院天満宮) | CASTLE | — |
