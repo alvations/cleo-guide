@@ -182,7 +182,7 @@
     // FE-C INP hook (open a place): only the cards whose page state changes are touched — clearing and re-adding pg-off on
     // every card restyled the whole list on each route change (a #p= open included), though nothing had moved
     const off = new Set(); live.forEach(c => { const i = pos(c); if (i < a || i >= b) off.add(c); });
-    qa('li.pl').forEach(c => { const o = off.has(c); if (c.classList.contains('pg-off') !== o) c.classList.toggle('pg-off', o); });
+    qa('li.pl').forEach(c => c.classList.toggle('pg-off', off.has(c)));   // toggle(x, force) writes nothing when already so
     secs.forEach(s => s.classList.toggle('pg-empty', !s.querySelector('li.pl:not([hidden]):not(.pg-off)') && !keep.has(at(s, 'data-area'))));
     if (!pager) { pager = d.createElement('nav'); pager.className = 'pager g-pager vw view-gallery'; pager.setAttribute('aria-label', tt('views.pages', 'Pages of places'));
       const how = $('#how-we-choose'); if (how) how.parentNode.insertBefore(pager, how); else if (lp) lp.appendChild(pager);
