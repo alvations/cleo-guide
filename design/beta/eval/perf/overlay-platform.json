@@ -192,12 +192,11 @@
   "fixed": false,
   "inView": true,
   "covered": true,
-  "by": "rail-i door",
+  "by": "t",
   "overlaps": [
    "cleo-rail"
   ],
-  "h": 135,
-  "note": "covered by sticky top chrome (chrome share, OV-00)"
+  "h": 135
  },
  {
   "vp": "844x390",
@@ -241,12 +240,11 @@
   "fixed": false,
   "inView": true,
   "covered": true,
-  "by": "rail-i door",
+  "by": "t",
   "overlaps": [
    "cleo-rail"
   ],
-  "h": 135,
-  "note": "covered by sticky top chrome (chrome share, OV-00)"
+  "h": 135
  },
  {
   "vp": "844x390",
@@ -391,13 +389,7 @@
   "scheme": "light",
   "view": "atlas",
   "exists": true,
-  "shown": true,
-  "fixed": false,
-  "inView": true,
-  "covered": false,
-  "by": null,
-  "overlaps": [],
-  "h": 135
+  "shown": false
  },
  {
   "vp": "1024x768",
@@ -443,13 +435,7 @@
   "scheme": "dark",
   "view": "atlas",
   "exists": true,
-  "shown": true,
-  "fixed": false,
-  "inView": true,
-  "covered": false,
-  "by": null,
-  "overlaps": [],
-  "h": 135
+  "shown": false
  },
  {
   "vp": "1024x768",
@@ -495,13 +481,7 @@
   "scheme": "light",
   "view": "atlas",
   "exists": true,
-  "shown": true,
-  "fixed": false,
-  "inView": true,
-  "covered": false,
-  "by": null,
-  "overlaps": [],
-  "h": 115
+  "shown": false
  },
  {
   "vp": "1440x900",
@@ -547,13 +527,7 @@
   "scheme": "dark",
   "view": "atlas",
   "exists": true,
-  "shown": true,
-  "fixed": false,
-  "inView": true,
-  "covered": false,
-  "by": null,
-  "overlaps": [],
-  "h": 115
+  "shown": false
  },
  {
   "vp": "1440x900",

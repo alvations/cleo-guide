@@ -18,13 +18,14 @@ on:
       sources:
         description: "Comma-separated sources to stage: met, loc, smithsonian, europeana"
         required: false
-        default: met,loc
+        default: met,europeana,smithsonian,loc
       budget:
         description: "API requests per source this run (1-300)"
         required: false
         default: "60"
   # workflow_dispatch only registers once this file is on the default branch; until a release carries it, a push that
-  # changes the candidate list stages with the defaults (met first, then the rate-limited loc; budget 60). Editing
+  # changes the candidate list stages with the defaults (met, europeana, smithsonian, then the rate-limited loc;
+  # budget 60; a keyed source whose secret is not set prints its plan and exits 0). Editing
   # this file does not trigger a run (a burst can extend LoC's one-hour block).
   push:
     branches: [claude/peaceful-goodall-i0hsrt]
@@ -61,7 +62,7 @@ jobs:
 
       - name: Stage candidates per source
         env:
-          SOURCES: ${{ github.event.inputs.sources || 'met,loc' }}
+          SOURCES: ${{ github.event.inputs.sources || 'met,europeana,smithsonian,loc' }}
           BUDGET: ${{ github.event.inputs.budget || '60' }}
         run: |
           [[ "$BUDGET" =~ ^[0-9]+$ && "$BUDGET" -ge 1 && "$BUDGET" -le 300 ]] || { echo "::error::budget must be 1-300"; exit 1; }

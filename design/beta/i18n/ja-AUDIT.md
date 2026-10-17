@@ -13,9 +13,9 @@ The table lists only what is left after that.
 
 | Where | Hard-coded English on a ja page | File (owner) | Weight |
 |---|---|---|---|
-| **Atlas, the default view under D-46** | "Skip to the map" / "Skip to the results", "Top picks", "Top ranked", "Sort places", "Saved", "All", "places ·", "Show 36 more", "Show all 488 in one list", "36 of 488 places", "Must see", "Recommended by", "Map unavailable right now — every place is listed here.", the title "Ordered by tier within each area…", plus the empty state FE-1 is already switching (QC-05) | `client/atlas.js` (Atlas lane), `client/atlas-nav.js` (Atlas FE-2), `Cleo.countLine` in `client/core.js` (platform) | **High**: the first screen every ja reader sees once Atlas is the default |
-| Atlas search `aria-label` | "Search and filter the map" is hijacked by the generic `Search {city}` template, so a ja screen reader hears 「and filter the mapを検索」 | `client/atlas.js` | **High** (a11y). It is fixed by cataloguing the string, because the longer literal then wins. |
-| **Your lists** (`saved.html`) | nearly the whole page: "Saved", "All saved", "Been there", "New list", "Take it with you", "Share link", "Share as an image", "Export", "Backup of all lists (JSON)", "Make a trip", "Import backup", "Lists", "No named lists yet…", "Open in maps", "Must see", "Recommended by", the empty states, "A shared list of N places — read only…" | `client/saved.js` (FE-A) | **High**: a whole page |
+| **Atlas, the default view under D-46** — **fixed (W8-I18N-ATLAS)** | "Skip to the map" / "Skip to the results", "Top picks", "Top ranked", "Sort places", "Saved", "All", "places ·", "Show 36 more", "Show all 488 in one list", "36 of 488 places", "Must see", "Recommended by", "Map unavailable right now — every place is listed here.", the title "Ordered by tier within each area…", plus the empty state FE-1 is already switching (QC-05) | `client/atlas.js` (Atlas lane), `client/atlas-nav.js` (Atlas FE-2), `Cleo.countLine` in `client/core.js` (platform) | **High**: the first screen every ja reader sees once Atlas is the default |
+| Atlas search `aria-label` — **fixed** | "Search and filter the map" is hijacked by the generic `Search {city}` template, so a ja screen reader hears 「and filter the mapを検索」 | `client/atlas.js` | **High** (a11y). It is fixed by cataloguing the string, because the longer literal then wins. |
+| **Your lists** (`saved.html`) — **fixed (W8-I18N-LISTS)** | nearly the whole page: "Saved", "All saved", "Been there", "New list", "Take it with you", "Share link", "Share as an image", "Export", "Backup of all lists (JSON)", "Make a trip", "Import backup", "Lists", "No named lists yet…", "Open in maps", "Must see", "Recommended by", the empty states, "A shared list of N places — read only…" | `client/saved.js` (FE-A) | **High**: a whole page |
 | The tiles-failed map note | "The map couldn't load. The list still has every place… Try again" | `client/mapfail.js` (platform) | Medium: only when the tiles fail, but then on every page |
 | Site notices | the offline and storage-blocked banners | `client/states.js` (FE-B) | Medium: only in those states |
 | The count line | "All N places", "n of all N places", "· S sights · F eat & drink…" | `Cleo.countLine`, `client/core.js` (platform) | High: it shows in the Atlas list head |
@@ -31,3 +31,13 @@ detail, Your day, Guidebook and Insights.
 - the English output stays byte-identical;
 - a test-i18n pseudo check covers the module;
 - an independent review round checks the ja.
+
+**Also fixed in W8-I18N-ATLAS (found while re-auditing):**
+- Cards stamped after the swap (Cleo.defer chunks) were partly English in every city view: the tier label and "Recommended by".
+- The build's `data-l` templates filled later stayed English: pack.js's "{size} on this device", and mapfail's offline line.
+- locale.js now swaps both.
+
+**Open:**
+- mapfail.js's own copy (platform);
+- states.js's offline and storage banners (FE-B);
+- Cleo.countLine in core.js (platform; not reached in Atlas any more, since Atlas has its own count line, but still used elsewhere).

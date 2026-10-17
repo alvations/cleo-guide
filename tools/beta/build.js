@@ -450,6 +450,18 @@ for (const [rel, body] of out) {
   if (args.has('--check')) { if (!same) { stale++; console.error('  STALE ' + rel); } continue; }
   if (!same) { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, buf); wrote++; }
 }
+// FE-B (one city, one page): a `moved` page's old derived files (its What changed page, feed, data slices, share card,
+// art, motifs) are no longer built — remove any still on disk (a merge from a tree built before can bring them back), so
+// the beta page set stays == the manifest. Only paths named for a moved page's key, and only ones this build did not emit.
+{
+  const keys = reg.rows.filter(r => r.kind === 'moved').map(r => r.fileKey), named = rel => keys.some(k => rel.split('/').some(seg => seg === k || seg.startsWith(k + '.')));
+  const walk = d => !fs.existsSync(path.join(BETA, d)) ? [] : fs.readdirSync(path.join(BETA, d), { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(d + '/' + e.name) : [d + '/' + e.name]);
+  for (const rel of ['changes', 'feeds', 'data', 'assets/og', 'assets/art', 'assets/img/motifs'].flatMap(walk)) {
+    if (!named(rel) || out.has(rel)) continue;
+    if (args.has('--check')) { stale++; console.error('  STALE (moved page leftover) ' + rel); } else { fs.unlinkSync(path.join(BETA, rel)); wrote++; }
+  }
+  if (!args.has('--check')) for (const k of keys) { const d = path.join(BETA, 'assets/art', k); if (fs.existsSync(d) && !fs.readdirSync(d).length) fs.rmdirSync(d); }
+}
 const summary = `${generated.length} pages, ${cityRows.length} place pages indexed, ${totalLive} places (beta == live)`;
 if (args.has('--check')) {
   if (stale) { console.error(`>>> FAIL — ${stale} beta file(s) differ from a fresh build; run \`npm run beta\`.`); process.exit(1); }
