@@ -2237,3 +2237,10 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Platform owns the fix and is restoring headroom. FE-B is folding Cleo.compact into Cleo.chrome. All lanes are told: no eager bytes until green.
 - The designer confirmed the food-cover spec (6b2faadd4, §v2.7a): imagery builds it in motifs.js, FE-A places it.
 - FE-B: OV-00 shell compaction (c84fe342), R8 #5b and #2d (c41f5531).
+
+## 2026-10-16 23:58Z · orchestrator
+
+- Head is green again (a3b2c199, bab21c9f), but with zero eager-JS headroom (40.00/40.0). Platform is making ≥ 0.6 KB and adding a post-merge budget check to sync-push.
+- QA: R8-g1..g7 filed; B-03 ruled; the B-25 overlay gate is in (0e2a79f5).
+- FE-C: R8 #2e (0486bf71) and #2c (785d8641, masthead faults 70 → 0).
+- Imagery: the R8-d exceptions file; Orlando narrowed; Tree of Life refused.
