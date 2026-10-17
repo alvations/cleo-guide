@@ -2636,3 +2636,4 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **QA:** the reachable-styles guard is in npm test (1f399597). QA-85 (.pl-why) goes to the designer. QA-86 is carried from r7. QA-87 is a D-53 gap: ADD shown as a recommender, ruled never a recommender (FE-B).
   - **FE-C:** open a place at 200 / 240 ms.
   - **FE-B:** D-53 part 2, plus a lazy srcview (eager headroom 0.94 KB).
+- **FE-B D-53 on the Gallery rows:** gallery.js already read `r.recby`, but lib/gallery.js never sent it, so the row cards named every source. The gallery JSON now carries `recby` where it differs from src minus guide (299 of 2,800 row cards; 31 show "No independent source yet").
