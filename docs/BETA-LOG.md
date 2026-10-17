@@ -2500,6 +2500,13 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **What gets marked:** render/city.js marks atlas.js's map-priority #1 `.pl-lead` (tier, then rank within its area by named sources, pin number and area order), and only when that card has a photo. On Tokyo that is Edo-Tokyo Museum. 32 city pages get a lead; the rest open on a photo-less rank 1 and draw no lead.
   - **When it spans:** client/city.js sets `html.cleo-lensed` while a lens, sort, day plan or Near me reorders the list. The span at 3:2 applies only without that class, so only on a cold, unfiltered load.
   - **New test-fe-a row:** the Tokyo lead is checked, with at most one lead per page and never a photo-less one.
+- **QA-82 (landscape, 844×390):**
+  - (a) The icon-only switch segments are now 44 × 44, on a 48 px track.
+  - (b) A segment shows its name as a tooltip on keyboard focus, press or hover. The button's overflow is now visible so the tooltip isn't clipped.
+  - (c) In landscape Atlas, the masthead's "last checked" link (laid out under the map) is visibility:hidden, so it no longer takes focus unseen.
+  
+  Probe: 0 covered focusables at load on Cleveland and Tokyo.
+- **Platform overlay finding:** the landscape Gallery rail was still sticky at top:101px, because the ≥768 sticky rule out-ranked the landscape reset. It now scrolls away, and "Keep Tokyo offline" hit-tests to itself in light and dark.
 
 - 2026-10-17 12:00Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
   - **Head b1c7939f6 gated green:** validate, beta:check, and npm test twice. The first npm test (11:40Z, b681fb041) reported one failed suite; only the last 15 lines were kept, so its name was lost, and two full re-runs passed. It is recorded as unresolved, and npm test logs are now saved whole.
@@ -2540,3 +2547,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     Open a place goes to FE-C, who owns the sheet; the switches and the round trip stay with platform.
   - **QA:** PERF-21 verified. Asked to verify adeabcd63, d6bb8367a, a027955b9 and db9f8a746 ahead of the interim pin. The pin waits for the designer's desktop D-46 sign-off and QC's Atlas re-run.
   - **FE-B** fixed test-beta's red page set (db9f8a746). **i18n:** Atlas and Your lists are in ja; the eager counter is +0.03 KB, all of it locale.js, which only non-English readers fetch.
+- 2026-10-17 12:15Z · orchestrator · D-46 desktop review and D-53 · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Real shots d46-desktop on b1c7939f** (0ed160e99): the designer signs off desktop D-46 on one condition.
+    - The condition (FE-A, first): the NYC header overflows at 1440 and clips the saved ♡. Destinations leaves the header first, then the crumb truncates.
+    - FE-1, in its L push: the intro → count gap becomes 16 px, and Area and Filters take the plain chip style.
+    - §v2.7b is signed off with FE-A's fixes and the compact-row alignment.
+  - **D-53 (trust):** no rating platform or own site in "Recommended by", on every surface, with a build guard (FE-B). The data side goes to the location lane: 73 Yelp-only records (SV 67, NYC 6), the `--sourcecheck` gate re-checked, and the NYC Wah Fung duplicate.
+  - **D-49 × "Start with":** one starting place per view (FE-A); Tokyo's Atlas names Kanda Myōjin while Edo-Tokyo Museum spans.
+  - **Round 4** shoots once FE-A's header SHA and FE-1's L SHA are on origin.
