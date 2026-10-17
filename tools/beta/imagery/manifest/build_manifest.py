@@ -60,6 +60,24 @@ SKIP = {
 BRAND_STORE = re.compile(r"Mandarake|Pok[eé]mon Center|Nintendo KYOTO|Animate |Jump Shop|Kiddy Land|Gashapon|Capcom Store|PARCO Character|Kotobukiya|Character Street|Super Potato|Anime Center|Characters World", re.I)
 VENUE_NAME = re.compile(r"\b(Theat(?:re|er)|Opera House|Playhouse|Ballpark|Arena|Stadium|Concert Hall)\b", re.I)
 SKIP.update({
+ 'antwerp#zoo-planckendael': 'no file found (only animal photos) (wave 5 search) — calm cover (stated, W8)',
+ 'antwerp#de-ruien': 'no file found (wave 5 search) — calm cover (stated, W8)',
+ 'hokkaido#asahiyama-zoo': 'no file found (only animal photos) (wave 5 search) — calm cover (stated, W8)',
+ 'osaka#super-nintendo-world-universal-studios-japan': 'modern artwork (wave 5 search) — calm cover (stated, W8)',
+ 'osaka#expo-70-commemorative-park-and-tower-of-the-sun': 'modern artwork (wave 5 search) — calm cover (stated, W8)',
+ 'singapore/ang-mo-kio#kebun-baru-birdsinging-club': 'venue (wave 5 search) — calm cover (stated, W8)',
+ 'singapore/balestier#goh-chor-tua-pek-kong-temple-and-wayang-stage': 'no file found (wave 5 search) — calm cover (stated, W8)',
+ 'singapore/balestier#former-malay-film-productions-studio-shaw-studio': 'no file found (only a 1948 historical photo) (wave 5 search) — calm cover (stated, W8)',
+ 'singapore/newton-novena#goodwood-park-hotel-tower-wing': 'venue (wave 5 search) — calm cover (stated, W8)',
+ 'singapore/potong-pasir-macpherson#potong-pasir-sloping-roof-hdb-blk-101-142': 'no file found (wave 5 search) — calm cover (stated, W8)',
+ 'singapore/potong-pasir-macpherson#bidadari-park-and-alkaff-lake': 'no file found (wave 5 search) — calm cover (stated, W8)',
+ 'singapore/toa-payoh#united-temple-united-five-temples-of-toa-payoh': 'no file found (wave 5 search) — calm cover (stated, W8)',
+ 'bruges#de-haan-concessie-belle-epoquewijk': 'only files naming a nearby building or an address, not the quarter (wave 5 search) — calm cover (stated, W8)',
+ 'bruges#james-ensorhuis': 'only files naming a nearby building or an address, not the house (wave 5 search) — calm cover (stated, W8)',
+ 'brussels#theatre-royal-de-toone': 'venue (a puppet theatre and bar); only a nearby-building file (wave 5 search) — calm cover (stated, W8)',
+ 'osaka#universal-studios-japan': 'theme park entrance dominated by character and globe art; Japan has no freedom of panorama for art (wave 5 search) — calm cover (stated, W8)',
+})
+SKIP.update({
  'chicago#cloud-gate-the-bean': 'modern artwork, no US FoP (wave 5 search) — calm cover (stated, W8)',
  'chicago#kingston-mines': 'venue (wave 5 search) — calm cover (stated, W8)',
  'chicago#buddy-guys-legends': 'venue (wave 5 search) — calm cover (stated, W8)',

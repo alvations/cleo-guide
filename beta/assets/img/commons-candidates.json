@@ -38,16 +38,16 @@
   },
   "otherLandmarks": {
    "targets": 1151,
-   "skipped": 299,
-   "withArticle": 578
+   "skipped": 315,
+   "withArticle": 571
   },
   "candidates": {
-   "total": 980,
-   "high": 901,
-   "med": 79,
+   "total": 1109,
+   "high": 1019,
+   "med": 90,
    "low": 0
   },
-  "targetsWithHigh": 475,
+  "targetsWithHigh": 542,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -9924,6 +9924,7 @@
     "De Ruien"
    ],
    "pilot": false,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -9938,7 +9939,24 @@
     "Brabofontein"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Grote Markt Antwerp with guild houses.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Grote_Markt_Antwerp_with_guild_houses.jpg",
+     "depicts": "Grote Markt square with guild houses",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Grote Markt Antwerp"
+    },
+    {
+     "file": "File:Antwerp City Hall and Brabo Fountain.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Antwerp_City_Hall_and_Brabo_Fountain.jpg",
+     "depicts": "City Hall with the Brabo Fountain",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Antwerp City Hall and Brabo Fountain (from category summary)"
+    }
+   ]
   },
   {
    "key": "landmark:antwerp#kazerne-dossin",
@@ -9973,7 +9991,24 @@
     "Koninklijk Museum voor Schone Kunsten"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Antwerpen - Koninklijk Museum voor Schone Kunsten Antwerpen (11).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Antwerpen_-_Koninklijk_Museum_voor_Schone_Kunsten_Antwerpen_(11).jpg",
+     "depicts": "Museum frontage on Leopold de Waelplaats",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Koninklijk Museum voor Schone Kunsten Antwerpen; summary says frontage"
+    },
+    {
+     "file": "File:Koninklijk Museum voor Schone Kunsten (Antwerpen).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Koninklijk_Museum_voor_Schone_Kunsten_(Antwerpen).jpg",
+     "depicts": "KMSKA museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Koninklijk Museum voor Schone Kunsten (Antwerpen)"
+    }
+   ]
   },
   {
    "key": "landmark:antwerp#mas-museum-aan-de-stroom",
@@ -9985,7 +10020,24 @@
     "Museum aan de Stroom"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Belgie Antwerpen MAS Museum aan de stroom 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Belgie_Antwerpen_MAS_Museum_aan_de_stroom_01.jpg",
+     "depicts": "Exterior of the MAS museum tower",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names MAS Museum aan de stroom, exterior"
+    },
+    {
+     "file": "File:MAS Antwerpen 2016-05 --1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:MAS_Antwerpen_2016-05_--1.jpg",
+     "depicts": "MAS museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names MAS Antwerpen; FoP exterior shot"
+    }
+   ]
   },
   {
    "key": "landmark:antwerp#middelheimmuseum",
@@ -9996,7 +10048,17 @@
     "Middelheimmuseum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Antwerpen-poort Middelheimmuseum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Antwerpen-poort_Middelheimmuseum.jpg",
+     "depicts": "Entrance gate of the Middelheim museum park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Middelheimmuseum gate (poort); from Middelheimpark category summary"
+    }
+   ]
   },
   {
    "key": "landmark:antwerp#museum-plantin-moretus",
@@ -10008,7 +10070,24 @@
     "Museum Plantin-Moretu"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Antwerp Belgium Museum-Plantin-Moretus-05.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Antwerp_Belgium_Museum-Plantin-Moretus-05.jpg",
+     "depicts": "Inner courtyard of the Plantin-Moretus house",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Museum Plantin-Moretus"
+    },
+    {
+     "file": "File:Antwerpen Vrijdagmarkt 22 - 34660 - onroerenderfgoed.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Antwerpen_Vrijdagmarkt_22_-_34660_-_onroerenderfgoed.jpg",
+     "depicts": "Facade of Vrijdagmarkt 22 (the museum's address)",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Vrijdagmarkt 22, the museum's address; heritage-inventory photo"
+    }
+   ]
   },
   {
    "key": "landmark:antwerp#nationaal-gedenkteken-fort-van-breendonk",
@@ -10063,7 +10142,24 @@
     "Sint-Romboutskathedraal"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mechelen toren Sint-Romboutskathedraal.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mechelen_toren_Sint-Romboutskathedraal.jpg",
+     "depicts": "Tower of St Rumbold's Cathedral, Mechelen",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names toren Sint-Romboutskathedraal"
+    },
+    {
+     "file": "File:St Rombouts Cathedral from the Church of Our Lady across the Dijle 01.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:St_Rombouts_Cathedral_from_the_Church_of_Our_Lady_across_the_Dijle_01.JPG",
+     "depicts": "St Rumbold's Cathedral seen across the Dijle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names St Rombouts Cathedral"
+    }
+   ]
   },
   {
    "key": "landmark:antwerp#zimmertoren",
@@ -10074,7 +10170,24 @@
     "Zimmertoren"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Zimmertoren, Lier (DSCF0673).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Zimmertoren,_Lier_(DSCF0673).jpg",
+     "depicts": "The Zimmer Tower in Lier, full portrait view",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Zimmertoren, Lier; Wiki Loves Heritage photo"
+    },
+    {
+     "file": "File:Lier Zimmertoren 2.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lier_Zimmertoren_2.jpg",
+     "depicts": "The Zimmer Tower in Lier",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Lier Zimmertoren (view not described; check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:antwerp#zoo-planckendael",
@@ -10086,7 +10199,7 @@
    ],
    "pilot": false,
    "article": "https://nl.wikipedia.org/wiki/ZOO_Planckendael",
-   "wikiLead": true,
+   "skip": "no file found (only animal photos) (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -10098,7 +10211,24 @@
     "Atlantikwall Raversyde"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Raversyde Atlantikwall 08.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Raversyde_Atlantikwall_08.jpg",
+     "depicts": "Atlantikwall open-air museum at Raversyde",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Raversyde Atlantikwall (content not described; check by eye)"
+    },
+    {
+     "file": "File:Raversyde Atlantikwall 38.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Raversyde_Atlantikwall_38.jpg",
+     "depicts": "Atlantikwall open-air museum at Raversyde",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Raversyde Atlantikwall (content not described; check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#basiliek-van-het-heilig-bloed",
@@ -10203,7 +10333,24 @@
     "Boottocht op de Brugse reien"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Rozenhoedkaai (canal) and Belfry of Bruges, Bruges, Belgium (Ank Kumar, Infosys Limited) 03.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rozenhoedkaai_(canal)_and_Belfry_of_Bruges,_Bruges,_Belgium_(Ank_Kumar,_Infosys_Limited)_03.jpg",
+     "depicts": "Rozenhoedkaai canal (boat-tour route) with the Belfry",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names the Rozenhoedkaai canal, a main boat-tour stretch of the reien"
+    },
+    {
+     "file": "File:Bruges -Quai Rozenhoed.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruges_-Quai_Rozenhoed.JPG",
+     "depicts": "Rozenhoedkaai canal view, Bruges",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Quai Rozenhoed, on the canal-boat route"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#damme-historisch-stadje-and-boekendorp",
@@ -10274,6 +10421,7 @@
     "Concessie"
    ],
    "pilot": false,
+   "skip": "only files naming a nearby building or an address, not the quarter (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -10307,6 +10455,13 @@
      "confidence": "high",
      "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Groeningemuseum",
      "refused": "refused by visual review (W8, run #60, R7-g1): a lake view; the museum is not in the photo (wrong subject)"
+    },
+    {
+     "file": "File:Brugge - Dijver 12 -Voormalig poortgebouw van de proosdij van Onze-Lieve-Vrouw, heden ingang van het Groeningemuseum - 82339.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brugge_-_Dijver_12_-Voormalig_poortgebouw_van_de_proosdij_van_Onze-Lieve-Vrouw,_heden_ingang_van_het_Groeningemuseum_-_82339.jpg",
+     "depicts": "Former provostry gatehouse at Dijver 12, now the Groeningemuseum entrance",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names the Groeningemuseum entrance, Dijver 12"
     }
    ]
   },
@@ -10320,6 +10475,7 @@
     "James Ensorhui"
    ],
    "pilot": false,
+   "skip": "only files naming a nearby building or an address, not the house (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -10343,7 +10499,17 @@
     "NAVIGO - Nationaal Visserijmuseum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Visserijmuseum 12-03-2009 16-00-40.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Visserijmuseum_12-03-2009_16-00-40.JPG",
+     "depicts": "Exterior of the National Fishery Museum, Oostduinkerke",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Visserijmuseum; summary describes it as an exterior photo"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#onze-lieve-vrouwekerk-michelangelos-madonna",
@@ -10520,7 +10686,24 @@
     "Atomium"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Atomium, Brussels, Belgium.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Atomium,_Brussels,_Belgium.jpg",
+     "depicts": "The Atomium in daylight",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Atomium, Brussels; listed among daytime shots"
+    },
+    {
+     "file": "File:The Atomium, Brussels.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Atomium,_Brussels.jpg",
+     "depicts": "The Atomium, Brussels",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names The Atomium, Brussels"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#basilique-du-sacre-c-ur-de-koekelberg",
@@ -10549,7 +10732,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Centre_for_Fine_Arts,_Brussels",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bozar Bruxelles.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bozar_Bruxelles.JPG",
+     "depicts": "Exterior of BOZAR, rue Ravenstein",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Bozar Bruxelles; summary says exterior"
+    },
+    {
+     "file": "File:BOZAR (DSCF7462).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:BOZAR_(DSCF7462).jpg",
+     "depicts": "BOZAR Centre for Fine Arts building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names BOZAR (from quality-images category listing; check view by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#cathedrale-des-saints-michel-et-gudule",
@@ -10577,7 +10777,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Belgian_Comic_Strip_Center",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Brussel - Zandstraat 20 - Belgisch Stripcentrum in het voormalig Waucquez-warenhuis (1903 door Victor Horta) 20230826.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brussel_-_Zandstraat_20_-_Belgisch_Stripcentrum_in_het_voormalig_Waucquez-warenhuis_(1903_door_Victor_Horta)_20230826.jpg",
+     "depicts": "Frontage of the Comic Strip Centre in Horta's Waucquez building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Belgisch Stripcentrum, Zandstraat 20"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#eglise-notre-dame-du-sablon",
@@ -10602,7 +10812,24 @@
     "Galeries Royales Saint-Hubert"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bruxelles - Les Galeries Royales Saint-Hubert.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruxelles_-_Les_Galeries_Royales_Saint-Hubert.jpg",
+     "depicts": "The glass-roofed Galeries Royales Saint-Hubert arcade",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Galeries Royales Saint-Hubert (covered arcade: inside view is the place)"
+    },
+    {
+     "file": "File:Bruxelles galerie de la Reine 11.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruxelles_galerie_de_la_Reine_11.jpg",
+     "depicts": "Galerie de la Reine, part of the Saint-Hubert arcades",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Galerie de la Reine, one of the Galeries Royales Saint-Hubert"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#grand-place-grote-markt",
@@ -10613,7 +10840,24 @@
     "Grand-Place / Grote Markt"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Grand-Place, Brussels - panorama, June 2018.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Grand-Place,_Brussels_-_panorama,_June_2018.jpg",
+     "depicts": "Panorama of the Grand-Place",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Grand-Place, Brussels"
+    },
+    {
+     "file": "File:Grand Place, Brussels, Belgium.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Grand_Place,_Brussels,_Belgium.jpg",
+     "depicts": "The Grand-Place square, Brussels",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Grand Place, Brussels"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#hotel-de-ville-de-bruxelles",
@@ -10625,7 +10869,24 @@
     "Hôtel de Ville de Bruxelle"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hôtel de Ville de Bruxelles 01.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_Ville_de_Bruxelles_01.JPG",
+     "depicts": "Brussels Town Hall facade and tower",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Hôtel de Ville de Bruxelles"
+    },
+    {
+     "file": "File:Bruxelles Grand-Place No. 12-8 & Hôtel de Ville.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruxelles_Grand-Place_No._12-8_&_H%C3%B4tel_de_Ville.jpg",
+     "depicts": "Town Hall with neighbouring Grand-Place houses",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Hôtel de Ville, Grand-Place"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#manneken-pis",
@@ -10638,7 +10899,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Manneken_Pis",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bruxelles Manneken Pis.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruxelles_Manneken_Pis.jpg",
+     "depicts": "The Manneken Pis fountain at its street corner",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Manneken Pis; uncropped version (place is itself a statue; check framing by eye)"
+    },
+    {
+     "file": "File:Manneken Pis, Brussels (DSCF4467).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Manneken_Pis,_Brussels_(DSCF4467).jpg",
+     "depicts": "The Manneken Pis fountain, Brussels",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Manneken Pis, Brussels (place is itself a statue; check framing by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#marche-aux-puces-du-jeu-de-balle",
@@ -10668,7 +10946,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Lion%27s_Mound",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Belgique Butte du Lion dit de Waterloo.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Belgique_Butte_du_Lion_dit_de_Waterloo.jpg",
+     "depicts": "The Lion's Mound rising over the battlefield fields",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Butte du Lion de Waterloo"
+    },
+    {
+     "file": "File:Braine-l'Alleud Waterloo-Panorama & Butte du Lion.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Braine-l'Alleud_Waterloo-Panorama_&_Butte_du_Lion.jpg",
+     "depicts": "Waterloo Panorama building and the Lion's Mound",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Butte du Lion and the Waterloo memorial-site Panorama"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#mont-des-arts",
@@ -10697,7 +10992,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Art_%26_History_Museum",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Musée d'Art et Histoire Bxl 01.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_d'Art_et_Histoire_Bxl_01.JPG",
+     "depicts": "Art & History Museum building at the Cinquantenaire",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Musée d'Art et Histoire, Brussels"
+    },
+    {
+     "file": "File:Bruxelles - Musées Royaux d'Art et d'Histoire.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruxelles_-_Mus%C3%A9es_Royaux_d'Art_et_d'Histoire.jpg",
+     "depicts": "Royal Museums of Art and History building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Musées Royaux d'Art et d'Histoire (from category listing)"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#musee-des-instruments-de-musique-mim",
@@ -10725,7 +11037,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Horta_Museum",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Musée Horta.001 - Brussel.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Horta.001_-_Brussel.JPG",
+     "depicts": "Horta Museum building, rue Américaine",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Musée Horta (view not described; check by eye)"
+    },
+    {
+     "file": "File:Horta Museum.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Horta_Museum.JPG",
+     "depicts": "Horta Museum building, Saint-Gilles",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Horta Museum (view not described; check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#musee-magritte-museum",
@@ -10777,7 +11106,24 @@
     "Palais Stoclet"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Palais Stoclet, vue ensemble.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Palais_Stoclet,_vue_ensemble.JPG",
+     "depicts": "Overall view of the Stoclet Palace, avenue de Tervueren",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Palais Stoclet, overall view"
+    },
+    {
+     "file": "File:Palais Stoclet, Brussels.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Palais_Stoclet,_Brussels.jpg",
+     "depicts": "Stoclet Palace exterior, Brussels",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Palais Stoclet, Brussels"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#parc-du-cinquantenaire",
@@ -10816,6 +11162,7 @@
     "Théâtre Royal de Toone"
    ],
    "pilot": false,
+   "skip": "venue (a puppet theatre and bar); only a nearby-building file (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -10827,7 +11174,24 @@
     "Train World"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Station Schaarbeek - Train World.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Station_Schaarbeek_-_Train_World.jpg",
+     "depicts": "Schaerbeek station building housing Train World",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Station Schaarbeek - Train World"
+    },
+    {
+     "file": "File:SchaerbeekStation.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:SchaerbeekStation.jpg",
+     "depicts": "Historic Schaerbeek station, home of Train World",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Schaerbeek station, the museum's building"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#360-chicago-875-north-michigan-avenue",
@@ -13367,7 +13731,24 @@
     "Belfort van Gent"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Belfry of Ghent in Belgium.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Belfry_of_Ghent_in_Belgium.jpg",
+     "depicts": "The Belfry of Ghent tower",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Belfry of Ghent"
+    },
+    {
+     "file": "File:Belfort Gent 2.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Belfort_Gent_2.jpg",
+     "depicts": "The 91 m Belfry of Ghent",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Belfort Gent"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#graslei-and-korenlei",
@@ -13379,7 +13760,24 @@
     "Korenlei"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gent - Graslei Korenlei 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_-_Graslei_Korenlei_1.jpg",
+     "depicts": "Graslei and Korenlei quays on either side of the Leie",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Graslei and Korenlei"
+    },
+    {
+     "file": "File:Gent, de Graslei vanaf de Korenlei met oeg24758tm61+25159 IMG 0447 2021-08-13 18.37.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent,_de_Graslei_vanaf_de_Korenlei_met_oeg24758tm61%2B25159_IMG_0447_2021-08-13_18.37.jpg",
+     "depicts": "The Graslei seen from the Korenlei",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Graslei and Korenlei"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#gravensteen-kasteel-van-de-graven-van-vlaanderen",
@@ -13437,7 +13835,24 @@
    "pilot": false,
    "article": "https://nl.wikipedia.org/wiki/Museum_voor_Schone_Kunsten_(Gent)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Museum voor schone kunsten gent.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Museum_voor_schone_kunsten_gent.jpg",
+     "depicts": "Front view of the Museum of Fine Arts, Ghent",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Museum voor schone kunsten Gent; described as front view"
+    },
+    {
+     "file": "File:MSK19122008.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:MSK19122008.JPG",
+     "depicts": "Museum of Fine Arts (MSK) building, Ghent",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names MSK; description says Museum voor Schone Kunsten Gent (view not stated; check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#patershol",
@@ -13448,7 +13863,24 @@
     "Patershol"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gent eb WIKI043 patershol.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_eb_WIKI043_patershol.jpg",
+     "depicts": "Street in the Patershol quarter",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Patershol; Wiki Loves Public Space photo"
+    },
+    {
+     "file": "File:Patersholgent22042008.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Patersholgent22042008.JPG",
+     "depicts": "Streets of the Patershol quarter",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Patershol Gent; described as a street scene"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#s-m-a-k-stedelijk-museum-voor-actuele-kunst",
@@ -13459,7 +13891,24 @@
     "S.M.A.K."
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:SMAK-Ghent.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:SMAK-Ghent.jpg",
+     "depicts": "S.M.A.K. museum building, Citadelpark",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names SMAK Ghent; used on nl-wiki museum article"
+    },
+    {
+     "file": "File:Stedelijk Museum voor Actuele Kunst, Ghent.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Stedelijk_Museum_voor_Actuele_Kunst,_Ghent.jpg",
+     "depicts": "S.M.A.K. museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Stedelijk Museum voor Actuele Kunst, Ghent (from category listing)"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#sint-baafskathedraal-and-het-lam-gods-van-eyck",
@@ -13472,7 +13921,24 @@
     "het Lam Gods"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gent-Sint-Baafskathedraal vom Belfried aus gesehen.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent-Sint-Baafskathedraal_vom_Belfried_aus_gesehen.jpg",
+     "depicts": "St Bavo's Cathedral seen from the Belfry",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sint-Baafskathedraal, Gent"
+    },
+    {
+     "file": "File:Gent Sint-Baafskathedraal-PM 08474.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_Sint-Baafskathedraal-PM_08474.jpg",
+     "depicts": "St Bavo's Cathedral exterior, Ghent",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Gent Sint-Baafskathedraal (view not described; check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#sint-martens-latem-kunstenaarsdorp",
@@ -13495,6 +13961,20 @@
      "confidence": "high",
      "reason": "lead image (run #40)",
      "refused": "refused by visual review (W8, all run #40, R7-g1): a flat field under a dark cloud (gloom)"
+    },
+    {
+     "file": "File:20211205-Sint-Martens-Latem-Sint-Martinuskerk FI.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:20211205-Sint-Martens-Latem-Sint-Martinuskerk_FI.jpg",
+     "depicts": "St Martin's Church in the village of Sint-Martens-Latem",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sint-Martens-Latem Sint-Martinuskerk, the village centre"
+    },
+    {
+     "file": "File:Sint-Martens-Latem - Dorp - De Leie (2020-10-31 14-12-47).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sint-Martens-Latem_-_Dorp_-_De_Leie_(2020-10-31_14-12-47).jpg",
+     "depicts": "The Leie at Sint-Martens-Latem village",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sint-Martens-Latem village and the Leie (from category listing)"
     }
    ]
   },
@@ -13509,7 +13989,24 @@
     "Sint-Michielshelling"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gent - Sint-Michielsbrug (48188681476).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_-_Sint-Michielsbrug_(48188681476).jpg",
+     "depicts": "St Michael's Bridge over the Leie",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sint-Michielsbrug, Gent"
+    },
+    {
+     "file": "File:St Michael's Bridge Ghent.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:St_Michael's_Bridge_Ghent.jpg",
+     "depicts": "St Michael's Bridge, Ghent",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names St Michael's Bridge Ghent"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#sint-niklaaskerk",
@@ -13520,7 +14017,24 @@
     "Sint-Niklaaskerk"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sint-Niklaaskerk1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sint-Niklaaskerk1.jpg",
+     "depicts": "St Nicholas' Church on the Korenmarkt",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sint-Niklaaskerk; Commons valued image"
+    },
+    {
+     "file": "File:Gent Sint-Niklaaskerk.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_Sint-Niklaaskerk.JPG",
+     "depicts": "St Nicholas' Church seen from the Belfry",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Gent Sint-Niklaaskerk"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#stam-stadsmuseum-gent",
@@ -13531,7 +14045,24 @@
     "STAM"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Ghent city museum STAM located on the Bijloke site.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ghent_city_museum_STAM_located_on_the_Bijloke_site.jpg",
+     "depicts": "STAM city museum on the Bijloke site",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names STAM Ghent city museum"
+    },
+    {
+     "file": "File:Front of Ghent City Museum STAM.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Front_of_Ghent_City_Museum_STAM.jpg",
+     "depicts": "Front of the STAM city museum",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names STAM front (from Bijloke category listing)"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#vrijdagmarkt-and-standbeeld-jacob-van-artevelde",
@@ -14012,7 +14543,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Abashiri_Prison",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Abashiri Abashiri Prison Museum Kyokaido 1.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Abashiri_Abashiri_Prison_Museum_Kyokaido_1.JPG",
+     "depicts": "Kyokaido (prison chapel hall) building at the Abashiri Prison Museum",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Abashiri Prison Museum (from category summary; check it is an exterior)"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#asahiyama-zoo",
@@ -14025,7 +14566,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Asahiyama_Zoo",
-   "wikiLead": true,
+   "skip": "no file found (only animal photos) (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -14100,7 +14641,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cape_S%C5%8Dya",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Birdview of Cape Soya.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Birdview_of_Cape_Soya.jpg",
+     "depicts": "Elevated view over the tip of Cape Soya",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Cape Soya; 2006 photo from above (check it is not dominated by the northernmost-point monument)"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#es-con-field-hokkaido-hokkaido-ballpark-f-village",
@@ -14238,7 +14789,17 @@
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E9%98%BF%E5%AF%92%E6%B9%96%E3%82%A2%E3%82%A4%E3%83%8C%E3%82%B3%E3%82%BF%E3%83%B3",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Ainu Kotan Akan Kushiro Hokkaido Japan09s3.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ainu_Kotan_Akan_Kushiro_Hokkaido_Japan09s3.jpg",
+     "depicts": "Street of the Ainu Kotan village at Lake Akan",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Ainu Kotan Akan (check it shows the street, not a carving or shopfront)"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#lake-mashu",
@@ -14309,7 +14870,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hakodate_foreign_settlement",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Motomachi Park Hakodate Hokkaido pref Japan01n.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Motomachi_Park_Hakodate_Hokkaido_pref_Japan01n.jpg",
+     "depicts": "Motomachi Park in Hakodate's Motomachi district",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Motomachi, Hakodate"
+    },
+    {
+     "file": "File:Motomachi Catholic Church in Hakodate Hokkaido Japan03n.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Motomachi_Catholic_Church_in_Hakodate_Hokkaido_Japan03n.jpg",
+     "depicts": "Motomachi Catholic Church, Hakodate",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Motomachi Catholic Church, a landmark of the Motomachi district"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#mount-hakodate",
@@ -14337,7 +14915,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mount_Moiwa",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:JP-01 Sapporo Moiwa Mountain.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:JP-01_Sapporo_Moiwa_Mountain.JPG",
+     "depicts": "Mount Moiwa, Sapporo",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sapporo Moiwa Mountain"
+    },
+    {
+     "file": "File:Japan Sapporo Mt.Moiwa 0052.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Japan_Sapporo_Mt.Moiwa_0052.jpg",
+     "depicts": "Daytime view from Mount Moiwa summit over Sapporo",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Mt. Moiwa; described as summit view"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#mount-yotei",
@@ -14352,7 +14947,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mount_Yotei",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mount Yōtei from Niseko Annupuri (33253188670).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mount_Y%C5%8Dtei_from_Niseko_Annupuri_(33253188670).jpg",
+     "depicts": "Mount Yotei seen from Niseko Annupuri",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Mount Yōtei"
+    },
+    {
+     "file": "File:Mount Yotei from Mount Shiribetsu.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mount_Yotei_from_Mount_Shiribetsu.jpg",
+     "depicts": "Mount Yotei seen from Mount Shiribetsu",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Mount Yotei"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#nijo-market",
@@ -14407,7 +15019,24 @@
     "登別地獄谷"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Jigokudani (Hell Valley), Noboribetsu Onsen, Hokkaido, April 2023 14.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Jigokudani_(Hell_Valley),_Noboribetsu_Onsen,_Hokkaido,_April_2023_14.jpg",
+     "depicts": "Noboribetsu Hell Valley volcanic landscape",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Jigokudani (Hell Valley), Noboribetsu"
+    },
+    {
+     "file": "File:Noboribetsu hot spring jigokudani.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Noboribetsu_hot_spring_jigokudani.JPG",
+     "depicts": "Jigokudani valley and walking path, Noboribetsu",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Noboribetsu jigokudani"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#onuma-quasi-national-park",
@@ -14435,7 +15064,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Rebun_Island",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:130726 Cape Gorota in Rebun Island Hokkaido Japan01s5.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:130726_Cape_Gorota_in_Rebun_Island_Hokkaido_Japan01s5.jpg",
+     "depicts": "Cape Gorota coastline on Rebun Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Rebun Island"
+    },
+    {
+     "file": "File:Cape Sukoton.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cape_Sukoton.JPG",
+     "depicts": "Cape Sukoton, the northern tip of Rebun Island",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Cape Sukoton; description says Rebun island"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#rishiri-island-and-mount-rishiri",
@@ -14451,7 +15097,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Rishiri_Island",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mt Rishiri.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mt_Rishiri.jpg",
+     "depicts": "Mount Rishiri, Rishiri Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Mt Rishiri"
+    },
+    {
+     "file": "File:Rishiri Island 20140814-3.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rishiri_Island_20140814-3.jpg",
+     "depicts": "Rishiri Island landscape",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Rishiri Island"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#rokkatei-art-village-nakasatsunai",
@@ -14463,7 +15126,17 @@
     "六花亭 中札内美術村"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:131013 Nakasatsunai Art Village Hokkaido Japan00s3.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:131013_Nakasatsunai_Art_Village_Hokkaido_Japan00s3.jpg",
+     "depicts": "Nakasatsunai Art Village grounds",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Nakasatsunai Art Village (from category summary; subject not described, check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#sapporo-clock-tower",
@@ -16155,7 +16828,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_protected_heritage_sites_in_Stavelot",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Stavelot abdij 19-04-2006 10-05-32.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Stavelot_abdij_19-04-2006_10-05-32.jpg",
+     "depicts": "Exterior of the Abbey of Stavelot",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Stavelot abdij; described as exterior"
+    },
+    {
+     "file": "File:Abbaye de Stavelot 03.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Abbaye_de_Stavelot_03.jpg",
+     "depicts": "Abbey of Stavelot",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Abbaye de Stavelot (view not described; check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:liege#archeoforum",
@@ -16192,7 +16882,24 @@
     "Cathédrale Saint-Paul et son Trésor"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:St Paul Liege Exterior.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:St_Paul_Liege_Exterior.JPG",
+     "depicts": "Exterior of St Paul's Cathedral from the cathedral square",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names St Paul Liège exterior"
+    },
+    {
+     "file": "File:Liège - Cathédrale Saint-Paul.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Li%C3%A8ge_-_Cath%C3%A9drale_Saint-Paul.JPG",
+     "depicts": "St Paul's Cathedral, Liège",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Cathédrale Saint-Paul, Liège"
+    }
+   ]
   },
   {
    "key": "landmark:liege#chateau-du-val-saint-lambert-cristal-discovery",
@@ -16203,7 +16910,24 @@
     "Château du Val-Saint-Lambert"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Seraing chateau val st lambert.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Seraing_chateau_val_st_lambert.jpg",
+     "depicts": "The Château du Val-Saint-Lambert, Seraing",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names château Val St Lambert, Seraing"
+    },
+    {
+     "file": "File:Château Val St. Lambert (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_Val_St._Lambert_(1).jpg",
+     "depicts": "Château du Val-Saint-Lambert at the crystal works",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Château Val St. Lambert"
+    }
+   ]
   },
   {
    "key": "landmark:liege#circuit-de-spa-francorchamps",
@@ -16217,7 +16941,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:EauRougeInTheSnow.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:EauRougeInTheSnow.jpg",
+     "depicts": "Eau Rouge corner of the circuit under snow",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Eau Rouge, the circuit's signature corner; used on en-wiki Eau Rouge article"
+    }
+   ]
   },
   {
    "key": "landmark:liege#collegiale-notre-dame-de-huy",
@@ -16231,7 +16965,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_protected_heritage_sites_in_Huy",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Collégiale Notre-Dame, Huy-1130.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Coll%C3%A9giale_Notre-Dame,_Huy-1130.jpg",
+     "depicts": "Collegiate Church of Notre-Dame, Huy",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Collégiale Notre-Dame, Huy (view not described; check it is exterior)"
+    },
+    {
+     "file": "File:Huy, zicht vanaf le Pont du Chemin de Fer met le Fort de Huy 61031-CLT-0025-01, la collégiale Notre-Dame et Saint-Domitien oeg61031-CLT-0011-01 en de kerncentrale van Tihange IMG 6258 2023-06-01 20.37.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Huy,_zicht_vanaf_le_Pont_du_Chemin_de_Fer_met_le_Fort_de_Huy_61031-CLT-0025-01,_la_coll%C3%A9giale_Notre-Dame_et_Saint-Domitien_oeg61031-CLT-0011-01_en_de_kerncentrale_van_Tihange_IMG_6258_2023-06-01_20.37.jpg",
+     "depicts": "Huy riverside view with the collegiate church and the fort",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names la collégiale Notre-Dame et Saint-Domitien, Huy (June evening shot; check light)"
+    }
+   ]
   },
   {
    "key": "landmark:liege#collegiale-saint-barthelemy",
@@ -16254,7 +17005,24 @@
     "Coteaux de la Citadelle"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Coteaux de la Citadelle à Liège.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Coteaux_de_la_Citadelle_%C3%A0_Li%C3%A8ge.jpg",
+     "depicts": "The Coteaux de la Citadelle hillside, Liège",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Coteaux de la Citadelle (from category listing)"
+    },
+    {
+     "file": "File:Vue des coteaux.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Vue_des_coteaux.jpg",
+     "depicts": "View from the coteaux over Saint-André and the Prince-Bishops' Palace",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names the coteaux; filed in Category:Coteaux de la Citadelle"
+    }
+   ]
   },
   {
    "key": "landmark:liege#eglise-saint-jacques",
@@ -16269,7 +17037,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/St_James%27s_Church,_Li%C3%A8ge",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:LIEGE Eglise Saint-Jacques (15 - 2012).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:LIEGE_Eglise_Saint-Jacques_(15_-_2012).JPG",
+     "depicts": "Exterior of the Church of Saint-Jacques, Liège",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Eglise Saint-Jacques Liège; described as exterior view (Wiki Loves Monuments)"
+    }
+   ]
   },
   {
    "key": "landmark:liege#fort-de-huy",
@@ -16294,7 +17072,24 @@
     "Fort de Loncin"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Fort Loncin, Liege (49716064862).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fort_Loncin,_Liege_(49716064862).jpg",
+     "depicts": "Ruins of Fort de Loncin, Ans",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fort Loncin, Liège; 2019 photo"
+    },
+    {
+     "file": "File:Monument commémoratif du Fort de Loncin, Belgique (vue de l'allée).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Monument_comm%C3%A9moratif_du_Fort_de_Loncin,_Belgique_(vue_de_l'all%C3%A9e).JPG",
+     "depicts": "Approach alley to the Fort de Loncin memorial",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fort de Loncin memorial; overall view from the alley"
+    }
+   ]
   },
   {
    "key": "landmark:liege#gare-de-liege-guillemins",
@@ -16309,7 +17104,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Li%C3%A8ge-Guillemins_railway_station",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Liège - Gare des Guillemins (49356709061).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Li%C3%A8ge_-_Gare_des_Guillemins_(49356709061).jpg",
+     "depicts": "Liège-Guillemins station's Calatrava canopy",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Gare des Guillemins, Liège"
+    },
+    {
+     "file": "File:Gare Liège Guillemins.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gare_Li%C3%A8ge_Guillemins.JPG",
+     "depicts": "Liège-Guillemins railway station",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Gare Liège Guillemins (view not described; check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:liege#grand-curtius",
@@ -16367,7 +17179,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/La_Boverie",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Musée de la Boverie.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_de_la_Boverie.jpg",
+     "depicts": "La Boverie museum building in its park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Musée de la Boverie"
+    },
+    {
+     "file": "File:Parc & Musée de la Boverie.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Parc_&_Mus%C3%A9e_de_la_Boverie.jpg",
+     "depicts": "La Boverie museum and park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Parc & Musée de la Boverie (from category listing)"
+    }
+   ]
   },
   {
    "key": "landmark:liege#le-carre",
@@ -16402,7 +17231,24 @@
     "Montagne de Bueren"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Montagne de Bueren Liège.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Montagne_de_Bueren_Li%C3%A8ge.jpg",
+     "depicts": "The Montagne de Bueren staircase, Liège",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Montagne de Bueren Liège"
+    },
+    {
+     "file": "File:Montagne de Bueren - stairs - Liege 2.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Montagne_de_Bueren_-_stairs_-_Liege_2.jpg",
+     "depicts": "The 374-step Bueren stairs",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Montagne de Bueren stairs"
+    }
+   ]
   },
   {
    "key": "landmark:liege#palais-des-princes-eveques",
@@ -16443,7 +17289,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_protected_heritage_sites_in_Spa,_Belgium",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Spa Pouhon-Pierre-Le-Grand 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Spa_Pouhon-Pierre-Le-Grand_1.jpg",
+     "depicts": "Pouhon Pierre-le-Grand spring pavilion, Spa",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Spa Pouhon Pierre-le-Grand (check it is the exterior)"
+    },
+    {
+     "file": "File:Spa-Pouhon Pierre-le-Grand (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Spa-Pouhon_Pierre-le-Grand_(1).jpg",
+     "depicts": "Pouhon Pierre-le-Grand building, Spa",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Spa Pouhon Pierre-le-Grand (from category listing)"
+    }
+   ]
   },
   {
    "key": "landmark:liege#prehistomuseum-de-ramioul",
@@ -16454,7 +17317,17 @@
     "Préhistomuseum de Ramioul"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Prehistosite de Ramioul-11sep2010.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Prehistosite_de_Ramioul-11sep2010.jpg",
+     "depicts": "The Ramioul prehistory site (now Préhistomuseum)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Prehistosite de Ramioul, the museum's former name (from category listing; subject not described, check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:liege#thermes-de-spa",
@@ -16465,7 +17338,17 @@
     "Thermes de Spa"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Spa - Colline d'Annette et Lubin - Thermes de Spa 2004 by Claude Strebelle 23.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Spa_-_Colline_d'Annette_et_Lubin_-_Thermes_de_Spa_2004_by_Claude_Strebelle_23.jpg",
+     "depicts": "Thermes de Spa complex on the Annette et Lubin hill",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Thermes de Spa (check it is an exterior, not a pool interior)"
+    }
+   ]
   },
   {
    "key": "landmark:madison#al-ringling-theatre",
@@ -20501,7 +21384,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Tower_of_the_Sun",
-   "wikiLead": true,
+   "skip": "modern artwork (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -20516,7 +21399,17 @@
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E8%97%A4%E7%94%B0%E7%BE%8E%E8%A1%93%E9%A4%A8",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:260411 Fujita Museum Osaka Japan01s3.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:260411_Fujita_Museum_Osaka_Japan01s3.jpg",
+     "depicts": "Fujita Museum, Osaka",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fujita Museum Osaka (from category summary; subject not described, check it is the exterior)"
+    }
+   ]
   },
   {
    "key": "landmark:osaka#himeji-castle",
@@ -20587,7 +21480,17 @@
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E7%9F%B3%E5%88%87%E5%89%A3%E7%AE%AD%E7%A5%9E%E7%A4%BE",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Ishikiri Tsurugiya Jinja, Sandō 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ishikiri_Tsurugiya_Jinja,_Sand%C5%8D_01.jpg",
+     "depicts": "Approach path (sandō) of Ishikiri Tsurugiya Shrine",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Ishikiri Tsurugiya Jinja (from Sandō category listing; check it is the shrine approach, not the shop street)"
+    }
+   ]
   },
   {
    "key": "landmark:osaka#kanshin-ji",
@@ -20642,7 +21545,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mozu_Kofun_Group",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Daisenryo Kofun from Sakai City Hall.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Daisenryo_Kofun_from_Sakai_City_Hall.jpg",
+     "depicts": "Daisen Kofun seen from the Sakai City Hall observatory",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Daisenryo Kofun; elevated photo, not an orthophoto"
+    },
+    {
+     "file": "File:Nintoku's tomb-仁徳天皇陵 - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nintoku's_tomb-%E4%BB%81%E5%BE%B3%E5%A4%A9%E7%9A%87%E9%99%B5_-_panoramio.jpg",
+     "depicts": "Emperor Nintoku's tomb from ground level",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Nintoku's tomb (view not described; check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:osaka#osaka-aquarium-kaiyukan",
@@ -20751,7 +21671,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Super_Nintendo_World",
-   "wikiLead": true,
+   "skip": "modern artwork (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -20767,7 +21687,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Umeda_Sky_Building",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Umeda Sky Building, Osaka, November 2016 -01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Umeda_Sky_Building,_Osaka,_November_2016_-01.jpg",
+     "depicts": "The twin towers of the Umeda Sky Building joined by the Floating Garden",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Umeda Sky Building, Osaka"
+    },
+    {
+     "file": "File:2018 Umeda Sky Building.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:2018_Umeda_Sky_Building.jpg",
+     "depicts": "Umeda Sky Building exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Umeda Sky Building"
+    }
+   ]
   },
   {
    "key": "landmark:osaka#universal-studios-japan",
@@ -20779,7 +21716,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Universal_Studios_Japan",
-   "wikiLead": true,
+   "skip": "theme park entrance dominated by character and globe art; Japan has no freedom of panorama for art (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -26381,7 +27318,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ang_Mo_Kio_Town_Garden_West",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:AMK Town West Garden - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:AMK_Town_West_Garden_-_panoramio.jpg",
+     "depicts": "Ang Mo Kio Town Garden West park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names AMK Town (Garden) West (from category summary; check by eye)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/ang-mo-kio#bishan-ang-mo-kio-park",
@@ -26392,7 +27339,24 @@
     "Bishan-Ang Mo Kio Park"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bishan-Ang Mo Kio Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bishan-Ang_Mo_Kio_Park.jpg",
+     "depicts": "Pedestrian bridge over the river in Bishan-Ang Mo Kio Park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Bishan-Ang Mo Kio Park"
+    },
+    {
+     "file": "File:Looking north up Kallang River at Bishan-Ang Mo Kio Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Looking_north_up_Kallang_River_at_Bishan-Ang_Mo_Kio_Park.jpg",
+     "depicts": "Naturalised Kallang River through Bishan-Ang Mo Kio Park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Bishan-Ang Mo Kio Park (from category listing)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/ang-mo-kio#kebun-baru-birdsinging-club",
@@ -26403,6 +27367,7 @@
     "Kebun Baru Birdsinging Club"
    ],
    "pilot": false,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -26416,7 +27381,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Malay_Film_Productions",
-   "wikiLead": true,
+   "skip": "no file found (only a 1948 historical photo) (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -26430,6 +27395,7 @@
     "Wayang Stage"
    ],
    "pilot": false,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -26441,7 +27407,17 @@
     "Maha Sasana Ramsi Burmese Buddhist Temple"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Burmese Buddhist Temple Singapore.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Burmese_Buddhist_Temple_Singapore.JPG",
+     "depicts": "Burmese Buddhist Temple (Maha Sasana Ramsi), Tai Gin Road",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Burmese Buddhist Temple Singapore (check it is the exterior)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/balestier#sun-yat-sen-nanyang-memorial-hall",
@@ -26452,7 +27428,24 @@
     "Sun Yat Sen Nanyang Memorial Hall"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sun Yat Sen Nanyang Memorial Hall, July 2022.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sun_Yat_Sen_Nanyang_Memorial_Hall,_July_2022.jpg",
+     "depicts": "Sun Yat Sen Nanyang Memorial Hall (Wan Qing Yuan villa)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sun Yat Sen Nanyang Memorial Hall (from category listing)"
+    },
+    {
+     "file": "File:Sun Yat Sen Nanyang Memorial Hall.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sun_Yat_Sen_Nanyang_Memorial_Hall.jpg",
+     "depicts": "Sun Yat Sen Nanyang Memorial Hall, Balestier",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sun Yat Sen Nanyang Memorial Hall (from category listing)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/bishan#hsbc-treetop-walk",
@@ -26463,7 +27456,24 @@
     "HSBC TreeTop Walk"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Tree Top Walk at MacRitchie, Singapore 4.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tree_Top_Walk_at_MacRitchie,_Singapore_4.jpg",
+     "depicts": "The TreeTop Walk suspension bridge at MacRitchie",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Tree Top Walk at MacRitchie"
+    },
+    {
+     "file": "File:The 30m high structure of The Treetop Walk (19199403090).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_30m_high_structure_of_The_Treetop_Walk_(19199403090).jpg",
+     "depicts": "The 30 m high TreeTop Walk structure above the forest",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names The Treetop Walk (MacRitchie series)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/bishan#kong-meng-san-phor-kark-see-monastery",
@@ -26501,7 +27511,24 @@
     "Sultan Mosque"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sultan Mosque at Kampong Glam, Singapore (8124307795).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sultan_Mosque_at_Kampong_Glam,_Singapore_(8124307795).jpg",
+     "depicts": "Sultan Mosque, Kampong Glam",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sultan Mosque at Kampong Glam"
+    },
+    {
+     "file": "File:Masjidsultan.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Masjidsultan.jpg",
+     "depicts": "Sultan Mosque seen down the Bussorah Street mall",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Masjid Sultan; described as mosque with Bussorah pedestrian mall"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/katong-joo-chiat#koon-seng-road-peranakan-shophouses-joo-chiat-katong",
@@ -26526,6 +27553,20 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the file shows Joo Chiat Road, not Koon Seng Road (wrong subject)"
+    },
+    {
+     "file": "File:Colorful shophouses in Koon Seng Road, Singapore.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Colorful_shophouses_in_Koon_Seng_Road,_Singapore.jpg",
+     "depicts": "Row of colourful Peranakan shophouses on Koon Seng Road",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Koon Seng Road shophouses; Commons featured picture"
+    },
+    {
+     "file": "File:Colorful shophouses and tree in Koon Seng Road Singapore.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Colorful_shophouses_and_tree_in_Koon_Seng_Road_Singapore.jpg",
+     "depicts": "Koon Seng Road Peranakan houses with a tree",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Koon Seng Road shophouses"
     }
    ]
   },
@@ -26551,6 +27592,7 @@
     "Goodwood Park Hotel"
    ],
    "pilot": false,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -26576,7 +27618,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Novena_Church",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Outside view of Novena Church Singapore.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Outside_view_of_Novena_Church_Singapore.jpg",
+     "depicts": "Exterior of Novena Church",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Novena Church, outside view (from category listing)"
+    },
+    {
+     "file": "File:Church of Saint Alphonsus, or Novena Church.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Church_of_Saint_Alphonsus,_or_Novena_Church.jpg",
+     "depicts": "Church of St Alphonsus (Novena Church)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Church of Saint Alphonsus / Novena Church (from category listing; may predate the 2017-2020 rebuild)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/penang#george-town-unesco-heritage-zone",
@@ -26590,7 +27649,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/George_Town,_Penang",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Lebuh Armenian in central George Town, Penang.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lebuh_Armenian_in_central_George_Town,_Penang.jpg",
+     "depicts": "Heritage shophouses on Armenian Street, central George Town",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names George Town, Penang (from Armenian Street category listing)"
+    },
+    {
+     "file": "File:Heritage buildings on Lebuh Kimberley (Kimberley Street) in George Town, Penang - 53783669280.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Heritage_buildings_on_Lebuh_Kimberley_(Kimberley_Street)_in_George_Town,_Penang_-_53783669280.jpg",
+     "depicts": "Heritage buildings on Kimberley Street, George Town",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names heritage buildings in George Town, Penang (from category listing)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/potong-pasir-macpherson#alkaff-upper-serangoon-mosque",
@@ -26618,7 +27694,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Bidadari_Park",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -26630,6 +27706,7 @@
     "Potong Pasir Sloping-Roof HDB"
    ],
    "pilot": false,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -26644,7 +27721,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Punggol_Point_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sunset at Punggol Beach, Singapore - 20091018.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Punggol_Beach,_Singapore_-_20091018.jpg",
+     "depicts": "Punggol Beach, the Sook Ching massacre site, at sunset",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Punggol Beach; description ties it to the massacre beach (sunset shot; check it is not too dark)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/punggol#punggol-waterway-park",
@@ -26655,7 +27742,24 @@
     "Punggol Waterway Park"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Punggol Waterway Park 2013.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Punggol_Waterway_Park_2013.jpg",
+     "depicts": "Punggol Waterway Park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Punggol Waterway Park"
+    },
+    {
+     "file": "File:Punggol Waterway in 2013.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Punggol_Waterway_in_2013.jpg",
+     "depicts": "The Punggol Waterway through the park",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Punggol Waterway, the park's central feature"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/toa-payoh#lian-shan-shuang-lin-monastery",
@@ -26692,6 +27796,7 @@
     "United Temple"
    ],
    "pilot": false,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -26746,7 +27851,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kampong_Lorong_Buangkok",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kampong Lorong Buangkok, 2026 23.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kampong_Lorong_Buangkok,_2026_23.jpg",
+     "depicts": "A village house in Kampong Lorong Buangkok",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Kampong Lorong Buangkok"
+    },
+    {
+     "file": "File:An old house in Lorong Buangkok Singapore.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:An_old_house_in_Lorong_Buangkok_Singapore.JPG",
+     "depicts": "Old kampong house in Lorong Buangkok",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Lorong Buangkok; captioned as the last kampong"
+    }
+   ]
   },
   {
    "key": "landmark:statecollege#altoona-railroaders-memorial-museum",
