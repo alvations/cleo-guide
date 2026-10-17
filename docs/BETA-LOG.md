@@ -2326,3 +2326,32 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Photo budget: imagery measured ~914 B raw per credited photo, with +18–27 KB still to come on the big US guides.
   Platform's city-template cut target is raised to ≥ 40 KB. Imagery drops the duplicate title on the Commons link
   (~40 B/photo). Its srcset-trim idea is declined, because width-descriptor srcset ignores `src`.
+
+## 2026-10-17 01:55Z · orchestrator
+
+- **The owner asked for fewer blanks.** A phone render of DC's Atlas (the default view) shows only 8 of the first 54 cards
+  with a photo, and the list opens on full-bleed "Chinese" food covers. Decision D-49:
+  - food places become eligible for a photo of that place;
+  - photo discovery scales in Actions (Wikidata P18, Commons geosearch near the verified coordinate, Flickr CC via
+    Openverse), with contact-sheet review;
+  - the designer specs a no-photo card that doesn't pose as a photo (FE-A in Gallery, FE-1 in Atlas);
+  - Unsplash is for landmarks and heroes, once the owner adds the key.
+- **Photo run #77 failed at test-imagery.** A wave 5 title brought back a file that review had refused (Ghent, Graslei
+  and Korenlei), and the gate blocked the commit. Imagery removes it, makes fetch-commons skip refused files for any
+  target, and re-dispatches 5a–5d(2).
+- **Owner request: Google Maps photos.** A research agent is checking the terms of use, plus Flickr CC, Openverse and
+  Unsplash guidelines. Imagery is building fetch-flickr.js (Openverse first; a FLICKR_API_KEY secret is optional).
+- Coverage today: tier-1 sights with a photo 508/897; heroes 77 of 79 guides.
+
+## 2026-10-17 02:10Z · orchestrator check-in
+
+- Dev head db7e574bf is gated green: eager JS 39.45/40 KB, initial DOM 12/12, largest page Tokyo 767 KB with 53 KB of
+  headroom.
+- **D-51:** the research agent's report is in docs/BETA-IMAGE-SOURCES-FEASIBILITY.md.
+  - Google Maps photos are not allowed.
+  - The Unsplash API storing step is disabled in the workflow, because of the hotlinking rule.
+  - 340 of 389 tier-1 gaps already have unfetched, vetted Commons candidates. Imagery dispatches `all/1500` once the
+    refused Ghent file is out.
+- **The image sources lane started** (session_013vyq3aW2ChR6a7LBNQufNy, D-50). It sends its source matrix and sample yields
+  before writing any fetcher.
+- beta-atlas-real-shots was dispatched on 93a8ea29a (label d46-signoff) for the designer's D-46 sign-off.

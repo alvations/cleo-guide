@@ -150,7 +150,8 @@ async function main() {
     const top = city ? (d.places.find(x => !(x.pv && x.pv.status === 'closed')) || d.places[0]).id : null;
     for (const vp of vps) for (const theme of themes) {
       if (!city) { jobs.push({ page: p, view: 'page', hash: '', vp, theme }); continue; }
-      for (const v of views) jobs.push({ page: p, view: v, hash: v === 'sheet' ? '#view=gallery&p=' + encodeURIComponent(top) : '#view=' + v, vp, theme }); } }
+      for (const v of views) jobs.push({ page: p, view: v, hash: v === 'sheet' ? '#view=gallery&p=' + encodeURIComponent(top) : '#view=' + v, vp, theme });
+      if (views.includes('atlas')) jobs.push({ page: p, view: 'default', hash: '', vp, theme }); } }   // D-46: the cold first screen (no hash) must be Atlas, within OV-00 at rest
   fs.mkdirSync(SHOTS, { recursive: true });
   const srv = http.createServer((req, rsp) => { let f = path.join(ROOT, decodeURIComponent(req.url.split('?')[0].split('#')[0]));
     if (!f.startsWith(ROOT)) { rsp.writeHead(403); return rsp.end(); }
@@ -199,6 +200,7 @@ async function main() {
   const PHONE = { P1: 1, P2: 1, L: 1, T1: 1 };
   const city = r => r.view !== 'page';
   const owner = (kind, r) => {
+    if (r.view === 'default') return kind === 'defaultNotAtlas' ? 'FE-A (D-46 default)' : 'FE-A (header, switch) + Atlas FE-1 (chip row, peek)';
     if (r.view === 'atlas') return /^chrome/.test(kind) ? 'FE-A (header, switch) + Atlas FE-1 (chip row, peek)' : /^label/.test(kind) ? 'Atlas FE-1 + FE-2' : kind === 'duplicates' ? 'FE-B (search.js) + FE-A (city search) + designer' : 'Atlas FE-1';
     if (kind === 'duplicates') return 'FE-B (search.js) + FE-A (city search) + designer';
     if (r.view === 'sheet') return 'FE-C (sheet)';
@@ -207,6 +209,10 @@ async function main() {
     return 'FE-B (hubs, landing, trip, saved, method)'; };
   const flags = [], push = (kind, value, budget, r) => flags.push({ kind, value, budget, r, owner: owner(kind, r) });
   results.forEach(r => { if (!r.load) { if (r.error) push('error', r.error, '—', r); return; } const v = VK[r.vp], L = r.load, D = r.during, map = r.view === 'atlas' && L.map;
+    if (r.view === 'default') { const [cr, , kr] = ATLAS[v]; const clear = v === 'T2' || v === 'D' ? L.clearPane : L.clearVP;
+      if (L.view !== 'atlas') push('defaultNotAtlas', 'opens ' + L.view, 'Atlas (D-46)', r);
+      else { if (L.band > cr) push('firstScreenChrome', L.band, '≤ ' + cr + ' %', r); if (clear < kr) push('firstScreenClear', clear, '≥ ' + kr + ' %', r); }
+      if (r.toastLate && r.toastLate.length) push('toast', r.toastLate.join(' / '), 'leaves within 4 s', r); return; }
     if (map) { const [cr, cp, kr, kp, lc, lv] = ATLAS[v]; const clear = x => (v === 'T2' || v === 'D' ? x.clearPane : x.clearVP);
       if (L.band > cr) push('chromeRest', L.band, '≤ ' + cr + ' %', r);
       if (D && D.band > cp) push('chromePan', D.band, '≤ ' + cp + ' % at 300 ms into a pan', r);

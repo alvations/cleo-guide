@@ -293,6 +293,34 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
   ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
 }
+{ // R8 owner directive: fetch-flickr.js fills only the stated gaps, with honest licences, matching and laundering guards
+  const ff = require('./fetch-flickr');
+  ok(ff.flickrGap('no file found (wave 5 search) — calm cover (stated, W8)') && ff.flickrGap('both vetted Commons files refused (a plain beach; a housing estate)') &&
+    !ff.flickrGap('venue (a bar) — never a photo') && !ff.flickrGap('modern artwork, no US FoP') && !ff.flickrGap('Vietnam has no freedom of panorama') && !ff.flickrGap('indoor themed ride: …') && !ff.flickrGap(''),
+    'fetch-flickr: only "no usable Commons photo" gaps are targets — never venues, art, Vietnam, themed rides');
+  ok(ff.licenceOf('by', '2.0').licence === 'CC BY 2.0' && ff.licenceOf('by-sa', '4.0').licenceUrl === 'https://creativecommons.org/licenses/by-sa/4.0/' && ff.licenceOf('pdm').licence === 'Public domain' &&
+    ff.licenceOf('cc0').licence === 'CC0 1.0' && ff.licenceOf('nkcr').licenceUrl === 'https://www.flickr.com/commons/usage/' && ff.licenceOf('by-nc', '2.0').why && ff.licenceOf('by-nd', '4.0').why && ff.licenceOf('', '').why,
+    'fetch-flickr: CC0 / PDM / no known restrictions / CC BY / CC BY-SA kept with deed links; NC, ND and unknown refused');
+  const t = { label: 'Goh Chor Tua Pek Kong Temple', names: [], town: ['balestier'] };
+  ok(ff.matches({ title: 'Goh Chor Tua Pek Kong Temple, Balestier', tags: [] }, Object.assign({ radius: 1.5 }, t)).ok && ff.matches({ title: 'Temple at dusk', tags: ['balestier'] }, Object.assign({ radius: 1.5 }, t)).why &&
+    ff.matches({ title: 'Tua Pek Kong', tags: [] }, Object.assign({ radius: 1.5 }, t)).why && ff.matches({ title: 'Tua Pek Kong temple', tags: ['balestier'] }, Object.assign({ radius: 1.5 }, t)).ok && ff.matches({ title: 'Pek Kong shrine', tags: [], lat: 1.40, lon: 103.9 }, Object.assign({ radius: 1.5, la: 1.325, ln: 103.85 }, t)).why,
+    'fetch-flickr: a result must name the place in its title and be confirmed by a second name word, the town or a geotag in range');
+  ok(ff.refusal({ title: 'Temple — press photo', tags: [], creator: 'x' }, t) && ff.refusal({ title: 'Temple', description: 'Photo by John Smith', tags: [], creator: 'aphotog' }, t) &&
+    ff.refusal({ title: 'Temple signage close-up', tags: [], creator: 'x' }, t) && !ff.refusal({ title: 'Goh Chor Tua Pek Kong Temple facade', tags: ['singapore'], creator: 'x' }, t),
+    'fetch-flickr: laundering (press/©/someone else credited) and subject (signage, close-up) refusals');
+  ok(ff.profileOf('https://www.flickr.com/photos/12345678@N00') === 'https://www.flickr.com/photos/12345678@N00/' && ff.photoPageOf('https://www.flickr.com/photos/abc/5123456789/in/photostream') === 'https://www.flickr.com/photos/abc/5123456789/' && !ff.photoPageOf('https://example.org/x'),
+    'fetch-flickr: author profile and photo page URLs normalised; non-Flickr pages refused');
+  ok(ff.nameWords('Dempsey Hill — guide hero').join(' ') === 'dempsey', 'fetch-flickr: a hero label\'s " — guide hero" suffix is never a name word');
+  const base = { file: 'x--y-960.jpg', record: { page: 'tokyo', id: 'senso-ji' }, depicts: 'x', author: 'A', licence: 'CC BY 2.0', licenceUrl: 'https://creativecommons.org/licenses/by/2.0/', provider: 'flickr' };
+  ok(!photos.creditProblems(Object.assign({}, base, { sourceUrl: 'https://www.flickr.com/photos/abc/123/', authorUrl: 'https://www.flickr.com/photos/abc/' })).filter(x => !/file|not found|width|height/i.test(x)).length &&
+    photos.creditProblems(Object.assign({}, base, { sourceUrl: 'https://www.flickr.com/photos/abc/123/' })).some(x => /authorUrl/.test(x)) &&
+    photos.creditProblems(Object.assign({}, base, { sourceUrl: 'https://example.org/1', authorUrl: 'https://www.flickr.com/photos/abc/' })).some(x => /flickr\.com\/photos/.test(x)) &&
+    photos.creditProblems(Object.assign({}, base, { licence: 'CC BY-NC 2.0', sourceUrl: 'https://www.flickr.com/photos/abc/123/', authorUrl: 'https://www.flickr.com/photos/abc/' })).some(x => /licence/.test(x)) &&
+    photos.creditProblems(Object.assign({}, base, { provider: 'wikimedia-commons', licence: 'No known copyright restrictions', licenceUrl: 'https://www.flickr.com/commons/usage/', sourceUrl: 'https://commons.wikimedia.org/wiki/File:X.jpg' })).some(x => /Flickr Commons/.test(x)),
+    'credit gate: a Flickr row needs its photo page and the author\'s profile; NC refused; "no known restrictions" only for Flickr');
+  ok(/Photo: <a href="https:\/\/www\.flickr\.com\/photos\/abc\/"[^>]*>A<\/a> · <a [^>]*>CC BY 2\.0<\/a> · <a href="https:\/\/www\.flickr\.com\/photos\/abc\/123\/"[^>]*>Flickr<\/a>/.test(photos.captionHtml(Object.assign({}, base, { sourceUrl: 'https://www.flickr.com/photos/abc/123/', authorUrl: 'https://www.flickr.com/photos/abc/' }))),
+    'credit: a Flickr caption links the author\'s profile, the licence deed and the Flickr photo page (TASL)');
+}
 { // DESIGN-SYSTEM §v2.7a: designed food covers — the city ground (two data-URI url()s, < 1 KB together) and the no-repeat glyph rule
   const m = require('./motifs');
   const keys = Object.keys(m.RECIPES).concat(['singapore/chinatown', 'singapore/katong-joo-chiat', 'vietnam/hanoi']);

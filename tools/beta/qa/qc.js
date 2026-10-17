@@ -308,8 +308,10 @@ async function patterns(rel, vp) {
       orders: [...document.querySelectorAll('[data-cleo-views]')].map(n => [...n.querySelectorAll('button[data-view]')].map(b => b.getAttribute('data-view'))),
       pressed: [...document.querySelectorAll('[data-cleo-views] button[aria-pressed=true]')].map(b => b.getAttribute('data-view')) }));
     r.declared = await declared(o.page); if (o.st.errors.length) r.errors = o.st.errors.slice(0, 2);
+    // D-46 first screen within OV-00 at rest (orchestrator 01:38Z): Atlas chrome ≤ 25 % on a phone (P1), ≤ 12 % on desktop (D)
+    if (OVERLAY) { const m = await o.page.evaluate(OVERLAY.MEASURE).catch(() => null); if (m) r.firstScreen = { band: m.band, cap: vp >= 1024 ? 12 : 25 }; }
     const orderOk = r.orders.length > 0 && r.orders.every(x => JSON.stringify(x.filter(v => ORDER.includes(v))) === JSON.stringify(ORDER.filter(v => x.includes(v))) && x[0] === 'atlas');
-    check('P-29', C, ok(r.v0 === 'atlas' && r.view === 'atlas' && !r.hash && orderOk && r.pressed.length && r.pressed.every(v => v === 'atlas') && !(r.cls > 0.001) && !o.st.errors.length), r);
+    check('P-29', C, ok(r.v0 === 'atlas' && r.view === 'atlas' && !r.hash && orderOk && r.pressed.length && r.pressed.every(v => v === 'atlas') && !(r.cls > 0.001) && !o.st.errors.length && (!r.firstScreen || r.firstScreen.band <= r.firstScreen.cap)), r);
     await o.ctx.close();
     // P-30: the reader picks Gallery with the switcher, then comes back with no hash: the stored choice wins over the default
     const o2 = await open(rel, vp, { settle: 1200 }); const did = await switchTo(o2.page, 'gallery'); await o2.page.waitForTimeout(500);

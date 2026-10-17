@@ -26,8 +26,11 @@ plural (i18n).
   host rules); 369 untyped listed in beta/data/recognition-untyped.json (stated gap). W9-8: offline-pack.js in npm test.
 - Build scripts: guards before the write (22 + belgium_build), tools/test-builds.js in npm test: 967d43a3.
 - R8 measurement kit: design/beta/eval/r8/README.md (+ r8/tools/pair.py).
-- PERF-19 (R8 gap #6, Tokyo session ≤ 4 MB): 7,773 → 3,720 KB. Script-opened sheets (no tap/key in 1 s, not the first
-  deep link) hold the 960 w photo until open 250 ms (marked block in sheet.js); metrics.js records session.byType + top URLs.
+- PERF-19b (R8 gap #6, Tokyo session ≤ 4 MB; D-48): 7,773 → 3,679 KB. Every sheet open starts on the 500 w file, full srcset
+  after 250 ms open (cold first deep link exempt). Probe: tools/beta/qa/sheet-photo.js. NEVER branch on human vs scripted input
+  (QA-81 guard in npm test). PERF-20: city template −50 KB raw. PERF-21: filter INP ≈ 490 ms shipped; `Cleo.defer.lensPage`
+  (≈ 105 ms) OFF until QA rules on PERF-08 (a)/(b). QC-26 count 11/36 (vs 43) is FE-1's Atlas shed() paging, red on 23bbb97d too.
+- OV-38: `Cleo.pack.mount(host)` (idempotent) for FE-1's Layers popover `.m-layers-pop .m-pack`; FE-1 sends the SHA.
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).
 
 ## Next

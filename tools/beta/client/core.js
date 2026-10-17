@@ -377,16 +377,7 @@
     /** opts.lens (a lens object, Cleo.lens.pick of a route): only the stubs that lens shows (PERF-08); default: every stub */
     peek: function (opts) {
       var out = [], L = opts && opts.lens && Cleo.lens.on(opts.lens) ? opts.lens : null;
-      D.pending().forEach(function (ns) {
-        var src = ns.children && ns.children.length ? ns.innerHTML : ns.textContent, re = /<li class="pl[ "][^>]*>/g, m;
-        while ((m = re.exec(src))) {
-          var at = {}, a = /([a-z-]+)(?:="([^"]*)")?/g, x, tag = m[0].slice(3, -1);
-          while ((x = a.exec(tag))) at[x[1]] = x[2] === undefined ? '' : x[2].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-          var st = { id: at.id, stub: true, getAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k) ? this._a[k] : null; },
-            hasAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k); }, _a: at };
-          if (!L || Cleo.lens.match(st, L)) out.push(st);
-        }
-      });
+      D.pending().forEach(function (ns) { stubsOf(ns).forEach(function (st) { if (!L || Cleo.lens.match(st, L)) out.push(st); }); });
       return out;
     },
     /** PERF-08: stamp only the cards a lens shows (the rest stay deferred, still reachable: "Show all", deep links, search,
@@ -403,6 +394,10 @@
      *  deploy (2026-10-16): QA-75 (FE-A 752a77fc), QA-76 (FE-2 4aba38b3) and QC-26 (FE-2 3929ad4b) fixed and guarded —
      *  tools/beta/qa/perf08-regress.sh and test-beta's QA-75 guard. See BETA-PERF-AUDIT PERF-08. */
     selective: true,
+    /** PERF-21 switch (OFF until QA rules): under a selective lens the Gallery pager builds only the lens's current page
+     *  (views.js), and routed() leaves the lens's other pages unstamped. Desktop filter INP ≈ 480 → ≈ 105 ms (4× CPU). It
+     *  changes QA's PERF-08 outcomes (a)/(b) ("every match is a card") into "every match is a card or a stub on its page". */
+    lensPage: false,
     /** Every card in document (= view) order, stamped or not, WITHOUT stamping: [{id:'p-…', a, el|null, ns|null}].
      *  Lets the Gallery pager place a deep link on its page and stamp only that page (platform W7, R6 gap #5). */
     order: function () {
@@ -419,14 +414,15 @@
     stampIds: function (want) {
       var out = [];
       D.pending().forEach(function (ns) {
-        var cards = cardsOf(ns), hit = cards.map(function (c) { var m = /\bid="([^"]*)"/.exec(c.slice(0, c.indexOf('>'))); return !!(m && want.has(m[1])); });
+        var e = parsed(ns), cards = e.cards, hit = cards.map(function (c) { var m = /\bid="([^"]*)"/.exec(c.slice(0, c.indexOf('>'))); return !!(m && want.has(m[1])); });
         if (!hit.some(Boolean)) return;
         if (hit.every(Boolean)) { out = out.concat(D.stamp(ns, 1)); return; }
         var ol = ns.parentNode, runs = [], cur = null, made = [];
-        cards.forEach(function (c, i) { if (!cur || cur.h !== hit[i]) runs.push(cur = { h: hit[i], c: [] }); cur.c.push(c); });
+        cards.forEach(function (c, i) { if (!cur || cur.h !== hit[i]) runs.push(cur = { h: hit[i], c: [], s: [] }); cur.c.push(c); if (e.stubs) cur.s.push(e.stubs[i]); });
         runs.forEach(function (r) {
           var n = document.createElement('noscript'); n.setAttribute('data-cleo-defer', ''); n.setAttribute('data-n', String(r.c.length));
           n.setAttribute('style', 'display:contents'); n.textContent = '\n' + r.c.join('\n') + '\n'; ol.insertBefore(n, ns); if (r.h) made.push(n);
+          if (PC) PC.set(n, { cards: r.c, stubs: e.stubs ? r.s : null });   // PERF-21: the split halves are already parsed
         });
         ol.removeChild(ns);
         made.forEach(function (n) { out = out.concat(D.stamp(n, 1)); });
@@ -436,7 +432,27 @@
     }
   };
   var CARD = /<li class="pl[ "][\s\S]*?<\/li>/g;           // same card pattern as tools/beta/lib/chunk.js
-  function cardsOf(ns) { return (ns.children && ns.children.length ? ns.innerHTML : ns.textContent).match(CARD) || []; }
+  /* PERF-21 (filter INP): each chunk's text is parsed ONCE — its cards (CARD matches) and, on first peek, its stubs (start
+   * tags → attribute maps). A lens tap peeks many times (views.js pager, city.js counts / sections / pins / fitLens, atlas.js)
+   * and each peek re-parsed every chunk. Chunks are never edited in place (a split makes new noscripts, seeded above), so
+   * a WeakMap on the element is enough. Stubs are shared, read-only stand-ins. */
+  var PC = window.WeakMap ? new WeakMap() : null;
+  var STUB = { stub: true, getAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k) ? this._a[k] : null; },
+    hasAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k); } };
+  function parsed(ns) {
+    var e = PC && PC.get(ns); if (e) return e;
+    e = { cards: (ns.children && ns.children.length ? ns.innerHTML : ns.textContent).match(CARD) || [], stubs: null }; if (PC) PC.set(ns, e); return e;
+  }
+  function cardsOf(ns) { return parsed(ns).cards; }
+  /** Lightweight stand-ins for unstamped cards, parsed from their start tags only: {id, getAttribute, hasAttribute}. */
+  function stubsOf(ns) {
+    var e = parsed(ns); if (e.stubs) return e.stubs;
+    return (e.stubs = e.cards.map(function (c) {
+      var at = {}, a = /([a-z-]+)(?:="([^"]*)")?/g, x, tag = c.slice(3, c.indexOf('>'));
+      while ((x = a.exec(tag))) at[x[1]] = x[2] === undefined ? '' : x[2].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+      var st = Object.create(STUB); st.id = at.id; st._a = at; return st;
+    }));
+  }
   /* ---- view chunks (P-05, R-33): the same progressive rendering for content a VIEW builds on the client (Guidebook
    * chapters, Gallery rails/pages, Insights cards). `parts` = HTML strings in order; `initial` render now, the rest as
    * the host's end nears the viewport (IntersectionObserver, 1,200 px), and ALL of them on anything that needs every
@@ -573,7 +589,9 @@
   // under a selective lens the cards it leaves unstamped are outside it: their lists' height spacers fold away and the lazy
   // observer waits; when the lens clears both come back (scrolling then builds every card, as with no lens)
   // a selective lens: its matching cards, its #p= place, and every view chunk (a view's own list must meet the lens too)
-  var lensNow = function (lr) { D.stampLens(lr); if (lr.p) stampPlace(); VC.slice().forEach(function (c) { c.all(); }); };
+  // PERF-21: where a pager builds the lens's own page (views.js Gallery: D.paged()), a lens with no text query leaves the
+  // rest of its matches unstamped; counts, sections and pins read them as stubs
+  var lensNow = function (lr) { if (!(D.lensPage && D.paged && D.paged() && !lr.q && lr.all !== '1')) D.stampLens(lr); if (lr.p) stampPlace(); VC.slice().forEach(function (c) { c.all(); }); };
   var lensed = function () { return !!D.selective && D.pending().length > 0 && Cleo.lens.on(Cleo.lens.current()); };
   var gaps = function () { var off = lensed(); [].forEach.call(document.querySelectorAll('.cleo-defer-gap[data-est]'), function (g) { g.style.display = off ? 'none' : ''; }); };
   var routed = function () { if (!D.pending().length && !VC.length) return; var q = quiet(); if (q === 'p') stampPlace();
