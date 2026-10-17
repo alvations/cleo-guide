@@ -29,7 +29,9 @@
  *   - not a press photo, screenshot, watermark, AI image, illustration or vector; at least 640 px wide.
  *
  * Exit codes: 0 = done, nothing to do, no key, or hosts unreachable outside CI (plan printed); 1 = bad option or input;
- * 3 = a host is blocked or unreachable in CI; 4 = an API request failed, or more than 25 % of image downloads failed.
+ * 3 = a host is blocked or unreachable in CI; 4 = nothing could be read (every API read or > 25 % of downloads failed and
+ * nothing was kept). A dropped connection is retried once, then the item is skipped unrecorded (retried next run); three in
+ * a row stop the run cleanly. Partial work always exits 0 so the workflow commits it.
  * --budget caps API requests per run (images are counted apart); a run stops cleanly at the cap, and the next run
  * resumes (staged and credited targets are skipped).
  */
@@ -289,24 +291,38 @@ async function main(adapter) {
   const today = new Date().toISOString().slice(0, 10);
   const credits = o.mode === 'credit' ? loadCredits() : null, stage = o.mode === 'stage' ? loadStage(adapter.id) : null;
   const kept = [], refused = [];
-  let imgTries = 0, imgFails = 0, stopped = false;
+  let imgTries = 0, imgFails = 0, stopped = false, netFails = 0, netRow = 0;
+  const skipped = [];
   for (const x of todo) {
     if (calls + (adapter.callsPerItem || 1) > o.budget) { stopped = true; break; }
     let it;
+    // a dropped connection ("terminated", reset, timeout) is retried once after a pause; a second failure skips the item
+    // WITHOUT recording it (the next run retries it); 3 in a row stop the run cleanly so the work so far is kept (run #1 lesson)
     try { it = await adapter.item(x.r, ctx); }
-    catch (e) { die(`API read for ${x.r.itemId} failed: ${e.message}`, 4); }
+    catch (e) {
+      await sleep(o.delay >= 100 ? Math.max(o.delay * 3, 5000) : 10);
+      try { it = await adapter.item(x.r, ctx); }
+      catch (e2) {
+        netFails++; skipped.push(`${x.r.target} ${x.r.itemId}: API read failed twice (${e2.message}) — not recorded, retried next run`);
+        console.log(`  net   ${x.r.target} ${x.r.itemId}: ${e2.message}`);
+        if (++netRow >= 3) { stopped = true; console.log('  3 network failures in a row — stopping; the next run resumes'); break; }
+        continue;
+      }
+    }
+    netRow = 0;
     if (it && it.rateLimited) { stopped = true; console.log('  rate limit reached — stopping; the next run resumes'); break; }
     const why = it ? itemProblems(it, x.r, x.t, adapter) : 'not found in the API';
-    if (why) { refused.push(`${x.r.target} ${x.r.itemId}: ${why}`); if (stage) stage.rows.push({ target: x.r.target, itemId: x.r.itemId, refused: why, checked: today }); continue; }
+    if (why) { refused.push(`${x.r.target} ${x.r.itemId}: ${why}`); console.log(`  no    ${x.r.target} ${x.r.itemId}: ${why}`); if (stage) stage.rows.push({ target: x.r.target, itemId: x.r.itemId, refused: why, checked: today }); continue; }
     const widths = o.mode === 'stage' ? [320] : [500, 960];
     let buf;
     imgTries++;
     try {
+      if (adapter.imageDelay) await sleep(adapter.imageDelay);   // hosts that count image requests against the API limit (LoC)
       const r = await get(it.imageUrl(Math.max(...widths)), { timeout: 60000, headers: adapter.imageHeaders ? adapter.imageHeaders(key) : {} });
       if (r.status === 429 || r.status >= 500) { stopped = true; console.log(`  image host HTTP ${r.status} — stopping; the next run resumes`); break; }
       if (!r.ok || !/^image\//.test(r.headers.get('content-type') || '')) throw new Error(`HTTP ${r.status} ${r.headers.get('content-type') || ''}`);
       buf = Buffer.from(await r.arrayBuffer());
-    } catch (e) { imgFails++; refused.push(`${x.r.target} ${x.r.itemId}: image download failed (${e.message})`); continue; }
+    } catch (e) { imgFails++; skipped.push(`${x.r.target} ${x.r.itemId}: image download failed (${e.message}) — retried next run`); console.log(`  net   ${x.r.target} ${x.r.itemId}: image ${e.message}`); continue; }
     const meta = await sharp(buf).metadata().catch(() => null);
     if (!meta || !meta.width) { imgFails++; refused.push(`${x.r.target} ${x.r.itemId}: not a readable image`); continue; }
     if (meta.width < (o.mode === 'stage' ? 320 : 640)) { refused.push(`${x.r.target} ${x.r.itemId}: image only ${meta.width} px wide`); continue; }
@@ -320,7 +336,7 @@ async function main(adapter) {
         licence: it.licence, licenceUrl: it.licenceUrl, sourceUrl: it.sourceUrl, institution: it.institution || adapter.institution,
         era: x.r.era || '', stillLooks: x.r.stillLooks || '', evidence: x.r.identityEvidence || '', confidence: x.r.confidence, originalWidth: meta.width, checked: today });
       saveStage(adapter.id, stage);   // after each item, so a stop keeps the work
-      kept.push(`${x.r.target} ← ${x.r.itemId} "${it.title}" (${it.licence}) → stage/${adapter.id}/${file}`);
+      kept.push(`${x.r.target} ← ${x.r.itemId} "${it.title}" (${it.licence}) → stage/${adapter.id}/${file}`); console.log(`  ok    ${kept[kept.length - 1]}`);
     } else {
       const big = await toJpeg(sharp, buf, 960), small = big.w > 500 ? await toJpeg(sharp, buf, 500) : null;
       const main = { ...big, file: `${base}-960.jpg` }, sm = small ? { ...small, file: `${base}-500.jpg` } : null;
@@ -335,10 +351,13 @@ async function main(adapter) {
   }
   console.log(`\nKept ${kept.length}:`); kept.forEach(k => console.log(`  ok    ${k}`));
   console.log(`Refused ${refused.length}:`); refused.forEach(k => console.log(`  no    ${k}`));
+  if (skipped.length) { console.log(`Skipped for now (network) ${skipped.length}:`); skipped.forEach(k => console.log(`  net   ${k}`)); }
   console.log(`API calls this run: ${calls}/${o.budget}.${stopped ? ' Stopped early — run again to resume.' : ''}`);
   if (stage && kept.length) console.log('Now: node tools/beta/imagery/sources/contact.js (the contact sheet for review).');
   if (credits && kept.length) console.log('Now: node tools/beta/imagery/recompress.js && cd tools && npm run beta && npm test');
-  if (imgTries >= 4 && imgFails / imgTries > 0.25) { console.error(`${TAG}: ${imgFails}/${imgTries} image downloads failed (> 25 %).`); return 4; }
+  // > 25 % failed downloads is an error only when nothing was kept: partial work must still reach the commit step (CI bash -e)
+  if (imgTries >= 4 && imgFails / imgTries > 0.25) { console.error(`${TAG}: ${imgFails}/${imgTries} image downloads failed (> 25 %).`); if (!kept.length) return 4; }
+  if (netFails && !kept.length && !refused.length) { console.error(`${TAG}: every API read failed (${netFails}).`); return 4; }
   return 0;
 }
 
