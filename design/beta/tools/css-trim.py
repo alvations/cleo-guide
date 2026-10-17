@@ -12,7 +12,8 @@ Then rules left empty, and @media blocks left empty, are removed too.
     python3 design/beta/tools/css-trim.py --coverage PATH [--dry]  # css-coverage.js: drop whole rules never used
 Coverage mode keeps every rule that a sweep cannot exercise: dynamic-state selectors (:hover, :focus…, ::selection,
 ::placeholder), anything inside print / reduced-motion / forced-colors / hover / @supports blocks, keyframes and font
-faces, Leaflet's own classes, and transient states (toast, offline, storage, error, empty, loading, skip, sr-only).
+faces, Leaflet's own classes, covers / credits / chart series / card keys (Platform's saved-reader 844×390 check),
+and transient states (toast, offline, storage, error, empty, loading, skip, sr-only).
 """
 import json, os, re, sys, collections
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..')
@@ -51,7 +52,7 @@ def blocks(text):
     return out
 
 total = collections.Counter()
-KEEP_SEL = re.compile(r':(hover|focus|focus-visible|focus-within|active|visited|target|checked|invalid|placeholder-shown|disabled|indeterminate|fullscreen|popover-open|open|modal)|::(selection|placeholder|backdrop|marker|-webkit-|-moz-)|leaflet|toast|offline|storage|error|empty|loading|skeleton|skip|sr-only|visually-hidden|noscript|print|reduced|toolbar|saved|\.sv-|trip|been|day|stop|leg|caveat|plan|route|lens|pin|share|import|export|results|\.hits|suggest|aria-pressed|aria-checked|aria-selected|aria-current|aria-expanded|data-theme|view-transition|closed|warn|banner|because|interest|listmenu|danger|status|count-dot|\.sel\b|is-|switch|poi-sheet|tray|detent|heart|save|stamp|modal|dialog|sheet', re.I)
+KEEP_SEL = re.compile(r':(hover|focus|focus-visible|focus-within|active|visited|target|checked|invalid|placeholder-shown|disabled|indeterminate|fullscreen|popover-open|open|modal)|::(selection|placeholder|backdrop|marker|-webkit-|-moz-)|leaflet|toast|offline|storage|error|empty|loading|skeleton|skip|sr-only|visually-hidden|noscript|print|reduced|toolbar|saved|\.sv-|trip|been|day|stop|leg|caveat|plan|route|lens|pin|share|import|export|results|\.hits|suggest|aria-pressed|aria-checked|aria-selected|aria-current|aria-expanded|data-theme|view-transition|closed|warn|banner|because|\bwhy\b|pl-why|cover|pl-k|chart|legend|credit|photo|sticker|mosaic|\.near\b|interest|listmenu|danger|status|count-dot|\.sel\b|is-|switch|poi-sheet|tray|detent|heart|save|stamp|modal|dialog|sheet', re.I)
 KEEP_AT = re.compile(r'@(supports|keyframes|font-face|page|property|container)|@media[^{]*(print|prefers-reduced-motion|forced-colors|prefers-contrast|hover|pointer)', re.I)
 if COV:
     cov = json.load(open(COV))

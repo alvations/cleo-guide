@@ -158,7 +158,7 @@ const sourceRole = s => {
   const id = String((s && s.id) || ''), n = String((s && s.name) || '');
   if (id === 'guide') return 'guide';
   if (PLATFORM.test(id.replace(/-/g, ' ')) || PLATFORM.test(n)) return 'platform';
-  if (id === 'official-site' || /-official$/.test(id) || OWN_SITE.test(n) || /^official\b/i.test(n) || (/\(official\b[^)]*\)/i.test(n) && !BOARD.test(n))) return 'own';
+  if (id === 'official-site' || /-official$/.test(id) || OWN_SITE.test(n) || /^official\b/i.test(n) || ((/\([^)]*\bofficial\b[^)]*\)/i.test(n) || /\bofficial (?:site|website|web ?page|page|history|homepage)\b/i.test(n)) && !BOARD.test(n))) return 'own';   /* QA-87: "(developer, official)", "X official site / history" */
   return 'rec';
 };
 /** The ids a record may name after "Recommended by", authorities first (Michelin, James Beard, NPS), then the live order. */

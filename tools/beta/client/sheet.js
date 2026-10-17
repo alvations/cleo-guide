@@ -29,16 +29,16 @@
     var note = !k ? '' : k.classList.contains('note') ? '<div class="note"><span class="eyebrow">' + tt('city.card.note', 'Your guide’s note') + '</span><p>' + k.innerHTML.replace(/<span class="lbl">[^<]*<\/span>/, '') + '</p></div>'
       : '<div class="lookfor"><b class="sm">' + tt('sheet.look', 'Look for:') + '</b> ' + own(k).split(/\s*[,;·]\s*/).filter(Boolean).map(function (x) { return '<span class="tag">' + esc(x) + '</span>'; }).join('') + '</div>';
     var src = [].map.call(c.querySelectorAll('.pl-s button.src'), function (b) {
-      var g = b.getAttribute('data-src'), s = (info.src || {})[g] || [b.textContent, 0, 0, '', ''];
+      var g = b.getAttribute('data-src'), s = [b.textContent].concat(((info.src || {})[g] || [0, 0, 0, '', '']).slice(1));   // FE-C D-53 hook: the chip's own name (lib/model.js recName: no "(official …)" tail)
       return '<li' + (s[3] ? ' class="auth"' : '') + ' data-g="' + esc(g) + '"><span class="mono" aria-hidden="true">' + esc(s[0].charAt(0)) + '</span><div><span class="nm">' + esc(s[0]) + '</span>' +
         '<span class="ttl">' + esc([s[3] && tt('sheet.authority', '{name} (authority)', { name: s[3] }), dom(s[4])].filter(Boolean).join(' · ')) + '</span></div><div class="acts">' +
         '<button class="go" data-src="' + esc(g) + '">' + esc(tt('sheet.src.all', 'All {n} {city} picks citing', { n: s[1], city: info.name })) + ' ' + glue(s[0], 'chev-r') + '</button>' +
         (s[4] ? '<a class="out" href="' + esc(s[4]) + '"' + NT + '>' + glue(tt('sheet.read', 'Read'), 'external') + '<span class="vh"> ' + esc(s[0]) + '</span></a>' : '') + '</div></li>';
     }).join('') + (q('.pl-s .added', c) ? '<li><span class="mono" aria-hidden="true">·</span><div><span class="nm">' + tt('sheet.added', 'Added by the guide') + '</span><span class="ttl">' + tt('sheet.added.note', 'General knowledge — not from a cited source') + '</span></div></li>' : '');
     // W8 (D12/D13 "sources always visible"): who recommends it, right under the name; the full list follows Why it's here
-    var by = [].map.call(c.querySelectorAll('.pl-s button.src'), function (b) { return ((info.src || {})[b.getAttribute('data-src')] || [b.textContent])[0]; }),
+    var by = [].map.call(c.querySelectorAll('.pl-s button.src'), function (b) { return b.textContent; }),   // FE-C D-53 hook: the card's chips are its real recommenders (recby), by their public names
       byline = by.length ? '<p class="sh-by">' + (by.length > 1 ? tt('sheet.by.more', 'Recommended by {source} and {n} more', { source: '<b>' + esc(by[0]) + '</b>', n: by.length - 1 }) : tt('sheet.by', 'Recommended by {source}', { source: '<b>' + esc(by[0]) + '</b>' })) + '</p>'
-        : q('.pl-s .added', c) ? '<p class="sh-by">' + tt('city.card.added', 'Added by the guide (general knowledge)') + '</p>' : '';
+        : q('.pl-s .added', c) ? '<p class="sh-by">' + tt('city.card.added', 'Added by the guide (general knowledge)') + '</p>' : q('.pl-norec', c) ? '<p class="sh-by">' + q('.pl-norec', c).innerHTML + '</p>' : '';   // FE-C D-53 hook: "No independent source yet" (+ Official site), as the card
     // closures are loud: a banner above the name with the check date and source, and Directions is never the primary action
     var shut = closed ? '<div class="closed-banner" role="note"><b>' + tt('sheet.closed', 'Closed') + '</b><span>' + tt('sheet.closed.note', 'Kept for the record, not as a suggestion') + (chk ? esc(tt('sheet.checked', ' · checked {d}', { d: chk })) : '') + (/^https?:\/\//.test(pv[2]) ? ' · <a href="' + esc(pv[2]) + '"' + NT + '>' + esc(tt('sheet.closed.src', 'source')) + '</a>' : '') + '</span></div>' : '';
     var dir = ll ? '<div class="links"><a class="btn btn-ghost" href="https://maps.apple.com/?daddr=' + ll + '"' + NT + '>Apple Maps</a>' +
@@ -105,13 +105,13 @@
     return '<div class="sheet detail' + (exp ? ' exp' : '') + '" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
       '<button class="btn btn-icon close" data-sh="x" aria-label="' + tt('sheet.close', 'Close') + '">' + icon('close') + '</button>' + navRow + '<div class="sh-body">' + /* FE-C OV-111 hook: the scroll area */
       '<div class="hero-plate' + (q('.pl-photo', c) ? ' has-photo' + (phW >= 800 ? ' ph-fit' : ' ph-frame') : '') + (closed ? ' is-closed' : '') + '" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + (phW ? ';--ph-max:' + phW + 'px' : '') + (phC ? ';--ph:' + phC : '') + '">' + (q('.pl-photo', c) ? fullCap(q('.pl-photo', c)) : '') + loc + '<div class="plate-art" aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
-      '<div class="content">' + shut + '<div class="badges">' + (closed ? '' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
+      '<div class="content">' + shut + '<div class="badges">' + (closed ? '' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : q('.pl-e .kind', c) ? q('.pl-e .kind', c).outerHTML /* FE-C D-53 hook: the kind, no tier, without a recommender */ : '') +
       '<span class="sm">' + esc(tt('sheet.badge', 'in {area}', { area: C.label('a', a) })) + '</span></div><h2 class="d2" id="sh-t">' + (q('.pl-vert', c) && q('.pl-n .nat', c) ? esc(C.name(c)) + ' <span class="vh">' + esc(q('.pl-n .nat', c).textContent) + '</span>' : q('.pl-n a', c).innerHTML) + '</h2>' +
       byline + rank + (w ? (exp ? '<h3 class="section-t">' + tt('sheet.why', 'Why it’s here') + '</h3>' : '') + '<p class="why">' + w.innerHTML + '</p>' : '') + note +
       // FE-B D-39 (QA-65): prose that quotes a price or rating is labelled as a dated quote (the Guidebook's sentence)
       (c.hasAttribute('data-pq') ? '<p class="gq sm muted">' + esc(tt('sheet.quoted', 'Prices, ratings and times are quoted from the source at the time of research ({d}).', { d: c.getAttribute('data-pq') })) + '</p>' : '') +
       /* FE-C INP hook: the part after the first screen paints a frame later (show) */ MORE +
-      '<div><h3 class="section-t">' + tt('card.recby', 'Recommended by') + '</h3><ul class="srclist">' + src + '</ul></div>' +
+      (src ? '<div><h3 class="section-t">' + tt('card.recby', 'Recommended by') + '</h3><ul class="srclist">' + src + '</ul></div>' : '') +
       (lenses.length ? '<div><h3 class="section-t">' + tt('sheet.part', 'Part of') + '</h3><div class="pills">' + lenses.map(function (x) { return '<button class="pill" data-sh="lens" data-f="' + x[0] + '" data-v="' + esc(x[1]) + '">' + esc(C.label(x[0], x[1])) + '</button>'; }).join('') + '</div></div>' : '') + near + '<div class="plan"><h3 class="section-t">' + tt('sheet.plan', 'Plan your visit') + '</h3>' + (primary ? '<p>' + primary + '</p>' : '') +
       (ad || dir ? fact('pin', ad ? esc(ad.textContent) : tt('sheet.directions', 'Directions'), dir) : '') +
       (pv[0] ? fact('check', pv[0] === 'low' ? esc(tt('sheet.pin.approx.d', 'Approximate map pin: the coordinate we hold is not yet verified to the door')) /* FE-C QC-04 hook (D-43) */ : esc(tt('sheet.pinned', 'Pinned to the door: {c} confidence', { c: tt('sheet.conf.' + pv[0], pv[0]) })), '<span class="muted" data-pin>' + (pv[1] ? esc(tt('sheet.verified', 'verified {d}', { d: pv[1] })) : '') + '</span>') : '') +
@@ -126,26 +126,8 @@
       (ll ? '<a class="btn ' + (closed ? 'btn-ghost' : 'btn-primary') + '" href="https://www.openstreetmap.org/directions?route=%3B' + encodeURIComponent(ll) + '"' + NT + '>' + icon('directions') + '<span>' + (closed ? tt('sheet.wasat', 'Where it was') : tt('sheet.directions', 'Directions')) + '</span></a>' : '<span></span>') +
       '<button class="btn btn-ghost" data-sh="share" data-url="' + esc(url) + '">' + icon('share') + '<span>' + tt('sheet.share', 'Share') + '</span></button></div></div>';
   }
-  // Per-article links from the page dataset (same origin, cached by the service worker); until it arrives: the publisher.
-  function deep(c) {
-    // perf audit PERF-04: the links slice (data/links/<page>.json, ~7× smaller than the page dataset) when present
-    var id = C.pid(c), fromPage = function (j) { var kg = {}, rec = (j.places || []).filter(function (p) { return p.id === id; })[0], p = {};
-      (j.sourceIndex || []).forEach(function (s) { (s.entries || []).forEach(function (e) { kg[e.key] = s.id; }); });
-      p[id] = rec ? rec.s : []; return { g: kg, p: p }; };
-    var got = Cleo.links ? Cleo.links(info.key).catch(function () { return Cleo.pageData(info.key).then(fromPage); })
-      : Cleo.pageData ? Cleo.pageData(info.key).then(fromPage) : null;
-    if (got) got.then(function (j) {
-      if (card !== c) return;
-      var kg = j.g || {};
-      (j.p && j.p[id] || []).forEach(function (x) {
-        var li = kg[x[0]] && host.querySelector('.srclist li[data-g="' + kg[x[0]] + '"]'), u = /^https?:\/\/\S+$/.test(x[1] || '') ? x[1] : '';
-        if (!li || !u) return;
-        var a = q('a.out', li); if (!a) { q('.acts', li).insertAdjacentHTML('beforeend', '<a class="out"' + NT + '>' + glue(tt('sheet.read', 'Read'), 'external') + '</a>'); a = q('a.out', li); }
-        a.href = u; q('.ttl', li).textContent = dom(u);
-        var pr = host.querySelector('.primary-link[data-g="' + kg[x[0]] + '"]'); if (pr) { pr.href = u; pr.hidden = false; }
-      });
-    }).catch(function () {});
-  }
+  // Per-article links from the page dataset: FE-C INP hook, moved to the lazy sheetbar.js (deep), run after the first paint
+
   C.trap(host, function () { api.close(); });
   host.addEventListener('click', function (e) {
     var t = e.target, b = t.closest && t.closest('[data-sh],button.go'), v;
@@ -162,7 +144,7 @@
     else { api.close(true); C.go({ src: b.getAttribute('data-src') }); }
   });
   // i18n D-41: a sheet opened from a deep link before the ja catalogue arrived is rebuilt in it (locale.js fires cleo:locale)
-  d.addEventListener('cleo:locale', function () { if (!host.hidden && card) { host.innerHTML = build(card); deep(card); } });
+  d.addEventListener('cleo:locale', function () { if (!host.hidden && card) { host.innerHTML = build(card); } });
   d.addEventListener('cleo:toast', function (e) {   // core.js Cleo.share → clipboard; VOICE.md copy
     var el = d.createElement('p'); el.className = 'toast'; el.setAttribute('role', 'status');
     el.textContent = e.detail === 'Link copied' ? tt('sheet.copied', 'Link copied — it opens this exact view.') : String(e.detail);   // i18n D-41
@@ -223,7 +205,7 @@
         if (!host.classList.contains('side')) d.body.style.overflow = 'hidden';
         // designer: ✕ (with its ring) on a keyboard open; the dialog itself, ringless, on a tap or a deep link
         var rest = function () {
-          (kb ? q('[data-sh="x"]', host) : q('.sheet', host)).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c); if (q('img[data-hsrcset]', host)) unhold(c);
+          (kb ? q('[data-sh="x"]', host) : q('.sheet', host)).focus({ preventScroll: true }); if (C.onSheet) C.onSheet(c); if (q('img[data-hsrcset]', host)) unhold(c);
           // PERF-19b: where the stylesheet leaves the photo's ratio to the file (desktop: aspect-ratio auto, fixed height), a
           // not-yet-decoded photo drew a 334 px box, then 516 px (a 0.01 shift); its own width/height reserve the box first
           var hi = q('.hero-plate img[width][height]', host); if (hi && getComputedStyle(hi).aspectRatio === 'auto') hi.style.aspectRatio = 'auto ' + hi.getAttribute('width') + ' / ' + hi.getAttribute('height');

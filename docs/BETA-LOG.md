@@ -2619,9 +2619,21 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - 12d279bcf moves the keep step after the commit step.
     - #114 (pre-guard) is expected to fail the same way; #117 has the guard.
   - **Eager JS 39.93/40:** the plan is set (countLine deletion, FE-C lazy second frame, lazy sheet.js after r8).
+- **QC S-17 High, 768 Atlas (日本語 under the switch):** confirmed on Harrisburg. The fixed header switch at T1 Atlas, and in landscape, now reserves its width in the header row (4 × 44 + 4). The crumb truncates from 768. The w8 header assertion now also checks that every control is the top element at its centre, and covers 768 with Akron and Harrisburg added.
+- **Designer ruling (3d81c486c), compact row:** the 2-line why is back. "Recommended by X +N · Checked 2 Oct" now sits on one line, with Checked in ink-3 and "+N" short. Rows measure 116–117 px (≤ 128).
+- **QA-83:** the lead photo's img carries 3:2 itself; the figure is auto-height with its credit below. claims-r8i shows ratio 1.5, 15/15.
 - **D-53 in the Atlas preview (FE-B's contract):** the card preview now names only real recommenders.
   - It uses the card's `data-recby` when the build set it, otherwise its sources less 'guide'. Names come from the card's own chips (`recName`).
   - With none, it reuses the card's own "No independent source yet" line (and its official-site link) and drops the "Must see" badge.
   - Checked on NYC: Roberta's (sources include TripAdvisor) reads "The Infatuation, Time Out New York", and Nintendo New York reads "No independent source yet" with no badge. 0 platform or own-site names across Tokyo, NYC, Cleveland, Chinatown and Chicago.
 - **Photo-less carousel cards (designer, non-blocking):** a card with no photo (`pl--np`) is as tall as its text and sits on the band's floor. Kabuki-za: 142 px, down from 196 with a 65 px empty foot. Photo cards keep the band's height; the landscape column keeps `align-items:stretch`.
 - **Designer R4 sign-off on 963febc6; round 4 announced on f774d5ec with FE-2.** A non-blocking item followed: in dark mode the folded credit kept its 70 % plate behind the ⓘ circle. The fold rule (5 classes) lost to the unfolded pill rule (6 classes). It now matches that rule's specificity, so the folded credit is the 24 px circle alone, in light and dark.
+- 2026-10-17 14:10Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Round 4 sent to the panel** at 13:49Z on 7a21f2f60: the designer signed off r4-final (963febc6), and FE-1 and FE-2 announced.
+  - **Photo run #117 committed** (303ff0105). Tier-1 sights 766 → 865/1055; first-24 cards 293 → 481/1153; 16 LoC photos.
+  - **Run #114 discovery reviewed by a subagent:** Commons 26/30, Openverse 9/71. Orchestrator calls: Takeshita refused, Our Lady of Sorrows approved pending imagery's skip lift, plus the pipeline items routed to imagery and the location lane.
+  - **QC round 4 (Atlas, first screen, pages):** 11 OV rows verified. Open: High ×2 (FE-A, 768 日本語) and Med ×1 (FE-B, search ×2 on non-city pages).
+  - **QA:** the reachable-styles guard is in npm test (1f399597). QA-85 (.pl-why) goes to the designer. QA-86 is carried from r7. QA-87 is a D-53 gap: ADD shown as a recommender, ruled never a recommender (FE-B).
+  - **FE-C:** open a place at 200 / 240 ms.
+  - **FE-B:** D-53 part 2, plus a lazy srcview (eager headroom 0.94 KB).
+- **FE-B D-53 on the Gallery rows:** gallery.js already read `r.recby`, but lib/gallery.js never sent it, so the row cards named every source. The gallery JSON now carries `recby` where it differs from src minus guide (299 of 2,800 row cards; 31 show "No independent source yet").
