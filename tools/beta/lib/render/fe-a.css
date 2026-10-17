@@ -795,10 +795,15 @@ html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail:focus-withi
   html:root{--bar-h:48px}
   html body main[data-city]>.cbar{position:relative;top:auto}
   html body main[data-city]>nav.rail#cleo-rail{position:relative;top:auto}
-  html body main[data-city] .views[data-cleo-views]{position:fixed;top:2px;right:112px;z-index:60;width:auto;height:44px;margin:0;padding:2px}
-  html body main[data-city] .views[data-cleo-views] button{height:40px;min-height:0;padding:0 var(--s-3)}
+  /* QA-80: the switch must be ABOVE the header, so its row makes no stacking context (z-index:auto); it is icon-only (44 px
+     segments, the label kept as the accessible name) and sits between the language switch and search, covering nothing */
+  html body main[data-city]>.cbar{z-index:auto}
+  html body main[data-city] .views[data-cleo-views]{position:fixed;top:2px;right:116px;z-index:60;width:auto;height:44px;margin:0;padding:2px}
+  html body main[data-city] .views[data-cleo-views] button{width:44px;min-width:44px;height:40px;min-height:0;padding:0;justify-content:center}
+  html body main[data-city] .views[data-cleo-views] button>.ico{display:inline-block}
+  html body main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   html.atlas-m[data-view=atlas]:root{--cbar-o:0px}
-  html.atlas-m[data-view=atlas] body main[data-city]>.cbar{height:0;min-height:0;background:transparent;border:0;pointer-events:none}
+  html.atlas-m[data-view=atlas] body main[data-city]>.cbar{height:0;min-height:0;background:transparent;border:0;pointer-events:none;z-index:47}   /* QA-80: a fixed row is a stacking context; at height 0 it covers nothing, and its switch paints above the header */
   html.atlas-m[data-view=atlas] body main[data-city]>.cbar .views{pointer-events:auto}
 }
 /* desktop and tablet scroll pages: the view switch already rides in the header (≥ 1024), so the search row and the category
