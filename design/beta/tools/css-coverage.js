@@ -11,6 +11,11 @@
 'use strict';
 const fs = require('fs'), path = require('path'), http = require('http'), { execFileSync } = require('child_process');
 const ROOT = path.resolve(__dirname, '../../..'), BETA = path.join(ROOT, 'beta'), ASSETS = path.join(BETA, 'assets');
+const SCRATCH = fs.mkdtempSync(path.join(require('os').tmpdir(), 'cleo-cc-'));   // the cc-NN pieces live here, never in beta/assets
+const CC = b => /^cc-\d\d-/.test(b);
+const at = p => path.join(CC(p) ? SCRATCH : ASSETS, p);
+process.on('exit', () => fs.rmSync(SCRATCH, { recursive: true, force: true }));
+for (const s of ['SIGINT', 'SIGTERM']) process.on(s, () => process.exit(130));
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const QUICK = process.argv.includes('--quick');
 const OUT = path.resolve(ROOT, arg('--out', 'design/beta/eval/css-coverage.json'));
@@ -18,12 +23,13 @@ function loadPlaywright() { for (const t of ['playwright', '/opt/node22/lib/node
 const MIME = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json' };
 const serve = () => new Promise(res => { const s = http.createServer((q, r) => {
   let f = path.join(ROOT, decodeURIComponent(q.url.split('?')[0].split('#')[0]));
+  if (CC(path.basename(f))) f = path.join(SCRATCH, path.basename(f));
   try { if (fs.statSync(f).isDirectory()) f = path.join(f, 'index.html'); } catch (e) { /* 404 */ }
   fs.readFile(f, (e, b) => { if (e) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': MIME[path.extname(f)] || 'application/octet-stream' }); r.end(b); });
 }); s.listen(0, '127.0.0.1', () => res(s)); });
 
-const parts = execFileSync('python3', [path.join(ROOT, 'design/beta/tools/build-css.py'), '--parts', ASSETS]).toString().trim().split(/\s+/);
-const BYTEXT = new Map(parts.concat(['fe-a.css', 'fe-b.css']).map(p => [fs.readFileSync(path.join(ASSETS, p), 'utf8'), p]));
+const parts = execFileSync('python3', [path.join(ROOT, 'design/beta/tools/build-css.py'), '--parts', SCRATCH]).toString().trim().split(/\s+/);
+const BYTEXT = new Map(parts.concat(['fe-a.css', 'fe-b.css']).map(p => [fs.readFileSync(at(p), 'utf8'), p]));
 const IMPORT = parts.map(p => `@import url("${p}");`).join('\n');
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (['assets', 'data', 'feeds'].includes(e.name) ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.relative(BETA, path.join(d, e.name))] : []);
 const ALL = walk(BETA).sort();
@@ -36,7 +42,7 @@ const DEEP_VP = QUICK ? [[390, 844], [1440, 900]] : [[195, 422], [360, 740], [39
 
 const TRACK = parts.concat(['fe-a.css', 'fe-b.css']);   // the lanes' sheets too, so FE-A and FE-B can cut with the same evidence
 const used = {}; TRACK.forEach(p => { used[p] = []; });
-const sizes = Object.fromEntries(TRACK.map(p => [p, fs.statSync(path.join(ASSETS, p)).size]));
+const sizes = Object.fromEntries(TRACK.map(p => [p, fs.statSync(at(p)).size]));
 
 (async () => {
   const srv = await serve(), base = `http://127.0.0.1:${srv.address().port}/beta/`;
@@ -53,6 +59,9 @@ const sizes = Object.fromEntries(TRACK.map(p => [p, fs.statSync(path.join(ASSETS
       const html = fs.readFileSync(f, 'utf8').replace(/<link rel="stylesheet" href="([^"]*?)cleo\.css[^"]*">/, (m, pre) => parts.map(p => `<link rel="stylesheet" href="${pre}${p}">`).join(''));
       route.fulfill({ status: 200, contentType: 'text/html', body: html }); });
     await ctx.route(/tile\.openstreetmap|arcgisonline|unpkg|cdnjs|jsdelivr/, r => r.abort());
+    // .area is content-visibility:auto, so off-screen areas skip style and their rules read as unused (Platform's
+    // 844×390 .pl-k / .cover misses). Render every area; this sheet is not tracked, so it adds no coverage of its own.
+    await ctx.addInitScript(() => document.addEventListener('DOMContentLoaded', () => { const s = document.createElement('style'); s.textContent = '*{content-visibility:visible!important}'; document.head.appendChild(s); }));
     if (opts.noLeaflet) await ctx.route(/vendor\/leaflet\/leaflet\.js/, r => r.abort());
     if (opts.saved) await ctx.addInitScript(() => { try { if (!localStorage.getItem('cleo:v1:saved')) localStorage.setItem('cleo:v1:saved', JSON.stringify({ 'tokyo/kanda-myojin': { t: 1 }, 'tokyo/imperial-palace-east-gardens': { t: 2 }, 'tokyo/yasukuni-shrine': { t: 3 }, 'washingtondc/lincoln-memorial': { t: 4 }, 'washingtondc/washington-monument': { t: 5 } })); } catch (e) { /* storage blocked */ } });
     if (opts.seed) await ctx.addInitScript(opts.seed);
@@ -69,7 +78,7 @@ const sizes = Object.fromEntries(TRACK.map(p => [p, fs.statSync(path.join(ASSETS
       await page.goto(base + url, { waitUntil: 'load' }).catch(() => {}); await page.waitForTimeout(600);
       if (act) { await act(page).catch(() => {}); await page.waitForTimeout(400); }
       // scroll through once so sticky/compact states and lazy sections render
-      await page.evaluate(async () => { for (let y = 0; y < Math.min(document.body.scrollHeight, 6000); y += 900) { scrollTo(0, y); await new Promise(r => setTimeout(r, 40)); } scrollTo(0, 0); }).catch(() => {});
+      await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 900) { scrollTo(0, y); await new Promise(r => setTimeout(r, 40)); } scrollTo(0, 0); }).catch(() => {});
       await take(); loads++;
     }
     process.stdout.write(`${w}x${h} ${theme}${opts.tag ? ' ' + opts.tag : ''}: ${urls.length} loads\n`);
@@ -108,7 +117,7 @@ const sizes = Object.fromEntries(TRACK.map(p => [p, fs.statSync(path.join(ASSETS
     await sweep(vp, 'light', CITY_DEEP.map(u => `${u}#view=atlas`), { tag: 'no leaflet', noLeaflet: true });
   }
   await browser.close(); srv.close();
-  for (const p of parts) fs.rmSync(path.join(ASSETS, p), { force: true });
+  fs.rmSync(SCRATCH, { recursive: true, force: true });
   // merge ranges
   for (const p of TRACK) { const r = used[p].sort((a, b) => a[0] - b[0]); const m = []; for (const x of r) { if (m.length && x[0] <= m[m.length - 1][1]) m[m.length - 1][1] = Math.max(m[m.length - 1][1], x[1]); else m.push(x.slice()); } used[p] = m; }
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
