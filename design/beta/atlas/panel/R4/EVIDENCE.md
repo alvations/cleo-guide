@@ -130,8 +130,8 @@ within Minato-ku", which includes a rank number (`d-light-select.preview`; `shot
 - Credit and map-control text is 12 px.
 - Pin labels are 14 px on desktop and 13 px on phone (14 on both in round 3).
 
-**Detail numbers.** Heinen's Downtown's detail still shows two numbers: "42 of 194 in this Atlas view" and "No. 39 of
-42 in Downtown & The Flats" (`tasks.T4-closed.detail`).
+**Detail numbers.** Corrected by the erratum at the end. The detail shows one number, "No. 39 of 42 in Downtown & The
+Flats". "42 of 194 in this Atlas view" is screen-reader-only text.
 
 **First load** (raw / gzipped text, KB):
 
@@ -187,7 +187,8 @@ control.
 - **Detail:** "Closed · Kept for the record, not as a suggestion · checked 2026-10-16 · source", the title "— CLOSED"
   and "Recommended by News 5 Cleveland" (`shots/T4-cleveland-1440-closed-place.jpg`).
 - **Pin:** labelled "Heinen's Down… · Closed" (class `pp-x`).
-- **Numbers:** the detail shows "42 of 194 in this Atlas view" and "No. 39 of 42 in Downtown & The Flats".
+- **Numbers:** the detail shows "No. 39 of 42 in Downtown & The Flats". The probe text also contains "42 of 194 in this
+  Atlas view", but that is screen-reader-only (see the erratum).
 - **Coming back:** keeps the view, the layout and focus (see the round-trip above).
 
 **T5, sharing.**
@@ -219,3 +220,14 @@ control.
   ring is drawn on the card while its name link has focus.
 - **Tap fallback:** when a real tap can't land within 3 s (still animating, or off-screen), the probe clicks by script and
   logs it.
+
+## Erratum (issued during round-4 scoring, to all eight panelists)
+
+The pack said Heinen's Downtown's detail "still shows two numbers". That was wrong.
+- **What sighted readers see:** one number, "No. 39 of 42 in Downtown & The Flats" (`shots/T4-cleveland-1440-closed-place.jpg`).
+- **What the probe also recorded:** "42 of 194 in this Atlas view". The probe reads `innerText`, which includes visually
+  hidden text. This string sits in a `span.vh` (clipped to 1 × 1 px), which is the screen-reader label of the detail's
+  previous / next control.
+- **How the lead checked:** a DOM check of the open detail on this head.
+- **Pin label:** the pin reads "Heinen's Downtown · Closed" in full once selected, as in the same shot. The probe's
+  "Heinen's Down… · Closed" was read before the label widened.

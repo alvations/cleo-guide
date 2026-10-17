@@ -21,7 +21,7 @@ for f in found:
   if p not in parts: parts.append(p)
 if not parts: print(k,'NOT FOUND'); sys.exit(1)
 txt=f'<!-- simulated composite persona; round {rnd} return(s), verbatim except rule-6 redactions. The LAST section is the scored return. -->\n'+'\n\n---\n\n'.join(parts)
-red=[(r'GO Tokyo','[city tourism source]'),(r'Japan-guide','[guide site]'),(r'Michelin( Guide| G…)?','[restaurant guide]'),(r'Time Out','[listings magazine]'),(r'NYC Tourism \+ Conventions \(official\)','[official city tourism board]'),(r'Atlas Obscura','[curiosities guide]'),(r'Savor Japan','[food guide site]'),(r'Lone(ly Planet|l…|…)','[guidebook]…')]
+red=[(r'GO Tokyo','[city tourism source]'),(r'Japan-guide','[guide site]'),(r'Michelin( Guide| G…)?','[restaurant guide]'),(r'Time Out','[listings magazine]'),(r'NYC Tourism \+ Conventions( \(official\))?','[official city tourism board]'),(r'Atlas Obscura','[curiosities guide]'),(r'Savor Japan','[food guide site]'),(r'Lone(ly Planet|l…|…)','[guidebook]…')]
 for a,b in red: txt=re.sub(a,b,txt)
 out=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','panel',f'R{rnd}','panelists'); os.makedirs(out,exist_ok=True)
 open(f'{out}/{k}.md','w').write(txt+'\n')
