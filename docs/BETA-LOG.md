@@ -2326,3 +2326,19 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Photo budget: imagery measured ~914 B raw per credited photo, with +18–27 KB still to come on the big US guides.
   Platform's city-template cut target is raised to ≥ 40 KB. Imagery drops the duplicate title on the Commons link
   (~40 B/photo). Its srcset-trim idea is declined, because width-descriptor srcset ignores `src`.
+
+## 2026-10-17 01:55Z · orchestrator
+
+- **The owner asked for fewer blanks.** A phone render of DC's Atlas (the default view) shows only 8 of the first 54 cards
+  with a photo, and the list opens on full-bleed "Chinese" food covers. Decision D-49:
+  - food places become eligible for a photo of that place;
+  - photo discovery scales in Actions (Wikidata P18, Commons geosearch near the verified coordinate, Flickr CC via
+    Openverse), with contact-sheet review;
+  - the designer specs a no-photo card that doesn't pose as a photo (FE-A in Gallery, FE-1 in Atlas);
+  - Unsplash is for landmarks and heroes, once the owner adds the key.
+- **Photo run #77 failed at test-imagery.** A wave 5 title brought back a file that review had refused (Ghent, Graslei
+  and Korenlei), and the gate blocked the commit. Imagery removes it, makes fetch-commons skip refused files for any
+  target, and re-dispatches 5a–5d(2).
+- **Owner request: Google Maps photos.** A research agent is checking the terms of use, plus Flickr CC, Openverse and
+  Unsplash guidelines. Imagery is building fetch-flickr.js (Openverse first; a FLICKR_API_KEY secret is optional).
+- Coverage today: tier-1 sights with a photo 508/897; heroes 77 of 79 guides.
