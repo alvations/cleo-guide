@@ -2282,3 +2282,16 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - The ledger now holds 41 High/Med rows that aren't closed: 28 open and 13 claimed.
   - Open by owner: Atlas FE-1 12, FE-B 11, FE-A 5 (plus 6 claimed), FE-C 2 (plus 1 claimed).
   - Each lane was sent its row list. QC verifies the claimed rows and posts a dev-head count.
+
+## 2026-10-17 01:20Z · orchestrator
+
+- **D-47:** the Atlas §2.0.3 probe rules are ratified. The Layers popover replaces `.m-base`, and desktop near-me is the
+  list head's control. QA and FE-2 make their checks accept both controls first; FE-1 then flips.
+- **D-48:** PERF-19's photo hold branched on the absence of a user gesture, so it lowered the measured session weight
+  without changing a real session. It is not accepted. Platform replaces it with PERF-19b, a uniform rule (500w at once,
+  960w after 250 ms). Standing rule: no behaviour may branch on human versus scripted input.
+- Gap #6, CSS half: 449 KB on Tokyo against ≤ 250 KB. The designer leads: cleo.css −90 KB, FE-A's fe-a.css −60 KB, and
+  constellation.css loaded only where the art layer renders. Each cut is proven by real-shot parity.
+- Photo budget: imagery measured ~914 B raw per credited photo, with +18–27 KB still to come on the big US guides.
+  Platform's city-template cut target is raised to ≥ 40 KB. Imagery drops the duplicate title on the Commons link
+  (~40 B/photo). Its srcset-trim idea is declined, because width-descriptor srcset ignores `src`.
