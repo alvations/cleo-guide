@@ -633,6 +633,7 @@
       const fk = d.getElementById('i-forkknife') ? 'forkknife' : 'bowl';
       const paint = () => { const ar = S.a ? [S.a] : []; g.querySelector('ul').innerHTML = '<li>' + k('pp-s', 'columns', 'Sight') + '</li><li>' + k('pp-f', fk, 'Eat &amp; drink') + '</li>' +
         '<li>' + k('pp-s pp-x', 'columns', 'Closed') + '</li>' +
+        (C.navLow && C.navLow() ? '<li class="k"><i class="kd ms-halo-k"></i>' + C.esc(Cleo.t ? Cleo.t('sheet.pin.approx', 'Approximate pin') : 'Approximate pin') + '</li>' : '') +   // D-43 (atlas-nav.js draws the halo)
         '<li class="k"><i class="kd"></i><i class="kd f"></i>More places · zoom in to see their names</li>' +
         ar.map(a => '<li class="k"><i class="kd" style="background:' + areaC({ getAttribute: () => a, hasAttribute: () => false }) + '"></i>' + C.esc(((C.info.areas || {})[a] || {}).n || a) + '</li>').join('') +
         '<li class="k">' + (store.get('base', 'map') === 'street!' ? '<button type="button" class="btn btn-quiet" data-base="map">Back to the calm map</button>' : '<button type="button" class="btn btn-quiet" data-base="street">Show street detail</button>') + '</li>'; };

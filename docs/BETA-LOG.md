@@ -2389,6 +2389,17 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   before writing any fetcher.
 - beta-atlas-real-shots was dispatched on 93a8ea29a (label d46-signoff) for the designer's D-46 sign-off.
 
+## 2026-10-17 · FE-A — D-49 §v2.7b no-photo card
+
+- **What changed:** a photo-less card is marked `li.pl.pl--np` by the build (render/city.js) and `li.gc.gc--np` on the Gallery rows (client/gallery.js and lib/lead-card.js, which stay byte-identical). The card changes shape, not order, and no DOM nodes are added.
+  - **Single-column lists (≤ 599 px; Gallery list and the phone Atlas list):** compact row (A). A 64 px glyph tile sits beside four lines: the eyebrow with the status check, the name (ellipsis, with the native name inline), a 2-line why, and Recommended by (one line, with a 44 px tap height kept in padding). Measured: 119 px on DC, Tokyo and State College.
+  - **Grids and rails (≥ 600 px; Gallery list, desktop Atlas cards, Gallery rows):** quote card (B). The why line's opening sits over the cover in UI 600 at `--fs-lead`, up to 4 lines, under a display “. The glyph drops to 20 px at the bottom right. A card with no why line keeps the §v2.7a designed cover.
+- **Adjacency:** consecutive photo-less covers never share a glyph (`noRepeat` → imagery `foodGlyphs`). Built order shows 0 repeats on DC, Tokyo and State College. Under a lens, filtered-out cards can make two covers neighbours; that is not guarded, because the client would pay eager bytes for it.
+- **Lead card:** drawn only when rank 1 has a photo. "Start with" still names the lead.
+  - **Spec change in test-beta.js** ("a photo-less lead → none rendered", marked D-49). The equality check between the build's lead card and the client's still runs whenever a card is drawn.
+- **Designer ruling, dish word:** `--fs-d2`, display face, weight 600, no clamp. A dish name the client marks `.l` (over 28 characters, or any 17-character word) uses the UI face 600 at `--fs-lead` instead.
+- **Data finding, State College:** the `w` field holds the website URL on 9 records (the build tool maps website → w). A bare URL is no longer treated as a why line: it is not rendered on the card and never becomes a quote. Routed to data.
+- **Budgets:** eager JS 39.2 / 40 KB. Initial DOM is within budget: Tokyo 2,614 on mobile.
 ## 2026-10-17 · FE-1 · OV-00 §2.0.7 landscape, desktop chrome 104 px, the switch's 44 px band, D-46 §1.7 peek thumbnails
 
 - **Landscape (844 × 390; L 37.5 % → 12.3 %):** one 48 px bar.

@@ -226,12 +226,19 @@
   const spillTo = a => { if (!spill || !tbS || !spHome) return; if (a) { if (spill.parentNode !== tbS) tbS.insertBefore(spill, tbS.firstChild); } else if (spill.parentNode !== spHome) spHome.insertBefore(spill, spHome.firstChild); };
   // fitSplit just AFTER the next paint (INP: in the frame before it, the read forced the whole new layout); 1 = and on fonts.ready
   const late = f => requestAnimationFrame(() => setTimeout(() => { fitSplit(); if (f && d.fonts) d.fonts.ready.then(fitSplit); }));
+  let painted = false; requestAnimationFrame(() => setTimeout(() => { painted = true; }));   // PERF-24: after the first frame
   function atlasIn() {
     if (!split) return;
     const m = !C.desk(); html.classList.toggle('atlas-m', m); html.classList.toggle('atlas-d', !m);
     spillTo(m);
-    if (C.need) C.need('atlas', () => { if (cur === 'atlas' && C.msIn) { C.msIn(); late(); } });
-    if (C.loadMap) C.loadMap(() => { fitSplit(); if (C.msArea) C.msArea(); });
+    // PERF-24 (platform, marked; INP of switch → Atlas): with the map module already loaded both callbacks used to run
+    // INSIDE the click — Atlas decoration (msIn), the map mount and its size reads over every built card — so the switch
+    // painted only after all of it (Atlas → Guidebook → Atlas: 2.6 s desktop at 4× CPU). They now run just after the
+    // switch's first paint, the same rule as late() below; nothing else waits on them. A page that BOOTS in Atlas has no
+    // interaction to protect, so it mounts at once, as before
+    const next = f => (painted ? requestAnimationFrame(() => setTimeout(f)) : f());
+    if (C.need) C.need('atlas', () => next(() => { if (cur === 'atlas' && C.msIn) { C.msIn(); late(); } }));
+    if (C.loadMap) next(() => { if (cur === 'atlas') C.loadMap(() => { fitSplit(); if (C.msArea) C.msArea(); }); });
     // measured just AFTER the switch's first paint (the CSS fallback height is the same 108 px, so nothing moves): in the
     // frame before it, the read forced the whole new layout inside the interaction (INP); fonts.ready forces a style update too
     late(1);
