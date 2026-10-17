@@ -1,1 +1,42 @@
-[]
+[
+ {
+  "kind": "controlCollision",
+  "view": "atlas",
+  "vp": "768x1024",
+  "runs": 2,
+  "pages": [
+   "cities/akron.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "日本語 / atlas",
+  "budget": "none",
+  "owner": "Atlas FE-1",
+  "of": 86,
+  "worstPage": "cities/akron.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "controlCovered",
+  "view": "atlas",
+  "vp": "768x1024",
+  "runs": 2,
+  "pages": [
+   "cities/harrisburg.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "日本語 under atlas",
+  "budget": "none: every shown control is reachable",
+  "owner": "Atlas FE-1",
+  "of": 86,
+  "worstPage": "cities/harrisburg.html",
+  "worstTheme": "light",
+  "shot": null
+ }
+]

@@ -13,12 +13,21 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { JSDOM } = require('jsdom');
+const { JSDOM, ResourceLoader } = require('jsdom');
+// lazy modules (Cleo.need → <script src="assets/js/<n>.js?v=…">) load from beta/ as in a browser; nothing else is fetched
+class LazyJs extends ResourceLoader {
+  fetch(url, opts) {
+    const m = /^https:\/\/cleo\.local\/beta\/(assets\/js\/[a-z-]+\.js)(?:\?|$)/.exec(url);
+    return opts.element && opts.element.localName === 'script' && m ? Promise.resolve(fs.readFileSync(path.join(BETA, m[1]))) : null;
+  }
+}
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const BETA = path.join(ROOT, 'beta');
 const rd = p => fs.readFileSync(path.join(BETA, p), 'utf8');
-let failures = 0;
+let failures = 0, finished = false;
+// a never-settling await empties the event loop and node exits 0 before the summary: that is a FAIL, never a silent pass
+process.on('exit', () => { if (!finished) { console.log('\n>>> FAIL — test-hubs did not finish (a promise never settled)'); process.exitCode = 1; } });
 const chk = (name, got, want) => {
   const ok = typeof want === 'function' ? want(got) : got === want;
   console.log(`  ${ok ? 'PASS' : 'FAIL'}  ${name} = ${JSON.stringify(got).slice(0, 300)}`);
@@ -26,6 +35,18 @@ const chk = (name, got, want) => {
 };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const manifest = JSON.parse(rd('data/manifest.json'));
+// FE-B D-53: paste a link — a rating platform's or a place's own site's host never "recommends": every source-host row whose
+// source is not a recommender (lib/model.js sourceRole, recomputed from the page's sourceIndex) carries the cites flag (row[5] = 1)
+{
+  const { sourceRole } = require('./lib/model');
+  const role = {}; for (const row of manifest.pages.filter(p => p.kind === 'city')) {
+    const j = JSON.parse(rd(`data/places/${row.key.replace(/\//g, '--')}.json`));
+    for (const s of j.sourceIndex || []) role[j.beta + ' ' + s.id] = sourceRole(s);
+  }
+  const H = JSON.parse(rd('data/source-hosts.json')).hosts, bad = [];
+  for (const [h, rows] of Object.entries(H)) for (const r of rows) { const ro = role[r[0] + ' ' + r[2]]; if (!ro || (ro === 'rec') === (r[5] === 1)) bad.push(`${h} ${r[2]} ${ro}`); }
+  chk('paste a link: platform / own-site hosts read "cite", recommenders "recommend" (D-53)', bad.slice(0, 4), b => b.length === 0);
+}
 const countries = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'countries.json'), 'utf8')).countries;
 const liveC = new Set(countries.filter(c => c.live).map(c => c.key));
 const cityPages = manifest.pages.filter(p => p.kind === 'city');
@@ -278,7 +299,7 @@ async function load(rel, { url, storageThrows = false, fetchFails = false, seed 
     return fs.existsSync(p) ? `<script>${fs.readFileSync(p, 'utf8').replace(/<\/script/g, '<\\/script')}</script>` : '';
   });
   const errors = [], fetched = [];
-  const dom = new JSDOM(html, { url: url || 'https://cleo.local/beta/' + rel, runScripts: 'dangerously', pretendToBeVisual: true,
+  const dom = new JSDOM(html, { url: url || 'https://cleo.local/beta/' + rel, runScripts: 'dangerously', pretendToBeVisual: true, resources: new LazyJs(),
     beforeParse(w) {
       w.addEventListener('error', e => errors.push(String(e.message)));
       if (storageThrows) Object.defineProperty(w, 'localStorage', { get() { throw new Error('blocked'); } });
@@ -468,5 +489,5 @@ async function load(rel, { url, storageThrows = false, fetchFails = false, seed 
   const vb = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'test-views-b.js')], { stdio: 'inherit' });
   if (vb.status !== 0) failures++;
   console.log(failures ? `\n>>> FAIL — ${failures} FE-B check(s) failed` : '\n>>> PASS — FE-B: every city reachable, one shell, method computed, states worded');
-  process.exit(failures ? 1 : 0);
+  finished = true; process.exit(failures ? 1 : 0);
 })();
