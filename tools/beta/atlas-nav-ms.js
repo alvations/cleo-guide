@@ -101,7 +101,8 @@ async function roundTrip(page, vk, how, close) {
     const id = await pickPin(page); if (!id) return { skipped: 'no pin in the clear map' };
     const s0 = await snapState(page);
     await page.focus(`#cleo-map .leaflet-marker-icon.pp[data-id="${id}"]`).catch(() => {});
-    const el = await page.$(`#cleo-map .leaflet-marker-icon.pp[data-id="${id}"]`); const b = el && await el.boundingBox(); if (!b) return { skipped: 'pin gone' };
+    // the visible pill's centre, where a reader clicks (the marker element itself is a 0×0 box at the anchor tip, where a dot may sit)
+    const el = await page.$(`#cleo-map .leaflet-marker-icon.pp[data-id="${id}"] > *`); const b = el && await el.boundingBox(); if (!b) return { skipped: 'pin gone' };
     await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2); await sleep(700);
     const pv = await page.$('#cleo-poi:not([hidden]) a.ms-pv'); if (!pv) return { skipped: 'no preview' };
     const s1 = await snapState(page);   // the preview may scroll the list to the card: that is the state the detail must keep
