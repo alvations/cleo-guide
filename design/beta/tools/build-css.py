@@ -98,7 +98,8 @@ def strip_comments(css):
 _hd = out.index('*/') + 2
 out = out[:_hd] + '\n' + strip_comments(out[_hd:]).lstrip('\n')
 P = os.path.join(R, 'beta', 'assets', 'cleo.css')
-if '--parts' in sys.argv:   # analysis only (css-cascade.js): write each piece next to cleo.css so relative url()s resolve the same
+if '--parts' in sys.argv:   # analysis only (css-coverage.js / css-cascade.js): write each piece into DIR, a scratch dir outside the tree;
+    # the tools serve it at beta/assets/ so relative url()s resolve the same
     D = sys.argv[sys.argv.index('--parts') + 1]
     for i, (n, t) in enumerate(PARTS): open(os.path.join(D, f'cc-{i:02d}-{n}.css'), 'w').write(t)
     print(' '.join(f'cc-{i:02d}-{n}.css' for i, (n, t) in enumerate(PARTS))); sys.exit(0)
