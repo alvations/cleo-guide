@@ -54,7 +54,7 @@ const adapter = {
     const rights = rightsOf(item, creators);
     const img = pickImage(j.image_url || item.image_url, 960);
     const it = {
-      title: arr(item.title)[0] || '', author: creators[0] || '', date: arr(item.date)[0] || arr(item.created_published)[0] || '',
+      title: arr(item.title)[0] || '', author: creators.find(c => !lib.ANON.test(c)) || '', anonymous: creators.length > 0 && creators.every(c => lib.ANON.test(c)), date: arr(item.date)[0] || arr(item.created_published)[0] || '',
       sourceUrl: `https://www.loc.gov/item/${id}/`, institution: 'Library of Congress',
       text: [...arr(item.subject_headings), ...arr(item.subjects), ...arr(item.location), ...arr(item.notes), ...arr(item.summary), ...arr(item.description)].join(' '),
       width: img ? img.w : 0, refused: rights.refused || (img ? '' : 'no image in the API record'),

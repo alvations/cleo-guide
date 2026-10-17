@@ -29,4 +29,4 @@ SG/MY 12; no photo on food is ever possible from these sources).
 **Notes:**
 - Bytes: SF page 783 KB and Tokyo 786 KB (ceiling 820): ~37 photos of headroom each; none within 10 KB yet.
 - LoC throttles at 20 requests/minute (1-hour block): loc.js `--delay 3200`, budget 60 per run.
-- Rijksmuseum rows (Europeana 90402) mostly have anonymous creators → refused until the orchestrator decides.
+- D-52: anonymous creators allowed as "Anonymous (as catalogued by <institution>)" on PD/CC0 historic rows only (lib.js). Stage workflow beta-image-sources-stage.yml (orchestrator) — dispatch API 404 at 02:30Z, likely not on the default branch.

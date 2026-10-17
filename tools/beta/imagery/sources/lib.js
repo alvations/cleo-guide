@@ -59,6 +59,8 @@ const LICENCES = {
   'Pixabay Content License': 'https://pixabay.com/service/license-summary/',
 };
 const STOCK = ['pexels', 'pixabay'];
+/** How institutions catalogue an unknown maker (D-52). */
+const ANON = /^(anoni?em|anonymous|anonyme?|unknown|onbekend|unbekannt|inconnu|unidentified)\b/i;
 /** Creative Commons / rightsstatements.org URI → gate licence name (Europeana, NYPL). Anything else is refused. */
 function licenceFromUri(uri) {
   const u = String(uri || '').trim().replace(/^http:/, 'https:').replace(/\/?$/, '/');
@@ -200,7 +202,10 @@ const fileBase = (page, id) => `${page.replace(/\//g, '--')}--${id}`;
 function itemProblems(it, row, t, adapter) {
   if (it.refused) return it.refused;
   if (!it.title) return 'no title in the API record';
-  if (!it.author) return 'no author/creator in the API record (never invented)';
+  // D-52: an institution that itself catalogues the creator as anonymous/unknown → "Anonymous (as catalogued by …)",
+  // only for a public-domain / CC0 historic row; any other unknown author is refused
+  if (!it.author && it.anonymous && row.era === 'historic' && /^(Public domain|CC0 1\.0)$/.test(it.licence || '')) it.author = `Anonymous (as catalogued by ${it.institution || adapter.institution})`;
+  if (!it.author) return it.anonymous ? 'anonymous creator: only allowed on a public-domain/CC0 historic row (D-52)' : 'no author/creator in the API record (never invented)';
   if (!it.sourceUrl || !/^https:\/\/\S+$/.test(it.sourceUrl)) return 'no https source page in the API record';
   if (!it.licence || !(it.licence in LICENCES || /^CC BY(-SA)? \d\.\d( [A-Z]{2,3})?$/.test(it.licence))) return `licence "${it.licence || 'unknown'}" is not accepted`;
   if (!it.licenceUrl || !/^https:\/\/\S+$/.test(it.licenceUrl)) return 'no https licence/rights URL';
@@ -341,4 +346,4 @@ async function main(adapter) {
 function cli(adapter) { main(adapter).then(c => { process.exitCode = c || 0; }, e => die(e.stack || String(e), 4)); }
 
 module.exports = { cli, main, args, plan, readCandidates, targetCheck, nameWords, namesPlace, itemProblems, creditRow, licenceFromUri,
-  LICENCES, COLUMNS, NOT_A_PLACE_PHOTO, STAGE_DIR, CANDIDATES, fileBase, fold, inCI, loadSharp };
+  LICENCES, ANON, COLUMNS, NOT_A_PLACE_PHOTO, STAGE_DIR, CANDIDATES, fileBase, fold, inCI, loadSharp };

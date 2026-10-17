@@ -89,7 +89,15 @@ const euObj = { about: '/90402/RP_F_F06191', aggregations: [{ edmRights: { def: 
   proxies: [{ dcTitle: { en: ['Porta Nigra in Trier'] }, dcCreator: { def: ['anonymous'] } }, { dcCreator: { def: ['Johann Kühnen'] }, dcDate: { def: ['c. 1880'] } }] };
 const e1 = eu.fromObject(euObj);
 ok(!e1.refused && e1.author === 'Johann Kühnen' && e1.licence === 'Public domain' && e1.sourceUrl === 'https://www.europeana.eu/item/90402/RP_F_F06191' && e1.institution === 'Rijksmuseum via Europeana', 'Europeana record → PDM item, a named creator (not "anonymous"), provider credited');
-ok(!eu.fromObject({ ...euObj, proxies: [{ dcTitle: { en: ['x'] }, dcCreator: { def: ['anoniem'] } }] }).author, 'Europeana anonymous creator → no author (so refused)');
+const anonEu = eu.fromObject({ ...euObj, proxies: [{ dcTitle: { en: ['Porta Nigra in Trier'] }, dcCreator: { def: ['anoniem'] } }] });
+ok(!anonEu.author && anonEu.anonymous, 'Europeana anonymous creator → no author, flagged anonymous');
+const anonIt = { ...good, author: '', anonymous: true, institution: 'Rijksmuseum via Europeana' };
+ok(lib.itemProblems({ ...anonIt }, { ...row, era: 'historic', stillLooks: 'yes' }, T, A) === '', 'D-52: anonymous as catalogued, PD, historic → passes');
+const anonDone = { ...anonIt }; lib.itemProblems(anonDone, { ...row, era: 'historic', stillLooks: 'yes' }, T, A);
+ok(anonDone.author === 'Anonymous (as catalogued by Rijksmuseum via Europeana)', 'D-52: the credit reads "Anonymous (as catalogued by <institution>)"');
+ok(/anonymous/.test(lib.itemProblems({ ...anonIt }, row, T, A)), 'D-52: anonymous on a modern row → refused');
+ok(/anonymous/.test(lib.itemProblems({ ...anonIt, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/' }, { ...row, era: 'historic', stillLooks: 'yes' }, T, A)), 'D-52: anonymous on a CC BY row → refused');
+ok(/never invented/.test(lib.itemProblems({ ...good, author: '' }, { ...row, era: 'historic', stillLooks: 'yes' }, T, A)), 'D-52: an author the institution leaves blank (not catalogued anonymous) → refused');
 const m1 = { isPublicDomain: false, primaryImage: 'https://images.metmuseum.org/x.jpg', title: 'x' };
 ok(met.idOf({ itemUrl: 'https://www.metmuseum.org/art/collection/search/264242' }) === '264242', 'Met id from its URL');
 ok(pexels.idOf({ itemUrl: 'https://www.pexels.com/photo/shuri-castle-in-naha-12345678/' }) === '12345678' && pexels.slugWords('https://www.pexels.com/photo/shuri-castle-in-naha-12345678/') === 'shuri castle in naha', 'Pexels id and slug words from the URL');

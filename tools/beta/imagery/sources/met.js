@@ -27,7 +27,8 @@ const adapter = {
     const o = await r.json();
     const refused = !o.isPublicDomain ? 'not public domain (isPublicDomain false)' : !o.primaryImage ? 'no image (primaryImage empty)' : '';
     return {
-      title: o.title || '', author: (o.artistDisplayName || '').trim(), date: o.objectDate || '',
+      title: o.title || '', author: lib.ANON.test(o.artistDisplayName || '') ? '' : (o.artistDisplayName || '').trim(), date: o.objectDate || '',
+      anonymous: lib.ANON.test((o.artistDisplayName || '').trim()),
       sourceUrl: (o.objectURL || `https://www.metmuseum.org/art/collection/search/${id}`).replace(/^http:/, 'https:'),
       licence: 'CC0 1.0', licenceUrl: lib.LICENCES['CC0 1.0'], institution: 'The Metropolitan Museum of Art',
       text: [o.objectName, o.medium, o.city, o.state, o.country, o.region, o.subregion, o.locale, o.creditLine, ...(o.tags || []).map(t => t.term)].filter(Boolean).join(' '),

@@ -30,12 +30,14 @@ function fromObject(o) {
   const label = v => { if (!/^https?:\/\//.test(v)) return v; const a = [...(o.agents || []), ...(o.organizations || [])].find(x => x.about === v); return a ? first(a.prefLabel) : ''; };
   const rightsUri = first(agg.edmRights) || first((o.europeanaAggregation || {}).edmRights);
   const lic = lib.licenceFromUri(rightsUri);
-  const author = pick('dcCreator').map(label).find(a => a && !/^(anoni?em|anonymous|unknown|onbekend|unbekannt|inconnu)\b/i.test(a)) || '';
+  const creators = pick('dcCreator').map(label).filter(Boolean);
+  const author = creators.find(a => !lib.ANON.test(a)) || '';
   const id = String(o.about || '').replace(/^\//, '');
   return {
     title: pick('dcTitle')[0] || '', author, date: pick('dcDate')[0] || pick('dctermsCreated')[0] || String(o.year ? first(o.year) : ''),
     sourceUrl: `https://www.europeana.eu/item/${id}`, institution: `${label(first(agg.edmDataProvider)) || 'Europeana'} via Europeana`,
     licence: lic && lic.licence, licenceUrl: lic && lic.licenceUrl,
+    anonymous: !author && creators.length > 0 && creators.every(a => lib.ANON.test(a)),
     refused: !lic ? `rights not open: ${rightsUri || 'none'}` : !agg.edmIsShownBy ? 'no full image (edm:isShownBy)' : '',
     text: [...pick('dcDescription'), ...pick('dcSubject').map(label), ...pick('dctermsSpatial').map(label), ...pick('dcCoverage').map(label), ...pick('dcType').map(label)].join(' '),
     imageUrl: () => agg.edmIsShownBy,
