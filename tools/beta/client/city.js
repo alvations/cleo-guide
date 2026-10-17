@@ -45,7 +45,7 @@
   { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need) Cleo.need('base', () => C.baseSheet && C.baseSheet(c)); }; }
   // FE-C W9-1 hook: the recognition badges are drawn by recognition.js (lazy) on pages that have recognised places
   if (Cleo.need && d.querySelector('.rail-i[data-rec]')) Cleo.need('recognition');
-  { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need && (c.hasAttribute('data-rec') || c.hasAttribute('data-rec0'))) Cleo.need('recognition', () => Cleo.recog && Cleo.recog.sheet(c, icon('seal'))); if (Cleo.need) Cleo.need('sheetbar', () => Cleo.sheetbar && Cleo.sheetbar()); }; }   // FE-C QC-23 hook: the detail's row on a deep link; OV-111/112: sheetbar.js
+  { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need && (c.hasAttribute('data-rec') || c.hasAttribute('data-rec0'))) Cleo.need('recognition', () => Cleo.recog && Cleo.recog.sheet(c, icon('seal'))); if (Cleo.need) Cleo.need('sheetbar', () => Cleo.sheetbar && Cleo.sheetbar(c)); }; }   // FE-C QC-23 hook: the detail's row on a deep link; OV-111/112: sheetbar.js
   // FE-C W9-2 hook: the quiet "Status checked <d Mon>" card line is drawn by fresh.js (lazy) from each card's data-checked
   if (Cleo.need) Cleo.need('fresh');
   need.q = {};
