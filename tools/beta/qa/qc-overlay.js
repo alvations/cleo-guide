@@ -55,7 +55,11 @@ const MEASURE = new Function(`
     for (let a = e; a && a !== stop && a !== document.body && a !== document.documentElement; a = a.parentElement) { const p = cs(a).position;
     if (p === 'fixed' && a !== dlg) return a; if (p === 'sticky' && a.getBoundingClientRect().width >= 0.6 * frameW(a)) return a; } return null; };   // a sticky side column is content, a sticky bar is chrome
   const CONTENT = 'li.pl, .gc, .ge, .ixi, article, .icard, .listpane li, .ms-car li';
-  const isLabel = e => { const p = e.closest('.leaflet-marker-pane .pp, .leaflet-tooltip, .leaflet-popup'); return !!(p && (p.textContent || '').trim().length > 1); };
+  // a label point is one on the PAINTED pill (an element between the hit and the pin with a background or border), not the
+  // pin's transparent tap area (FE-1, 11:36Z: measure the painted area, not the hit area)
+  const painted = x => { const c = cs(x), bg = c.backgroundColor; return (bg && !/rgba\([^)]*,\s*0\)|transparent/.test(bg)) || c.backgroundImage !== 'none' || parseFloat(c.borderTopWidth) > 0; };
+  const isLabel = e => { const p = e.closest('.leaflet-marker-pane .pp, .leaflet-tooltip, .leaflet-popup'); if (!(p && (p.textContent || '').trim().length > 1)) return false;
+    for (let a = e; a; a = a.parentElement) { if (painted(a)) return true; if (a === p) break; } return false; };
   const classify = e => {
     if (!e) return 'none'; if (cache.has(e)) return cache.get(e); let k;
     if (dlg && dlg.contains(e)) { const f = fixedAnc(e); k = f && f !== dlg && dlg.contains(f) ? 'sheet-chrome' : 'sheet'; }
@@ -104,7 +108,8 @@ const MEASURE = new Function(`
   for (let i = controls.length - 1; i >= 0; i--) if (!onTop(controls[i])) controls.splice(i, 1);
   const R = e => e.getBoundingClientRect(), hit = (a, b, m = 1) => Math.min(a.right, b.right) - Math.max(a.left, b.left) > m && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > m;
   if (mapC) {
-    const tb = e => { const g = document.createRange(); g.selectNodeContents(e); const r = g.getBoundingClientRect(); const s = e.getBoundingClientRect(); return r.width > s.width ? r : s; };
+    const tb = e => { const pe = painted(e) ? e : [...e.querySelectorAll('*')].find(painted); if (pe) return pe.getBoundingClientRect();   // the painted pill, not the tap area
+      const g = document.createRange(); g.selectNodeContents(e); return g.getBoundingClientRect(); };
     const labs = [...document.querySelectorAll('.leaflet-marker-pane .pp, .leaflet-tooltip')].filter(e => (e.textContent || '').trim().length > 1 && cs(e).visibility !== 'hidden' && cs(e).display !== 'none' && (() => { const r = tb(e); return r.width > 0 && r.bottom > mr.top && r.top < mr.bottom && r.right > mr.left && r.left < mr.right; })());
     const pins = [...document.querySelectorAll('.leaflet-marker-pane > *')].filter(shown);
     out.labels = labs.length; out.pins = pins.length;
