@@ -47,12 +47,16 @@ const MEASURE = new Function(`
   const dlg = [...document.querySelectorAll('[role=dialog]')].find(e => shown(e) && e.getBoundingClientRect().height > 80) || null;
   const scrolls = document.documentElement.scrollHeight > H + 2;
   const cache = new Map();
-  const fixedAnc = e => { for (let a = e; a && a !== document.body && a !== document.documentElement; a = a.parentElement) { const p = cs(a).position; if (p === 'fixed' || p === 'sticky') return a; } return null; };
+  const frameW = e => (dlg && dlg.contains(e) ? dlg.getBoundingClientRect().width : W);
+  const fixedAnc = e => { const stop = dlg && dlg.contains(e) ? dlg : document.body;   // inside a sheet, its own bars only (not the backdrop container)
+    for (let a = e; a && a !== stop && a !== document.body && a !== document.documentElement; a = a.parentElement) { const p = cs(a).position;
+    if (p === 'fixed' && a !== dlg) return a; if (p === 'sticky' && a.getBoundingClientRect().width >= 0.6 * frameW(a)) return a; } return null; };   // a sticky side column is content, a sticky bar is chrome
   const CONTENT = 'li.pl, .gc, .ge, .ixi, article, .icard, .listpane li, .ms-car li';
   const isLabel = e => { const p = e.closest('.leaflet-marker-pane .pp, .leaflet-tooltip, .leaflet-popup'); return !!(p && (p.textContent || '').trim().length > 1); };
   const classify = e => {
     if (!e) return 'none'; if (cache.has(e)) return cache.get(e); let k;
     if (dlg && dlg.contains(e)) { const f = fixedAnc(e); k = f && f !== dlg && dlg.contains(f) ? 'sheet-chrome' : 'sheet'; }
+    else if (dlg) k = 'backdrop';
     else if (mapC && mapC.contains(e)) {
       if (isLabel(e)) k = 'label';
       else if (e.closest('.leaflet-marker-pane')) k = 'pin';
@@ -61,20 +65,20 @@ const MEASURE = new Function(`
       else k = 'overlay';
     } else { const f = fixedAnc(e); k = f ? 'chrome' : (!scrolls && !e.closest(CONTENT) ? 'chrome' : 'content'); }
     cache.set(e, k); return k; };
-  const n = {}, rows = [], inMap = { all: 0, map: 0, pin: 0, label: 0, overlay: 0, other: 0 };
+  const n = {}, rows = [], inMap = { all: 0, map: 0, pin: 0, label: 0, overlay: 0, other: 0 }; const dr = dlg ? dlg.getBoundingClientRect() : null;
   for (let y = STEP / 2; y < H; y += STEP) { const row = { chrome: 0, all: 0 };
     for (let x = STEP / 2; x < W; x += STEP) {
       let k = classify(document.elementFromPoint(x, y));
       if (mr && x >= mr.left && x < mr.right && y >= mr.top && y < mr.bottom && !(k === 'sheet' || k === 'sheet-chrome')) {
         inMap.all++; if (k === 'map' || k === 'pin' || k === 'label' || k === 'overlay') inMap[k]++; else { inMap.other++; k = 'overlay'; } }
-      n[k] = (n[k] || 0) + 1; row.all++; if (k === 'chrome' || k === 'overlay' || k === 'sheet-chrome') row.chrome++; }
-    rows.push(row); }
-  const tot = rows.reduce((s, r) => s + r.all, 0) || 1;
+      n[k] = (n[k] || 0) + 1; if (k === 'backdrop') continue; row.all++; if (k === 'chrome' || k === 'overlay' || k === 'sheet-chrome') row.chrome++; }
+    if (!dr || (y >= dr.top && y < dr.bottom)) rows.push(row); }
+  const tot = rows.reduce((s, r) => s + r.all, 0) || 1, RH = H / STEP;   // bands stay a % of the viewport height
   let top = 0; while (top < rows.length && rows[top].chrome / rows[top].all >= 0.5) top++;
   let bot = 0; while (bot < rows.length - top && rows[rows.length - 1 - bot].chrome / rows[rows.length - 1 - bot].all >= 0.5) bot++;
   const pct = x => Math.round(x * 1000) / 10;
   const out = { W, H, scrolls, map: !!mapC, sheet: !!dlg,
-    chromeArea: pct(((n.chrome || 0) + (n.overlay || 0) + (n['sheet-chrome'] || 0)) / tot), bandTop: pct(top / rows.length), bandBottom: pct(bot / rows.length) };
+    chromeArea: pct(((n.chrome || 0) + (n.overlay || 0) + (n['sheet-chrome'] || 0)) / tot), bandTop: pct(top / RH), bandBottom: pct(bot / RH) };
   out.band = Math.round((out.bandTop + out.bandBottom) * 10) / 10;
   if (mapC) { const a = inMap.all || 1; out.mapPane = pct(inMap.all / tot); out.clearMap = pct((inMap.map + inMap.pin) / a); out.labelCov = pct(inMap.label / a); out.overMap = pct((inMap.overlay + inMap.other) / a);
     // OV-00 clear map excludes labels (they have their own caps): phones and T1 as % of the viewport, T2 and D as % of the map pane
