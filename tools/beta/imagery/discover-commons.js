@@ -88,10 +88,8 @@ function judgeFile(pg, t, how) {
 }
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-async function get(url) {
-  const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 20000);
-  try { return await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' }, signal: ctl.signal }); } finally { clearTimeout(timer); }
-}
+/** One total-time cap over headers AND body (net.js, R8). */
+const get = (url, total = 20000) => require('./net').fetchCapped(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } }, total);
 const qs = o => Object.entries(o).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&');
 
 async function discover(o) {
@@ -108,11 +106,11 @@ async function discover(o) {
     if (calls >= o.budget) throw Object.assign(new Error('b'), { stop: 'API budget reached — run again to resume' });
     calls++; if (calls > 1) await sleep(o.delay);
     let r; try { r = await get(`${base}?${qs(Object.assign({ format: 'json', formatversion: 2 }, params))}`); }
-    catch (e) { die(`${new URL(base).host} is not reachable from here (${e.cause ? e.cause.code || e.cause.message : e.message}) — run on GitHub Actions; never routed around.`, 3); }
+    catch (e) { if (e.timeout) throw Object.assign(new Error('t'), { stop: `${new URL(base).host} timed out — warning; the next run resumes` }); die(`${new URL(base).host} is not reachable from here (${e.cause ? e.cause.code || e.cause.message : e.message}) — run on GitHub Actions; never routed around.`, 3); }
     if (r.status === 403 || r.status === 407) die(`${new URL(base).host} blocked (HTTP ${r.status}) — run on GitHub Actions; never routed around.`, 3);
     if (r.status === 429) throw Object.assign(new Error('429'), { stop: 'rate-limited — run again later to resume' });
     if (!r.ok) die(`${new URL(base).host} → HTTP ${r.status}`, 4);
-    return r.json();
+    try { return await r.json(); } catch (e) { throw Object.assign(new Error('body'), { stop: `${new URL(base).host} response body ${e.timeout ? 'stalled' : 'unreadable'} — warning; the next run resumes` }); }
   };
   const info = titles => api(COMMONS, { action: 'query', titles: titles.join('|'), prop: 'imageinfo|categories', iiprop: 'url|size|mime|user|extmetadata', iiurlwidth: 300,
     iiextmetadatafilter: 'LicenseShortName|LicenseUrl|Artist|Credit|ImageDescription|ObjectName', clshow: '!hidden', cllimit: 'max' });
