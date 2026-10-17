@@ -227,7 +227,7 @@
     e.preventDefault();
     if (hero) hero.focus(); else open(document.activeElement);
   });
-  // …and its last row is "Search all guides for “q”" — allguides.js, loaded on the city field's first focus (not eager)
-  var cf = document.getElementById('cleo-filter');   // Cleo.need: core.js, on every page
-  if (cf) cf.addEventListener('focus', function () { Cleo.need('allguides'); }, { once: true });
+  // …and its last row is "Search all guides for “q”" — allguides.js, loaded on FE-A's first cleo:city-search with a query
+  // (typing or a #q= deep link; not eager), which then draws from Cleo.city.none. Cleo.need: core.js, on every page.
+  document.addEventListener('cleo:city-search', function (e) { if (e.detail && e.detail.q) Cleo.need('allguides'); });
 })();

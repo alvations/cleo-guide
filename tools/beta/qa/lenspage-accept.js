@@ -52,6 +52,12 @@ srv.listen(0, '127.0.0.1', async () => {
     s = await page(vp, `${rel}#view=gallery&${lens}`, true);
     const st = await s.p.evaluate(() => ({ on: !!Cleo.defer.lensPage, line: (document.querySelector('.pg-line, #cleo-shown') || {}).textContent || '', built: document.querySelectorAll('li.pl').length }));
     const n = +((/Showing ([\d,]+)/.exec(st.line) || [])[1] || '0').replace(/,/g, '');
+    // (0) guard (platform, 2026-10-17): the flag must actually change what is built. When PERF-22 parked the code, setting
+    // the flag was a no-op and every row passed against stamp-everything. With F spanning more than one page, some matches
+    // must still be stubs (not in the DOM) at load
+    const builtF = await s.p.evaluate(F => F.filter(id => document.getElementById('p-' + id)).length, F);
+    const pagesAtLoad = await s.p.evaluate(() => { const b = [...document.querySelectorAll('.g-pager [aria-label^="Page "]')].pop(); return b ? +/of (\d+)/.exec(b.getAttribute('aria-label'))[1] : 1; });
+    check(`${tag}: (0) lensPage is really on — matches built at load < F when F spans pages`, pagesAtLoad < 2 || builtF < F.length, { builtF, F: F.length, pages: pagesAtLoad });
     check(`${tag}: (1) the counts line reads F (${F.length})`, st.on && n === F.length, { line: st.line.slice(0, 60), F: F.length, builtAtLoad: st.built });
     const seen = [], pages = await s.p.evaluate(() => { const b = [...document.querySelectorAll('.g-pager [aria-label^="Page "]')].pop(); return b ? +/of (\d+)/.exec(b.getAttribute('aria-label'))[1] : 1; });
     let notCard = 0;
