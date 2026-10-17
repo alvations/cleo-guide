@@ -153,7 +153,7 @@ ${siteBar({ depth: 0, current: 'other', rel: '404.html' })}
   ${icon('compass', 'ico lg')}
   <h1 class="d2">${t('nf.h')}</h1>
   <p>It may have been renamed. Every guide is still listed — ${T.places.toLocaleString('en-US')} places across ${T.guides} guides.</p>
-  <p><a class="btn btn-primary" href="index.html#destinations">${t('nf.all')}</a> <a class="btn btn-ghost" href="index.html#search">${t('shell.search')}</a></p>
+  <p><a class="btn btn-primary" href="index.html#destinations">${t('nf.all')}</a></p>${''/* FE-C (QC r4 Med, one search entry point): the header's "Search all guides" is the page's one search */}
 </div>
 </div></main>
 ${footer({ depth: 0, tabbar: true, current: 'other' })}
