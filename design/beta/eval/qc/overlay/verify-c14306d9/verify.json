@@ -1,0 +1,75 @@
+{
+ "label": "c14306d9",
+ "root": "/tmp/claude-0/-home-user-cleo-guide/435ea876-e2ae-5b30-9781-4928f13076cc/scratchpad/qc-dev-c14306d9",
+ "res": {
+  "OV-09": {
+   "pass": true,
+   "cities/tokyo.html": {
+    "map": true,
+    "sheet": true,
+    "sheetOverMapPx": 0,
+    "mapW": 603,
+    "pinVisible": true
+   },
+   "shot": "design/beta/eval/qc/overlay/verify-c14306d9/shots/OV-09-tokyo-atlas-1024-sheet.jpg",
+   "cleveland.html": {
+    "map": true,
+    "sheet": true,
+    "sheetOverMapPx": 0,
+    "mapW": 603,
+    "pinVisible": true
+   }
+  },
+  "OV-40": {
+   "pass": false,
+   "390x844": {
+    "clicked": true,
+    "toast": true,
+    "sheet": true,
+    "text": "Your base is Imperial Palace East Garden",
+    "overActions": []
+   },
+   "shot390x844": "design/beta/eval/qc/overlay/verify-c14306d9/shots/OV-40-toast-390x844.jpg",
+   "390x664": {
+    "clicked": true,
+    "toast": true,
+    "sheet": true,
+    "text": "Your base is Imperial Palace East Garden",
+    "overActions": []
+   },
+   "844x390": {
+    "clicked": true,
+    "toast": true,
+    "sheet": true,
+    "text": "Your base is Imperial Palace East Garden",
+    "overActions": []
+   },
+   "768x1024": {
+    "clicked": true,
+    "toast": true,
+    "sheet": true,
+    "text": "Your base is Imperial Palace East Garden",
+    "overActions": []
+   },
+   "1024x768": {
+    "clicked": true,
+    "toast": true,
+    "sheet": true,
+    "text": "Your base is Imperial Palace East Garden",
+    "overActions": []
+   },
+   "1440x900": {
+    "clicked": true,
+    "toast": true,
+    "sheet": true,
+    "text": "Your base is Imperial Palace East Garden",
+    "overActions": [
+     "Castles, palaces & h",
+     "Gardens & teahouses",
+     "Clear my base"
+    ]
+   },
+   "shot1440x900": "design/beta/eval/qc/overlay/verify-c14306d9/shots/OV-40-toast-1440x900.jpg"
+  }
+ }
+}
