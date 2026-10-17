@@ -430,13 +430,17 @@
     const t1 = at(c, 'data-t') === '1', cl = c.hasAttribute('data-closed'), a = ((info.areas || {})[at(c, 'data-a')] || {}).n || '';
     const inT = ($('.pl-e .in', c) || {}).textContent || '', dish = inT.split(' · ').slice(1).join(' · ').trim();
     const g = (at(c, 'data-g') || '').split(' ').filter(x => x && x !== 'FREE' && x !== 'ICON')[0], kind = dish || (at(c, 'data-k') === 'f' ? tt('city.mode.food', 'Eat & drink') : ((info.cats || {})[g] || tt('srch.sight', 'Sight')));
-    const ss = (at(c, 'data-src') || '').split(' ').filter(x => x && x !== 'guide'), s0 = ss[0];
+    // FE-B D-53: only real recommenders are named — the card's data-recby when the build set it (it differs from its sources),
+    // else its sources less 'guide'; names as the card's own chips print them (recName); none → the card's own "no independent
+    // source yet" line (with its official-site link), and no tier badge
+    const ss = (c.hasAttribute('data-recby') ? at(c, 'data-recby') : at(c, 'data-src') || '').split(' ').filter(x => x && x !== 'guide'), s0 = ss[0], nr = $('.pl-norec', c);
+    const recNm = x => { const b = $('button.src[data-src="' + (window.CSS && CSS.escape ? CSS.escape(x) : x) + '"]', c); return b ? b.textContent.trim() : ((info.src || {})[x] || [x])[0]; };
     const fig = $('figure.pl-photo', c), cap = fig && $('figcaption', fig), cl0 = cap && [].slice.call(cap.querySelectorAll('a')).pop();
     c.insertAdjacentHTML('afterbegin', '<span class="ms-bd">' +
-      (cl ? '<span class="sticker ms-cl">' + tt('sheet.closed', 'Closed') + '</span>' : t1 ? '<span class="sticker ms-st">' + tt('tier.1', 'Must see') + '</span>' : '') + '</span>' +
+      (cl ? '<span class="sticker ms-cl">' + tt('sheet.closed', 'Closed') + '</span>' : t1 && s0 ? '<span class="sticker ms-st">' + tt('tier.1', 'Must see') + '</span>' : '') + '</span>' +
       (cl0 ? '<a class="ms-cr" href="' + C.esc(cl0.href) + '" target="_blank" rel="noopener" title="' + C.esc(cap.textContent.trim()) + '" aria-label="' + tt('atl.credit', 'Photo credit: {c}', { c: C.esc(cap.textContent.trim()) }) + '">©</a>' : ''));
     const nm = $('.pl-n', c); if (nm) nm.insertAdjacentHTML('afterend', '<p class="ms-k"><span class="ms-a">' + C.esc(a) + ' · </span>' + C.esc(kind) + '</p>' +
-      '<p class="ms-rec">' + (s0 ? tt('card.recby', 'Recommended by') + ' <b>' + ss.slice(0, 2).map(x => C.esc(((info.src || {})[x] || [x])[0])).join('</b>, <b>') + '</b>' + (ss.length > 2 ? ' ' + tt('gal.more', '+{n} more', { n: ss.length - 2 }) : '') : tt('sheet.added', 'Added by the guide')) + '</p>');
+      '<p class="ms-rec">' + (s0 ? tt('card.recby', 'Recommended by') + ' <b>' + ss.slice(0, 2).map(x => C.esc(recNm(x))).join('</b>, <b>') + '</b>' + (ss.length > 2 ? ' ' + tt('gal.more', '+{n} more', { n: ss.length - 2 }) : '') : nr ? nr.innerHTML : tt('sheet.added', 'Added by the guide')) + '</p>');
     const im = fig && $('img', fig); if (im && !im.hasAttribute('data-sizes0')) im.setAttribute('data-sizes0', im.getAttribute('sizes') || '');
   });
   // D-46 DOM budget (FE-A: Tokyo Atlas 3,587 nodes against 3,000): a card off the map-area page goes back into a deferred
