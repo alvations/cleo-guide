@@ -1,0 +1,23 @@
+>>> DATA OK
+>>> ALL SUITES PASS
+>>> PASS — beta/ is reproducible from data: 178 pages, 82 place pages indexed, 8696 places (beta == live).
+
+# Atlas doors (D-46: For you, Your day, Near me and the For you keyboard trap from the default Atlas)
+  PASS  [doors] cities/tokyo.html mobile (Atlas default): opens in Atlas
+  PASS  [doors] cities/tokyo.html mobile (Atlas default): For you from the door — picker (≤ 5), cards lifted ("First because"), the count unchanged = {"opts":5,"why":36,"c0":"351 places here · Top ranked · checked 2","c1":"351 places here · Top ranked · checked 2"}
+  PASS  [doors] cities/tokyo.html mobile (Atlas default): For you — 0 JS errors = []
+  PASS  [doors] cities/tokyo.html mobile (Atlas default): Your day from the door — 4–6 stops, straight-line legs = {"n":6,"legs":["420 m straight-line to stop 2","160 m straight-line to stop 3","420 m straight-line to stop 4","330 m straight-line to stop 5","2.1 km straight-line to stop 6"]}
+  PASS  [doors] cities/tokyo.html mobile (Atlas default): Your day — 0 JS errors = []
+  PASS  [doors] cities/tokyo.html mobile (Atlas default): Near me from the door — distances on cards, "never stored" note = {"dist":18,"note":"You are here — shown on this device only, never stored, gone when you reload. 18"}
+  PASS  [doors] cities/tokyo.html mobile (Atlas default): Near me — 0 JS errors = []
+  PASS  [doors] cities/tokyo.html mobile (Atlas default): keyboard — the For you picker from the door traps focus, Esc closes and returns focus to the door = {"fy":true,"fy2":{"closed":true,"back":true}}
+  PASS  [doors] cities/tokyo.html desktop (Atlas default): opens in Atlas
+  PASS  [doors] cities/tokyo.html desktop (Atlas default): For you from the door — picker (≤ 5), cards lifted ("First because"), the count unchanged = {"opts":5,"why":36,"c0":"359 places here · Top ranked","c1":"359 places here · Top ranked"}
+  PASS  [doors] cities/tokyo.html desktop (Atlas default): For you — 0 JS errors = []
+  PASS  [doors] cities/tokyo.html desktop (Atlas default): Your day from the door — 4–6 stops, straight-line legs = {"n":6,"legs":["420 m straight-line to stop 2","160 m straight-line to stop 3","420 m straight-line to stop 4","330 m straight-line to stop 5","2.1 km straight-line to stop 6"]}
+  PASS  [doors] cities/tokyo.html desktop (Atlas default): Your day — 0 JS errors = []
+  PASS  [doors] cities/tokyo.html desktop (Atlas default): Near me from the door — distances on cards, "never stored" note = {"dist":36,"note":"You are here — shown on this device only, never stored, gone when you reload. 64"}
+  PASS  [doors] cities/tokyo.html desktop (Atlas default): Near me — 0 JS errors = []
+  PASS  [doors] cities/tokyo.html desktop (Atlas default): keyboard — the For you picker from the door traps focus, Esc closes and returns focus to the door = {"fy":true,"fy2":{"closed":true,"back":true}}
+
+>>> 16/16 PASS, 0 FAIL → qa/beta-w2/w2-doors.json

@@ -312,7 +312,14 @@
   // the same area instead of a larger one (D-46 doors, w2 "the count unchanged")
   { const om = C.overMap; let pad0 = null; const cp = o => ({ paddingTopLeft: o.paddingTopLeft.slice(), paddingBottomRight: o.paddingBottomRight.slice() });
     if (om) C.overMap = () => { const ph = !desktop() && H.classList.contains('atlas-m'), lst = ph && H.classList.contains('ms-list');
-      if (lst && pad0) return cp(pad0); const o = om(); if (ph && !lst) pad0 = cp(o); return o; }; }
+      if (lst && pad0) return cp(pad0); const o = side(om()); if (ph && !lst) pad0 = cp(o); return o; }; }
+  // phone landscape: the carousel docks as a column on the right, not a sheet at the bottom — the map's clear part is to its
+  // left, so the pad is on the right (a bottom pad up to its top left no band at all: no label, not even the selected
+  // place's, and a near-empty "places here")
+  function side(o) { const l = lp(), mc = $('#cleo-map'); if (!l || !mc || !(C.land && C.land()) || !H.classList.contains('ms-car')) return o;
+    const q = l.getBoundingClientRect(), m = mc.getBoundingClientRect(); if (!q.width || q.left < m.left + m.width / 2 || q.height < m.height / 2) return o;
+    const st = $('.leaflet-bottom.leaflet-right'), sr = st && st.getBoundingClientRect(), x0 = Math.min(q.left, sr && sr.width ? sr.left : q.left);   // and the control stack beside it
+    o.paddingBottomRight = [Math.max(o.paddingBottomRight[0], Math.round(m.right - x0) + 24), 24]; return o; }
   // §2.0.7 (designer 3793b1d15, "List: the way back is the switch's Atlas icon"): in phone list mode the switch's Atlas
   // segment, already pressed, goes back to the map — the only way back in landscape (no Map pill there); one history step,
   // as the pill and Escape do, so Back and the round trip stay coherent. Focus stays on the segment.

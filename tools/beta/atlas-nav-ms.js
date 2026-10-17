@@ -397,6 +397,13 @@ async function finish(page, s0, opener, close) {
     if (errors.length) chk(`D-43 okinawa ${vn} ${scheme}: 0 page errors`, false, errors.slice(0, 2));
     await ctx.close(); }
 
+  // OV-03 / §2.0.4: no label under the peek / carousel, chips, credit, header or a control, at load and with a selection open,
+  // 4 pages × 6 viewports (tools/beta/fe2/label-clear.js)
+  if (!ONLY) { const q = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'fe2', 'label-clear.js')], { env: process.env, encoding: 'utf8' });
+    const lines = String(q.stdout || '').split('\n').filter(l => /^(PASS|FAIL)  labels clear/.test(l));
+    if (!lines.length) chk('labels clear: probe ran', false, String(q.stderr || '').slice(0, 300));
+    lines.forEach(l => chk('OV-03 ' + l.replace(/^(PASS|FAIL)  /, '').replace(/  load .*$/, ''), /^PASS/.test(l), l.replace(/^.*?  load /, 'load ').slice(0, 300))); }
+
   // SPEC-v3 §3.7 (R8 gap 3) map motion: each reader-started moment ≤ 300 ms (the preview grows from its pin, fades on close;
   // the phone carousel lifts in; a hovered dot grows), and no animation at all under reduced motion (tools/beta/fe2/motion.js)
   for (const rel of ['cities/tokyo.html', 'cleveland.html']) { if (ONLY && !ONLY.split(',').some(k => rel.includes(k))) continue;
