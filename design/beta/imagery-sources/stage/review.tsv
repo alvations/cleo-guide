@@ -1,22 +1,22 @@
 n	target	source	itemId	verdict
-1	landmark:sanfrancisco#union-square	loc	2013630152	
-2	landmark:siliconvalley#montalvo-arts-center-villa-montalvo	loc	ca0982	
-3	landmark:statecollege#horseshoe-curve-national-historic-landmark	loc	2016819130	
-4	landmark:washingtondc#eastern-market	loc	2010642052	
-5	landmark:washingtondc#george-washingtons-mount-vernon	loc	2011636029	
-6	landmark:washingtondc#george-washingtons-mount-vernon	loc	2011631561	
-7	landmark:washingtondc#georgetown-waterfront-and-the-c-and-o-canal	loc	2011630750	
-8	landmark:washingtondc#georgetown-waterfront-and-the-c-and-o-canal	loc	2011636336	
-9	landmark:washingtondc#great-falls-park	loc	2016800811	
-10	landmark:washingtondc#john-f-kennedy-center-for-the-performing-arts	loc	2011632175	
-11	landmark:washingtondc#john-f-kennedy-center-for-the-performing-arts	loc	2011631365	
-12	landmark:washingtondc#national-archives-museum	loc	2011633826	
-13	landmark:washingtondc#national-museum-of-natural-history	loc	2011631532	
-14	landmark:washingtondc#old-town-alexandria-and-king-street	loc	2020724822	
-15	landmark:washingtondc#old-town-alexandria-and-king-street	loc	2020724817	
-16	landmark:washingtondc#smithsonian-american-art-museum-and-national-portrait-galler	loc	dc0194	
-17	landmark:washingtondc#thomas-jefferson-memorial	loc	2010630676	
-18	landmark:washingtondc#thomas-jefferson-memorial	loc	2011630694	
-19	landmark:washingtondc#wolf-trap-national-park-for-the-performing-arts	loc	2011632981	
-20	landmark:wheeling#centre-market-historic-district	loc	wv0006	
-21	landmark:wheeling#centre-market-historic-district	loc	2015632082	
+1	landmark:sanfrancisco#union-square	loc	2013630152	ok
+2	landmark:siliconvalley#montalvo-arts-center-villa-montalvo	loc	ca0982	ok
+3	landmark:statecollege#horseshoe-curve-national-historic-landmark	loc	2016819130	refuse: 1903 valley view, the curve itself is not visible
+4	landmark:washingtondc#eastern-market	loc	2010642052	refuse: a souvenir stall fills the frame; the market building is only behind it
+5	landmark:washingtondc#george-washingtons-mount-vernon	loc	2011636029	ok
+6	landmark:washingtondc#george-washingtons-mount-vernon	loc	2011631561	refuse (second choice): a garden outbuilding, not the mansion; 5 is better
+7	landmark:washingtondc#georgetown-waterfront-and-the-c-and-o-canal	loc	2011630750	ok
+8	landmark:washingtondc#georgetown-waterfront-and-the-c-and-o-canal	loc	2011636336	refuse (second choice): 7 is the clearer canal view
+9	landmark:washingtondc#great-falls-park	loc	2016800811	ok
+10	landmark:washingtondc#john-f-kennedy-center-for-the-performing-arts	loc	2011632175	ok
+11	landmark:washingtondc#john-f-kennedy-center-for-the-performing-arts	loc	2011631365	refuse (second choice): more distant; 10 is better
+12	landmark:washingtondc#national-archives-museum	loc	2011633826	ok
+13	landmark:washingtondc#national-museum-of-natural-history	loc	2011631532	ok
+14	landmark:washingtondc#old-town-alexandria-and-king-street	loc	2020724822	ok
+15	landmark:washingtondc#old-town-alexandria-and-king-street	loc	2020724817	refuse (second choice): a shop entrance; 14 is better
+16	landmark:washingtondc#smithsonian-american-art-museum-and-national-portrait-galler	loc	dc0194	ok
+17	landmark:washingtondc#thomas-jefferson-memorial	loc	2010630676	ok
+18	landmark:washingtondc#thomas-jefferson-memorial	loc	2011630694	refuse (second choice): 17 is the clearer view
+19	landmark:washingtondc#wolf-trap-national-park-for-the-performing-arts	loc	2011632981	ok
+20	landmark:wheeling#centre-market-historic-district	loc	wv0006	refuse: shows a stone arch bridge, not Centre Market
+21	landmark:wheeling#centre-market-historic-district	loc	2015632082	refuse: a single carved pig-head detail, not the district
