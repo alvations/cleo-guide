@@ -70,6 +70,9 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## Notes
 
+- Push procedure: run the gates; commit; fetch and merge origin. **If the merge changed product files** (`beta/`, `tools/beta/client`, `tools/beta/lib`), re-run validate and `npm test` and push only if both pass. Never push on a printed warning. Platform's sync-push has a post-merge budget guard (147bd3ba).
+- The next pin also verifies: R8-g5a (21fdd6a32, sheet-contrast), R8-g2e (0486bf714), R8-g2c (785d8641e), R8-g3 (09f82449 / 298e21d8), QA-80 (the landscape switch), and atlas-switch-inp (in npm test).
+
 - Before any re-sign, check every claimed SHA with `git merge-base --is-ancestor <sha> <pin>`. FE-A's commits once never reached origin.
 - Probe artefacts: QA-66 (fixed), QA-68 (probe fixed; re-check if the straddling state recurs).
 - D-42 (hours, label don't strip): when FE-B lands it, both honesty greps must allow exactly the new sentence. Fix the probe to measure what is painted; never exempt an element.
