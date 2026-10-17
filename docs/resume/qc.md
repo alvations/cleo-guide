@@ -50,11 +50,20 @@ never weakens a gate.
 
 ## In flight
 
-**Owner directive: overlay audit.** `docs/BETA-OVERLAY-LEDGER.md` is QC's; it has a Severity column, which QA's B-25 gate reads.
-- The r7 audit is done: rows OV-101 to OV-123 (16 High, 7 Med); collisions held back (probe fix).
-- The dev audit is running: label `dev-339f202f`, worktree `scratchpad/qc-dev-339f202f`, log `scratchpad/ov-dev.log`, ~70 min. When it finishes, run `node tools/beta/qa/qc-overlay-ledger.js --label dev-339f202f --write`; it updates the same rows and marks the ones not reproduced. Then re-run r7 in full with the corrected collision probe, and write its collision rows with `--label r7-…-v2`.
-- After each audit, send the orchestrator the row counts by owner.
-- One heavy run at a time; `npm test` under audit load is flaky in test-fe-a. Re-run it alone to confirm.
+**Owner directive: overlay audit.** `docs/BETA-OVERLAY-LEDGER.md` is QC's (Severity column for QA's B-25; 7 cells per row; S-17 rows OV-100+).
+- **Dev S-17 audit RUNNING** on ecff47c0e (resumed 10:29Z after the usage-limit stop). Label `dev-ecff47c0`, worktree `scratchpad/qc-dev-ecff47c0`, log `scratchpad/ov-dev3.log`. The probe has all fixes:
+  - chrome = fixed layers + sticky bars ≥ 60 % of the frame;
+  - sheet bands are measured inside the dialog;
+  - controls are shown only inside every clipping ancestor;
+  - one search per form;
+  - D-46 "default" cold-load runs.
+- When it finishes:
+  1. `node tools/beta/qa/qc-overlay-ledger.js --label dev-ecff47c0 --write`.
+  2. Re-run r7 (`--root scratchpad/qc-b54b3745 --label r7-b54b3745-v2`), then `qc-overlay-ledger.js --label r7-b54b3745-v2 --write`.
+  3. Run `qc-ov-verify.js` for FE-1 OV-02..07 (+ OV-03 labels from the audit), FE-B OV-107..110/121..123 (landing: 1 search, 1 "Your list"), FE-C OV-111/112 (sheet column; audit sheet rows).
+  4. Send the orchestrator counts by owner with the SHA; the r8 pin depends on them.
+- Already verified: OV-01/02/05/06/07 (c24dd319), OV-08/12/40 (046f2d7c), OV-09 (FE-A part)/11/30/31/32/33/34/35/36 (c14306d9). QC-35 verified.
+- `npm test` under audit load is flaky in test-fe-a ("Back restores the search", "search spans every page"); alone it passes 133/133. Commits during audits say so in the message.
 
 Next harness work:
 - Add a Contents-vs-lens count check to the COUNTS probe (QC-34 class) once FE-B fixes it.

@@ -2,7 +2,7 @@
 
 _Overwrite, don't append. Protocol: [README.md](README.md). Design + owner decisions: [../LOCATION-VERIFY-ACTIONS.md](../LOCATION-VERIFY-ACTIONS.md)._
 
-**Updated:** 2026-10-16
+**Updated:** 2026-10-17
 
 ## Task
 
@@ -26,7 +26,7 @@ The orchestrator does the review, `--accept`, rebuild and gates (§ Owner decisi
 | miami-fl | **committed** 4f73fb2a (re-scored 855a21bc → pass 2): registry duplicate Fillmore open + CLOSED | **2** (orchestrator) |
 | erie-pa | **committed** 0929302d (re-scored): pin 39 · confirm 17 · move 1 · ambiguous 2 · shared 6 (registry dups Tandoori Hut ×2, Enrique's open+CLOSED) · no-match 14 — assist pass 27 · review 9 · hold 5 · no-change 12 · reject 26 | — (sent) |
 | philadelphia-pa | **committed** e590eeb2 (re-scored 094f5550): pin 27 · confirm 15 · move 1 · ambiguous 2 · shared 2 (dup Manakeesh open+CLOSED) · no-match 31 — assist pass 25 · review 10 · hold 5 · no-change 3 · reject 35 | — (sent) |
-| singapore | re-run 1 committed ffecac1c: pin 40 · confirm 27 · move 2 · conflict 6 · ambiguous 8 · no-match 100 · **skipped 527 (budget)** — resume ≤ 300 Nominatim/DAY (≈3 days) | — (batch accept after the final run) |
+| singapore | re-run 2 committed 18d04250 (2026-10-17, 300 Nominatim): pin 64 · confirm 29 · move 2 · conflict 10 · ambiguous 14 · no-match 175 · status 2 · **skipped 407** (was 527) — assist pass 9 · review 2 · hold 68 · no-change 24 · reject 598. ≈4 more daily runs | — (batch accept after the final run) |
 
 Tool SHAs:
 
@@ -70,9 +70,8 @@ Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` 
      - never fabricate;
      - when nothing better exists, the low label stays.
    - Tell the orchestrator when the queue is empty, so it can disable the daily trigger.
-   - **This checkpoint queue is authoritative.** It overrides the scheduled-task prompt, trig_01P2RWA4kn9SKwApTwLdtSrm, which still
-     lists "saarland, okinawa, rhineland, aachen". That prompt was left unedited: a peer session's request isn't a user request to
-     rewrite it.
+   - **This checkpoint queue is authoritative.** The scheduled-task prompt (trig_01P2RWA4kn9SKwApTwLdtSrm) was updated on
+     2026-10-17, at the user's "make sure the agents continue", to match the D-43 order and the chaining rule.
    - **Step 3 is chained within one wake** (orchestrator, 2026-10-16):
      - push one REQUEST at a time and wait for each report;
      - stop when the day's remaining allowance can't cover the next city.
@@ -109,7 +108,8 @@ Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` 
 
 ## In flight
 
-- Nothing. Nominatim allowance for 2026-10-16 is spent.
+- Nothing. The Nominatim allowance for 2026-10-17 is spent (300, Singapore). Next: the 2026-10-18 03:17 UTC wake → Singapore again.
+- D-44 follow-ups are done (35a3d2d8): Oriental Delight evidence-class text; De Vagant and PA Military Museum re-checked, both stay closed.
 
 ## Closed-without-statusSource job (orchestrator, W9 audit) — 2026-10-16
 

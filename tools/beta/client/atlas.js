@@ -505,16 +505,22 @@
       : (all ? 'Showing all <b>' : 'All <b>') + N.toLocaleString('en-US') + '</b> ' + (N === 1 ? 'place' : 'places') + ' · ' + tot;
     if (!none) $('.ms-more', head).innerHTML = tp ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + tp[1].toLocaleString('en-US') + '</button>'
       : onA && n[1] ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + (n[0] + n[1]).toLocaleString('en-US') + '</button>'
-      : all ? '<button type="button" class="btn btn-quiet" data-ms="area">' + (C.map() ? 'Only show this map area' : 'Show 40 at a time') + '</button>' : '';
+      : all ? '<button type="button" class="btn btn-quiet" data-ms="area">' + (C.map() ? 'Only show this map area' : 'Show ' + PER + ' at a time') + '</button>' : '';
     $('.ms-live', head).hidden = !C.map() || !desk();   // its 44 px row is reserved (atlas.css .ms-row), so it arriving with the map moves nothing (D-46)
-    $('.ms-top', bar).setAttribute('aria-pressed', String(!!C.msTop)); $('.ms-mine', bar).setAttribute('aria-pressed', String(!!S.mine));
+    $('.ms-top').setAttribute('aria-pressed', String(!!C.msTop)); $('.ms-mine', bar).setAttribute('aria-pressed', String(!!S.mine));
     const sv = Cleo.saved ? Object.keys(Cleo.saved.all()).filter(r => r.slice(0, r.lastIndexOf('/')) === C.key).length : 0; $('.ms-mine .n', bar).textContent = sv || '';
     $('select', bar).value = S.sort || '';
     const k = onA ? n[0] : N;
+    // D-46 §1.7: the peek leads with up to 3 photo thumbnails — the top places on show by map priority that have an honest
+    // photo (no glyph stand-ins); their names are in the peek's label. "checked <date>" moved to the list's count line
+    const pkT = desk() || listOn ? [] : qa('#cleo-grid li.pl:not(.ms-out):not([hidden])').map(c => [c, $('figure.pl-photo img', c)]).filter(x => x[1] && (x[1].currentSrc || x[1].getAttribute('src')))
+      .sort((a, b) => (MP[C.pid(a[0])] == null ? 1e9 : MP[C.pid(a[0])]) - (MP[C.pid(b[0])] == null ? 1e9 : MP[C.pid(b[0])])).slice(0, 3).map(x => [C.name(x[0]) || C.pid(x[0]), x[1].currentSrc || x[1].getAttribute('src')]);
+    if (!none && listOn && !desk() && checked()) $('.ms-count', head).insertAdjacentHTML('beforeend', ' · <span class="ms-chk">checked ' + checked() + '</span>');
     tog.innerHTML = listOn ? C.icon('map') + '<span>Map</span>' : desk() || H.classList.contains('ms-car') ? C.icon('list') + '<span>List · ' + k.toLocaleString('en-US') + '</span>'
       : none ? '<i class="ms-handle" aria-hidden="true"></i><span>No places match · Show the list</span>'
-      : '<i class="ms-handle" aria-hidden="true"></i><span><b>' + k.toLocaleString('en-US') + '</b> ' + (k === 1 ? 'place' : 'places') + ' here' + (checked() ? ' · <span class="ms-chk">checked ' + checked() + '</span>' : '') + ' · Show list</span>';   // the phone peek
-    tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k));
+      : '<i class="ms-handle" aria-hidden="true"></i><span class="ms-pk">' + (pkT.length ? '<span class="ms-th" aria-hidden="true">' + pkT.map(x => '<img src="' + C.esc(x[1]) + '" alt="" width="40" height="40" decoding="async">').join('') + '</span>' : '') +
+        '<span><b>' + k.toLocaleString('en-US') + '</b> ' + (k === 1 ? 'place' : 'places') + ' here · Show list</span></span>';   // the phone peek (SPEC-v3 §1.7)
+    tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k) + (pkT.length ? ', led by ' + (pkT.length > 1 ? pkT.slice(0, -1).map(x => x[0]).join(', ') + ' and ' + pkT[pkT.length - 1][0] : pkT[0][0]) : ''));
   };
   // cards stamped later (a deep link, a route that builds more) join the page only if it shows them: a kept list stays the list
   // a source chip the card's width cuts (ellipsis) carries its whole name as a title — only those, so pages stay lean
@@ -549,11 +555,16 @@
   const routeSel = () => { const p = Cleo.route.parse().p, c = p && C.byId[p]; if (c && selC !== c) select(c, 'route'); };
   // OV-06 (SPEC-v3 §2.0.6): the phone chip row fades on each edge that has more chips beyond it, so it reads as scrollable
   const edge = () => { if (!bar) return; const o = bar.scrollWidth - bar.clientWidth > 2; bar.classList.toggle('ms-fl', o && bar.scrollLeft > 2); bar.classList.toggle('ms-fr', o && bar.scrollLeft < bar.scrollWidth - bar.clientWidth - 2); };
+  const land = () => !!window.matchMedia && matchMedia('(max-height:499px) and (orientation:landscape)').matches;
   C.msIn = () => {
     setTimeout(() => H.classList.add('ms-ready', 'ms-paged'), 3000);   // never hold the list longer than this, map or not
+    if (!C._lq && window.matchMedia) { C._lq = 1; const q = matchMedia('(max-height:499px) and (orientation:landscape)'), f = () => { if (atlas() && !desk()) C.msIn(); }; if (q.addEventListener) q.addEventListener('change', f); }   // a rotation re-folds the bars
     build(); unpark(); deco(); face(); setTimeout(routeSel, 0); sq(); if (bar && !bar._e) { bar._e = 1; on(bar, 'scroll', edge, { passive: true }); on(window, 'resize', edge); } requestAnimationFrame(edge);
     const x = $('.ms-x', bar);
     // phones: the chip row carries FE-A's search pill (in the toolbar) and the switcher last; desktop: area chips in the results head
+    // OV-00 §2.0.7 landscape (height < 500): one 48 px bar — the chip row folds away (its Filters button rides in the header,
+    // atlas.css), and the kind chips and Top picks move into the Filters sheet, so it holds kind, Top picks and Area
+    if (!desk() && land()) { const sc = $('#cleo-tray .scroll'), md = $('.modes', tb || bar), tp = $('.ms-top'); if (sc) { if (tp) park(tp, sc, sc.firstChild); if (md) park(md, sc, sc.firstChild); } }
     if (!desk()) { park(tb, bar, x); } else {   // phones: the view switch stays in FE-A's city bar, its own row under the header (QC-09)
       // desktop (SPEC-v3 §2.1): ONE bar — the search pill (in the toolbar), the chips, then the view switch; the notes and
       // the footer go to the end of the list column, since the document does not scroll in Atlas
@@ -624,6 +635,7 @@
     // OV-00 §2.0.3 (D-47): phones get ONE icon-only stack, bottom-right — Locate, then Layers; desktop gets + / − then Layers,
     // top-left, and no locate on the map (the list head's "Near me" is the one). Layers opens a small popover: Map / Satellite
     // as a radio pair, the Key, and the offline pack (platform's Cleo.pack.mount). Esc closes it and returns focus to Layers
+    if (!dk) ctl('bottomright', () => { const b = btn('m-list', 'Show the list', C.icon('list')); on(b, 'click', () => listMode(true, true)); return b; });   // §2.0.7: landscape's List (no peek); hidden in portrait
     if (!dk) ctl('bottomright', () => { const b = btn('m-locate', 'Near me', C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
     ctl(dk ? 'topleft' : 'bottomright', () => {
       const w = d.createElement('div'); w.className = 'am-ctl m-layers-w';
