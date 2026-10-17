@@ -2,7 +2,7 @@
  "meta": {
   "tool": "tools/location-verify.js 0.1.0",
   "city": "singapore",
-  "generated": "2026-10-16",
+  "generated": "2026-10-17",
   "scope": [
    "unverified",
    "low",
@@ -16,8 +16,9 @@
    "official",
    "census"
   ],
-  "rowsInScope": 712,
-  "rowsChecked": 712,
+  "rowsInScope": 701,
+  "rowsChecked": 701,
+  "orphansSkipped": 7,
   "anchor": {
    "lat": 1.3670876,
    "lng": 103.8683822,
@@ -39,74 +40,52 @@
    "onemap": "OneMap skipped: ONEMAP_EMAIL / ONEMAP_PASSWORD secrets are not set"
   },
   "requests": {
-   "network": 344,
-   "cacheHits": 914,
+   "network": 327,
+   "cacheHits": 1226,
    "nominatim": 300,
    "failures": [
     "www.majesticsaigon.com.vn CERT_HAS_EXPIRED",
-    "overpass-api.de HTTP 504",
-    "overpass-api.de HTTP 502",
-    "overpass-api.de HTTP 502"
+    "overpass-api.de HTTP 504"
    ],
    "byHost": {
     "nominatim.openstreetmap.org": {
      "requests": 300,
      "failed": 0
     },
-    "en.wikipedia.org": {
-     "requests": 12,
-     "failed": 0
-    },
-    "vintageemporium.net": {
-     "requests": 2,
-     "failed": 0
-    },
-    "laviet.coffee": {
-     "requests": 2,
-     "failed": 0
-    },
-    "www.anssaigon.com": {
-     "requests": 2,
-     "failed": 0
-    },
-    "mekongmerchant.com": {
-     "requests": 2,
-     "failed": 0
-    },
-    "bakes-saigon.com": {
-     "requests": 2,
-     "failed": 0
-    },
-    "www.binhdienmarket.com.vn": {
-     "requests": 2,
-     "failed": 0
-    },
-    "continentalsaigon.com": {
-     "requests": 2,
-     "failed": 0
-    },
     "www.majesticsaigon.com.vn": {
      "requests": 1,
      "failed": 1
     },
-    "www.namcattien.org": {
+    "www.chillsaigon.com": {
      "requests": 2,
      "failed": 0
     },
-    "thptnguyenthiminhkhai.hcm.edu.vn": {
+    "heartofdarknessbrewery.com": {
      "requests": 2,
      "failed": 0
     },
-    "mariecurie.biz": {
-     "requests": 1,
+    "eastwestbrewing.vn": {
+     "requests": 2,
+     "failed": 0
+    },
+    "biacraft.com": {
+     "requests": 2,
+     "failed": 0
+    },
+    "www.propaganda.vn": {
+     "requests": 2,
+     "failed": 0
+    },
+    "manmoi.vn": {
+     "requests": 2,
      "failed": 0
     },
     "overpass-api.de": {
-     "requests": 9,
-     "failed": 3
+     "requests": 13,
+     "failed": 1
     },
     "overpass.private.coffee": {
-     "requests": 3,
+     "requests": 1,
      "failed": 0
     }
    }
@@ -116,14 +95,13 @@
   "reviewsCarried": 0
  },
  "summary": {
-  "status-needs-check": 1,
-  "pin": 40,
-  "no-match": 100,
-  "ambiguous": 8,
-  "shared-object": 2,
-  "conflict": 6,
-  "skipped": 527,
-  "confirm": 27,
+  "status-needs-check": 2,
+  "pin": 64,
+  "no-match": 175,
+  "ambiguous": 14,
+  "conflict": 10,
+  "confirm": 29,
+  "skipped": 407,
   "move": 2
  },
  "rows": [
@@ -170,9 +148,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -219,9 +195,7 @@
    ],
    "outcome": "no-match",
    "proposal": null,
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [],
    "review": {
@@ -280,9 +254,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -409,9 +381,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -495,8 +465,7 @@
    "outcome": "ambiguous",
    "proposal": null,
    "notes": [
-    "candidates disagree by 95578 m",
-    "overpass: HTTP 500"
+    "candidates disagree by 95578 m"
    ],
    "evidence": [],
    "candidates": [
@@ -624,9 +593,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -813,9 +780,7 @@
    ],
    "outcome": "no-match",
    "proposal": null,
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [],
    "review": {
@@ -1082,7 +1047,7 @@
    "scope": [
     "unverified"
    ],
-   "outcome": "shared-object",
+   "outcome": "pin",
    "proposal": {
     "kind": "osm-poi",
     "lat": 1.31437,
@@ -1092,7 +1057,7 @@
     "sourceUrl": "https://www.openstreetmap.org/way/285163475",
     "retrieved": "2026-10-16",
     "licence": "ODbL-1.0 — © OpenStreetMap contributors",
-    "grade": "low",
+    "grade": "med",
     "gradeWhy": [
      "OSM place object, name + address agree",
      "postcode disagrees"
@@ -1121,10 +1086,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500",
-    "shared object: OSM way/285163475 also matched Eng Seng Restaurant — CLOSED (Joo Chiat); graded low"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -1218,169 +1180,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "review",
     "why": [
-     "low / shared OSM object"
-    ]
-   }
-  },
-  {
-   "name": "Eng Seng Restaurant — CLOSED (Joo Chiat)",
-   "current": {
-    "address": "247/249 Joo Chiat Place, Singapore 427935 (original; premises sold Aug 2025)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "confidence": "UNVERIFIED",
-    "verified": "2026-09-02",
-    "status": "closed",
-    "statusSource": "EdgeProp / Yahoo News SG: freehold corner shophouse sold S$8.55M, ceased operations 31 Aug 2025 (relocated to 9007 Tampines)",
-    "statusChecked": "2026-09-02"
-   },
-   "scope": [
-    "unverified"
-   ],
-   "outcome": "shared-object",
-   "proposal": {
-    "kind": "osm-poi",
-    "lat": 1.31437,
-    "lng": 103.90595,
-    "address": "Joo Chiat Place, Singapore, 423991",
-    "matchedName": "Eng Seng Restaurant",
-    "sourceUrl": "https://www.openstreetmap.org/way/285163475",
-    "retrieved": "2026-10-16",
-    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
-    "grade": "low",
-    "gradeWhy": [
-     "OSM place object, name + address agree",
-     "postcode disagrees"
-    ],
-    "nameSim": 1,
-    "addressAgreement": {
-     "houseNumber": null,
-     "street": true,
-     "postcode": false
-    },
-    "distanceM": null,
-    "osmObject": {
-     "id": "way/285163475",
-     "class": "amenity=restaurant",
-     "addresstype": "amenity",
-     "name": "Eng Seng Restaurant",
-     "address": "Joo Chiat Place, Singapore, 423991",
-     "houseNumber": null,
-     "tags": {
-      "building": "yes",
-      "building:levels": "1"
-     }
-    },
-    "coordDecimals": null,
-    "multiSite": false,
-    "entrance": false,
-    "corroboratedBy": []
-   },
-   "notes": [
-    "overpass: HTTP 500",
-    "shared object: OSM way/285163475 also matched Eng Seng Restaurant (Joo Chiat) — CLOSED; graded low"
-   ],
-   "evidence": [],
-   "candidates": [
-    {
-     "kind": "osm-other",
-     "name": "Joo Chiat Place",
-     "lat": 1.31574,
-     "lng": 103.91332,
-     "grade": "low",
-     "nameSim": 0,
-     "sourceUrl": "https://www.openstreetmap.org/way/646318542",
-     "retrieved": "2026-10-16",
-     "osmClass": "highway=residential",
-     "osm": "way/646318542",
-     "addresstype": "road",
-     "distanceFromCurrentM": null
-    },
-    {
-     "kind": "osm-other",
-     "name": "Joo Chiat Place",
-     "lat": 1.31499,
-     "lng": 103.90995,
-     "grade": "low",
-     "nameSim": 0,
-     "sourceUrl": "https://www.openstreetmap.org/way/585727673",
-     "retrieved": "2026-10-16",
-     "osmClass": "highway=residential",
-     "osm": "way/585727673",
-     "addresstype": "road",
-     "distanceFromCurrentM": null
-    },
-    {
-     "kind": "osm-other",
-     "name": "Joo Chiat Place",
-     "lat": 1.31322,
-     "lng": 103.89984,
-     "grade": "low",
-     "nameSim": 0,
-     "sourceUrl": "https://www.openstreetmap.org/way/666561710",
-     "retrieved": "2026-10-16",
-     "osmClass": "highway=residential",
-     "osm": "way/666561710",
-     "addresstype": "road",
-     "distanceFromCurrentM": null
-    },
-    {
-     "kind": "osm-other",
-     "name": "Joo Chiat Place",
-     "lat": 1.31357,
-     "lng": 103.90191,
-     "grade": "low",
-     "nameSim": 0,
-     "sourceUrl": "https://www.openstreetmap.org/way/479162186",
-     "retrieved": "2026-10-16",
-     "osmClass": "highway=residential",
-     "osm": "way/479162186",
-     "addresstype": "road",
-     "distanceFromCurrentM": null
-    },
-    {
-     "kind": "osm-other",
-     "name": "Joo Chiat Place",
-     "lat": 1.31544,
-     "lng": 103.91193,
-     "grade": "low",
-     "nameSim": 0,
-     "sourceUrl": "https://www.openstreetmap.org/way/886085038",
-     "retrieved": "2026-10-16",
-     "osmClass": "highway=residential",
-     "osm": "way/886085038",
-     "addresstype": "road",
-     "distanceFromCurrentM": null
-    },
-    {
-     "kind": "osm-poi",
-     "name": "Eng Seng Restaurant",
-     "lat": 1.31437,
-     "lng": 103.90595,
-     "grade": "med",
-     "nameSim": 1,
-     "sourceUrl": "https://www.openstreetmap.org/way/285163475",
-     "retrieved": "2026-10-16",
-     "osmClass": "amenity=restaurant",
-     "osm": "way/285163475",
-     "addresstype": "amenity",
-     "distanceFromCurrentM": null
-    }
-   ],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "low / shared OSM object"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -1402,9 +1206,7 @@
    ],
    "outcome": "no-match",
    "proposal": null,
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [],
    "review": {
@@ -1541,9 +1343,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -1626,9 +1426,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -1746,9 +1544,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -1867,9 +1663,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -2391,40 +2185,6 @@
    }
   },
   {
-   "name": "Hudson Rooms",
-   "current": {
-    "address": "District 1, Ho Chi Minh City, Vietnam (CONFLICT: 'The Hudson Rooms' appears to be at Capella Hanoi)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "confidence": "UNVERIFIED",
-    "verified": "2026-09-02",
-    "status": "open",
-    "statusSource": "Discovered open in 2025-2026 research; The Hudson Rooms (Hanoi) active on Asia's 50 Best 2024; HCMC venue unconfirmed",
-    "statusChecked": "2026-09-02"
-   },
-   "scope": [
-    "unverified"
-   ],
-   "outcome": "no-match",
-   "proposal": null,
-   "notes": [],
-   "evidence": [],
-   "candidates": [],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "no proposal"
-    ]
-   }
-  },
-  {
    "name": "Chè Kỳ Đồng",
    "current": {
     "address": "Kỳ Đồng, District 3, Ho Chi Minh City, Vietnam",
@@ -2608,9 +2368,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -2682,9 +2440,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -2731,9 +2487,7 @@
    ],
    "outcome": "no-match",
    "proposal": null,
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [],
    "review": {
@@ -2976,9 +2730,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -3098,9 +2850,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -3186,9 +2936,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -7961,10 +7709,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -7995,9 +7744,88 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.02119,
+    "lng": 105.76389,
+    "address": "Hẻm 1, Thành phố Cần Thơ, 94000",
+    "matchedName": "bánh cống Cô Út",
+    "sourceUrl": "https://www.openstreetmap.org/node/5251645331",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/5251645331",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "bánh cống Cô Út",
+     "address": "Hẻm 1, Thành phố Cần Thơ, 94000",
+     "houseNumber": null,
+     "tags": {
+      "opening_hours": "Mo-Su 08:00-18:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-other",
+     "name": "Lý Tự Trọng",
+     "lat": 10.0367,
+     "lng": 105.77749,
+     "grade": "low",
+     "nameSim": 0.316,
+     "sourceUrl": "https://www.openstreetmap.org/way/166553310",
+     "retrieved": "2026-10-17",
+     "osmClass": "highway=tertiary",
+     "osm": "way/166553310",
+     "addresstype": "road",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-other",
+     "name": "Lý Tự Trọng",
+     "lat": 10.03185,
+     "lng": 105.78241,
+     "grade": "low",
+     "nameSim": 0.316,
+     "sourceUrl": "https://www.openstreetmap.org/way/566032982",
+     "retrieved": "2026-10-17",
+     "osmClass": "highway=tertiary",
+     "osm": "way/566032982",
+     "addresstype": "road",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "bánh cống Cô Út",
+     "lat": 10.02119,
+     "lng": 105.76389,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/5251645331",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/5251645331",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -8005,10 +7833,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -8029,9 +7858,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.03237,
+    "lng": 105.78334,
+    "address": "17 Hòa Bình, Thành phố Cần Thơ, 94000",
+    "matchedName": "Nem nướng Thanh Vân",
+    "sourceUrl": "https://www.openstreetmap.org/node/2108427820",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/2108427820",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Nem nướng Thanh Vân",
+     "address": "17 Hòa Bình, Thành phố Cần Thơ, 94000",
+     "houseNumber": "17",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Nem nướng Thanh Vân",
+     "lat": 10.03237,
+     "lng": 105.78334,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/2108427820",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/2108427820",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -8040,9 +7918,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "pass",
     "why": [
-     "no proposal"
+     "OSM POI, name 1, house number + street match"
     ]
    }
   },
@@ -8063,10 +7941,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8097,10 +7976,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8131,10 +8011,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8165,10 +8046,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8199,9 +8081,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.7899,
+    "lng": 106.70993,
+    "address": "Hẻm 48 Mê Linh, Thành phố Hồ Chí Minh, 72331",
+    "matchedName": "Sàn Art",
+    "sourceUrl": "https://www.openstreetmap.org/node/4223495589",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/4223495589",
+     "class": "tourism=artwork",
+     "addresstype": "tourism",
+     "name": "Sàn Art",
+     "address": "Hẻm 48 Mê Linh, Thành phố Hồ Chí Minh, 72331",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Sàn Art",
+     "lat": 10.7899,
+     "lng": 106.70993,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/4223495589",
+     "retrieved": "2026-10-17",
+     "osmClass": "tourism=artwork",
+     "osm": "node/4223495589",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -8209,10 +8140,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -8233,9 +8165,55 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "ambiguous",
+   "proposal": null,
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "candidates disagree by 165358 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Núi Một",
+     "lat": 10.46614,
+     "lng": 107.06636,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/6961186109",
+     "retrieved": "2026-10-17",
+     "osmClass": "natural=peak",
+     "osm": "node/6961186109",
+     "addresstype": "peak",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Kinh Một Ngàn",
+     "lat": 9.72706,
+     "lng": 105.75562,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/852019585",
+     "retrieved": "2026-10-17",
+     "osmClass": "waterway=canal",
+     "osm": "way/852019585",
+     "addresstype": "canal",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Kênh Một",
+     "lat": 9.54033,
+     "lng": 106.15758,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/669691679",
+     "retrieved": "2026-10-17",
+     "osmClass": "waterway=canal",
+     "osm": "way/669691679",
+     "addresstype": "canal",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -8267,10 +8245,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8301,10 +8280,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8334,10 +8314,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8367,10 +8348,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8474,10 +8456,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8671,10 +8654,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8777,10 +8761,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8810,10 +8795,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8844,10 +8830,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8951,10 +8938,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -8985,10 +8973,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9019,10 +9008,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9053,9 +9043,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.77978,
+    "lng": 106.70506,
+    "address": "Hẻm 8A Đường Thái Văn Lung, Thành phố Hồ Chí Minh, 71016",
+    "matchedName": "Little Japan district",
+    "sourceUrl": "https://www.openstreetmap.org/node/6161305887",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6161305887",
+     "class": "tourism=attraction",
+     "addresstype": "tourism",
+     "name": "Little Japan district",
+     "address": "Hẻm 8A Đường Thái Văn Lung, Thành phố Hồ Chí Minh, 71016",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Little Japan district",
+     "lat": 10.77978,
+     "lng": 106.70506,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/6161305887",
+     "retrieved": "2026-10-17",
+     "osmClass": "tourism=attraction",
+     "osm": "node/6161305887",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -9063,10 +9102,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -9087,10 +9127,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9361,10 +9402,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9394,10 +9436,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9512,10 +9555,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9546,9 +9590,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 11.9211,
+    "lng": 107.22694,
+    "address": "Đak Xuyên, Thành phố Đồng Nai 67310",
+    "matchedName": "Suối Đắk Nhau",
+    "sourceUrl": "https://www.openstreetmap.org/way/1192038142",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/1192038142",
+     "class": "waterway=stream",
+     "addresstype": "stream",
+     "name": "Suối Đắk Nhau",
+     "address": "Đak Xuyên, Thành phố Đồng Nai 67310",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Suối Đắk Nhau",
+     "lat": 11.9211,
+     "lng": 107.22694,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/1192038142",
+     "retrieved": "2026-10-17",
+     "osmClass": "waterway=stream",
+     "osm": "way/1192038142",
+     "addresstype": "stream",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -9556,10 +9649,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -9580,9 +9674,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.77595,
+    "lng": 106.7052,
+    "address": "20 Mạc Thị Bưởi, Thành phố Hồ Chí Minh, 71016",
+    "matchedName": "Firkin Bar",
+    "sourceUrl": "https://www.openstreetmap.org/node/7056292087",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7056292087",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "Firkin Bar",
+     "address": "20 Mạc Thị Bưởi, Thành phố Hồ Chí Minh, 71016",
+     "houseNumber": "20",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Firkin Bar",
+     "lat": 10.77595,
+     "lng": 106.7052,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7056292087",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/7056292087",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -9591,9 +9734,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "pass",
     "why": [
-     "no proposal"
+     "OSM POI, name 1, house number + street match"
     ]
    }
   },
@@ -9614,9 +9757,72 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.77767,
+    "lng": 106.69764,
+    "address": "Nam Kỳ Khởi Nghĩa, Thành phố Hồ Chí Minh, 71009",
+    "matchedName": "Quán Bar Rabbit Hole",
+    "sourceUrl": "https://www.openstreetmap.org/node/9584814615",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/9584814615",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "Quán Bar Rabbit Hole",
+     "address": "Nam Kỳ Khởi Nghĩa, Thành phố Hồ Chí Minh, 71009",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "The Rabbit Hole Irish Sports Bar",
+     "lat": 10.79005,
+     "lng": 106.71242,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/9585591510",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/9585591510",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Quán Bar Rabbit Hole",
+     "lat": 10.77767,
+     "lng": 106.69764,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/9584814615",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/9584814615",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -9625,9 +9831,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "OSM POI without an exact address match (house number null, street true)"
     ]
    }
   },
@@ -9648,9 +9854,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.77084,
+    "lng": 106.69161,
+    "address": "Nguyễn Văn Tráng, Thành phố Hồ Chí Minh, 71009",
+    "matchedName": "Telephone bar",
+    "sourceUrl": "https://www.openstreetmap.org/node/6513116085",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6513116085",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "Telephone bar",
+     "address": "Nguyễn Văn Tráng, Thành phố Hồ Chí Minh, 71009",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Telephone bar",
+     "lat": 10.77084,
+     "lng": 106.69161,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6513116085",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/6513116085",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -9659,9 +9914,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "OSM POI without an exact address match (house number null, street true)"
     ]
    }
   },
@@ -9682,10 +9937,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9716,9 +9972,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.76958,
+    "lng": 106.69014,
+    "address": "Hẻm 26 Tôn Thất Tùng, Thành phố Hồ Chí Minh, 71009",
+    "matchedName": "The Gin House",
+    "sourceUrl": "https://www.openstreetmap.org/node/6198233886",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/6198233886",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "The Gin House",
+     "address": "Hẻm 26 Tôn Thất Tùng, Thành phố Hồ Chí Minh, 71009",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "The Gin House",
+     "lat": 10.76958,
+     "lng": 106.69014,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/6198233886",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/6198233886",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -9726,10 +10031,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -9749,10 +10055,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9783,10 +10090,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9817,10 +10125,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9851,10 +10160,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -9885,9 +10195,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.77042,
+    "lng": 106.69434,
+    "address": "Lê Lai, Thành phố Hồ Chí Minh, 71009",
+    "matchedName": "Quán Chill Skybar",
+    "sourceUrl": "https://www.openstreetmap.org/node/1969579818",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/1969579818",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "Quán Chill Skybar",
+     "address": "Lê Lai, Thành phố Hồ Chí Minh, 71009",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Quán Chill Skybar",
+     "lat": 10.77042,
+     "lng": 106.69434,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/1969579818",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/1969579818",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -9895,10 +10254,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -9919,9 +10279,60 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.78238,
+    "lng": 106.69732,
+    "address": "Nguyễn Thị Minh Khai, Thành phố Hồ Chí Minh, 72421",
+    "matchedName": "Social Club Rooftop Bar",
+    "sourceUrl": "https://www.openstreetmap.org/node/9671017352",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/9671017352",
+     "class": "amenity=bar",
+     "addresstype": "amenity",
+     "name": "Social Club Rooftop Bar",
+     "address": "Nguyễn Thị Minh Khai, Thành phố Hồ Chí Minh, 72421",
+     "houseNumber": null,
+     "tags": {
+      "check_date": "2026-08-27"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Social Club Rooftop Bar",
+     "lat": 10.78238,
+     "lng": 106.69732,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/9671017352",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/9671017352",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -9929,10 +10340,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -9952,9 +10364,55 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "ambiguous",
+   "proposal": null,
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "candidates disagree by 1759 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Quán Bar Bonjour de Saigon",
+     "lat": 10.7905,
+     "lng": 106.69978,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/7101085488",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/7101085488",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 1660
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Malt Saigon Bar",
+     "lat": 10.77548,
+     "lng": 106.70482,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/7099880385",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/7099880385",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 145
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Quán Bar Saigon Saigon",
+     "lat": 10.77608,
+     "lng": 106.70343,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/1771654763",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/1771654763",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 22
+    }
    ],
    "review": {
     "decision": null,
@@ -9986,9 +10444,55 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "ambiguous",
+   "proposal": null,
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "candidates disagree by 643 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Pasteur Street Brewing Co.",
+     "lat": 10.77518,
+     "lng": 106.7009,
+     "grade": "med",
+     "nameSim": 0.95,
+     "sourceUrl": "https://www.openstreetmap.org/node/13666620601",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=pub",
+     "osm": "node/13666620601",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Pasteur Street Brewing Co",
+     "lat": 10.78001,
+     "lng": 106.70414,
+     "grade": "med",
+     "nameSim": 0.95,
+     "sourceUrl": "https://www.openstreetmap.org/node/10801196205",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/10801196205",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Pasteur Street Brewing Co",
+     "lat": 10.77393,
+     "lng": 106.69738,
+     "grade": "med",
+     "nameSim": 0.95,
+     "sourceUrl": "https://www.openstreetmap.org/node/5382941625",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/5382941625",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -10020,9 +10524,38 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "ambiguous",
+   "proposal": null,
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "candidates disagree by 470 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Nhà Hàng Heart Of Darkness Craft Brewery",
+     "lat": 10.77971,
+     "lng": 106.7029,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/5442787054",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=pub",
+     "osm": "node/5442787054",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "official",
+     "name": "Heart of Darkness Brewery",
+     "lat": 10.7756,
+     "lng": 106.7019,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://heartofdarknessbrewery.com/",
+     "retrieved": "2026-10-17",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -10054,9 +10587,72 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.77315,
+    "lng": 106.69608,
+    "address": "Lý Tự Trọng, Thành phố Hồ Chí Minh, 71009",
+    "matchedName": "East West Brewing Co",
+    "sourceUrl": "https://www.openstreetmap.org/node/4740808923",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/4740808923",
+     "class": "shop=beverages",
+     "addresstype": "shop",
+     "name": "East West Brewing Co",
+     "address": "Lý Tự Trọng, Thành phố Hồ Chí Minh, 71009",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "East West Brewing Co",
+     "lat": 10.77315,
+     "lng": 106.69608,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/4740808923",
+     "retrieved": "2026-10-17",
+     "osmClass": "shop=beverages",
+     "osm": "node/4740808923",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "East West Brewing Co.",
+     "lat": 10.77307,
+     "lng": 106.69592,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/4701702695",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=bar",
+     "osm": "node/4701702695",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -10065,9 +10661,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "OSM POI without an exact address match (house number null, street true)"
     ]
    }
   },
@@ -10088,9 +10684,60 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "ambiguous",
+   "proposal": null,
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "candidates disagree by 1054 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "BiaCraft Artisan Ales",
+     "lat": 10.77632,
+     "lng": 106.68559,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/4863766622",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=pub",
+     "osm": "node/4863766622",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "official",
+     "name": "BiaCraft Xuân Thủy",
+     "lat": 10.8024,
+     "lng": 106.7322,
+     "grade": "low",
+     "nameSim": 0.485,
+     "sourceUrl": "https://biacraft.com/",
+     "retrieved": "2026-10-17",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "official",
+     "name": "BiaCraft Lê Ngô Cát",
+     "lat": 10.7834,
+     "lng": 106.692,
+     "grade": "high",
+     "nameSim": 0.485,
+     "sourceUrl": "https://biacraft.com/",
+     "retrieved": "2026-10-17",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "official",
+     "name": "BiaCraft Trường Sa",
+     "lat": 10.7955,
+     "lng": 106.6847,
+     "grade": "low",
+     "nameSim": 0.485,
+     "sourceUrl": "https://biacraft.com/",
+     "retrieved": "2026-10-17",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -10122,10 +10769,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10156,10 +10804,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10190,10 +10839,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10224,10 +10874,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10258,10 +10909,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10292,10 +10944,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10326,10 +10979,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10360,9 +11014,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.78592,
+    "lng": 106.69441,
+    "address": "Hẻm 187 Hai Bà Trưng, Thành phố Hồ Chí Minh, 72421",
+    "matchedName": "Bánh Mì Cụ Lý",
+    "sourceUrl": "https://www.openstreetmap.org/node/7874139285",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/7874139285",
+     "class": "amenity=fast_food",
+     "addresstype": "amenity",
+     "name": "Bánh Mì Cụ Lý",
+     "address": "Hẻm 187 Hai Bà Trưng, Thành phố Hồ Chí Minh, 72421",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Bánh Mì Cụ Lý",
+     "lat": 10.78592,
+     "lng": 106.69441,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/7874139285",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=fast_food",
+     "osm": "node/7874139285",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -10370,10 +11073,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -10394,10 +11098,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10428,10 +11133,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10462,10 +11168,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10496,10 +11203,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10530,10 +11238,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10564,9 +11273,60 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.76874,
+    "lng": 106.68347,
+    "address": "11A Cao Thắng, Thành phố Hồ Chí Minh, 72420",
+    "matchedName": "Bánh Cuốn Hải Nam",
+    "sourceUrl": "https://www.openstreetmap.org/node/3641662433",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/3641662433",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Bánh Cuốn Hải Nam",
+     "address": "11A Cao Thắng, Thành phố Hồ Chí Minh, 72420",
+     "houseNumber": "11A",
+     "tags": {
+      "opening_hours": "Mo-Su 07:30-10:45"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Bánh Cuốn Hải Nam",
+     "lat": 10.76874,
+     "lng": 106.68347,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/3641662433",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/3641662433",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -10575,9 +11335,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "pass",
     "why": [
-     "no proposal"
+     "OSM POI, name 1, house number + street match"
     ]
    }
   },
@@ -10598,9 +11358,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.7692,
+    "lng": 106.6894,
+    "address": "24 Tôn Thất Tùng, Thành phố Hồ Chí Minh, 71009",
+    "matchedName": "Quán Cơm Tấm Thuận Kiều",
+    "sourceUrl": "https://www.openstreetmap.org/node/5404230421",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/5404230421",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Quán Cơm Tấm Thuận Kiều",
+     "address": "24 Tôn Thất Tùng, Thành phố Hồ Chí Minh, 71009",
+     "houseNumber": "24",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Quán Cơm Tấm Thuận Kiều",
+     "lat": 10.7692,
+     "lng": 106.6894,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/5404230421",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/5404230421",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -10608,10 +11417,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -10632,10 +11442,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10666,10 +11477,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10700,10 +11512,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10734,10 +11547,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10768,10 +11582,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10802,10 +11617,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10836,10 +11652,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10870,10 +11687,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10904,10 +11722,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10938,10 +11757,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -10972,9 +11792,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.44932,
+    "lng": 107.17361,
+    "address": "Võ Nguyên Giáp, Thành phố Hồ Chí Minh, 78107",
+    "matchedName": "Cơm Tấm",
+    "sourceUrl": "https://www.openstreetmap.org/node/5621311806",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/5621311806",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Cơm Tấm",
+     "address": "Võ Nguyên Giáp, Thành phố Hồ Chí Minh, 78107",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Cơm Tấm",
+     "lat": 10.44932,
+     "lng": 107.17361,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/5621311806",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/5621311806",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -10982,10 +11851,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -11006,9 +11876,25 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "AKUNA Restaurant",
+     "lat": 10.77976,
+     "lng": 106.70734,
+     "grade": "low",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/12480650902",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/12480650902",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -11114,9 +12000,39 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Tháp Ciel",
+     "lat": 10.77701,
+     "lng": 106.75155,
+     "grade": "low",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/1217348552",
+     "retrieved": "2026-10-17",
+     "osmClass": "building=apartments",
+     "osm": "way/1217348552",
+     "addresstype": "building",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Arc-en-Ciel",
+     "lat": 10.75212,
+     "lng": 106.66465,
+     "grade": "low",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/way/1545385128",
+     "retrieved": "2026-10-17",
+     "osmClass": "tourism=hotel",
+     "osm": "way/1545385128",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -11148,10 +12064,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11182,9 +12099,41 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "ambiguous",
+   "proposal": null,
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "candidates disagree by 85919 m"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "House",
+     "lat": 10.89617,
+     "lng": 106.7623,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/4736613921",
+     "retrieved": "2026-10-17",
+     "osmClass": "shop=bookmaker",
+     "osm": "node/4736613921",
+     "addresstype": "shop",
+     "distanceFromCurrentM": null
+    },
+    {
+     "kind": "osm-poi",
+     "name": "House",
+     "lat": 11.2748,
+     "lng": 107.44867,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/7173980934",
+     "retrieved": "2026-10-17",
+     "osmClass": "historic=manor",
+     "osm": "node/7173980934",
+     "addresstype": "historic",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -11216,10 +12165,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11250,10 +12200,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11284,10 +12235,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11318,10 +12270,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11352,10 +12305,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11386,10 +12340,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11420,10 +12375,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11454,9 +12410,25 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Nôm",
+     "lat": 10.77962,
+     "lng": 106.68202,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/12595457029",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/12595457029",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -11488,10 +12460,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11522,10 +12495,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11556,10 +12530,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11590,10 +12565,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11624,9 +12600,60 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.80426,
+    "lng": 106.74447,
+    "address": "26B Đường số 10, Thành phố Hồ Chí Minh, 71108",
+    "matchedName": "Du Yên",
+    "sourceUrl": "https://www.openstreetmap.org/node/12412162635",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/12412162635",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Du Yên",
+     "address": "26B Đường số 10, Thành phố Hồ Chí Minh, 71108",
+     "houseNumber": "26B",
+     "tags": {
+      "check_date": "2024-12-13"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Du Yên",
+     "lat": 10.80426,
+     "lng": 106.74447,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/12412162635",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/12412162635",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -11635,9 +12662,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "OSM POI without an exact address match (house number true, street false)"
     ]
    }
   },
@@ -11658,10 +12685,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11692,10 +12720,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11726,9 +12755,61 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.77871,
+    "lng": 106.69809,
+    "address": "21 Hàn Thuyên, Thành phố Hồ Chí Minh, 71016",
+    "matchedName": "Nhà Hàng Propaganda Saigon Bistro",
+    "sourceUrl": "https://www.openstreetmap.org/node/4183849494",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/4183849494",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Nhà Hàng Propaganda Saigon Bistro",
+     "address": "21 Hàn Thuyên, Thành phố Hồ Chí Minh, 71016",
+     "houseNumber": "21",
+     "tags": {
+      "website": "http://www.propaganda.vn/",
+      "opening_hours": "Mo-Su 07:30-23:00"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Nhà Hàng Propaganda Saigon Bistro",
+     "lat": 10.77871,
+     "lng": 106.69809,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/4183849494",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/4183849494",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -11737,9 +12818,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "pass",
     "why": [
-     "no proposal"
+     "OSM POI, name 0.9, house number + street match"
     ]
    }
   },
@@ -11760,10 +12841,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11794,9 +12876,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.78337,
+    "lng": 106.69637,
+    "address": "Trần Cao Vân, Thành phố Hồ Chí Minh, 72421",
+    "matchedName": "Ốc Bà Cô Lốc Cốc",
+    "sourceUrl": "https://www.openstreetmap.org/node/13934909701",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/13934909701",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Ốc Bà Cô Lốc Cốc",
+     "address": "Trần Cao Vân, Thành phố Hồ Chí Minh, 72421",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Ốc Bà Cô Lốc Cốc",
+     "lat": 10.78337,
+     "lng": 106.69637,
+     "grade": "high",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/13934909701",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/13934909701",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -11805,9 +12936,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "OSM POI without an exact address match (house number null, street true)"
     ]
    }
   },
@@ -11828,10 +12959,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11862,10 +12994,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -11896,9 +13029,60 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.77868,
+    "lng": 106.69216,
+    "address": "Võ Văn Tần, Thành phố Hồ Chí Minh, 72421",
+    "matchedName": "Mặn Mòi, Tao Đàn",
+    "sourceUrl": "https://www.openstreetmap.org/node/4340906490",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 0.9,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/4340906490",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Mặn Mòi, Tao Đàn",
+     "address": "Võ Văn Tần, Thành phố Hồ Chí Minh, 72421",
+     "houseNumber": null,
+     "tags": {
+      "website": "https://manmoi.vn/mon-an/"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Mặn Mòi, Tao Đàn",
+     "lat": 10.77868,
+     "lng": 106.69216,
+     "grade": "med",
+     "nameSim": 0.9,
+     "sourceUrl": "https://www.openstreetmap.org/node/4340906490",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/4340906490",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -11906,10 +13090,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -11930,9 +13115,58 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.77406,
+    "lng": 106.69709,
+    "address": "112 Lý Tự Trọng, Thành phố Hồ Chí Minh, 71009",
+    "matchedName": "Sol Kitchen & Bar",
+    "sourceUrl": "https://www.openstreetmap.org/node/12057391969",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "node/12057391969",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "Sol Kitchen & Bar",
+     "address": "112 Lý Tự Trọng, Thành phố Hồ Chí Minh, 71009",
+     "houseNumber": "112",
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Sol Kitchen & Bar",
+     "lat": 10.77406,
+     "lng": 106.69709,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/12057391969",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=restaurant",
+     "osm": "node/12057391969",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -11941,9 +13175,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "pass",
     "why": [
-     "no proposal"
+     "OSM POI, name 1, house number + street match"
     ]
    }
   },
@@ -11963,10 +13197,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -12079,10 +13314,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -12112,9 +13348,27 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "confirm",
+   "proposal": null,
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "a med candidate 89 m away does not outrank the current high pin"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Chùa Hội Khánh",
+     "lat": 10.98163,
+     "lng": 106.6591,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/264294905",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=place_of_worship",
+     "osm": "way/264294905",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 89
+    }
    ],
    "review": {
     "decision": null,
@@ -12146,10 +13400,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -12179,10 +13434,11 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -12296,9 +13552,60 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.84359,
+    "lng": 106.76316,
+    "address": "Đường Dân Chủ, Thành phố Hồ Chí Minh, 71319",
+    "matchedName": "Chùa Nam Thiên Nhất Trụ",
+    "sourceUrl": "https://www.openstreetmap.org/way/589315586",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/589315586",
+     "class": "amenity=place_of_worship",
+     "addresstype": "amenity",
+     "name": "Chùa Nam Thiên Nhất Trụ",
+     "address": "Đường Dân Chủ, Thành phố Hồ Chí Minh, 71319",
+     "houseNumber": null,
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Chùa Nam Thiên Nhất Trụ",
+     "lat": 10.84359,
+     "lng": 106.76316,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/589315586",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=place_of_worship",
+     "osm": "way/589315586",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -12306,10 +13613,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -12485,9 +13793,25 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Chùa Vạn Đức",
+     "lat": 10.86357,
+     "lng": 106.74278,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/1306372812",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=place_of_worship",
+     "osm": "way/1306372812",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -12518,9 +13842,86 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "conflict",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 11.06019,
+    "lng": 106.95383,
+    "address": "Đường tỉnh 768, Thái An, Thành phố Đồng Nai",
+    "matchedName": "Tu viện Khánh An",
+    "sourceUrl": "https://www.openstreetmap.org/way/979788706",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": 36412,
+    "osmObject": {
+     "id": "way/979788706",
+     "class": "amenity=place_of_worship",
+     "addresstype": "amenity",
+     "name": "Tu viện Khánh An",
+     "address": "Đường tỉnh 768, Thái An, Thành phố Đồng Nai",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Tu viện Khánh An",
+     "lat": 10.86117,
+     "lng": 106.70483,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/616650521",
+     "retrieved": "2026-10-17",
+     "osmClass": "building=religious",
+     "osm": "way/616650521",
+     "addresstype": "building",
+     "distanceFromCurrentM": 1378
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Tu viện Khánh An",
+     "lat": 10.86137,
+     "lng": 106.70519,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/node/5838288123",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=place_of_worship",
+     "osm": "node/5838288123",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 1423
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Tu viện Khánh An",
+     "lat": 11.06019,
+     "lng": 106.95383,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/979788706",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=place_of_worship",
+     "osm": "way/979788706",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 36412
+    }
    ],
    "review": {
     "decision": null,
@@ -12528,10 +13929,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "conflict: 36412 m from the current pin — look at both"
     ]
    }
   },
@@ -12551,9 +13953,74 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+   "outcome": "conflict",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.83725,
+    "lng": 106.65871,
+    "address": "Hẻm 688 Quang Trung, Thành phố Hồ Chí Minh, 71427",
+    "matchedName": "Nhà thờ Hạnh Thông Tây (phụ)",
+    "sourceUrl": "https://www.openstreetmap.org/way/262963859",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": 3285,
+    "osmObject": {
+     "id": "way/262963859",
+     "class": "amenity=place_of_worship",
+     "addresstype": "amenity",
+     "name": "Nhà thờ Hạnh Thông Tây (phụ)",
+     "address": "Hẻm 688 Quang Trung, Thành phố Hồ Chí Minh, 71427",
+     "houseNumber": null,
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Nhà thờ Hạnh Thông Tây (phụ)",
+     "lat": 10.83725,
+     "lng": 106.65871,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/262963859",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=place_of_worship",
+     "osm": "way/262963859",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 3285
+    },
+    {
+     "kind": "osm-poi",
+     "name": "Nhà thờ Hạnh Thông Tây",
+     "lat": 10.83706,
+     "lng": 106.65896,
+     "grade": "low",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/262963858",
+     "retrieved": "2026-10-17",
+     "osmClass": "amenity=place_of_worship",
+     "osm": "way/262963858",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 3251
+    }
    ],
    "review": {
     "decision": null,
@@ -12561,10 +14028,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "conflict: 3285 m from the current pin — look at both"
     ]
    }
   },
@@ -12584,9 +14052,47 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "confirm",
+   "proposal": null,
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "a med candidate 32 m away does not outrank the current high pin",
+    "overpass: HTTP 500"
+   ],
+   "statusOutcome": "status-needs-check",
+   "statusProposal": {
+    "suggest": "needs-check (possible closure)",
+    "evidence": [
+     {
+      "type": "osm-lifecycle",
+      "detail": "was:landuse=cemetery",
+      "sourceUrl": "https://www.openstreetmap.org/way/32735042",
+      "retrieved": "2026-10-17"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "type": "osm-lifecycle",
+     "detail": "was:landuse=cemetery",
+     "sourceUrl": "https://www.openstreetmap.org/way/32735042",
+     "retrieved": "2026-10-17"
+    }
+   ],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Công viên Lê Thị Riêng",
+     "lat": 10.78491,
+     "lng": 106.66462,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/32735042",
+     "retrieved": "2026-10-17",
+     "osmClass": "leisure=park",
+     "osm": "way/32735042",
+     "addresstype": "park",
+     "distanceFromCurrentM": 32
+    }
    ],
    "review": {
     "decision": null,
@@ -12617,9 +14123,62 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "conflict",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.78698,
+    "lng": 106.70424,
+    "address": "2 Lê Duẩn, Thành phố Hồ Chí Minh, 71016",
+    "matchedName": "Bảo tàng Chiến dịch Hồ Chí Minh",
+    "sourceUrl": "https://www.openstreetmap.org/way/165887838",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": true,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": 879,
+    "osmObject": {
+     "id": "way/165887838",
+     "class": "tourism=museum",
+     "addresstype": "tourism",
+     "name": "Bảo tàng Chiến dịch Hồ Chí Minh",
+     "address": "2 Lê Duẩn, Thành phố Hồ Chí Minh, 71016",
+     "houseNumber": "2",
+     "tags": {
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Bảo tàng Chiến dịch Hồ Chí Minh",
+     "lat": 10.78698,
+     "lng": 106.70424,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/165887838",
+     "retrieved": "2026-10-17",
+     "osmClass": "tourism=museum",
+     "osm": "way/165887838",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": 879
+    }
    ],
    "review": {
     "decision": null,
@@ -12628,9 +14187,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "conflict: 879 m from the current pin — look at both"
     ]
    }
   },
@@ -12650,9 +14209,60 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "conflict",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.81247,
+    "lng": 106.67444,
+    "address": "Thành phố Hồ Chí Minh, 72223",
+    "matchedName": "Công viên Gia Định",
+    "sourceUrl": "https://www.openstreetmap.org/relation/17583696",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": null,
+     "postcode": null
+    },
+    "distanceM": 1246,
+    "osmObject": {
+     "id": "relation/17583696",
+     "class": "leisure=park",
+     "addresstype": "park",
+     "name": "Công viên Gia Định",
+     "address": "Thành phố Hồ Chí Minh, 72223",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Công viên Gia Định",
+     "lat": 10.81247,
+     "lng": 106.67444,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/relation/17583696",
+     "retrieved": "2026-10-17",
+     "osmClass": "leisure=park",
+     "osm": "relation/17583696",
+     "addresstype": "park",
+     "distanceFromCurrentM": 1246
+    }
    ],
    "review": {
     "decision": null,
@@ -12660,10 +14270,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "conflict: 1246 m from the current pin — look at both"
     ]
    }
   },
@@ -12684,10 +14295,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -12718,10 +14330,11 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -12752,9 +14365,60 @@
     "unverified",
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "pin",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 10.79941,
+    "lng": 106.66574,
+    "address": "Phạm Văn Hai, Thành phố Hồ Chí Minh, 72122",
+    "matchedName": "Bảo tàng Lực lượng Vũ trang miền Đông Nam Bộ",
+    "sourceUrl": "https://www.openstreetmap.org/way/376923094",
+    "retrieved": "2026-10-17",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "med",
+    "gradeWhy": [
+     "OSM place object, name agrees, address not corroborated"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": false,
+     "postcode": null
+    },
+    "distanceM": null,
+    "osmObject": {
+     "id": "way/376923094",
+     "class": "tourism=museum",
+     "addresstype": "tourism",
+     "name": "Bảo tàng Lực lượng Vũ trang miền Đông Nam Bộ",
+     "address": "Phạm Văn Hai, Thành phố Hồ Chí Minh, 72122",
+     "houseNumber": null,
+     "tags": {}
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "Bảo tàng Lực lượng Vũ trang miền Đông Nam Bộ",
+     "lat": 10.79941,
+     "lng": 106.66574,
+     "grade": "med",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/376923094",
+     "retrieved": "2026-10-17",
+     "osmClass": "tourism=museum",
+     "osm": "way/376923094",
+     "addresstype": "tourism",
+     "distanceFromCurrentM": null
+    }
    ],
    "review": {
     "decision": null,
@@ -12762,10 +14426,11 @@
     "why": null,
     "date": null
    },
+   "secondSource": null,
    "assist": {
-    "verdict": "reject",
+    "verdict": "hold",
     "why": [
-     "no proposal"
+     "med: needs a second independent source within 50 m"
     ]
    }
   },
@@ -12785,10 +14450,13 @@
    "scope": [
     "status"
    ],
-   "outcome": "skipped",
+   "outcome": "no-match",
+   "proposal": null,
    "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
+    "overpass: HTTP 500"
    ],
+   "evidence": [],
+   "candidates": [],
    "review": {
     "decision": null,
     "by": null,
@@ -15250,7 +16918,9 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [],
+   "notes": [
+    "overpass: HTTP 500"
+   ],
    "evidence": [],
    "candidates": [
     {
@@ -15334,7 +17004,8 @@
     "corroboratedBy": []
    },
    "notes": [
-    "robots.txt disallows / for CleoGuideLocationVerify; skipped"
+    "robots.txt disallows / for CleoGuideLocationVerify; skipped",
+    "overpass: HTTP 500"
    ],
    "evidence": [],
    "candidates": [
@@ -16531,7 +18202,9 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [],
+   "notes": [
+    "overpass: HTTP 500"
+   ],
    "evidence": [],
    "candidates": [
     {
@@ -16680,7 +18353,9 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [],
+   "notes": [
+    "overpass: HTTP 500"
+   ],
    "evidence": [],
    "candidates": [
     {
@@ -16763,7 +18438,9 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [],
+   "notes": [
+    "overpass: HTTP 500"
+   ],
    "evidence": [],
    "candidates": [
     {
@@ -16930,9 +18607,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -18062,72 +19737,6 @@
    }
   },
   {
-   "name": "Canopy Garden Dining — CLOSED",
-   "current": {
-    "address": "1382 Ang Mo Kio Ave 1, Bishan Park II, S569931",
-    "lat": 1.3625,
-    "lng": 103.8475,
-    "source": "Ang Mo Kio Ave 1 / Bishan Park II area (postal 569931); venue-precise pin unresolved. NOTE: listed permanently closed (Petfriendly SG)",
-    "confidence": "med",
-    "verified": "2026-10-03",
-    "status": "closed",
-    "statusSource": null,
-    "statusChecked": "2026-10-03"
-   },
-   "scope": [
-    "status"
-   ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "no proposal"
-    ]
-   }
-  },
-  {
-   "name": "Denzy Gelato (Bishan) — CLOSED",
-   "current": {
-    "address": "Blk 506 Bishan Street 13, #01-404, S570506",
-    "lat": 1.3492165,
-    "lng": 103.8491735,
-    "source": "Waze block 506 (postal 570506); building coordinate",
-    "confidence": "high",
-    "verified": "2026-10-03",
-    "status": "closed",
-    "statusSource": null,
-    "statusChecked": "2026-10-03"
-   },
-   "scope": [
-    "status"
-   ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "no proposal"
-    ]
-   }
-  },
-  {
    "name": "Yue Lai Xiang Delights",
    "current": {
     "address": "Blk 22 Sin Ming Road, S570022",
@@ -18368,9 +19977,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -18684,9 +20291,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -18769,9 +20374,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "statusOutcome": "status-needs-check",
    "statusProposal": {
     "suggest": "needs-check (possible closure)",
@@ -18878,9 +20481,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -20383,8 +21984,7 @@
     "corroboratedBy": []
    },
    "notes": [
-    "extended feature: 52 m between centroid and the pinned entrance/point is expected; no move proposed",
-    "overpass: HTTP 500"
+    "extended feature: 52 m between centroid and the pinned entrance/point is expected; no move proposed"
    ],
    "evidence": [],
    "candidates": [
@@ -20489,9 +22089,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -20607,8 +22205,7 @@
     "corroboratedBy": []
    },
    "notes": [
-    "extended feature: 655 m between centroid and the pinned entrance/point is expected; no move proposed",
-    "overpass: HTTP 500"
+    "extended feature: 655 m between centroid and the pinned entrance/point is expected; no move proposed"
    ],
    "evidence": [],
    "candidates": [
@@ -20724,9 +22321,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -20808,9 +22403,7 @@
     "entrance": false,
     "corroboratedBy": []
    },
-   "notes": [
-    "overpass: HTTP 500"
-   ],
+   "notes": [],
    "evidence": [],
    "candidates": [
     {
@@ -22526,39 +24119,6 @@
     "confidence": "high",
     "verified": "2026-10-03",
     "status": "open",
-    "statusSource": null,
-    "statusChecked": "2026-10-03"
-   },
-   "scope": [
-    "status"
-   ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "no proposal"
-    ]
-   }
-  },
-  {
-   "name": "Grub — CLOSED",
-   "current": {
-    "address": "Bishan-Ang Mo Kio Park, 510 Ang Mo Kio Ave 1, Singapore 569983",
-    "lat": 1.36524685,
-    "lng": 103.836371986196,
-    "source": "JLL retail listing place pin, 510 AMK Ave 1 (Bishan-AMK Park F&B unit)",
-    "confidence": "high",
-    "verified": "2026-10-03",
-    "status": "closed",
     "statusSource": null,
     "statusChecked": "2026-10-03"
    },
@@ -25525,39 +27085,6 @@
    }
   },
   {
-   "name": "Amber Ember — CLOSED",
-   "current": {
-    "address": "730 Upper Serangoon Road, #01-01, Singapore",
-    "lat": 1.353525,
-    "lng": 103.87797,
-    "source": "mapping listing, 730 Upper Serangoon Road",
-    "confidence": "high",
-    "verified": "2026-10-03",
-    "status": "closed",
-    "statusSource": null,
-    "statusChecked": "2026-10-03"
-   },
-   "scope": [
-    "status"
-   ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "no proposal"
-    ]
-   }
-  },
-  {
    "name": "Seng Kee Mushroom Minced Meat Noodle",
    "current": {
     "address": "Serangoon Garden Market & Food Centre, #01-36, 49A Serangoon Garden Way, S555945",
@@ -27109,40 +28636,6 @@
    }
   },
   {
-   "name": "Chợ Nổi Cái Bè (Cái Bè Floating Market)",
-   "current": {
-    "address": "Thị trấn Cái Bè, huyện Cái Bè, Tiền Giang, Vietnam",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "confidence": "UNVERIFIED",
-    "verified": "2026-10-03",
-    "status": "open",
-    "statusSource": null,
-    "statusChecked": "2026-10-03"
-   },
-   "scope": [
-    "unverified",
-    "status"
-   ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "no proposal"
-    ]
-   }
-  },
-  {
    "name": "Holland Village Market & Food Centre",
    "current": {
     "address": "1 Lorong Mambong, Singapore 277700",
@@ -27210,39 +28703,6 @@
     "verdict": "hold",
     "why": [
      "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
-    ]
-   }
-  },
-  {
-   "name": "Punggol Coast Hawker Centre",
-   "current": {
-    "address": "84 Punggol Way #02-55, Singapore 829911",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "confidence": "UNVERIFIED",
-    "verified": "2026-10-03",
-    "status": "open",
-    "statusSource": "Eatbook 'Punggol Coast Hawker Centre Opens With 40 Stalls' (opened 25 Jul 2025), read via WebSearch 2026-10-02",
-    "statusChecked": "2026-10-03"
-   },
-   "scope": [
-    "unverified"
-   ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "no proposal"
     ]
    }
   },
@@ -27389,39 +28849,6 @@
     "verified": "2026-10-03",
     "status": "open",
     "statusSource": "Listed in Punggol Coast HC opening line-up (Eatbook Jul 2025); NOT re-checked this wave (WebSearch budget 16/16 spent on coordinates); status carried as listed — needs closure-check pass",
-    "statusChecked": "2026-10-03"
-   },
-   "scope": [
-    "unverified"
-   ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "no proposal"
-    ]
-   }
-  },
-  {
-   "name": "The Punggol Settlement",
-   "current": {
-    "address": "3 Punggol Point Road, Singapore 828694 (also 500 New Punggol Road)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "confidence": "UNVERIFIED",
-    "verified": "2026-10-03",
-    "status": "open",
-    "statusSource": "Eatbook Punggol Food Guide + Honeycombers Punggol guide list tenants operating, read via WebSearch 2026-10-02",
     "statusChecked": "2026-10-03"
    },
    "scope": [
@@ -27913,39 +29340,6 @@
    }
   },
   {
-   "name": "Balestier Plaza",
-   "current": {
-    "address": "400 Balestier Road, Balestier Plaza, Singapore",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "confidence": "UNVERIFIED",
-    "verified": "2026-10-03",
-    "status": "open",
-    "statusSource": "not re-checked this pass",
-    "statusChecked": "2026-10-03"
-   },
-   "scope": [
-    "unverified"
-   ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "no proposal"
-    ]
-   }
-  },
-  {
    "name": "Wicked Good (Balestier)",
    "current": {
     "address": "456 Balestier Road (Ascent@456), Singapore",
@@ -28244,39 +29638,6 @@
   },
   {
    "name": "Jade's Chicken (Punggol Coast)",
-   "current": {
-    "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-55, Singapore 829911",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "confidence": "UNVERIFIED",
-    "verified": "2026-10-03",
-    "status": "open",
-    "statusSource": "opened 25 Jul 2025 (Time Out / Eatbook / Little Day Out); named in 2025 guides",
-    "statusChecked": "2026-10-03"
-   },
-   "scope": [
-    "unverified"
-   ],
-   "outcome": "skipped",
-   "notes": [
-    "Nominatim budget for this run reached (rerun resumes from cache)"
-   ],
-   "review": {
-    "decision": null,
-    "by": null,
-    "why": null,
-    "date": null
-   },
-   "assist": {
-    "verdict": "reject",
-    "why": [
-     "no proposal"
-    ]
-   }
-  },
-  {
-   "name": "75 Ah Balling Peanut Soup (Punggol Coast)",
    "current": {
     "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-55, Singapore 829911",
     "lat": null,
