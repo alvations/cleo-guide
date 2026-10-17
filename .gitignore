@@ -59,3 +59,6 @@ scratch*
 
 # Saarland/Greater Region geocode intermediates (registry lives in data/geocodes.json)
 data/saarland-research/geo/_*.json
+
+# css-coverage.js / css-cascade.js write cleo.css source pieces here while they run
+beta/assets/cc-*.css
