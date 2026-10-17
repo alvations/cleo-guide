@@ -2522,3 +2522,21 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - FE-1: the L rows (日本語 × Filters on 7 pages; the 41.9 % Youngstown label). I first asked FE-1 to wire `.pl-lead`, then corrected it within minutes, because FE-A's adeabcd63 had landed.
     - Designer: desktop sign-off on real shots.
   - **Dispatched:** beta-atlas-real-shots label d46-desktop on b1c7939f.
+- 2026-10-17 12:10Z · orchestrator · lane reports · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **b0bc93cf5: a failed photo run keeps its discovery work** (imagery and image-sources asks). commons-discovered.json, openverse-candidates.json and both sheet folders are committed alone, after a JSON check; no build or page reads them. Photos and CREDITS still need green gates. Simulated in a scratch repo.
+  - **Stage defaults** are now met, europeana, smithsonian, loc. The next stage log shows whether the two keys are set.
+  - **Cancelled photo runs, root cause.** #106–#110 were not cancelled by cancel-in-progress (it is false). GitHub's one-pending-run rule replaced each queued run while #105 hung (fixed in 063614333).
+  - **QC:** its label probe was wrong. A `\(` inside a template-literal Function body collapsed, so every transparent pin wrapper counted as painted and no label was listed. Two more of the same kind were fixed. Hand checks now match the probe: New York 844 dark, 4 pills, widest 28.7 %; Youngstown 390, widest 39.7 %; coverage about 10 % (≤ 8). The first-screen partial with 0 failing stands. The Atlas re-run on b1c7939f is in progress.
+  - **Platform INP (Tokyo, 4× CPU, phone / desktop):**
+
+    | Interaction | INP (ms) |
+    |---|---|
+    | Filter | 144 / 160 (meets ≤ 200) |
+    | Switch → Atlas | 256 / 272 |
+    | Switch → Guidebook | 248 / 312 |
+    | Open a place | 352 / 512 |
+    | Round trip | 448 / 680 |
+
+    Open a place goes to FE-C, who owns the sheet; the switches and the round trip stay with platform.
+  - **QA:** PERF-21 verified. Asked to verify adeabcd63, d6bb8367a, a027955b9 and db9f8a746 ahead of the interim pin. The pin waits for the designer's desktop D-46 sign-off and QC's Atlas re-run.
+  - **FE-B** fixed test-beta's red page set (db9f8a746). **i18n:** Atlas and Your lists are in ja; the eager counter is +0.03 KB, all of it locale.js, which only non-English readers fetch.
