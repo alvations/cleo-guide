@@ -21,12 +21,15 @@ const chk = (ok, name, ev) => { if (!ok) fail++; console.log(`  ${ok ? 'PASS' : 
   await new Promise(res => srv.listen(0, '127.0.0.1', res)); const o = `http://127.0.0.1:${srv.address().port}`;
   let b; try { b = await pw.chromium.launch(); } catch (e) { b = await pw.chromium.launch({ executablePath: '/opt/pw-browsers/chromium' }); }
   console.log(`== every view's own count line (Tokyo: N ${N}, Must see F ${F}) ==`);
-  const read = async (hash, sel) => {
+  // until (optional): a pattern the line must reach before it is read. The Atlas lens line is "F of all N places" until the
+  // map's area pass (html.ms-on) and "F places here, of all N" after it (atlas.js QC-13); reading before the pass made this
+  // row flaky (QA, 2026-10-17: 1 in 3 runs). Still strict: a line that never reaches the pattern fails as before.
+  const read = async (hash, sel, until) => {
     const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' });
     await ctx.route('**/*', r => r.request().url().startsWith(o) ? r.continue() : r.request().resourceType() === 'image' ? r.fulfill({ status: 200, contentType: 'image/png', body: PNG1 }) : r.abort());
     const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 120)));
     await p.goto(o + '/beta/' + PAGE + '#' + hash, { waitUntil: 'load' });
-    await p.waitForFunction(s => { const e = document.querySelector(s); return e && /\d/.test(e.textContent); }, sel, { timeout: 15000 }).catch(() => {});
+    await p.waitForFunction(([s, u]) => { const e = document.querySelector(s); return e && (u ? new RegExp(u).test(e.textContent.replace(/\s+/g, ' ').trim()) : /\d/.test(e.textContent)); }, [sel, until || null], { timeout: 15000 }).catch(() => {});
     const t = await p.evaluate(s => { const e = document.querySelector(s); return e ? e.textContent.replace(/\s+/g, ' ').trim() : null; }, sel);
     await ctx.close(); return { t, errs };
   };
@@ -40,7 +43,7 @@ const chk = (ok, name, ev) => { if (!ok) fail++; console.log(`  ${ok ? 'PASS' : 
   // Atlas: the list head ("n places here" with no lens; "F places here, of all N" with one)
   r = await read('view=atlas', '.ms-count');
   chk(!!r.t && /^[\d,]+ places? here/.test(r.t) && num(r.t.match(/[\d,]+/)[0]) <= N && !r.errs.length, 'Atlas, no lens: "n places here" (n ≤ N)', r);
-  r = await read('view=atlas&t=1', '.ms-count');
+  r = await read('view=atlas&t=1', '.ms-count', '^[\\d,]+ places? here, of all ');
   chk(!!r.t && new RegExp('^' + F + ' places? here, of all ' + N + '\\b').test(r.t), 'Atlas, Must see: "F places here, of all N"', r);
   // Guidebook: "All N places" / "F of all N places match this lens"
   r = await read('view=guidebook', 'p.count');
