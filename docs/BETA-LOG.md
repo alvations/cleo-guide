@@ -2636,6 +2636,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **QA:** the reachable-styles guard is in npm test (1f399597). QA-85 (.pl-why) goes to the designer. QA-86 is carried from r7. QA-87 is a D-53 gap: ADD shown as a recommender, ruled never a recommender (FE-B).
   - **FE-C:** open a place at 200 / 240 ms.
   - **FE-B:** D-53 part 2, plus a lazy srcview (eager headroom 0.94 KB).
+- **PERF-24c (FE-1, with platform's go): every view switch paints its pressed segment first.** html[data-view], the restyle of every built card, focus to the heading and the hash now follow just after that paint (the PERF-24 rule). A page in its first frame still switches at once; a later tap in that frame wins.
+  - **Cause:** `show()`'s h1 focus forced a ~2,700-element restyle inside the click.
+  - **Result:** Tokyo Atlas → Guidebook → Atlas, 4× CPU: desktop about 400 → 40–56 ms, phone 328 → 48–104 ms.
+  - **test-fe-a:** the two motion checks now wait for the switch itself (≤ 600 ms) and also assert data-view, so the reduced-motion check can't pass vacuously. The old 10 ms read also let the deferred switch spill into the next block's 60 ms Back check (flaky 1 in 4).
+  - **Checks:** test-views, test-views-b, test-fe-a (4/4), w2 dom, atlas-switch-inp and perf08-regress pass.
 - **FE-B D-53 on the Gallery rows:** gallery.js already read `r.recby`, but lib/gallery.js never sent it, so the row cards named every source. The gallery JSON now carries `recby` where it differs from src minus guide (299 of 2,800 row cards; 31 show "No independent source yet").
 - 2026-10-17 14:50Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
   - **Gates:** all green on the head.
@@ -2646,3 +2651,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **D-56** is applied to 29 venue skips, with lifts by name only (k=venue pattern kept).
   - **Designer:** two more cut misses fixed (34 rules at 844×390); the sweep now forces every area to render.
   - **FE-C:** open a place accepted (harness overhead traced); perf.js moves to CDP dispatch.
+- 2026-10-17 15:30Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Gates:** all green.
+  - **QC round-4 views:** complete; only OV-123 was open, and FE-C fixed it.
+  - **D-55 INP condition:** passes, with dev better than live on every row (platform 9cd09473, CDP input).
+  - **Fixes:** QC-36 (platform), photo-run failures (imagery 6b501134b).
+  - **Panel R4:** 5/8 returns in.
+  - **Interim pin waits on:** QA's recby-scan, FE-B's Insights relabel, QC's OV-123 re-grade.
+- **QC-36 (the count line's wording never swaps under the reader):** under a lens, whenever the Atlas list follows the map (not Show all, not no-map, and desktop "search as I move" not off), the line uses the settled wording "N places here, of all T" from the first paint. Only the number updates when the map lands. "N of all T places" (atl.c.of) stays for Show all and no-map. Both i18n keys are kept.
+  - Checked on Tokyo `#view=atlas&t=1` with the map library 3 s late: one phrasing from first paint, at 1440 and at 390.

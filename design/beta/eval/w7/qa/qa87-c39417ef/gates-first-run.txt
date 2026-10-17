@@ -1,0 +1,7 @@
+>>> DATA OK
+>>> FAIL — 1 test suite(s) failed
+  D-53: 51 cards with no independent source yet (45 of them added by the guide) — cleveland 37, youngstown 7, newyork 3, pittsburgh 3, rhineland 1
+>>> PASS — beta/ is reproducible from data: 178 pages, 82 place pages indexed, 8691 places (beta == live).
+  FAIL  cities/tokyo.html phone For you picked: every rendered component has its own CSS rule = {"span.pl-why":18}
+  FAIL  cities/tokyo.html desktop For you picked: every rendered component has its own CSS rule = {"span.pl-why":18}
+>>> FAIL — reachable states styled: 52/54

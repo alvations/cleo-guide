@@ -10,6 +10,7 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
 
 ## Done
 
+- QA-87 (a)(b) verified on c39417ef with the tightened `recby-scan.py` (now in npm test); (c) open until FE-B adds the ruled Insights label and style. QA-88: test-count-lines Atlas lens-row race fixed (waits for the map-ready line). QA-85 restore a84914e20 emptied KNOWN in test-reachable-styles: verify on the pin.
 - D-53 part 2 (d850c7ead) checked on a pinned 4b8dd8b0: platforms verified; own-site hosts are still unflagged (QA-87 b); Insights' "Added by the guide" series sent for a ruling (QA-87 c).
 - D-53 (FE-B c25877272) checked on a pinned 0ceed944: platforms 0 ✅; QA-87 open (45 general-knowledge-only cards read "Recommended by"; 3–4 own-site "official" chips). New `tools/beta/qa/recby-scan.py`.
 - New npm-test guard `tools/beta/qa/test-reachable-styles.js` (bbaf111a8 regression; QA-85 open for `.pl-why`, KNOWN in the guard). The T2 Atlas collisions are carried from r7 (QA-86, FE-1, Low). `page-eval.js` gained the `t2` viewport. D-55 (efc897c78) restates B-25 for the interim pin against r7.
