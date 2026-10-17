@@ -30,6 +30,7 @@ const serve = () => new Promise(res => { const s = http.createServer((q, r) => {
 // the pieces of cleo.css, in cascade order, written next to it (relative url()s resolve the same)
 const parts = execFileSync('python3', [path.join(ROOT, 'design/beta/tools/build-css.py'), '--parts', ASSETS]).toString().trim().split(/\s+/);
 const IDS = [...new Set([...fs.readdirSync(ASSETS).filter(f => f.endsWith('.css'))].map(f => fs.readFileSync(path.join(ASSETS, f), 'utf8')).join('').match(/#[A-Za-z][\w-]*/g) || [])].map(x => x.slice(1));
+const BYTEXT = new Map(parts.concat(['fe-a.css', 'fe-b.css']).map(p => [fs.readFileSync(path.join(ASSETS, p), 'utf8'), p]));   // cached @import sheets come back under new ids with no event: resolve by text
 const IMPORT = parts.map(p => `@import url("${p}");`).join('\n');
 
 const VIEWPORTS = QUICK ? [[390, 844], [1440, 900]] : [[195, 422], [360, 740], [390, 844], [390, 664], [420, 860], [560, 900], [620, 900], [700, 1000], [768, 1024], [844, 390], [960, 800], [1024, 768], [1060, 800], [1150, 850], [1240, 860], [1366, 860], [1440, 900]];
@@ -59,6 +60,9 @@ async function snapshot(page, cdp) {
   const { nodeIds } = await cdp.send('DOM.querySelectorAll', { nodeId: root.nodeId, selector: '[data-ccx]' });
   const results = [];
   for (let i = 0; i < nodeIds.length; i += 64) results.push(...await Promise.all(nodeIds.slice(i, i + 64).map(nodeId => cdp.send('CSS.getMatchedStylesForNode', { nodeId }).catch(() => null))));
+  const unk = new Set();
+  for (const r of results) if (r) for (const m of (r.matchedCSSRules || []).concat(...(r.pseudoElements || []).map(p => p.matches || []))) if (m.rule.styleSheetId && !(m.rule.styleSheetId in sheets)) unk.add(m.rule.styleSheetId);
+  for (const sid of unk) { let t = ''; try { t = (await cdp.send('CSS.getStyleSheetText', { styleSheetId: sid })).text; } catch (e) { /* gone */ } sheets[sid] = BYTEXT.get(t) || null; }
   for (const r of results) { if (!r) continue;
     const tally = (matches, inline) => {
       const win = {};   // longhand -> {key, imp}
@@ -88,14 +92,20 @@ async function snapshot(page, cdp) {
   const browser = await chromium.launch({ executablePath: fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined });
   let snaps = 0;
   for (const [w, h] of VIEWPORTS) for (const theme of DARK_AT.has(`${w}x${h}`) ? ['light', 'dark'] : ['light']) {
-    const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: theme, hasTouch: w < 900, isMobile: w < 900 });
-    await ctx.route('**/assets/cleo.css*', r => r.fulfill({ status: 200, contentType: 'text/css', body: IMPORT }));
+    const ctx = await browser.newContext({ serviceWorkers: 'block', viewport: { width: w, height: h }, colorScheme: theme, hasTouch: w < 900, isMobile: w < 900 });
+    // each piece as its own top-level <link> in place of cleo.css: @import children come back after a navigation under the
+    // parent's id (ambiguous offsets), top-level sheets don't
+    await ctx.route(r => /\.html$|\/$/.test(new URL(r).pathname), async (route, req) => {
+      if (req.resourceType() !== 'document') return route.continue();
+      let f = path.join(ROOT, decodeURIComponent(new URL(req.url()).pathname)); try { if (fs.statSync(f).isDirectory()) f = path.join(f, 'index.html'); } catch (e) { return route.continue(); }
+      const html = fs.readFileSync(f, 'utf8').replace(/<link rel="stylesheet" href="([^"]*?)cleo\.css[^"]*">/, (m, pre) => parts.map(p => `<link rel="stylesheet" href="${pre}${p}">`).join(''));
+      route.fulfill({ status: 200, contentType: 'text/html', body: html }); });
     await ctx.route(/tile\.openstreetmap|arcgisonline/, r => r.abort());
     const page = await ctx.newPage(); const cdp = await ctx.newCDPSession(page);
     await cdp.send('DOM.enable'); await cdp.send('CSS.enable');
-    cdp.on('CSS.styleSheetAdded', e => { const u = e.header.sourceURL || ''; const b = path.basename(u.split('?')[0]); if (/^cc-\d\d-/.test(b) || b === 'fe-a.css' || b === 'fe-b.css') sheets[e.header.styleSheetId] = b; });
+    cdp.on('CSS.styleSheetAdded', e => { const u = e.header.sourceURL || ''; const b = path.basename(u.split('?')[0]); sheets[e.header.styleSheetId] = (/^cc-\d\d-/.test(b) || b === 'fe-a.css' || b === 'fe-b.css') ? b : null; });
     const shot = async (url, act) => {
-      sheets = {}; await page.goto(base + url, { waitUntil: 'load' }).catch(() => {}); await page.waitForTimeout(700);
+      await page.goto(base + url, { waitUntil: 'load' }).catch(() => {}); await page.waitForTimeout(700);
       if (act) { await act().catch(() => {}); await page.waitForTimeout(450); }
       const n = await snapshot(page, cdp); snaps++; process.stdout.write(`${w}x${h} ${theme} ${url}${act ? ' +' + act.name : ''}: ${n}\n`);
     };
