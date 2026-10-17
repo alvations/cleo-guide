@@ -45,7 +45,23 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
         return { view: document.documentElement.getAttribute('data-view'), nomap: document.documentElement.classList.contains('ms-nomap'), shown: !!(b && !b.hidden && b.getBoundingClientRect().height > 0),
           coveredBy: top && !k.contains(top) ? (top.tagName.toLowerCase() + (top.className && typeof top.className === 'string' ? '.' + top.className.trim().split(/\s+/).join('.') : '')) : null }; });
       chk(av.view === 'atlas' && av.shown, 'OV-41: Atlas-default load with no map: the list\'s "Keep offline" control is shown', av);
-      chk(av.coveredBy === null, 'OV-41: nothing covers Keep (the hit test at its centre lands on the button itself)', av.coveredBy);
+      // OV-41 "reachable" (FE-1 963febc6): what a reader can do — scroll only a box a person can scroll (overflow auto/scroll,
+      // or the document when it is not overflow:hidden; never scrollIntoView, which also moves overflow:hidden boxes) — then
+      // Keep must sit inside the viewport and the hit test at its centre must land on it
+      const reach = await q.evaluate(() => { const k = document.querySelector('[data-cleo-pack] [data-pack="keep"]'), vh = innerHeight;
+        const userScrolls = e => { const cs = getComputedStyle(e); return /(auto|scroll)/.test(cs.overflowY) && e.scrollHeight > e.clientHeight + 1; };
+        let r = k.getBoundingClientRect(), via = 'none';
+        if (r.bottom > vh || r.top < 0) {
+          for (let e = k.parentElement; e; e = e.parentElement) {
+            const isDoc = e === document.documentElement, ok = isDoc ? !/hidden|clip/.test(getComputedStyle(document.documentElement).overflowY + getComputedStyle(document.body).overflowY) && document.documentElement.scrollHeight > vh : userScrolls(e);
+            if (!ok) continue;
+            if (isDoc) window.scrollBy(0, r.top - vh / 2); else e.scrollTop += r.top - (e.getBoundingClientRect().top + e.clientHeight / 2);
+            via = isDoc ? 'document' : e.tagName.toLowerCase() + '.' + String(e.className).trim().split(/\s+/)[0]; r = k.getBoundingClientRect(); if (r.top >= 0 && r.bottom <= vh) break;
+          }
+        }
+        const inView = r.top >= 0 && r.bottom <= vh && r.left >= 0 && r.right <= innerWidth, top = inView ? document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2) : null;
+        return { inView, via, y: Math.round(r.top), vh, hit: !!top && k.contains(top), on: top ? top.tagName.toLowerCase() + '.' + String(top.className).trim().split(/\s+/)[0] : null }; });
+      chk(reach.inView && reach.hit, 'OV-41: Keep is reachable (a reader-scrollable box brings it into view; the hit test lands on it)', reach);
       let ak = null;
       // evidence for the no-op tap (orchestrator: re-layout under the pointer, or Keep re-enabling wrongly?): Keep's box over
       // time, what the click hit, layout shifts around it, and whether Keep's own click ran

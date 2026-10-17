@@ -1,0 +1,112 @@
+[
+ {
+  "kind": "controlCovered",
+  "view": "atlas",
+  "vp": "768x1024",
+  "runs": 8,
+  "pages": [
+   "cities/harrisburg.html",
+   "Singapore/marine-parade.html",
+   "Singapore/potong-pasir-macpherson.html",
+   "Singapore/upper-thomson.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "\u65e5\u672c\u8a9e under atlas",
+  "budget": "none: every shown control is reachable",
+  "owner": "FE-A (header row at 768)",
+  "of": 164,
+  "worstPage": "cities/harrisburg.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/r4-75bb37bb-atlas/shots/controlCovered_atlas_768x1024_light_cities-harrisburg-html.jpg"
+ },
+ {
+  "kind": "controlCollision",
+  "view": "atlas",
+  "vp": "768x1024",
+  "runs": 6,
+  "pages": [
+   "cities/akron.html",
+   "Singapore/jalan-besar.html",
+   "Singapore/queenstown.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "\u65e5\u672c\u8a9e / atlas",
+  "budget": "none",
+  "owner": "FE-A (header row at 768)",
+  "of": 164,
+  "worstPage": "cities/akron.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/r4-75bb37bb-atlas/shots/controlCollision_atlas_768x1024_light_cities-akron-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "768x1024",
+  "runs": 6,
+  "pages": [
+   "Singapore/hanoi.html",
+   "Singapore/hoi-an.html",
+   "trip.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search \u00d72 (search all guides + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 32,
+  "worstPage": "Singapore/hanoi.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/r4-75bb37bb-atlas/shots/duplicates_page_768x1024_light_Singapore-hanoi-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "1440x900",
+  "runs": 6,
+  "pages": [
+   "Singapore/hanoi.html",
+   "Singapore/hoi-an.html",
+   "changes/singapore--punggol.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search \u00d72 (search all guides + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 32,
+  "worstPage": "Singapore/hanoi.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/r4-75bb37bb-atlas/shots/duplicates_page_1440x900_light_Singapore-hanoi-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "1024x768",
+  "runs": 4,
+  "pages": [
+   "Singapore/hanoi.html",
+   "Singapore/hoi-an.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search \u00d72 (search all guides + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 32,
+  "worstPage": "Singapore/hanoi.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/r4-75bb37bb-atlas/shots/duplicates_page_1024x768_light_Singapore-hanoi-html.jpg"
+ }
+]
