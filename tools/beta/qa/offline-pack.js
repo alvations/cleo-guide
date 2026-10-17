@@ -34,6 +34,43 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
   for (const [w, h, tag] of [[390, 844, 'phone'], [1440, 900, 'desktop']]) {
     console.log(`== ${pg} · ${tag} ==`);
     const { s: srv, U } = await server(); await sleep(900);
+    {   // OV-41 (Atlas default, D-46), its own context so the flow below starts as before. A load lands in Atlas; tiles never
+        // load here (nothing off-origin), so it is the no-map Atlas: the list holds every place and its own "Keep offline"
+        // control must be reachable — a real click (Playwright refuses a covered target; the cover is named), then the kept state
+      const c2 = await browser.newContext({ viewport: { width: w, height: h }, serviceWorkers: 'allow', reducedMotion: 'reduce' }), q = await c2.newPage();
+      await c2.route(u => u.hostname !== '127.0.0.1', r => r.abort());
+      await q.goto(U + pg, { waitUntil: 'load' }); await q.evaluate(() => navigator.serviceWorker.ready); await sleep(2500);
+      const av = await q.evaluate(() => { const b = document.querySelector('[data-cleo-pack]'), k = b && b.querySelector('[data-pack="keep"]'), r = k && k.getBoundingClientRect();
+        const top = r && r.height ? document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2) : null;
+        return { view: document.documentElement.getAttribute('data-view'), nomap: document.documentElement.classList.contains('ms-nomap'), shown: !!(b && !b.hidden && b.getBoundingClientRect().height > 0),
+          coveredBy: top && !k.contains(top) ? (top.tagName.toLowerCase() + (top.className && typeof top.className === 'string' ? '.' + top.className.trim().split(/\s+/).join('.') : '')) : null }; });
+      chk(av.view === 'atlas' && av.shown, 'OV-41: Atlas-default load with no map: the list\'s "Keep offline" control is shown', av);
+      chk(av.coveredBy === null, 'OV-41: nothing covers Keep (the hit test at its centre lands on the button itself)', av.coveredBy);
+      let ak = null;
+      // evidence for the no-op tap (orchestrator: re-layout under the pointer, or Keep re-enabling wrongly?): Keep's box over
+      // time, what the click hit, layout shifts around it, and whether Keep's own click ran
+      await q.evaluate(() => { const k = document.querySelector('[data-cleo-pack] [data-pack="keep"]'); window.__tap = { boxes: [], hits: [], shifts: [], keepClick: 0, states: [] };
+        const box = () => { const r = k.getBoundingClientRect(); return [Math.round(r.x), Math.round(r.y), Math.round(r.width), Math.round(r.height), Math.round(scrollY)].join(','); };
+        const pane = (() => { for (let e = k.parentElement; e && e !== document.body; e = e.parentElement) { const o = getComputedStyle(e).overflowY; if (o === 'auto' || o === 'scroll') return e; } return null; })(), sp = document.querySelector('.split');
+        __tap.pane = pane ? pane.tagName + '.' + String(pane.className).slice(0, 30) : null; __tap.panes = [];
+        let n = 0; const t = setInterval(() => { __tap.boxes.push(box()); __tap.states.push((k.disabled ? 'D' : '-') + (k.hidden ? 'H' : '-'));
+          if (pane) { const r = pane.getBoundingClientRect(); __tap.panes.push([Math.round(performance.now()), Math.round(r.top), Math.round(r.bottom), Math.round(pane.scrollTop), sp ? sp.style.getPropertyValue('--atlas-top') : ''].join(',')); }
+          if (++n > 40) clearInterval(t); }, 50);
+        document.addEventListener('click', e => { __tap.hits.push((e.target.tagName || '') + '.' + String(e.target.className || '').slice(0, 30) + '@' + e.clientX + ',' + e.clientY); }, true);
+        k.addEventListener('click', () => { __tap.keepClick++; }, true);
+        try { new PerformanceObserver(l => { for (const x of l.getEntries()) __tap.shifts.push(Math.round(x.startTime) + ':' + x.value.toFixed(4) + ':' + (x.sources || []).map(s => s.node && s.node.className ? String(s.node.className).slice(0, 20) : '?').join('+')); }).observe({ type: 'layout-shift' }); } catch (e) {} });
+      try { await q.click('[data-cleo-pack] [data-pack="keep"]', { timeout: 8000 });
+        await q.waitForFunction(() => { const d = document.querySelector('[data-cleo-pack] [data-pack-done]'), m = document.querySelector('[data-cleo-pack] [data-pack-msg]'); return (d && !d.hidden) || (m && /Couldn/.test(m.textContent)); }, null, { timeout: 120000 });
+        ak = await q.evaluate(k => Cleo.pack.state(k), fileKey); if (!ak) ak = { err: 'no pack record', msg: await q.evaluate(() => (document.querySelector('[data-cleo-pack] [data-pack-msg]') || {}).textContent) }; }
+      catch (e) { ak = { err: String(e.message || e).split('\n')[0].slice(0, 120), coveredBy: av.coveredBy, tap: await q.evaluate(() => { const t = window.__tap || {}; const bx = [...new Set(t.boxes || [])]; return { keepClick: t.keepClick, hits: t.hits, boxes: bx.slice(0, 6), states: [...new Set(t.states || [])], shifts: (t.shifts || []).slice(0, 6), pane: t.pane, panes: [...new Set((t.panes || []).map(x => x.split(',').slice(1).join(',')))].slice(0, 8), hitAtClick: (t.hits || [])[0] }; }).catch(() => null), msg: await q.evaluate(() => { const m = document.querySelector('[data-cleo-pack] [data-pack-msg]'), k = document.querySelector('[data-cleo-pack] [data-pack="keep"]'); return [(m || {}).textContent, k && k.disabled, navigator.serviceWorker.controller ? 'controlled' : 'no controller'].join(' | '); }).catch(() => null), rec: await q.evaluate(k => Cleo.pack && Cleo.pack.state(k).then(r => r && { n: r.n, ok: r.ok }), fileKey).catch(() => 'x') }; }
+      // the save itself is gated by the Gallery flow below. This tap from the Atlas list is REPORTED, not graded, until FE-1
+      // parks the section in the desktop list pane: on desktop no-map Atlas the document never scrolls (overflow hidden) and
+      // the list's Keep sits below the fold (1440×900: y 971), unreachable by a reader; Playwright's programmatic scroll
+      // sometimes reaches it. Its evidence (Keep's box, what the click hit, the scrolling box) prints with the row
+      const okA = !!ak && !ak.err && ak.ok > 0 && ak.ok === ak.n;
+      console.log(`  ${okA ? 'PASS' : 'INFO'}  OV-41: a real tap keeps the city from the Atlas list = ${JSON.stringify(ak && (ak.err ? ak : { ok: ak.ok, n: ak.n }))}`);
+      await q.evaluate(k => Cleo.pack.remove(k), fileKey).catch(() => {}); await c2.close();
+    }
     const ctx = await browser.newContext({ viewport: { width: w, height: h }, serviceWorkers: 'allow', reducedMotion: 'reduce' });
     const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 160)));
     await ctx.route(u => u.hostname !== '127.0.0.1', r => r.abort());   // nothing off-origin, ever (any local port is ours)

@@ -10,6 +10,8 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
 
 ## Done
 
+- FE-2 asked QC (it reached QA) whether Atlas chromePan still fails at T1/T2/D. QA's B-25 on dbb8bf96 (Tokyo and Cleveland): 5 / 11 / 6 % while panning, against budgets 8 / 15 / 12, so none fail. Answered, pointing FE-2 to QC for S-17. Evidence: `design/beta/eval/w7/qa/overlay-dbb8bf96-atlas-pan/`.
+- Interim claims on 032f1a8e (`tools/beta/qa/claims-r8i.js`, new): QA-82, R8-v27b, R8-FEC, R8-FEB-prune and QA-84 (phone Atlas doors) verified; the adeabcd63 lead card is verified except its photo ratio (QA-83, Low, FE-A: 4:3, not 3:2). Evidence: `design/beta/eval/w7/qa/claims-032f1a8e/`.
 - lensPage flip 80a2b3a0 (PERF-21) verified: gates plus perf08-regress green; the current lenspage-accept (row 0) passes 52/52 against the pin. Evidence: `design/beta/eval/w7/qa/lenspage-80a2b3a0/`.
 - f03865bf: `w7-photos.js` Flickr duplicate key falls back to the photo id in sourceUrl (fetch-openverse writes no `flickrId`); tested with imagery's example row; imagery told.
 - 03f4f402: the W7 full pass (QA-45…59, `tools/beta/qa/w7.js`, `w7-photos.js`, the B-07 map-search path in `metrics.js`).

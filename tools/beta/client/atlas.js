@@ -131,7 +131,7 @@
       N = desk() ? cl(ar / 30000, 3, 16) : innerWidth >= 768 ? cl(ar / 26000, 3, 12) : cl(ar / 24000, 3, innerHeight < 500 ? 10 : 8); }
     map.getContainer().style.setProperty('--pp-max', capW() + 'px');
     // nor under a map control, the List / Map pill or "Search this area" (rects in map-container px)
-    const mr = map.getContainer().getBoundingClientRect(), avoid = [...map.getContainer().querySelectorAll('.leaflet-control')].concat([$('.ms-toggle'), $('.ms-here'), $('#cleo-poi')])
+    const mr = map.getContainer().getBoundingClientRect(), avoid = [...map.getContainer().querySelectorAll('.leaflet-control')].concat([$('.ms-toggle'), $('.ms-here'), $('#cleo-poi'), C.land && C.land() && H.classList.contains('ms-car') ? lp : null])   /* landscape: the carousel docks on the right (FE-2) */
       .filter(e => e && e.offsetWidth && !e.closest('[hidden]')).map(e => { const q = e.getBoundingClientRect(); return { l: q.left - mr.left - 4, r: q.right - mr.left + 4, t: q.top - mr.top - 4, b: q.bottom - mr.top + 4 }; });
     // the reader's location dot is a placed box: no label ever covers it (rev 5, R3 #4)
     if (me) { const q = map.latLngToContainerPoint(me); placed.push({ l: q.x - 11, r: q.x + 11, t: q.y - 11, b: q.y + 11 }); }
@@ -182,7 +182,7 @@
     const map = C.map(); if (!map || !C.markers[id]) return; hoverId = o ? id : (hoverId === id ? null : hoverId);
     if (pins[id]) { const el = pins[id].getElement(); if (el) el.classList.toggle('hot', o); pins[id].setZIndexOffset(o ? 1000 : isT1(rec(id)) ? 600 : 0); return; }
     if (hoverPin) { map.removeLayer(hoverPin); hoverPin = null; }
-    if (o) { const c = rec(id); hoverPin = mkPin(id, c, savedSet()[id]).addTo(map); hoverPin._id = id; hoverPin.setZIndexOffset(1000); const el = hoverPin.getElement(); if (el) el.classList.add('hot'); }
+    if (o) { const c = rec(id); hoverPin = mkPin(id, c, savedSet()[id]).addTo(map); hoverPin._id = id; hoverPin.setZIndexOffset(1000); const el = hoverPin.getElement(); if (el) { el.classList.add('hot'); el.style.pointerEvents = 'none'; el.tabIndex = -1; } }   // QC b1c7939f: the hover pin is drawn, never hit — under the pointer it flickered (canvas mouseout → removed → mouseover → re-added), so a press began on it or was lost and a drag from a dot selected instead of panning; the dot under it takes the press, and Leaflet tells a tap from a drag
   };
   C.hotPin = (c, o) => C.hotId(C.pid(c), o);
 
@@ -576,8 +576,9 @@
   const fq = $('#cleo-filter'), sq = () => { const s = fq && fq.closest('.spill'); if (s) s.classList.toggle('has-q', !!fq.value); if (bar) bar.classList.toggle('ms-q', !!(fq && fq.value)); };
   on(fq, 'input', sq);
   d.addEventListener('click', e => { const a = e.target.closest && e.target.closest('[data-cleo-search-open]'); if (!a || !fq || !atlas() || desk() || !fq.closest('.ms-bar')) return;
-    e.preventDefault(); e.stopPropagation(); fq.focus(); }, true);
+    e.preventDefault(); e.stopPropagation(); fq.closest('.spill').classList.add('ms-open'); fq.focus(); }, true);
   on(fq, 'keydown', e => { if (e.key === 'Escape' && !fq.value && !desk()) { e.stopPropagation(); fq.blur(); } });
+  on(fq, 'blur', () => { if (!fq.value) fq.closest('.spill').classList.remove('ms-open'); });   // closed again: not drawn, hit or tabbed to
   // a #p= that routed before this file arrived: select it now (selected + labelled on the map, SPEC-v3 §1.4)
   const routeSel = () => { const p = Cleo.route.parse().p, c = p && C.byId[p]; if (c && selC !== c) select(c, 'route'); };
   // OV-06 (SPEC-v3 §2.0.6): the phone chip row fades on each edge that has more chips beyond it, so it reads as scrollable

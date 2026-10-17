@@ -1,0 +1,253 @@
+{
+ "_about": "Source upgrades + name merges applied by consolidate.py AFTER the research files are read (QC: Yelp-only records, 2026-10-17). 'add' appends credible [KEY,url] pairs a record lacks; 'merge' folds an alias record into its canonical one (sources unioned, alias dropped). Every URL was found by sequential WebSearch (researchedVia WebSearch 2026-10-17). Yelp/TripAdvisor stay as measurement only, never the recommender. Records with no credible recommender are held by the build's 0-credible gate and listed in AUDIT.md.",
+ "add": {
+  "Hainan Chicken House": [
+   [
+    "INFATUATION",
+    "https://theinfatuation.com/new-york/reviews/hainan-chicken-house"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Hainan_Chicken_House"
+   ]
+  ],
+  "Ralph's Famous Italian Ices": [
+   [
+    "NYCGO",
+    "https://www.business.nyctourism.com/places/ralphs-famous-italian-ices-staten-island/"
+   ]
+  ],
+  "Awang Kitchen": [
+   [
+    "GAYOT",
+    "https://www.gayot.com/restaurants/awang-kitchen-elmhurst-ny-11373_1ny170411.html"
+   ]
+  ],
+  "Kinokuniya Cafe": [
+   [
+    "UNTAPPED",
+    "https://untappedcities.com/2015/09/02/20-of-nycs-best-independent-specialty-bookstores/4/"
+   ]
+  ],
+  "Brooklyn Bridge Park": [
+   [
+    "OFFICIAL",
+    "https://brooklynbridgepark.org/park/pier-1"
+   ]
+  ],
+  "Coney Island Cyclone": [
+   [
+    "SIXSQFT",
+    "https://www.6sqft.com/90-years-ago-today-coney-islands-iconic-cyclone-roller-coaster-opened/"
+   ]
+  ],
+  "Smorgasburg": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Smorgasburg"
+   ],
+   [
+    "BROOKLYNPAPER",
+    "https://www.brooklynpaper.com/smorgasburg-returns-to-prospect-park"
+   ]
+  ],
+  "Yankee Stadium": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Yankee_Stadium"
+   ]
+  ],
+  "Arthur Avenue Retail Market": [
+   [
+    "MAS",
+    "https://www.mas.org/events/arthur-avenue-little-italy-of-the-bronx/"
+   ],
+   [
+    "NYCEDC",
+    "https://edc.nyc/node/5118"
+   ]
+  ],
+  "9/11 Memorial & Museum": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/National_September_11_Memorial_%26_Museum"
+   ]
+  ],
+  "Neue Galerie New York": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/newyork/art/neue-galerie-new-york-best-paintings-and-drawings"
+   ]
+  ],
+  "Cathedral of St. John the Divine": [
+   [
+    "NYCLPC",
+    "https://www.nyc.gov/site/lpc/about/pr2017/022117.page"
+   ],
+   [
+    "NYLANDMARKS",
+    "https://nylandmarks.org/explore-ny/cathedral-of-saint-john-the-divine/"
+   ]
+  ],
+  "New York State Pavilion": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/New_York_State_Pavilion"
+   ],
+   [
+    "WMF",
+    "https://wmf.org/node/13816"
+   ]
+  ],
+  "Staten Island Ferry (St. George Terminal)": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/St._George_Terminal"
+   ]
+  ],
+  "Snug Harbor Cultural Center & Botanical Garden": [
+   [
+    "TCLF",
+    "https://www.tclf.org/landscapes/snug-harbor-cultural-center-and-botanical-garden"
+   ]
+  ],
+  "Historic Richmond Town": [
+   [
+    "ABC7",
+    "https://abc7ny.com/videoClip/18996671/"
+   ]
+  ],
+  "Freshkills Park": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Freshkills_Park"
+   ],
+   [
+    "SIXSQFT",
+    "https://www.6sqft.com/first-section-opens-at-staten-island-freshkills-park-former-landfill/"
+   ]
+  ],
+  "New York Chinese Scholar's Garden": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/New_York_Chinese_Scholar%27s_Garden"
+   ],
+   [
+    "ATLASOBSCURA",
+    "https://www.atlasobscura.com/places/new-york-chinese-scholars-garden"
+   ],
+   [
+    "UNTAPPED",
+    "https://untappedcities.com/2020/03/03/a-look-inside-the-chinese-scholars-garden-at-snug-harbor/"
+   ]
+  ],
+  "Staten Island Boat Graveyard": [
+   [
+    "FRESHKILLSPARK",
+    "https://freshkillspark.org/blog/that-staten-island-boat-graveyard"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Arthur_Kill"
+   ]
+  ],
+  "St. George Theatre": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/St._George_Theatre"
+   ],
+   [
+    "UNTAPPED",
+    "https://untappedcities.com/the-secrets-of-the-the-historic-st-george-theater-on-staten-island"
+   ]
+  ],
+  "Roberta's": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/new-york-kids/restaurants/robertas"
+   ]
+  ],
+  "Lucali": [
+   [
+    "TIMEOUT",
+    "https://timeout.com/newyork/restaurants/lucali"
+   ]
+  ],
+  "L'industrie Pizzeria": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/newyork/restaurants/lindustrie-pizza"
+   ]
+  ],
+  "Lilia": [
+   [
+    "GAYOT",
+    "https://www.gayot.com/restaurants/lilia-brooklyn-ny-11211_1ny160123.html"
+   ]
+  ],
+  "Mike's Deli": [
+   [
+    "AMNY",
+    "https://amny.com/entertainment/things-to-do/what-to-do-and-eat-in-belmont-bronx-new-york-botanical-garden-arthur-avenue-more-1-13367677"
+   ]
+  ],
+  "Naks": [
+   [
+    "TIMEOUT",
+    "https://timeout.com/newyork/restaurants/naks"
+   ]
+  ],
+  "Nom Wah Tea Parlor": [
+   [
+    "VILLAGEVOICE",
+    "https://www.villagevoice.com/?p=356904"
+   ]
+  ],
+  "Sripraphai": [
+   [
+    "TIMEOUT",
+    "https://timeout.com/newyork/restaurants/sripraphai"
+   ],
+   [
+    "EDIBLEQUEENS",
+    "https://ediblequeens.ediblecommunities.com/eat/james-beard-awards-receive-shrug-sripraphai"
+   ]
+  ],
+  "Lemon Ice King of Corona": [
+   [
+    "EDIBLEQUEENS",
+    "https://ediblequeens.ediblecommunities.com/video/lemon-ice-king-corona"
+   ],
+   [
+    "AMNY",
+    "https://www.amny.com/eat-and-drink/lemon-ice-king-of-corona-1-34978098"
+   ]
+  ],
+  "Brother's Pizzeria": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/new-york/reviews/brothers-pizzeria"
+   ]
+  ],
+  "Killmeyer's Old Bavaria Inn": [
+   [
+    "FORGOTTENNY",
+    "https://forgotten-ny.com/2024/07/killmeyers-charleston/"
+   ],
+   [
+    "NYCGO",
+    "https://nyctourism.com/nightlife/killmeyers-old-bavaria-inn"
+   ]
+  ]
+ },
+ "merge": {
+  "Wah Fung No 1": "Wah Fung No. 1 Fast Food"
+ },
+ "tier": {
+  "Hainan Chicken House": 1,
+  "Randiwa": 2,
+  "Taste Good Malaysian Cuisine": 2,
+  "Golden Lake Pavilion": 2
+ },
+ "_tier_about": "Merit-bar tier changes (orchestrator: promote only if it outranks the region's current t1s on the same measure). Reason logged in AUDIT.md."
+}
