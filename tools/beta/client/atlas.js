@@ -169,7 +169,7 @@
   // D-46 (Atlas is the default view): the list shows AT ONCE, before the map library arrives. Its first page is the one
   // the map will open on — the same first fit city.js makes, done here in plain Web Mercator (Leaflet's getBoundsZoom /
   // fitBounds at zoomSnap 0.5), so the map mounting later changes nothing in the list: no wait and no shift. Only first
-  // views that are pure maths are predicted (no hash, a shared #at= view, the session's last view, an area); a #p= place,
+  // views that are pure maths are predicted (no hash, a shared #at= view, the session's last view); a #p= place, an area,
   // a lens link or Top picks hold the list for the first map pass as before (the 3 s JS / 4 s CSS backstops remain)
   const prj = (lat, lng, z) => { const k = 256 * Math.pow(2, z), si = Math.max(-0.9999, Math.min(0.9999, Math.sin(lat * Math.PI / 180))); return [k * (lng + 180) / 360, k * (0.5 - Math.log((1 + si) / (1 - si)) / (4 * Math.PI))]; };
   const unp = (x, y, z) => { const k = 256 * Math.pow(2, z); return [Math.atan(Math.sinh(Math.PI * (1 - 2 * y / k))) * 180 / Math.PI, x / k * 360 - 180]; };
@@ -180,10 +180,9 @@
     const p = prj(s, w, z), q = prj(n, e, z); return unp((p[0] + q[0] + br[0] - tl[0]) / 2, (p[1] + q[1] + br[1] - tl[1]) / 2, z).concat(z); };
   const lls = () => qa('li.pl').concat(Cleo.defer ? Cleo.defer.peek() : []).filter(c => !c.hasAttribute('data-np')).map(c => [C.pid(c), llOf(c), c]).filter(x => x[1]);
   const predict = () => {
-    const el = $('#cleo-map'), r = Cleo.route.parse(); if (!el || !el.clientWidth || !el.clientHeight || r.p || r.top || topOn() || S.q || (S.mode && S.mode !== 'all') || (C.LENS || []).some(k => k !== 'a' && S[k])) return null;
+    const el = $('#cleo-map'), r = Cleo.route.parse(); if (!el || !el.clientWidth || !el.clientHeight || r.p || r.top || topOn() || S.q || (S.mode && S.mode !== 'all') || (Cleo.lens && Cleo.lens.on && Cleo.lens.on(Cleo.lens.current()))) return null;   // any lens (an area too): the first map pass decides
     const sz = [el.clientWidth, el.clientHeight], at0 = /^(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?),(\d+(?:\.\d+)?)$/.exec(r.at || '');
     if (r.at) return at0 ? { v: [+at0[1], +at0[2], +at0[3]], sz } : null;
-    if (S.a) { const a = lls().filter(x => at(x[2], 'data-a') === S.a).map(x => x[1]); return a.length ? { v: fitZ(a, C.overMap(), 16, sz), sz } : null; }
     let v = null; try { v = JSON.parse(sessionStorage.getItem(VK) || 'null'); } catch (e) {}
     if (v && v.length === 3) return { v, sz };
     // fitDefault's own steps (below), on the same places: the top 30 (12 on phones) by map priority in the core, less outliers
@@ -210,7 +209,7 @@
   let selC = null;
   // the list pages like listing results: the first 40 places in the area (guide order: area, then rank), "Show 40 more"
   // after them; only the cards on show are stamped, so a city-wide view never builds every card (DOM stays small)
-  const PER = 40; let lim = PER, pager = null;
+  const PER = 36; let lim = PER, pager = null;   // D-46 DOM budget (platform): a 36-card first page keeps Tokyo Atlas under 2,900 nodes
   // SPEC-v3 §2.4: ONE best-places control — "Top picks", the first N places by map priority (30 desktop / 12 phones), the
   // same set as the default fit; mp round-robins across areas, so it covers the city. Must see stays information (the
   // sun-wash pill, the card sticker, the Tier section in Filters) — never a second bar control
@@ -258,6 +257,7 @@
     // while the map is still on its way, page what is already built: its own first fit picks the page to build
     if (need.size && Cleo.defer && (map || pre || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
     lastShow = show; qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
+    if (area) shed();   // D-46 DOM budget: the off-page cards go back to the deferred pool
     H.classList.add('ms-paged');   // INP: until this first pass, desktop Atlas lays out no card (atlas.css) — a Guidebook-built list was 488 cards reflowed per forced layout
     flat();
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
@@ -396,7 +396,8 @@
    * kind, "Recommended by <first source> +N". Only additions, hidden outside Atlas (atlas.css); the card stays FE-A's. */
   const info = C.info;
   const deco = () => qa('li.pl').forEach(c => {
-    if (c.hasAttribute('data-ms')) return; c.setAttribute('data-ms', '');
+    // off-page cards aren't decorated (DOM budget)
+    if (c.hasAttribute('data-ms') || (c.classList.contains('ms-out') && H.classList.contains('ms-on'))) return; c.setAttribute('data-ms', '');
     const t1 = at(c, 'data-t') === '1', cl = c.hasAttribute('data-closed'), a = ((info.areas || {})[at(c, 'data-a')] || {}).n || '';
     const inT = ($('.pl-e .in', c) || {}).textContent || '', dish = inT.split(' · ').slice(1).join(' · ').trim();
     const g = (at(c, 'data-g') || '').split(' ').filter(x => x && x !== 'FREE' && x !== 'ICON')[0], kind = dish || (at(c, 'data-k') === 'f' ? 'Eat & drink' : ((info.cats || {})[g] || 'Sight'));
@@ -409,6 +410,18 @@
       '<p class="ms-rec">' + (s0 ? 'Recommended by <b>' + ss.slice(0, 2).map(x => C.esc(((info.src || {})[x] || [x])[0])).join('</b>, <b>') + '</b>' + (ss.length > 2 ? ' +' + (ss.length - 2) + ' more' : '') : 'Added by the guide') + '</p>');
     const im = fig && $('img', fig); if (im && !im.hasAttribute('data-sizes0')) im.setAttribute('data-sizes0', im.getAttribute('sizes') || '');
   });
+  // D-46 DOM budget (FE-A: Tokyo Atlas 3,587 nodes against 3,000): a card off the map-area page goes back into a deferred
+  // noscript chunk, undecorated, exactly as a never-stamped card waits — core's peek / stampIds / stamp-all and city.js's
+  // stubs (C.stubs) treat it like any other; the selected, targeted or focused card always stays
+  const shed = () => { if (!Cleo.defer || !C.stubs || !lp) return; const f = d.activeElement;
+    qa('#cleo-grid li.pl.ms-out').forEach(c => { if (c === selC || c.classList.contains('is-target') || c.contains(f) || !c.parentNode) return;
+      qa('img[data-sizes0]', c).forEach(im => { im.setAttribute('sizes', at(im, 'data-sizes0')); im.removeAttribute('data-sizes0'); });
+      qa(':scope>:is(.ms-bd,.ms-cr), .ms-k, .ms-rec', c).forEach(x => x.remove()); c.removeAttribute('data-ms'); c.classList.remove('ms-out', 'is-hover', 'is-focus');
+      c.style.removeProperty('order'); if (!c.getAttribute('style')) c.removeAttribute('style'); c.hidden = false;
+      const a = {}; [].forEach.call(c.attributes, x => { a[x.name] = x.value; });
+      const st = { id: c.id, stub: true, getAttribute: k => (Object.prototype.hasOwnProperty.call(a, k) ? a[k] : null), hasAttribute: k => Object.prototype.hasOwnProperty.call(a, k), _a: a };
+      const n = d.createElement('noscript'); n.setAttribute('data-cleo-defer', ''); n.setAttribute('data-n', '1'); n.setAttribute('style', 'display:contents'); n.textContent = '\n' + c.outerHTML + '\n';
+      c.parentNode.replaceChild(n, c); const id = C.pid(c), i = C.cards.indexOf(c); if (i >= 0) C.cards.splice(i, 1); if (C.byId[id] === c) delete C.byId[id]; C.stubs[id] = st; }); };   // forgotten by city.js; its place keeps a stub
   const undeco = () => { qa('li.pl img[data-sizes0]').forEach(im => { im.setAttribute('sizes', at(im, 'data-sizes0')); im.removeAttribute('data-sizes0'); });
     qa('li.pl[data-ms]').forEach(x => x.removeAttribute('data-ms')); qa('li.pl :is(.ms-bd,.ms-cr,.ms-k,.ms-rec)').forEach(x => x.remove()); };
   on(d, 'cleo:stamped', () => { if (atlas()) { deco(); face(); } });
@@ -540,7 +553,7 @@
   const locate = b => {
     const map = C.map(), live = $('#cleo-view-live'), say = t => { if (live) live.textContent = t; b.title = t; };
     if (!map) return;
-    if (me) { C.fly(me); return; }
+    if (me) { if (!(C.onLocate && C.onLocate(me))) C.fly(me); return; }   // a second press (after Near me was cleared) sorts again
     if (!navigator.geolocation) { say('This browser can’t share a location.'); return; }
     b.classList.add('busy');
     navigator.geolocation.getCurrentPosition(p => {
@@ -553,6 +566,7 @@
     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
   };
 
+  C.locate = locate;   // atlas-nav.js: the list head's Near me door runs this same reading (OV-00: Near me once)
   C.atlasTools = (L, el) => {
     const map = C.map(); if (!map) return;
     const dk = desk();

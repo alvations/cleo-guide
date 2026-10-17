@@ -17756,6 +17756,35 @@
    "fetched": "2026-10-16",
    "confidence": "high",
    "color": "#5888a8"
+  },
+  {
+   "file": "hero--singapore--jalan-besar-960.jpg",
+   "slot": {
+    "type": "hero",
+    "key": "singapore/jalan-besar"
+   },
+   "title": "Jalan Besar, Jan 06",
+   "depicts": "Jalan Besar, Jan 06",
+   "author": "Sengkang",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jalan_Besar,_Jan_06.JPG",
+   "licence": "Copyrighted free use",
+   "licenceUrl": "https://commons.wikimedia.org/wiki/Template:Copyrighted_free_use",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Jalan Besar, Jan 06.JPG",
+   "sha1": "23ca60909ff26463e8210159116cfe322636b98a",
+   "width": 960,
+   "height": 720,
+   "variants": [
+    {
+     "file": "hero--singapore--jalan-besar-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "modified": "resized to 500 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-17",
+   "confidence": "lead",
+   "color": "#c8c8d8"
   }
  ]
 }

@@ -15,7 +15,7 @@ const { esc, prose, jsonInline } = require('../html');
 const RU = require('./recognition-ui');            // FE-C W9-1 hook: recognition badges (platform data only)
 const FU = require('./fresh-ui');                  // FE-C W9-2 hook: the "Follow changes" line
 const dotJoin = s => String(s).replace(/ · /g, '\u00a0· ');   // FE-C R8 #2c hook: a "·" separator binds to the word before it (no line starts with "·")
-const { TIER } = require('../model');
+const { TIER, publicName } = require('../model');   // publicName: FE-B R8 gap #2d
 const { t: tr, tn } = require('../i18n');   // platform W9-8: the offline-pack strings come from the catalogue; i18n D-41: every interface string
 /** Every catalogue string the W9-8 offline pack and the offline map line use (test-i18n renders it in `pseudo`). */
 function offlineStrings(city, n) {
@@ -250,7 +250,9 @@ function render(row, recs, ctx) {
   const colors = row.colors || {};
   const areas = areasAll.filter(a => recs.some(r => r.a === a.id));
   const areaName = id => { const a = areasAll.find(x => x.id === id); return a ? areaSplit(a.n)[0] : tr('city.elsewhere'); };   // i18n D-41
-  const srcList = (row.sources && row.sources.list) || [];
+  // FE-B R8 gap #2d (for FE-A): public source names only — no research parenthetical ("Wikipedia (published facts/coords)"),
+  // and "Official company/institution site" reads "Official site" (lib/model.js publicName)
+  const srcList = ((row.sources && row.sources.list) || []).map(s => (s && s.name && publicName(s.name) !== s.name ? Object.assign({}, s, { name: publicName(s.name) }) : s));
   const srcById = Object.fromEntries(srcList.map(s => [s.id, s]));
   const nS = st.sights != null ? st.sights : recs.filter(r => r.kind === 'sight').length, nF = recs.length - nS;
 
@@ -400,7 +402,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
-    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, compact: ctx.assetsV.compact /* FE-B OV-00: lazy, for the Guidebook */, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition, fresh: ctx.assetsV.fresh, empty: ctx.assetsV.empty /* FE-C W9-5 / W9-7 / W9-1 / W9-2 / QC-05 hook */, pack: ctx.assetsV.pack /* platform W9-8: lazy offline pack */ },  // loaded on first use (C.need / views.js), precached by the SW
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition, fresh: ctx.assetsV.fresh, empty: ctx.assetsV.empty /* FE-C W9-5 / W9-7 / W9-1 / W9-2 / QC-05 hook */, pack: ctx.assetsV.pack /* platform W9-8: lazy offline pack */ },  // loaded on first use (C.need / views.js), precached by the SW
     views: VIEWS, dv: DV,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,

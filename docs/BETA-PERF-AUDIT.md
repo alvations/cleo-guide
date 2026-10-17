@@ -48,6 +48,7 @@ There is no server, so "backend" here means the build and data side.
 | PERF-15 | Eager JS and deep-link DOM (W7) | 40.45 KB gzip; #p= 12,459 nodes | **27.4 KB**; **≈ 2.2 k** | fixed (eb47e76) |
 | PERF-16 | `:has()` anchored on html / body / main (QA-70) | map pill → first pin, phone Gallery: Tokyo 1,654 → 2,481 ms (be74c82f → 530dc83b) | guard: `tools/beta/test-css-has.js` in `npm test`; 7 known cleo.css selectors to remove | fixed: FE-2 a7b4a980 (fe-a.css), designer eddbb7b0 (cleo.css); first pin on 3ba696e8 Tokyo 1,653 / NY 1,807 ms vs be74c82f 1,564 / 1,760; lint in `npm test`, no allowlist |
 | PERF-17 | Eager JS headroom (heaviest page, Cleveland) | 39.93 KB gzip of the 40.0 cap (30 B left after the data-nosearch search, f03b03cf) | **39.32 KB** (≈ 0.68 KB left): the offline-pack UI + API moved to the lazy `assets/js/pack.js` (`Cleo.need('pack')` on idle); `stampFor` thinned | fixed (this commit); offline-pack probe incl. "lazy pack module offline" PASS |
+| PERF-19 | Tokyo session bytes (R8 gap #6; metrics.js session, informational) | 7,773 KB: the deep-link sweep opened all 488 sheets at machine speed and each sheet fetched its 960 w photo eagerly (5.9 MB of JPEG) | **3,720 KB**: a sheet opened by script with no tap or key in the last second (and not the page's first deep link) holds its full-size photo until it has stayed open 250 ms (sheet.js, platform marked block); a tap, a key, a cold deep link and jsdom load at once, as before. metrics.js now records `session.byType` and the top 15 URLs | fixed (SHA in BETA-ISSUES) |
 
 ## Items
 

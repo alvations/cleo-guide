@@ -245,7 +245,8 @@ async function finish(page, s0, opener, close) {
   if (PAGES.some(p => p[0] === 'tokyo')) for (const [vk, vp] of [['d', D], ['m', M]]) {
     const vn = vk === 'd' ? '1440' : '390', geo = { latitude: 35.6595, longitude: 139.7005 };
     const { ctx, page, errors } = await open(browser, vp, 'beta/cities/tokyo.html#view=atlas', { geo });
-    const loc = await page.$('.leaflet-control-container .m-locate'); let tap = 'none';
+    // OV-00 §2.0.3 "Near me once" (ratified): desktop takes the list head's door when present, else the map's locate control
+    const loc = (vk === 'd' && await page.$('.ms-head [data-cleo-near]')) || await page.$('.leaflet-control-container .m-locate'); let tap = 'none';
     if (loc) { try { await loc.click({ timeout: 2500 }); tap = 'click'; } catch (e) { await loc.evaluate(b => b.click()); tap = 'scripted (the tap was intercepted)'; } }
     await sleep(1500);
     const food = await page.$('.ms-bar button[data-mode="food"]'); if (food) { await food.evaluate(b => b.click()); await sleep(1200); }
@@ -430,8 +431,10 @@ async function finish(page, s0, opener, close) {
       chk(`W9-5 tokyo ${vn}: "10 min" from your base draws the ring on the map, fits it, and the list holds exactly the places ≤ 10 min (the minutes the cards print), the assumption stated`,
         r.circle && r.inView && /ring=10/.test(r.hash) && r.outside.length === 0 && r.hiddenInside.length === 0 && r.shown > 0 && r.shown < total && r.stubs === 0 && r.said, Object.assign({ total }, r));
       await page.evaluate(() => { const b = document.querySelector('.ms-ring button[data-ring=""]'); if (b) b.click(); }); await sleep(1200);
-      const back = await page.evaluate(() => ({ hash: location.hash, shown: [...document.querySelectorAll('li.pl')].filter(c => !c.hidden).length, circle: !!document.querySelector('#cleo-map path.ms-ring-c') }));
-      chk(`W9-5 tokyo ${vn}: "Any" lifts the ring — every place back, no circle`, !/ring=/.test(back.hash) && back.shown === total && !back.circle, Object.assign({ total }, back));
+      // D-46 (FE-1, logged): Atlas returns its off-page cards to the deferred pool, so "every place back" counts the shown
+      // cards plus the deferred stubs, and no card may still be hidden by the ring lens
+      const back = await page.evaluate(() => { const c = [...document.querySelectorAll('li.pl')]; return { hash: location.hash, shown: c.filter(x => !x.hidden).length + (Cleo.defer && Cleo.defer.peek ? Cleo.defer.peek().length : 0), hiddenCards: c.filter(x => x.hidden).length, circle: !!document.querySelector('#cleo-map path.ms-ring-c') }; });
+      chk(`W9-5 tokyo ${vn}: "Any" lifts the ring — every place back, no circle`, !/ring=/.test(back.hash) && back.shown === total && back.hiddenCards === 0 && !back.circle, Object.assign({ total }, back));
     } else chk(`W9-5 tokyo ${vn}: the ring control shows when a base is set`, false, r);
     if (errors.length) chk(`W9-5 tokyo ${vn}: 0 page errors`, false, errors.slice(0, 2));
     await ctx.close();

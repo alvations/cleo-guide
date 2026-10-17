@@ -2231,12 +2231,28 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - D-46 waits on the Atlas stamp budget (platform).
 - R8 is relayed to the owner.
 
+## 2026-10-16 · FE-1 · D-46: 52 px phone header, the Atlas DOM budget
+
+- **52 px phone header (orchestrator item 3, SPEC-v3 §1.7):** `--bar-h:52px` in phone Atlas; every phone offset already follows it.
+  - Measured at 390 on Tokyo, Cleveland and Chinatown: header 0–52, switcher row 52–104, chip row 104–152, peek 788–844, so **75.4 %** clear map.
+  - All four header controls stay 44 px tall.
+- **DOM budget (FE-A, w2 [dom] ≤ 3,000 with Atlas as the default):**
+  - Once the map-area page is chosen, an off-page card goes back into a deferred `noscript` chunk, undecorated, exactly as a never-stamped card waits. Core's peek / stampIds / stamp-all treat it like any other. atlas.js drops it from city.js's `cards` / `byId` and gives it a stub (`C.stubs`), so its pin, counts and lens keep working. The selected, targeted or focused card always stays.
+  - Atlas no longer decorates off-page cards.
+  - Not done: views.js holding lazy stamping in Atlas until that first page. It would stop the list stamping on scroll whenever atlas.js doesn't run (test-beta (e), rule 4), and shedding already returns those cards.
+  - Measured 2.5 s after load: Tokyo 3,484 → **2,856** (1440) and **2,811** (390); New York 2,717 / 2,653; Cleveland 2,305 / 2,197. That leaves room for FE-A's intro (~6 nodes).
+- **Rule change, W9-5 "Any lifts the ring" (`atlas-nav-ms.js`, FE-C's feature, FE-2's file):**
+  - It counted visible DOM cards == total. Atlas now returns off-page cards to the deferred pool, so the check counts visible cards + deferred stubs == total, AND requires that no card is still `hidden` by the ring.
+  - The user outcome (every place back, nothing filtered by the ring) is checked as before.
 ## 2026-10-16 23:42Z · orchestrator: red head
 
 - On 6b2faadd, the eager JS budget fails: cleveland 40.05 against 40.0 KB gzip. It's a merge race: changes that were each green alone add up to +751 B.
 - Platform owns the fix and is restoring headroom. FE-B is folding Cleo.compact into Cleo.chrome. All lanes are told: no eager bytes until green.
 - The designer confirmed the food-cover spec (6b2faadd4, §v2.7a): imagery builds it in motifs.js, FE-A places it.
 - FE-B: OV-00 shell compaction (c84fe342), R8 #5b and #2d (c41f5531).
+- **With platform's core.js Atlas-boot change merged, and the Atlas page at PER = 36** (measured 2.5 s after `#view=atlas`): Tokyo **2,686** (1440) / **2,637** (390) nodes, 36 cards; New York 2,572 / 2,515.
+- **INP, third pass** (perf.js `--runs 3`, Tokyo 4× CPU): desk switch → Atlas **232 ms** (296 / 224 / 232); phone 200 ms; Guidebook 176 / 168 ms. Platform's `atlas-switch-inp.js` (every card built, 1× CPU): **80 ms**, against 2,672 on b61fda89.
+  - Eager JS: city.js exposes only `C.stubs` (the forget step lives in lazy atlas.js), and predict() asks `Cleo.lens.on` instead of a city.js LENS export (an area link now waits for the first map pass). Cleveland's eager JS is 40.00 KB gzip against the 40.0 KB budget: it passes with no headroom.
 
 ## 2026-10-16 23:58Z · orchestrator
 
@@ -2262,3 +2278,31 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - Gallery-layout checks that relied on the Gallery default now name `#view=gallery` (all marked "FE-A D-46"): test-beta pager and (e) paging; test-views default rows; offline-pack's keep/remove steps; the W7/W8 probes.
   - Measured on the flipped head: `w2 --only dom` Tokyo 2,794 (390) / 2,839 (1440), NY 2,654; eager JS 39.21 KB; npm test, validate, beta:check and both FE-A probes are green.
 - **Found while doing this** (reported to the Atlas lane): in phone Atlas with the map unavailable, "Map unavailable right now — every place is listed…" (`.ms-nomap-n`) intercepts taps on the list's "Keep offline" control.
+## 2026-10-17 01:10Z · orchestrator check-in
+
+- Dev head 399119259 is gated green (validate, npm test alone, beta:check, initial DOM 12/12).
+- **Photo runs #71–#74 were red at the gates step, and the cause was hidden.** run-tests' `process.exit(1)` dropped the piped
+  output, so the CI log stopped mid-suite with no FAIL row. 9a453fa7e fixed that by setting exitCode, and run #74 then named
+  two causes:
+  - test-beta: `cities/sanfrancisco.html` is 832 KB raw with wave 5c's photos, over the 820 KB ceiling. Gzip is 132 of 160.
+    Dev is 815 KB without the photos. Routed to platform: cut ≥ 30 KB from the city-page template and add a headroom row.
+    The ceiling is not raised. Imagery holds re-dispatch until the trim lands.
+  - test-dom-budget reported FAIL instead of SKIP on a runner without Playwright, because `w2.js` throws "playwright not
+    found". The orchestrator widened the skip match. It still PASSes with Chromium and SKIPs without it.
+- **QC's S-17 audit of live r7 landed** (43eeee68a): 5,172 runs graded against OV-00, adding 16 High and 7 Med rows.
+  - The ledger now holds 41 High/Med rows that aren't closed: 28 open and 13 claimed.
+  - Open by owner: Atlas FE-1 12, FE-B 11, FE-A 5 (plus 6 claimed), FE-C 2 (plus 1 claimed).
+  - Each lane was sent its row list. QC verifies the claimed rows and posts a dev-head count.
+
+## 2026-10-17 01:20Z · orchestrator
+
+- **D-47:** the Atlas §2.0.3 probe rules are ratified. The Layers popover replaces `.m-base`, and desktop near-me is the
+  list head's control. QA and FE-2 make their checks accept both controls first; FE-1 then flips.
+- **D-48:** PERF-19's photo hold branched on the absence of a user gesture, so it lowered the measured session weight
+  without changing a real session. It is not accepted. Platform replaces it with PERF-19b, a uniform rule (500w at once,
+  960w after 250 ms). Standing rule: no behaviour may branch on human versus scripted input.
+- Gap #6, CSS half: 449 KB on Tokyo against ≤ 250 KB. The designer leads: cleo.css −90 KB, FE-A's fe-a.css −60 KB, and
+  constellation.css loaded only where the art layer renders. Each cut is proven by real-shot parity.
+- Photo budget: imagery measured ~914 B raw per credited photo, with +18–27 KB still to come on the big US guides.
+  Platform's city-template cut target is raised to ≥ 40 KB. Imagery drops the duplicate title on the Commons link
+  (~40 B/photo). Its srcset-trim idea is declined, because width-descriptor srcset ignores `src`.

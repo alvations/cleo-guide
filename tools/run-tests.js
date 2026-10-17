@@ -48,6 +48,8 @@ function run([cmd, args]) {
   SUITES.forEach(([cmd, args], i) => console.log(`  ${res[i].code === 0 ? 'PASS' : 'FAIL'}  ${(cmd + ' ' + args.join(' ')).padEnd(36)} ${res[i].secs.toFixed(1).padStart(6)} s`));
   const failed = res.filter(r => r.code !== 0).length;
   console.log(`  wall ${((Date.now() - t0) / 1000).toFixed(1)} s`);
-  if (failed) { console.log(`>>> FAIL — ${failed} test suite(s) failed`); process.exit(1); }
+  // exitCode, not process.exit(): on a pipe (CI) stdout writes are async, and exit() cut the buffered suite output and this
+  // summary mid-line, so a red run showed no failing suite (imagery, fetch run #70)
+  if (failed) { console.log(`>>> FAIL — ${failed} test suite(s) failed`); process.exitCode = 1; return; }
   console.log('>>> ALL SUITES PASS');
 })();

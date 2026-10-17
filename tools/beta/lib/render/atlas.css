@@ -209,7 +209,7 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   html.atlas-m[data-view=atlas] body>:is(.method,.footer){display:none}
   /* phones: the view switch is FE-A's own 52 px row under the header (the city bar, as in every other view — QC-09,
      DESIGN-SYSTEM §v2.11: four segments visible, one tap per switch), fixed over the map; the chip row sits under it */
-  html.atlas-m[data-view=atlas]{--car-h:150px;--cbar-o:var(--cbar-h,52px);--row-top:calc(var(--bar-h) + var(--cbar-o))}   /* rev 5a: the chip row is 48 px (2 + 44 + 2) from the switcher's foot */
+  html.atlas-m[data-view=atlas]{--bar-h:52px;--car-h:150px;--cbar-o:var(--cbar-h,52px);--row-top:calc(var(--bar-h) + var(--cbar-o))}   /* rev 5a: the chip row is 48 px (2 + 44 + 2) from the switcher's foot */
   html.atlas-m[data-view=atlas] main[data-city]>.cbar{display:block;position:fixed;z-index:31;top:var(--bar-h);left:0;right:0;margin:0;background:var(--paper);border-bottom:1px solid var(--line)}
   html.atlas-m[data-view=atlas] main[data-city]>.cbar>.cbar-in{box-sizing:border-box;height:var(--cbar-o);min-height:0;padding-top:0;padding-bottom:0;display:flex;align-items:center}   /* exactly the offset the chip row and the map use */
   html.atlas-m[data-view=atlas] main>.masthead{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);min-height:0;padding:0;margin:0}
