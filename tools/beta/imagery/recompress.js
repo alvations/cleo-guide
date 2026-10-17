@@ -139,7 +139,7 @@ async function priority720(sharp, rows, dry) {
     const meta = await sharp(small).metadata();
     const { out, q, w, h, scaled } = await encode(sharp, small, P720_KB * KB, meta);
     // a copy that only fits by shrinking is no sharper than the 500: skip it (add the row to NO720 so it is not re-tried)
-    if (scaled) { console.log(`  skip  ${big.file}: a ${P720_KB} KB copy shrinks to ${w} px wide — keeps 500 + 960 (no720)`); if (!dry) row.no720 = true; continue; }
+    if (scaled) { console.log(`  skip  ${big.file}: a ${P720_KB} KB copy shrinks to ${w} px wide — keeps 500 + 960 (no720)`); if (!dry) row.no720 = `a ${P720_KB} KB copy shrinks to ${w} px wide`; continue; }
     const file = big.file.replace(/-960\.jpe?g$/i, `-${w}.jpg`);
     console.log(`  ${dry ? 'would add' : 'added'} ${file} ${Math.round(out.length / KB)} KB (q${q}${scaled ? `, scaled to ${w}×${h}` : ''}, from the committed 960, target ${P720_KB} KB)`);
     n++;
@@ -185,7 +185,7 @@ async function main() {
       const drop720 = why => {
         console.log(`  drop  ${f.file}: ${why} — the card keeps 500 + 960 (no720)`);
         if (!dry) {
-          fs.unlinkSync(p); row.variants = row.variants.filter(v => v.file !== f.file); row.no720 = true;
+          fs.unlinkSync(p); row.variants = row.variants.filter(v => v.file !== f.file); row.no720 = why;
           row.modified = String(row.modified || '').replace(/^resized to 500, \d+ and (\d+) px wide/, 'resized to 500 and $1 px wide');
         }
       };
@@ -199,7 +199,7 @@ async function main() {
         // a lead / first-row 720 copy that only fits by shrinking below 600 px is no sharper than the 500: drop it (NO720)
         console.log(`  drop  ${f.file}: a ${Math.round(target / KB)} KB copy shrinks to ${nw} px wide — the card keeps 500 + 960 (no720)`);
         if (!dry) {
-          fs.unlinkSync(p); row.variants = row.variants.filter(v => v.file !== f.file); row.no720 = true;   // run #100: no re-add, D-40a exempt
+          fs.unlinkSync(p); row.variants = row.variants.filter(v => v.file !== f.file); row.no720 = `a ${Math.round(target / KB)} KB copy shrinks to ${nw} px wide`;   // run #100: the exception + its reason, where test-imagery reads it
           row.modified = String(row.modified || '').replace(/^resized to 500, \d+ and (\d+) px wide/, 'resized to 500 and $1 px wide');
         }
         continue;

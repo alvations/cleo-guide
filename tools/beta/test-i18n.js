@@ -334,6 +334,18 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     }
     chk('saved.js (lists, tabs, cards, shared, empty, forms, confirm, toast) under the pseudo catalogue: 0 English interface strings', [...new Set(leftS)].slice(0, 12), []);
   }
+  // i18n D-41 (audit 2026-10-17): a card Cleo.defer stamps after the swap (cleo:stamped) is swapped too, and the build's
+  // data-l templates that page scripts fill later (pack.js, mapfail.js) are swapped with their placeholders intact
+  {
+    const tok = fs.readFileSync(path.join(BETA, 'cities', 'tokyo.html'), 'utf8').replace('</body>', '<span id="dl" data-l="{size} on this device"></span></body>');
+    const dT = await runtime(tok, 'https://example.test/beta/cities/tokyo.html?lang=ja', { en: i18n.EN, ja: PSEUDO });
+    const w = dT.defaultView, li = dT.createElement('li'); li.className = 'pl';
+    li.innerHTML = '<p class="pl-e"><a class="tier t1"><span>Must see</span></a></p><p class="pl-s"><span class="lbl">Recommended by</span> <span>X</span></p>';
+    (dT.querySelector('ol.pls') || dT.body).appendChild(li);
+    dT.dispatchEvent(new w.CustomEvent('cleo:stamped', { detail: { cards: [li] } }));
+    chk('a card stamped after the swap (cleo:stamped) is swapped; a data-l template keeps its placeholder', [li.querySelector('.tier span').textContent, li.querySelector('.lbl').textContent, dT.getElementById('dl').getAttribute('data-l')],
+      [PSEUDO.strings['tier.1'], PSEUDO.strings['card.recby'], PSEUDO.strings['pack.size']]);
+  }
   // W8-I18N-SEARCH: the site-wide search (client/search.js: the top-bar panel and the landing's results) under the PSEUDO
   // catalogue: every output path has 0 English interface words. Data here is Japanese, so any ASCII word is interface.
   {
@@ -375,6 +387,27 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     }
     await br.close(); srv.close();
     chk('tiles blocked: #view=atlas&t=1 drops the map with no JS error (ja + en, 390 + 1440)', got, ['ja @390 errors=0', 'ja @1440 errors=0', 'en @390 errors=0', 'en @1440 errors=0']);
+    // i18n D-41 (audit 2026-10-17): Atlas, the default view, under the PSEUDO catalogue: its chrome (skip links, bar, head,
+    // count line, pager, toggle, card faces, map controls) has 0 English; data inside it (names, areas, sources) is exempt
+    const srv2 = http.createServer((q, r) => { const u = decodeURIComponent(q.url.split('?')[0]); if (u.endsWith('/assets/i18n/ja.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(Object.assign({}, ja, { strings: PSEUDO.strings }))); }
+      const f = path.join(ROOT, u); fs.readFile(f, (e, b) => { if (e) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': MIME[path.extname(f)] || 'application/octet-stream' }); r.end(b); }); });
+    await new Promise(res => srv2.listen(0, '127.0.0.1', res));
+    const br2 = await pw.chromium.launch(), atl = [];
+    for (const vp of [390, 1440]) {
+      const cx = await br2.newContext({ viewport: { width: vp, height: 900 }, serviceWorkers: 'block' }), pg = await cx.newPage();
+      await pg.route(/arcgisonline|openstreetmap/, r => r.abort());
+      await pg.goto(`http://127.0.0.1:${srv2.address().port}/beta/cities/tokyo.html?lang=ja#view=atlas`); await pg.waitForTimeout(2600);
+      atl.push(...(await pg.evaluate(() => {
+        const out = [], SEL = 'a.ms-skip, .ms-bar, .ms-head, .ms-pager, .ms-toggle, .ms-here, li.pl .ms-bd, li.pl .lbl, li.pl .tier, .leaflet-control-container';
+        const DATA = 'b, .ms-a, .ms-cr, [data-a], [data-f], [data-c], [data-cz], [data-src], .area-chips';   // names, areas, sources, lens chips: data
+        document.querySelectorAll(SEL).forEach(el => { const tw = document.createTreeWalker(el, 4);
+          for (let n; (n = tw.nextNode());) { const pe = n.parentElement; if (pe.closest(DATA)) continue; const t = n.nodeValue.replace(/OpenStreetMap|Esri/g, '').trim(); if (/[A-Za-z]{3,}/.test(t) && !/⟦/.test(t)) out.push(t.slice(0, 50)); }   // ⟦…⟧: swapped; ASCII inside is filled data
+          [el, ...el.querySelectorAll('[aria-label],[title]')].forEach(e => ['aria-label', 'title'].forEach(a => { const v = e.getAttribute(a); if (v && !e.closest(DATA) && !/⟦/.test(v) && /[A-Za-z]{3,}/.test(v.replace(/OpenStreetMap|Esri/g, ''))) out.push('@' + a + ': ' + v.slice(0, 50)); })); });
+        return out; })).map(x => vp + ' ' + x));
+      await cx.close();
+    }
+    await br2.close(); srv2.close();
+    chk('Atlas (#view=atlas, 390 + 1440) under the pseudo catalogue: 0 English in its chrome', [...new Set(atl)].slice(0, 12), []);
   }
   // storage that throws (sandboxes): the runtime still runs and stays in English
   const dT = new JSDOM(fs.readFileSync(path.join(BETA, 'index.html'), 'utf8'), { url: 'https://example.test/beta/index.html', runScripts: 'outside-only' }).window;

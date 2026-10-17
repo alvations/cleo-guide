@@ -19,7 +19,7 @@ R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..')
 J = sys.argv[sys.argv.index('--json') + 1] if '--json' in sys.argv else os.path.join(R, 'design/beta/eval/css-cascade.json')
 DRY = '--dry' in sys.argv
 MIN_M = 1
-SRC = {'cc-00-constellation.css': 'beta/assets/constellation.css', 'cc-01-contract.css': 'design/beta/css/contract.css',
+SRC = {'cc-00-constellation.css': 'design/beta/css/constellation.css', 'cc-01-contract.css': 'design/beta/css/contract.css',
        'cc-03-views.css': 'design/beta/css/views.css', 'cc-05-v2.css': 'design/beta/css/v2.css'}
 COV = sys.argv[sys.argv.index('--coverage') + 1] if '--coverage' in sys.argv else None
 data = json.load(open(J))['decl'] if not COV else {}

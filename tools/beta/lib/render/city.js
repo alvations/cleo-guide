@@ -49,6 +49,7 @@ const ICONS = {
   map: '<path d="M3 6.5l6-2.5 6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/>',
   list: '<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',
   sliders: '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
+  chart: '<path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',   // FE-C (designer, from FE-A): Insights' view-switch glyph, not the Filters one (icons.json)
   close: '<path d="M6 6l12 12M18 6L6 18"/>',
   directions: '<path d="M12 2.8l9.2 9.2-9.2 9.2L2.8 12z"/><path d="M9 14.5v-2.5a1.5 1.5 0 0 1 1.5-1.5h4.5M13 8.5l2 2-2 2"/>',
   share: '<path d="M12 3v12M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12.5V20h14v-7.5"/>',
@@ -201,7 +202,7 @@ function card(r, num, ctx) {
   // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
   // D-49 (DESIGN-SYSTEM §v2.7b): a photo-less card is marked pl--np and changes shape, never order (compact row / quote card)
   const ph = ctx.photo && ctx.photo(r);
-  return `<li class="pl${r.closed ? ' pl--closed' : ''}${ph ? '' : ' pl--np'}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : ''}<p class="pl-x" hidden></p>
+  return `<li class="pl${r.closed ? ' pl--closed' : ''}${ph ? '' : ' pl--np'}${r.id === ctx.leadId ? ' pl-lead' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : ''}<p class="pl-x" hidden></p>
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span>` : `<span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w && !/^https?:\/\/\S+$/.test(r.w) ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${tr(isNote ? 'city.card.note' : 'city.card.look')}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
@@ -337,6 +338,16 @@ ${(ord => { noRepeat(ord); return ord.map((r, j) => card(r, j + 1, cardCtx)).joi
   };
   const orphan = recs.filter(r => !areas.some(a => a.id === r.a));
   const total = areas.length + (orphan.length ? 1 : 0);
+  // D-46 lead card (SPEC-v3 §1.7, §v2.7b): the desktop Atlas list opens on atlas.js's map-priority #1 (tier, then the rank
+  // within its area by named sources, then pin number, then area order: client/atlas.js MP). The build marks that card
+  // .pl-lead, and only when it has a photo; fe-a.css spans it across the list on a cold, unfiltered load
+  cardCtx.leadId = (() => { const aIx = {}; areas.forEach((a, i) => { aIx[a.id] = i; });
+    const tier = r => r.closed ? 4 : +r.t || 3, ns = r => (r.src || []).filter(x => x && x !== 'guide').length, rows = [];
+    areas.forEach(a => orderArea(recs.filter(r => r.a === a.id)).forEach((r, j) => rows.push([r, j + 1])));
+    const ix = {}, by = {}; rows.forEach(x => { const k = x[0].a + '|' + tier(x[0]); (by[k] = by[k] || []).push(x); });
+    Object.values(by).forEach(l => l.sort((x, y) => ns(y[0]) - ns(x[0]) || x[1] - y[1]).forEach((x, i) => { ix[x[0].id] = i; }));
+    const top = rows.sort((x, y) => tier(x[0]) - tier(y[0]) || ix[x[0].id] - ix[y[0].id] || ns(y[0]) - ns(x[0]) || x[1] - y[1] || aIx[x[0].a] - aIx[y[0].a])[0];
+    return top && cardCtx.photo && cardCtx.photo(top[0]) ? top[0].id : null; })();
   const sections = areas.map((a, i) => chapter(a, recs.filter(r => r.a === a.id), i, total));
   if (orphan.length) sections.push(chapter(null, orphan, areas.length, total));
   if (placed !== recs.length) throw new Error(`${row.beta}: rendered ${placed} of ${recs.length} places`);
@@ -375,7 +386,7 @@ ${(ord => { noRepeat(ord); return ord.map((r, j) => card(r, j + 1, cardCtx)).joi
   // default; a legacy pager link (#pg= / #all=1) implies Gallery
   const DV = 'atlas';
   const VIEWS = ['atlas', 'gallery'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
-  const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'sliders'] };   // i18n D-41: views, tray, masthead
+  const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'chart' /* FE-C: was sliders = the Filters glyph */] };   // i18n D-41: views, tray, masthead
   // FE-B QC-09 (DESIGN-SYSTEM §v2.11): a labelled group of four pressed-state toggles, never a <nav> (axe: no group role on
   // nav); four segments at every width, one tap per switch; data-label = the visible tooltip when only the glyph shows
   const switcher = `<div class="views" data-cleo-views role="group" aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}" data-label="${VLBL[v][0]}">${ico(VLBL[v][1])}<span class="l">${VLBL[v][0]}</span></button>`).join('')}</div>`;
@@ -390,7 +401,7 @@ ${(ord => { noRepeat(ord); return ord.map((r, j) => card(r, j + 1, cardCtx)).joi
     `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x);if(x==='atlas')document.documentElement.classList.add(!window.matchMedia||matchMedia('(min-width:1024px)').matches?'atlas-d':'atlas-m')})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
-  const used = new Set(['search', 'grid', 'map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
+  const used = new Set(['search', 'grid', 'map', 'list', 'sliders', 'chart', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
   tiles.forEach(t => t.g && used.add(t.g));
   for (const mm of cardsHtml.matchAll(/data-[gm][lg]="([a-z0-9-]+)"/g)) used.add(mm[1]);
   const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${[...used].filter(k => ICONS[k]).sort().map(k => `<symbol id="i-${k}" viewBox="0 0 24 24">${ICONS[k]}</symbol>`).join('')}</svg>`;
