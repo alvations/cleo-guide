@@ -38,16 +38,16 @@
   },
   "otherLandmarks": {
    "targets": 1151,
-   "skipped": 266,
-   "withArticle": 610
+   "skipped": 299,
+   "withArticle": 578
   },
   "candidates": {
-   "total": 827,
-   "high": 781,
-   "med": 46,
+   "total": 980,
+   "high": 901,
+   "med": 79,
    "low": 0
   },
-  "targetsWithHigh": 413,
+  "targetsWithHigh": 475,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -10880,7 +10880,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Art_Institute_of_Chicago",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Art Institute of Chicago Building, Chicago, Illinois (11004251406).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Art_Institute_of_Chicago_Building,_Chicago,_Illinois_(11004251406).jpg",
+     "depicts": "museum building exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Art Institute of Chicago Building"
+    },
+    {
+     "file": "File:Art Institute of Chicago, Illinois, Estados Unidos, 2012-10-20, DD 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Art_Institute_of_Chicago,_Illinois,_Estados_Unidos,_2012-10-20,_DD_01.jpg",
+     "depicts": "museum exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Art Institute of Chicago"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#auditorium-theatre",
@@ -10961,7 +10978,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Buddy_Guy's_Legends",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -11053,7 +11070,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cloud_Gate",
-   "wikiLead": true,
+   "skip": "modern artwork, no US FoP (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -11068,7 +11085,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Columbus_Park_(Chicago)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Columbus Park Chicago waterfall 1.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Columbus_Park_Chicago_waterfall_1.JPG",
+     "depicts": "park waterfall landscape",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Columbus Park Chicago; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#crown-fountain",
@@ -11080,7 +11107,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Crown_Fountain",
-   "wikiLead": true,
+   "skip": "modern artwork, no US FoP (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -11094,7 +11121,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/DuSable_Black_History_Museum",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:The DuSable Museum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_DuSable_Museum.jpg",
+     "depicts": "museum building exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names DuSable Museum"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#elks-national-veterans-memorial",
@@ -11119,7 +11156,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Empty_Bottle",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -11293,7 +11330,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Institute_for_the_Study_of_Ancient_Cultures",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Oriental Institute Building, University of Chicago, University Avenue and 58th Street, Hyde Park, Chicago, IL (54514298917).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Oriental_Institute_Building,_University_of_Chicago,_University_Avenue_and_58th_Street,_Hyde_Park,_Chicago,_IL_(54514298917).jpg",
+     "depicts": "museum building exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Oriental Institute Building (museum's former name)"
+    },
+    {
+     "file": "File:Oriental Institute of the University of Chicago, Illinois (65898).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Oriental_Institute_of_the_University_of_Chicago,_Illinois_(65898).jpg",
+     "depicts": "institute building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Oriental Institute; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#jane-addams-hull-house-museum",
@@ -11307,7 +11361,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hull_House",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Jane Addams Hull House.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Jane_Addams_Hull_House.JPG",
+     "depicts": "Hull House building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Jane Addams Hull House"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#kingston-mines",
@@ -11321,7 +11385,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kingston_Mines_(blues_club)",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -11359,6 +11423,20 @@
      "confidence": "high",
      "reason": "lead image (run #40)",
      "refused": "refused by visual review (W8, all run #40, R7-g1): Bissell Street rowhouses, not the lakefront park (wrong subject)"
+    },
+    {
+     "file": "File:Lincoln Park South Pond.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lincoln_Park_South_Pond.JPG",
+     "depicts": "South Pond in Lincoln Park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Lincoln Park"
+    },
+    {
+     "file": "File:Chicago Skyline from Lincoln Park - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chicago_Skyline_from_Lincoln_Park_-_panoramio.jpg",
+     "depicts": "park view toward skyline",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Lincoln Park as viewpoint; skyline is subject"
     }
    ]
   },
@@ -11383,6 +11461,20 @@
      "confidence": "high",
      "reason": "lead image (run #40)",
      "refused": "refused by visual review (W8, all run #40): an engraved LINCOLN PARK ZOO plinth with a sculpture (signage rule)"
+    },
+    {
+     "file": "File:View at Lincoln Park Zoo Nature Boardwalk (15384872352).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:View_at_Lincoln_Park_Zoo_Nature_Boardwalk_(15384872352).jpg",
+     "depicts": "zoo grounds, Nature Boardwalk",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Lincoln Park Zoo Nature Boardwalk"
+    },
+    {
+     "file": "File:Nature Boardwalk Lincoln Park.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nature_Boardwalk_Lincoln_Park.JPG",
+     "depicts": "zoo Nature Boardwalk grounds",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Nature Boardwalk (part of the zoo), not the zoo itself"
     }
    ]
   },
@@ -11398,7 +11490,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Logan_Square_Boulevards_Historic_District",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Logan Square Boulevards Historic District 3.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Logan_Square_Boulevards_Historic_District_3.JPG",
+     "depicts": "boulevard street view",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Logan Square Boulevards Historic District"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#maggie-daley-park",
@@ -11439,7 +11541,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Marquette_Park_(Chicago)",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -11453,7 +11555,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Metro_Chicago",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -11480,7 +11582,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Milwaukee_Art_Museum",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Calatrava - Milwaukee Art Museum, Quadracci Pavilion (R).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Calatrava_-_Milwaukee_Art_Museum,_Quadracci_Pavilion_(R).jpg",
+     "depicts": "Quadracci Pavilion exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Milwaukee Art Museum"
+    },
+    {
+     "file": "File:Milwaukee Art Museum exterior.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Milwaukee_Art_Museum_exterior.jpg",
+     "depicts": "museum exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Milwaukee Art Museum"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#milwaukee-public-market",
@@ -11516,6 +11635,20 @@
      "confidence": "high",
      "reason": "lead image (run #40)",
      "refused": "refused by visual review (W8, all run #40): a grey snowy day showing the visitor building, not the trees (gloom; outdated)"
+    },
+    {
+     "file": "File:Morton Arboretum Winter 2005 11.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Morton_Arboretum_Winter_2005_11.JPG",
+     "depicts": "arboretum landscape in winter",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Morton Arboretum"
+    },
+    {
+     "file": "File:Morton Arboretum lake.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Morton_Arboretum_lake.jpg",
+     "depicts": "arboretum lake",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Morton Arboretum; title from category listing in summary"
     }
    ]
   },
@@ -11531,7 +11664,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mount_Baldy_(sand_dune)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mount Baldy at Indiana Dunes National Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mount_Baldy_at_Indiana_Dunes_National_Park.jpg",
+     "depicts": "dune / view from summit",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Mount Baldy"
+    },
+    {
+     "file": "File:Dune grass clumps 1998 10 Mt Baldy (trails up dune).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dune_grass_clumps_1998_10_Mt_Baldy_(trails_up_dune).jpg",
+     "depicts": "the dune with trails",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Mt Baldy"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#museum-of-contemporary-art-chicago",
@@ -11585,7 +11735,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Pullman,_Chicago",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -11610,7 +11760,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/National_Museum_of_Mexican_Art",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:National Museum of Mexican Art entrance.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Mexican_Art_entrance.jpg",
+     "depicts": "museum entrance facade",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names National Museum of Mexican Art"
+    },
+    {
+     "file": "File:Museum of Mexican Art - Pilsen - Chicago - Illinois - USA (32937600856).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_Mexican_Art_-_Pilsen_-_Chicago_-_Illinois_-_USA_(32937600856).jpg",
+     "depicts": "museum (general view; exterior not confirmed)",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names the museum but view unconfirmed"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#navy-pier",
@@ -11637,7 +11804,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_beaches_in_Chicago",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:North Avenue Beach.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:North_Avenue_Beach.JPG",
+     "depicts": "beach overview from Hancock",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names North Avenue Beach"
+    },
+    {
+     "file": "File:20080704 North Avenue Beach.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:20080704_North_Avenue_Beach.JPG",
+     "depicts": "beach at ground level",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names North Avenue Beach"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#obama-presidential-center",
@@ -11677,7 +11861,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Palmisano_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Palmisano Nature Park, Halsted Street and 29th Street, Bridgeport, Chicago, IL (54832674886).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Palmisano_Nature_Park,_Halsted_Street_and_29th_Street,_Bridgeport,_Chicago,_IL_(54832674886).jpg",
+     "depicts": "park landscape, quarry pond",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Palmisano Nature Park"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#peggy-notebaert-nature-museum",
@@ -11689,7 +11883,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Peggy_Notebaert_Nature_Museum",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -11717,7 +11911,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Pullman_National_Historical_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Pullman Chicago Clock Tower.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pullman_Chicago_Clock_Tower.jpg",
+     "depicts": "Pullman clock tower & administration building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Pullman clock tower; file in Pullman NHP category"
+    },
+    {
+     "file": "File:Pullman Clock Tower, Arcade Row - Chicago - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pullman_Clock_Tower,_Arcade_Row_-_Chicago_-_panoramio.jpg",
+     "depicts": "Pullman clock tower and Arcade Row",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Pullman Clock Tower"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#rate-field",
@@ -11742,7 +11953,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ravinia_Festival",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -11979,7 +12190,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/The_Hideout_Inn",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -12007,7 +12218,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/The_Second_City",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -12045,7 +12256,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Union_Stock_Yard_Gate",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Chicago Union Stockyard Gate.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chicago_Union_Stockyard_Gate.jpg",
+     "depicts": "stone stockyard gate, 2008",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Union Stockyard Gate"
+    },
+    {
+     "file": "File:Union Stockyard Gate.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Union_Stockyard_Gate.jpg",
+     "depicts": "stone stockyard gate, 2007",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Union Stockyard Gate"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#united-center",
@@ -12085,7 +12313,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Willis_Tower",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Willis Tower, Chicago.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Willis_Tower,_Chicago.jpg",
+     "depicts": "Willis Tower exterior (Skydeck host building)",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Willis Tower (not the Skydeck itself)"
+    },
+    {
+     "file": "File:Willis Tower, Chicago, Illinois (9181611102).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Willis_Tower,_Chicago,_Illinois_(9181611102).jpg",
+     "depicts": "Willis Tower exterior",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Willis Tower (not the Skydeck itself)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#wrigley-building",
@@ -16523,7 +16768,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Monastery_of_St._Bernard_de_Clairvaux",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Cloisters - Ancient Spanish Monastery - St. Bernard de Clairvaux Church, Florida - 20150110 130722.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cloisters_-_Ancient_Spanish_Monastery_-_St._Bernard_de_Clairvaux_Church,_Florida_-_20150110_130722.jpg",
+     "depicts": "monastery cloisters (outdoor)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Ancient Spanish Monastery"
+    },
+    {
+     "file": "File:Ancient Spanish Monastery of St Bernard De Clairvaux Cloisters.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ancient_Spanish_Monastery_of_St_Bernard_De_Clairvaux_Cloisters.jpg",
+     "depicts": "monastery cloisters",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Ancient Spanish Monastery"
+    }
+   ]
   },
   {
    "key": "landmark:miami#anhinga-trail-royal-palm",
@@ -16534,7 +16796,24 @@
     "Anhinga Trail"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Anhinga Trail boardwalk.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Anhinga_Trail_boardwalk.JPG",
+     "depicts": "trail boardwalk through marsh",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Anhinga Trail"
+    },
+    {
+     "file": "File:Anhingatrail.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Anhingatrail.jpg",
+     "depicts": "Anhinga Trail",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Anhinga Trail"
+    }
+   ]
   },
   {
    "key": "landmark:miami#bay-of-pigs-museum-brigade-2506",
@@ -16546,7 +16825,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Bay_of_Pigs_Museum",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -16611,7 +16890,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Biltmore_Hotel_(Coral_Gables,_Florida)",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -16666,6 +16945,13 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): a closed gate only (wrong subject)"
+    },
+    {
+     "file": "File:Bonnet House Museum & Gardens (Fort Lauderdale, Florida) 003.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bonnet_House_Museum_&_Gardens_(Fort_Lauderdale,_Florida)_003.jpg",
+     "depicts": "main house exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Bonnet House Museum & Gardens"
     }
    ]
   },
@@ -16694,7 +16980,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cauley_Square",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -16762,7 +17048,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Española_Way",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Miami Beach - Espanola Way After Reconstruction.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Miami_Beach_-_Espanola_Way_After_Reconstruction.jpg",
+     "depicts": "Española Way street view",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Espanola Way"
+    }
+   ]
   },
   {
    "key": "landmark:miami#fairchild-tropical-botanic-garden",
@@ -16787,7 +17083,24 @@
     "Flamingo Visitor Center"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Flamingo Visitor Center FL1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Flamingo_Visitor_Center_FL1.jpg",
+     "depicts": "visitor center building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Flamingo Visitor Center; title from category listing in summary"
+    },
+    {
+     "file": "File:Flamingo Marina - Everglades National Park - DSC09387.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Flamingo_Marina_-_Everglades_National_Park_-_DSC09387.jpg",
+     "depicts": "Flamingo marina",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Flamingo Marina; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:miami#freedom-tower",
@@ -16813,7 +17126,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Gold_Coast_Railroad_Museum",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -16825,7 +17138,24 @@
     "Gulf Coast Visitor Center"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gulf Coast Visitor Center of the Everglades^ - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gulf_Coast_Visitor_Center_of_the_Everglades%5E_-_panoramio.jpg",
+     "depicts": "visitor center building, 2008",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Gulf Coast Visitor Center (pre-hurricane building)"
+    },
+    {
+     "file": "File:Gulf Coast Visitor Center - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gulf_Coast_Visitor_Center_-_panoramio.jpg",
+     "depicts": "visitor center",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Gulf Coast Visitor Center; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:miami#haulover-beach",
@@ -16849,6 +17179,20 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): a crowd of bathers is the subject (people rule)"
+    },
+    {
+     "file": "File:Haulover Beach Long View.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Haulover_Beach_Long_View.jpg",
+     "depicts": "long view of the beach",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Haulover Beach"
+    },
+    {
+     "file": "File:Haulover-park-12.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Haulover-park-12.JPG",
+     "depicts": "Baker's Haulover Inlet at south end of park",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Haulover park; subject is the inlet"
     }
    ]
   },
@@ -16863,7 +17207,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hialeah_Park_Race_Track",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hialeah Park Race Track Grandstand Building.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hialeah_Park_Race_Track_Grandstand_Building.jpg",
+     "depicts": "grandstand building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Hialeah Park Race Track"
+    },
+    {
+     "file": "File:Hialeah Park Race Track.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hialeah_Park_Race_Track.jpg",
+     "depicts": "race track",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Hialeah Park Race Track"
+    }
+   ]
   },
   {
    "key": "landmark:miami#hollywood-beach-broadwalk",
@@ -16889,7 +17250,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Holocaust_Memorial_Miami_Beach",
-   "wikiLead": true,
+   "skip": "modern artwork, no US FoP (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -16917,7 +17278,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Institute_of_Contemporary_Art,_Miami",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:ICA Miami 17-11 2839 03.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:ICA_Miami_17-11_2839_03.jpg",
+     "depicts": "museum building exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names ICA Miami"
+    },
+    {
+     "file": "File:The Institute of Contemporary Art - Miami Design District (51010355042).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Institute_of_Contemporary_Art_-_Miami_Design_District_(51010355042).jpg",
+     "depicts": "museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names the Institute of Contemporary Art; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:miami#little-haiti-cultural-complex",
@@ -16943,7 +17321,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Lummus_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Miami Beach - South Beach buildings - Lummus Park and the Victor Hotel.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Miami_Beach_-_South_Beach_buildings_-_Lummus_Park_and_the_Victor_Hotel.jpg",
+     "depicts": "Lummus Park with Ocean Drive buildings behind",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Lummus Park (Miami Beach)"
+    },
+    {
+     "file": "File:Miami Beach, FL - Panorama (2).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Miami_Beach,_FL_-_Panorama_(2).jpg",
+     "depicts": "panorama from Lummus Park across Miami Beach",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Miami Beach only; description says view from Lummus Park"
+    }
+   ]
   },
   {
    "key": "landmark:miami#metromover",
@@ -16969,7 +17364,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Miami_Beach_Architectural_District",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Ocean Drive in the Miami Beach Art Deco Historic District.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ocean_Drive_in_the_Miami_Beach_Art_Deco_Historic_District.jpg",
+     "depicts": "Ocean Drive Art Deco streetscape",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Miami Beach Art Deco Historic District"
+    },
+    {
+     "file": "File:Ocean Drive - Art Deco buildings in Miami (5410502514).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ocean_Drive_-_Art_Deco_buildings_in_Miami_(5410502514).jpg",
+     "depicts": "Art Deco buildings on Ocean Drive",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Ocean Drive Art Deco buildings"
+    }
+   ]
   },
   {
    "key": "landmark:miami#miami-design-district",
@@ -17008,7 +17420,24 @@
     "Nike Missile Site HM-69"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nike Missile Site HM-69, Everglades, Florida.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nike_Missile_Site_HM-69,_Everglades,_Florida.jpg",
+     "depicts": "missile site buildings, 2013",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Nike Missile Site HM-69"
+    },
+    {
+     "file": "File:Nike Missile Site HM-69.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nike_Missile_Site_HM-69.JPG",
+     "depicts": "missile site",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Nike Missile Site HM-69"
+    }
+   ]
   },
   {
    "key": "landmark:miami#nsu-art-museum-fort-lauderdale",
@@ -17035,7 +17464,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Oleta_River_State_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Miami FL Oleta River SP06.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Miami_FL_Oleta_River_SP06.jpg",
+     "depicts": "state park landscape",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Oleta River SP"
+    }
+   ]
   },
   {
    "key": "landmark:miami#opa-locka-city-hall",
@@ -17048,7 +17487,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Opa-locka_City_Hall",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Opa-Locka City Hall.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Opa-Locka_City_Hall.jpg",
+     "depicts": "Moorish-revival city hall exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Opa-Locka City Hall"
+    },
+    {
+     "file": "File:City Hall (Opa-Locka, Florida) 4.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:City_Hall_(Opa-Locka,_Florida)_4.jpg",
+     "depicts": "city hall exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names City Hall (Opa-Locka)"
+    }
+   ]
   },
   {
    "key": "landmark:miami#perez-art-museum-miami",
@@ -17074,7 +17530,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Phillip_and_Patricia_Frost_Museum_of_Science",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Frost Science museum viewed from the MacArthur Causeway.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Frost_Science_museum_viewed_from_the_MacArthur_Causeway.jpg",
+     "depicts": "museum exterior from causeway",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Frost Science museum; title from category listing in summary"
+    },
+    {
+     "file": "File:Frost Science.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Frost_Science.jpg",
+     "depicts": "museum (view not confirmed)",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Frost Science; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:miami#pinecrest-gardens",
@@ -17098,6 +17571,20 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the entrance sign is the subject (signage rule)"
+    },
+    {
+     "file": "File:Swan Lake at Pinecrest Gardens.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Swan_Lake_at_Pinecrest_Gardens.jpg",
+     "depicts": "Swan Lake in the gardens",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Pinecrest Gardens"
+    },
+    {
+     "file": "File:Pinecrest Gardens FL park lake pano01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pinecrest_Gardens_FL_park_lake_pano01.jpg",
+     "depicts": "garden lake panorama",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Pinecrest Gardens; title from category listing in summary"
     }
    ]
   },
@@ -17111,7 +17598,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Rubell_Museum",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -17138,7 +17625,24 @@
     "Shark Valley"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Shark Valley Observation Tower.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Shark_Valley_Observation_Tower.jpg",
+     "depicts": "observation tower",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Shark Valley Observation Tower"
+    },
+    {
+     "file": "File:Shark Valley Tower.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Shark_Valley_Tower.jpg",
+     "depicts": "observation tower (NPS press kit)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Shark Valley Tower"
+    }
+   ]
   },
   {
    "key": "landmark:miami#stranahan-house",
@@ -17164,7 +17668,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ted_Smallwood_Store",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Chokoloskee FL Smallwood Store01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chokoloskee_FL_Smallwood_Store01.jpg",
+     "depicts": "historic store building exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Smallwood Store, Chokoloskee"
+    },
+    {
+     "file": "File:Smallwood store.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Smallwood_store.JPG",
+     "depicts": "historic store / museum",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Smallwood store"
+    }
+   ]
   },
   {
    "key": "landmark:miami#the-barnacle-historic-state-park",
@@ -17233,7 +17754,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Vizcaya_Museum_and_Gardens",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Villa from the gardens - Vizcaya Museum and Gardens - Miami, Florida - DSC08678.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Villa_from_the_gardens_-_Vizcaya_Museum_and_Gardens_-_Miami,_Florida_-_DSC08678.jpg",
+     "depicts": "villa seen from the gardens",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Vizcaya Museum and Gardens"
+    },
+    {
+     "file": "File:Vizcaya from south gardens.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Vizcaya_from_south_gardens.JPG",
+     "depicts": "villa from south gardens",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Vizcaya"
+    }
+   ]
   },
   {
    "key": "landmark:miami#wynwood-walls",
@@ -17246,7 +17784,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Wynwood_Walls",
-   "wikiLead": true,
+   "skip": "modern artwork, no US FoP (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -17270,6 +17808,13 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): giant ZOO MIAMI letters are the subject (signage rule)"
+    },
+    {
+     "file": "File:Zoo Miami, Florida Mission Everglades.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Zoo_Miami,_Florida_Mission_Everglades.jpg",
+     "depicts": "Mission Everglades exhibit area of the zoo",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Zoo Miami; grounds/exhibit area, animals may appear"
     }
    ]
   },
@@ -18524,7 +19069,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kennedy_Space_Center_Visitor_Complex",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Apollo-Saturn V Center 2024a.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Apollo-Saturn_V_Center_2024a.jpg",
+     "depicts": "Apollo/Saturn V Center building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Apollo-Saturn V Center; title from category listing in summary"
+    },
+    {
+     "file": "File:SaturnVcenterEntrance.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:SaturnVcenterEntrance.JPG",
+     "depicts": "center entrance",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Saturn V center; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#avatar-flight-of-passage",
@@ -18666,7 +19228,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Discovery_Cove",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:DisccoveLagoon.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:DisccoveLagoon.jpg",
+     "depicts": "Discovery Cove lagoon",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title abbreviates Discovery Cove; title from category listing in summary"
+    },
+    {
+     "file": "File:DisccoveRiver.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:DisccoveRiver.jpg",
+     "depicts": "Discovery Cove river",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title abbreviates Discovery Cove; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#disneys-grand-floridian-resort-and-spa",
@@ -18679,7 +19258,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Disney's_Grand_Floridian_Resort_&_Spa",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -18703,7 +19282,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Disney's_Wilderness_Lodge",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -18805,7 +19384,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Gatorland",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -18909,7 +19488,24 @@
     "Haunted Mansion"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Haunted Mansion at Magic Kingdom1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Haunted_Mansion_at_Magic_Kingdom1.jpg",
+     "depicts": "Haunted Mansion building exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Haunted Mansion at Magic Kingdom"
+    },
+    {
+     "file": "File:Haunted Mansion (Magic Kingdom) 4.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Haunted_Mansion_(Magic_Kingdom)_4.jpg",
+     "depicts": "Haunted Mansion building exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Haunted Mansion (Magic Kingdom)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#hogwarts-express-kings-cross-station",
@@ -18949,6 +19545,20 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): a street with billboards and traffic; the wheel barely shows (wrong subject)"
+    },
+    {
+     "file": "File:ICON Park green overview.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:ICON_Park_green_overview.jpg",
+     "depicts": "ICON Park overview",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names ICON Park"
+    },
+    {
+     "file": "File:Orlando \"Eye\" Ferris Wheel 05.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Orlando_%22Eye%22_Ferris_Wheel_05.jpg",
+     "depicts": "The Wheel (former Orlando Eye) structure",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names the Orlando Eye, the wheel's former name"
     }
    ]
   },
@@ -18963,7 +19573,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Japan_Pavilion_at_Epcot",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Japanese pagoda in Walt Disney World.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_pagoda_in_Walt_Disney_World.jpg",
+     "depicts": "Japan pavilion pagoda",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names a Japanese pagoda in Walt Disney World, not the pavilion"
+    },
+    {
+     "file": "File:Japanese pagoda at Epcot.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_pagoda_at_Epcot.jpg",
+     "depicts": "Japan pavilion pagoda",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names a Japanese pagoda at Epcot; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#jungle-cruise-magic-kingdom",
@@ -19017,7 +19644,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kennedy_Space_Center_Visitor_Complex",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kennedy Space Center Visitor Complex.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kennedy_Space_Center_Visitor_Complex.jpg",
+     "depicts": "visitor complex",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Kennedy Space Center Visitor Complex"
+    },
+    {
+     "file": "File:KSC Visitors Center rocket garden.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:KSC_Visitors_Center_rocket_garden.JPG",
+     "depicts": "Rocket Garden at visitor complex",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names KSC Visitors Center"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#kilimanjaro-safaris",
@@ -19030,7 +19674,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kilimanjaro_Safaris",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -19042,7 +19686,17 @@
     "Lake Apopka Wildlife Drive"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Lake Apopka North Shore (193037185).jpeg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lake_Apopka_North_Shore_(193037185).jpeg",
+     "depicts": "Lake Apopka North Shore landscape",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Lake Apopka North Shore (where the drive is), not the drive; title from summary"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#lake-eola-park",
@@ -19270,7 +19924,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean_(attraction)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Pirates of the Caribbean Magic Kingdom.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pirates_of_the_Caribbean_Magic_Kingdom.JPG",
+     "depicts": "ride entrance building",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names the ride at Magic Kingdom, but an old caption mentions Hollywood Studios; verify visually"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#remys-ratatouille-adventure",
@@ -19332,6 +19996,20 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the orca-logo lighthouse is the subject (signage / logo rule)"
+    },
+    {
+     "file": "File:SeaWorld Orlando lighthouse.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:SeaWorld_Orlando_lighthouse.jpg",
+     "depicts": "lighthouse at park entrance",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names SeaWorld Orlando"
+    },
+    {
+     "file": "File:SeaWorld Orlando071.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:SeaWorld_Orlando071.jpg",
+     "depicts": "park view, 2006",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names SeaWorld Orlando; content not confirmed"
     }
    ]
   },
@@ -19373,7 +20051,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Space_Mountain_(Magic_Kingdom)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Space Mountain in the Magic Kingdom in 2021.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Space_Mountain_in_the_Magic_Kingdom_in_2021.jpg",
+     "depicts": "Space Mountain exterior structure",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Space Mountain in the Magic Kingdom"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#spaceship-earth",
@@ -19429,7 +20117,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_Epcot_attractions",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Test Track, EPCOT (2024).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Test_Track,_EPCOT_(2024).jpg",
+     "depicts": "Test Track building/track",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Test Track, EPCOT"
+    },
+    {
+     "file": "File:TestTrackEpcot.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:TestTrackEpcot.JPG",
+     "depicts": "Test Track attraction",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Test Track Epcot"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#the-incredible-hulk-coaster",
@@ -19443,7 +20148,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/The_Incredible_Hulk_Coaster",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Incredible Hulk Coaster.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Incredible_Hulk_Coaster.jpg",
+     "depicts": "coaster track structure",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Incredible Hulk Coaster"
+    },
+    {
+     "file": "File:The Incredible Hulk at Islands of Adventure 07.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Incredible_Hulk_at_Islands_of_Adventure_07.jpg",
+     "depicts": "coaster at Islands of Adventure",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names The Incredible Hulk at Islands of Adventure"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#the-simpsons-ride",
@@ -19495,6 +20217,13 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): a black-and-white historic aerial of the old ballpark (outdated)"
+    },
+    {
+     "file": "File:Orlando Tinker Field01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Orlando_Tinker_Field01.jpg",
+     "depicts": "Tinker Field site (pre-plaza ballpark era)",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Tinker Field; predates the history plaza; title from category listing in summary"
     }
    ]
   },
@@ -19559,6 +20288,20 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the WELCOME entrance sign is the subject (signage rule)"
+    },
+    {
+     "file": "File:WDW Typhoon Lagoon Surf Pool.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:WDW_Typhoon_Lagoon_Surf_Pool.JPG",
+     "depicts": "wave pool, main lagoon",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Typhoon Lagoon"
+    },
+    {
+     "file": "File:Typhoon Lagoon, Buene Vista, Downtown Disney - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Typhoon_Lagoon,_Buene_Vista,_Downtown_Disney_-_panoramio.jpg",
+     "depicts": "water park view",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Typhoon Lagoon"
     }
    ]
   },
@@ -19573,7 +20316,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Universal_Volcano_Bay",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Krakatau at Volcano Bay.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Krakatau_at_Volcano_Bay.jpg",
+     "depicts": "Krakatau volcano structure",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Volcano Bay"
+    },
+    {
+     "file": "File:Volcano Bay (36829605694).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Volcano_Bay_(36829605694).jpg",
+     "depicts": "water park view",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Volcano Bay; content not confirmed"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#vehicle-assembly-building",
@@ -19626,7 +20386,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/West_Orange_Trail",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:WOTwb WG arch.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:WOTwb_WG_arch.jpg",
+     "depicts": "trail arch on Plant Street, Winter Garden",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): WOT/WG abbreviations; description says West Orange Trail in Winter Garden"
+    },
+    {
+     "file": "File:WOT Lake Apopka loop.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:WOT_Lake_Apopka_loop.jpg",
+     "depicts": "West Orange Trail, Lake Apopka loop",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): WOT abbreviation; not the Winter Garden station"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#winter-garden-downtown-historic-district",
@@ -20122,7 +20899,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Beth_Sholom_Congregation_(Elkins_Park,_Pennsylvania)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:FLW Beth Sholom exterior.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:FLW_Beth_Sholom_exterior.jpg",
+     "depicts": "synagogue exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Beth Sholom"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#boathouse-row",
@@ -20148,7 +20935,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Brandywine_Museum_of_Art",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Brandywine River Museum - DSC01926.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brandywine_River_Museum_-_DSC01926.JPG",
+     "depicts": "creekside museum exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Brandywine River Museum (former name)"
+    },
+    {
+     "file": "File:Brandywine Creek at Chadds Ford.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brandywine_Creek_at_Chadds_Ford.jpg",
+     "depicts": "creek at the museum, toward US 1 bridge",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): description places it at the museum; title names the creek"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#bucks-county-playhouse",
@@ -20175,7 +20979,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Chanticleer_(garden)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Chanticleer Gardens Main House Springtime 2892px.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chanticleer_Gardens_Main_House_Springtime_2892px.jpg",
+     "depicts": "main house and garden",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Chanticleer Gardens"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#christ-church",
@@ -20215,7 +21029,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Eastern_State_Penitentiary",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Eastern State Penitentiary - Philadelphia - Pennsylvania - 11.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Eastern_State_Penitentiary_-_Philadelphia_-_Pennsylvania_-_11.jpg",
+     "depicts": "penitentiary (exterior-style view per summary; verify)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Eastern State Penitentiary"
+    },
+    {
+     "file": "File:Eastern State Penitentiary, outside.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Eastern_State_Penitentiary,_outside.jpg",
+     "depicts": "penitentiary exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Eastern State Penitentiary, outside; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#elfreths-alley",
@@ -20256,7 +21087,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Fonthill_(Doylestown,_Pennsylvania)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Fonthill Castle.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fonthill_Castle.JPG",
+     "depicts": "Fonthill exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fonthill Castle"
+    },
+    {
+     "file": "File:Fonthill.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fonthill.jpg",
+     "depicts": "Fonthill exterior (Doylestown NRHP ref 72001094)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fonthill; NRHP ref matches Doylestown"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#fort-mifflin",
@@ -20279,6 +21127,20 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): a painting, not a photo of the place (artwork rule)"
+    },
+    {
+     "file": "File:Fort Mifflin 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fort_Mifflin_01.jpg",
+     "depicts": "fort",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fort Mifflin"
+    },
+    {
+     "file": "File:Fort mifflin from airplane arriving at PHL.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fort_mifflin_from_airplane_arriving_at_PHL.jpg",
+     "depicts": "oblique view of the fort from a plane",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fort Mifflin; oblique air photo, not orthophoto"
     }
    ]
   },
@@ -20294,7 +21156,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Glen_Foerd",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Glen Foerd at T.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Glen_Foerd_at_T.JPG",
+     "depicts": "Glen Foerd mansion/estate",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Glen Foerd"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#glencairn-museum",
@@ -20306,7 +21178,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Glencairn_Museum",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -20334,7 +21206,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hopewell_Furnace_National_Historic_Site",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hopewell Furnace National Historic Site - Pennsylvania (5655001279).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hopewell_Furnace_National_Historic_Site_-_Pennsylvania_(5655001279).jpg",
+     "depicts": "historic site",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Hopewell Furnace National Historic Site"
+    },
+    {
+     "file": "File:Hopewell Furnace National Historic Site (e1de2732-f620-4bed-ae6b-42628f853a65).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hopewell_Furnace_National_Historic_Site_(e1de2732-f620-4bed-ae6b-42628f853a65).jpg",
+     "depicts": "site building (NPS photo)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Hopewell Furnace National Historic Site"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#independence-hall",
@@ -20387,7 +21276,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/John_Johnson_House_(Philadelphia,_Pennsylvania)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:WTP B30 Audrey 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:WTP_B30_Audrey_1.jpg",
+     "depicts": "John Johnson House exterior",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): in the John Johnson House category; title does not name it"
+    },
+    {
+     "file": "File:6306 Germantown J Jr.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:6306_Germantown_J_Jr.JPG",
+     "depicts": "house at 6306 Germantown Ave",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title gives the house's address; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#laurel-hill-cemetery",
@@ -20441,7 +21347,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Love_Park",
-   "wikiLead": true,
+   "skip": "modern artwork, no US FoP (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -20586,7 +21492,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Pennypack_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Pennypack Creek.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pennypack_Creek.JPG",
+     "depicts": "Pennypack Creek near Pine Road, Fox Chase",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names the creek; location within the park not confirmed"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#philadelphia-city-hall-and-tower",
@@ -20654,7 +21570,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Philadelphia%27s_Magic_Gardens",
-   "wikiLead": true,
+   "skip": "modern artwork, no US FoP (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -20774,7 +21690,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Valley_Forge_National_Historical_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Washington's Headquarters Valley Forge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Washington's_Headquarters_Valley_Forge.jpg",
+     "depicts": "Washington's Headquarters house in the park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Valley Forge (Washington's Headquarters)"
+    },
+    {
+     "file": "File:Washington's Headquarters (Isaac Potts House), Valley Forge National Historical Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Washington's_Headquarters_(Isaac_Potts_House),_Valley_Forge_National_Historical_Park.jpg",
+     "depicts": "Isaac Potts House in the park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Valley Forge National Historical Park; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#walt-whitmans-tomb-harleigh-cemetery",
@@ -20787,7 +21720,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Harleigh_Cemetery",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -20801,7 +21734,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Washington_Crossing_Historic_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:McConkey's Ferry Inn, Washington Crossing Historic Park - Dec 2024.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:McConkey's_Ferry_Inn,_Washington_Crossing_Historic_Park_-_Dec_2024.jpg",
+     "depicts": "historic inn in the park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Washington Crossing Historic Park"
+    },
+    {
+     "file": "File:Washington Crossing Historic Park visitor center - Dec 2024.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Washington_Crossing_Historic_Park_visitor_center_-_Dec_2024.jpg",
+     "depicts": "park visitor center",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Washington Crossing Historic Park"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#winterthur-museum-garden-and-library",
@@ -23775,7 +24725,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Bernal_Heights,_San_Francisco",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bernal heights park panorama.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bernal_heights_park_panorama.jpg",
+     "depicts": "panorama from Bernal Heights Park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Bernal Heights Park"
+    },
+    {
+     "file": "File:Approaching Bernal Heights, San Francisco, California (26034682802).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Approaching_Bernal_Heights,_San_Francisco,_California_(26034682802).jpg",
+     "depicts": "approach to Bernal Heights hill",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Bernal Heights (neighbourhood/hill), not the park"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#cable-car-museum",
@@ -23857,7 +24824,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/City_Lights_Bookstore",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -23870,7 +24837,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Clarion_Alley",
-   "wikiLead": true,
+   "skip": "modern artwork, no US FoP (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -23886,7 +24853,24 @@
     "the Filbert Step"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Telegraph Hill in San Francisco - Coit Tower.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Telegraph_Hill_in_San_Francisco_-_Coit_Tower.jpg",
+     "depicts": "Coit Tower on Telegraph Hill",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Coit Tower"
+    },
+    {
+     "file": "File:Coit Tower at the Top of Telegraph Hill in San Francisco.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Coit_Tower_at_the_Top_of_Telegraph_Hill_in_San_Francisco.jpg",
+     "depicts": "Coit Tower atop Telegraph Hill",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Coit Tower"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#conservatory-of-flowers",
@@ -23926,7 +24910,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Crissy_Field",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Crissy Field beach and Golden Gate Bridge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Crissy_Field_beach_and_Golden_Gate_Bridge.jpg",
+     "depicts": "beach panorama with bridge",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Crissy Field"
+    },
+    {
+     "file": "File:Crissy Field.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Crissy_Field.JPG",
+     "depicts": "Crissy Field with palms and bridge tower",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Crissy Field"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#curiodyssey-at-coyote-point",
@@ -23939,7 +24940,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/CuriOdyssey",
-   "wikiLead": true,
+   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -23954,7 +24955,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/De_Young_Museum",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:DeYoung Museum.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:DeYoung_Museum.JPG",
+     "depicts": "museum exterior (small, 2007)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names DeYoung Museum"
+    },
+    {
+     "file": "File:De Young exterior (43277898814).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:De_Young_exterior_(43277898814).jpg",
+     "depicts": "museum exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names De Young exterior; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#devils-slide-trail",
@@ -24005,6 +25023,20 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): the logo lettering at the door is the subject (signage rule)"
+    },
+    {
+     "file": "File:Exploratorium Pier 15 (San Francisco).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Exploratorium_Pier_15_(San_Francisco).JPG",
+     "depicts": "Pier 15 museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Exploratorium Pier 15"
+    },
+    {
+     "file": "File:San Francisco Exploratorium - South Side.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:San_Francisco_Exploratorium_-_South_Side.jpg",
+     "depicts": "museum entrance, south side",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names San Francisco Exploratorium"
     }
    ]
   },
@@ -24018,7 +25050,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Fairmont_San_Francisco",
-   "wikiLead": true,
+   "skip": "venue (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -24059,7 +25091,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Fisherman%27s_Wharf,_San_Francisco",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:San Francisco Fishermans Wharf.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:San_Francisco_Fishermans_Wharf.jpg",
+     "depicts": "wharf view",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fishermans Wharf"
+    },
+    {
+     "file": "File:Fisherman's Wharf San Francisco January 2013 002.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fisherman's_Wharf_San_Francisco_January_2013_002.jpg",
+     "depicts": "wharf view, 2013",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fisherman's Wharf"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#fort-mason",
@@ -24162,6 +25211,13 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): a Muni entrance under a grey sky (gloom / weak subject)"
+    },
+    {
+     "file": "File:Harvey-milk-memorial-2013-g.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Harvey-milk-memorial-2013-g.jpg",
+     "depicts": "Harvey Milk Plaza at Castro/Market",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): description says Harvey Milk Plaza; title says memorial"
     }
    ]
   },
@@ -24187,7 +25243,24 @@
     "Japanese Tea Garden"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Japanese Tea Garden San Francisco December 2016 006.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Tea_Garden_San_Francisco_December_2016_006.jpg",
+     "depicts": "tea garden view",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Japanese Tea Garden San Francisco"
+    },
+    {
+     "file": "File:Moon bridge in Japanese Tea Garden (San Francisco) (TK1).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Moon_bridge_in_Japanese_Tea_Garden_(San_Francisco)_(TK1).JPG",
+     "depicts": "moon (drum) bridge in the garden",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Japanese Tea Garden (San Francisco)"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#japantown-peace-pagoda",
@@ -24229,6 +25302,20 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): a black-and-white photo of the demolished baths (outdated)"
+    },
+    {
+     "file": "File:Sutro Baths Ruins.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sutro_Baths_Ruins.jpg",
+     "depicts": "Sutro Baths ruins",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sutro Baths Ruins"
+    },
+    {
+     "file": "File:San Francisco (CA, USA), Sutro Baths -- 2022 -- 3045.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:San_Francisco_(CA,_USA),_Sutro_Baths_--_2022_--_3045.jpg",
+     "depicts": "Sutro Baths ruins, 2022",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sutro Baths"
     }
    ]
   },
@@ -24244,7 +25331,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Legion_of_Honor_(museum)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:California Palace of the Legion of Honor, 01.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:California_Palace_of_the_Legion_of_Honor,_01.JPG",
+     "depicts": "museum entry exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names California Palace of the Legion of Honor"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#lombard-street-crookedest-street",
@@ -24258,7 +25355,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Lombard_Street_(San_Francisco)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Lombard street in San Francisco Americas crookedest street.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lombard_street_in_San_Francisco_Americas_crookedest_street.jpg",
+     "depicts": "crooked block of Lombard Street",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Lombard street, crookedest street"
+    },
+    {
+     "file": "File:Full view of crooked Lombard Street, SF (Feb 2006).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Full_view_of_crooked_Lombard_Street,_SF_(Feb_2006).jpg",
+     "depicts": "full view of crooked block",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names crooked Lombard Street"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#mission-dolores",
@@ -24273,7 +25387,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mission_San_Francisco_de_As%C3%ADs",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:San Francisco de Asis--Mission Dolores.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:San_Francisco_de_Asis--Mission_Dolores.JPG",
+     "depicts": "mission and basilica exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Mission Dolores"
+    },
+    {
+     "file": "File:Mission Dolores-45.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mission_Dolores-45.jpg",
+     "depicts": "mission exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Mission Dolores"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#musee-mecanique",
@@ -24286,7 +25417,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mus%C3%A9e_M%C3%A9canique",
-   "wikiLead": true,
+   "skip": "only details/interiors (wave 5 search) — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -24312,7 +25443,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/AIDS_Memorial_Grove — National Memorial (1996)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Golden Gate Park - National AIDS Memorial Grove - March 2018 (2110).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Park_-_National_AIDS_Memorial_Grove_-_March_2018_(2110).jpg",
+     "depicts": "the grove",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names National AIDS Memorial Grove"
+    },
+    {
+     "file": "File:National AIDS Memorial Grove.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_AIDS_Memorial_Grove.jpg",
+     "depicts": "the grove",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names National AIDS Memorial Grove"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#ocean-beach",
@@ -24326,7 +25474,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ocean_Beach,_San_Francisco",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Ocean Beach San Francisco aerial view.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ocean_Beach_San_Francisco_aerial_view.jpg",
+     "depicts": "air view of the beach",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Ocean Beach San Francisco; oblique air view"
+    },
+    {
+     "file": "File:Ocean Beach San Francisco in winter.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ocean_Beach_San_Francisco_in_winter.jpg",
+     "depicts": "beach in winter",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Ocean Beach San Francisco; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#oracle-park",
@@ -24339,7 +25504,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Oracle_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Oracle Park 4 2023-11-14.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Oracle_Park_4_2023-11-14.jpg",
+     "depicts": "ballpark (wide view)",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Oracle Park; content not confirmed; title from category listing in summary"
+    },
+    {
+     "file": "File:Oracle Park 1 2023-11-14.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Oracle_Park_1_2023-11-14.jpg",
+     "depicts": "ballpark",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Oracle Park; content not confirmed; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#painted-ladies-and-alamo-square",
@@ -24413,7 +25595,17 @@
     "Pier 7"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Pier 7, the Embarcadero, San Francisco.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pier_7,_the_Embarcadero,_San_Francisco.jpg",
+     "depicts": "pier looking toward Yerba Buena Island",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Pier 7"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#presidio-tunnel-tops",
@@ -24424,7 +25616,24 @@
     "Presidio Tunnel Tops"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Presidio Tunnel Tops aerial.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Presidio_Tunnel_Tops_aerial.jpg",
+     "depicts": "oblique air view of the park",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Presidio Tunnel Tops; oblique air photo, not orthophoto"
+    },
+    {
+     "file": "File:Presidio of San Francisco (2023)-L1003404.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Presidio_of_San_Francisco_(2023)-L1003404.jpg",
+     "depicts": "Tunnel Tops toward the bay",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names the Presidio only; description says Tunnel Tops"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#salesforce-park",
@@ -24464,7 +25673,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/San_Francisco_Zoo",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Elinor Friend Playground - San Francisco Zoo - San Francisco, CA - DSC03500.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Elinor_Friend_Playground_-_San_Francisco_Zoo_-_San_Francisco,_CA_-_DSC03500.jpg",
+     "depicts": "playground on the zoo grounds",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names San Francisco Zoo; shows a playground area, not the whole zoo"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#sf-maritime-nhp-and-aquatic-park",
@@ -24480,7 +25699,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/San_Francisco_Maritime_National_Historical_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:San Francisco Maritime National Historical Park, San Francisco, California (206316065).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:San_Francisco_Maritime_National_Historical_Park,_San_Francisco,_California_(206316065).jpg",
+     "depicts": "maritime park (view not confirmed)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names San Francisco Maritime National Historical Park"
+    },
+    {
+     "file": "File:Hyde Street Pier, San Francisco Maritime National Historical Park, San Francisco, California (25844138248).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hyde_Street_Pier,_San_Francisco_Maritime_National_Historical_Park,_San_Francisco,_California_(25844138248).jpg",
+     "depicts": "Hyde Street Pier",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names SF Maritime NHP; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#sfmoma",
@@ -24506,6 +25742,7 @@
     "SFO Louis A. Turpen Aviation Museum"
    ],
    "pilot": false,
+   "skip": "only details/interiors (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -24533,7 +25770,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Sutro_Heights_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:SutroHeightsPark.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:SutroHeightsPark.jpg",
+     "depicts": "park view, 2006",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sutro Heights Park"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#sweeney-ridge-san-francisco-bay-discovery-site",
@@ -24556,6 +25803,13 @@
      "confidence": "high",
      "reason": "lead image (run #48)",
      "refused": "refused by visual review (W8, all run #48, R7-g1): a monument plaque stone is the subject (signage rule)"
+    },
+    {
+     "file": "File:Sweeney Ridge view of San Andreas Lake (Reservoir). - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sweeney_Ridge_view_of_San_Andreas_Lake_(Reservoir)._-_panoramio.jpg",
+     "depicts": "ridge landscape toward San Andreas Lake",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Sweeney Ridge"
     }
    ]
   },
@@ -24611,7 +25865,24 @@
     "Redwood Park"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:TransAmerica Pyramid.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:TransAmerica_Pyramid.jpg",
+     "depicts": "Pyramid from its base",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Transamerica Pyramid"
+    },
+    {
+     "file": "File:Transamerica Pyramid from Columbus St. 1.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Transamerica_Pyramid_from_Columbus_St._1.JPG",
+     "depicts": "Pyramid from Columbus St",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Transamerica Pyramid"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#twin-peaks",
@@ -24626,7 +25897,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Twin_Peaks_(San_Francisco)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Twin Peaks-San Francisco.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Twin_Peaks-San_Francisco.jpg",
+     "depicts": "Twin Peaks",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Twin Peaks"
+    },
+    {
+     "file": "File:Market Street view from Twin Peaks - San Francisco, CA - DSC03933.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Market_Street_view_from_Twin_Peaks_-_San_Francisco,_CA_-_DSC03933.jpg",
+     "depicts": "view from Twin Peaks down Market St",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): view from the place, not of it"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#union-square",
