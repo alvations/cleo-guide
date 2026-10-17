@@ -38,8 +38,8 @@
   },
   "otherLandmarks": {
    "targets": 1371,
-   "skipped": 205,
-   "withArticle": 798
+   "skipped": 201,
+   "withArticle": 801
   },
   "candidates": {
    "total": 1770,
@@ -15825,7 +15825,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cincinnati_Music_Hall",
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -15958,7 +15958,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Findlay_Market",
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -32839,7 +32839,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/San_Francisco_cable_car_system",
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -37062,7 +37062,6 @@
     "John F. Kennedy Center for the Performing Arts"
    ],
    "pilot": false,
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
