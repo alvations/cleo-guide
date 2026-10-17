@@ -13,6 +13,13 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- QC S-17 rows (live r7): OV-107..110, 121, 122 claimed (dev S-17 in budget; T1 at rest 11.8 % = header + FE-A city bar);
+  OV-123 + FE-B half of OV-106/115/116/117 in ffb7881f8 (§3a: scoped header search name, city field is the search, "Search
+  all guides for q" into FE-A's [data-cleo-all-slot] on cleo:city-search, tab bar drops Search + Your list, landing header
+  search hidden, opaque shell bar). Open on FE-A: header search not drawn >= 1024 on city pages, the slot, the phone row.
+- Desktop Atlas switch: 113x36 box, its ::after does not extend the hit band (feb-switcher now hit-tests a 44 px band) —
+  FE-1's (atlas.css a6073c1f), sent.
+- Eager JS on the merged head 39.97 / 40 KB (others' bytes): no eager bytes from FE-B until platform's headroom fix.
 - One compact state site-wide: compact.js is gone; the shell tab bar and the Guidebook Contents strip style on FE-A's
   html.ov-c (Cleo.chrome, core.js) with :focus-within to return. Shell pages 48/48 within §v2.12 budgets.
 - R8 gap #7 (FE-B half): fe-b.css line-heights on --lh tokens; the 16 px titles (.card-t, editorial rail .t, .theme-t,
