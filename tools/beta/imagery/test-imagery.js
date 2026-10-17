@@ -300,6 +300,7 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   ok(!big.length, `§v2.7a: every city food ground is a pair of data-URI url()s under 1 KB together, # escaped${big.length ? ': ' + big.join(', ') : ''}`);
   const g = m.foodGlyphs(['bowl', 'bowl', 'bowl', 'dumpling', 'dumpling', 'noodles', 'noodles', 'forkknife', 'forkknife']);
   ok(g.every((x, i) => i === 0 || x !== g[i - 1]) && g[0] === 'bowl' && g[3] === 'dumpling' && Object.values(m.FOOD_GLYPH_LADDER).flat().every(x => /^[a-z]+$/.test(x)), `§v2.7a: adjacent food covers never repeat a glyph (${g.join(' ')})`);
+  ok(!Object.values(m.FOOD_GLYPH_LADDER).flat().includes('lantern'), '§v2.7a (Designer): lantern is izakaya-only, never a fallback rung (it means "temple" on Japan sight covers)');
   ok(imagery.foodStyle({ imagery: { food: m.foodGround(m.RECIPES.newyork()) } }).startsWith('--food-ground:url("data:image/svg+xml,') && imagery.foodStyle({}) === '', '§v2.7a: foodStyle gives the --food-ground / --food-ground-dark pair for a city row, empty without one');
 }
 { // R7 QA-78: an author is never a URL or HTML (a Flickr profile link credits the account it shows)

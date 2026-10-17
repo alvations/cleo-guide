@@ -619,7 +619,7 @@ S-17 is `tools/beta/qa/qc-overlay.js` (9a2a10c8). It measures the ledger's §1�
 
 ## S-17 audit · live r7 (`beta-deploy-r7` @ b54b3745) · graded against OV-00 (bb2af873)
 
-`qc-overlay.js --root <r7 worktree>` covered every page × view × 6 viewports × light/dark: 5,172 runs, 0 errors, 128 failing groups. Outputs are in `design/beta/eval/qc/overlay/r7-b54b3745/` (`summary.md`, `groups.json`, `s17.json.gz`, 128 shots of the worst run per group). Ledger rows OV-39 to OV-61 come from `qc-overlay-ledger.js --label r7-b54b3745 --skip controlCollision`: 23 rows, 16 High and 7 Med.
+`qc-overlay.js --root <r7 worktree>` covered every page × view × 6 viewports × light/dark: 5,172 runs, 0 errors, 128 failing groups. Outputs are in `design/beta/eval/qc/overlay/r7-b54b3745/` (`summary.md`, `groups.json`, `s17.json.gz`, 128 shots of the worst run per group). Ledger rows OV-41 to OV-63 come from `qc-overlay-ledger.js --label r7-b54b3745 --skip controlCollision`: 23 rows, 16 High and 7 Med.
 
 | Metric (r7, all pages) | median / p90 / max | Budget (P1 phone) |
 |---|---|---|
@@ -637,5 +637,5 @@ Notes on the method:
   - nothing hides during a pan (all 168 Atlas runs per viewport);
   - the map credit stays 170 px wide on phones and 458 px on desktop after a pan;
   - the widest label is up to 84 % of the map width.
-- **Not seen on r7: QA-80 / OV-38** (the landscape switch under the header) is a dev-only regression. S-17's new `controlCovered` check reproduces it on dev.
+- **Not seen on r7: QA-80 / OV-40** (the landscape switch under the header) is a dev-only regression. S-17's new `controlCovered` check reproduces it on dev.
 - `npm test` under the audit's CPU load failed twice in test-fe-a, on different assertions each time (search, view switch). Alone on a quiet machine it passes 133/133. That's load-sensitive timing, not a regression.

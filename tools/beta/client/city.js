@@ -30,7 +30,7 @@
   // hooks for foryou.js / day.js: rank(card) → sort key (lower first) and why(card) → 'First because' text; lens[k](n) → html;
   // after[] run once per apply (map overlays); dist {id: km} while Near me is on (never stored)
   const nameOf = c => { const a = $('.pl-n a', c); if (!a) return ''; const x = a.cloneNode(true); if (c.querySelector('.pl-vert')) $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };
-  const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, LENS /* atlas.js: the map's first view is predicted only with no lens on (D-46) */, lens: {}, after: [], rank: null, why: null, dist: null };
+  const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, lens: {}, after: [], rank: null, why: null, dist: null };
   $$('[data-cleo-rail],[data-cleo-toolbar],[data-cleo-search],[data-cleo-mappill]').forEach(el => { el.hidden = false; });
   // QA-69: the floating "Show map" pill stays visible at load and at rest — the first screen's way to the map. (The W8
   // step-aside hid it at load whenever a card title sat under it; B-08 passes under the ratified .mappill exemption.)
@@ -355,6 +355,7 @@
   const live = () => !!map && !!map._loaded && !!map.getContainer().parentNode;   // R6 QA High: never touch a removed map (_leaflet_pos)
   const fly = ll => { if (!live() || !map.getSize().x) return; auto = Date.now(); try { if (still()) map.setView(ll, Math.max(map.getZoom(), 15), { animate: false }); else map.flyTo(ll, Math.max(map.getZoom(), 15), { duration: 0.6 }); } catch (e) {} };
   C.map = () => (live() ? map : null); C.markers = markers; C.loadMap = cb => loadMap(cb); C.pinEl = pinEl; C.hot = hot;
+  C.stubs = stub;   // D-46 DOM budget: atlas.js gives a card it returns to the deferred pool a stub, as a never-stamped card has
   C.stub = id => stub[id]; C.pin = c => pin(c); C.fly = ll => fly(ll); C.still = () => still(); C.auto = () => { auto = Date.now(); }; C.autoAt = () => auto; C.num = num; C.sections = sections;
   const el0 = () => d.getElementById('cleo-map') || main;
   // phones: the chip row (top) and the card carousel (bottom) float over the full-bleed map, so a fit that ignores them
