@@ -51,7 +51,7 @@ never weakens a gate.
 ## In flight
 
 **Owner directive: overlay audit.** `docs/BETA-OVERLAY-LEDGER.md` is QC's; it has a Severity column, which QA's B-25 gate reads.
-- The r7 audit is done: rows OV-41 to OV-63 (16 High, 7 Med); collisions held back (probe fix).
+- The r7 audit is done: rows OV-101 to OV-123 (16 High, 7 Med); collisions held back (probe fix).
 - The dev audit is running: label `dev-339f202f`, worktree `scratchpad/qc-dev-339f202f`, log `scratchpad/ov-dev.log`, ~70 min. When it finishes, run `node tools/beta/qa/qc-overlay-ledger.js --label dev-339f202f --write`; it updates the same rows and marks the ones not reproduced. Then re-run r7 in full with the corrected collision probe, and write its collision rows with `--label r7-…-v2`.
 - After each audit, send the orchestrator the row counts by owner.
 - One heavy run at a time; `npm test` under audit load is flaky in test-fe-a. Re-run it alone to confirm.

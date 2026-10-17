@@ -44,7 +44,7 @@ const clean = t => String(t).replace(/\|/g, '/');   // QA's B-25 splits rows on 
 let L = fs.readFileSync(LEDGER, 'utf8').split('\n');
 const keyRow = k => L.findIndex(l => l.includes('<!--k:' + k + '-->'));
 const H = L.find(l => /^\| Id \|/.test(l)).split(' | '), SI = H.findIndex(h => /Severity/.test(h)), MI = H.findIndex(h => /Measured/.test(h));
-let next = Math.max(0, ...L.map(l => (/^\| OV-(\d+)/.exec(l) || [0, 0])[1]).map(Number)) + 1;
+let next = Math.max(99, ...L.map(l => (/^\| OV-(\d+)/.exec(l) || [0, 0])[1]).map(Number).filter(x => x >= 100)) + 1;   // S-17 rows: OV-100 and up
 const measured = l => l.slice().sort((a, b) => ORDER.indexOf(a.vp) - ORDER.indexOf(b.vp))
   .map(g => `${VK[g.vp]} ${clean(g.worst).slice(0, 60)} (budget ${g.budget}; ${g.runs}/${g.of} runs; worst ${g.worstPage.replace(/\.html$/, '')} · ${g.worstTheme}${g.shot ? '; `' + g.shot.replace(/^design\/beta\/eval\/qc\/overlay\//, '') + '`' : ''})`).join('<br>');
 const added = [], updated = [], counts = {};
@@ -56,7 +56,7 @@ for (const [k, l] of Object.entries(by)) {
   const sv = rowSev(l); counts[owner] = counts[owner] || { High: 0, Med: 0, Low: 0 }; counts[owner][sv]++;
   const i = keyRow(k);
   if (i >= 0) { const c = L[i].split(' | '); c[MI] = c[MI] + '<br>' + m; c[SI] = rowSev(l); L[i] = c.join(' | '); updated.push(k); }   // the latest audit sets the severity
-  else { const id = 'OV-' + String(next++).padStart(2, '0');
+  else { const id = 'OV-' + (next++);
     const last = L.reduce((x, l, j) => (/^\| OV-\d+/.test(l) ? j : x), -1);   // keep the table whole: insert after its last row
     L.splice(last + 1, 0, `| ${id} | ${where} | ${WHAT[kind] || kind} <!--k:${k}--> | ${m} | ${owner} | ${rowSev(l)} | open |`); added.push(id + ' ' + k); }
 }

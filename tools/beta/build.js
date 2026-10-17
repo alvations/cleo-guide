@@ -57,6 +57,7 @@ for (const r of cityRows) {
   r.recs = normalise(r);
   if (r.recs.length !== r.counts.P + r.counts.F) errors.push(`${r.live}: model ${r.recs.length} != live ${r.counts.P + r.counts.F}`);
   r.sources = pageSources(r, r.recs);             // stamps rec.src (publisher ids) — M1-10
+  r.sources.list.forEach(s => { if (s && s.name) s.name = publicName(s.name); });   // FE-B R8 gap #2d: display names (registry stays verbatim)
   r.recog = recognition.pageRecognition(r, r.recs, r.sources.list, ROOT);   // W9-1/W9-9: badges + local favourites from source keys only
   r.stats = stats.pageStats(r, r.recs);           // every number the page prints — M1-20
   // D-39 (QA-65): a record whose own prose quotes a price or rating carries `pq` (the research date) on the record
