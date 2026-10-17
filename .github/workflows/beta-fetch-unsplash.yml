@@ -51,6 +51,9 @@ jobs:
     timeout-minutes: 45
     env:
       UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+      # Openverse registered-app credentials (optional; higher rate limits). Read from the environment only.
+      OPENVERSE_CLIENT_ID: ${{ secrets.OPENVERSE_CLIENT_ID }}
+      OPENVERSE_CLIENT_SECRET: ${{ secrets.OPENVERSE_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -87,6 +90,29 @@ jobs:
             echo "::warning::tools/beta/imagery/fetch-commons.js is not on this branch; skipping Commons."
           fi
 
+      - name: Commons discovery — geosearch near the verified pin + Wikidata P18 (credits nothing)
+        # Picks named by title, description or category (food also needs an eatery marker, D-49) go to
+        # beta/assets/img/commons-discovered.json and numbered contact sheets for the orchestrator's review;
+        # approved picks become vetted candidates that a later fetch-commons run stores with full TASL.
+        run: |
+          if [ -f tools/beta/imagery/discover-commons.js ]; then
+            node tools/beta/imagery/discover-commons.js --budget 300 || { rc=$?; [ $rc -eq 3 ] && echo "::warning::Commons/Wikidata host blocked; skipped" || exit $rc; }
+          else
+            echo "::warning::tools/beta/imagery/discover-commons.js is not on this branch; skipping discovery."
+          fi
+
+      - name: Openverse — credit reviewed picks, then discover new candidates (D-49/D-51)
+        # --credit stores ONLY picks the orchestrator marked ok in tools/beta/imagery/manifest/openverse-review.tsv.
+        # Discovery writes candidates + contact sheets (design/beta/imagery-runs/openverse/) and credits nothing.
+        # Flickr is reached through Openverse; no Flickr API key is used (D-51). A 429 stops cleanly; the next run resumes.
+        run: |
+          if [ -f tools/beta/imagery/fetch-openverse.js ]; then
+            node tools/beta/imagery/fetch-openverse.js --credit
+            node tools/beta/imagery/fetch-openverse.js --budget 100 || { rc=$?; [ $rc -eq 3 ] && echo "::warning::Openverse host blocked; skipped" || exit $rc; }
+          else
+            echo "::warning::tools/beta/imagery/fetch-openverse.js is not on this branch; skipping Openverse."
+          fi
+
       - name: Fetch Unsplash photos (disabled, D-51)
         # D-51: the Unsplash API Guidelines require hotlinking; storing copies of API-fetched photos in this repo is a
         # breach of the API Terms. Disabled until fetch-unsplash.js is reworked. Unsplash photos come only from a
@@ -117,7 +143,7 @@ jobs:
         # Lanes rebuild and gate their own source changes before they push (CLAUDE.md, beta:check).
         id: changed
         run: |
-          if [ -n "$(git status --porcelain -- beta/assets/img)" ]; then echo "any=1" >> "$GITHUB_OUTPUT"; else echo "any=0" >> "$GITHUB_OUTPUT"; echo "No new photos or credits; skipping the rebuild."; fi
+          if [ -n "$(git status --porcelain -- beta/assets/img design/beta/imagery-runs/openverse design/beta/imagery-runs/commons-discovered)" ]; then echo "any=1" >> "$GITHUB_OUTPUT"; else echo "any=0" >> "$GITHUB_OUTPUT"; echo "No new photos or credits; skipping the rebuild."; fi
 
       - name: Rebuild the beta and run the gates
         if: steps.changed.outputs.any == '1'
@@ -134,6 +160,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add beta
+          [ -d design/beta/imagery-runs/openverse ] && git add design/beta/imagery-runs/openverse
+          [ -d design/beta/imagery-runs/commons-discovered ] && git add design/beta/imagery-runs/commons-discovered
           if git diff --cached --quiet; then
             echo "No new photos."
             exit 0

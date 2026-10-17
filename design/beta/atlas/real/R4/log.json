@@ -90,15 +90,15 @@
    "file": "tokyo-390-light-3-pin.jpg",
    "caption": "tokyo 390 light · pin selected (carousel card)",
    "meta": {
-    "x": 195,
-    "y": 457,
-    "label": "Rengatei"
+    "x": 219,
+    "y": 468,
+    "label": "Kabuki-za"
    }
   },
   {
    "file": "tokyo-390-light-4-pan.jpg",
    "caption": "tokyo 390 light · the list after a pan (Search this area)",
-   "meta": "46 places here · Top ranked"
+   "meta": "36 places here · Top ranked"
   },
   {
    "file": "tokyo-390-light-5-list.jpg",
@@ -107,7 +107,7 @@
   {
    "file": "tokyo-390-light-6-detail.jpg",
    "caption": "tokyo 390 light · #p= detail",
-   "meta": "tokyo-station-marunouchi-building"
+   "meta": "sezanne"
   },
   {
    "file": "tokyo-390-light-7-back.jpg",
@@ -129,15 +129,15 @@
    "file": "tokyo-390-dark-3-pin.jpg",
    "caption": "tokyo 390 dark · pin selected (carousel card)",
    "meta": {
-    "x": 195,
-    "y": 457,
-    "label": "Rengatei"
+    "x": 219,
+    "y": 468,
+    "label": "Kabuki-za"
    }
   },
   {
    "file": "tokyo-390-dark-4-pan.jpg",
    "caption": "tokyo 390 dark · the list after a pan (Search this area)",
-   "meta": "46 places here · Top ranked"
+   "meta": "36 places here · Top ranked"
   },
   {
    "file": "tokyo-390-dark-5-list.jpg",
@@ -146,7 +146,7 @@
   {
    "file": "tokyo-390-dark-6-detail.jpg",
    "caption": "tokyo 390 dark · #p= detail",
-   "meta": "tokyo-station-marunouchi-building"
+   "meta": "sezanne"
   },
   {
    "file": "tokyo-390-dark-7-back.jpg",
@@ -155,6 +155,88 @@
   {
    "file": "tokyo-390-light-8-tiles-blocked.jpg",
    "caption": "tokyo 390 light · tiles blocked"
+  },
+  {
+   "file": "tokyo-844-light-1-default.jpg",
+   "caption": "tokyo 844 light · default view"
+  },
+  {
+   "file": "tokyo-844-light-2-zoomed.jpg",
+   "caption": "tokyo 844 light · zoomed in on the densest area",
+   "meta": {
+    "z": 13,
+    "n": 45
+   }
+  },
+  {
+   "file": "tokyo-844-light-3-pin.jpg",
+   "caption": "tokyo 844 light · pin selected (carousel card)",
+   "meta": {
+    "x": 459,
+    "y": 241,
+    "label": "Tsukiji Hongan-ji"
+   }
+  },
+  {
+   "file": "tokyo-844-light-4-pan.jpg",
+   "caption": "tokyo 844 light · the list after a pan (Search this area)",
+   "meta": "8 places here · Top ranked"
+  },
+  {
+   "file": "tokyo-844-light-5-list.jpg",
+   "caption": "tokyo 844 light · list mode"
+  },
+  {
+   "file": "tokyo-844-light-6-detail.jpg",
+   "caption": "tokyo 844 light · #p= detail",
+   "meta": "tsukiji-hongan-ji"
+  },
+  {
+   "file": "tokyo-844-light-7-back.jpg",
+   "caption": "tokyo 844 light · back to the map after the detail"
+  },
+  {
+   "file": "tokyo-844-dark-1-default.jpg",
+   "caption": "tokyo 844 dark · default view"
+  },
+  {
+   "file": "tokyo-844-dark-2-zoomed.jpg",
+   "caption": "tokyo 844 dark · zoomed in on the densest area",
+   "meta": {
+    "z": 13,
+    "n": 45
+   }
+  },
+  {
+   "file": "tokyo-844-dark-3-pin.jpg",
+   "caption": "tokyo 844 dark · pin selected (carousel card)",
+   "meta": {
+    "x": 459,
+    "y": 241,
+    "label": "Tsukiji Hongan-ji"
+   }
+  },
+  {
+   "file": "tokyo-844-dark-4-pan.jpg",
+   "caption": "tokyo 844 dark · the list after a pan (Search this area)",
+   "meta": "8 places here · Top ranked"
+  },
+  {
+   "file": "tokyo-844-dark-5-list.jpg",
+   "caption": "tokyo 844 dark · list mode"
+  },
+  {
+   "file": "tokyo-844-dark-6-detail.jpg",
+   "caption": "tokyo 844 dark · #p= detail",
+   "meta": "tsukiji-hongan-ji"
+  },
+  {
+   "file": "tokyo-844-dark-7-back.jpg",
+   "caption": "tokyo 844 dark · back to the map after the detail"
+  },
+  {
+   "file": "tokyo-844-light-8-tiles-blocked.jpg",
+   "caption": "tokyo 844 light · tiles blocked"
   },
   {
    "file": "cleveland-1440-light-1-default.jpg",
@@ -247,14 +329,14 @@
    "caption": "cleveland 390 light · pin selected (carousel card)",
    "meta": {
     "x": 195,
-    "y": 457,
+    "y": 425,
     "label": "Free Stamp"
    }
   },
   {
    "file": "cleveland-390-light-4-pan.jpg",
    "caption": "cleveland 390 light · the list after a pan (Search this area)",
-   "meta": "16 places here · Top ranked"
+   "meta": "15 places here · Top ranked"
   },
   {
    "file": "cleveland-390-light-5-list.jpg",
@@ -286,14 +368,14 @@
    "caption": "cleveland 390 dark · pin selected (carousel card)",
    "meta": {
     "x": 195,
-    "y": 457,
+    "y": 425,
     "label": "Free Stamp"
    }
   },
   {
    "file": "cleveland-390-dark-4-pan.jpg",
    "caption": "cleveland 390 dark · the list after a pan (Search this area)",
-   "meta": "16 places here · Top ranked"
+   "meta": "15 places here · Top ranked"
   },
   {
    "file": "cleveland-390-dark-5-list.jpg",
@@ -311,6 +393,88 @@
   {
    "file": "cleveland-390-light-8-tiles-blocked.jpg",
    "caption": "cleveland 390 light · tiles blocked"
+  },
+  {
+   "file": "cleveland-844-light-1-default.jpg",
+   "caption": "cleveland 844 light · default view"
+  },
+  {
+   "file": "cleveland-844-light-2-zoomed.jpg",
+   "caption": "cleveland 844 light · zoomed in on the densest area",
+   "meta": {
+    "z": 13,
+    "n": 27
+   }
+  },
+  {
+   "file": "cleveland-844-light-3-pin.jpg",
+   "caption": "cleveland 844 light · pin selected (carousel card)",
+   "meta": {
+    "x": 427,
+    "y": 229,
+    "label": "Chess Collection"
+   }
+  },
+  {
+   "file": "cleveland-844-light-4-pan.jpg",
+   "caption": "cleveland 844 light · the list after a pan (Search this area)",
+   "meta": "23 places here · Top ranked"
+  },
+  {
+   "file": "cleveland-844-light-5-list.jpg",
+   "caption": "cleveland 844 light · list mode"
+  },
+  {
+   "file": "cleveland-844-light-6-detail.jpg",
+   "caption": "cleveland 844 light · #p= detail",
+   "meta": "chess-collection-cleveland-public-library-main-library"
+  },
+  {
+   "file": "cleveland-844-light-7-back.jpg",
+   "caption": "cleveland 844 light · back to the map after the detail"
+  },
+  {
+   "file": "cleveland-844-dark-1-default.jpg",
+   "caption": "cleveland 844 dark · default view"
+  },
+  {
+   "file": "cleveland-844-dark-2-zoomed.jpg",
+   "caption": "cleveland 844 dark · zoomed in on the densest area",
+   "meta": {
+    "z": 13,
+    "n": 27
+   }
+  },
+  {
+   "file": "cleveland-844-dark-3-pin.jpg",
+   "caption": "cleveland 844 dark · pin selected (carousel card)",
+   "meta": {
+    "x": 427,
+    "y": 229,
+    "label": "Chess Collection"
+   }
+  },
+  {
+   "file": "cleveland-844-dark-4-pan.jpg",
+   "caption": "cleveland 844 dark · the list after a pan (Search this area)",
+   "meta": "23 places here · Top ranked"
+  },
+  {
+   "file": "cleveland-844-dark-5-list.jpg",
+   "caption": "cleveland 844 dark · list mode"
+  },
+  {
+   "file": "cleveland-844-dark-6-detail.jpg",
+   "caption": "cleveland 844 dark · #p= detail",
+   "meta": "chess-collection-cleveland-public-library-main-library"
+  },
+  {
+   "file": "cleveland-844-dark-7-back.jpg",
+   "caption": "cleveland 844 dark · back to the map after the detail"
+  },
+  {
+   "file": "cleveland-844-light-8-tiles-blocked.jpg",
+   "caption": "cleveland 844 light · tiles blocked"
   },
   {
    "file": "chinatown-1440-light-1-default.jpg",
@@ -443,6 +607,88 @@
    "caption": "chinatown 390 light · tiles blocked"
   },
   {
+   "file": "chinatown-844-light-1-default.jpg",
+   "caption": "chinatown 844 light · default view"
+  },
+  {
+   "file": "chinatown-844-light-2-zoomed.jpg",
+   "caption": "chinatown 844 light · zoomed in on the densest area",
+   "meta": {
+    "z": 17,
+    "n": 15
+   }
+  },
+  {
+   "file": "chinatown-844-light-3-pin.jpg",
+   "caption": "chinatown 844 light · pin selected (carousel card)",
+   "meta": {
+    "x": 422,
+    "y": 239,
+    "label": "Ah Tai Hainanese Chicken Rice"
+   }
+  },
+  {
+   "file": "chinatown-844-light-4-pan.jpg",
+   "caption": "chinatown 844 light · the list after a pan (Search this area)",
+   "meta": "1 place here · Top ranked"
+  },
+  {
+   "file": "chinatown-844-light-5-list.jpg",
+   "caption": "chinatown 844 light · list mode"
+  },
+  {
+   "file": "chinatown-844-light-6-detail.jpg",
+   "caption": "chinatown 844 light · #p= detail",
+   "meta": "ah-tai-hainanese-chicken-rice"
+  },
+  {
+   "file": "chinatown-844-light-7-back.jpg",
+   "caption": "chinatown 844 light · back to the map after the detail"
+  },
+  {
+   "file": "chinatown-844-dark-1-default.jpg",
+   "caption": "chinatown 844 dark · default view"
+  },
+  {
+   "file": "chinatown-844-dark-2-zoomed.jpg",
+   "caption": "chinatown 844 dark · zoomed in on the densest area",
+   "meta": {
+    "z": 17,
+    "n": 15
+   }
+  },
+  {
+   "file": "chinatown-844-dark-3-pin.jpg",
+   "caption": "chinatown 844 dark · pin selected (carousel card)",
+   "meta": {
+    "x": 422,
+    "y": 239,
+    "label": "Ah Tai Hainanese Chicken Rice"
+   }
+  },
+  {
+   "file": "chinatown-844-dark-4-pan.jpg",
+   "caption": "chinatown 844 dark · the list after a pan (Search this area)",
+   "meta": "1 place here · Top ranked"
+  },
+  {
+   "file": "chinatown-844-dark-5-list.jpg",
+   "caption": "chinatown 844 dark · list mode"
+  },
+  {
+   "file": "chinatown-844-dark-6-detail.jpg",
+   "caption": "chinatown 844 dark · #p= detail",
+   "meta": "ah-tai-hainanese-chicken-rice"
+  },
+  {
+   "file": "chinatown-844-dark-7-back.jpg",
+   "caption": "chinatown 844 dark · back to the map after the detail"
+  },
+  {
+   "file": "chinatown-844-light-8-tiles-blocked.jpg",
+   "caption": "chinatown 844 light · tiles blocked"
+  },
+  {
    "file": "newyork-1440-light-1-default.jpg",
    "caption": "newyork 1440 light · default view"
   },
@@ -524,7 +770,7 @@
    "file": "newyork-390-light-2-zoomed.jpg",
    "caption": "newyork 390 light · zoomed in on the densest area",
    "meta": {
-    "z": 14,
+    "z": 14.5,
     "n": 88
    }
   },
@@ -532,15 +778,15 @@
    "file": "newyork-390-light-3-pin.jpg",
    "caption": "newyork 390 light · pin selected (carousel card)",
    "meta": {
-    "x": 197,
-    "y": 532,
-    "label": "Wah Fung No 1"
+    "x": 182,
+    "y": 379,
+    "label": "Torrisi"
    }
   },
   {
    "file": "newyork-390-light-4-pan.jpg",
    "caption": "newyork 390 light · the list after a pan (Search this area)",
-   "meta": "86 places here · Top ranked"
+   "meta": "51 places here · Top ranked"
   },
   {
    "file": "newyork-390-light-5-list.jpg",
@@ -563,7 +809,7 @@
    "file": "newyork-390-dark-2-zoomed.jpg",
    "caption": "newyork 390 dark · zoomed in on the densest area",
    "meta": {
-    "z": 14,
+    "z": 14.5,
     "n": 88
    }
   },
@@ -571,15 +817,15 @@
    "file": "newyork-390-dark-3-pin.jpg",
    "caption": "newyork 390 dark · pin selected (carousel card)",
    "meta": {
-    "x": 197,
-    "y": 532,
-    "label": "Wah Fung No 1"
+    "x": 182,
+    "y": 379,
+    "label": "Torrisi"
    }
   },
   {
    "file": "newyork-390-dark-4-pan.jpg",
    "caption": "newyork 390 dark · the list after a pan (Search this area)",
-   "meta": "86 places here · Top ranked"
+   "meta": "51 places here · Top ranked"
   },
   {
    "file": "newyork-390-dark-5-list.jpg",
@@ -597,20 +843,102 @@
   {
    "file": "newyork-390-light-8-tiles-blocked.jpg",
    "caption": "newyork 390 light · tiles blocked"
+  },
+  {
+   "file": "newyork-844-light-1-default.jpg",
+   "caption": "newyork 844 light · default view"
+  },
+  {
+   "file": "newyork-844-light-2-zoomed.jpg",
+   "caption": "newyork 844 light · zoomed in on the densest area",
+   "meta": {
+    "z": 12.5,
+    "n": 88
+   }
+  },
+  {
+   "file": "newyork-844-light-3-pin.jpg",
+   "caption": "newyork 844 light · pin selected (carousel card)",
+   "meta": {
+    "x": 554,
+    "y": 263,
+    "label": "Peter Luger Steak House"
+   }
+  },
+  {
+   "file": "newyork-844-light-4-pan.jpg",
+   "caption": "newyork 844 light · the list after a pan (Search this area)",
+   "meta": "18 places here · Top ranked"
+  },
+  {
+   "file": "newyork-844-light-5-list.jpg",
+   "caption": "newyork 844 light · list mode"
+  },
+  {
+   "file": "newyork-844-light-6-detail.jpg",
+   "caption": "newyork 844 light · #p= detail",
+   "meta": "staten-island-ferry-whitehall-terminal"
+  },
+  {
+   "file": "newyork-844-light-7-back.jpg",
+   "caption": "newyork 844 light · back to the map after the detail"
+  },
+  {
+   "file": "newyork-844-dark-1-default.jpg",
+   "caption": "newyork 844 dark · default view"
+  },
+  {
+   "file": "newyork-844-dark-2-zoomed.jpg",
+   "caption": "newyork 844 dark · zoomed in on the densest area",
+   "meta": {
+    "z": 12.5,
+    "n": 88
+   }
+  },
+  {
+   "file": "newyork-844-dark-3-pin.jpg",
+   "caption": "newyork 844 dark · pin selected (carousel card)",
+   "meta": {
+    "x": 554,
+    "y": 263,
+    "label": "Peter Luger Steak House"
+   }
+  },
+  {
+   "file": "newyork-844-dark-4-pan.jpg",
+   "caption": "newyork 844 dark · the list after a pan (Search this area)",
+   "meta": "18 places here · Top ranked"
+  },
+  {
+   "file": "newyork-844-dark-5-list.jpg",
+   "caption": "newyork 844 dark · list mode"
+  },
+  {
+   "file": "newyork-844-dark-6-detail.jpg",
+   "caption": "newyork 844 dark · #p= detail",
+   "meta": "staten-island-ferry-whitehall-terminal"
+  },
+  {
+   "file": "newyork-844-dark-7-back.jpg",
+   "caption": "newyork 844 dark · back to the map after the detail"
+  },
+  {
+   "file": "newyork-844-light-8-tiles-blocked.jpg",
+   "caption": "newyork 844 light · tiles blocked"
   }
  ],
  "contexts": [
   {
    "id": "tokyo-1440-light",
-   "tiles": 132,
-   "tileFail": 36,
+   "tiles": 126,
+   "tileFail": 40,
    "offOriginAborted": 0,
    "pageErrors": []
   },
   {
    "id": "tokyo-1440-dark",
-   "tiles": 132,
-   "tileFail": 34,
+   "tiles": 126,
+   "tileFail": 31,
    "offOriginAborted": 0,
    "pageErrors": []
   },
@@ -621,14 +949,14 @@
   {
    "id": "tokyo-390-light",
    "tiles": 68,
-   "tileFail": 18,
+   "tileFail": 15,
    "offOriginAborted": 0,
    "pageErrors": []
   },
   {
    "id": "tokyo-390-dark",
    "tiles": 68,
-   "tileFail": 20,
+   "tileFail": 12,
    "offOriginAborted": 0,
    "pageErrors": []
   },
@@ -637,16 +965,34 @@
    "pageErrors": []
   },
   {
+   "id": "tokyo-844-light",
+   "tiles": 62,
+   "tileFail": 0,
+   "offOriginAborted": 0,
+   "pageErrors": []
+  },
+  {
+   "id": "tokyo-844-dark",
+   "tiles": 62,
+   "tileFail": 0,
+   "offOriginAborted": 0,
+   "pageErrors": []
+  },
+  {
+   "id": "tokyo-844-tiles-blocked",
+   "pageErrors": []
+  },
+  {
    "id": "cleveland-1440-light",
-   "tiles": 224,
-   "tileFail": 37,
+   "tiles": 200,
+   "tileFail": 31,
    "offOriginAborted": 0,
    "pageErrors": []
   },
   {
    "id": "cleveland-1440-dark",
-   "tiles": 224,
-   "tileFail": 37,
+   "tiles": 200,
+   "tileFail": 40,
    "offOriginAborted": 0,
    "pageErrors": []
   },
@@ -657,19 +1003,37 @@
   {
    "id": "cleveland-390-light",
    "tiles": 74,
-   "tileFail": 20,
+   "tileFail": 13,
    "offOriginAborted": 0,
    "pageErrors": []
   },
   {
    "id": "cleveland-390-dark",
    "tiles": 74,
-   "tileFail": 22,
+   "tileFail": 14,
    "offOriginAborted": 0,
    "pageErrors": []
   },
   {
    "id": "cleveland-390-tiles-blocked",
+   "pageErrors": []
+  },
+  {
+   "id": "cleveland-844-light",
+   "tiles": 44,
+   "tileFail": 0,
+   "offOriginAborted": 0,
+   "pageErrors": []
+  },
+  {
+   "id": "cleveland-844-dark",
+   "tiles": 44,
+   "tileFail": 0,
+   "offOriginAborted": 0,
+   "pageErrors": []
+  },
+  {
+   "id": "cleveland-844-tiles-blocked",
    "pageErrors": []
   },
   {
@@ -709,16 +1073,34 @@
    "pageErrors": []
   },
   {
+   "id": "chinatown-844-light",
+   "tiles": 58,
+   "tileFail": 0,
+   "offOriginAborted": 0,
+   "pageErrors": []
+  },
+  {
+   "id": "chinatown-844-dark",
+   "tiles": 58,
+   "tileFail": 0,
+   "offOriginAborted": 0,
+   "pageErrors": []
+  },
+  {
+   "id": "chinatown-844-tiles-blocked",
+   "pageErrors": []
+  },
+  {
    "id": "newyork-1440-light",
-   "tiles": 220,
-   "tileFail": 27,
+   "tiles": 196,
+   "tileFail": 24,
    "offOriginAborted": 0,
    "pageErrors": []
   },
   {
    "id": "newyork-1440-dark",
-   "tiles": 220,
-   "tileFail": 32,
+   "tiles": 196,
+   "tileFail": 25,
    "offOriginAborted": 0,
    "pageErrors": []
   },
@@ -728,20 +1110,38 @@
   },
   {
    "id": "newyork-390-light",
-   "tiles": 64,
-   "tileFail": 15,
+   "tiles": 98,
+   "tileFail": 4,
    "offOriginAborted": 0,
    "pageErrors": []
   },
   {
    "id": "newyork-390-dark",
-   "tiles": 64,
-   "tileFail": 16,
+   "tiles": 98,
+   "tileFail": 6,
    "offOriginAborted": 0,
    "pageErrors": []
   },
   {
    "id": "newyork-390-tiles-blocked",
+   "pageErrors": []
+  },
+  {
+   "id": "newyork-844-light",
+   "tiles": 92,
+   "tileFail": 0,
+   "offOriginAborted": 0,
+   "pageErrors": []
+  },
+  {
+   "id": "newyork-844-dark",
+   "tiles": 98,
+   "tileFail": 0,
+   "offOriginAborted": 0,
+   "pageErrors": []
+  },
+  {
+   "id": "newyork-844-tiles-blocked",
    "pageErrors": []
   }
  ]

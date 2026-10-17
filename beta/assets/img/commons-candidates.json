@@ -22,10 +22,10 @@
   "candidates[].flags": "people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it"
  },
  "summary": {
-  "targets": 1497,
+  "targets": 1494,
   "byType": {
    "hero": 89,
-   "landmark": 1408
+   "landmark": 1405
   },
   "heroes": {
    "targets": 89,
@@ -33,24 +33,28 @@
   },
   "pilotLandmarks": {
    "targets": 184,
-   "skipped": 74,
+   "skipped": 60,
    "withHigh": 107
   },
   "otherLandmarks": {
-   "targets": 1224,
-   "skipped": 355,
-   "withArticle": 606
+   "targets": 1221,
+   "skipped": 200,
+   "withArticle": 699
   },
   "candidates": {
-   "total": 1327,
-   "high": 1201,
-   "med": 126,
+   "total": 1322,
+   "high": 1197,
+   "med": 125,
    "low": 0
   },
-  "targetsWithHigh": 653,
+  "targetsWithHigh": 650,
   "gaps": [
+   "landmark:tokyo#mandarake-complex-akihabara — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
+   "landmark:tokyo#super-potato-akihabara — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
+   "landmark:tokyo#tokyo-character-street-tokyo-station — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
+   "landmark:tokyo#animate-ikebukuro-flagship-store — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:cleveland#holden-arboretum-and-stebbins-gulch — only plant close-ups on Commons — none shows the arboretum (gap stated)",
    "landmark:cleveland#solstice-steps-lakewood-park — no Commons file names the Solstice Steps (gap stated, not filled)",
    "landmark:newyork#bronx-zoo — no Commons file of the zoo itself turned up (gap stated)",
@@ -58,6 +62,49 @@
    "landmark:wheeling#salt-fork-state-park — no Commons file of the park landscape turned up (gap stated)",
    "landmark:wheeling#the-wilds — no Commons photo of The Wilds turned up (gap stated)"
   ]
+ },
+ "rules": {
+  "_doc": "the photo rules other fetchers apply to places with no target here (fetch-openverse.js); a venue = its FIRST g tag is a venue tag, or k says venue/store",
+  "venueTags": [
+   "Arena",
+   "BAR",
+   "BREW",
+   "Brewery",
+   "CAFE",
+   "CRAFT",
+   "Cafe",
+   "Club",
+   "Distillery",
+   "ENT",
+   "FOOD",
+   "Food",
+   "GLASS",
+   "HOTEL",
+   "Hawker",
+   "Hotel",
+   "MARKET",
+   "MKT",
+   "MUSIC",
+   "Mall",
+   "Market",
+   "NIGHT",
+   "Restaurant",
+   "SHOP",
+   "SHOW",
+   "SPEAK",
+   "SPORT",
+   "STADIUM",
+   "Shopping",
+   "THEATER",
+   "THEATRE",
+   "Theater",
+   "VENUE",
+   "Venue",
+   "WINE",
+   "Winery"
+  ],
+  "venueName": "\\b(Theat(?:re|er)|Opera House|Playhouse|Ballpark|Arena|Stadium|Concert Hall)\\b",
+  "brandStore": "Mandarake|Pok[eé]mon Center|Nintendo KYOTO|Animate |Jump Shop|Kiddy Land|Gashapon|Capcom Store|PARCO Character|Kotobukiya|Character Street|Super Potato|Anime Center|Characters World"
  },
  "targets": [
   {
@@ -3390,7 +3437,7 @@
     "秋葉原電気街"
    ],
    "pilot": true,
-   "skip": "venue (MKT) — never a photo",
+   "skip": "an electronics and anime shopping district: shop signage and branding are the subject of every view — calm cover (stated, R8 venue-rule change)",
    "priority": "row",
    "candidates": []
   },
@@ -3405,8 +3452,8 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Akihabara_Radio_Kaikan",
-   "skip": "venue (MKT) — never a photo",
    "priority": "row",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3423,8 +3470,8 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Godzilla_head",
-   "skip": "venue (NIGHT) — never a photo",
    "priority": "row",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3437,7 +3484,7 @@
     "まんだらけコンプレックス"
    ],
    "pilot": true,
-   "skip": "venue (MKT) — never a photo",
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "priority": "row",
    "candidates": []
   },
@@ -3452,7 +3499,7 @@
     "Pokémon Center Shibuya"
    ],
    "pilot": true,
-   "skip": "venue (MKT) — never a photo",
+   "skip": "venue (ANIME) — never a photo",
    "priority": "row",
    "candidates": []
   },
@@ -3500,7 +3547,7 @@
     "スーパーポテト 秋葉原店"
    ],
    "pilot": true,
-   "skip": "venue (MKT) — never a photo",
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "priority": "row",
    "candidates": []
   },
@@ -3532,7 +3579,7 @@
     "東京キャラクターストリート"
    ],
    "pilot": true,
-   "skip": "venue (MKT) — never a photo",
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "priority": "row",
    "candidates": []
   },
@@ -3548,8 +3595,8 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Tokyu_Kabukicho_Tower",
-   "skip": "venue (NIGHT) — never a photo",
    "priority": "row",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3563,8 +3610,8 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Centre_Market_Square_Historic_District",
-   "skip": "venue (MKT) — never a photo",
    "priority": "row",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3624,7 +3671,7 @@
     "Oglebay Resort"
    ],
    "pilot": true,
-   "skip": "venue (GLASS) — never a photo",
+   "skip": "a resort (a hotel venue) — never a photo (stated, R8 venue-rule change)",
    "priority": "row",
    "candidates": []
   },
@@ -3792,8 +3839,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Otaru",
-   "skip": "venue (NIGHT) — never a photo",
    "priority": "row",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3866,8 +3913,8 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%83%E3%83%9D%E3%83%AD%E3%83%95%E3%82%A1%E3%82%AF%E3%83%88%E3%83%AA%E3%83%BC",
-   "skip": "venue (MKT) — never a photo",
    "priority": "row",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3930,8 +3977,8 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Tamako_Market",
-   "skip": "venue (MARKET, MKT) — never a photo",
    "priority": "row",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -3993,7 +4040,7 @@
     "Nintendo KYOTO"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "priority": "row",
    "candidates": []
   },
@@ -4022,7 +4069,7 @@
     "ポケモンセンターキョウト"
    ],
    "pilot": false,
-   "skip": "venue (MKT, NIGHT) — never a photo",
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "priority": "row",
    "candidates": []
   },
@@ -4270,7 +4317,7 @@
     "Cafe Umeda"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "priority": "row",
    "candidates": []
   },
@@ -4309,7 +4356,7 @@
     "Gashapon Department Store HEP FIVE"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "priority": "row",
    "candidates": []
   },
@@ -4735,7 +4782,7 @@
     "アニメイト池袋本店"
    ],
    "pilot": true,
-   "skip": "venue (MKT) — never a photo",
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "candidates": []
   },
   {
@@ -5566,7 +5613,7 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Nakameguro",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -5580,7 +5627,7 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Nakano_Broadway",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -5750,7 +5797,7 @@
     "思い出横丁"
    ],
    "pilot": true,
-   "skip": "venue (MKT, NIGHT) — never a photo",
+   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -5945,7 +5992,7 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Shimokitazawa",
-   "skip": "venue (MKT, NIGHT) — never a photo",
+   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -5959,7 +6006,7 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -6083,7 +6130,7 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Takeshita_Street",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -6110,7 +6157,6 @@
     "ガンダムベース東京"
    ],
    "pilot": true,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -6312,7 +6358,7 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Tsukiji_Hongan-ji",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -6325,7 +6371,6 @@
     "築地場外市場"
    ],
    "pilot": true,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -7579,7 +7624,6 @@
     "Bryant Park"
    ],
    "pilot": true,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -8207,7 +8251,6 @@
     "Smorgasburg"
    ],
    "pilot": true,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -8686,7 +8729,6 @@
     "Zane Grey Museum"
    ],
    "pilot": true,
-   "skip": "venue (GLASS) — never a photo",
    "candidates": []
   },
   {
@@ -9043,7 +9085,6 @@
     "Neues Stadtmuseum"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -9508,7 +9549,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Basilica_of_Our_Lady,_Maastricht",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -9522,7 +9563,7 @@
     "Pontviertel"
    ],
    "pilot": false,
-   "skip": "venue (MKT, NIGHT) — never a photo",
+   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -9814,7 +9855,6 @@
     "Wilder Weg"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -9842,7 +9882,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/7_17_Credit_Union_Park",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -9878,7 +9918,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Akron_Civic_Theatre",
-   "skip": "venue (ENT) — never a photo",
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -9919,7 +9959,6 @@
     "Derby Down"
    ],
    "pilot": false,
-   "skip": "venue (ENT) — never a photo",
    "candidates": []
   },
   {
@@ -9946,7 +9985,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/First_Ladies_National_Historic_Site",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -9997,7 +10036,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hudson_Historic_District_(Ohio)",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -10012,7 +10051,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kent_Industrial_District",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -10100,7 +10139,6 @@
     "Paul Brown Museum"
    ],
    "pilot": false,
-   "skip": "venue (ENT) — never a photo",
    "candidates": []
   },
   {
@@ -10187,7 +10225,7 @@
    ],
    "pilot": false,
    "article": "https://nl.wikipedia.org/wiki/Sint-Augustinuskerk_(Antwerpen)",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -10460,7 +10498,6 @@
     "Nationaal Gedenkteken Fort van Breendonk"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -10929,7 +10966,6 @@
     "Markt"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -11287,7 +11323,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cathedral_of_St._Michael_and_St._Gudula",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -11325,7 +11361,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Church_of_Our_Blessed_Lady_of_the_Sablon",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -11547,7 +11583,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Musical_Instruments_Museum,_Brussels",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -11590,7 +11626,6 @@
     "Musée Magritte Museum"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -11619,7 +11654,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Palace_of_Justice,_Brussels",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -11768,7 +11803,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Alta_Vista_Terrace_District",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -11894,7 +11929,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Brookfield_Zoo",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -12124,7 +12159,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -12191,7 +12226,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Garfield_Park_Conservatory",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -12790,7 +12825,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Our_Lady_of_Sorrows_Basilica",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -12884,7 +12919,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Rate_Field",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13299,7 +13334,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Wrigley_Field",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13402,7 +13437,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cincinnati_Music_Hall",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13505,7 +13540,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Findlay_Market",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13535,7 +13570,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Great_American_Ball_Park",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13666,7 +13701,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Newport_Aquarium",
-   "skip": "venue (ENT, SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13680,7 +13715,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Over-the-Rhine",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13721,7 +13756,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/William_Howard_Taft_National_Historic_Site",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13774,7 +13809,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Columbus_Zoo_and_Aquarium",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13796,7 +13831,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Center_of_Science_and_Industry,_Columbus,_Ohio,_from_across_the_Scioto_River.jpg",
      "depicts": "COSI building from across the Scioto",
      "confidence": "high",
-     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names COSI Columbus; listed in Category:COSI (Columbus, Ohio)"
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names COSI Columbus; listed in Category:COSI (Columbus, Ohio)",
+     "refused": "refused by orchestrator review (R8, run #82): subject too small across the river, grey sky"
     },
     {
      "file": "File:Center of Science & Industry (COSI) in Old Columbus High School Building.jpg",
@@ -13832,7 +13868,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/German_Village",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13845,7 +13881,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/North_Market",
-   "skip": "venue (ENT, SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -13858,7 +13894,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ohio_Stadium",
-   "skip": "venue (ENT) — never a photo",
+   "skip": "venue (stadium) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -13885,7 +13921,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ohio_Theatre_(Columbus,_Ohio)",
-   "skip": "venue (ENT) — never a photo",
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -13911,7 +13947,6 @@
     "Short North Arts District"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -13950,7 +13985,6 @@
     "2nd Street Market"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -13963,7 +13997,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Boonshoft_Museum_of_Discovery",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -14064,7 +14098,6 @@
     "Downtown Yellow Spring"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -14221,7 +14254,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Oregon_Historic_District",
-   "skip": "venue (ENT, SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -14437,7 +14470,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Harmony_Historic_District",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -14462,7 +14495,6 @@
     "Meadville Market House"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -14512,7 +14544,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Tom_Ridge_Environmental_Center",
-   "skip": "venue (CRAFT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -14539,7 +14571,6 @@
     "Wendell August Forge"
    ],
    "pilot": false,
-   "skip": "venue (CRAFT) — never a photo",
    "candidates": []
   },
   {
@@ -14958,7 +14989,7 @@
    ],
    "pilot": false,
    "article": "https://nl.wikipedia.org/wiki/Vrijdagmarkt_(Gent)",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -15222,7 +15253,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Great_Bear_roller_coaster_1,_Hersheypark,_2013-08-10.jpg",
      "depicts": "Great Bear coaster in the park",
      "confidence": "high",
-     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Hersheypark"
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Hersheypark",
+     "refused": "refused by orchestrator review (R8, run #82): identifiable riders are the subject"
     },
     {
      "file": "File:Wild Mouse at Hersheypark.jpg",
@@ -16018,7 +16050,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mount_Hakodate",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16095,7 +16127,7 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E5%B8%82%E5%A0%B4",
-   "skip": "venue (MKT, NIGHT) — never a photo",
+   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -16328,7 +16360,7 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E5%8C%97%E9%98%B2%E6%B3%A2%E5%A0%A4%E3%83%89%E3%83%BC%E3%83%A0",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16388,7 +16420,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Broad_Ripple_Village,_Indianapolis",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16532,7 +16564,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Eiteljorg_Museum_of_American_Indians_and_Western_Art",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16546,7 +16578,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Fountain_Square_Theatre",
-   "skip": "venue (ENT) — never a photo",
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -16605,7 +16637,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hinkle_Fieldhouse",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16631,7 +16663,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Indiana_World_War_Memorial_Plaza",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16644,7 +16676,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Indianapolis_Cultural_Trail",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16749,7 +16781,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Irvington_Historic_District_(Indianapolis)",
-   "skip": "venue (ENT, SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16788,7 +16820,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Lucas_Oil_Stadium",
-   "skip": "venue (ENT) — never a photo",
+   "skip": "venue (stadium) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -16801,7 +16833,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Madam_Walker_Legacy_Center",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16814,7 +16846,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mass_Ave_Cultural_Arts_District",
-   "skip": "venue (ENT, SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16956,7 +16988,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/White_River_State_Park",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -17338,7 +17370,6 @@
     "Hanamikoji"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -17377,7 +17408,6 @@
     "Higashiyama District"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -17507,7 +17537,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Kasuga-taisha_shrine_in_Nara_07.jpg",
      "depicts": "Kasuga Taisha shrine",
      "confidence": "high",
-     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kasuga-taisha"
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kasuga-taisha",
+     "refused": "refused by orchestrator review (R8, run #82): a close-up of ema plaques; doesn't show the shrine (close-up rule)"
     },
     {
      "file": "File:Kasuga Grand Shrine.JPG",
@@ -17558,7 +17589,6 @@
     "Kennin-ji"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -17608,7 +17638,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kitano_Tenmang%C5%AB",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -17893,7 +17923,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Nishiki_Market",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -17921,7 +17951,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ponto-ch%C5%8D",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -18102,7 +18132,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -18286,7 +18316,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Gileppe_Dam",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -18470,7 +18500,6 @@
     "Collégiale Saint-Barthélemy"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -18627,7 +18656,7 @@
    ],
    "pilot": false,
    "article": "https://fr.wikipedia.org/wiki/Li_Bassinia",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -18696,7 +18725,6 @@
     "Marché de la Batte"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -18737,7 +18765,6 @@
     "Palais des Princes-Évêque"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -18751,7 +18778,6 @@
     "le Perron"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -19292,7 +19318,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Adrienne_Arsht_Center_for_the_Performing_Arts",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -19465,7 +19491,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Bayfront_Park",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -19762,7 +19788,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Gulf_Coast_Visitor_Center_of_the_Everglades%5E_-_panoramio.jpg",
      "depicts": "visitor center building, 2008",
      "confidence": "high",
-     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Gulf Coast Visitor Center (pre-hurricane building)"
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Gulf Coast Visitor Center (pre-hurricane building)",
+     "refused": "refused by orchestrator review (R8, run #82): an islet and a sign, not the visitor center; burned-in date stamp (wrong subject)"
     },
     {
      "file": "File:Gulf Coast Visitor Center - panoramio.jpg",
@@ -19853,7 +19880,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hollywood_Beach,_Florida",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -19922,7 +19949,6 @@
     "Little Haiti Cultural Complex"
    ],
    "pilot": false,
-   "skip": "venue (ENT) — never a photo",
    "candidates": []
   },
   {
@@ -20024,7 +20050,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/New_World_Center",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -20154,7 +20180,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Frost_Science_museum_viewed_from_the_MacArthur_Causeway.jpg",
      "depicts": "museum exterior from causeway",
      "confidence": "high",
-     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Frost Science museum; title from category listing in summary"
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Frost Science museum; title from category listing in summary",
+     "refused": "refused by orchestrator review (R8, run #82): road and traffic dominate; the museum barely visible (wrong subject)"
     },
     {
      "file": "File:Frost Science.jpg",
@@ -20229,7 +20256,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Seminole_Hard_Rock_Hotel_%26_Casino_Hollywood",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -20978,7 +21005,6 @@
     "国際通り"
    ],
    "pilot": false,
-   "skip": "venue (MKT, NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -21079,7 +21105,6 @@
     "美浜アメリカンビレッジ"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -21381,7 +21406,7 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E7%80%AC%E9%95%B7%E5%B3%B6",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -21612,7 +21637,6 @@
     "壺屋やちむん通り"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -21641,7 +21665,6 @@
     "やちむんの里"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -22140,7 +22163,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Haunted_Mansion_at_Magic_Kingdom1.jpg",
      "depicts": "Haunted Mansion building exterior",
      "confidence": "high",
-     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Haunted Mansion at Magic Kingdom"
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Haunted Mansion at Magic Kingdom",
+     "refused": "refused by orchestrator review (R8, run #82): interior dominated by copyrighted portrait paintings (US: no FoP for 2D art; artwork rule)"
     },
     {
      "file": "File:Haunted Mansion (Magic Kingdom) 4.jpg",
@@ -22163,7 +22187,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hogwarts_Express_(Universal_Orlando_Resort)",
-   "skip": "venue (SHOW) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -22352,7 +22376,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Lake_Eola_Park",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -22366,7 +22390,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Main_Street,_U.S.A.",
-   "skip": "venue (MKT, SHOW) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -22540,7 +22564,6 @@
     "Park Avenue"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -23059,7 +23082,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Winter_Garden_Downtown_Historic_District",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -23124,7 +23147,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/D%C5%8Dtonbori",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -23140,7 +23163,7 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E9%81%93%E9%A0%93%E5%A0%80%E3%82%B0%E3%83%AA%E3%82%B3%E3%82%B5%E3%82%A4%E3%83%B3",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -23237,7 +23260,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/H%C5%8Dzen-ji_(Osaka)",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -23403,7 +23426,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -23784,7 +23807,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Citizens_Bank_Park",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -23902,7 +23925,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Fort_Mifflin_01.jpg",
      "depicts": "fort",
      "confidence": "high",
-     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fort Mifflin"
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Fort Mifflin",
+     "refused": "refused by orchestrator review (R8, run #82): hazy and washed out; the fort barely reads (gloom)"
     },
     {
      "file": "File:Fort mifflin from airplane arriving at PHL.jpg",
@@ -24017,7 +24041,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Italian_Market",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -24301,7 +24325,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Philadelphia_Museum_of_Art",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -24352,7 +24376,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Reading_Terminal_Market",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -24365,7 +24389,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Rittenhouse_Square",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -24378,7 +24402,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Rocky_Statue",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -24404,7 +24428,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Simeone_Foundation_Automotive_Museum",
-   "skip": "venue (SPORT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -25049,7 +25073,6 @@
     "Abtei Brauweiler"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -25112,30 +25135,6 @@
    ]
   },
   {
-   "key": "landmark:rhineland#alter-markt",
-   "type": "landmark",
-   "depicts": "rhineland#alter-markt",
-   "label": "Alter Markt",
-   "names": [
-    "Alter Markt",
-    "Alter Markt (Köln)"
-   ],
-   "pilot": false,
-   "article": "https://de.wikipedia.org/wiki/Alter_Markt_(K%C3%B6ln)",
-   "skip": "venue (MKT, NIGHT) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:Alter Markt, Historisches Rathaus, Köln-7854.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Alter_Markt,_Historisches_Rathaus,_K%C3%B6ln-7854.jpg",
-     "depicts": "Alter Markt square, Cologne, with the town hall wing and tower",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Alter Markt, Köln (assumes the guide's Alter Markt is Cologne's)"
-    }
-   ]
-  },
-  {
    "key": "landmark:rhineland#alter-zoll",
    "type": "landmark",
    "depicts": "rhineland#alter-zoll",
@@ -25160,7 +25159,6 @@
     "Altes Rathau"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -25176,7 +25174,7 @@
    ],
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/D%C3%BCsseldorfer_Altstadt",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -25257,7 +25255,7 @@
     "Belgisches Viertel"
    ],
    "pilot": false,
-   "skip": "venue (MKT, NIGHT) — never a photo",
+   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -25296,7 +25294,6 @@
     "Carlsplatz Markt"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -25408,7 +25405,6 @@
     "Haus der Geschichte"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -25421,7 +25417,6 @@
     "Historisches Rathau"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -25588,7 +25583,6 @@
     "Kö-Bogen II"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -25742,7 +25736,6 @@
     "Little Tokyo"
    ],
    "pilot": false,
-   "skip": "venue (MKT, NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -25796,7 +25789,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Museum_Koenig_Bonn",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -25818,7 +25811,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:D%C3%BCsseldorf_-_Ehrenhof_%2B_Inselstra%C3%9Fe_%2B_Museum_Kunstpalast_01_ies.jpg",
      "depicts": "Ehrenhof courtyard and Museum Kunstpalast building",
      "confidence": "high",
-     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Museum Kunstpalast"
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Museum Kunstpalast",
+     "refused": "refused by orchestrator review (R8, run #82): lawn and trees; the museum a distant sliver (wrong subject)"
     }
    ]
   },
@@ -25887,7 +25881,6 @@
     "NS-Dokumentationszentrum"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -25942,7 +25935,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:D%C3%BCsseldorf,_Rheinturm_--_2025_--_2564.jpg",
      "depicts": "Rheinturm TV tower",
      "confidence": "high",
-     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rheinturm"
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rheinturm",
+     "refused": "refused by orchestrator review (R8, run #82): portrait framing; the card crop shows only the shaft (wrong subject)"
     },
     {
      "file": "File:Düsseldorf, Rheinturm -- 2015 -- 8182-6.jpg",
@@ -26047,7 +26041,7 @@
    ],
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Schloss_Bensberg",
-   "skip": "venue (NIGHT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -26255,7 +26249,7 @@
    ],
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Alte_Br%C3%BCcke_(Saarbr%C3%BCcken)",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -26450,7 +26444,6 @@
     "Bremmer Calmont Klettersteig"
    ],
    "pilot": false,
-   "skip": "venue (CRAFT) — never a photo",
    "candidates": []
   },
   {
@@ -26462,7 +26455,6 @@
     "Buddha-Museum Traben-Trarbach"
    ],
    "pilot": false,
-   "skip": "venue (CRAFT) — never a photo",
    "candidates": []
   },
   {
@@ -26474,7 +26466,6 @@
     "Bundesbank-Bunker Cochem"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -26486,7 +26477,6 @@
     "Burg Landshut"
    ],
    "pilot": false,
-   "skip": "venue (CRAFT) — never a photo",
    "candidates": []
   },
   {
@@ -26681,7 +26671,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/G%C3%ABlle_Fra",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -26843,7 +26833,6 @@
     "Mémorial de Verdun"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -26909,7 +26898,6 @@
     "Musée de l'École de Nancy"
    ],
    "pilot": false,
-   "skip": "venue (CRAFT) — never a photo",
    "candidates": []
   },
   {
@@ -26921,7 +26909,6 @@
     "Musée des Beaux-Arts de Nancy"
    ],
    "pilot": false,
-   "skip": "venue (CRAFT) — never a photo",
    "candidates": []
   },
   {
@@ -26935,7 +26922,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/National_Museum_of_Archaeology,_History_and_Art",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -26986,7 +26973,6 @@
     "Place du Marché"
    ],
    "pilot": false,
-   "skip": "venue (CRAFT, MKT) — never a photo",
    "candidates": []
   },
   {
@@ -27104,7 +27090,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Pfaffenthal_Panoramic_Elevator",
-   "skip": "venue (CRAFT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -27310,7 +27296,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Rheinisches_Landesmuseum_Trier",
-   "skip": "venue (CRAFT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -27362,7 +27348,6 @@
     "Römisches Weinschiff Stella Noviomagi"
    ],
    "pilot": false,
-   "skip": "venue (CRAFT) — never a photo",
    "candidates": []
   },
   {
@@ -27377,7 +27362,6 @@
     "Saarbrücker Schlos"
    ],
    "pilot": false,
-   "skip": "venue (CRAFT) — never a photo",
    "candidates": []
   },
   {
@@ -27477,7 +27461,7 @@
    ],
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/St._Johanner_Markt",
-   "skip": "venue (MKT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -27521,7 +27505,6 @@
     "Stiftskirche Saint Arnual"
    ],
    "pilot": false,
-   "skip": "venue (MKT) — never a photo",
    "candidates": []
   },
   {
@@ -27619,7 +27602,6 @@
     "Völklinger Hütte"
    ],
    "pilot": false,
-   "skip": "venue (CRAFT) — never a photo",
    "candidates": []
   },
   {
@@ -27631,7 +27613,6 @@
     "Wolfspark Werner Freund"
    ],
    "pilot": false,
-   "skip": "venue (NIGHT) — never a photo",
    "candidates": []
   },
   {
@@ -27743,7 +27724,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/San_Francisco_cable_car_system",
-   "skip": "venue (ENT, SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -27769,7 +27750,7 @@
     "Castro Theatre"
    ],
    "pilot": false,
-   "skip": "venue (ENT) — never a photo",
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -27785,7 +27766,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Dragon_Gate_(San_Francisco)",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -28050,7 +28031,6 @@
     "Ferry Plaza Farmers Market"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -28094,7 +28074,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Fort_Mason",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -28120,7 +28100,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ghirardelli_Square",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -28161,7 +28141,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Haight-Ashbury",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -28247,7 +28227,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/San_Francisco_Peace_Pagoda",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -28633,7 +28613,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/San_Francisco_City_Hall",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -28798,7 +28778,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/The_Fillmore",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -28901,7 +28881,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Union_Square,_San_Francisco",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -29066,7 +29046,6 @@
     "Google Visitor Experience"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -29122,7 +29101,6 @@
     "Historic Saratoga Village"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -29207,7 +29185,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Montalvo_Arts_Center",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -29248,7 +29226,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/New_Museum_Los_Gatos",
-   "skip": "venue (SHOP) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -29262,7 +29240,6 @@
     "Fallon House Historic Site"
    ],
    "pilot": false,
-   "skip": "venue (ENT) — never a photo",
    "candidates": []
   },
   {
@@ -29386,7 +29363,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Santana_Row",
-   "skip": "venue (ENT, SHOP) — never a photo",
+   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -29427,7 +29404,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/The_Tech_Interactive",
-   "skip": "venue (ENT) — never a photo",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -30405,36 +30382,6 @@
    ]
   },
   {
-   "key": "landmark:singapore/punggol#punggol-digital-district-sit-punggol-campus",
-   "type": "landmark",
-   "depicts": "singapore/punggol#punggol-digital-district-sit-punggol-campus",
-   "label": "Punggol Digital District (SIT Punggol Campus)",
-   "names": [
-    "Punggol Digital District"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/Punggol_Digital_District",
-   "skip": "venue (MKT) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:SIT Punggol Campus-Dec 2025 03.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:SIT_Punggol_Campus-Dec_2025_03.jpg",
-     "depicts": "SIT Punggol Campus in Punggol Digital District",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names SIT Punggol Campus (found in Matilda House search)"
-    },
-    {
-     "file": "File:View of SIT Punggol Along New Punggol Road 12112024.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:View_of_SIT_Punggol_Along_New_Punggol_Road_12112024.jpg",
-     "depicts": "SIT Punggol campus seen from New Punggol Road",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names SIT Punggol"
-    }
-   ]
-  },
-  {
    "key": "landmark:singapore/punggol#punggol-waterway-park",
    "type": "landmark",
    "depicts": "singapore/punggol#punggol-waterway-park",
@@ -30543,7 +30490,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Chomp_Chomp_Food_Centre",
-   "skip": "venue (Food, Hawker, MKT) — never a photo",
+   "skip": "venue (Food) — never a photo",
    "candidates": []
   },
   {
@@ -30666,7 +30613,7 @@
     "Penn State All-Sports Museum"
    ],
    "pilot": false,
-   "skip": "venue (SPORT) — never a photo",
+   "skip": "venue (stadium) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -30836,7 +30783,6 @@
     "Nittany Lion Shrine"
    ],
    "pilot": false,
-   "skip": "venue (SPORT) — never a photo",
    "candidates": []
   },
   {
@@ -30922,36 +30868,6 @@
    "candidates": []
   },
   {
-   "key": "landmark:washingtondc#adams-morgan-18th-street",
-   "type": "landmark",
-   "depicts": "washingtondc#adams-morgan-18th-street",
-   "label": "Adams Morgan (18th Street)",
-   "names": [
-    "Adams Morgan"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/Adams_Morgan",
-   "skip": "venue (SHOP) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:18th Street NW - Adams Morgan.JPG",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:18th_Street_NW_-_Adams_Morgan.JPG",
-     "depicts": "Commercial row on 18th Street NW, Adams Morgan",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names 18th Street NW, Adams Morgan"
-    },
-    {
-     "file": "File:18th Street NW, Washington, DC.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:18th_Street_NW,_Washington,_DC.jpg",
-     "depicts": "18th Street NW streetscape in Adams Morgan",
-     "confidence": "med",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): description: 18th Street in Adams Morgan"
-    }
-   ]
-  },
-  {
    "key": "landmark:washingtondc#african-american-civil-war-memorial-and-museum",
    "type": "landmark",
    "depicts": "washingtondc#african-american-civil-war-memorial-and-museum",
@@ -31001,7 +30917,6 @@
     "Eastern Market"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -31013,7 +30928,6 @@
     "Eden Center"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -31055,7 +30969,6 @@
     "the C&O Canal"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -31096,7 +31009,6 @@
     "John F. Kennedy Center for the Performing Arts"
    ],
    "pilot": false,
-   "skip": "venue (ENT) — never a photo",
    "candidates": []
   },
   {
@@ -31177,7 +31089,6 @@
     "Mosaic District"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -31377,7 +31288,6 @@
     "King Street"
    ],
    "pilot": false,
-   "skip": "venue (SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -31478,7 +31388,6 @@
     "Wharf"
    ],
    "pilot": false,
-   "skip": "venue (ENT, SHOP) — never a photo",
    "candidates": []
   },
   {
@@ -31627,7 +31536,6 @@
     "Wolf Trap National Park for the Performing Arts"
    ],
    "pilot": false,
-   "skip": "venue (ENT) — never a photo",
    "candidates": []
   },
   {

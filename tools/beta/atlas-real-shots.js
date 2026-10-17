@@ -10,7 +10,7 @@
  * pass through to the network; everything else off-origin is aborted (the page must need no CDN). In the authoring
  * sandbox the tile hosts are unreachable, so local runs show grey tiles — expected.
  *
- * Per page (Tokyo, Cleveland, Chinatown, New York) × viewport (1440×900, 390×844) × theme (light, dark), ONE browser
+ * Per page (Tokyo, Cleveland, Chinatown, New York) × viewport (1440×900, 390×844, 844×390 phone landscape) × theme (light, dark), ONE browser
  * context walks the states (tiles are reused, so the tile count stays modest):
  *   1 default view · 2 zoomed in two levels on the densest area · 3 a pin selected (desktop preview / phone carousel card)
  *   4 the list after a pan (desktop: live; phone: "Search this area") · 5 phone list mode · 6 a #p= detail · 7 back to the map
@@ -28,10 +28,14 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const OUT = path.resolve(ROOT, arg('--out', 'design/beta/atlas/real/manual'));
 const ONLY = arg('--only', '');
+// --stub-tiles (local runs, where the tile hosts are unreachable): answer every tile with one grey image so the map mounts
+const STUB = process.argv.includes('--stub-tiles') ? fs.readFileSync(path.join(__dirname, '..', 'node_modules', 'leaflet', 'dist', 'images', 'layers.png')) : null;
 const BASE = 'https://cleo.local/';
 const TILE_HOSTS = /^(tile\.openstreetmap\.org|[abc]\.tile\.openstreetmap\.org|server\.arcgisonline\.com|services\.arcgisonline\.com)$/;
 const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
-const VPS = [['1440', { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 }], ['390', { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }]];
+const VPS = [['1440', { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 }], ['390', { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }],
+  // a phone in landscape (OV-00 landscape budget: one 48 px bar, chrome ≤ 13 %)
+  ['844', { viewport: { width: 844, height: 390 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }]];
 const PAGES = [['tokyo', 'beta/cities/tokyo.html'], ['cleveland', 'beta/cleveland.html'], ['chinatown', 'beta/Singapore/chinatown.html'], ['newyork', 'beta/cities/newyork.html']].filter(p => !ONLY || p[0] === ONLY);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const vis = (page, sel) => page.locator(sel).first().isVisible().catch(() => false);
@@ -41,7 +45,7 @@ async function context(browser, vp, o) {
   ctx.stats = { tiles: 0, tileFail: 0, aborted: 0 };
   await ctx.route('**/*', route => {
     const u = new URL(route.request().url());
-    if (TILE_HOSTS.test(u.host)) { if (o.blockTiles) return route.abort(); ctx.stats.tiles++; return route.continue(); }
+    if (TILE_HOSTS.test(u.host)) { if (o.blockTiles) return route.abort(); ctx.stats.tiles++; return STUB ? route.fulfill({ body: STUB, headers: { 'content-type': 'image/png' } }) : route.continue(); }
     if (u.origin + '/' !== BASE) { ctx.stats.aborted++; return route.abort(); }
     const p = path.join(ROOT, decodeURIComponent(u.pathname));
     if (!p.startsWith(ROOT) || !fs.existsSync(p) || fs.statSync(p).isDirectory()) return route.fulfill({ status: 404, body: 'not found' });
@@ -64,7 +68,7 @@ const settle = async (page, ms = 700) => {
   const shot = async (page, name, caption, meta) => { const f = name + '.jpg'; await page.screenshot({ path: path.join(OUT, f), type: 'jpeg', quality: 72 }); shots.push({ f, caption, meta }); };
   for (const [key, url] of PAGES) {
     for (const [vk, vp] of VPS) {
-      const phone = vk === '390';
+      const phone = vk !== '1440', land = vk === '844';   // 844×390 is a phone in landscape
       for (const dark of [false, true]) {
         const th = dark ? 'dark' : 'light', id = `${key}-${vk}-${th}`;
         const ctx = await context(browser, vp, { dark }), page = await ctx.newPage(), errors = [];
@@ -84,13 +88,13 @@ const settle = async (page, ms = 700) => {
           await settle(page);
           await shot(page, `${id}-2-zoomed`, `${key} ${vk} ${th} · zoomed in on the densest area`, z);
           // 3: select a pin near the middle of the uncovered map (desktop: preview card; phone: its carousel card)
-          const pin = await page.evaluate(ph => {
+          const pin = await page.evaluate(([ph, land]) => {
             const els = [...document.querySelectorAll('.leaflet-marker-icon.pp')].map(e => [e, (e.firstElementChild || e).getBoundingClientRect()])
-              .filter(([e, r]) => r.width && r.left > 40 && r.right < innerWidth - 80 && r.top > (ph ? 200 : 260) && r.bottom < innerHeight - (ph ? 260 : 120));
+              .filter(([e, r]) => r.width && r.left > 40 && r.right < innerWidth - 80 && r.top > (land ? 64 : ph ? 200 : 260) && r.bottom < innerHeight - (land ? 64 : ph ? 260 : 120));   // landscape: under the one bar, above the bottom controls
             if (!els.length) return null; const cx = innerWidth * (ph ? 0.5 : 0.3), cy = innerHeight * 0.5;
             els.sort((a, b) => Math.hypot(a[1].left - cx, a[1].top - cy) - Math.hypot(b[1].left - cx, b[1].top - cy));
             const r = els[0][1]; return { x: r.left + r.width / 2, y: r.top + r.height / 2, label: els[0][0].textContent };
-          }, phone);
+          }, [phone, land]);
           if (pin) { if (phone) await page.touchscreen.tap(pin.x, pin.y); else await page.mouse.click(pin.x, pin.y); await settle(page, 600); }
           await shot(page, `${id}-3-pin`, `${key} ${vk} ${th} · pin selected (${phone ? 'carousel card' : 'preview card'})`, pin);
           // 4: the list after a pan

@@ -60,6 +60,10 @@ SKIP = {
 BRAND_STORE = re.compile(r"Mandarake|Pok[eé]mon Center|Nintendo KYOTO|Animate |Jump Shop|Kiddy Land|Gashapon|Capcom Store|PARCO Character|Kotobukiya|Character Street|Super Potato|Anime Center|Characters World", re.I)
 VENUE_NAME = re.compile(r"\b(Theat(?:re|er)|Opera House|Playhouse|Ballpark|Arena|Stadium|Concert Hall)\b", re.I)
 SKIP.update({
+ 'tokyo#akihabara-electric-town': 'an electronics and anime shopping district: shop signage and branding are the subject of every view — calm cover (stated, R8 venue-rule change)',
+ 'wheeling#oglebay-resort-and-park': 'a resort (a hotel venue) — never a photo (stated, R8 venue-rule change)',
+})
+SKIP.update({
  'chicago#12th-street-beach': 'no file found (wave 6 search) — calm cover (stated, W8)',
  'cincinnati#alms-park': 'no file found (wave 6 search) — calm cover (stated, W8)',
  'columbus#ama-motorcycle-hall-of-fame-museum': 'no file found (only a sign photo) (wave 6 search) — calm cover (stated, W8)',
@@ -516,14 +520,17 @@ for k in HERO_VN:
 landmarks = []
 for key, (d, p) in recs.items():
     # tier-1 and first-row places always; any other place once a candidate wave vetted titles for it (R8 gap #1c)
-    if d['country'] == 'vietnam' or p['kind'] == 'food' or (p.get('t') != 1 and key not in PRIO and f'landmark:{key}' not in cands) or 'CLOSED' in p['n']: continue
+    # D-49: a food place becomes a target only once a wave vetted titles that identify THAT place (never generic stock)
+    if d['country'] == 'vietnam' or (p['kind'] == 'food' and f'landmark:{key}' not in cands) or (p.get('t') != 1 and key not in PRIO and f'landmark:{key}' not in cands) or 'CLOSED' in p['n']: continue
     g = set(p.get('g') or [])
     art = wiki_of(p)
     pilot = d['key'] in PILOTS
     t = {'key': f'landmark:{key}', 'type': 'landmark', 'depicts': key, 'label': p['n'], 'names': names_of(key, p, art), 'pilot': pilot}
     if art: t['article'] = art
-    if g & VENUE:
-        t['skip'] = f"venue ({', '.join(sorted(g & VENUE))}) — never a photo"
+    # a venue only when its PRIMARY kind is one: the first `g` tag is a venue tag, or `k` says venue/store. `g` also holds
+    # secondary theme tags (Alta Vista Terrace: ICON, ARCH, SPORT), which never make a sight a venue (orchestrator, R8)
+    if p['kind'] != 'food' and ((p.get('g') or [None])[0] in VENUE or re.match(r'\s*(?:[a-z]+ )?store\b', str(p.get('k') or ''), re.I)):   # D-49: food is its own subject
+        t['skip'] = f"venue ({(p.get('g') or ['k'])[0]}) — never a photo"
     elif key in SKIP:
         t['skip'] = SKIP[key]
     elif VENUE_NAME.search(p['n']):
@@ -533,7 +540,7 @@ for key, (d, p) in recs.items():
     elif re.match(r'Pok[eé] Lid', p['n']):
         t['skip'] = 'Poké Lid manhole cover: copyrighted character artwork, and Japan has no freedom of panorama for art (W8 gap stated)'
     if key in PRIO: t['priority'] = PRIO[key]
-    if art and 'skip' not in t: t['wikiLead'] = True
+    if art and 'skip' not in t and p['kind'] != 'food': t['wikiLead'] = True   # D-49: food only from vetted, identifying titles
     c = cands.pop(f'landmark:{key}', [])
     if c:
         t.update({'searchedVia': 'WebSearch allowed_domains=[commons.wikimedia.org]', 'searched': '2026-10-11'})
@@ -579,6 +586,7 @@ man = {
   'candidates[].flags': 'people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it',
  },
  'summary': summ,
+ 'rules': {'_doc': 'the photo rules other fetchers apply to places with no target here (fetch-openverse.js); a venue = its FIRST g tag is a venue tag, or k says venue/store', 'venueTags': sorted(VENUE), 'venueName': VENUE_NAME.pattern, 'brandStore': BRAND_STORE.pattern},
  'targets': targets,
 }
 json.dump(man, open('beta/assets/img/commons-candidates.json', 'w'), ensure_ascii=False, indent=1)

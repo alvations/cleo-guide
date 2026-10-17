@@ -110,8 +110,11 @@ const minify = (f, src) => {
 };
 // Atlas FE-2: client/atlas-nav.js (the map's interaction state) ships inside assets/js/atlas.js — one request, and it
 // always runs right after atlas.js. Each file keeps its own source so the two Atlas lanes never edit the same lines.
-const RIDES = { 'atlas.js': ['atlas-nav.js'] }, RIDERS = new Set([].concat(...Object.values(RIDES)));
-const clientSrc = f => [f].concat(RIDES[f] || []).map(x => fs.readFileSync(path.join(CLIENT, x), 'utf8')).join('\n');
+// Platform (eager-JS budget, 2026-10-17): shared helpers only lazy modules and page scripts use go IN FRONT of each user
+// (one source in client/, guarded so the first copy defines it) instead of in the eager core.js
+const LEADS = { 'base.js': ['geo.js'], 'trip.js': ['geo.js', 'codec.js'], 'share-card.js': ['geo.js', 'codec.js'], 'saved.js': ['codec.js'], 'atlas.js': ['geo.js'] };
+const RIDES = { 'atlas.js': ['atlas-nav.js'] }, RIDERS = new Set([].concat(...Object.values(RIDES), ...Object.values(LEADS)));
+const clientSrc = f => (LEADS[f] || []).concat([f], RIDES[f] || []).map(x => fs.readFileSync(path.join(CLIENT, x), 'utf8')).join('\n');
 // core.js goes last: its Cleo.need() carries the build's version of the lazy platform modules (__V_<name>__ → hash), so a
 // page without a version map (landing, hubs) still asks for the exact URL the worker precached
 for (const f of fs.readdirSync(CLIENT).filter(f => f.endsWith('.js') && !RIDERS.has(f)).sort((x, y) => (x === 'core.js') - (y === 'core.js') || (x < y ? -1 : x > y ? 1 : 0))) {
@@ -129,9 +132,25 @@ else assetsV.css = sha(fs.readFileSync(cssPath));
 // Atlas lane (W7 Amendment 2): Atlas map-search CSS (tools/beta/lib/render/atlas.css) rides in the same file — one request.
 // Atlas FE-2: lib/render/atlas-nav.css (the map's interaction state) rides after it.
 const feaCss = Buffer.concat(['fe-a.css', 'atlas.css', 'atlas-nav.css', 'fe-c.css' /* FE-C W9-1 badges */].map((f, i) => Buffer.concat([Buffer.from(i ? '\n' : ''), fs.readFileSync(path.join(__dirname, 'lib', 'render', f))])));
-emit('assets/fe-a.css', feaCss); const feaV = sha(feaCss);
+// Platform (R8 gap #6, CSS weight): the lane stylesheets built here ship minified — comments dropped, whitespace runs
+// collapsed, none kept around { } ; — while quoted strings and url(…) pass through untouched. Conservative on purpose:
+// the space before ':' or '>' can be a descendant combinator, so it stays. Sources stay readable for their owners.
+const cssMin = buf => {
+  const s = buf.toString('utf8'); let o = '', i = 0;
+  while (i < s.length) {
+    const c = s[i];
+    if (c === '"' || c === "'") { let j = i + 1; while (j < s.length && s[j] !== c) j += s[j] === '\\' ? 2 : 1; o += s.slice(i, j + 1); i = j + 1; continue; }
+    if (s.startsWith('url(', i)) { const j = s.indexOf(')', i); o += s.slice(i, j + 1); i = j + 1; continue; }
+    if (s.startsWith('/*', i)) { const j = s.indexOf('*/', i + 2); i = j < 0 ? s.length : j + 2; if (!/\s$/.test(o)) o += ' '; continue; }
+    if (/\s/.test(c)) { while (i < s.length && /\s/.test(s[i])) i++; if (!/[\s{};]$/.test(o) && !/^[{};]/.test(s.slice(i))) o += ' '; continue; }
+    if (c === '{' || c === '}' || c === ';') o = o.replace(/ $/, '');
+    o += c; i++;
+  }
+  return Buffer.from(o.trim() + '\n');
+};
+emit('assets/fe-a.css', cssMin(feaCss)); const feaV = sha(cssMin(feaCss));
 // FE-B page CSS (W7): landing, hubs and static pages — tokens only; source owned by FE-B (lib/render/fe-b.css).
-const febCss = fs.readFileSync(require('./lib/render/shell').FEB_CSS_SRC); emit('assets/fe-b.css', febCss);
+const febCss = cssMin(fs.readFileSync(require('./lib/render/shell').FEB_CSS_SRC)); emit('assets/fe-b.css', febCss);
 const tokPath = path.join(BETA, 'assets', 'tokens.css');          // optional design tokens (designer, M0-01)
 if (fs.existsSync(tokPath)) assetsV.tokens = sha(fs.readFileSync(tokPath));
 emit('assets/icon.svg', fs.readFileSync(path.join(__dirname, 'static', 'icon.svg')));

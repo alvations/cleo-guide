@@ -166,11 +166,11 @@ The owner made Atlas the default city view (D-46): "make atlas the default view 
   - the page's one-line dek;
   - "N places picked by M sources".
   It scrolls away with the list.
-- **The lead place.** The first card in the list sheet is the top place by `mp` with an honest photo, drawn full-width at 3:2. That holds on the cold, unfiltered load only; every other state uses the normal card.
+- **The lead place.** On the cold, unfiltered load, the first card in the list sheet (rank 1) is drawn full-width at 3:2, but **only if it has a photo** (D-49: order is never changed for photos). Photo-less cards use DESIGN-SYSTEM §v2.7b's compact row.
 
 **Desktop (1440):**
 - **A compact intro tops the list column**, not the map: the city name (`--font-display`, `--fs-d2`), the dek (one line, clamped) and "N places picked by M sources". At most 88 px; it scrolls away with the list. The count line sits under it unchanged.
-- **The lead card.** On the cold, unfiltered load, the first card spans both list columns at 3:2. It's the lead place, the top place by `mp` with an honest photo. Every other state uses the two-column grid.
+- **The lead card.** On the cold, unfiltered load, rank 1 spans both list columns at 3:2 if it has a photo. Every other state uses the two-column grid, and photo-less cards there are §v2.7b quote cards.
 - **No photos on the map itself.** Pills stay text plus glyph (§1.2).
 
 **Without the map** (tiles blocked or no map library):
@@ -257,10 +257,20 @@ B-01a (≥ 75 % at P1 at rest, chrome only) stays ratified. Rev 5a meets it at 7
 **6. Chip row** (OV-06): a 24 px fade on each overflowing edge (`var(--mask)`), scroll-snap to chip starts, and no chip cut mid-word with no fade.
 
 **7. Landscape (L, height < 500):**
-- **One 48 px top bar:** back, city, the view switch (labels), search, saved. The chips collapse into one "Filters" button in that bar, so the sheet holds kind, Top picks and Area.
-- **No peek.** "List" is a third icon in the control stack.
-- **The carousel** becomes a 320 px side card on the right after a selection.
-- Chrome is 12.3 % and doesn't compact; it is already one bar.
+- **Baseline measured** on real shots (`real/landscape-baseline`, 704dd37f8, Tokyo, Cleveland and Chinatown at 844×390):
+  - **at rest,** chrome is 39 %: a 48 px header, a floating 48 px chip row and a 56 px peek;
+  - **with a place selected,** three bottom carousel cards take 188 px (48 %), leaving a map band of about 100 px, with a "List · 412" pill floating mid-map and the attribution moved mid-left;
+  - **list view** is 48 % chrome: header, a 66 px sticky chip row, and a 72 px bottom bar that holds only the "Map" pill.
+- **The rule, every view, at 844×390:**
+  - **One 48 px top bar, and nothing else fixed.** It holds back, the city, the view switch (icon-only, labels as accessible names plus a tooltip; QA-80), **one Filters icon button** (its sheet holds kind, Top picks and Area, the chips that left the bar), search and saved. **No chip row** and **no bottom bar or peek** in any view.
+  - **Atlas at rest:** map under the bar. The control stack sits on the right edge, vertically centred: Locate, Layers, and **List** (an icon, `aria-label="List of N places"`). The ⓘ attribution is bottom-left. No floating "List · N" pill.
+  - **Selection:** **one side card**, 320 px wide, full height under the bar, on the right. It's the preview: photo or §v2.7b compact layout, with previous/next arrows to step through the in-bounds ranking. The map fits the selection in the remaining 524 px. The control stack moves left of the card. Never a bottom row of cards.
+  - **List (from the List icon, or the List/Gallery view):** the list scrolls under the bar. The way back to the map is the switch's Atlas icon in the bar, so there's no bottom "Map" bar. Photo-less cards use §v2.7b compact rows, two columns at this width.
+- **Budget:**
+  - chrome is 12.3 % in every view (48 / 390);
+  - at rest, clear map ≥ 80 %;
+  - with the side card, ≥ 50 % of the viewport (524 × 342 of 844 × 390 is 54 %);
+  - list view has no fixed chrome beyond the bar.
 
 **Acceptance:**
 - QC S-17 measures every row of the table on Punggol, Tokyo, Cleveland, Chinatown and New York, in light and dark: at load, during a scripted 200 px pan (sampled at 300 ms), and 1.5 s after it.

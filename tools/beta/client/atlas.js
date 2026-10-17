@@ -95,22 +95,35 @@
     k.on('mouseout', () => { const r = C.byId[id]; if (r) r.classList.remove('is-hover'); });
     return k; };
   // the label box a pill needs, in px (Inter 600 14 px ≈ 8 px a character), for the greedy collision check
-  const boxOf = (c, nm) => 48 + short(nm).length * 8 + (c.hasAttribute('data-closed') ? 56 : 0);
+  // OV-03 (SPEC-v3 §2.0.4): a label is at most 40 % of the phone map's width (220 px on desktop); longer names end in an
+  // ellipsis (the full name stays in the link's aria-label and title, and shows on hover, focus or selection)
+  const capW = () => { const m = C.map(); return desk() ? 220 : Math.floor((m ? m.getSize().x : innerWidth) * 0.4) - 1; };
+  const boxOf = (c, nm) => Math.min(capW(), (desk() ? 48 : 40) + short(nm).length * (desk() ? 8 : 7) + (c.hasAttribute('data-closed') ? 56 : 0));
   // four anchors, tried in turn before a pill gives way to a dot (SPEC-v3 §1.3): above (with the stem), right, left, below
   const ANCH = ['t', 'r', 'l', 'b'];
   const boxAt = (p, w, a) => a === 't' ? { l: p.x - w / 2 - 2, r: p.x + w / 2 + 2, t: p.y - 41, b: p.y + 2 } : a === 'b' ? { l: p.x - w / 2 - 2, r: p.x + w / 2 + 2, t: p.y + 2, b: p.y + 38 }
     : a === 'r' ? { l: p.x + 2, r: p.x + w + 6, t: p.y - 18, b: p.y + 18 } : { l: p.x - w - 6, r: p.x - 2, t: p.y - 18, b: p.y + 18 };
   let ft = 0;
   C.feature = () => { clearTimeout(ft); ft = setTimeout(feature, 120); };
+  // phones: the map runs under FE-A's switch row now (OV-00: nothing resizes when the bars tuck), so the top pad is the
+  // lowest VISIBLE top bar — the switch row or the chip row (both off-screen while tucked) — even before the chip row is built
+  { const om = C.overMap; C.overMap = () => { const o = om(); if (desk() || !H.classList.contains('atlas-m') || H.classList.contains('ms-list')) return o;
+    const mt = $('#cleo-map').getBoundingClientRect().top, lo = Math.max(0, ...['main>.cbar', '.ms-bar'].map(q => { const e = $(q), r = e && e.getBoundingClientRect(); return r && r.height ? r.bottom - mt : 0; }));
+    o.paddingTopLeft[1] = Math.max(o.paddingTopLeft[1], 24 + lo); return o; }; }
   const feature = () => {
     const map = C.map(), L = window.L; if (!map || !L || !map.getSize().x) return;
-    const N = desk() ? 16 : 8, sv = savedSet(), sel = selC && C.pid(selC), b = atlas() ? box() : map.getBounds(), z = map.getZoom();
+    let N = 8; const sv = savedSet(), sel = selC && C.pid(selC), b = atlas() ? box() : map.getBounds(), z = map.getZoom();
     const vis = Object.keys(C.markers).filter(id => { const c = rec(id); return c && shows(c) && C.dots.hasLayer(C.markers[id]); });
     const inV = vis.filter(id => b.contains(C.markers[id].getLatLng()));
     const first = id => (id === sel ? 0 : sv[id] ? 1 : 2);
     const cand = inV.slice().sort((x, y) => first(x) - first(y) || (MP[x] - MP[y]));
     const placed = [], want = {}, anc = {}, order = [], sz = map.getSize(), ob = atlas() ? C.overMap() : null;   // a pill never sits under the chip row or the carousel
     const topL = ob ? ob.paddingTopLeft[1] - 24 : 0, botL = ob ? sz.y - (ob.paddingBottomRight[1] - 24) : sz.y;
+    // OV-03: the label count follows the clear map's area (§2.0.4): phone ÷ 24k px² (3–8, 10 in landscape), tablet ÷ 26k
+    // (≤ 12), desktop ÷ 30k (≤ 16); and the union of pills stays within 8 / 7 / 6 % of the map (checked on the real pills)
+    { const ar = sz.x * Math.max(0, botL - topL), cl = (v, lo, hi) => Math.max(lo, Math.min(hi, Math.floor(v)));
+      N = desk() ? cl(ar / 30000, 3, 16) : innerWidth >= 768 ? cl(ar / 26000, 3, 12) : cl(ar / 24000, 3, innerHeight < 500 ? 10 : 8); }
+    map.getContainer().style.setProperty('--pp-max', capW() + 'px');
     // nor under a map control, the List / Map pill or "Search this area" (rects in map-container px)
     const mr = map.getContainer().getBoundingClientRect(), avoid = [...map.getContainer().querySelectorAll('.leaflet-control')].concat([$('.ms-toggle'), $('.ms-here'), $('#cleo-poi')])
       .filter(e => e && e.offsetWidth && !e.closest('[hidden]')).map(e => { const q = e.getBoundingClientRect(); return { l: q.left - mr.left - 4, r: q.right - mr.left + 4, t: q.top - mr.top - 4, b: q.bottom - mr.top + 4 }; });
@@ -140,9 +153,10 @@
     { const mr = map.getContainer().getBoundingClientRect(), kept = [];
       if (me) { const q = map.latLngToContainerPoint(me); kept.push({ left: mr.left + q.x - 11, right: mr.left + q.x + 11, top: mr.top + q.y - 11, bottom: mr.top + q.y + 11 }); }
       const near = (a, b) => a.left < b.right + 4 && a.right > b.left - 4 && a.top < b.bottom + 4 && a.bottom > b.top - 4;
+      let cov = 0; const lim = (desk() ? 0.06 : innerWidth >= 768 ? 0.07 : 0.08) * sz.x * sz.y;   // OV-03 coverage: a pill past it goes back to a dot
       order.forEach(id => { const k = pins[id], e = k && k.getElement(), sp = e && e.firstElementChild; if (!sp) return; const r = sp.getBoundingClientRect(); if (!r.width) return;
-        if (first(id) === 2 && kept.some(q => near(r, q))) { map.removeLayer(k); delete pins[id]; return; }
-        kept.push(r); }); }
+        if (first(id) === 2 && (kept.some(q => near(r, q)) || cov + r.width * r.height > lim)) { map.removeLayer(k); delete pins[id]; return; }
+        cov += r.width * r.height; kept.push(r); }); }
     // density discs (region zoom only): > 12 dots inside a 28 px cell read as one soft, unnumbered disc; a click zooms in
     if (!discL) discL = L.layerGroup().addTo(map); discL.clearLayers(); C.discs = 0;
     vis.forEach(id => { const k = C.markers[id]; if (k.options.opacity === 0) k.setStyle(C.dotStyle(rec(id))); });
@@ -422,7 +436,8 @@
       const a = {}; [].forEach.call(c.attributes, x => { a[x.name] = x.value; });
       const st = { id: c.id, stub: true, getAttribute: k => (Object.prototype.hasOwnProperty.call(a, k) ? a[k] : null), hasAttribute: k => Object.prototype.hasOwnProperty.call(a, k), _a: a };
       const n = d.createElement('noscript'); n.setAttribute('data-cleo-defer', ''); n.setAttribute('data-n', '1'); n.setAttribute('style', 'display:contents'); n.textContent = '\n' + c.outerHTML + '\n';
-      c.parentNode.replaceChild(n, c); const id = C.pid(c), i = C.cards.indexOf(c); if (i >= 0) C.cards.splice(i, 1); if (C.byId[id] === c) delete C.byId[id]; C.stubs[id] = st; }); };   // forgotten by city.js; its place keeps a stub
+      c.parentNode.replaceChild(n, c); const id = C.pid(c), i = C.cards.indexOf(c); if (i >= 0) C.cards.splice(i, 1); if (C.byId[id] === c) delete C.byId[id]; C.stubs[id] = st; });   // forgotten by city.js; its place keeps a stub
+    if (Cleo.defer.resume) Cleo.defer.resume(); };   // platform's contract (5): the lazy observer re-watches the lists' new chunks
   const undeco = () => { qa('li.pl img[data-sizes0]').forEach(im => { im.setAttribute('sizes', at(im, 'data-sizes0')); im.removeAttribute('data-sizes0'); });
     qa('li.pl[data-ms]').forEach(x => x.removeAttribute('data-ms')); qa('li.pl :is(.ms-bd,.ms-cr,.ms-k,.ms-rec)').forEach(x => x.remove()); };
   on(d, 'cleo:stamped', () => { if (atlas()) { deco(); face(); } });
@@ -591,18 +606,9 @@
       // OV-05 (SPEC-v3 §2.0.3): the one-line credit is there without interaction at load, and folds to its ⓘ (24 px, a 44 px
       // hit area, the full credit one tap away) on the reader's first pan or after 5 s
       const fold = () => box.classList.add('m-attr-c'); setTimeout(fold, 5000); map.once('dragstart', fold); }
-    ctl(dk ? 'topleft' : 'bottomright', () => { const b = btn('m-locate', 'Near me: show my location on the map (stays on this device)', C.icon('locate') + (dk ? '' : '<span>Near me</span>')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
-    ctl(dk ? 'topright' : 'bottomright', () => {
-      const s = btn('m-base', '', C.icon('grid') + '<span></span>');
-      // one button: Map ⇄ Satellite (SPEC-v3 §4; street detail lives in the Key)
-      // desktop names the switch's target ("Satellite"); the phone pill names the style on show ("Map" / "Satellite") — SPEC-v3 §2.2
-      const lab = () => { const sat = store.get('base', 'map') === 'satellite', n = sat ? 'Satellite' : 'Map'; $('span', s).textContent = dk ? (sat ? 'Map' : 'Satellite') : n;
-        s.setAttribute('aria-label', 'Map style: ' + n + '. Switch to ' + (sat ? 'the map' : 'satellite')); s.title = 'Map style: ' + n; s.setAttribute('aria-pressed', String(sat)); };
-      on(s, 'click', () => { C.setBase(store.get('base', 'map') === 'satellite' ? 'map' : 'satellite'); lab(); }); lab(); C.after.push(lab); return s;
-    });
-    // the Key: a map control on desktop; on phones it is never on the map — it is the last section of Filters (SPEC-v3 §2.2)
+    // the Key (a fieldset), shown in the Layers popover (OV-00 §2.0.3)
     const keyBox = () => {
-      const g = d.createElement(dk ? 'details' : 'fieldset'); g.className = dk ? 'am-ctl m-legend' : 'ms-key'; if (!dk) g.setAttribute('data-fs', 'key');
+      const g = d.createElement('fieldset'); g.className = 'ms-key';
       const k = (cls, gl, t) => '<b class="pp ' + cls + '"><span><svg class="ico" aria-hidden="true"><use href="#i-' + gl + '"/></svg><b>' + t + '</b></span></b>';
       const fk = d.getElementById('i-forkknife') ? 'forkknife' : 'bowl';
       const paint = () => { const ar = S.a ? [S.a] : []; g.querySelector('ul').innerHTML = '<li>' + k('pp-s', 'columns', 'Sight') + '</li><li>' + k('pp-f', fk, 'Eat &amp; drink') + '</li>' +
@@ -610,12 +616,32 @@
         '<li class="k"><i class="kd"></i><i class="kd f"></i>More places · zoom in to see their names</li>' +
         ar.map(a => '<li class="k"><i class="kd" style="background:' + areaC({ getAttribute: () => a, hasAttribute: () => false }) + '"></i>' + C.esc(((C.info.areas || {})[a] || {}).n || a) + '</li>').join('') +
         '<li class="k">' + (store.get('base', 'map') === 'street!' ? '<button type="button" class="btn btn-quiet" data-base="map">Back to the calm map</button>' : '<button type="button" class="btn btn-quiet" data-base="street">Show street detail</button>') + '</li>'; };
-      g.innerHTML = (dk ? '<summary aria-label="Map key">' + C.icon('info') + '<span>Key</span></summary>' : '<legend>Map key</legend>') + '<ul class="m-legend-l"></ul>'; paint();
+      g.innerHTML = '<legend>Map key</legend><ul class="m-legend-l"></ul>'; paint();
       on(g, 'click', e => { const b = e.target.closest('[data-base]'); if (!b) return; C.setBase(at(b, 'data-base')); paint(); });
       C.after.push(paint);
       return g;
     };
-    if (dk) ctl('bottomleft', keyBox); else { const sc = $('#cleo-tray .scroll'); if (sc && !$('.ms-key', sc)) sc.appendChild(keyBox()); }
+    // OV-00 §2.0.3 (D-47): phones get ONE icon-only stack, bottom-right — Locate, then Layers; desktop gets + / − then Layers,
+    // top-left, and no locate on the map (the list head's "Near me" is the one). Layers opens a small popover: Map / Satellite
+    // as a radio pair, the Key, and the offline pack (platform's Cleo.pack.mount). Esc closes it and returns focus to Layers
+    if (!dk) ctl('bottomright', () => { const b = btn('m-locate', 'Near me', C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
+    ctl(dk ? 'topleft' : 'bottomright', () => {
+      const w = d.createElement('div'); w.className = 'am-ctl m-layers-w';
+      w.innerHTML = '<button type="button" class="m-layers" aria-label="Map style and key" title="Map style and key" aria-expanded="false" aria-controls="m-layers-pop">' + C.icon('grid') + '</button>' +
+        '<div class="m-layers-pop" id="m-layers-pop" role="dialog" aria-label="Map style and key" hidden><div class="m-styles" role="radiogroup" aria-label="Map style">' +
+        '<button type="button" role="radio" data-base="map">Map</button><button type="button" role="radio" data-base="satellite">Satellite</button></div><div class="m-pack"></div></div>';
+      const b = $('.m-layers', w), pop = $('.m-layers-pop', w), rs = qa('[role=radio]', w);
+      const lab = () => { const sat = store.get('base', 'map') === 'satellite'; rs.forEach(r => { const on1 = (at(r, 'data-base') === 'satellite') === sat; r.setAttribute('aria-checked', String(on1)); r.tabIndex = on1 ? 0 : -1; }); };
+      const open = o => { pop.hidden = !o; b.setAttribute('aria-expanded', String(o)); if (o) { lab(); const hst = $('.m-pack', pop); if (Cleo.pack && Cleo.pack.mount) Cleo.pack.mount(hst); (rs.find(r => r.tabIndex === 0) || rs[0]).focus(); } };
+      on(b, 'click', () => open(pop.hidden));
+      on(pop, 'click', e => { const r = e.target.closest('[role=radio]'); if (!r) return; C.setBase(at(r, 'data-base')); lab(); r.focus(); });
+      on(pop, 'keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); open(false); b.focus(); return; }
+        const k = rs.indexOf(d.activeElement); if (k < 0 || !/^Arrow/.test(e.key)) return; e.preventDefault(); const n = rs[(k + (/Right|Down/.test(e.key) ? 1 : rs.length - 1)) % rs.length]; n.click(); });
+      map.on('click dragstart', () => { if (!pop.hidden) open(false); });
+      pop.insertBefore(keyBox(true), $('.m-pack', pop));
+      lab(); C.after.push(lab); return w;
+    });
+    // (the Key now lives in the Layers popover, phone and desktop alike — OV-00 §2.0.3)
     // map moves → the list follows (desktop, live) / "Search this area" (phones, after the reader moves the map)
     let user = 0, mt = 0;
     map.on('dragstart', () => { user = 1; closePoi(); p0 = map.getCenter(); });

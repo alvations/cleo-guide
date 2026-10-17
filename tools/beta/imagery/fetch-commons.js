@@ -255,7 +255,7 @@ function recordCheck(t) {
   const d = JSON.parse(fs.readFileSync(f, 'utf8'));
   const rec = (d.places || []).find(p => p.id === id);
   if (!rec) return { why: `${id} is not on beta page ${page}` };
-  if (rec.kind === 'food') return { why: 'food place — never a photo' };
+  // D-49: a food place may carry a photo of THAT place; only vetted candidates (never a lead image) — see the plan
   if (/CLOSED/.test(rec.n)) return { why: 'closed place — never a photo' };
   if (d.country === 'vietnam' || page.startsWith('vietnam/')) return { why: 'Vietnam has no freedom of panorama' };
   return { page, id, rec };
@@ -576,6 +576,7 @@ async function main() {
       modified: `resized to ${widthList(out.map(v => v.w))} px wide${info.derived ? `; ${info.derived}` : ''}`,
       fetched: today,
       confidence: c.confidence,
+      ...(p.where.rec && p.where.rec.kind === 'food' ? { identifies: c.reason || `title: ${name}` } : {}),   // D-49: how the file names THAT place
     });
     fs.writeFileSync(CREDITS, JSON.stringify(credits, null, 1) + '\n');   // after each photo, so a stop keeps the work
     return { ok: `${p.t.key} ← ${info.title} (${info.lic.licence}, ${info.author}${info.viaUploader ? ' — author = uploader, own work (no Artist on Commons)' : ''}) → ${out.map(v => `${v.file} ${v.kb} KB`).join(', ')}` };
