@@ -27,7 +27,15 @@ Every other card in the first 4 of these rows has a credited photo. Regenerate t
 | tokyo | Anime, manga & pop culture | #2 Akihabara Electric Town (秋葉原電気街) — venue (MKT) — never a photo<br>#3 Mandarake Complex Akihabara (まんだらけコンプレックス) — venue (MKT) — never a photo<br>#4 Tokyo Character Street, Tokyo Station (東京キャラクターストリート) — venue (MKT) — never a photo |
 | wheeling | Must see | #3 Centre Market Historic District — venue (MKT) — never a photo<br>#4 DiCarlo's Pizza — food place (never a photo) |
 
-## Row composition, for FE review
+## Row composition (orchestrator ruling: no FE change)
+
+**"Must see" rows are tier-1 picks across kinds by design**, so food in them is expected and is not a bug. For the
+guides whose signature row is "Must see" (Silicon Valley, Wheeling and the Singapore guides above), that row is
+mixed, not a sights row, and (d) applies only to its photographable cards. Those cards all carry a photo, or a
+stated reason. The anime rows (Tokyo, Osaka, Kyoto, Okinawa) are sights rows whose first cards are brand stores or
+venues, and those never get a photo by rule.
+
+### Food cards in sights-led signature rows (reference)
 
 These "sights"-led signature rows also contain **food** cards. Some may be deliberate, since a "Must see" row can mix
 food with sights. A sights row made mostly of food, such as Silicon Valley's (its first 4 cards are all food), looks
