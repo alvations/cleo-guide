@@ -154,3 +154,28 @@ sourcing gate passes. Gates required — **enforced in code, verifiable, not ass
 ### Refresh protocol (when re-checking a live SV)
 Re-run Stage 3 (status) and Stage 5 (location) on the current set, append a dated section here, and
 re-pass the gates. These two ledgers are the ones that rot.
+
+---
+## 2026-10-17 — QC: Yelp-only records (orchestrator: "Yelp shown as a recommender")
+
+**The gate is correct.** `--sourcecheck silicon-valley-ca` counts YELP/TRIPADVISOR as 0. `build-siliconvalley.py` GATE 1 drops every record with fewer than 2 credible sources, so **none of the 67 Yelp-only records were on the live page**. The Yelp mentions the beta showed sit on records that already pass on two or more credible sources, where Yelp appears as a measurement. FE-B handles that rendering.
+
+**Re-sourcing wave 3.** This was 25 sequential WebSearches on 2026-10-17: the tier-1 Yelp-only records first, then category round-ups (Vietnamese, Indian, boba, Chinese, tacos). The evidence lives in `_resourced_qc20261017.json` (gitignored, like earlier waves) and is merged into the research files.
+
+| place | added | URL | result |
+|---|---|---|---|
+| Roy's Station Coffee & Tea | SJPL + RAFU | sjpl.org pre-war service stations blog; Rafu Shimpo obituary of Roy Murotsune (2021) | **PASS**, 2 credible. Held only by GATE 2 (no pin yet); queued for location-verify. |
+| The Table | FOODGAL | foodgal.com/?p=27729 (Carolyn Jung) | 1 editorial; held by GATE 1 |
+| Anjappar Chettinad (Milpitas) | SFCHRON | sfchronicle.com "Silicon Valley's Chettinad food is as fragrant…" | 1 editorial; held |
+| Hokkaido Ramen Santouka | SJTOURISM | sanjose.org listing | 1; held |
+| Seorai Korean BBQ | DISCOVERSC | discoversantaclara.org Korean Food Trail | 1; held |
+
+**No credible recommender found (18)**, now in `_prune_candidates.json`: LB Steak, Red Rock Coffee, Coffee & Water Lab, Icing on the Cake, Saravanaa Bhavan, UlavacharU, SGD Tofu House, Kaita, Taqueria El Grullense, Inka's, Banh Cuon Tay Ho, Com Tam Thien Huong, Rene-Rose Island Cuisine, Haidilao, Hunan Impression, Xian Kitchen, Shanghai Delight, Cheung Hing.
+- What turned up was only listings, aggregators, forums and student papers.
+- The Infatuation reviews of a *different* El Grullense (Palo Alto) and a *different* So Gong Dong were not counted.
+
+**Counts after the wave:** 171 PASS / 52 single-editorial / **62 Yelp-only** (was 67). That is a third wave of diminishing returns, after the 2026-08-14 waves found the same.
+
+**Remaining Yelp-only: 62.** They are not shown, since GATE 1 drops them, and they stay in research marked as not meeting the source bar. Most are chains or boba shops: 85C, Boba Guys, Meet Fresh, Sharetea, Paris Baguette, Haidilao, Saravanaa Bhavan, Paradise Biryani and others. The merit bar treats a chain with no editorial coverage as a drop.
+
+**Recommendation:** formally prune these 62 from the research set, or leave them held. That's the orchestrator's or owner's call. Further density should come from places credible lists already name (Michelin, Infatuation, KQED, Metro Best-of), per RESUME.md, not from re-sourcing Yelp finds again.
