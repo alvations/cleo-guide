@@ -16,6 +16,8 @@
  *  base-lazy   a first load with no base never requests base.js; with a base it is requested once
  *  rec-pv      (W9-1) the Atlas map preview of a recognised place carries its badges (text: the preview is one link)
  *  rec-tap     (QA-77) badge links are ≥ 44 px tap targets (B-20) on 4 pilots × Gallery/Atlas at 390; the pill still paints 32 px
+ *  land        (§2.0.7) 844×390 Atlas selection: FE-1's ≤ 320 px column, clear map ≥ 50 %, "Checked" flush with the name, no
+ *              label under the column, Escape closes and focus returns to the pin / map (never BODY)
  *  sheet-chrome (OV-111/112) the place sheet: one nav bar ≤ 50–58 px with its close button; the action bar steps aside (portrait) or
  *              sits under the nav and scrolls (landscape, ≥ 1024)
  *  empty       (QC-05, S-05-style) #q=zzqxjv on 5 pilots × Gallery/Atlas × 390/1440: one visible state naming the search
@@ -38,7 +40,7 @@ const SAVED = {};
   'yoyogi-park', 'meiji-jingu', 'hachiko-statue', 'unicorn-gundam-statue-divercity-tokyo-plaza', 'shinjuku-golden-gai', 'isegen', 'kanda-myojin'].forEach((id, i) => { SAVED['tokyo/' + id] = { t: i }; });
 
 async function open(b, url, o = {}) {   // o.noLeaflet: the map library is blocked
-  const ctx = await b.newContext({ viewport: { width: o.w || 390, height: o.h || 844 }, isMobile: (o.w || 390) < 500, hasTouch: (o.w || 390) < 500, serviceWorkers: 'block', colorScheme: o.dark ? 'dark' : 'light' });
+  const ctx = await b.newContext({ viewport: { width: o.w || 390, height: o.h || 844 }, isMobile: !!o.touch || (o.w || 390) < 500, hasTouch: !!o.touch || (o.w || 390) < 500, serviceWorkers: 'block', colorScheme: o.dark ? 'dark' : 'light' });
   const off = [];
   await ctx.route('**/*', r => { const u = r.request().url();
     if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u) && o.tiles) return r.fulfill({ status: 200, contentType: 'image/png', body: TILE });
@@ -184,6 +186,27 @@ async function tabTo(page, test, n = 80) {
     const after = await s.page.evaluate(() => ({ q: /[#&]q=/.test(location.hash), input: (document.getElementById('cleo-filter') || {}).value || '' }));
     ok(!after.q && !after.input, `${tag}: "Clear search" clears the search`, after);
     await s.ctx.close();
+  }
+
+  console.log('# land (SPEC-v3 §2.0.7, FE-1\'s landscape side column + FE-C card lines): a selection at 844×390');
+  for (const [rel, dark] of [['cities/tokyo.html', false], ['cleveland.html', true], ['Singapore/chinatown.html', false]]) {
+    const s = await open(b, rel + '#view=atlas', { w: 844, h: 390, touch: true, tiles: true, dark, settle: 1800 }), tag = `${rel.replace(/^.*\//, '')} ${dark ? 'dark' : 'light'}`;
+    const pin = await s.page.evaluate(() => { const els = [...document.querySelectorAll('.leaflet-marker-icon.pp')].map(e => [e, (e.firstElementChild || e).getBoundingClientRect()]).filter(([e, r]) => r.width && r.left > 40 && r.right < innerWidth - 120 && r.top > 64 && r.bottom < innerHeight - 40);
+      if (!els.length) return null; els.sort((a, b) => Math.hypot(a[1].left - innerWidth / 2, a[1].top - innerHeight / 2) - Math.hypot(b[1].left - innerWidth / 2, b[1].top - innerHeight / 2)); const r = els[0][1]; return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; });
+    if (pin) await s.page.touchscreen.tap(pin.x, pin.y); await s.page.waitForTimeout(900);
+    const m = await s.page.evaluate(() => { const lp = document.querySelector('.listpane'), r = lp.getBoundingClientRect(), mp = document.querySelector('.mappane').getBoundingClientRect(), sel = document.querySelector('#cleo-grid li.pl.is-sel');
+      const sr = sel && sel.getBoundingClientRect(), labels = [...document.querySelectorAll('.leaflet-marker-icon.pp')].map(e => (e.firstElementChild || e).getBoundingClientRect()).filter(q => q.width && q.right > r.left + 2 && q.left < r.right && q.bottom > r.top && q.top < r.bottom).length;
+      const chk = sel && sel.querySelector(':scope>.pl-chk'), nm = sel && sel.querySelector('.pl-n'), tl = e => { const q = e.getBoundingClientRect(); return Math.round(q.left + parseFloat(getComputedStyle(e).paddingLeft)); };
+      return { car: document.documentElement.classList.contains('ms-car'), w: Math.round(r.width), clear: +(Math.max(0, r.left - mp.left) * mp.height / (innerWidth * innerHeight)).toFixed(3), selIn: !!sr && sr.top >= r.top - 1 && sr.top < r.bottom, labels, flush: chk && nm ? tl(chk) - tl(nm) : null, chk: chk && chk.textContent }; });
+    ok(m.car && m.w <= 322 && m.clear >= 0.5 && m.selIn, `${tag}: one ≤ 320 px column on the right with the selected place in view; clear map ≥ 50 %`, m);
+    ok(m.flush === 0 && /^Checked \d{1,2} [A-Z][a-z]{2,3}$/.test(m.chk || ''), `${tag}: "Checked <d Mon>" sits flush with the card's name`, [m.flush, m.chk]);
+    await s.page.screenshot({ path: path.join(SHOTS, `land-844-${tag.replace(/\.html /, '-')}.png`) });
+    ok(m.labels === 0, `${tag}: no map label drawn under the column`, m.labels);
+    await s.page.keyboard.press('Escape'); await s.page.waitForTimeout(500);
+    const e = await s.page.evaluate(() => ({ car: document.documentElement.classList.contains('ms-car'), sel: !!document.querySelector('#cleo-grid li.pl.is-sel'), focus: document.activeElement === document.body ? 'BODY' : document.activeElement.className.baseVal != null ? 'svg' : String(document.activeElement.className).split(' ')[0] }));
+    ok(!e.car && !e.sel && e.focus !== 'BODY', `${tag}: Escape closes the selection and focus goes back to the pin (or the map), never the page`, e);
+    
+    ok(!s.errs.length, `${tag}: 0 page errors`, s.errs.slice(0, 2)); await s.ctx.close();
   }
 
   console.log('# sheet-chrome (OV-111 / OV-112, OV-00: the place sheet keeps one bar; its action bar steps aside)');
