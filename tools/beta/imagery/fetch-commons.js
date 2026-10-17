@@ -330,7 +330,7 @@ const NOT_A_PHOTO = /\b(maps?|locator|location map|coats? of arms|flags?|seals?|
 const suspectFormat = (mime, depicts) => !/^image\/jpeg$/i.test(mime || '') && !String(depicts || '').trim() && 'a PNG/non-JPEG lead image with no vetted depicts — likely an emblem, map or diagram, not a photo';
 /** A refusal about the photo itself (signage, gloom, close-up, wrong subject) holds for every target; one about the
  *  slot (a duplicate of another hero or card, repeating a lead card's subject) holds only for the target it names. */
-const refusalIsGlobal = reason => !/duplicat|same file|repeats|already|place card|is the [\w ]*hero|the [\w ]+ hero is/i.test(reason || '');
+const refusalIsGlobal = reason => !/second pick|duplicat|same file|repeats|already|place card|is the [\w ]*hero|the [\w ]+ hero is/i.test(reason || '');
 /** What a run may fetch (W8): a stray run can never pull the whole tier-1 set. */
 const SCOPES = ['heroes', 'priority', 'pilots', 'all'];
 function inScope(t, scope) {

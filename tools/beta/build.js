@@ -366,6 +366,9 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
     const h = (r.kind === 'archive-hub' ? hub.renderArchive : hub.renderCountry)(r, reg, ctx);
     html = h.html;
     errors.push(...assertHubPage(r.beta, html, h.expect, totals));
+  } else if (r.kind === 'moved') {
+    html = method.movedPage(r, ctx);                 // FE-B: one city, one page — a pointer to the city's own folder
+    if (!reg.rows.some(x => x.beta === r.movedTo && x.kind === 'city')) errors.push(`${r.beta}: moved to a page that is not built (${r.movedTo})`);
   } else { errors.push(`${r.live}: no beta renderer for kind '${r.kind}' yet`); continue; }
   errors.push(...assertPage(r.beta, html));
   emit(r.beta, html);
@@ -386,7 +389,7 @@ const generated = reg.rows.filter(r => r.gen === 'new').map(r => r.beta).concat(
 emit('data/manifest.json', JSON.stringify({
   v: 1, _doc: 'Written by tools/beta/build.js. `generated` pages are owned by the new beta generator; tools/beta-restyle.py must skip them. `pages` maps every live page to its beta source.',
   generated,
-  pages: reg.rows.map(r => ({ live: r.live, beta: r.beta, key: r.key, kind: r.kind, gen: r.gen, country: r.country,
+  pages: reg.rows.map(r => ({ live: r.live, beta: r.beta, key: r.key, kind: r.kind, gen: r.gen, country: r.country, ...(r.movedTo ? { movedTo: r.movedTo } : {}),
     counts: r.counts ? { P: r.counts.P, F: r.counts.F } : null })),
   totals: { pages: cityRows.length, places: totalLive },
 }, null, 1));

@@ -1,4 +1,4 @@
-/* Cleo beta — fresh.js (FE-C, W9-2 "Freshness everywhere", card half; QC-04 "Approximate pin"). A quiet "Status checked <d Mon>" line on each
+/* Cleo beta — fresh.js (FE-C, W9-2 "Freshness everywhere", card half; QC-04 "Approximate pin"). A quiet "Checked <d Mon>" line (designer R8 D12; the detail keeps "Status checked") on each
  * place card, from the card's own data-checked (the build writes it from the record's pv.checked; nothing is inferred).
  * The date only, never "open now" or hours. Real text (find-in-page, screen readers, copy all read it) marked data-nosearch,
  * so the search skips it (Cleo.lens.text and city.js's typed search, platform f03b03cf): "oct" never matches every card.
@@ -35,7 +35,7 @@
       var iso = c.getAttribute('data-checked'), s = day(iso); if (!s) return;
       var el = c.querySelector(':scope > .pl-chk');
       if (!el) { el = d.createElement('span'); el.className = 'pl-chk'; c.appendChild(el); }
-      el.textContent = Cleo.t('sheet.status', 'Status checked {d}', { d: s }); el.setAttribute('data-d', iso); el.setAttribute('data-nosearch', '');
+      el.textContent = Cleo.t('sheet.chk', 'Checked {d}', { d: s }); el.setAttribute('data-d', iso); el.setAttribute('data-nosearch', '');
     });
   }
   // W9-2 (a): the Gallery row cards (li.gc) and the Atlas map preview (a.ms-pv) carry the same line, dated from the place's
@@ -55,7 +55,7 @@
       var old = el.querySelector('.pl-chk'); if (old) old.remove();
       if (!s) return;
       var x = d.createElement('span'); x.className = 'pl-chk ' + (pv ? 'pv-chk' : 'gc-chk');
-      x.textContent = Cleo.t('sheet.status', 'Status checked {d}', { d: s }); x.setAttribute('data-d', iso); x.setAttribute('data-nosearch', '');
+      x.textContent = Cleo.t('sheet.chk', 'Checked {d}', { d: s }); x.setAttribute('data-d', iso); x.setAttribute('data-nosearch', '');
       (at || el).appendChild(x);   // inside the one card link: text, not a target (the card says it in its accessible name)
     });
   }

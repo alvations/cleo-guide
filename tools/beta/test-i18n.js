@@ -304,6 +304,36 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     chk('data-l10n: a marked server phrase is re-said in the loaded catalogue (values filled as text; unknown key and bad JSON left alone)',
       ['l1', 'l2', 'l3', 'l4'].map(i => dS.getElementById(i).textContent), [fillP('gal.more', { n: 3 }), PSEUDO.strings['gal.see'], 'Keep', 'See']);
   }
+  // i18n D-41 (audit 2026-10-17): Your lists. (1) The built saved.html frame under the runtime PSEUDO swap has 0 English
+  // outside the client-drawn #cleo-saved. (2) client/saved.js, every render path, under the PSEUDO catalogue: 0 English
+  // interface words. Data here is Japanese, so any ASCII word is interface (brand and format names excepted).
+  {
+    const dSv = await runtime(fs.readFileSync(path.join(BETA, 'saved.html'), 'utf8'), 'https://example.test/beta/saved.html?lang=ja', { en: i18n.EN, ja: PSEUDO });
+    const fr = dSv.querySelector('main').cloneNode(true); const cs = fr.querySelector('#cleo-saved'); if (cs) cs.remove();
+    chk('saved.html frame, runtime pseudo swap: no English left (title included)', [left(fr.outerHTML), /[A-Za-z]{3,}/.test(dSv.title.replace(/Cleo/g, ''))], [[], false]);
+    const BRAND = /\b(Cleo|GeoJSON|KML|JSON|Apple Maps|Google Maps|Google Earth|OpenStreetMap|My Maps|CLOSED)\b/g;   // CLOSED: the closed marker is part of the place's name (data)
+    const PJ = { name: '東京', beta: 'cities/t.html', colors: { a1: '#123456' }, areas: [{ id: 'a1', n: '千代田区' }], sourceIndex: [{ id: 's1', name: '雑誌' }, { id: 's2', name: '新聞' }, { id: 's3', name: '本' }, { id: 's4', name: '番組' }],
+      places: [{ id: 'p1', n: '皇居 (皇居)', nat: '皇居', t: 1, a: 'a1', w: '解説。', src: ['s1', 's2', 's3', 's4'], la: 35.6, ln: 139.7, pv: {} },
+        { id: 'p2', n: '喫茶店 — CLOSED', t: 2, a: 'a1', src: ['guide'], pv: { status: 'closed', checked: '2026-10-01' } }, { id: 'p3', n: '神社', t: 3, a: 'a1', src: [], la: 35.7, ln: 139.8, pv: {} }] };
+    const SV = fs.readFileSync(path.join(__dirname, 'client', 'saved.js'), 'utf8'), leftS = [];
+    const fillP = (k, e, v) => { const t = PSEUDO.strings[k]; if (t == null) throw new Error('no key ' + k); return v ? t.replace(/\{([a-z]+)\}/g, (m, n) => n in v ? v[n] : m) : t; };
+    const st = { saved: { 'cities/t/p1': { t: 2 }, 'cities/t/p2': { t: 1 }, 'cities/t/p3': { t: 3 }, 'cities/t/zz': { t: 0 } }, been: { 'cities/t/p1': 1 }, lists: [{ id: 'l1', n: '週末', r: ['cities/t/p1', 'cities/t/p3'] }, { id: 'l2', n: '空', r: [] }] };
+    for (const [hash, store] of [['', st], ['#v=been', st], ['#v=l1', st], ['#v=l2', st], ['#list=cities/t/p1~cities/t/zz&n=誰か', st], ['', { saved: {} }], ['#v=been', { saved: {}, been: {} }]]) {
+      const sw = new JSDOM('<!doctype html><body><section id="cleo-saved"></section></body>', { runScripts: 'outside-only', url: 'https://example.test/beta/saved.html' + hash }).window, mem = JSON.parse(JSON.stringify(store));
+      sw.confirm = m => { leftS.push(...(m.replace(BRAND, '').match(/[A-Za-z]{3,}.{0,30}/g) || []).map(x => 'confirm: ' + x)); return false; };
+      sw.Cleo = { root: '', t: fillP, store: { get: (k, dft) => k in mem ? JSON.parse(JSON.stringify(mem[k])) : dft, set: (k, v) => { mem[k] = v; } },
+        saved: { all: () => mem.saved || {}, has: r => !!(mem.saved || {})[r], toggle() {}, add() {} }, emit() {}, share() {},
+        route: { parse: () => { const h = new URLSearchParams(sw.location.hash.slice(1)); return { list: h.get('list'), n: h.get('n'), v: h.get('v') }; } },
+        listCodec: { encode: r => r.join('~'), decode: x => x.split('~') }, pageData: k => k === 'cities/t' ? Promise.resolve(PJ) : Promise.reject(new Error('x')) };
+      sw.eval(SV); await new Promise(r => setTimeout(r, 20));
+      const D = sw.document, click = q => { const b = D.querySelector(q); if (b) b.dispatchEvent(new sw.MouseEvent('click', { bubbles: true })); };
+      if (hash === '#v=l1') { click('[data-sv="new"]'); const f1 = D.getElementById('sv-form').innerHTML; click('[data-sv="delete"]'); D.dispatchEvent(new sw.CustomEvent('cleo:toast', { detail: 'Link copied' })); D.getElementById('sv-form').insertAdjacentHTML('beforeend', f1); }
+      const root = D.body, tw = D.createTreeWalker(root, 4);
+      for (let n; (n = tw.nextNode());) { const t = n.nodeValue.replace(BRAND, ''); if (/[A-Za-z]{3,}/.test(t)) leftS.push((hash || 'all') + ': ' + t.trim().slice(0, 50)); }
+      root.querySelectorAll('[aria-label]').forEach(e => { const v = e.getAttribute('aria-label').replace(BRAND, ''); if (/[A-Za-z]{3,}/.test(v)) leftS.push((hash || 'all') + ' @aria-label: ' + v); });
+    }
+    chk('saved.js (lists, tabs, cards, shared, empty, forms, confirm, toast) under the pseudo catalogue: 0 English interface strings', [...new Set(leftS)].slice(0, 12), []);
+  }
   // W8-I18N-SEARCH: the site-wide search (client/search.js: the top-bar panel and the landing's results) under the PSEUDO
   // catalogue: every output path has 0 English interface words. Data here is Japanese, so any ASCII word is interface.
   {

@@ -25,6 +25,8 @@ const VP = {
   d: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 },
   m: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
   z200: { viewport: { width: 720, height: 450 }, deviceScaleFactor: 2 },   // a 1440×900 window at 200 % browser zoom
+  d1280: { viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 },
+  d1024: { viewport: { width: 1024, height: 768 }, deviceScaleFactor: 1 },
 };
 const PAGES = [
   ['tokyo', 'beta/cities/tokyo.html'], ['cleveland', 'beta/cleveland.html'],
@@ -74,6 +76,8 @@ async function open(browser, vpk, url, o = {}) {
   return { ctx, page, errors };
 }
 const shots = [];
+// a real tap; if it can't land within 3 s (animating, covered, off-screen), fall back to a scripted click and say so in the task log
+const tap = async (h, steps, what) => { try { await h.click({ timeout: 3000 }); return true; } catch (e) { await h.evaluate(b => b.click()); steps && steps.push(what + ': a real tap could not land (' + (String(e).match(/intercepts pointer events|not stable|not visible|outside of the viewport/) || ['timeout'])[0] + '); scripted click'); return 'scripted'; } };
 const snap = async (page, name, what) => { await page.screenshot({ path: path.join(SH, name + '.jpg'), type: 'jpeg', quality: 74 }); shots.push({ file: 'shots/' + name + '.jpg', what }); };
 
 // ---------- the first-screen measurement, run in the page ----------
@@ -229,6 +233,9 @@ async function pinTarget(page, phone) {
     for (const vk of ['d', 'm']) {
       const { ctx, page, errors } = await open(browser, vk, url + '#view=atlas', { tiles: 'stub' });
       await page.evaluate(() => { const m = Cleo.city.map(); m && m.setZoom(m.getZoom() + 1, { animate: false }); }); await sleep(800);
+      let listFirst = false;
+      if (vk === 'm' && !(await page.evaluate(() => [...document.querySelectorAll('li.pl .pl-n a')].some(a => { const r = a.getBoundingClientRect(); return r.width && r.top > 0 && r.bottom < innerHeight; })))) {
+        const tg = await page.$('.ms-toggle'); if (tg && await tg.isVisible()) { await tap(tg, null, 'list'); await sleep(900); listFirst = true; } }
       const L0 = await layout(page), v0 = await view(page), h0 = await page.evaluate(() => location.hash), sc0 = await page.evaluate(() => { const l = document.querySelector('.listpane'); return l ? [l.scrollTop, l.scrollLeft] : null; });
       const link = await page.evaluateHandle(() => [...document.querySelectorAll('li.pl .pl-n a')].find(a => { const r = a.getBoundingClientRect(); return r.width && r.top > 0 && r.bottom < innerHeight && r.left >= 0 && r.right <= innerWidth; }));
       let rt = { opened: false };
@@ -250,7 +257,7 @@ async function pinTarget(page, phone) {
           layoutKept: !!(L0 && L2 && L3 && L0.mapTop === L2.mapTop && L0.mapTop === L3.mapTop && L2.ancestorScroll === 0 && L3.ancestorScroll === 0),
           viewKept: !!(v0 && v2 && Math.abs(v0.lat - v2.lat) < 0.002 && Math.abs(v0.lng - v2.lng) < 0.002 && v0.z === v2.z) };
       }
-      rt.errors = errors; P[`${vk}-roundtrip`] = rt; await ctx.close();
+      rt.listOpenedFirst = listFirst; rt.errors = errors; P[`${vk}-roundtrip`] = rt; await ctx.close();
     }
     // 8. deep link #p= (fresh load)
     { const id = (/<li class="pl[^"]*" id="p-([a-z0-9-]+)"[^>]*data-ll="/.exec(fs.readFileSync(path.join(ROOT, url), 'utf8')) || [])[1];
@@ -299,6 +306,32 @@ async function pinTarget(page, phone) {
     await ctx.close();
   }
 
+  // ---------- desktop header (round 3 High: view switch off-screen, breadcrumb cut, "How we choose" wrapping) ----------
+  for (const [key, url] of PAGES) for (const vk of ['d', 'd1280', 'd1024']) {
+    const { ctx, page, errors } = await open(browser, vk, url + '#view=atlas', { tiles: 'stub' });
+    const h = await page.evaluate(() => { const R = e => { const b = e.getBoundingClientRect(); return { l: Math.round(b.left), t: Math.round(b.top), w: Math.round(b.width), h: Math.round(b.height), b: Math.round(b.bottom) }; };
+      const hdr = document.querySelector('header, .topbar'), hb = hdr ? hdr.getBoundingClientRect().bottom : null;
+      const bar = document.querySelector('.ms-bar'), barTop = bar ? bar.getBoundingClientRect().top : null;
+      const vs = [...document.querySelectorAll('button, a')].filter(b => /^(Gallery|Atlas|Guidebook|Insights)$/.test(b.textContent.trim()) && b.offsetParent);
+      const lines = e => { const rg = document.createRange(); rg.selectNodeContents(e); const n = new Set([...rg.getClientRects()].filter(r => r.width > 0).map(r => Math.round(r.top))).size; return n || 'hidden'; };   // text lines, not the padded 44 px target
+      const hw = [...document.querySelectorAll('header a, .topbar a')].find(a => /How we choose/.test(a.textContent));
+      const cut = e => e.clientWidth > 0 && e.scrollWidth > e.clientWidth + 1;
+      const crumbs = [...document.querySelectorAll('nav.crumbs, nav.crumbs > a, nav.crumbs > span:not(.sep)')].filter(e => e.offsetParent);
+      const overlap = (a, b) => { const x = a.getBoundingClientRect(), y = b.getBoundingClientRect(); return x.left < y.right && y.left < x.right && x.top < y.bottom && y.top < x.bottom; };
+      const tokens = [...document.querySelectorAll('.ms-bar .chip, .ms-bar button')].filter(e => e.offsetParent);
+      return { headerBottom: hb && Math.round(hb), barTop: barTop && Math.round(barTop),
+        viewSwitch: vs.map(b => b.textContent.trim() + ' ' + JSON.stringify(R(b))), viewSwitchMinTop: vs.length ? Math.min(...vs.map(b => Math.round(b.getBoundingClientRect().top))) : null,
+        viewSwitchMaxBottom: vs.length ? Math.max(...vs.map(b => Math.round(b.getBoundingClientRect().bottom))) : null,
+        viewSwitchInHeader: vs.length && hb != null ? vs.every(b => b.getBoundingClientRect().top >= 0 && b.getBoundingClientRect().bottom <= hb + 0.5) : null,
+        howWeChooseLines: hw ? lines(hw) : null,
+        crumbs: crumbs.map(e => e.textContent.trim().slice(0, 30) + (cut(e) ? ' [cut]' : '')), crumbsCut: crumbs.filter(cut).length,
+        crumbsOverlap: crumbs.some((a, i) => crumbs.slice(i + 1).some(b => !a.contains(b) && !b.contains(a) && overlap(a, b))),
+        barControlsUnderHeader: hb == null ? null : tokens.filter(e => e.getBoundingClientRect().top < hb - 0.5).map(e => e.textContent.trim().slice(0, 20)) }; });
+    h.errors = errors; M.tasks[`header-${key}-${VP[vk].viewport.width}`] = h;
+    if (vk !== 'd') await snap(page, `${key}-${VP[vk].viewport.width}-header`, `${key}: desktop header at ${VP[vk].viewport.width} px`);
+    await ctx.close();
+  }
+
   // ---------- persona tasks ----------
   const T = M.tasks;
   // T1 — Tokyo: three must-sees, one for tonight, save two (phone and desktop)
@@ -309,12 +342,25 @@ async function pinTarget(page, phone) {
     const firstScreen = await page.evaluate(() => { const vis = e => { const r = e.getBoundingClientRect(); return r.width && r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth; };
       return { namesVisible: [...document.querySelectorAll('li.pl .pl-n')].filter(vis).map(e => e.textContent.trim().slice(0, 40)), mustSeeNamedOnMap: [...document.querySelectorAll('.leaflet-marker-icon.pp-1')].filter(e => vis(e.firstElementChild || e)).map(e => e.textContent.trim()) }; });
     steps.push('open Atlas: names readable on first screen = ' + firstScreen.namesVisible.length + ' (' + firstScreen.namesVisible.slice(0, 4).join(' | ') + '); must-see pins on map show only "' + firstScreen.mustSeeNamedOnMap.slice(0, 5).join('", "') + '"');
-    await page.click('.ms-bar .ms-must'); await sleep(900); steps.push('tap "Must see" chip');
+    // the best-places control: "Must see" (to rev 4) or "Top picks" (SPEC-v3 rev 5 §2.4: Must see stays information); record which, never crash
+    { const mc = await page.$('.ms-bar .ms-must'), tc = await page.$('.ms-bar .ms-top');
+      if (mc && await mc.isVisible()) { await mc.click(); steps.push('tap "Must see" chip'); }
+      else if (tc && await tc.isVisible()) { await tc.click(); steps.push('tap "Top picks" (no "Must see" bar control on this head)'); }
+      else steps.push('no "Must see" or "Top picks" control visible on the first screen');
+      await sleep(900); }
     const ms = await page.evaluate(() => ({ count: (document.querySelector('.ms-count') || {}).textContent, names: [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden).slice(0, 6).map(e => e.querySelector('.pl-n').textContent.trim().slice(0, 40)) }));
     await snap(page, `T1-tokyo-${vk === 'd' ? 1440 : 390}-must-see`, 'T1: Tokyo after the Must see chip');
     // must-see names readable without scrolling/swiping
     const readable = await page.evaluate(() => [...document.querySelectorAll('li.pl .pl-n')].filter(e => { const r = e.getBoundingClientRect(); return r.width && r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth && !e.closest('li.pl').hidden; }).length);
-    let swipes = 0; if (vk === 'm' && readable < 3) { swipes = 3 - readable; steps.push(`swipe the carousel ${swipes}× to read three names (one card per screen)`); }
+    let swipes = 0; if (vk === 'm' && readable < 3) {
+      const carousel = await page.evaluate(() => { const l = document.querySelector('.listpane'); return !!(l && l.scrollWidth > l.clientWidth + 20 && l.getBoundingClientRect().height > 40); });
+      const tg = await page.$('.ms-toggle');
+      if (carousel) { swipes = 3 - readable; steps.push(`swipe the carousel ${swipes}× to read three names (one card per screen)`); }
+      else if (tg && await tg.isVisible()) { await tap(tg, steps, 'list toggle'); await sleep(900);
+        const r2 = await page.evaluate(() => [...document.querySelectorAll('li.pl .pl-n')].filter(e => { const r = e.getBoundingClientRect(); return r.width && r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth && !e.closest('li.pl').hidden; }).length);
+        steps.push(`open the list (${r2} names readable)`); if (r2 < 3) steps.push(`scroll the list to read three names`);
+        await snap(page, 'T1-tokyo-390-list', 'T1: Tokyo phone, the list opened after the best-places control'); await tap(tg, null, 'back to the map'); await sleep(700); }
+      else steps.push(`no carousel and no list toggle: ${readable} names readable`); }
     // "tonight": is there any opening-hours / evening signal on cards or in the detail?
     const tonight = await page.evaluate(() => { const t = [...document.querySelectorAll('li.pl')].slice(0, 200).map(e => e.innerText).join(' '); return { hoursOnCards: /\b(open (now|until|late)|hours|closes|\d{1,2}(:\d\d)?\s?(am|pm))\b/i.test(t), eveningWords: (t.match(/\b(night|evening|late|bar|izakaya|illuminat)\w*/gi) || []).length }; });
     steps.push('find one for tonight: opening hours on cards = ' + tonight.hoursOnCards + '; evening words in card text = ' + tonight.eveningWords);
@@ -333,8 +379,8 @@ async function pinTarget(page, phone) {
     if (!PAGES.some(p => p[0] === key)) continue;
     const { ctx, page, errors } = await open(browser, vk, url + '#view=atlas', { tiles: 'stub' }); const steps = []; let found = false;
     const chips = await page.$$('.ms-head [data-cleo-area]');
-    for (const c of chips) { const t = await c.textContent(); if (area.test(t)) { if (!(await c.isVisible())) steps.push('scroll the area-chip row to find it'); await c.scrollIntoViewIfNeeded(); await c.click(); found = true; steps.push('tap area chip "' + t.trim() + '"'); break; } }
-    if (!found) { const ab = await page.$('.ms-bar .area-btn'); if (ab && await ab.isVisible()) { await ab.click(); await sleep(600); steps.push('open "Area"'); const pill = (await page.$$('#cleo-tray .pill[data-f="a"]')); for (const p of pill) { if (area.test(await p.textContent())) { await p.click(); steps.push('pick "' + (await p.textContent()).trim() + '"'); await page.click('#cleo-tray [data-tr="go"]'); steps.push('tap "Show N places"'); found = true; break; } } } }
+    for (const c of chips) { const t = await c.textContent(); if (area.test(t)) { if (!(await c.isVisible())) steps.push('scroll the area-chip row to find it'); await c.scrollIntoViewIfNeeded().catch(() => {}); await tap(c, steps, 'area chip'); found = true; steps.push('tap area chip "' + t.trim() + '"'); break; } }
+    if (!found) { const ab = await page.$('.ms-bar .area-btn'); if (ab && await ab.isVisible()) { await tap(ab, steps, 'Area'); await sleep(600); steps.push('open "Area"'); const pill = (await page.$$('#cleo-tray .pill[data-f="a"]')); for (const p of pill) { if (area.test(await p.textContent())) { await tap(p, steps, 'area pill'); steps.push('pick "' + (await p.textContent()).trim() + '"'); const go = await page.$('#cleo-tray [data-tr="go"]'); if (go) await tap(go, steps, 'Show N places'); steps.push('tap "Show N places"'); found = true; break; } } } }
     await sleep(1100);
     const a1 = await page.evaluate(() => ({ count: (document.querySelector('.ms-count') || {}).textContent, view: (() => { const m = Cleo.city.map(); return m ? m.getZoom() : null; })(), top: [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden).slice(0, 5).map(e => e.querySelector('.pl-n').textContent.trim().slice(0, 36) + ' [' + e.getAttribute('data-k') + ']') }));
     await snap(page, `T2-${key}-${vk === 'd' ? 1440 : 390}-area`, `T2: ${key} neighbourhood chosen`);
@@ -350,7 +396,9 @@ async function pinTarget(page, phone) {
     if (!PAGES.some(p => p[0] === 'tokyo')) break;
     const geo = { latitude: 35.6595, longitude: 139.7005 };
     const { ctx, page, errors } = await open(browser, vk, 'beta/cities/tokyo.html#view=atlas', { tiles: 'stub', geo }); const steps = [];
-    const loc = await page.$('.leaflet-control-container [aria-label*="ocat"], .leaflet-control-container [title*="ocat"], .leaflet-control-container .ms-loc, .leaflet-control-container a[role="button"][aria-label*="me"]');
+    // locate-me: the list head's "Near me" door (OV-00 §2.0.3), the phone map control, or the older map-control forms
+    let loc = null; for (const q of ['[data-cleo-near]', '.m-locate', '.leaflet-control-container [aria-label*="ocat"], .leaflet-control-container [title*="ocat"], .leaflet-control-container .ms-loc, .leaflet-control-container a[role="button"][aria-label*="me"]'])
+      { for (const h of await page.$$(q)) if (await h.isVisible()) { loc = h; break; } if (loc) { steps.push('locate control: ' + q.split(',')[0]); break; } }
     let locOk = false, locCovered = null;
     if (loc && await loc.isVisible()) {
       try { await loc.click({ timeout: 3000 }); steps.push('tap locate-me'); locOk = true; }
@@ -374,8 +422,11 @@ async function pinTarget(page, phone) {
   // T4 — closed place in Cleveland: pin, card and detail mark it
   if (PAGES.some(p => p[0] === 'cleveland')) {
     const { ctx, page, errors } = await open(browser, 'd', 'beta/cleveland.html#view=atlas', { tiles: 'stub' });
-    const c = await page.evaluate(() => { const e = document.querySelector('li.pl[data-closed]'); if (!e) return null; const id = e.id.slice(2), mk = Cleo.city.markers[id], el = mk && mk.getElement && mk.getElement();
-      return { id, name: e.querySelector('.pl-n').textContent.trim(), cardText: e.innerText.replace(/\s+/g, ' ').slice(0, 160), pinClass: el ? el.className : '(clustered or not drawn at this zoom)', closedCount: document.querySelectorAll('li.pl[data-closed]').length }; });
+    const c = await page.evaluate(() => {   // a closed place: a stamped card, else an unstamped one (D-46 stamps only the first page of cards)
+      let e = document.querySelector('li.pl[data-closed]');
+      if (!e) { const st = Cleo.city.stub || (() => null); for (const id of Object.keys(Cleo.city.markers || {})) { const x = document.getElementById('p-' + id) || st(id); if (x && x.hasAttribute && x.hasAttribute('data-closed')) { e = x; break; } } }
+      if (!e) return null; const id = e.id.slice(2), mk = Cleo.city.markers[id], el = mk && mk.getElement && mk.getElement(), nm = e.querySelector && e.querySelector('.pl-n');
+      return { id, stamped: !!(e.closest && e.closest('li.pl') && document.contains(e)), name: nm ? nm.textContent.trim() : (e.getAttribute('data-name') || id), cardText: (e.innerText || e.textContent || '').replace(/\s+/g, ' ').slice(0, 160), pinClass: el ? el.className : '(clustered or not drawn at this zoom)', closedCount: document.querySelectorAll('li.pl[data-closed]').length }; });
     if (c) { await page.evaluate(id => { location.hash = '#view=atlas&p=' + id; }, c.id); await sleep(1200); c.detail = await page.evaluate(() => { const s = document.querySelector('#cleo-sheet:not([hidden])'); return s ? s.innerText.replace(/\s+/g, ' ').slice(0, 300) : null; });
       c.pinClassAtPlace = await page.evaluate(id => { const el = Cleo.city.markers[id] && Cleo.city.markers[id].getElement(); return el ? el.className + ' label="' + el.textContent + '"' : null; }, c.id);
       await snap(page, 'T4-cleveland-1440-closed-place', 'T4: a closed place opened in Atlas'); }
@@ -400,7 +451,7 @@ async function pinTarget(page, phone) {
     if (share && share.clip && /^https?:/.test(share.clip)) { const u = share.clip.replace(/^https?:\/\/[^/]+\/(cleo-guide\/)?/, ''); const r = await open(browser, vk, u.startsWith('beta/') ? u : 'beta/cities/tokyo.html' + (u.includes('#') ? u.slice(u.indexOf('#')) : ''), { tiles: 'stub', wait: 1600 });
       reopen = await r.page.evaluate(() => ({ hash: location.hash, sheet: !!document.querySelector('#cleo-sheet:not([hidden])'), title: (document.querySelector('#sh-t') || {}).textContent, atlas: document.documentElement.classList.contains('ms-on') })); reopen.sharedUrl = share.clip; await r.ctx.close(); }
     { const r = await open(browser, vk, viewHash, { tiles: 'stub', wait: 1400 }); reopenView = { url: viewHash, view: await view(r.page), wanted: { lat: 35.7148, lng: 139.7967, z: 15 } }; await snap(r.page, `T5-tokyo-${vk === 'd' ? 1440 : 390}-reopen-view`, 'T5: reopening the URL copied while looking at Asakusa'); await r.ctx.close(); }
-    T[`T5-${vk}`] = { share, reopen, reopenView, mapViewInUrl: /[@&](ll|c|center|z|at)=/.test(viewHash), errors };
+    T[`T5-${vk}`] = { share, reopen, reopenView, mapViewInUrl: /[#@&?](ll|c|center|z|at)=/.test(viewHash), errors };
     await ctx.close();
   }
 

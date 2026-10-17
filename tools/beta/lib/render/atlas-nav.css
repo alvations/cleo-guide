@@ -32,3 +32,7 @@ html[data-view=atlas] .mappane .ms-ghost{position:absolute;z-index:699;width:300
 html[data-view=atlas] #cleo-grid.w7-cards li.pl>.pl-cover,html[data-view=atlas] #cleo-grid.w7-cards li.pl>figure.pl-photo img{transition:box-shadow var(--dur-1) var(--ease-out)}
 html:not(.atlas-m)[data-view=atlas] #cleo-grid.w7-cards li.pl:is(.is-hover,.is-sel)>.pl-cover,html:not(.atlas-m)[data-view=atlas] #cleo-grid.w7-cards li.pl:is(.is-hover,.is-sel)>figure.pl-photo img{outline:none;box-shadow:var(--ring-select)}
 @media (prefers-reduced-motion:reduce){.pp>span,html[data-view=atlas] #cleo-grid.w7-cards li.pl>.pl-cover,html[data-view=atlas] #cleo-grid.w7-cards li.pl>figure.pl-photo img{transition:none}}
+/* D-46 (Atlas is the default): phone Atlas offers For you, Your day and Near me as the desktop does — the list head's doors,
+   in list mode, scrolling with the list (no floating chips: OV-00 chrome budget) */
+html.atlas-m.ms-list[data-view=atlas] .ms-head .ms-doors{display:flex;flex-wrap:wrap;gap:var(--s-2);margin:var(--s-2) 0 0}
+html.atlas-m.ms-list[data-view=atlas] .ms-head .ms-doors .btn{min-height:var(--tap);gap:var(--s-2)}
