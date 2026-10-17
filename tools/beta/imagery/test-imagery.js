@@ -496,7 +496,14 @@ ok(fplan.findIndex(p => p.t.type === 'landmark') === fplan.filter(p => p.t.type 
 ok(lm.some(p => p.t.priority === 'lead') && lm.every(p => !p.t.priority || p.cands.length || p.lead) && cm.targets.filter(t => t.priority && !t.skip).every(t => t.candidates.length || t.wikiLead), 'W8 coverage: every unskipped lead card / first-row sight has a candidate or a cited article to try');
 { const skipped = new Map(cm.targets.filter(t => t.skip).map(t => [t.depicts, t.skip]));
   const bad = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits.filter(c => c.record && skipped.has(`${c.record.page}#${c.record.id}`)).map(c => `${c.record.page}#${c.record.id}`);
-  ok(!bad.length, `no credited photo for a skipped target (venue, brand store, copyrighted art, stated gap)${bad.length ? ': ' + bad.join(', ') : ''}`); }
+  ok(!bad.length, `no credited photo for a skipped target (venue, brand store, copyrighted art, stated gap)${bad.length ? ': ' + bad.join(', ') : ''}`);
+  // the two lanes can't race (run #111): a target imagery skips has no reviewed-ok image-sources row
+  const src = path.join(__dirname, 'sources', 'candidates.tsv');
+  if (fs.existsSync(src)) {
+    const rows = fs.readFileSync(src, 'utf8').split('\n').filter(l => l && !l.startsWith('#')), head = rows.shift().split('\t');
+    const col = n => head.indexOf(n), both = [...new Set(rows.map(l => l.split('\t')).filter(r => /^ok/.test(r[col('review')] || '') && !r[col('refused')] && skipped.has(r[col('target')].replace(/^landmark:/, ''))).map(r => r[col('target')]))];
+    ok(!both.length, `no target is both skipped by imagery and reviewed ok by image-sources${both.length ? ': ' + both.join(', ') : ''}`);
+  } }
 { const club = { label: 'The Empty Bottle', names: ['Empty Bottle'] }, comedy = { label: 'The Second City', names: ['Second City'] }, hall = { label: 'Thalia Hall', names: ['Thalia Hall'] }, sym = { label: 'Symphony Center', names: ['Symphony Center'] };
   ok(fc.performerRefused(club, 'File:Torquil Campbell at The Empty Bottle 1.jpg sepia portrait of the singer') && fc.performerRefused(comedy, 'File:The Second City, Main Stage.jpg') && fc.performerRefused({ label: 'Riverwalk', names: ['Riverwalk'] }, 'Band performing live at the Riverwalk') && !fc.performerRefused(hall, 'File:Thalia Hall Chicago facade.jpg') && !fc.performerRefused(sym, 'File:Symphony Center Chicago exterior.jpg') && !fc.performerRefused(comedy, 'File:The Second City building exterior, North Wells Street.jpg'), 'W8 PERFORMER: a singer, a band, a stage are refused; a music/comedy/theatre venue takes only its building exterior (Thalia Hall and Symphony Center facades pass)'); }
 ok(fc.refusalIsGlobal('refused by visual review (W8): a shop street dominated by signage') && !fc.refusalIsGlobal('refused by review (W7): the same file is the Washington DC hero') && !fc.refusalIsGlobal('refused by visual review (W8): repeats the Jewel subject of the Changi lead card') && !fc.refusalIsGlobal('refused by visual review (W7): duplicates the Saarland hero'), 'refusals: a photo-fault refusal holds for every target; a duplicate/slot refusal only for its own');
