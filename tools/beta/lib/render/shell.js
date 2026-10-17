@@ -122,6 +122,8 @@ function localeSwitch() {
  * @param rel     the page's beta-relative path (drives the breadcrumb)
  * @param onNight true when the bar floats over the landing's night hero
  */
+// FE-C (QC r4 Med, one search entry point): the footer no longer repeats "Search" — on a short page (hubs, trip, saved,
+// changes) it sat on screen beside the header's search; the header icon is a plain link to the same place, so no JS is needed.
 // §v2.12 3a (one search per screen): the header search names its scope — "Search {city}" on a city page (opt `city`),
 // "Search all guides" elsewhere — and on the landing it is hidden (same shell), because its hero field is the one search
 function siteBar({ depth, current, rel, onNight = false, city = '' }) {
@@ -171,7 +173,7 @@ function footer({ depth, liveRel, notes = [], tabbar = false, current }) {
       <p>${t('foot.about', { places: T.places.toLocaleString('en-US'), guides: T.guides })}</p></div>
     <div><h2 class="fh">${t('foot.destinations')}</h2><ul>${SITE.countries.map(c => `<li><a href="${up}${esc(c.href)}">${esc(c.name)}</a></li>`).join('')}</ul></div>
     <div><h2 class="fh">${t('foot.method')}</h2><ul><li><a href="${up}how-we-choose.html">${t('foot.method.how')}</a></li><li><a href="${up}how-we-choose.html#closures">${t('foot.method.closures')}</a></li><li><a href="${up}how-we-choose.html#pins">${t('foot.method.pins')}</a></li><li><a href="${up}accessibility.html">${t('foot.method.a11y')}</a></li></ul></div>
-    <div><h2 class="fh">${t('foot.yours')}</h2><ul><li><a href="${up}saved.html">${t('foot.yours.saved')}</a></li><li><a href="${up}index.html#search">${t('foot.yours.search')}</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden>${icon('moon')}<span>${t('shell.night')}</span></button></li></ul></div>
+    <div><h2 class="fh">${t('foot.yours')}</h2><ul><li><a href="${up}saved.html">${t('foot.yours.saved')}</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden>${icon('moon')}<span>${t('shell.night')}</span></button></li></ul></div>
   </div>
   <p class="legal colophon">${t('foot.colophon', { live, osm: `<a href="https://www.openstreetmap.org/copyright">${t('foot.osm')}</a>` })}</p>
 </div></footer>

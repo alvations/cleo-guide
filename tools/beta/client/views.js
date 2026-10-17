@@ -63,6 +63,7 @@
   }
   function unmount(v) { const m = reg[v]; if (m && m.on) { m.on = 0; try { m.unmount && m.unmount(host); } catch (e) {} } if (host && !(reg[cur] && reg[cur].on)) host.hidden = true; }
 
+  let pend = null;   // a switch tapped, shown just after its first paint (PERF-24c)
   function paintNav() { if (!nav) return; qa('button[data-view]', nav).forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-view') === cur))); }   // FE-B QC-09: pressed state only (no menu)
   let vxT = 0;
   function show(v, o) {
@@ -102,7 +103,7 @@
     const wasOpen = !!(Cleo.sheet && Cleo.sheet.isOpen && Cleo.sheet.isOpen());
     if (wasOpen) { try { Cleo.sheet.close(true); } catch (x) {} try { b.focus({ preventScroll: true }); } catch (x) {} }   // focus leaves the closed sheet for the segment; the new view then takes it to its heading
     if (Cleo.tray && Cleo.tray.close) { try { Cleo.tray.close(true); } catch (x) {} }
-    if (v === cur) { if (wasOpen) { const r0 = Cleo.route.parse(); if (r0.p) { delete r0.p; location.hash = Cleo.route.href(r0); } } return; }
+    if (v === cur) { if (pend) { pend = null; paintNav(); } if (wasOpen) { const r0 = Cleo.route.parse(); if (r0.p) { delete r0.p; location.hash = Cleo.route.href(r0); } } return; }   // back to the view on show: a pending switch is dropped
     store.set('view', v);
     const r = Cleo.route.parse(); delete r.pg; delete r.all; if (wasOpen) delete r.p; r.view = v;
     const h = Cleo.route.href(r);
@@ -111,9 +112,17 @@
       if (h === '#') { try { history.pushState(null, '', location.pathname + location.search); } catch (x) {} }
       else location.hash = h;
     };
-    // W4 #5: cross-fade via a view transition when motion is allowed; synchronous otherwise
-    if (d.startViewTransition && C.moves && C.moves()) { try { d.startViewTransition(go); return; } catch (x) {} }
-    go();
+    // PERF-24c (FE-1 with platform, INP of every switch): the tap paints its pressed segment at once; the view itself — html
+    // [data-view], the restyle of every built card, focus to its heading, the hash — follows just after that paint (the
+    // PERF-24 rule; a page still in its first frame does it at once). A later tap in that frame wins (pend). Measured:
+    // Atlas → Guidebook → Atlas, Tokyo 1440 4× — the click forced a ~2,700-element restyle (h1 focus) before any paint
+    pend = v; qa('button[data-view]', nav).forEach(x => x.setAttribute('aria-pressed', String(at(x, 'data-view') === v)));
+    afterPaint(() => {
+      if (pend !== v) return; pend = null;
+      // W4 #5: cross-fade via a view transition when motion is allowed; synchronous otherwise
+      if (d.startViewTransition && C.moves && C.moves()) { try { d.startViewTransition(go); return; } catch (x) {} }
+      go();
+    });
   });
   // the map lives in Atlas: outside it, a map button ("Map", "See these n on the map") is a switch to Atlas
   d.addEventListener('click', e => {

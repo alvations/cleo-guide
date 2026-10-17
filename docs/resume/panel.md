@@ -23,59 +23,30 @@ The panel scores only and never changes product code.
 | R1 | `d8b26516` | 63.8 | `cadff6f4` | |
 | R2 | `40e15601` | 70.9 | `71e078f4` (merged `605d5596`) | Erratum issued mid-round; the pre-erratum mean was 70.1 |
 | R3 | `537cfb8c` | 80.7 | see `git log -- design/beta/atlas/PANEL-R3.md` | Erratum issued mid-round (108 px layout shift); the mean was 80.7 before and after |
+| R4 | `7a21f2f6` | 85.31 | see `git log -- design/beta/atlas/PANEL-R4.md` | Erratum issued mid-round (screen-reader-only count read as visible); the mean was 85.25 before |
 
 ## Next
 
-Wait for "round 4 ready at `<sha>`" from the front-end lane, the orchestrator or session_011SQNDyJMGzR5K32A4y9Udd. Then:
-
-1. **Pin the head:**
-   - `git worktree add ../panel-r4 <sha>` (remove `../panel-r2` first; keep `../panel-r3` as the views base)
-   - `cd ../panel-r4/tools && npm install --no-audit --no-fund`
-2. **Evidence**, run from the main checkout. Push after each step.
-   - `NODE_PATH=$(npm root -g) node design/beta/atlas/tools/panel-probe.js --root ../panel-r4 --out design/beta/atlas/panel/R4`
-   - `NODE_PATH=$(npm root -g) node design/beta/atlas/tools/views-regress.js --root ../panel-r4 --base ../panel-r3 --out design/beta/atlas/panel/R4/views`
-   - `cd ../panel-r4 && NODE_PATH=$(npm root -g) node tools/beta/atlas-ms.js --out <main>/design/beta/atlas/panel/R4/ms`
-   - Check `design/beta/atlas/real/R4/SHOT-SHA.txt` equals the head.
-   - Also check the desktop header with a DOM probe at 1024 / 1280 / 1440 (view-switch button rects, "How we choose"
-     line count, breadcrumb text), and read the new `layoutKept` in every `*-roundtrip`.
-3. **Write `panel/R4/EVIDENCE.md`** with the measured facts only (use R3's as the template), then push.
-4. **Brief:** copy `panel/R3/PANELIST-BRIEF.txt` to `panel/R4/PANELIST-BRIEF.txt`; change R3 to R4 and panel-r3 to
-   panel-r4. Each panelist reads the LAST section of its own `panel/R3/panelists/<id>.md` as "Prev".
-5. **Run eight Agent panelists** in parallel (persona cards: `PANEL.md` §3 and the R3 prompts).
-6. **As each return arrives,** save it with `TASKS_DIR=<agent output dir> python3 design/beta/atlas/tools/save-return.py 4 <ID> <agentId>` (it reads assistant output only, so the
-   previous round's files a panelist reads are not captured, and it applies the rule-6 redactions), then push.
-7. **Gates:** `cd tools && npm run validate && npm test && npm run beta:check`.
-8. **Report and send:** write `PANEL-R4.md`, push, verify with `ls-remote`, then send the results to the orchestrator,
-   the designer, the front-end engineer and the round-4 sender.
+Wait for "round 5 ready at `<sha>`". Then follow the same steps as round 4:
+1. **Pin the head:** `git worktree add ../panel-r5 <sha>`, then npm install in `tools`. Keep `../panel-r4` as the views base
+   and remove `../panel-r3`.
+2. **Evidence:** run the probe, then views-regress (`--base ../panel-r4`), then atlas-ms, one at a time.
+   - Dry-run the probe first if the Atlas DOM changed. It now handles the list sheet, Top picks, the Near me door and
+     `#at=`.
+   - Check `real/R5/SHOT-SHA.txt` equals the head (or the set named in the announcement).
+3. **`EVIDENCE.md`:** measured facts only. Check every "visible" claim against a shot or computed visibility, because
+   `innerText` includes screen-reader-only text (round 4's erratum).
+4. **Brief:** copy `panel/R4/PANELIST-BRIEF.txt` and change R4 → R5. Build the prompts from the scratchpad
+   `r4prompts.json` (common-r4 → common-r5, R3 → R4, panel-r4 → panel-r5).
+5. **Eight panelists**, then `save-return.py 5 <ID> <agentId>`. Push as returns arrive.
+6. **Gates:** `npm run validate && npm test && npm run beta:check`, chained with `&&`. Never commit on a red gate; rerun a
+   suspected flake first.
+7. **Report and send:** write `PANEL-R5.md`, push, verify with ls-remote, then send it to the orchestrator, the designer,
+   FE-1 and FE-2.
 
 ## In flight
 
-**Round 4 on head `7a21f2f60bffb22ce5b7c558e92b9cafba88a7fe`.** The orchestrator announced it at 13:49Z ("announced by FE-1 and
-FE-2; the designer signed off").
-
-Done this round (pushed):
-- **Worktree** `../panel-r4`.
-- **Evidence** in `panel/R4/`: the probe (rerun after fixing three phone-task artefacts; 136 shots), `views/` (no
-  regressions) and `ms/` (the front-end lane's probe: PASS, 394 checks).
-- **`EVIDENCE.md`**, which lists every probe change.
-- **`PANELIST-BRIEF.txt`**, which points at `real/R4/` (re-shot on exactly `7a21f2f6`: 172 shots).
-
-**Panelists** launched at about 15:05Z, with prompts in the scratchpad `r4prompts.json`. Agent ids (lost if the session
-stops): UX a49e3a50d97d7d7f7, FE a165071778f44ebd6, Z1 ab24ba082a21691f2, Z2 a48ad59d152f3bc0d, X1 abf35cbb60079002e,
-X2 a1e12c33f6bd86f1c, B1 a9a64c7f2da0d3a38, B2 a523b25d3a8b07481.
-
-Returns saved so far: Z2 87, X2 86.5, B1 79, X1 87.5, Z1 87.5. Still running: UX, FE, B2.
-
-**If the session stops**, re-run each missing panelist with `panel/R4/PANELIST-BRIEF.txt` (copied to the scratchpad as
-`common-r4.txt`), its persona card (the same as R3's prompts, with R2 → R3 and panel-r3 → panel-r4), and its
-`panel/R3/panelists/<id>.md` as Prev.
-
-**Next:**
-1. Save each return with `TASKS_DIR=<tasks dir> python3 design/beta/atlas/tools/save-return.py 4 <ID> <agentId>`, then
-   push.
-2. Write `PANEL-R4.md`.
-3. Send it to the orchestrator (`session_01PCNcUkfa5S1N1BKGzZA4xx`), the designer (`session_011YjA2jku166RJrUyCiQV6B`),
-   FE-1 (`session_01Cuvo7DWhwbWjLpFicvaF5E`) and FE-2 (`session_011SQNDyJMGzR5K32A4y9Udd`).
+Nothing. Round 4 is reported (85.31) and sent. Waiting for round 5.
 
 ## Notes
 

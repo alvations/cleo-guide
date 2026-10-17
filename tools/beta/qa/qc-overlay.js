@@ -22,6 +22,7 @@
  *     and an open sheet's backdrop are not chrome; sheet bands are measured inside the dialog;
  *   - a control is shown only if its centre is inside the viewport and every clipping ancestor;
  *   - search: one control per form / role=search; a results list's "Search all guides" row and its "clear" are content;
+ *     "Search this area" (.ms-here) is the map's re-filter, not a search entry point (measured as searchHere), so it never counts in search ×N;
  *   - label coverage, width, count and gaps are measured on the PAINTED pill, never the transparent 44 px tap area (a tap
  *     area drawn as a pseudo-element hit-tests to its host, so a label point must also be inside the painted box); the tap
  *     area itself is governed by B-07 and the collision checks;
@@ -158,7 +159,8 @@ const MEASURE = new Function(`
   out.duplicates = Object.entries(by).filter(([, l]) => l.length > 1).map(([k, l]) => k + ' ×' + l.length).slice(0, 6);
   // an entry point is a field or a control that opens search; a results list's "Search all guides" row ([data-cleo-all-slot])
   // and its "clear search" are part of the results (orchestrator ruling, 10:40Z)
-  const searches = [...document.querySelectorAll('button, a[href], input, [role=button]')].filter(e => shown(e) && onTop(e) && !e.closest(CONTENT) && !e.closest('[data-cleo-all-slot]') && !/(^|[^a-z])clear([^a-z]|$)/i.test(name(e)) &&
+  // "Search this area" (.ms-here) is the map's re-filter, not a search entry point; it is measured as searchHere (ruling 15:51Z)
+  const searches = [...document.querySelectorAll('button, a[href], input, [role=button]')].filter(e => shown(e) && onTop(e) && !e.closest(CONTENT) && !e.closest('[data-cleo-all-slot]') && !e.closest('.ms-here') && !/(^|[^a-z])clear([^a-z]|$)/i.test(name(e)) &&
     (/search/i.test(name(e)) || e.type === 'search' || /search/i.test(e.getAttribute('placeholder') || '')));
   // orchestrator ruling (02:15Z): a field and its own submit button inside one form (or one role=search) are ONE search
   // control; separate entry points on one screen (header search + hero search) count separately
