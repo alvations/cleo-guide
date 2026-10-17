@@ -103,7 +103,7 @@ function targets(o = { classes: [], keys: [], pending: false }) {
   const byDepicts = new Map(man.targets.map(t => [t.depicts, t]));
   // the manifest's own rules for places it has no target for (tier-2+): venues and brand stores never get a photo
   const R = man.rules || {}, vTags = new Set(R.venueTags || []), vName = R.venueName ? new RegExp(R.venueName, 'i') : null, brand = R.brandStore ? new RegExp(R.brandStore, 'i') : null;
-  const ruleOf = p => p.kind !== 'food' && ((p.g || []).some(g => vTags.has(g)) || (vName && vName.test(p.n)) || (brand && brand.test(p.n)) || /^Pok[eé] Lid/.test(p.n));
+  const ruleOf = p => p.kind !== 'food' && (vTags.has((p.g || [])[0]) || /^\s*(?:[a-z]+ )?store\b/i.test(String(p.k || '')) || (vName && vName.test(p.n)) || (brand && brand.test(p.n)) || /^Pok[eé] Lid/.test(p.n));   // primary venue only
   const haveRec = new Set(credits.filter(c => c.record).map(c => `${c.record.page}#${c.record.id}`));
   const haveSlot = new Set(credits.filter(c => c.slot).map(c => c.slot.key));
   const out = [];

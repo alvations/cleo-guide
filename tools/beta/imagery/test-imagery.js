@@ -300,6 +300,12 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
   ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
 }
+{ // R8 (orchestrator): a venue is a PRIMARY kind (first g tag, or k says venue/store); a secondary venue theme tag never skips a sight
+  const tg = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'commons-candidates.json'), 'utf8')).targets;
+  const by = k => tg.find(t => t.key === k) || {};
+  ok(!/^venue/.test(by('landmark:chicago#alta-vista-terrace-district').skip || '') && !/^venue/.test(by('landmark:dayton#boonshoft-museum-of-discovery').skip || '') && !/^venue/.test(by('landmark:cincinnati#ault-park').skip || ''),
+    'manifest: a sight whose venue tag is secondary (Alta Vista Terrace ICON…SPORT, Boonshoft MUS…SHOP, Ault Park) is not skipped');
+}
 { // R8 run #77: a file refused for its own fault is never a live candidate for any other target
   const fc2 = require('./fetch-commons');
   const tg = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'commons-candidates.json'), 'utf8')).targets;
