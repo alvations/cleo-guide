@@ -346,6 +346,18 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('no js errors (desktop)', errs.length === 0, errs.slice(0, 2));
   }
 
+  console.log('# D-46 / §v2.7b: the desktop Atlas lead card (.pl-lead) is map-priority #1, at most one per page, always a photo card');
+  {
+    const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []);
+    const bad = []; let n = 0;
+    for (const f of walk(BETA)) { const h = fs.readFileSync(f, 'utf8'); if (!/data-cleo-page="city"/.test(h)) continue;
+      const m = h.match(/<li class="pl[^"]*\bpl-lead\b[^"]*"/g) || []; n += m.length;
+      if (m.length > 1 || m.some(x => /\bpl--np\b/.test(x))) bad.push(path.relative(BETA, f)); }
+    const tk = fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8');
+    chk('Tokyo: Edo-Tokyo Museum (map-priority #1, with a photo) is the lead', /<li class="pl[^"]*\bpl-lead\b[^"]*" id="p-edo-tokyo-museum"/.test(tk));
+    chk(`≤ 1 lead per city page and never a photo-less card (${n} leads)`, bad.length === 0 && n > 0, bad.slice(0, 4));
+  }
+
   console.log('# W8: "Start with" names the lead card (R6 gap #8), every place page');
   {
     const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []);

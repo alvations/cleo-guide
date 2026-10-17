@@ -77,14 +77,13 @@
 :root form.search .btn-primary { border-radius: var(--r-pill); }
 :root #cleo-filter { border-radius: var(--r-pill); border: 1px solid var(--line); background: var(--surface); box-shadow: none; }
 
-/* ---------- V2.5 landing hero: light, search-first, no skyline, no stars ---------- */
-:root .hero, :root .feb .hero { background: var(--paper); background-image: none; color: var(--ink); }
-:root .hero::before, :root .hero::after, :root .hero .sky { display: none !important; }
-:root .hero .inner { text-align: center; padding-bottom: var(--s-8); }
-:root .hero .d-hero { color: var(--ink); max-width: 18ch; margin-inline: auto; font-weight: 600; letter-spacing: var(--track-hero); }
-:root .hero :is(.kicker, .sub) { color: var(--ink-2); margin-inline: auto; }
-:root .hero .kicker { font-size: var(--fs-meta); font-weight: 500; letter-spacing: var(--track-eyebrow); color: var(--ink-3); }
-:root .hero form.search { max-width: 640px; margin-inline: auto; }
+
+
+
+
+
+
+
 
 /* ---------- V2.6 masthead (hub, city): the city name, one line, the count — on the ground, no art ---------- */
 :root .masthead, :root main > .masthead, :root .chero, :root .view-gallery .ghero { background: var(--paper) !important; background-image: none !important; color: var(--ink); box-shadow: none; }
@@ -97,8 +96,8 @@
 :root .masthead .native { color: var(--ink-3); font-weight: 400; }
 :root :is(.masthead, .chero, .hero, .tile, .dest) :is(p, span, em, i:not(.tg):not(.g), b, a) { font-style: normal; }
 :root .masthead h1 { font-size: var(--fs-d1); line-height: var(--lh-d1); }
-:root .masthead .btn-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-:root .masthead .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+
+
 
 /* ---------- V2.7 the calm no-photo cover: quiet ground, one small category icon, the name set in type ----------
    One look for every place without a photo (Gallery cards, list covers, sheet heroes, hub tiles): --sand ground, the
@@ -118,10 +117,9 @@
 :root :is(.cover, .pl-cover) .plate.i { display: none !important; }
 :root :is(.cover, .pl-cover) .gl, :root .pl-glyph { color: var(--ink-3) !important; stroke: currentColor !important; opacity: .8; }
 :root :is(.cover, .pl-cover) img:not([data-art]) { width: 100%; height: 100%; object-fit: cover; display: block; }
-:root .tile .art :is(img.motif, svg) { display: none !important; }
-:root .tile .art .native { writing-mode: horizontal-tb !important; inset: auto auto 12px 14px !important; font: 500 var(--fs-meta)/1.2 var(--font-ui) !important;
-  letter-spacing: var(--track-eyebrow)!important; color: var(--ink-3) !important; }
-:root .tile .art { min-height: 0; }
+
+
+
 :root :is(.cover, .pl-cover).closed, :root .pl[data-closed] .pl-cover { background: var(--sand) !important; }
 /* closed: calm but unmistakable — a quiet chip, not a hatch */
 :root :is(.cover, .pl-cover).closed::after, html:root .pl[data-closed]::before { background-image: none !important; }
@@ -136,8 +134,8 @@
 :root .g-lead-card .gc, html:root[data-view=gallery] .g-lead-slot .gc { background: transparent; border: 0; box-shadow: none; padding: 0; }
 :root .tg.t1, :root .tier.t1 { color: var(--ink); }
 :root .heart { background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink); border: 0; box-shadow: var(--shadow-sm); }
-:root .heart[aria-pressed="true"] { color: var(--accent); }
-:root .heart[aria-pressed="true"] svg { fill: currentColor; }
+
+
 @media (hover: hover) { :root :is(.gc, .pl, .tile, .dest > a):hover :is(.cover, .pl-cover, .art) { filter: brightness(.97); } }
 :root :is(.gc, .pl, .tile, .dest > a):active :is(.cover, .pl-cover, .art) { transform: scale(.99); }
 
@@ -170,8 +168,7 @@
 /* ---------- V2.12 footer: on the ground, hairline above ---------- */
 :root :is(.footer, .sitefoot) { background: var(--paper); color: var(--ink-2); border-top: 1px solid var(--line); }
 :root :is(.footer, .sitefoot) :is(a, h2, h3, b, .brand b) { color: var(--ink); }
-/* platform W8: the footer column heads are h3 now (axe heading-order); they keep the h4 look — no display tracking or balance */
-:root .footer h3 { letter-spacing: normal; text-wrap: wrap; }
+
 
 /* ---------- V2.13 map: pins and area marks muted toward the palette ---------- */
 :root [style*="--area"] { --area-q: color-mix(in oklab, var(--area) var(--area-mix), var(--area-mute)); }
@@ -181,16 +178,15 @@
 :root .leaflet-control-zoom a, :root .leaflet-bar a { background: var(--surface); color: var(--ink); border-color: var(--line); }
 :root .pin-n:not(.sel):not(.day) { --acq: color-mix(in oklab, var(--ac, var(--ink-3)) var(--area-mix), var(--area-mute));
   border-color: var(--surface); box-shadow: inset 0 -2px 0 var(--acq), var(--shadow-sm); background: var(--surface); color: var(--ink); font-weight: 600; }
-:root .pin-n.sel { background: var(--ink); color: var(--paper); border-color: var(--surface); }
+
 :root .pin-n.day { background: var(--accent); color: var(--on-accent); }
-:root .pin-cl span { border-width: 2px; border-color: color-mix(in oklab, var(--ac, var(--ink-3)) var(--area-mix), var(--area-mute)); box-shadow: var(--shadow-sm); font-weight: 600; }
+
 :root .pin-cl:is(.hot, :hover, :focus-visible) span { background: var(--ink); color: var(--paper); text-shadow: none; }
 :root .leaflet-overlay-pane svg { filter: saturate(.55); }
 /* know-before box: a quiet sand note, no area edge */
 :root .pl-k:has(.lbl) { border-left: 0; background: var(--sand); border-radius: var(--r-s); }
 :root .lookfor .tag { border-color: var(--line); color: var(--ink-2); }
-/* sheet hero: the calm cover, without the locator inset */
-:root .detail .hero-plate :is(.loc, .map) { display: none !important; }
+
 
 /* ---------- V2.14 the sun highlight (W7 amendment: Gen Z wanderlust, kept classy) ----------
    ONE warm, flat highlight per screen family: the sticker badge for a data-backed distinction ("Must see" — never on a
@@ -199,8 +195,8 @@
 :root .sticker, :root .tier.t1:not(.lg) { display: inline-flex; align-items: center; gap: var(--s-1); background: var(--sun-wash); color: var(--on-sun-wash);
   font: 600 var(--fs-xs)/1 var(--font-ui); letter-spacing: var(--track-eyebrow); padding: var(--s-2) var(--s-3); border-radius: var(--r-pill); box-shadow: none; }
 :root .sticker .ico, :root .tier.t1:not(.lg) .ico { width: 13px; height: 13px; color: currentColor; }
-:root :is(.cover, .pl-cover) .sticker { position: absolute; top: 12px; left: 12px; z-index: 2; background: color-mix(in srgb, var(--surface) 94%, transparent); color: var(--ink); }
-:root .heart[aria-pressed="true"] { box-shadow: var(--ring-sun), var(--shadow-sm); }
+
+
 @media (prefers-reduced-motion: no-preference) {
   :root .heart[aria-pressed="true"] svg { animation: v2-pop var(--dur-pop) var(--ease-spring) 1; }
   @keyframes v2-pop { 0% { transform: scale(.7); } 60% { transform: scale(1.18); } 100% { transform: scale(1); } }
@@ -215,8 +211,8 @@
    document.startViewTransition(), and give the sheet's media the same name. Browsers without view transitions get the
    .v2-grow FLIP fallback (FE-A sets --gx/--gy/--gs from the tapped rect). Nothing autoplays; reduced motion = no animation. */
 ::view-transition-group(cleo-grow) { animation-duration: var(--dur-grow); animation-timing-function: var(--ease-grow); }
-::view-transition-old(cleo-grow), ::view-transition-new(cleo-grow) { animation-duration: var(--dur-grow); animation-timing-function: var(--ease-grow); height: 100%; object-fit: cover; }
-::view-transition-old(root), ::view-transition-new(root) { animation-duration: var(--dur-2); }
+
+
 @media (prefers-reduced-motion: no-preference) {
   @keyframes v2-grow { from { transform: translate(var(--gx, 0), var(--gy, 24px)) scale(var(--gs, .96)); opacity: .6; } to { transform: none; opacity: 1; } }
 }
@@ -224,25 +220,19 @@
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
 
-/* ---------- V2.17 photographs (W7 visual pass with the first credited Commons photos) ----------
-   A photo replaces the calm cover in the same rounded box: no kind glyph, no name plate on top of it (the name is
-   right below the media). Credits are quiet: a caption UNDER a standalone figure; a small surface pill on card media.
-   The city hero photo keeps the builder's ground-coloured wash (--hero-scrim → the ground), so hero text stays ink on
-   paper in light and dark; anything floating on the photo (the lead card) gets a surface of its own. */
-:root :is(.cover, .pl-cover).photo::before, :root :is(.cover, .pl-cover).photo :is(.plate, .gl, .pl-vert) { display: none !important; }
-:root :is(.cover, .pl-cover).photo > img { border-radius: inherit; }
+
+
 :root .masthead { --hero-scrim: var(--paper); }
 :root figure.photo:not(.hero-photo) { overflow: visible; background: transparent; border-radius: 0; }
 :root figure.photo:not(.hero-photo) > img { border-radius: var(--r-l); display: block; width: 100%; }
 :root figure.photo:not(.hero-photo) figcaption { position: static; background: none; color: var(--ink-3); padding: var(--s-2) 2px 0; font-size: var(--fs-xs); line-height: var(--lh-sm); text-wrap: pretty; }
 :root figure.photo figcaption a, :root .hero-credit a, :root .cover .credit a { color: inherit; text-decoration-color: var(--line-strong); }
-:root .hero-credit { color: var(--ink-3); font-size: var(--fs-xs); text-shadow: none; }
-:root .masthead:has(.hero-photo) .g-lead-card .gc, html:root[data-view=gallery] .masthead:has(.hero-photo) .g-lead-card .gc {
-  background: var(--surface); border-radius: var(--r-l); padding: var(--s-3) var(--s-3) var(--s-2); box-shadow: var(--shadow-lg); }
-:root :is(.cover, .pl-cover) .credit { background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink-2); }
+
+
+
 /* phones: the hero text spans the full width, so the photo wash is flat (no fade under the text) */
-@media (max-width: 899px) { :root .masthead .hero-scrim { background: color-mix(in srgb, var(--paper) 86%, transparent) !important; } }
-:root .masthead .hero-credit { line-height: var(--lh-sm); margin-block: var(--s-2); }
+
+
 :root :is(.hero-credit, figure.photo figcaption, .cover .credit) a { display: inline; min-height: 0; min-width: 0; padding: 0; }
 
 /* V2.17b Atlas list photos: the TASL credit is a caption under the (in-flow) media — not an overlay pill, not ellipsised.

@@ -202,7 +202,7 @@ function card(r, num, ctx) {
   // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
   // D-49 (DESIGN-SYSTEM §v2.7b): a photo-less card is marked pl--np and changes shape, never order (compact row / quote card)
   const ph = ctx.photo && ctx.photo(r);
-  return `<li class="pl${r.closed ? ' pl--closed' : ''}${ph ? '' : ' pl--np'}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : ''}<p class="pl-x" hidden></p>
+  return `<li class="pl${r.closed ? ' pl--closed' : ''}${ph ? '' : ' pl--np'}${r.id === ctx.leadId ? ' pl-lead' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : ''}<p class="pl-x" hidden></p>
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span>` : `<span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w && !/^https?:\/\/\S+$/.test(r.w) ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${tr(isNote ? 'city.card.note' : 'city.card.look')}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
@@ -338,6 +338,16 @@ ${(ord => { noRepeat(ord); return ord.map((r, j) => card(r, j + 1, cardCtx)).joi
   };
   const orphan = recs.filter(r => !areas.some(a => a.id === r.a));
   const total = areas.length + (orphan.length ? 1 : 0);
+  // D-46 lead card (SPEC-v3 §1.7, §v2.7b): the desktop Atlas list opens on atlas.js's map-priority #1 (tier, then the rank
+  // within its area by named sources, then pin number, then area order: client/atlas.js MP). The build marks that card
+  // .pl-lead, and only when it has a photo; fe-a.css spans it across the list on a cold, unfiltered load
+  cardCtx.leadId = (() => { const aIx = {}; areas.forEach((a, i) => { aIx[a.id] = i; });
+    const tier = r => r.closed ? 4 : +r.t || 3, ns = r => (r.src || []).filter(x => x && x !== 'guide').length, rows = [];
+    areas.forEach(a => orderArea(recs.filter(r => r.a === a.id)).forEach((r, j) => rows.push([r, j + 1])));
+    const ix = {}, by = {}; rows.forEach(x => { const k = x[0].a + '|' + tier(x[0]); (by[k] = by[k] || []).push(x); });
+    Object.values(by).forEach(l => l.sort((x, y) => ns(y[0]) - ns(x[0]) || x[1] - y[1]).forEach((x, i) => { ix[x[0].id] = i; }));
+    const top = rows.sort((x, y) => tier(x[0]) - tier(y[0]) || ix[x[0].id] - ix[y[0].id] || ns(y[0]) - ns(x[0]) || x[1] - y[1] || aIx[x[0].a] - aIx[y[0].a])[0];
+    return top && cardCtx.photo && cardCtx.photo(top[0]) ? top[0].id : null; })();
   const sections = areas.map((a, i) => chapter(a, recs.filter(r => r.a === a.id), i, total));
   if (orphan.length) sections.push(chapter(null, orphan, areas.length, total));
   if (placed !== recs.length) throw new Error(`${row.beta}: rendered ${placed} of ${recs.length} places`);

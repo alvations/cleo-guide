@@ -38,7 +38,7 @@
 html { background: var(--paper); }
 body { overflow-x: clip; }                       /* full-bleed bands never cause sideways scroll; keeps sticky working */
 button, input, select, textarea { font: inherit; color: inherit; }
-code, kbd, samp, pre { font-family: var(--font-ui); }   /* M1-15: two families only */
+   /* M1-15: two families only */
 ::selection { background: color-mix(in srgb, var(--city) 26%, transparent); }
 main { display: block; max-width: none; margin: 0; padding: 0 var(--gutter); background: var(--paper); }   /* bands go full-bleed */
 main:not(.feb) > :not(.masthead):not(.rail) { max-width: calc(var(--maxw) - 2 * var(--gutter)); margin-inline: auto; }
@@ -86,7 +86,7 @@ a.tier:hover span { text-decoration: underline; text-underline-offset: 3px; }
 .topbar .crumbs a:hover{background:var(--sand)}
 .topbar .crumbs .here{padding:0 var(--s-2);color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis}
 .topbar .crumbs .sep{color:var(--ink-3)}
-.on-night .crumbs a,.on-night .crumbs .here{color:var(--on-night)}
+
 @media(max-width:639px){.topbar .brand b{font-size:var(--fs-d2)}}
 /* FE-B 2252f7a (review B5): phones show only the parent crumb ("‹ Japan"); the night toggle lives in the footer below 900 px */
 @media(max-width:899px){.topbar .crumbs a~.sep,.topbar .crumbs a~.here{display:none}.topbar .crumbs a::before{content:"\2039";margin-right:var(--s-1)}[data-cleo-shell=topbar] .theme-toggle{display:none}}
@@ -95,41 +95,41 @@ a.tier:hover span { text-decoration: underline; text-underline-offset: 3px; }
 [data-cleo-shell=topbar] .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 [data-cleo-shell=topbar] .crumbs a{white-space:nowrap}[data-cleo-shell=topbar] .crumbs{flex:0 1 auto}
 @media(min-width:900px){[data-cleo-shell=topbar] .topnav{display:flex}[data-cleo-shell=topbar] .brand small{display:inline}}
-.topnav a.on{color:var(--ink);background:var(--sand)}
+
 .tiles.hub2{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-2)}
 @media(min-width:640px){.tiles.hub2{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-4)}}
 @media(min-width:1100px){.tiles.hub2{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .tiles.hub2 .tile{grid-template-rows:84px auto}.tiles.hub2 .tile .txt{padding:var(--s-3) var(--s-3) var(--s-3);gap:var(--s-1)}
-.tiles.hub2 .tile .txt h3{font-size:var(--fs-lead)}.tiles.hub2 .tile .art .native{font-size:var(--fs-lead);right:10px;top:8px}
-.tiles.hub2 .tile .canon{font-size:var(--fs-meta);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tiles.hub2 .tile .txt h3{font-size:var(--fs-lead)}
+
 @media(min-width:640px){.tiles.hub2 .tile{grid-template-rows:120px auto}.tiles.hub2 .tile .txt h3{font-size:var(--fs-d2)}}
-.tile .art .dots{stroke:var(--on-night);stroke-linecap:round;fill:none}
-.tile .art .dots.t1{stroke:var(--gilt-soft)}
+
+
 .tile .dest-c{display:block}
 .dest a.tile::before{content:none}.dest a.tile>*{padding-inline:0}.dest a.tile>:last-child{padding-bottom:0}.tile .dest-c{padding:0;grid-row:auto;align-self:auto}
-.tile .art{background:var(--motif,none),radial-gradient(130% 160% at 100% 0,color-mix(in srgb,var(--city) 40%,transparent),transparent 62%),var(--night)}
+
 .feb .search input,.searchpanel .search input{border:0;background:transparent;box-shadow:none;padding:0 var(--s-1);border-radius:0}
-@media(min-width:900px){.feb .hero .d-hero{font-size:var(--fs-hero)}.feb .hero .inner{padding-top:calc(var(--bar-h) + 40px);padding-bottom:36px}}
+
 html[data-cleo-page] main.feb{padding:0;max-width:none}html[data-cleo-page] main.feb>*{max-width:none;margin-inline:0}
 html[data-cleo-page] main.feb>.masthead{padding:0}html[data-cleo-page] main.feb>.wrap{max-width:var(--maxw);margin-inline:auto}
 ul.tiles{list-style:none;margin:0;padding:0}ul.tiles>li{display:grid;min-width:0}
-.footer a{min-width:var(--tap)}.banner .btn-icon{min-height:var(--tap);width:var(--tap)}
+.footer a{min-width:var(--tap)}
 .searchpanel input::-webkit-search-cancel-button{display:none}
 .morelist{list-style:none;margin:var(--s-2) 0 0;padding:0;display:grid;gap:var(--s-2);grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr))}
 .morelist a{display:flex;justify-content:space-between;align-items:center;gap:var(--s-3);min-height:var(--tap);padding:var(--s-2) var(--s-4);border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface);text-decoration:none}
 .morelist .dest-n{font-weight:600}.morelist .dest-c{font-size:var(--fs-meta);color:var(--ink-3);white-space:nowrap}
 .csec{scroll-margin-top:calc(var(--bar-h) + 8px)}.csec+.csec{margin-top:36px}
 .csec .rail-head .d2 .n{font:500 var(--fs-ui)/1 var(--font-ui);color:var(--ink-3);margin-left:var(--s-2)}
-.csec .blurb{color:var(--ink-2);margin:-4px 0 var(--s-4);max-width:70ch;font-size:var(--fs-ui)}
-.hero .search{margin-top:var(--s-2)}.hero .inner{padding-bottom:var(--s-6)}
-@media(max-width:639px){.hero .d-hero{font-size:var(--fs-d2)}.hero .sub{font-size:var(--fs-ui);margin:var(--s-2) 0 var(--s-4)}.hero .kicker{margin-bottom:var(--s-2)}.hero .inner{padding-top:calc(var(--bar-h) + 6px);padding-bottom:var(--s-4)}.hero .search{min-height:50px}}
-.searchpanel{position:fixed;left:0;right:0;top:var(--bar-h);z-index:50;max-height:calc(100vh - var(--bar-h));overflow:auto;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:var(--e-2);padding:var(--s-3) 0 var(--s-4)}
+
+
+
+
 .results{margin:var(--s-4) 0}.results h2{margin:0 0 var(--s-2)}.results .grp{margin:var(--s-4) 0 0}.results .grp h3{margin:0 0 var(--s-1);font:600 var(--fs-ui)/1.3 var(--font-ui)}
 .results ol{list-style:none;margin:0;padding:0;display:grid;gap:var(--s-1)}
 .results li a{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-1) var(--s-2);min-height:var(--tap);padding:var(--s-2) var(--s-3);border-radius:var(--r-s);background:var(--surface);border:1px solid var(--line);text-decoration:none}
 .results li a:hover{border-color:var(--ink)}.results .meta{font-size:var(--fs-meta);color:var(--ink-3)}
 .results .state{margin-top:var(--s-2)}
-.banners{position:sticky;top:var(--bar-h);z-index:35}.banners .banner{border-radius:0;justify-content:center}
+.banners{position:sticky;top:var(--bar-h);z-index:35}
 .stats:not(p){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;margin:var(--s-4) 0}
 @media(min-width:900px){.stats:not(p){grid-template-columns:repeat(4,minmax(0,1fr))}}
 .stats:not(p) div{background:var(--surface);padding:var(--s-4) var(--s-4)}.stats:not(p) b{display:block;font:500 var(--fs-d2)/1.1 var(--font-display)}.stats:not(p) span{font-size:var(--fs-meta);color:var(--ink-3)}
@@ -181,7 +181,7 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
 .rail-i.sig { min-width: 188px; min-height: 76px; background: var(--city); color: var(--city-on); border-color: transparent; font-size: var(--fs-lead); isolation: isolate; overflow: hidden; }
 .rail-i.sig::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--motif); opacity: 1.6; }
 .rail-i.sig .n { color: color-mix(in srgb, var(--city-on) 84%, transparent); }
-.rail-i.sig[aria-current], .rail-i.sig[aria-pressed="true"] { box-shadow: var(--ring-select-halo); }
+
 .rail-i .g, .rail-i .ico { width: 22px; height: 22px; margin-bottom: var(--s-1); }
 /* every collection tile carries its glyph with no markup change (glyphs.json → --g); FE-A's own .g child replaces it */
 .rail-i:not(.rail-all) { padding-right: var(--s-8); }
@@ -252,7 +252,7 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
 .pl-n { grid-row: 2; grid-column: 1; align-self: end; padding: var(--s-2) var(--s-4) var(--s-4) var(--s-5); z-index: 1;
   font: 500 var(--fs-d3)/var(--lh-d3) var(--font-display); letter-spacing: var(--track-tight); color: var(--ink); font-size: var(--fs-lead); text-wrap: balance; }
 .pl-n a { display: block; min-height: var(--tap); text-decoration: none; }
-.pl-w a, .pl-k a, .pl-ad a { position: relative; z-index: 2; }
+
 .pl-n a::after { content: ""; position: absolute; inset: 0; z-index: 0; }                     /* whole card is the target */
 .pl-n a:focus-visible { outline: none; }
 .pl:has(.pl-n a:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
@@ -276,15 +276,13 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
   .pls .pl:not(.is-target):not(:target):not(:focus-within) .pl-w { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 }
 .pl-k { padding-top: var(--s-3); font-size:var(--fs-sm); line-height: var(--lh-sm); color: var(--ink-2); }
-/* know-before: neutral (D-06 keeps the accent for actions); FE-A's .pl-k.note (prose "Your guide's note") gets the italic voice */
-.pl-k .lbl { display: block; font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-3); margin-bottom: 2px; }
+
 .pl-k:has(.lbl) { margin: var(--s-2) var(--s-4) 0; padding: var(--s-2) var(--s-3); border-left: 3px solid var(--area-c); background: var(--sand); border-radius: var(--r-s); }
-.pl-k.note p { font: italic 400 var(--fs-body)/1.45 var(--font-display); color: var(--ink); }
+
 .pl-ad { padding-top: var(--s-2); font-size:var(--fs-meta); color: var(--ink-3); }
 .pl-s { position: relative; z-index: 2; padding-top: var(--s-2); font-size:var(--fs-meta); line-height: var(--lh-d3); color: var(--ink-2); }
 .pl-s .lbl { display: block; font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-3); margin: 0 0 0; }
-.pl-s a { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); min-width: var(--tap); padding: 0 2px; font-weight: 600; color: var(--ink);
-  text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+
 .pl-s a:hover { text-decoration-color: var(--city); color: var(--city-ink); }
 .pl-s .src { position: relative; z-index: 2; }
 .pl-s .src:not(a) { min-height: var(--tap); }
@@ -294,8 +292,8 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
   border-radius: var(--r-pill); border: 0; background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink); box-shadow: var(--e-1);
   font-weight: 600; font-size:var(--fs-sm); }
 .pl-save::before { content: ""; width: 18px; height: 18px; background: currentColor; -webkit-mask: var(--ico-heart) center / contain no-repeat; mask: var(--ico-heart) center / contain no-repeat; }
-.pl-save[aria-pressed="true"] { color: var(--city); }
-.pl-save[aria-pressed="true"]::before { -webkit-mask-image: var(--ico-heart-f); mask-image: var(--ico-heart-f); animation: stamp var(--dur-3) var(--ease-spring); }
+
+
 .pl.is-target, .pl.is-focus { box-shadow: var(--ring-select), var(--e-2); outline: 0; }
 .pl:target { box-shadow: var(--ring-select), var(--e-2); }
 /* closed: kept for the record, muted, hatched cover, no glyph, closed note in --closed */
@@ -308,7 +306,7 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
 /* FE-A's explicit cover element (spec): native plate / initial, pin number, collection glyph */
 .pl-cover { grid-row: 1 / span 2; grid-column: 1; position: relative; padding: 0 !important; pointer-events: none; overflow: hidden; }
 .pl:has(.pl-cover)::before { min-height: 120px; }
-.pl-cover .pl-num { position: absolute; left: 21px; bottom: 12px; display: none; }
+
 .pl-num { min-width: 26px; height: 26px; border-radius: var(--r-m); display: grid; place-items: center; padding: 0 var(--s-2); background: var(--surface); color: var(--ink);
   font: 700 var(--fs-xs)/1 var(--font-ui); box-shadow: var(--e-1); }
 .pl-cover .pl-vert { position: absolute; top: 14px; right: 62px; writing-mode: vertical-rl; font: 600 var(--fs-d2)/1 var(--font-native); letter-spacing: var(--track-vert);
@@ -340,7 +338,7 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
   font-size:var(--fs-meta); line-height: var(--lh-xs); color: var(--ink-2); text-align: center; }
 /* area silhouettes from verified pins (assets/art/<city>/<AREA>.svg) on area heads */
 .area .shape, .area-shape { float: right; width: 84px; height: 64px; object-fit: contain; margin: 0 0 var(--s-1) var(--s-3); opacity: .9; }
-.mappane .credit { font-size: var(--fs-xs); color: var(--ink-3); }
+
 @media (max-width: 1023px) {
   /* mobile/tablet: list first (M1-05). FE-A's Map toggle sets data-view="map" on .split → full-screen map. */
   .split .mappane { display: none; }
@@ -365,10 +363,10 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
 .about { max-width: 72ch; margin: var(--s-8) auto 0; padding: var(--s-6) 0 0; border-top: 1px solid var(--line); color: var(--ink-2); font-size: var(--fs-lead); line-height: var(--lh-lead); }
 .about p { font-family: var(--font-display); }
 .method h2 { font: 500 var(--fs-d2)/1.15 var(--font-display); color: var(--ink); margin: 0; }
-:is(.sitefoot, .footer) .method h2 { color: var(--on-night); }
+
 .method h3 { font: 600 var(--fs-ui)/1.3 var(--font-ui); color: var(--ink); margin: 0 0 var(--s-1); }
-:is(.sitefoot, .footer) .method h3 { color: var(--on-night); }
-.method p { color: var(--ink-2); } :is(.sitefoot, .footer) .method p { color: var(--on-night-2); }
+
+.method p { color: var(--ink-2); } 
 .method .note p { margin: 0; }
 .colophon { margin: 0; padding-top: var(--s-5); border-top: 1px solid color-mix(in srgb, var(--on-night) 14%, transparent); font-size:var(--fs-meta); }
 
@@ -379,22 +377,20 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
 
 /* ---------- 11. Landing + country hubs (FE-B: .country / .dests / .dest / .hits) ---------- */
 html[data-cleo-page="landing"] main > .masthead:first-child h1, .masthead.hero h1 { font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: var(--track-display); }
-.country { margin: 36px 0 0; }
-.country > h2, .country h2 { display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap; font: 500 var(--fs-d2)/var(--lh-d2) var(--font-display); margin: 0 0 var(--s-1); }
-.country-c { font: 500 var(--fs-sm)/1 var(--font-ui); color: var(--ink-3); }
-.country > p { color: var(--ink-2); margin: var(--s-1) 0 0; max-width: 64ch; }
-.dest-c strong { color: var(--ink); }
+
+
+
+
+
 .hits { list-style: none; padding: 0; margin: var(--s-3) 0; display: grid; gap: 2px; }
 .hits li { margin: 0; }
 .hits a { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-1) var(--s-2); min-height: 52px; padding: var(--s-2) var(--s-3); border-radius: var(--r-s); text-decoration: none; }
 .hits a:hover { background: var(--sand); }
 .hits mark, mark { background: var(--gilt-soft); color: inherit; border-radius: var(--r-xxs); padding: 0 1px; }
 
-/* QA-01/B-23 follow-ups (pass 2): the on-night top bar paints its own night ground (it sits over the hero, but text must
-   never depend on what is behind an absolutely positioned bar); the hero's italic word keeps a light gilt in the night edition */
-.topbar.on-night { background: var(--night); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero .d-hero em { color: var(--gilt); } }
-:root[data-theme="dark"] .hero .d-hero em { color: var(--gilt); }
+
+
+
 
 /* ---------- 12. Night edition toggle (FE-B adds <button class="theme-toggle" aria-pressed>) ---------- */
 .theme-toggle { display: inline-grid; place-items: center; width: var(--tap); height: var(--tap); border-radius: 50%; border: 0; background: transparent; color: var(--ink-2); }
@@ -459,19 +455,18 @@ html .sheet.detail > .close { top: 10px; right: 12px; width: var(--tap); height:
 html .detail .hero-plate { margin: var(--s-9) var(--s-4) 0; height: 168px; border-radius: var(--r-m);
   background: var(--motif-ink), color-mix(in srgb, var(--area, var(--city)) 16%, var(--surface)); container-type: size; }
 html .detail .hero-plate::before { width: 6px; background: linear-gradient(180deg, var(--area, var(--city)) 0 70%, var(--city-2) 70%); }
-html .detail .hero-plate .pl-vert { top: 18px; right: 26px; bottom: 18px; max-height: none; white-space: normal; line-height: var(--lh-hero);
-  font-size: var(--fs-d2); font-size: var(--fs-d2); color: color-mix(in srgb, var(--area, var(--city)) 45%, var(--ink)); }
-html .detail .hero-plate .pl-vert.long { font-size: var(--fs-d2); font-size: var(--fs-d2); }
+
+
 html .detail .hero-plate .pl-ini { color: color-mix(in srgb, var(--area, var(--city)) 55%, transparent); }
 html .detail .hero-plate .pl-glyph { left: 22px; bottom: 18px; width: 36px; height: 36px; fill: none; stroke: color-mix(in srgb, var(--area, var(--city)) 60%, var(--ink));
   stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 html .detail .content { padding-top: var(--s-5); }
 html .detail .why { font: 400 var(--fs-lead)/1.62 var(--font-ui); color: var(--ink-2); max-width: 62ch; }
-html .detail .why b, html .detail .why strong { color: var(--ink); font-weight: 600; }
+
 html .detail h2.d2 { font-size: var(--fs-d2); line-height: var(--lh-d1); letter-spacing: var(--track-tight); text-wrap: balance; }
 html .detail .section-t, html .detail h3.section-t { font: 600 var(--fs-sm)/1.3 var(--font-ui); color: var(--ink-3); letter-spacing: var(--track-eyebrow); margin: 0 0 var(--s-2); }
 html .detail .pills .pill { min-height: var(--tap); font-size:var(--fs-sm); }
-html .detail .hero-plate:has(.loc) .pl-glyph { display: none; }   /* FE-A's locator inset (.loc) replaces the generic glyph */
+   /* FE-A's locator inset (.loc) replaces the generic glyph */
 html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-height: var(--lh-xs); }
 @media (min-width: 1024px) {
   html .detail .hero-plate { height: 200px; margin: var(--s-9) var(--s-6) 0; }
@@ -489,11 +484,10 @@ html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-
   html .rail { padding-inline-end: 132px; -webkit-mask: linear-gradient(90deg, var(--mask) calc(100% - 150px), transparent calc(100% - 40px)); mask: linear-gradient(90deg, var(--mask) calc(100% - 150px), transparent calc(100% - 40px)); }
   html .rail-i { min-width: 0; padding: var(--s-3) var(--s-8) var(--s-3) var(--s-4); }
   html .rail-i.sig { min-width: 220px; padding-right: 48px; }
-  html .railbar [data-rail="-1"] { right: 2px; } html .railbar [data-rail="1"] { right: -50px; }
+   
 }
 .rail-i.sig::after, .rail-i.sig .g { filter: drop-shadow(0 0 6px color-mix(in srgb, var(--city-on) 40%, transparent)); }
-/* tile compositions are FE-B's (.tile.c-night/.c-wash/.c-city/.c-paper, render/hub.js); the bar carries the second accent */
-.tile .art .bar { background: linear-gradient(90deg, var(--city) 0 72%, var(--city-2) 72%); }   /* the landing top bar rides the hero (absolute), so nothing sits above the pills */
+   /* the landing top bar rides the hero (absolute), so nothing sits above the pills */
 
 /* 15.7 Saved page baseline (until FE-A ships the mockups/saved.html markup): no default browser controls, a designed list */
 #saved { margin-top: var(--s-5); }
@@ -547,36 +541,28 @@ html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-
 
 /* 15.10 Wave 2 components for FE-A — markup contract in design/beta/specs/W2-components.md, live sheet in
    design/beta/mockups/w2-components.html. Class names below are the contract; tokens only, AA in light + night. */
-html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) */
+html .sharebar .btn { min-height: var(--tap); }   
 
-/* (b) "For you" — the interest picker reorders, never hides. Picker = .interests grid of the library .interest buttons
-   (in a .sheet.picker or inline); the result line .because sits above the list; promoted cards carry .pl-why. */
-.interests { display: grid; gap: var(--s-2); grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; list-style: none; }
-@media (min-width: 640px) { .interests { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.interest { width: 100%; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-m); color: var(--ink); }
-.interest .glyph .g { width: 30px; height: 30px; }
-.interest[aria-pressed="true"] .tick::after { content: "✓"; font: 700 var(--fs-sm)/1 var(--font-ui); }
-.because { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-2); margin: var(--s-2) 0 var(--s-1); padding: var(--s-3) var(--s-4); border-radius: var(--r-m);
-  background: var(--city-wash); color: var(--ink); font-size:var(--fs-sm); line-height: var(--lh-sm); }
-.because::before { content: ""; width: 20px; height: 20px; flex: none; background: var(--city-ink); -webkit-mask: var(--g-star4) center / contain no-repeat; mask: var(--g-star4) center / contain no-repeat; }
-.because b { font-weight: 600; }
-.because .n { color: var(--ink-2); }
-.because button, .because a { margin-left: auto; min-height: var(--tap); padding: 0 var(--s-4); border-radius: var(--r-pill); border: 1px solid var(--line-strong); background: var(--surface); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; }
-.pl-why { display: inline-flex; align-items: center; gap: var(--s-1); margin-left: var(--s-2); padding: 2px var(--s-2); border-radius: var(--r-pill); background: var(--surface);
-  color: var(--city-ink); font: 600 var(--fs-xs)/1.4 var(--font-ui); vertical-align: 1px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--city) 40%, transparent); }
 
-/* (c) home modules (M2-11): Your list · ★ Signature · Free to visit — three doors above the rail on the city page */
-.modules .modules { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: var(--s-2); overflow-x: auto; scrollbar-width: none; margin: var(--s-3) 0 0; padding: 2px 0 var(--s-2); }
+
+
+
+
+
+
+
+
+
+
 .modules .modules::-webkit-scrollbar { display: none; }
-.modules .mod { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: var(--s-1) var(--s-3); align-items: center; min-height: 84px; padding: var(--s-3) var(--s-4);
-  border-radius: var(--r-m); border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; text-align: left; box-shadow: var(--e-1); }
-.modules .mod .g { grid-row: span 2; width: 44px; height: 44px; padding: var(--s-3); border-radius: var(--r-m); background: var(--city-wash); color: var(--city-ink); -webkit-mask: none; mask: none; }
-.modules .mod .g::before { content: ""; display: block; width: 100%; height: 100%; background: currentColor; -webkit-mask: var(--g, var(--g-star4)) center / contain no-repeat; mask: var(--g, var(--g-star4)) center / contain no-repeat; }
-.modules .mod b { font: 500 var(--fs-lead)/1.15 var(--font-display); }
-.modules .mod span { font-size:var(--fs-meta); color: var(--ink-3); }
-.modules .mod.sig { background: var(--city); color: var(--city-on); border-color: transparent; }
-.modules .mod.sig .g { background: color-mix(in srgb, var(--city-on) 18%, transparent); color: var(--city-on); }
-.modules .mod.sig span { color: color-mix(in srgb, var(--city-on) 86%, transparent); }
+
+
+
+
+
+
+
+
 .modules .mod:hover { box-shadow: var(--e-2); }
 
 /* (d) "Your day" (M2-06): .day wraps summary → caveat → actions → ol.stops; stops reuse the card in .row density.
@@ -585,13 +571,13 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
 .day > header { display: grid; gap: var(--s-1); }
 .day > header .eyebrow { font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--city-ink); }
 .day > header h2 { margin: 0; font: 500 var(--fs-d2)/1.1 var(--font-display); }
-.daysum b { font-variant-numeric: lining-nums tabular-nums; }
-.stops { counter-reset: stop; }
-.stop { padding-bottom: 0; }
-.stop .n { background: var(--city); color: var(--city-on); font: 700 var(--fs-ui)/1 var(--font-ui); box-shadow: var(--ring-surface); }
-.stop .pl { margin: 0; }
-.stop .leg { margin: var(--s-2) 0 var(--s-3); font: 500 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-2); }
-.stop .leg::before { content: ""; width: 16px; height: 16px; flex: none; background: var(--ink-3); -webkit-mask: var(--g-route, var(--g-star4)) center / contain no-repeat; mask: var(--g-route, var(--g-star4)) center / contain no-repeat; }
+
+
+
+
+
+
+
 .day .total { font: 500 var(--fs-ui)/1.4 var(--font-ui); color: var(--ink-2); }
 .leaflet-overlay-pane path.day-route { stroke: var(--city); stroke-width: 3.5; stroke-dasharray: 1 9; stroke-linecap: round; fill: none; }
 .pin-n.day { background: var(--city); color: var(--city-on); min-width: 26px; height: 26px; border-radius: var(--r-m); font-size:var(--fs-meta); line-height: 22px; }
@@ -601,9 +587,9 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
 .listtabs .pill .n { color: var(--ink-3); font-weight: 500; margin-left: var(--s-1); }
 .listtabs .pill[aria-pressed="true"] .n { color: color-mix(in srgb, var(--paper) 75%, transparent); }
 .listtabs .new { border-style: dashed; }
-.listmenu { display: inline-flex; gap: var(--s-2); }
-.listmenu .btn { min-height: var(--tap); }
-.listmenu .danger { color: var(--closed); }
+
+
+
 .exportbar { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; padding: var(--s-3) var(--s-4); border-radius: var(--r-m); background: var(--sand); }
 .exportbar .lbl { font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-2); margin-right: var(--s-1); }
 .banner.shared { background: var(--night); color: var(--on-night); }
@@ -611,9 +597,9 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
 .saved-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-3); grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 640px) { .saved-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .saved-cards .gone { padding: var(--s-4) var(--s-4); border: 1px dashed var(--line-strong); border-radius: var(--r-m); color: var(--ink-2); }
-.pl .stamp, .card .stamp { transform: rotate(-8deg); border: 2px solid currentColor; border-radius: var(--r-s); padding: var(--s-1) var(--s-2); background: color-mix(in srgb, var(--surface) 80%, transparent); text-align: center; }
-.pl-dist { display: inline-flex; align-items: center; gap: var(--s-1); margin-left: var(--s-2); font: 600 var(--fs-xs)/1.4 var(--font-ui); color: var(--ink-2); font-variant-numeric: tabular-nums; }
-.pl-dist::before { content: ""; width: 12px; height: 12px; background: currentColor; -webkit-mask: var(--g-pin, var(--g-star4)) center / contain no-repeat; mask: var(--g-pin, var(--g-star4)) center / contain no-repeat; }
+
+
+
 
 /* (g) sheet locator inset (ROUND-1 #1/#6): the area's own pins with this place lit — drawn by FE-A from data-ll or
    platform's assets/art/<page>/<AREA>.svg; sits bottom-left of the sheet plate in place of the generic glyph */
@@ -649,9 +635,7 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
 .day .more a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 var(--s-4); border-radius: var(--r-pill); border: 1px solid var(--line-strong);
   background: var(--surface); color: var(--ink); text-decoration: none; font-weight: 600; }
 .day .more a:hover { border-color: var(--ink); }
-/* 16.4 Desktop map labels carry their area colour (ROUND-2: "bare white number boxes"). FE-A hook: the tooltip element
-   gets style="--ac:<area hex>" (see BETA-LOG). Until then the label keeps today's ink box. */
-html .pin-n { border-color: var(--ac, var(--surface)); }
+
 html .pin-n:not(.sel):not(.day) { box-shadow: inset 0 -3px 0 var(--ac, transparent); }
 
 /* 16.5 Delight (gap #5). Tap feedback on save, been-there and collection doors; nothing autoplays, nothing on a
@@ -668,28 +652,8 @@ html .pin-n:not(.sel):not(.day) { box-shadow: inset 0 -3px 0 var(--ac, transpare
   .pin-n.sel { animation: w3-pop var(--dur-pop) var(--ease-out) 1; }
 }
 
-/* 16.6 Landing hero wanderlust (ROUND-2 gap #4, designer half): a night panorama of the six country motifs the imagery
-   lane already ships (generic subjects, original drawings, ~3 KB each, cached), set along the hero's lower edge and
-   faded out behind the text column, over a CSS star field. Decoration only (::before, aria-free); no new request
-   beyond the six motif SVGs; FE-B's editorial rail is the other half of the gap. */
-html[data-cleo-page="landing"] main > .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
-  background:
-    url("img/motifs/us.svg") 0% 100% / auto 150px no-repeat, url("img/motifs/germany.svg") 20% 100% / auto 132px no-repeat,
-    url("img/motifs/belgium.svg") 40% 100% / auto 124px no-repeat, url("img/motifs/vietnam.svg") 60% 100% / auto 138px no-repeat,
-    url("img/motifs/singapore.svg") 80% 100% / auto 146px no-repeat, url("img/motifs/japan.svg") 100% 100% / auto 156px no-repeat,
-    radial-gradient(1.2px 1.2px at 12% 22%, color-mix(in srgb, var(--star) 70%, transparent), transparent 60%), radial-gradient(1px 1px at 31% 12%, color-mix(in srgb, var(--star) 55%, transparent), transparent 60%),
-    radial-gradient(1.4px 1.4px at 57% 18%, color-mix(in srgb, var(--star) 70%, transparent), transparent 60%), radial-gradient(1px 1px at 68% 34%, color-mix(in srgb, var(--star) 50%, transparent), transparent 60%),
-    radial-gradient(1.6px 1.6px at 83% 14%, color-mix(in srgb, var(--star) 75%, transparent), transparent 60%), radial-gradient(1px 1px at 92% 40%, color-mix(in srgb, var(--star) 50%, transparent), transparent 60%),
-    radial-gradient(1.2px 1.2px at 76% 52%, color-mix(in srgb, var(--star) 55%, transparent), transparent 60%), radial-gradient(1px 1px at 46% 44%, color-mix(in srgb, var(--star) 45%, transparent), transparent 60%),
-    radial-gradient(60% 80% at 85% 110%, color-mix(in srgb, var(--city, var(--city-glow)) 22%, transparent), transparent 70%);
-  --hm: linear-gradient(180deg, #000 0 42%, transparent 60%, rgba(0,0,0,.55) 74%, #000 90%);   /* stars on top; the drawings' ground fades in, no hard tile edge */
-  -webkit-mask-image: var(--hm); mask-image: var(--hm); }
-@media (max-width: 639px) {
-  html[data-cleo-page="landing"] main > .hero .inner { padding-bottom: var(--s-11); }
-  html[data-cleo-page="landing"] main > .hero::before { background-size: auto 78px, auto 70px, auto 66px, auto 72px, auto 76px, auto 82px, auto, auto, auto, auto, auto, auto, auto, auto, auto;
-    background-position: -20% 100%, 18% 100%, 42% 100%, 62% 100%, 86% 100%, 118% 100%, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
-    --hm: linear-gradient(180deg, #000 0 74%, transparent 84%, rgba(0,0,0,.6) 91%, #000 97%); }
-}
+
+
 
 /* 16.7 QA-24 (axe link-in-text-block, every page): footer links inside text are underlined, not told apart by colour alone */
 .footer .legal a, .footer .colophon a, .footer p a, .sitefoot p a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }

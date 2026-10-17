@@ -381,10 +381,10 @@ async function finish(page, s0, opener, close) {
 
   // D-43 (SPEC-v3 §1.1, designer re-rule): every approximate pin (info.prov 'l…') on the map sits on a 20 px soft halo
   // (radius 10, no stroke, --ink at 10 % light / 16 % dark), no exact pin has one, the Key shows "Approximate pin", and the
-  // halo redraw shifts no layout. Okinawa holds 195 of the 235 low pins.
+  // halo redraw shifts no layout (shifts sourced in the halo pane; the chrome's own pan compaction is OV-00's). Okinawa holds 195 of the 235 low pins.
   if (!ONLY || ONLY.split(',').includes('okinawa')) for (const [vn, vp] of [['1440', D], ['390', M]]) for (const scheme of ['light', 'dark']) {
     const { ctx, page, errors } = await open(browser, Object.assign({ colorScheme: scheme }, vp), 'beta/cities/okinawa.html#view=atlas');
-    await page.evaluate(() => { window.__cls = 0; try { new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) window.__cls += e.value; })).observe({ type: 'layout-shift', buffered: false }); } catch (e) {} });
+    await page.evaluate(() => { window.__cls = 0; try { new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput && (e.sources || []).some(x => x.node && x.node.closest && x.node.closest('.leaflet-navHalo-pane'))) window.__cls += e.value; })).observe({ type: 'layout-shift', buffered: false }); } catch (e) {} });
     await page.evaluate(() => { const m = Cleo.city.map(); m.panBy([60, 40], { animate: false }); }); await sleep(700);
     const r = await page.evaluate(() => { const C = Cleo.city, pv = C.info.prov || {}, h = C.navHalos ? C.navHalos() : [];
       const lowOn = Object.keys(pv).filter(id => String(pv[id])[0] === 'l' && C.markers[id] && C.markers[id]._map && (C.pinOf(id) || C.markers[id].options.opacity > 0));
