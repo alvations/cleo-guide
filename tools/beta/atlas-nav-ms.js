@@ -245,7 +245,8 @@ async function finish(page, s0, opener, close) {
   if (PAGES.some(p => p[0] === 'tokyo')) for (const [vk, vp] of [['d', D], ['m', M]]) {
     const vn = vk === 'd' ? '1440' : '390', geo = { latitude: 35.6595, longitude: 139.7005 };
     const { ctx, page, errors } = await open(browser, vp, 'beta/cities/tokyo.html#view=atlas', { geo });
-    const loc = await page.$('.leaflet-control-container .m-locate'); let tap = 'none';
+    // OV-00 §2.0.3 "Near me once" (ratified): desktop takes the list head's door when present, else the map's locate control
+    const loc = (vk === 'd' && await page.$('.ms-head [data-cleo-near]')) || await page.$('.leaflet-control-container .m-locate'); let tap = 'none';
     if (loc) { try { await loc.click({ timeout: 2500 }); tap = 'click'; } catch (e) { await loc.evaluate(b => b.click()); tap = 'scripted (the tap was intercepted)'; } }
     await sleep(1500);
     const food = await page.$('.ms-bar button[data-mode="food"]'); if (food) { await food.evaluate(b => b.click()); await sleep(1200); }

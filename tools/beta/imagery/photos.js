@@ -196,7 +196,7 @@ function captionHtml(c, opts = {}) {
   // a derivative's second creator stays named in the short line too ("derivative work by O.J.")
   const deriv = (/derivative work by ([^;]+)/i.exec(c.modified || '') || [])[1];
   const changed = !c.modified ? '' : /^resized\b/i.test(c.modified) ? ` (resized${deriv ? `; derivative work by ${esc(deriv.trim())}` : ''})` : ` (${esc(c.modified)})`;
-  return `Photo: ${esc(c.author)} · ${lic} · <a href="${esc(c.sourceUrl)}" title="“${esc(title)}”" aria-label="“${esc(title)}” on ${esc(hostOf(c.sourceUrl))}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${changed}`;
+  return `Photo: ${esc(c.author)} · ${lic} · <a href="${esc(c.sourceUrl)}" aria-label="“${esc(title)}” on ${esc(hostOf(c.sourceUrl))}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${changed}`;
 }
 function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m ? m[1].replace(/^commons\.wikimedia\.org$/, 'Wikimedia Commons') : 'source'; }
 

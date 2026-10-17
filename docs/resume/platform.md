@@ -26,6 +26,8 @@ plural (i18n).
   host rules); 369 untyped listed in beta/data/recognition-untyped.json (stated gap). W9-8: offline-pack.js in npm test.
 - Build scripts: guards before the write (22 + belgium_build), tools/test-builds.js in npm test: 967d43a3.
 - R8 measurement kit: design/beta/eval/r8/README.md (+ r8/tools/pair.py).
+- PERF-19 (R8 gap #6, Tokyo session ≤ 4 MB): 7,773 → 3,720 KB. Script-opened sheets (no tap/key in 1 s, not the first
+  deep link) hold the 960 w photo until open 250 ms (marked block in sheet.js); metrics.js records session.byType + top URLs.
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).
 
 ## Next
@@ -43,6 +45,9 @@ plural (i18n).
    selective on → lens → Cleo.defer.all() → shown == lens count: in test-beta ("QA-75 guard"), fails without 752a77fc. No product pushes until QA rules on 4aba38b3. PERF-14 re-checked (w8p 608/651 KB).
 
 ## In flight
+
+- R8 gap #6 CSS ≤ 250 KB (R6 layers out): cleo.css 194 (constellation.css 41 KB R6 art) + fe-a 169 + fe-b 31 + tokens 13
+  = 427 KB; css-dead finds 0.1 KB. Cuts are the designer's and FE-A's — proposal sent to the orchestrator.
 
 - Nothing unpushed. Hold product-code pushes until QA rules on the QA-70 pin (orchestrator).
 - views.js honesty: 1 FAIL left (Cleveland Guidebook, Birdietown) → FE-B.

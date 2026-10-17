@@ -62,7 +62,7 @@
   /* ---- hash router: k=v&k=v (RFC §4.2). KEYS is the registry of every documented route key; a key with a
    * validator drops a value it rejects — parse() never returns it, and Cleo.route.clean() rewrites the URL with
    * replaceState (no history entry, no error). Keys not in the registry pass through untouched. ---- */
-  var VIEWS = ['gallery', 'atlas', 'guidebook', 'insights'];
+  var VIEWS = ['atlas', 'gallery', 'guidebook', 'insights'];   // FE-A D-46: switcher order
   var ID = /^[A-Za-z0-9_.~-]{1,80}$/;
   var areaOk = function (v) {                      // an area id of this page when the page says which exist
     var el = document.getElementById('cleo-city'), info = null;
@@ -124,7 +124,7 @@
   /* ---- views (SPEC §2.4): the names, the default, and which one this URL/visitor gets. The switcher, the
    * registry and remembering a choice are FE-A's (client/views.js); this is only the shared precedence. ---- */
   Cleo.view = {
-    VIEWS: VIEWS, DEFAULT: 'gallery',   // W5 (ROUND-4 #2): Gallery, flipped by FE-A once G1 passed; FE-A views.js reads the page's info.dv
+    VIEWS: VIEWS, DEFAULT: 'atlas',   // FE-A D-46 (owner): Atlas is the default view (was Gallery since W5); FE-A views.js reads the page's info.dv
     /** hash `view=` → the stored preference → the default. Never throws (store is try/catch). */
     current: function () {
       var h = Cleo.route.parse().view; if (h) return h;
