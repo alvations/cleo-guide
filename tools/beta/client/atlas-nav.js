@@ -202,6 +202,7 @@
     setTimeout(() => { ready = true; if (!hasP() && !last) last = snapNow(); writeAt(); }, 1600);
     if (parseAt() && !atDone && !userAt) C.atView();
     if (open && open.fresh) C.freshPlace();
+    setTimeout(() => motion(m), 0);   // after this file has run (motion is defined below)
   };
   // QA-76: until the map's first fit (city core, saved or shared view, area, lens or place) has landed, the map still
   // shows the page's starting centre, and a map-area pass there published "450 places here · Show all 488" for a
@@ -338,6 +339,49 @@
     drawRing();
   };
   C.after.push(paintRing); on(d, 'cleo:base', () => setTimeout(() => { if (C.apply) C.apply(); }, 0)); on(d, 'cleo:base-ready', () => setTimeout(() => { if (C.apply) C.apply(); }, 0));
+
+  /* ---- map motion (§3.7, R8 gap 3): two moments started by the reader, each ≤ 300 ms, none under reduced motion ---- */
+  // 1. the preview card grows out of its pin (desktop) and fades on close; the phone carousel lifts in when it opens
+  // 2. hovering a dot eases it from 7 to 11 px (≤ 8 redraws); the card ↔ pin hover styles are CSS (atlas-nav.css)
+  const calm = () => (C.still ? C.still() : !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches));
+  const EASE = 'cubic-bezier(.2,.8,.2,1)', anim = (el, k, ms, f) => { try { const a = el.animate(k, { duration: ms, easing: EASE }); if (f) a.onfinish = a.oncancel = f; return a; } catch (e) { if (f) f(); return null; } };
+  let hand = 0; ['pointerdown', 'keydown'].forEach(ev => on(d, ev, () => { hand = Date.now(); }, true));
+  const motion = m => {
+    const poi = $('#cleo-poi');
+    if (poi && window.MutationObserver) new MutationObserver(rs => {
+      if (calm() || !atlas() || !desktop()) return;
+      const gone = []; rs.forEach(r => [].forEach.call(r.removedNodes || [], n => { if (n.nodeType === 1) gone.push(n); }));
+      if (poi.hidden) {   // closed: a 120 ms fade of what it showed, no scale; the ghost takes no clicks and no focus
+        if (!gone.length || !poi.parentNode) return;
+        const g = d.createElement('div'); g.className = 'ms-ghost'; g.setAttribute('aria-hidden', 'true'); g.setAttribute('inert', '');
+        g.style.cssText = 'left:' + poi.style.left + ';top:' + poi.style.top + ';pointer-events:none'; gone.forEach(n => g.appendChild(n));
+        poi.parentNode.insertBefore(g, poi.nextSibling); anim(g, [{ opacity: 1 }, { opacity: 0 }], 120, () => g.remove()); setTimeout(() => g.remove(), 400); return;
+      }
+      if (!poi.firstElementChild || !rs.some(r => r.type === 'childList' && r.addedNodes.length)) return;
+      // the pin's point, in the card's own box: the card scales from there
+      const sel = $('#cleo-grid li.pl.is-sel'), id = sel ? C.pid(sel) : placeId(), k = id && C.markers[id];
+      let o = '50% 100%'; if (k) { const p = m.latLngToContainerPoint(k.getLatLng()), x = parseFloat(poi.style.left) || 0, y = parseFloat(poi.style.top) || 0; o = Math.round(p.x - x) + 'px ' + Math.round(p.y - y) + 'px'; }
+      poi.style.transformOrigin = o;
+      anim(poi, [{ transform: 'scale(.94)', opacity: 0 }, { transform: 'scale(1)', opacity: 1 }], 200);
+    }).observe(poi, { childList: true, attributes: true, attributeFilter: ['hidden'] });
+    // the phone carousel lifts in when the reader opens it (never on load: no autoplay)
+    if (window.MutationObserver) { let was = H.classList.contains('ms-car');
+      new MutationObserver(() => { const now = H.classList.contains('ms-car'); if (now === was) return; was = now;
+        if (!now || calm() || Date.now() - hand > 1200 || !atlas()) return;
+        const l = lp(); if (!l) return; const lr = l.getBoundingClientRect();
+        [].filter.call(l.querySelectorAll('li.pl'), c => { if (c.hidden || !c.offsetWidth) return false; const r = c.getBoundingClientRect(); return r.right > lr.left && r.left < lr.right; })
+          .slice(0, 3).forEach(c => anim(c, [{ transform: 'translateY(12px)', opacity: 0 }, { transform: 'none', opacity: 1 }], 200));
+      }).observe(H, { attributes: true, attributeFilter: ['class'] }); }
+    // a hovered (or focused) dot grows 7 → 11 px in 120 ms, at most 8 redraws of that one dot; leaving reverses it
+    const hot0 = C.hotId; if (!hot0 || hot0._nav) return;
+    const grow = (id, up) => { const k = C.markers[id], c = C.byId[id] || (C.stub && C.stub(id)); if (!k || !k.setRadius || !c || !C.dotStyle) return;
+      const r0 = C.dotStyle(c).radius || 3.5, r1 = r0 + 2, from = k.getRadius(), to = up ? r1 : r0; cancelAnimationFrame(k._navG);
+      if (from === to) return; if (calm()) { k.setRadius(to); return; }
+      const t0 = performance.now(); let n = 0;
+      const step = t => { const q = Math.min(1, (t - t0) / 120); n++; k.setRadius(q >= 1 || n >= 8 ? to : from + (to - from) * (1 - Math.pow(1 - q, 3))); if (q < 1 && n < 8) k._navG = requestAnimationFrame(step); };
+      k._navG = requestAnimationFrame(step); };
+    C.hotId = function (id, o) { const r = hot0.apply(this, arguments); if (atlas()) grow(id, !!o); return r; }; C.hotId._nav = 1;
+  };
 
   /* ---- the share toast says what the link opens (§3.5) ---- */
   const share0 = Cleo.share;
