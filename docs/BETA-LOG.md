@@ -2579,3 +2579,10 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **QA-83 (Low, FE-A):** the lead photo renders 4:3, not 3:2.
   - **Owner action:** the EUROPEANA_API_KEY Actions secret.
   - **Round 4** waits on FE-A's NYC header fix and FE-1's phone search/drag fixes.
+- **§v2.7b review fixes (designer):**
+  - **Sight glyphs:** a sight's cover takes the map's noun glyph (memorial → flag, museum → columns: SPEC-v3 §1.2), and the no-repeat ladder now applies to food covers only. The WWII Memorial and Jefferson Memorial now show `flag`.
+  - **Gallery row cards:** they read name, area · kind, "Recommended by X +N" on one line (the source name ellipsises), award, then Checked last. The link unwraps with display:contents so these lines can be ordered; its focus ring moves to the card.
+  - **Grid cards:** same one-line Recommended by, with the award before Checked.
+  - **Compact row:** tier + area on the top line, then name, a 1-line why, Recommended by, and Checked on the last line. This keeps the row at 117–118 px. The why was 2 lines; that trade is what keeps Checked last within ≤ 120.
+  - **Sentence splitter:** there is none. The quote is a 4-line clamp of the whole why line, so the "…" is the clamp, not a split at "(1856)" or "St.".
+- **"Start with", one per view (orchestrator ruling):** the Gallery's starting place, which the "Start with" line and the lead card both use, is now the first open card of its first row. This changed 7 pages; for example DC is now Old Ebbitt Grill. The card still needs a photo. The line is drawn only in the Gallery; Atlas opens on its own `.pl-lead`. A new test-fe-a row covers Tokyo, Punggol and Potong Pasir.

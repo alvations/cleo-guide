@@ -944,3 +944,32 @@ html main[data-city] li.pl>.pl-cover .pl-dish.l,html .view-gallery .gc .cover .d
   html[data-view] body .topbar .wrap>nav.crumbs>.here{flex:0 1 auto}
   html[data-view] body .topbar .wrap>nav.crumbs>.sep{flex:none}
 }
+/* designer §v2.7b review (meta under the cards): one reading order on a Gallery row card: name, area · kind, "Recommended
+   by X +N" on ONE line (the source name gives way with an ellipsis: never the label alone or "+N more" on a line of its
+   own), the award if earned, then "Checked" last. The card link unwraps (display:contents) so its lines and the
+   Recommended-by row (outside the link: it holds buttons) share one column; the link's focus ring moves to the card */
+html .view-gallery li.gc{display:flex;flex-direction:column;gap:var(--s-1)}
+html .view-gallery li.gc>.gc-a,html .view-gallery li.gc>.gc-a>.gc-b{display:contents}
+html .view-gallery li.gc>.gc-a>.cover{order:0}html .view-gallery li.gc>.gc-cred{order:1}
+html .view-gallery li.gc .gc-b>.gc-n{order:2}html .view-gallery li.gc .gc-b>.pl-e{order:3}
+html .view-gallery li.gc>.pl-s{order:4}html .view-gallery li.gc .gc-b>.gc-rec{order:5}html .view-gallery li.gc .gc-b>.gc-chk{order:6}
+html .view-gallery li.gc:has(>.gc-a:focus-visible){outline:2px solid var(--focus);outline-offset:4px;border-radius:var(--r-m)}
+/* "Recommended by X +N", one line, on the row cards and the Gallery / Atlas grid cards */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s,html .view-gallery li.gc>.pl-s{display:flex;align-items:baseline;flex-wrap:nowrap;gap:0;min-width:0;margin:0;white-space:nowrap;font-size:0}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s>*,html .view-gallery li.gc>.pl-s>*{flex:none;font-size:var(--fs-sm);line-height:var(--lh-sm)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s>.src,html .view-gallery li.gc>.pl-s>.src{flex:0 1 auto;display:inline-block;min-width:0;min-height:0;max-width:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:var(--s-3) 0;margin:calc(-1 * var(--s-3)) 0;line-height:var(--lh-sm);vertical-align:baseline}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s[data-more]::after{flex:none;font-size:var(--fs-sm)}
+/* …and on the grid cards the award (FE-C's .pl-rec) comes before "Checked", which closes the card */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-rec{order:96}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-chk{order:97}
+@media (max-width:599px){
+  /* designer §v2.7b review: the compact row reads like the cards: tier + area on the top line, then name, why,
+     "Recommended by X +N", and "Checked" last on its own line; to hold the row at ≤ 120 px the why is one line here */
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np{grid-template-columns:64px minmax(0,1fr)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e{grid-column:2;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;display:block;padding-right:var(--tap);box-sizing:border-box}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e .in,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e .in{display:inline;font-weight:400}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e .in *,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e .in *{display:inline}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-w,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-w{-webkit-line-clamp:1;line-clamp:1}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-s,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-s{grid-column:2;min-width:0}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-chk,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-chk{grid-row:5;grid-column:2;margin:0;color:var(--ink-3)}
+}

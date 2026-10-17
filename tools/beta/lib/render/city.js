@@ -170,7 +170,9 @@ function card(r, num, ctx) {
   const aName = areaName(r.a);
   const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
   const dish = r.kind === 'food' ? (ctx.SC || String)(dishOf(czN, ctx.srcNames)) : '';   // food covers (c): the dish or cuisine, never a source or award
-  const gl = (ctx.glOver && ctx.glOver.get(r.id)) || glyphOf(r, page), mg = mapGlyphOf(r, glyphOf(r, page), ctx.japan, ctx.key);   // D-49 (b): a cover's glyph never repeats its neighbour's; the map keeps the place's own
+  // designer (§v2.7b review): a sight's cover takes the map's noun glyph (memorial → flag, museum → columns: SPEC-v3 §1.2),
+  // never a food glyph; only food covers rotate through the no-repeat ladder
+  const gl0 = glyphOf(r, page), mg = mapGlyphOf(r, gl0, ctx.japan, ctx.key), gl = r.kind === 'food' ? (ctx.glOver && ctx.glOver.get(r.id)) || gl0 : mg || gl0;   // D-49 (b): a food cover's glyph never repeats its neighbour's
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
   const eyebrow = r.closed
@@ -320,7 +322,7 @@ function render(row, recs, ctx) {
   const cardCtx = { glOver: new Map(), lfOn: RU.lfOn(row.recog) /* FE-C W9-9 hook */, japan: row.country === 'japan', key: row.key, page, srcById, srcNames: Object.values(srcById || {}).map(x => x && (x.name || x.n)).filter(Boolean), areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
   // D-49 (b): in each list, consecutive photo-less covers never share a glyph (imagery's FOOD_GLYPH_LADDER); a photo breaks the run
-  const noRepeat = ord => { const runs = [[]]; ord.forEach(r => { if (cardCtx.photo && cardCtx.photo(r)) runs.push([]); else runs[runs.length - 1].push(r); });
+  const noRepeat = ord => { const runs = [[]]; ord.forEach(r => { if (r.kind !== 'food' || (cardCtx.photo && cardCtx.photo(r))) runs.push([]); else runs[runs.length - 1].push(r); });
     runs.forEach(run => { const g = foodGlyphs(run.map(r => glyphOf(r, page))); run.forEach((r, i) => { if (g[i] !== glyphOf(r, page)) cardCtx.glOver.set(r.id, g[i]); }); }); };
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : [tr('city.elsewhere'), ''];   // i18n D-41: chapter strings
