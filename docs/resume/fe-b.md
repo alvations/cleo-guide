@@ -13,6 +13,18 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- **D-53 trust fix (orchestrator, top priority).** "Recommended by" never names a rating platform, the place's own
+  site or the guide's general knowledge. One helper, `lib/model.js` `sourceRole(s)` → platform/own/guide/rec and
+  `recommendersOf(src, byId)` (authorities first). build.js stamps `s.role` on every source and `recby` on every record
+  (page JSON). City cards (city.js, marked FE-B D-53 edits in FE-A's file), hubs and the Guidebook render from it; a
+  card with none says "No independent source yet" (--ink-2, meta size) + "· Official site" link, kind instead of tier.
+  `data-recby` on the card only when it differs from `data-src` minus guide. Guard: guards.js assertCityPage recomputes
+  each chip's role; test-beta seeds a Yelp recommender (`CLEO_BETA_SELFTEST_RECBY`) and the build must refuse.
+  beta:check prints `D-53: N cards with no independent source yet — <city> n …` (holding state). Before: 576 cards
+  named a platform/own site after "Recommended by"; after: 0; 14 no-recommender cards (newyork 12, pittsburgh 1,
+  rhineland 1). New keys: card.norec, card.official, card.kind.food/.sight (ja needs i18n review).
+  Still to adopt `recby` (contract sent): FE-A gallery.js/saved.js, FE-C sheet byline/share-card/trip, FE-1 atlas.js.
+
 - §3a end-to-end (6cc48f129 + FE-A 276fc6f2): allguides.js loads on the first cleo:city-search with a query (also a #q= deep
   link). S-17 rule on Tokyo: one search at 390 and 1440 in every view; left (FE-A): city field + header icon both visible
   at 844x390 and 768x1024 (fold the row below 1024). Landing (68807d139): header icon only once the hero has scrolled away.
