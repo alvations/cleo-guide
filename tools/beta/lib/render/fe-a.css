@@ -770,11 +770,12 @@ html.atlas-d[data-view=atlas] body .at-intro .at-n{grid-column:1/-1;margin:0;fon
    it does not wait for the map (.ms-ready), so the name and dek are the first thing the list column shows */
 html.atlas-d[data-view=atlas] body .split>.listpane>.at-intro{order:-3;visibility:visible;animation:none}
 /* D-46 (B-01a): on a cold, unfiltered Atlas load the lead place card spans both list columns, its media at 3:2. The Atlas
-   lane marks it (.pl-lead on the first card of its order, set while the list is still held before .ms-ready, so no shift) */
-html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead{grid-column:1/-1}
-html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>:is(.pl-cover,figure.pl-photo){aspect-ratio:3/2;height:auto}
-html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>figure.pl-photo img{width:100%;height:100%;object-fit:cover}
-html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>.pl-n{font-size:var(--fs-d2)}
+   build marks it (.pl-lead: render/city.js, atlas.js's map-priority #1, only with a photo); client/city.js sets
+   html.cleo-lensed while a lens, sort, day or Near me reorders the list */
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead{grid-column:1/-1}
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>:is(.pl-cover,figure.pl-photo){aspect-ratio:3/2;height:auto}
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>figure.pl-photo img{width:100%;height:100%;object-fit:cover}
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>.pl-n{font-size:var(--fs-d2)}
 /* ---- OV-01 (owner directive; DESIGN-SYSTEM §v2.12, SPEC-v3 §2.0): only the header always stays ----
    The city header is 52 px on phones and 56 px from 1024. Every other sticky row is a guest: under html.ov-c
    (Cleo.chrome, views.js: a ≥ 24 px scroll down, or the Atlas lane's pan) the view-switch row and the sticky category

@@ -132,6 +132,8 @@
       const ord = sections.slice().sort((x, y) => nearOn() ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
       if (ord.some((x, i) => x !== $$('section.area')[i])) { const how = $('#how-we-choose'); ord.forEach(x => how.parentNode.insertBefore(x, how)); }
     }
+    // D-46: a lens, sort, day or Near me reorders the list, so the desktop Atlas lead card (.pl-lead) stops spanning
+    d.documentElement.classList.toggle('cleo-lensed', !!(lon || S.sort || S.day || nearOn()));
     const nA = Object.keys(areas).length, act = LENS.filter(k => S[k] && k !== 'gap' && k !== 'day'), all = '<button class="btn btn-primary" data-cleo-all>' + tt('city.showall', 'Show all {n}', { n: tot }) + '</button>';
     const gap = t => '<div class="gap"><span class="eyebrow">' + tt('city.gap.k', 'Stated gap') + '</span>' + t + '</div>';
     if (shown) shown.innerHTML = n === tot ? shown0 : n ? tt('city.shown', 'Showing {n} of {total} places in {areas}', { n: '<b>' + n + '</b>', total: tot, areas: ar(nA) }) + tt('city.facts.order', '. Ordered by tier, then by number of named sources.')
