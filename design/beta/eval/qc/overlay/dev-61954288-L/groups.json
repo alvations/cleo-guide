@@ -1,0 +1,169 @@
+[
+ {
+  "kind": "labelCov",
+  "view": "atlas",
+  "vp": "844x390",
+  "runs": 102,
+  "pages": [
+   "cleveland.html",
+   "cities/aachen.html",
+   "cities/akron.html",
+   "cities/antwerp.html",
+   "cities/bruges.html",
+   "cities/brussels.html",
+   "cities/chicago.html",
+   "cities/cincinnati.html",
+   "cities/columbus.html",
+   "cities/dayton.html",
+   "cities/erie.html",
+   "cities/ghent.html",
+   "cities/harrisburg.html",
+   "cities/hokkaido.html",
+   "cities/indianapolis.html",
+   "cities/kyoto.html",
+   "cities/liege.html",
+   "cities/madison.html",
+   "cities/miami.html",
+   "cities/newyork.html",
+   "cities/okinawa.html",
+   "cities/orlando.html",
+   "cities/osaka.html",
+   "cities/philadelphia.html",
+   "cities/pittsburgh.html",
+   "cities/rhineland.html",
+   "cities/saarland.html",
+   "cities/sanfrancisco.html",
+   "cities/siliconvalley.html",
+   "cities/statecollege.html",
+   "cities/tokyo.html",
+   "cities/washingtondc.html",
+   "cities/wheeling.html",
+   "cities/youngstown.html",
+   "Singapore/ang-mo-kio.html",
+   "Singapore/balestier.html",
+   "Singapore/bangkok.html",
+   "Singapore/bishan.html",
+   "Singapore/chinatown.html",
+   "Singapore/civic-district.html",
+   "Singapore/holland-village.html",
+   "Singapore/jalan-besar.html",
+   "Singapore/little-india.html",
+   "Singapore/marina-bay.html",
+   "Singapore/newton-novena.html",
+   "Singapore/penang.html",
+   "Singapore/potong-pasir-macpherson.html",
+   "Singapore/punggol.html",
+   "Singapore/toa-payoh.html",
+   "Singapore/upper-serangoon.html",
+   "Vietnam/ho-chi-minh-city.html"
+  ],
+  "themes": [
+   "dark",
+   "light"
+  ],
+  "worst": 11.2,
+  "budget": "≤ 8 % of the map",
+  "owner": "Atlas FE-1 + FE-2",
+  "of": 164,
+  "worstPage": "cities/newyork.html",
+  "worstTheme": "dark",
+  "shot": "design/beta/eval/qc/overlay/dev-61954288-L/shots/labelCov_atlas_844x390_dark_cities-newyork-html.jpg"
+ },
+ {
+  "kind": "controlCollision",
+  "view": "atlas",
+  "vp": "844x390",
+  "runs": 14,
+  "pages": [
+   "cities/akron.html",
+   "Singapore/jalan-besar.html",
+   "Singapore/katong-joo-chiat.html",
+   "Singapore/newton-novena.html",
+   "Singapore/penang.html",
+   "Singapore/queenstown.html",
+   "Singapore/upper-serangoon.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "日本語 / filters",
+  "budget": "none",
+  "owner": "Atlas FE-1",
+  "of": 164,
+  "worstPage": "cities/akron.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/dev-61954288-L/shots/controlCollision_atlas_844x390_light_cities-akron-html.jpg"
+ },
+ {
+  "kind": "attribution",
+  "view": "atlas",
+  "vp": "844x390",
+  "runs": 13,
+  "pages": [
+   "cities/chicago.html",
+   "cities/madison.html",
+   "cities/osaka.html",
+   "cities/philadelphia.html",
+   "cities/saarland.html",
+   "cities/tokyo.html",
+   "cities/wheeling.html",
+   "cities/youngstown.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "174 px wide 1.5 s after a pan",
+  "budget": "collapses to ⓘ on the first pan or after 5 s",
+  "owner": "Atlas FE-1",
+  "of": 164,
+  "worstPage": "cities/chicago.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/dev-61954288-L/shots/attribution_atlas_844x390_light_cities-chicago-html.jpg"
+ },
+ {
+  "kind": "controlCovered",
+  "view": "atlas",
+  "vp": "844x390",
+  "runs": 8,
+  "pages": [
+   "cities/harrisburg.html",
+   "Singapore/marine-parade.html",
+   "Singapore/potong-pasir-macpherson.html",
+   "Singapore/upper-thomson.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "日本語 under filters",
+  "budget": "none: every shown control is reachable",
+  "owner": "Atlas FE-1",
+  "of": 164,
+  "worstPage": "cities/harrisburg.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/dev-61954288-L/shots/controlCovered_atlas_844x390_light_cities-harrisburg-html.jpg"
+ },
+ {
+  "kind": "labelWidth",
+  "view": "atlas",
+  "vp": "844x390",
+  "runs": 4,
+  "pages": [
+   "cities/youngstown.html",
+   "Singapore/cebu.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "41.9 % (Youngstown Historical Center of Industry and Labor)",
+  "budget": "≤ 40 % of the map width",
+  "owner": "Atlas FE-1 + FE-2",
+  "of": 164,
+  "worstPage": "cities/youngstown.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/dev-61954288-L/shots/labelWidth_atlas_844x390_light_cities-youngstown-html.jpg"
+ }
+]
