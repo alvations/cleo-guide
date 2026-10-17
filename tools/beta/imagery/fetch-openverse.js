@@ -123,7 +123,8 @@ function targets(o = { classes: [], keys: [], pending: false }) {
       const food = p.kind === 'food';
       const cls = food ? 'food' : t && t.priority ? 'priority' : p.t === 1 ? 'tier1' : 'other';
       out.push({ key: `landmark:${id}`, cls, label: p.n, names: (t && t.names) || [], nat: p.nat, page: d.key, id: p.id, record: { page: d.key, id: p.id },
-        la: p.la, ln: p.ln, town: ff.townWords(d.key, d.name || d.title), widths: cls === 'priority' ? [500, 720, 960] : [500, 720], food });
+        la: p.la, ln: p.ln, town: ff.townWords(d.key, d.name || d.title), widths: cls === 'priority' ? [500, 720, 960] : [500, 720], food,
+        article: ((p.s || []).find(x => /^https:\/\/[a-z-]+\.wikipedia\.org\/wiki\//.test(String(x[1] || ''))) || [])[1] });
     }
   }
   // food (D-49) last: only a photo that identifies THAT place (the gate requires the identifying field)

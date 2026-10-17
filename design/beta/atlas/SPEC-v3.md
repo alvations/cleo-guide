@@ -166,11 +166,11 @@ The owner made Atlas the default city view (D-46): "make atlas the default view 
   - the page's one-line dek;
   - "N places picked by M sources".
   It scrolls away with the list.
-- **The lead place.** The first card in the list sheet is the top place by `mp` with an honest photo, drawn full-width at 3:2. That holds on the cold, unfiltered load only; every other state uses the normal card.
+- **The lead place.** On the cold, unfiltered load, the first card in the list sheet (rank 1) is drawn full-width at 3:2, but **only if it has a photo** (D-49: order is never changed for photos). Photo-less cards use DESIGN-SYSTEM §v2.7b's compact row.
 
 **Desktop (1440):**
 - **A compact intro tops the list column**, not the map: the city name (`--font-display`, `--fs-d2`), the dek (one line, clamped) and "N places picked by M sources". At most 88 px; it scrolls away with the list. The count line sits under it unchanged.
-- **The lead card.** On the cold, unfiltered load, the first card spans both list columns at 3:2. It's the lead place, the top place by `mp` with an honest photo. Every other state uses the two-column grid.
+- **The lead card.** On the cold, unfiltered load, rank 1 spans both list columns at 3:2 if it has a photo. Every other state uses the two-column grid, and photo-less cards there are §v2.7b quote cards.
 - **No photos on the map itself.** Pills stay text plus glyph (§1.2).
 
 **Without the map** (tiles blocked or no map library):
