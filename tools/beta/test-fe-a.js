@@ -355,7 +355,7 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
       const dn = s => s.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
       if (!lead || !a || a[1] !== lead.id || !lead.n.startsWith(dn(a[2]))) bad.push([path.relative(BETA, f), a && a[1], lead && lead.id]);
     }
-    chk(`"Start with" links and names the lead card's place on all ${pages.length} place pages`, pages.length >= 84 && !bad.length, bad.length ? bad.slice(0, 4) : pages.length);
+    chk(`"Start with" links and names the lead card's place on all ${pages.length} place pages`, pages.length === JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'beta', 'data', 'manifest.json'), 'utf8')).pages.filter(p => p.kind === 'city').length /* FE-B: every city page — 82 since one city, one page (the Singapore/ copies of Hanoi and Hoi An are moved pointers) */ && !bad.length, bad.length ? bad.slice(0, 4) : pages.length);
   }
 
   console.log('# W8: "No. k of n in {area}" — n is the area\'s full count and k ≤ n (R7 gap 2f), every place on every page');

@@ -72,7 +72,7 @@ console.log('# casing: UI labels on every city page are sentence case');
     const blob = /<script type="application\/json" id="cleo-city">([\s\S]*?)<\/script>/.exec(h);
     if (blob) { const b = JSON.parse(blob[1]); Object.values(b.cats || {}).forEach(t => see('label table', t)); if (b.sig) see('signature', b.sig.t); }
   }
-  chk(`${labels} labels on ${pages} city pages are sentence case`, pages >= 84 && labels > 1000 && !bad.length, bad.slice(0, 5));
+  chk(`${labels} labels on ${pages} city pages are sentence case`, pages === JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'beta', 'data', 'manifest.json'), 'utf8')).pages.filter(p => p.kind === 'city').length /* FE-B: every city page (82: one city, one page) */ && labels > 1000 && !bad.length, bad.slice(0, 5));
 }
 
 console.log('# casing: FE-B pages — landing, country hubs, Guidebook (★ signature and collection labels)');

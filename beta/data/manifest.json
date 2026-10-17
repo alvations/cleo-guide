@@ -147,8 +147,6 @@
   "changes/singapore--civic-district.html",
   "changes/singapore--dempsey-hill.html",
   "changes/singapore--geylang.html",
-  "changes/singapore--hanoi.html",
-  "changes/singapore--hoi-an.html",
   "changes/singapore--holland-village.html",
   "changes/singapore--ipoh.html",
   "changes/singapore--jakarta.html",
@@ -812,9 +810,10 @@
    "live": "Singapore/hanoi.html",
    "beta": "Singapore/hanoi.html",
    "key": "singapore/hanoi",
-   "kind": "city",
+   "kind": "moved",
    "gen": "new",
    "country": "vietnam",
+   "movedTo": "Vietnam/hanoi.html",
    "counts": {
     "P": 2,
     "F": 2
@@ -824,9 +823,10 @@
    "live": "Singapore/hoi-an.html",
    "beta": "Singapore/hoi-an.html",
    "key": "singapore/hoi-an",
-   "kind": "city",
+   "kind": "moved",
    "gen": "new",
    "country": "vietnam",
+   "movedTo": "Vietnam/hoi-an.html",
    "counts": {
     "P": 1,
     "F": 1
@@ -1257,7 +1257,7 @@
   }
  ],
  "totals": {
-  "pages": 84,
-  "places": 8702
+  "pages": 82,
+  "places": 8696
  }
 }

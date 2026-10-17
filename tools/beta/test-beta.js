@@ -96,7 +96,7 @@ console.log('\n== GUIDE DATA: signature, canon order, day plans, recently closed
     if (!gi || gi.closed !== closed.length || gi.days !== Object.keys(g.days.plans).length) gBad.idx.push(row.key);
   }
   chk('★ signature is a food canon or a collection, never a publisher; n == its places', gBad.pub, a => a.length === 0);
-  chk('pages with a ★ signature (food canon or pop culture)', nSig, n => n >= 60);
+  chk('pages with a ★ signature (food canon or pop culture)', nSig, n => n >= 58);   // FE-B: 60 → 58 — the floor counted Singapore/hanoi + hoi-an, now moved pointers to their Vietnam/ pages (same signatures)
   chk('canon dishes printed only when a canon record names them', gBad.dish, a => a.length === 0);
   chk('food order is a permutation of the page cuisine ids', gBad.order, a => a.length === 0);
   chk(`day plans: 4–6 open, verified-pin stops in one area, straight-line legs (${nPlans} plans)`, gBad.day, a => a.length === 0 && nPlans > 100);

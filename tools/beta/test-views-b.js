@@ -407,7 +407,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     }
     const css = ['cleo.css', 'fe-a.css'].map(f => fs.readFileSync(path.join(BETA, 'assets', f), 'utf8')).join('\n');
     const shrink = (css.match(/\.views[^{}]*button[^{}]*\{[^}]*min-height:\s*(?:[0-3]\d|4[0-3])px/g) || []).concat(css.match(/views[^{}]*:not\(\.open\)/g) || [], css.match(/content:\s*"View: "/g) || []);
-    chk(`QC-09/QC-06: the switcher is div[role=group][aria-label=View] with 4 pressed toggles (exactly one on) on ${nSw} city pages; no collapse, no "View:" prefix, no segment under 44 px`, !badSw.length && nSw >= 84 && !shrink.length, badSw.slice(0, 3).concat(shrink.slice(0, 3)));
+    chk(`QC-09/QC-06: the switcher is div[role=group][aria-label=View] with 4 pressed toggles (exactly one on) on ${nSw} city pages; no collapse, no "View:" prefix, no segment under 44 px`, !badSw.length && nSw === JSON.parse(fs.readFileSync(path.join(BETA, 'data/manifest.json'), 'utf8')).pages.filter(p => p.kind === 'city').length /* every city page (82 since one city, one page) */ && !shrink.length, badSw.slice(0, 3).concat(shrink.slice(0, 3)));
   }
   // ---- R7-g6: token residue pinned (design/beta/eval/r6/tools/probe-css.py over the shipped CSS) and Insights area marks
   // muted through the v2 tokens (no raw data hex as a fill). After the FE-A (8b06f542) and Atlas (7c280435) snaps the
@@ -432,7 +432,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
       const desk = (/<p class="g-start"><a href="#p-([^"]+)"/.exec(h) || [])[1], phone = fs.existsSync(g) && (JSON.parse(fs.readFileSync(g, 'utf8')).lead || {}).id;
       if (desk || phone) { nL++; if (desk !== phone) badL.push(`${path.relative(BETA, f)}: desktop ${desk} vs phone ${phone}`); }
     }
-    chk(`R7-g2 (h): the phone "Start with" card and the desktop "Start with …" link name the same place (${nL} city pages)`, nL >= 84 && !badL.length, badL.slice(0, 4));
+    chk(`R7-g2 (h): the phone "Start with" card and the desktop "Start with …" link name the same place (${nL} city pages)`, nL === JSON.parse(fs.readFileSync(path.join(BETA, 'data/manifest.json'), 'utf8')).pages.filter(p => p.kind === 'city').length && !badL.length, badL.slice(0, 4));
   }
   console.log(failures ? `\n>>> FAIL — ${failures} FE-B view check(s) failed` : '\n>>> PASS — FE-B views: Guidebook + Insights hold every place, numbers add up, hub links resolve');
   process.exitCode = failures ? 1 : 0;
