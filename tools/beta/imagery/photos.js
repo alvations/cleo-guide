@@ -169,6 +169,12 @@ function loadPhotos(betaDir, pages) {
     if (!rec) { errors.push(`${where}: record ${c.record.page}#${c.record.id} is not on that beta page`); return; }
     if (rec.closed) { errors.push(`${where}: ${c.record.id} is closed — a closed place never gets a photo implying "go here today"`); return; }
     if (pg.country === 'vietnam') { errors.push(`${where}: Vietnam has no freedom of panorama — no photos of Vietnamese places`); return; }
+    // D-49 (2026-10-17): a food place may carry a photo of THAT place (exterior, interior or a dish photographed there),
+    // identified by the file's title, description, category or geotag — never generic stock
+    if (rec.kind === 'food') {
+      if (isUnsplash(c) || !['wikimedia-commons', 'flickr', 'openverse'].includes(c.provider)) { errors.push(`${where}: D-49 — a food place's photo must come from a source page that identifies the place (Commons, Flickr, Openverse), never stock`); return; }
+      if (!String(c.identifies || c.matched || '').trim()) { errors.push(`${where}: D-49 — a food place's photo must record how it identifies ${c.record.id} (identifies: the title/description/category/geotag that names it)`); return; }
+    }
     const buf = fs.readFileSync(path.join(dir, c.file));
     const size = (c.width && c.height) ? { w: +c.width, h: +c.height } : imageSize(buf);
     if (!size || !size.w || !size.h) { errors.push(`${where}: cannot read the image size — add width and height`); return; }
