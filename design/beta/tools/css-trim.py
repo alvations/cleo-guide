@@ -51,7 +51,7 @@ def blocks(text):
     return out
 
 total = collections.Counter()
-KEEP_SEL = re.compile(r':(hover|focus|focus-visible|focus-within|active|visited|target|checked|invalid|placeholder-shown|disabled|indeterminate|fullscreen|popover-open|open|modal)|::(selection|placeholder|backdrop|marker|-webkit-|-moz-)|leaflet|toast|offline|storage|error|empty|loading|skeleton|skip|sr-only|visually-hidden|noscript|print|reduced|toolbar|saved|\.sv-|trip|been|day|stop|caveat|plan|route|lens|share|import|export|results|\.hits|suggest|aria-pressed|aria-checked|aria-selected|aria-current|aria-expanded|data-theme|view-transition|closed|warn|banner|because|interest|listmenu|danger|status|count-dot|\.sel\b|is-|switch|poi-sheet|tray|detent|heart|save|stamp|modal|dialog|sheet', re.I)
+KEEP_SEL = re.compile(r':(hover|focus|focus-visible|focus-within|active|visited|target|checked|invalid|placeholder-shown|disabled|indeterminate|fullscreen|popover-open|open|modal)|::(selection|placeholder|backdrop|marker|-webkit-|-moz-)|leaflet|toast|offline|storage|error|empty|loading|skeleton|skip|sr-only|visually-hidden|noscript|print|reduced|toolbar|saved|\.sv-|trip|been|day|stop|leg|caveat|plan|route|lens|pin|share|import|export|results|\.hits|suggest|aria-pressed|aria-checked|aria-selected|aria-current|aria-expanded|data-theme|view-transition|closed|warn|banner|because|interest|listmenu|danger|status|count-dot|\.sel\b|is-|switch|poi-sheet|tray|detent|heart|save|stamp|modal|dialog|sheet', re.I)
 KEEP_AT = re.compile(r'@(supports|keyframes|font-face|page|property|container)|@media[^{]*(print|prefers-reduced-motion|forced-colors|prefers-contrast|hover|pointer)', re.I)
 if COV:
     cov = json.load(open(COV))

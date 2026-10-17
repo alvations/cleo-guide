@@ -1,0 +1,105 @@
+{
+ "meta": {
+  "tool": "tools/location-verify.js 0.1.0",
+  "city": "silicon-valley-ca",
+  "generated": "2026-10-17",
+  "scope": [
+   "unverified",
+   "low",
+   "status"
+  ],
+  "sources": [
+   "wikidata",
+   "wikipedia",
+   "overpass",
+   "official",
+   "census"
+  ],
+  "rowsInScope": 1,
+  "rowsChecked": 1,
+  "orphansSkipped": 0,
+  "anchor": {
+   "lat": 37.33417,
+   "lng": -121.983197,
+   "radiusM": 61884
+  },
+  "regionalAnchors": null,
+  "mode": "live",
+  "userAgent": "CleoGuideLocationVerify/0.1.0 (https://github.com/alvations/cleo-guide; location-verify proposals, reviewed by a person) node",
+  "rule": "PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).",
+  "phase2": {
+   "houseFiles": [],
+   "abr": null,
+   "onemap": null
+  },
+  "requests": {
+   "network": 1,
+   "cacheHits": 0,
+   "nominatim": 0,
+   "failures": [],
+   "byHost": {
+    "www.wikidata.org": {
+     "requests": 1,
+     "failed": 0
+    }
+   }
+  },
+  "hardFailure": false,
+  "recheck": {
+   "names": [
+    "Roy's Station Coffee & Tea"
+   ],
+   "sources": [
+    "wikidata",
+    "wikipedia",
+    "overpass",
+    "official",
+    "census"
+   ]
+  }
+ },
+ "summary": {
+  "no-match": 1
+ },
+ "rows": [
+  {
+   "name": "Roy's Station Coffee & Tea",
+   "current": {
+    "address": "197 Jackson St, San Jose, CA 95112",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-10-17",
+    "status": "unchecked",
+    "statusSource": null,
+    "statusChecked": null
+   },
+   "scope": [
+    "recheck"
+   ],
+   "outcome": "no-match",
+   "proposal": null,
+   "notes": [],
+   "evidence": [],
+   "candidates": [],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "reject",
+    "why": [
+     "no proposal"
+    ]
+   },
+   "recheck": {
+    "verdict": "none found",
+    "note": "no OSM POI, OSM address point, official geo or Census match"
+   }
+  }
+ ]
+}

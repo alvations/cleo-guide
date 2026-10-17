@@ -54,6 +54,7 @@ const sizes = Object.fromEntries(TRACK.map(p => [p, fs.statSync(path.join(ASSETS
       route.fulfill({ status: 200, contentType: 'text/html', body: html }); });
     await ctx.route(/tile\.openstreetmap|arcgisonline|unpkg|cdnjs|jsdelivr/, r => r.abort());
     if (opts.noLeaflet) await ctx.route(/vendor\/leaflet\/leaflet\.js/, r => r.abort());
+    if (opts.saved) await ctx.addInitScript(() => { try { if (!localStorage.getItem('cleo:v1:saved')) localStorage.setItem('cleo:v1:saved', JSON.stringify({ 'tokyo/kanda-myojin': { t: 1 }, 'tokyo/imperial-palace-east-gardens': { t: 2 }, 'tokyo/yasukuni-shrine': { t: 3 }, 'washingtondc/lincoln-memorial': { t: 4 }, 'washingtondc/washington-monument': { t: 5 } })); } catch (e) { /* storage blocked */ } });
     if (opts.seed) await ctx.addInitScript(opts.seed);
     const page = await ctx.newPage(); const cdp = await ctx.newCDPSession(page);
     const sheets = {};
@@ -80,11 +81,19 @@ const sizes = Object.fromEntries(TRACK.map(p => [p, fs.statSync(path.join(ASSETS
   const search = async page => { await page.locator('[aria-label^="Search"], input[type=search]').first().click({ timeout: 1500 }); await page.keyboard.type('ra'); };
   const searchNone = async page => { await page.locator('[aria-label^="Search"], input[type=search]').first().click({ timeout: 1500 }); await page.keyboard.type('zzqxw'); };
   const pan = async page => { const m = await page.$('.leaflet-container'); if (!m) return; const b = await m.boundingBox(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2); await page.mouse.down(); await page.mouse.move(b.x + b.width / 2 - 160, b.y + b.height / 2 - 80, { steps: 8 }); await page.mouse.up(); await page.waitForTimeout(300); };
+  // reachable states a cold load never shows (orchestrator, 2026-10-17): a day plan (#day=<area key from the page's info.days>),
+  // Near me with a mocked position, the share sheet, Show all, Guidebook anchors, Insights tabs
+  const dayKey = async page => { const k = await page.evaluate(() => { const m = document.documentElement.innerHTML.match(/"days":\{"([^"]+)"/); return m && m[1]; }); if (k) await page.evaluate(x => { location.hash = 'view=gallery&day=' + encodeURIComponent(x); }, k); await page.waitForTimeout(500); await page.evaluate(() => { const d = document.querySelector('section.day'); if (d) d.scrollIntoView(); }); };
+  const nearMe = async page => { await page.context().grantPermissions(['geolocation']); await page.context().setGeolocation({ latitude: 35.6812, longitude: 139.7671 }); await page.locator('button:has-text("Near me")').first().click({ timeout: 1500 }); };
+  const share = async page => { await detail(page); await page.waitForTimeout(400); await page.locator('button:has-text("Share")').first().click({ timeout: 1500 }); };
+  const showAll = async page => { await page.locator('a:has-text("Show all"), button:has-text("Show all")').first().click({ timeout: 1500 }); };
+  const tabs = async page => { for (const t of await page.$$('[role=tab]')) { await t.click().catch(() => {}); await page.waitForTimeout(150); } };
   const deepUrls = [];
   for (const u of CITY_DEEP) {
     for (const v of VIEWS) deepUrls.push(`${u}#view=${v}`);
     deepUrls.push([`${u}#view=gallery`, detail], [`${u}#view=atlas`, atlasPin], [`${u}#view=atlas`, clickText('Filters')], [`${u}#view=gallery`, clickText('Filters')],
-      [`${u}#view=atlas`, search], [`${u}#view=gallery`, searchNone], [`${u}#view=atlas`, pan], [`${u}#view=atlas`, clickText('Top picks')], [`${u}#view=gallery&t=1`], [`${u}#view=atlas&c=TEMPLE`]);
+      [`${u}#view=atlas`, search], [`${u}#view=gallery`, searchNone], [`${u}#view=atlas`, pan], [`${u}#view=atlas`, clickText('Top picks')], [`${u}#view=gallery&t=1`], [`${u}#view=atlas&c=TEMPLE`],
+      [`${u}#view=gallery`, dayKey], [`${u}#view=atlas`, nearMe], [`${u}#view=gallery`, share], [`${u}#view=atlas`, showAll], [`${u}#view=insights`, tabs], [`${u}#view=guidebook`, async page => { const a = await page.$('a[href^="#"]:not([href="#"])'); if (a) await a.click().catch(() => {}); }]);
   }
   const seedSaved = `try{const k=Object.keys(localStorage);}catch(e){}`;   // saved/trip state is seeded by visiting a detail and pressing Save below
   const saveOne = async page => { await detail(page); await page.waitForTimeout(400); await page.locator('button[aria-label*="Save"], button:has-text("Save")').first().click({ timeout: 1500 }); };
@@ -92,7 +101,7 @@ const sizes = Object.fromEntries(TRACK.map(p => [p, fs.statSync(path.join(ASSETS
     await sweep(vp, 'light', ALL.map(u => isCity(u) ? `${u}#view=gallery` : u), { tag: 'all pages' });
     await sweep(vp, 'light', ALL.filter(isCity).map(u => `${u}#view=atlas`), { tag: 'all cities atlas' });
   }
-  for (const vp of DEEP_VP) await sweep(vp, 'light', deepUrls, { tag: 'deep' });
+  for (const vp of DEEP_VP) { await sweep(vp, 'light', deepUrls, { tag: 'deep' }); await sweep(vp, 'light', deepUrls, { tag: 'deep, saved places', saved: true }); }   // the empty and the saved reader both
   for (const vp of [[390, 844], [1440, 900]]) {
     await sweep(vp, 'dark', deepUrls.slice(0, 14).concat(['index.html', 'Japan/index.html', 'trip.html', 'saved.html']), { tag: 'dark' });
     await sweep(vp, 'light', [['cities/tokyo.html#view=gallery', saveOne], 'saved.html', 'trip.html', ['cities/tokyo.html#view=gallery', saveOne], 'trip.html'], { tag: 'saved/trip', seed: seedSaved });
