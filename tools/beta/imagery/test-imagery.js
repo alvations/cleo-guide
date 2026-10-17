@@ -293,6 +293,15 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
   ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
 }
+{ // DESIGN-SYSTEM §v2.7a: designed food covers — the city ground (two data-URI url()s, < 1 KB together) and the no-repeat glyph rule
+  const m = require('./motifs');
+  const keys = Object.keys(m.RECIPES).concat(['singapore/chinatown', 'singapore/katong-joo-chiat', 'vietnam/hanoi']);
+  const big = keys.map(k => [k, m.foodGround(m.cityRecipe({ key: k }))]).filter(([, g]) => g.light.length + g.dark.length >= 1024 || !/^url\("data:image\/svg\+xml,/.test(g.light) || /#/.test(g.light + g.dark)).map(([k]) => k);
+  ok(!big.length, `§v2.7a: every city food ground is a pair of data-URI url()s under 1 KB together, # escaped${big.length ? ': ' + big.join(', ') : ''}`);
+  const g = m.foodGlyphs(['bowl', 'bowl', 'bowl', 'dumpling', 'dumpling', 'noodles', 'noodles', 'forkknife', 'forkknife']);
+  ok(g.every((x, i) => i === 0 || x !== g[i - 1]) && g[0] === 'bowl' && g[3] === 'dumpling' && Object.values(m.FOOD_GLYPH_LADDER).flat().every(x => /^[a-z]+$/.test(x)), `§v2.7a: adjacent food covers never repeat a glyph (${g.join(' ')})`);
+  ok(imagery.foodStyle({ imagery: { food: m.foodGround(m.RECIPES.newyork()) } }).startsWith('--food-ground:url("data:image/svg+xml,') && imagery.foodStyle({}) === '', '§v2.7a: foodStyle gives the --food-ground / --food-ground-dark pair for a city row, empty without one');
+}
 { // R7 QA-78: an author is never a URL or HTML (a Flickr profile link credits the account it shows)
   ok(fc.accountOf('https://www.flickr.com/photos/arne_heggestad/') === 'arne_heggestad (Flickr)' && fc.authorOf('<a href="https://www.flickr.com/photos/arne_heggestad/">https://www.flickr.com/photos/arne_heggestad/</a>') === 'arne_heggestad (Flickr)' && fc.authorProblems('https://example.org/me').length && fc.authorProblems('A &lt;b&gt; B').length && !fc.authorProblems('arne_heggestad (Flickr)').length, 'R7 QA-78: a profile-link credit names the account; any other URL or HTML author is refused');
   const doc = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8'));
