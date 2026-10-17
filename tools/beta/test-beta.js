@@ -375,7 +375,7 @@ const lensOutcome = (b, label) => {
     const html = rd('beta/' + TOKYO);
     const liveTags = (html.replace(/<noscript data-cleo-defer[\s\S]*?<\/noscript>/g, '').match(/<li class="pl[ "]/g) || []).length;
     chk('Tokyo ships ≤ 24 live cards, the rest in <noscript data-cleo-defer> (still in the HTML)', [liveTags, (html.match(/<li class="pl[ "]/g) || []).length].join(), `24,${total}`);
-    const { w, d, errs } = boot({ io: true });
+    const { w, d, errs } = boot({ io: true, hash: '#view=gallery' });   // FE-A D-46: Atlas is the default view; this checks the Gallery pager
     await sleep(300);
     // platform W7: the paged Gallery stamps exactly its first page (24 on a phone; jsdom has no matchMedia → 48), no more
     chk('with JS: the cards built are exactly Gallery page 1 (jsdom: 48 per page)', d.querySelectorAll('li.pl').length, 48);
@@ -409,10 +409,10 @@ const lensOutcome = (b, label) => {
       e1.w.location.hash = '#view=atlas'; await sleep(40); await scrollAll(e1.w);
       chk('(e) Atlas: clearing the lens, then scrolling the list: the DOM ends up == total', e1.d.querySelectorAll('li.pl').length, total);
       // the Gallery is paged (its lazy observer holds; SPEC §2.3): clearing the lens, then every page, reaches every card
-      const e3 = boot({ io: true, hash: '#mode=food' }); await sleep(300);
+      const e3 = boot({ io: true, hash: '#view=gallery&mode=food' }); await sleep(300);   // FE-A D-46: Atlas is the default; this case is the Gallery's
       lensOutcome(e3, 'a lens link on load (Gallery)');
-      e3.w.location.hash = '#'; await sleep(40);
-      for (let k = 2; k <= Math.ceil(total / 48) + 1; k++) { e3.w.location.hash = '#pg=' + k; await sleep(20); }
+      e3.w.location.hash = '#view=gallery'; await sleep(40);
+      for (let k = 2; k <= Math.ceil(total / 48) + 1; k++) { e3.w.location.hash = '#view=gallery&pg=' + k; await sleep(20); }
       chk('(e) Gallery: clearing the lens, then paging to the end: the DOM ends up == total', e3.d.querySelectorAll('li.pl').length, total);
       const e2 = boot({ io: true, hash: '#mode=food' }); await sleep(300);
       e2.d.querySelector('[data-cleo-all]').click(); await sleep(40);
@@ -518,7 +518,10 @@ const lensOutcome = (b, label) => {
     if (raw > biggest[1]) biggest = [p, raw, z];
   }
   chk('city pages over 820 KB raw / 160 KB gzip', over, a => a.length === 0);
-  console.log(`        (largest: ${biggest[0]} ${biggest[1]} KB raw, ${biggest[2]} KB gzip)`);
+  // R8 (platform): photo waves add ≈ 0.9 KB raw per credited card photo, so the headroom is printed on every run
+  console.log(`  INFO  largest city page: ${biggest[0]} ${biggest[1]} KB raw (headroom ${820 - biggest[1]} KB of 820), ${biggest[2]} KB gzip (headroom ${160 - biggest[2]} KB of 160)`);
+  // the card source chips carry no type="button" (R8 headroom): only safe while no city page has a form to submit
+  chk('city pages carry no <form> (untyped buttons stay non-submitting)', manifest.pages.filter(p => p.kind === 'city' && /<form[\s>]/i.test(fs.readFileSync(path.join(BETA, p.beta), 'utf8'))).map(p => p.beta), a => a.length === 0);
   // Platform W2 (RFC §7.5): W0 set 80 KB raw when the landing was 19 KB; W2 adds the cross-city rail, country heroes and
   // inline motif art. What a first visit pays is the gzip transfer: ≤ 24 KB gzip, with a ≤ 120 KB raw backstop.
   chk('landing ≤ 24 KB gzip / ≤ 120 KB raw', [KB(gz('index.html')), KB(size('index.html'))].join('/'), v => { const [g, r] = v.split('/').map(Number); return g <= 24 && r <= 120; });

@@ -7,12 +7,16 @@
   'use strict';
   var Cleo = window.Cleo || {}, d = document;
   if (Cleo.fresh) return;
+  // PERF-21 (platform, marked): toLocaleDateString builds an Intl formatter on every call (≈ 0.25 ms at 4× CPU); a lens
+  // tap stamps hundreds of cards with a few dozen distinct dates, so each date is formatted once per language
+  var DAY = {};
   var day = function (iso) {   // "2 Oct" (en), "10月2日" (ja): the record's date, read as UTC so it never shifts a day
     var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || ''); if (!m) return '';
-    var lang = (d.documentElement.lang || 'en').toLowerCase();
-    try { return new Date(Date.UTC(+m[1], +m[2] - 1, +m[3])).toLocaleDateString(lang.indexOf('en') === 0 ? 'en-GB' : lang, { day: 'numeric', month: 'short', timeZone: 'UTC' }); }
+    var lang = (d.documentElement.lang || 'en').toLowerCase(), k = lang + '|' + m[0]; if (DAY[k] != null) return DAY[k];
+    try { return (DAY[k] = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3])).toLocaleDateString(lang.indexOf('en') === 0 ? 'en-GB' : lang, { day: 'numeric', month: 'short', timeZone: 'UTC' })); }
     catch (e) { return m[1] + '-' + m[2] + '-' + m[3]; }
   };
+  // /platform
   // QC-04 (D-43): a pin whose placement is graded low (info.prov 'l…', platform's pv.pin) stays on the map but never reads as
   // pinned to the door: its card says "Approximate pin" (real text, so it is announced and findable). The label goes when the
   // pin is upgraded, by itself: it reads the page's provenance, nothing here is stored.

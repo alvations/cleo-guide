@@ -178,7 +178,8 @@ function card(r, num, ctx) {
   // Recommended by: every publisher is a chip that opens its source view (M1-10); CSS shows three, then "+N".
   const ids = (r.src || []).filter(s => s !== 'guide');
   // literal ', ' stays for screen readers / copy; DES's cleo.css 15.3 glues a drawn comma to each name (QA-18)
-  const chips = ids.map(id => { const s = srcById[id] || { name: id }; return `<button type="button" class="src${s.authority ? ' auth' : ''}" data-src="${esc(id)}">${esc(s.name.split(' · ')[0])}</button>`; });
+  // R8 photo headroom (platform): no `type="button"` on chips (−14 B each); a city page has no <form> (test-beta guards it)
+  const chips = ids.map(id => { const s = srcById[id] || { name: id }; return `<button class="src${s.authority ? ' auth' : ''}" data-src="${esc(id)}">${esc(s.name.split(' · ')[0])}</button>`; });
   let rec = chips.slice(0, 3).join(', ');
   if (chips.length > 3) rec += ` <span class="more">+${chips.length - 3}</span><span class="rest">, ${chips.slice(3).join(', ')}</span>`;
   if ((r.src || []).includes('guide')) rec += (rec ? ', ' : '') + `<span class="added">${tr('city.card.added')}</span>`;   // i18n D-41
@@ -364,16 +365,17 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     `<p class="pack-msg sm" data-pack-msg role="status" aria-live="polite" data-l-saving="${esc(pkL('saving'))}" data-l-failed="${esc(pkL('failed'))}" data-l-removed="${esc(pkL('removed'))}"></p>` +
     `<p><button type="button" class="btn btn-ghost" data-pack="remove" hidden>${esc(pkL('remove'))}</button></p></section>`;
   const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(dotJoin(heroLine))}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">${esc(tr('city.lead', { name: leadName }))}</a></p>` : ''}${heroPhoto ? tinted(heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }), heroPhoto) : ''}</div>`;
-  // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
-  // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
-  const DV = 'gallery';
-  const VIEWS = ['gallery', 'atlas'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
+  // default view: Atlas (owner decision D-46, "make atlas the default view then the list"; was Gallery since W5). The
+  // switcher reads Atlas, Gallery, Guidebook, Insights (SPEC-v3 §1.7). Precedence is unchanged: hash, stored choice,
+  // default; a legacy pager link (#pg= / #all=1) implies Gallery
+  const DV = 'atlas';
+  const VIEWS = ['atlas', 'gallery'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
   const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'sliders'] };   // i18n D-41: views, tray, masthead
   // FE-B QC-09 (DESIGN-SYSTEM §v2.11): a labelled group of four pressed-state toggles, never a <nav> (axe: no group role on
   // nav); four segments at every width, one tap per switch; data-label = the visible tooltip when only the glyph shows
   const switcher = `<div class="views" data-cleo-views role="group" aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}" data-label="${VLBL[v][0]}">${ico(VLBL[v][1])}<span class="l">${VLBL[v][0]}</span></button>`).join('')}</div>`;
   const areaChips = areas.length > 1 ? `<div class="area-chips" role="group" aria-label="${tr('city.areas.label')}" data-cleo-toolbar hidden></div>` : '';   // views.js draws the chips (page weight)
-  // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
+  // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then the default (D-46: Atlas)
   // D-46 (owner: Atlas is the default view): the city's first impression in Atlas sits at the top of the list column —
   // name, dek, "N places picked by M sources" — server-rendered and shown by CSS from first paint (no eager JS, CLS 0).
   // Shared with the Atlas lane's phone list-sheet intro (FE-1 styles html.atlas-m .at-intro)
@@ -401,7 +403,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
-    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition, fresh: ctx.assetsV.fresh, empty: ctx.assetsV.empty /* FE-C W9-5 / W9-7 / W9-1 / W9-2 / QC-05 hook */, pack: ctx.assetsV.pack /* platform W9-8: lazy offline pack */ },  // loaded on first use (C.need / views.js), precached by the SW
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, allguides: ctx.assetsV.allguides /* FE-B §v2.12 3a, lazy */, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition, fresh: ctx.assetsV.fresh, empty: ctx.assetsV.empty, sheetbar: ctx.assetsV.sheetbar /* FE-C W9-5 / W9-7 / W9-1 / W9-2 / QC-05 / OV-111 hook */, pack: ctx.assetsV.pack /* platform W9-8: lazy offline pack */ },  // loaded on first use (C.need / views.js), precached by the SW
     views: VIEWS, dv: DV,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
@@ -445,7 +447,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   return `${headHtml}
 <body>
 ${sprite}
-${siteBar({ depth, current: 'city', rel: row.beta })}
+${siteBar({ depth, current: 'city', rel: row.beta, city: name /* FE-B §v2.12 3a: "Search {city}" */ })}
 <main id="main" data-city="${esc(row.key)}">
 <div class="cbar"><div class="cbar-in"><div class="spill" role="search" data-cleo-search hidden>${ico('search')}<label class="vh" for="cleo-filter">${esc(tr('city.search', { city: name }))}</label><input id="cleo-filter" type="search" placeholder="${esc(tr('city.search', { city: name }))}" autocomplete="off" enterkeyhint="search"><span class="hint" aria-hidden="true">${tr('city.search.hint')}</span></div>
 ${switcher}<script>(function(h,n){var w=document.querySelector('.topbar .wrap'),a=w&&w.querySelector('.top-actions');if(h.classList.contains('atlas-d')&&h.getAttribute('data-view')==='atlas'&&n&&a){n.setAttribute('data-pre','');w.insertBefore(n,a)}})(document.documentElement,document.currentScript.previousElementSibling)</script></div></div>

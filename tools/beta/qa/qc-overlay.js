@@ -121,7 +121,10 @@ const MEASURE = new Function(`
   out.duplicates = Object.entries(by).filter(([, l]) => l.length > 1).map(([k, l]) => k + ' ×' + l.length).slice(0, 6);
   const searches = [...document.querySelectorAll('button, a[href], input, [role=button]')].filter(e => shown(e) && onTop(e) && !e.closest(CONTENT) &&
     (/search/i.test(name(e)) || e.type === 'search' || /search/i.test(e.getAttribute('placeholder') || '')));
-  if (searches.length > 1) out.duplicates.push('search ×' + searches.length + ' (' + searches.map(e => (name(e) || e.getAttribute('placeholder') || '').slice(0, 24)).join(' + ') + ')');
+  // orchestrator ruling (02:15Z): a field and its own submit button inside one form (or one role=search) are ONE search
+  // control; separate entry points on one screen (header search + hero search) count separately
+  const entry = [...new Map(searches.map(e => [e.closest('form, [role=search]') || e, e])).values()];
+  if (entry.length > 1) out.duplicates.push('search ×' + entry.length + ' (' + entry.map(e => (name(e) || e.getAttribute('placeholder') || '').slice(0, 24)).join(' + ') + ')');
   // the top bar's paint (designer b2f587a8: chrome is opaque, no backdrop blur): alpha of the topmost fixed/sticky bar at the top edge
   { const t = fixedAnc(document.elementFromPoint(W / 2, 4) || document.body); if (t) { const c = cs(t); const m = /rgba?\(([^)]+)\)/.exec(c.backgroundColor); const p = m ? m[1].split(/[ ,\/]+/).filter(Boolean) : [];
     out.topAlpha = p.length > 3 ? +(+p[3]).toFixed(2) : p.length ? 1 : 0; out.topBlur = /blur/.test(c.backdropFilter || c.webkitBackdropFilter || ''); } }
@@ -143,14 +146,15 @@ async function main() {
   const man = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'manifest.json'), 'utf8')).pages;
   const places = {}; for (const f of fs.readdirSync(path.join(BETA, 'data', 'places'))) { if (!f.endsWith('.json')) continue;
     try { const d = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'places', f), 'utf8')); if (d.beta) places[d.beta] = d; } catch (e) { /* skip */ } }
-  let pages = man.map(m => m.beta).concat(['trip.html', 'saved.html', 'how-we-choose.html', 'accessibility.html']).filter(p => fs.existsSync(path.join(BETA, p)));
+  let pages = man.map(m => m.beta).concat(['trip.html', 'saved.html', 'how-we-choose.html', 'accessibility.html', 'changes/tokyo.html', 'changes/cleveland.html', 'changes/singapore--punggol.html'])   // What changed: one shell, three samples.filter(p => fs.existsSync(path.join(BETA, p)));
   if (filt.length) pages = pages.filter(p => filt.some(k => p.includes(k)));
   const jobs = [];
   for (const p of pages) { const d = places[p]; const city = !!(d && d.places && d.places.length);
     const top = city ? (d.places.find(x => !(x.pv && x.pv.status === 'closed')) || d.places[0]).id : null;
     for (const vp of vps) for (const theme of themes) {
       if (!city) { jobs.push({ page: p, view: 'page', hash: '', vp, theme }); continue; }
-      for (const v of views) jobs.push({ page: p, view: v, hash: v === 'sheet' ? '#view=gallery&p=' + encodeURIComponent(top) : '#view=' + v, vp, theme }); } }
+      for (const v of views) jobs.push({ page: p, view: v, hash: v === 'sheet' ? '#view=gallery&p=' + encodeURIComponent(top) : '#view=' + v, vp, theme });
+      if (views.includes('atlas')) jobs.push({ page: p, view: 'default', hash: '', vp, theme }); } }   // D-46: the cold first screen (no hash) must be Atlas, within OV-00 at rest
   fs.mkdirSync(SHOTS, { recursive: true });
   const srv = http.createServer((req, rsp) => { let f = path.join(ROOT, decodeURIComponent(req.url.split('?')[0].split('#')[0]));
     if (!f.startsWith(ROOT)) { rsp.writeHead(403); return rsp.end(); }
@@ -199,6 +203,7 @@ async function main() {
   const PHONE = { P1: 1, P2: 1, L: 1, T1: 1 };
   const city = r => r.view !== 'page';
   const owner = (kind, r) => {
+    if (r.view === 'default') return kind === 'defaultNotAtlas' ? 'FE-A (D-46 default)' : 'FE-A (header, switch) + Atlas FE-1 (chip row, peek)';
     if (r.view === 'atlas') return /^chrome/.test(kind) ? 'FE-A (header, switch) + Atlas FE-1 (chip row, peek)' : /^label/.test(kind) ? 'Atlas FE-1 + FE-2' : kind === 'duplicates' ? 'FE-B (search.js) + FE-A (city search) + designer' : 'Atlas FE-1';
     if (kind === 'duplicates') return 'FE-B (search.js) + FE-A (city search) + designer';
     if (r.view === 'sheet') return 'FE-C (sheet)';
@@ -207,6 +212,10 @@ async function main() {
     return 'FE-B (hubs, landing, trip, saved, method)'; };
   const flags = [], push = (kind, value, budget, r) => flags.push({ kind, value, budget, r, owner: owner(kind, r) });
   results.forEach(r => { if (!r.load) { if (r.error) push('error', r.error, '—', r); return; } const v = VK[r.vp], L = r.load, D = r.during, map = r.view === 'atlas' && L.map;
+    if (r.view === 'default') { const [cr, , kr] = ATLAS[v]; const clear = v === 'T2' || v === 'D' ? L.clearPane : L.clearVP;
+      if (L.view !== 'atlas') push('defaultNotAtlas', 'opens ' + L.view, 'Atlas (D-46)', r);
+      else { if (L.band > cr) push('firstScreenChrome', L.band, '≤ ' + cr + ' %', r); if (clear < kr) push('firstScreenClear', clear, '≥ ' + kr + ' %', r); }
+      if (r.toastLate && r.toastLate.length) push('toast', r.toastLate.join(' / '), 'leaves within 4 s', r); return; }
     if (map) { const [cr, cp, kr, kp, lc, lv] = ATLAS[v]; const clear = x => (v === 'T2' || v === 'D' ? x.clearPane : x.clearVP);
       if (L.band > cr) push('chromeRest', L.band, '≤ ' + cr + ' %', r);
       if (D && D.band > cp) push('chromePan', D.band, '≤ ' + cp + ' % at 300 ms into a pan', r);

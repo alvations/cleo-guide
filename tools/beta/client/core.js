@@ -40,29 +40,10 @@
     count: function () { return Object.keys(this.all()).length; }
   };
 
-  /* ---- list codec: the share-link grammar for saved lists and day plans (platform contract) ----
-   * refs are "<pageKey>/<placeId>"; on the wire they group by page:  tokyo:kanda-myojin,isegen;kyoto:x
-   * Place ids are [a-z0-9-] and page keys [a-z0-9/-], so ':' ',' ';' never collide. */
-  Cleo.listCodec = {
-    encode: function (refs) {
-      var by = {}, order = [];
-      refs.forEach(function (r) { var i = r.lastIndexOf('/'); var k = r.slice(0, i); if (!by[k]) { by[k] = []; order.push(k); } by[k].push(r.slice(i + 1)); });
-      return order.map(function (k) { return k + ':' + by[k].join(','); }).join(';');
-    },
-    decode: function (s) {
-      var out = [];
-      String(s || '').split(';').forEach(function (grp) {
-        var i = grp.indexOf(':'); if (i < 1) { if (grp.indexOf('/') > 0) out.push(grp); return; }
-        var k = grp.slice(0, i); grp.slice(i + 1).split(',').forEach(function (id) { if (id) out.push(k + '/' + id); });
-      });
-      return out;
-    }
-  };
-
   /* ---- hash router: k=v&k=v (RFC §4.2). KEYS is the registry of every documented route key; a key with a
    * validator drops a value it rejects — parse() never returns it, and Cleo.route.clean() rewrites the URL with
    * replaceState (no history entry, no error). Keys not in the registry pass through untouched. ---- */
-  var VIEWS = ['gallery', 'atlas', 'guidebook', 'insights'];
+  var VIEWS = ['atlas', 'gallery', 'guidebook', 'insights'];   // FE-A D-46: switcher order
   var ID = /^[A-Za-z0-9_.~-]{1,80}$/;
   var areaOk = function (v) {                      // an area id of this page when the page says which exist
     var el = document.getElementById('cleo-city'), info = null;
@@ -124,7 +105,7 @@
   /* ---- views (SPEC §2.4): the names, the default, and which one this URL/visitor gets. The switcher, the
    * registry and remembering a choice are FE-A's (client/views.js); this is only the shared precedence. ---- */
   Cleo.view = {
-    VIEWS: VIEWS, DEFAULT: 'gallery',   // W5 (ROUND-4 #2): Gallery, flipped by FE-A once G1 passed; FE-A views.js reads the page's info.dv
+    VIEWS: VIEWS, DEFAULT: 'atlas',   // FE-A D-46 (owner): Atlas is the default view (was Gallery since W5); FE-A views.js reads the page's info.dv
     /** hash `view=` → the stored preference → the default. Never throws (store is try/catch). */
     current: function () {
       var h = Cleo.route.parse().view; if (h) return h;
@@ -267,27 +248,6 @@
   /* ---- "your guide" data (build-time, tools/beta/lib/guide.js): signature, foodOrder, days, closed ---- */
   Cleo.guide = function (key) { return Cleo.pageData(key).then(function (d) { return d.guide; }); };
 
-  /* ---- distances (day-plan legs, opt-in Near me). Always straight-line (VOICE.md rule 9). The position a
-   * caller passes in is never stored or sent anywhere by this file. ---- */
-  Cleo.geo = {
-    km: function (a, b) {                              // a, b: {la, ln} or [lat, lng]
-      var A = a.length ? { la: a[0], ln: a[1] } : a, B = b.length ? { la: b[0], ln: b[1] } : b, t = Math.PI / 180;
-      var h = Math.pow(Math.sin((B.la - A.la) * t / 2), 2) + Math.cos(A.la * t) * Math.cos(B.la * t) * Math.pow(Math.sin((B.ln - A.ln) * t / 2), 2);
-      return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h)));
-    },
-    fmt: function (km) { return km < 0.1 ? 'next door (under 0.1 km straight-line)' : (km < 10 ? km.toFixed(1) : Math.round(km)) + ' km straight-line'; },
-    /** THE walking estimate (SPEC-v3 §3.4 / §10; W9-4 trips, W9-5 base) — one function, no second copy: straight-line
-     *  metres ÷ 80 m a minute. Metres round to 10 under 1 km, one decimal of a km above. Callers state ASSUME once per view. */
-    MPM: 80, ASSUME: 'Walk times are straight-line, about 80 m a minute — an estimate, not a route',
-    walk: function (km) {
-      var T = function (k, e, v) { return Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
-      var m = km * 1000, r = Math.round(m / 10) * 10, min = Math.round(m / 80);
-      var dist = r < 1000 ? r + ' m' : (m / 1000).toFixed(1) + ' km';
-      return { m: m, min: min, dist: dist, text: dist + ' · ' + (min < 1 ? T('geo.walk.under', 'under 1 min walk') : T('geo.walk.min', '{n} min walk', { n: min })) };   // i18n D-41: Cleo.t (head snippet)
-    },
-    ll: function (el) { var v = (el && el.getAttribute('data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; }
-  };
-
   /* ---- lazy modules (FE-C W9): Cleo.need('base'|'share-card', cb) loads assets/js/<n>.js once, at the version the page
    * declares (#cleo-city info.js, or #cleo-lazy on saved.html / trip.html), so the worker's cache-first copy is never stale. ---- */
   var lz = {};
@@ -377,16 +337,7 @@
     /** opts.lens (a lens object, Cleo.lens.pick of a route): only the stubs that lens shows (PERF-08); default: every stub */
     peek: function (opts) {
       var out = [], L = opts && opts.lens && Cleo.lens.on(opts.lens) ? opts.lens : null;
-      D.pending().forEach(function (ns) {
-        var src = ns.children && ns.children.length ? ns.innerHTML : ns.textContent, re = /<li class="pl[ "][^>]*>/g, m;
-        while ((m = re.exec(src))) {
-          var at = {}, a = /([a-z-]+)(?:="([^"]*)")?/g, x, tag = m[0].slice(3, -1);
-          while ((x = a.exec(tag))) at[x[1]] = x[2] === undefined ? '' : x[2].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-          var st = { id: at.id, stub: true, getAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k) ? this._a[k] : null; },
-            hasAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k); }, _a: at };
-          if (!L || Cleo.lens.match(st, L)) out.push(st);
-        }
-      });
+      D.pending().forEach(function (ns) { stubsOf(ns).forEach(function (st) { if (!L || Cleo.lens.match(st, L)) out.push(st); }); });
       return out;
     },
     /** PERF-08: stamp only the cards a lens shows (the rest stay deferred, still reachable: "Show all", deep links, search,
@@ -419,14 +370,15 @@
     stampIds: function (want) {
       var out = [];
       D.pending().forEach(function (ns) {
-        var cards = cardsOf(ns), hit = cards.map(function (c) { var m = /\bid="([^"]*)"/.exec(c.slice(0, c.indexOf('>'))); return !!(m && want.has(m[1])); });
+        var e = parsed(ns), cards = e.cards, hit = cards.map(function (c) { var m = /\bid="([^"]*)"/.exec(c.slice(0, c.indexOf('>'))); return !!(m && want.has(m[1])); });
         if (!hit.some(Boolean)) return;
         if (hit.every(Boolean)) { out = out.concat(D.stamp(ns, 1)); return; }
         var ol = ns.parentNode, runs = [], cur = null, made = [];
-        cards.forEach(function (c, i) { if (!cur || cur.h !== hit[i]) runs.push(cur = { h: hit[i], c: [] }); cur.c.push(c); });
+        cards.forEach(function (c, i) { if (!cur || cur.h !== hit[i]) runs.push(cur = { h: hit[i], c: [], s: [] }); cur.c.push(c); if (e.stubs) cur.s.push(e.stubs[i]); });
         runs.forEach(function (r) {
           var n = document.createElement('noscript'); n.setAttribute('data-cleo-defer', ''); n.setAttribute('data-n', String(r.c.length));
           n.setAttribute('style', 'display:contents'); n.textContent = '\n' + r.c.join('\n') + '\n'; ol.insertBefore(n, ns); if (r.h) made.push(n);
+          if (PC) PC.set(n, { cards: r.c, stubs: e.stubs ? r.s : null });   // PERF-21: the split halves are already parsed
         });
         ol.removeChild(ns);
         made.forEach(function (n) { out = out.concat(D.stamp(n, 1)); });
@@ -436,7 +388,27 @@
     }
   };
   var CARD = /<li class="pl[ "][\s\S]*?<\/li>/g;           // same card pattern as tools/beta/lib/chunk.js
-  function cardsOf(ns) { return (ns.children && ns.children.length ? ns.innerHTML : ns.textContent).match(CARD) || []; }
+  /* PERF-21 (filter INP): each chunk's text is parsed ONCE — its cards (CARD matches) and, on first peek, its stubs (start
+   * tags → attribute maps). A lens tap peeks many times (views.js pager, city.js counts / sections / pins / fitLens, atlas.js)
+   * and each peek re-parsed every chunk. Chunks are never edited in place (a split makes new noscripts, seeded above), so
+   * a WeakMap on the element is enough. Stubs are shared, read-only stand-ins. */
+  var PC = window.WeakMap ? new WeakMap() : null;
+  var STUB = { stub: true, getAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k) ? this._a[k] : null; },
+    hasAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k); } };
+  function parsed(ns) {
+    var e = PC && PC.get(ns); if (e) return e;
+    e = { cards: (ns.children && ns.children.length ? ns.innerHTML : ns.textContent).match(CARD) || [], stubs: null }; if (PC) PC.set(ns, e); return e;
+  }
+  function cardsOf(ns) { return parsed(ns).cards; }
+  /** Lightweight stand-ins for unstamped cards, parsed from their start tags only: {id, getAttribute, hasAttribute}. */
+  function stubsOf(ns) {
+    var e = parsed(ns); if (e.stubs) return e.stubs;
+    return (e.stubs = e.cards.map(function (c) {
+      var at = {}, a = /([a-z-]+)(?:="([^"]*)")?/g, x, tag = c.slice(3, c.indexOf('>'));
+      while ((x = a.exec(tag))) at[x[1]] = x[2] === undefined ? '' : x[2].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+      var st = Object.create(STUB); st.id = at.id; st._a = at; return st;
+    }));
+  }
   /* ---- view chunks (P-05, R-33): the same progressive rendering for content a VIEW builds on the client (Guidebook
    * chapters, Gallery rails/pages, Insights cards). `parts` = HTML strings in order; `initial` render now, the rest as
    * the host's end nears the viewport (IntersectionObserver, 1,200 px), and ALL of them on anything that needs every

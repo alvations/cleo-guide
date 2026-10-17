@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-17 01:10Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-17 02:10Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -31,13 +31,13 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 ## Deploy gate (now)
 
 - **r7 is DEPLOYED (21:33Z).** PR alvations/cleo-guide#9 merged `b54b3745` into `claude/cleveland-page-creation-pant4l` (merge `4382a187`), and the Pages build started at 21:33Z. QA YES at 943d1ce8 under D-45 (QA-79 waived); QC PASS at 7c5ea616. beta-deploy-r7 was merged back into the dev branch with `-s ours` (beef84ec), since every ported change is already on dev. The changelog entry is in docs/BETA-CHANGELOG.md.
-- **Next:** the r8 pin from the dev head once five things hold:
-  1. D-46 is flipped (FE-A);
-  2. QA-80 is fixed (FE-A);
-  3. INP is ≤ 200 ms (desktop is now 232);
-  4. no High/Med OV row is still open;
-  5. panel R4 has scored.
-  Then QA re-signs, QC makes its final pass, and we cut `beta-deploy-r8`. R8 scored 90.7 (ROUND-8.md); its gaps are routed.
+- **Next:** the r8 pin from the dev head once these hold:
+  1. ~~D-46 flipped~~ (eba39fb6) and ~~QA-80 fixed~~ (fc1fbb91); QA is verifying both;
+  2. INP ≤ 200 ms (desktop 232, FE-1);
+  3. no open High/Med OV row (27 open at 02:10Z; QC's dev S-17 on f03000d7 lands ≈ 03:05Z);
+  4. PERF-19b in place of PERF-19 (D-48), with QA-81 wired into npm test;
+  5. the designer's D-46 sign-off on real shots (run dispatched on 93a8ea29a, label d46-signoff), then FE-1 and FE-2 announce "round 4 ready" and panel R4 scores.
+  Then QA re-signs, QC makes its final pass, and we cut `beta-deploy-r8`.
 - **History:**
   - 530dc83b NO;
   - 3ba696e8 NO;
@@ -48,9 +48,9 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 | What | State | Next |
 |---|---|---|
+| **Check-in 02:10Z** | Dev head db7e574bf gated green (validate, npm test alone, beta:check, eager JS 39.45/40, DOM 12/12, largest page Tokyo 767 KB with 53 KB headroom). **Landed:** D-46 Atlas default plus QA-80 (FE-A eba39fb6); PERF-20 city-page trim −50 KB (23bbb97d); D-47 probe dual-accept (QA e73e92db, FE-2 bdb591b42); FE-B one compact state (2b57274e4); FE-C OV-111/112 sheet bar (084192a46); QC verified 16 High/Med claims (f03000d7) and added the D-46 first-screen criterion (7e5038cc). **Decisions:** D-47 (§2.0.3 probes), D-48 (no human/scripted branching; PERF-19 not accepted; QA-81 guard 1d18c37f), D-49 (fewer blanks: food photos of the place, discovery at scale, no-photo card redesign), D-50 (image sources lane; stock for landmarks only; dated historic photos), D-51 (no Google Maps photos; Unsplash API storing disabled in the workflow). **Photos:** run #77 was blocked by a refused Ghent file; imagery fixes it, then dispatches `all/1500` (≈ 240–270 photos expected from the 340 vetted Commons candidates) | Imagery's run commits → contact-sheet review; designer D-46 sign-off and no-photo card spec; FE-1 §2.0.3 flip, OV-41, OV-03; platform PERF-19b → filter INP |
 | **Check-in 01:10Z** | Dev head 399119259 gated green (validate, npm test alone, beta:check, dom 12/12). **Photo runs #71–#74 red at the gates step.** The cause was hidden because run-tests' `process.exit(1)` dropped piped output; 9a453fa7e uses exitCode. Two real causes: (a) test-beta, `cities/sanfrancisco.html` 832 KB raw with wave 5c photos, over the 820 ceiling (dev is 815 without them) → **platform cuts ≥ 30 KB from the city template; the ceiling is not raised**; imagery holds re-dispatch; (b) test-dom-budget said FAIL instead of SKIP with no Playwright (w2 throws "playwright not found") → fixed by the orchestrator. **QC's S-17 audit of live r7 landed** (43eeee68a, 5,172 runs, +16 High +7 Med): open High/Med is 28 open + 13 claimed. By owner: FE-1 12, FE-B 11, FE-A 5 (+6 claimed), FE-C 2 (+1 claimed). Every lane has its row list; QC verifies the claims and posts a dev-head count | Platform's trim SHA → re-dispatch the photo run (scope priority); lanes clear OV rows; FE-A QA-80 then D-46 |
 | Check-in 00:08Z | Dev head 77b960fa is gated green, and **eager JS reads 39.28 KB on Cleveland** (≈ 0.7 KB headroom, after the platform and FE-A trims). FE-A's chrome pass 853ea52c (OV-09/10/11/32/33/34 claimed; P2 at rest 16 %). **Compaction decision:** city pages key on `html.ov-c` (FE-A's Cleo.chrome); shell pages keep FE-B's small controller; nothing moves into core.js. QA's B-25 gate is in; QC is adding Severity to the ledger | D-46 flip after FE-1's stamping hold; FE-1 OV-00 Atlas; the r8 pin when the conditions hold |
-| Check-in 23:20Z | Dev head fb730533 is gated green (validate, npm test alone, beta:check, w2 dom 12/12). **INP:** FE-1's e0b79e23 takes the desktop switch → Atlas from 18.5 s to 0.45 s at 4× CPU, against a ≤ 200 ms target; FE-1 continues on the forced layouts. **Overlay ledger:** 19 OV rows; OV-00 is set (bb2af873); the one-search rule (98a39437); FE-C OV-08 claimed; FE-B OV-30/31 claimed; FE-A OV-01, its header part, landed (1d652d65); QC's S-17 is graded against OV-00 (92094c78), and the r7 audit is running. **R8 axe fix:** FE-C is landing `.btn .lbl` inherit. **D-46:** waits on platform's Atlas initial-stamp budget, after which FE-A flips | r8 pin needs: D-46 flipped, INP ≤ 200 ms, no open High/Med OV rows, panel R4 scored |
 | **Owner directive: overlay and chrome audit (22:45Z)** | The owner's live Punggol Atlas phone screenshot shows fixed layers that don't move with the map and take up most of the space. The ledger is **docs/BETA-OVERLAY-LEDGER.md** (d880d025), seeded OV-01..07. Routed: the designer (OV-00 budgets and auto-compact rules, first); QC (the S-17 probe, a full-site audit of live and dev, keeping the ledger); FE-1/FE-2 (OV-02..07 on the Atlas map); FE-A (OV-01 header, switch and chips, Gallery sticky bars, landscape); FE-B (Guidebook and Insights); FE-C (sheet, trip, saved, toasts, pack banner); QA (B-25 gate on pins) | OV-00, then the S-17 audit, then fixes claimed per row. r8 ships only with no open High/Med OV rows |
 | **INP regression on dev (22:07Z, top priority)** | Platform's beta:perf on b61fda89 (PERF-08 OFF): desktop switch → Atlas **21,016 ms** (was 672–792), desktop filter 1,344 (was ~824), phone filter 1,136 (was ~544); the phone switch is fine (296). Suspect 797258c2 (Atlas §2.3, one list ranked by map priority), or 648aa9c3 / 82f3d199. **Not in the live r7.** | FE-1/FE-2 fix (target ≤ 200 ms). Platform bisects and adds an INP guard to perf08-regress.sh or npm test. The PERF-08 flip lands only if it doesn't worsen INP. Blocks the r8 pin and D-46 |
 | Atlas panel R4 | Real shots R4b on ffbb225a committed (3b50e631) for the designer's dark-dot re-sign. FE-1's pre-R4 items are done (B-20 0 on 5 pilots, QC-05 one state, chip overflow), and the preview says "Approximate pin" (0a4e5751). The designer declined a third dot state | **Hold "round 4 ready"** until the dark-dot re-sign and D-46 (FE-A's default flip plus FE-1's first-screen points). Then the final R4 re-shoot on that head, then the panel (session_01EKzwLjqF1Z1gwXWgbrrr2S) with the focus-ring method note |
@@ -76,7 +76,8 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 | Designer | session_011YjA2jku166RJrUyCiQV6B | dot sign-off on R4 real shots, FE-C re-review, FE-A frame sign-off, PERF-16 | docs/resume/designer.md |
 | R8 evaluator (independent; never tell it a target) | session_01KmzDV95S6cTa7gLfep3bsq | scoring the r7 deploy b54b3745 against R7 badcc20d | design/beta/eval/ROUND-8.md |
 | Panel (scores only; never tell it a target) | session_01EKzwLjqF1Z1gwXWgbrrr2S | waiting for "round 4 ready at <sha>" | docs/resume/panel.md |
-| Imagery | session_011rg9RMooGaKrmENvBZ7MvX | vetted-candidate waves (WebSearch, about 40 per wave); run #54 review | docs/resume/imagery.md |
+| Imagery | session_011rg9RMooGaKrmENvBZ7MvX | (0) the refused-file fix, then dispatch `all/1500`; fetch-openverse.js; `fetch-commons --wikidata`; food eligibility (D-49); fetch-unsplash reduced to a planner (D-51) | docs/resume/imagery.md |
+| Image sources (owner: fewer blanks) | session_013vyq3aW2ChR6a7LBNQufNy | the source matrix plus sample yields (LoC, NYPL, Smithsonian, Europeana; Pexels/Pixabay only if a sample proves yield); code in tools/beta/imagery/sources/ | docs/resume/image-sources.md |
 | i18n | session_01HB7igqdcuhrau7mUWSauDL | all lanes catalogued; review rounds on new keys; QC-16 | docs/resume/i18n.md |
 | Location verify (woken daily 03:17 UTC by trig_01P2RWA4kn9SKwApTwLdtSrm; disable when the queue is empty) | session_012FeQJjTmiN2MXYQWwe55J2 | Singapore, the Wikidata re-check, `--duplicates` | docs/resume/location-verify.md |
 

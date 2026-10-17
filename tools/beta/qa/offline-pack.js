@@ -37,7 +37,7 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
     const ctx = await browser.newContext({ viewport: { width: w, height: h }, serviceWorkers: 'allow', reducedMotion: 'reduce' });
     const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 160)));
     await ctx.route(u => u.hostname !== '127.0.0.1', r => r.abort());   // nothing off-origin, ever (any local port is ours)
-    await p.goto(U + pg, { waitUntil: 'load' });
+    await p.goto(U + pg + '#view=gallery', { waitUntil: 'load' });   // FE-A D-46: Atlas is the default; the pack control is tapped from the list (Gallery)
     await p.evaluate(() => navigator.serviceWorker.ready); await sleep(1500);
     const vis = await p.evaluate(() => { const b = document.querySelector('[data-cleo-pack]'); return b && !b.hidden ? b.querySelector('[data-pack-size]').textContent : null; });
     chk(!!vis, 'the control shows its size before the tap', vis);
@@ -79,7 +79,7 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
     chk(errs.length === 0, 'no page errors offline', errs.slice(0, 3));
     // Remove frees it (back online, a fresh server)
     await ctx.setOffline(false); const { s: srv2, U: U2 } = await server(); await sleep(900);
-    await p.goto(U2 + pg, { waitUntil: 'load' }); await p.evaluate(() => navigator.serviceWorker.ready); await sleep(800);
+    await p.goto(U2 + pg + '#view=gallery', { waitUntil: 'load' }); await p.evaluate(() => navigator.serviceWorker.ready); await sleep(800);   // FE-A D-46
     // (a new port is a new origin: the pack lives on the first origin, so check Remove on THIS origin after keeping it)
     await p.click('[data-pack="keep"]'); await p.waitForFunction(() => !document.querySelector('[data-pack-done]').hidden, null, { timeout: 120000 });
     await p.click('[data-pack="remove"]'); await p.waitForFunction(() => !document.querySelector('[data-pack="keep"]').hidden, null, { timeout: 30000 });
@@ -95,7 +95,7 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
     const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 160)));
     await ctx.route(u => u.hostname !== '127.0.0.1', r => r.abort());
     const cdp = await ctx.newCDPSession(p);
-    await p.goto(U + pg, { waitUntil: 'load' }); await p.evaluate(() => navigator.serviceWorker.ready); await sleep(1200);
+    await p.goto(U + pg + '#view=gallery', { waitUntil: 'load' }); await p.evaluate(() => navigator.serviceWorker.ready); await sleep(1200);   // FE-A D-46
     await cdp.send('Storage.overrideQuotaForOrigin', { origin: new URL(U).origin, quotaSize: 200 * 1024 }).catch(() => {});
     await p.click('[data-pack="keep"]');
     await p.waitForFunction(() => { const d = document.querySelector('[data-pack-done]'), m = document.querySelector('[data-pack-msg]'); return (d && !d.hidden) || (m && m.textContent.length > 20 && !/Saving/.test(m.textContent)); }, null, { timeout: 120000 });

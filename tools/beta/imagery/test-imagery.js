@@ -61,7 +61,7 @@ const ph = r.byPage.tokyo && r.byPage.tokyo[open.id];
 ok(r.errors.length === 0 && ph && ph.w === 960 && ph.h === 640, 'complete credit + file → photo with size read from the header');
 const fig = ph ? photos.figureHtml(ph, '../') : '';
 ok(/<figure class="photo"><img src="\.\.\/assets\/img\/photos\/a\.png" width="960" height="640" alt="Main hall"/.test(fig), 'figure: local src, explicit width/height, alt = depicts');
-ok(/<figcaption>Photo: A\. Photographer · <a [^>]*href="https:\/\/creativecommons\.org[^"]*"[^>]*>CC BY-SA 4\.0<\/a> · <a [^>]*title="“Main hall”"[^>]*>Wikimedia Commons<\/a><\/figcaption>/.test(fig), 'figcaption shows title (source link title), author, licence link and source (TASL)');
+ok(/<figcaption>Photo: A\. Photographer · <a [^>]*href="https:\/\/creativecommons\.org[^"]*"[^>]*>CC BY-SA 4\.0<\/a> · <a [^>]*aria-label="“Main hall” on Wikimedia Commons"[^>]*>Wikimedia Commons<\/a><\/figcaption>/.test(fig) && !/ title="/.test(fig), 'figcaption shows author, licence link and source; the file title names the source link (aria-label, no duplicate title attribute: orchestrator, R8 bytes) (TASL)');
 const row = { imagery: { photos: r.byPage.tokyo } };
 ok(imagery.photoFor(row, open) === ph && imagery.photoFor(row, Object.assign({}, open, { closed: true })) === null, 'photoFor: the gated photo, never for a closed record');
 r = fixture([], ['a.png']);
@@ -111,11 +111,11 @@ const hph = r.bySlot['hero:tokyo'];
 ok(r.errors.length === 0 && hph && hph.widths.length === 2, 'Commons hero slot with a variant → bySlot hero:tokyo');
 const hfig = hph ? photos.heroHtml(hph, '../') : '', hcred = hph ? photos.heroCreditHtml(hph) : '';
 ok(/<figure class="photo hero-photo"/.test(hfig) && /fetchpriority="high"/.test(hfig) && !/loading="lazy"/.test(hfig) && /alt="Tokyo skyline"/.test(hfig) && /sizes="100vw"/.test(hfig) && /class="hero-scrim" aria-hidden="true"/.test(hfig), 'hero figure: eager (fetchpriority high, not lazy), srcset at 100vw, alt, scrim for text contrast');
-ok(/^<p class="hero-credit"[^>]*>Photo: A\. Photographer · <a [^>]*rel="license[^"]*"[^>]*>CC BY-SA 4\.0<\/a> · <a [^>]*href="https:\/\/commons[^"]*" title="“[^”]+”"[^>]*>Wikimedia Commons<\/a>/.test(hcred), 'hero credit: a visible short TASL line in the text flow (author, licence link, source link titled with the file title)');
+ok(/^<p class="hero-credit"[^>]*>Photo: A\. Photographer · <a [^>]*rel="license[^"]*"[^>]*>CC BY-SA 4\.0<\/a> · <a [^>]*href="https:\/\/commons[^"]*" aria-label="“[^”]+” on Wikimedia Commons"[^>]*>Wikimedia Commons<\/a>/.test(hcred), 'hero credit: a visible short TASL line in the text flow (author, licence link, source link named with the file title)');
 { // card credit: short TASL line; the full sentence only on request (place detail)
   const rc = Object.assign({}, cmn, { title: 'Senso-ji, Asakusa', modified: 'resized to 500 and 960 px wide' });
   const short = photos.captionHtml(rc), full = photos.captionHtml(rc, { full: true });
-  ok(short === 'Photo: A. Photographer · <a href="' + rc.licenceUrl.replace(/&/g, '&amp;') + '" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Senso-ji,_Asakusa,_Tokyo.jpg" title="“Senso-ji, Asakusa”" aria-label="“Senso-ji, Asakusa” on Wikimedia Commons" rel="noopener" target="_blank">Wikimedia Commons</a> (resized)', 'card credit: "Photo: author · licence · source (resized)" — title on the source link, licence + source linked');
+  ok(short === 'Photo: A. Photographer · <a href="' + rc.licenceUrl.replace(/&/g, '&amp;') + '" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Senso-ji,_Asakusa,_Tokyo.jpg" aria-label="“Senso-ji, Asakusa” on Wikimedia Commons" rel="noopener" target="_blank">Wikimedia Commons</a> (resized)', 'card credit: "Photo: author · licence · source (resized)" — file title names the source link, licence + source linked');
   ok(/^“Senso-ji, Asakusa” by A\. Photographer, <a [^>]*rel="license[^"]*"[^>]*>CC BY-SA 4\.0<\/a>, via <a [^>]*>Wikimedia Commons<\/a> — resized to 500 and 960 px wide$/.test(full), 'captionHtml(c, {full:true}): the whole TASL sentence for a place detail');
   ok(/ sizes="\(min-resolution: 2\.5dppx\) and \(max-width: 1023px\) 166px, \(max-width: 639px\) 92vw, \(max-width: 1023px\) 45vw, 25vw"/.test(photos.figureHtml(cph, '../')) && / sizes="120px"/.test(photos.figureHtml(cph, '../', 'photo', { sizes: '120px' })), 'card sizes default: a ≥ 2.5 dppx phone takes 500 w (166px), else 92vw phones, 45vw tablets, 25vw desktop; callers can pass a smaller sizes (thumbnails)');
   // D-40 condition: a 500w + 720w card asks for 240px on a 3× phone (resolves to the 720w copy); a 500w + 960w card keeps 166px
@@ -292,6 +292,59 @@ ok(fc.authorOrUploader('', '<span>Own work</span>', 'Sengkang') === 'Sengkang' &
 ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length && fc.authorProblems('X.jpg : Someone').length && fc.authorProblems('Kakidai Rising Sun Flag of Japan (16 rays) Legal disclaimer').length && fc.authorProblems('x'.repeat(61)).length && !fc.authorProblems('Bernard Spragg. NZ from Christchurch, New Zealand').length, 'fetch-commons authorProblems: > 60 characters or notice text is not a clean name');
   const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
   ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
+}
+{ // R8 run #77: a file refused for its own fault is never a live candidate for any other target
+  const fc2 = require('./fetch-commons');
+  const tg = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'commons-candidates.json'), 'utf8')).targets;
+  const glob = new Set(tg.flatMap(t => (t.candidates || []).filter(c => c.refused && fc2.refusalIsGlobal(c.refused)).map(c => c.file)));
+  const live = tg.flatMap(t => (t.candidates || []).filter(c => !c.refused && glob.has(c.file)).map(c => `${t.key} ${c.file}`));
+  ok(!live.length, `manifest: no target lists a file refused for its own fault as a live candidate${live.length ? ': ' + live.slice(0, 5).join('; ') : ''}`);
+}
+{ // R8 owner directive: fetch-openverse.js — discovery across all Openverse sources; nothing credited before review
+  const fo = require('./fetch-openverse');
+  const t = { key: 'landmark:singapore/balestier#x', label: 'Goh Chor Tua Pek Kong Temple', names: [], page: 'singapore/balestier', town: ['balestier'], widths: [500, 720] };
+  const r = (o) => fo.norm(Object.assign({ id: 'a1', title: 'Goh Chor Tua Pek Kong Temple, Balestier', tags: [], creator: 'Some Photographer', creator_url: 'https://www.flickr.com/photos/sp/', foreign_landing_url: 'https://www.flickr.com/photos/sp/123/',
+    url: 'https://live.staticflickr.com/1/123_b.jpg', width: 1024, height: 768, license: 'by', license_version: '2.0', source: 'flickr', provider: 'flickr', filetype: 'jpg' }, o));
+  const j = fo.judge(r({}), t, new Set());
+  ok(j.pick && j.pick.provider === 'flickr' && j.pick.sourceUrl === 'https://www.flickr.com/photos/sp/123/' && j.pick.authorUrl === 'https://www.flickr.com/photos/sp/' && j.pick.licence === 'CC BY 2.0' && j.pick.review === 'pending' && /^title/.test(j.pick.matched),
+    'fetch-openverse: a matching Flickr result becomes a review-pending pick with full TASL and the matched field');
+  ok(fo.judge(r({ license: 'by-nc' }), t, new Set()).why && fo.judge(r({ width: 400 }), t, new Set()).why && fo.judge(r({ title: 'Goh Chor Tua Pek Kong Temple 1932' }), t, new Set()).why &&
+    fo.judge(r({}), t, new Set(['https://www.flickr.com/photos/sp/123/'])).why && fo.judge(r({ title: 'A temple' }), t, new Set()).why,
+    'fetch-openverse: NC, too small, historic (pre-1950, D-50), already credited/refused, and unnamed results are refused');
+  ok(fo.pages(r({ source: 'wikimedia', foreign_landing_url: 'https://commons.wikimedia.org/wiki/File:X_y.jpg' })).commonsTitle === 'File:X y.jpg' && fo.pages(r({ source: 'smithsonian_x', foreign_landing_url: 'https://collections.si.edu/obj/1' })).provider === 'openverse' && fo.pages(r({ source: 'met', foreign_landing_url: 'http://x' })).why,
+    'fetch-openverse: Commons results keep their File: page, museum results their https landing page; others are refused');
+  ok(fo.ruleGap('venue (BAR) — never a photo') && !fo.ruleGap('no file found (wave 5 search)') && !fo.ruleGap(undefined), 'fetch-openverse: rule gaps stay closed; "no usable Commons photo" gaps are open to Openverse');
+  const ts = fo.targets({ classes: [], keys: [], pending: false });
+  ok(ts.length > 0 && ts.every((x, i) => i === 0 || fo.CLASSES.indexOf(ts[i - 1].cls) <= fo.CLASSES.indexOf(x.cls)) && !ts.some(x => x.cls === 'food') && !ts.some(x => /^landmark:vietnam\//.test(x.key)),
+    'fetch-openverse: targets are ordered hero → priority → tier 1 → other, no food until D-49, never Vietnam');
+}
+{ // R8 owner directive: fetch-flickr.js fills only the stated gaps, with honest licences, matching and laundering guards
+  const ff = require('./fetch-flickr');
+  ok(ff.flickrGap('no file found (wave 5 search) — calm cover (stated, W8)') && ff.flickrGap('both vetted Commons files refused (a plain beach; a housing estate)') &&
+    !ff.flickrGap('venue (a bar) — never a photo') && !ff.flickrGap('modern artwork, no US FoP') && !ff.flickrGap('Vietnam has no freedom of panorama') && !ff.flickrGap('indoor themed ride: …') && !ff.flickrGap(''),
+    'fetch-flickr: only "no usable Commons photo" gaps are targets — never venues, art, Vietnam, themed rides');
+  ok(ff.licenceOf('by', '2.0').licence === 'CC BY 2.0' && ff.licenceOf('by-sa', '4.0').licenceUrl === 'https://creativecommons.org/licenses/by-sa/4.0/' && ff.licenceOf('pdm').licence === 'Public domain' &&
+    ff.licenceOf('cc0').licence === 'CC0 1.0' && ff.licenceOf('nkcr').licenceUrl === 'https://www.flickr.com/commons/usage/' && ff.licenceOf('by-nc', '2.0').why && ff.licenceOf('by-nd', '4.0').why && ff.licenceOf('', '').why,
+    'fetch-flickr: CC0 / PDM / no known restrictions / CC BY / CC BY-SA kept with deed links; NC, ND and unknown refused');
+  const t = { label: 'Goh Chor Tua Pek Kong Temple', names: [], town: ['balestier'] };
+  ok(ff.matches({ title: 'Goh Chor Tua Pek Kong Temple, Balestier', tags: [] }, Object.assign({ radius: 1.5 }, t)).ok && ff.matches({ title: 'Temple at dusk', tags: ['balestier'] }, Object.assign({ radius: 1.5 }, t)).why &&
+    ff.matches({ title: 'Tua Pek Kong', tags: [] }, Object.assign({ radius: 1.5 }, t)).why && ff.matches({ title: 'Tua Pek Kong temple', tags: ['balestier'] }, Object.assign({ radius: 1.5 }, t)).ok && ff.matches({ title: 'Pek Kong shrine', tags: [], lat: 1.40, lon: 103.9 }, Object.assign({ radius: 1.5, la: 1.325, ln: 103.85 }, t)).why,
+    'fetch-flickr: a result must name the place in its title and be confirmed by a second name word, the town or a geotag in range');
+  ok(ff.refusal({ title: 'Temple — press photo', tags: [], creator: 'x' }, t) && ff.refusal({ title: 'Temple', description: 'Photo by John Smith', tags: [], creator: 'aphotog' }, t) &&
+    ff.refusal({ title: 'Temple signage close-up', tags: [], creator: 'x' }, t) && !ff.refusal({ title: 'Goh Chor Tua Pek Kong Temple facade', tags: ['singapore'], creator: 'x' }, t),
+    'fetch-flickr: laundering (press/©/someone else credited) and subject (signage, close-up) refusals');
+  ok(ff.profileOf('https://www.flickr.com/photos/12345678@N00') === 'https://www.flickr.com/photos/12345678@N00/' && ff.photoPageOf('https://www.flickr.com/photos/abc/5123456789/in/photostream') === 'https://www.flickr.com/photos/abc/5123456789/' && !ff.photoPageOf('https://example.org/x'),
+    'fetch-flickr: author profile and photo page URLs normalised; non-Flickr pages refused');
+  ok(ff.nameWords('Dempsey Hill — guide hero').join(' ') === 'dempsey', 'fetch-flickr: a hero label\'s " — guide hero" suffix is never a name word');
+  const base = { file: 'x--y-960.jpg', record: { page: 'tokyo', id: 'senso-ji' }, depicts: 'x', author: 'A', licence: 'CC BY 2.0', licenceUrl: 'https://creativecommons.org/licenses/by/2.0/', provider: 'flickr' };
+  ok(!photos.creditProblems(Object.assign({}, base, { sourceUrl: 'https://www.flickr.com/photos/abc/123/', authorUrl: 'https://www.flickr.com/photos/abc/' })).filter(x => !/file|not found|width|height/i.test(x)).length &&
+    photos.creditProblems(Object.assign({}, base, { sourceUrl: 'https://www.flickr.com/photos/abc/123/' })).some(x => /authorUrl/.test(x)) &&
+    photos.creditProblems(Object.assign({}, base, { sourceUrl: 'https://example.org/1', authorUrl: 'https://www.flickr.com/photos/abc/' })).some(x => /flickr\.com\/photos/.test(x)) &&
+    photos.creditProblems(Object.assign({}, base, { licence: 'CC BY-NC 2.0', sourceUrl: 'https://www.flickr.com/photos/abc/123/', authorUrl: 'https://www.flickr.com/photos/abc/' })).some(x => /licence/.test(x)) &&
+    photos.creditProblems(Object.assign({}, base, { provider: 'wikimedia-commons', licence: 'No known copyright restrictions', licenceUrl: 'https://www.flickr.com/commons/usage/', sourceUrl: 'https://commons.wikimedia.org/wiki/File:X.jpg' })).some(x => /Flickr Commons/.test(x)),
+    'credit gate: a Flickr row needs its photo page and the author\'s profile; NC refused; "no known restrictions" only for Flickr');
+  ok(/Photo: <a href="https:\/\/www\.flickr\.com\/photos\/abc\/"[^>]*>A<\/a> · <a [^>]*>CC BY 2\.0<\/a> · <a href="https:\/\/www\.flickr\.com\/photos\/abc\/123\/"[^>]*>Flickr<\/a>/.test(photos.captionHtml(Object.assign({}, base, { sourceUrl: 'https://www.flickr.com/photos/abc/123/', authorUrl: 'https://www.flickr.com/photos/abc/' }))),
+    'credit: a Flickr caption links the author\'s profile, the licence deed and the Flickr photo page (TASL)');
 }
 { // DESIGN-SYSTEM §v2.7a: designed food covers — the city ground (two data-URI url()s, < 1 KB together) and the no-repeat glyph rule
   const m = require('./motifs');

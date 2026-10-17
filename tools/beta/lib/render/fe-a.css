@@ -795,10 +795,15 @@ html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail:focus-withi
   html:root{--bar-h:48px}
   html body main[data-city]>.cbar{position:relative;top:auto}
   html body main[data-city]>nav.rail#cleo-rail{position:relative;top:auto}
-  html body main[data-city] .views[data-cleo-views]{position:fixed;top:2px;right:112px;z-index:60;width:auto;height:44px;margin:0;padding:2px}
-  html body main[data-city] .views[data-cleo-views] button{height:40px;min-height:0;padding:0 var(--s-3)}
+  /* QA-80: the switch must be ABOVE the header, so its row makes no stacking context (z-index:auto); it is icon-only (44 px
+     segments, the label kept as the accessible name) and sits between the language switch and search, covering nothing */
+  html body main[data-city]>.cbar{z-index:auto}
+  html body main[data-city] .views[data-cleo-views]{position:fixed;top:2px;right:116px;z-index:60;width:auto;height:44px;margin:0;padding:2px}
+  html body main[data-city] .views[data-cleo-views] button{width:44px;min-width:44px;height:40px;min-height:0;padding:0;justify-content:center}
+  html body main[data-city] .views[data-cleo-views] button>.ico{display:inline-block}
+  html body main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   html.atlas-m[data-view=atlas]:root{--cbar-o:0px}
-  html.atlas-m[data-view=atlas] body main[data-city]>.cbar{height:0;min-height:0;background:transparent;border:0;pointer-events:none}
+  html.atlas-m[data-view=atlas] body main[data-city]>.cbar{height:0;min-height:0;background:transparent;border:0;pointer-events:none;z-index:47}   /* QA-80: a fixed row is a stacking context; at height 0 it covers nothing, and its switch paints above the header */
   html.atlas-m[data-view=atlas] body main[data-city]>.cbar .views{pointer-events:auto}
 }
 /* desktop and tablet scroll pages: the view switch already rides in the header (≥ 1024), so the search row and the category
@@ -824,9 +829,20 @@ html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail:focus-withi
 html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.mappill,
 html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.toolbar{display:none!important}
 /* OV-00 P2 at rest (header 52 + switch row 52 ≤ 16 %): on phones and tablets the switch row is the switch itself, no padding */
-@media (max-width:1023px){html body main[data-city]>.cbar>.cbar-in{padding-block:0}}
+@media (max-width:1023px){html body main[data-city]{--cbar-h:53px}html body main[data-city]>.cbar>.cbar-in{padding-block:0;min-height:0}}   /* OV-113: T1 at rest 52 + 53 = 10.3 % (≤ 11) */
 /* OV (platform, marked block): the "Keep <city> offline" control is in-flow page content; in the phone/tablet Atlas
    layout the full-bleed map and its bars are fixed over the page, so the control would sit under them, covered and
    unreachable (overlay audit: tools/beta/qa/overlay/platform-overlay.js). It is offered in every other view instead. */
 html.atlas-m[data-view=atlas] [data-cleo-pack]{display:none!important}
 /* /OV platform */
+/* OV-101 (T1, 768–1023 phone-style Atlas, ≤ 18 % at rest): the view switch rides in the header row, as in landscape
+   (QA-80 pattern: icon-only 44 px segments, labels kept as names, painted above the header, covering nothing), so the
+   switch row's 53 px go back to the map; the Atlas lane's chip row and peek fit the rest */
+@media (min-width:768px) and (max-width:1023px) and (min-height:500px){
+  html.atlas-m[data-view=atlas]:root{--cbar-o:0px}
+  html.atlas-m[data-view=atlas] body main[data-city]>.cbar{height:0;min-height:0;background:transparent;border:0;pointer-events:none;z-index:47}
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views]{position:fixed;top:4px;right:116px;z-index:60;width:auto;height:44px;margin:0;padding:2px;pointer-events:auto}
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button{width:44px;min-width:44px;height:40px;min-height:0;padding:0;justify-content:center}
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button>.ico{display:inline-block}
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}

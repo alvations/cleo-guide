@@ -180,9 +180,9 @@
       panel = document.createElement('div');
       panel.className = 'searchpanel';
       panel.setAttribute('role', 'dialog');
-      panel.setAttribute('aria-label', tt('shell.search', 'Search every place'));
+      panel.setAttribute('aria-label', tt('shell.search', 'Search all guides'));
       panel.innerHTML = '<div class="wrap"><form class="search compact" role="search" data-cleo-panel-form>' +
-        '<label class="vh" for="cleo-pq">' + tt('shell.search', 'Search every place') + '</label>' +
+        '<label class="vh" for="cleo-pq">' + tt('shell.search', 'Search all guides') + '</label>' +
         '<input id="cleo-pq" type="search" placeholder="' + esc(tt('land.search.ph', 'A city, a dish, a shrine…')) + '" autocomplete="off" enterkeyhint="search">' +
         '<button type="button" class="btn btn-icon btn-quiet" data-cleo-panel-close aria-label="' + esc(tt('srch.close', 'Close search')) + '"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close"/></svg></button>' +
         '</form><div class="results" aria-live="polite"></div></div>';
@@ -206,10 +206,14 @@
     panel.querySelector('input').focus();
   }
 
+  // §v2.12 3a (one search per screen): the page's own field is the search when it has one — the landing's hero, a city's
+  // field (FE-A #cleo-filter) — else the site-wide panel
+  // (under html.ov-c the city bar comes back by FE-A's .cbar:focus-within, so focusing the field is enough)
+  var field = function () { return document.getElementById('cleo-q') || document.getElementById('cleo-filter'); };
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('[data-cleo-search-open]') : null;
     if (!a) return;
-    var hero = document.getElementById('cleo-q');
+    var hero = field();
     e.preventDefault();
     if (hero) { hero.focus(); if (hero.scrollIntoView) hero.scrollIntoView({ block: 'center' }); return; }
     if (panel && !panel.hidden) close(); else open(a);
@@ -219,8 +223,11 @@
     if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
     var t = e.target, tag = t && t.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
-    var hero = document.getElementById('cleo-q');
+    var hero = field();
     e.preventDefault();
     if (hero) hero.focus(); else open(document.activeElement);
   });
+  // …and its last row is "Search all guides for “q”" — allguides.js, loaded on the city field's first focus (not eager)
+  var cf = document.getElementById('cleo-filter');   // Cleo.need: core.js, on every page
+  if (cf) cf.addEventListener('focus', function () { Cleo.need('allguides'); }, { once: true });
 })();
