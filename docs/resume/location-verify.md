@@ -70,9 +70,8 @@ Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` 
      - never fabricate;
      - when nothing better exists, the low label stays.
    - Tell the orchestrator when the queue is empty, so it can disable the daily trigger.
-   - **This checkpoint queue is authoritative.** It overrides the scheduled-task prompt, trig_01P2RWA4kn9SKwApTwLdtSrm, which still
-     lists "saarland, okinawa, rhineland, aachen". That prompt was left unedited: a peer session's request isn't a user request to
-     rewrite it.
+   - **This checkpoint queue is authoritative.** The scheduled-task prompt (trig_01P2RWA4kn9SKwApTwLdtSrm) was updated on
+     2026-10-17, at the user's "make sure the agents continue", to match the D-43 order and the chaining rule.
    - **Step 3 is chained within one wake** (orchestrator, 2026-10-16):
      - push one REQUEST at a time and wait for each report;
      - stop when the day's remaining allowance can't cover the next city.
