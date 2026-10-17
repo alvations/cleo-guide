@@ -1,0 +1,4104 @@
+{
+ "generated": "2026-10-17T01:49:16.460Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "landing",
+    "vw": 390,
+    "vh": 844,
+    "title": "Cleo — sourced city guides",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 382,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 675,
+    "upperNodes": 45,
+    "upperPct": 6.7,
+    "minFontPx": 12,
+    "minFontEl": "p.kicker \"Sourced city guides\"",
+    "contrastChecked": 576,
+    "contrastUnknown": 5,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": true,
+    "railTop": 4240,
+    "railOnFirstScreen": false,
+    "railItems": 2,
+    "railFirst": "★ United StatesSan Francisco classicsin ",
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1764,
+    "fcp": 324,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 10,
+     "Inter": 647
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 97,
+      "IPAGothic": 8,
+      "Inter": 8877,
+      "WenQuanYi Zen Hei": 4,
+      "Inter SemiBold": 2
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": [
+      "WenQuanYi Zen Hei"
+     ]
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1956720,
+    "bytesAllResponses": 1956720,
+    "initial": {
+     "bytes": 1063414,
+     "gz": 754195
+    },
+    "session": {
+     "bytes": 1956720,
+     "byType": {
+      "html": 112100,
+      "css": 238337,
+      "js": 39159,
+      "jpg": 1481452,
+      "woff2": 85672
+     },
+     "top": [
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/index.html",
+       112100
+      ],
+      [
+       "/beta/assets/img/photos/hero--singapore--toa-payoh-500.jpg",
+       45278
+      ],
+      [
+       "/beta/assets/img/photos/hero--osaka-500.jpg",
+       45215
+      ],
+      [
+       "/beta/assets/img/photos/hero--orlando-500.jpg",
+       43817
+      ],
+      [
+       "/beta/assets/img/photos/hero--singapore--newton-novena-500.jpg",
+       43375
+      ],
+      [
+       "/beta/assets/img/photos/hero--rhineland-500.jpg",
+       43244
+      ],
+      [
+       "/beta/assets/img/photos/hero--aachen-500.jpg",
+       43056
+      ],
+      [
+       "/beta/assets/img/photos/hero--singapore--ang-mo-kio-500.jpg",
+       42292
+      ],
+      [
+       "/beta/assets/img/photos/hero--youngstown-500.jpg",
+       41173
+      ],
+      [
+       "/beta/assets/img/photos/hero--bruges-500.jpg",
+       40760
+      ],
+      [
+       "/beta/assets/img/photos/hero--singapore--potong-pasir-macpherson-500.jpg",
+       39476
+      ],
+      [
+       "/beta/assets/img/photos/hero--brussels-500.jpg",
+       39237
+      ],
+      [
+       "/beta/assets/img/photos/hero--ghent-500.jpg",
+       38306
+      ],
+      [
+       "/beta/assets/img/photos/hero--harrisburg-500.jpg",
+       37951
+      ]
+     ]
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 576,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "landing",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Cleo — sourced city guides",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 533,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 968,
+    "upperNodes": 45,
+    "upperPct": 4.6,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 873,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": true,
+    "railTop": 3704,
+    "railOnFirstScreen": false,
+    "railItems": 6,
+    "railFirst": "★ United StatesSan Francisco classicsin ",
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1764,
+    "fcp": 288,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 6,
+     "Inter": 695
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 72,
+      "Inter": 9547,
+      "IPAGothic": 8,
+      "WenQuanYi Zen Hei": 4,
+      "Inter SemiBold": 6
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": [
+      "WenQuanYi Zen Hei"
+     ]
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1968576,
+    "bytesAllResponses": 1968576,
+    "initial": {
+     "bytes": 1110513,
+     "gz": 801294
+    },
+    "session": {
+     "bytes": 1968576,
+     "byType": {
+      "html": 112100,
+      "css": 238337,
+      "js": 39159,
+      "woff2": 97528,
+      "jpg": 1481452
+     },
+     "top": [
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/index.html",
+       112100
+      ],
+      [
+       "/beta/assets/img/photos/hero--singapore--toa-payoh-500.jpg",
+       45278
+      ],
+      [
+       "/beta/assets/img/photos/hero--osaka-500.jpg",
+       45215
+      ],
+      [
+       "/beta/assets/img/photos/hero--orlando-500.jpg",
+       43817
+      ],
+      [
+       "/beta/assets/img/photos/hero--singapore--newton-novena-500.jpg",
+       43375
+      ],
+      [
+       "/beta/assets/img/photos/hero--rhineland-500.jpg",
+       43244
+      ],
+      [
+       "/beta/assets/img/photos/hero--aachen-500.jpg",
+       43056
+      ],
+      [
+       "/beta/assets/img/photos/hero--singapore--ang-mo-kio-500.jpg",
+       42292
+      ],
+      [
+       "/beta/assets/img/photos/hero--youngstown-500.jpg",
+       41173
+      ],
+      [
+       "/beta/assets/img/photos/hero--bruges-500.jpg",
+       40760
+      ],
+      [
+       "/beta/assets/img/photos/hero--singapore--potong-pasir-macpherson-500.jpg",
+       39476
+      ],
+      [
+       "/beta/assets/img/photos/hero--brussels-500.jpg",
+       39237
+      ],
+      [
+       "/beta/assets/img/photos/hero--ghent-500.jpg",
+       38306
+      ],
+      [
+       "/beta/assets/img/photos/hero--harrisburg-500.jpg",
+       37951
+      ]
+     ]
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 873,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 13319
+   },
+   "cpu4x": {
+    "fcp": 312,
+    "dcl": 1142,
+    "loadMs": 1185
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic, Inter SemiBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "6.7% (45/675)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px p.kicker \"Sourced city guides\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1922 KB · 1764 nodes · 288 ms · 312 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "783 KB (1,084 KB) · 737 KB (1,038 KB)"
+     }
+    },
+    "passed": 11,
+    "total": 11,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "cleveland.html",
+   "gen": "new",
+   "expected": {
+    "total": 194,
+    "sights": 148,
+    "food": 46,
+    "live": "cleveland.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Cleveland — 194 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 55,
+    "cardsVisible": 36,
+    "legacy": false,
+    "firstCardTop": 307,
+    "screensToFirstCard": 0.36,
+    "mastheadPx": 0,
+    "controlsAbove": 13,
+    "controlsAboveOnScreen": 13,
+    "controlsAboveList": [
+     "a.c0 \"USUnited States\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Atlas\"",
+     "button \"Gallery\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-10-16\"",
+     "button \"All 194\"",
+     "button \"Sights 148\"",
+     "button \"Eat & drink 46\"",
+     "button.chip.ms-top \"Top picks\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 321,
+    "upperNodes": 14,
+    "upperPct": 4.4,
+    "minFontPx": 12,
+    "minFontEl": "button.pl-save.heart \"Save\"",
+    "contrastChecked": 298,
+    "contrastUnknown": 6,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"AtlasGalleryGuidebookIns\"",
+     "div.ms-bar.ms-fr \"Search Clevelandplace · \"",
+     "div#cleo-grid.listpane.w7-cards \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 334,
+    "cardsPerScreen": 2.53,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2618,
+    "fcp": 180,
+    "fontSampleN": 304,
+    "fontsDeclared": {
+     "Inter": 486,
+     "Bricolage Grotesque": 8
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Inter": 5910,
+      "IPAGothic": 3,
+      "Bricolage Grotesque 96pt ExtraBold": 91
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1429603,
+    "bytesAllResponses": 1429603,
+    "initial": {
+     "bytes": 1251986,
+     "gz": 451075
+    },
+    "session": {
+     "bytes": 1429603,
+     "byType": {
+      "html": 325084,
+      "css": 395518,
+      "svg": 17008,
+      "js": 318228,
+      "woff2": 73828,
+      "json": 3820,
+      "jpg": 296117
+     },
+     "top": [
+      [
+       "/beta/cleveland.html",
+       325084
+      ],
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/assets/fe-a.css",
+       173379
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.js",
+       147552
+      ],
+      [
+       "/beta/assets/js/atlas.js",
+       59618
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--soldiers-and-sailors-monument-500.jpg",
+       44785
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--the-arcade-old-arcade-500.jpg",
+       44702
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--terminal-tower-observation-deck-500.jpg",
+       42943
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--rocky-river-reservation-and-fort-hill-stairs-500.jpg",
+       41652
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--a-christmas-story-house-and-museum-500.jpg",
+       37991
+      ],
+      [
+       "/beta/assets/fonts/bricolage-normal-latin.woff2",
+       36352
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--virginia-kendall-ledges-overlook-500.jpg",
+       30855
+      ],
+      [
+       "/beta/assets/js/city.js",
+       30645
+      ],
+      [
+       "/beta/assets/fonts/inter-normal-latin.woff2",
+       30440
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--lake-view-cemetery-whole-grounds-500.jpg",
+       30308
+      ]
+     ]
+    },
+    "offOriginBlocked": 40,
+    "night": {
+     "contrastChecked": 298,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 94,
+     "clearPct": 75,
+     "photos": 0,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": {
+      "text": "73 places here · checked 10 Aug · Show list",
+      "w": 390,
+      "h": 56
+     },
+     "named": 8,
+     "namedEg": [
+      "West Side Market",
+      "Chess Collection",
+      "Superior Phở",
+      "The Arcade",
+      "Great Lakes Brewing Co."
+     ],
+     "pinsNamed": 8,
+     "cardsNamed": 0
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 390,
+      "h": 56,
+      "name": "map-first: 73 places here · checked 10 Aug · Show list",
+      "mapFirst": true,
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "the-arcade-old-arcade",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 490,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 490,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Cleveland — 194 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 55,
+    "cardsVisible": 36,
+    "legacy": false,
+    "firstCardTop": 406,
+    "screensToFirstCard": 0.45,
+    "mastheadPx": null,
+    "controlsAbove": 27,
+    "controlsAboveOnScreen": 27,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"USUnited States\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button \"Atlas\"",
+     "button \"Gallery\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a \"last checked 2026-10-16\"",
+     "a \"How we choose\"",
+     "input#cleo-filter",
+     "button \"All 194\"",
+     "button \"Sights 148\"",
+     "button \"Eat & drink 46\"",
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.chip.ms-mine \"Saved\"",
+     "select \"Top rankedMost sourcesA–\"",
+     "button.btn.btn-quiet \"For you\"",
+     "button.btn.btn-quiet \"Your day\"",
+     "button.btn.btn-quiet \"Near me\""
+    ],
+    "tapSmall": 5,
+    "tapSmallKinds": {
+     "button": 4,
+     "input#cleo-filter 286x25": 1
+    },
+    "tapSmallList": [
+     "button \"Atlas\" 113x36",
+     "button \"Gallery\" 113x36",
+     "button \"Guidebook\" 113x36",
+     "button \"Insights\" 113x36",
+     "input#cleo-filter 286x25"
+    ],
+    "textNodes": 371,
+    "upperNodes": 13,
+    "upperPct": 3.5,
+    "minFontPx": 12,
+    "minFontEl": "p.nopin \"1 approximate pin\"",
+    "contrastChecked": 342,
+    "contrastUnknown": 10,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.ms-head \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 339,
+    "cardsPerScreen": 2.66,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2601,
+    "fcp": 168,
+    "fontSampleN": 352,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 16,
+     "Inter": 557
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 233,
+      "Inter": 8371,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 28,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 194,
+     "scrolled": 194,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 194,
+      "ok": 194,
+      "bad": []
+     },
+     "search": {
+      "n": 28,
+      "ok": 28,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 194 places",
+     "groups": [
+      "AreaDowntown & The F",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byNews 5",
+      "Recommended by",
+      "CuisineVietnamese 4S",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "RecognitionCited by ",
+      "Recognition"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 2050555,
+    "bytesAllResponses": 2050555,
+    "initial": {
+     "bytes": 1550716,
+     "gz": 749805
+    },
+    "session": {
+     "bytes": 2050555,
+     "byType": {
+      "html": 325084,
+      "css": 395518,
+      "svg": 17008,
+      "js": 328866,
+      "woff2": 127664,
+      "jpg": 684746,
+      "json": 171669
+     },
+     "top": [
+      [
+       "/beta/cleveland.html",
+       325084
+      ],
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/assets/fe-a.css",
+       173379
+      ],
+      [
+       "/beta/data/places/cleveland.json",
+       167195
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.js",
+       147552
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--the-arcade-old-arcade-960.jpg",
+       107034
+      ],
+      [
+       "/beta/assets/js/atlas.js",
+       59618
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--soldiers-and-sailors-monument-500.jpg",
+       44785
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--the-arcade-old-arcade-500.jpg",
+       44702
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--cuyahoga-valley-national-park-500.jpg",
+       44139
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--franklin-castle-500.jpg",
+       43685
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--terminal-tower-observation-deck-500.jpg",
+       42943
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--squires-castle-500.jpg",
+       42831
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--st-theodosius-russian-orthodox-cathedral-500.jpg",
+       42433
+      ],
+      [
+       "/beta/assets/img/photos/cleveland--rocky-river-reservation-and-fort-hill-stairs-500.jpg",
+       41652
+      ]
+     ]
+    },
+    "offOriginBlocked": 112,
+    "night": {
+     "contrastChecked": 338,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0.0001
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 88,
+     "clearPct": 88,
+     "photos": 1,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": null,
+     "named": 14,
+     "namedEg": [
+      "West Side Market",
+      "Chess Collection",
+      "Superior Phở",
+      "The Arcade",
+      "Li Wah"
+     ],
+     "pinsNamed": 13,
+     "cardsNamed": 2
+    },
+    "sync": {
+     "mounted": true,
+     "mapWidthPct": 64,
+     "split": true,
+     "sticky": true,
+     "markers": 16,
+     "pinned": 36,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 16,
+     "hoverHighlights": true,
+     "pinClick": {
+      "cardHighlighted": true,
+      "cardInView": true,
+      "sheet": true
+     },
+     "orderingStated": true
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 194,
+    "text": 20236
+   },
+   "cpu4x": {
+    "fcp": 328,
+    "dcl": 560,
+    "loadMs": 1174
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": null,
+      "val": "0.36 (Atlas: recorded; see B-01a)"
+     },
+     "B-01a Atlas first screen: clear map ≥ 75 %, peek tray, ≥ 3 real places named (D-46, §1.7)": {
+      "pass": true,
+      "val": "phone clear 75% (box 94%) · tray \"73 places here · checked 10 Aug · Show list\" 390×56 · named 8 (West Side Market, Chess Collection, Superior Phở) · desktop named 14"
+     },
+     "B-01b first-screen art: phone photo; desktop city name, dek, lead photo (§1.7)": {
+      "pass": null,
+      "val": "WARN · phone photos 0 (gate warn) · desktop intro city ✗ dek ✗ leadPhoto ✗ (gate warn)"
+     },
+     "B-24 first load: CLS < 0.01, view set before first paint (D-46)": {
+      "pass": true,
+      "val": "CLS 0 / 0.0001 · view at paint atlas→atlas / atlas→atlas"
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 0
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "13 on-screen / 13 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": null,
+      "val": "Atlas (D-36, D-46): recorded — no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": true,
+      "val": "split true, sticky true, map 64%, hover→pin true, pin→card true"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 390×56, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": true,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 16, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 194 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.53
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 194 · DOM 194 · scrolled 194 · deep 194/194 · search 28/28 · no-JS 194"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Inter, Bricolage Grotesque · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "4.4% (14/321)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px button.pl-save.heart \"Save\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 152"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "2002 KB · 2601 nodes · 168 ms · 328 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "732 KB (1,514 KB) · 441 KB (1,223 KB)"
+     }
+    },
+    "passed": 25,
+    "total": 25,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "cities/tokyo.html",
+   "gen": "new",
+   "expected": {
+    "total": 488,
+    "sights": 263,
+    "food": 225,
+    "live": "cities/tokyo.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 48,
+    "cardsVisible": 36,
+    "legacy": false,
+    "firstCardTop": 307,
+    "screensToFirstCard": 0.36,
+    "mastheadPx": 0,
+    "controlsAbove": 12,
+    "controlsAboveOnScreen": 12,
+    "controlsAboveList": [
+     "a.c0 \"Japan\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Atlas\"",
+     "button \"Gallery\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button \"All 488\"",
+     "button \"Sights 263\"",
+     "button \"Eat & drink 225\"",
+     "button.chip.ms-top \"Top picks\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 339,
+    "upperNodes": 15,
+    "upperPct": 4.4,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: john w · CC BY 2.\"",
+    "contrastChecked": 315,
+    "contrastUnknown": 7,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"AtlasGalleryGuidebookIns\"",
+     "div.ms-bar.ms-fr \"Search Tokyoplace · dish\"",
+     "div#cleo-grid.listpane.w7-cards \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 336,
+    "cardsPerScreen": 2.52,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2990,
+    "fcp": 156,
+    "fontSampleN": 322,
+    "fontsDeclared": {
+     "Inter": 490,
+     "Bricolage Grotesque": 15,
+     "Hiragino Sans": 8
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Inter": 5161,
+      "IPAGothic": 387,
+      "Bricolage Grotesque 96pt ExtraBold": 100
+     },
+     "primary": [
+      "Inter",
+      "IPAGothic",
+      "Bricolage Grotesque 96pt ExtraBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 2006588,
+    "bytesAllResponses": 2006588,
+    "initial": {
+     "bytes": 1804136,
+     "gz": 596463
+    },
+    "session": {
+     "bytes": 2006588,
+     "byType": {
+      "html": 785857,
+      "css": 395518,
+      "svg": 38368,
+      "js": 318228,
+      "woff2": 78648,
+      "json": 6010,
+      "jpg": 383959
+     },
+     "top": [
+      [
+       "/beta/cities/tokyo.html",
+       785857
+      ],
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/assets/fe-a.css",
+       173379
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.js",
+       147552
+      ],
+      [
+       "/beta/assets/js/atlas.js",
+       59618
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--imperial-palace-east-gardens-500.jpg",
+       45881
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--asukayama-park-500.jpg",
+       45587
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--suga-shrine-stairs-yotsuya-500.jpg",
+       38951
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--zojo-ji-500.jpg",
+       38930
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--shibamata-taishakuten-500.jpg",
+       38454
+      ],
+      [
+       "/beta/assets/fonts/bricolage-normal-latin.woff2",
+       36352
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--ukiyo-e-ota-memorial-museum-of-art-500.jpg",
+       35898
+      ],
+      [
+       "/beta/assets/art/tokyo/map.svg",
+       35837
+      ],
+      [
+       "/beta/assets/js/city.js",
+       30645
+      ],
+      [
+       "/beta/assets/fonts/inter-normal-latin.woff2",
+       30440
+      ]
+     ]
+    },
+    "offOriginBlocked": 40,
+    "night": {
+     "contrastChecked": 315,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 94,
+     "clearPct": 75,
+     "photos": 0,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": {
+      "text": "351 places here · checked 2 Oct · Show list",
+      "w": 390,
+      "h": 56
+     },
+     "named": 7,
+     "namedEg": [
+      "Edo-Tokyo Museum",
+      "Imperial Palace East Gardens",
+      "Tsukiji Hongan-ji",
+      "Tokyo National Museum",
+      "Udatsu Sushi"
+     ],
+     "pinsNamed": 7,
+     "cardsNamed": 0
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 390,
+      "h": 56,
+      "name": "map-first: 351 places here · checked 2 Oct · Show list",
+      "mapFirst": true,
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "tsukiji-hongan-ji",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 490,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 490,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 47,
+    "cardsVisible": 36,
+    "legacy": false,
+    "firstCardTop": 406,
+    "screensToFirstCard": 0.45,
+    "mastheadPx": null,
+    "controlsAbove": 25,
+    "controlsAboveOnScreen": 25,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button \"Atlas\"",
+     "button \"Gallery\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"All 488\"",
+     "button \"Sights 263\"",
+     "button \"Eat & drink 225\"",
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.chip.ms-mine \"Saved\"",
+     "select \"Top rankedMost sourcesA–\"",
+     "button.btn.btn-quiet \"For you\"",
+     "button.btn.btn-quiet \"Your day\"",
+     "button.btn.btn-quiet \"Near me\""
+    ],
+    "tapSmall": 5,
+    "tapSmallKinds": {
+     "button": 4,
+     "input#cleo-filter 286x25": 1
+    },
+    "tapSmallList": [
+     "button \"Atlas\" 113x36",
+     "button \"Gallery\" 113x36",
+     "button \"Guidebook\" 113x36",
+     "button \"Insights\" 113x36",
+     "input#cleo-filter 286x25"
+    ],
+    "textNodes": 392,
+    "upperNodes": 15,
+    "upperPct": 3.8,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: john w · CC BY 2.\"",
+    "contrastChecked": 363,
+    "contrastUnknown": 10,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.ms-head \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 318,
+    "cardsPerScreen": 2.83,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2929,
+    "fcp": 168,
+    "fontSampleN": 373,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 23,
+     "Inter": 564,
+     "Hiragino Sans": 8
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 803,
+      "Inter": 7705,
+      "IPAGothic": 387
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 28,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 488,
+     "scrolled": 488,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 488,
+      "ok": 488,
+      "bad": []
+     },
+     "search": {
+      "n": 26,
+      "ok": 26,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 488 places",
+     "groups": [
+      "AreaChiyoda-ku 43Chū",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionAnime, man",
+      "Collection",
+      "CuisineSushi & kaise",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 3854000,
+    "bytesAllResponses": 3854000,
+    "initial": {
+     "bytes": 2045503,
+     "gz": 837830
+    },
+    "session": {
+     "bytes": 3854000,
+     "byType": {
+      "html": 785857,
+      "css": 395518,
+      "svg": 38368,
+      "woff2": 78648,
+      "js": 328866,
+      "jpg": 1677335,
+      "json": 549408
+     },
+     "top": [
+      [
+       "/beta/cities/tokyo.html",
+       785857
+      ],
+      [
+       "/beta/data/places/tokyo.json",
+       454252
+      ],
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/assets/fe-a.css",
+       173379
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.js",
+       147552
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--imperial-palace-east-gardens-960.jpg",
+       105337
+      ],
+      [
+       "/beta/data/links/tokyo.json",
+       89146
+      ],
+      [
+       "/beta/assets/js/atlas.js",
+       59618
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--imperial-palace-east-gardens-500.jpg",
+       45881
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--kegon-falls-500.jpg",
+       45596
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--asukayama-park-500.jpg",
+       45587
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--chidorigafuchi-500.jpg",
+       45572
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--kameido-tenjin-shrine-500.jpg",
+       44732
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--mount-takao-500.jpg",
+       44550
+      ],
+      [
+       "/beta/assets/img/photos/tokyo--koishikawa-korakuen-500.jpg",
+       43410
+      ]
+     ]
+    },
+    "offOriginBlocked": 72,
+    "night": {
+     "contrastChecked": 360,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0.0001
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 88,
+     "clearPct": 88,
+     "photos": 2,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": null,
+     "named": 16,
+     "namedEg": [
+      "Edo-Tokyo Museum",
+      "Imperial Palace East Gardens",
+      "Tsukiji Hongan-ji",
+      "Toraya Akasaka flagship",
+      "Suga Shrine stairs"
+     ],
+     "pinsNamed": 15,
+     "cardsNamed": 2
+    },
+    "sync": {
+     "mounted": true,
+     "mapWidthPct": 64,
+     "split": true,
+     "sticky": true,
+     "markers": 16,
+     "pinned": 36,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 16,
+     "hoverHighlights": true,
+     "pinClick": {
+      "cardHighlighted": true,
+      "cardInView": true,
+      "sheet": true
+     },
+     "orderingStated": true
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 488,
+    "text": 19012
+   },
+   "cpu4x": {
+    "fcp": 384,
+    "dcl": 849,
+    "loadMs": 1669
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": null,
+      "val": "0.36 (Atlas: recorded; see B-01a)"
+     },
+     "B-01a Atlas first screen: clear map ≥ 75 %, peek tray, ≥ 3 real places named (D-46, §1.7)": {
+      "pass": true,
+      "val": "phone clear 75% (box 94%) · tray \"351 places here · checked 2 Oct · Show list\" 390×56 · named 7 (Edo-Tokyo Museum, Imperial Palace East Gardens, Tsukiji Hongan-ji) · desktop named 16"
+     },
+     "B-01b first-screen art: phone photo; desktop city name, dek, lead photo (§1.7)": {
+      "pass": null,
+      "val": "WARN · phone photos 0 (gate warn) · desktop intro city ✗ dek ✗ leadPhoto ✗ (gate warn)"
+     },
+     "B-24 first load: CLS < 0.01, view set before first paint (D-46)": {
+      "pass": true,
+      "val": "CLS 0 / 0.0001 · view at paint atlas→atlas / atlas→atlas"
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 0
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "12 on-screen / 12 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": null,
+      "val": "Atlas (D-36, D-46): recorded — no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": true,
+      "val": "split true, sticky true, map 64%, hover→pin true, pin→card true"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 390×56, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": true,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 16, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 488 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.52
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 488 · DOM 488 · scrolled 488 · deep 488/488 · search 26/26 · no-JS 488"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Inter, Bricolage Grotesque · rendered here: Inter, IPAGothic, Bricolage Grotesque 96pt ExtraBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "4.4% (15/339)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: john w · CC BY 2.\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 112"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "3764 KB · 2929 nodes · 168 ms · 384 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "818 KB (1,998 KB) · 582 KB (1,762 KB)"
+     }
+    },
+    "passed": 25,
+    "total": 25,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "cities/newyork.html",
+   "gen": "new",
+   "expected": {
+    "total": 508,
+    "sights": 219,
+    "food": 289,
+    "live": "cities/newyork.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "New York City — 508 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 61,
+    "cardsVisible": 36,
+    "legacy": false,
+    "firstCardTop": 307,
+    "screensToFirstCard": 0.36,
+    "mastheadPx": 0,
+    "controlsAbove": 12,
+    "controlsAboveOnScreen": 12,
+    "controlsAboveList": [
+     "a.c0 \"USUnited States\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Atlas\"",
+     "button \"Gallery\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button \"All 508\"",
+     "button \"Sights 219\"",
+     "button \"Eat & drink 289\"",
+     "button.chip.ms-top \"Top picks\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 331,
+    "upperNodes": 15,
+    "upperPct": 4.5,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Hugo Schneider · \"",
+    "contrastChecked": 308,
+    "contrastUnknown": 6,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"AtlasGalleryGuidebookIns\"",
+     "div.ms-bar.ms-fr \"Search New York Cityplac\"",
+     "div#cleo-grid.listpane.w7-cards \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 349,
+    "cardsPerScreen": 2.42,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 3290,
+    "fcp": 148,
+    "fontSampleN": 314,
+    "fontsDeclared": {
+     "Inter": 500,
+     "Bricolage Grotesque": 12
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Inter": 5788,
+      "IPAGothic": 3,
+      "Bricolage Grotesque 96pt ExtraBold": 91
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1850995,
+    "bytesAllResponses": 1850995,
+    "initial": {
+     "bytes": 1704978,
+     "gz": 548111
+    },
+    "session": {
+     "bytes": 1850995,
+     "byType": {
+      "html": 709438,
+      "css": 395518,
+      "svg": 40224,
+      "woff2": 66792,
+      "js": 318228,
+      "json": 4699,
+      "jpg": 316096
+     },
+     "top": [
+      [
+       "/beta/cities/newyork.html",
+       709438
+      ],
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/assets/fe-a.css",
+       173379
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.js",
+       147552
+      ],
+      [
+       "/beta/assets/js/atlas.js",
+       59618
+      ],
+      [
+       "/beta/assets/img/photos/newyork--brooklyn-botanic-garden-500.jpg",
+       45899
+      ],
+      [
+       "/beta/assets/img/photos/newyork--empire-state-building-500.jpg",
+       45058
+      ],
+      [
+       "/beta/assets/img/photos/newyork--new-york-botanical-garden-500.jpg",
+       39195
+      ],
+      [
+       "/beta/assets/art/newyork/map.svg",
+       37275
+      ],
+      [
+       "/beta/assets/img/photos/newyork--dia-beacon-500.jpg",
+       36454
+      ],
+      [
+       "/beta/assets/fonts/bricolage-normal-latin.woff2",
+       36352
+      ],
+      [
+       "/beta/assets/img/photos/newyork--van-cortlandt-park-500.jpg",
+       34751
+      ],
+      [
+       "/beta/assets/img/photos/newyork--central-park-500.jpg",
+       34511
+      ],
+      [
+       "/beta/assets/js/city.js",
+       30645
+      ],
+      [
+       "/beta/assets/fonts/inter-normal-latin.woff2",
+       30440
+      ]
+     ]
+    },
+    "offOriginBlocked": 46,
+    "night": {
+     "contrastChecked": 308,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 94,
+     "clearPct": 75,
+     "photos": 0,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": {
+      "text": "280 places here · checked 10 Aug · Show list",
+      "w": 390,
+      "h": 56
+     },
+     "named": 8,
+     "namedEg": [
+      "The Metropolitan Museum of Art",
+      "Empire State Building",
+      "The Noguchi Museum",
+      "Radio City Music Hall",
+      "La Morada"
+     ],
+     "pinsNamed": 8,
+     "cardsNamed": 0
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 390,
+      "h": 56,
+      "name": "map-first: 280 places here · checked 10 Aug · Show list",
+      "mapFirst": true,
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "the-noguchi-museum",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 490,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 490,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "New York City — 508 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 55,
+    "cardsVisible": 36,
+    "legacy": false,
+    "firstCardTop": 406,
+    "screensToFirstCard": 0.45,
+    "mastheadPx": null,
+    "controlsAbove": 25,
+    "controlsAboveOnScreen": 25,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"USUnited States\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button \"Atlas\"",
+     "button \"Gallery\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"All 508\"",
+     "button \"Sights 219\"",
+     "button \"Eat & drink 289\"",
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.chip.ms-mine \"Saved\"",
+     "select \"Top rankedMost sourcesA–\"",
+     "button.btn.btn-quiet \"For you\"",
+     "button.btn.btn-quiet \"Your day\"",
+     "button.btn.btn-quiet \"Near me\""
+    ],
+    "tapSmall": 5,
+    "tapSmallKinds": {
+     "button": 4,
+     "input#cleo-filter 286x25": 1
+    },
+    "tapSmallList": [
+     "button \"Atlas\" 113x36",
+     "button \"Gallery\" 113x36",
+     "button \"Guidebook\" 113x36",
+     "button \"Insights\" 113x36",
+     "input#cleo-filter 286x25"
+    ],
+    "textNodes": 379,
+    "upperNodes": 14,
+    "upperPct": 3.7,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Hugo Schneider · \"",
+    "contrastChecked": 352,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.ms-head \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 318,
+    "cardsPerScreen": 2.83,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 3035,
+    "fcp": 160,
+    "fontSampleN": 360,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 20,
+     "Inter": 569
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 345,
+      "Inter": 8191,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 28,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 508,
+     "scrolled": 508,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 508,
+      "ok": 508,
+      "bad": []
+     },
+     "search": {
+      "n": 26,
+      "ok": 26,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 508 places",
+     "groups": [
+      "AreaManhattan 264Bro",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byNYC To",
+      "Recommended by",
+      "CollectionMuseums & ",
+      "Collection",
+      "CuisinePizza 23Itali",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 2909318,
+    "bytesAllResponses": 2909318,
+    "initial": {
+     "bytes": 2043853,
+     "gz": 886986
+    },
+    "session": {
+     "bytes": 2909318,
+     "byType": {
+      "html": 709438,
+      "css": 395518,
+      "svg": 40224,
+      "woff2": 66792,
+      "js": 328866,
+      "jpg": 1028405,
+      "json": 340075
+     },
+     "top": [
+      [
+       "/beta/cities/newyork.html",
+       709438
+      ],
+      [
+       "/beta/data/places/newyork.json",
+       331510
+      ],
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/assets/fe-a.css",
+       173379
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.js",
+       147552
+      ],
+      [
+       "/beta/assets/img/photos/newyork--the-metropolitan-museum-of-art-960.jpg",
+       91313
+      ],
+      [
+       "/beta/assets/js/atlas.js",
+       59618
+      ],
+      [
+       "/beta/assets/img/photos/newyork--american-museum-of-natural-history-500.jpg",
+       45933
+      ],
+      [
+       "/beta/assets/img/photos/newyork--brooklyn-botanic-garden-500.jpg",
+       45899
+      ],
+      [
+       "/beta/assets/img/photos/newyork--new-york-chinese-scholars-garden-500.jpg",
+       45569
+      ],
+      [
+       "/beta/assets/img/photos/newyork--flatiron-building-500.jpg",
+       45558
+      ],
+      [
+       "/beta/assets/img/photos/newyork--empire-state-building-500.jpg",
+       45058
+      ],
+      [
+       "/beta/assets/img/photos/newyork--st-patricks-cathedral-500.jpg",
+       43396
+      ],
+      [
+       "/beta/assets/img/photos/newyork--new-york-state-pavilion-500.jpg",
+       43055
+      ],
+      [
+       "/beta/assets/img/photos/newyork--neue-galerie-new-york-500.jpg",
+       42668
+      ]
+     ]
+    },
+    "offOriginBlocked": 92,
+    "night": {
+     "contrastChecked": 348,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 88,
+     "clearPct": 88,
+     "photos": 2,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": null,
+     "named": 16,
+     "namedEg": [
+      "The Metropolitan Museum of Art",
+      "Brooklyn Botanic Garden",
+      "Queens Museum",
+      "Empire State Building",
+      "Prospect Park"
+     ],
+     "pinsNamed": 16,
+     "cardsNamed": 2
+    },
+    "sync": {
+     "mounted": true,
+     "mapWidthPct": 64,
+     "split": true,
+     "sticky": true,
+     "markers": 16,
+     "pinned": 36,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 16,
+     "hoverHighlights": true,
+     "pinClick": {
+      "cardHighlighted": true,
+      "cardInView": true,
+      "sheet": true
+     },
+     "orderingStated": true
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 508,
+    "text": 75599
+   },
+   "cpu4x": {
+    "fcp": 404,
+    "dcl": 906,
+    "loadMs": 1715
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": null,
+      "val": "0.36 (Atlas: recorded; see B-01a)"
+     },
+     "B-01a Atlas first screen: clear map ≥ 75 %, peek tray, ≥ 3 real places named (D-46, §1.7)": {
+      "pass": true,
+      "val": "phone clear 75% (box 94%) · tray \"280 places here · checked 10 Aug · Show list\" 390×56 · named 8 (The Metropolitan Museum of Art, Empire State Building, The Noguchi Museum) · desktop named 16"
+     },
+     "B-01b first-screen art: phone photo; desktop city name, dek, lead photo (§1.7)": {
+      "pass": null,
+      "val": "WARN · phone photos 0 (gate warn) · desktop intro city ✗ dek ✗ leadPhoto ✗ (gate warn)"
+     },
+     "B-24 first load: CLS < 0.01, view set before first paint (D-46)": {
+      "pass": true,
+      "val": "CLS 0 / 0 · view at paint atlas→atlas / atlas→atlas"
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 0
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "12 on-screen / 12 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": null,
+      "val": "Atlas (D-36, D-46): recorded — no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": true,
+      "val": "split true, sticky true, map 64%, hover→pin true, pin→card true"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 390×56, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": true,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 16, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 508 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.42
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 508 · DOM 508 · scrolled 508 · deep 508/508 · search 26/26 · no-JS 508"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Inter, Bricolage Grotesque · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "4.5% (15/331)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: Hugo Schneider · \""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 138"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "2841 KB · 3035 nodes · 160 ms · 404 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "866 KB (1,996 KB) · 535 KB (1,665 KB)"
+     }
+    },
+    "passed": 25,
+    "total": 25,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "Singapore/chinatown.html",
+   "gen": "new",
+   "expected": {
+    "total": 16,
+    "sights": 4,
+    "food": 12,
+    "live": "Singapore/chinatown.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Chinatown & CBD — 16 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 16,
+    "cardsVisible": 16,
+    "legacy": false,
+    "firstCardTop": 307,
+    "screensToFirstCard": 0.36,
+    "mastheadPx": 0,
+    "controlsAbove": 13,
+    "controlsAboveOnScreen": 13,
+    "controlsAboveList": [
+     "a.c0 \"Singapore\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Atlas\"",
+     "button \"Gallery\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-09-02\"",
+     "button \"All 16\"",
+     "button \"Sights 4\"",
+     "button \"Eat & drink 12\"",
+     "button.chip.ms-top \"Top picks\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 154,
+    "upperNodes": 2,
+    "upperPct": 1.3,
+    "minFontPx": 12,
+    "minFontEl": "button.pl-save.heart \"Save\"",
+    "contrastChecked": 145,
+    "contrastUnknown": 6,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"AtlasGalleryGuidebookIns\"",
+     "div.ms-bar.ms-fr \"Search Chinatown & CBDpl\"",
+     "div#cleo-grid.listpane.w7-cards \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 349,
+    "cardsPerScreen": 2.42,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1322,
+    "fcp": 168,
+    "fontSampleN": 151,
+    "fontsDeclared": {
+     "Inter": 215,
+     "Bricolage Grotesque": 14
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Inter": 2925,
+      "IPAGothic": 3,
+      "Bricolage Grotesque 96pt ExtraBold": 154
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 956573,
+    "bytesAllResponses": 956573,
+    "initial": {
+     "bytes": 956573,
+     "gz": 370552
+    },
+    "session": {
+     "bytes": 956573,
+     "byType": {
+      "html": 71668,
+      "css": 395518,
+      "svg": 4989,
+      "js": 318228,
+      "woff2": 78648,
+      "json": 2534,
+      "jpg": 84988
+     },
+     "top": [
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/assets/fe-a.css",
+       173379
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.js",
+       147552
+      ],
+      [
+       "/beta/Singapore/chinatown.html",
+       71668
+      ],
+      [
+       "/beta/assets/js/atlas.js",
+       59618
+      ],
+      [
+       "/beta/assets/img/photos/singapore--chinatown--sri-mariamman-temple-500.jpg",
+       43202
+      ],
+      [
+       "/beta/assets/img/photos/singapore--chinatown--buddha-tooth-relic-temple-and-museum-500.jpg",
+       41786
+      ],
+      [
+       "/beta/assets/fonts/bricolage-normal-latin.woff2",
+       36352
+      ],
+      [
+       "/beta/assets/js/city.js",
+       30645
+      ],
+      [
+       "/beta/assets/fonts/inter-normal-latin.woff2",
+       30440
+      ],
+      [
+       "/beta/assets/js/core.js",
+       20761
+      ],
+      [
+       "/beta/assets/js/sheet.js",
+       18812
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.css",
+       14806
+      ],
+      [
+       "/beta/assets/js/views.js",
+       14028
+      ],
+      [
+       "/beta/assets/tokens.css",
+       12980
+      ]
+     ]
+    },
+    "offOriginBlocked": 24,
+    "night": {
+     "contrastChecked": 145,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 94,
+     "clearPct": 75,
+     "photos": 0,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": {
+      "text": "13 places here · checked 2 Sept · Show list",
+      "w": 390,
+      "h": 56
+     },
+     "named": 6,
+     "namedEg": [
+      "Tian Tian Hainanese Chicken Rice",
+      "Song Fa Bak Kut Teh",
+      "Sri Mariamman Temple",
+      "Famous Sungei Road Trishaw Laksa",
+      "Ah Tai Hainanese Chicken Rice"
+     ],
+     "pinsNamed": 6,
+     "cardsNamed": 0
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 390,
+      "h": 56,
+      "name": "map-first: 13 places here · checked 2 Sept · Show list",
+      "mapFirst": true,
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "famous-sungei-road-trishaw-laksa",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 490,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 490,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Chinatown & CBD — 16 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 16,
+    "cardsVisible": 16,
+    "legacy": false,
+    "firstCardTop": 406,
+    "screensToFirstCard": 0.45,
+    "mastheadPx": null,
+    "controlsAbove": 27,
+    "controlsAboveOnScreen": 27,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Singapore\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button \"Atlas\"",
+     "button \"Gallery\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a \"last checked 2026-09-02\"",
+     "a \"How we choose\"",
+     "input#cleo-filter",
+     "button \"All 16\"",
+     "button \"Sights 4\"",
+     "button \"Eat & drink 12\"",
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.chip.ms-mine \"Saved\"",
+     "select \"Top rankedMost sourcesA–\"",
+     "button.btn.btn-quiet \"For you\"",
+     "button.btn.btn-quiet \"Your day\"",
+     "button.btn.btn-quiet \"Near me\""
+    ],
+    "tapSmall": 5,
+    "tapSmallKinds": {
+     "button": 4,
+     "input#cleo-filter 286x25": 1
+    },
+    "tapSmallList": [
+     "button \"Atlas\" 113x36",
+     "button \"Gallery\" 113x36",
+     "button \"Guidebook\" 113x36",
+     "button \"Insights\" 113x36",
+     "input#cleo-filter 286x25"
+    ],
+    "textNodes": 200,
+    "upperNodes": 2,
+    "upperPct": 1,
+    "minFontPx": 12,
+    "minFontEl": "button.pl-save.heart \"Save\"",
+    "contrastChecked": 187,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.ms-head \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 333,
+    "cardsPerScreen": 2.7,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1296,
+    "fcp": 188,
+    "fontSampleN": 195,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 22,
+     "Inter": 282
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 428,
+      "Inter": 4461,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 28,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 16,
+     "scrolled": 16,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 16,
+      "ok": 16,
+      "bad": []
+     },
+     "search": {
+      "n": 16,
+      "ok": 16,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 16 places",
+     "groups": [
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byDaniel",
+      "Recommended by",
+      "CollectionHeritage &",
+      "Collection",
+      "CuisineHainanese chi",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "RecognitionHas an aw",
+      "Recognition"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1217361,
+    "bytesAllResponses": 1217361,
+    "initial": {
+     "bytes": 956573,
+     "gz": 370552
+    },
+    "session": {
+     "bytes": 1217361,
+     "byType": {
+      "html": 71668,
+      "css": 395518,
+      "svg": 4989,
+      "js": 328866,
+      "woff2": 78648,
+      "jpg": 299637,
+      "json": 38035
+     },
+     "top": [
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/assets/fe-a.css",
+       173379
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.js",
+       147552
+      ],
+      [
+       "/beta/assets/img/photos/singapore--chinatown--sri-mariamman-temple-960.jpg",
+       109387
+      ],
+      [
+       "/beta/assets/img/photos/singapore--chinatown--buddha-tooth-relic-temple-and-museum-960.jpg",
+       105262
+      ],
+      [
+       "/beta/Singapore/chinatown.html",
+       71668
+      ],
+      [
+       "/beta/assets/js/atlas.js",
+       59618
+      ],
+      [
+       "/beta/assets/img/photos/singapore--chinatown--sri-mariamman-temple-500.jpg",
+       43202
+      ],
+      [
+       "/beta/assets/img/photos/singapore--chinatown--buddha-tooth-relic-temple-and-museum-500.jpg",
+       41786
+      ],
+      [
+       "/beta/assets/fonts/bricolage-normal-latin.woff2",
+       36352
+      ],
+      [
+       "/beta/data/places/singapore--chinatown.json",
+       31802
+      ],
+      [
+       "/beta/assets/js/city.js",
+       30645
+      ],
+      [
+       "/beta/assets/fonts/inter-normal-latin.woff2",
+       30440
+      ],
+      [
+       "/beta/assets/js/core.js",
+       20761
+      ],
+      [
+       "/beta/assets/js/sheet.js",
+       18812
+      ]
+     ]
+    },
+    "offOriginBlocked": 40,
+    "night": {
+     "contrastChecked": 183,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0.0001
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 88,
+     "clearPct": 88,
+     "photos": 0,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": null,
+     "named": 11,
+     "namedEg": [
+      "Tian Tian Hainanese Chicken Rice",
+      "Song Fa Bak Kut Teh",
+      "JUMBO Seafood",
+      "Sri Mariamman Temple",
+      "Buddha Tooth Relic Temple & Museum"
+     ],
+     "pinsNamed": 11,
+     "cardsNamed": 2
+    },
+    "sync": {
+     "mounted": true,
+     "mapWidthPct": 64,
+     "split": true,
+     "sticky": true,
+     "markers": 11,
+     "pinned": 15,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 11,
+     "hoverHighlights": true,
+     "pinClick": {
+      "cardHighlighted": true,
+      "cardInView": true,
+      "sheet": true
+     },
+     "orderingStated": true
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 16,
+    "text": 6772
+   },
+   "cpu4x": {
+    "fcp": 328,
+    "dcl": 489,
+    "loadMs": 851
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": null,
+      "val": "0.36 (Atlas: recorded; see B-01a)"
+     },
+     "B-01a Atlas first screen: clear map ≥ 75 %, peek tray, ≥ 3 real places named (D-46, §1.7)": {
+      "pass": true,
+      "val": "phone clear 75% (box 94%) · tray \"13 places here · checked 2 Sept · Show list\" 390×56 · named 6 (Tian Tian Hainanese Chicken Rice, Song Fa Bak Kut Teh, Sri Mariamman Temple) · desktop named 11"
+     },
+     "B-01b first-screen art: phone photo; desktop city name, dek, lead photo (§1.7)": {
+      "pass": null,
+      "val": "WARN · phone photos 0 (gate warn) · desktop intro city ✗ dek ✗ leadPhoto ✗ (gate warn)"
+     },
+     "B-24 first load: CLS < 0.01, view set before first paint (D-46)": {
+      "pass": true,
+      "val": "CLS 0 / 0.0001 · view at paint atlas→atlas / atlas→atlas"
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 0
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "13 on-screen / 13 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": null,
+      "val": "Atlas (D-36, D-46): recorded — no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": true,
+      "val": "split true, sticky true, map 64%, hover→pin true, pin→card true"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 390×56, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": true,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 11, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 16 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.42
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 16 · DOM 16 · scrolled 16 · deep 16/16 · search 16/16 · no-JS 16"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Inter, Bricolage Grotesque · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "1.3% (2/154)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px button.pl-save.heart \"Save\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 64"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1189 KB · 1296 nodes · 188 ms · 328 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "362 KB (934 KB) · 362 KB (934 KB)"
+     }
+    },
+    "passed": 25,
+    "total": 25,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "cities/wheeling.html",
+   "gen": "new",
+   "expected": {
+    "total": 42,
+    "sights": 28,
+    "food": 14,
+    "live": "cities/wheeling.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Wheeling — 42 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 39,
+    "cardsVisible": 36,
+    "legacy": false,
+    "firstCardTop": 307,
+    "screensToFirstCard": 0.36,
+    "mastheadPx": 0,
+    "controlsAbove": 13,
+    "controlsAboveOnScreen": 13,
+    "controlsAboveList": [
+     "a.c0 \"USUnited States\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Atlas\"",
+     "button \"Gallery\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"last checked 2026-08-27\"",
+     "button \"All 42\"",
+     "button \"Sights 28\"",
+     "button \"Eat & drink 14\"",
+     "button.chip.ms-top \"Top picks\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 281,
+    "upperNodes": 4,
+    "upperPct": 1.4,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Unknown author · \"",
+    "contrastChecked": 269,
+    "contrastUnknown": 6,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"AtlasGalleryGuidebookIns\"",
+     "div.ms-bar.ms-fr \"Search Wheelingplace · d\"",
+     "div#cleo-grid.listpane.w7-cards \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 336,
+    "cardsPerScreen": 2.51,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 1,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2153,
+    "fcp": 160,
+    "fontSampleN": 275,
+    "fontsDeclared": {
+     "Inter": 415,
+     "Bricolage Grotesque": 14
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Inter": 5064,
+      "IPAGothic": 3,
+      "Bricolage Grotesque 96pt ExtraBold": 106
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1034434,
+    "bytesAllResponses": 1034434,
+    "initial": {
+     "bytes": 1034434,
+     "gz": 405671
+    },
+    "session": {
+     "bytes": 1034434,
+     "byType": {
+      "html": 122691,
+      "css": 395518,
+      "svg": 6134,
+      "js": 318228,
+      "woff2": 66792,
+      "json": 2946,
+      "jpg": 122125
+     },
+     "top": [
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/assets/fe-a.css",
+       173379
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.js",
+       147552
+      ],
+      [
+       "/beta/cities/wheeling.html",
+       122691
+      ],
+      [
+       "/beta/assets/js/atlas.js",
+       59618
+      ],
+      [
+       "/beta/assets/img/photos/wheeling--wheeling-suspension-bridge-500.jpg",
+       37640
+      ],
+      [
+       "/beta/assets/fonts/bricolage-normal-latin.woff2",
+       36352
+      ],
+      [
+       "/beta/assets/img/photos/wheeling--blaine-hill-s-bridge-500.jpg",
+       33858
+      ],
+      [
+       "/beta/assets/img/photos/wheeling--west-virginia-independence-hall-500.jpg",
+       33388
+      ],
+      [
+       "/beta/assets/js/city.js",
+       30645
+      ],
+      [
+       "/beta/assets/fonts/inter-normal-latin.woff2",
+       30440
+      ],
+      [
+       "/beta/assets/js/core.js",
+       20761
+      ],
+      [
+       "/beta/assets/js/sheet.js",
+       18812
+      ],
+      [
+       "/beta/assets/img/photos/wheeling--zanesville-y-bridge-500.jpg",
+       17239
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.css",
+       14806
+      ]
+     ]
+    },
+    "offOriginBlocked": 40,
+    "night": {
+     "contrastChecked": 269,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 94,
+     "clearPct": 75,
+     "photos": 0,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": {
+      "text": "17 places here · checked 27 Aug · Show list",
+      "w": 390,
+      "h": 56
+     },
+     "named": 4,
+     "namedEg": [
+      "Wheeling Suspension Bridge",
+      "West Virginia Independence Hall",
+      "Great Stone Viaduct",
+      "Oglebay Resort & Park"
+     ],
+     "pinsNamed": 4,
+     "cardsNamed": 0
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 390,
+      "h": 56,
+      "name": "map-first: 17 places here · checked 27 Aug · Show list",
+      "mapFirst": true,
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "great-stone-viaduct",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 490,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 490,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Wheeling — 42 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 39,
+    "cardsVisible": 36,
+    "legacy": false,
+    "firstCardTop": 406,
+    "screensToFirstCard": 0.45,
+    "mastheadPx": null,
+    "controlsAbove": 27,
+    "controlsAboveOnScreen": 27,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"USUnited States\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button \"Atlas\"",
+     "button \"Gallery\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a \"last checked 2026-08-27\"",
+     "a \"How we choose\"",
+     "input#cleo-filter",
+     "button \"All 42\"",
+     "button \"Sights 28\"",
+     "button \"Eat & drink 14\"",
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.chip.ms-mine \"Saved\"",
+     "select \"Top rankedMost sourcesA–\"",
+     "button.btn.btn-quiet \"For you\"",
+     "button.btn.btn-quiet \"Your day\"",
+     "button.btn.btn-quiet \"Near me\""
+    ],
+    "tapSmall": 5,
+    "tapSmallKinds": {
+     "button": 4,
+     "input#cleo-filter 286x25": 1
+    },
+    "tapSmallList": [
+     "button \"Atlas\" 113x36",
+     "button \"Gallery\" 113x36",
+     "button \"Guidebook\" 113x36",
+     "button \"Insights\" 113x36",
+     "input#cleo-filter 286x25"
+    ],
+    "textNodes": 330,
+    "upperNodes": 3,
+    "upperPct": 0.9,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: Unknown author · \"",
+    "contrastChecked": 313,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.ms-head \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 297,
+    "cardsPerScreen": 3.03,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 1,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2127,
+    "fcp": 148,
+    "fontSampleN": 322,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 22,
+     "Inter": 485
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 645,
+      "Inter": 7518,
+      "IPAGothic": 3
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 28,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 42,
+     "scrolled": 42,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 42,
+      "ok": 42,
+      "bad": []
+     },
+     "search": {
+      "n": 42,
+      "ok": 42,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 42 places",
+     "groups": [
+      "AreaWheeling, WV 15W",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionIconic & m",
+      "Collection",
+      "CuisineItalian & piz",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1349608,
+    "bytesAllResponses": 1349608,
+    "initial": {
+     "bytes": 1034434,
+     "gz": 405671
+    },
+    "session": {
+     "bytes": 1349608,
+     "byType": {
+      "html": 122691,
+      "css": 395518,
+      "svg": 6134,
+      "js": 328866,
+      "woff2": 66792,
+      "jpg": 334510,
+      "json": 95097
+     },
+     "top": [
+      [
+       "/beta/assets/cleo.css",
+       194353
+      ],
+      [
+       "/beta/assets/fe-a.css",
+       173379
+      ],
+      [
+       "/beta/assets/vendor/leaflet/leaflet.js",
+       147552
+      ],
+      [
+       "/beta/cities/wheeling.html",
+       122691
+      ],
+      [
+       "/beta/assets/img/photos/wheeling--west-virginia-independence-hall-960.jpg",
+       111697
+      ],
+      [
+       "/beta/assets/img/photos/wheeling--wheeling-suspension-bridge-960.jpg",
+       100688
+      ],
+      [
+       "/beta/data/places/wheeling.json",
+       81343
+      ],
+      [
+       "/beta/assets/js/atlas.js",
+       59618
+      ],
+      [
+       "/beta/assets/img/photos/wheeling--wheeling-suspension-bridge-500.jpg",
+       37640
+      ],
+      [
+       "/beta/assets/fonts/bricolage-normal-latin.woff2",
+       36352
+      ],
+      [
+       "/beta/assets/img/photos/wheeling--blaine-hill-s-bridge-500.jpg",
+       33858
+      ],
+      [
+       "/beta/assets/img/photos/wheeling--west-virginia-independence-hall-500.jpg",
+       33388
+      ],
+      [
+       "/beta/assets/js/city.js",
+       30645
+      ],
+      [
+       "/beta/assets/fonts/inter-normal-latin.woff2",
+       30440
+      ],
+      [
+       "/beta/assets/js/core.js",
+       20761
+      ]
+     ]
+    },
+    "offOriginBlocked": 100,
+    "night": {
+     "contrastChecked": 313,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0.0001
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 88,
+     "clearPct": 88,
+     "photos": 2,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": null,
+     "named": 7,
+     "namedEg": [
+      "Wheeling Suspension Bridge",
+      "Blaine Hill \"S\" Bridge",
+      "West Virginia Independence Hall",
+      "Great Stone Viaduct",
+      "Centre Market Historic District"
+     ],
+     "pinsNamed": 7,
+     "cardsNamed": 2
+    },
+    "sync": {
+     "mounted": true,
+     "mapWidthPct": 64,
+     "split": true,
+     "sticky": true,
+     "markers": 7,
+     "pinned": 17,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 7,
+     "hoverHighlights": true,
+     "pinClick": {
+      "cardHighlighted": true,
+      "cardInView": true,
+      "sheet": true
+     },
+     "orderingStated": true
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 42,
+    "text": 9487
+   },
+   "cpu4x": {
+    "fcp": 332,
+    "dcl": 648,
+    "loadMs": 1042
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": null,
+      "val": "0.36 (Atlas: recorded; see B-01a)"
+     },
+     "B-01a Atlas first screen: clear map ≥ 75 %, peek tray, ≥ 3 real places named (D-46, §1.7)": {
+      "pass": true,
+      "val": "phone clear 75% (box 94%) · tray \"17 places here · checked 27 Aug · Show list\" 390×56 · named 4 (Wheeling Suspension Bridge, West Virginia Independence Hall, Great Stone Viaduct) · desktop named 7"
+     },
+     "B-01b first-screen art: phone photo; desktop city name, dek, lead photo (§1.7)": {
+      "pass": null,
+      "val": "WARN · phone photos 0 (gate warn) · desktop intro city ✗ dek ✗ leadPhoto ✗ (gate warn)"
+     },
+     "B-24 first load: CLS < 0.01, view set before first paint (D-46)": {
+      "pass": true,
+      "val": "CLS 0 / 0.0001 · view at paint atlas→atlas / atlas→atlas"
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 0
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "13 on-screen / 13 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": null,
+      "val": "Atlas (D-36, D-46): recorded — no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": true,
+      "val": "split true, sticky true, map 64%, hover→pin true, pin→card true"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 390×56, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": true,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 7, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 42 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 1 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.51
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 42 · DOM 42 · scrolled 42 · deep 42/42 · search 42/42 · no-JS 42"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Inter, Bricolage Grotesque · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "1.4% (4/281)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: Unknown author · \""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 140"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1318 KB · 2127 nodes · 148 ms · 332 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "396 KB (1,010 KB) · 396 KB (1,010 KB)"
+     }
+    },
+    "passed": 25,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}
