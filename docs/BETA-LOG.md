@@ -2597,6 +2597,17 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Sentence splitter:** there is none. The quote is a 4-line clamp of the whole why line, so the "…" is the clamp, not a split at "(1856)" or "St.".
 - **"Start with", one per view (orchestrator ruling):** the Gallery's starting place, which the "Start with" line and the lead card both use, is now the first open card of its first row. This changed 7 pages; for example DC is now Old Ebbitt Grill. The card still needs a photo. The line is drawn only in the Gallery; Atlas opens on its own `.pl-lead`. A new test-fe-a row covers Tokyo, Punggol and Potong Pasir.
 - **Desktop credit 28 px at T2/D (QC c8ec49d8, 171/171 runs):** the licence links' 4 px padding gives them a 24 px hit box (R2 #7). It was meant to leave the line alone, but the links render inline-block, so the padding grew the row to 28 px. A matching −4 px margin now cancels it: the row is 20 px at 1440×900 and 1024×768, and the links keep their 24 px hit box. Phone is unchanged at 20 px.
+- **OV-41 on desktop (platform):** with no map, the offline-pack section stayed in MAIN below a desktop Atlas document that never scrolls, so a reader could not reach Keep. Tokyo: Keep at y 971 in a 900 px viewport, and at y 859 in 768. The section now parks at the end of the list pane on every layout; with a live map, fe-a.css hides it wherever it is. Checked by wheel-scrolling the list at 1440×900 and 1024×768: Keep comes into view and the hit test lands on it.
+- **R4 landscape blocker: the side column didn't start with the selected place (designer).** Two causes:
+  - `select()` scrolled the column sideways (a no-op in a vertical column).
+  - The carousel's "card in the middle" reader measured across the column, where every card ties, so after a tap it re-selected the first card in DOM order. Tapping Tokyo Daijingu ended on Imperial Palace East Gardens: pin and card disagreed.
+  - **Fixes:**
+    - In landscape, `select()` scrolls the column so the selected card is first, 4 px down so its ring shows. It is instant on a first selection and re-placed at 120/350/650 ms while cards above it are stamped.
+    - The reader takes the top card, and never re-selects during our own scroll.
+    - A spacer after the list (order last) lets even the last card scroll up to first.
+    - The selected card wears `--ring-select`.
+  - Checked on Tokyo and Chinatown at 844×390, mouse and touch: the selected card is first (y 60), ringed, and is the tapped pin's place. FE-2 writes the probe (fe2/side-sync.js).
+- **atlas-ms drag-from-dot row:** it now looks only at the transient hover pin (`.ms-hov`). Featured pins are permanent labels you can click; the row's first run read one of them on Chinatown as the hover pin.
 - 2026-10-17 13:25Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
   - **Head 0ceed9445:** validate and beta:check pass (the D-53 line reads 5 no-recommender cards). npm test is running; the 12:40Z head passed every suite (50/50 place pages).
   - **Round 4:** real shots r4 are on 75bb37bb. The designer signed off on one condition, the landscape column opening on the selected place (FE-1 with FE-2). QC's round-4 S-17 is running.
@@ -2608,3 +2619,8 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - 12d279bcf moves the keep step after the commit step.
     - #114 (pre-guard) is expected to fail the same way; #117 has the guard.
   - **Eager JS 39.93/40:** the plan is set (countLine deletion, FE-C lazy second frame, lazy sheet.js after r8).
+- **D-53 in the Atlas preview (FE-B's contract):** the card preview now names only real recommenders.
+  - It uses the card's `data-recby` when the build set it, otherwise its sources less 'guide'. Names come from the card's own chips (`recName`).
+  - With none, it reuses the card's own "No independent source yet" line (and its official-site link) and drops the "Must see" badge.
+  - Checked on NYC: Roberta's (sources include TripAdvisor) reads "The Infatuation, Time Out New York", and Nintendo New York reads "No independent source yet" with no badge. 0 platform or own-site names across Tokyo, NYC, Cleveland, Chinatown and Chicago.
+- **Photo-less carousel cards (designer, non-blocking):** a card with no photo (`pl--np`) is as tall as its text and sits on the band's floor. Kabuki-za: 142 px, down from 196 with a 65 px empty foot. Photo cards keep the band's height; the landscape column keeps `align-items:stretch`.
