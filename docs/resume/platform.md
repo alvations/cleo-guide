@@ -28,13 +28,14 @@ plural (i18n).
 - R8 measurement kit: design/beta/eval/r8/README.md (+ r8/tools/pair.py).
 - PERF-19b (R8 gap #6, Tokyo session ≤ 4 MB; D-48): 7,773 → 3,679 KB. Every sheet open starts on the 500 w file, full srcset
   after 250 ms open (cold first deep link exempt). Probe: tools/beta/qa/sheet-photo.js. NEVER branch on human vs scripted input
-  (QA-81 guard in npm test). PERF-20: city template −50 KB raw. PERF-21: filter INP ≈ 490 ms shipped; lensPage (≈ 105 ms) parked as
-  design/beta/eval/perf/perf21-lenspage.patch until QA rules on PERF-08 (a)/(b). PERF-22: eager 39.30 KB (geo/codec are build-time
-  LEADS of their lazy users, build.js). QC-26 count 11/36 (vs 43) is FE-1's Atlas shed() paging, red on 23bbb97d too.
+  (QA-81 guard in npm test). PERF-20: city template −50 KB raw. PERF-21: filter INP ≈ 105/128 ms with lensPage ON (QA accepted 2026-10-17;
+  lenspage-accept.js in perf08-regress.sh; test-beta (a)/(b) restated). PERF-22: eager 39.30 KB (geo/codec are build-time
+  LEADS of their lazy users, build.js). QC-26 now = "1 of N" + full reach by paging (QA).
 - PERF-23 CSS: build minifies fe-a/fe-b (test-css-min.js proves rules identical); city CSS 338.9 KB; cuts for designer/FE-A in
   design/beta/eval/perf/css-gap6.md (probe: tools/beta/qa/css-coverage.js --all). Lazy sheet.js proposal: docs/BETA-LAZY-SHEET.md
   (do NOT implement before the r8 pin unless eager headroom < 0.3 KB).
-- OV-38: `Cleo.pack.mount(host)` (idempotent) for FE-1's Layers popover `.m-layers-pop .m-pack`; FE-1 sends the SHA.
+- OV-38: `Cleo.pack.mount(host)` in FE-1's Layers popover `.m-layers-pop .m-pack`: verified (phone + desktop, keep syncs,
+  overlay + pack probes PASS). Desktop also shows the page's own section (FE-1/designer's call).
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).
 
 ## Next

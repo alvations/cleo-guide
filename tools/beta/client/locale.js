@@ -181,15 +181,18 @@
         el.textContent = s.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? String(v[n]) : m; }); } catch (e) {}
     });
     var page = d.getAttribute('data-cleo-page');
-    // Landing, hubs, What changed and city pages are catalogue-built end to end (data excepted); elsewhere only the shell.
-    var scopes = /^(landing|hub|changes|city|method|notfound)$/.test(page) ? [document.body]
+    // Landing, hubs, What changed, city, method, 404 and Your lists pages are catalogue-built end to end (data excepted);
+    // elsewhere only the shell.
+    var scopes = /^(landing|hub|changes|city|method|notfound|saved)$/.test(page) ? [document.body]
       : [].slice.call(document.querySelectorAll('[data-cleo-shell=topbar], .tabbar, .footer, .skip'));
     scopes.forEach(function (sc) {
       [sc].concat([].slice.call(sc.querySelectorAll('*'))).forEach(function (el) {
         if (SKIP[el.nodeName] || el.closest('svg,script,style,[data-cleo-l10n-skip]')) return;
         // a browser-drawn container keeps its own label swapped (aria-label on the host), never its drawn contents
-        var host = page === 'city' && el.matches(CLIENT);
-        if (page === 'city' && el.parentElement && el.parentElement.closest(CLIENT)) return;
+        // i18n D-41: Your lists (saved) is swapped in full too; its client-drawn #cleo-saved asks Cleo.t itself
+        var OWN = page === 'city' ? CLIENT : page === 'saved' ? '#cleo-saved' : null;
+        var host = !!OWN && el.matches(OWN);
+        if (OWN && el.parentElement && el.parentElement.closest(OWN)) return;
         ['aria-label', 'title', 'placeholder', 'alt'].forEach(function (a) {
           if (!el.hasAttribute(a)) return;
           var r = tr(el.getAttribute(a)); if (r != null) el.setAttribute(a, r);

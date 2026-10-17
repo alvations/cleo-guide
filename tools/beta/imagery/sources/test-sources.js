@@ -68,7 +68,11 @@ ok(lib.nameWords('Aachener Dom (Pfalzkapelle)').includes('aachener') && !lib.nam
 console.log('image sources: adapters');
 ok(loc.rightsOf({ rights_advisory: ['No known restrictions on publication.'] }, ['Highsmith, Carol M., 1946-']).licence === 'Public domain', 'LoC Highsmith → Public domain');
 ok(loc.rightsOf({ rights_advisory: 'No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted.' }, []).licence === 'Public domain', 'LoC HABS (U.S. Government) → Public domain');
-ok(loc.rightsOf({ rights_advisory: 'No known restrictions on publication.' }, ['Detroit Publishing Co.']).licence === 'No known restrictions', 'LoC other NKR → "No known restrictions" (gate proposal)');
+ok(loc.rightsOf({ rights_advisory: 'No known restrictions on publication.' }, ['Detroit Publishing Co.']).licence === 'No known restrictions', 'LoC other NKR → the pre-1930 LoC licence string');
+const nkr = { ...good, author: 'Detroit Publishing Co.', licence: 'No known restrictions' };
+ok(lib.itemProblems({ ...nkr, date: 'c. 1905' }, { ...row, era: 'historic', stillLooks: 'yes' }, T, A) === '', 'LoC NKR on a historic row dated c. 1905 → passes');
+ok(/1929/.test(lib.itemProblems({ ...nkr, date: '1934' }, { ...row, era: 'historic', stillLooks: 'yes' }, T, A)), 'LoC NKR dated 1934 → refused');
+ok(/1929/.test(lib.itemProblems({ ...nkr, date: '1905' }, row, T, A)), 'LoC NKR on a modern row → refused');
 ok(/rights/.test(loc.rightsOf({ rights_advisory: 'Rights status not evaluated.' }, []).refused || ''), 'LoC not evaluated → refused');
 ok(/no rights/.test(loc.rightsOf({}, []).refused || ''), 'LoC without a rights advisory → refused');
 const urls = ['https://tile.loc.gov/a_150px.jpg#h=100&w=150', 'https://tile.loc.gov/a.gif#h=200&w=300', 'https://tile.loc.gov/av.jpg#h=640&w=1024', 'https://tile.loc.gov/ar.jpg#h=3000&w=4500'];
@@ -116,7 +120,10 @@ for (const [name, it] of [['LoC public domain', good], ['Smithsonian CC0', { ...
   ok(!p.length && c.era === 'historic' && c.date && c.institution && c.variants.length === 1, `${name}: the row passes photos.creditProblems and carries era, date, institution, one variant${p.length ? ' — ' + p.join('; ') : ''}`);
 }
 const stockRow = lib.creditRow(pexels.adapter, px, { ...row, itemId: '1' }, T, main, null, '2026-10-17');
-ok(photos.creditProblems(stockRow).some(x => /licence/.test(x)), 'a Pexels row is refused by today\'s gate (stock licences wait for the imagery lane\'s gate change)');
+{ // the stock licence lands in the gate via the imagery lane (D-52(3)); until then the gate refuses it by licence
+  const pp = photos.creditProblems(stockRow), gateHasStock = photos.LICENCE_OK.test('Pexels License');
+  ok(gateHasStock ? !pp.length : pp.some(x => /licence/.test(x)), `a Pexels row: ${gateHasStock ? 'passes the gate field check' : 'refused by licence until the gate change lands'}${gateHasStock && pp.length ? ' — ' + pp.join('; ') : ''}`);
+}
 
 // ---------------------------------------------------------------- 5. end to end, mocked network
 (async () => {
@@ -156,6 +163,7 @@ ok(photos.creditProblems(stockRow).some(x => /licence/.test(x)), 'a Pexels row i
     ok(c1 === 0 && st.rows.length === 1 && st.rows[0].itemId === '111' && fs.existsSync(path.join(box, 'stage/met', st.rows[0].preview)), '--stage stages only the un-reviewed row (111), with a preview file');
     ok(cr1.length === 0, '--stage credits nothing');
     ok(c2 === 0 && cr2.length === 1 && cr2[0].sourceId === '222' && cr2[0].provider === 'the-met' && cr2[0].era === 'historic' && cr2[0].date === '1943', '--credit credits only the reviewed ok row (222), never the refused one (333)');
+    ok(cr2[0].review === 'ok', 'the credited row carries review "ok" (photos.js renders only reviewed rows)');
     const f960 = path.join(box, 'photos', cr2[0].file), f500 = path.join(box, 'photos', cr2[0].variants[0].file);
     ok(fs.existsSync(f960) && fs.existsSync(f500) && cr2[0].width === 960 && cr2[0].variants[0].width === 500 && !photos.creditProblems(cr2[0]).length, '--credit writes 960 + 500 JPEGs and a gate-clean row');
     ok(!calls.some(u => /objects\/333/.test(u)), 'a refused review is never even read from the API');
