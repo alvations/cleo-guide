@@ -7,6 +7,7 @@ Branch: `claude/peaceful-goodall-i0hsrt`. Push: `tools/beta/sync-push.sh` (merge
 Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the orchestrator's order.
 
 ## Done (on origin, verified)
+- **D-49 §v2.7b no-photo card:** compact row (A) ≤599, quote card (B) ≥600 incl. Gallery rows (gc--np), lead card only with a photo, dish-word ruling, State College URL-as-why guard. Commit "D-49 …". Next: QA-82, FE-1 landscape filters slot, phone sheet CLS, then CSS gap #6.
 - **W8:**
   - "Start with" = the lead card: bae1b624
   - day plans: 16720bd1

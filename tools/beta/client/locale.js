@@ -13,13 +13,14 @@
   var me = document.currentScript && document.currentScript.src || '';
   var root = me ? me.replace(/assets\/js\/locale\.js.*$/, '') : '';
   function reveal() { d.classList.remove('cleo-l10n-wait'); }
+  function cs() { return window.Cleo && window.Cleo.store; }
   function getStored() {
-    if (window.Cleo && window.Cleo.store) return window.Cleo.store.get('locale', null);
-    try { return JSON.parse(window.localStorage.getItem(KEY)); } catch (e) { return null; }
+    if (cs()) return cs().get('locale', null);
+    try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
   }
   function setStored(l) {
-    if (window.Cleo && window.Cleo.store) return window.Cleo.store.set('locale', l);
-    try { window.localStorage.setItem(KEY, JSON.stringify(l)); } catch (e) {}
+    if (cs()) return cs().set('locale', l);
+    try { localStorage.setItem(KEY, JSON.stringify(l)); } catch (e) {}
   }
 
   var want = 'en';
@@ -58,7 +59,7 @@
       var raf = window.requestAnimationFrame || function (f) { return setTimeout(f, 16); };
       raf(function () { raf(function () { setTimeout(reveal, 30); }); });
     }).catch(function () { d.lang = 'en'; reveal(); });
-    window.CleoLocale = { build: build, apply: apply, locale: want };
+    window.CleoLocale = { locale: want };   // the head snippet's 'locale.js is here' flag
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 
@@ -185,7 +186,11 @@
     // elsewhere only the shell.
     var scopes = /^(landing|hub|changes|city|method|notfound|saved)$/.test(page) ? [document.body]
       : [].slice.call(document.querySelectorAll('[data-cleo-shell=topbar], .tabbar, .footer, .skip'));
-    scopes.forEach(function (sc) {
+    // i18n D-41: cards Cleo.defer stamps later (cleo:stamped) get the same swap; a capture listener on window, so it runs
+    // before the page scripts' own cleo:stamped handlers (they read the cards' text: Atlas's faces, the search index)
+    if (page === 'city') window.addEventListener('cleo:stamped', function (e) { ((e.detail || {}).cards || []).forEach(walk); }, true);
+    scopes.forEach(walk);
+    function walk(sc) {
       [sc].concat([].slice.call(sc.querySelectorAll('*'))).forEach(function (el) {
         if (SKIP[el.nodeName] || el.closest('svg,script,style,[data-cleo-l10n-skip]')) return;
         // a browser-drawn container keeps its own label swapped (aria-label on the host), never its drawn contents
@@ -193,13 +198,13 @@
         var OWN = page === 'city' ? CLIENT : page === 'saved' ? '#cleo-saved' : null;
         var host = !!OWN && el.matches(OWN);
         if (OWN && el.parentElement && el.parentElement.closest(OWN)) return;
-        ['aria-label', 'title', 'placeholder', 'alt'].forEach(function (a) {
-          if (!el.hasAttribute(a)) return;
-          var r = tr(el.getAttribute(a)); if (r != null) el.setAttribute(a, r);
+        // + the build's localised templates that page scripts fill later (data-l*: pack.js, mapfail.js)
+        [].forEach.call(el.attributes, function (a) {
+          if (/^(aria-label|title|placeholder|alt|data-l(-\w+)?)$/.test(a.name)) { var r = tr(a.value); if (r != null) a.value = r; }
         });
         if (!host && (page !== 'city' || !el.matches(DATA))) translateEl(el, tr);
       });
-    });
+    }
     var tt = tr(document.title); if (tt != null) document.title = tt;
     if (to.review && to.review.by === 'ai' && to.reviewed !== true && to.note) note(to, l);
   }

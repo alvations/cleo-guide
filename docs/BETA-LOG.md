@@ -2389,6 +2389,17 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   before writing any fetcher.
 - beta-atlas-real-shots was dispatched on 93a8ea29a (label d46-signoff) for the designer's D-46 sign-off.
 
+## 2026-10-17 · FE-A — D-49 §v2.7b no-photo card
+
+- **What changed:** a photo-less card is marked `li.pl.pl--np` by the build (render/city.js) and `li.gc.gc--np` on the Gallery rows (client/gallery.js and lib/lead-card.js, which stay byte-identical). The card changes shape, not order, and no DOM nodes are added.
+  - **Single-column lists (≤ 599 px; Gallery list and the phone Atlas list):** compact row (A). A 64 px glyph tile sits beside four lines: the eyebrow with the status check, the name (ellipsis, with the native name inline), a 2-line why, and Recommended by (one line, with a 44 px tap height kept in padding). Measured: 119 px on DC, Tokyo and State College.
+  - **Grids and rails (≥ 600 px; Gallery list, desktop Atlas cards, Gallery rows):** quote card (B). The why line's opening sits over the cover in UI 600 at `--fs-lead`, up to 4 lines, under a display “. The glyph drops to 20 px at the bottom right. A card with no why line keeps the §v2.7a designed cover.
+- **Adjacency:** consecutive photo-less covers never share a glyph (`noRepeat` → imagery `foodGlyphs`). Built order shows 0 repeats on DC, Tokyo and State College. Under a lens, filtered-out cards can make two covers neighbours; that is not guarded, because the client would pay eager bytes for it.
+- **Lead card:** drawn only when rank 1 has a photo. "Start with" still names the lead.
+  - **Spec change in test-beta.js** ("a photo-less lead → none rendered", marked D-49). The equality check between the build's lead card and the client's still runs whenever a card is drawn.
+- **Designer ruling, dish word:** `--fs-d2`, display face, weight 600, no clamp. A dish name the client marks `.l` (over 28 characters, or any 17-character word) uses the UI face 600 at `--fs-lead` instead.
+- **Data finding, State College:** the `w` field holds the website URL on 9 records (the build tool maps website → w). A bare URL is no longer treated as a why line: it is not rendered on the card and never becomes a quote. Routed to data.
+- **Budgets:** eager JS 39.2 / 40 KB. Initial DOM is within budget: Tokyo 2,614 on mobile.
 ## 2026-10-17 · FE-1 · OV-00 §2.0.7 landscape, desktop chrome 104 px, the switch's 44 px band, D-46 §1.7 peek thumbnails
 
 - **Landscape (844 × 390; L 37.5 % → 12.3 %):** one 48 px bar.
@@ -2449,6 +2460,15 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - test-i18n gains two pseudo checks, both of which fail on the old file.
     - Review round 20 made 3 changes.
   - **Insights:** the singular closed-place note is now in ja (`ins.p.tier.one`).
+- 2026-10-17 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · W8-I18N-ATLAS: Atlas (the default view) in ja.
+  - **What changed:** 64 new `atl.*` keys (swapSkip) plus about 15 reused keys, through a local `tt` in atlas.js and atlas-nav.js. String literals only; each edit is marked `// i18n D-41`.
+  - **Redraw:** a `cleo:locale` handler re-says what Atlas built before the catalogue arrived: the bar, head, card faces, map controls and skip links. It also puts the bar's aria-label back on its own key, which fixes the `Search {city}` hijack.
+  - **locale.js:**
+    - It swaps cards stamped later (`cleo:stamped`, a capture listener, so it runs before page handlers) and the `data-l*` templates. That fixes stamped-later cards in Gallery too, plus the pack size and mapfail's offline line.
+    - It shrank (CleoLocale flag, store helpers, one attribute regex), so the eager counter rose only 0.03 KB: 39.32 → 39.35 of 40. locale.js counts there, but it is fetched only for non-en readers.
+  - **English:** byte-identical, proven by a noise-free 32-state real-browser DOM snapshot.
+  - **Tests:** a real-browser Atlas pseudo test and a jsdom stamped-card/data-l test, both of which fail on the old code.
+  - **Review:** round 21 made 7 changes; the running total is 94 changes over 21 rounds.
 
 ## 2026-10-17 11:15Z · orchestrator check-in
 

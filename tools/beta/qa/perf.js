@@ -59,21 +59,27 @@ let misses = 0; const out = { load: [], inp: [] };
     for (let i = 0; i < RUNS; i++) for (const vn of ['phone', 'desk']) {
       const { ctx, p } = await page(vn);
       await p.addInitScript(() => { window.__ev = []; new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.interactionId) __ev.push({ id: e.interactionId, d: e.duration }); }).observe({ type: 'event', durationThreshold: 16, buffered: true }); });
-      await p.goto(base + 'cities/tokyo.html', { waitUntil: 'load' }); await p.waitForTimeout(3000);
+      // the collection filter lives on the Gallery's rail; Atlas is the default view since D-46, so the run starts in the
+      // Gallery (as R7's did), then opens a place and switches to Guidebook and Atlas from there
+      await p.goto(base + 'cities/tokyo.html#view=gallery', { waitUntil: 'load' }); await p.waitForTimeout(3000);
       const tap = async loc => { await loc.scrollIntoViewIfNeeded(); await p.waitForTimeout(300); if (vn === 'phone') await loc.tap(); else await loc.click(); };
-      const mark = async (label, fn) => { await p.evaluate(() => { __ev = []; }); try { await fn(); } catch (e) { return; } await p.waitForTimeout(1500);
+      const mark = async (label, fn) => { await p.evaluate(() => { __ev = []; }); try { await fn(); } catch (e) { const k = vn + '|' + label + ' (NOT RUN: ' + String(e.message || e).split('\n')[0].slice(0, 60) + ')'; (acts[k] = acts[k] || []).push(null); return; } await p.waitForTimeout(1500);
         const ev = await p.evaluate(() => __ev); const by = {}; ev.forEach(e => { by[e.id] = Math.max(by[e.id] || 0, e.d); });
         const k = vn + '|' + label; (acts[k] = acts[k] || []).push(Object.values(by).length ? Math.max(...Object.values(by)) : 0); };
       const view = async v => { const b = p.locator(`.views[data-cleo-views] button[data-view="${v}"]`); if (!(await b.isVisible())) { await tap(p.locator('.views[data-cleo-views] button[aria-pressed="true"]')); await p.waitForTimeout(400); } await tap(b); };
       await mark('collection filter (Gallery)', () => tap(p.locator('.rail-i', { hasText: 'Must see' }).first()));
-      await p.evaluate(() => { location.hash = ''; }); await p.waitForTimeout(1500); await p.evaluate(() => scrollTo(0, 0));
+      await p.evaluate(() => { location.hash = '#view=gallery'; }); await p.waitForTimeout(1500); await p.evaluate(() => scrollTo(0, 0));
       await mark('open a place', () => tap(p.locator('li.pl .pl-n a').first()));
       await p.keyboard.press('Escape'); await p.waitForTimeout(800); await p.evaluate(() => scrollTo(0, 0));
       await mark('switch view → Guidebook', () => view('guidebook'));
       await mark('switch view → Atlas', () => view('atlas'));
+      // D-46: a load lands in Atlas; the round trip back from Guidebook (which built every card) is its own row
+      await p.goto(base + 'cities/tokyo.html', { waitUntil: 'load' }); await p.waitForTimeout(3000);
+      await view('guidebook'); await p.waitForTimeout(1500);
+      await mark('Atlas load → Guidebook → back to Atlas', () => view('atlas'));
       await ctx.close();
     }
-    for (const [k, v] of Object.entries(acts)) { const [vn, label] = k.split('|'), m = med(v), ok = m <= 200; if (!ok) misses++;
+    for (const [k, v] of Object.entries(acts)) { const [vn, label] = k.split('|'), m = med(v), ok = m != null && m <= 200; if (!ok) misses++;
       out.inp.push({ vp: vn, action: label, inp: m, runs: v }); console.log(`  ${ok ? '✅' : '❌'} ${vn.padEnd(5)} ${label.padEnd(30)} INP ${String(m).padStart(5)} ms  (${v.join(', ')})`); }
   }
   await browser.close(); srv.close();

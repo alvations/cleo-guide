@@ -372,7 +372,8 @@ const lensOutcome = async (b, label) => {
     // the build's renderer (lib/render/lead-card.js leadLi) on the page's own data — compared whether or not it is switched on
     const LC = require('./lib/lead-card'), info = b.w.Cleo.city.info, pageHtml = rd('beta/' + page);
     const gf = path.join(BETA, 'data/gallery', String(b.w.Cleo.city.info.file || '').replace(/\//g, '--') + '.json'), gj = fs.existsSync(gf) ? JSON.parse(fs.readFileSync(gf, 'utf8')) : {};
-    if (!gj.lead) { chk(`${page}: no lead card in the data → none rendered by the build`, !b.d.querySelector('#cleo-lead .g-lead-card'), true); continue; }
+    // D-49 §v2.7b (spec change, BETA-LOG): a lead card is drawn only when the lead has a photo
+    if (!gj.lead || !gj.lead.ph) { chk(`${page}: no lead card in the data, or a photo-less lead (D-49) → none rendered by the build`, !b.d.querySelector('#cleo-lead .g-lead-card'), true); continue; }
     const box = b.d.createElement('ol'); box.innerHTML = LC.leadLi(gj.lead, info, pageHtml, b.w.Cleo.root || '../');
     const ssr = box.querySelector('li.gc');
     chk(`${page}: the build renders the lead card into the page only while lead-card.js ENABLED (now ${LC.ENABLED})`, !!b.d.querySelector('#cleo-lead .g-lead-card'), LC.ENABLED);
