@@ -158,7 +158,7 @@
       const near = (a, b) => a.left < b.right + 4 && a.right > b.left - 4 && a.top < b.bottom + 4 && a.bottom > b.top - 4;
       let cov = 0; const lim = 0.95 * (desk() ? 0.06 : innerWidth >= 768 ? 0.07 : 0.08) * sz.x * sz.y;   // 5 % under the cap: rounding never tips it   // OV-03 coverage: a pill past it goes back to a dot
       order.forEach(id => { const k = pins[id], e = k && k.getElement(), sp = e && e.firstElementChild; if (!sp) return; const r = sp.getBoundingClientRect(); if (!r.width) return;
-        const ha = (r.width + 4) * (r.height + (desk() ? 12 : 16));   // the 44 px hit area, not just the painted pill
+        const ha = r.width * r.height;   // the painted pill (the designer's budget: 7 labels at P2 within 8 % only holds for painted pills, not 44 px tap areas)
         if (first(id) === 2 && (kept.some(q => near(r, q)) || cov + ha > lim)) { map.removeLayer(k); delete pins[id]; return; }
         cov += ha; kept.push(r); }); }
     // density discs (region zoom only): > 12 dots inside a 28 px cell read as one soft, unnumbered disc; a click zooms in
@@ -339,9 +339,6 @@
       if (how === 'pin') preview(c);
       return;
     }
-    // §2.0.7 landscape: FE-C's side card (lazy side.js) is the selection — not the carousel. Only once that module ships
-    // (its version is in the page's info.js); until then the CSS side column below stands in. Its own steps and a route skip it
-    if (land() && how !== 'side' && how !== 'route' && (C.info.js || {}).side) { C.need('side', () => { if (Cleo.side && selC === c) Cleo.side.open(c, how); }); return; }
     if (how === 'swipe') {   // the card leads: light its pin and bring it into the uncovered band, gently
       const map = C.map(), k = C.markers[C.pid(c)]; if (!map || !k || again) return;
       quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.3 })); } catch (e) {}
@@ -549,7 +546,7 @@
   on(window, 'popstate', () => { if (pushedList) { pushedList = 0; if (listOn) listMode(false); } });
   // capture phase: decided before the sheet / tray handle the same Escape, so closing the detail never also drops the carousel
   d.addEventListener('keydown', e => { if (e.key !== 'Escape' || !atlas() || e.target.id === 'cleo-filter' || (Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])') || $('.m-attr-pop:not([hidden])')) return;
-    if (listOn) listMode(false, true); else if (H.classList.contains('ms-car')) { unselect(); car(false); } }, true);
+    if (listOn) listMode(false, true); else if (H.classList.contains('ms-car')) { const c = selC; unselect(); car(false); back(c); } }, true);
   C.onNoMap = () => { C.msN = null; if (atlas() && !desk()) listMode(true); msArea(); };
   // rev 5a §2.2: on phones the header's search icon is the search — in Atlas it opens the in-page search row over the
   // chip row (and keeps the reader on the map) instead of the site search panel; a typed search keeps the row open
@@ -563,7 +560,7 @@
   // OV-06 (SPEC-v3 §2.0.6): the phone chip row fades on each edge that has more chips beyond it, so it reads as scrollable
   const edge = () => { if (!bar) return; const o = bar.scrollWidth - bar.clientWidth > 2; bar.classList.toggle('ms-fl', o && bar.scrollLeft > 2); bar.classList.toggle('ms-fr', o && bar.scrollLeft < bar.scrollWidth - bar.clientWidth - 2); };
   const land = () => !!window.matchMedia && matchMedia('(max-height:499px) and (orientation:landscape)').matches;
-  C.land = land;   // the one landscape predicate (FE-C's side card keys on it too)
+  C.land = land;   // the one landscape predicate (FE-C's probes key on it too)
   C.msIn = () => {
     setTimeout(() => H.classList.add('ms-ready', 'ms-paged'), 3000);   // never hold the list longer than this, map or not
     if (!C._lq && window.matchMedia) { C._lq = 1; const q = matchMedia('(max-height:499px) and (orientation:landscape)'), f = () => { if (atlas() && !desk()) C.msIn(); }; if (q.addEventListener) q.addEventListener('change', f); }   // a rotation re-folds the bars
@@ -573,6 +570,9 @@
     // OV-00 §2.0.7 landscape (height < 500): one 48 px bar — the chip row folds away (its Filters button rides in the header,
     // atlas.css), and the kind chips and Top picks move into the Filters sheet, so it holds kind, Top picks and Area
     if (!desk() && land()) { const sc = $('#cleo-tray .scroll'), md = $('.modes', tb || bar), tp = $('.ms-top'); if (sc) { if (tp) park(tp, sc, sc.firstChild); if (md) park(md, sc, sc.firstChild); } }
+    // OV-41 (platform): on phones the list is a fixed, scrolling pane, so the page's offline-pack section (shown in Atlas when
+    // there is no map) would sit in the page flow under it, covered; it rides at the end of the list instead
+    if (!desk()) { const pk = $('main>section.pack[data-cleo-pack]'); if (pk && lp) park(pk, lp, null); }
     if (!desk()) { park(tb, bar, x); } else {   // phones: the view switch stays in FE-A's city bar, its own row under the header (QC-09)
       // desktop (SPEC-v3 §2.1): ONE bar — the search pill (in the toolbar), the chips, then the view switch; the notes and
       // the footer go to the end of the list column, since the document does not scroll in Atlas
@@ -612,6 +612,7 @@
     // phones (SPEC-v3 slice 2): the map's own controls sit bottom right above the cards; the OSM credit takes the top left, clear of them
     // the OSM credit on phones (SPEC-v3 §2.2): one line that cannot wrap, bottom LEFT (never a control's corner),
     // "© OpenStreetMap · Esri ⓘ" — the ⓘ opens the full credit with its links, so the licence stays one tap away
+    if (map.attributionControl) map.attributionControl.setPrefix(false);   // designer: no "Leaflet" word or flag (its BSD licence needs no on-map credit); the tile and data credits stay
     if (!dk && map.attributionControl) { const ac = map.attributionControl, up = ac._update;
       ac.setPosition('bottomleft');
       ac._update = function () { up.call(this); const el = this._container; if (!el) return; const full = el.innerHTML; el.classList.add('m-attr');
@@ -719,6 +720,10 @@
     if (!desk() && z0 < 16 && m.getBoundsZoom(sym, false, L.point(op.paddingTopLeft).add(op.paddingBottomRight)) >= z0 - 1) bb = sym;   // a small town already fits at street zoom: leave it
     C.auto(); m.fitBounds(bb, Object.assign(o, { maxZoom: 16, animate: false })); return true;
   };
+  // focus after a selection closes (FE-C, §2.0.7): the place's pin, else the map — never the page body. feature() may swap the
+  // pin out 120 ms after unselect, so it re-resolves once more at 260 ms
+  const back = c => { const f = () => { const k = c && C.markers[C.pid(c)], el = k && k.getElement && k.getElement(), mc = C.map() && C.map().getContainer(); const to = [el, mc].find(x => x && x.isConnected);
+    if (to) { if (!to.hasAttribute('tabindex')) to.setAttribute('tabindex', '0'); to.focus({ preventScroll: true }); } }; f(); setTimeout(() => { if (d.activeElement === d.body) f(); }, 260); };
   const unselect = () => { if (!selC) return; selC.classList.remove('is-sel', 'is-focus'); selC = null; C.feature(); };
   // the bars tucked or back: the labels' free area changed (overMap reads the bars' boxes), so re-place them once settled
   if (window.MutationObserver) { let was = H.classList.contains('ov-c'); new MutationObserver(() => { const n = H.classList.contains('ov-c'); if (n !== was) { was = n; setTimeout(() => { if (C.feature) C.feature(); }, 240); } }).observe(H, { attributes: true, attributeFilter: ['class'] }); }
