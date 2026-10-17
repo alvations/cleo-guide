@@ -210,6 +210,14 @@ A designed cover at full photo size still reads as a blank: it takes a photo's s
 - The list order equals `data-rank` order.
 - No two adjacent covers share glyph and word.
 
+## v2.7c Text floor on cards and the preview (PANEL-R4 #3, 2026-10-17)
+
+- **Floor: 14 px** (`--fs-sm`) for every text run on a card (A compact row, B quote card, photo card) and in the Atlas preview: the eyebrow, area · kind, "By {source}", "· Checked". `--fs-xs` (12) and `--fs-meta` (13) are no longer used on cards.
+- **Exempt:** the photo credit line (§v2.7, one line, `--fs-xs`). It's attribution, like the map credit. Its link still gets a 44 px hit area through padding.
+- **Median ≥ 16 px** on rail and grid cards and in the preview: the name is `--fs-lead` (17) and B's cover text is `--fs-lead`. Compact rows (D-49) are exempt from the median: their density is the owner's directive, so their name stays `--fs-d3` (16) and the why `--fs-sm` (14), inside the 128 px cap.
+- **Targets:** every non-pin control is ≥ 44 × 44 px or carries a 44 px hit area (view switch, search field, credit links).
+- **Rejected:** raising `--fs-xs` globally. It also sets chart axes, map credits and the legend, where 12 px is right and space is fixed.
+
 ## v2.8 Page patterns
 
 | Page | Pattern |

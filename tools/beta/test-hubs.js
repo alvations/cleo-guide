@@ -35,13 +35,21 @@ const chk = (name, got, want) => {
 };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const manifest = JSON.parse(rd('data/manifest.json'));
+// QC r4 (search ×2 / §v2.12 3a): the ≥1024 rule that hides the header search icon applies to city pages only (their city field
+// is the search there); Trip and Saved have no field, so hiding it there leaves 0 searches
+{
+  const css = fs.readFileSync(path.join(__dirname, 'lib', 'render', 'fe-a.css'), 'utf8') + fs.readFileSync(path.join(__dirname, 'lib', 'render', 'fe-b.css'), 'utf8');
+  const hide = [...css.matchAll(/([^{}]*\[data-cleo-search-open\][^{}]*)\{[^}]*display:\s*none/g)].map(m => m[1].trim()).filter(s => /\.topbar/.test(s));
+  chk('header search icon is hidden only on city pages (one search per screen, never zero)', hide.filter(s => !/\[data-cleo-page=city\]/.test(s)), a => a.length === 0);
+}
 // FE-B D-53: paste a link — a rating platform's or a place's own site's host never "recommends": every source-host row whose
 // source is not a recommender (lib/model.js sourceRole, recomputed from the page's sourceIndex) carries the cites flag (row[5] = 1)
 {
   const { sourceRole } = require('./lib/model');
   const role = {}; for (const row of manifest.pages.filter(p => p.kind === 'city')) {
     const j = JSON.parse(rd(`data/places/${row.key.replace(/\//g, '--')}.json`));
-    for (const s of j.sourceIndex || []) role[j.beta + ' ' + s.id] = sourceRole(s);
+    const recSet = new Set((j.places || []).flatMap(p => p.recby || []));   // QA-87: a recommender for some place on the page
+    for (const s of j.sourceIndex || []) role[j.beta + ' ' + s.id] = sourceRole(s) === 'rec' && recSet.has(s.id) ? 'rec' : sourceRole(s) === 'rec' ? 'self' : sourceRole(s);
   }
   const H = JSON.parse(rd('data/source-hosts.json')).hosts, bad = [];
   for (const [h, rows] of Object.entries(H)) for (const r of rows) { const ro = role[r[0] + ' ' + r[2]]; if (!ro || (ro === 'rec') === (r[5] === 1)) bad.push(`${h} ${r[2]} ${ro}`); }
