@@ -172,6 +172,7 @@ jobs:
           if [ -n "$(git status --porcelain -- beta/assets/img design/beta/imagery-runs/openverse design/beta/imagery-runs/commons-discovered design/beta/imagery-runs/sweep-served.txt)" ]; then echo "any=1" >> "$GITHUB_OUTPUT"; else echo "any=0" >> "$GITHUB_OUTPUT"; echo "No new photos or credits; skipping the rebuild."; fi
 
       - name: Rebuild the beta and run the gates
+        id: gates
         if: steps.changed.outputs.any == '1'
         run: |
           cd tools
@@ -179,6 +180,34 @@ jobs:
           npm run validate
           npm test
           npm run beta:check
+
+      - name: Keep the discovery work when the run fails (review inputs only; renders nothing)
+        # Imagery 11:37Z: run #100 found 114 Commons + 77 Openverse picks and spent its API budget, then committed nothing,
+        # because its gates failed. The discovery files are review inputs: no build or page reads them (grep tools/beta),
+        # so they are committed on their own here, and nothing else from the run is. Photos and CREDITS still need green gates.
+        if: failure()
+        run: |
+          keep="beta/assets/img/commons-discovered.json beta/assets/img/openverse-candidates.json design/beta/imagery-runs/commons-discovered design/beta/imagery-runs/openverse"
+          tmp="$RUNNER_TEMP/keep" && mkdir -p "$tmp"
+          for f in $keep; do
+            [ -e "$f" ] || continue
+            case "$f" in *.json) node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" || { echo "::warning::$f is not valid JSON; not kept"; continue; };; esac
+            mkdir -p "$tmp/$(dirname "$f")" && cp -r "$f" "$tmp/$(dirname "$f")/"
+          done
+          git reset -q --hard HEAD && git clean -fdq -- beta design
+          [ -n "$(ls -A "$tmp")" ] && cp -r "$tmp"/. .
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for f in $keep; do [ -e "$f" ] && git add -- "$f"; done
+          if git diff --cached --quiet; then echo "No discovery work to keep."; exit 0; fi
+          git commit -qm "Beta imagery: keep this run's discovery candidates and contact sheets for review (run failed; no photos or credits) (Actions)"
+          for i in 1 2 3 4 5 6; do
+            git fetch -q origin claude/peaceful-goodall-i0hsrt || { sleep $((5 + i * 5)); continue; }
+            git merge --no-edit -q origin/claude/peaceful-goodall-i0hsrt || { echo "::error::merge conflict:"; git diff --name-only --diff-filter=U; git merge --abort; exit 1; }
+            git push -q origin HEAD:claude/peaceful-goodall-i0hsrt && { echo "Kept the discovery work."; exit 0; }
+            sleep $((5 + i * 5))
+          done
+          exit 1
 
       - name: Commit photos and credits
         if: steps.changed.outputs.any == '1'
