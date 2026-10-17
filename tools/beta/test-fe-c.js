@@ -172,7 +172,11 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
         const closed = !!p.closed || / [—–-]+ CLOSED\b/.test(p.n) || /\bclosed\b/i.test((p.pv || {}).status || '');
         const S = SC.spec('place', { guide: G, places: [p], photo: n % 3 ? null : { src: '/x.jpg', credit: 'Photo: A · CC BY 4.0 · Wikimedia Commons (resized)' }, url: 'x' });
         const why = [];
-        if (!S.lines.some(l => /^(Recommended by .+|Added by the guide \(general knowledge\))$/.test(l))) why.push('no source line');
+        if (!S.lines.some(l => /^(Recommended by .+|Added by the guide \(general knowledge\)|No independent source yet)$/.test(l))) why.push('no source line');
+        // FE-B D-53 (trust): the line names a real recommender (recby[0], public name) or says there is none — never a platform or own site
+        if (/\byelp\b|trip ?advisor|google|apple maps|\(official/i.test(S.source)) why.push('D-53: names a rating platform or own site');
+        if (p.recby && p.recby.length && S.source.indexOf(String(G.src[p.recby[0]] || '').replace(/\s*\(official\b[^)]*\)/ig, '').trim()) < 0) why.push('D-53: first recommender not named');
+        if (p.recby && !p.recby.length && !(p.src || []).includes('guide') && (S.source !== 'No independent source yet' || /Must see|Worth the detour|Deep cut/.test(S.status))) why.push('D-53: no-recommender line or tier');
         if ((p.pv || {}).checked && !S.lines.some(l => l.endsWith('· ' + p.pv.checked))) why.push('no checked date');
         if (closed) { nClosed++; if (S.status !== 'Closed · kept for the record' || S.why) why.push('closed not stated, or a write-up'); }
         if (!closed && S.status === 'Closed · kept for the record') why.push('open place marked closed');
@@ -420,6 +424,19 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     const css = fs.readFileSync(path.join(BETA, 'assets/fe-a.css'), 'utf8').split('}').filter(r => /html\.ov-c[^{]*(\.cbar|#cleo-rail|\.toc)/.test(r));
     chk('compacted rows carry no pointer-events (inherited: a whole-subtree restyle on every compaction and focus change)', css.length >= 4 && css.every(r => !/pointer-events/.test(r)), css.filter(r => /pointer-events/.test(r)).slice(0, 2));
     chk('no js errors (inp)', !g.errs.length && !ca.errs.length, g.errs.concat(ca.errs).slice(0, 2));
+  }
+
+  console.log('\n== D-53 (trust): the sheet names only real recommenders; platforms and own sites are "Other sources" ==');
+  {
+    const g = boot('cities/siliconvalley.html', { hash: '#view=gallery&p=alexanders-steakhouse', mods: ['sheetbar'] }); await sleep(500);
+    const h = g.d.getElementById('cleo-sheet'), T = q => [...h.querySelectorAll(q)].map(e => e.textContent.replace(/\s+/g, ' ').trim());
+    chk('Alexander\'s Steakhouse (Yelp + Michelin): "Recommended by Michelin", Michelin alone under Recommended by, Yelp only under Other sources',
+      T('.sh-by').join() === 'Recommended by Michelin' && T('.content > div:not([data-cleo-others]) .srclist .nm').join() === 'Michelin' && T('[data-cleo-others] .nm').some(x => /^Yelp/.test(x)) && !/yelp/i.test(T('.sh-by, .content > div:not([data-cleo-others]) .srclist').join()), { by: T('.sh-by'), rec: T('.content > div:not([data-cleo-others]) .srclist .nm'), others: T('[data-cleo-others] .nm') });
+    const nyj = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/newyork.json'), 'utf8')), nr = nyj.places.find(p => p.recby && !p.recby.length && !(p.src || []).includes('guide'));
+    if (nr) { const n = boot('cities/newyork.html', { hash: '#view=gallery&p=' + nr.id, mods: ['sheetbar'] }); await sleep(500); const hn = n.d.getElementById('cleo-sheet'), Tn = q => [...hn.querySelectorAll(q)].map(e => e.textContent.replace(/\s+/g, ' ').trim());
+      chk(`${nr.n} (no independent recommender): "No independent source yet", its kind not a tier, no Recommended by list, its sources under Other sources`,
+        /^No independent source yet/.test(Tn('.sh-by').join()) && !hn.querySelector('.badges .tier') && /^(Sight|Eat & drink)$/.test(Tn('.badges .kind').join()) && !Tn('.section-t').includes('Recommended by') && Tn('[data-cleo-others] .nm').length === (nr.src || []).length, { by: Tn('.sh-by'), badge: Tn('.badges > *'), others: Tn('[data-cleo-others] .nm') });
+      chk('no js errors (d-53)', !g.errs.length && !n.errs.length, g.errs.concat(n.errs).slice(0, 2)); }
   }
 
   console.log('\n== APPROX (QC-04, D-43): a low-graded pin stays on the map, labelled "Approximate pin" ==');

@@ -1,1 +1,47 @@
-[]
+[
+ {
+  "kind": "controlCovered",
+  "view": "atlas",
+  "vp": "768x1024",
+  "runs": 8,
+  "pages": [
+   "cities/harrisburg.html",
+   "Singapore/marine-parade.html",
+   "Singapore/potong-pasir-macpherson.html",
+   "Singapore/upper-thomson.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "日本語 under atlas",
+  "budget": "none: every shown control is reachable",
+  "owner": "Atlas FE-1",
+  "of": 164,
+  "worstPage": "cities/harrisburg.html",
+  "worstTheme": "light",
+  "shot": null
+ },
+ {
+  "kind": "controlCollision",
+  "view": "atlas",
+  "vp": "768x1024",
+  "runs": 6,
+  "pages": [
+   "cities/akron.html",
+   "Singapore/jalan-besar.html",
+   "Singapore/queenstown.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "日本語 / atlas",
+  "budget": "none",
+  "owner": "Atlas FE-1",
+  "of": 164,
+  "worstPage": "cities/akron.html",
+  "worstTheme": "light",
+  "shot": null
+ }
+]

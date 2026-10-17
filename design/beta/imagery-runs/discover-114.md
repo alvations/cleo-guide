@@ -77,3 +77,16 @@ Openverse ids are shortened to their first 8 hex digits here. The TSV holds the 
 - **`commons-candidates.json`.** test-imagery requires every refusal in `cands.tsv` to reach the manifest, so the manifest had to be rebuilt. After merging imagery's own rebuild from origin (1434c55e8, with the 4 lifted skips), `python3 tools/beta/imagery/manifest/build_manifest.py` was run once more. Only the 53 targets these rows touch changed: all 26 ok picks are live candidates and all 30 refusals are recorded.
 - **Approved Commons picks are `med`.** The workflow runs `fetch-commons.js` without `--min`, so the default is `high`. These picks (and run #95's) are fetched only by a `--min med` run, or wherever a `high` candidate for the same place fails first.
 - **Places with both an Openverse ok and a live vetted Commons candidate:** Holy Blood, Malay Film studio, Couven, Burg Frankenberg and Meguro River. One photo per place is enforced at credit time, so whichever credits first wins.
+
+## Orchestrator calls on the flagged items (2026-10-17 14:00Z)
+
+1. **Our Lady of Sorrows (cm-99): approve in principle.** A basilica whose nave is the attraction may show the nave as a space (not an exhibit or a detail). The target is still on imagery's wave-6 skip list ("only details/interiors"), so imagery lifts that skip, then flips cm-99 to ok. Until then it stays refused, so the photo gate never sees a credit on a skipped target.
+2. **The Wharf (cm-130): stays ok.** An aerial view onto the marina shows the place, not a view from it.
+3. **Takeshita-dōri (ov-e666b4f3): refused.** The arch's name sign and its balloon art are the subject; Japan has no FoP for art. This is consistent with imagery's earlier crowd refusals.
+4. **Demachi arcade (cm-94):** ok as a street.
+5. **Düsseldorf Altstadt (cm-112):** ok; the 1711 statue is public domain.
+6. **Puppenbrunnen (cm-135):** ok; Germany's §59 UrhG covers permanent public works.
+7. **Quail Hollow (cm-145) and Civil War Museum (ov-f485f665):** ok. The place is identifiable, and the cover crop centres it.
+8. **Radio Kaikan, the Glico sign, the Werregarenstraat graffiti alley:** the place is the sign or the art itself. Imagery states them as rule gaps ("the place is signage/art; never a photo").
+9. **Trolley and railroad museums:** stay refused. D-56's cable-car exception covers an NHL structure in service. For a museum the subject is the museum, so an exterior of the building is fine.
+10. **The borderline framing refusals** stand.
