@@ -852,10 +852,12 @@ html[data-view=atlas]:not(.ms-nomap) [data-cleo-pack]{display:none!important}
 @media (min-width:768px) and (max-width:1023px) and (min-height:500px){
   html.atlas-m[data-view=atlas]:root{--cbar-o:0px}
   html.atlas-m[data-view=atlas] body main[data-city]>.cbar{height:0;min-height:0;background:transparent;border:0;pointer-events:none;z-index:47}
-  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views]{position:fixed;top:4px;right:116px;z-index:60;width:auto;height:44px;margin:0;padding:2px;pointer-events:auto}
-  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button{width:44px;min-width:44px;height:40px;min-height:0;padding:0;justify-content:center}
+  /* QC-06: 44 × 44 segments on a 48 px track (the 52 px header holds it), named by a tooltip on focus / press (QA-82 b) */
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views]{position:fixed;top:2px;right:116px;z-index:60;width:auto;height:48px;margin:0;padding:2px;box-sizing:border-box;pointer-events:auto}
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button{position:relative;width:44px;min-width:44px;height:44px;min-height:44px;padding:0;justify-content:center;overflow:visible}
   html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button>.ico{display:inline-block}
   html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button:is(:focus-visible,:active,:hover)>.l{top:calc(100% + var(--s-1));left:50%;width:auto;height:auto;overflow:visible;clip:auto;transform:translateX(-50%);padding:var(--s-1) var(--s-2);border-radius:var(--r-s);background:var(--ink);color:var(--paper);font:var(--fw-ui-strong) var(--fs-xs)/var(--lh-xs) var(--font-ui);box-shadow:var(--e-2);pointer-events:none;z-index:1}
 }
 /* §v2.12 3a (designer, owner OV-00): one search per screen. From 1024 the city field is the search on a city page, so the
    header's search icon is not drawn there (FE-B's search.js sends the icon and "/" to the city field below 1024) */
@@ -920,3 +922,25 @@ html .view-gallery li.gc.gc--np .gc-w::before{content:"\201C";position:absolute;
    won't sit in two lines (client marks it .l: > 28 characters or a 17-character word) drops to the UI face 600 at --fs-lead */
 html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{font:600 var(--fs-d2)/var(--lh-d2) var(--font-display);letter-spacing:var(--track-tight)}
 html main[data-city] li.pl>.pl-cover .pl-dish.l,html .view-gallery .gc .cover .dish.l{font:600 var(--fs-lead)/var(--lh-xs) var(--font-ui);letter-spacing:0}
+/* OV-106 / OV-115–117 (§v2.12 3a, one search per screen): below 1024 the header's search icon IS the search, so outside
+   Atlas the city field row folds away while it is empty and unfocused. It stays in the DOM and focusable: FE-B's search.js
+   focuses #cleo-filter from the icon, and :focus-within (or a typed query) brings it back in place */
+@media (max-width:1023px){
+  html:not([data-view=atlas]) body main[data-city]>.cbar .spill:not(:focus-within):not(:has(input:not(:placeholder-shown))){position:absolute;width:1px;height:1px;margin:0;padding:0;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+}
+/* …in landscape the switch already rides in the 48 px header, so the folded field leaves the city bar empty: it takes no height */
+@media (max-height:499px) and (orientation:landscape){
+  html:not([data-view=atlas]) body main[data-city]>.cbar:not(:focus-within):not(:has(.spill input:not(:placeholder-shown))){min-height:0;height:0;border-bottom:0}
+  html:not([data-view=atlas]) body main[data-city]>.cbar:not(:focus-within):not(:has(.spill input:not(:placeholder-shown)))>.cbar-in{min-height:0;padding:0}
+}
+/* designer (D-46 desktop sign-off condition): the header never overflows. With the view switch in desktop Atlas's header,
+   "Destinations" leaves it first (it stays in the menu and footer), then the crumb gives way per segment (ellipsis; the
+   text stays whole for assistive tech). atlas.css held the crumb at flex:none (0-4-1; these out-rank it), which pushed the saved ♡ off at 1440 */
+@media (min-width:1024px){
+  html.atlas-d[data-view=atlas] body .topbar .topnav a[href$="#destinations"]{display:none}
+  html[data-view] body .topbar .wrap>nav.crumbs{flex:0 1 auto;min-width:0}
+  html[data-view] body .topbar .wrap>nav.crumbs>:is(a.c0,.here){min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  html[data-view] body .topbar .wrap>nav.crumbs>a.c0{flex:0 3 auto}
+  html[data-view] body .topbar .wrap>nav.crumbs>.here{flex:0 1 auto}
+  html[data-view] body .topbar .wrap>nav.crumbs>.sep{flex:none}
+}

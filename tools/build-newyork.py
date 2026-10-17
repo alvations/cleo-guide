@@ -9,6 +9,21 @@ OUT  = os.path.join(ROOT, "cities", "newyork.html")
 DS   = json.load(open(os.path.join(ROOT, "data", "newyork.dataset.json"), encoding="utf-8"))
 h    = open(SRC, encoding="utf-8").read()
 
+# ── GATE 0: a place needs at least ONE credible recommender. Yelp/TripAdvisor/OpenTable/Google are
+#    open-verification / measurement only and count as ZERO (CLAUDE.md: "Yelp/TripAdvisor are never the
+#    recommender"). A record whose only sources are those is dropped-and-logged, never shown as "recommended
+#    by Yelp". (NYC does not yet enforce the full >=2-credible gate of tools/sourcecheck.py: ~337 live places
+#    carry one editorial source — an open decision recorded in data/newyork-research/AUDIT.md.)
+_OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS"}
+def _has_recommender(r):
+    return any(t[0] not in _OPEN_CHECK_ONLY for t in r.get("s", []))
+_norec = [r["n"] for r in DS["P"] + DS["F"] if not _has_recommender(r)]
+DS["P"] = [r for r in DS["P"] if _has_recommender(r)]
+DS["F"] = [r for r in DS["F"] if _has_recommender(r)]
+if _norec:
+    print("NOTE: %d place(s) dropped — no credible recommender (Yelp/TripAdvisor count as 0):" % len(_norec))
+    for n in _norec: print("   -", n)
+
 # Include only places that already carry a verified, sourced pin in the registry; drop (and log)
 # any still awaiting geocoding so the map never shows an unsourced pin. Full dataset stays intact.
 _REG = json.load(open(os.path.join(ROOT, "data", "geocodes.json"), encoding="utf-8"))["cities"].get("new-york-ny", {})

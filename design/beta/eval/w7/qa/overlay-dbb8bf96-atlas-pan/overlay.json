@@ -1,0 +1,1192 @@
+{
+ "verdict": "FAIL",
+ "gate": "fail",
+ "budgetsSet": true,
+ "ledgerHasSeverity": true,
+ "openHighMed": [
+  "OV-03",
+  "OV-04",
+  "OV-38",
+  "OV-41",
+  "OV-100",
+  "OV-101",
+  "OV-102",
+  "OV-103",
+  "OV-104",
+  "OV-105",
+  "OV-106",
+  "OV-107",
+  "OV-108",
+  "OV-109",
+  "OV-110",
+  "OV-111",
+  "OV-112",
+  "OV-113",
+  "OV-114",
+  "OV-115",
+  "OV-116",
+  "OV-117",
+  "OV-118",
+  "OV-119",
+  "OV-120",
+  "OV-121",
+  "OV-122",
+  "OV-123"
+ ],
+ "overBudget": [],
+ "searchThisAreaOnLoad": [],
+ "collisions": [
+  "cleveland.html tablet-land light atlas:  × All 194",
+  "cities/tokyo.html tablet-land light atlas:  × All 488"
+ ],
+ "cells": [
+  {
+   "page": "cleveland.html",
+   "vp": "tablet",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 15,
+     "topPct": 10,
+     "bottomPct": 5,
+     "midChrome": false,
+     "clearVP": 83,
+     "labelGap": 0,
+     "labelMaxPx": 300,
+     "mapPaneVisPct": 95,
+     "clearMapPct": 88,
+     "labelPct": 6,
+     "widestLabelPct": 39,
+     "labels": 10,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 5,
+     "topPct": 5,
+     "bottomPct": 0,
+     "midChrome": false,
+     "clearVP": 93,
+     "labelGap": 0,
+     "labelMaxPx": 300,
+     "mapPaneVisPct": 95,
+     "clearMapPct": 98,
+     "labelPct": 7,
+     "widestLabelPct": 39,
+     "labels": 11,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 3,
+     "collisionEg": [
+      "USUnited States × All 194",
+      "日本語 × Filters",
+      "日本語 × Top picks"
+     ],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 5,
+     "topPct": 5,
+     "bottomPct": 0,
+     "midChrome": true,
+     "clearVP": 92,
+     "labelGap": 0,
+     "labelMaxPx": 300,
+     "mapPaneVisPct": 95,
+     "clearMapPct": 97,
+     "labelPct": 7,
+     "widestLabelPct": 39,
+     "labels": 11,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 4,
+     "collisionEg": [
+      "USUnited States × All 194",
+      "日本語 × Filters",
+      "日本語 × Top picks",
+      "Atlas × Search this area"
+     ],
+     "searchThisArea": true
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "tablet",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 10,
+     "topPct": 10,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 5,
+     "topPct": 5,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 9,
+     "collisionEg": [
+      "Cleo — all destinati × Atlas",
+      "Cleo — all destinati × ★ SignatureOnly in C",
+      "USUnited States × Atlas",
+      "USUnited States × Gallery"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "tablet",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 10,
+     "topPct": 10,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 5,
+     "topPct": 5,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 4,
+     "collisionEg": [
+      "Cleo — all destinati × Atlas",
+      "USUnited States × Atlas",
+      "USUnited States × Gallery",
+      "日本語 × Gallery"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "tablet",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 0,
+     "topPct": 0,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 0,
+     "topPct": 0,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "clearVP": 49,
+     "labelGap": 0,
+     "labelMaxPx": 169,
+     "mapPaneVisPct": 51,
+     "clearMapPct": 96,
+     "labelPct": 5,
+     "widestLabelPct": 28,
+     "labels": 4,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 1,
+     "collisionEg": [
+      " × All 194"
+     ],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "clearVP": 49,
+     "labelGap": 0,
+     "labelMaxPx": 169,
+     "mapPaneVisPct": 51,
+     "clearMapPct": 96,
+     "labelPct": 5,
+     "widestLabelPct": 28,
+     "labels": 4,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 1,
+     "collisionEg": [
+      " × All 194"
+     ],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "clearVP": 49,
+     "labelGap": 0,
+     "labelMaxPx": 169,
+     "mapPaneVisPct": 51,
+     "clearMapPct": 96,
+     "labelPct": 5,
+     "widestLabelPct": 28,
+     "labels": 4,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 1,
+     "collisionEg": [
+      " × All 194"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "clearVP": 55,
+     "labelGap": 0,
+     "labelMaxPx": 209,
+     "mapPaneVisPct": 57,
+     "clearMapPct": 97,
+     "labelPct": 6,
+     "widestLabelPct": 23,
+     "labels": 8,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "clearVP": 55,
+     "labelGap": 0,
+     "labelMaxPx": 209,
+     "mapPaneVisPct": 57,
+     "clearMapPct": 97,
+     "labelPct": 6,
+     "widestLabelPct": 23,
+     "labels": 8,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "clearVP": 55,
+     "labelGap": 0,
+     "labelMaxPx": 209,
+     "mapPaneVisPct": 57,
+     "clearMapPct": 97,
+     "labelPct": 6,
+     "widestLabelPct": 23,
+     "labels": 8,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 11,
+     "topPct": 11,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 11,
+     "topPct": 11,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 15,
+     "topPct": 10,
+     "bottomPct": 5,
+     "midChrome": false,
+     "clearVP": 83,
+     "labelGap": 0,
+     "labelMaxPx": 220,
+     "mapPaneVisPct": 95,
+     "clearMapPct": 88,
+     "labelPct": 7,
+     "widestLabelPct": 29,
+     "labels": 11,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 5,
+     "topPct": 5,
+     "bottomPct": 0,
+     "midChrome": false,
+     "clearVP": 93,
+     "labelGap": 0,
+     "labelMaxPx": 220,
+     "mapPaneVisPct": 95,
+     "clearMapPct": 98,
+     "labelPct": 7,
+     "widestLabelPct": 29,
+     "labels": 11,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 3,
+     "collisionEg": [
+      "Japan × All 488",
+      "日本語 × Filters",
+      "日本語 × Top picks"
+     ],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 5,
+     "topPct": 5,
+     "bottomPct": 0,
+     "midChrome": true,
+     "clearVP": 92,
+     "labelGap": 0,
+     "labelMaxPx": 220,
+     "mapPaneVisPct": 95,
+     "clearMapPct": 97,
+     "labelPct": 7,
+     "widestLabelPct": 29,
+     "labels": 12,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 4,
+     "collisionEg": [
+      "Japan × All 488",
+      "日本語 × Filters",
+      "日本語 × Top picks",
+      "Atlas × Search this area"
+     ],
+     "searchThisArea": true
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 10,
+     "topPct": 10,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 5,
+     "topPct": 5,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 9,
+     "collisionEg": [
+      "Cleo — all destinati × Atlas",
+      "Cleo — all destinati × ★ SignatureAnime, ma",
+      "Japan × Atlas",
+      "Japan × Gallery"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 10,
+     "topPct": 10,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 5,
+     "topPct": 5,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 4,
+     "collisionEg": [
+      "Cleo — all destinati × Atlas",
+      "Japan × Atlas",
+      "Japan × Gallery",
+      "日本語 × Gallery"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 0,
+     "topPct": 0,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 768,
+     "vh": 1024,
+     "chromePct": 0,
+     "topPct": 0,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "clearVP": 49,
+     "labelGap": 0,
+     "labelMaxPx": 199,
+     "mapPaneVisPct": 51,
+     "clearMapPct": 96,
+     "labelPct": 6,
+     "widestLabelPct": 33,
+     "labels": 4,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 1,
+     "collisionEg": [
+      " × All 488"
+     ],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "clearVP": 49,
+     "labelGap": 0,
+     "labelMaxPx": 199,
+     "mapPaneVisPct": 51,
+     "clearMapPct": 96,
+     "labelPct": 6,
+     "widestLabelPct": 33,
+     "labels": 4,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 1,
+     "collisionEg": [
+      " × All 488"
+     ],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "clearVP": 49,
+     "labelGap": 0,
+     "labelMaxPx": 199,
+     "mapPaneVisPct": 51,
+     "clearMapPct": 96,
+     "labelPct": 6,
+     "widestLabelPct": 33,
+     "labels": 4,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 1,
+     "collisionEg": [
+      " × All 488"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "clearVP": 55,
+     "labelGap": 0,
+     "labelMaxPx": 213,
+     "mapPaneVisPct": 57,
+     "clearMapPct": 97,
+     "labelPct": 6,
+     "widestLabelPct": 23,
+     "labels": 7,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "clearVP": 55,
+     "labelGap": 0,
+     "labelMaxPx": 213,
+     "mapPaneVisPct": 57,
+     "clearMapPct": 97,
+     "labelPct": 5,
+     "widestLabelPct": 23,
+     "labels": 7,
+     "labelOverlaps": 0,
+     "labelOverControl": 3,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": true,
+     "clearVP": 55,
+     "labelGap": 0,
+     "labelMaxPx": 213,
+     "mapPaneVisPct": 57,
+     "clearMapPct": 97,
+     "labelPct": 6,
+     "widestLabelPct": 23,
+     "labels": 7,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "desktop",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 11,
+     "topPct": 11,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1440,
+     "vh": 900,
+     "chromePct": 11,
+     "topPct": 11,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  }
+ ]
+}

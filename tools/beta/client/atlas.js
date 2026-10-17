@@ -131,7 +131,7 @@
       N = desk() ? cl(ar / 30000, 3, 16) : innerWidth >= 768 ? cl(ar / 26000, 3, 12) : cl(ar / 24000, 3, innerHeight < 500 ? 10 : 8); }
     map.getContainer().style.setProperty('--pp-max', capW() + 'px');
     // nor under a map control, the List / Map pill or "Search this area" (rects in map-container px)
-    const mr = map.getContainer().getBoundingClientRect(), avoid = [...map.getContainer().querySelectorAll('.leaflet-control')].concat([$('.ms-toggle'), $('.ms-here'), $('#cleo-poi')])
+    const mr = map.getContainer().getBoundingClientRect(), avoid = [...map.getContainer().querySelectorAll('.leaflet-control')].concat([$('.ms-toggle'), $('.ms-here'), $('#cleo-poi'), C.land && C.land() && H.classList.contains('ms-car') ? lp : null])   /* landscape: the carousel docks on the right (FE-2) */
       .filter(e => e && e.offsetWidth && !e.closest('[hidden]')).map(e => { const q = e.getBoundingClientRect(); return { l: q.left - mr.left - 4, r: q.right - mr.left + 4, t: q.top - mr.top - 4, b: q.bottom - mr.top + 4 }; });
     // the reader's location dot is a placed box: no label ever covers it (rev 5, R3 #4)
     if (me) { const q = map.latLngToContainerPoint(me); placed.push({ l: q.x - 11, r: q.x + 11, t: q.y - 11, b: q.y + 11 }); }
