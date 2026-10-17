@@ -86,3 +86,9 @@ Next harness work:
   as `\|`.
 - Reports go to the orchestrator `session_01PCNcUkfa5S1N1BKGzZA4xx`: counts by severity and lane, the top 10, and
   any Blocker or High at once.
+
+### Checkpoint 2026-10-17 (after compaction)
+- Round-4 views run `r4-75bb37bb-views` is in progress, log `scratchpad/ovR4b.log`. Sheet: 0 failing. Pages: search ×2 (FE-B) only. Gallery, Guidebook and Insights are pending. When it finishes: `qc-overlay-ledger.js --label r4-75bb37bb-views --views sheet,gallery,guidebook,insights --write`.
+- FE-A 768 fix verified on 7de1297bd (OV-124/125, 0/56 runs).
+- QC-36 filed: a count-line race makes npm test red under load (test-count-lines).
+- Next: re-grade FE-B search ×2 when its SHA lands; r7 re-run with the corrected probe.
