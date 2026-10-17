@@ -270,7 +270,7 @@
   // R7 gap 5 (food covers): food places never get photos (honesty rule), so their cover names the dish in display type
   // on the eat-and-drink tint, under the kind glyph — an intentional face, never a blank box that reads as "not loaded"
   const dishOf = c => { if (at(c, 'data-k') !== 'f') return ''; const x = $('.pl-e .in-d', c), t = x ? x.textContent.replace(/^\s*·\s*/, '').trim() : '';
-    return t ? '<span class="pl-dish">' + esc(t) + '</span>' : ''; };   // no dish or cuisine to name: a glyph-only cover (designer: the area is never a cover word)
+    return t ? '<span class="pl-dish' + (t.length > 28 || /\S{17}/.test(t) ? ' l' : '') + '">' + esc(t) + '</span>' : ''; };   // no dish or cuisine to name: a glyph-only cover (designer: the area is never a cover word)
   // PERF-21 (platform): `only` = just these cards (a stamp paints its new cards, not all of them again); writes are skipped
   // when unchanged, so a repaint does not dirty every card's style and layout
   const put = (el, k, v) => { if (k === 'text' ? el.textContent !== v : el.getAttribute(k) !== v) { if (k === 'text') el.textContent = v; else el.setAttribute(k, v); } };

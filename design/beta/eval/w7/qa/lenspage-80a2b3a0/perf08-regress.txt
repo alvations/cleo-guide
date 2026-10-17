@@ -1,0 +1,181 @@
+  PASS  cities/tokyo.html desktop t=1: (1) the counts line reads F (177) = {"line":"Showing 177 of 488 places in 13 areas. Ordered by tier, then","F":177,"builtAtLoad":74}
+  PASS  cities/tokyo.html desktop t=1: (2) paging 4 pages shows every match once, each a real card = {"seen":177,"uniq":177,"F":177,"missing":[],"extra":[],"notCard":0}
+  PASS  cities/tokyo.html desktop t=1: (3) search finds a last-page match ("Yoshimuraya") = {"id":"yoshimuraya"}
+  PASS  cities/tokyo.html desktop t=1: (4) #p=<last-page match> opens its sheet = {"id":"yoshimuraya","sheet":"Yoshimuraya (吉村家)"}
+  PASS  cities/tokyo.html desktop t=1: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cities/tokyo.html desktop t=1: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:33671/beta/data/places/tokyo.json"]
+  PASS  cities/tokyo.html desktop t=1: 0 JS errors = []
+  PASS  cities/tokyo.html desktop mode=food: (1) the counts line reads F (225) = {"line":"Showing 225 of 488 places in 13 areas. Ordered by tier, then","F":225,"builtAtLoad":83}
+  PASS  cities/tokyo.html desktop mode=food: (2) paging 5 pages shows every match once, each a real card = {"seen":225,"uniq":225,"F":225,"missing":[],"extra":[],"notCard":0}
+  PASS  cities/tokyo.html desktop mode=food: (3) search finds a last-page match ("Amazake-chaya, Hakone") = {"id":"amazake-chaya-hakone"}
+  PASS  cities/tokyo.html desktop mode=food: (4) #p=<last-page match> opens its sheet = {"id":"amazake-chaya-hakone","sheet":"Amazake-chaya, Hakone (甘酒茶屋)"}
+  PASS  cities/tokyo.html desktop mode=food: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cities/tokyo.html desktop mode=food: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:33671/beta/data/places/tokyo.json"]
+  PASS  cities/tokyo.html desktop mode=food: 0 JS errors = []
+  PASS  cleveland.html desktop t=1: (1) the counts line reads F (47) = {"line":"Showing 47 of 194 places in 4 areas. Ordered by tier, then b","F":47,"builtAtLoad":79}
+  PASS  cleveland.html desktop t=1: (2) paging 1 pages shows every match once, each a real card = {"seen":47,"uniq":47,"F":47,"missing":[],"extra":[],"notCard":0}
+  PASS  cleveland.html desktop t=1: (3) search finds a last-page match ("Tita Flora's") = {"id":"tita-floras"}
+  PASS  cleveland.html desktop t=1: (4) #p=<last-page match> opens its sheet = {"id":"tita-floras","sheet":"Tita Flora's"}
+  PASS  cleveland.html desktop t=1: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cleveland.html desktop t=1: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:33671/beta/data/places/cleveland.json"]
+  PASS  cleveland.html desktop t=1: 0 JS errors = []
+  PASS  cities/tokyo.html phone t=1: (1) the counts line reads F (177) = {"line":"Showing 177 of 488 places in 13 areas. Ordered by tier, then","F":177,"builtAtLoad":31}
+  PASS  cities/tokyo.html phone t=1: (2) paging 8 pages shows every match once, each a real card = {"seen":177,"uniq":177,"F":177,"missing":[],"extra":[],"notCard":0}
+  PASS  cities/tokyo.html phone t=1: (3) search finds a last-page match ("Yoshimuraya") = {"id":"yoshimuraya"}
+  PASS  cities/tokyo.html phone t=1: (4) #p=<last-page match> opens its sheet = {"id":"yoshimuraya","sheet":"Yoshimuraya (吉村家)"}
+  PASS  cities/tokyo.html phone t=1: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cities/tokyo.html phone t=1: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:33671/beta/data/places/tokyo.json"]
+  PASS  cities/tokyo.html phone t=1: 0 JS errors = []
+  PASS  cities/tokyo.html phone mode=food: (1) the counts line reads F (225) = {"line":"Showing 225 of 488 places in 13 areas. Ordered by tier, then","F":225,"builtAtLoad":66}
+  PASS  cities/tokyo.html phone mode=food: (2) paging 10 pages shows every match once, each a real card = {"seen":225,"uniq":225,"F":225,"missing":[],"extra":[],"notCard":0}
+  PASS  cities/tokyo.html phone mode=food: (3) search finds a last-page match ("Amazake-chaya, Hakone") = {"id":"amazake-chaya-hakone"}
+  PASS  cities/tokyo.html phone mode=food: (4) #p=<last-page match> opens its sheet = {"id":"amazake-chaya-hakone","sheet":"Amazake-chaya, Hakone (甘酒茶屋)"}
+  PASS  cities/tokyo.html phone mode=food: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cities/tokyo.html phone mode=food: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:33671/beta/data/places/tokyo.json"]
+  PASS  cities/tokyo.html phone mode=food: 0 JS errors = []
+  PASS  cleveland.html phone t=1: (1) the counts line reads F (47) = {"line":"Showing 47 of 194 places in 4 areas. Ordered by tier, then b","F":47,"builtAtLoad":38}
+  PASS  cleveland.html phone t=1: (2) paging 2 pages shows every match once, each a real card = {"seen":47,"uniq":47,"F":47,"missing":[],"extra":[],"notCard":0}
+  PASS  cleveland.html phone t=1: (3) search finds a last-page match ("Tita Flora's") = {"id":"tita-floras"}
+  PASS  cleveland.html phone t=1: (4) #p=<last-page match> opens its sheet = {"id":"tita-floras","sheet":"Tita Flora's"}
+  PASS  cleveland.html phone t=1: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cleveland.html phone t=1: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:33671/beta/data/places/cleveland.json"]
+  PASS  cleveland.html phone t=1: 0 JS errors = []
+  PASS  QC-26 cities/tokyo.html phone a=CYD: the sheet reads "1 of N" and paging the Atlas list reaches all N = {"of":43,"shownFirst":11,"reached":43}
+  PASS  QC-26 cleveland.html phone a=DT: the sheet reads "1 of N" and paging the Atlas list reaches all N = {"of":42,"shownFirst":20,"reached":42}
+  PASS  QC-26 cities/tokyo.html desktop a=CYD: the sheet reads "1 of N" and paging the Atlas list reaches all N = {"of":43,"shownFirst":36,"reached":43}
+  PASS  QC-26 cleveland.html desktop a=DT: the sheet reads "1 of N" and paging the Atlas list reaches all N = {"of":42,"shownFirst":34,"reached":42}
+>>> PASS — lensPage restatement and QC-26 lens count hold
+  PASS  cities/tokyo.html 1440, every card built: switch → Atlas INP 0 ms (runs 0, 0, 0), ceiling 1500 ms at 1× CPU
+
+>>> PASS — desktop switch → Atlas INP
+  PASS  [dom] cities/tokyo.html mobile: initial DOM ≤ 3,000 nodes = 2632
+  PASS  [dom] cities/tokyo.html mobile: every place reachable after stamp-all = [488,488]
+  PASS  [dom] cities/tokyo.html mobile: 0 JS errors = []
+  PASS  [dom] cities/tokyo.html desktop: initial DOM ≤ 3,000 nodes = 2641
+  PASS  [dom] cities/tokyo.html desktop: every place reachable after stamp-all = [488,488]
+  PASS  [dom] cities/tokyo.html desktop: 0 JS errors = []
+  PASS  [dom] cities/newyork.html mobile: initial DOM ≤ 3,000 nodes = 2510
+  PASS  [dom] cities/newyork.html mobile: every place reachable after stamp-all = [508,508]
+  PASS  [dom] cities/newyork.html mobile: 0 JS errors = []
+  PASS  [dom] cities/newyork.html desktop: initial DOM ≤ 3,000 nodes = 2527
+  PASS  [dom] cities/newyork.html desktop: every place reachable after stamp-all = [508,508]
+  PASS  [dom] cities/newyork.html desktop: 0 JS errors = []
+>>> 12/12 PASS, 0 FAIL → qa/beta-w2/w2-dom.json
+
+>>> PASS — initial DOM budget (M3-06): Tokyo + New York, phone + desktop ≤ 3,000 nodes
+PASS  #1 tokyo 1440: card → detail → Escape keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"card p-kanda-myojin","sheet":true,"shut":true,"px":0,"zoom":[14,14],"scrollY":[0,0],"list":[[1302,0],[1302,0]],"count":["179 places here · Top ranked","179 places here · Top ranked"],"pill":["List · 179","List · 179"],"focus":"card p-kanda-myojin","ok":true}
+PASS  #1 tokyo 1440: card → detail → Back keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"card p-kanda-myojin","sheet":true,"shut":true,"px":0,"zoom":[14,14],"scrollY":[0,0],"list":[[1302,0],[1302,0]],"count":["179 places here · Top ranked","179 places here · Top ranked"],"pill":["List · 179","List · 179"],"focus":"card p-kanda-myojin","ok":true}
+PASS  #1 tokyo 1440: card → detail → Close keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"card p-kanda-myojin","sheet":true,"shut":true,"px":0,"zoom":[14,14],"scrollY":[0,0],"list":[[1302,0],[1302,0]],"count":["179 places here · Top ranked","179 places here · Top ranked"],"pill":["List · 179","List · 179"],"focus":"card p-kanda-myojin","ok":true}
+PASS  #1 tokyo 1440: pin → detail → Escape keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"pin p-suga-shrine-stairs-yotsuya","sheet":true,"shut":true,"px":0,"zoom":[14,14],"scrollY":[0,0],"list":[[470,0],[470,0]],"count":["179 places here · Top ranked","179 places here · Top ranked"],"pill":["List · 179","List · 179"],"focus":"pin p-suga-shrine-stairs-yotsuya","ok":true}
+PASS  #1 tokyo 1440: deep link — the place is on the map, not under the detail, zoom ≥ 15, scrollY 0 (desktop: no map ancestor scrolled either)  {"sheet":true,"pinUnderSheet":false,"onMap":true,"z":15,"scrollY":0,"ancestorsScrolled":[]}
+PASS  #1 tokyo 390: card → detail → Escape keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"card p-edo-tokyo-museum","sheet":true,"shut":true,"px":0,"zoom":[13,13],"scrollY":[0,0],"list":[[0,0],[0,0]],"count":["351 places here · Top ranked","351 places here · Top ranked"],"pill":["List · 351","List · 351"],"focus":"card p-edo-tokyo-museum","ok":true}
+PASS  #1 tokyo 390: card → detail → Back keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"card p-edo-tokyo-museum","sheet":true,"shut":true,"px":0,"zoom":[13,13],"scrollY":[0,0],"list":[[0,0],[0,0]],"count":["351 places here · Top ranked","351 places here · Top ranked"],"pill":["List · 351","List · 351"],"focus":"card p-edo-tokyo-museum","ok":true}
+PASS  #1 tokyo 390: card → detail → Close keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"card p-edo-tokyo-museum","sheet":true,"shut":true,"px":0,"zoom":[13,13],"scrollY":[0,0],"list":[[0,0],[0,0]],"count":["351 places here · Top ranked","351 places here · Top ranked"],"pill":["List · 351","List · 351"],"focus":"card p-edo-tokyo-museum","ok":true}
+PASS  #1 tokyo 390: deep link — the place is on the map, not under the detail, zoom ≥ 15, scrollY 0 (desktop: no map ancestor scrolled either)  {"sheet":true,"pinUnderSheet":false,"onMap":true,"z":15,"scrollY":0,"ancestorsScrolled":[]}
+PASS  #13 tokyo 1440: panning and zooming write the view to the URL (#…&at=lat,lng,z) without a history entry  {"hash":"#at=35.66371%2C139.76369%2C14","history":[2,2]}
+PASS  #13 tokyo 1440: that URL reopens the same view (≤ 1 px, same zoom)  {"px":1,"zoom":[14,14]}
+PASS  #13 tokyo 1440: the share toast says exactly what the link opens  {"id":"p-imperial-palace-east-gardens","toast":"Link copied · opens Imperial Palace East Gardens on this map view","url":"https://cleo.local/beta/cities/tokyo.html#view=atlas&at=35.67626%2C139.7397%2C13&p=imperial-palace-east-gardens","name":"Imperial Palace East Gardens"}
+PASS  #13 tokyo 1440: the shared place link opens that place on the sender's map view (≤ 1 px, same zoom)  {"back":{"sheet":true,"p":"imperial-palace-east-gardens"},"px":0,"zoom":[13,13],"sent":[35.676256,139.739695],"url":"view=atlas&at=35.67626%2C139.7397%2C13&p=imperial-palace-east-gardens","got":[35.676263,139.739656]}
+PASS  #13 tokyo 390: panning and zooming write the view to the URL (#…&at=lat,lng,z) without a history entry  {"hash":"#at=35.66622%2C139.79073%2C13","history":[2,2]}
+PASS  #13 tokyo 390: that URL reopens the same view (≤ 1 px, same zoom)  {"px":0,"zoom":[13,13]}
+PASS  #13 tokyo 390: the share toast says exactly what the link opens  {"id":"p-edo-tokyo-museum","toast":"Link copied · opens Edo-Tokyo Museum on this map view","url":"https://cleo.local/beta/cities/tokyo.html#view=atlas&at=35.69132%2C139.75262%2C12&p=edo-tokyo-museum","name":"Edo-Tokyo Museum"}
+PASS  #13 tokyo 390: the shared place link opens that place on the sender's map view (≤ 1 px, same zoom)  {"back":{"sheet":true,"p":"edo-tokyo-museum"},"px":0,"zoom":[12,12],"sent":[35.643068,139.796219],"url":"view=atlas&at=35.69132%2C139.75262%2C12&p=edo-tokyo-museum","got":[35.643068,139.796219]}
+PASS  #11 tokyo 1440: the first pin ≤ 12 stops in (via "Skip to the map"), the map before the list in Tab order, "Skip to the results" ≤ 15 stops in; every stop shows a visible ring  {"pinBySkip":4,"tabOnly":{"mapAt":28,"firstPin":29,"firstCard":46},"skipAt":3,"noRing":[],"first":["a.skip Skip to content","a.skip Skip to the map","a.skip Skip to the results","a.brand Cleo — all destinations","a.c0 Japan","a. Destinations"]}
+PASS  #11 tokyo 1440: "Skip to the map" focuses the map and "Skip to the results" the first card, the hash untouched  {"map":{"visibleOnFocus":true,"to":"div.map","hash":"#at=35.67626%2C139.7397%2C13"},"list":{"visibleOnFocus":true,"to":"card p-imperial-palace-east-gardens","hash":"#at=35.67626%2C139.7397%2C13"}}
+PASS  #11 tokyo 1440: arrows move between pins in map-priority order; Enter opens the preview; Escape closes it, focus on the pin  {"kb":{"pins":7,"seq":["edo-tokyo-museum","imperial-palace-east-gardens","tsukiji-hongan-ji","imperial-palace-east-gardens"],"want":["edo-tokyo-museum","imperial-palace-east-gardens","tsukiji-hongan-ji","imperial-palace-east-gardens"]},"pv":{"preview":true,"focus":"imperial-palace-east-gardens"},"es":{"preview":false,"focusPin":true},"v0":true}
+PASS  #3 tokyo 1440: after locate-me + Eat & drink, nearest first — the first card within 1.2 km, Nonbei Yokochō or The Bellwood in the top 3  {"tap":"click","top":[{"n":"Nonbei Yokochō, Shibuya (渋谷のんべい横丁)","km":0.09,"d":"90 m · 1 min walk ·"},{"n":"Ichiran Shibuya","km":0.19,"d":"190 m · 2 min walk ·"},{"n":"Chatei Hatou","km":0.22,"d":"220 m · 3 min walk ·"}],"count":"30 places here, of all 488 · Nearest to me"}
+PASS  #3 tokyo 1440: every card shows its distance and an estimated walking time; the cards shown are the map area's (≤ the count)  {"shown":30,"count":30,"eg":["90 m · 1 min walk ·","190 m · 2 min walk ·"]}
+PASS  #3 tokyo 1440: the first card is a place inside the map bounds  {"n":"Nonbei Yokochō, Shibuya (渋谷のんべい横丁)","km":0.09,"d":"90 m · 1 min walk ·"}
+PASS  #3 tokyo 1440: the location is never stored  "{}{}"
+PASS  #3 tokyo 390: after locate-me + Eat & drink, nearest first — the first card within 1.2 km, Nonbei Yokochō or The Bellwood in the top 3  {"tap":"click","top":[{"n":"Nonbei Yokochō, Shibuya (渋谷のんべい横丁)","km":0.09,"d":"90 m · 1 min walk ·"},{"n":"Ichiran Shibuya","km":0.19,"d":"190 m · 2 min walk ·"},{"n":"Chatei Hatou","km":0.22,"d":"220 m · 3 min walk ·"}],"count":"10 places here, of all 488 · Nearest to me"}
+PASS  #3 tokyo 390: every card shows its distance and an estimated walking time; the cards shown are the map area's (≤ the count)  {"shown":10,"count":10,"eg":["90 m · 1 min walk ·","190 m · 2 min walk ·"]}
+PASS  #3 tokyo 390: the first card is a place inside the map bounds  {"n":"Nonbei Yokochō, Shibuya (渋谷のんべい横丁)","km":0.09,"d":"90 m · 1 min walk ·"}
+PASS  #3 tokyo 390: the List pill count equals the List-mode count  {"pill":10,"list":{"count":10,"cards":10}}
+PASS  #3 tokyo 390: the location is never stored  "{}{}"
+PASS  R3 #7 tokyo 1440: no layout shift — after card focus, Tab, card → detail → Escape / Back and Share the map top stays at 108 px, the search box stays on screen (≥ 56 px), every map ancestor keeps scrollTop 0  {"start":{"mapTop":108,"searchTop":69,"searchVis":true,"anc":[]},"bad":[]}
+PASS  R3 #8 tokyo 1440: a fresh #view=atlas&at=Asakusa z15 load lists only places inside the map (the first card included)  {"centre":[35.7148,139.7967,15],"first":"Sensō-ji","shown":32,"out":[],"count":32,"pill":32,"list":false}
+PASS  R3 #8 tokyo 390: a fresh #view=atlas&at=Asakusa z15 load lists only places inside the map (the first card included)  {"centre":[35.7148,139.7967,15],"first":"Sensō-ji","shown":24,"out":[],"count":24,"pill":0,"list":true}
+PASS  R3 #8 tokyo 390: after a zoom the pill and count equal the places in view, or "Search this area" is offered  {"inView":46,"count":351,"pill":351,"pillText":"351 places here · checked 2 Oct · Show list","here":true}
+PASS  QC-26 cities/tokyo.html 390: cold #view=atlas&a=CYD&p=imperial-palace-east-gardens applies the lens (detail "k of 43", no card outside it) [first area]  "{\"a\":\"CYD\",\"pos\":\"1 of 43 in this Atlas view\",\"lensN\":43,\"shownNotHidden\":11,\"outsideLens\":0,\"routeA\":\"CYD\",\"S_a\":\"CYD\"}"
+PASS  QC-26 cities/tokyo.html 1440: cold #view=atlas&a=CYD&p=imperial-palace-east-gardens applies the lens (detail "k of 43", no card outside it) [first area]  "{\"a\":\"CYD\",\"pos\":\"1 of 43 in this Atlas view\",\"lensN\":43,\"shownNotHidden\":36,\"outsideLens\":0,\"routeA\":\"CYD\",\"S_a\":\"CYD\"}"
+PASS  QC-26 cities/tokyo.html 390: cold #view=atlas&a=CHUO&p=tsukiji-hongan-ji applies the lens (detail "k of 49", no card outside it) [second area]  "{\"a\":\"CHUO\",\"pos\":\"1 of 49 in this Atlas view\",\"lensN\":49,\"shownNotHidden\":17,\"outsideLens\":0,\"routeA\":\"CHUO\",\"S_a\":\"CHUO\"}"
+PASS  QC-26 cities/tokyo.html 1440: cold #view=atlas&a=CHUO&p=tsukiji-hongan-ji applies the lens (detail "k of 49", no card outside it) [second area]  "{\"a\":\"CHUO\",\"pos\":\"1 of 49 in this Atlas view\",\"lensN\":49,\"shownNotHidden\":34,\"outsideLens\":0,\"routeA\":\"CHUO\",\"S_a\":\"CHUO\"}"
+PASS  QA-76 tokyo 1440 #view=atlas: no map-area count or "Show all" on the starting view before the first fit  {"final":{"c":"359 places here · Top ranked","more":"Show all 488","z":13},"early":[]}
+PASS  QA-76 tokyo 1440 #view=atlas&t=1: no map-area count or "Show all" on the starting view before the first fit  {"final":{"c":"177 places here, of all 488 · Top ranked","more":"","z":9},"early":[]}
+PASS  QA-76 tokyo 390 #view=atlas: no map-area count or "Show all" on the starting view before the first fit  {"final":{"c":"351 places here · Top ranked","more":"Show all 488","z":12},"early":[]}
+PASS  QA-76 tokyo 390 #view=atlas&t=1: no map-area count or "Show all" on the starting view before the first fit  {"final":{"c":"177 places here, of all 488 · Top ranked","more":"","z":8.5},"early":[]}
+PASS  R3 #9/#14 rings cities/tokyo.html 390 light: exactly one unclipped ring at every stop inside a card  "{\"stops\":9,\"wrong\":[]}"
+PASS  R3 #9/#14 rings cities/tokyo.html 390 dark: exactly one unclipped ring at every stop inside a card  "{\"stops\":9,\"wrong\":[]}"
+PASS  R3 #9/#14 rings cities/tokyo.html 1440 light: exactly one unclipped ring at every stop inside a card  "{\"stops\":13,\"wrong\":[]}"
+PASS  R3 #9/#14 rings cities/tokyo.html 1440 dark: exactly one unclipped ring at every stop inside a card  "{\"stops\":13,\"wrong\":[]}"
+PASS  §3.7 motion cities/tokyo.html 1440 motion: card hover — every animation ≤ 300 ms  "{\"n\":8,\"long\":[],\"an\":[{\"what\":\"span.\",\"prop\":\"border-bottom-color\",\"ms\":120},{\"what\":\"span.\",\"prop\":\"border-left-color\",\"ms\":120},{\"what\":\"span.\",\"prop\":\"border-right-color\",\"ms\":120},{\"what\":\"span.\",\"prop\":\"border-top-color\",\"ms\":120}]}"
+PASS  §3.7 motion cities/tokyo.html 1440 motion: pin → preview — every animation ≤ 300 ms, the moment plays  "{\"n\":10,\"long\":[],\"an\":[{\"what\":\"div.poi-sheet#cleo-poi\",\"prop\":\"waapi\",\"ms\":200},{\"what\":\"span.\",\"prop\":\"border-bottom-color\",\"ms\":120},{\"what\":\"span.\",\"prop\":\"border-left-color\",\"ms\":120},{\"what\":\"span.\",\"prop\":\"border-right-color\",\"ms\":120}]}"
+PASS  §3.7 motion cities/tokyo.html 1440 motion: the preview grows from the pin's point  "{\"origin\":[789,360],\"pin\":[789,360]}"
+PASS  §3.7 motion cities/tokyo.html 1440 motion: preview close — every animation ≤ 300 ms, the moment plays  "{\"n\":1,\"long\":[],\"an\":[{\"what\":\"div.ms-ghost\",\"prop\":\"waapi\",\"ms\":120}]}"
+PASS  §3.7 motion cities/tokyo.html 1440 motion: the preview closed, no copy left  "{\"ghosts\":0,\"hidden\":true}"
+PASS  §3.7 motion cities/tokyo.html 1440 motion: a hovered dot grows 7 → 11 px and back in ≤ 8 redraws  "{\"id\":\"kanda-myojin\",\"r0\":3.5,\"up\":5.5,\"nUp\":8,\"down\":3.5,\"n\":14}"
+PASS  §3.7 motion cities/tokyo.html 390 motion: pin → carousel — every animation ≤ 300 ms, the moment plays  "{\"n\":71,\"long\":[],\"an\":[{\"what\":\"li.pl#p-imperial-palace-east-gardens\",\"prop\":\"waapi\",\"ms\":200},{\"what\":\"li.pl#p-edo-tokyo-museum\",\"prop\":\"waapi\",\"ms\":200},{\"what\":\"span.\",\"prop\":\"border-bottom-color\",\"ms\":63},{\"what\":\"span.\",\"prop\":\"border-left-color\",\"ms\":63}]}"
+PASS  §3.7 motion cities/tokyo.html 390 motion: the carousel shows  "{\"car\":true}"
+PASS  §3.7 motion cities/tokyo.html 1440 reduced: card hover — no animation under reduced motion  "{\"n\":0,\"an\":[]}"
+PASS  §3.7 motion cities/tokyo.html 1440 reduced: pin → preview — no animation under reduced motion  "{\"n\":0,\"an\":[]}"
+PASS  §3.7 motion cities/tokyo.html 1440 reduced: the preview opens  "{\"shown\":true,\"ox\":759,\"oy\":570.1949999999999}"
+PASS  §3.7 motion cities/tokyo.html 1440 reduced: preview close — no animation under reduced motion  "{\"n\":0,\"an\":[]}"
+PASS  §3.7 motion cities/tokyo.html 1440 reduced: the preview closed, no copy left  "{\"ghosts\":0,\"hidden\":true}"
+PASS  §3.7 motion cities/tokyo.html 1440 reduced: a hovered dot grows 7 → 11 px and back at once  "{\"id\":\"kanda-myojin\",\"r0\":3.5,\"up\":5.5,\"nUp\":1,\"down\":3.5,\"n\":2}"
+PASS  §3.7 motion cities/tokyo.html 390 reduced: pin → carousel — no animation under reduced motion  "{\"n\":0,\"an\":[]}"
+PASS  §3.7 motion cities/tokyo.html 390 reduced: the carousel shows  "{\"car\":true}"
+PASS  D-46 tokyo 1440: a bare URL lands in Atlas with the map, the page unscrolled, and at most the view written (#at=…, no view key)  {"view":"atlas","hash":"#at=35.67626%2C139.7397%2C13","map":true,"y":0}
+PASS  D-46 tokyo 1440: from a bare URL, card → detail → Escape keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"card p-kanda-myojin","sheet":true,"shut":true,"px":0,"zoom":[14,14],"scrollY":[0,0],"list":[[1302,0],[1302,0]],"count":["179 places here · Top ranked","179 places here · Top ranked"],"pill":["List · 179","List · 179"],"focus":"card p-kanda-myojin","ok":true}
+PASS  D-46 tokyo 1440: from a bare URL, card → detail → Back keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"card p-kanda-myojin","sheet":true,"shut":true,"px":0,"zoom":[14,14],"scrollY":[0,0],"list":[[1302,0],[1302,0]],"count":["179 places here · Top ranked","179 places here · Top ranked"],"pill":["List · 179","List · 179"],"focus":"card p-kanda-myojin","ok":true}
+PASS  D-46 tokyo 390: a bare URL lands in Atlas with the map, the page unscrolled, and at most the view written (#at=…, no view key)  {"view":"atlas","hash":"#at=35.69146%2C139.74269%2C12","map":true,"y":0}
+PASS  D-46 tokyo 390: from a bare URL, card → detail → Escape keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"card p-edo-tokyo-museum","sheet":true,"shut":true,"px":0,"zoom":[13,13],"scrollY":[0,0],"list":[[0,0],[0,0]],"count":["351 places here · Top ranked","351 places here · Top ranked"],"pill":["List · 351","List · 351"],"focus":"card p-edo-tokyo-museum","ok":true}
+PASS  D-46 tokyo 390: from a bare URL, card → detail → Back keeps centre (≤ 1 px), zoom, scroll, count, pill and focus  {"opener":"card p-edo-tokyo-museum","sheet":true,"shut":true,"px":0,"zoom":[13,13],"scrollY":[0,0],"list":[[0,0],[0,0]],"count":["351 places here · Top ranked","351 places here · Top ranked"],"pill":["List · 351","List · 351"],"focus":"card p-edo-tokyo-museum","ok":true}
+PASS  D-46 tokyo 1440: a view link with no view key (#at=35.66511%2C139.76026%2C13) reopens Atlas on the same view (≤ 1 px, same zoom)  {"hash":"#at=35.66511%2C139.76026%2C13","view":"atlas","px":0,"zoom":[13,13]}
+PASS  QA-71 tokyo 390: card → detail → Back, then two carousel swipes: the selection follows the card in the middle each time  {"id":"p-edo-tokyo-museum","sheet":true,"back":{"mid":"p-edo-tokyo-museum","sel":"p-edo-tokyo-museum","left":0},"s1":{"mid":"p-imperial-palace-east-gardens","sel":"p-imperial-palace-east-gardens","left":252},"s2":{"mid":"p-tsukiji-hongan-ji","sel":"p-tsukiji-hongan-ji","left":542}}
+PASS  W9-5 tokyo 1440: "10 min" from your base draws the ring on the map, fits it, and the list holds exactly the places ≤ 10 min (the minutes the cards print), the assumption stated  {"total":488,"ring":true,"hash":"#base=nonbei-yokocho-shibuya&at=35.65985%2C139.70139%2C15.5&ring=10","pressed":"10 min","circle":true,"inView":true,"outside":[],"hiddenInside":[],"shown":17,"stubs":0,"said":true}
+PASS  W9-5 tokyo 1440: "Any" lifts the ring — every place back, no circle  {"total":488,"hash":"#base=nonbei-yokocho-shibuya&at=35.65985%2C139.70139%2C15.5","shown":488,"hiddenCards":0,"circle":false}
+PASS  W9-5 tokyo 390: "10 min" from your base draws the ring on the map, fits it, and the list holds exactly the places ≤ 10 min (the minutes the cards print), the assumption stated  {"total":488,"ring":true,"hash":"#base=nonbei-yokocho-shibuya&at=35.66092%2C139.70138%2C14.5&ring=10","pressed":"10 min","circle":true,"inView":true,"outside":[],"hiddenInside":[],"shown":17,"stubs":0,"said":true}
+PASS  W9-5 tokyo 390: "Any" lifts the ring — every place back, no circle  {"total":488,"hash":"#base=nonbei-yokocho-shibuya&at=35.66092%2C139.70138%2C14.5","shown":488,"hiddenCards":0,"circle":false}
+
+>>> PASS — Atlas interaction state
+PASS  QC-26 cities/tokyo.html 390: cold #view=atlas&a=CHUO&p=tsukiji-hongan-ji applies the lens (detail "k of 49", no card outside it)  {"a":"CHUO","pos":"1 of 49 in this Atlas view","lensN":49,"shownNotHidden":17,"outsideLens":0,"routeA":"CHUO","S_a":"CHUO"}
+PASS  QC-26 cities/tokyo.html 1440: cold #view=atlas&a=CHUO&p=tsukiji-hongan-ji applies the lens (detail "k of 49", no card outside it)  {"a":"CHUO","pos":"1 of 49 in this Atlas view","lensN":49,"shownNotHidden":34,"outsideLens":0,"routeA":"CHUO","S_a":"CHUO"}
+PASS  QC-26 cleveland.html 390: cold #view=atlas&a=UC&p=haserot-angel-lake-view-cemetery applies the lens (detail "k of 59", no card outside it)  {"a":"UC","pos":"1 of 59 in this Atlas view","lensN":59,"shownNotHidden":6,"outsideLens":0,"routeA":"UC","S_a":"UC"}
+PASS  QC-26 cleveland.html 1440: cold #view=atlas&a=UC&p=haserot-angel-lake-view-cemetery applies the lens (detail "k of 59", no card outside it)  {"a":"UC","pos":"1 of 59 in this Atlas view","lensN":59,"shownNotHidden":15,"outsideLens":0,"routeA":"UC","S_a":"UC"}
+PASS  QC-26 cities/newyork.html 390: cold #view=atlas&a=BK&p=brooklyn-botanic-garden applies the lens (detail "k of 76", no card outside it)  {"a":"BK","pos":"1 of 76 in this Atlas view","lensN":76,"shownNotHidden":3,"outsideLens":0,"routeA":"BK","S_a":"BK"}
+PASS  QC-26 cities/newyork.html 1440: cold #view=atlas&a=BK&p=brooklyn-botanic-garden applies the lens (detail "k of 76", no card outside it)  {"a":"BK","pos":"1 of 76 in this Atlas view","lensN":76,"shownNotHidden":7,"outsideLens":0,"routeA":"BK","S_a":"BK"}
+>>> PASS — QC-26
+PASS  QC-26 cities/tokyo.html 390: cold #view=atlas&a=CYD&p=imperial-palace-east-gardens applies the lens (detail "k of 43", no card outside it)  {"a":"CYD","pos":"1 of 43 in this Atlas view","lensN":43,"shownNotHidden":11,"outsideLens":0,"routeA":"CYD","S_a":"CYD"}
+PASS  QC-26 cities/tokyo.html 1440: cold #view=atlas&a=CYD&p=imperial-palace-east-gardens applies the lens (detail "k of 43", no card outside it)  {"a":"CYD","pos":"1 of 43 in this Atlas view","lensN":43,"shownNotHidden":36,"outsideLens":0,"routeA":"CYD","S_a":"CYD"}
+PASS  QC-26 cleveland.html 390: cold #view=atlas&a=DT&p=chess-collection-cleveland-public-library-main-library applies the lens (detail "k of 42", no card outside it)  {"a":"DT","pos":"1 of 42 in this Atlas view","lensN":42,"shownNotHidden":24,"outsideLens":0,"routeA":"DT","S_a":"DT"}
+PASS  QC-26 cleveland.html 1440: cold #view=atlas&a=DT&p=chess-collection-cleveland-public-library-main-library applies the lens (detail "k of 42", no card outside it)  {"a":"DT","pos":"1 of 42 in this Atlas view","lensN":42,"shownNotHidden":34,"outsideLens":0,"routeA":"DT","S_a":"DT"}
+PASS  QC-26 cities/newyork.html 390: cold #view=atlas&a=MAN&p=the-metropolitan-museum-of-art applies the lens (detail "k of 264", no card outside it)  {"a":"MAN","pos":"1 of 264 in this Atlas view","lensN":264,"shownNotHidden":8,"outsideLens":0,"routeA":"MAN","S_a":"MAN"}
+PASS  QC-26 cities/newyork.html 1440: cold #view=atlas&a=MAN&p=the-metropolitan-museum-of-art applies the lens (detail "k of 264", no card outside it)  {"a":"MAN","pos":"1 of 264 in this Atlas view","lensN":264,"shownNotHidden":25,"outsideLens":0,"routeA":"MAN","S_a":"MAN"}
+>>> PASS — QC-26
+ok   cleveland.html 390 gallery 0 
+ok   cleveland.html 390 atlas 0 
+ok   cleveland.html 390 guidebook 0 
+ok   cleveland.html 390 insights 0 
+ok   cleveland.html 1440 gallery 0 
+ok   cleveland.html 1440 atlas 0.0001 
+ok   cleveland.html 1440 guidebook 0 
+ok   cleveland.html 1440 insights 0 
+ok   cities/tokyo.html 390 gallery 0.0001 
+ok   cities/tokyo.html 390 atlas 0 
+ok   cities/tokyo.html 390 guidebook 0 
+ok   cities/tokyo.html 390 insights 0 
+ok   cities/tokyo.html 1440 gallery 0 
+ok   cities/tokyo.html 1440 atlas 0.0001 
+ok   cities/tokyo.html 1440 guidebook 0 
+ok   cities/tokyo.html 1440 insights 0 
+ok   cities/pittsburgh.html 390 gallery 0 
+ok   cities/pittsburgh.html 390 atlas 0 
+ok   cities/pittsburgh.html 390 guidebook 0 
+ok   cities/pittsburgh.html 390 insights 0 
+ok   cities/pittsburgh.html 1440 gallery 0 
+ok   cities/pittsburgh.html 1440 atlas 0 
+ok   cities/pittsburgh.html 1440 guidebook 0 
+ok   cities/pittsburgh.html 1440 insights 0 
+>>> PASS — QC-33 load CLS < 0.1 on all 24 deep links (worst 0.0001); 390 Guidebook / Insights 0
+>>> PASS — PERF-08 regressions (QA-75, QA-76, QC-26) + QC-33 clear
+exit 0
