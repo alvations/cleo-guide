@@ -23,7 +23,7 @@ const serve = () => new Promise(res => { const s = http.createServer((q, r) => {
 }); s.listen(0, '127.0.0.1', () => res(s)); });
 
 const parts = execFileSync('python3', [path.join(ROOT, 'design/beta/tools/build-css.py'), '--parts', ASSETS]).toString().trim().split(/\s+/);
-const BYTEXT = new Map(parts.map(p => [fs.readFileSync(path.join(ASSETS, p), 'utf8'), p]));
+const BYTEXT = new Map(parts.concat(['fe-a.css', 'fe-b.css']).map(p => [fs.readFileSync(path.join(ASSETS, p), 'utf8'), p]));
 const IMPORT = parts.map(p => `@import url("${p}");`).join('\n');
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (['assets', 'data', 'feeds'].includes(e.name) ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.relative(BETA, path.join(d, e.name))] : []);
 const ALL = walk(BETA).sort();
@@ -34,8 +34,9 @@ const VIEWS = ['atlas', 'gallery', 'guidebook', 'insights'];
 const WIDE = QUICK ? [[390, 844], [1440, 900]] : [[390, 844], [1440, 900]];
 const DEEP_VP = QUICK ? [[390, 844], [1440, 900]] : [[195, 422], [360, 740], [390, 844], [620, 900], [700, 1000], [768, 1024], [844, 390], [960, 800], [1024, 768], [1150, 850], [1240, 860], [1440, 900]];
 
-const used = {}; parts.forEach(p => { used[p] = []; });
-const sizes = Object.fromEntries(parts.map(p => [p, fs.statSync(path.join(ASSETS, p)).size]));
+const TRACK = parts.concat(['fe-a.css', 'fe-b.css']);   // the lanes' sheets too, so FE-A and FE-B can cut with the same evidence
+const used = {}; TRACK.forEach(p => { used[p] = []; });
+const sizes = Object.fromEntries(TRACK.map(p => [p, fs.statSync(path.join(ASSETS, p)).size]));
 
 (async () => {
   const srv = await serve(), base = `http://127.0.0.1:${srv.address().port}/beta/`;
@@ -56,7 +57,7 @@ const sizes = Object.fromEntries(parts.map(p => [p, fs.statSync(path.join(ASSETS
     if (opts.seed) await ctx.addInitScript(opts.seed);
     const page = await ctx.newPage(); const cdp = await ctx.newCDPSession(page);
     const sheets = {};
-    cdp.on('CSS.styleSheetAdded', e => { const b = path.basename((e.header.sourceURL || '').split('?')[0]); sheets[e.header.styleSheetId] = parts.includes(b) ? b : null; });
+    cdp.on('CSS.styleSheetAdded', e => { const b = path.basename((e.header.sourceURL || '').split('?')[0]); sheets[e.header.styleSheetId] = TRACK.includes(b) ? b : null; });
     await cdp.send('DOM.enable'); await cdp.send('CSS.enable'); await cdp.send('CSS.startRuleUsageTracking');
     // Chromium reuses cached @import sheets after a navigation under NEW ids without a styleSheetAdded event, so an
     // unknown id is resolved once by its text (each piece's text is unique)
@@ -100,9 +101,9 @@ const sizes = Object.fromEntries(parts.map(p => [p, fs.statSync(path.join(ASSETS
   await browser.close(); srv.close();
   for (const p of parts) fs.rmSync(path.join(ASSETS, p), { force: true });
   // merge ranges
-  for (const p of parts) { const r = used[p].sort((a, b) => a[0] - b[0]); const m = []; for (const x of r) { if (m.length && x[0] <= m[m.length - 1][1]) m[m.length - 1][1] = Math.max(m[m.length - 1][1], x[1]); else m.push(x.slice()); } used[p] = m; }
+  for (const p of TRACK) { const r = used[p].sort((a, b) => a[0] - b[0]); const m = []; for (const x of r) { if (m.length && x[0] <= m[m.length - 1][1]) m[m.length - 1][1] = Math.max(m[m.length - 1][1], x[1]); else m.push(x.slice()); } used[p] = m; }
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify({ when: new Date().toISOString(), loads, used, sizes }));
-  for (const p of parts) { const u = used[p].reduce((s, [a, b]) => s + b - a, 0); console.log(`${p}: ${(sizes[p] / 1024).toFixed(1)} KB, rules used cover ${(u / 1024).toFixed(1)} KB`); }
+  for (const p of TRACK) { const u = used[p].reduce((s, [a, b]) => s + b - a, 0); console.log(`${p}: ${(sizes[p] / 1024).toFixed(1)} KB, rules used cover ${(u / 1024).toFixed(1)} KB`); }
   console.log(`css-coverage: ${loads} loads → ${path.relative(ROOT, OUT)}`);
 })();

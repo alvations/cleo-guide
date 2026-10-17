@@ -28,7 +28,8 @@
  *   --budget <n>         max API calls (default 100; anonymous use is throttled — Openverse documented ~1 request/s
  *                        for anonymous users and 20 results per page; a 429 stops the run cleanly, the next one resumes)
  *   --delay <ms>         pause between API calls (default 1500)
- *   --picks <n>          picks kept per target for review (default 2)
+ *   --picks <n>          picks kept per target for review (default 1: the best, so sheets stay small)
+ *   --sheets             rebuild contact sheets for every pick still pending review (no search)
  *   --class <c>          only hero | priority | tier1 | other | food (repeatable); default every class, in that order
  *   --key <target>       only this target (repeatable)
  *   --source <s>         only this Openverse source (repeatable), e.g. flickr, wikimedia, smithsonian_*
@@ -45,7 +46,7 @@
  *   licence CC0 / PDM / CC BY / CC BY-SA, any version (NC/ND never requested, refused if seen); a JPEG ≥ the slot's
  *   widest size; the title names the place, confirmed by a second name word, the town or a tag (the matched field is
  *   recorded); the fetch-commons subject classifiers; laundering text and "photo by <someone else>"; historic items
- *   (a year before 1950 in the title or tags) refused until the captioned-year rule (D-50) is in the gate; dedup
+ *   (a year before 1950 in the title or tags) carry era/date/institution for the dated caption (D-50), never on a hero or food; dedup
  *   against existing credits, refused Commons files and earlier refused picks (same landing URL or same file title).
  */
 const fs = require('fs');
@@ -67,7 +68,7 @@ const UA = 'CleoGuideBeta/1.0 (https://github.com/alvations/cleo-guide; beta ima
 const CLASSES = ['hero', 'priority', 'tier1', 'other', 'food'];
 
 function args(argv) {
-  const o = { dry: false, credit: false, budget: 100, delay: 1500, picks: 2, classes: [], keys: [], sources: [], pending: false };
+  const o = { dry: false, credit: false, budget: 100, delay: 1500, picks: 1, classes: [], keys: [], sources: [], pending: false, sheetsOnly: false };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i], v = () => argv[++i];
     if (a === '--dry-run') o.dry = true;
@@ -79,6 +80,7 @@ function args(argv) {
     else if (a === '--key') o.keys.push(v());
     else if (a === '--source') o.sources.push(v());
     else if (a === '--include-pending') o.pending = true;
+    else if (a === '--sheets') o.sheetsOnly = true;
     else if (a === '-h' || a === '--help') { console.log(fs.readFileSync(__filename, 'utf8').split('*/')[0]); process.exit(0); }
     else die(`unknown option ${a} (see --help)`);
   }
@@ -143,6 +145,8 @@ function pages(ph) {
   if (ph.source === 'wikimedia') return /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(ph.pageUrl) ? { sourceUrl: ph.pageUrl, provider: 'wikimedia-commons', commonsTitle: decodeURIComponent(ph.pageUrl.split('/wiki/')[1]).replace(/_/g, ' ') } : { why: 'no Commons File: page' };
   return /^https:\/\//.test(ph.pageUrl) ? { sourceUrl: ph.pageUrl, ...(/^https:\/\//.test(ph.creatorUrl) ? { authorUrl: ph.creatorUrl } : {}), provider: 'openverse' } : { why: 'no https landing page' };
 }
+/** The holding institution's display name for a historic Openverse item ("smithsonian_american_art_museum" → "Smithsonian American Art Museum"). */
+const institutionOf = ph => String(ph.provider || ph.source || 'Openverse').replace(/[_-]+/g, ' ').replace(/\b\w/g, ch => ch.toUpperCase()).replace(/^Flickr$/, 'Flickr').replace(/^Wikimedia$/, 'Wikimedia Commons');
 /** {pick} or {why}. `seen`: landing URLs and Commons titles already credited / refused. */
 function judge(ph, t, seen) {
   const lic = ff.licenceOf(ph.code, ph.ver === 'N/A' ? '1.0' : ph.ver);
@@ -154,13 +158,17 @@ function judge(ph, t, seen) {
   if (fc.authorProblems(ph.creator).length) return { why: `author "${ph.creator}" is not a clean name` };
   if (ph.filetype && ph.filetype !== 'jpg') return { why: `not a JPEG (${ph.filetype})` };
   if (ph.width && ph.width < Math.max(...t.widths)) return { why: `only ${ph.width} px wide (needs ${Math.max(...t.widths)})` };
-  if (HISTORIC.test(`${ph.title} ${(ph.tags || []).join(' ')}`)) return { why: 'historic item (a year before 1950) — waits for the captioned-year rule (D-50)' };
+  // D-50 (now in the gate): a historic item (a year before 1950) carries its year and holding institution in the caption;
+  // never for a hero (it can't stand in for today's city) or a food place
+  const yr = (HISTORIC.exec(`${ph.title} ${(ph.tags || []).join(' ')}`) || [])[1];
+  if (yr && (t.cls === 'hero' || t.cls === 'food')) return { why: `historic item (${yr}) — never for a ${t.cls === 'hero' ? 'hero' : 'food place'} (D-50)` };
+  const hist = yr ? { era: 'historic', date: yr, institution: institutionOf(ph) } : {};
   const m = ff.matches(ph, Object.assign({ radius: 1.5 }, t, { town: t.town || ff.townWords(t.page) }));
   if (m.why) return { why: m.why };
   const rf = ff.refusal(ph, t); if (rf) return { why: rf.why };
   const field = m.ok.geo != null ? 'geo' : 'title' + ((t.town || []).some(w => ff.nameWords(ph.title).concat([String(ph.title).toLowerCase()]).join(' ').includes(w)) ? '+town' : (ph.tags || []).length ? '+tags' : '');
   return { pick: { id: `ov-${ph.id}`, openverseId: ph.id, source: ph.source, provider: ph.provider, title: ph.title, creator: ph.creator.trim(), ...pg, ...lic,
-    imageUrl: ph.imageUrl, thumb: ph.thumb, width: ph.width, height: ph.height, matched: `${field}: ${m.ok.inTitle.join(', ')}`, review: 'pending' } };
+    imageUrl: ph.imageUrl, thumb: ph.thumb, width: ph.width, height: ph.height, matched: `${field}: ${m.ok.inTitle.join(', ')}`, ...hist, review: 'pending' } };
 }
 
 // ---------------------------------------------------------------- network
@@ -178,11 +186,21 @@ function client(o) {
   const call = async (pathQ, opts = {}) => {
     if (calls >= o.budget) throw Object.assign(new Error('budget'), { stop: 'API budget reached — run again to resume' });
     calls++; if (calls > 1) await sleep(o.delay);
-    let r; try { r = await get(`${API}${pathQ}`, Object.assign({}, opts, { headers: Object.assign(token ? { Authorization: `Bearer ${token}` } : {}, opts.headers || {}) })); }
-    catch (e) { blocked('api.openverse.org', e.cause ? e.cause.code || e.cause.message : e.message); }
+    // R8 run #96: a timeout / reset / 5xx on the runner is retried with backoff (2 s, 4 s, 8 s, longer timeout each time);
+    // if it still fails the run STOPS CLEANLY with a warning (exit 0, the rest of the workflow commits). Only a policy
+    // proxy (403/407 without API headers) is a hard block (exit 3).
+    let r, last = '';
+    for (let a = 0; a < 4; a++) {
+      if (a) await sleep(2000 * 2 ** (a - 1));
+      try { r = await get(`${API}${pathQ}`, Object.assign({ timeout: 30000 + 15000 * a }, opts, { headers: Object.assign(token ? { Authorization: `Bearer ${token}` } : {}, opts.headers || {}) })); }
+      catch (e) { r = null; last = e.cause ? e.cause.code || e.cause.message : e.message; continue; }
+      if (r.status >= 500) { last = `HTTP ${r.status}`; r = null; continue; }
+      break;
+    }
+    if (!r) throw Object.assign(new Error('unreachable'), { stop: `api.openverse.org did not answer after 4 tries (${last}) — warning only; the next run resumes` });
     if ((r.status === 403 || r.status === 407) && !/ratelimit/i.test([...r.headers.keys()].join(' '))) blocked('api.openverse.org', `HTTP ${r.status} without API headers — a policy proxy`);
     if (r.status === 429) throw Object.assign(new Error('429'), { stop: 'Openverse rate-limited this run (HTTP 429) — run again later to resume' });
-    if (!r.ok) die(`api.openverse.org ${pathQ.split('?')[0]} → HTTP ${r.status}; stopping.`, 4);
+    if (!r.ok) throw Object.assign(new Error('http'), { stop: `api.openverse.org ${pathQ.split('?')[0]} → HTTP ${r.status} — warning only; the next run resumes` });
     return r.json();
   };
   return {
@@ -207,8 +225,16 @@ async function sheets(picks, sharp, stamp) {
     for (const [i, p] of page.entries()) {
       const x = (i % C) * W, y = Math.floor(i / C) * (H + 34);
       let img = null;
-      try { const r = await get(p.thumb || p.imageUrl, { accept: 'image/*', timeout: 30000 }); if (r.ok) img = await sharp(Buffer.from(await r.arrayBuffer())).resize(W, H, { fit: 'contain', background: '#ffffff' }).toBuffer(); } catch (e) { /* blank tile */ }
-      if (img) comp.push({ input: img, left: x, top: y + 34 });
+      // R8 (orchestrator): run #95's sheets had blank tiles. Try the Openverse thumbnail, then the provider image, with retries;
+      // a tile that still fails says "no preview" instead of looking empty
+      for (const u of [p.thumb, p.imageUrl].filter(Boolean)) {
+        for (let a = 0; a < 3 && !img; a++) {
+          if (a) await sleep(1500 * a);
+          try { const r = await get(u, { accept: 'image/*', timeout: 45000 }); if (r.ok) img = await sharp(Buffer.from(await r.arrayBuffer())).resize(W, H, { fit: 'contain', background: '#ffffff' }).toBuffer(); } catch (e) { /* retry */ }
+        }
+        if (img) break;
+      }
+      comp.push(img ? { input: img, left: x, top: y + 34 } : { input: Buffer.from(`<svg width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#eee"/><text x="${W / 2}" y="${H / 2}" font-size="20" text-anchor="middle" fill="#900">no preview</text></svg>`), left: x, top: y + 34 });
       const esc = t => String(t).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
       comp.push({ input: Buffer.from(`<svg width="${W}" height="34"><rect width="${W}" height="34" fill="#111"/><text x="4" y="14" font-size="12" fill="#fff">${esc(p.id)} ${esc(p.source)}</text><text x="4" y="29" font-size="11" fill="#ddd">${esc(p.key.replace(/^landmark:/, '').slice(0, 44))}</text></svg>`), left: x, top: y });
     }
@@ -257,8 +283,10 @@ async function discover(o) {
     }
   } catch (e) { if (!e.stop) throw e; stopped = e.stop; }
   const stamp = new Date().toISOString().slice(0, 16).replace(/[:T]/g, '');
-  const sh = await sheets(newPicks, fc.loadSharp(), stamp);
-  console.log(`\nPicks for review: ${newPicks.length} across ${found} place(s); ${none} place(s) with nothing usable.`);
+  // earlier picks still waiting for a verdict (e.g. run #95's blank-tile sheets) are drawn again with the new ones
+  const older = Object.values(cand.targets).flat().filter(p => !review[p.id] && !newPicks.includes(p));
+  const sh = await sheets(newPicks.concat(older), fc.loadSharp(), stamp);
+  console.log(`\nPicks for review: ${newPicks.length} new across ${found} place(s) (+${older.length} earlier pick(s) still pending, redrawn); ${none} place(s) with nothing usable.`);
   newPicks.forEach(p => console.log(`  pick  ${p.id}  ${p.key} ← ${p.source} "${String(p.title).slice(0, 50)}" by ${p.creator} (${p.licence}; ${p.matched})`));
   console.log(`Refused ${refused.length}:`); refused.forEach(k => console.log(`  no    ${k}`));
   console.log(`Contact sheets: ${sh.length ? sh.join(', ') : '(none — sharp missing or no picks)'}`);
@@ -306,7 +334,7 @@ async function credit(o) {
       title: String(p.title || p.label).trim(), depicts: p.label.replace(/\s*\([^)]*\)\s*$/, '').trim(), author: p.creator,
       ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), sourceUrl: p.sourceUrl, licence: p.licence, licenceUrl: p.licenceUrl,
       provider: p.provider === 'wikimedia-commons' || p.source === 'wikimedia' ? 'wikimedia-commons' : p.source === 'flickr' ? 'flickr' : 'openverse',
-      ...(p.commonsTitle ? { commonsTitle: p.commonsTitle } : {}), ...(p.cls === 'food' ? { identifies: p.matched } : {}), via: 'openverse', openverseSource: p.source, openverseProvider: p.provider, openverseId: p.openverseId,
+      ...(p.commonsTitle ? { commonsTitle: p.commonsTitle } : {}), ...(p.cls === 'food' ? { identifies: p.matched } : {}), ...(p.era ? { era: p.era, date: p.date, institution: p.institution } : {}), via: 'openverse', openverseSource: p.source, openverseProvider: p.provider, openverseId: p.openverseId,
       width: main.w, height: main.h, ...(variants.length ? { variants } : {}), modified: `resized to ${fc.widthList(out.map(v => v.w))} px wide`,
       fetched: today, confidence: 'med', review: `ok (${(review[p.id] || {}).reason || 'contact-sheet review'})`, matched: p.matched,
     });
@@ -316,5 +344,13 @@ async function credit(o) {
   console.log(`\nCredited ${done.length}. Now: node tools/beta/imagery/recompress.js, then cd tools && npm run beta && npm test.`);
 }
 
-if (require.main === module) { const o = args(process.argv); (o.credit ? credit(o) : discover(o)).catch(e => die(e.stack || String(e), 4)); }
+/** Rebuild contact sheets for every pick without a verdict yet (e.g. after a run whose thumbnails failed). */
+async function resheet() {
+  const cand = readJson(OUT, { targets: {} }), review = readReview();
+  const pend = Object.values(cand.targets).flat().filter(p => !review[p.id]);
+  const stamp = new Date().toISOString().slice(0, 16).replace(/[:T]/g, '');
+  const sh = await sheets(pend, fc.loadSharp(), stamp);
+  console.log(`fetch-openverse --sheets: ${pend.length} pending pick(s) → ${sh.join(', ') || '(none)'}`);
+}
+if (require.main === module) { const o = args(process.argv); (o.sheetsOnly ? resheet() : o.credit ? credit(o) : discover(o)).catch(e => die(e.stack || String(e), 4)); }
 module.exports = { targets, judge, norm, pages, ruleGap, readReview, HISTORIC, CLASSES };

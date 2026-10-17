@@ -302,7 +302,7 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
       chk('QC-24: #rec=award chip reads "Has an award"', !!x2 && x2.textContent.trim() === 'Has an award', x2 && x2.textContent); }
   }
 
-  console.log('\n== FRESH (W9-2, card + city half): "Status checked <d Mon>" from pv.checked; "Follow changes" ==');
+  console.log('\n== FRESH (W9-2, card + city half): "Checked <d Mon>" from pv.checked; "Follow changes" ==');
   {
     const bad = [], fb = [], FON = require('./lib/render/fresh-ui').ON(); let np = 0, nd = 0, nf = 0;
     for (const f of files) {
@@ -325,10 +325,10 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     g.d.querySelectorAll('li.pl[id^="p-"]').forEach(c => { const iso = c.getAttribute('data-checked'), e = c.querySelector(':scope > .pl-chk');
       if (!iso) { if (e) probs.push([c.id, 'line without a date']); return; }
       n++; if (!e) return probs.push([c.id, 'no line']);
-      if (e.getAttribute('data-d') !== iso || e.textContent !== 'Status checked ' + fmt(iso)) probs.push([c.id, e.textContent, iso]);
-      if (!e.hasAttribute('data-nosearch') || /Status checked/.test(g.w.Cleo.lens.text(c))) probs.push([c.id, 'the line feeds the search']);
+      if (e.getAttribute('data-d') !== iso || e.textContent !== 'Checked ' + fmt(iso)) probs.push([c.id, e.textContent, iso]);
+      if (!e.hasAttribute('data-nosearch') || /Checked /.test(g.w.Cleo.lens.text(c))) probs.push([c.id, 'the line feeds the search']);
       if (/open now|hours|open until|closes at/i.test(e.textContent)) probs.push([c.id, 'implies open now or hours']); });
-    chk(`Tokyo: ${n} dated cards each show "Status checked <d Mon>" as real text equal to data-checked, skipped by the search`, probs.length === 0 && n > 400, probs.slice(0, 4));
+    chk(`Tokyo: ${n} dated cards each show "Checked <d Mon>" as real text equal to data-checked, skipped by the search`, probs.length === 0 && n > 400, probs.slice(0, 4));
     { const q = boot('cleveland.html', { hash: '#q=aug', mods: ['fresh'] }); await sleep(400); q.w.Cleo.defer.all(); await sleep(80);
       const shown = [...q.d.querySelectorAll('li.pl[id^="p-"]')].filter(c => !c.hidden), byOwn = shown.filter(c => { const k = c.cloneNode(true); k.querySelectorAll('[data-nosearch]').forEach(x => x.remove()); return /aug/i.test(k.textContent.normalize('NFD').replace(/[\u0300-\u036f]/g, '')); });
       const aug = [...q.d.querySelectorAll('li.pl .pl-chk')].filter(e => / Aug$/.test(e.textContent)).length;
@@ -342,8 +342,8 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     const gcs = [...gg.d.querySelectorAll('li.gc[data-id]')], gp = [];
     gcs.forEach(r => { const id = r.getAttribute('data-id'), c = gg.d.getElementById('p-' + id) || (gg.w.Cleo.defer.peek().find(s => s.id === 'p-' + id)), iso = c && c.getAttribute('data-checked'), e = r.querySelector('.pl-chk');
       if (!iso) { if (e) gp.push([id, 'line without a date']); return; }
-      if (!e || e.getAttribute('data-d') !== iso || e.textContent !== 'Status checked ' + fmt(iso) || !e.hasAttribute('data-nosearch')) gp.push([id, e && e.textContent, iso]); });
-    chk(`Cleveland Gallery: all ${gcs.length} row cards carry "Status checked <d Mon>" equal to the place's data-checked`, gcs.length > 0 && gp.length === 0, gp.slice(0, 4));
+      if (!e || e.getAttribute('data-d') !== iso || e.textContent !== 'Checked ' + fmt(iso) || !e.hasAttribute('data-nosearch')) gp.push([id, e && e.textContent, iso]); });
+    chk(`Cleveland Gallery: all ${gcs.length} row cards carry "Checked <d Mon>" equal to the place's data-checked`, gcs.length > 0 && gp.length === 0, gp.slice(0, 4));
     chk('the row-card line fetches no page data', !gg.net.some(u => /data\/places\//.test(u)), gg.net.filter(u => /data\/places\//.test(u)));
     chk('no js errors (fresh, gallery)', !gg.errs.length, gg.errs.slice(0, 2));
   }
@@ -395,6 +395,29 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     const g3 = boot('cities/tokyo.html', { hash: '#q=zzqxjv' }); await sleep(300);
     chk('empty.js is lazy: requested only on an empty result', !/<script[^>]+empty\.js/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')) && !!g3.d.querySelector('script[src*="assets/js/empty.js"]'));
     chk('no js errors (empty)', !g.errs.length && !g2.errs.length, g.errs.concat(g2.errs).slice(0, 2));
+  }
+
+  console.log('\n== SIDE (SPEC-v3 §2.0.7): the landscape selection side card, lazy, built from the card ==');
+  {
+    const g = boot('cities/tokyo.html', { mods: ['fresh', 'side'] }); await sleep(300); const C = g.w.Cleo.city; C.land = () => true;
+    const cards = [...g.d.querySelectorAll('.listpane li.pl[id^="p-"]')].filter(c => !c.hidden), c0 = cards[0], ph = cards.find(c => c.querySelector('figure.pl-photo')), np = cards.find(c => !c.querySelector('figure.pl-photo'));
+    chk('side.js is lazy: no page loads it eagerly', !/<script[^>]+side\.js/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')) && /"side":"[0-9a-f]+"/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')));
+    g.w.Cleo.side.open(c0, 'pin'); const box = g.d.getElementById('cleo-side');
+    const nm = box && box.querySelector('.sd-n a'), src = [...c0.querySelectorAll('.pl-s button.src')].map(b => b.getAttribute('data-src'));
+    chk('one card, in the map pane, html.side-on and --side-w 320px', !!box && !box.hidden && box.parentNode === g.d.querySelector('.mappane') && g.d.documentElement.classList.contains('side-on') && g.d.documentElement.style.getPropertyValue('--side-w') === '320px' && g.d.querySelectorAll('#cleo-side').length === 1);
+    chk('the name links to the place\'s detail (#p=)', !!nm && nm.textContent === (C.name(c0) || c0.querySelector('.pl-n').textContent) && new RegExp('[#&]p=' + C.pid(c0) + '($|&)').test(nm.getAttribute('href')), nm && nm.getAttribute('href'));
+    chk('Recommended by names the first source and how many more', box.querySelector('.sd-by').textContent === (src.length > 1 ? `Recommended by ${g.w.Cleo.city.info.src[src[0]][0]} and ${src.length - 1} more` : src.length ? `Recommended by ${g.w.Cleo.city.info.src[src[0]][0]}` : 'Added by the guide (general knowledge)'), box.querySelector('.sd-by').textContent);
+    chk('Save / Directions / Share; position "1 of N"; previous disabled at the first place', [...box.querySelectorAll('.sd-acts .btn')].map(b => b.textContent).join('|') === (c0.hasAttribute('data-closed') ? 'Save|Where it was|Share' : 'Save|Directions|Share') && box.querySelector('.sd-pos').textContent === '1 of ' + cards.length && box.querySelector('[data-sd=prev]').disabled, [...box.querySelectorAll('.sd-acts .btn')].map(b => b.textContent));
+    box.querySelector('[data-sd=next]').click(); await sleep(30);
+    chk('next steps to the second place of the ranking', box.querySelector('.sd-pos').textContent === '2 of ' + cards.length && box.querySelector('.sd-n').textContent === (C.name(cards[1]) || cards[1].querySelector('.pl-n').textContent));
+    if (ph) { g.w.Cleo.side.open(ph, 'side'); const cap = ph.querySelector('figure.pl-photo figcaption');
+      chk('a photo place shows its photo with the credit, as given on the card', !!box.querySelector('.sd-ph img') && box.querySelector('.sd-ph figcaption').textContent === cap.textContent); }
+    if (np) { g.w.Cleo.side.open(np, 'side'); chk('a photo-less place is the §v2.7b compact layout (a glyph tile, no blank photo box)', !box.querySelector('.sd-ph') && !!box.querySelector('.sd-body.np .sd-tile svg')); }
+    const sv = box.querySelector('[data-sd=save]'); sv.click(); chk('Save toggles the place in Saved', sv.getAttribute('aria-pressed') === 'true' && g.w.Cleo.saved.has(C.key + '/' + C.pid(g.w.Cleo.side.current())));
+    g.d.dispatchEvent(new g.w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await sleep(20);
+    chk('Escape closes it: hidden, html.side-on cleared', box.hidden && !g.d.documentElement.classList.contains('side-on') && !g.w.Cleo.side.isOpen());
+    C.land = () => false; chk('outside landscape it never opens (the carousel / preview stay)', g.w.Cleo.side.open(c0, 'pin') === false && box.hidden);
+    chk('no js errors (side)', !g.errs.length, g.errs.slice(0, 2));
   }
 
   console.log('\n== APPROX (QC-04, D-43): a low-graded pin stays on the map, labelled "Approximate pin" ==');

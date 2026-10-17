@@ -2407,3 +2407,33 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - Thumbnails on the first screen: Tokyo 3, Cleveland 3, Punggol 1.
   - The peek check now requires exactly "N places here · Show list" in the rendered text (no date), ≤ 3 thumbnails, and ≥ 1 where the places on show have photos.
 - **Also:** the stale "Show 40 at a time" now reads the page size (36).
+
+## 2026-10-17 10:40Z · orchestrator (after a 7 h stop)
+
+- **Stop:** the account's 5-hour usage limit hit at ~03:37Z, and nothing landed from 03:39 to 10:25Z. The check-in was
+  re-armed for 11:05Z.
+- **Restart:** lanes are woken in priority order, ~8 at a time.
+  - Woken: FE-A, FE-C, imagery, QA, QC, platform, FE-2; FE-1 was already running.
+  - Deferred to 11:05Z: FE-B, designer, image sources, i18n, location.
+- **Rulings:**
+  - Phone Atlas must offer For you, Your day and Near me through its list-head doors (QA FAIL, FE-2).
+  - philadelphia#the-met-philadelphia keeps its exterior photo under the performance-venue ruling.
+- **Photo reviews:**
+  - Discovery run #95: Commons 47 ok / 45 refused (design/beta/imagery-runs/discover-95.md).
+  - Openverse sheets came out blank (thumbnails missing), so imagery fixes and re-runs them.
+- **lensPage:** QA found its 47/47 had run with the patch parked (595aa6dba). Platform applies the patch and flips the
+  flag, then QA re-accepts.
+- Dev ae48d2530 is gated green; eager JS 39.29 / 40.
+- 2026-10-17 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · ja audit and Your lists in ja.
+  - **Audit:** `tools/beta/i18n-audit.js` renders every page type and view in a real browser under a pseudo catalogue. The report is design/beta/i18n/ja-AUDIT.md.
+  - **Gaps found:** Atlas (now the default view), Your lists, mapfail, states and Cleo.countLine are hard-coded English. Everything else is clean apart from data.
+  - **Routing:** the orchestrator assigned all of them to the i18n lane, and the owners are told before each edit.
+  - **Your lists (W8-I18N-LISTS):**
+    - FE-A's saved.js goes through Cleo.t, with 45 new `lst.*` keys under swapSkip and existing keys reused (tiers, card.recby, sheet.save/saved, city.been, day.maps, trip.*).
+    - The frame (render/saved.js) uses `saved.*` server keys.
+    - locale.js now swaps `saved` pages in full, leaving out the client-drawn #cleo-saved.
+    - It redraws on cleo:locale.
+    - The English is byte-identical.
+    - test-i18n gains two pseudo checks, both of which fail on the old file.
+    - Review round 20 made 3 changes.
+  - **Insights:** the singular closed-place note is now in ja (`ins.p.tier.one`).
