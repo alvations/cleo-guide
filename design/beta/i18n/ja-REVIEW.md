@@ -237,4 +237,8 @@ A fresh independent subagent proposed a change to each of the four drafts, and a
 | `srch.fail.p` | サイトの索引が必要ですが、今は接続できません。どのガイドも一覧に載っていて、どのページも使えます。 | 検索にはサイトの索引が必要ですが、現在読み込めません。ガイドの一覧と各ページはそのままご利用いただけます。 | 接続できません suggests the visitor's own connection failed; the second sentence was a clumsy literal. |
 | `srch.src.none.p` | ガイドが名前を挙げている出典(新聞、ガイドブック、クリエイターなど)のリンクを貼り付けると、その出典が推薦する場所を表示します。読む価値のある出典なら提案してください。リンクから、このプロジェクトのGitHubで記入済みのissue作成画面が開きます。 | ガイドが名前を挙げている出典(新聞、ガイドブック、クリエイターなど)のリンクを貼り付けると、その出典が推薦する場所を表示します。読む価値のある出典なら提案してください。提案のリンクを開くと、このプロジェクトのGitHubで入力済みのissue作成画面が開きます。 | リンクから didn't say which link; it now names the suggest link. 入力済み is the natural word for a form. |
 
-**Total: 84 changes over eighteen rounds.**
+## Round 19: FE-C batch 7, `sheet.chk` (the shortened card-meta date; 0 changes)
+
+A fresh independent subagent kept 「{d}に確認」. It drops 営業状況を just as the English drops "Status". It matches `sheet.checked` (· {d}に確認) and `sheet.verified` ({d}に検証), and it reads as 10月2日に確認.
+
+**Total: 84 changes over nineteen rounds.**
