@@ -2389,6 +2389,17 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   before writing any fetcher.
 - beta-atlas-real-shots was dispatched on 93a8ea29a (label d46-signoff) for the designer's D-46 sign-off.
 
+## 2026-10-17 · FE-A — D-49 §v2.7b no-photo card
+
+- **What changed:** a photo-less card is marked `li.pl.pl--np` by the build (render/city.js) and `li.gc.gc--np` on the Gallery rows (client/gallery.js and lib/lead-card.js, which stay byte-identical). The card changes shape, not order, and no DOM nodes are added.
+  - **Single-column lists (≤ 599 px; Gallery list and the phone Atlas list):** compact row (A). A 64 px glyph tile sits beside four lines: the eyebrow with the status check, the name (ellipsis, with the native name inline), a 2-line why, and Recommended by (one line, with a 44 px tap height kept in padding). Measured: 119 px on DC, Tokyo and State College.
+  - **Grids and rails (≥ 600 px; Gallery list, desktop Atlas cards, Gallery rows):** quote card (B). The why line's opening sits over the cover in UI 600 at `--fs-lead`, up to 4 lines, under a display “. The glyph drops to 20 px at the bottom right. A card with no why line keeps the §v2.7a designed cover.
+- **Adjacency:** consecutive photo-less covers never share a glyph (`noRepeat` → imagery `foodGlyphs`). Built order shows 0 repeats on DC, Tokyo and State College. Under a lens, filtered-out cards can make two covers neighbours; that is not guarded, because the client would pay eager bytes for it.
+- **Lead card:** drawn only when rank 1 has a photo. "Start with" still names the lead.
+  - **Spec change in test-beta.js** ("a photo-less lead → none rendered", marked D-49). The equality check between the build's lead card and the client's still runs whenever a card is drawn.
+- **Designer ruling, dish word:** `--fs-d2`, display face, weight 600, no clamp. A dish name the client marks `.l` (over 28 characters, or any 17-character word) uses the UI face 600 at `--fs-lead` instead.
+- **Data finding, State College:** the `w` field holds the website URL on 9 records (the build tool maps website → w). A bare URL is no longer treated as a why line: it is not rendered on the card and never becomes a quote. Routed to data.
+- **Budgets:** eager JS 39.2 / 40 KB. Initial DOM is within budget: Tokyo 2,614 on mobile.
 ## 2026-10-17 · FE-1 · OV-00 §2.0.7 landscape, desktop chrome 104 px, the switch's 44 px band, D-46 §1.7 peek thumbnails
 
 - **Landscape (844 × 390; L 37.5 % → 12.3 %):** one 48 px bar.
@@ -2449,6 +2460,15 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - test-i18n gains two pseudo checks, both of which fail on the old file.
     - Review round 20 made 3 changes.
   - **Insights:** the singular closed-place note is now in ja (`ins.p.tier.one`).
+- 2026-10-17 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · W8-I18N-ATLAS: Atlas (the default view) in ja.
+  - **What changed:** 64 new `atl.*` keys (swapSkip) plus about 15 reused keys, through a local `tt` in atlas.js and atlas-nav.js. String literals only; each edit is marked `// i18n D-41`.
+  - **Redraw:** a `cleo:locale` handler re-says what Atlas built before the catalogue arrived: the bar, head, card faces, map controls and skip links. It also puts the bar's aria-label back on its own key, which fixes the `Search {city}` hijack.
+  - **locale.js:**
+    - It swaps cards stamped later (`cleo:stamped`, a capture listener, so it runs before page handlers) and the `data-l*` templates. That fixes stamped-later cards in Gallery too, plus the pack size and mapfail's offline line.
+    - It shrank (CleoLocale flag, store helpers, one attribute regex), so the eager counter rose only 0.03 KB: 39.32 → 39.35 of 40. locale.js counts there, but it is fetched only for non-en readers.
+  - **English:** byte-identical, proven by a noise-free 32-state real-browser DOM snapshot.
+  - **Tests:** a real-browser Atlas pseudo test and a jsdom stamped-card/data-l test, both of which fail on the old code.
+  - **Review:** round 21 made 7 changes; the running total is 94 changes over 21 rounds.
 
 ## 2026-10-17 11:15Z · orchestrator check-in
 
@@ -2474,3 +2494,29 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **QC L partial on 61954288:**
   - **日本語 × Filters at 844×390 (7 pages):** reproduced. In landscape Atlas, Filters (fixed at right 304 px) and the views switch both float over the topbar's spacer. The language button reached under Filters on pages with long titles: on Akron its right edge was at 513 px, against Filters starting at 496. The spacer now reserves both (`flex:1 0 248px`), so the title side shrinks instead. Checked: 0 overlaps on Akron, Harrisburg, Potong Pasir, Katong, Youngstown and HCMC.
   - **Youngstown label at 41.9 %:** already fixed by dc6cbc198 (`cutNm`), which postdates 61954288. It now measures 36.5 % of the map width at 844×390.
+- **D-46 desktop lead card (the last D-46 item):** the build now marks the Atlas lead.
+  - **What gets marked:** render/city.js marks atlas.js's map-priority #1 `.pl-lead` (tier, then rank within its area by named sources, pin number and area order), and only when that card has a photo. On Tokyo that is Edo-Tokyo Museum. 32 city pages get a lead; the rest open on a photo-less rank 1 and draw no lead.
+  - **When it spans:** client/city.js sets `html.cleo-lensed` while a lens, sort, day plan or Near me reorders the list. The span at 3:2 applies only without that class, so only on a cold, unfiltered load.
+  - **New test-fe-a row:** the Tokyo lead is checked, with at most one lead per page and never a photo-less one.
+
+- 2026-10-17 12:00Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Head b1c7939f6 gated green:** validate, beta:check, and npm test twice. The first npm test (11:40Z, b681fb041) reported one failed suite; only the last 15 lines were kept, so its name was lost, and two full re-runs passed. It is recorded as unresolved, and npm test logs are now saved whole.
+  - **Photo workflow, 063614333:**
+    - **(a) Openverse step hang.** Run #105 sat 25+ min in the Openverse step: get() clears its timer when the headers arrive, so a stalled thumbnail body waited forever, and each tile retried two hosts three times at 45 s. Previews are now fetched 6 at a time, 20 s per try, 2 tries per host, with a 150 s cap on the step and the body read capped. A local test with a stalling server drops the stalled tile in 83 s and keeps the good tile. Run #105 was cancelled.
+    - **(b) Lost dispatch.** Imagery's all/1500 dispatch #108 was cancelled while it waited: GitHub keeps one pending run per concurrency group, and push run #109 replaced it. The fix is a committed request, `tools/beta/imagery/sweep.json` (id 2026-10-17-all-1500). The next run to start serves it once and writes the id to `design/beta/imagery-runs/sweep-served.txt`.
+    - **(c)** Job timeout 45 → 60 min.
+    - Imagery is asked to cap the same body stall in fetch-commons, discover-commons and sources/lib.
+  - **Landed since 11:15Z:**
+    - FE-A: D-46 desktop lead card (adeabcd63); §v2.7b no-photo card (d6bb8367a).
+    - Designer: R8 #6 CSS −39.8 KB, coverage with the service worker blocked, 272-shot parity with 0 diffs (bbaf111a8).
+    - i18n: Atlas in ja (e52214ea0).
+    - Platform: PERF-24 INP 448 / 680 ms (9426036d8).
+    - FE-B: prune (db9f8a746).
+    - Imagery: D-40a no720 (403faf7c7, 51f12d070); food wave 1, 7 places (403faf7c7).
+    - Image sources: stages only real gaps (22d8c90e2).
+    - QC: S-17 L (af6dccb2f) and the 8984b094 Atlas partial (6739a3447).
+  - **Routed:**
+    - QC: the 8984b094 partial counts 0 labels but 9.3 % label coverage, so the label budgets may have passed vacuously. Check by hand, then re-run 844×390 and 390×844.
+    - FE-1: the L rows (日本語 × Filters on 7 pages; the 41.9 % Youngstown label). I first asked FE-1 to wire `.pl-lead`, then corrected it within minutes, because FE-A's adeabcd63 had landed.
+    - Designer: desktop sign-off on real shots.
+  - **Dispatched:** beta-atlas-real-shots label d46-desktop on b1c7939f.

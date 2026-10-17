@@ -132,6 +132,8 @@
       const ord = sections.slice().sort((x, y) => nearOn() ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
       if (ord.some((x, i) => x !== $$('section.area')[i])) { const how = $('#how-we-choose'); ord.forEach(x => how.parentNode.insertBefore(x, how)); }
     }
+    // D-46: a lens, sort, day or Near me reorders the list, so the desktop Atlas lead card (.pl-lead) stops spanning
+    d.documentElement.classList.toggle('cleo-lensed', !!(lon || S.sort || S.day || nearOn()));
     const nA = Object.keys(areas).length, act = LENS.filter(k => S[k] && k !== 'gap' && k !== 'day'), all = '<button class="btn btn-primary" data-cleo-all>' + tt('city.showall', 'Show all {n}', { n: tot }) + '</button>';
     const gap = t => '<div class="gap"><span class="eyebrow">' + tt('city.gap.k', 'Stated gap') + '</span>' + t + '</div>';
     if (shown) shown.innerHTML = n === tot ? shown0 : n ? tt('city.shown', 'Showing {n} of {total} places in {areas}', { n: '<b>' + n + '</b>', total: tot, areas: ar(nA) }) + tt('city.facts.order', '. Ordered by tier, then by number of named sources.')
@@ -270,7 +272,7 @@
   // R7 gap 5 (food covers): food places never get photos (honesty rule), so their cover names the dish in display type
   // on the eat-and-drink tint, under the kind glyph — an intentional face, never a blank box that reads as "not loaded"
   const dishOf = c => { if (at(c, 'data-k') !== 'f') return ''; const x = $('.pl-e .in-d', c), t = x ? x.textContent.replace(/^\s*·\s*/, '').trim() : '';
-    return t ? '<span class="pl-dish">' + esc(t) + '</span>' : ''; };   // no dish or cuisine to name: a glyph-only cover (designer: the area is never a cover word)
+    return t ? '<span class="pl-dish' + (t.length > 28 || /\S{17}/.test(t) ? ' l' : '') + '">' + esc(t) + '</span>' : ''; };   // no dish or cuisine to name: a glyph-only cover (designer: the area is never a cover word)
   // PERF-21 (platform): `only` = just these cards (a stamp paints its new cards, not all of them again); writes are skipped
   // when unchanged, so a repaint does not dirty every card's style and layout
   const put = (el, k, v) => { if (k === 'text' ? el.textContent !== v : el.getAttribute(k) !== v) { if (k === 'text') el.textContent = v; else el.setAttribute(k, v); } };

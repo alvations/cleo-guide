@@ -228,7 +228,8 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
       chk('typing a search writes q= into the URL and filters', /(^#|&)q=temple/.test(h1) && n1 < all0, [h1, n1, all0]);
       w.location.hash = '#view=gallery'; await sleep(80);
       chk('a link without q= clears the search (box and filter)', fq.value === '' && !w.Cleo.city.S.q && !/q=/.test(w.location.hash) && [...d.querySelectorAll('li.pl')].every(c => !c.hidden), [fq.value, w.Cleo.city.S.q]);
-      w.history.back(); await sleep(120);
+      // polls (≤ 2 s) instead of a fixed 120 ms: under the full suite's load the popstate round-trip ran late (same assertion)
+      w.history.back(); for (let t = 0; t < 40 && !(fq.value === 'temple' && w.Cleo.city.S.q === 'temple'); t++) await sleep(50);
       chk('Back restores the search', fq.value === 'temple' && w.Cleo.city.S.q === 'temple' && /q=temple/.test(w.location.hash), [fq.value, w.location.hash]);
       chk('no js errors (search route)', errs.length === 0, errs.slice(0, 2)); }
     ({ d, w, errs } = boot(page, { hash: '#view=bogus' })); await sleep(100);
@@ -343,6 +344,18 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await sleep(30);
     chk('…and everything goes back where it was outside Atlas', !bar2.querySelector('[data-cleo-toolbar]') && !head.querySelector('.area-chips') && !d.documentElement.classList.contains('atlas-d'));
     chk('no js errors (desktop)', errs.length === 0, errs.slice(0, 2));
+  }
+
+  console.log('# D-46 / §v2.7b: the desktop Atlas lead card (.pl-lead) is map-priority #1, at most one per page, always a photo card');
+  {
+    const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []);
+    const bad = []; let n = 0;
+    for (const f of walk(BETA)) { const h = fs.readFileSync(f, 'utf8'); if (!/data-cleo-page="city"/.test(h)) continue;
+      const m = h.match(/<li class="pl[^"]*\bpl-lead\b[^"]*"/g) || []; n += m.length;
+      if (m.length > 1 || m.some(x => /\bpl--np\b/.test(x))) bad.push(path.relative(BETA, f)); }
+    const tk = fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8');
+    chk('Tokyo: Edo-Tokyo Museum (map-priority #1, with a photo) is the lead', /<li class="pl[^"]*\bpl-lead\b[^"]*" id="p-edo-tokyo-museum"/.test(tk));
+    chk(`≤ 1 lead per city page and never a photo-less card (${n} leads)`, bad.length === 0 && n > 0, bad.slice(0, 4));
   }
 
   console.log('# W8: "Start with" names the lead card (R6 gap #8), every place page');

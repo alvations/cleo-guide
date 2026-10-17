@@ -55,7 +55,12 @@ const MEASURE = new Function(`
     for (let a = e; a && a !== stop && a !== document.body && a !== document.documentElement; a = a.parentElement) { const p = cs(a).position;
     if (p === 'fixed' && a !== dlg) return a; if (p === 'sticky' && a.getBoundingClientRect().width >= 0.6 * frameW(a)) return a; } return null; };   // a sticky side column is content, a sticky bar is chrome
   const CONTENT = 'li.pl, .gc, .ge, .ixi, article, .icard, .listpane li, .ms-car li';
-  const isLabel = e => { const p = e.closest('.leaflet-marker-pane .pp, .leaflet-tooltip, .leaflet-popup'); return !!(p && (p.textContent || '').trim().length > 1); };
+  // a label point is one on the PAINTED pill (an element between the hit and the pin with a background or border), not the
+  // pin's transparent tap area (FE-1, 11:36Z: measure the painted area, not the hit area)
+  const alpha = bg => { if (!bg || bg === 'transparent') return 0; const n = (bg.match(/[\\d.]+/g) || []).map(Number); return n.length > 3 ? n[3] : 1; };   // no regex escapes: this body is a template literal
+  const painted = x => { const c = cs(x); return alpha(c.backgroundColor) > 0 || c.backgroundImage !== 'none' || parseFloat(c.borderTopWidth) > 0; };
+  const isLabel = e => { const p = e.closest('.leaflet-marker-pane .pp, .leaflet-tooltip, .leaflet-popup'); if (!(p && (p.textContent || '').trim().length > 1)) return false;
+    for (let a = e; a; a = a.parentElement) { if (painted(a)) return true; if (a === p) break; } return false; };
   const classify = e => {
     if (!e) return 'none'; if (cache.has(e)) return cache.get(e); let k;
     if (dlg && dlg.contains(e)) { const f = fixedAnc(e); k = f && f !== dlg && dlg.contains(f) ? 'sheet-chrome' : 'sheet'; }
@@ -104,7 +109,8 @@ const MEASURE = new Function(`
   for (let i = controls.length - 1; i >= 0; i--) if (!onTop(controls[i])) controls.splice(i, 1);
   const R = e => e.getBoundingClientRect(), hit = (a, b, m = 1) => Math.min(a.right, b.right) - Math.max(a.left, b.left) > m && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > m;
   if (mapC) {
-    const tb = e => { const g = document.createRange(); g.selectNodeContents(e); const r = g.getBoundingClientRect(); const s = e.getBoundingClientRect(); return r.width > s.width ? r : s; };
+    const tb = e => { const pe = painted(e) ? e : [...e.querySelectorAll('*')].find(painted); if (pe) return pe.getBoundingClientRect();   // the painted pill, not the tap area
+      const g = document.createRange(); g.selectNodeContents(e); return g.getBoundingClientRect(); };
     const labs = [...document.querySelectorAll('.leaflet-marker-pane .pp, .leaflet-tooltip')].filter(e => (e.textContent || '').trim().length > 1 && cs(e).visibility !== 'hidden' && cs(e).display !== 'none' && (() => { const r = tb(e); return r.width > 0 && r.bottom > mr.top && r.top < mr.bottom && r.right > mr.left && r.left < mr.right; })());
     const pins = [...document.querySelectorAll('.leaflet-marker-pane > *')].filter(shown);
     out.labels = labs.length; out.pins = pins.length;
@@ -135,15 +141,14 @@ const MEASURE = new Function(`
   out.duplicates = Object.entries(by).filter(([, l]) => l.length > 1).map(([k, l]) => k + ' ×' + l.length).slice(0, 6);
   // an entry point is a field or a control that opens search; a results list's "Search all guides" row ([data-cleo-all-slot])
   // and its "clear search" are part of the results (orchestrator ruling, 10:40Z)
-  const searches = [...document.querySelectorAll('button, a[href], input, [role=button]')].filter(e => shown(e) && onTop(e) && !e.closest(CONTENT) && !e.closest('[data-cleo-all-slot]') && !/\bclear\b/i.test(name(e)) &&
+  const searches = [...document.querySelectorAll('button, a[href], input, [role=button]')].filter(e => shown(e) && onTop(e) && !e.closest(CONTENT) && !e.closest('[data-cleo-all-slot]') && !/(^|[^a-z])clear([^a-z]|$)/i.test(name(e)) &&
     (/search/i.test(name(e)) || e.type === 'search' || /search/i.test(e.getAttribute('placeholder') || '')));
   // orchestrator ruling (02:15Z): a field and its own submit button inside one form (or one role=search) are ONE search
   // control; separate entry points on one screen (header search + hero search) count separately
   const entry = [...new Map(searches.map(e => [e.closest('form, [role=search]') || e, e])).values()];
   if (entry.length > 1) out.duplicates.push('search ×' + entry.length + ' (' + entry.map(e => (name(e) || e.getAttribute('placeholder') || '').slice(0, 24)).join(' + ') + ')');
   // the top bar's paint (designer b2f587a8: chrome is opaque, no backdrop blur): alpha of the topmost fixed/sticky bar at the top edge
-  { const t = fixedAnc(document.elementFromPoint(W / 2, 4) || document.body); if (t) { const c = cs(t); const m = /rgba?\(([^)]+)\)/.exec(c.backgroundColor); const p = m ? m[1].split(/[ ,\/]+/).filter(Boolean) : [];
-    out.topAlpha = p.length > 3 ? +(+p[3]).toFixed(2) : p.length ? 1 : 0; out.topBlur = /blur/.test(c.backdropFilter || c.webkitBackdropFilter || ''); } }
+  { const t = fixedAnc(document.elementFromPoint(W / 2, 4) || document.body); if (t) { const c = cs(t); out.topAlpha = +alpha(c.backgroundColor).toFixed(2); out.topBlur = /blur/.test(c.backdropFilter || c.webkitBackdropFilter || ''); } }
   out.mapControl = controls.filter(e => name(e) === 'map').length; out.nearMe = controls.filter(e => /near me/.test(name(e))).length;
   out.view = document.documentElement.getAttribute('data-view') || null;
   return out;`);
