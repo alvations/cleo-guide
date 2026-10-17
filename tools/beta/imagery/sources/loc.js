@@ -38,7 +38,7 @@ function pickImage(urls, w) {
 
 const adapter = {
   id: 'loc', provider: 'library-of-congress', institution: 'Library of Congress', keyEnv: null,
-  hosts: ['www.loc.gov', 'tile.loc.gov'], delay: 3200, defaultBudget: 60,
+  hosts: ['www.loc.gov', 'tile.loc.gov'], delay: 3200, imageDelay: 3200, defaultBudget: 60,   // 20/min counts both
   preflightUrl: () => 'https://www.loc.gov/item/2011630123/?fo=json&at=item.title',
   async item(row, ctx) {
     const id = idOf(row);
