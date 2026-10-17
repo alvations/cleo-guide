@@ -92,7 +92,7 @@ Orchestrator order (2026-10-16 14:52Z):
 ## In flight
 
 Waiting on:
-- FE-1 (session_01Cuvo7DWhwbWjLpFicvaF5E): Esc focus return in atlas.js (lines sent). Then rerun probe `land` (npm run beta:probe:fe-c) → all PASS, qc-overlay L, SHA to the orchestrator.
+- (closed) FE-1 landed the Esc focus return at 8984b094: probe `land` 15/15 PASS on b1c7939fc; qc-overlay L (5 pilots × light/dark, atlas + sheet): chrome 12.3 %, clear map 84.8 % at rest, 0 sheet flags; left labelCov 10.4 (FE-1) + Tokyo attribution 174 px (FE-1).
 - QC: re-verify OV-111/112 (1318e1f4c) with the clip-aware shown().
 
 ## Notes

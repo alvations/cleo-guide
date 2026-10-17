@@ -27,6 +27,7 @@ const imagery = require('./index');
 
 const BETA = path.join(ROOT, 'beta');
 let fails = 0;
+const pending = [];   // async checks (local servers) the summary waits for
 const ok = (cond, msg) => { if (cond) console.log('  ok  ' + msg); else { fails++; console.error('  FAIL ' + msg); } };
 
 const reg = buildRegistry();
@@ -325,6 +326,23 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
   ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
 }
+{ // R8 (orchestrator): one total-time cap over headers AND body — a stalled image body is a per-file timeout, never a hung run
+  const { fetchCapped } = require('./net');
+  const http = require('http');
+  const srv = http.createServer((req, res) => {
+    if (req.url === '/stall') { res.writeHead(200, { 'content-type': 'image/jpeg', 'content-length': '100000' }); res.write(Buffer.alloc(10)); return; }   // headers, then the body never finishes
+    res.writeHead(200, { 'content-type': 'image/jpeg' }); res.end(Buffer.alloc(2048));
+  });
+  pending.push(new Promise(done => srv.listen(0, '127.0.0.1', async () => {
+    const base = `http://127.0.0.1:${srv.address().port}`, t0 = Date.now();
+    let stalled = null, good = null;
+    try { const r = await fetchCapped(base + '/stall', {}, 1500); await r.arrayBuffer(); stalled = 'read'; } catch (e) { stalled = e.timeout ? 'timeout' : String(e.message); }
+    try { const r = await fetchCapped(base + '/ok', {}, 1500); good = (await r.arrayBuffer()).byteLength; } catch (e) { good = String(e.message); }
+    const ms = Date.now() - t0;
+    ok(stalled === 'timeout' && good === 2048 && ms < 4000, `net.fetchCapped: a stalled body times out within the total cap (${stalled}, ${ms} ms) while a good one is read (${good} bytes)`);
+    srv.closeAllConnections ? srv.closeAllConnections() : null; srv.close(); done();
+  })));
+}
 { // R8 (orchestrator): a cover word is NEVER a strict fragment of a compound cuisine label (Daikaya ≠ "Chinese")
   const { dishOf, COMPOUND } = require('../lib/dish');
   const bad = [];
@@ -514,5 +532,7 @@ console.log('imagery: hero preload (no fetch when the page opens in Atlas)');
   ok(/ loading="lazy" fetchpriority="high"/.test(fig) && /<figcaption>/.test(fig), 'heroHtml { preloaded }: lazy img (never fetched while hidden) at high priority, credit kept');
 }
 
-if (fails) { console.error(`>>> FAIL — imagery: ${fails} check(s) failed`); process.exit(1); }
-console.log('>>> PASS — imagery: credit gate, motifs and manifest');
+Promise.all(pending).then(() => {
+  if (fails) { console.error(`>>> FAIL — imagery: ${fails} check(s) failed`); process.exit(1); }
+  console.log('>>> PASS — imagery: credit gate, motifs and manifest');
+});
