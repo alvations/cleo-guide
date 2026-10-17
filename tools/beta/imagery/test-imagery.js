@@ -72,6 +72,20 @@ function fixture(credits, files) {
   ok(photos.creditProblems(nk).some(x => /Flickr Commons institution/.test(x)) && !photos.creditProblems(Object.assign({}, nk, { flickrCommons: true })).some(x => /Flickr Commons/.test(x)),
     '"No known copyright restrictions" only from a Flickr Commons institution (flickrCommons: true)');
 }
+{ // D-50 / D-52 (image-sources lane proposal, landed by imagery): dated historic captions, anonymous credits, LoC "No known restrictions"
+  const loc = Object.assign({}, good, { provider: 'library-of-congress', sourceUrl: 'https://www.loc.gov/item/2016800000/', licence: 'Public domain', licenceUrl: 'https://creativecommons.org/publicdomain/mark/1.0/', era: 'historic', date: 'c. 1905', institution: 'Library of Congress', author: 'Detroit Publishing Co.', title: 'Mission Dolores' });
+  ok(!photos.creditProblems(loc).length && / · c\. 1905 · Library of Congress$/.test(photos.captionHtml(loc)) && / — c\. 1905, Library of Congress$/.test(photos.captionHtml(loc, { full: true })),
+    'D-50: a historic row prints "· <date> · <institution>" in the card caption and "— <date>, <institution>" in the full one');
+  ok(photos.creditProblems(Object.assign({}, loc, { date: '' })).some(x => /D-50/.test(x)) && photos.creditProblems(Object.assign({}, loc, { record: undefined, slot: { type: 'hero', key: 'tokyo' } })).some(x => /never a hero/.test(x)),
+    'D-50: a historic row needs date + institution and is never a hero');
+  ok(photos.creditProblems(Object.assign({}, loc, { author: 'Anonymous (as catalogued by Rijksmuseum via Europeana)', licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/' })).some(x => /Anonymous/.test(x)) &&
+    !photos.creditProblems(Object.assign({}, loc, { author: 'Anonymous (as catalogued by Library of Congress)' })).length,
+    'D-52: an anonymous-as-catalogued credit only on a public-domain/CC0 historic row');
+  const nkr = Object.assign({}, loc, { licence: 'No known restrictions', licenceUrl: 'https://www.loc.gov/item/2016800000/', date: '1903' });
+  ok(!photos.creditProblems(nkr).length && photos.creditProblems(Object.assign({}, nkr, { date: '1955' })).length && photos.creditProblems(Object.assign({}, nkr, { provider: 'europeana', sourceUrl: 'https://www.europeana.eu/item/1' })).length &&
+    photos.creditProblems(Object.assign({}, loc, { sourceUrl: 'https://example.org/x' })).some(x => /item page/.test(x)),
+    'LoC "No known restrictions" only for a historic LoC item dated ≤ 1929; provider rows need their own item-page host');
+}
 let r = fixture([good], ['a.png']);
 const ph = r.byPage.tokyo && r.byPage.tokyo[open.id];
 ok(r.errors.length === 0 && ph && ph.w === 960 && ph.h === 640, 'complete credit + file → photo with size read from the header');
@@ -352,9 +366,9 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const j = fo.judge(r({}), t, new Set());
   ok(j.pick && j.pick.provider === 'flickr' && j.pick.sourceUrl === 'https://www.flickr.com/photos/sp/123/' && j.pick.authorUrl === 'https://www.flickr.com/photos/sp/' && j.pick.licence === 'CC BY 2.0' && j.pick.review === 'pending' && /^title/.test(j.pick.matched),
     'fetch-openverse: a matching Flickr result becomes a review-pending pick with full TASL and the matched field');
-  ok(fo.judge(r({ license: 'by-nc' }), t, new Set()).why && fo.judge(r({ width: 400 }), t, new Set()).why && fo.judge(r({ title: 'Goh Chor Tua Pek Kong Temple 1932' }), t, new Set()).why &&
+  ok(fo.judge(r({ license: 'by-nc' }), t, new Set()).why && fo.judge(r({ width: 400 }), t, new Set()).why && fo.judge(r({ title: 'Goh Chor Tua Pek Kong Temple 1932' }), t, new Set()).pick.era === 'historic' && fo.judge(r({ title: 'Goh Chor Tua Pek Kong Temple 1932' }), Object.assign({}, t, { cls: 'hero' }), new Set()).why &&
     fo.judge(r({}), t, new Set(['https://www.flickr.com/photos/sp/123/'])).why && fo.judge(r({ title: 'A temple' }), t, new Set()).why,
-    'fetch-openverse: NC, too small, historic (pre-1950, D-50), already credited/refused, and unnamed results are refused');
+    'fetch-openverse: NC, too small, historic on a hero (D-50), already credited/refused, and unnamed results are refused; a historic sight pick carries era/date');
   ok(fo.pages(r({ source: 'wikimedia', foreign_landing_url: 'https://commons.wikimedia.org/wiki/File:X_y.jpg' })).commonsTitle === 'File:X y.jpg' && fo.pages(r({ source: 'smithsonian_x', foreign_landing_url: 'https://collections.si.edu/obj/1' })).provider === 'openverse' && fo.pages(r({ source: 'met', foreign_landing_url: 'http://x' })).why,
     'fetch-openverse: Commons results keep their File: page, museum results their https landing page; others are refused');
   ok(fo.ruleGap('venue (BAR) — never a photo') && !fo.ruleGap('no file found (wave 5 search)') && !fo.ruleGap(undefined), 'fetch-openverse: rule gaps stay closed; "no usable Commons photo" gaps are open to Openverse');

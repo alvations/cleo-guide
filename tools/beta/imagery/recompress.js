@@ -55,7 +55,7 @@ const isJpeg = f => /\.jpe?g$/i.test(f);
 /** A Commons file that is not a JPEG (PNG, WebP, TIFF thumbnails): converted to JPEG, since only JPEG is weight-capped (R7). */
 const notJpeg = row => filesOf(row).some(f => !isJpeg(f.file));
 /** Self-hosted copies the pipeline resized: Commons, and Flickr (fetch-flickr.js, R8) — weight-capped the same way. */
-const selfHosted = row => row.provider === 'wikimedia-commons' || row.provider === 'flickr';
+const selfHosted = row => ['wikimedia-commons', 'flickr', 'openverse', 'library-of-congress', 'the-met', 'smithsonian', 'europeana'].includes(row.provider);   // + the sources lane's archives (D-52)
 const eligible = row => selfHosted(row) && (!marked(row) || notJpeg(row));
 /** A row to (re)visit: not yet recompressed, not a JPEG, over a size target (targets tightened, R7), or without its dominant colour. */
 const needsWork = (row, sizeOf) => selfHosted(row) &&
