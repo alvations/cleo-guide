@@ -14,6 +14,13 @@ SG/MY 12; no photo on food is ever possible from these sources).
   USGS 1 manual), 30 refused rows kept; 22 searched-with-nothing targets in searched-gaps.tsv.
 
 **In flight:**
+- 13:30Z: 32 LoC rows reviewed ok. Run #104 failed (imagery D-40a 720, fixed); #106–110 cancelled/replaced; #111 credited + gated but its
+  commit step (merge origin + re-test) failed test-imagery "no credited photo for a skipped target": imagery's wave 6 had just marked
+  4 of my approved targets skip (Music Hall, Findlay Market, cable cars, Kennedy Center). Fix d87852641: lib never stages/credits an
+  imagery-skip target (reads commons-candidates.json). D-56 (9938de852): imagery to lift those 4 skips → they credit automatically.
+  Run #117 (39034447301, includes the fix) in progress → expect 28 LoC credits. Then coverage before/after (766/1052 tier-1, 293/1153 first-24).
+- Keys: stage run #6 showed EUROPEANA_API_KEY and SMITHSONIAN_API_KEY empty → orchestrator asking the owner (Europeana: 13 real-gap Rijksmuseum rows).
+- Lessons: read huge job logs via a subagent that extracts FAIL lines; any push under tools/beta/imagery/** replaces a PENDING photo run.
 - 11:55Z: 32 LoC rows reviewed ok (stage #3 20, stage #4 12). Photo run #104 credited them but failed on imagery's D-40a 720 check (fixed b681fb041/70a2204d6); #106–108 cancelled by newer pushes; #109 (39030048069) queued. HOLD pushes under tools/beta/imagery/ until it commits (check-in trig_011b8uKjNZYyXxMPTJXpDM8d at 12:20Z). Local commit waiting: staging skips targets with a live Commons candidate (--include-covered overrides) → Europeana 13 to stage; asked the orchestrator whether EUROPEANA/SMITHSONIAN keys are set and to add europeana to the stage sources.
 - Stage run #3 committed 71379343b: 45 LoC previews (3 sheets) + review.tsv; my pre-screen review-suggested.tsv (46d7c580e): 21 ok / 8 second / 16 refuse. Waiting for the orchestrator's verdicts → review.js → loc.js --credit (needs a credit step in the workflow, asked). ~60 LoC candidates still unstaged (budget 60/run); the next candidates.tsv push stages them.
 - Wave 2b merged (10:45Z): +66 candidates (LoC 53: Highsmith 43, HABS/HALS/HAER 9, Detroit 1; Europeana/Rijksmuseum 13), +66 searched gaps.
