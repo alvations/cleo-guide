@@ -13,6 +13,11 @@
 'use strict';
 const fs = require('fs'), path = require('path'), http = require('http'), { execFileSync } = require('child_process');
 const ROOT = path.resolve(__dirname, '../../..'), BETA = path.join(ROOT, 'beta'), ASSETS = path.join(BETA, 'assets');
+const SCRATCH = fs.mkdtempSync(path.join(require('os').tmpdir(), 'cleo-cc-'));   // the cc-NN pieces live here, never in beta/assets
+const CC = b => /^cc-\d\d-/.test(b);
+const at = p => path.join(CC(p) ? SCRATCH : ASSETS, p);
+process.on('exit', () => fs.rmSync(SCRATCH, { recursive: true, force: true }));
+for (const s of ['SIGINT', 'SIGTERM']) process.on(s, () => process.exit(130));
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const QUICK = process.argv.includes('--quick');
 const OUT = path.resolve(ROOT, arg('--out', 'design/beta/eval/css-cascade.json'));
@@ -23,14 +28,15 @@ function loadPlaywright() {
 const MIME = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json' };
 const serve = () => new Promise(res => { const s = http.createServer((q, r) => {
   let f = path.join(ROOT, decodeURIComponent(q.url.split('?')[0].split('#')[0]));
+  if (CC(path.basename(f))) f = path.join(SCRATCH, path.basename(f));
   try { if (fs.statSync(f).isDirectory()) f = path.join(f, 'index.html'); } catch (e) { /* 404 */ }
   fs.readFile(f, (e, b) => { if (e) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': MIME[path.extname(f)] || 'application/octet-stream' }); r.end(b); });
 }); s.listen(0, '127.0.0.1', () => res(s)); });
 
 // the pieces of cleo.css, in cascade order, written next to it (relative url()s resolve the same)
-const parts = execFileSync('python3', [path.join(ROOT, 'design/beta/tools/build-css.py'), '--parts', ASSETS]).toString().trim().split(/\s+/);
+const parts = execFileSync('python3', [path.join(ROOT, 'design/beta/tools/build-css.py'), '--parts', SCRATCH]).toString().trim().split(/\s+/);
 const IDS = [...new Set([...fs.readdirSync(ASSETS).filter(f => f.endsWith('.css'))].map(f => fs.readFileSync(path.join(ASSETS, f), 'utf8')).join('').match(/#[A-Za-z][\w-]*/g) || [])].map(x => x.slice(1));
-const BYTEXT = new Map(parts.concat(['fe-a.css', 'fe-b.css']).map(p => [fs.readFileSync(path.join(ASSETS, p), 'utf8'), p]));   // cached @import sheets come back under new ids with no event: resolve by text
+const BYTEXT = new Map(parts.concat(['fe-a.css', 'fe-b.css']).map(p => [fs.readFileSync(at(p), 'utf8'), p]));   // cached @import sheets come back under new ids with no event: resolve by text
 const IMPORT = parts.map(p => `@import url("${p}");`).join('\n');
 
 const VIEWPORTS = QUICK ? [[390, 844], [1440, 900]] : [[195, 422], [360, 740], [390, 844], [390, 664], [420, 860], [560, 900], [620, 900], [700, 1000], [768, 1024], [844, 390], [960, 800], [1024, 768], [1060, 800], [1150, 850], [1240, 860], [1366, 860], [1440, 900]];
@@ -122,7 +128,7 @@ async function snapshot(page, cdp) {
     await ctx.close();
   }
   await browser.close(); srv.close();
-  for (const p of parts) fs.rmSync(path.join(ASSETS, p), { force: true });
+  fs.rmSync(SCRATCH, { recursive: true, force: true });
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify({ when: new Date().toISOString(), snaps, viewports: VIEWPORTS, pages: CITY.concat(OTHER), decl }, null, 0));
   const lose = Object.values(decl).filter(d => d.m && !d.w);
