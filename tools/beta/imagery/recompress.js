@@ -139,7 +139,7 @@ async function priority720(sharp, rows, dry) {
     const meta = await sharp(small).metadata();
     const { out, q, w, h, scaled } = await encode(sharp, small, P720_KB * KB, meta);
     // a copy that only fits by shrinking is no sharper than the 500: skip it (add the row to NO720 so it is not re-tried)
-    if (scaled) { console.log(`  skip  ${big.file}: a ${P720_KB} KB copy shrinks to ${w} px wide — keeps 500 + 960; add it to NO720`); continue; }
+    if (scaled) { console.log(`  skip  ${big.file}: a ${P720_KB} KB copy shrinks to ${w} px wide — keeps 500 + 960 (no720)`); if (!dry) row.no720 = true; continue; }
     const file = big.file.replace(/-960\.jpe?g$/i, `-${w}.jpg`);
     console.log(`  ${dry ? 'would add' : 'added'} ${file} ${Math.round(out.length / KB)} KB (q${q}${scaled ? `, scaled to ${w}×${h}` : ''}, from the committed 960, target ${P720_KB} KB)`);
     n++;
@@ -164,7 +164,7 @@ async function main() {
   }
   const rows = j.credits.filter(r => needsWork(r, sizeOf));
   console.log(`recompress: ${rows.length} credited Commons row(s) to re-encode, convert to JPEG or colour (new, not a JPEG, over target, or no dominant colour)`);
-  if (!rows.length) { if (!dry && added720) fs.writeFileSync(CREDITS, JSON.stringify(j, null, 1) + '\n'); return; }
+  if (!rows.length) { if (!dry && (added720 || j.credits.some(r => r.no720))) fs.writeFileSync(CREDITS, JSON.stringify(j, null, 1) + '\n'); return; }   // no720 flags too
   const sharp = loadSharp();
   if (!sharp) { console.log('recompress: sharp is not installed (cd tools && npm install --no-save sharp) — nothing changed (exit 0).'); return; }
   let before = 0, after = 0, files = 0, colours = 0;
@@ -197,9 +197,9 @@ async function main() {
       if (lead720 && !(scaled && nw < 600) && out.length > target) { drop720(`${Math.round(out.length / KB)} KB at q${q} is over its ${Math.round(target / KB)} KB cap`); continue; }
       if (scaled && !f.main && hasLarge(row) && classWidth(f) >= 600 && classWidth(f) < 800 && nw < 600) {
         // a lead / first-row 720 copy that only fits by shrinking below 600 px is no sharper than the 500: drop it (NO720)
-        console.log(`  drop  ${f.file}: a ${Math.round(target / KB)} KB copy shrinks to ${nw} px wide — the card keeps 500 + 960; add ${row.file} to NO720`);
+        console.log(`  drop  ${f.file}: a ${Math.round(target / KB)} KB copy shrinks to ${nw} px wide — the card keeps 500 + 960 (no720)`);
         if (!dry) {
-          fs.unlinkSync(p); row.variants = row.variants.filter(v => v.file !== f.file);
+          fs.unlinkSync(p); row.variants = row.variants.filter(v => v.file !== f.file); row.no720 = true;   // run #100: no re-add, D-40a exempt
           row.modified = String(row.modified || '').replace(/^resized to 500, \d+ and (\d+) px wide/, 'resized to 500 and $1 px wide');
         }
         continue;
