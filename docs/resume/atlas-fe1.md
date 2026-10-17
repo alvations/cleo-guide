@@ -37,29 +37,29 @@ Round 4 is held until D-46 lands. Dark dots are signed off (R4b). FE-2 is green 
 - Rev 4 phone first screen (peek, labelled pills, Key in Filters), Top picks, count line, 8 px dots, noun-first glyphs. Merged with FE-2 slices 1–2: the paged list survives late stamping, a swipe after Back, preview with no media, nearest-edge scroll. See BETA-LOG "SPEC-v3 rev 4" and the merge notes.
 
 ## Next
-- **Waiting on:** the orchestrator's real re-shoot of 0a4e5751 (requested), the designer's dark-dot re-sign, and FE-2's re-run.
-- **Settled:** D-43 declined; the preview says "Approximate pin" (0a4e5751). FE-C's Atlas empty-state hide landed (70ddc1c9e). "Search as I move" stays off on phones (designer agreed).
-- **Then:** give FE-2 the SHA, and announce "round 4 ready at <sha>" to the panel with the orchestrator copied.
-- **Round 4:** wait for (1) the real/R4 shots (orchestrator runs the workflow), (2) the designer's dots sign-off, (3) FE-2's go or SHA (their #7 108 px shift, R7-g4 c). Then send the panel (session_01EKzwLjqF1Z1gwXWgbrrr2S) exactly "round 4 ready at <sha>", after telling FE-2.
-- **Open decisions** (designer / QA): clear map ~74 % with the required switcher row; B-03's ≤ 14 against the spec's 15 phone controls; review of the `bag` and `spire` glyphs.
-- **Watch:**
-  - FE-C's `.rb` badge hit area (B-20);
-  - the DOM budget on Tokyo desktop (3,082 on origin, not Atlas's);
-  - FE-A's partial-height phone sheet proposal (R2 #1 deep link).
-- Fixed in this push: the selected pin's label stays clear of the phone controls.
+- **Round 4 is announced at 7a21f2f60** (designer signed off; FE-2 verified it with atlas-ms 394/0 in a clean worktree; the orchestrator relays to the panel).
+- **Since R4 (pushed):**
+  - 1000f52c: the folded credit is one ⓘ circle in dark;
+  - 68b83c0c: D-53 preview recommenders, photo-less carousel cards fit their text;
+  - 963febc6: landscape side column opens on the selected place (ringed), OV-41 desktop pack reachable;
+  - 40535c29 / 75bb37bb: one search on phone Atlas, a drag from a dot pans, the no-pin note sits above the credit, the desktop credit is 20 px.
+- **Open:**
+  - The designer's "only the selected pin shows": not reproduced (neighbour labels stay: Tokyo 6→6 / 4→5 / 7→8 at 390 / 844 / 1440). The exact shot has been asked for.
+  - INP 232 → ≤ 200 on the desktop switch.
+  - T1/T2/D pan compaction, only if QC's re-measure still flags it (FE-2 offered).
+  - R8 gap 4 and FE-A's tokens (atlas.css :41 / :102 / :289).
+  - The §v2.7b no-photo card spec, when FE-A lands it.
+- **Coordination:**
+  - FE-2 owns atlas-nav.js and the probes fe2/side-sync.js and label-clear.js.
+  - The side-column scroll sync is mine (select() and swiped() in atlas.js).
 
 ## In flight
-- The gates (validate, npm test, beta:check, atlas-ms, w2, w7) on the merged head carrying b835889f (OV-03), 0cc26628 (OV-04 §2.0.3) and a2e74bb8 (shed resume). Then push with tools/beta/sync-push.sh and claim OV-03 / OV-04 in docs/BETA-OVERLAY-LEDGER.md. Tell platform (the pack host is live), FE-2 (the labels SHA) and the orchestrator.
-- **Next:**
-  - OV-41: the Atlas-default case back in qa/offline-pack.js once platform's mount is on the head;
-  - OV-03 remainder: landscape 10 labels;
-  - landscape: §2.0.7, one 48 px bar and no peek;
-  - D-46: peek thumbnails and the phone intro;
-  - the no-photo card spec (designer, when it lands);
-  - D-43 halo;
-  - R8 gap 4;
-  - INP 232 → ≤ 200.
-- **Gotchas:** never edit a script bash is running (gates.sh). Commit beta/ with each source change (`git add -A`, not just tools/).
+- Nothing uncommitted.
+- **Gotchas:**
+  - Never edit a script bash is running.
+  - Never rebuild beta/ while a gate run is going (beta:check compares against source).
+  - Commit beta/ with each source change (`git add -A tools/beta beta docs`).
+  - A full gate run (validate + npm test + beta:check) takes about 10 min; atlas-ms takes another 15–25 min.
 
 ## Notes
 - **Ownership:**
