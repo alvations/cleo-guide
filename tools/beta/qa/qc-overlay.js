@@ -17,6 +17,19 @@
  * "Search this area" on the first screen; toasts still up at idle; duplicate controls on one screen; compaction during a
  * move. Graded against the designer's OV-00 budgets (bb2af873); the distributions are kept for trend.
  *
+ * Rulings encoded (orchestrator / designer, 2026-10-16/17), so the measure stays the same from SHA to SHA:
+ *   - chrome = fixed layers and sticky BARS (≥ 60 % of the frame width); a sticky side column, a pane that scrolls on its own
+ *     and an open sheet's backdrop are not chrome; sheet bands are measured inside the dialog;
+ *   - a control is shown only if its centre is inside the viewport and every clipping ancestor;
+ *   - search: one control per form / role=search; a results list's "Search all guides" row and its "clear" are content;
+ *   - label coverage, width, count and gaps are measured on the PAINTED pill, never the transparent 44 px tap area (a tap
+ *     area drawn as a pseudo-element hit-tests to its host, so a label point must also be inside the painted box); the tap
+ *     area itself is governed by B-07 and the collision checks;
+ *   - the credit collapses to ⓘ on P1 / P2 / L / T1 only; at T2 / D it is one line ≤ 20 px, inside the pane, over nothing;
+ *   - a pan is a drag that moves the map: if a start point selects a dot instead, the drag retries from a free point and the
+ *     miss is reported (dragFromDot); pan budgets are not graded when the map never moved.
+ * MEASURE runs as a template-literal Function body: no backslash escapes in it (they collapse); parse numbers instead.
+ *
  * Usage (from tools/): NODE_PATH=$(npm root -g) node beta/qa/qc-overlay.js --label <sha> [--root <checkout>]
  *   [--pages punggol,tokyo] [--vps 390x844,390x664,844x390,768x1024,1024x768,1440x900] [--themes light,dark]
  *   [--views atlas,gallery,guidebook,insights,sheet] [--jobs 4] [--shots 120]
@@ -59,8 +72,11 @@ const MEASURE = new Function(`
   // pin's transparent tap area (FE-1, 11:36Z: measure the painted area, not the hit area)
   const alpha = bg => { if (!bg || bg === 'transparent') return 0; const n = (bg.match(/[\\d.]+/g) || []).map(Number); return n.length > 3 ? n[3] : 1; };   // no regex escapes: this body is a template literal
   const painted = x => { const c = cs(x); return alpha(c.backgroundColor) > 0 || c.backgroundImage !== 'none' || parseFloat(c.borderTopWidth) > 0; };
-  const isLabel = e => { const p = e.closest('.leaflet-marker-pane .pp, .leaflet-tooltip, .leaflet-popup'); if (!(p && (p.textContent || '').trim().length > 1)) return false;
-    for (let a = e; a; a = a.parentElement) { if (painted(a)) return true; if (a === p) break; } return false; };
+  // ...and the point must be inside that painted element's own box: a tap area drawn as a pseudo-element hit-tests to its host
+  // (orchestrator ruling 12:18Z: coverage is the PAINTED pill; the tap area is governed by B-07 and the collision checks)
+  const labelAt = (e, x, y) => { const p = e.closest('.leaflet-marker-pane .pp, .leaflet-tooltip, .leaflet-popup'); if (!(p && (p.textContent || '').trim().length > 1)) return null;
+    for (let a = e; a; a = a.parentElement) { if (painted(a)) { const q = a.getBoundingClientRect(); return x >= q.left && x < q.right && y >= q.top && y < q.bottom ? 'label' : 'pin'; } if (a === p) break; } return 'pin'; };
+  const isLabel = e => false;   // labels are decided per point (labelAt), never from the element cache
   const classify = e => {
     if (!e) return 'none'; if (cache.has(e)) return cache.get(e); let k;
     if (dlg && dlg.contains(e)) { const f = fixedAnc(e); k = f && f !== dlg && dlg.contains(f) ? 'sheet-chrome' : 'sheet'; }
@@ -77,7 +93,8 @@ const MEASURE = new Function(`
   const VY = 4;   // rows every 4 px, so a band's edge is exact to 4 px (columns stay STEP apart)
   for (let y = VY / 2; y < H; y += VY) { const row = { chrome: 0, all: 0 };
     for (let x = STEP / 2; x < W; x += STEP) {
-      let k = classify(document.elementFromPoint(x, y));
+      const hitE = document.elementFromPoint(x, y); let k = classify(hitE);
+      if (k === 'pin' || k === 'label') { const lk = hitE && mapC && mapC.contains(hitE) ? labelAt(hitE, x, y) : null; if (lk) k = lk; }
       if (mr && x >= mr.left && x < mr.right && y >= mr.top && y < mr.bottom && !(k === 'sheet' || k === 'sheet-chrome')) {
         inMap.all++; if (k === 'map' || k === 'pin' || k === 'label' || k === 'overlay') inMap[k]++; else { inMap.other++; k = 'overlay'; } }
       n[k] = (n[k] || 0) + 1; if (k === 'backdrop') continue; row.all++; if (k === 'chrome' || k === 'overlay' || k === 'sheet-chrome') row.chrome++; }
