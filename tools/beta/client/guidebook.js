@@ -95,7 +95,8 @@
 
   function entry(M, x) {
     var p = x.p, ref = M.d.key + '/' + p.id;
-    var ids = recIds(p), noRec = !ids.length;
+    var ids = recIds(p).filter(function (s) { return s !== 'guide'; }), noRec = !ids.length;   /* QA-87: general knowledge is never after the label */
+    var added = (p.src || []).indexOf('guide') >= 0 ? '<span class="added">' + tt('city.card.added', 'Added by the guide (general knowledge)') + '</span>' : '';
     var tier = !x.open ? '<span class="flag closed">' + tt('gal.closed', 'Closed · kept for the record') + '</span>'
       : noRec ? '<span class="kind">' + tt(p.kind === 'food' ? 'card.kind.food' : 'card.kind.sight', p.kind === 'food' ? 'Eat & drink' : 'Sight') + '</span>'
       : '<span class="tier t' + p.t + '"><i class="tg t' + p.t + '" aria-hidden="true"></i>' + TIER[p.t] + '</span>';
@@ -110,9 +111,9 @@
       (p.w ? '<p class="ge-w">' + esc(p.w) + '</p>' : '') + (p.k ? '<p class="gk">' + tt('sheet.look', 'Look for:') + ' ' + esc(p.k) + '</p>' : '') +
       // D-39 (proposed): prose that quotes a price or a rating is labelled as a dated quote, never edited (`pq` from build)
       (p.pq ? '<p class="gq sm muted">' + esc(tt('sheet.quoted', 'Prices, ratings and times are quoted from the source at the time of research ({d}).', { d: p.pq })) + '</p>' : '') +
-      (noRec ? '<p class="recby norec"><span class="norec">' + tt('card.norec', 'No independent source yet') + '</span>' +
+      (noRec ? '<p class="recby norec"><span class="norec">' + tt('card.norec', 'No independent source yet') + '</span>' + (added ? ' · ' + added : '') +
         (own ? ' · <a class="own" href="' + esc(own) + '" rel="noopener">' + tt('card.official', 'Official site') + '</a>' : '') + '</p>'
-        : '<p class="recby"><span>' + tt('card.recby', 'Recommended by') + '</span> ' + rec + '</p>') +
+        : '<p class="recby"><span>' + tt('card.recby', 'Recommended by') + '</span> ' + rec + '</p>' + (added ? '<p class="recby pl-add">' + added + '</p>' : '')) +
       '<button type="button" class="heart ge-save" data-cleo-ref="' + esc(ref) + '" aria-pressed="false" aria-label="' + esc(tt('gal.save', 'Save {name}', { name: x.name })) + '">' + tt('sheet.save', 'Save') + '</button></li>';
   }
 
