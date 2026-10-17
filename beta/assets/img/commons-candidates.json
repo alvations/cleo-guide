@@ -22,10 +22,10 @@
   "candidates[].flags": "people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it"
  },
  "summary": {
-  "targets": 1497,
+  "targets": 1488,
   "byType": {
    "hero": 89,
-   "landmark": 1408
+   "landmark": 1399
   },
   "heroes": {
    "targets": 89,
@@ -37,17 +37,17 @@
    "withHigh": 107
   },
   "otherLandmarks": {
-   "targets": 1224,
-   "skipped": 355,
+   "targets": 1215,
+   "skipped": 346,
    "withArticle": 606
   },
   "candidates": {
-   "total": 1327,
-   "high": 1201,
-   "med": 126,
+   "total": 1312,
+   "high": 1190,
+   "med": 122,
    "low": 0
   },
-  "targetsWithHigh": 653,
+  "targetsWithHigh": 645,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -9833,29 +9833,6 @@
    "candidates": []
   },
   {
-   "key": "landmark:akron#7-17-credit-union-park-akron-rubberducks",
-   "type": "landmark",
-   "depicts": "akron#7-17-credit-union-park-akron-rubberducks",
-   "label": "7 17 Credit Union Park (Akron RubberDucks)",
-   "names": [
-    "7 17 Credit Union Park"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/7_17_Credit_Union_Park",
-   "skip": "venue (ENT) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:Canal Park & Canal Square.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Canal_Park_&_Canal_Square.jpg",
-     "depicts": "Canal Park ballpark (former name) with Canal Square",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Canal Park, former name of the stadium"
-    }
-   ]
-  },
-  {
    "key": "landmark:akron#akron-art-museum",
    "type": "landmark",
    "depicts": "akron#akron-art-museum",
@@ -10174,38 +10151,6 @@
    "article": "https://en.wikipedia.org/wiki/Stan_Hywet_Hall_and_Gardens",
    "wikiLead": true,
    "candidates": []
-  },
-  {
-   "key": "landmark:antwerp#amuz-sint-augustinuskerk",
-   "type": "landmark",
-   "depicts": "antwerp#amuz-sint-augustinuskerk",
-   "label": "AMUZ — Sint-Augustinuskerk",
-   "names": [
-    "AMUZ — Sint-Augustinuskerk",
-    "Sint-Augustinuskerk",
-    "Sint-Augustinuskerk (Antwerpen)"
-   ],
-   "pilot": false,
-   "article": "https://nl.wikipedia.org/wiki/Sint-Augustinuskerk_(Antwerpen)",
-   "skip": "venue (NIGHT) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:Sint-Augustinuskerk Antwerpen AMUZ.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sint-Augustinuskerk_Antwerpen_AMUZ.jpg",
-     "depicts": "Sint-Augustinuskerk (AMUZ), Antwerp",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Sint-Augustinuskerk Antwerpen AMUZ (category listing)"
-    },
-    {
-     "file": "File:Antwerpen 8.JPG",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Antwerpen_8.JPG",
-     "depicts": "Facade of Sint-Augustinuskerk, Kammenstraat 73",
-     "confidence": "med",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): file description: Sint-Augustinuskerk Kammenstraat 73, facade by Coeberger"
-    }
-   ]
   },
   {
    "key": "landmark:antwerp#antwerpen-centraal-centraal-station",
@@ -11757,36 +11702,6 @@
    "article": "https://en.wikipedia.org/wiki/Alfred_Caldwell_Lily_Pool",
    "wikiLead": true,
    "candidates": []
-  },
-  {
-   "key": "landmark:chicago#alta-vista-terrace-district",
-   "type": "landmark",
-   "depicts": "chicago#alta-vista-terrace-district",
-   "label": "Alta Vista Terrace District",
-   "names": [
-    "Alta Vista Terrace District"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/Alta_Vista_Terrace_District",
-   "skip": "venue (SPORT) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:Alta Vista 3.JPG",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Alta_Vista_3.JPG",
-     "depicts": "Row houses on Alta Vista Terrace, Chicago",
-     "confidence": "med",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): filed in Category:Alta Vista Terrace, Chicago (category listing)"
-    },
-    {
-     "file": "File:Alta Vista 1.JPG",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Alta_Vista_1.JPG",
-     "depicts": "Alta Vista Terrace row houses",
-     "confidence": "med",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): filed in Category:Alta Vista Terrace, Chicago (category listing)"
-    }
-   ]
   },
   {
    "key": "landmark:chicago#andersonville-commercial-district",
@@ -13952,36 +13867,6 @@
    "pilot": false,
    "skip": "venue (SHOP) — never a photo",
    "candidates": []
-  },
-  {
-   "key": "landmark:dayton#boonshoft-museum-of-discovery",
-   "type": "landmark",
-   "depicts": "dayton#boonshoft-museum-of-discovery",
-   "label": "Boonshoft Museum of Discovery",
-   "names": [
-    "Boonshoft Museum of Discovery"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/Boonshoft_Museum_of_Discovery",
-   "skip": "venue (SHOP) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:Boonshoftmuseumof discovery1.JPG",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Boonshoftmuseumof_discovery1.JPG",
-     "depicts": "Front entrance of the Boonshoft Museum of Discovery",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Boonshoft museum of discovery; description: front entrance"
-    },
-    {
-     "file": "File:BoonshoftMuseum.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:BoonshoftMuseum.jpg",
-     "depicts": "Boonshoft Museum of Discovery building",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Boonshoft Museum (category listing)"
-    }
-   ]
   },
   {
    "key": "landmark:dayton#carillon-historical-park",
@@ -18274,37 +18159,6 @@
    "article": "https://en.wikipedia.org/wiki/Arch%C3%A9oforum",
    "wikiLead": true,
    "candidates": []
-  },
-  {
-   "key": "landmark:liege#barrage-de-la-gileppe",
-   "type": "landmark",
-   "depicts": "liege#barrage-de-la-gileppe",
-   "label": "Barrage de la Gileppe",
-   "names": [
-    "Barrage de la Gileppe",
-    "Gileppe Dam"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/Gileppe_Dam",
-   "skip": "venue (NIGHT) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:Gileppe Dam Belgium 2009.JPG",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gileppe_Dam_Belgium_2009.JPG",
-     "depicts": "Gileppe dam wall and reservoir",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Gileppe Dam (category listing)"
-    },
-    {
-     "file": "File:Gileppe dam 1.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gileppe_dam_1.jpg",
-     "depicts": "Gileppe dam, Jalhay",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Gileppe dam (category listing)"
-    }
-   ]
   },
   {
    "key": "landmark:liege#basilique-saint-martin",
@@ -25112,30 +24966,6 @@
    ]
   },
   {
-   "key": "landmark:rhineland#alter-markt",
-   "type": "landmark",
-   "depicts": "rhineland#alter-markt",
-   "label": "Alter Markt",
-   "names": [
-    "Alter Markt",
-    "Alter Markt (Köln)"
-   ],
-   "pilot": false,
-   "article": "https://de.wikipedia.org/wiki/Alter_Markt_(K%C3%B6ln)",
-   "skip": "venue (MKT, NIGHT) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:Alter Markt, Historisches Rathaus, Köln-7854.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Alter_Markt,_Historisches_Rathaus,_K%C3%B6ln-7854.jpg",
-     "depicts": "Alter Markt square, Cologne, with the town hall wing and tower",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Alter Markt, Köln (assumes the guide's Alter Markt is Cologne's)"
-    }
-   ]
-  },
-  {
    "key": "landmark:rhineland#alter-zoll",
    "type": "landmark",
    "depicts": "rhineland#alter-zoll",
@@ -26241,30 +26071,6 @@
      "depicts": "Krötschenturm tower of the Zons town wall",
      "confidence": "med",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names a Zons wall tower, part of the Zollfeste"
-    }
-   ]
-  },
-  {
-   "key": "landmark:saarland#alte-brucke-saarbrucken",
-   "type": "landmark",
-   "depicts": "saarland#alte-brucke-saarbrucken",
-   "label": "Alte Brücke Saarbrücken",
-   "names": [
-    "Alte Brücke Saarbrücken",
-    "Alte Brücke (Saarbrücken)"
-   ],
-   "pilot": false,
-   "article": "https://de.wikipedia.org/wiki/Alte_Br%C3%BCcke_(Saarbr%C3%BCcken)",
-   "skip": "venue (MKT) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:20201019 Alte Brücke Saarbrücken.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:20201019_Alte_Br%C3%BCcke_Saarbr%C3%BCcken.jpg",
-     "depicts": "Alte Brücke over the Saar, Saarbrücken",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Alte Brücke Saarbrücken"
     }
    ]
   },
@@ -30405,36 +30211,6 @@
    ]
   },
   {
-   "key": "landmark:singapore/punggol#punggol-digital-district-sit-punggol-campus",
-   "type": "landmark",
-   "depicts": "singapore/punggol#punggol-digital-district-sit-punggol-campus",
-   "label": "Punggol Digital District (SIT Punggol Campus)",
-   "names": [
-    "Punggol Digital District"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/Punggol_Digital_District",
-   "skip": "venue (MKT) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:SIT Punggol Campus-Dec 2025 03.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:SIT_Punggol_Campus-Dec_2025_03.jpg",
-     "depicts": "SIT Punggol Campus in Punggol Digital District",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names SIT Punggol Campus (found in Matilda House search)"
-    },
-    {
-     "file": "File:View of SIT Punggol Along New Punggol Road 12112024.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:View_of_SIT_Punggol_Along_New_Punggol_Road_12112024.jpg",
-     "depicts": "SIT Punggol campus seen from New Punggol Road",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names SIT Punggol"
-    }
-   ]
-  },
-  {
    "key": "landmark:singapore/punggol#punggol-waterway-park",
    "type": "landmark",
    "depicts": "singapore/punggol#punggol-waterway-park",
@@ -30920,36 +30696,6 @@
    "pilot": false,
    "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
-  },
-  {
-   "key": "landmark:washingtondc#adams-morgan-18th-street",
-   "type": "landmark",
-   "depicts": "washingtondc#adams-morgan-18th-street",
-   "label": "Adams Morgan (18th Street)",
-   "names": [
-    "Adams Morgan"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/Adams_Morgan",
-   "skip": "venue (SHOP) — never a photo",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:18th Street NW - Adams Morgan.JPG",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:18th_Street_NW_-_Adams_Morgan.JPG",
-     "depicts": "Commercial row on 18th Street NW, Adams Morgan",
-     "confidence": "high",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names 18th Street NW, Adams Morgan"
-    },
-    {
-     "file": "File:18th Street NW, Washington, DC.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:18th_Street_NW,_Washington,_DC.jpg",
-     "depicts": "18th Street NW streetscape in Adams Morgan",
-     "confidence": "med",
-     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): description: 18th Street in Adams Morgan"
-    }
-   ]
   },
   {
    "key": "landmark:washingtondc#african-american-civil-war-memorial-and-museum",
