@@ -1,7 +1,8 @@
 // FE-B probe (R7-g2 g + h) over the landing, every country hub and all 84 city pages, at 390 and 1440:
 //  (g) no single-word last line in the dek, the masthead stat line, the lead line (city), the hub "Known for" + stat line,
 //      the landing sub-line (a separator alone does not count; clamped lines end with an ellipsis by design);
-//  (h) the phone "Start with" card (.g-lead-card) and the desktop "Start with …" link (.g-start a) name the same place.
+//  (h) the desktop "Start with …" link (.g-start a) names the guide's pick (data/gallery lead.id); the phone "Start with"
+//      card (.g-lead-card) is there exactly when the pick has a photo (lead.ph), and then names the same place (§v2.7b c).
 // Needs: python3 -m http.server 8765 -d <repo>. Run from tools/: node beta/feb-g2.js [regex]  → exit 1 on any failure.
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path');
@@ -37,7 +38,13 @@ const SEL = '.masthead .dek, .masthead .facts, .masthead .g-lead, .chero .why, .
     await ctx.close();
   }
   const by = {}; lead.forEach(([u, k, id]) => { (by[u] = by[u] || {})[k] = id; });
-  const mism = Object.entries(by).filter(([, v]) => (v.phone || v.desk) && v.phone !== v.desk).map(([u, v]) => `${u}: phone ${v.phone} vs desktop ${v.desk}`);
+  // FE-A (§v2.7b c): the desktop "Start with" link always names the guide's pick (data/gallery lead.id); the phone lead
+  // CARD exists exactly when that pick has a photo (lead.ph) and then names the same place
+  const leadOf = u => { const h = fs.readFileSync(path.join(BETA, u.split('#')[0]), 'utf8'), f = (/"file":"([^"]+)"/.exec(h) || [])[1], g = f && path.join(BETA, 'data/gallery', f + '.json');
+    return g && fs.existsSync(g) ? JSON.parse(fs.readFileSync(g, 'utf8')).lead || null : null; };
+  const mism = Object.entries(by).map(([u, v]) => { const L = leadOf(u); if (!L) return (v.phone || v.desk) ? `${u}: a Start-with but no gallery lead` : null;
+    if (v.desk !== L.id) return `${u}: desktop ${v.desk} vs lead ${L.id}`;
+    if (L.ph ? v.phone !== L.id : !!v.phone) return `${u}: phone card ${v.phone || 'none'} (lead ${L.id}, photo ${L.ph ? 'yes' : 'no'})`; return null; }).filter(Boolean);
   console.log(`(g) ${widows.length} single-word last lines on ${pages.length} pages × 2 widths`); widows.slice(0, 40).forEach(x => console.log('  ' + x));
   console.log(`(h) ${Object.keys(by).length} pages with a Start-with; ${mism.length} name different places`); mism.slice(0, 20).forEach(x => console.log('  ' + x));
   await b.close(); process.exit(widows.length || mism.length ? 1 : 0);
