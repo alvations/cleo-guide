@@ -2244,3 +2244,9 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - QA: R8-g1..g7 filed; B-03 ruled; the B-25 overlay gate is in (0e2a79f5).
 - FE-C: R8 #2e (0486bf71) and #2c (785d8641, masthead faults 70 → 0).
 - Imagery: the R8-d exceptions file; Orlando narrowed; Tree of Life refused.
+
+## 2026-10-17 00:08Z · orchestrator check-in
+
+- Dev head 77b960fa is gated green, with eager JS at 39.28 KB (headroom restored).
+- FE-A's chrome pass (853ea52c) closed six overlay rows; the phone at rest is now 16 % chrome.
+- The compaction API question is settled by budget: city pages key on html.ov-c, and shell pages keep their own small controller.

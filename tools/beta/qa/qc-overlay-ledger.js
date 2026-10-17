@@ -30,26 +30,35 @@ const WHAT = {
   controlCollision: 'Fixed or floating controls overlap each other', controlOverPin: 'A fixed or floating control sits over a pin',
   labelOverControl: 'A map label sits under or over a control', translucentChrome: 'The top bar is see-through (alpha < 1 or a backdrop blur), so content ghosts under it', error: 'The probe could not load or measure the page' };
 const pageSet = l => { const s = new Set(); l.forEach(g => g.pages.forEach(p => s.add(p))); return s; };
-const by = {}; G.forEach(g => { const k = g.kind + '|' + (g.view === 'page' ? 'page' : g.view); (by[k] = by[k] || []).push(g); });
+const by = {}; G.forEach(g => { const k = g.kind + ':' + (g.view === 'page' ? 'page' : g.view); (by[k] = by[k] || []).push(g); });
+// Severity (ledger rule, QC 2026-10-17): High = a collision, or > 2× the budget (clear map: the covered share > 2× the allowed
+// share); Low = over by ≤ 10 %; Med = the rest (over budget, or an OV-00 rule broken). A row takes its worst viewport.
+const RANK = { Low: 1, Med: 2, High: 3 };
+const sev = g => { if (/^(controlCollision|controlOverPin|labelOverControl)$/.test(g.kind)) return 'High';
+  const b = parseFloat((/[\d.]+/.exec(g.budget || '') || [])[0]), w = parseFloat(g.worst); if (isNaN(b) || isNaN(w)) return 'Med';
+  const r = /≥/.test(g.budget) ? (100 - w) / Math.max(1, 100 - b) : w / Math.max(1, b); return r > 2 ? 'High' : r <= 1.1 ? 'Low' : 'Med'; };
+const rowSev = l => l.map(sev).reduce((a, x) => (RANK[x] > RANK[a] ? x : a), 'Low');
+const clean = t => String(t).replace(/\|/g, '/');   // QA's B-25 splits rows on every pipe
 let L = fs.readFileSync(LEDGER, 'utf8').split('\n');
 const keyRow = k => L.findIndex(l => l.includes('<!--k:' + k + '-->'));
+const H = L.find(l => /^\| Id \|/.test(l)).split(' | '), SI = H.findIndex(h => /Severity/.test(h)), MI = H.findIndex(h => /Measured/.test(h));
 let next = Math.max(0, ...L.map(l => (/^\| OV-(\d+)/.exec(l) || [0, 0])[1]).map(Number)) + 1;
 const measured = l => l.slice().sort((a, b) => ORDER.indexOf(a.vp) - ORDER.indexOf(b.vp))
-  .map(g => `${VK[g.vp]} ${String(g.worst).replace(/\|/g, '\\|').slice(0, 60)} (budget ${g.budget}; ${g.runs}/${g.of} runs; worst ${g.worstPage.replace(/\.html$/, '')} · ${g.worstTheme}${g.shot ? '; `' + g.shot.replace(/^design\/beta\/eval\/qc\/overlay\//, '') + '`' : ''})`).join('<br>');
+  .map(g => `${VK[g.vp]} ${clean(g.worst).slice(0, 60)} (budget ${g.budget}; ${g.runs}/${g.of} runs; worst ${g.worstPage.replace(/\.html$/, '')} · ${g.worstTheme}${g.shot ? '; `' + g.shot.replace(/^design\/beta\/eval\/qc\/overlay\//, '') + '`' : ''})`).join('<br>');
 const added = [], updated = [], counts = {};
 for (const [k, l] of Object.entries(by)) {
-  const [kind, view] = k.split('|'); const owner = l[0].owner; const pages = pageSet(l); const themes = [...new Set(l.flatMap(g => g.themes))].join(' + ');
+  const [kind, view] = k.split(':'); const owner = l[0].owner; const pages = pageSet(l); const themes = [...new Set(l.flatMap(g => g.themes))].join(' + ');
   const vps = l.map(g => VK[g.vp]).sort((a, b) => ORDER.map(v => VK[v]).indexOf(a) - ORDER.map(v => VK[v]).indexOf(b)).join(' ');
   const where = `${view === 'page' ? 'hubs, landing, trip, saved, method, accessibility' : view} · ${vps} · ${themes} · ${pages.size} page${pages.size === 1 ? '' : 's'}`;
   const m = `**${LABEL}:** ${measured(l)}`;
-  counts[owner] = (counts[owner] || 0) + 1;
+  const sv = rowSev(l); counts[owner] = counts[owner] || { High: 0, Med: 0, Low: 0 }; counts[owner][sv]++;
   const i = keyRow(k);
-  if (i >= 0) { const c = L[i].split(' | '); c[3] = c[3] + '<br>' + m; L[i] = c.join(' | '); updated.push(k); }
+  if (i >= 0) { const c = L[i].split(' | '); c[MI] = c[MI] + '<br>' + m; c[SI] = rowSev(l); L[i] = c.join(' | '); updated.push(k); }   // the latest audit sets the severity
   else { const id = 'OV-' + String(next++).padStart(2, '0');
     const last = L.reduce((x, l, j) => (/^\| OV-\d+/.test(l) ? j : x), -1);   // keep the table whole: insert after its last row
-    L.splice(last + 1, 0, `| ${id} <!--k:${k}--> | ${where} | ${WHAT[kind] || kind} | ${m} | ${owner} | open |`); added.push(id + ' ' + k); }
+    L.splice(last + 1, 0, `| ${id} | ${where} | ${WHAT[kind] || kind} <!--k:${k}--> | ${m} | ${owner} | ${rowSev(l)} | open |`); added.push(id + ' ' + k); }
 }
 // rows from earlier audits that this audit no longer reproduces
-const gone = []; L.forEach((l, i) => { const m = /<!--k:([^>]+)-->/.exec(l); if (m && !by[m[1]] && !l.includes('not reproduced on ' + LABEL)) { const c = l.split(' | '); c[3] = c[3] + `<br>**${LABEL}:** not reproduced`; L[i] = c.join(' | '); gone.push(m[1]); } });
+const gone = []; L.forEach((l, i) => { const m = /<!--k:([^>]+)-->/.exec(l); if (m && !by[m[1]] && !l.includes('not reproduced on ' + LABEL)) { const c = l.split(' | '); c[MI] = c[MI] + `<br>**${LABEL}:** not reproduced`; L[i] = c.join(' | '); gone.push(m[1]); } });
 console.log(JSON.stringify({ label: LABEL, added: added.length, updated: updated.length, notReproduced: gone.length, rowsByOwner: counts }, null, 1));
 if (argv.includes('--write')) fs.writeFileSync(LEDGER, L.join('\n').replace(/\n*$/, '\n'));

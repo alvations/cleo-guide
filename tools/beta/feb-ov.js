@@ -8,7 +8,7 @@ const { chromium } = require('playwright'), fs = require('fs');
 const ONLY = process.env.OV_ONLY ? new RegExp(process.env.OV_ONLY) : null;
 const PAGES = [['cities/tokyo.html#view=guidebook', 'guidebook'], ['cities/tokyo.html#view=insights', 'insights'],
   ['cleveland.html#view=guidebook', 'guidebook'], ['Singapore/punggol.html#view=guidebook', 'guidebook'], ['Singapore/punggol.html#view=insights', 'insights'],
-  ['changes/tokyo.html', 'changes'], ['how-we-choose.html', 'method']];
+  ['changes/tokyo.html', 'changes'], ['how-we-choose.html', 'method'], ['index.html', 'landing'], ['Japan/index.html', 'hub']];
 const VPS = [[390, 844, 1], [390, 664, 1], [844, 390, 1], [768, 1024, 0], [1024, 768, 0], [1440, 900, 0]];
 (async () => {
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' }), out = [];
