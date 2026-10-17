@@ -124,6 +124,10 @@ let refused = '';
 try { execFileSync(process.execPath, [path.join(__dirname, 'build.js'), '--check'], { stdio: 'pipe', env: Object.assign({}, process.env, { CLEO_BETA_SELFTEST_DROP: '1' }) }); }
 catch (e) { refused = String(e.stderr); }
 chk('count gate refuses a page that lost a place', /refused to write[\s\S]*records, live page has/.test(refused), true);
+let refusedRec = '';   // FE-B D-53: a record seeded with "Recommended by Yelp" must be refused by the guard
+try { execFileSync(process.execPath, [path.join(__dirname, 'build.js'), '--check'], { stdio: 'pipe', env: Object.assign({}, process.env, { CLEO_BETA_SELFTEST_RECBY: '1' }) }); }
+catch (e) { refusedRec = String(e.stderr); }
+chk('trust guard refuses "Recommended by" a rating platform', /refused to write[\s\S]*"Recommended by" names a non-recommender[^\n]*yelp/.test(refusedRec), true);
 
 // ── 3. guards on every beta page ────────────────────────────────────────────
 console.log('\n== GUARDS: every beta page (new engine + mirrors) ==');

@@ -98,7 +98,7 @@ SRC_LABEL={
  "NYSPARKS":"NY STATE PARKS","STORMKING":"STORM KING","DIAART":"DIA","WALKWAYORG":"WALKWAY","WESTPOINT":"WEST POINT",
  "GFS":"GROUNDS FOR SCULPTURE","PRINCETON":"PRINCETON","PARRISHART":"PARRISH","OLDWESTBURY":"OLD WESTBURY",
  "MONTAUKHS":"MONTAUK HS","WOLFFER":"WOLFFER","BROOKLYNPAPER":"BROOKLYN PAPER","DURYEAS":"DURYEA'S",
- "VENDY":"VENDY AWARDS","GAYOT":"GAYOT",
+ "VENDY":"VENDY AWARDS","GAYOT":"GAYOT","SIXSQFT":"6SQFT","MAS":"MUNICIPAL ART SOCIETY","NYCEDC":"NYC EDC","NYCLPC":"NYC LANDMARKS COMMISSION","NYLANDMARKS":"NY LANDMARKS CONSERVANCY","WMF":"WORLD MONUMENTS FUND","TCLF":"CULTURAL LANDSCAPE FOUNDATION","FRESHKILLSPARK":"FRESHKILLS PARK (NYC PARKS)","VILLAGEVOICE":"VILLAGE VOICE","EDIBLEQUEENS":"EDIBLE QUEENS","AMNY":"AMNY","FORGOTTENNY":"FORGOTTEN NY",
 }
 # alias merges (same k chip)
 ALIAS={"TIMEOUTNY":"TIMEOUT","NYCTOURISM":"NYCGO","EATER":"EATERNY"}
@@ -149,6 +149,7 @@ for _alias,_canon in _OV.get("merge",{}).items():
         for _b in (sights,food):
             if _a in _b: _b.remove(_a)
 for _x in sights+food:
+    if _x.get("n") in _OV.get("tier",{}): _x["t"]=_OV["tier"][_x["n"]]
     for _t in _OV.get("add",{}).get(_x.get("n"),[]):
         if _t[0] not in {canon(t[0]) for t in _x.get("sources",[])}: _x.setdefault("sources",[]).append(list(_t))
 

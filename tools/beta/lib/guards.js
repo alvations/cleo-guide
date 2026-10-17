@@ -28,6 +28,17 @@ function assertCityPage(row, html, recs) {
   }
   const badHref = [...html.matchAll(/<p class="pl-s">[\s\S]*?<\/p>/g)].flatMap(m => [...m[0].matchAll(/href="([^"]*)"/g)].map(h => h[1])).filter(h => !/^https?:\/\//.test(h));
   if (badHref.length) errs.push(`"Recommended by" links that are not http(s): ${badHref.slice(0, 3).join(', ')}`);
+  // FE-B D-53 (trust, CLAUDE.md): "Recommended by" never names a rating platform or the place's own site. Every chip after
+  // the label must be a source whose role is 'rec' (lib/model.js sourceRole) — an unknown id fails too.
+  const { sourceRole } = require('./model');
+  const roleOf = {}; ((row.sources && row.sources.list) || []).forEach(s => { roleOf[s.id] = sourceRole(s);   /* recomputed, never the stamped role */ });
+  const notRec = [...html.matchAll(/<p class="pl-s"[^>]*><span class="lbl">[^<]*<\/span>([\s\S]*?)<\/p>/g)]
+    .flatMap(m => [...m[1].matchAll(/data-src="([^"]+)"/g)].map(x => x[1]))
+    .concat([...html.matchAll(/<fieldset data-fs="src">([\s\S]*?)<\/fieldset>/g)].flatMap(m => [...m[1].matchAll(/data-v="([^"]+)"/g)].map(x => x[1])))   // the filter panel's "Recommended by" too
+    .filter(id => roleOf[id] !== 'rec');
+  const offName = [...html.matchAll(/<p class="pl-s"[^>]*><span class="lbl">[^<]*<\/span>([\s\S]*?)<\/p>/g)].filter(m => /\(official\b|\b(?:yelp|tripadvisor)\b/i.test(m[1].replace(/<[^>]+>/g, '')));
+  if (offName.length) errs.push(`"Recommended by" text reads "(official…)" or a platform: ${offName.length} card(s)`);
+  if (notRec.length) errs.push(`"Recommended by" names a non-recommender (rating platform, own site or unknown): ${[...new Set(notRec)].slice(0, 4).join(', ')}`);
   const ld = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html);
   const open = recs.filter(r => !r.closed).length;
   if (!ld) errs.push('no JSON-LD');
