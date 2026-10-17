@@ -361,3 +361,52 @@ Same method: sequential `WebSearch`, a second credible recommender per record, U
 **Carried forward (t2, no credible second source yet):** The Friends Building, The Continental, LEGO Store Fifth Ave, Tiffany Fifth Ave, Nargis Cafe, Dominick's, City Island Lobster House, Rasa, Hainan Jones, L'Appartement 4F, Tao Uptown, The Polo Bar, Peak, Serra by Birreria, 230 Fifth, Refinery Rooftop, The Crown, Magic Hour, Le Bain, Harriet's Rooftop, Robert, Kiki's, Melba's, Noodle Village, Gai Kitchen, Padi D'NYC, San Jeronimo, Abey (directory listing only, so its status also needs a check), plus the SG/MY records still in progress.
 
 **Counts after waves 2g–2i:** single-source t1 0 · **t2 48** · t3 78 (+1 from the Deluxe Green Bo demotion). `--sourcecheck`: 126 single-source, 4 Yelp-only held by GATE 0.
+
+## 2026-10-17 — D-54 wave 2j (t2) + wave 3a (t3): the city canon, landmarks and historic houses (34 second-sourced)
+
+Wave 3 begins with the t3 city canon (bialys, knishes, the Little Italy cannoli and latteria, the papaya hot dog, Chinatown's old-guard Cantonese rooms), then landmarks and house museums. Where a landmark has an NYC Landmarks Preservation Commission designation report, the LPC PDF is cited as the second source. New label: JAMES BEARD FOUNDATION (Sahadi's, a 2017 America's Classic).
+
+| Place | Second source added |
+|---|---|
+| Mama's Too | Time Out |
+| Lakruwana | Wikipedia + amNY |
+| Sammy's Halal | Edible Queens |
+| Renee's Kitchenette & Grill | WNYC |
+| Kossar's Bialys | Wikipedia |
+| Yonah Schimmel Knish Bakery | Wikipedia + Untapped Cities |
+| Di Palo's Fine Foods | amNY |
+| Gray's Papaya | Infatuation |
+| Ferrara Bakery | Wikipedia |
+| Wo Hop | Infatuation |
+| Peking Duck House | Infatuation |
+| Sahadi's | James Beard Foundation (America's Classics 2017) + Brooklyn Paper |
+| Clinton St. Baking Company | Time Out + Wikipedia |
+| Tom's Restaurant | Atlas Obscura |
+| Empire Diner | Infatuation |
+| Woolworth Building | Wikipedia + NYC LPC designation report + NY Landmarks Conservancy |
+| Doyers Street | Untapped Cities |
+| Stone Street Historic District | NYC LPC designation report + Historic Districts Council + Wikipedia |
+| Plymouth Church | National Park Service |
+| Wyckoff House Museum | Atlas Obscura + NYC Parks |
+| Irish Hunger Memorial | Forgotten NY |
+| Jacques Marchais Museum of Tibetan Art | Atlas Obscura |
+| Conference House | National Park Service + Wikipedia |
+| Bartow-Pell Mansion Museum | NY Landmarks Conservancy + Atlas Obscura |
+| Mahayana Buddhist Temple | NYC Tourism |
+| Sugar Hill Historic District | NYC LPC designation report + Untapped Cities |
+| The Skyscraper Museum | Wikipedia |
+| Brooklyn Navy Yard BLDG 92 | The Bowery Boys |
+| Coney Island Museum | Time Out + Atlas Obscura |
+| The Bronx Museum of the Arts | Wikipedia |
+| Waterfront Museum | Wikipedia + Forgotten NY |
+| Forest Park Carousel | NYC LPC designation report + National Park Service |
+| National Lighthouse Museum | Open House New York + I LOVE NY (NY State tourism) |
+| Voelker Orth Museum | Forgotten NY + Untapped Cities + Historic Districts Council |
+
+**Not counted:** owner sites (Dia Art Foundation for the Earth Room and the Broken Kilometer), event and ticket listings (Archtober, Eventbrite), Tasting Table, Resy, Fine Dining Lovers, Hoodline and directory pages.
+
+**Carried forward (no credible second source yet):** t2: Little House Restoran, Pulau Pinang, Uncle Ray's Chicken Rice, Mamak's Corner, Taste Good Malaysian Cuisine (Infatuation 8.9 is the only outlet), Awang Kitchen, Randiwa, Pollos a la Brasa Mario. t3: Green-Wood Catacombs, The New York Earth Room, The Broken Kilometer, SculptureCenter, Serendipity 3.
+
+**Possible promotion (not made):** Sahadi's, a James Beard America's Classic, is at t3. A tier change is an editorial call, so it is flagged here and not changed.
+
+**Counts after wave 2j + 3a:** single-source t1 0 · **t2 44** · **t3 48**. `--sourcecheck`: 92 single-source, 4 Yelp-only held by GATE 0.
