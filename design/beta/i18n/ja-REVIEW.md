@@ -269,4 +269,19 @@ A fresh independent subagent checked all 63 strings (the 64th, `atl.tog.list.n` 
 | `atl.skip.list` | 検索結果へ移動 | 一覧へ移動 | The default list isn't search results; 一覧 is the settled term and pairs with 地図へ移動. |
 | `atl.base.calm` | 落ち着いた地図に戻す | シンプルな地図に戻す | 落ち着いた was a literal translation; シンプルな地図 is the usual phrase for a plain base map. |
 
-**Total: 94 changes over twenty-one rounds.**
+## Round 22: mapfail (platform), the site banners in states.js (FE-B), and FE-B's `moved.*` pointer pages (aa8ed3958); 11 strings, 8 changes, applied
+
+A fresh independent subagent reviewed the six new `mf.*` / `state.*` strings from the 2026-10-17 audit, plus the five `moved.*` strings FE-B asked i18n to review. It kept mf.h, mf.retry and state.dismiss.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `mf.p` | 一覧には、すべての場所・住所・出典が載っています。タイルが戻るまで、当ガイドのピンから描いた地図の図を表示しています。 | 一覧には、すべての場所・住所・出典が載っています。地図タイルが読み込めるまで、当ガイドのピンから描いた略図を表示しています。 | 地図の図 was clumsy; the catalogue calls the drawing 略図 (city.mapart.alt, trip.sketch) and the tiles 地図タイル. |
+| `state.offline` | オフラインです — ガイドはそのまま使えます。マイリストと各場所の詳細はこの端末にあり、地図のタイルは再接続すると戻ります。 | オフラインです — ガイドはそのまま使えます。マイリストと各場所の詳細はこの端末にあり、地図タイルは再接続すると再び表示されます。 | タイルは…戻ります was a calque; it now says 地図タイル. |
+| `state.storage` | ここではストレージがブロックされているため、保存はタブを閉じるまでしか残りません。 | このブラウザではストレージがブロックされているため、保存した内容はタブを閉じるまでしか残りません。 | ここでは was vague (pack.failed says このブラウザ); the saved content is what lasts. |
+| `moved.title` | {name}は移動しました · Cleo | {name}のガイドは移転しました · Cleo | 「ハノイは移動しました」 read as if the city moved; 移転しました is the standard wording for a moved page. |
+| `moved.h` | {name}は移動しました | {name}のガイドは移転しました | Same as moved.title. |
+| `moved.desc` | {name}のガイドは国のページに移りました。以前のリンクもここに届きます。 | {name}のガイドは、その国のページに移転しました。以前のリンクからも引き続きここにアクセスできます。 | 以前のリンクもここに届きます was unnatural, and 国のページ dropped "its own". |
+| `moved.p` | このガイドは国ごとのページに移りました。すべての場所と出典も一緒に移り、何も削除していません。 | このガイドは、その国のページに移転しました。すべての場所と出典もそのまま移し、削除したものはありません。 | 移転 now matches title / h / desc; 国ごとのページ suggested a set of per-country pages. |
+| `moved.go` | {name}へ移動 | {name}のガイドを開く | {name}へ移動 sounded like travelling to the city; the link opens the guide. |
+
+**Total: 102 changes over twenty-two rounds.**

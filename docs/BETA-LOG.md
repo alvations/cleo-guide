@@ -2491,3 +2491,8 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **Desktop credit:** no Leaflet prefix (`setPrefix(false)`), 11/16 px, 20 px tall, per the designer's ruling. It stays full, not folded.
 - **Landscape:** the list band under the bar is gone; the list is the side column. The old side.js branch in `select()` is removed.
 - **Label coverage** counts the painted pill area.
+- 2026-10-17 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · W8-I18N-STATES.
+  - **What changed:** mapfail.js and states.js now go through Cleo.t, with new `mf.*` and `state.*` keys (swapSkip). The English is byte-identical. test-i18n gains a pseudo check.
+  - **Review:** round 22 covered these strings plus FE-B's `moved.*` pages. 「{name}は移動しました」 read as if the city moved, so it is now 「{name}のガイドは移転しました」.
+  - **Cleo.countLine:** found to be dead (only test-views calls it) and proposed to platform for removal, which would also free eager bytes.
+  - **Eager counter:** 39.43 of 40, from other lanes' merges plus states.js (about 20 B) and locale.js (about 30 B). Platform has offered to find bytes.
