@@ -42,6 +42,10 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
 
 - **OV-01 FE-A part** (commit "OV-01 …"): Cleo.chrome / html.ov-c (views.js), header 52/56/48, compact CSS for .cbar + rail, landscape one bar, desktop only-header sticky; probe rows. Waiting: FE-1 wires pan → Cleo.chrome.compact(true,'pan') + idle(1200) and hides .ms-bar / peek under html.ov-c; landscape chip row + peek.
 
+- **2026-10-17 status:** QA-80 + D-46 flip eba39fb6; OV-101/113/114 db7e574b; one-search slot 276fc6f2; R8 #7 line-height tokens + UI face < 24 px (commit "R8 #7 …").
+- **Open:** food-cover placement (imagery c16f50e8 API: foodStyle/foodGlyphs); fe-a.css −60 KB trim with the designer; card-meta 3 lines (asked designer to rule, FE-C owns the lines).
+- **Lesson (3rd time):** never append `// comment` mid-line before existing code — it swallowed Cleo.need('empty') (caught by test-fe-c).
+
 ## Next (in order)
 0. ~~W9-2 card part~~ built by FE-C through hooks (fresh.js, 38228322b) — nothing for FE-A.
    - ~~QC-25, colophon, R3 #9/#14 one ring~~ DONE (commit "QC-25 …"). Leak left on FE-B's changes/ pages ("Status source: <note>", lib/changes.js) — reported.
