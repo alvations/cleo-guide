@@ -85,7 +85,8 @@ for (const c of CR) {
   const a = String(c.author || '');
   if (!a || a.length > 60 || /[<>\n\r]|User:|wikivoyage|wikipedia\)|\bCC\b|licen[cs]e|\d{4}-\d\d|https?:/i.test(a)) bad.author.push(id + ' "' + a.slice(0, 80) + '"');
   for (const f of [c.file, ...(c.variants || []).map(v => v.file)]) if (!fs.existsSync(path.join(PH, f))) bad.missing.push(f);
-  const k = isFlickr(c) ? 'flickr:' + c.flickrId : isCommons(c) ? c.commonsTitle : (c.provider + ':' + (c.sourceId || c.openverseId || c.sourceUrl)); if (seenT[k]) dupes.push(k + ' ← ' + seenT[k] + ' & ' + id); seenT[k] = id;
+  const k = isFlickr(c) ? 'flickr:' + (c.flickrId || (/\/photos\/[^/?#\s]+\/(\d+)\/$/.exec(c.sourceUrl || '') || [])[1] || c.sourceUrl) :   // fetch-openverse writes no flickrId: the photo id is sourceUrl's last segment
+  isCommons(c) ? c.commonsTitle : (c.provider + ':' + (c.sourceId || c.openverseId || c.sourceUrl)); if (seenT[k]) dupes.push(k + ' ← ' + seenT[k] + ' & ' + id); seenT[k] = id;
   if (c.sha1) { if (seenS[c.sha1]) dupes.push('sha1 ' + c.sha1 + ' ← ' + seenS[c.sha1] + ' & ' + id); seenS[c.sha1] = id; }
   let rec = null, pg = null;
   if (c.record) { pg = places[c.record.page] || places[c.record.page.replace(/\//g, '--')]; rec = pg && pg.places.find(p => p.id === c.record.id);
@@ -100,7 +101,7 @@ check('every source is the Commons File: page of its title (Commons rows)', !bad
 check(`Flickr rows (${CR.filter(isFlickr).length}): flickr.com/photos/<user>/<id>/ page, author profile link, a free licence with its deed (NKCR only from a Flickr Commons institution)`, !bad.flickr.length, bad.flickr.slice(0, 8));
 check('every author is a clean name (no markup/URL/licence/date, ≤ 60 chars)', !bad.author.length, bad.author);
 check('every file and variant exists', !bad.missing.length, bad.missing);
-check('no Commons file (title or sha1) in two rows', !dupes.length, dupes);
+check('no photo in two rows (Commons title, Flickr photo id, provider source id, or sha1)', !dupes.length, dupes);
 check(`food places (D-49): a photo only with \`identifies\` and a Commons/Flickr/Openverse source, never stock (${CR.filter(c => { const pg = c.record && (places[c.record.page] || places[c.record.page.replace(/\\//g, '--')]); const r = pg && pg.places.find(p => p.id === c.record.id); return r && r.kind === 'food'; }).length} food rows)`, !bad.food.length, bad.food);
 check(`Openverse rows (${CR.filter(isOV).length}): https landing page, openverseSource + openverseProvider, author profile, free licence + deed`, !bad.ov.length, bad.ov.slice(0, 8));
 check(`institution rows (${CR.filter(isInst).length}; LoC, the Met, Smithsonian, Europeana): item page, sourceId, institution, evidence, a date when historic, licence + deed (LoC item page for Public domain; "No known restrictions" only LoC ≤ 1929), Anonymous only per D-52`, !bad.inst.length, bad.inst.slice(0, 8));

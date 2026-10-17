@@ -234,7 +234,8 @@ B-01a (≥ 75 % at P1 at rest, chrome only) stays ratified. Rev 5a meets it at 7
 - **Desktop (T2, D):** + / −, then Layers, top-left of the map. **"Near me" appears once per screen:** the list column's "Near me" (§3.4) is it, and the map has no second locate button.
 - **Attribution:**
   - **Phone:** on the first map load, the one-line credit "© OpenStreetMap · Esri" at 11 px (≤ 20 px tall, bottom-left) is visible without interaction. On the reader's first pan, or after 5 s, it **collapses to an ⓘ** (24 px visual, 44 px hit), which opens the full credit with links. That follows the OSMF attribution guidance: visible without interaction at first, and findable after it collapses.
-  - **Desktop:** the full one-line credit, bottom-right.
+  - **Desktop (T2, D):** the full one-line credit, bottom-right, ≤ 20 px tall, never over a control. It does **not** collapse; only phones and T1 fold to ⓘ (QC S-17 exempts T2/D from the collapse check).
+- **Phone "For you" and "Your day"** live in the list sheet's head (a 44 px row under the count line), not on the map. Near me is the stack's Locate icon, once per screen.
 
 **4. Map labels** (featured pills, §1.2):
 - **Size:**

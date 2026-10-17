@@ -143,7 +143,8 @@
       spr: pn(P.spread.note, 'ins.p.spr', 'Computed from {a} of {n} places: open, with a verified pin. Straight-line, not walking routes. Areas with fewer than 2 such pins are not drawn.', { a: P.spread.of, n: P.N }),
       cls: pn(P.closed.note, 'ins.p.cls', 'Closed places stay in every view, flagged, and never carry a tier. "unchecked" = no status check on record yet.'),
       can: P.canon && pn(P.canon.note, 'ins.p.can', 'Bars count canon places whose own write-up names the dish; a place naming two dishes counts in both bars. Canon places that name no dish are not counted.'),
-      tier: pn(P.tiers.note, 'ins.p.tier', '{n} closed places carry no tier and are counted in the closures chart instead.', { n: P.closed.of }) };
+      tier: P.closed.of === 1 ? pn(P.tiers.note, 'ins.p.tier.one', '1 closed place carries no tier and is counted in the closures chart instead.')   // i18n D-41: the singular the platform writes
+        : pn(P.tiers.note, 'ins.p.tier', '{n} closed places carry no tier and are counted in the closures chart instead.', { n: P.closed.of }) };
     I.from = 'platform';
     return I;
   }
