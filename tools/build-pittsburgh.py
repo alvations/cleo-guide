@@ -42,7 +42,13 @@ DATA = r'''const S = {
   ALM:{k:"THE ALMANAC",t:"The Almanac (South Hills)",u:"https://www.thealmanac.net/",l:"The Almanac"},
   PABL:{k:"PA BUCKET LIST",t:"PA Bucket List — Washington County attractions",u:"https://pabucketlist.com/",l:"PA Bucket List"},
   PHLF:{k:"PGH LANDMARKS",t:"Pittsburgh History & Landmarks Foundation",u:"https://phlf.org/",l:"PHLF"},
-  ADD:{k:"ADDED",t:"Well-known landmarks the oddity lists skip because they are not hidden",u:"",l:"My addition — verify hours before visiting"}
+  ADD:{k:"ADDED",t:"Well-known landmarks the oddity lists skip because they are not hidden",u:"",l:"My addition — verify hours before visiting"},
+  D53_PPGPAINTSARENA_1:{k:"WIKIPEDIA",t:"PPG Paints Arena",u:"https://en.wikipedia.org/wiki/PPG_Paints_Arena",l:"Wikipedia"},
+  D53_PPGPAINTSARENA_2:{k:"VISIT PITTSBURGH",t:"PPG Paints Arena",u:"https://www.visitpittsburgh.com/directory/ppg-paints-arena-banquet-space/",l:"Visit Pittsburgh"},
+  D53_FREDROGERSMEMO_1:{k:"PITTSBURGH POST-GAZETTE",t:"Fred Rogers Memorial statue",u:"https://post-gazette.com/ae/tv-radio/2018/05/04/Fred-Rogers-memorial-reopens-on-the-North-Shore-Pittsburgh/stories/201805040124",l:"Pittsburgh Post-Gazette"},
+  D53_FREDROGERSMEMO_2:{k:"VISIT PITTSBURGH",t:"Fred Rogers Memorial statue",u:"https://www.visitpittsburgh.com/blog/north-shore-memorials/",l:"Visit Pittsburgh"},
+  D53_PPGPLACEWINTER_1:{k:"PITTSBURGH MAG",t:"PPG Place Wintergarden",u:"https://www.pittsburghmagazine.com/your-ultimate-holiday-guide-to-family-fun-in-pittsburgh/",l:"Pittsburgh Magazine"},
+  D53_PPGPLACEWINTER_2:{k:"PITTSBURGH CITY PAPER",t:"PPG Place Wintergarden",u:"https://pghcitypaper.com/specials-guides/winter-activities-for-getting-into-the-holiday-spirit-12006705",l:"Pittsburgh City Paper"}
 };
 
 const AREAS = [
@@ -115,7 +121,7 @@ const P = [
  k:"Free; walk the Clemente Bridge for the classic skyline shot. Approximate pin.",s:[["VP",""],["ADD",""]]},
 {t:3,a:"DT",n:"Fred Rogers Memorial statue",ad:"North Shore Riverfront Park",la:40.4462,ln:-80.0110,
  w:"A quiet, much-loved bronze of Pittsburgh's own Mister Rogers tying his shoe, looking across the river to the city where he made the neighbourhood.",
- k:"Free, outdoors, always there. A two-minute stop on a North Shore walk. Approximate pin.",s:[["ADD",""]]},
+ k:"Free, outdoors, always there. A two-minute stop on a North Shore walk. Approximate pin.",s:[["ADD",""],["D53_FREDROGERSMEMO_1",""],["D53_FREDROGERSMEMO_2",""]]},
 {t:3,a:"DT",n:"Acrisure Stadium",ad:"100 Art Rooney Ave, North Shore",la:40.4467,ln:-80.0158,
  w:"The 2001 riverfront stadium (formerly Heinz Field) home to the NFL Steelers and Pitt Panthers, with skyline and river views and behind-the-scenes tours.",
  k:"Best on a game day; tours otherwise. Approximate pin.",s:[["USN",""],["FOD",""]]},
@@ -124,7 +130,7 @@ const P = [
  k:"Free to wander; liveliest at lunch and on event nights.",s:[["VP",""],["BRIT",""]]},
 {t:3,a:"DT",n:"PPG Place Wintergarden",ad:"Third Ave & Market St, Downtown",la:40.4406,ln:-80.0033,
  w:"Philip Johnson's glass 'castle' of a skyscraper, whose glass-roofed Wintergarden atrium and plaza host a seasonal ice rink and a giant winter tree.",
- k:"Plaza free; rink is seasonal and ticketed.",s:[["TA",""],["ADD",""]]},
+ k:"Plaza free; rink is seasonal and ticketed.",s:[["TA",""],["ADD",""],["D53_PPGPLACEWINTER_1",""],["D53_PPGPLACEWINTER_2",""]]},
 {t:3,a:"DT",n:"City of Asylum / Alphabet City",ad:"40 W North Ave, North Side",la:40.4560,ln:-80.0100,
  w:"A sanctuary for exiled writers running free literary events and jazz, anchored by the Alphabet City bookstore-and-restaurant and a row of art-covered 'house publications'.",
  k:"Free events; check the calendar. Bookstore has café hours.",s:[["NP",""],["CT",""]]},
@@ -133,7 +139,7 @@ const P = [
  k:"Small; largely by appointment — call ahead. Approximate pin.",s:[["DTB",""],["WIKI",""]]},
 {t:3,a:"DT",n:"PPG Paints Arena",ad:"1001 Fifth Ave, Uptown",la:40.4395,ln:-79.9895,
  w:"Pittsburgh's 18,000-seat arena, home of the NHL Penguins and the city's biggest concert stage, on the edge of the Hill District.",
- k:"Visit on an event night. Approximate pin.",s:[["TA",""]]},
+ k:"Visit on an event night. Approximate pin.",s:[["TA",""],["D53_PPGPAINTSARENA_1",""],["D53_PPGPAINTSARENA_2",""]]},
 {t:3,a:"DT",n:"Kayak Pittsburgh",ad:"River Front Plaza, North Shore",la:40.4448,ln:-79.9950,
  w:"Seasonal kayak, canoe and hydrobike rentals launching straight onto the Allegheny for a paddle under the bridges with the skyline overhead.",
  k:"~$45 for two hours incl. life jacket; May–Oct, weather permitting. Approximate pin.",warn:1,s:[["VP",""]]},

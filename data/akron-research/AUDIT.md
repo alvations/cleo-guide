@@ -611,3 +611,7 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   Ocelot, Downtown 140 single-outlet or no status. BARB 19/20 — ABJ Barberton spotlight, Akron Life Green/Wadsworth; Coffee Pot closed (Jan 2026),
   Wink's 3.8★, Angie's/Galaxy/Bistro of Green single-outlet. Gaps are stated, not filled.
 - **W7 totals:** +12 food, +2 sights → 207 places (127 food = 61%; every area ≥50% food), 150 pinned (57 UNVERIFIED). ≈140 WebSearch.
+
+## 2026-10-17 — Brady's Leap Park: wrong Wikipedia link dropped
+
+The record cited `Kent,_Ohio`, so a lead-image fetch would use the city's picture. A WebSearch on 2026-10-17 found no standalone Brady's Leap article on en.wikipedia. The leap is covered inside `Samuel_Brady`, but that article's lead image is Brady's portrait, which is also wrong for this card. So the Wikipedia link is **dropped**, not replaced. The record keeps its official City of Kent park page and the KentWired history piece. Only this record changed in the dataset.

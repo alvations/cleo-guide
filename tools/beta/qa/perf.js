@@ -18,7 +18,7 @@ const http = require('http'); const fs = require('fs'); const path = require('pa
 const ROOT = path.resolve(__dirname, '..', '..', '..');
 const { chromium } = (() => { for (const t of ['playwright', '/opt/node22/lib/node_modules/playwright']) { try { return require(t); } catch (e) {} } throw new Error('playwright not found'); })();
 const argv = process.argv.slice(2), opt = (n, d) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : d; };
-const RUNS = +opt('--runs', 3), ONLY = opt('--only', ''), STRICT = argv.includes('--strict'), JSON_OUT = opt('--json', '');
+const RUNS = +opt('--runs', 3), INPUT = opt('--input', 'cdp'), ONLY = opt('--only', ''), STRICT = argv.includes('--strict'), JSON_OUT = opt('--json', '');
 const MIME = { '.html': 'text/html', '.js': 'application/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.woff2': 'font/woff2', '.webmanifest': 'application/manifest+json' };
 const PNG1 = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=', 'base64');
 const VP = { phone: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3 }, desk: { viewport: { width: 1440, height: 900 } } };
@@ -33,7 +33,7 @@ let misses = 0; const out = { load: [], inp: [] };
   const browser = await chromium.launch();
   const page = async vn => { const ctx = await browser.newContext({ ...VP[vn], serviceWorkers: 'block', reducedMotion: 'reduce' });
     await ctx.route('**/*', r => r.request().url().startsWith(origin) ? r.continue() : r.request().resourceType() === 'image' ? r.fulfill({ status: 200, contentType: 'image/png', body: PNG1 }) : r.abort());
-    const p = await ctx.newPage(); const cdp = await ctx.newCDPSession(p); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 }); return { ctx, p }; };
+    const p = await ctx.newPage(); const cdp = await ctx.newCDPSession(p); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 }); return { ctx, p, cdp }; };
 
   if (ONLY !== 'inp') {
     console.log('== load: LCP / CLS / TBT (4× CPU, median of ' + RUNS + ') ==');
@@ -54,15 +54,22 @@ let misses = 0; const out = { load: [], inp: [] };
     }
   }
   if (ONLY !== 'load') {
-    console.log('== inp: Tokyo main interactions (4× CPU, median of ' + RUNS + ') ==');
+    console.log('== inp: Tokyo main interactions (4× CPU, median of ' + RUNS + ', input: ' + INPUT + (INPUT === 'cdp' ? ' — the gated column' : ' — comparison only') + ') ==');
     const acts = {};
     for (let i = 0; i < RUNS; i++) for (const vn of ['phone', 'desk']) {
-      const { ctx, p } = await page(vn);
+      const { ctx, p, cdp } = await page(vn);
       await p.addInitScript(() => { window.__ev = []; new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.interactionId) __ev.push({ id: e.interactionId, d: e.duration }); }).observe({ type: 'event', durationThreshold: 16, buffered: true }); });
       // the collection filter lives on the Gallery's rail; Atlas is the default view since D-46, so the run starts in the
       // Gallery (as R7's did), then opens a place and switches to Guidebook and Atlas from there
       await p.goto(base + 'cities/tokyo.html#view=gallery', { waitUntil: 'load' }); await p.waitForTimeout(3000);
-      const tap = async loc => { await loc.scrollIntoViewIfNeeded(); await p.waitForTimeout(300); if (vn === 'phone') await loc.tap(); else await loc.click(); };
+      // INPUT=cdp (default, the gated column): raw CDP input at the element's centre — Playwright's click()/tap() add their own
+      // pointer hit-target check inside the measured interaction (≈ 45 ms, FE-C's trace), harness cost, not page cost.
+      // INPUT=playwright: the old path, kept as a labelled comparison column
+      const tap = async loc => { await loc.scrollIntoViewIfNeeded(); await p.waitForTimeout(300);
+        if (INPUT === 'playwright') { if (vn === 'phone') await loc.tap(); else await loc.click(); return; }
+        const bx = await loc.boundingBox(); if (!bx) throw new Error('no box'); const x = bx.x + bx.width / 2, y = bx.y + bx.height / 2;
+        if (vn === 'phone') { await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] }); await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] }); }
+        else { await cdp.send('Input.dispatchMouseEvent', { type: 'mouseMoved', x, y }); await cdp.send('Input.dispatchMouseEvent', { type: 'mousePressed', x, y, button: 'left', clickCount: 1 }); await cdp.send('Input.dispatchMouseEvent', { type: 'mouseReleased', x, y, button: 'left', clickCount: 1 }); } };
       const mark = async (label, fn) => { await p.evaluate(() => { __ev = []; }); try { await fn(); } catch (e) { const k = vn + '|' + label + ' (NOT RUN: ' + String(e.message || e).split('\n')[0].slice(0, 60) + ')'; (acts[k] = acts[k] || []).push(null); return; } await p.waitForTimeout(1500);
         const ev = await p.evaluate(() => __ev); const by = {}; ev.forEach(e => { by[e.id] = Math.max(by[e.id] || 0, e.d); });
         const k = vn + '|' + label; (acts[k] = acts[k] || []).push(Object.values(by).length ? Math.max(...Object.values(by)) : 0); };
@@ -73,8 +80,9 @@ let misses = 0; const out = { load: [], inp: [] };
       await p.keyboard.press('Escape'); await p.waitForTimeout(800); await p.evaluate(() => scrollTo(0, 0));
       await mark('switch view → Guidebook', () => view('guidebook'));
       await mark('switch view → Atlas', () => view('atlas'));
-      // D-46: a load lands in Atlas; the round trip back from Guidebook (which built every card) is its own row
-      await p.goto(base + 'cities/tokyo.html', { waitUntil: 'load' }); await p.waitForTimeout(3000);
+      // D-46: a load lands in Atlas; the round trip back from Guidebook (which built every card) is its own row (loaded with
+      // #view=atlas, so r7 and dev measure the same trip)
+      await p.goto(base + 'cities/tokyo.html#view=atlas', { waitUntil: 'load' }); await p.waitForTimeout(3000);   // explicit, so a build whose default is Gallery (r7) measures the same trip
       await view('guidebook'); await p.waitForTimeout(1500);
       await mark('Atlas load → Guidebook → back to Atlas', () => view('atlas'));
       await ctx.close();

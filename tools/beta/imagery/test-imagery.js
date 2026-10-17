@@ -503,6 +503,13 @@ ok(lm.some(p => p.t.priority === 'lead') && lm.every(p => !p.t.priority || p.can
     const rows = fs.readFileSync(src, 'utf8').split('\n').filter(l => l && !l.startsWith('#')), head = rows.shift().split('\t');
     const col = n => head.indexOf(n), both = [...new Set(rows.map(l => l.split('\t')).filter(r => /^ok/.test(r[col('review')] || '') && !r[col('refused')] && skipped.has(r[col('target')].replace(/^landmark:/, ''))).map(r => r[col('target')]))];
     ok(!both.length, `no target is both skipped by imagery and reviewed ok by image-sources${both.length ? ': ' + both.join(', ') : ''}`);
+  }
+  // …nor with an Openverse pick marked ok (run #121: --credit wrote two such picks onto stated gaps)
+  const rev = path.join(__dirname, 'manifest', 'openverse-review.tsv'), ovc = path.join(BETA, 'assets', 'img', 'openverse-candidates.json');
+  if (fs.existsSync(rev) && fs.existsSync(ovc)) {
+    const okIds = new Set(fs.readFileSync(rev, 'utf8').split('\n').filter(l => !l.startsWith('#')).map(l => l.split('\t')).filter(r => r[1] === 'ok').map(r => r[0]));
+    const ovBoth = Object.entries(JSON.parse(fs.readFileSync(ovc, 'utf8')).targets || {}).filter(([k, ps]) => skipped.has(k.replace(/^landmark:/, '')) && Object.values(ps).some(p => okIds.has(p.id))).map(([k]) => k);
+    ok(!ovBoth.length, `no target is both skipped by imagery and has an Openverse pick reviewed ok${ovBoth.length ? ': ' + ovBoth.join(', ') : ''}`);
   } }
 { const club = { label: 'The Empty Bottle', names: ['Empty Bottle'] }, comedy = { label: 'The Second City', names: ['Second City'] }, hall = { label: 'Thalia Hall', names: ['Thalia Hall'] }, sym = { label: 'Symphony Center', names: ['Symphony Center'] };
   ok(fc.performerRefused(club, 'File:Torquil Campbell at The Empty Bottle 1.jpg sepia portrait of the singer') && fc.performerRefused(comedy, 'File:The Second City, Main Stage.jpg') && fc.performerRefused({ label: 'Riverwalk', names: ['Riverwalk'] }, 'Band performing live at the Riverwalk') && !fc.performerRefused(hall, 'File:Thalia Hall Chicago facade.jpg') && !fc.performerRefused(sym, 'File:Symphony Center Chicago exterior.jpg') && !fc.performerRefused(comedy, 'File:The Second City building exterior, North Wells Street.jpg'), 'W8 PERFORMER: a singer, a band, a stage are refused; a music/comedy/theatre venue takes only its building exterior (Thalia Hall and Symphony Center facades pass)'); }

@@ -2641,3 +2641,20 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Result:** Tokyo Atlas → Guidebook → Atlas, 4× CPU: desktop about 400 → 40–56 ms, phone 328 → 48–104 ms.
   - **test-fe-a:** the two motion checks now wait for the switch itself (≤ 600 ms) and also assert data-view, so the reduced-motion check can't pass vacuously. The old 10 ms read also let the deferred switch spill into the next block's 60 ms Back check (flaky 1 in 4).
   - **Checks:** test-views, test-views-b, test-fe-a (4/4), w2 dom, atlas-switch-inp and perf08-regress pass.
+- **FE-B D-53 on the Gallery rows:** gallery.js already read `r.recby`, but lib/gallery.js never sent it, so the row cards named every source. The gallery JSON now carries `recby` where it differs from src minus guide (299 of 2,800 row cards; 31 show "No independent source yet").
+- 2026-10-17 14:50Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Gates:** all green on the head.
+  - **Interim blockers cleared:** QA-85, FE-A 768, QA-87 (QA re-scan pending).
+  - **Still open:** the Insights series relabel (orchestrator ruling); QC's views pass; the live-vs-dev INP pairs; QC-36 count-line race.
+  - **Photo runs #121 and #122 failed on test-imagery;** imagery is root-causing.
+  - **Image sources:** Pexels declined for now (3–6 of 41 gaps; terms would allow it); the lane is dormant until the Europeana key.
+  - **D-56** is applied to 29 venue skips, with lifts by name only (k=venue pattern kept).
+  - **Designer:** two more cut misses fixed (34 rules at 844×390); the sweep now forces every area to render.
+  - **FE-C:** open a place accepted (harness overhead traced); perf.js moves to CDP dispatch.
+- 2026-10-17 15:30Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Gates:** all green.
+  - **QC round-4 views:** complete; only OV-123 was open, and FE-C fixed it.
+  - **D-55 INP condition:** passes, with dev better than live on every row (platform 9cd09473, CDP input).
+  - **Fixes:** QC-36 (platform), photo-run failures (imagery 6b501134b).
+  - **Panel R4:** 5/8 returns in.
+  - **Interim pin waits on:** QA's recby-scan, FE-B's Insights relabel, QC's OV-123 re-grade.
