@@ -692,3 +692,9 @@ The tap area stays under B-07 and the collision checks.
 - **Scrolling panes:** a pane that scrolls on its own is content on a non-scrolling page. This was the desktop Atlas list column, raised by FE-1: T2 now reads 14.1 %, not 16.7–18.8 %.
 - **Row sampling:** rows every 4 px, so band edges are exact.
 - **Drag start:** the pan drag starts on free map and retries if the map doesn't move. A press inside a canvas dot's tap tolerance selects instead of panning; that's reported as dragFromDot on 8 pages.
+
+## Round 4 follow-ups (2026-10-17)
+
+**FE-A 768 header (31cc58b79, head 7de1297bd) verified.** S-17 re-grade of the 7 pages flagged on round 4 (Harrisburg, Marine Parade, Potong Pasir–MacPherson, Upper Thomson, Akron, Jalan Besar, Queenstown) at T1 768×1024 and L 844×390, light and dark, Atlas plus the cold default: 0 of 56 runs flag. OV-124 (日本語 covered) and OV-125 (日本語 over the switch) are verified. Evidence: `design/beta/eval/qc/overlay/fe-a-768-7de1297b/`.
+
+**QC-36 (Low, Atlas FE-1 + the PERF-24b test owner): the Atlas lens count line rewrites itself after the map settles, and `test-count-lines.js` races it.** On `view=atlas&t=1` (Tokyo, Must see) the list head first reads "177 of all 488 places · Top ranked" (the lens branch, `atl.c.of`) and changes to "177 places here, of all 488 · Top ranked" (`atl.c.here.of`) once the map reports its area. The test reads `.ms-count` once and expects the second form. Measured on d261b11aa: 1 pass and 2 fails in 3 runs while an S-17 audit loads the CPU. On 7de1297bd: 1 pass and 1 fail. Atlas JS is unchanged between the two heads, so this is a race, not a regression. Two things follow. (1) The reader sees the line change wording under them on a slow device, the same count in two phrasings. (2) `npm test` is red whenever the box is busy. Proposed fix (owners decide): render one phrasing from the first paint, or have the test wait for the map's first idle. QC does not edit the test and does not weaken it.
