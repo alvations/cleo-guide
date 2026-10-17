@@ -118,6 +118,9 @@ async function tabTo(page, test, n = 80) {
     const tag = `${w}-${dark ? 'dark' : 'light'}`, s = await open(b, 'cities/tokyo.html#p=senso-ji', { w, dark, tiles: true, settle: 1600 });
     const k = await tabTo(s.page, () => document.activeElement && document.activeElement.getAttribute('data-cleo-base') === 'set', 60);
     await s.page.keyboard.press('Enter'); await s.page.waitForTimeout(400);
+    const tov = await s.page.evaluate(() => { const t = [...document.querySelectorAll('.toast')].pop(), a = document.querySelector('#cleo-sheet .actions'); if (!t || !a) return null;
+      const q = t.getBoundingClientRect(), r = a.getBoundingClientRect(); return q.bottom > r.top && q.top < r.bottom && q.right > r.left && q.left < r.right; });
+    ok(tov === false, `${tag}: OV-00 §3: the base toast does not cover the sheet's buttons`, tov);
     const set = await s.page.evaluate(() => Cleo.base.get() && Cleo.base.get().id);
     ok(k && set === 'senso-ji', `${tag}: "Set as my base" reached and pressed by keyboard`, [k, set]);
     await s.page.screenshot({ path: path.join(SHOTS, `base-sheet-${tag}.png`) });
@@ -136,11 +139,13 @@ async function tabTo(page, test, n = 80) {
       const r = await s.page.evaluate(() => {
         const vis = e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden';
         const cards = [...document.querySelectorAll('li.pl[id^="p-"], li.gc[data-id], li.ge[data-id]')].filter(vis).filter(c => { const r = c.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; });
-        const notes = [...document.querySelectorAll('#cleo-basenote')].filter(vis).length;
-        return { cards: cards.length, lined: cards.filter(c => { const l = c.querySelector('[data-cleo-bl]'); return l && vis(l) && / from Sensō-ji · |^Your base$/.test(l.textContent); }).length, notes,
+        const notes = [...document.querySelectorAll('#cleo-basenote')].filter(vis).length, nh = Math.round((document.getElementById('cleo-basenote') || { getBoundingClientRect: () => ({ height: 0 }) }).getBoundingClientRect().height);
+        return { nh, cards: cards.length, lined: cards.filter(c => { const l = c.querySelector('[data-cleo-bl]'); return l && vis(l) && / from Sensō-ji · |^Your base$/.test(l.textContent); }).length, notes,
           over: document.documentElement.scrollWidth - innerWidth };
       });
       ok(r.cards > 0 && r.lined === r.cards && r.notes === 1 && r.over <= 0, `${tag} ${v}: the assumption once, the line on every card in view, no sideways scroll`, r);
+      ok(r.nh <= (w < 500 || v === 'atlas' ? 100 : 80),   // desktop Atlas: the note sits in the list column, phone-wide
+         `${tag} ${v}: OV-12: the base note is compact (${r.nh} px)`, r.nh);
       await s.page.screenshot({ path: path.join(SHOTS, `base-${v}-${tag}.png`) });
     }
     const req = await s.page.evaluate(() => performance.getEntriesByType('resource').filter(r => /assets\/js\/base\.js/.test(r.name)).length);
@@ -158,7 +163,7 @@ async function tabTo(page, test, n = 80) {
   { const s = await open(b, 'cities/tokyo.html#view=atlas', { w: 1440, tiles: true, settle: 2500 });
     const r = await s.page.evaluate(async () => { const c = document.querySelector('li.pl[data-ra]'); if (!c || !Cleo.city.openPoi) return null; Cleo.city.openPoi(c);
       await new Promise(x => setTimeout(x, 500)); const a = document.querySelector('a.ms-pv'), g = a && a.querySelector('.gc-rec');
-      return { id: c.id, n: (c.getAttribute('data-ra') || '').split(' ').length + ((c.getAttribute('data-rec') || '').includes('cited') ? 1 : 0), got: g ? g.querySelectorAll('.rb').length : 0, links: g ? g.querySelectorAll('a').length : -1, text: g && g.textContent, chk: (a && a.querySelector('.pv-chk') || { getAttribute: () => null }).getAttribute('data-d'), want: c.getAttribute('data-checked') }; });
+      return { id: c.id, n: (c.getAttribute('data-ra') || '').split(' ').filter(Boolean).length + (c.getAttribute('data-rv') || '').split(' ').filter(Boolean).length, /* R8 #2e: no "Cited by" in the preview (it has "+N more") */ got: g ? g.querySelectorAll('.rb').length : 0, links: g ? g.querySelectorAll('a').length : -1, text: g && g.textContent, chk: (a && a.querySelector('.pv-chk') || { getAttribute: () => null }).getAttribute('data-d'), want: c.getAttribute('data-checked') }; });
     ok(r && r.got === r.n && r.links === 0, 'the Atlas preview of a recognised place shows its badges, as text', r); ok(r && r.chk && r.chk === r.want, 'W9-2: the Atlas preview carries "Status checked <d Mon>" from the place\'s data-checked', r && [r.chk, r.want]); ok(!s.errs.length, 'rec-pv: 0 page errors', s.errs.slice(0, 2)); await s.ctx.close(); }
 
   console.log('# empty (QC-05: a search with no match states it, and offers a way out; Gallery: empty.js, Atlas: the list head, FE-1)');

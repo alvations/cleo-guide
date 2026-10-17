@@ -200,7 +200,11 @@ console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed l
   // retiring is recomputed here from the closure notes themselves (lib/changes.js RETIRING), never typed. QC-25: the
   // notes never ship, so they are read from data/geocodes.json (closed entries, by base name) for each closure this month
   const { RETIRING } = require('./lib/changes'), { baseName } = require('./lib/model');
-  const GEO = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'geocodes.json'), 'utf8')).cities, notes = {};
+  // the committed registry: npm test runs suites in parallel and test-builds / test-geo-merge rewrite data/geocodes.json
+  // while they run, so the working-tree file can be half-written here (it is the same data the beta build read)
+  let geoTxt; try { geoTxt = require('child_process').execFileSync('git', ['show', 'HEAD:data/geocodes.json'], { cwd: path.join(__dirname, '..', '..'), encoding: 'utf8', maxBuffer: 1 << 28 }); }
+  catch (e) { geoTxt = fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'geocodes.json'), 'utf8'); }
+  const GEO = JSON.parse(geoTxt).cities, notes = {};
   Object.values(GEO).forEach(c => Object.entries(c || {}).forEach(([nm, e]) => { if (e && e.status === 'closed' && e.statusSource) (notes[baseName(nm)] = notes[baseName(nm)] || []).push(e.statusSource); }));
   const rt = C.pages.reduce((t, p) => t + JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.filter(e => e.kind === 'closed' && e.d.slice(0, 7) === C.month && (notes[e.name] || []).some(n => RETIRING.test(n))).length, 0);
   // QC-25: no closure note text on any What changed page — a "Status source" link (an http URL) or nothing
@@ -219,6 +223,12 @@ console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed l
   const INTERNAL = /Official (?:company|institution|site)|published facts|published coord|notability \+/i;
   chk(`landing + ${HUBP.length - 1} hubs: "Recommended by" names are public (no "(published facts/coords)", no "Official … site")`,
     HUBP.filter(f => [...rd(f).matchAll(/Recommended by <b>([^<]*)<\/b>/g)].some(m => INTERNAL.test(m[1]))), a => a.length === 0);
+  // R8 gap #2d on every page: no internal source descriptor in any built page or any page's display list (sourceIndex);
+  // the registry tables (`sources`) stay verbatim as open data
+  const ALLHTML = []; (function walk(dir) { fs.readdirSync(dir, { withFileTypes: true }).forEach(e => { const f = path.join(dir, e.name); if (e.isDirectory()) { if (!/^(assets|data|feeds)$/.test(e.name)) walk(f); } else if (/\.html$/.test(e.name)) ALLHTML.push(f); }); })(BETA);
+  const LBL = /published facts\/coords|notability \+ published|Official company\/institution site/;
+  chk(`no internal source descriptor on any of ${ALLHTML.length} built pages or in any sourceIndex (R8 gap #2d)`, ALLHTML.filter(f => LBL.test(fs.readFileSync(f, 'utf8'))).map(f => path.relative(BETA, f))
+    .concat(fs.readdirSync(path.join(BETA, 'data/places')).filter(f => /\.json$/.test(f) && (JSON.parse(rd('data/places/' + f)).sourceIndex || []).some(x => LBL.test(x.name || ''))).map(f => 'data/places/' + f)), a => a.length === 0);
   // QC-25: no closure note text in any shipped JSON — only its URL (src)
   chk('no closure note text ships in data/places/*.json (QC-25)', C.pages.filter(p => JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.some(e => 'note' in e || (e.src && !/^https?:\/\//.test(e.src)))).map(p => p.key), a => a.length === 0);
   chk(`retiring (${rt}) == closures this month whose sourced note announces a retirement or a last day`, sum('retiring') === rt, true);
