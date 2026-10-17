@@ -49,6 +49,7 @@ const ICONS = {
   map: '<path d="M3 6.5l6-2.5 6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/>',
   list: '<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',
   sliders: '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
+  chart: '<path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',   // FE-C (designer, from FE-A): Insights' view-switch glyph, not the Filters one (icons.json)
   close: '<path d="M6 6l12 12M18 6L6 18"/>',
   directions: '<path d="M12 2.8l9.2 9.2-9.2 9.2L2.8 12z"/><path d="M9 14.5v-2.5a1.5 1.5 0 0 1 1.5-1.5h4.5M13 8.5l2 2-2 2"/>',
   share: '<path d="M12 3v12M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12.5V20h14v-7.5"/>',
@@ -115,7 +116,7 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
   [/temple|shrine|mosque|church/i, 'torii'], [/market|shop|hawker/i, 'awning'], [/view|skyline|tower/i, 'tower'], [/night/i, 'moon'],
   [/history|heritage|castle|palace/i, 'castle'], [/free/i, 'ticket'], [/screen|tv|film|pop/i, 'tv']];
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
-const { motifSvg, motifOf, photoFor, figureHtml, heroFor, heroHtml: heroPhotoHtml, heroPreload } = require('../../imagery');   // imagery lane hooks
+const { motifSvg, motifOf, photoFor, figureHtml, heroFor, heroHtml: heroPhotoHtml, heroPreload, foodGlyphs } = require('../../imagery');   // imagery lane hooks
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 // R7 gap 3: the photo's dominant colour (imagery recompress.js, photo.color) rides on its figure as --ph, the placeholder
 // the photo fades in from (city.js marks the figure .in when its image has loaded)
@@ -169,7 +170,7 @@ function card(r, num, ctx) {
   const aName = areaName(r.a);
   const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
   const dish = r.kind === 'food' ? (ctx.SC || String)(dishOf(czN, ctx.srcNames)) : '';   // food covers (c): the dish or cuisine, never a source or award
-  const gl = glyphOf(r, page), mg = mapGlyphOf(r, gl, ctx.japan, ctx.key);
+  const gl = (ctx.glOver && ctx.glOver.get(r.id)) || glyphOf(r, page), mg = mapGlyphOf(r, glyphOf(r, page), ctx.japan, ctx.key);   // D-49 (b): a cover's glyph never repeats its neighbour's; the map keeps the place's own
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
   const eyebrow = r.closed
@@ -199,10 +200,12 @@ function card(r, num, ctx) {
     r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', RU.attr(r) /* FE-C W9-1 hook */, RU.lfAttr(r, ctx.lfOn) /* FE-C W9-9 hook */, r.warn && 'data-warn', r.np && 'data-np', r.pq && `data-pq="${esc(r.pq)}"`].filter(Boolean).join(' ');   // data-pq: FE-B D-39 (QA-65)
   // W7 media slot (contract in docs/BETA-LOG.md): the calm cover (.pl-cover), a credited photo laid over it when the imagery
   // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
-  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
+  // D-49 (DESIGN-SYSTEM §v2.7b): a photo-less card is marked pl--np and changes shape, never order (compact row / quote card)
+  const ph = ctx.photo && ctx.photo(r);
+  return `<li class="pl${r.closed ? ' pl--closed' : ''}${ph ? '' : ' pl--np'}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : ''}<p class="pl-x" hidden></p>
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span>` : `<span class="pl-num" aria-label="${tr('city.card.pin', { n: num })}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
-${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${tr(isNote ? 'city.card.note' : 'city.card.look')}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
+${r.w && !/^https?:\/\/\S+$/.test(r.w) ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${tr(isNote ? 'city.card.note' : 'city.card.look')}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
 <p class="pl-s"${ids.length > 1 ? ` data-more="${ids.length - 1}"` : ''}><span class="lbl">${tr('card.recby')}</span> ${rec}</p>${RU.html(r, srcById) /* FE-C W9-1 hook */}</li>`;   // i18n D-41: the card's labels
 }
 
@@ -314,8 +317,11 @@ function render(row, recs, ctx) {
 
   /* -- area chapters -- */
   const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
-  const cardCtx = { lfOn: RU.lfOn(row.recog) /* FE-C W9-9 hook */, japan: row.country === 'japan', key: row.key, page, srcById, srcNames: Object.values(srcById || {}).map(x => x && (x.name || x.n)).filter(Boolean), areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
+  const cardCtx = { glOver: new Map(), lfOn: RU.lfOn(row.recog) /* FE-C W9-9 hook */, japan: row.country === 'japan', key: row.key, page, srcById, srcNames: Object.values(srcById || {}).map(x => x && (x.name || x.n)).filter(Boolean), areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
+  // D-49 (b): in each list, consecutive photo-less covers never share a glyph (imagery's FOOD_GLYPH_LADDER); a photo breaks the run
+  const noRepeat = ord => { const runs = [[]]; ord.forEach(r => { if (cardCtx.photo && cardCtx.photo(r)) runs.push([]); else runs[runs.length - 1].push(r); });
+    runs.forEach(run => { const g = foodGlyphs(run.map(r => glyphOf(r, page))); run.forEach((r, i) => { if (g[i] !== glyphOf(r, page)) cardCtx.glOver.set(r.id, g[i]); }); }); };
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : [tr('city.elsewhere'), ''];   // i18n D-41: chapter strings
     const id = a ? a.id : 'other', col = a && colors[a.id] && /^#/.test(colors[a.id]) ? colors[a.id] : null;
@@ -325,7 +331,7 @@ function render(row, recs, ctx) {
 ${art ? `<img class="shape" src="${esc(up + art.src)}" width="${art.w}" height="${art.h}" alt="" decoding="async" loading="lazy">` : ''}<h2 id="ah-${esc(id)}"><span class="area-n">${esc(head1)}</span> <span class="area-c">${tr('city.area.c', { places: plural(list.length, 'place'), i: i + 1, n: total })}</span></h2>
 ${hoods ? `<p class="area-sub">${esc(hoods)}</p>` : ''}
 <ol class="pls">
-${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
+${(ord => { noRepeat(ord); return ord.map((r, j) => card(r, j + 1, cardCtx)).join('\n'); })(orderArea(list))}
 </ol>
 <p class="area-end">${a && days[a.id] ? `<button type="button" class="btn btn-ghost" data-cleo-day="${esc(a.id)}">${ico('route')}<span>${tr('city.area.day', { n: days[a.id].length })}</span></button>` : ''}<button type="button" class="btn btn-ghost" data-cleo-map="${a ? esc(a.id) : ''}">${ico('map')}<span>${tr('city.area.map', { n: list.length })}</span></button></p>
 </section>`;
@@ -370,7 +376,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   // default; a legacy pager link (#pg= / #all=1) implies Gallery
   const DV = 'atlas';
   const VIEWS = ['atlas', 'gallery'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
-  const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'sliders'] };   // i18n D-41: views, tray, masthead
+  const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'chart' /* FE-C: was sliders = the Filters glyph */] };   // i18n D-41: views, tray, masthead
   // FE-B QC-09 (DESIGN-SYSTEM §v2.11): a labelled group of four pressed-state toggles, never a <nav> (axe: no group role on
   // nav); four segments at every width, one tap per switch; data-label = the visible tooltip when only the glyph shows
   const switcher = `<div class="views" data-cleo-views role="group" aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}" data-label="${VLBL[v][0]}">${ico(VLBL[v][1])}<span class="l">${VLBL[v][0]}</span></button>`).join('')}</div>`;
@@ -385,7 +391,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x);if(x==='atlas')document.documentElement.classList.add(!window.matchMedia||matchMedia('(min-width:1024px)').matches?'atlas-d':'atlas-m')})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
-  const used = new Set(['search', 'grid', 'map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
+  const used = new Set(['search', 'grid', 'map', 'list', 'sliders', 'chart', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
   tiles.forEach(t => t.g && used.add(t.g));
   for (const mm of cardsHtml.matchAll(/data-[gm][lg]="([a-z0-9-]+)"/g)) used.add(mm[1]);
   const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${[...used].filter(k => ICONS[k]).sort().map(k => `<symbol id="i-${k}" viewBox="0 0 24 24">${ICONS[k]}</symbol>`).join('')}</svg>`;
@@ -403,7 +409,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
-    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, allguides: ctx.assetsV.allguides /* FE-B §v2.12 3a, lazy */, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition, fresh: ctx.assetsV.fresh, empty: ctx.assetsV.empty, sheetbar: ctx.assetsV.sheetbar, side: ctx.assetsV.side /* FE-C W9-5 / W9-7 / W9-1 / W9-2 / QC-05 / OV-111 / §2.0.7 side card hook */, pack: ctx.assetsV.pack /* platform W9-8: lazy offline pack */ },  // loaded on first use (C.need / views.js), precached by the SW
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, atlas: ctx.assetsV.atlas, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights, allguides: ctx.assetsV.allguides /* FE-B §v2.12 3a, lazy */, base: ctx.assetsV.base, 'share-card': ctx.assetsV['share-card'], recognition: ctx.assetsV.recognition, fresh: ctx.assetsV.fresh, empty: ctx.assetsV.empty, sheetbar: ctx.assetsV.sheetbar /* FE-C W9-5 / W9-7 / W9-1 / W9-2 / QC-05 / OV-111 hook */, pack: ctx.assetsV.pack /* platform W9-8: lazy offline pack */ },  // loaded on first use (C.need / views.js), precached by the SW
     views: VIEWS, dv: DV,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
@@ -413,7 +419,9 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   };
   // PERF-18 (platform, marked): the phone lead card rendered here, in the reserved slot, so it paints with the HTML (Tokyo
   // phone LCP); gallery.js adopts it. Same template as gallery.js gcard(lead, 1, true) — test-beta compares them.
-  const leadSSR = SSR_LEAD && gRows.lead ? leadCardHtml(gRows.lead, blob, cardsHtml, up) : '';
+  // D-49 §v2.7b: the lead card is drawn only when rank 1 has a photo ("Start with" still names it); else the rows start the page
+  const leadCard = gRows.lead && gRows.lead.ph ? gRows.lead : null;
+  const leadSSR = SSR_LEAD && leadCard ? leadCardHtml(gRows.lead, blob, cardsHtml, up) : '';
 
   /* -- filter tray (M1-07), server-rendered so it costs no client JS; city.js only opens it and applies it -- */
   const pill = (k, v, t, n) => `<button type="button" class="pill" data-f="${k}" data-v="${esc(v)}" aria-pressed="false">${esc(t)}${n != null ? ` <span class="n">${n}</span>` : ''}</button>`;
@@ -470,7 +478,7 @@ ${gapHtml.join('\n')}${closedTile ? '\n' + closedTile : ''}
 <!-- QA-48 / QA-60 (B-04): the category bar sits above the phone lead card, so it is on the first screen on every page, not only where the hero is short -->
 <!-- PERF-06 (platform, marked block): data-lead / data-rows say the client WILL draw a lead card / N rows here, so fe-a.css
      reserves their space on phones before the fetch lands (Gallery phone CLS); absent where the guide has none -->
-<div class="g-lead-slot vw view-gallery" id="cleo-lead"${gRows.lead ? ' data-lead' : ''}><p class="g-lead-k">${tr('city.lead.k')}</p>${leadSSR}</div>
+<div class="g-lead-slot vw view-gallery" id="cleo-lead"${leadCard ? ' data-lead' : ''}><p class="g-lead-k">${tr('city.lead.k')}</p>${leadSSR}</div>
 <div class="g-rows vw view-gallery" id="cleo-rows-host"${gRows.rows.length ? ` data-rows="${gRows.rows.length}"` : ''}></div>
 <!-- /PERF-06 -->
 <div class="toolbar" data-cleo-toolbar hidden>

@@ -92,6 +92,15 @@ function buildRegistry({ withData = true } = {}) {
       data, counts: data ? { P: data.P.length, F: data.F.length } : null,
     };
   });
+  // FE-B (one city, one page): a city page left in another country's folder (Singapore/hanoi.html, from before the
+  // region → folder move) when the same file lives in its own country's folder (Vietnam/hanoi.html) is `moved`: the build
+  // renders it as a pointer to that page (rel=canonical + a visible link), never a second card, index entry or feed.
+  const folderOf = k => { const c = countries.find(x => x.key === k); return c && c.hub ? path.posix.dirname(c.hub) : null; };
+  for (const r of rows) {
+    if (r.kind !== 'city' || !r.country) continue;
+    const dir = folderOf(r.country), own = dir && dir !== '.' ? dir + '/' + path.posix.basename(r.live) : null;
+    if (own && own !== r.live && rows.some(x => x.live === own && x.kind === 'city')) { r.kind = 'moved'; r.movedTo = own; }
+  }
   return { rows, countries, geo };
 }
 

@@ -229,6 +229,20 @@ console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed l
   const LBL = /published facts\/coords|notability \+ published|Official company\/institution site/;
   chk(`no internal source descriptor on any of ${ALLHTML.length} built pages or in any sourceIndex (R8 gap #2d)`, ALLHTML.filter(f => LBL.test(fs.readFileSync(f, 'utf8'))).map(f => path.relative(BETA, f))
     .concat(fs.readdirSync(path.join(BETA, 'data/places')).filter(f => /\.json$/.test(f) && (JSON.parse(rd('data/places/' + f)).sourceIndex || []).some(x => LBL.test(x.name || ''))).map(f => 'data/places/' + f)), a => a.length === 0);
+  // one city, one page: no city is listed twice across country folders (landing + every hub), and a page left in another
+  // country's folder (registry kind `moved`) is a pointer to its own folder's page, with every place there (none lost)
+  {
+    const hubFiles = ['index.html', ...fs.readdirSync(BETA).filter(d => fs.existsSync(path.join(BETA, d, 'index.html')) && /^[A-Z]/.test(d)).map(d => d + '/index.html')];
+    const twice = hubFiles.flatMap(f => { const keys = [...rd(f).matchAll(/<li class="dest"[^>]*data-page="([^"]+)"/g)].map(m => m[1]), seen = {};
+      return keys.map(k => [k, k.split('/').pop()]).filter(([k, b]) => { const dup = seen[b] && seen[b] !== k; seen[b] = seen[b] || k; return dup; }).map(([k]) => f + ': ' + k); });
+    chk('no city is listed twice across country folders (landing + hubs)', twice, a => a.length === 0);
+    const { extractPage } = require('./lib/extract');
+    const moved = manifest.pages.filter(p => p.kind === 'moved');
+    const bad = moved.filter(p => { const h = rd(p.beta), to = manifest.pages.find(x => x.beta === p.movedTo), a = extractPage(fs.readFileSync(path.join(__dirname, '..', '..', p.live), 'utf8')), b = to && extractPage(fs.readFileSync(path.join(__dirname, '..', '..', to.live), 'utf8'));
+      const names = x => x.P.map(y => y.n).concat(x.F.map(y => y.n)).sort().join('|');
+      return !to || to.kind !== 'city' || !h.includes(`<link rel="canonical" href="https://alvations.github.io/cleo-guide/beta/${p.movedTo}">`) || !/data-cleo-moved/.test(h) || names(a) !== names(b); }).map(p => p.beta);
+    chk(`moved pages (${moved.map(p => p.beta + ' → ' + p.movedTo).join(', ') || 'none'}): canonical + visible link to a built page that has every one of their places`, bad, a => a.length === 0);
+  }
   // QC-25: no closure note text in any shipped JSON — only its URL (src)
   chk('no closure note text ships in data/places/*.json (QC-25)', C.pages.filter(p => JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.some(e => 'note' in e || (e.src && !/^https?:\/\//.test(e.src)))).map(p => p.key), a => a.length === 0);
   chk(`retiring (${rt}) == closures this month whose sourced note announces a retirement or a last day`, sum('retiring') === rt, true);
