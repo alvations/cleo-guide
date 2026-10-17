@@ -13,6 +13,17 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- §3a end-to-end (6cc48f129 + FE-A 276fc6f2): allguides.js loads on the first cleo:city-search with a query (also a #q= deep
+  link). S-17 rule on Tokyo: one search at 390 and 1440 in every view; left (FE-A): city field + header icon both visible
+  at 844x390 and 768x1024 (fold the row below 1024). Landing (68807d139): header icon only once the hero has scrolled away.
+
+## Waiting on (re-measure when they land)
+
+- QC's dev S-17 re-run (650baf46 and later) → re-read OV-30/31/35/36/106..110/115..117/121..123.
+- FE-A: fold the city-field row below 1024 (OV-106/115..117). FE-1: desktop Atlas switch 44 px band (overflow fix).
+- Re-measure: `node tools/beta/feb-ov.js` (budgets), `node tools/beta/feb-switcher.js cities/tokyo.html atlas`, and the
+  S-17 search count (`NODE_PATH=$(npm root -g) node beta/qa/qc-overlay.js --label <x> --pages ... --views ...`; delete
+  its design/beta/eval/qc/overlay/<x> output after — QC's folder).
 - QC S-17 rows (live r7): OV-107..110, 121, 122 claimed (dev S-17 in budget; T1 at rest 11.8 % = header + FE-A city bar);
   OV-123 + FE-B half of OV-106/115/116/117 in ffb7881f8 (§3a: scoped header search name, city field is the search, "Search
   all guides for q" into FE-A's [data-cleo-all-slot] on cleo:city-search, tab bar drops Search + Your list, landing header

@@ -1,0 +1,102 @@
+# Discovery review: run #95 (Commons cm-1…cm-92; Openverse 53 picks)
+
+The orchestrator reviewed `design/beta/imagery-runs/commons-discovered/2026-10-170306-sheet-1..8.jpg` on 2026-10-17 10:35Z. Rules: one photo per place, keeping the best; no animals, people, signage, single exhibits or details as the subject; no US sculpture or 2D art; no undated historic images (D-50); the photo must show the place itself, not a view from it.
+
+| pick | verdict |
+|---|---|
+| cm-1 | ok |
+| cm-2 | refuse: detail: a doorway close-up, not the building |
+| cm-3 | ok |
+| cm-4 | refuse: an animal is the subject, not the zoo |
+| cm-5 | refuse: an empty road to a gate, not the park |
+| cm-6 | refuse: second pick (cm-7 shows the rockshelter) |
+| cm-7 | ok |
+| cm-8 | refuse: second pick (cm-9 shows the chapel) |
+| cm-9 | ok |
+| cm-10 | ok |
+| cm-11 | ok |
+| cm-12 | refuse: second pick (cm-11) |
+| cm-13 | ok |
+| cm-14 | refuse: a generic sunset; the steps are not shown |
+| cm-15 | ok |
+| cm-16 | ok |
+| cm-17 | refuse: an artwork from the collection (cartoon print), not the library |
+| cm-18 | ok |
+| cm-19 | refuse: second pick (cm-20 shows the street) |
+| cm-20 | ok |
+| cm-21 | refuse: artifacts in a case (knives), not the museum |
+| cm-22 | refuse: artifacts in a case, not the museum |
+| cm-23 | ok |
+| cm-24 | ok |
+| cm-25 | refuse: second pick (cm-24) |
+| cm-26 | refuse: an animal is the subject |
+| cm-27 | refuse: an animal is the subject |
+| cm-28 | ok |
+| cm-29 | refuse: signage close-up; second pick (cm-28) |
+| cm-30 | ok |
+| cm-31 | ok |
+| cm-32 | refuse: second pick (cm-31) |
+| cm-33 | ok |
+| cm-34 | refuse: second pick (cm-33) |
+| cm-35 | refuse: an animal is the subject |
+| cm-36 | refuse: a sculpture (US: no freedom of panorama for sculpture) |
+| cm-37 | ok |
+| cm-38 | ok |
+| cm-39 | refuse: second pick (cm-38) |
+| cm-40 | ok |
+| cm-41 | ok |
+| cm-42 | refuse: second pick (cm-41) |
+| cm-43 | ok |
+| cm-44 | refuse: an animal is the subject; second pick (cm-43) |
+| cm-45 | refuse: second pick (cm-46, the Roman mosaic, public domain) |
+| cm-46 | ok |
+| cm-47 | refuse: signage only |
+| cm-48 | ok |
+| cm-49 | refuse: a single exhibit machine, not the museum |
+| cm-50 | refuse: a single exhibit machine, not the museum |
+| cm-51 | refuse: detail: the zero-mile marker plate, not the bridge |
+| cm-52 | ok |
+| cm-53 | ok |
+| cm-54 | ok |
+| cm-55 | refuse: second pick (cm-54) |
+| cm-56 | ok |
+| cm-57 | refuse: second pick (cm-58 shows the gate passage) |
+| cm-58 | ok |
+| cm-59 | refuse: a construction dig, not the gate |
+| cm-60 | refuse: a construction dig, not the gate |
+| cm-61 | ok |
+| cm-62 | refuse: an undated historic engraving (D-50 needs a dated caption); second pick |
+| cm-63 | refuse: second pick (cm-64 shows the archaeological vitrine) |
+| cm-64 | ok |
+| cm-65 | ok |
+| cm-66 | refuse: road and gate dominate |
+| cm-67 | ok |
+| cm-68 | ok |
+| cm-69 | refuse: the view FROM the castle, not of it |
+| cm-70 | ok |
+| cm-71 | refuse: a ticket booth, not the boat cruises |
+| cm-72 | ok |
+| cm-73 | refuse: a document in a vitrine, not the museum |
+| cm-74 | ok |
+| cm-75 | refuse: second pick (cm-74) |
+| cm-76 | ok |
+| cm-77 | refuse: second pick (cm-76) |
+| cm-78 | ok |
+| cm-79 | ok |
+| cm-80 | refuse: ceiling detail; second pick (cm-79) |
+| cm-81 | ok |
+| cm-82 | ok |
+| cm-83 | refuse: an exhibit close-up (vintage car) |
+| cm-84 | ok |
+| cm-85 | refuse: second pick (cm-84) |
+| cm-86 | refuse: identifiable people (concert crowd) are the subject |
+| cm-87 | refuse: an information sign |
+| cm-88 | ok |
+| cm-89 | refuse: second pick (cm-88) |
+| cm-90 | ok |
+| cm-91 | ok |
+| cm-92 | ok |
+
+**Commons: 47 ok, 45 refused.** Most refusals are second picks for the same place.
+
+**Openverse (53 picks): not reviewable.** All five sheets (`design/beta/imagery-runs/openverse/2026-10-170257-sheet-1..5.jpg`, about 45 KB each against about 200 KB for the Commons sheets) show labels with blank tiles. The thumbnails were not downloaded in the run. Imagery fixes the sheet builder (fetch each pick's thumbnail with retries, and mark the tile "no preview" rather than leaving it blank), re-runs discovery, and the picks are reviewed then.

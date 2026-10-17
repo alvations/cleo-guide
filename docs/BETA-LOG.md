@@ -2388,3 +2388,39 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **The image sources lane started** (session_013vyq3aW2ChR6a7LBNQufNy, D-50). It sends its source matrix and sample yields
   before writing any fetcher.
 - beta-atlas-real-shots was dispatched on 93a8ea29a (label d46-signoff) for the designer's D-46 sign-off.
+
+## 2026-10-17 · FE-1 · OV-00 §2.0.7 landscape, desktop chrome 104 px, the switch's 44 px band, D-46 §1.7 peek thumbnails
+
+- **Landscape (844 × 390; L 37.5 % → 12.3 %):** one 48 px bar.
+  - The chip row folds away. Its Filters button rides in FE-A's header just left of their icon-only switch (fixed top 2, right 304, 44 px), and the kind chips and Top picks move into the Filters sheet.
+  - There is no peek: "List" is a third icon in the control stack, vertically centred on the right.
+  - A selection shows a 320 px side card on the right, and the controls step left of it.
+  - Rotation re-folds the bars. Compaction stays off in landscape, which is already one bar.
+  - New atlas-ms check (L, per page): chrome ≤ 13 %, Filters tappable in the header, kind + Top picks in its sheet, no peek, List in a centred stack, and a pin tap giving a 320 px side card clear of the controls.
+  - The portrait credit check now skips controls with no box (the landscape-only List is hidden in portrait).
+- **Desktop / T2 chrome:** the desktop chip row is 48 px (44 px chips + 2 × 2), so chrome is 104 px: 11.6 % at 1440 × 900 (budget ≤ 12) and 13.5 % at 1024 × 768 (≤ 15). Measured 108 px before; QC's 12.5 / 18.8 % readings are being compared with QC.
+- **B-20, desktop switch (FE-B):** FE-A's switch buttons clip with `overflow:hidden`, which cut my `::after` hit extension back to the 36 px box. In the Atlas header they overflow now, and elementFromPoint ±18 / ±21 px from centre lands on the button: a 44 px band.
+- **Phone peek (D-46 §1.7):**
+  - Up to 3 photo thumbnails (40 × 40, `--r-s`) lead the 44 px row: the top places on show by map priority with an honest photo, no glyph stand-ins.
+  - Their names go into the peek's label ("Show the list of 73 places, led by A, B and C").
+  - "checked <date>" moved from the peek to the phone list's count line. The peek is still 56 px.
+  - Thumbnails on the first screen: Tokyo 3, Cleveland 3, Punggol 1.
+  - The peek check now requires exactly "N places here · Show list" in the rendered text (no date), ≤ 3 thumbnails, and ≥ 1 where the places on show have photos.
+- **Also:** the stale "Show 40 at a time" now reads the page size (36).
+
+## 2026-10-17 10:40Z · orchestrator (after a 7 h stop)
+
+- **Stop:** the account's 5-hour usage limit hit at ~03:37Z, and nothing landed from 03:39 to 10:25Z. The check-in was
+  re-armed for 11:05Z.
+- **Restart:** lanes are woken in priority order, ~8 at a time.
+  - Woken: FE-A, FE-C, imagery, QA, QC, platform, FE-2; FE-1 was already running.
+  - Deferred to 11:05Z: FE-B, designer, image sources, i18n, location.
+- **Rulings:**
+  - Phone Atlas must offer For you, Your day and Near me through its list-head doors (QA FAIL, FE-2).
+  - philadelphia#the-met-philadelphia keeps its exterior photo under the performance-venue ruling.
+- **Photo reviews:**
+  - Discovery run #95: Commons 47 ok / 45 refused (design/beta/imagery-runs/discover-95.md).
+  - Openverse sheets came out blank (thumbnails missing), so imagery fixes and re-runs them.
+- **lensPage:** QA found its 47/47 had run with the patch parked (595aa6dba). Platform applies the patch and flips the
+  flag, then QA re-accepts.
+- Dev ae48d2530 is gated green; eager JS 39.29 / 40.
