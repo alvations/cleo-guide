@@ -104,11 +104,11 @@ Current rows:
     - **D12/D13 notes:** sent to the orchestrator.
 19. **Food covers, DESIGN-SYSTEM §v2.7a:** the city pattern on `--cover-food`, a large bleeding glyph, the dish word at 24 px, and the native name. Imagery builds it in motifs.js and FE-A places it. The spec goes to imagery after their wave 5a review. Credit lines are one line under a card. QC has been told about the opaque bars.
 20. **2026-10-17:**
-    - **D-49 no-photo cards** (§v2.7b) are being built by FE-A and FE-1.
-    - **Landscape:** §2.0.7 is signed off on real `landscape-207`.
-    - **D-46:** phone signed off. Desktop is waiting on the rank-1 lead card (FE-A).
-    - **CSS #6:** the first trim failed parity, because the service worker served cached CSS so the coverage was under-counted. The tools are fixed (1726b7fd8, 0805a2351) and the full re-sweep is running. **Next:** css-trim.py --coverage design/beta/eval/css-coverage.json, rebuild, css-parity before/after (zero unexplained diffs), gates, push, then send FE-A the fe-a.css coverage.
-    - **Constellation:** move beta/assets/constellation.css → design/beta/css/ (it's a source, linked by no page).
+    - **D-49 no-photo cards (§v2.7b):** FE-A's f35759ca1 is signed off. My ruling, at 3d81c486c, has been sent to FE-A: keep the 2-line why; "· Checked" goes on the Recommended line; the row is at most 128 px; the quote card is a CSS 4-line clamp with no build-time shortening. **Next:** check FE-A's head at 390 and 1440.
+    - **Landscape:** §2.0.7 is signed off. Round 4 is signed off on one condition: at L, the selected place must be first in the side column, with the ring. FE-2's probe fe2/side-sync.js (31c9409cb) stays red until the column scroll sync lands. **Next:** confirm it on the orchestrator's Tokyo 844 pin shot. Then FE-1 and FE-2 send "round 4 ready".
+    - **D-46:** phone and desktop are signed off.
+    - **CSS #6:** the re-trim with protections was accepted (69128c498). cleo.css is 160.2 KB, and city pages total 309.3 KB against a 250 KB budget. **Next:** wait for Platform to re-run on the current head and FE-A to cut fe-a.css. Then run a fresh coverage sweep, re-trim, and prove it with css-parity (including the seeded day, saved, detail and For you states), then run the css-cascade pass.
+    - **Constellation:** done. It now lives at design/beta/css/constellation.css.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight

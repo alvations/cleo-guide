@@ -2619,3 +2619,8 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - 12d279bcf moves the keep step after the commit step.
     - #114 (pre-guard) is expected to fail the same way; #117 has the guard.
   - **Eager JS 39.93/40:** the plan is set (countLine deletion, FE-C lazy second frame, lazy sheet.js after r8).
+- **D-53 in the Atlas preview (FE-B's contract):** the card preview now names only real recommenders.
+  - It uses the card's `data-recby` when the build set it, otherwise its sources less 'guide'. Names come from the card's own chips (`recName`).
+  - With none, it reuses the card's own "No independent source yet" line (and its official-site link) and drops the "Must see" badge.
+  - Checked on NYC: Roberta's (sources include TripAdvisor) reads "The Infatuation, Time Out New York", and Nintendo New York reads "No independent source yet" with no badge. 0 platform or own-site names across Tokyo, NYC, Cleveland, Chinatown and Chicago.
+- **Photo-less carousel cards (designer, non-blocking):** a card with no photo (`pl--np`) is as tall as its text and sits on the band's floor. Kabuki-za: 142 px, down from 196 with a 65 px empty foot. Photo cards keep the band's height; the landscape column keeps `align-items:stretch`.
