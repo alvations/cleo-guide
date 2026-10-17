@@ -1219,6 +1219,13 @@ html[data-view=atlas] main[data-city] #cleo-grid li.pl .pl-n a:focus-visible::be
 html[data-view=atlas] main[data-city] #cleo-grid li.pl .pl-n a:focus-visible::after{outline:none!important;box-shadow:none!important}
 html[data-view=atlas] main[data-city] #cleo-grid li.pl:has(.pl-n a:focus-visible){outline:2px solid var(--focus)!important;outline-offset:-2px!important}
 html[data-view=atlas] main[data-city] #cleo-grid li.pl:not(:has(.pl-n a:focus-visible)){outline:none!important}
+/* map motion (SPEC-v3 §3.7, R8 gap 3; atlas-nav.js animates the preview, the carousel lift and the dot): the closing
+   preview's 120 ms fade is drawn by a copy that takes no clicks; the card ↔ pin hover is one 120 ms transition */
+html[data-view=atlas] .mappane .ms-ghost{position:absolute;z-index:699;width:300px;overflow:hidden;border-radius:var(--r-l);background:var(--surface);box-shadow:var(--e-4);pointer-events:none}
+.pp>span{transition:transform var(--dur-1) var(--ease-out),background-color var(--dur-1) var(--ease-out),color var(--dur-1) var(--ease-out),border-color var(--dur-1) var(--ease-out),box-shadow var(--dur-1) var(--ease-out)}
+html[data-view=atlas] #cleo-grid.w7-cards li.pl>.pl-cover,html[data-view=atlas] #cleo-grid.w7-cards li.pl>figure.pl-photo img{transition:box-shadow var(--dur-1) var(--ease-out)}
+html:not(.atlas-m)[data-view=atlas] #cleo-grid.w7-cards li.pl:is(.is-hover,.is-sel)>.pl-cover,html:not(.atlas-m)[data-view=atlas] #cleo-grid.w7-cards li.pl:is(.is-hover,.is-sel)>figure.pl-photo img{outline:none;box-shadow:var(--ring-select)}
+@media (prefers-reduced-motion:reduce){.pp>span,html[data-view=atlas] #cleo-grid.w7-cards li.pl>.pl-cover,html[data-view=atlas] #cleo-grid.w7-cards li.pl>figure.pl-photo img{transition:none}}
 
 /* FE-C (W9-1) recognition badges on the place card and in the detail. Tokens only; rides in the fe-a.css bundle
    (build.js). Award = the sun-wash treatment (recognition, like must-see); cited and creator video = sand. */

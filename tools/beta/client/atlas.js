@@ -322,7 +322,7 @@
     }
     if (how === 'swipe') {   // the card leads: light its pin and bring it into the uncovered band, gently
       const map = C.map(), k = C.markers[C.pid(c)]; if (!map || !k || again) return;
-      quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.35 })); } catch (e) {}
+      quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.3 })); } catch (e) {}
       return;
     }
     // a near card glides into place; a far one (more than two widths away) jumps — a long glide is slow and reads as noise
@@ -335,7 +335,7 @@
       // clear of the Near me / Map pills too (they stack bottom right, above the carousel), so its label has room
       const o = C.overMap(), cr = $('.leaflet-bottom.leaflet-right'), cb = cr ? cr.getBoundingClientRect() : { width: 0, height: 0 };
       o.paddingBottomRight = [Math.max(o.paddingBottomRight[0], Math.round(cb.width) + 24), o.paddingBottomRight[1] + Math.round(cb.height) + 48];   // + the label above the point
-      try { map.panInside(k.getLatLng(), Object.assign(o, { animate: !C.still(), duration: 0.35 })); } catch (e) {} }
+      try { map.panInside(k.getLatLng(), Object.assign(o, { animate: !C.still(), duration: 0.3 })); } catch (e) {} }
   };
   // the carousel: the card nearest the middle after a swipe settles is the selected one
   let st = 0, qSwipe = 0;
