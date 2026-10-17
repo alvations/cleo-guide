@@ -2,8 +2,8 @@
 /**
  * QA helper (R7 re-sign; resume rule 7): open one beta page in real Chromium, wait, evaluate one expression and print
  * its JSON; optionally screenshot. Serves the repo root this file lives in, so run it from any worktree.
- *   node tools/beta/qa/page-eval.js <m|m3|d> '<page#hash>' '<async js expression>' [shot.jpg] [--tiles stub|block]
- *   m = 390×844 @2, m3 = 390×844 @3, d = 1440×900. Images (tiles included) are stubbed 1×1 by default ("stub");
+ *   node tools/beta/qa/page-eval.js <m|m3|d|t2> '<page#hash>' '<async js expression>' [shot.jpg] [--tiles stub|block]
+ *   m = 390×844 @2, m3 = 390×844 @3, d = 1440×900, t2 = 1024×768 @2 touch. Images (tiles included) are stubbed 1×1 by default ("stub");
  *   "block" aborts every off-origin request, so the map gives way to the list (metrics.js's state).
  * Examples (R7 re-sign checks):
  *   QC-01   node tools/beta/qa/page-eval.js d 'cities/tokyo.html#view=insights' "(async()=>{await new Promise(r=>setTimeout(r,1800));return [...document.querySelectorAll('a[href]')].filter(a=>/cz=|c=/.test(a.getAttribute('href'))).map(a=>[a.textContent.trim().slice(0,30),a.getAttribute('href')])})()"
@@ -16,10 +16,11 @@ let chromium; for (const t of ['playwright', '/opt/node22/lib/node_modules/playw
 const ROOT = path.resolve(__dirname, '..', '..', '..');
 const T = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.woff2': 'font/woff2', '.webmanifest': 'application/manifest+json' };
 const PNG1 = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=', 'base64');
-const VP = { m: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }, m3: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3 }, d: { viewport: { width: 1440, height: 900 } } };
+const VP = { m: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }, m3: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3 }, d: { viewport: { width: 1440, height: 900 } },
+  t2: { viewport: { width: 1024, height: 768 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 } };   // T2, as overlay.js 'tablet-land'
 const [vp, page, expr, shot] = process.argv.slice(2).filter(a => !a.startsWith('--') && a !== 'stub' && a !== 'block');
 const tiles = process.argv.includes('block') ? 'block' : 'stub';
-if (!VP[vp] || !page || !expr) { console.error('usage: page-eval.js <m|m3|d> <page#hash> <expr> [shot.jpg] [--tiles stub|block]'); process.exit(2); }
+if (!VP[vp] || !page || !expr) { console.error('usage: page-eval.js <m|m3|d|t2> <page#hash> <expr> [shot.jpg] [--tiles stub|block]'); process.exit(2); }
 const srv = http.createServer((q, r) => { let f = path.join(ROOT, decodeURIComponent(q.url.split('?')[0])); if (!f.startsWith(ROOT)) { r.writeHead(403); return r.end(); }
   try { if (fs.statSync(f).isDirectory()) f = path.join(f, 'index.html'); } catch (e) { /* 404 */ }
   fs.readFile(f, (e, b) => { if (e) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': T[path.extname(f)] || 'application/octet-stream' }); r.end(b); }); });
