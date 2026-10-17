@@ -454,6 +454,10 @@ html.atlas-m[data-view=atlas] .leaflet-container .m-list{display:none}
   html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right{top:50%;bottom:auto!important;transform:translateY(-50%)}
   html.atlas-m.ov-c[data-view=atlas]:not(.ms-list):not(.ms-car) .leaflet-bottom.leaflet-right{transform:translateY(-50%)}   /* the centred stack stays put while tucked */
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) .leaflet-bottom.leaflet-right{right:332px}
+  /* R4 (designer): the side column's first card is the selected place, ringed like its pin (--ring-select) */
+  html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) #cleo-grid li.pl.is-sel{outline:none!important;box-shadow:var(--ring-select)!important;border-radius:var(--r-l)}
+  /* …even the last ones: room after the list, so a card near the end can scroll up to first (no clamp to re-select its neighbour) */
+  html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) #cleo-grid::after{content:"";order:2147483647;flex:none;display:block;height:calc(100% - 96px)}
   /* the list in landscape (designer 3793b1d15): it scrolls under the one bar — no 72 px bottom band. The way back is the
      switch's Atlas icon (FE-2's nav hook); until it lands, a 44 px floating Map button (bottom-right), not a bar */
   html.atlas-m.ms-list[data-view=atlas] .split::after{display:none}
@@ -461,7 +465,7 @@ html.atlas-m[data-view=atlas] .leaflet-container .m-list{display:none}
   html.atlas-m.ms-list[data-view=atlas] .ms-toggle{left:auto;right:12px;bottom:12px;transform:none;width:44px;min-width:44px;padding:0;justify-content:center}
   html.atlas-m.ms-list[data-view=atlas] .ms-toggle>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) .listpane{top:calc(var(--bar-h) + 8px);bottom:8px;left:auto;right:8px;width:320px;height:auto;flex-direction:column;overflow-x:hidden;overflow-y:auto;scroll-snap-type:y mandatory;padding:0}
-  html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:none;width:auto;height:auto;scroll-snap-align:start}
+  html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:none;width:auto;height:auto;scroll-snap-align:start;scroll-margin-top:4px}
 }
 /* OV-03: a cut name (atlas.js) shows whole on hover, focus or selection */
 :is(.pp.sel,.pp.hot,.pp:hover,a.pp:focus-visible)>span>b[data-full]{font-size:0}

@@ -452,12 +452,12 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         const d0 = await dot();
         if (d0) {
           const s0 = await sel(); await page.mouse.move(d0.x + 4, d0.y + 3); await sleep(60);   // a press rests ~60 ms: the hover pin is drawn under it by then
-          const under = await page.evaluate(([x, y]) => { const e = document.elementFromPoint(x, y), p = document.querySelector('.leaflet-marker-pane .hot'); return { el: e ? e.tagName + '.' + String(e.className).slice(0, 30) : null, onPin: !!(e && e.closest('.leaflet-marker-pane .hot')), hoverPin: !!p, pe: p ? getComputedStyle(p).pointerEvents : null }; }, [d0.x + 4, d0.y + 3]);
+          const under = await page.evaluate(([x, y]) => { const e = document.elementFromPoint(x, y), p = document.querySelector('.leaflet-marker-pane .ms-hov'); return { el: e ? e.tagName + '.' + String(e.className).slice(0, 30) : null, onPin: !!(e && e.closest('.leaflet-marker-pane .ms-hov')), hoverPin: !!p, pe: p ? getComputedStyle(p).pointerEvents : null }; }, [d0.x + 4, d0.y + 3]);
           await page.mouse.down();
           for (let i = 1; i <= 8; i++) { await page.mouse.move(d0.x + 4 - i * 15, d0.y + 3 - i * 6); await sleep(16); } await page.mouse.up(); await sleep(700);
           const s1 = await sel(), d1 = await dot(); if (d1) { await page.mouse.click(d1.x + 3, d1.y + 2); await sleep(700); } const s2 = await sel();
-          chk(`${key} P1 drag from a dot: the hover pin drawn under the pointer is never hit, the map pans and no place opens (no preview, no #p=); a tap on a dot still selects it`,
-            under.hoverPin && under.pe === 'none' && !under.onPin && Math.abs(s1.c[0] - s0.c[0]) + Math.abs(s1.c[1] - s0.c[1]) > 1e-6 && !s1.car && !s1.p && !!d1 && s2.car, { dot: d0.id, px: Math.round(d0.dd), under, afterDrag: s1, tapped: d1 && d1.id, afterTap: s2 });
+          chk(`${key} P1 drag from a dot: the hover pin drawn under the pointer (.ms-hov) is never hit, the map pans and no place opens (no preview, no #p=); a tap on a dot still selects it`,
+            (!under.hoverPin || under.pe === 'none') && !under.onPin && Math.abs(s1.c[0] - s0.c[0]) + Math.abs(s1.c[1] - s0.c[1]) > 1e-6 && !s1.car && !s1.p && !!d1 && s2.car, { dot: d0.id, px: Math.round(d0.dd), under, afterDrag: s1, tapped: d1 && d1.id, afterTap: s2 });
         }
       }
       if (errors.length) chk(`${key} ${pk} OV-00 pan: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
