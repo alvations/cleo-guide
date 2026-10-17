@@ -106,6 +106,23 @@ Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` 
 - De Vagant: an unconfirmed report says it reopened.
 - These are temporary closures to re-check: Thurman, The Mill, the PA Military Museum and Schiffchen.
 
+## Sources-of-truth job (orchestrator: "Yelp shown as recommender") — 2026-10-17
+
+The gate counted Yelp as 0 all along. The problem was that **build-newyork.py had no source gate**, so it now has GATE 0: no record is shown without a credible recommender (342948eb + 1bdfe26e1).
+
+**NYC.** Yelp-only places on the page went 9 → 0 (4 held in the dataset):
+- re-sourced via `data/newyork-research/_source_overlay.json`;
+- Wah Fung merged;
+- AUDIT.md is new.
+
+**SV.** Wave 3 (416995ee): Yelp-only 67 → 62.
+- **Roy's Station passes on 2 credible sources but has no pin yet**, a location-verify candidate.
+- 18 prune candidates.
+
+**Open for the orchestrator:**
+- (a) the NYC full ≥2 gate, which would drop 311 places;
+- (b) prune or keep holding SV's 62.
+
 ## In flight
 
 - Nothing. The Nominatim allowance for 2026-10-17 is spent (300, Singapore). Next: the 2026-10-18 03:17 UTC wake → Singapore again.
