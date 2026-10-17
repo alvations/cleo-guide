@@ -2424,3 +2424,29 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **lensPage:** QA found its 47/47 had run with the patch parked (595aa6dba). Platform applies the patch and flips the
   flag, then QA re-accepts.
 - Dev ae48d2530 is gated green; eager JS 39.29 / 40.
+- 2026-10-17 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · ja audit and Your lists in ja.
+  - **Audit:** `tools/beta/i18n-audit.js` renders every page type and view in a real browser under a pseudo catalogue. The report is design/beta/i18n/ja-AUDIT.md.
+  - **Gaps found:** Atlas (now the default view), Your lists, mapfail, states and Cleo.countLine are hard-coded English. Everything else is clean apart from data.
+  - **Routing:** the orchestrator assigned all of them to the i18n lane, and the owners are told before each edit.
+  - **Your lists (W8-I18N-LISTS):**
+    - FE-A's saved.js goes through Cleo.t, with 45 new `lst.*` keys under swapSkip and existing keys reused (tiers, card.recby, sheet.save/saved, city.been, day.maps, trip.*).
+    - The frame (render/saved.js) uses `saved.*` server keys.
+    - locale.js now swaps `saved` pages in full, leaving out the client-drawn #cleo-saved.
+    - It redraws on cleo:locale.
+    - The English is byte-identical.
+    - test-i18n gains two pseudo checks, both of which fail on the old file.
+    - Review round 20 made 3 changes.
+  - **Insights:** the singular closed-place note is now in ja (`ins.p.tier.one`).
+
+## 2026-10-17 11:15Z · orchestrator check-in
+
+- Dev 538f02756 is gated green. All lanes are running: the owner told each lane directly to continue.
+- **Designer sign-offs on real shots (landscape-207):**
+  - landscape §2.0.7: FE-1, chrome 12.3 %;
+  - the phone D-46 first impression.
+- **D-46 has one item left:** the desktop rank-1 lead card (FE-A). FE-C's duplicate side card is not wired; its parts are
+  ported into FE-1's column.
+- **lensPage is ON** (afa8b43a); lenspage-accept PASS, verified locally.
+- **Image sources stage #3:** 20 ok / 25 refused. A credit step for ok rows was added to the photo workflow.
+- **Photo runs fail D-40a.** recompress drops the over-cap 720 copies but doesn't record the NO720 exception; imagery is
+  fixing it.

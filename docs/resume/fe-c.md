@@ -45,6 +45,8 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | R8 #5a (sheet primary-link contrast, :root .btn-primary .lbl), #2e (no Cited by + +N more on cards), #2c (masthead dotJoin + nowrap); tests sheet-contrast.js + masthead-lines.js in npm test | 21fdd6a32 / 0486bf714 / 785d8641e | — |
 | OV-12 base note compact (133→98 px phone; base.note retired, en+ja); OV-40 toasts rise above an open sheet's buttons (sheet.js hook sets html.sheet-on); probe base-keys checks both | 8e986a4f8 | — |
 | OV-111 / OV-112 (S-17 High, sheet): one nav bar + close (50/48/56 px); portrait action bar hides on scroll (client/sheetbar.js, lazy, city.js onSheet hook); landscape/desktop actions under the nav, not sticky; desktop dialog full height, .plan static; grab out of flow; probe `sheet-chrome`; qc-overlay sheet sweep 0 chrome flags | 084192a46 | — |
+| R8 D12 card meta part 2: the card line reads "Checked <d Mon>" (`sheet.chk`, batch 7 ja 「{d}に確認」 merged) on li.pl, li.gc, a.ms-pv; nowrap; the detail keeps "Status checked". Part 1 (no "Cited by" on cards) was 0486bf714 | this push | — |
+| SPEC-v3 §2.0.7 side card: side.js built (a4e12f365) then RETIRED by orchestrator + designer ruling (FE-1's side column 8a60cf13e, signed off on landscape-207, stays): side.js, its CSS, render entry and SIDE tests deleted. Ported instead: card lines in FE-1's column — "Checked" flush with the name (16 px padding gone), photo card order name / kind / Recommended by / Checked / credit; probe `land` (844×390 × Tokyo/Cleveland/Chinatown: column ≤ 320, clear map 53.6 %, flush, no label under the column, Esc focus). Esc focus return + label avoid lines sent to FE-1 (theirs, atlas.js); probe `land` Esc check FAILs until FE-1 lands it | this push | — |
 
 ## Next
 
@@ -88,8 +90,9 @@ Orchestrator order (2026-10-16 14:52Z):
 
 ## In flight
 
-Nothing unpushed. Waiting on:
-- nothing (QC-17 closed by FE-1 at 03c9fc58d).
+Waiting on:
+- FE-1 (session_01Cuvo7DWhwbWjLpFicvaF5E): Esc focus return in atlas.js (lines sent). Then rerun probe `land` (npm run beta:probe:fe-c) → all PASS, qc-overlay L, SHA to the orchestrator.
+- QC: re-verify OV-111/112 (1318e1f4c) with the clip-aware shown().
 
 ## Notes
 

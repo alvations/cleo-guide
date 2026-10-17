@@ -9,9 +9,9 @@
 .sheet .fact .pl-rec{margin:0}
 .pl>.pl-rec.closed{display:none}   /* QC-23: a closed place's row shows in its detail only */
 .gc-rec{display:flex;margin-top:var(--s-1)}.gc-rec .rb{min-height:24px;pointer-events:none}.ge-rec{margin:var(--s-1) 0}
-/* FE-C (W9-2) the quiet "Status checked <d Mon>" card line (client/fresh.js): real text, data-nosearch. Ink-3 on paper. */
+/* FE-C (W9-2) the quiet "Checked <d Mon>" card line (R8 D12) (client/fresh.js): real text, data-nosearch. Ink-3 on paper. */
 .pl .pl-chk{order:97;grid-column:1/-1}
-.pl-chk{display:block;margin:var(--s-1) 0 0;font-size:var(--fs-xs);line-height:1.4;color:var(--ink-3)}
+.pl-chk{display:block;margin:var(--s-1) 0 0;font-size:var(--fs-xs);line-height:1.4;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .feedline a{font-weight:600}
 .lf-gap{margin:0;font-size:var(--fs-sm);color:var(--ink-2);max-width:62ch}.lf-gap .lbl{display:block;font-weight:600;color:var(--ink);margin-bottom:var(--s-1)}.lf-rule{max-width:62ch;color:var(--ink-2)}
 /* FE-C (QC-05) the stated empty state (client/empty.js), in the lens slot; Atlas states it in its list head (FE-1) */
@@ -80,3 +80,11 @@ html body #cleo-sheet .sheet .actions .btn{min-height:44px}
 /* the decorative grab handle no longer takes a row above the nav: the sheet's top edge is its opaque nav bar */
 html body #cleo-sheet .sheet.detail>.grab{position:absolute;top:4px;left:50%;transform:translateX(-50%);margin:0;z-index:7;pointer-events:none}
 @media (min-width:1024px){html body #cleo-sheet .sheet.detail>.grab{display:none}}
+/* the Atlas phone card (portrait carousel, landscape side column, FE-1): its meta lines sit flush with the name, so
+   "Checked <d Mon>" and "Approximate pin" lose the 16 px inline padding they carry elsewhere (orchestrator, landscape-207) */
+html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-chk,.pl-approx){padding-inline:0;margin-inline:0}
+html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-chk,.pl-approx){grid-column:2}
+html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:not(:has(>figure.pl-photo))>:is(.pl-chk,.pl-approx){grid-column:1}
+/* card meta order on the photo card is name / area · kind / Recommended by / Checked, then the photo credit (designer R8 D12) */
+html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:has(>figure.pl-photo)>.pl-chk{grid-row:4}
+html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:has(>.pl-chk)>figure.pl-photo figcaption{grid-row:5}
