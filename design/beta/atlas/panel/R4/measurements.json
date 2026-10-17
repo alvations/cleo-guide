@@ -130,9 +130,9 @@
     "overflowX": 0,
     "scrollY": 0,
     "firstLoadKB": {
-     "raw": 1835,
-     "gzipText": 670,
-     "requests": 30
+     "raw": 1846,
+     "gzipText": 682,
+     "requests": 31
     },
     "total": 488,
     "view": {
@@ -3345,9 +3345,9 @@
     "overflowX": 0,
     "scrollY": 0,
     "firstLoadKB": {
-     "raw": 1926,
-     "gzipText": 1158,
-     "requests": 30
+     "raw": 1712,
+     "gzipText": 944,
+     "requests": 28
     },
     "total": 194,
     "view": {
@@ -3480,7 +3480,7 @@
       "h": 792
      },
      "mapSharePct": 94,
-     "mapClearPct": 55,
+     "mapClearPct": 63,
      "chromeAbovePx": 152,
      "overlayOnMapPct": 31,
      "zoom": 15,
@@ -3806,9 +3806,9 @@
     "overflowX": 0,
     "scrollY": 0,
     "firstLoadKB": {
-     "raw": 1712,
-     "gzipText": 944,
-     "requests": 28
+     "raw": 2028,
+     "gzipText": 1260,
+     "requests": 31
     },
     "total": 194,
     "view": {
@@ -3941,7 +3941,7 @@
       "h": 792
      },
      "mapSharePct": 94,
-     "mapClearPct": 55,
+     "mapClearPct": 63,
      "chromeAbovePx": 152,
      "overlayOnMapPct": 31,
      "zoom": 15,
@@ -5636,9 +5636,9 @@
     "overflowX": 0,
     "scrollY": 0,
     "firstLoadKB": {
-     "raw": 1441,
-     "gzipText": 882,
-     "requests": 27
+     "raw": 1232,
+     "gzipText": 672,
+     "requests": 25
     },
     "total": 16,
     "view": {
@@ -7898,9 +7898,9 @@
     "overflowX": 0,
     "scrollY": 0,
     "firstLoadKB": {
-     "raw": 2055,
-     "gzipText": 944,
-     "requests": 27
+     "raw": 2349,
+     "gzipText": 1238,
+     "requests": 30
     },
     "total": 503,
     "view": {
@@ -9713,22 +9713,23 @@
    "errors": []
   },
   "T1-m": {
-   "steps": 6,
+   "steps": 7,
    "log": [
     "open Atlas: names readable on first screen = 0 (); must-see pins on map show only \"Edo-Tokyo Museum\", \"Imperial Palace…\", \"Tsukiji Hongan-…\", \"Tokyo National…\", \"Udatsu Sushi\"",
     "tap \"Top picks\" (no \"Must see\" bar control on this head)",
     "open the list (1 names readable)",
     "scroll the list to read three names",
     "find one for tonight: opening hours on cards = true; evening words in card text = 38",
-    "swipe to the next card"
+    "tap heart 1",
+    "tap heart 2"
    ],
    "mustSeeChip": {
     "count": "Top 12 picks · Top ranked",
     "names": []
    },
    "readableNamesAfterChip": 0,
-   "saved": 0,
-   "savedIndicator": "0",
+   "saved": 2,
+   "savedIndicator": "2",
    "errors": []
   },
   "T1-d": {
@@ -9796,13 +9797,25 @@
    ],
    "areaFound": false,
    "afterArea": {
-    "count": "73 places here · Top ranked",
+    "count": "73 places here · Top ranked · checked 10 Aug",
     "view": 13,
-    "top": []
+    "top": [
+     "Chess Collection — Cleveland Public  [s]",
+     "The Arcade (Old Arcade) [s]",
+     "Terminal Tower Observation Deck [s]",
+     "Soldiers' & Sailors' Monument [s]",
+     "Free Stamp [s]"
+    ]
    },
    "afterFood": {
-    "count": "21 places here, of all 194 · Top ranked",
-    "top": []
+    "count": "21 places here, of all 194 · Top ranked · checked 10 Aug",
+    "top": [
+     "Slyman's Restaurant and Deli",
+     "Cordelia",
+     "Mabel's BBQ",
+     "Superior Phở",
+     "Li Wah — Cantonese dim sum carts"
+    ]
    },
    "dayRouteEntryOnPage": true,
    "errors": []
@@ -9847,13 +9860,25 @@
    ],
    "areaFound": false,
    "afterArea": {
-    "count": "351 places here · Top ranked",
+    "count": "351 places here · Top ranked · checked 2 Oct",
     "view": 12,
-    "top": []
+    "top": [
+     "Imperial Palace East Gardens (皇居東御苑) [s]",
+     "Yasukuni Shrine (靖國神社) [s]",
+     "Kanda Myōjin (神田明神) [s]",
+     "Tokyo Station Marunouchi Building (東 [s]",
+     "Akihabara Electric Town (秋葉原電気街) [s]"
+    ]
    },
    "afterFood": {
-    "count": "187 places here, of all 488 · Top ranked",
-    "top": []
+    "count": "187 places here, of all 488 · Top ranked · checked 2 Oct",
+    "top": [
+     "Isegen (いせ源)",
+     "Virtù, Four Seasons Hotel Tokyo at O",
+     "Kanda Yabu Soba (かんだやぶそば)",
+     "Pokémon Café Tokyo, Nihonbashi (ポケモン",
+     "Rengatei (煉瓦亭)"
+    ]
    },
    "dayRouteEntryOnPage": true,
    "errors": []
@@ -9984,8 +10009,21 @@
    "errors": []
   },
   "T5-m": {
-   "share": null,
-   "reopen": null,
+   "share": {
+    "clip": "https://cleo.local/beta/cities/tokyo.html#view=atlas&at=35.71481%2C139.79669%2C15&p=senso-ji",
+    "toast": [
+     "24 places here · Top ranked",
+     "Link copied · opens Sensō-ji on this map view"
+    ],
+    "hash": "#at=35.70805%2C139.79673%2C15&p=senso-ji"
+   },
+   "reopen": {
+    "hash": "#at=35.70805%2C139.79673%2C15&p=senso-ji",
+    "sheet": true,
+    "title": "Sensō-ji (浅草寺)",
+    "atlas": true,
+    "sharedUrl": "https://cleo.local/beta/cities/tokyo.html#view=atlas&at=35.71481%2C139.79669%2C15&p=senso-ji"
+   },
    "reopenView": {
     "url": "beta/cities/tokyo.html#at=35.7148%2C139.7967%2C15",
     "view": {
@@ -10485,6 +10523,10 @@
    "what": "T2: cleveland neighbourhood chosen"
   },
   {
+   "file": "shots/T2-cleveland-390-lunch-list.jpg",
+   "what": "T2: cleveland Eat & drink, the phone list"
+  },
+  {
    "file": "shots/T2-cleveland-390-lunch.jpg",
    "what": "T2: cleveland Eat & drink in that area"
   },
@@ -10499,6 +10541,10 @@
   {
    "file": "shots/T2-tokyo-390-area.jpg",
    "what": "T2: tokyo neighbourhood chosen"
+  },
+  {
+   "file": "shots/T2-tokyo-390-lunch-list.jpg",
+   "what": "T2: tokyo Eat & drink, the phone list"
   },
   {
    "file": "shots/T2-tokyo-390-lunch.jpg",
@@ -10531,6 +10577,10 @@
   {
    "file": "shots/T5-tokyo-1440-reopen-view.jpg",
    "what": "T5: reopening the URL copied while looking at Asakusa"
+  },
+  {
+   "file": "shots/T5-tokyo-390-share.jpg",
+   "what": "T5: share from the detail"
   },
   {
    "file": "shots/T5-tokyo-390-reopen-view.jpg",

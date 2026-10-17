@@ -78,6 +78,10 @@ async function open(browser, vpk, url, o = {}) {
 const shots = [];
 // a real tap; if it can't land within 3 s (animating, covered, off-screen), fall back to a scripted click and say so in the task log
 const tap = async (h, steps, what) => { try { await h.click({ timeout: 3000 }); return true; } catch (e) { await h.evaluate(b => b.click()); steps && steps.push(what + ': a real tap could not land (' + (String(e).match(/intercepts pointer events|not stable|not visible|outside of the viewport/) || ['timeout'])[0] + '); scripted click'); return 'scripted'; } };
+// phone (rev 5): cards live in a list sheet behind .ms-toggle; open it when no card is on screen. Returns true if it opened it
+const listOpen = async (page, steps) => { const vis = await page.evaluate(() => [...document.querySelectorAll('li.pl .pl-n a')].some(a => { const r = a.getBoundingClientRect(); return r.width && r.top > 0 && r.bottom < innerHeight; }));
+  if (vis) return false; const tg = await page.$('.ms-toggle'); if (tg && await tg.isVisible()) { await tap(tg, steps, 'list toggle'); await sleep(900); steps && steps.push('open the list'); return true; } return false; };
+const listClose = async page => { const tg = await page.$('.ms-toggle'); if (tg && await tg.isVisible()) { await tap(tg, null, 'map toggle'); await sleep(700); } };
 const snap = async (page, name, what) => { await page.screenshot({ path: path.join(SH, name + '.jpg'), type: 'jpeg', quality: 74 }); shots.push({ file: 'shots/' + name + '.jpg', what }); };
 
 // ---------- the first-screen measurement, run in the page ----------
@@ -362,16 +366,17 @@ async function pinTarget(page, phone) {
       else if (tg && await tg.isVisible()) { await tap(tg, steps, 'list toggle'); await sleep(900);
         const r2 = await page.evaluate(() => [...document.querySelectorAll('li.pl .pl-n')].filter(e => { const r = e.getBoundingClientRect(); return r.width && r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth && !e.closest('li.pl').hidden; }).length);
         steps.push(`open the list (${r2} names readable)`); if (r2 < 3) steps.push(`scroll the list to read three names`);
-        await snap(page, 'T1-tokyo-390-list', 'T1: Tokyo phone, the list opened after the best-places control'); await tap(tg, null, 'back to the map'); await sleep(700); }
+        await snap(page, 'T1-tokyo-390-list', 'T1: Tokyo phone, the list opened after the best-places control'); }
       else steps.push(`no carousel and no list toggle: ${readable} names readable`); }
     // "tonight": is there any opening-hours / evening signal on cards or in the detail?
     const tonight = await page.evaluate(() => { const t = [...document.querySelectorAll('li.pl')].slice(0, 200).map(e => e.innerText).join(' '); return { hoursOnCards: /\b(open (now|until|late)|hours|closes|\d{1,2}(:\d\d)?\s?(am|pm))\b/i.test(t), eveningWords: (t.match(/\b(night|evening|late|bar|izakaya|illuminat)\w*/gi) || []).length }; });
     steps.push('find one for tonight: opening hours on cards = ' + tonight.hoursOnCards + '; evening words in card text = ' + tonight.eveningWords);
     // save two
     const saveSel = 'li.pl:not([hidden]) button.pl-save';
-    const saves = await page.$$(saveSel); let saved = 0;
-    for (let i = 0; i < 2 && i < saves.length; i++) { if (vk === 'm' && i === 1) { await page.evaluate(() => { const l = document.querySelector('.listpane'); l.scrollBy({ left: l.clientWidth * 0.86 }); }); await sleep(600); steps.push('swipe to the next card'); }
-      const ok = await saves[i].isVisible(); if (ok) { await saves[i].click({ timeout: 3000 }).catch(() => {}); saved++; steps.push('tap heart ' + (i + 1)); await sleep(300); } }
+    const saves = []; for (const h of await page.$$(saveSel)) { if (saves.length >= 2) break; if (await h.evaluate(b => !!b.offsetParent && !b.closest('li.pl').hidden)) saves.push(h); } let saved = 0;   // the first two hearts on shown cards
+    const isCarousel = await page.evaluate(() => { const l = document.querySelector('.listpane'); return !!(l && l.scrollWidth > l.clientWidth + 20 && l.getBoundingClientRect().height > 40); });
+    for (let i = 0; i < 2 && i < saves.length; i++) { if (vk === 'm' && i === 1 && isCarousel) { await page.evaluate(() => { const l = document.querySelector('.listpane'); l.scrollBy({ left: l.clientWidth * 0.86 }); }); await sleep(600); steps.push('swipe to the next card'); }
+      const ok = await saves[i].isVisible(); if (ok) { await saves[i].scrollIntoViewIfNeeded().catch(() => {}); await tap(saves[i], steps, 'heart ' + (i + 1)); saved++; steps.push('tap heart ' + (i + 1)); await sleep(300); } }
     const savedN = await page.evaluate(() => { const b = document.querySelector('[data-cleo-mine-n], .ms-mine'); return b ? b.textContent.trim() : null; });
     await snap(page, `T1-tokyo-${vk === 'd' ? 1440 : 390}-saved`, 'T1: after saving two');
     T[`T1-${vk}`] = { steps: steps.length, log: steps, mustSeeChip: ms, readableNamesAfterChip: readable, saved, savedIndicator: savedN, errors };
@@ -385,10 +390,14 @@ async function pinTarget(page, phone) {
     for (const c of chips) { const t = await c.textContent(); if (area.test(t)) { if (!(await c.isVisible())) steps.push('scroll the area-chip row to find it'); await c.scrollIntoViewIfNeeded().catch(() => {}); await tap(c, steps, 'area chip'); found = true; steps.push('tap area chip "' + t.trim() + '"'); break; } }
     if (!found) { const ab = await page.$('.ms-bar .area-btn'); if (ab && await ab.isVisible()) { await tap(ab, steps, 'Area'); await sleep(600); steps.push('open "Area"'); const pill = (await page.$$('#cleo-tray .pill[data-f="a"]')); for (const p of pill) { if (area.test(await p.textContent())) { await tap(p, steps, 'area pill'); steps.push('pick "' + (await p.textContent()).trim() + '"'); const go = await page.$('#cleo-tray [data-tr="go"]'); if (go) await tap(go, steps, 'Show N places'); steps.push('tap "Show N places"'); found = true; break; } } } }
     await sleep(1100);
+    const o1 = vk === 'm' && await listOpen(page, null);
     const a1 = await page.evaluate(() => ({ count: (document.querySelector('.ms-count') || {}).textContent, view: (() => { const m = Cleo.city.map(); return m ? m.getZoom() : null; })(), top: [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden).slice(0, 5).map(e => e.querySelector('.pl-n').textContent.trim().slice(0, 36) + ' [' + e.getAttribute('data-k') + ']') }));
+    if (o1) await listClose(page);
     await snap(page, `T2-${key}-${vk === 'd' ? 1440 : 390}-area`, `T2: ${key} neighbourhood chosen`);
     const food = await page.$('.ms-bar button[data-mode="food"]'); if (food) { try { await food.click({ timeout: 3000 }); steps.push('tap "Eat & drink"'); } catch (e) { await food.evaluate(b => b.click()); steps.push('tap "Eat & drink": BLOCKED by an overlay; scripted click'); } await sleep(900); }
+    const o2 = vk === 'm' && await listOpen(page, null); if (o2) await snap(page, `T2-${key}-390-lunch-list`, `T2: ${key} Eat & drink, the phone list`);
     const a2 = await page.evaluate(() => ({ count: (document.querySelector('.ms-count') || {}).textContent, top: [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden).slice(0, 5).map(e => e.querySelector('.pl-n').textContent.trim().slice(0, 36)) }));
+    if (o2) await listClose(page);
     await snap(page, `T2-${key}-${vk === 'd' ? 1440 : 390}-lunch`, `T2: ${key} Eat & drink in that area`);
     const dayRoute = await page.evaluate(() => !!document.querySelector('[data-cleo-day]'));
     T[`T2-${key}-${vk}`] = { steps: steps.length + 1, log: steps, areaFound: found, afterArea: a1, afterFood: a2, dayRouteEntryOnPage: dayRoute, errors };
@@ -443,6 +452,7 @@ async function pinTarget(page, phone) {
     await ctx.grantPermissions(['clipboard-read', 'clipboard-write']).catch(() => {});
     await page.evaluate(() => { const m = Cleo.city.map(); m.setView([35.7148, 139.7967], 15, { animate: false }); }); await sleep(900);   // Asakusa
     const viewHash = await page.evaluate(() => location.href.replace(/^https:\/\/cleo\.local\//, ''));
+    if (vk === 'm') await listOpen(page, null);
     const link = await page.evaluateHandle(() => [...document.querySelectorAll('li.pl .pl-n a')].find(a => { const r = a.getBoundingClientRect(); return r.width && r.top > 0 && r.bottom < innerHeight && r.left >= 0 && r.right <= innerWidth; }));
     let share = null;
     if (link.asElement()) { await link.asElement().click(); await sleep(900);
