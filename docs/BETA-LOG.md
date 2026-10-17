@@ -2619,3 +2619,6 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - 12d279bcf moves the keep step after the commit step.
     - #114 (pre-guard) is expected to fail the same way; #117 has the guard.
   - **Eager JS 39.93/40:** the plan is set (countLine deletion, FE-C lazy second frame, lazy sheet.js after r8).
+- **QC S-17 High, 768 Atlas (日本語 under the switch):** confirmed on Harrisburg. The fixed header switch at T1 Atlas, and in landscape, now reserves its width in the header row (4 × 44 + 4). The crumb truncates from 768. The w8 header assertion now also checks that every control is the top element at its centre, and covers 768 with Akron and Harrisburg added.
+- **Designer ruling (3d81c486c), compact row:** the 2-line why is back. "Recommended by X +N · Checked 2 Oct" now sits on one line, with Checked in ink-3 and "+N" short. Rows measure 116–117 px (≤ 128).
+- **QA-83:** the lead photo's img carries 3:2 itself; the figure is auto-height with its credit below. claims-r8i shows ratio 1.5, 15/15.
