@@ -328,3 +328,26 @@ html.ov-c .tabbar:focus-within{transform:none}
 /* R8 gap #5b (B-20): the What changed "Status source" link is a stand-alone control after the sentence, not prose — a
    44 px tap area (min-height --tap), the text unchanged */
 .chg a.chg-src{display:inline-flex;align-items:center;min-height:var(--tap);min-width:var(--tap)}
+
+/* D-49 / DESIGN-SYSTEM §v2.7b (FE-B hubs): a photo is the only thing that takes a photo's space. The hub's "Known for"
+   theme cards and the other-country cards never carry a photo, so their designed cover shrinks to a 64 px tile beside
+   the text (the §v2.7b A shape, FE-A's li.pl--np) at every width — the same nodes, the same order, no quote mark (these
+   are our own words, not a source's). The theme tile holds its count; the country tile drops the word that repeated the
+   card's own title. */
+.feb .theme-main { grid-template-columns: 64px minmax(0, 1fr); grid-template-areas: "m t" "m w"; column-gap: var(--s-3); row-gap: var(--s-1); align-items: start; }
+.feb .theme-main .cover { width: 64px; height: 64px; aspect-ratio: auto; border-radius: var(--r-m); }
+.feb .theme-main .cover .motif { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .45; }
+.feb .theme-n { position: relative; z-index: 1; align-self: start; justify-self: start; display: flex; align-items: center; justify-content: center; margin: 0; width: 64px; height: 64px; text-align: center; font: var(--fw-ui-strong) var(--fs-lead)/1 var(--font-ui); letter-spacing: var(--track-tight); color: var(--ink); }
+.feb .ccard { display: grid; grid-template-columns: 64px minmax(0, 1fr); column-gap: var(--s-3); align-items: center; }
+.feb .ccard .card-media { width: 64px; height: 64px; aspect-ratio: auto; border-radius: var(--r-m); }
+.feb .ccard .cover { padding: 0; }
+.feb .ccard .cover-n { display: none; }
+/* …and a city card with no photo (hub.js adds .np; e.g. Vietnam, which is never photographed): the cover word only
+   repeated the card's title, so it goes; from 640 px the media is a 64 px tile beside the text, not a photo-sized cover */
+.feb .tile.card.np .cover-n { display: none; }
+@media (min-width: 640px) {
+  .feb .tile.card.np { display: grid; grid-template-columns: 64px minmax(0, 1fr); column-gap: var(--s-3); align-items: start; }
+  .feb .tile.card.np .card-media { width: 64px; height: 64px; aspect-ratio: auto; border-radius: var(--r-m); }
+  .feb .tile.card.np .card-media .cover { padding: 0; }
+  .feb .tile.card.np .card-media .native { display: none; }
+}

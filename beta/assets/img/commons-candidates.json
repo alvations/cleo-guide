@@ -22,32 +22,32 @@
   "candidates[].flags": "people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it"
  },
  "summary": {
-  "targets": 1609,
+  "targets": 1621,
   "byType": {
    "hero": 89,
-   "landmark": 1520
+   "landmark": 1532
   },
   "heroes": {
    "targets": 89,
    "withHigh": 53
   },
   "pilotLandmarks": {
-   "targets": 192,
-   "skipped": 56,
-   "withHigh": 115
+   "targets": 193,
+   "skipped": 58,
+   "withHigh": 119
   },
   "otherLandmarks": {
-   "targets": 1328,
-   "skipped": 181,
+   "targets": 1339,
+   "skipped": 200,
    "withArticle": 778
   },
   "candidates": {
-   "total": 1560,
-   "high": 1329,
-   "med": 231,
+   "total": 1660,
+   "high": 1423,
+   "med": 237,
    "low": 0
   },
-  "targetsWithHigh": 735,
+  "targetsWithHigh": 794,
   "gaps": [
    "landmark:tokyo#mandarake-complex-akihabara — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:tokyo#super-potato-akihabara — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
@@ -5856,7 +5856,7 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Nakano_Broadway",
-   "wikiLead": true,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -6275,7 +6275,24 @@
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Golden Gai, Kabukicho, Shinjuku (42385146670).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Golden_Gai,_Kabukicho,_Shinjuku_(42385146670).jpg",
+     "depicts": "Alley of Golden Gai, Shinjuku (2018)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Golden Gai, Shinjuku; 3024x4032; content not described, check it is a lane view and not a single bar"
+    },
+    {
+     "file": "File:Shinjuku Golden Gai (2).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Shinjuku_Golden_Gai_(2).jpg",
+     "depicts": "Golden Gai lanes, Shinjuku (2010)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Shinjuku Golden Gai; 1024x686"
+    }
+   ]
   },
   {
    "key": "landmark:tokyo#shinjuku-gyoen-national-garden",
@@ -6627,7 +6644,24 @@
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Tsukiji_Hongan-ji",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Tsukiji Honganji Main Hall 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tsukiji_Honganji_Main_Hall_01.jpg",
+     "depicts": "Main hall of Tsukiji Hongan-ji, Tokyo",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Tsukiji Honganji Main Hall; 6000x4000; check exterior not interior"
+    },
+    {
+     "file": "File:Tsukiji Honganji 200902.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tsukiji_Honganji_200902.jpg",
+     "depicts": "Tsukiji Hongan-ji temple, Tokyo (2009)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Tsukiji Honganji; 2520x1384"
+    }
+   ]
   },
   {
    "key": "landmark:tokyo#tsukiji-outer-market",
@@ -7920,6 +7954,27 @@
    ]
   },
   {
+   "key": "landmark:newyork#brooklyn-heights-promenade",
+   "type": "landmark",
+   "depicts": "newyork#brooklyn-heights-promenade",
+   "label": "Brooklyn Heights Promenade",
+   "names": [
+    "Brooklyn Heights Promenade"
+   ],
+   "pilot": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Brooklyn-Queens Expressway under Brooklyn Heights Promenade.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brooklyn-Queens_Expressway_under_Brooklyn_Heights_Promenade.jpg",
+     "depicts": "Brooklyn Heights Promenade cantilevered over the BQE",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Brooklyn Heights Promenade; shows the promenade structure (most other files are views FROM it)"
+    }
+   ]
+  },
+  {
    "key": "landmark:newyork#brooklyn-museum",
    "type": "landmark",
    "depicts": "newyork#brooklyn-museum",
@@ -7956,7 +8011,24 @@
     "Bryant Park"
    ],
    "pilot": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bryant Park jeh.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bryant_Park_jeh.JPG",
+     "depicts": "Bryant Park lawn and stage looking northwest",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Bryant Park; caption: lawn and stage on a sunny afternoon, 2008; 3072x2304"
+    },
+    {
+     "file": "File:Bryant Park with NYPL.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bryant_Park_with_NYPL.jpg",
+     "depicts": "Bryant Park lawn with the New York Public Library",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Bryant Park; 3008x2000"
+    }
+   ]
   },
   {
    "key": "landmark:newyork#cathedral-of-st-john-the-divine",
@@ -8667,6 +8739,7 @@
     "Smorgasburg"
    ],
    "pilot": true,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -9145,7 +9218,17 @@
     "Zane Grey Museum"
    ],
    "pilot": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Historic National Road - Outside the Zane Grey Museum - NARA - 7719337.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Historic_National_Road_-_Outside_the_Zane_Grey_Museum_-_NARA_-_7719337.jpg",
+     "depicts": "Historic National Road outside the Zane Grey Museum, Norwich OH",
+     "confidence": "med",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Outside the Zane Grey Museum; title from category listing in summary; NARA photo, check date and that the museum is shown"
+    }
+   ]
   },
   {
    "key": "landmark:wheeling#salt-fork-state-park",
@@ -9619,6 +9702,7 @@
     "Neues Stadtmuseum"
    ],
    "pilot": false,
+   "skip": "no file found (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -10437,7 +10521,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Basilica_of_Our_Lady,_Maastricht",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Maastricht - Onze Lieve Vrouwebasiliek - Onze Lieve Vrouweplein 7 (9-10) P1140856.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Maastricht_-_Onze_Lieve_Vrouwebasiliek_-_Onze_Lieve_Vrouweplein_7_(9-10)_P1140856.JPG",
+     "depicts": "Facade of the Basilica of Our Lady, Maastricht",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Onze Lieve Vrouwebasiliek, Maastricht; 3240x4320; summary: facade (rijksmonument 27454)"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#papiermuseum-duren",
@@ -10882,7 +10976,17 @@
     "Wilder Weg"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kermeter, Nationalpark Eifel 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kermeter,_Nationalpark_Eifel_01.jpg",
+     "depicts": "Kermeter forest ridge, Eifel National Park",
+     "confidence": "med",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Kermeter (ridge of the Wilder Kermeter); title from category listing in summary, numbered series 01-12"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#wurmtal-naturschutzgebiet",
@@ -11065,6 +11169,7 @@
     "Derby Down"
    ],
    "pilot": false,
+   "skip": "no file found (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -11092,7 +11197,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/First_Ladies_National_Historic_Site",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:First Ladies National Historic Site - Saxton House.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:First_Ladies_National_Historic_Site_-_Saxton_House.JPG",
+     "depicts": "Saxton House, exterior, First Ladies NHS",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names First Ladies National Historic Site - Saxton House (2006 photo)"
+    },
+    {
+     "file": "File:Saxton House (Canton, OH).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Saxton_House_(Canton,_OH).JPG",
+     "depicts": "Saxton House exterior, Canton",
+     "confidence": "med",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Saxton House, the site's historic house"
+    }
+   ]
   },
   {
    "key": "landmark:akron#glamorgan-castle",
@@ -11364,6 +11486,7 @@
     "Paul Brown Museum"
    ],
    "pilot": false,
+   "skip": "no file found (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -11786,7 +11909,24 @@
     "Nationaal Gedenkteken Fort van Breendonk"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Breendonk003.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Breendonk003.jpg",
+     "depicts": "Fort Breendonk entrance, exterior",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Breendonk; result describes view of the fort's entrance (2007)"
+    },
+    {
+     "file": "File:Fort van Breendonk.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fort_van_Breendonk.jpg",
+     "depicts": "Fort van Breendonk, overall view",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Fort van Breendonk; 5447x3631 (title from category listing in summary)"
+    }
+   ]
   },
   {
    "key": "landmark:antwerp#onze-lieve-vrouwekathedraal",
@@ -12330,8 +12470,17 @@
     "James Ensorhui"
    ],
    "pilot": false,
-   "skip": "only files naming a nearby building or an address, not the house (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:EnsorMuseum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:EnsorMuseum.jpg",
+     "depicts": "James Ensor House, Vlaanderenstraat 27, Ostend",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Ensor Museum; result is in Category:Ensor House; content not described, check exterior"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#markt-grote-markt",
@@ -12342,7 +12491,24 @@
     "Markt"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Grote Markt, Brugge (10073913175).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Grote_Markt,_Brugge_(10073913175).jpg",
+     "depicts": "Grote Markt square, Bruges",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Grote Markt, Brugge; 7152x4722"
+    },
+    {
+     "file": "File:1012 Grand-Place of Bruges and Belfry of Bruges Photo by Giles Laurent.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:1012_Grand-Place_of_Bruges_and_Belfry_of_Bruges_Photo_by_Giles_Laurent.jpg",
+     "depicts": "Markt square with the Belfry, Bruges",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Grand-Place of Bruges and Belfry"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#minnewater-meer-van-liefde",
@@ -12509,6 +12675,34 @@
      "depicts": "Sint-Janshuismolen windmill, Bruges",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Sint-Janshuismolen (result page title)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:bruges#sint-salvatorskathedraal",
+   "type": "landmark",
+   "depicts": "bruges#sint-salvatorskathedraal",
+   "label": "Sint-Salvatorskathedraal",
+   "names": [
+    "Sint-Salvatorskathedraal"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sint-Salvatorskathedraal - Bruges - IMG 4774.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sint-Salvatorskathedraal_-_Bruges_-_IMG_4774.JPG",
+     "depicts": "St Salvator's Cathedral, Bruges (2010)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Sint-Salvatorskathedraal, Bruges; 2448x3264; content not described, check exterior"
+    },
+    {
+     "file": "File:0 Bruges - Cathédrale Saint-Sauveur (1).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:0_Bruges_-_Cath%C3%A9drale_Saint-Sauveur_(1).JPG",
+     "depicts": "St Salvator's Cathedral, Bruges",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Cathédrale Saint-Sauveur, Bruges; content not described, check exterior"
     }
    ]
   },
@@ -12766,7 +12960,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cathedral_of_St._Michael_and_St._Gudula",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Cathedral of St. Michael and St. Gudula -Brussels.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cathedral_of_St._Michael_and_St._Gudula_-Brussels.jpg",
+     "depicts": "Cathedral of St Michael and St Gudula, Brussels",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Cathedral of St. Michael and St. Gudula; content not described, check exterior"
+    },
+    {
+     "file": "File:BRUXELLES Cathédrale Saint Michel et Gudule (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:BRUXELLES_Cath%C3%A9drale_Saint_Michel_et_Gudule_(1).jpg",
+     "depicts": "Cathedral of St Michael and St Gudula, Brussels (2007)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Cathédrale Saint Michel et Gudule; 1536x2048"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#centre-belge-de-la-bande-dessinee",
@@ -13091,7 +13302,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Musical_Instruments_Museum,_Brussels",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Brussels Music instruments museum Old England building 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brussels_Music_instruments_museum_Old_England_building_01.jpg",
+     "depicts": "Old England building housing the MIM, Brussels",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Music instruments museum Old England building"
+    },
+    {
+     "file": "File:Old England facade, Brussels (DSCF7544).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Old_England_facade,_Brussels_(DSCF7544).jpg",
+     "depicts": "Art Nouveau facade of the Old England building (MIM)",
+     "confidence": "med",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Old England facade, the MIM's building"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#musee-horta",
@@ -13133,7 +13361,24 @@
     "Musée Magritte Museum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Musée Magritte1.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Magritte1.JPG",
+     "depicts": "Magritte Museum building on Place Royale, Godfrey statue in foreground",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Musée Magritte; summary: photo from Place Royale"
+    },
+    {
+     "file": "File:Musée Magritte Museum 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Magritte_Museum_01.jpg",
+     "depicts": "Magritte Museum, Brussels (2018)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Musée Magritte Museum; content not described, check by eye"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#musees-royaux-des-beaux-arts-de-belgique",
@@ -13727,7 +13972,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Field Museum of Natural History.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Field_Museum_of_Natural_History.jpg",
+     "depicts": "Field Museum exterior, Chicago",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Field Museum; 3675x2450"
+    },
+    {
+     "file": "File:Field Museum N.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Field_Museum_N.jpg",
+     "depicts": "Field Museum exterior looking north with skyline",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Field Museum; 4000x2250"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#frank-lloyd-wright-historic-district-oak-park",
@@ -13794,7 +14056,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Garfield_Park_Conservatory",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Garfield Park Conservatory Structure.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Garfield_Park_Conservatory_Structure.jpg",
+     "depicts": "Garfield Park Conservatory glasshouse exterior",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Garfield Park Conservatory; 2007 Flickr photo, summary says best exterior candidate"
+    },
+    {
+     "file": "File:Garfield Park Conservatory and Sunken Gardens (2).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Garfield_Park_Conservatory_and_Sunken_Gardens_(2).jpg",
+     "depicts": "Garfield Park Conservatory with the outdoor sunken gardens",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Garfield Park Conservatory and Sunken Gardens"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#green-mill-cocktail-lounge",
@@ -14942,7 +15221,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Wrigley_Field",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Wrigley Field, Chicago, Illinois (43392049691).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Wrigley_Field,_Chicago,_Illinois_(43392049691).jpg",
+     "depicts": "Wrigley Field ballpark, Chicago (2018)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Wrigley Field; 4000x3000 Ken Lund"
+    },
+    {
+     "file": "File:Wrigley Field.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Wrigley_Field.jpg",
+     "depicts": "Wrigley Field, Chicago",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Wrigley Field; content not described, check by eye"
+    }
+   ]
   },
   {
    "key": "landmark:cincinnati#21c-museum-hotel-cincinnati",
@@ -15067,7 +15363,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cincinnati_Music_Hall",
-   "wikiLead": true,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -15200,7 +15496,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Findlay_Market",
-   "wikiLead": true,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -15231,7 +15527,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Great_American_Ball_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Great American Ballpark 2007.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Great_American_Ballpark_2007.jpg",
+     "depicts": "Great American Ball Park exterior panorama (2007)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Great American Ballpark; 4517x1213, Dec 2007 exterior"
+    }
+   ]
   },
   {
    "key": "landmark:cincinnati#john-a-roebling-suspension-bridge",
@@ -15512,7 +15818,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Columbus_Zoo_and_Aquarium",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Columbus Zoo and Aquarium, Powell, Ohio (7235254692).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Columbus_Zoo_and_Aquarium,_Powell,_Ohio_(7235254692).jpg",
+     "depicts": "Columbus Zoo and Aquarium grounds, Powell",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Columbus Zoo and Aquarium; 4000x3000; content not described, check no animal-only subject"
+    }
+   ]
   },
   {
    "key": "landmark:columbus#cosi",
@@ -15613,7 +15929,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/North_Market",
-   "wikiLead": true,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -15679,7 +15995,17 @@
     "Short North Arts District"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Columbus-ohio-short-north-arches.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Columbus-ohio-short-north-arches.jpg",
+     "depicts": "Lighted arches over High Street in the Short North",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Short North arches; 2500x1667 (2005, Tysto); NOTE result page title showed \"Columbus Ohio Short North Arches.jpg\" but the file URL is Columbus-ohio-short-north-arches.jpg, used the URL form (likely a redirect), check"
+    }
+   ]
   },
   {
    "key": "landmark:columbus#the-book-loft-of-german-village",
@@ -15717,6 +16043,7 @@
     "2nd Street Market"
    ],
    "pilot": false,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -16010,7 +16337,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Oregon_Historic_District",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Fifth and Jackson in Oregon, Dayton.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fifth_and_Jackson_in_Oregon,_Dayton.jpg",
+     "depicts": "Historic buildings at Fifth & Jackson, Oregon District",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Oregon (district), Dayton; summary: SE corner of Fifth and Jackson within the district"
+    }
+   ]
   },
   {
    "key": "landmark:dayton#possum-creek-metropark",
@@ -16306,6 +16643,7 @@
     "Meadville Market House"
    ],
    "pilot": false,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -16383,7 +16721,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Tom_Ridge_Environmental_Center",
-   "wikiLead": true,
+   "skip": "no file found (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -16410,6 +16748,7 @@
     "Wendell August Forge"
    ],
    "pilot": false,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -16497,6 +16836,29 @@
      "depicts": "De Krook library seen from Miriam Makebaplein",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Bibliotheek De Krook"
+    }
+   ]
+  },
+  {
+   "key": "landmark:ghent#design-museum-gent",
+   "type": "landmark",
+   "depicts": "ghent#design-museum-gent",
+   "label": "Design Museum Gent",
+   "names": [
+    "Design Museum Gent"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Design_Museum_Gent",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gent eb WIKI045 designmuseum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_eb_WIKI045_designmuseum.jpg",
+     "depicts": "Design Museum Gent, Ghent",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names designmuseum (Gent); 5616x3744; title from category listing in summary; content not described, check exterior"
     }
    ]
   },
@@ -16633,6 +16995,37 @@
    "article": "https://nl.wikipedia.org/wiki/Kasteel_Ooidonk",
    "wikiLead": true,
    "candidates": []
+  },
+  {
+   "key": "landmark:ghent#klein-begijnhof-onze-lieve-vrouw-ter-hoyen",
+   "type": "landmark",
+   "depicts": "ghent#klein-begijnhof-onze-lieve-vrouw-ter-hoyen",
+   "label": "Klein Begijnhof Onze-Lieve-Vrouw ter Hoyen",
+   "names": [
+    "Klein Begijnhof Onze-Lieve-Vrouw ter Hoyen",
+    "Klein Begijnhof Gent"
+   ],
+   "pilot": false,
+   "article": "https://nl.wikipedia.org/wiki/Klein_Begijnhof_Gent",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Zicht op Begijnhofkerk tussen Sint-Godelievekapel en Convent Huyshove, Klein Begijnhof, Gent.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Zicht_op_Begijnhofkerk_tussen_Sint-Godelievekapel_en_Convent_Huyshove,_Klein_Begijnhof,_Gent.jpg",
+     "depicts": "Beguinage church seen between chapel and convent, Klein Begijnhof",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Klein Begijnhof, Gent; 2013"
+    },
+    {
+     "file": "File:Klein Begijnhof Gent 015.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Klein_Begijnhof_Gent_015.jpg",
+     "depicts": "Beguine houses St Hyronimus and St Gregorius, Klein Begijnhof",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Klein Begijnhof Gent; 2018"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#msk-gent-museum-voor-schone-kunsten",
@@ -16920,7 +17313,24 @@
    "pilot": false,
    "article": "https://nl.wikipedia.org/wiki/Vrijdagmarkt_(Gent)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gent - vrijdagmarkt.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_-_vrijdagmarkt.jpg",
+     "depicts": "Panorama of Vrijdagmarkt square, Ghent",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Vrijdagmarkt, Gent; 7640x1347 panorama (2004)"
+    },
+    {
+     "file": "File:Gent Vrijdagmarkt-PM 03890.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_Vrijdagmarkt-PM_03890.jpg",
+     "depicts": "Vrijdagmarkt, Ghent",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Gent Vrijdagmarkt; content not described, check by eye"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#werregarenstraat-graffitistraatje",
@@ -18160,7 +18570,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Mount_Hakodate",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mount Hakodate.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mount_Hakodate.jpg",
+     "depicts": "Mount Hakodate seen from the city",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Mount Hakodate; 1024x768 (2005, public domain)"
+    },
+    {
+     "file": "File:Mt. Hakodate view from Omori Beach 20080114-001.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mt._Hakodate_view_from_Omori_Beach_20080114-001.jpg",
+     "depicts": "Mount Hakodate panorama seen from Omori Beach",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Mt. Hakodate; summary: panoramic view of the mountain from Omori Beach"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#mount-moiwa",
@@ -18502,7 +18929,24 @@
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E5%8C%97%E9%98%B2%E6%B3%A2%E5%A0%A4%E3%83%89%E3%83%BC%E3%83%A0",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:防波堤ドーム-01.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E9%98%B2%E6%B3%A2%E5%A0%A4%E3%83%89%E3%83%BC%E3%83%A0-01.JPG",
+     "depicts": "Whole view of the Wakkanai North Breakwater Dome",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names 防波堤ドーム (breakwater dome); caption: Breakwater dome at Wakkanai, 全景 (overall view), 2008"
+    },
+    {
+     "file": "File:WAKKANAI-KITA-BOUHATEI.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:WAKKANAI-KITA-BOUHATEI.JPG",
+     "depicts": "Wakkanai North Breakwater (dome)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Wakkanai Kita Bouhatei (North Breakwater); content not described, check by eye"
+    }
+   ]
   },
   {
    "key": "landmark:indianapolis#arsenal-technical-high-school-u-s-arsenal",
@@ -18706,7 +19150,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Eiteljorg_Museum_of_American_Indians_and_Western_Art",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Indianapolis, eiteljorg museum, esterno 00 - cropped.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Indianapolis,_eiteljorg_museum,_esterno_00_-_cropped.jpg",
+     "depicts": "Eiteljorg Museum exterior, Indianapolis (2016)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names eiteljorg museum, esterno (exterior); 2810x1501"
+    },
+    {
+     "file": "File:Indianapolis, eiteljorg museum, esterno 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Indianapolis,_eiteljorg_museum,_esterno_01.jpg",
+     "depicts": "Eiteljorg Museum exterior, Indianapolis",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names eiteljorg museum, esterno (exterior); 3456x1944; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:indianapolis#fountain-square-theatre-building",
@@ -18836,7 +19297,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Indiana_World_War_Memorial_Plaza",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Central Indiana War Memorial Plaza with Indiana World War I memorial building in background.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Central_Indiana_War_Memorial_Plaza_with_Indiana_World_War_I_memorial_building_in_background.jpg",
+     "depicts": "Memorial Plaza with obelisk and War Memorial building",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names the plaza; 3472x2604"
+    },
+    {
+     "file": "File:Edificio del Indiana World War Memorial Plaza, Indianápolis, Estados Unidos, 2012-10-22, DD 02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Edificio_del_Indiana_World_War_Memorial_Plaza,_Indian%C3%A1polis,_Estados_Unidos,_2012-10-22,_DD_02.jpg",
+     "depicts": "Indiana World War Memorial building on the plaza",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Indiana World War Memorial Plaza building"
+    }
+   ]
   },
   {
    "key": "landmark:indianapolis#indianapolis-cultural-trail",
@@ -19206,7 +19684,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/White_River_State_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Celebration Plaza Amphitheater and Canal Headwaters White River State Park Indianapolis.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Celebration_Plaza_Amphitheater_and_Canal_Headwaters_White_River_State_Park_Indianapolis.jpg",
+     "depicts": "Celebration Plaza amphitheater and canal headwaters, White River State Park",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names White River State Park; 4032x3024 (2020)"
+    }
+   ]
   },
   {
    "key": "landmark:indianapolis#woodruff-place",
@@ -19625,7 +20113,24 @@
     "Higashiyama District"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sanneizaka-kyoto.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sanneizaka-kyoto.JPG",
+     "depicts": "Sannenzaka slope street, Higashiyama",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Sanneizaka (Sannenzaka), Kyoto; 4000x2664 (2013)"
+    },
+    {
+     "file": "File:Ninenzaka-kyoto.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ninenzaka-kyoto.JPG",
+     "depicts": "Ninenzaka slope street, Higashiyama",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Ninenzaka, Kyoto; 4000x2664 (2013)"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#horyu-ji",
@@ -20208,7 +20713,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Nishiki_Market",
-   "wikiLead": true,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -20260,7 +20765,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ponto-ch%C5%8D",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Pontocho Alley, Kyoto (53589184823).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pontocho_Alley,_Kyoto_(53589184823).jpg",
+     "depicts": "Pontocho alley, Kyoto (2022)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Pontocho Alley; 6529x6328"
+    },
+    {
+     "file": "File:Pontocho Alley, Kyoto - Flickr - Sergiy Galyonkin.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pontocho_Alley,_Kyoto_-_Flickr_-_Sergiy_Galyonkin.jpg",
+     "depicts": "Pontocho alley, Kyoto",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Pontocho Alley; check not night"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#ryoan-ji",
@@ -20808,7 +21330,24 @@
     "Collégiale Saint-Barthélemy"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Liège St-Barthélemy JPG00.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Li%C3%A8ge_St-Barth%C3%A9lemy_JPG00.jpg",
+     "depicts": "Collegiate Church of St Bartholomew, Liège, exterior",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Liège St-Barthélemy; 2496x1664, Jean-Pol Grandmont 2006"
+    },
+    {
+     "file": "File:Eglise-liege-stbarthelemy-janvier2006.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Eglise-liege-stbarthelemy-janvier2006.jpg",
+     "depicts": "Church of St Bartholomew, Liège (Jan 2006)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names église St-Barthélemy, Liège"
+    }
+   ]
   },
   {
    "key": "landmark:liege#coteaux-de-la-citadelle",
@@ -21144,7 +21683,24 @@
     "Palais des Princes-Évêque"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Liege Palais Princes-Eveques R01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Liege_Palais_Princes-Eveques_R01.jpg",
+     "depicts": "Palace of the Prince-Bishops facade on Place Saint-Lambert",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Palais Princes-Eveques, Liège; 5143x3267"
+    },
+    {
+     "file": "File:Liège - Palais des Princes Evêques (49346117542).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Li%C3%A8ge_-_Palais_des_Princes_Ev%C3%AAques_(49346117542).jpg",
+     "depicts": "Palace of the Prince-Bishops, Liège",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Palais des Princes Evêques; 5184x3456"
+    }
+   ]
   },
   {
    "key": "landmark:liege#place-du-marche-and-le-perron",
@@ -21157,7 +21713,24 @@
     "le Perron"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Liège - Le Perron (49345906116).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Li%C3%A8ge_-_Le_Perron_(49345906116).jpg",
+     "depicts": "Le Perron fountain-monument on Place du Marché, Liège",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Liège - Le Perron; 2019 Fred Romero"
+    },
+    {
+     "file": "File:Place du Perron, Liège.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Place_du_Perron,_Li%C3%A8ge.JPG",
+     "depicts": "Le Perron on the Place du Marché, Liège",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Place du Perron, Liège; Wiki Loves Monuments 2012"
+    }
+   ]
   },
   {
    "key": "landmark:liege#pouhon-pierre-le-grand",
@@ -21356,6 +21929,36 @@
    "article": "https://en.wikipedia.org/wiki/Bascom_Hill",
    "wikiLead": true,
    "candidates": []
+  },
+  {
+   "key": "landmark:madison#blue-mound-state-park",
+   "type": "landmark",
+   "depicts": "madison#blue-mound-state-park",
+   "label": "Blue Mound State Park",
+   "names": [
+    "Blue Mound State Park"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Blue_Mound_State_Park",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:BlueMoundStateParkEastTower.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:BlueMoundStateParkEastTower.JPG",
+     "depicts": "East observation tower, Blue Mound State Park",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Blue Mound State Park East Tower; 1920x2560"
+    },
+    {
+     "file": "File:Wisconsin's Blue Mound State Park (2008).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Wisconsin's_Blue_Mound_State_Park_(2008).jpg",
+     "depicts": "Blue Mound State Park landscape (2008)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Blue Mound State Park; 1944x2592; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:madison#cave-of-the-mounds",
@@ -21934,7 +22537,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Bayfront_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bayfront Park, Miami, FL - IMG 8001.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bayfront_Park,_Miami,_FL_-_IMG_8001.JPG",
+     "depicts": "Bayfront Park, Miami",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Bayfront Park; content not described, check by eye"
+    }
+   ]
   },
   {
    "key": "landmark:miami#big-cypress-oasis-visitor-center",
@@ -22323,7 +22936,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hollywood_Beach,_Florida",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hollywood Beach Boardwalk (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hollywood_Beach_Boardwalk_(1).jpg",
+     "depicts": "Hollywood Beach Broadwalk, Florida (2019)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Hollywood Beach Boardwalk; 6000x4000"
+    },
+    {
+     "file": "File:Hollywood Beach Florida banner.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hollywood_Beach_Florida_banner.JPG",
+     "depicts": "Panorama of the Hollywood Beach broadwalk (2008)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Hollywood Beach; summary: panoramic shot of the boardwalk; banner crop, check proportions"
+    }
+   ]
   },
   {
    "key": "landmark:miami#holocaust-memorial-miami-beach",
@@ -23599,6 +24229,7 @@
     "美浜アメリカンビレッジ"
    ],
    "pilot": false,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -24221,7 +24852,17 @@
     "やちむんの里"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Yomitan Yachimun no Sato.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Yomitan_Yachimun_no_Sato.jpg",
+     "depicts": "Yomitan pottery village",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Yomitan Yachimun no Sato; only 450x338, small"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#yonaha-maehama-beach",
@@ -24803,7 +25444,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hogwarts_Express_(Universal_Orlando_Resort)",
-   "wikiLead": true,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -25026,7 +25667,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Lake_Eola_Park",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Lake Eola Park in Orlando 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lake_Eola_Park_in_Orlando_01.jpg",
+     "depicts": "Lake Eola Park, Orlando",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Lake Eola Park; 2786x2072 (2016)"
+    },
+    {
+     "file": "File:Lake eola in Orlando Florida with fountain.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lake_eola_in_Orlando_Florida_with_fountain.jpg",
+     "depicts": "Lake Eola with its fountain",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Lake Eola with fountain; 1440x1080"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#main-street-u-s-a-magic-kingdom",
@@ -25236,7 +25894,17 @@
     "Park Avenue"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Winter Park FL Downtown HD01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Winter_Park_FL_Downtown_HD01.jpg",
+     "depicts": "Downtown Winter Park Historic District (Park Avenue area)",
+     "confidence": "med",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Winter Park Downtown historic district, which is centred on Park Avenue; does not name Park Avenue, check by eye"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#peter-pans-flight-magic-kingdom",
@@ -25844,7 +26512,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/D%C5%8Dtonbori",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Dotonbori, Osaka.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dotonbori,_Osaka.jpg",
+     "depicts": "Boardwalk along the Dotonbori canal",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Dotonbori; summary: boardwalk along the canal"
+    }
+   ]
   },
   {
    "key": "landmark:osaka#ebisubashi-and-the-glico-running-man-sign",
@@ -25957,7 +26635,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/H%C5%8Dzen-ji_(Osaka)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hozenji Yokocho 2023-11.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hozenji_Yokocho_2023-11.jpg",
+     "depicts": "Hozenji Yokocho stone-paved alley with lanterns",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Hozenji Yokocho; 2160x3840; title from category listing in summary; check not night/lantern close-up"
+    }
+   ]
   },
   {
    "key": "landmark:osaka#ikuno-korea-town-miyuki-dori",
@@ -26184,7 +26872,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Tsutenkaku Tower @ Shinsekai @ Osaka (13382310955).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tsutenkaku_Tower_@_Shinsekai_@_Osaka_(13382310955).jpg",
+     "depicts": "Tsutenkaku Tower above Shinsekai, Osaka (2014)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Tsutenkaku Tower and Shinsekai; 3968x2976"
+    },
+    {
+     "file": "File:Tsūtenkaku & Shinsekai.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ts%C5%ABtenkaku_&_Shinsekai.JPG",
+     "depicts": "Tsutenkaku and the Shinsekai district (2011)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Tsūtenkaku & Shinsekai; 3648x2736"
+    }
+   ]
   },
   {
    "key": "landmark:osaka#shitenno-ji",
@@ -27167,7 +27872,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Philadelphia_Museum_of_Art",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Philadelphia Museum of Art 2005.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Philadelphia_Museum_of_Art_2005.jpg",
+     "depicts": "Philadelphia Museum of Art east entrance facade",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Philadelphia Museum of Art; caption: east entrance; 2052x1466"
+    },
+    {
+     "file": "File:Philadelphia Museum of Art Pennsylvania USA.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Philadelphia_Museum_of_Art_Pennsylvania_USA.jpg",
+     "depicts": "Philadelphia Museum of Art exterior",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Philadelphia Museum of Art; content not described, check by eye"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#philadelphia-zoo",
@@ -27232,7 +27954,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Reading_Terminal_Market",
-   "wikiLead": true,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -27258,7 +27980,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Rocky_Statue",
-   "wikiLead": true,
+   "skip": "modern artwork, no FoP (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -27808,6 +28530,27 @@
    ]
   },
   {
+   "key": "landmark:pittsburgh#national-aviary",
+   "type": "landmark",
+   "depicts": "pittsburgh#national-aviary",
+   "label": "National Aviary",
+   "names": [
+    "National Aviary"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Exterior - National Aviary - DSC05844.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Exterior_-_National_Aviary_-_DSC05844.JPG",
+     "depicts": "National Aviary building exterior, Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Exterior - National Aviary; title from category listing in summary"
+    }
+   ]
+  },
+  {
    "key": "landmark:pittsburgh#pennsylvania-trolley-museum",
    "type": "landmark",
    "depicts": "pittsburgh#pennsylvania-trolley-museum",
@@ -27817,7 +28560,18 @@
    ],
    "pilot": false,
    "skip": "R7 QA-63: every Commons photo shows a trolley (equipment) rather than the place — calm cover (stated)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:PA Trolley Museum 071907 008.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:PA_Trolley_Museum_071907_008.jpg",
+     "depicts": "Pennsylvania Trolley Museum, Washington PA (2007)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names PA Trolley Museum; content not described, check it is not just a trolley car",
+     "refused": "refused for another target: refused by R7 QA-63 (W8): equipment (a trolley) fills the frame (on landmark:wheeling#pennsylvania-trolley-museum)"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#phipps-conservatory-and-botanical-gardens",
@@ -28057,7 +28811,24 @@
     "Altes Rathau"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Altes Rathaus Bonn.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Altes_Rathaus_Bonn.jpg",
+     "depicts": "Old Town Hall on the Markt, Bonn (stitched)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Altes Rathaus Bonn; summary: stitched image, the valued image for the building"
+    },
+    {
+     "file": "File:Bonn, Altes Rathaus, 2012-02 CN-01a.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bonn,_Altes_Rathaus,_2012-02_CN-01a.jpg",
+     "depicts": "Old Town Hall at the market square, Bonn (2012)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Bonn, Altes Rathaus; summary: building at the market square"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#altstadt-and-die-langste-theke-der-welt",
@@ -28324,7 +29095,24 @@
     "Haus der Geschichte"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Haus der Geschichte Bonn, Deutschland.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Haus_der_Geschichte_Bonn,_Deutschland.jpg",
+     "depicts": "Haus der Geschichte exterior facade, Bonn",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Haus der Geschichte Bonn; summary: exterior facade; 4000x3000"
+    },
+    {
+     "file": "File:Haus der Geschichte in Bonn.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Haus_der_Geschichte_in_Bonn.jpg",
+     "depicts": "Haus der Geschichte exterior, Bonn",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Haus der Geschichte in Bonn; 1546x1000 exterior"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#historisches-rathaus",
@@ -28765,7 +29553,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Museum_Koenig_Bonn",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Museum König, Gesamtansicht.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Museum_K%C3%B6nig,_Gesamtansicht.jpg",
+     "depicts": "Overall view of Museum Koenig building, Bonn",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Museum König, Gesamtansicht (overall view); 10280x5529; title from category listing in summary"
+    },
+    {
+     "file": "File:Bonn - Museum Koenig.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bonn_-_Museum_Koenig.jpg",
+     "depicts": "Museum Koenig building, Bonn",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Museum Koenig, Bonn; 3648x2052; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#museum-kunstpalast",
@@ -29901,6 +30706,7 @@
     "Musée de l'École de Nancy"
    ],
    "pilot": false,
+   "skip": "only details/interiors (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -29912,7 +30718,17 @@
     "Musée des Beaux-Arts de Nancy"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nancy Musee des Beaux-Arts BW 2015-07-18 13-55-20.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nancy_Musee_des_Beaux-Arts_BW_2015-07-18_13-55-20.jpg",
+     "depicts": "Musée des Beaux-Arts pavilion on Place Stanislas, Nancy",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Nancy Musee des Beaux-Arts; caption: museum at Place Stanislas (2015, Berthold Werner)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#musee-national-dhistoire-et-dart-mnha",
@@ -29976,7 +30792,24 @@
     "Place du Marché"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Obernai place marche.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Obernai_place_marche.JPG",
+     "depicts": "Place du Marché, Obernai",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Obernai place marche; 3872x2592 (2008)"
+    },
+    {
+     "file": "File:2010.05.29.151258 Place du Marché Obernai FR.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:2010.05.29.151258_Place_du_March%C3%A9_Obernai_FR.jpg",
+     "depicts": "Place du Marché with the Halle aux blés, Obernai",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Place du Marché Obernai; 1920x1280; title from category listing in summary"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#ossuaire-de-douaumont-and-necropole",
@@ -30804,7 +31637,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/San_Francisco_cable_car_system",
-   "wikiLead": true,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -30847,7 +31680,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Dragon_Gate_(San_Francisco)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Dragon Gate, Chinatown, SF front.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dragon_Gate,_Chinatown,_SF_front.JPG",
+     "depicts": "Front of the Dragon Gate at Grant Ave and Bush St",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Dragon Gate, Chinatown, SF; 3264x2448 (2008)"
+    },
+    {
+     "file": "File:Dragon's Gate, Grant Street, San Francisco (29658599206).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dragon's_Gate,_Grant_Street,_San_Francisco_(29658599206).jpg",
+     "depicts": "Dragon Gate on Grant Avenue (2016)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Dragon's Gate, Grant Street; 4608x3456"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#city-lights-bookstore",
@@ -32254,6 +33104,7 @@
     "Google Visitor Experience"
    ],
    "pilot": false,
+   "skip": "no file found (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -32309,7 +33160,17 @@
     "Historic Saratoga Village"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:USA-Saratoga-Village Library.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:USA-Saratoga-Village_Library.jpg",
+     "depicts": "Historic Saratoga Village Library building (NRHP), 14410 Oak St",
+     "confidence": "med",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Saratoga Village Library, a historic building in the village; not a street view of the village"
+    }
+   ]
   },
   {
    "key": "landmark:siliconvalley#intel-museum",
@@ -32481,7 +33342,17 @@
     "Fallon House Historic Site"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Peralta Adobe exterior - San Jose, CA - DSC03805.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Peralta_Adobe_exterior_-_San_Jose,_CA_-_DSC03805.JPG",
+     "depicts": "Peralta Adobe exterior, San Jose",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Peralta Adobe exterior; 4250x2973 (2012, Daderot)"
+    }
+   ]
   },
   {
    "key": "landmark:siliconvalley#pigeon-point-lighthouse",
@@ -32816,6 +33687,36 @@
    "candidates": []
   },
   {
+   "key": "landmark:singapore/ang-mo-kio#lower-peirce-reservoir-park",
+   "type": "landmark",
+   "depicts": "singapore/ang-mo-kio#lower-peirce-reservoir-park",
+   "label": "Lower Peirce Reservoir Park",
+   "names": [
+    "Lower Peirce Reservoir Park"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Lower_Peirce_Reservoir_Park",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Pavilion at Lower Peirce Reservoir Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pavilion_at_Lower_Peirce_Reservoir_Park.jpg",
+     "depicts": "Pavilion in Lower Peirce Reservoir Park",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Lower Peirce Reservoir Park; 4032x3024; shows a park pavilion (part of the park)"
+    },
+    {
+     "file": "File:Lower Peirce Reservoir, Singapore - 20090905-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lower_Peirce_Reservoir,_Singapore_-_20090905-01.jpg",
+     "depicts": "Lower Peirce Reservoir, Singapore",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Lower Peirce Reservoir; 1102x737 (title from category listing in summary)"
+    }
+   ]
+  },
+  {
    "key": "landmark:singapore/ang-mo-kio#macritchie-treetop-walk",
    "type": "landmark",
    "depicts": "singapore/ang-mo-kio#macritchie-treetop-walk",
@@ -32844,6 +33745,27 @@
    ]
   },
   {
+   "key": "landmark:singapore/ang-mo-kio#thomson-nature-park",
+   "type": "landmark",
+   "depicts": "singapore/ang-mo-kio#thomson-nature-park",
+   "label": "Thomson Nature Park",
+   "names": [
+    "Thomson Nature Park"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Thomson Nature Park 2020-08-02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Thomson_Nature_Park_2020-08-02.jpg",
+     "depicts": "Thomson Nature Park, Singapore (2020)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Thomson Nature Park; 3024x4032; title from category listing in summary; content not described, check by eye"
+    }
+   ]
+  },
+  {
    "key": "landmark:singapore/balestier#former-malay-film-productions-studio-shaw-studio",
    "type": "landmark",
    "depicts": "singapore/balestier#former-malay-film-productions-studio-shaw-studio",
@@ -32854,8 +33776,18 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Malay_Film_Productions",
-   "skip": "no file found (only a 1948 historical photo) (wave 5 search) — calm cover (stated, W8)",
-   "candidates": []
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Former Malay Film Productions Studio in Balestier.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Former_Malay_Film_Productions_Studio_in_Balestier.jpg",
+     "depicts": "Former Malay Film Productions studio building, Jalan Ampas",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Former Malay Film Productions Studio; caption: building of the former studio along Jalan Ampas (2014)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/balestier#goh-chor-tua-pek-kong-temple-and-wayang-stage",
@@ -33008,6 +33940,29 @@
      "depicts": "Bishan Public Library building",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Bishan Library (category listing; check exterior vs interior)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/bishan#central-catchment-nature-reserve",
+   "type": "landmark",
+   "depicts": "singapore/bishan#central-catchment-nature-reserve",
+   "label": "Central Catchment Nature Reserve",
+   "names": [
+    "Central Catchment Nature Reserve"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Central_Catchment_Nature_Reserve",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Central Catchment Nature Reserve near Sime Road, Singapore - 20130728.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Central_Catchment_Nature_Reserve_near_Sime_Road,_Singapore_-_20130728.JPG",
+     "depicts": "Forest of the Central Catchment Nature Reserve near Sime Road",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Central Catchment Nature Reserve; caption: view of the reserve; 3872x2592"
     }
    ]
   },
@@ -33858,6 +34813,37 @@
    ]
   },
   {
+   "key": "landmark:singapore/punggol#masjid-al-islah",
+   "type": "landmark",
+   "depicts": "singapore/punggol#masjid-al-islah",
+   "label": "Masjid Al-Islah",
+   "names": [
+    "Masjid Al-Islah",
+    "Masjid Al Islah"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Masjid_Al_Islah",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Masjid Al-Islah.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Masjid_Al-Islah.jpg",
+     "depicts": "Masjid Al-Islah mosque, Punggol",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Masjid Al-Islah; 3846x2883; in Category:Al-Islah Mosque (Punggol); title from category listing in summary"
+    },
+    {
+     "file": "File:Masjid Al-Islah at Punggol Place road, near the Punggol Central area.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Masjid_Al-Islah_at_Punggol_Place_road,_near_the_Punggol_Central_area.jpg",
+     "depicts": "Masjid Al-Islah seen from Punggol Place",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Masjid Al-Islah at Punggol; 4096x2304; title from category listing in summary"
+    }
+   ]
+  },
+  {
    "key": "landmark:singapore/punggol#punggol-beach-massacre-site",
    "type": "landmark",
    "depicts": "singapore/punggol#punggol-beach-massacre-site",
@@ -33878,6 +34864,29 @@
      "depicts": "Punggol Beach, the Sook Ching massacre site, at sunset",
      "confidence": "med",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Punggol Beach; description ties it to the massacre beach (sunset shot; check it is not too dark)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/punggol#punggol-regional-library",
+   "type": "landmark",
+   "depicts": "singapore/punggol#punggol-regional-library",
+   "label": "Punggol Regional Library",
+   "names": [
+    "Punggol Regional Library"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Punggol_Regional_Library",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Punggol Regional Library entrance, 2023-04-28.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Punggol_Regional_Library_entrance,_2023-04-28.jpg",
+     "depicts": "Entrance of Punggol Regional Library, One Punggol",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Punggol Regional Library; 3072x4080; entrance view, check it is not mainly signage"
     }
    ]
   },
@@ -34071,6 +35080,29 @@
      "depicts": "Old kampong house in Lorong Buangkok",
      "confidence": "high",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names Lorong Buangkok; captioned as the last kampong"
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/upper-serangoon#punggol-park",
+   "type": "landmark",
+   "depicts": "singapore/upper-serangoon#punggol-park",
+   "label": "Punggol Park",
+   "names": [
+    "Punggol Park"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Punggol_Park",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Punggol Park, Nov 06.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Punggol_Park,_Nov_06.JPG",
+     "depicts": "Punggol Park, Hougang (2006)",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Punggol Park; caption: Punggol Park, Singapore"
     }
    ]
   },
@@ -34369,6 +35401,7 @@
     "Nittany Lion Shrine"
    ],
    "pilot": false,
+   "skip": "modern artwork, no FoP (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -34503,6 +35536,7 @@
     "Eastern Market"
    ],
    "pilot": false,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -34555,7 +35589,24 @@
     "the C&O Canal"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:USA-Georgetown C&O Canal.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:USA-Georgetown_C&O_Canal.jpg",
+     "depicts": "C&O Canal in Georgetown",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Georgetown C&O Canal"
+    },
+    {
+     "file": "File:C&O Canal - Georgetown.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:C&O_Canal_-_Georgetown.jpg",
+     "depicts": "C&O Canal in Georgetown",
+     "confidence": "high",
+     "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names C&O Canal - Georgetown; check whether it is the tourist-barge shot (vehicle as subject)"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#great-falls-park",
@@ -34595,6 +35646,7 @@
     "John F. Kennedy Center for the Performing Arts"
    ],
    "pilot": false,
+   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
