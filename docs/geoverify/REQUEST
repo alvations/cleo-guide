@@ -1,6 +1,8 @@
-city=singapore
-scope=unverified,low,status
+city=silicon-valley-ca
+scope=all
 limit=0
-nominatim_max=300
+nominatim_max=0
+names=Roy's Station Coffee & Tea
+sources=wikidata,wikipedia,overpass,official,census
 commit=true
-# daily resume 2026-10-17 (ledger: 0 used today)
+# pin Roy's Station (passes >=2 credible after SV wave 3). Nominatim allowance for 2026-10-17 spent -> nominatim_max=0

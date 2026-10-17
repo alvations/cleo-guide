@@ -336,6 +336,33 @@ SKIP.update({
  'okinawa#nishihara-kira-kira-beach': 'only a rainy-evening file of an unconfirmed "Kirakira" beach on Commons — gap stated',
  'okinawa#okitsura-pilgrimage-gushikawa-uruma': 'an anime pilgrimage route, not one photographable place — gap stated',
 })
+SKIP.update({
+ 'singapore/ang-mo-kio#church-of-christ-the-king': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'singapore/balestier#zhongshan-park': 'candidate wave 6: no file found (Commons Category:Zhongshan Park, Singapore exists with 19 files but no file titles surfaced) — calm cover (stated, W8)',
+ 'singapore/bishan#old-upper-thomson-road-former-grand-prix-circuit': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'singapore/potong-pasir-macpherson#sennett-estate': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'singapore/toa-payoh#toa-payoh-sensory-park': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'indianapolis#hinkle-fieldhouse': 'candidate wave 6: no file found (no exact exterior file title surfaced) — calm cover (stated, W8)',
+ 'orlando#winter-garden-downtown-historic-district': 'candidate wave 6: no file found (only a pre-1950 historic downtown photo) — calm cover (stated, W8)',
+ 'rhineland#little-tokyo-immermannstra-e': 'candidate wave 6: no file found (only individual shop/restaurant fronts; no exact streetscape title surfaced) — calm cover (stated, W8)',
+ 'siliconvalley#new-museum-los-gatos-numu': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'cleveland#cleveland-convention-center-urban-farm': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'singapore/ang-mo-kio#block-259-the-clover-block': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'singapore/balestier#whampoa-dragon-fountain': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'singapore/bishan#tse-tho-aum-temple': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'wheeling#wheeling-island-historic-district': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'youngstown#mcdonough-museum-of-art': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'chicago#our-lady-of-sorrows-basilica': 'candidate wave 6: only details/interiors — calm cover (stated, W8)',
+ 'harrisburg#fort-hunter-mansion-and-park': 'candidate wave 6: no file found (Commons has Category:Archibald McAllister House under Fort Hunter, PA, but no file titles surfaced) — calm cover (stated, W8)',
+ 'pittsburgh#randyland': 'candidate wave 6: modern artwork, no FoP — calm cover (stated, W8)',
+ 'singapore/ang-mo-kio#chu-sheng-temple': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'singapore/balestier#balestier-plain-and-ceylon-sports-club': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'singapore/toa-payoh#toa-payoh-seu-teck-sean-tong': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'singapore/upper-serangoon#church-of-st-vincent-de-paul': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'statecollege#lincoln-caverns-and-whisper-rocks': 'candidate wave 6: no file found — calm cover (stated, W8)',
+ 'cleveland#jesse-owens-statue': 'candidate wave 6: modern artwork, no FoP — calm cover (stated, W8)',
+ 'saarland#gelle-fra-monument-of-remembrance': 'candidate wave 6: the Gëlle Fra is a sculpture by Claus Cito (d. 1965), still in copyright; freedom of panorama not established for Luxembourg — calm cover (stated, W8)',
+})
 # extra names a file title/description/category may use for the place (matched without spaces/diacritics)
 NAMES = {
  'bruges#belfort-van-brugge': ['Belfort van Brugge', 'Belfort', 'Belfry of Bruges', 'Belfry of Brugge'],

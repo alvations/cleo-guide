@@ -444,6 +444,21 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         await page.mouse.move(c0[0], c0[1]); await page.mouse.down(); for (let i = 1; i <= 3; i++) { await page.mouse.move(c0[0] + i * 8, c0[1]); await sleep(16); } await page.mouse.up(); await sleep(700);
         const h2 = await page.evaluate(() => { const b = document.querySelector('.ms-here'); return !!b && !b.hidden && b.offsetHeight > 0; });
         chk(`${key} P1 OV-02: a 24 px pan does not offer "Search this area" (only a > 25 % change of the view does)`, !h2, { offered: h2 });
+        // QC b1c7939f: a drag that starts ON a dot (inside its 44 px hit circle, the hover pin just drawn under the pointer)
+        // pans the map and selects nothing; the same dot tapped still selects it
+        const dot = () => page.evaluate(() => { const m = Cleo.city.map(), s = m.getSize(), o = m.getContainer().getBoundingClientRect(); let best = null;
+          Object.entries(Cleo.city.markers).forEach(([id, k]) => { const q = m.latLngToContainerPoint(k.getLatLng()), dd = Math.hypot(q.x - s.x / 2, q.y - s.y / 2); if (q.y > 120 && q.y < s.y - 220 && q.x > 40 && q.x < s.x - 80 && (!best || dd < best.dd)) best = { id, dd, x: o.left + q.x, y: o.top + q.y }; }); return best; });
+        const sel = () => page.evaluate(() => { const c = Cleo.city.map().getCenter(); return { car: document.documentElement.classList.contains('ms-car'), p: /[#&]p=/.test(location.hash), c: [c.lat, c.lng] }; });
+        const d0 = await dot();
+        if (d0) {
+          const s0 = await sel(); await page.mouse.move(d0.x + 4, d0.y + 3); await sleep(60);   // a press rests ~60 ms: the hover pin is drawn under it by then
+          const under = await page.evaluate(([x, y]) => { const e = document.elementFromPoint(x, y), p = document.querySelector('.leaflet-marker-pane .hot'); return { el: e ? e.tagName + '.' + String(e.className).slice(0, 30) : null, onPin: !!(e && e.closest('.leaflet-marker-pane .hot')), hoverPin: !!p, pe: p ? getComputedStyle(p).pointerEvents : null }; }, [d0.x + 4, d0.y + 3]);
+          await page.mouse.down();
+          for (let i = 1; i <= 8; i++) { await page.mouse.move(d0.x + 4 - i * 15, d0.y + 3 - i * 6); await sleep(16); } await page.mouse.up(); await sleep(700);
+          const s1 = await sel(), d1 = await dot(); if (d1) { await page.mouse.click(d1.x + 3, d1.y + 2); await sleep(700); } const s2 = await sel();
+          chk(`${key} P1 drag from a dot: the hover pin drawn under the pointer is never hit, the map pans and no place opens (no preview, no #p=); a tap on a dot still selects it`,
+            under.hoverPin && under.pe === 'none' && !under.onPin && Math.abs(s1.c[0] - s0.c[0]) + Math.abs(s1.c[1] - s0.c[1]) > 1e-6 && !s1.car && !s1.p && !!d1 && s2.car, { dot: d0.id, px: Math.round(d0.dd), under, afterDrag: s1, tapped: d1 && d1.id, afterTap: s2 });
+        }
       }
       if (errors.length) chk(`${key} ${pk} OV-00 pan: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
     }
