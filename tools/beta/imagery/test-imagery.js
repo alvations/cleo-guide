@@ -82,7 +82,7 @@ function fixture(credits, files) {
     !photos.creditProblems(Object.assign({}, loc, { author: 'Anonymous (as catalogued by Library of Congress)' })).length,
     'D-52: an anonymous-as-catalogued credit only on a public-domain/CC0 historic row');
   const nkr = Object.assign({}, loc, { licence: 'No known restrictions', licenceUrl: 'https://www.loc.gov/item/2016800000/', date: '1903' });
-  ok(!photos.creditProblems(nkr).length && photos.creditProblems(Object.assign({}, nkr, { date: '1955' })).length && photos.creditProblems(Object.assign({}, nkr, { provider: 'europeana', sourceUrl: 'https://www.europeana.eu/item/1' })).length &&
+  ok(!photos.creditProblems(nkr).length && !photos.creditProblems(Object.assign({}, nkr, { licence: 'No known restrictions (LoC, published before 1930)' })).length && photos.creditProblems(Object.assign({}, nkr, { date: '1955' })).length && photos.creditProblems(Object.assign({}, nkr, { provider: 'europeana', sourceUrl: 'https://www.europeana.eu/item/1' })).length &&
     photos.creditProblems(Object.assign({}, loc, { sourceUrl: 'https://example.org/x' })).some(x => /item page/.test(x)),
     'LoC "No known restrictions" only for a historic LoC item dated ≤ 1929; provider rows need their own item-page host');
 }

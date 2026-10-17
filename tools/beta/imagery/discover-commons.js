@@ -19,7 +19,7 @@
  *   node tools/beta/imagery/discover-commons.js --budget 300      # discover (GitHub Actions: Commons, Wikipedia, Wikidata)
  *   node tools/beta/imagery/discover-commons.js --apply-review    # write reviewed picks into manifest/cands.tsv (offline)
  *
- * Options: --budget <n> API requests (default 300) · --radius <m> (default 40) · --picks <n> per place (default 2) ·
+ * Options: --budget <n> API requests (default 300) · --radius <m> (default 40) · --picks <n> per place (default 1: the best, so sheets stay small) ·
  *   --class hero|priority|tier1|other|food (repeatable; default all, in that order) · --key <target> · --delay <ms> (300)
  * Exit codes: 0 · 1 bad input · 3 host blocked (never routed around) · 4 API failure.
  */
@@ -38,7 +38,7 @@ const WIKIDATA = 'https://www.wikidata.org/w/api.php';
 const UA = 'CleoGuideBeta/1.0 (https://github.com/alvations/cleo-guide; beta imagery lane, discovery of credited Commons files) node';
 
 function args(argv) {
-  const o = { dry: false, apply: false, budget: 300, radius: 40, picks: 2, classes: [], keys: [], delay: 300, pending: false };
+  const o = { dry: false, apply: false, budget: 300, radius: 40, picks: 1, classes: [], keys: [], delay: 300, pending: false };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i], v = () => argv[++i];
     if (a === '--dry-run') o.dry = true;
