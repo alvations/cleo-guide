@@ -126,6 +126,8 @@ const stockRow = lib.creditRow(pexels.adapter, px, { ...row, itemId: '1' }, T, m
 }
 
 // ---------------------------------------------------------------- 5. end to end, mocked network
+let finished = false;   // an e2e that never settles must not exit 0 silently
+process.on('exit', () => { if (!finished) { console.error('  FAIL end to end never finished (event loop emptied)'); process.exitCode = 1; } });
 (async () => {
   const sharp = lib.loadSharp();
   if (!sharp) { console.log('image sources: end to end — SKIP (sharp not installed; cd tools && npm install --no-save sharp)'); return; }
@@ -135,13 +137,15 @@ const stockRow = lib.creditRow(pexels.adapter, px, { ...row, itemId: '1' }, T, m
   const head = lib.COLUMNS.join('\t');
   const mk = (id, review) => lib.COLUMNS.map(c => ({ target: 'landmark:washingtondc#thomas-jefferson-memorial', source: 'met', itemId: id, itemUrl: `https://www.metmuseum.org/art/collection/search/${id}`,
     era: 'historic', stillLooks: 'yes', confidence: 'high', identityEvidence: 'title names the memorial', review }[c] || '')).join('\t');
-  fs.writeFileSync(path.join(box, 'candidates.tsv'), [head, mk('111', ''), mk('222', 'ok'), mk('333', 'wrong building')].join('\n') + '\n');
+  fs.writeFileSync(path.join(box, 'candidates.tsv'), [head, mk('111', ''), mk('222', 'ok'), mk('333', 'wrong building'), mk('444', '')].join('\n') + '\n');
   const jpeg = await sharp({ create: { width: 1200, height: 800, channels: 3, background: '#7799bb' } }).jpeg().toBuffer();
   const realFetch = global.fetch, calls = [];
   let dropped = 0;
   global.fetch = async url => {
     calls.push(String(url));
     if (/objects\/111/.test(url) && !dropped++) throw new TypeError('terminated');   // run #1: a dropped connection is retried, not fatal
+    // run #105 lesson: 444's image sends headers and then never finishes its body — a per-file timeout, never a hung run
+    if (/images\.metmuseum\.org\/444/.test(url)) return new Response(new ReadableStream({ start(c) { c.enqueue(new Uint8Array(10)); } }), { status: 200, headers: { 'content-type': 'image/jpeg' } });
     if (/images\.metmuseum/.test(url)) return new Response(jpeg, { status: 200, headers: { 'content-type': 'image/jpeg' } });
     const id = (/objects\/(\d+)/.exec(url) || [])[1];
     return new Response(JSON.stringify({ objectID: +id, isPublicDomain: true, primaryImage: `https://images.metmuseum.org/${id}.jpg`, title: 'Jefferson Memorial, Washington', artistDisplayName: 'Theodor Horydczak', objectDate: '1943', objectURL: `https://www.metmuseum.org/art/collection/search/${id}` }), { status: 200, headers: { 'content-type': 'application/json' } });
@@ -150,9 +154,10 @@ const stockRow = lib.creditRow(pexels.adapter, px, { ...row, itemId: '1' }, T, m
   process.env.CLEO_SOURCES_SANDBOX = box;
   for (const k of Object.keys(require.cache)) if (k.startsWith(__dirname)) delete require.cache[k];
   const L = require('./lib'), M = require('./met');
+  const keep = setInterval(() => {}, 200);   // a mocked stall holds no socket; keep the loop alive as a real one would
   const log = console.log; console.log = () => {};
   try {
-    process.argv = ['node', 'met.js', '--stage', '--delay', '1'];
+    process.argv = ['node', 'met.js', '--stage', '--delay', '1', '--image-timeout', '800'];
     const c1 = await L.main(M.adapter);
     const st = JSON.parse(fs.readFileSync(path.join(box, 'stage/met/stage.json'), 'utf8'));
     const cr1 = JSON.parse(fs.readFileSync(path.join(box, 'CREDITS.json'), 'utf8')).credits;
@@ -160,6 +165,7 @@ const stockRow = lib.creditRow(pexels.adapter, px, { ...row, itemId: '1' }, T, m
     const c2 = await L.main(M.adapter);
     const cr2 = JSON.parse(fs.readFileSync(path.join(box, 'CREDITS.json'), 'utf8')).credits;
     console.log = log;
+    ok(!st.rows.some(r => r.itemId === '444'), 'a stalled image body (444) is skipped unrecorded within the cap, and the run finishes');
     ok(c1 === 0 && st.rows.length === 1 && st.rows[0].itemId === '111' && fs.existsSync(path.join(box, 'stage/met', st.rows[0].preview)), '--stage stages only the un-reviewed row (111), with a preview file');
     ok(cr1.length === 0, '--stage credits nothing');
     ok(c2 === 0 && cr2.length === 1 && cr2[0].sourceId === '222' && cr2[0].provider === 'the-met' && cr2[0].era === 'historic' && cr2[0].date === '1943', '--credit credits only the reviewed ok row (222), never the refused one (333)');
@@ -170,11 +176,12 @@ const stockRow = lib.creditRow(pexels.adapter, px, { ...row, itemId: '1' }, T, m
     ok(dropped >= 2 && calls.filter(u => /objects\/111/.test(u)).length === 2, 'a dropped connection ("terminated") is retried once and the item still staged');
   } catch (e) { console.log = log; ok(false, `end to end threw: ${e.stack}`); }
   finally {
-    global.fetch = realFetch; process.argv = argv;
+    clearInterval(keep); global.fetch = realFetch; process.argv = argv;
     if (env == null) delete process.env.CLEO_SOURCES_SANDBOX; else process.env.CLEO_SOURCES_SANDBOX = env;
     fs.rmSync(box, { recursive: true, force: true });
   }
 })().then(() => {
+  finished = true;
   console.log(fails ? `\nimage sources: ${fails} FAIL` : '\nimage sources: all ok');
   process.exitCode = fails ? 1 : 0;
 });

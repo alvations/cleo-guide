@@ -346,6 +346,16 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     chk('a card stamped after the swap (cleo:stamped) is swapped; a data-l template keeps its placeholder', [li.querySelector('.tier span').textContent, li.querySelector('.lbl').textContent, dT.getElementById('dl').getAttribute('data-l')],
       [PSEUDO.strings['tier.1'], PSEUDO.strings['card.recby'], PSEUDO.strings['pack.size']]);
   }
+  // i18n D-41 (audit 2026-10-17): mapfail.js (tiles failed) and states.js (offline / storage banners) under the PSEUDO
+  // catalogue: 0 English (the build's data-l-offline line is swapped by locale.js itself)
+  {
+    const sw = new JSDOM('<!doctype html><html data-cleo-page="saved"><body><div data-cleo-banners></div><div id="m" data-art="a.svg"></div></body></html>', { runScripts: 'outside-only' }).window;
+    sw.Cleo = { emit() {}, store: { get: () => null, set() {} }, t: (k, e) => { if (PSEUDO.strings[k] == null) throw new Error('no key ' + k); return PSEUDO.strings[k]; } };
+    sw.eval(fs.readFileSync(path.join(__dirname, 'client', 'mapfail.js'), 'utf8')); sw.eval(fs.readFileSync(path.join(__dirname, 'client', 'states.js'), 'utf8'));
+    sw.Cleo.mapFallback(sw.document.getElementById('m'), null); sw.Cleo.notice.show('offline'); sw.Cleo.notice.show('storage');
+    const txt = sw.document.body.textContent + ' ' + [...sw.document.querySelectorAll('[aria-label]')].map(e => e.getAttribute('aria-label')).join(' ');
+    chk('mapfail.js + states.js under the pseudo catalogue: 0 English', (txt.match(/[A-Za-z]{3,}/g) || []).slice(0, 8), []);
+  }
   // W8-I18N-SEARCH: the site-wide search (client/search.js: the top-bar panel and the landing's results) under the PSEUDO
   // catalogue: every output path has 0 English interface words. Data here is Japanese, so any ASCII word is interface.
   {
