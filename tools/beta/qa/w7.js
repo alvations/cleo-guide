@@ -17,7 +17,8 @@
  *   lens     every landing editorial-rail deep link: the results header total == the promise == the cards a reader can
  *            page through (Show all + pager), and every one of them matches the lens
  *   nocdn    Leaflet blocked: "Map unavailable", every place pageable, a card on screen, 0 JS errors (phone + desktop)
- *   storage  localStorage/sessionStorage throw: Atlas renders, map, base switch, Must see (or Top picks, SPEC-v3 rev 4 §2.4), List pill work, 0 JS errors
+ *   storage  localStorage/sessionStorage throw: Atlas renders, map, base switch (Layers → Satellite, OV-00 §2.0.3, or .m-base),
+ *            Must see (or Top picks, SPEC-v3 rev 4 §2.4), List pill work, 0 JS errors; with storage, the Layers choice survives a reload
  *   cluster  phone, default zoom: drawn .pp ∪ bubble members == pinned places, no overlap, bubble sums match
  *   tiles    every tile request in the run went to tile.openstreetmap.org or server.arcgisonline.com
  *   b08      FE-A's proposed B-08 exemption (.cbar, .mappill): every Gallery title scrolled to reading position (centre)
@@ -400,10 +401,40 @@ async function nocdn(rel) {
     const { ctx, page, st } = await open(rel, vp, { hash: '#view=atlas', settle: 2000, noStorage: true });
     const s0 = await page.evaluate(() => ({ view: document.documentElement.getAttribute('data-view'), leaflet: !!document.querySelector('.leaflet-pane'), count: __count() }));
     const acts = [];
+    // OV-00 §2.0.3 (Atlas FE-1; ratified 2026-10-17): the base switch may be a Layers button (.m-layers) opening a popover
+    // with a Map / Satellite radio pair and the Key. Either control is accepted: Layers → [data-base="satellite"], else .m-base
+    const layers = !!(await page.locator('.m-layers').count());
+    const pickSat = async () => { const l = page.locator('.m-layers').first(); await l.click({ timeout: 3000 }); await page.waitForTimeout(300);
+      await page.locator('[data-base="satellite"]').first().click({ timeout: 3000 }); await page.waitForTimeout(800); };
+    const satState = () => page.evaluate(() => { const r = document.querySelector('[data-base="satellite"]');
+      return { checked: !!r && r.getAttribute('aria-checked') === 'true', sat: [...document.querySelectorAll('img.leaflet-tile')].some(i => /World_Imagery/i.test(i.src)) }; });
+    let lay = null;
+    if (layers) { try { await pickSat(); acts.push('.m-layers → satellite'); } catch (e) { acts.push('.m-layers ✗ ' + e.message.slice(0, 40)); } lay = await satState(); }
     // SPEC-v3 rev 4 §2.4 (Atlas, 39e218e68): "Top picks" (.ms-top) replaces the Must see chip; whichever the page has is tapped
-    for (const sel of ['.m-base', '.ms-must, .ms-top', vp === 'mobile' ? '.ms-toggle' : null]) { if (!sel) continue; const l = page.locator(sel).first(); if (await l.count()) { await l.click({ timeout: 3000 }).then(() => acts.push(sel)).catch(e => acts.push(sel + ' ✗ ' + e.message.slice(0, 40))); await page.waitForTimeout(600); } else acts.push(sel + ' missing'); }
+    for (const sel of [layers ? null : '.m-base', '.ms-must, .ms-top', vp === 'mobile' ? '.ms-toggle' : null]) { if (!sel) continue; const l = page.locator(sel).first(); if (await l.count()) { await l.click({ timeout: 3000 }).then(() => acts.push(sel)).catch(e => acts.push(sel + ' ✗ ' + e.message.slice(0, 40))); await page.waitForTimeout(600); } else acts.push(sel + ' missing'); }
     const s1 = await page.evaluate(() => ({ hash: location.hash, base: (document.querySelector('.m-base') || {}).getAttribute && document.querySelector('.m-base').getAttribute('aria-label'), list: document.documentElement.classList.contains('ms-list') }));
-    check('storage', `${rel} ${vp}: storage throws — Atlas + map render, base switch, Must see / Top picks${vp === 'mobile' ? ', List pill' : ''} work, 0 JS errors`, s0.view === 'atlas' && s0.leaflet && /[#&](?:t|top)=1(?:&|$)/.test(s1.hash) && /Satellite/.test(s1.base || '') && (vp !== 'mobile' || s1.list) && !acts.some(a => /✗|missing/.test(a)) && !st.errors.length, { ...s0, ...s1, acts, err: st.errors.slice(0, 2) });
+    const baseOk = layers ? !!lay && lay.checked && lay.sat : /Satellite/.test(s1.base || '');
+    check('storage', `${rel} ${vp}: storage throws — Atlas + map render, base switch (${layers ? 'Layers → Satellite' : '.m-base'}), Must see / Top picks${vp === 'mobile' ? ', List pill' : ''} work, 0 JS errors`, s0.view === 'atlas' && s0.leaflet && /[#&](?:t|top)=1(?:&|$)/.test(s1.hash) && baseOk && (vp !== 'mobile' || s1.list) && !acts.some(a => /✗|missing/.test(a)) && !st.errors.length, { ...s0, ...s1, layers: lay, acts, err: st.errors.slice(0, 2) });
+    await ctx.close();
+  }
+  await layersPersist(rel);
+}
+
+/* OV-00 §2.0.3: with storage available, the Layers choice is kept after a reload (with storage throwing it holds in-session
+   only: rule 5's in-memory fallback, so the reload half is not asked of the storage-throws check above) */
+async function layersPersist(rel) {
+  for (const vp of ['mobile', 'desktop']) {
+    const { ctx, page, st } = await open(rel, vp, { hash: '#view=atlas', settle: 2000 });
+    if (!(await page.locator('.m-layers').count())) { check('storage', `${rel} ${vp}: Layers → Satellite kept after a reload`, null, 'no .m-layers yet (the .m-base path)'); await ctx.close(); continue; }
+    let r = {};
+    try {
+      await page.locator('.m-layers').first().click({ timeout: 3000 }); await page.waitForTimeout(300);
+      await page.locator('[data-base="satellite"]').first().click({ timeout: 3000 }); await page.waitForTimeout(800);
+      await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(2000);
+      await page.locator('.m-layers').first().click({ timeout: 3000 }).catch(() => {}); await page.waitForTimeout(300);
+      r = await page.evaluate(() => { const x = document.querySelector('[data-base="satellite"]'); return { checked: !!x && x.getAttribute('aria-checked') === 'true', sat: [...document.querySelectorAll('img.leaflet-tile')].some(i => /World_Imagery/i.test(i.src)) }; });
+    } catch (e) { r.err = e.message.slice(0, 80); }
+    check('storage', `${rel} ${vp}: Layers → Satellite kept after a reload (aria-checked, satellite tiles)`, r.checked && r.sat && !st.errors.length, { ...r, err: st.errors.slice(0, 2) });
     await ctx.close();
   }
 }
