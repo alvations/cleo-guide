@@ -38,8 +38,8 @@
   },
   "otherLandmarks": {
    "targets": 1371,
-   "skipped": 201,
-   "withArticle": 801
+   "skipped": 198,
+   "withArticle": 802
   },
   "candidates": {
    "total": 1770,
@@ -17201,7 +17201,6 @@
     "Meadville Market House"
    ],
    "pilot": false,
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -29026,7 +29025,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Reading_Terminal_Market",
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -36966,7 +36965,6 @@
     "Eastern Market"
    ],
    "pilot": false,
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
