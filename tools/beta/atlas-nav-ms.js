@@ -411,6 +411,13 @@ async function finish(page, s0, opener, close) {
     if (!lines.length) chk('side sync: probe ran', false, String(q.stderr || '').slice(0, 300));
     lines.forEach(l => chk('§2.0.7 ' + l.replace(/^(PASS|FAIL)  /, '').replace(/  \{.*$/, ''), /^PASS/.test(l), l.replace(/^.*?  \{/, '{').slice(0, 300))); }
 
+  // PANEL-R4 #6a / #5a: a selected place shows on its desktop card, photo and no-photo alike, as one ring outside the card
+  // (tools/beta/fe2/selected.js; 4 pages, light + dark)
+  if (!ONLY) { const q = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'fe2', 'selected.js')], { env: process.env, encoding: 'utf8' });
+    const lines = String(q.stdout || '').split('\n').filter(l => /^(PASS|FAIL)  selected/.test(l));
+    if (!lines.length) chk('selected: probe ran', false, String(q.stderr || '').slice(0, 300));
+    lines.forEach(l => chk('R4 #6a ' + l.replace(/^(PASS|FAIL)  /, '').replace(/  \{.*$/, ''), /^PASS/.test(l), l.replace(/^.*?  \{/, '{').slice(0, 300))); }
+
   // SPEC-v3 §3.7 (R8 gap 3) map motion: each reader-started moment ≤ 300 ms (the preview grows from its pin, fades on close;
   // the phone carousel lifts in; a hovered dot grows), and no animation at all under reduced motion (tools/beta/fe2/motion.js)
   for (const rel of ['cities/tokyo.html', 'cleveland.html']) { if (ONLY && !ONLY.split(',').some(k => rel.includes(k))) continue;

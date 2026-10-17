@@ -23,15 +23,21 @@ html[data-view=atlas] .ms-ring .chip[aria-pressed=true]{background:var(--ink);co
 html[data-view=atlas] main[data-city] #cleo-grid li.pl .pl-n a:focus-visible,
 html[data-view=atlas] main[data-city] #cleo-grid li.pl .pl-n a:focus-visible::before,
 html[data-view=atlas] main[data-city] #cleo-grid li.pl .pl-n a:focus-visible::after{outline:none!important;box-shadow:none!important}
-html[data-view=atlas] main[data-city] #cleo-grid li.pl:has(.pl-n a:focus-visible){outline:2px solid var(--focus)!important;outline-offset:-2px!important}
-html[data-view=atlas] main[data-city] #cleo-grid li.pl:not(:has(.pl-n a:focus-visible)){outline:none!important}
+html:not(.atlas-d)[data-view=atlas] main[data-city] #cleo-grid li.pl:has(.pl-n a:focus-visible){outline:2px solid var(--focus)!important;outline-offset:-2px!important}
+html:not(.atlas-d)[data-view=atlas] main[data-city] #cleo-grid li.pl:not(:has(.pl-n a:focus-visible)){outline:none!important}
+/* desktop (PANEL-R4 #5a, #6a): ONE ring per card, drawn by the card 4 px outside it (the grid's 16 / 24 px gaps and the
+ * pane's 24 px padding hold it, so nothing clips and it never sits on the text): the city colour for the selected or
+ * hovered place — on photo and no-photo cards alike (the designer's covers take no shadow) — and --focus for the
+ * keyboard stop, which wins. The colour eases in 120 ms (§3.7); the media carry no ring of their own. */
+html.atlas-d[data-view=atlas] main[data-city] #cleo-grid.w7-cards li.pl{outline:2px solid transparent!important;outline-offset:4px!important;border-radius:var(--r-l);transition:outline-color var(--dur-1) var(--ease-out)}
+html.atlas-d[data-view=atlas] main[data-city] #cleo-grid.w7-cards li.pl:is(.is-sel,.is-hover){outline-color:var(--city)!important}
+html.atlas-d[data-view=atlas] main[data-city] #cleo-grid.w7-cards li.pl:has(.pl-n a:focus-visible){outline-color:var(--focus)!important}
 /* map motion (SPEC-v3 §3.7, R8 gap 3; atlas-nav.js animates the preview, the carousel lift and the dot): the closing
    preview's 120 ms fade is drawn by a copy that takes no clicks; the card ↔ pin hover is one 120 ms transition */
 html[data-view=atlas] .mappane .ms-ghost{position:absolute;z-index:699;width:300px;overflow:hidden;border-radius:var(--r-l);background:var(--surface);box-shadow:var(--e-4);pointer-events:none}
 .pp>span{transition:transform var(--dur-1) var(--ease-out),background-color var(--dur-1) var(--ease-out),color var(--dur-1) var(--ease-out),border-color var(--dur-1) var(--ease-out),box-shadow var(--dur-1) var(--ease-out)}
-html[data-view=atlas] #cleo-grid.w7-cards li.pl>.pl-cover,html[data-view=atlas] #cleo-grid.w7-cards li.pl>figure.pl-photo img{transition:box-shadow var(--dur-1) var(--ease-out)}
-html:not(.atlas-m)[data-view=atlas] #cleo-grid.w7-cards li.pl:is(.is-hover,.is-sel)>.pl-cover,html:not(.atlas-m)[data-view=atlas] #cleo-grid.w7-cards li.pl:is(.is-hover,.is-sel)>figure.pl-photo img{outline:none;box-shadow:var(--ring-select)}
-@media (prefers-reduced-motion:reduce){.pp>span,html[data-view=atlas] #cleo-grid.w7-cards li.pl>.pl-cover,html[data-view=atlas] #cleo-grid.w7-cards li.pl>figure.pl-photo img{transition:none}}
+html.atlas-d[data-view=atlas] main[data-city] #cleo-grid.w7-cards li.pl:is(.is-hover,.is-sel)>:is(.pl-cover,figure.pl-photo,figure.pl-photo img){outline:none!important}   /* atlas.css's media outline: the card's ring replaces it */
+@media (prefers-reduced-motion:reduce){.pp>span,html.atlas-d[data-view=atlas] main[data-city] #cleo-grid.w7-cards li.pl{transition:none!important}}
 /* D-46 (Atlas is the default): phone Atlas offers For you, Your day and Near me as the desktop does — the list head's doors,
    in list mode, scrolling with the list (no floating chips: OV-00 chrome budget) */
 html.atlas-m.ms-list[data-view=atlas] .ms-head .ms-doors{display:flex;flex-wrap:wrap;gap:var(--s-2);margin:var(--s-2) 0 0}
