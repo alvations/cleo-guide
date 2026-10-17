@@ -1,0 +1,67 @@
+[
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "768x1024",
+  "runs": 6,
+  "pages": [
+   "Singapore/hanoi.html",
+   "Singapore/hoi-an.html",
+   "trip.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search ×2 (search all guides + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 32,
+  "worstPage": "Singapore/hanoi.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/r4-75bb37bb-views/shots/duplicates_page_768x1024_light_Singapore-hanoi-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "1440x900",
+  "runs": 6,
+  "pages": [
+   "Singapore/hanoi.html",
+   "Singapore/hoi-an.html",
+   "changes/singapore--punggol.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search ×2 (search all guides + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 32,
+  "worstPage": "Singapore/hanoi.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/r4-75bb37bb-views/shots/duplicates_page_1440x900_light_Singapore-hanoi-html.jpg"
+ },
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "1024x768",
+  "runs": 4,
+  "pages": [
+   "Singapore/hanoi.html",
+   "Singapore/hoi-an.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search ×2 (search all guides + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 32,
+  "worstPage": "Singapore/hanoi.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/r4-75bb37bb-views/shots/duplicates_page_1024x768_light_Singapore-hanoi-html.jpg"
+ }
+]
