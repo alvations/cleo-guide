@@ -795,14 +795,21 @@ html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail:focus-withi
 @media (max-height:499px) and (orientation:landscape){
   html:root{--bar-h:48px}
   html body main[data-city]>.cbar{position:relative;top:auto}
-  html body main[data-city]>nav.rail#cleo-rail{position:relative;top:auto}
+  /* platform overlay finding: at 390 px tall the Gallery rail scrolls away (the ≥ 768 sticky rule, line 234, out-ranked this one
+     and its 106 px band covered in-flow controls such as "Keep Tokyo offline") */
+  html[data-view] body main[data-city]>nav.rail#cleo-rail{position:relative;top:auto}
   /* QA-80: the switch must be ABOVE the header, so its row makes no stacking context (z-index:auto); it is icon-only (44 px
      segments, the label kept as the accessible name) and sits between the language switch and search, covering nothing */
   html body main[data-city]>.cbar{z-index:auto}
-  html body main[data-city] .views[data-cleo-views]{position:fixed;top:2px;right:116px;z-index:60;width:auto;height:44px;margin:0;padding:2px}
-  html body main[data-city] .views[data-cleo-views] button{width:44px;min-width:44px;height:40px;min-height:0;padding:0;justify-content:center}
+  /* QA-82 (a): the segments are a full 44 × 44 (the 48 px header holds the 44 + 2 × 2 track) */
+  html body main[data-city] .views[data-cleo-views]{position:fixed;top:0;right:116px;z-index:60;width:auto;height:var(--bar-h);margin:0;padding:2px;box-sizing:border-box}
+  html body main[data-city] .views[data-cleo-views] button{position:relative;width:44px;min-width:44px;height:44px;min-height:44px;padding:0;justify-content:center;overflow:visible}
   html body main[data-city] .views[data-cleo-views] button>.ico{display:inline-block}
   html body main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  /* QA-82 (b): an icon-only segment names itself on keyboard focus and while pressed (or hovered), as a tooltip under it */
+  html body main[data-city] .views[data-cleo-views] button:is(:focus-visible,:active,:hover)>.l{top:calc(100% + var(--s-1));left:50%;width:auto;height:auto;overflow:visible;clip:auto;transform:translateX(-50%);padding:var(--s-1) var(--s-2);border-radius:var(--r-s);background:var(--ink);color:var(--paper);font:var(--fw-ui-strong) var(--fs-xs)/var(--lh-xs) var(--font-ui);box-shadow:var(--e-2);pointer-events:none;z-index:1}
+  /* QA-82 (c): landscape Atlas lays the masthead out under the map; its "last checked" link must not take focus unseen */
+  html.atlas-m[data-view=atlas] body main[data-city] .masthead .facts a[data-cleo-changes]{visibility:hidden}
   html.atlas-m[data-view=atlas]:root{--cbar-o:0px}
   html.atlas-m[data-view=atlas] body main[data-city]>.cbar{height:0;min-height:0;background:transparent;border:0;pointer-events:none;z-index:47}   /* QA-80: a fixed row is a stacking context; at height 0 it covers nothing, and its switch paints above the header */
   html.atlas-m[data-view=atlas] body main[data-city]>.cbar .views{pointer-events:auto}
