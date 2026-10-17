@@ -108,11 +108,10 @@
   const far = x => byBase() ? C.baseKm(x) : C.dist && C.dist[pid(x)] != null ? C.dist[pid(x)] : 1e9;
   // FE-C INP hook (open a place): what the list was last drawn for. A route that only opens or changes the place (#p=) leaves
   // every lens, sort and ranking as it was, so onRoute need not redraw 488 cards before the sheet paints
-  let drawn = null;
-  const drawKey = () => [S.mode, S.sort, S.q].concat(LENS.map(k => S[k] || '')).join('|');
-  const same = () => !!drawn && drawn[0] === drawKey() && drawn[1] === C.rank && drawn[2] === C.dist && drawn[3] === C.why && drawn[4] === cards.length;
+  let drawn = [];
+  const drawFor = () => [JSON.stringify(S), C.rank, C.dist, C.why, cards.length], same = () => drawFor().every((x, i) => x === drawn[i]);
   const apply = () => {
-    drawn = [drawKey(), C.rank, C.dist, C.why, cards.length];
+    drawn = drawFor();
     if (Cleo.defer && (C.rank || S.day || S.sort)) Cleo.defer.all();   // a reorder must see every card (M3-06)
     // PERF-08 (platform): under Cleo.defer.selective a lens stamps only what it shows, so the unstamped stubs count too —
     // as shown when no lens is on (they are simply not built yet), as the lens decides when one is
@@ -236,7 +235,7 @@
     if (tg && !visible(tg)) { S.mode = 'all'; LENS.forEach(k => { S[k] = ''; }); S.q = ''; if (fi) fi.value = ''; }
     // FE-C INP hook: a tapped card is on screen already, so the page doesn't scroll to it (a scroll would also compact the
     // chrome: a whole-page restyle behind the sheet); read before any write, so it forces nothing new
-    const tr0 = tg && !tg.hidden ? tg.getBoundingClientRect() : null, onScreen = !!tr0 && tr0.height > 0 && tr0.top >= 0 && tr0.bottom <= innerHeight;
+    const tr0 = tg && !tg.hidden ? tg.getBoundingClientRect() : null, onScreen = !!tr0 && tr0.height > 0 && tr0.top < innerHeight && tr0.bottom > 0;
     if (!(tg && same())) apply();
     $$('li.pl.is-target').forEach(c => { if (c !== tg) c.classList.remove('is-target'); });
     const mob = !desk() && (C.view || d.documentElement.getAttribute('data-view')) === 'atlas', fa = r.map && r.map !== '1' ? r.map : S.a;

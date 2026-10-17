@@ -44,7 +44,10 @@ function rowsOf(j, name) {
     .forEach(([k, c, l]) => add(c.n.replace(/^★\s*/, ''), pl(l.length) + ' · ' + (k === 'cz' ? 'eat & drink' : 'a collection'), k, c.id, l, 0));
   const cl = (G.closed || []).map(x => ord.filter(r => r.id === x.id)[0]).filter(Boolean);
   add('Recently closed', pl(cl.length) + ' · kept for the record, newest check first', 'closed', '1', cl, 0);
-  const lead = sig.filter(r => r.t === 1 && !r.closed)[0] || ord.filter(r => r.t === 1 && !r.closed)[0] || ord.filter(r => !r.closed)[0];
+  // orchestrator ruling (one starting place per view): the Gallery's "Start with" and its lead card name the view's FIRST
+  // card, the first open place of the first row; the old tier-1 pick only when there are no rows (the card still needs a photo)
+  const r0 = out[0] && out[0][6].filter(x => !x.closed)[0], first = r0 && ord.filter(r => r.id === r0.id)[0];
+  const lead = first || sig.filter(r => r.t === 1 && !r.closed)[0] || ord.filter(r => r.t === 1 && !r.closed)[0] || ord.filter(r => !r.closed)[0];
   return { rows: out, lead: lead ? slim(lead) : null };   // "Start with" names it always; the CARD needs its photo (D-49, below)
 }
 

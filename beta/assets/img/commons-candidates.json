@@ -22,10 +22,10 @@
   "candidates[].flags": "people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it"
  },
  "summary": {
-  "targets": 1657,
+  "targets": 1672,
   "byType": {
    "hero": 89,
-   "landmark": 1568
+   "landmark": 1583
   },
   "heroes": {
    "targets": 89,
@@ -37,14 +37,14 @@
    "withHigh": 124
   },
   "otherLandmarks": {
-   "targets": 1371,
-   "skipped": 205,
-   "withArticle": 798
+   "targets": 1386,
+   "skipped": 201,
+   "withArticle": 814
   },
   "candidates": {
-   "total": 1770,
+   "total": 1823,
    "high": 1522,
-   "med": 248,
+   "med": 301,
    "low": 0
   },
   "targetsWithHigh": 856,
@@ -2952,18 +2952,20 @@
    "candidates": []
   },
   {
-   "key": "landmark:okinawa#pokemon-center-okinawa-aeon-mall-okinawa-rycom",
+   "key": "landmark:okinawa#poke-lid-arcanine-tenbusu-plaza-kokusai-dori",
    "type": "landmark",
-   "depicts": "okinawa#pokemon-center-okinawa-aeon-mall-okinawa-rycom",
-   "label": "Pokémon Center Okinawa, Aeon Mall Okinawa Rycom (ポケモンセンターオキナワ)",
+   "depicts": "okinawa#poke-lid-arcanine-tenbusu-plaza-kokusai-dori",
+   "label": "Poké Lid — Arcanine, Tenbusu Plaza, Kokusai-dōri (ポケふた ウインディ てんぶす広場)",
    "names": [
-    "Pokémon Center Okinawa, Aeon Mall Okinawa Rycom",
-    "Pokémon Center Okinawa",
-    "Aeon Mall Okinawa Rycom",
-    "ポケモンセンターオキナワ"
+    "Poké Lid — Arcanine, Tenbusu Plaza, Kokusai-dōri",
+    "Poké Lid",
+    "Arcanine",
+    "Tenbusu Plaza",
+    "Kokusai-dōri",
+    "ポケふた ウインディ てんぶす広場"
    ],
    "pilot": false,
-   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
+   "skip": "Poké Lid manhole cover: copyrighted character artwork, and Japan has no freedom of panorama for art (W8 gap stated)",
    "priority": "lead",
    "candidates": []
   },
@@ -3243,22 +3245,6 @@
    "candidates": []
   },
   {
-   "key": "landmark:singapore/malacca#a-famosa-and-dutch-square-jonker-street",
-   "type": "landmark",
-   "depicts": "singapore/malacca#a-famosa-and-dutch-square-jonker-street",
-   "label": "A Famosa & Dutch Square (Jonker Street)",
-   "names": [
-    "A Famosa & Dutch Square",
-    "A Famosa",
-    "Dutch Square"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/A_Famosa",
-   "priority": "lead",
-   "wikiLead": true,
-   "candidates": []
-  },
-  {
    "key": "landmark:singapore/mandai#singapore-zoo",
    "type": "landmark",
    "depicts": "singapore/mandai#singapore-zoo",
@@ -3372,32 +3358,6 @@
    "priority": "lead",
    "wikiLead": true,
    "candidates": []
-  },
-  {
-   "key": "landmark:singapore/punggol#coney-island-park-pulau-serangoon",
-   "type": "landmark",
-   "depicts": "singapore/punggol#coney-island-park-pulau-serangoon",
-   "label": "Coney Island Park (Pulau Serangoon)",
-   "names": [
-    "Coney Island Park",
-    "Coney Island, Singapore"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/Coney_Island,_Singapore",
-   "skip": "candidate wave 1: no Commons file of Coney Island Park, Singapore turned up — calm cover (stated)",
-   "priority": "lead",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:Entrance to Pulau Serangoon from Punggol Promenade Nature Walk.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Entrance_to_Pulau_Serangoon_from_Punggol_Promenade_Nature_Walk.jpg",
-     "depicts": "(discovered)",
-     "confidence": "med",
-     "reason": "discover-commons P18, names it in wikidata P18 (cm-5, reviewed 2026-10-17)",
-     "refused": "refused by contact-sheet review (cm-5): an empty road to a gate, not the park"
-    }
-   ]
   },
   {
    "key": "landmark:singapore/siem-reap#angkor-wat",
@@ -3528,7 +3488,18 @@
    "article": "https://en.wikipedia.org/wiki/Akihabara_Radio_Kaikan",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Akihabara Radio Kaikan -01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Akihabara_Radio_Kaikan_-01.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 38 m, names it in title (cm-95, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-95): the facade's shop signs and billboard graphics are the subject (K-BOOKS, the Radio Kaikan lettering), not the architecture (D-56)"
+    }
+   ]
   },
   {
    "key": "landmark:tokyo#godzilla-head-hotel-gracery-shinjuku",
@@ -3708,7 +3679,17 @@
    "article": "https://en.wikipedia.org/wiki/Centre_Market_Square_Historic_District",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Center Market Square Historic District.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Center_Market_Square_Historic_District.jpg",
+     "depicts": "Center Market Square Historic District",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-96, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:wheeling#lemoyne-house",
@@ -3961,7 +3942,17 @@
    "article": "https://en.wikipedia.org/wiki/Otaru",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:浅草橋 (2309866875).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E6%B5%85%E8%8D%89%E6%A9%8B_(2309866875).jpg",
+     "depicts": "浅草橋 (2309866875)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 11 m, names it in category (cm-93, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:hokkaido#otaru-city-general-museum",
@@ -4099,7 +4090,17 @@
    "article": "https://en.wikipedia.org/wiki/Tamako_Market",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Demachi arcade01.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Demachi_arcade01.JPG",
+     "depicts": "Demachi arcade01",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 0 m, names it in description (cm-94, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#kozan-ji",
@@ -4336,24 +4337,6 @@
    "candidates": []
   },
   {
-   "key": "landmark:okinawa#poke-lid-arcanine-tenbusu-plaza-kokusai-dori",
-   "type": "landmark",
-   "depicts": "okinawa#poke-lid-arcanine-tenbusu-plaza-kokusai-dori",
-   "label": "Poké Lid — Arcanine, Tenbusu Plaza, Kokusai-dōri (ポケふた ウインディ てんぶす広場)",
-   "names": [
-    "Poké Lid — Arcanine, Tenbusu Plaza, Kokusai-dōri",
-    "Poké Lid",
-    "Arcanine",
-    "Tenbusu Plaza",
-    "Kokusai-dōri",
-    "ポケふた ウインディ てんぶす広場"
-   ],
-   "pilot": false,
-   "skip": "Poké Lid manhole cover: copyrighted character artwork, and Japan has no freedom of panorama for art (W8 gap stated)",
-   "priority": "row",
-   "candidates": []
-  },
-  {
    "key": "landmark:okinawa#poke-lid-growlithe-over-mihama-fireworks-depot-island-boardw",
    "type": "landmark",
    "depicts": "okinawa#poke-lid-growlithe-over-mihama-fireworks-depot-island-boardw",
@@ -4421,6 +4404,22 @@
    ],
    "pilot": false,
    "skip": "Poké Lid manhole cover: copyrighted character artwork, and Japan has no freedom of panorama for art (W8 gap stated)",
+   "priority": "row",
+   "candidates": []
+  },
+  {
+   "key": "landmark:okinawa#pokemon-center-okinawa-aeon-mall-okinawa-rycom",
+   "type": "landmark",
+   "depicts": "okinawa#pokemon-center-okinawa-aeon-mall-okinawa-rycom",
+   "label": "Pokémon Center Okinawa, Aeon Mall Okinawa Rycom (ポケモンセンターオキナワ)",
+   "names": [
+    "Pokémon Center Okinawa, Aeon Mall Okinawa Rycom",
+    "Pokémon Center Okinawa",
+    "Aeon Mall Okinawa Rycom",
+    "ポケモンセンターオキナワ"
+   ],
+   "pilot": false,
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "priority": "row",
    "candidates": []
   },
@@ -5859,6 +5858,14 @@
      "depicts": "Meguro River in spring",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Meguro River"
+    },
+    {
+     "file": "File:襟足 (23987452219).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E8%A5%9F%E8%B6%B3_(23987452219).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 13 m, names it in category (cm-128, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-128): people (backs of pedestrians at a crossing) are the subject, not the Meguro river"
     }
    ]
   },
@@ -6433,7 +6440,18 @@
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Takeshita_Street",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Takeshitadori -02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Takeshitadori_-02.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 18 m, names it in title (cm-129, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-129): a dense crowd and clothing racks fill the frame (a better pick for this place: ov-e666b4f3-d169-465e-b141-9b19916268fa)"
+    }
+   ]
   },
   {
    "key": "landmark:tokyo#teamlab-planets-tokyo",
@@ -7799,10 +7817,13 @@
    "names": [
     "9/11 Memorial & Museum",
     "9/11 Memorial",
+    "National September 11 Memorial & Museum",
     "September 11 Memorial",
     "911 Memorial"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/National_September_11_Memorial_%26_Museum",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -8364,6 +8385,8 @@
     "Freshkills Park"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/Freshkills_Park",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -8588,6 +8611,8 @@
     "ChineseScholarGarden"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/New_York_Chinese_Scholar%27s_Garden",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -8610,6 +8635,8 @@
     "World's Fair"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/New_York_State_Pavilion",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -8805,6 +8832,7 @@
     "Smorgasburg"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/Smorgasburg",
    "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
@@ -8905,6 +8933,7 @@
     "Saint George Theatre"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/St._George_Theatre",
    "skip": "venue (theatre) — never a photo",
    "candidates": []
   },
@@ -8936,9 +8965,11 @@
    "depicts": "newyork#staten-island-boat-graveyard",
    "label": "Staten Island Boat Graveyard",
    "names": [
-    "Staten Island Boat Graveyard"
+    "Staten Island Boat Graveyard",
+    "Arthur Kill"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/Arthur_Kill",
    "skip": "not searched this wave",
    "candidates": []
   },
@@ -8953,6 +8984,8 @@
     "Saint George Terminal"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/St._George_Terminal",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -9147,6 +9180,7 @@
     "Yankee Stadium"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/Yankee_Stadium",
    "skip": "venue (stadium) — never a photo",
    "candidates": []
   },
@@ -9821,7 +9855,18 @@
    ],
    "pilot": false,
    "skip": "no file found (wave 6 search) — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Karlspreis1988.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Karlspreis1988.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 15 m, names it in description (cm-97, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-97): a single exhibit (the 1988 Charlemagne Prize medal and certificate in a case), not the museum"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#couven-museum",
@@ -10032,6 +10077,28 @@
    ]
   },
   {
+   "key": "landmark:aachen#fischmarkt",
+   "type": "landmark",
+   "depicts": "aachen#fischmarkt",
+   "label": "Fischmarkt",
+   "names": [
+    "Fischmarkt"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Aachen Grashaus.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen_Grashaus.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 3 m, names it in description (cm-136, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-136): the same file as cm-131 (ok for the Grashaus): it shows the building, not the Fischmarkt square"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#fort-sint-pieter",
    "type": "landmark",
    "depicts": "aachen#fort-sint-pieter",
@@ -10057,6 +10124,27 @@
      "confidence": "med",
      "reason": "discover-commons geosearch 36 m, names it in category (cm-75, reviewed 2026-10-17)",
      "refused": "refused by contact-sheet review (cm-75): second pick (cm-74)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#gemeentegrot-valkenburg",
+   "type": "landmark",
+   "depicts": "aachen#gemeentegrot-valkenburg",
+   "label": "Gemeentegrot Valkenburg",
+   "names": [
+    "Gemeentegrot Valkenburg"
+   ],
+   "pilot": false,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Valkenburg-Entree Gemeentegrot.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Valkenburg-Entree_Gemeentegrot.JPG",
+     "depicts": "Valkenburg-Entree Gemeentegrot",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 25 m, names it in description (cm-141, reviewed 2026-10-17)"
     }
    ]
   },
@@ -10088,6 +10176,13 @@
      "depicts": "Grashaus, Aachen, 2017",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): LISTING: in A.Savin 2017 listing; title names Grashaus, 3246x3246"
+    },
+    {
+     "file": "File:Aachen Grashaus.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen_Grashaus.jpg",
+     "depicts": "Aachen Grashaus",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 3 m, names it in title (cm-131, reviewed 2026-10-17)"
     }
    ]
   },
@@ -10251,6 +10346,29 @@
    ]
   },
   {
+   "key": "landmark:aachen#jekerkwartier",
+   "type": "landmark",
+   "depicts": "aachen#jekerkwartier",
+   "label": "Jekerkwartier",
+   "names": [
+    "Jekerkwartier"
+   ],
+   "pilot": false,
+   "article": "https://nl.wikipedia.org/wiki/Jekerkwartier",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Maastricht Helpoort BW 2017-08-19 13-58-28.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Maastricht_Helpoort_BW_2017-08-19_13-58-28.jpg",
+     "depicts": "Maastricht Helpoort BW 2017-08-19 13-58-28",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-137, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#jugendstil-wasserkraftwerk-heimbach",
    "type": "landmark",
    "depicts": "aachen#jugendstil-wasserkraftwerk-heimbach",
@@ -10275,6 +10393,29 @@
      "depicts": "Heimbach Art Nouveau power station",
      "confidence": "high",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Heimbach Jugendstilkraftwerk; from Category:Heimbach Art Nouveau power plant listing"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#kasteel-vaalsbroek",
+   "type": "landmark",
+   "depicts": "aachen#kasteel-vaalsbroek",
+   "label": "Kasteel Vaalsbroek",
+   "names": [
+    "Kasteel Vaalsbroek"
+   ],
+   "pilot": false,
+   "article": "https://nl.wikipedia.org/wiki/Kasteel_Vaalsbroek",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kasteel Vaalsbroek.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kasteel_Vaalsbroek.jpg",
+     "depicts": "Kasteel Vaalsbroek",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-140, reviewed 2026-10-17)"
     }
    ]
   },
@@ -10386,6 +10527,29 @@
    ]
   },
   {
+   "key": "landmark:aachen#kupferhof-rosenthal",
+   "type": "landmark",
+   "depicts": "aachen#kupferhof-rosenthal",
+   "label": "Kupferhof Rosenthal",
+   "names": [
+    "Kupferhof Rosenthal"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Kupferhof_Rosenthal",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kupferhof Rosenthal, Stolberg-Rheinland.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kupferhof_Rosenthal,_Stolberg-Rheinland.JPG",
+     "depicts": "Kupferhof Rosenthal, Stolberg-Rheinland",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-142, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#kurpark-burtscheid",
    "type": "landmark",
    "depicts": "aachen#kurpark-burtscheid",
@@ -10412,6 +10576,14 @@
      "depicts": "Kurpark terraces, Burtscheid",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): LISTING: in Category:Kurpark Burtscheid; title names the Kurpark terraces — check by eye"
+    },
+    {
+     "file": "File:Die Sitzende Kurpark Burtscheid.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Die_Sitzende_Kurpark_Burtscheid.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-133, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-133): a sculpture (Die Sitzende) is the subject, not the park"
     }
    ]
   },
@@ -10473,6 +10645,14 @@
      "depicts": "The Lousberg, Aachen",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): LISTING: in Category:Lousberg; 4529x3019 — content not described, check by eye"
+    },
+    {
+     "file": "File:Sonnenuntergang überm Lousberg 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sonnenuntergang_%C3%BCberm_Lousberg_1.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 6 m, names it in title (cm-132, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-132): a dark sunset silhouette, mostly sky; the hill is not discernible"
     }
    ]
   },
@@ -10849,6 +11029,29 @@
    ]
   },
   {
+   "key": "landmark:aachen#puppenbrunnen",
+   "type": "landmark",
+   "depicts": "aachen#puppenbrunnen",
+   "label": "Puppenbrunnen",
+   "names": [
+    "Puppenbrunnen"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/Puppenbrunnen",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Puppenbrunnen in Aachen.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Puppenbrunnen_in_Aachen.JPG",
+     "depicts": "Puppenbrunnen in Aachen",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 4 m, names it in title (cm-135, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#rotes-haus-scheibler-museum",
    "type": "landmark",
    "depicts": "aachen#rotes-haus-scheibler-museum",
@@ -11031,6 +11234,55 @@
    ]
   },
   {
+   "key": "landmark:aachen#sphinxkwartier",
+   "type": "landmark",
+   "depicts": "aachen#sphinxkwartier",
+   "label": "Sphinxkwartier",
+   "names": [
+    "Sphinxkwartier"
+   ],
+   "pilot": false,
+   "article": "https://nl.wikipedia.org/wiki/Sphinxkwartier",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:2018-Maastricht, Sphinxkwartier, Kop van de Sphinx 03.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:2018-Maastricht,_Sphinxkwartier,_Kop_van_de_Sphinx_03.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 7 m, names it in title (cm-139, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-139): a derelict factory wall with graffiti (2018); it does not show the redeveloped quarter (Eiffelgebouw, cinema)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#st-foillan",
+   "type": "landmark",
+   "depicts": "aachen#st-foillan",
+   "label": "St. Foillan",
+   "names": [
+    "St. Foillan",
+    "Saint Foillan",
+    "St. Foillan (Aachen)"
+   ],
+   "pilot": false,
+   "article": "https://de.wikipedia.org/wiki/St._Foillan_(Aachen)",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:St. Foillan, 2011.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:St._Foillan,_2011.jpg",
+     "depicts": "St. Foillan, 2011",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 4 m, names it in title (cm-134, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:aachen#st-nikolaus-kirche-eupen",
    "type": "landmark",
    "depicts": "aachen#st-nikolaus-kirche-eupen",
@@ -11071,6 +11323,31 @@
      "depicts": "Bütgenbach dam wall",
      "confidence": "high",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Bütgenbach dam"
+    }
+   ]
+  },
+  {
+   "key": "landmark:aachen#stokstraatkwartier",
+   "type": "landmark",
+   "depicts": "aachen#stokstraatkwartier",
+   "label": "Stokstraatkwartier",
+   "names": [
+    "Stokstraatkwartier",
+    "Stokstraat (Maastricht)"
+   ],
+   "pilot": false,
+   "article": "https://nl.wikipedia.org/wiki/Stokstraat_(Maastricht)",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Overzicht met het straatbeeld - Maastricht - 20382899 - RCE.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Overzicht_met_het_straatbeeld_-_Maastricht_-_20382899_-_RCE.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-138, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-138): no named author (Unknown author, CC BY-SA 4.0, not a PD/CC0 historic row)"
     }
    ]
   },
@@ -11343,6 +11620,31 @@
    "candidates": []
   },
   {
+   "key": "landmark:akron#bradys-leap-park",
+   "type": "landmark",
+   "depicts": "akron#bradys-leap-park",
+   "label": "Brady's Leap Park",
+   "names": [
+    "Brady's Leap Park",
+    "Kent, Ohio"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Kent,_Ohio",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Downtown Kent 2013.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Kent_2013.JPG",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-146, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-146): a different place: downtown Kent, its depot and mill, not the Brady's Leap gorge (the record's Wikipedia link is Kent, Ohio); local to this place, the same file may suit a Kent target"
+    }
+   ]
+  },
+  {
    "key": "landmark:akron#cascade-locks-park-and-mustill-store",
    "type": "landmark",
    "depicts": "akron#cascade-locks-park-and-mustill-store",
@@ -11447,6 +11749,32 @@
    ]
   },
   {
+   "key": "landmark:akron#glendale-cemetery-and-civil-war-memorial-chapel",
+   "type": "landmark",
+   "depicts": "akron#glendale-cemetery-and-civil-war-memorial-chapel",
+   "label": "Glendale Cemetery & Civil War Memorial Chapel",
+   "names": [
+    "Glendale Cemetery & Civil War Memorial Chapel",
+    "Glendale Cemetery",
+    "Civil War Memorial Chapel"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Glendale_Cemetery",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Robinson family mausoleum at Glendale Cemetery.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Robinson_family_mausoleum_at_Glendale_Cemetery.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-144, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-144): a single family mausoleum; neither the cemetery grounds nor the Civil War memorial chapel"
+    }
+   ]
+  },
+  {
    "key": "landmark:akron#glendale-steps",
    "type": "landmark",
    "depicts": "akron#glendale-steps",
@@ -11527,6 +11855,30 @@
    "candidates": []
   },
   {
+   "key": "landmark:akron#haines-house-underground-railroad-museum",
+   "type": "landmark",
+   "depicts": "akron#haines-house-underground-railroad-museum",
+   "label": "Haines House Underground Railroad Museum",
+   "names": [
+    "Haines House Underground Railroad Museum",
+    "Haines House (Alliance, Ohio)"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Haines_House_(Alliance,_Ohio)",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Haines House (Alliance, OH).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Haines_House_(Alliance,_OH).JPG",
+     "depicts": "Haines House (Alliance, OH)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-148, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
    "key": "landmark:akron#hoover-historical-center",
    "type": "landmark",
    "depicts": "akron#hoover-historical-center",
@@ -11602,6 +11954,29 @@
      "depicts": "Kent Dam and bridge on the Cuyahoga River",
      "confidence": "med",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): LISTING: in Category:Dams in Ohio; title names Kent dam/bridge, 2576x1932 — check by eye it is the Kent Dam"
+    }
+   ]
+  },
+  {
+   "key": "landmark:akron#maps-air-museum",
+   "type": "landmark",
+   "depicts": "akron#maps-air-museum",
+   "label": "MAPS Air Museum",
+   "names": [
+    "MAPS Air Museum"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/MAPS_Air_Museum",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:MAPS Air Museum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:MAPS_Air_Museum.jpg",
+     "depicts": "MAPS Air Museum",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-147, reviewed 2026-10-17)"
     }
    ]
   },
@@ -11754,6 +12129,53 @@
      "depicts": "Hall of Fame building exterior, Canton, 2006",
      "confidence": "high",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-17): title names the (Pro) Football Hall of Fame; page says Canton building"
+    }
+   ]
+  },
+  {
+   "key": "landmark:akron#quail-hollow-park",
+   "type": "landmark",
+   "depicts": "akron#quail-hollow-park",
+   "label": "Quail Hollow Park",
+   "names": [
+    "Quail Hollow Park",
+    "Quail Hollow State Park"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Quail_Hollow_State_Park",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Harry Bartlett Stewart Property.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Harry_Bartlett_Stewart_Property.jpg",
+     "depicts": "Harry Bartlett Stewart Property",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-145, reviewed 2026-10-17)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:akron#quaker-square",
+   "type": "landmark",
+   "depicts": "akron#quaker-square",
+   "label": "Quaker Square",
+   "names": [
+    "Quaker Square"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Quaker_Square",
+   "wikiLead": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:QuakerSquareNE.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:QuakerSquareNE.JPG",
+     "depicts": "QuakerSquareNE",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-143, reviewed 2026-10-17)"
     }
    ]
   },
@@ -13858,6 +14280,13 @@
      "depicts": "Palace of Justice, Brussels",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Justitiepaleis Brussel; 6000x4000, 2016 — check for scaffolding"
+    },
+    {
+     "file": "File:Brussels Justice.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brussels_Justice.jpg",
+     "depicts": "Brussels Justice",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 23 m, names it in description (cm-98, reviewed 2026-10-17)"
     }
    ]
   },
@@ -15164,7 +15593,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Our_Lady_of_Sorrows_Basilica",
    "skip": "candidate wave 6: only details/interiors — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Our Lady of Sorrows 080202.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Our_Lady_of_Sorrows_080202.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-99, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-99): an interior (the nave), not the basilica; wave 6 already stated this place as interiors-only (calm cover)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#palmisano-park",
@@ -15825,7 +16265,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cincinnati_Music_Hall",
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -15958,7 +16398,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Findlay_Market",
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -16409,6 +16849,13 @@
      "depicts": "City Park Avenue street in German Village",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names German Village"
+    },
+    {
+     "file": "File:GVcommercial.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:GVcommercial.JPG",
+     "depicts": "GVcommercial",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-101, reviewed 2026-10-17)"
     }
    ]
   },
@@ -17192,6 +17639,14 @@
      "depicts": "Harmony Museum building in the Harmony Historic District",
      "confidence": "med",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): LISTING: in Category:Harmony Historic District; title names Harmony Museum, 2025x1215"
+    },
+    {
+     "file": "File:Veterans' monument, Main Street, Harmony, Pennsylvania - 20210606.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Veterans'_monument,_Main_Street,_Harmony,_Pennsylvania_-_20210606.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 38 m, names it in category (cm-102, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-102): a veterans' monument (boulder, plaque and flag) is the subject, not the historic district"
     }
    ]
   },
@@ -19807,7 +20262,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Broad_Ripple_Village,_Indianapolis",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:BROADRIPPLE.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:BROADRIPPLE.JPG",
+     "depicts": "BROADRIPPLE",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-103, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:indianapolis#central-library",
@@ -21182,6 +21647,13 @@
      "depicts": "Hattō (Dharma Hall) of Kennin-ji",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): LISTING: in Category:Hattō, Kennin-ji; Japanese title names Kennin-ji Hattō, 2592x1936 — check exterior"
+    },
+    {
+     "file": "File:Kenninji Kyoto06n4272.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kenninji_Kyoto06n4272.jpg",
+     "depicts": "Kenninji Kyoto06n4272",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 1 m, names it in title (cm-104, reviewed 2026-10-17)"
     }
    ]
   },
@@ -21835,7 +22307,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kinkakuji 2004-09-21.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kinkakuji_2004-09-21.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-105, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-105): a different place: Kinkaku-ji (already credited on its own card), not To-ji; the record's Wikipedia link is the group World Heritage article"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#todai-ji",
@@ -23330,7 +23813,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Adrienne_Arsht_Center_for_the_Performing_Arts",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Downtown Miami from north 20100129.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Miami_from_north_20100129.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-106, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-106): second pick: a downtown skyline view where the center is only part of the foreground (a better pick for this place: ov-5f6c1040-532f-4d7f-828e-2e3b24057aa6)"
+    }
+   ]
   },
   {
    "key": "landmark:miami#alfred-i-dupont-building",
@@ -25111,6 +25605,14 @@
      "depicts": "Kokusai-dori street in Naha",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Kokusai-dori; 3200x2133"
+    },
+    {
+     "file": "File:Naha Traditional Craft Center 20150315.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Naha_Traditional_Craft_Center_20150315.JPG",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 5 m, names it in category (cm-107, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-107): a different building on the street (Naha Traditional Craft Center) with a crowd at its entrance, not Kokusai-dori itself"
     }
    ]
   },
@@ -25546,7 +26048,18 @@
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E7%80%AC%E9%95%B7%E5%B3%B6",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Triangulation point in Senaga Island.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Triangulation_point_in_Senaga_Island.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 39 m, names it in title (cm-108, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-108): a survey marker (triangulation point) in scrub is the subject, not the island or Umikaji Terrace"
+    }
+   ]
   },
   {
    "key": "landmark:okinawa#shikinaen-royal-garden",
@@ -26697,6 +27210,14 @@
      "depicts": "Main Street, U.S.A. at Magic Kingdom",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Main Street, U.S.A.; 2052x1532"
+    },
+    {
+     "file": "File:Magic Kingdom panorama (11353775855).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Magic_Kingdom_panorama_(11353775855).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 20 m, names it in category (cm-109, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-109): a thin 2048x396 panorama of the park hub; Main Street is not the subject and it cannot be cropped to a card"
     }
    ]
   },
@@ -27570,6 +28091,14 @@
      "depicts": "Ebisubashi bridge over the Dotonbori canal",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): LISTING: from Category:March 2014 in Osaka listing; title names Ebisu-bashi Bridge, 4128x3096 — check by eye that it is daytime (a separate 'at night' file exists) and Glico sign not dominant"
+    },
+    {
+     "file": "File:Dotonbori - panoramio (8).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dotonbori_-_panoramio_(8).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 4 m, names it in category (cm-110, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-110): a lit ring on the canal at night; neither the Glico sign nor Ebisubashi is shown"
     }
    ]
   },
@@ -29122,7 +29651,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Simeone_Foundation_Automotive_Museum",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Simeone-Museum-Exhibit-America-at-Le-Mans.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Simeone-Museum-Exhibit-America-at-Le-Mans.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 1 m, names it in description (cm-111, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-111): an exhibit display inside (the America at Le Mans cars), not the museum"
+    }
+   ]
   },
   {
    "key": "landmark:philadelphia#spruce-street-harbor-park",
@@ -29889,7 +30429,17 @@
     "Abtei Brauweiler"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Abteikirche St. Nikolaus der Abtei Brauweiler-0069.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Abteikirche_St._Nikolaus_der_Abtei_Brauweiler-0069.jpg",
+     "depicts": "Abteikirche St. Nikolaus der Abtei Brauweiler-0069",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 26 m, names it in title (cm-117, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#abtei-michaelsberg",
@@ -30017,6 +30567,13 @@
      "depicts": "Bolkerstraße in Düsseldorf's Altstadt, the bar street",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): LISTING: in Category:Bolkerstraße (Düsseldorf); title names Düsseldorf-Altstadt Bolkerstraße, 3264x2448 — check by eye (people/night)"
+    },
+    {
+     "file": "File:Düsseldorf (DE), Jan-Wellem-Reiterdenkmal -- 2014 -- 2313.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:D%C3%BCsseldorf_(DE),_Jan-Wellem-Reiterdenkmal_--_2014_--_2313.jpg",
+     "depicts": "Düsseldorf (DE), Jan-Wellem-Reiterdenkmal -- 2014 -- 2313",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-112, reviewed 2026-10-17)"
     }
    ]
   },
@@ -30137,7 +30694,18 @@
     "Carlsplatz Markt"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Düsseldorf (28246848219).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:D%C3%BCsseldorf_(28246848219).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 28 m, names it in category (cm-114, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-114): a close-up of one stall's potatoes; it does not show the market"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#deutsches-museum-bonn",
@@ -30464,7 +31032,18 @@
     "Kö-Bogen II"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:2019-05-24, Kö-Bogen II Baustelle mit Schauspielhaus fotografiert von Breuninger, links das Dreischeibenhaus.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:2019-05-24,_K%C3%B6-Bogen_II_Baustelle_mit_Schauspielhaus_fotografiert_von_Breuninger,_links_das_Dreischeibenhaus.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 37 m, names it in title (cm-115, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-115): the 2019 construction site with cranes, not the finished Ko-Bogen II"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#kolner-dom",
@@ -30768,6 +31347,13 @@
      "confidence": "high",
      "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Museum Kunstpalast",
      "refused": "refused by orchestrator review (R8, run #82): lawn and trees; the museum a distant sliver (wrong subject)"
+    },
+    {
+     "file": "File:Museum Kunstpalast - Ehrenhof und nördlicher Übergang (8241-49).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Museum_Kunstpalast_-_Ehrenhof_und_n%C3%B6rdlicher_%C3%9Cbergang_(8241-49).jpg",
+     "depicts": "Museum Kunstpalast - Ehrenhof und nördlicher Übergang (8241-49)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-113, reviewed 2026-10-17)"
     }
    ]
   },
@@ -30836,7 +31422,18 @@
     "NS-Dokumentationszentrum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Marcus Leifeld, Buchpräsentation im EL-DE-Haus Köln-5273.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Marcus_Leifeld,_Buchpr%C3%A4sentation_im_EL-DE-Haus_K%C3%B6ln-5273.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 17 m, names it in description (cm-116, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-116): a person (an author at a book launch) is the subject, not the EL-DE-Haus"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#poppelsdorfer-schloss-and-botanischer-garten",
@@ -31460,7 +32057,17 @@
     "Burg Landshut"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Burg Landshut, Bernkastel-Kues.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Burg_Landshut,_Bernkastel-Kues.jpg",
+     "depicts": "Burg Landshut, Bernkastel-Kues",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 11 m, names it in title (cm-123, reviewed 2026-10-17)"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#casemates-de-la-petrusse",
@@ -31655,7 +32262,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/G%C3%ABlle_Fra",
    "skip": "candidate wave 6: the Gëlle Fra is a sculpture by Claus Cito (d. 1965), still in copyright; freedom of panorama not established for Luxembourg — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:D'Gëlle Fra um Riserad-102.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:D'G%C3%ABlle_Fra_um_Riserad-102.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 11 m, names it in title (cm-119, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-119): the column is half hidden behind trees and a fairground Ferris wheel dominates the frame"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#grand-ducal-palace-palais-grand-ducal",
@@ -31816,7 +32434,18 @@
     "Mémorial de Verdun"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Memorial de Verdun mit Geschütz im Vordergrund.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Memorial_de_Verdun_mit_Gesch%C3%BCtz_im_Vordergrund.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 20 m, names it in title (cm-121, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-121): mostly overcast sky and gravel; the memorial is a thin strip in the distance"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#mont-sainte-odile",
@@ -31882,7 +32511,18 @@
    ],
    "pilot": false,
    "skip": "only details/interiors (wave 6 search) — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Magnolia x soulangeana 01 by Line1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Magnolia_x_soulangeana_01_by_Line1.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 4 m, names it in description (cm-118, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-118): a magnolia leaf close-up, not the museum"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#musee-des-beaux-arts-de-nancy",
@@ -31926,6 +32566,14 @@
      "depicts": "National Museum (MNHA) building on the Fish Market, Luxembourg",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): LISTING: in Category:Musée national d'histoire et d'art; Luxembourgish title names the museum at the Fëschmaart — check by eye it is exterior"
+    },
+    {
+     "file": "File:Patron saints finial ornaments.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Patron_saints_finial_ornaments.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 1 m, names it in category (cm-120, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-120): exhibits inside (guild finial ornaments), not the museum"
     }
    ]
   },
@@ -32365,7 +33013,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Rheinisches_Landesmuseum_Trier",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:2018 Rheinisches Landesmuseum Trier, Freskensaal 3.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:2018_Rheinisches_Landesmuseum_Trier,_Freskensaal_3.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 22 m, names it in title (cm-122, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-122): exhibits inside (fresco fragments and vitrines in the Freskensaal), not the museum"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#romerbrucke-roman-bridge-trier",
@@ -32839,7 +33498,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/San_Francisco_cable_car_system",
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "candidates": []
   },
   {
@@ -33251,7 +33910,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ghirardelli_Square",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Ghirardelli (1907136638).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ghirardelli_(1907136638).jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 9 m, names it in category (cm-124, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-124): signage close-up (the Ghirardelli sign), not the square"
+    }
+   ]
   },
   {
    "key": "landmark:sanfrancisco#golden-gate-bridge",
@@ -34549,7 +35219,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/New_Museum_Los_Gatos",
    "skip": "candidate wave 6: no file found — calm cover (stated, W8)",
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:NUMU.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:NUMU.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-126, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-126): a gallery interior hung with modern paintings (US 2D art, no freedom of panorama), not the museum"
+    }
+   ]
   },
   {
    "key": "landmark:siliconvalley#nvidia-hq-voyager-and-endeavor",
@@ -35703,6 +36384,21 @@
    ]
   },
   {
+   "key": "landmark:singapore/malacca#a-famosa-and-dutch-square-jonker-street",
+   "type": "landmark",
+   "depicts": "singapore/malacca#a-famosa-and-dutch-square-jonker-street",
+   "label": "A Famosa & Dutch Square (Jonker Street)",
+   "names": [
+    "A Famosa & Dutch Square",
+    "A Famosa",
+    "Dutch Square"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/A_Famosa",
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
    "key": "landmark:singapore/mandai#river-wonders",
    "type": "landmark",
    "depicts": "singapore/mandai#river-wonders",
@@ -36131,6 +36827,31 @@
      "depicts": "Entrance of St Andrew's Village",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Saint Andrew's Village (result page title)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/punggol#coney-island-park-pulau-serangoon",
+   "type": "landmark",
+   "depicts": "singapore/punggol#coney-island-park-pulau-serangoon",
+   "label": "Coney Island Park (Pulau Serangoon)",
+   "names": [
+    "Coney Island Park",
+    "Coney Island, Singapore"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Coney_Island,_Singapore",
+   "skip": "candidate wave 1: no Commons file of Coney Island Park, Singapore turned up — calm cover (stated)",
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Entrance to Pulau Serangoon from Punggol Promenade Nature Walk.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Entrance_to_Pulau_Serangoon_from_Punggol_Promenade_Nature_Walk.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-5, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-5): an empty road to a gate, not the park"
     }
    ]
   },
@@ -37062,7 +37783,6 @@
     "John F. Kennedy Center for the Performing Arts"
    ],
    "pilot": false,
-   "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -37475,6 +38195,13 @@
      "depicts": "The Wharf on the Washington Channel, 2019",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): LISTING: in Category:Washington Channel/The Wharf listing; check by eye"
+    },
+    {
+     "file": "File:The Wharf 7.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Wharf_7.jpg",
+     "depicts": "The Wharf 7",
+     "confidence": "med",
+     "reason": "discover-commons geosearch 11 m, names it in title (cm-130, reviewed 2026-10-17)"
     }
    ]
   },

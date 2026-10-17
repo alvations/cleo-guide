@@ -95,3 +95,76 @@ Orchestrator decision D-54: do not flip the build to ≥2 yet. Instead, give eve
 **Not counted:** Frommer's (a third-party travel-guide brand) and Roadfood. Several reviews were for a *different* location of the same brand.
 
 **Counts after wave 1:** single-source **t1 0** · t2 207 (incl. the 3 demoted) · t3 77.
+
+## 2026-10-17 — D-54 wave 2a: tier 2, sights batch 1 (18 second-sourced)
+
+Sequential WebSearch on 2026-10-17. Every URL is in `_source_overlay.json`.
+
+| place | second source added |
+|---|---|
+| New York Aquarium | Time Out |
+| Industry City | Wikipedia + Municipal Art Society |
+| Pioneer Works | Time Out |
+| Brooklyn Children's Museum | Time Out |
+| Wave Hill | Wikipedia |
+| Grand Concourse Art Deco | Wikipedia + Historic Districts Council |
+| Bronx Documentary Center | Norwood News + News 12 |
+| 1520 Sedgwick Ave | ABC7 NY (hip-hop 50 landmarks) |
+| National Museum of the American Indian | Wikipedia (Heye Center) + Smithsonian Archives |
+| Museum of Chinese in America | Wikipedia |
+| Federal Hall | NPS |
+| Trinity Church | Untapped |
+| St. Paul's Chapel | Wikipedia + NPS |
+| African Burial Ground | NPS |
+| Merchant's House Museum | Wikipedia |
+| Charging Bull | Wikipedia |
+| Fraunces Tavern Museum | NPS + 6sqft |
+| Museum at Eldridge Street | Time Out + Open House New York |
+
+**Not counted:** AFAR, Frommer's, Lonely Planet and AAA (third-party travel brands), plus Mental Floss.
+
+**Counts after wave 2a:** single-source t1 0 · **t2 189** · t3 77.
+
+## 2026-10-17 — D-54 wave 2b: tier 2, sights batch 2 (27 second-sourced)
+
+Sequential WebSearch on 2026-10-17. Every URL is in `_source_overlay.json`. New outlets in this batch:
+- Architectural Record, Britannica and Landmark West!;
+- Central Park Conservancy, The Bowery Boys, Bronx Times and Scouting NY;
+- DNAinfo, WCS (operator), NY1 and HuffPost;
+- the 9/11 Memorial & Museum.
+
+The batch also reused Wikipedia, Time Out, 6sqft, Untapped, Atlas Obscura, HDC, NPS and Smithsonian.
+
+| place | second source added |
+|---|---|
+| Whitehall Terminal | Wikipedia |
+| Elizabeth Street Garden | Wikipedia + Time Out |
+| Oculus | Architectural Record |
+| Little Island | Wikipedia + 6sqft |
+| Cooper Hewitt | Time Out + si.edu |
+| The Jewish Museum | Time Out |
+| New-York Historical Society | Britannica + Landmark West! |
+| Morris-Jumel Mansion | Untapped |
+| Conservatory Garden | Wikipedia + Central Park Conservancy |
+| Hook & Ladder 8 | Wikipedia |
+| 55 Central Park West | Untapped |
+| Sanctum Sanctorum corner | Wikipedia |
+| Carrie Bradshaw's Stoop | Time Out + 6sqft |
+| MetLife Building | The Bowery Boys |
+| Daily News Building | Forgotten NY |
+| The Joker Stairs | Bronx Times |
+| The Moonstruck House | Time Out + 6sqft |
+| The Godfather Corleone Compound | Scouting NY + DNAinfo |
+| Queens Zoo | WCS newsroom |
+| King Manor Museum | Untapped + NY1 |
+| Kaufman Astoria Studios | HuffPost |
+| Astoria Park | Wikipedia + Time Out |
+| Flushing Town Hall | Atlas Obscura + Untapped |
+| Fort Totten Park | Atlas Obscura + HDC |
+| Jacob Riis Park | NPS |
+| Alice Austen House | Wikipedia |
+| Postcards (SI 9/11 Memorial) | 9/11 Memorial blog + Untapped |
+
+**Still single and carried to the next t2 batch:** The Friends Building and The Plaza (Home Alone 2), where only tour or listing pages were found, and El Museo del Barrio, where only travel brands and CUNY pages were found.
+
+**Counts after wave 2b:** single-source t1 0 · **t2 162** · t3 77.
