@@ -680,8 +680,8 @@ html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
    (html.ov-c, Cleo.chrome): it slides up out of view with the switch row (transform only, --dur-2), and returns with it, or
    when focus enters it */
 @media (max-width:1023px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transition:transform var(--dur-2) var(--ease-out)}
-  html.ov-c[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transform:translateY(calc(-1 * var(--gb-toc-top,105px) - 100%));pointer-events:none}
-  html.ov-c[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc:focus-within{transform:none;pointer-events:auto}}
+  html.ov-c[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transform:translateY(calc(-1 * var(--gb-toc-top,105px) - 100%))}
+  html.ov-c[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc:focus-within{transform:none}}
 @media (prefers-reduced-motion:reduce){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transition:none}}
 /* FE-B QC-33: a deep link into Guidebook / Insights painted the About + method section and the footer first, then the view
    mounted above them and pushed them down (load CLS 0.42–0.58 at 1440). Until the view host has content, it holds one
@@ -785,10 +785,13 @@ html:root{--bar-h:52px}
 @media (min-width:1024px){html:root{--bar-h:56px}}
 html body .topbar{z-index:46}
 html body main[data-city]>.cbar,html body main[data-city]>nav.rail#cleo-rail{transition:transform var(--dur-2,200ms) var(--ease-out,ease-out)}
-html.ov-c body main[data-city]>.cbar{transform:translateY(calc(-100% - 1px));pointer-events:none}
-html.ov-c body main[data-city]>.cbar:focus-within{transform:none;pointer-events:auto}
-html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail{transform:translateY(calc(-1 * (var(--cbar-h) + 100%)));pointer-events:none}
-html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail:focus-within{transform:none;pointer-events:auto}
+/* FE-C INP hook (open a place): no pointer-events on the hidden rows. It is inherited, so each compaction and each focus
+   leaving a row (:focus-within) restyled the row's whole subtree (the rail ≈ 470 elements, ~145 ms at 4× CPU, inside the
+   tap); slid up under the header (z 46 over 45 / 30) they take no taps anyway, and focus still brings them back */
+html.ov-c body main[data-city]>.cbar{transform:translateY(calc(-100% - 1px))}
+html.ov-c body main[data-city]>.cbar:focus-within{transform:none}
+html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail{transform:translateY(calc(-1 * (var(--cbar-h) + 100%)))}
+html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail:focus-within{transform:none}
 @media (prefers-reduced-motion:reduce){html body main[data-city]>.cbar,html body main[data-city]>nav.rail#cleo-rail{transition:none}}
 /* landscape phones (height < 500): one 48 px bar. The view switch rides in the header row (as on desktop) and nothing
    else is sticky; in phone Atlas the switch row's band is given back to the map (--cbar-o: 0) */

@@ -16,6 +16,10 @@
   var tt = function (k, e, v) { return Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
   var own = function (k) { return [].map.call(k.childNodes, function (n) { return n.classList && n.classList.contains('lbl') ? '' : n.textContent; }).join('').trim(); };   // the card's text minus its (translated) label
 
+  // FE-C INP (open a place ≤ 200 ms): build() marks where the first screen ends; an interactive open paints the sheet up to
+  // there (nav, photo, name, Recommended by, rank, why, the action bar), then the rest one frame later, in place. Below the
+  // first screen and above nothing else in the scroll area, so nothing that was painted moves (CLS 0)
+  var MORE = '<!--sh-more-->', MORE1 = '<!--/sh-more-->';
   function build(c) {
     var id = C.pid(c), name = q('.pl-n', c).textContent, a = c.getAttribute('data-a'), ll = c.getAttribute('data-ll');
     var pz = String((info.prov || {})[id] || ''), pb = pz.indexOf('|'), pv = pz ? [{ h: 'high', m: 'med', l: 'low', u: 'unverified' }[pz.charAt(0)] || '', (info.pd || [])[parseInt(pz.slice(1), 10)] || '', pb > 0 ? pz.slice(pb + 1) : ''] : [], closed = c.hasAttribute('data-closed'), chk = c.getAttribute('data-checked') || '';
@@ -106,6 +110,7 @@
       byline + rank + (w ? (exp ? '<h3 class="section-t">' + tt('sheet.why', 'Why it’s here') + '</h3>' : '') + '<p class="why">' + w.innerHTML + '</p>' : '') + note +
       // FE-B D-39 (QA-65): prose that quotes a price or rating is labelled as a dated quote (the Guidebook's sentence)
       (c.hasAttribute('data-pq') ? '<p class="gq sm muted">' + esc(tt('sheet.quoted', 'Prices, ratings and times are quoted from the source at the time of research ({d}).', { d: c.getAttribute('data-pq') })) + '</p>' : '') +
+      /* FE-C INP hook: the part after the first screen paints a frame later (show) */ MORE +
       '<div><h3 class="section-t">' + tt('card.recby', 'Recommended by') + '</h3><ul class="srclist">' + src + '</ul></div>' +
       (lenses.length ? '<div><h3 class="section-t">' + tt('sheet.part', 'Part of') + '</h3><div class="pills">' + lenses.map(function (x) { return '<button class="pill" data-sh="lens" data-f="' + x[0] + '" data-v="' + esc(x[1]) + '">' + esc(C.label(x[0], x[1])) + '</button>'; }).join('') + '</div></div>' : '') + near + '<div class="plan"><h3 class="section-t">' + tt('sheet.plan', 'Plan your visit') + '</h3>' + (primary ? '<p>' + primary + '</p>' : '') +
       (ad || dir ? fact('pin', ad ? esc(ad.textContent) : tt('sheet.directions', 'Directions'), dir) : '') +
@@ -116,7 +121,7 @@
       /* FE-C W9-1 hook: the card's recognition badges (a closed place's hidden "Before it closed" copy) */ (q('.pl-rec', c) ? '<div class="fact">' + icon('seal') + '<div>' + q('.pl-rec', c).outerHTML.replace(' hidden>', '>') + '</div></div>' : '') +
       /* FE-C W9-7 hook: a portrait share image of this place (share-card.js, loaded on tap by core) */ '<div class="fact">' + icon('share') + '<div><button type="button" class="btn btn-ghost" data-cleo-card="place" data-id="' + esc(id) + '">' + tt('card.share.image', 'Share as an image') + '</button></div></div>' +
       (planned && !closed && ll ? '<div class="fact">' + icon('route') + '<div><button class="btn btn-ghost" data-sh="day" aria-pressed="' + !!inDay + '">' + (inDay ? tt('sheet.day.on', 'In your day ✓') : esc(tt('sheet.day.off', 'Add to your day in {area}', { area: C.label('a', a) }))) + '</button></div></div>' : '') +
-      '<p class="sm"><a href="https://github.com/alvations/cleo-guide/issues/new?title=' + encodeURIComponent('Correction: ' + name + ' (' + info.name + ')') + '"' + NT + '>' + tt('sheet.correct', 'Suggest a correction') + '</a></p></div></div>' +
+      '<p class="sm"><a href="https://github.com/alvations/cleo-guide/issues/new?title=' + encodeURIComponent('Correction: ' + name + ' (' + info.name + ')') + '"' + NT + '>' + tt('sheet.correct', 'Suggest a correction') + '</a></p></div>' + MORE1 + '</div>' +
       '</div>' + /* FE-C OV-111 hook: the body ends where the action bar starts */ '<div class="actions"><button class="btn btn-ghost" data-sh="save" aria-pressed="' + !!saved + '">' + icon('heart') + '<span>' + (saved ? tt('sheet.saved', 'Saved') : tt('sheet.save', 'Save')) + '</span></button>' +
       (ll ? '<a class="btn ' + (closed ? 'btn-ghost' : 'btn-primary') + '" href="https://www.openstreetmap.org/directions?route=%3B' + encodeURIComponent(ll) + '"' + NT + '>' + icon('directions') + '<span>' + (closed ? tt('sheet.wasat', 'Where it was') : tt('sheet.directions', 'Directions')) + '</span></a>' : '<span></span>') +
       '<button class="btn btn-ghost" data-sh="share" data-url="' + esc(url) + '">' + icon('share') + '<span>' + tt('sheet.share', 'Share') + '</span></button></div></div>';
@@ -194,6 +199,14 @@
     var t = e.target.closest && e.target.closest('li.pl .pl-n a, li.pl > .pl-cover, li.pl > .pl-photo, li.gc .gc-a'); if (!t) return;
     var li = t.closest('li.pl, li.gc'), m = li && (q('.pl-photo img', li) || q('.pl-cover', li) || q('.cover', li));
     if (m && m.getBoundingClientRect().height > 0) grow = [m, Date.now()];
+    // FE-C INP hook (open a place ≤ 200 ms): a card's own link (#p-<id>) is also the card's id, so following it made the
+    // browser jump-scroll the page to the card inside the tap (a whole-page scroll, :target restyle and chrome compaction
+    // before the sheet could paint). Same URL, same history entry and the same hashchange, without the jump; Atlas, a
+    // modified click or a page where history can't be written keep the plain link
+    var h = t.matches('li.pl .pl-n a') && t.getAttribute('href');
+    if (!h || !/^#p-/.test(h) || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || d.documentElement.getAttribute('data-view') === 'atlas') return;
+    var from = location.href; try { history.pushState(null, '', h); } catch (x) { return; }
+    e.preventDefault(); setTimeout(function () { window.dispatchEvent(new HashChangeEvent('hashchange', { oldURL: from, newURL: location.href })); }, 0);
   }, true);
   var api = Cleo.sheet = {
     isOpen: function () { return !host.hidden; },
@@ -206,13 +219,21 @@
       // W8 (R7 2d): a side panel only beside the Atlas map; elsewhere a centred dialog over a scrim
       var show = function () {
         held = !(coldP && opens === 0); opens++;   // PERF-19b (platform)
-        card = c; byNav = navs > 0; host.innerHTML = build(c); held = false; host.hidden = false; d.documentElement.classList.add('sheet-on');   /* FE-C OV-40 hook */ host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
+        card = c; byNav = navs > 0; var html = build(c), k0 = html.indexOf(MORE), k1 = html.indexOf(MORE1), two = held && k0 > 0 && k1 > k0;   /* FE-C INP hook */ host.innerHTML = two ? html.slice(0, k0) + '<div data-sh-more></div>' + html.slice(k1 + MORE1.length) : html; held = false; host.hidden = false; d.documentElement.classList.add('sheet-on');   /* FE-C OV-40 hook */ host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
         if (!host.classList.contains('side')) d.body.style.overflow = 'hidden';
         // designer: ✕ (with its ring) on a keyboard open; the dialog itself, ringless, on a tap or a deep link
-        (kb ? q('[data-sh="x"]', host) : q('.sheet', host)).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c); if (q('img[data-hsrcset]', host)) unhold(c);
-        // PERF-19b: where the stylesheet leaves the photo's ratio to the file (desktop: aspect-ratio auto, fixed height), a
-        // not-yet-decoded photo drew a 334 px box, then 516 px (a 0.01 shift); its own width/height reserve the box first
-        var hi = q('.hero-plate img[width][height]', host); if (hi && getComputedStyle(hi).aspectRatio === 'auto') hi.style.aspectRatio = 'auto ' + hi.getAttribute('width') + ' / ' + hi.getAttribute('height');
+        var rest = function () {
+          (kb ? q('[data-sh="x"]', host) : q('.sheet', host)).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c); if (q('img[data-hsrcset]', host)) unhold(c);
+          // PERF-19b: where the stylesheet leaves the photo's ratio to the file (desktop: aspect-ratio auto, fixed height), a
+          // not-yet-decoded photo drew a 334 px box, then 516 px (a 0.01 shift); its own width/height reserve the box first
+          var hi = q('.hero-plate img[width][height]', host); if (hi && getComputedStyle(hi).aspectRatio === 'auto') hi.style.aspectRatio = 'auto ' + hi.getAttribute('width') + ' / ' + hi.getAttribute('height');
+        };
+        // FE-C INP hook: after the first paint, the rest of the body goes in where the placeholder sits, then focus and the
+        // hooks run (so the tap's frame forces no style or layout); a sheet closed or replaced meanwhile is left alone
+        if (!two) { rest(); return; }
+        var tail = html.slice(k0 + MORE.length, k1);
+        requestAnimationFrame(function () { setTimeout(function () { if (card !== c || host.hidden) return;
+          var ph = q('[data-sh-more]', host); if (ph) { ph.insertAdjacentHTML('beforebegin', tail); ph.remove(); } rest(); }, 0); });
       };
       // W7 gap #1, the signature moment (design/beta/style/v2/MOTION.md): the tapped card media grows into the sheet's media.
       // Only on a real tap of that card (≤ 1 s ago), only where view transitions exist and motion is allowed; otherwise as before.
