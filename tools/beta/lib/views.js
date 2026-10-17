@@ -64,7 +64,11 @@ function insights(row, recs) {
 
   // top-5 publishers by citations; ties keep first-seen order in the records (deterministic)
   const cc = new Map(); recs.forEach(r => (r.src || []).forEach(s => cc.set(s, (cc.get(s) || 0) + 1)));
-  const top = [...cc.entries()].sort((x, y) => y[1] - x[1]).slice(0, 5).map(x => x[0]);
+  // FE-B D-53: the named series ("Who recommends each area") are real recommenders or "Added by the guide" only — a rating
+  // platform or a place's own site is counted, under "Other sources", never named as a recommender
+  const isRec = (r, s) => s === 'guide' || !r.recby || r.recby.includes(s);
+  const rc = new Map(); recs.forEach(r => (r.src || []).forEach(s => { if (isRec(r, s)) rc.set(s, (rc.get(s) || 0) + 1); }));
+  const top = [...rc.entries()].sort((x, y) => y[1] - x[1]).slice(0, 5).map(x => x[0]);
   const srcRow = rs => { const o = Object.fromEntries(top.map(s => [s, 0])); o._other = 0; rs.forEach(r => (r.src || []).forEach(s => { o[top.includes(s) ? s : '_other']++; })); return o; };
 
   const spread = [];
