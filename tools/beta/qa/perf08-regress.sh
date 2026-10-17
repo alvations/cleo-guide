@@ -4,16 +4,16 @@
 #   QA-75  a deep-linked tier lens under a remembered Guidebook/Insights view      → views.js --only links, 0 FAIL
 #   QA-76  Atlas "N more outside this area · Show all M" read mid-first-fit         → w7.js --only lens, 0 FAIL;
 #          FE-2's atlas-nav-ms.js --only tokyo (its "QA-76" block)
-#   QC-26  cold Atlas lens deep link: the sheet reads "1 of 43", 43 shown (390 and 1440); FE-2's tools/beta/fe2/qc26.js,
-#          first and second area, Tokyo / Cleveland / New York × 390 / 1440
+#   QC-26  cold Atlas lens deep link: the sheet reads "1 of N" and paging the Atlas list reaches all N (390 and 1440),
+#          Tokyo CYD 43 / Cleveland DT 42 — QA's tools/beta/qa/lenspage-accept.js, which also accepts PERF-21 lensPage
 set -u; cd "$(git rev-parse --show-toplevel)" || exit 9; F=0
 node tools/beta/qa/views.js --only links | tee /dev/stderr | grep -q ', 0 FAIL' || F=1
 node tools/beta/qa/w7.js --only lens | tee /dev/stderr | grep -q ', 0 FAIL' || F=1
 git checkout -q -- design/beta/eval/w7/qa 2>/dev/null   # the QA probes write their evidence there: leave QA's folder as it was
-for vp in m d; do
-  R=$(node tools/beta/qa/page-eval.js $vp 'cities/tokyo.html#view=atlas&a=CYD&p=imperial-palace-east-gardens' "(async()=>{await new Promise(r=>setTimeout(r,2500));const g=document.querySelector('[role=dialog]:not([hidden])');const t=g?g.innerText.match(/\d+ of \d+/):null;return [document.querySelectorAll('li.pl:not([hidden])').length,t&&t[0]].join('|')})()" 2>/dev/null)
-  echo "QC-26 $vp: $R"; [ "$R" = '"43|1 of 43"' ] || F=1
-done
+# QC-26 + PERF-21 lensPage (QA 2026-10-17): a cold Atlas lens deep link reads "1 of N" and paging the list reaches all N
+# (FE-1's shed() pages the Atlas list, so li shown < N is expected); the Gallery's paged lens shows every match once, each a
+# card on its page, and search, #p=, print and "Keep offline" reach the last page. ≈ 5 min, exit 1 on any FAIL.
+(cd tools && node beta/qa/lenspage-accept.js) || F=1
 # desktop switch → Atlas INP (797258c2 regression guard; 1,500 ms ceiling at 1× CPU)
 node tools/beta/qa/atlas-switch-inp.js || F=1
 # the initial-DOM budget (M3-06; selective changes what is built at load)
