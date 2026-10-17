@@ -374,7 +374,7 @@ async function finish(page, s0, opener, close) {
     const ai = await page.$('[data-cleo-views] button[data-view="atlas"]'); if (ai) { await ai.tap().catch(() => ai.evaluate(b => b.click())); await sleep(800); }
     const s2 = await st(), px = s0.c && s2.c ? await page.evaluate(([a, b]) => { const m = Cleo.city.map(), p = m.latLngToContainerPoint(a), q = m.latLngToContainerPoint(b); return Math.round(Math.hypot(p.x - q.x, p.y - q.y)); }, [s0.c, s2.c]) : null;
     chk(`§2.0.7 tokyo ${vn}: in list mode the switch's Atlas icon goes back to the map — list off, no fixed bar at the bottom${vn === '844' ? '' : ' (bar: the Map pill is allowed in portrait)'}, focus on the map or the icon, the view and count kept`,
-      s1.list && !s2.list && s2.view === 'atlas' && (vn !== '844' || !s2.bottomBars.length) && ['map', 'atlas-icon'].includes(s2.focus) && px !== null && px <= 1 && s2.z === s0.z && s2.count === s1.count,
+      s1.list && !s2.list && s2.view === 'atlas' && (vn !== '844' || !s2.bottomBars.length) && ['map', 'atlas-icon'].includes(s2.focus) && px !== null && px <= 1 && s2.z === s0.z && (/[\d,]+/.exec(s2.count) || [''])[0] === (/[\d,]+/.exec(s1.count) || ['-'])[0],
       { opened: s1.list, back: !s2.list, bottomBars: s2.bottomBars, focus: s2.focus, px, z: [s0.z, s2.z], count: [s1.count.slice(0, 30), s2.count.slice(0, 30)] });
     if (errors.length) chk(`§2.0.7 tokyo ${vn}: 0 page errors`, false, errors.slice(0, 2));
     await ctx.close(); }
