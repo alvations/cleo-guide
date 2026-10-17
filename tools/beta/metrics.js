@@ -208,7 +208,11 @@ const PROBE = () => {
   // interactive controls
   const CTRL = 'a[href], button, input:not([type=hidden]), select, textarea, summary, [role=button], [role=tab], [role=link], [tabindex]:not([tabindex="-1"])';
   const ctrls = [...document.querySelectorAll(CTRL)].filter(el => vis(el) && !el.closest('.leaflet-container'));
-  const above = firstTop == null ? [] : ctrls.filter(el => absTop(el) < firstTop);
+  // B-03 (QA ruling on R8 gap 5c, 2026-10-16): a photo's credit links (author · licence · source, required by the licence)
+  // are attribution, not controls the reader is invited to use, so they are not counted; every other control is, the
+  // language switch included
+  const isCredit = el => !!el.closest('figcaption, .credit') && el.tagName === 'A';
+  const above = firstTop == null ? [] : ctrls.filter(el => absTop(el) < firstTop && !isCredit(el));
   const aboveOn = above.filter(el => { const r = el.getBoundingClientRect(); return r.right > 0 && r.left < vw; });
   // prose links are exempt from the 44px rule: an <a> sitting inside running text
   const inProse = el => {
