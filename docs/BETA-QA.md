@@ -1411,3 +1411,20 @@ First readings on dev (`--quick`: Tokyo and Punggol, phone / landscape / desktop
 - No collisions and no "Search this area" on dev.
 - Landscape and the long labels are the largest measured instances (OV-03, plus a landscape row for QC's S-17).
 - Evidence: `design/beta/eval/w7/qa/overlay-trial-dev/`.
+
+### B-25 graded against OV-00 (bb2af8732), 2026-10-17 · QA
+
+- **Budgets:** the designer set OV-00 at bb2af8732 (atlas/SPEC-v3 §2.0, DESIGN-SYSTEM §v2.12). `overlay.js` BUDGETS carries the same numbers QC's S-17 grades with (`qc-overlay.js` ATLAS / OTHER). The viewport classes are P1 390×844, P2 390×664, L 844×390, T1 768×1024, T2 1024×768 (added) and D 1440×900.
+- **Measures:**
+  - clear map is % of the viewport on P1/P2/L/T1 and % of the map pane on T2/D, as in S-17;
+  - chrome is at rest, while panning (Atlas), and after a 600 px scroll (other views);
+  - also label count, label cover, the widest label (≤ 40 % of the map width on phones, ≤ 220 px elsewhere), and label gaps ≥ 4 px.
+- **Ledger:** QC's Severity column (4ab9995d) is read as-is. At that commit there are 17 open High/Med rows.
+- **Gate:** now **fail** (`GATES.OVERLAY`). A pin fails B-25 when an open ledger row is High/Med, a cell is over an OV-00 budget, "Search this area" shows on the first screen, or chrome controls collide.
+- **Dev 4ab9995d (Tokyo, phone / landscape / 1024×768, light): B-25 FAIL.**
+  - 12 over budget. The worst cells:
+    - phone Atlas chrome while panning 25 % against ≤ 8;
+    - landscape Atlas chrome 39 % against ≤ 13, with clear map 57 % against ≥ 80;
+    - the widest phone label at 63 % of the map width.
+  - 17 open High/Med rows.
+  - One new **High** defect: **QA-80**, the landscape view switch hidden under the header.

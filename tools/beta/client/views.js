@@ -214,15 +214,17 @@
   // switcher and the toolbar), so the pill rides in the toolbar there and comes home on leaving
   const spill = $('[data-cleo-search]'), spHome = spill && spill.parentNode, tbS = $('[data-cleo-toolbar]');
   const spillTo = a => { if (!spill || !tbS || !spHome) return; if (a) { if (spill.parentNode !== tbS) tbS.insertBefore(spill, tbS.firstChild); } else if (spill.parentNode !== spHome) spHome.insertBefore(spill, spHome.firstChild); };
+  // fitSplit just AFTER the next paint (INP: in the frame before it, the read forced the whole new layout); 1 = and on fonts.ready
+  const late = f => requestAnimationFrame(() => setTimeout(() => { fitSplit(); if (f && d.fonts) d.fonts.ready.then(fitSplit); }));
   function atlasIn() {
     if (!split) return;
     const m = !C.desk(); html.classList.toggle('atlas-m', m); html.classList.toggle('atlas-d', !m);
     spillTo(m);
-    if (C.need) C.need('atlas', () => { if (cur === 'atlas' && C.msIn) { C.msIn(); requestAnimationFrame(() => setTimeout(fitSplit, 0)); } });   // after the paint (INP)
+    if (C.need) C.need('atlas', () => { if (cur === 'atlas' && C.msIn) { C.msIn(); late(); } });
     if (C.loadMap) C.loadMap(() => { fitSplit(); if (C.msArea) C.msArea(); });
     // measured just AFTER the switch's first paint (the CSS fallback height is the same 108 px, so nothing moves): in the
     // frame before it, the read forced the whole new layout inside the interaction (INP); fonts.ready forces a style update too
-    requestAnimationFrame(() => setTimeout(() => { fitSplit(); if (d.fonts && d.fonts.ready) d.fonts.ready.then(fitSplit); }, 0));
+    late(1);
     nopin();
   }
   function atlasOut() {
@@ -257,16 +259,7 @@
   // PERF (QA-70, bisected to 7e746d9b): the phone sheets' "below the switcher" rules key on data-views-on and the switcher's
   // "pinned while a sheet is open" rules on data-overlay-on (fe-a.css), not on :has() over <main>, which re-matched on every
   // card stamped into <main> and held the main thread ~1.5 s after "Show map"
-  // OV-01 (DESIGN-SYSTEM §v2.12): one shared "compact chrome" state. Only the header always stays; the guest bars hide on
-  // a ≥ 24 px scroll down (here) or the reader's own pan (the Atlas lane calls compact/idle) and come back on a scroll
-  // up, focus inside them, a sheet, or idle. html.ov-c is the hook every lane styles its own bars on
-  const CH = Cleo.chrome = { on: false, t: 0,
-    compact(v) { clearTimeout(CH.t); if (v && d.querySelector('.overlay:not([hidden])')) v = false;   // focus inside a bar reveals it by CSS (:focus-within)
-      if (v !== CH.on) { CH.on = v; html.classList.toggle('ov-c', v); } },
-    idle(ms) { clearTimeout(CH.t); CH.t = setTimeout(() => CH.compact(false), ms || 1200); } };
-  { let y0 = window.scrollY || 0, acc = 0;
-    on(window, 'scroll', () => { const y = window.scrollY || 0, dy = y - y0; y0 = y; if (y < 24) { acc = 0; CH.compact(false); return; }
-      acc = (acc > 0) === (dy > 0) ? acc + dy : dy; if (acc >= 24) CH.compact(true); else if (acc <= -24) CH.compact(false); }, { passive: true }); }
+  const CH = Cleo.chrome || { compact() {} };   // OV-01: the shared compact-chrome state lives in core.js (every page)
   const mn0 = d.getElementById('main');
   if (nav) { nav.hidden = false; if (mn0) mn0.setAttribute('data-views-on', ''); }
   { const ov = ['cleo-sheet', 'cleo-fy', 'cleo-tray'].map(i => d.getElementById(i)).filter(Boolean);   // the old :has(>.overlay:not([hidden]):not(.side)) test

@@ -4,8 +4,8 @@
   var Cleo = window.Cleo = window.Cleo || {};
   // OV-00 (DESIGN-SYSTEM §v2.12 rule 1, FE-B): a guest bar gets `cls` after a ≥ 24 px scroll down and loses it on a ≥ 24 px
   // scroll up, near the top, or when focus enters it (it stays in the tab order). The CSS moves it by transform only.
-  // Returns an unbind function. Loaded by shell pages with a tab bar (shell.js footer) and lazily by the Guidebook
-  // (Cleo.need) — never eager on city pages, which have no tab bar (the 40 KB eager budget).
+  // Returns an unbind function. Shell pages only (loaded with the tab bar, shell.js footer): city pages use FE-A's one
+  // scroll state, html.ov-c (Cleo.chrome), so there is a single state machine there and no bytes here.
   Cleo.compact = function (el, cls) {
     if (!el) return function () {};
     var p = window.scrollY, a = p, dir = 0;

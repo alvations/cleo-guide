@@ -591,6 +591,19 @@
   document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && (e.key === 'f' || e.key === 'F' || e.key === 'g')) allNow(); }, true);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', deferInit); else deferInit();
 
+  /* ---- FE-A OV-01 (DESIGN-SYSTEM §v2.12): ONE "compact chrome" state for every page. Only the header always stays; the
+   * guest bars (styled on html.ov-c, or registered with add(el, cls)) hide on a ≥ 24 px scroll down — or the reader's own
+   * map pan (the Atlas lane calls compact / idle) — and come back on a scroll up, an open sheet, idle, or focus inside
+   * them (CSS :focus-within). Used by FE-A (city switch row, rail), FE-B (shell tab bar, Contents strip), FE-1 (Atlas). ---- */
+  var CH = Cleo.chrome = { on: false, t: 0, els: [],
+    compact: function (v) { clearTimeout(CH.t); if (v && document.querySelector('.overlay:not([hidden])')) v = false;
+      if (v === CH.on) return; CH.on = v; document.documentElement.classList.toggle('ov-c', v); CH.els.forEach(function (x) { x[0].classList.toggle(x[1], v); }); },
+    idle: function (ms) { clearTimeout(CH.t); CH.t = setTimeout(function () { CH.compact(false); }, ms || 1200); },
+    add: function (el, cls) { if (el) { CH.els.push([el, cls || 'is-compact']); el.classList.toggle(cls || 'is-compact', CH.on); } } };
+  (function () { var y0 = window.scrollY || 0, acc = 0;
+    window.addEventListener('scroll', function () { var y = window.scrollY || 0, dy = y - y0; y0 = y; if (y < 24) { acc = 0; CH.compact(false); return; }
+      acc = (acc > 0) === (dy > 0) ? acc + dy : dy; if (acc >= 24) CH.compact(true); else if (acc <= -24) CH.compact(false); }, { passive: true }); })();
+
   /* ---- saved counter in the site bar ---- */
   function paintCount() {
     var n = Cleo.saved.count();

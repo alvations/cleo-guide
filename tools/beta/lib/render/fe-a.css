@@ -676,10 +676,12 @@ html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
 @media (max-width:1023px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{top:var(--gb-toc-top,105px)}}
 /* …and on a short screen (phone landscape) it scrolls away with the page instead of stacking a third bar (52 % chrome) */
 @media (max-width:1023px) and (max-height:500px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{position:static}}
-/* FE-B OV-00 (§v2.12 rule 1): below the desktop side column the Contents strip is a guest row — on a scroll down it slides
-   up behind the header (transform only, --dur-2), on a scroll up / focus it returns (Cleo.compact in search.js) */
+/* FE-B OV-00 (§v2.12 rule 1): below the desktop side column the Contents strip is a guest row on FE-A's one scroll state
+   (html.ov-c, Cleo.chrome): it slides up out of view with the switch row (transform only, --dur-2), and returns with it, or
+   when focus enters it */
 @media (max-width:1023px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transition:transform var(--dur-2) var(--ease-out)}
-  html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc.is-away{transform:translateY(calc(-1 * var(--gb-toc-top,105px) - 100%))}}
+  html.ov-c[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transform:translateY(calc(-1 * var(--gb-toc-top,105px) - 100%));pointer-events:none}
+  html.ov-c[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc:focus-within{transform:none;pointer-events:auto}}
 @media (prefers-reduced-motion:reduce){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transition:none}}
 /* FE-B QC-33: a deep link into Guidebook / Insights painted the About + method section and the footer first, then the view
    mounted above them and pushed them down (load CLS 0.42–0.58 at 1440). Until the view host has content, it holds one
@@ -823,3 +825,8 @@ html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.mappil
 html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.toolbar{display:none!important}
 /* OV-00 P2 at rest (header 52 + switch row 52 ≤ 16 %): on phones and tablets the switch row is the switch itself, no padding */
 @media (max-width:1023px){html body main[data-city]>.cbar>.cbar-in{padding-block:0}}
+/* OV (platform, marked block): the "Keep <city> offline" control is in-flow page content; in the phone/tablet Atlas
+   layout the full-bleed map and its bars are fixed over the page, so the control would sit under them, covered and
+   unreachable (overlay audit: tools/beta/qa/overlay/platform-overlay.js). It is offered in every other view instead. */
+html.atlas-m[data-view=atlas] [data-cleo-pack]{display:none!important}
+/* /OV platform */
