@@ -773,8 +773,11 @@ html.atlas-d[data-view=atlas] body .split>.listpane>.at-intro{order:-3;visibilit
    build marks it (.pl-lead: render/city.js, atlas.js's map-priority #1, only with a photo); client/city.js sets
    html.cleo-lensed while a lens, sort, day or Near me reorders the list */
 html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead{grid-column:1/-1}
-html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>:is(.pl-cover,figure.pl-photo){aspect-ratio:3/2;height:auto}
-html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>figure.pl-photo img{width:100%;height:100%;object-fit:cover}
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>.pl-cover{aspect-ratio:3/2;height:auto}
+/* QA-83: the img carries the 3:2 (height:100% never resolved against the auto-height figure, so it stayed 4:3); the figure
+   wraps it with its credit line below, outside the ratio box */
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>figure.pl-photo{aspect-ratio:auto;height:auto}
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>figure.pl-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
 html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>.pl-n{font-size:var(--fs-d2)}
 /* ---- OV-01 (owner directive; DESIGN-SYSTEM §v2.12, SPEC-v3 §2.0): only the header always stays ----
    The city header is 52 px on phones and 56 px from 1024. Every other sticky row is a guest: under html.ov-c
@@ -808,6 +811,7 @@ html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail:focus-withi
   html body main[data-city] .views[data-cleo-views]{position:fixed;top:0;right:116px;z-index:60;width:auto;height:var(--bar-h);margin:0;padding:2px;box-sizing:border-box}
   html body main[data-city] .views[data-cleo-views] button{position:relative;width:44px;min-width:44px;height:44px;min-height:44px;padding:0;justify-content:center;overflow:visible}
   html body main[data-city] .views[data-cleo-views] button>.ico{display:inline-block}
+  html[data-cleo-page=city] body .topbar .wrap>.top-actions{margin-left:calc(180px + var(--s-3))}
   html body main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   /* QA-82 (b): an icon-only segment names itself on keyboard focus and while pressed (or hovered), as a tooltip under it */
   html body main[data-city] .views[data-cleo-views] button:is(:focus-visible,:active,:hover)>.l{top:calc(100% + var(--s-1));left:50%;width:auto;height:auto;overflow:visible;clip:auto;transform:translateX(-50%);padding:var(--s-1) var(--s-2);border-radius:var(--r-s);background:var(--ink);color:var(--paper);font:var(--fw-ui-strong) var(--fs-xs)/var(--lh-xs) var(--font-ui);box-shadow:var(--e-2);pointer-events:none;z-index:1}
@@ -859,6 +863,8 @@ html[data-view=atlas]:not(.ms-nomap) [data-cleo-pack]{display:none!important}
   html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views]{position:fixed;top:2px;right:116px;z-index:60;width:auto;height:48px;margin:0;padding:2px;box-sizing:border-box;pointer-events:auto}
   html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button{position:relative;width:44px;min-width:44px;height:44px;min-height:44px;padding:0;justify-content:center;overflow:visible}
   html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button>.ico{display:inline-block}
+  /* the switch is fixed over the header row: the row reserves its width (4 × 44 + 4) so 日本語 and the crumb never sit under it */
+  html.atlas-m[data-view=atlas] body .topbar .wrap>.top-actions{margin-left:calc(180px + var(--s-3))}
   html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button:is(:focus-visible,:active,:hover)>.l{top:calc(100% + var(--s-1));left:50%;width:auto;height:auto;overflow:visible;clip:auto;transform:translateX(-50%);padding:var(--s-1) var(--s-2);border-radius:var(--r-s);background:var(--ink);color:var(--paper);font:var(--fw-ui-strong) var(--fs-xs)/var(--lh-xs) var(--font-ui);box-shadow:var(--e-2);pointer-events:none;z-index:1}
 }
@@ -941,6 +947,9 @@ html main[data-city] li.pl>.pl-cover .pl-dish.l,html .view-gallery .gc .cover .d
    text stays whole for assistive tech). atlas.css held the crumb at flex:none (0-4-1; these out-rank it), which pushed the saved ♡ off at 1440 */
 @media (min-width:1024px){
   html.atlas-d[data-view=atlas] body .topbar .topnav a[href$="#destinations"]{display:none}
+}
+/* …from 768 the crumb gives way per segment (QC S-17 768×1024 Atlas: Harrisburg's 日本語 sat under the switch) */
+@media (min-width:768px){
   html[data-view] body .topbar .wrap>nav.crumbs{flex:0 1 auto;min-width:0}
   html[data-view] body .topbar .wrap>nav.crumbs>:is(a.c0,.here){min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   html[data-view] body .topbar .wrap>nav.crumbs>a.c0{flex:0 3 auto}
@@ -966,13 +975,15 @@ html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s[d
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-rec{order:96}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-chk{order:97}
 @media (max-width:599px){
-  /* designer §v2.7b review: the compact row reads like the cards: tier + area on the top line, then name, why,
-     "Recommended by X +N", and "Checked" last on its own line; to hold the row at ≤ 120 px the why is one line here */
-  html[data-view=gallery] body main[data-city] .split li.pl.pl--np,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np{grid-template-columns:64px minmax(0,1fr)}
-  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e{grid-column:2;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;display:block;padding-right:var(--tap);box-sizing:border-box}
+  /* designer §v2.7b ruling (3d81c486c): tier + area on the top line, name, the 2-line why, then "Recommended by X +N
+     · Checked 2 Oct" as one line (Checked after it, --ink-3; "+N" short here so the source keeps its room). ≤ 128 px */
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np{grid-template-columns:64px minmax(0,1fr) auto}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>:is(.pl-e,.pl-n,.pl-w),html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>:is(.pl-e,.pl-n,.pl-w){grid-column:2/-1}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;display:block;padding-right:var(--tap);box-sizing:border-box}
   html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e .in,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e .in{display:inline;font-weight:400}
   html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e .in *,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e .in *{display:inline}
-  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-w,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-w{-webkit-line-clamp:1;line-clamp:1}
-  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-s,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-s{grid-column:2;min-width:0}
-  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-chk,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-chk{grid-row:5;grid-column:2;margin:0;color:var(--ink-3)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-s,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-s{grid-row:4;grid-column:2;min-width:0}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-s[data-more]::after,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-s[data-more]::after{content:"+" attr(data-more);flex:none;margin-left:var(--s-1);font-size:var(--fs-xs)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-chk,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-chk{grid-row:4;grid-column:3;align-self:baseline;margin:0;padding-left:var(--s-1);white-space:nowrap;color:var(--ink-3);font-size:var(--fs-xs)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-chk::before,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-chk::before{content:"· "}
 }
