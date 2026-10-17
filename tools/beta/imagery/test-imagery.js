@@ -307,6 +307,17 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const live = tg.flatMap(t => (t.candidates || []).filter(c => !c.refused && glob.has(c.file)).map(c => `${t.key} ${c.file}`));
   ok(!live.length, `manifest: no target lists a file refused for its own fault as a live candidate${live.length ? ': ' + live.slice(0, 5).join('; ') : ''}`);
 }
+{ // R8 (2): discover-commons.js — geosearch / P18 picks must NAME the place; nothing credited before review
+  const dc = require('./discover-commons');
+  ok(dc.namingField(['Goh Chor Tua Pek Kong Temple'], 'File:Goh Chor Tua Pek Kong Temple 2.jpg', '', []) === 'title' && dc.namingField(['Peace Pagoda'], 'File:IMG_1234.jpg', 'The Peace Pagoda at dusk', []) === 'description' &&
+    dc.namingField(['Peace Pagoda'], 'File:IMG_1.jpg', '', ['Peace Pagoda (San Francisco)']) === 'category' && dc.namingField(['Peace Pagoda'], 'File:IMG_1.jpg', 'a street', ['Streets in Japantown']) === null,
+    'discover-commons: a geosearch hit counts only when its title, description or category names the place (and records which)');
+  const pg = (o) => Object.assign({ title: 'File:Peace Pagoda Japantown.jpg', categories: [{ title: 'Category:Peace Pagoda (San Francisco)' }], imageinfo: [{ mime: 'image/jpeg', width: 2000, height: 1500, user: 'U', thumburl: 'https://x/t.jpg',
+    extmetadata: { LicenseShortName: { value: 'CC BY-SA 4.0' }, LicenseUrl: { value: 'https://creativecommons.org/licenses/by-sa/4.0' }, Artist: { value: 'A. Person' } } }] }, o);
+  const tt = { label: 'Peace Pagoda', names: [], widths: [500, 720], cls: 'other' };
+  ok(dc.judgeFile(pg({}), tt, 'geosearch 12 m').pick && dc.judgeFile(pg({ title: 'File:Peace Pagoda sign.jpg' }), tt, 'geosearch 5 m').why && dc.judgeFile(pg({ title: 'File:Street.jpg', categories: [] }), tt, 'geosearch 5 m').why,
+    'discover-commons: a named, free-licensed JPEG is a pick; signage or an unnamed file is refused');
+}
 { // R8 owner directive: fetch-openverse.js — discovery across all Openverse sources; nothing credited before review
   const fo = require('./fetch-openverse');
   const t = { key: 'landmark:singapore/balestier#x', label: 'Goh Chor Tua Pek Kong Temple', names: [], page: 'singapore/balestier', town: ['balestier'], widths: [500, 720] };

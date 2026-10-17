@@ -1454,3 +1454,32 @@ I tested in a clean worktree of c24dd319, the orchestrator's gated head, which c
 - **QA harnesses:** no Gallery-default assumption is left (`default-view.js`; metrics B-01, B-04, B-07; w4, w5, w7; views).
 - **OV-41** (no-map note over "Keep offline", FE-1) is in QC's ledger.
 - Evidence: `design/beta/eval/w7/qa/d46-c24dd319/`.
+
+## 2026-10-17 · QA · Ruling: PERF-08 (a)/(b) restated for `Cleo.defer.lensPage`; the perf08-regress QC-26 row reads the lens count · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Accepted, measured on dev before the flag flips.** `tools/beta/qa/lenspage-accept.js` turns `lensPage` on at runtime, then applies the lens. Ground truth F is the same lens with `&all=1`, flag off.
+
+Cases: Tokyo `t=1` (F 177) and `mode=food` (F 225), Cleveland `t=1` (F 47), each at 1440 and 390. **47/47 PASS**:
+1. the counts line reads F ("Showing 177 of 488 …");
+2. paging every page shows every match exactly once, each a real card on its page, nothing outside F (Tokyo phone t=1: 8 pages, 177/177);
+3. search (the page's own `#cleo-filter`) finds a match on the last page;
+4. `#p=<last-page match>` opens its sheet;
+5. print (`beforeprint`) builds every match as a card;
+6. "Keep offline" carries the page's places JSON;
+7. 0 JS errors.
+
+**The restated rows** (platform replaces the old wording in test-beta when it flips the flag):
+- **(a)** "the lens's count line == F, and paging reaches every match exactly once, each a card on its page", replacing "shown == F";
+- **(b)** "every match is a card on its page or a stub that becomes a card when its page, a search, a `#p=` link or print reaches it", replacing "every match is a card".
+
+(c) (cards + stubs == total), (f) (the visible count == F), G1 and perf08-regress are unchanged and must still pass.
+
+**QC-26 row:** it now means the lens count. The sheet reads "1 of N" with N = the area's count, and paging the Atlas list (FE-1's `shed()`, 36 per page) reaches all N, each once:
+- Tokyo CYD: 43/43 on phone (11 shown first) and desktop (36 first);
+- Cleveland DT: 42/42.
+
+`li shown == N` is not required.
+
+**Side note:** on a phone the Gallery's own filter input is not on screen; the header's "Search" goes to the site search. This is the same with the flag off, so it doesn't count against lensPage. Logged for FE-A to judge.
+
+Evidence: `design/beta/eval/w7/qa/lenspage-accept/`.

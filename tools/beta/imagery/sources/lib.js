@@ -29,7 +29,7 @@
  *   - not a press photo, screenshot, watermark, AI image, illustration or vector; at least 640 px wide.
  *
  * Exit codes: 0 = done, nothing to do, no key, or hosts unreachable outside CI (plan printed); 1 = bad option or input;
- * 3 = a host is blocked or unreachable in CI; 4 = nothing could be read (every API read or > 25 % of downloads failed and
+ * 3 = a host is blocked by policy (DNS failure, proxy 403) in CI — a timeout or 429 at the start is a throttle: warning, exit 0; 4 = nothing could be read (every API read or > 25 % of downloads failed and
  * nothing was kept). A dropped connection is retried once, then the item is skipped unrecorded (retried next run); three in
  * a row stop the run cleanly. Partial work always exits 0 so the workflow commits it.
  * --budget caps API requests per run (images are counted apart); a run stops cleanly at the cap, and the next run
@@ -172,9 +172,17 @@ async function preflight(adapter, key) {
     if (inCI()) die(msg, 3);
     console.log(`\n${msg}\nNothing fetched (exit 0).`); process.exit(0);
   };
+  // a timeout or 429 is a THROTTLE (e.g. LoC's 1-hour block after a burst), not a policy block: warn and exit 0 so the
+  // workflow's other sources and its commit step still run (stage run #2 lesson); DNS failures and proxy 403s stay exit 3
+  const throttled = detail => { console.log(`${inCI() ? '::warning::' : ''}${adapter.hosts[0]} is throttling or slow (${detail}); nothing fetched this run — try again later (exit 0).`); process.exit(0); };
   let r;
-  try { r = await get(adapter.preflightUrl(key), { headers: adapter.headers ? adapter.headers(key) : {}, timeout: 12000 }); }
-  catch (e) { fail(e.cause ? e.cause.code || e.cause.message : e.message); }
+  try { r = await get(adapter.preflightUrl(key), { headers: adapter.headers ? adapter.headers(key) : {}, timeout: 30000 }); }
+  catch (e) {
+    const why = e.cause ? e.cause.code || e.cause.message : e.message;
+    if (e.name === 'AbortError' || /abort|timeout|ETIMEDOUT|ECONNRESET|terminated/i.test(why)) throttled(why);
+    fail(why);
+  }
+  if (r.status === 429) throttled('HTTP 429');
   if (r.status === 401 || (r.status === 403 && adapter.keyEnv && /key|token|auth/i.test(await r.text().catch(() => '')))) die(`${adapter.keyEnv} was rejected by the API (HTTP ${r.status}). Check the Actions secret.`, 4);
   if (r.status === 403 || r.status === 407) fail(`HTTP ${r.status} — a policy proxy`);
   if (r.status >= 500) die(`${adapter.hosts[0]} answered HTTP ${r.status}; not continuing.`, 4);
