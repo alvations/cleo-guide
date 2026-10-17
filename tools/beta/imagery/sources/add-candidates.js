@@ -19,6 +19,7 @@ const PREAMBLE = [
   '# Image-sources candidate manifest (D-50). One row per (target, source, item). Edit by hand only to set `review`:',
   '#   ok = a person looked at the contact-sheet preview and it shows the place; anything else = the refusal reason.',
   '# `refused` set at research = never fetched. Columns: see tools/beta/imagery/sources/README.md.',
+  '# A push that changes this file starts the stage workflow (beta-image-sources-stage.yml): previews + contact sheet, nothing credited.',
 ];
 
 function problems(r) {
