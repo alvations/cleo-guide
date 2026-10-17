@@ -293,6 +293,13 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
   ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
 }
+{ // R8 run #77: a file refused for its own fault is never a live candidate for any other target
+  const fc2 = require('./fetch-commons');
+  const tg = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'commons-candidates.json'), 'utf8')).targets;
+  const glob = new Set(tg.flatMap(t => (t.candidates || []).filter(c => c.refused && fc2.refusalIsGlobal(c.refused)).map(c => c.file)));
+  const live = tg.flatMap(t => (t.candidates || []).filter(c => !c.refused && glob.has(c.file)).map(c => `${t.key} ${c.file}`));
+  ok(!live.length, `manifest: no target lists a file refused for its own fault as a live candidate${live.length ? ': ' + live.slice(0, 5).join('; ') : ''}`);
+}
 { // R8 owner directive: fetch-flickr.js fills only the stated gaps, with honest licences, matching and laundering guards
   const ff = require('./fetch-flickr');
   ok(ff.flickrGap('no file found (wave 5 search) — calm cover (stated, W8)') && ff.flickrGap('both vetted Commons files refused (a plain beach; a housing estate)') &&
