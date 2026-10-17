@@ -2520,3 +2520,8 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - FE-1: the L rows (日本語 × Filters on 7 pages; the 41.9 % Youngstown label). I first asked FE-1 to wire `.pl-lead`, then corrected it within minutes, because FE-A's adeabcd63 had landed.
     - Designer: desktop sign-off on real shots.
   - **Dispatched:** beta-atlas-real-shots label d46-desktop on b1c7939f.
+- **Designer (d46-desktop):**
+  - Area and Filters in the Atlas bar now wear the kind chips' style (`--ink-2` text, `--line` border, surface; only the pressed state differs), so they no longer read as disabled.
+  - The Atlas intro sits 16 px above the count line, down from about 60.
+  - The lead card's Atlas order is signed off; FE-1 checked that `.pl-lead` is the Atlas #1 and holds still through `.ms-ready`.
+- **Phone tuck:** transform only. `.leaflet-bottom` and `.ms-here` no longer animate `bottom` or `top`. The 0.0012 pan shift FE-2 saw is the credit folding on the first pointerdown; it has `hadRecentInput: true`, so CLS excludes it.
