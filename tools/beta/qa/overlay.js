@@ -4,7 +4,8 @@
  * Measures, in real Chromium, every layer that stays put while the content under it moves, as the ledger defines it:
  *   pages  the five pilots + Singapore/punggol.html (the owner's screenshot)
  *   views  Atlas, Gallery, Guidebook, place sheet (#p=<first place>)
- *   vps    390×844 phone, 390×664 phone with browser chrome, 844×390 landscape, 768×1024 tablet, 1440×900 desktop
+ *   vps    390×844 phone (P1), 390×664 with browser chrome (P2), 844×390 landscape (L), 768×1024 tablet (T1),
+ *          1024×768 tablet landscape (T2), 1440×900 desktop (D) — the OV-00 classes
  *   themes light, dark       states  at load, then after a map pan (Atlas) or a scroll (other views)
  * Per cell:
  *   chrome %     rows of the viewport whose hit (median of 3 columns) is a fixed/sticky layer, split top / bottom
@@ -34,6 +35,7 @@ const ALL_VPS = {
   'phone-chrome': { viewport: { width: 390, height: 664 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 },
   landscape: { viewport: { width: 844, height: 390 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 },
   tablet: { viewport: { width: 768, height: 1024 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 },
+  'tablet-land': { viewport: { width: 1024, height: 768 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 },
   desktop: { viewport: { width: 1440, height: 900 } },
 };
 const VPS = opt('--vps') ? opt('--vps').split(',') : Object.keys(ALL_VPS);
@@ -41,7 +43,17 @@ const QUICK = argv.includes('--quick');
 const THEMES = QUICK ? ['light'] : ['light', 'dark'];
 const VIEWS = ['atlas', 'gallery', 'guidebook', 'sheet'];
 // OV-00 budgets: null until the designer sets them in the ledger (then copy them here, one line each, and cite the SHA)
-const BUDGETS = null;   // e.g. { chromePct: { phone: 25, landscape: 30, … }, clearMapPct: { phone: 75 }, labelPct: 10, widestLabelPct: 45 }
+// OV-00, set by the designer at bb2af8732 (atlas/SPEC-v3 §2.0, DESIGN-SYSTEM §v2.12); the same numbers QC's S-17 grades with
+// (tools/beta/qa/qc-overlay.js ATLAS / OTHER). Viewport classes: P1 390×844, P2 390×664, L 844×390, T1 768×1024, T2 1024×768, D 1440×900.
+const VK = { phone: 'P1', 'phone-chrome': 'P2', landscape: 'L', tablet: 'T1', 'tablet-land': 'T2', desktop: 'D' };
+const BUDGETS = {
+  // Atlas: [chrome at rest %, chrome while panning %, clear map at rest %, clear map while panning %, label count, label cover %]
+  ATLAS: { P1: [25, 8, 72, 90, 8, 8], P2: [32, 10, 64, 87, 7, 8], L: [13, 13, 80, 80, 10, 8], T1: [18, 8, 78, 90, 12, 7], T2: [15, 15, 90, 90, 16, 6], D: [12, 12, 92, 92, 16, 6] },
+  // other views: [chrome at rest %, chrome after a 600 px scroll %]
+  OTHER: { P1: [13, 7], P2: [16, 8], L: [13, 13], T1: [11, 6], T2: [8, 8], D: [8, 8] },
+  PHONE: { P1: 1, P2: 1, L: 1, T1: 1 },   // clear map as % of the viewport on these; % of the map pane on T2 / D
+  LABEL_W_PHONE: 40, LABEL_PX_DESKTOP: 220, LABEL_GAP: 4,
+};
 
 const T = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.woff2': 'font/woff2', '.webmanifest': 'application/manifest+json' };
 const PNG1 = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=', 'base64');
@@ -90,6 +102,10 @@ const MEASURE = () => {
       let ll = 0; for (let a = 0; a < labels.length; a++) for (let b = a + 1; b < labels.length; b++) if (ov(labels[a], labels[b]) > 4) ll++;
       const ctls = [...document.querySelectorAll('button, a[href], [role=button]')].filter(c => { const b = c.getBoundingClientRect(); return b.width > 0 && b.height > 0 && b.right > 0 && b.left < vw && b.bottom > 0 && b.top < vh && (posOf(c) || isMapCtl(c)) && !isLabel(c) && getComputedStyle(c).visibility !== 'hidden'; }).map(c => c.getBoundingClientRect());
       let lc = 0; for (const a of labels) for (const c of ctls) if (ov(a, c) > 4) lc++;
+      let nv = 0, cv = 0; for (let y = 2; y < vh; y += 8) for (let x = 2; x < vw; x += 8) { nv++; const t = document.elementFromPoint(x, y); if (t && map.contains(t) && !isMapCtl(t)) cv++; }
+      const near = (a, b) => !(a.right + 4 <= b.left || b.right + 4 <= a.left || a.bottom + 4 <= b.top || b.bottom + 4 <= a.top);
+      let lg = 0; for (let a = 0; a < labels.length; a++) for (let b = a + 1; b < labels.length; b++) if (near(labels[a], labels[b])) lg++;
+      Object.assign(out, { clearVP: nv ? Math.round(100 * cv / nv) : null, labelGap: lg, labelMaxPx: labels.length ? Math.round(Math.max(...labels.map(b => b.width))) : 0 });
       Object.assign(out, { mapPaneVisPct: Math.round(100 * (B - Tp) * (R - L) / (vw * vh)), clearMapPct: n ? Math.round(100 * clear / n) : null, labelPct: n ? Math.round(100 * lab / n) : null,
         widestLabelPct: labels.length ? Math.round(100 * Math.max(...labels.map(b => b.width)) / (R - L)) : 0, labels: labels.length, labelOverlaps: ll, labelOverControl: lc });
     }
@@ -162,12 +178,24 @@ srv.listen(0, '127.0.0.1', async () => {
   // verdict
   const lg = ledger(), openHM = lg.rows.filter(r => !/verified|closed|won't fix/i.test(r.status) && /^(high|med)/i.test(r.severity || ''));
   const over = [];
-  if (BUDGETS) for (const c of cells) for (const [s, m] of Object.entries(c.states)) {
-    const k = c.vp === 'phone-chrome' ? 'phone' : c.vp;
-    if (BUDGETS.chromePct && BUDGETS.chromePct[k] != null && m.chromePct > BUDGETS.chromePct[k]) over.push(`${c.page} ${c.vp} ${c.theme} ${c.view} ${s}: chrome ${m.chromePct}% > ${BUDGETS.chromePct[k]}`);
-    if (BUDGETS.clearMapPct && BUDGETS.clearMapPct[k] != null && m.clearMapPct != null && m.clearMapPct < BUDGETS.clearMapPct[k]) over.push(`${c.page} ${c.vp} ${c.theme} ${c.view} ${s}: clear map ${m.clearMapPct}% < ${BUDGETS.clearMapPct[k]}`);
-    if (BUDGETS.labelPct != null && m.labelPct != null && m.labelPct > BUDGETS.labelPct) over.push(`${c.page} ${c.vp} ${c.theme} ${c.view} ${s}: labels ${m.labelPct}% > ${BUDGETS.labelPct}`);
-    if (BUDGETS.widestLabelPct != null && m.widestLabelPct > BUDGETS.widestLabelPct) over.push(`${c.page} ${c.vp} ${c.theme} ${c.view} ${s}: widest label ${m.widestLabelPct}% > ${BUDGETS.widestLabelPct}`);
+  if (BUDGETS) for (const c of cells) {
+    const v = VK[c.vp], L = c.states.load, M = c.states.moved, P = c.states.panning, at = `${c.page} ${c.vp} ${c.theme} ${c.view}`;
+    if (!v || !L) continue;
+    if (c.view === 'atlas' && L.clearMapPct != null) {
+      const [cr, cp, kr, kp, lc, lv] = BUDGETS.ATLAS[v], clear = x => x && (BUDGETS.PHONE[v] ? x.clearVP : x.clearMapPct);
+      if (L.chromePct > cr) over.push(`${at}: chrome at rest ${L.chromePct}% > ${cr}`);
+      if (P && P.chromePct > cp) over.push(`${at}: chrome while panning ${P.chromePct}% > ${cp}`);
+      if (clear(L) < kr) over.push(`${at}: clear map ${clear(L)}% < ${kr}`);
+      if (P && clear(P) < kp) over.push(`${at}: clear map while panning ${clear(P)}% < ${kp}`);
+      if (L.labels > lc) over.push(`${at}: ${L.labels} labels > ${lc}`);
+      if (L.labelPct > lv) over.push(`${at}: labels cover ${L.labelPct}% > ${lv}`);
+      if (BUDGETS.PHONE[v] ? L.widestLabelPct > BUDGETS.LABEL_W_PHONE : L.labelMaxPx > BUDGETS.LABEL_PX_DESKTOP) over.push(`${at}: widest label ${BUDGETS.PHONE[v] ? L.widestLabelPct + '% of the map width > 40' : L.labelMaxPx + ' px > 220'}`);
+      if (L.labelGap) over.push(`${at}: ${L.labelGap} label pairs < 4 px apart`);
+    } else if (c.view !== 'sheet') {
+      const [cr, cs] = BUDGETS.OTHER[v];
+      if (L.chromePct > cr) over.push(`${at}: chrome at rest ${L.chromePct}% > ${cr}`);
+      if (M && M.chromePct > cs) over.push(`${at}: chrome after a scroll ${M.chromePct}% > ${cs}`);
+    }
   }
   const sta = cells.filter(c => c.states.load && c.states.load.searchThisArea).map(c => `${c.page} ${c.vp} ${c.theme} ${c.view}`);
   const coll = cells.filter(c => c.states.load && c.states.load.collisions).map(c => `${c.page} ${c.vp} ${c.theme} ${c.view}: ${c.states.load.collisionEg.join('; ')}`);
