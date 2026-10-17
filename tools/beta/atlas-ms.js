@@ -386,6 +386,26 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         e0.view === 'atlas' && !e0.map && !!e0.peek && e1.map && e0.peek === e1.peek && e1.atlas === 0 && e1.cls <= 0.001, { before: e0, after: e1 });
       if (errors.length) chk(`${key} ${vk} D-46 slow map: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
     }
+    // OV-00 §2.0.3 (D-47): one icon-only control stack (phone: Locate + Layers, ≤ 44 × 96 px; desktop: + / − then Layers, no
+    // locate on the map), no control named "Map"; Layers opens Map / Satellite radios (arrow keys), the Key; Esc closes it and
+    // focus returns to Layers
+    for (const [vk, vp] of [['390', M], ['1440', D]]) {
+      const { ctx, page, errors } = await open(browser, vp, url + '#view=atlas', { tiles: 'stub' });
+      const st = await page.evaluate(() => { const c = [...document.querySelectorAll('.leaflet-control-container :is(.m-locate,.m-layers)')].map(e => e.getBoundingClientRect());
+        const l = c.length ? { w: Math.round(Math.max(...c.map(r => r.right)) - Math.min(...c.map(r => r.left))), h: Math.round(Math.max(...c.map(r => r.bottom)) - Math.min(...c.map(r => r.top))) } : null;
+        const named = [...document.querySelectorAll('.leaflet-control-container button, .leaflet-control-container a')].filter(e => !e.closest('.m-layers-pop') && /^\s*(Map|Near me)\s*$/.test(e.textContent)).length;   // the popover's own Map / Satellite radios aside
+        return { n: c.length, box: l, named, locate: !!document.querySelector('.leaflet-control-container .m-locate'), base: !!document.querySelector('.m-base') }; });
+      await page.click('.m-layers'); await sleep(200);
+      const k1 = await page.evaluate(() => ({ open: !document.querySelector('.m-layers-pop').hidden, focus: document.activeElement && document.activeElement.getAttribute('role'), key: !!document.querySelector('.m-layers-pop .ms-key li'), checked: (document.querySelector('.m-layers-pop [aria-checked=true]') || {}).textContent }));
+      await page.keyboard.press('ArrowRight'); await sleep(250);
+      const k2 = await page.evaluate(() => (document.querySelector('.m-layers-pop [aria-checked=true]') || {}).textContent);
+      await page.keyboard.press('ArrowLeft'); await sleep(150); await page.keyboard.press('Escape'); await sleep(150);
+      const k3 = await page.evaluate(() => ({ open: !document.querySelector('.m-layers-pop').hidden, focus: document.activeElement && document.activeElement.classList.contains('m-layers') }));
+      const ph = vk === '390';
+      chk(`${key} ${vk} OV-00 §2.0.3: ${ph ? 'one icon-only stack (Locate + Layers, ≤ 44 × 96 px)' : 'Layers on the map and no locate (the list\'s Near me is the one)'}, no control named "Map" / "Near me" on the map; Layers opens Map / Satellite radios (arrow keys switch) and the Key; Esc closes it and focus returns to Layers`,
+        (ph ? st.n === 2 && st.box.w <= 44 && st.box.h <= 96 && st.locate : st.n === 1 && !st.locate) && st.named === 0 && !st.base && k1.open && k1.focus === 'radio' && k1.key && k1.checked === 'Map' && k2 === 'Satellite' && !k3.open && k3.focus, { st, k1, k2, k3 });
+      if (errors.length) chk(`${key} ${vk} OV-00 §2.0.3: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
+    }
     // OV-00 (SPEC-v3 §2.0.1-2): the reader's own drag tucks the chip row, the switch row and the peek (FE-A's Cleo.chrome),
     // the map never resizes, the control stack follows the peek to 12 px; all back 1.2 s after the map settles
     for (const [pk, vh, rest, pan] of [['P1', 844, 25, 8], ['P2', 664, 32, 10]]) {

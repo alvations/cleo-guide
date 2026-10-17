@@ -605,18 +605,9 @@
       // OV-05 (SPEC-v3 §2.0.3): the one-line credit is there without interaction at load, and folds to its ⓘ (24 px, a 44 px
       // hit area, the full credit one tap away) on the reader's first pan or after 5 s
       const fold = () => box.classList.add('m-attr-c'); setTimeout(fold, 5000); map.once('dragstart', fold); }
-    ctl(dk ? 'topleft' : 'bottomright', () => { const b = btn('m-locate', 'Near me: show my location on the map (stays on this device)', C.icon('locate') + (dk ? '' : '<span>Near me</span>')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
-    ctl(dk ? 'topright' : 'bottomright', () => {
-      const s = btn('m-base', '', C.icon('grid') + '<span></span>');
-      // one button: Map ⇄ Satellite (SPEC-v3 §4; street detail lives in the Key)
-      // desktop names the switch's target ("Satellite"); the phone pill names the style on show ("Map" / "Satellite") — SPEC-v3 §2.2
-      const lab = () => { const sat = store.get('base', 'map') === 'satellite', n = sat ? 'Satellite' : 'Map'; $('span', s).textContent = dk ? (sat ? 'Map' : 'Satellite') : n;
-        s.setAttribute('aria-label', 'Map style: ' + n + '. Switch to ' + (sat ? 'the map' : 'satellite')); s.title = 'Map style: ' + n; s.setAttribute('aria-pressed', String(sat)); };
-      on(s, 'click', () => { C.setBase(store.get('base', 'map') === 'satellite' ? 'map' : 'satellite'); lab(); }); lab(); C.after.push(lab); return s;
-    });
-    // the Key: a map control on desktop; on phones it is never on the map — it is the last section of Filters (SPEC-v3 §2.2)
+    // the Key (a fieldset), shown in the Layers popover (OV-00 §2.0.3)
     const keyBox = () => {
-      const g = d.createElement(dk ? 'details' : 'fieldset'); g.className = dk ? 'am-ctl m-legend' : 'ms-key'; if (!dk) g.setAttribute('data-fs', 'key');
+      const g = d.createElement('fieldset'); g.className = 'ms-key';
       const k = (cls, gl, t) => '<b class="pp ' + cls + '"><span><svg class="ico" aria-hidden="true"><use href="#i-' + gl + '"/></svg><b>' + t + '</b></span></b>';
       const fk = d.getElementById('i-forkknife') ? 'forkknife' : 'bowl';
       const paint = () => { const ar = S.a ? [S.a] : []; g.querySelector('ul').innerHTML = '<li>' + k('pp-s', 'columns', 'Sight') + '</li><li>' + k('pp-f', fk, 'Eat &amp; drink') + '</li>' +
@@ -624,12 +615,32 @@
         '<li class="k"><i class="kd"></i><i class="kd f"></i>More places · zoom in to see their names</li>' +
         ar.map(a => '<li class="k"><i class="kd" style="background:' + areaC({ getAttribute: () => a, hasAttribute: () => false }) + '"></i>' + C.esc(((C.info.areas || {})[a] || {}).n || a) + '</li>').join('') +
         '<li class="k">' + (store.get('base', 'map') === 'street!' ? '<button type="button" class="btn btn-quiet" data-base="map">Back to the calm map</button>' : '<button type="button" class="btn btn-quiet" data-base="street">Show street detail</button>') + '</li>'; };
-      g.innerHTML = (dk ? '<summary aria-label="Map key">' + C.icon('info') + '<span>Key</span></summary>' : '<legend>Map key</legend>') + '<ul class="m-legend-l"></ul>'; paint();
+      g.innerHTML = '<legend>Map key</legend><ul class="m-legend-l"></ul>'; paint();
       on(g, 'click', e => { const b = e.target.closest('[data-base]'); if (!b) return; C.setBase(at(b, 'data-base')); paint(); });
       C.after.push(paint);
       return g;
     };
-    if (dk) ctl('bottomleft', keyBox); else { const sc = $('#cleo-tray .scroll'); if (sc && !$('.ms-key', sc)) sc.appendChild(keyBox()); }
+    // OV-00 §2.0.3 (D-47): phones get ONE icon-only stack, bottom-right — Locate, then Layers; desktop gets + / − then Layers,
+    // top-left, and no locate on the map (the list head's "Near me" is the one). Layers opens a small popover: Map / Satellite
+    // as a radio pair, the Key, and the offline pack (platform's Cleo.pack.mount). Esc closes it and returns focus to Layers
+    if (!dk) ctl('bottomright', () => { const b = btn('m-locate', 'Near me', C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
+    ctl(dk ? 'topleft' : 'bottomright', () => {
+      const w = d.createElement('div'); w.className = 'am-ctl m-layers-w';
+      w.innerHTML = '<button type="button" class="m-layers" aria-label="Map style and key" title="Map style and key" aria-expanded="false" aria-controls="m-layers-pop">' + C.icon('grid') + '</button>' +
+        '<div class="m-layers-pop" id="m-layers-pop" role="dialog" aria-label="Map style and key" hidden><div class="m-styles" role="radiogroup" aria-label="Map style">' +
+        '<button type="button" role="radio" data-base="map">Map</button><button type="button" role="radio" data-base="satellite">Satellite</button></div><div class="m-pack"></div></div>';
+      const b = $('.m-layers', w), pop = $('.m-layers-pop', w), rs = qa('[role=radio]', w);
+      const lab = () => { const sat = store.get('base', 'map') === 'satellite'; rs.forEach(r => { const on1 = (at(r, 'data-base') === 'satellite') === sat; r.setAttribute('aria-checked', String(on1)); r.tabIndex = on1 ? 0 : -1; }); };
+      const open = o => { pop.hidden = !o; b.setAttribute('aria-expanded', String(o)); if (o) { lab(); const hst = $('.m-pack', pop); if (Cleo.pack && Cleo.pack.mount) Cleo.pack.mount(hst); (rs.find(r => r.tabIndex === 0) || rs[0]).focus(); } };
+      on(b, 'click', () => open(pop.hidden));
+      on(pop, 'click', e => { const r = e.target.closest('[role=radio]'); if (!r) return; C.setBase(at(r, 'data-base')); lab(); r.focus(); });
+      on(pop, 'keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); open(false); b.focus(); return; }
+        const k = rs.indexOf(d.activeElement); if (k < 0 || !/^Arrow/.test(e.key)) return; e.preventDefault(); const n = rs[(k + (/Right|Down/.test(e.key) ? 1 : rs.length - 1)) % rs.length]; n.click(); });
+      map.on('click dragstart', () => { if (!pop.hidden) open(false); });
+      pop.insertBefore(keyBox(true), $('.m-pack', pop));
+      lab(); C.after.push(lab); return w;
+    });
+    // (the Key now lives in the Layers popover, phone and desktop alike — OV-00 §2.0.3)
     // map moves → the list follows (desktop, live) / "Search this area" (phones, after the reader moves the map)
     let user = 0, mt = 0;
     map.on('dragstart', () => { user = 1; closePoi(); p0 = map.getCenter(); });

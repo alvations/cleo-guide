@@ -2346,3 +2346,17 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - The phone `overMap` top pad is now the lowest visible top bar, FE-A's switch row included, now that the map runs under it.
 - **Rule change, my own check:** "tokyo desktop: 12–16 labelled pins" is now "5–16 labelled pins covering ≤ 6 % of the map". SPEC-v3 §2.0.4 caps desktop coverage at 6 %, which allows about 7–9 pills of 220 × 32 px, so the old 12 floor contradicts it.
 - **D-46 flip (fc1fbb91):** Atlas links no longer carry a view key, so my preview → detail check accepts either `view=atlas` or no view key.
+
+## 2026-10-17 · FE-1 · OV-00 §2.0.3, the control stack (D-47; ratified probe rules: QA e73e92db, FE-2 bdb591b4)
+
+- **Phone:** one icon-only stack bottom-right: Locate (aria-label "Near me") and Layers ("Map style and key"), each 44 × 44, 8 px apart, so a 44 × 96 footprint. A focused control shows its name as a tooltip. There is no "Map" pill and no text pills.
+- **Desktop:** + / − then Layers, top-left. There is no locate on the map: the list head's labelled "Near me" door is the one (FE-2's door runs the map's locate).
+- **Layers popover** (`.m-layers-pop`, role=dialog):
+  - Map / Satellite as a radio pair (`[data-base]`, `aria-checked`, roving tabindex, arrow keys switch);
+  - then the Key (it moved there from the desktop bottom-left control and the phone Filters tray);
+  - then `.m-pack`, the host for platform's `Cleo.pack.mount(host)`, called on each open (OV-38).
+  - Esc closes it and returns focus to Layers. A map click or drag closes it.
+- **Removed:** `.m-base` (the one-button Map ⇄ Satellite toggle) and the desktop `.m-locate`.
+- **Probes:**
+  - QA's w7 storage on the Layers path passes on Tokyo and Wheeling at both viewports: 12/12, including `layersPersist` after a reload.
+  - New atlas-ms check per page at 390 and 1440: the stack footprint, no control named "Map" or "Near me" on the map, the popover's radios, arrows and Key, and Esc returning focus.

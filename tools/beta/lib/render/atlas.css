@@ -309,9 +309,8 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   html.atlas-m[data-view=atlas] .ms-here[hidden],html.atlas-m.ms-list[data-view=atlas] .ms-here{display:none}
   html.atlas-m[data-view=atlas] .leaflet-top{top:calc(var(--cbar-o) * 2 + 62px)}
   /* two labelled 44 px pills (SPEC-v3 §2.2): "Near me" and "Map" (cycles to Satellite); at 200 % they keep the glyph and aria-label */
-  html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-locate){width:auto;min-width:var(--tap);padding:0 var(--s-4) 0 var(--s-3);gap:var(--s-2);justify-content:flex-start}
+
   html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right{display:flex;flex-direction:column;align-items:flex-end}
-  @media (max-width:300px){html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-locate)>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-locate){padding:0;justify-content:center}}
   html.atlas-m[data-view=atlas] .leaflet-container .m-legend[open]{width:auto}
   html.atlas-m[data-view=atlas] .leaflet-bottom{bottom:calc(var(--car-h) + 76px)}
   /* OSM credit: one line, bottom left, never wraps; the ⓘ (a 44 px hit area) opens the full credit */
@@ -354,7 +353,7 @@ html[data-view=atlas] #cleo-grid li.pl :is(.sticker,.ms-bd span,.pl-e a.tier,.pl
 /* rev 5 §2.3 (R3 #2): no rank badges on Atlas cards in any sort — the order is the ranking; ranks stay in the Guidebook */
 html[data-view=atlas] #cleo-grid li.pl .pl-num{display:none}
 .ms-key{margin:0;padding:0;border:0}html[data-view=atlas] .ms-bar .modes .n{display:none}   /* kind chips carry no counts (§2.1, §2.2); the count line does */
-.ms-key ul{padding:var(--s-1) 0 0}html:not([data-view=atlas]) .ms-key{display:none}   /* the phone Key lives in Filters, in Atlas only */
+.ms-key ul{padding:var(--s-1) 0 0}html:not([data-view=atlas]) .ms-key{display:none}   /* the Key lives in the Atlas Layers popover (OV-00 §2.0.3) */
 @media (prefers-reduced-motion:reduce){.pp>span{transition:none}}
 /* INP (platform, desktop switch → Atlas 21 s): until Atlas's first list pass has picked the page (.ms-paged, atlas.js),
    desktop Atlas lays out NO card. Coming from the Guidebook all 488 cards are built, and every forced layout on the way in
@@ -404,4 +403,27 @@ html.atlas-m[data-view=atlas] .m-attr.m-attr-c .m-attr-i::before{content:"";posi
   html.atlas-m .pp>span{height:28px;padding:0 var(--s-2);gap:6px;font-size:13px}   /* no transform here: the anchors (pp-ar / pp-al / pp-ab) set it */
   html.atlas-m .pp>span>svg.ico{width:14px;height:14px}
   html.atlas-m .pp>span::before{inset:-8px -2px}   /* 28 + 2 × 8 = the 44 px hit area */
+}
+/* OV-00 §2.0.3 (D-47): icon-only 44 px controls, one stack on phones (Locate, Layers: 44 × 96 with the 8 px gap); the Layers
+   popover holds Map / Satellite as a radio pair, the Key and the offline pack. A focused control shows its name (tooltip) */
+.leaflet-container .m-layers-w{position:relative;padding:0;border:0;background:none;box-shadow:none;min-width:0;min-height:0}
+.leaflet-container .m-layers{display:inline-grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--ink);box-shadow:var(--shadow-sm);cursor:pointer}
+.leaflet-container .m-layers .ico{width:18px;height:18px}
+.leaflet-container .m-layers[aria-expanded=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.leaflet-container .m-layers:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.leaflet-container .m-layers-pop{position:absolute;z-index:1000;top:0;left:52px;width:240px;max-height:min(70vh,520px);overflow:auto;padding:var(--s-3);border:1px solid var(--line);border-radius:var(--r-l);background:var(--surface);color:var(--ink);box-shadow:var(--e-4);font:400 var(--fs-sm)/1.35 var(--font-ui);text-align:left}
+.leaflet-container .m-layers-pop[hidden]{display:none}
+.m-styles{display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:2px;margin:0 0 var(--s-3);border-radius:var(--r-pill);background:var(--sand)}
+.m-styles [role=radio]{min-height:var(--tap);border:0;border-radius:var(--r-pill);background:none;color:var(--ink-2);font:600 var(--fs-sm)/1 var(--font-ui);cursor:pointer}
+.m-styles [role=radio][aria-checked=true]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow-sm)}
+.m-styles [role=radio]:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+.m-layers-pop .ms-key legend{padding:0 0 var(--s-1);font:600 var(--fs-sm)/1.3 var(--font-ui);color:var(--ink)}
+.m-layers-pop .m-pack:not(:empty){margin-top:var(--s-3);padding-top:var(--s-3);border-top:1px solid var(--line)}
+@media (max-width:1023px){
+  html.atlas-m[data-view=atlas] .leaflet-container .m-locate{width:44px;height:44px;border-radius:50%;padding:0;justify-content:center;box-shadow:var(--shadow-sm)}
+  html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right{gap:8px;margin-right:12px}
+  html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right .leaflet-control{margin:0}
+  html.atlas-m[data-view=atlas] .leaflet-container .m-layers-pop{top:auto;bottom:0;left:auto;right:52px;width:min(280px,calc(100vw - 88px))}
+  html.atlas-m[data-view=atlas] .leaflet-container :is(.m-locate,.m-layers):focus-visible::after{content:attr(aria-label);position:absolute;right:52px;top:50%;transform:translateY(-50%);padding:4px 8px;border-radius:var(--r-s);background:var(--ink);color:var(--paper);font:600 var(--fs-xs)/1.2 var(--font-ui);white-space:nowrap;pointer-events:none}
+  html.atlas-m[data-view=atlas] .leaflet-container .m-locate{position:relative}
 }
