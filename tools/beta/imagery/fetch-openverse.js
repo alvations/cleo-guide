@@ -220,20 +220,33 @@ async function sheets(picks, sharp, stamp) {
   if (!sharp || !picks.length) return [];
   fs.mkdirSync(SHEETS, { recursive: true });
   const W = 300, H = 225, C = 4, R = 3, files = [];
+  // R8 (orchestrator): run #105 spent 20+ minutes here — each tile could retry two hosts three times at 45 s. Previews are
+  // fetched six at a time, 20 s per try, two tries per host, and the whole step stops after SHEET_MS; a tile not fetched by
+  // then says "no preview" (the reviewer opens the source page for those). A slow host can no longer hold the job.
+  const SHEET_MS = 150000, t0 = Date.now(), thumbs = new Map();
+  const fetchThumb = async p => {
+    for (const u of [p.thumb, p.imageUrl].filter(Boolean)) {
+      for (let a = 0; a < 2; a++) {
+        const left = SHEET_MS - (Date.now() - t0);
+        if (left < 2000) return null;
+        if (a) await sleep(1500);
+        // get()'s timer ends when the headers arrive, so the body read gets its own cap (a stalled body otherwise waits forever)
+        const ms = Math.min(20000, left), cap = new Promise((_, no) => setTimeout(() => no(new Error('body timeout')), ms).unref());
+        cap.catch(() => {}); // the cap loses the race on every good tile; it must not become an unhandled rejection
+        try { const r = await get(u, { accept: 'image/*', timeout: ms }); if (r.ok) return await sharp(Buffer.from(await Promise.race([r.arrayBuffer(), cap]))).resize(W, H, { fit: 'contain', background: '#ffffff' }).toBuffer(); } catch (e) { /* next try */ }
+      }
+    }
+    return null;
+  };
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(6, picks.length) }, async () => {
+    while (next < picks.length) { const p = picks[next++]; thumbs.set(p, await fetchThumb(p)); }
+  }));
   for (let s = 0; s * C * R < picks.length; s++) {
     const page = picks.slice(s * C * R, (s + 1) * C * R), comp = [];
     for (const [i, p] of page.entries()) {
       const x = (i % C) * W, y = Math.floor(i / C) * (H + 34);
-      let img = null;
-      // R8 (orchestrator): run #95's sheets had blank tiles. Try the Openverse thumbnail, then the provider image, with retries;
-      // a tile that still fails says "no preview" instead of looking empty
-      for (const u of [p.thumb, p.imageUrl].filter(Boolean)) {
-        for (let a = 0; a < 3 && !img; a++) {
-          if (a) await sleep(1500 * a);
-          try { const r = await get(u, { accept: 'image/*', timeout: 45000 }); if (r.ok) img = await sharp(Buffer.from(await r.arrayBuffer())).resize(W, H, { fit: 'contain', background: '#ffffff' }).toBuffer(); } catch (e) { /* retry */ }
-        }
-        if (img) break;
-      }
+      const img = thumbs.get(p) || null;
       comp.push(img ? { input: img, left: x, top: y + 34 } : { input: Buffer.from(`<svg width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#eee"/><text x="${W / 2}" y="${H / 2}" font-size="20" text-anchor="middle" fill="#900">no preview</text></svg>`), left: x, top: y + 34 });
       const esc = t => String(t).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
       comp.push({ input: Buffer.from(`<svg width="${W}" height="34"><rect width="${W}" height="34" fill="#111"/><text x="4" y="14" font-size="12" fill="#fff">${esc(p.id)} ${esc(p.source)}</text><text x="4" y="29" font-size="11" fill="#ddd">${esc(p.key.replace(/^landmark:/, '').slice(0, 44))}</text></svg>`), left: x, top: y });
@@ -353,4 +366,4 @@ async function resheet() {
   console.log(`fetch-openverse --sheets: ${pend.length} pending pick(s) → ${sh.join(', ') || '(none)'}`);
 }
 if (require.main === module) { const o = args(process.argv); (o.sheetsOnly ? resheet() : o.credit ? credit(o) : discover(o)).catch(e => die(e.stack || String(e), 4)); }
-module.exports = { targets, judge, norm, pages, ruleGap, readReview, HISTORIC, CLASSES };
+module.exports = { sheets, targets, judge, norm, pages, ruleGap, readReview, HISTORIC, CLASSES };
