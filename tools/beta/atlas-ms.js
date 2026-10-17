@@ -113,7 +113,7 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         await sleep(300);
         const pv = await page.evaluate(() => { const ic = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon')];
           return { pins: ic.filter(e => e.classList.contains('pp')).length, areas: new Set(ic.map(e => e.getAttribute('data-a')).filter(Boolean)).size, food: ic.filter(e => e.classList.contains('pp-f')).length,
-            bare: ic.filter(e => /^\s*★?\s*\d+\s*$/.test(e.textContent)).length, trunc: ic.filter(e => /…/.test(e.textContent)).length, discs: Cleo.city.discs || 0, dots: Object.keys(Cleo.city.markers).length, markerNodes: document.querySelectorAll('#cleo-map .leaflet-marker-pane *').length,
+            bare: ic.filter(e => /^\s*★?\s*\d+\s*$/.test(e.textContent)).length, trunc: ic.filter(e => /…/.test(e.textContent) && /…/.test(e.getAttribute('aria-label') || '…')).length /* §2.0.4: a cut label is fine; its accessible name must be whole */, discs: Cleo.city.discs || 0, dots: Object.keys(Cleo.city.markers).length, markerNodes: document.querySelectorAll('#cleo-map .leaflet-marker-pane *').length,
             cov: (m => +([...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp>span')].reduce((n, e) => { const r = e.getBoundingClientRect(); return n + r.width * r.height; }, 0) / (m.width * m.height) * 100).toFixed(1))(document.getElementById('cleo-map').getBoundingClientRect()) }; });
         chk(`${key} desktop: no number on the map (no rank pills, no count bubbles)`, pv.bare === 0 && !document_hasClusters(pv), pv);
         // SPEC-v3 rev 2/3 §1.2–1.3 (PANEL-R1 #4, #6, #11): each pin is a link (one Tab stop) named "full name, kind, …"; 14 px label,
@@ -320,7 +320,8 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         await page.click('.ms-toggle'); await sleep(500); const sl = await state(page);
         await snap(page, `${key}-atlas-390-list`);
         await page.click('.ms-toggle'); await sleep(500); const sm = await state(page);
-        await page.click('.ms-toggle'); await sleep(400); await page.evaluate(() => { const l = document.querySelector('.listpane'); l.scrollTop = Math.min(1200, (l.scrollHeight - l.clientHeight) / 2); }); await sleep(250); const cvList = await cover(); await page.click('.ms-toggle'); await sleep(400);
+        await page.click('.ms-toggle'); await sleep(400); await page.evaluate(() => { const l = document.querySelector('.listpane'), cs = [...l.querySelectorAll('li.pl:not(.ms-out):not([hidden])')], c = cs[Math.floor(cs.length / 2)];   // scrolled to its middle card: a short list (one place after a searched pan) still has a title in view to test
+          if (c) l.scrollTop += c.getBoundingClientRect().top - l.getBoundingClientRect().top - 40; else l.scrollTop = Math.min(1200, (l.scrollHeight - l.clientHeight) / 2); }); await sleep(250); const cvList = await cover(); await page.click('.ms-toggle'); await sleep(400);
         chk(`${key} phone: independent B-08 — no visible title covered (carousel, list scrolled) (QA-37)`, cvMap.covered === 0 && cvList.covered === 0 && cvMap.seen > 0 && cvList.seen > 0, { carousel: cvMap, list: cvList });
         chk(`${key} phone: List shows the full-screen list, Map returns`, /ms-list/.test(sl.cls) && sl.cardsVisible > 0 && !/ms-list/.test(sm.cls), [sl.cls, sl.cardsVisible, sm.cls]);
         void box;

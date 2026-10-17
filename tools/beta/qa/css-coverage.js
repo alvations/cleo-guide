@@ -25,13 +25,23 @@ const PAGES = ['index.html', 'Japan/index.html', 'Singapore/index.html', 'saved.
   const ALL = process.argv.includes('--all') ? JSON.parse(fs.readFileSync(path.join(ROOT, 'beta/data/manifest.json'), 'utf8')).generated.filter(x => /\.html$/.test(x)) : [];
   const RUNS = [];
   for (const u of PAGES) for (const vp of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) for (const scheme of ['light', 'dark']) RUNS.push([u, vp, scheme, true]);
+  for (const u of PAGES) RUNS.push([u, { width: 844, height: 390 }, 'light', true]);   // phone landscape (FE-B: the 48 px shell bar)
+  // Designer (saved toolbar): a reader WITH saved places — saved.html's toolbar, trip.html's days and the cards' saved
+  // state only render then; a fresh context is the empty state. Seeded with three Tokyo places (storage key cleo:v1:saved)
+  const TOK = [...fs.readFileSync(path.join(ROOT, 'beta/cities/tokyo.html'), 'utf8').matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)].slice(0, 3).map(m => 'tokyo/' + m[1]);
+  for (const u of ['saved.html', 'trip.html', 'cities/tokyo.html#view=gallery']) for (const vp of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) for (const scheme of ['light', 'dark']) RUNS.push([u, vp, scheme, true, TOK]);
   for (const u of ALL) RUNS.push([u, { width: 1440, height: 900 }, 'light', false]);
-  for (const [u, vp, scheme, deep] of RUNS) {
+  for (const [u, vp, scheme, deep, seed] of RUNS) {
     const ctx = await b.newContext({ viewport: vp, colorScheme: scheme, serviceWorkers: 'block', reducedMotion: 'reduce' });
     await ctx.route('**/*', r => r.request().url().startsWith(origin) ? r.continue() : r.request().resourceType() === 'image' ? r.fulfill({ status: 200, contentType: 'image/png', body: PNG1 }) : r.abort());
+    if (seed) await ctx.addInitScript(refs => { try { const o = {}; refs.forEach((r, i) => { o[r] = { t: Date.now() - i * 1000 }; }); localStorage.setItem('cleo:v1:saved', JSON.stringify(o)); } catch (e) { /* storage blocked */ } }, seed);
     const p = await ctx.newPage(); await p.coverage.startCSSCoverage({ resetOnNavigation: false });
     await p.goto(origin + '/beta/' + u, { waitUntil: 'load' }).catch(() => {}); await p.waitForTimeout(1200);
     if (deep) await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 800) { scrollTo(0, y); await new Promise(r => setTimeout(r, 30)); } scrollTo(0, 0); }).catch(() => {});
+    if (deep) {   // FE-B: hover lifts on cards / tiles / rails, and a landing search query (the "N guides" result group)
+      for (const sel of ['.tile.card', '.ccard', '.theme-main', '.rail-i.sig', 'li.gc', 'li.pl']) { try { const l = p.locator(sel).first(); if (await l.count() && await l.isVisible()) { await l.hover({ timeout: 1500 }); await p.waitForTimeout(150); } } catch (e) { /* not here */ } }
+      try { const q = p.locator('input[type=search], #q').first(); if (/index\.html$/.test(u) && await q.count() && await q.isVisible()) { await q.fill('tokyo'); await q.press('Enter'); await p.waitForTimeout(1200); } } catch (e) { /* no box */ }
+    }
     if (deep && /cities\/|cleveland|Singapore\/chinatown/.test(u)) {
       if (await act(p, 'li.pl .pl-n a, li.gc .gc-a', 700)) { await p.keyboard.press('Escape'); await p.waitForTimeout(300); }
       if (await act(p, '[data-cleo-tray]')) { await p.keyboard.press('Escape'); await p.waitForTimeout(300); }

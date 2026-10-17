@@ -78,7 +78,10 @@
   const short = nm => nm.replace(/\s*\([^)]*\)/g, '').split(/, | — | – /)[0].trim() || nm;
   const pinHtml = (c, nm, sv) => { const cl = c.hasAttribute('data-closed');
     return '<span><svg class="ico" aria-hidden="true"><use href="#i-' + C.esc(glyph(c)) + '"/></svg>' +
-      '<b>' + C.esc(short(nm)) + (cl ? ' · Closed' : '') + '</b>' + (sv ? '<em class="pp-h" aria-hidden="true">♥</em>' : '') + '</span>'; };
+      '<b' + (cutNm(nm, cl) !== short(nm) ? ' data-full="' + C.esc(short(nm) + (cl ? ' · Closed' : '')) + '"' : '') + '>' + C.esc(cutNm(nm, cl)) + (cl ? ' · Closed' : '') + '</b>' + (sv ? '<em class="pp-h" aria-hidden="true">♥</em>' : '') + '</span>'; };
+  // OV-03: the name itself is cut to the label's cap (a CSS ellipsis would leave the whole name in the layout); the full name
+  // is the link's aria-label / title, and shows on hover, focus or selection (atlas.css b[data-full]::after)
+  const cutNm = (nm, cl) => { const t = short(nm), mx = Math.max(6, Math.floor((capW() - (desk() ? 48 : 40) - (cl ? 56 : 0)) / (desk() ? 8 : 7))); return t.length <= mx ? t : t.slice(0, mx - 1).trimEnd() + '…'; };
   const pinCls = (c, sv) => 'pp pp-' + (at(c, 'data-k') === 'f' ? 'f' : 's') + (isT1(c) ? ' pp-1' : '') + (c.hasAttribute('data-closed') ? ' pp-x' : '') + (sv ? ' pp-sv' : '');
   // the pin's accessible name (SPEC-v3 §1.2): full name, kind, [Must see], [Closed], [saved] — the kind never by colour alone
   const pinLabel = (c, nm, sv) => [nm, at(c, 'data-k') === 'f' ? 'eat and drink' : 'sight', isT1(c) && !c.hasAttribute('data-closed') && 'Must see', c.hasAttribute('data-closed') && 'Closed', sv && 'saved'].filter(Boolean).join(', ');
@@ -153,10 +156,11 @@
     { const mr = map.getContainer().getBoundingClientRect(), kept = [];
       if (me) { const q = map.latLngToContainerPoint(me); kept.push({ left: mr.left + q.x - 11, right: mr.left + q.x + 11, top: mr.top + q.y - 11, bottom: mr.top + q.y + 11 }); }
       const near = (a, b) => a.left < b.right + 4 && a.right > b.left - 4 && a.top < b.bottom + 4 && a.bottom > b.top - 4;
-      let cov = 0; const lim = (desk() ? 0.06 : innerWidth >= 768 ? 0.07 : 0.08) * sz.x * sz.y;   // OV-03 coverage: a pill past it goes back to a dot
+      let cov = 0; const lim = 0.95 * (desk() ? 0.06 : innerWidth >= 768 ? 0.07 : 0.08) * sz.x * sz.y;   // 5 % under the cap: rounding never tips it   // OV-03 coverage: a pill past it goes back to a dot
       order.forEach(id => { const k = pins[id], e = k && k.getElement(), sp = e && e.firstElementChild; if (!sp) return; const r = sp.getBoundingClientRect(); if (!r.width) return;
-        if (first(id) === 2 && (kept.some(q => near(r, q)) || cov + r.width * r.height > lim)) { map.removeLayer(k); delete pins[id]; return; }
-        cov += r.width * r.height; kept.push(r); }); }
+        const ha = r.width * r.height;   // the painted pill (the designer's budget: 7 labels at P2 within 8 % only holds for painted pills, not 44 px tap areas)
+        if (first(id) === 2 && (kept.some(q => near(r, q)) || cov + ha > lim)) { map.removeLayer(k); delete pins[id]; return; }
+        cov += ha; kept.push(r); }); }
     // density discs (region zoom only): > 12 dots inside a 28 px cell read as one soft, unnumbered disc; a click zooms in
     if (!discL) discL = L.layerGroup().addTo(map); discL.clearLayers(); C.discs = 0;
     vis.forEach(id => { const k = C.markers[id]; if (k.options.opacity === 0) k.setStyle(C.dotStyle(rec(id))); });
@@ -542,7 +546,7 @@
   on(window, 'popstate', () => { if (pushedList) { pushedList = 0; if (listOn) listMode(false); } });
   // capture phase: decided before the sheet / tray handle the same Escape, so closing the detail never also drops the carousel
   d.addEventListener('keydown', e => { if (e.key !== 'Escape' || !atlas() || e.target.id === 'cleo-filter' || (Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])') || $('.m-attr-pop:not([hidden])')) return;
-    if (listOn) listMode(false, true); else if (H.classList.contains('ms-car')) { unselect(); car(false); } }, true);
+    if (listOn) listMode(false, true); else if (H.classList.contains('ms-car')) { const c = selC; unselect(); car(false); back(c); } }, true);
   C.onNoMap = () => { C.msN = null; if (atlas() && !desk()) listMode(true); msArea(); };
   // rev 5a §2.2: on phones the header's search icon is the search — in Atlas it opens the in-page search row over the
   // chip row (and keeps the reader on the map) instead of the site search panel; a typed search keeps the row open
@@ -556,6 +560,7 @@
   // OV-06 (SPEC-v3 §2.0.6): the phone chip row fades on each edge that has more chips beyond it, so it reads as scrollable
   const edge = () => { if (!bar) return; const o = bar.scrollWidth - bar.clientWidth > 2; bar.classList.toggle('ms-fl', o && bar.scrollLeft > 2); bar.classList.toggle('ms-fr', o && bar.scrollLeft < bar.scrollWidth - bar.clientWidth - 2); };
   const land = () => !!window.matchMedia && matchMedia('(max-height:499px) and (orientation:landscape)').matches;
+  C.land = land;   // the one landscape predicate (FE-C's probes key on it too)
   C.msIn = () => {
     setTimeout(() => H.classList.add('ms-ready', 'ms-paged'), 3000);   // never hold the list longer than this, map or not
     if (!C._lq && window.matchMedia) { C._lq = 1; const q = matchMedia('(max-height:499px) and (orientation:landscape)'), f = () => { if (atlas() && !desk()) C.msIn(); }; if (q.addEventListener) q.addEventListener('change', f); }   // a rotation re-folds the bars
@@ -565,6 +570,9 @@
     // OV-00 §2.0.7 landscape (height < 500): one 48 px bar — the chip row folds away (its Filters button rides in the header,
     // atlas.css), and the kind chips and Top picks move into the Filters sheet, so it holds kind, Top picks and Area
     if (!desk() && land()) { const sc = $('#cleo-tray .scroll'), md = $('.modes', tb || bar), tp = $('.ms-top'); if (sc) { if (tp) park(tp, sc, sc.firstChild); if (md) park(md, sc, sc.firstChild); } }
+    // OV-41 (platform): on phones the list is a fixed, scrolling pane, so the page's offline-pack section (shown in Atlas when
+    // there is no map) would sit in the page flow under it, covered; it rides at the end of the list instead
+    if (!desk()) { const pk = $('main>section.pack[data-cleo-pack]'); if (pk && lp) park(pk, lp, null); }
     if (!desk()) { park(tb, bar, x); } else {   // phones: the view switch stays in FE-A's city bar, its own row under the header (QC-09)
       // desktop (SPEC-v3 §2.1): ONE bar — the search pill (in the toolbar), the chips, then the view switch; the notes and
       // the footer go to the end of the list column, since the document does not scroll in Atlas
@@ -604,6 +612,7 @@
     // phones (SPEC-v3 slice 2): the map's own controls sit bottom right above the cards; the OSM credit takes the top left, clear of them
     // the OSM credit on phones (SPEC-v3 §2.2): one line that cannot wrap, bottom LEFT (never a control's corner),
     // "© OpenStreetMap · Esri ⓘ" — the ⓘ opens the full credit with its links, so the licence stays one tap away
+    if (map.attributionControl) map.attributionControl.setPrefix(false);   // designer: no "Leaflet" word or flag (its BSD licence needs no on-map credit); the tile and data credits stay
     if (!dk && map.attributionControl) { const ac = map.attributionControl, up = ac._update;
       ac.setPosition('bottomleft');
       ac._update = function () { up.call(this); const el = this._container; if (!el) return; const full = el.innerHTML; el.classList.add('m-attr');
@@ -616,7 +625,7 @@
       map.on('click dragstart', () => tog(false));
       // OV-05 (SPEC-v3 §2.0.3): the one-line credit is there without interaction at load, and folds to its ⓘ (24 px, a 44 px
       // hit area, the full credit one tap away) on the reader's first pan or after 5 s
-      const fold = () => box.classList.add('m-attr-c'); setTimeout(fold, 5000); map.once('dragstart', fold); }
+      const fold = () => box.classList.add('m-attr-c'); setTimeout(fold, 5000); map.once('dragstart', fold); setTimeout(() => map.once('movestart', () => { if (Date.now() - C.autoAt() > 600) fold(); }), 1500); map.getContainer().addEventListener('pointerdown', fold, { once: true }); }   // any reader touch folds it too
     // the Key (a fieldset), shown in the Layers popover (OV-00 §2.0.3)
     const keyBox = () => {
       const g = d.createElement('fieldset'); g.className = 'ms-key';
@@ -624,6 +633,7 @@
       const fk = d.getElementById('i-forkknife') ? 'forkknife' : 'bowl';
       const paint = () => { const ar = S.a ? [S.a] : []; g.querySelector('ul').innerHTML = '<li>' + k('pp-s', 'columns', 'Sight') + '</li><li>' + k('pp-f', fk, 'Eat &amp; drink') + '</li>' +
         '<li>' + k('pp-s pp-x', 'columns', 'Closed') + '</li>' +
+        (C.navLow && C.navLow() ? '<li class="k"><i class="kd ms-halo-k"></i>' + C.esc(Cleo.t ? Cleo.t('sheet.pin.approx', 'Approximate pin') : 'Approximate pin') + '</li>' : '') +   // D-43 (atlas-nav.js draws the halo)
         '<li class="k"><i class="kd"></i><i class="kd f"></i>More places · zoom in to see their names</li>' +
         ar.map(a => '<li class="k"><i class="kd" style="background:' + areaC({ getAttribute: () => a, hasAttribute: () => false }) + '"></i>' + C.esc(((C.info.areas || {})[a] || {}).n || a) + '</li>').join('') +
         '<li class="k">' + (store.get('base', 'map') === 'street!' ? '<button type="button" class="btn btn-quiet" data-base="map">Back to the calm map</button>' : '<button type="button" class="btn btn-quiet" data-base="street">Show street detail</button>') + '</li>'; };
@@ -711,6 +721,10 @@
     if (!desk() && z0 < 16 && m.getBoundsZoom(sym, false, L.point(op.paddingTopLeft).add(op.paddingBottomRight)) >= z0 - 1) bb = sym;   // a small town already fits at street zoom: leave it
     C.auto(); m.fitBounds(bb, Object.assign(o, { maxZoom: 16, animate: false })); return true;
   };
+  // focus after a selection closes (FE-C, §2.0.7): the place's pin, else the map — never the page body. feature() may swap the
+  // pin out 120 ms after unselect, so it re-resolves once more at 260 ms
+  const back = c => { const f = () => { const k = c && C.markers[C.pid(c)], el = k && k.getElement && k.getElement(), mc = C.map() && C.map().getContainer(); const to = [el, mc].find(x => x && x.isConnected);
+    if (to) { if (!to.hasAttribute('tabindex')) to.setAttribute('tabindex', '0'); to.focus({ preventScroll: true }); } }; f(); setTimeout(() => { if (d.activeElement === d.body) f(); }, 260); };
   const unselect = () => { if (!selC) return; selC.classList.remove('is-sel', 'is-focus'); selC = null; C.feature(); };
   // the bars tucked or back: the labels' free area changed (overMap reads the bars' boxes), so re-place them once settled
   if (window.MutationObserver) { let was = H.classList.contains('ov-c'); new MutationObserver(() => { const n = H.classList.contains('ov-c'); if (n !== was) { was = n; setTimeout(() => { if (C.feature) C.feature(); }, 240); } }).observe(H, { attributes: true, attributeFilter: ['class'] }); }
