@@ -1483,3 +1483,36 @@ Cases: Tokyo `t=1` (F 177) and `mode=food` (F 225), Cleveland `t=1` (F 47), each
 **Side note:** on a phone the Gallery's own filter input is not on screen; the header's "Search" goes to the site search. This is the same with the flag off, so it doesn't count against lensPage. Logged for FE-A to judge.
 
 Evidence: `design/beta/eval/w7/qa/lenspage-accept/`.
+
+## 2026-10-17 · QA · Harness updates: w7-photos (D-49 food, Openverse, D-50/D-52 institutions, Unsplash), w2 rows for the Atlas default, the Layers path verified · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**`w7-photos.js`**, branched by provider:
+- **Commons:** the File: page of `commonsTitle`, as before.
+- **Flickr:** as before.
+- **Openverse (`provider: "openverse"`, 65d2db931):** an https landing page; `openverseSource` and `openverseProvider`; an author profile link, which must also be in the caption; CC0, PDM, CC BY or CC BY-SA with the deed.
+- **Institutions (D-50/D-52: library-of-congress, the-met, smithsonian, europeana; `sources/lib.js creditRow`):**
+  - an https item page, `sourceId`, `institution` and `evidence`;
+  - a `date` when `era: "historic"`;
+  - Public domain with the PDM deed, or for LoC its loc.gov item page; CC0 / CC BY / CC BY-SA with the deed;
+  - "No known restrictions" only for LoC items dated ≤ 1929;
+  - an author of "Anonymous (as catalogued by <institution>)" only on Public domain / CC0 historic rows (D-52).
+- **Unsplash (IMAGERY.md):** sights only. It needs the Unsplash License with unsplash.com/license, the unsplash.com/photos/ page and the @profile in the caption.
+- **Stock (Pexels, Pixabay):** refused.
+- **Food (D-49):** a photo only with `identifies` set and a Commons, Flickr or Openverse provider; never stock, never via Wikipedia.
+- **Review:** a row whose `review` doesn't start with "ok" is never rendered. Openverse writes `ok (<reason>)`.
+- **Duplicates** are keyed per provider (flickrId, commonsTitle, provider:sourceId).
+- **Results:** 17/17 PASS on dev. Synthetic rows showed each branch catches what it should: Unsplash on food, Anonymous outside D-52, an Openverse row without a profile. The good rows (Openverse food with `identifies`, LoC Public domain historic) passed their branch.
+
+**`w2.js` for D-46:**
+- [foryou], [day], [near] (including the denied-permission case), [sig] and the a11y card / For you keyboard rows now pin `#view=gallery`.
+- [near] uses `:visible`, because Atlas's hidden door comes first in the DOM.
+- New **`doors`** step from the Atlas default (`.ms-doors`). On desktop:
+  - For you: picker ≤ 5, cards lifted, the count unchanged;
+  - Your day: 4–6 stops with straight-line legs;
+  - Near me: distances, and "never stored" in the live message;
+  - the For you keyboard trap returns focus to the door.
+  - **On the phone Atlas screen there are no doors: INFO, raised as a product call.**
+- `check()` now supports INFO (null).
+- Results on dev 3793b1d1: foryou/day/near/sig/doors 18/18 (near + doors), a11y 40/40.
+
+**w7 storage on the Layers path (FE-1 0b9c331e0, `.m-base` gone):** 12/12 on dev 3793b1d1, Tokyo and Wheeling × phone and desktop, including layersPersist (aria-checked and satellite tiles after a reload).

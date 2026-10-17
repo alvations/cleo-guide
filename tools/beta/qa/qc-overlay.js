@@ -85,7 +85,11 @@ const MEASURE = new Function(`
     out.clearVP = pct((inMap.map + inMap.pin + inMap.label) / tot); out.clearPane = pct((inMap.map + inMap.pin + inMap.label) / a); }
   // labels: widest, overlaps with each other and with controls
   const ctrlSel = 'button, a[href], input, select, [role=button], summary';
-  const controls = [...document.querySelectorAll(ctrlSel)].filter(e => shown(e) && !e.closest('.leaflet-marker-pane') && !e.closest(CONTENT) && (fixedAnc(e) || (mapC && !mapC.contains(e) && mr && (() => { const r = e.getBoundingClientRect(); return r.left < mr.right && r.right > mr.left && r.top < mr.bottom && r.bottom > mr.top; })()) || (mapC && mapC.contains(e)) || (dlg && dlg.contains(e) && fixedAnc(e))));
+  // orchestrator ruling (03:08Z): a control is shown only if its centre is inside the viewport AND inside the visible rect of
+  // every overflow auto/scroll/hidden/clip ancestor (a link scrolled out of its own scroll area is not "covered" by a bar)
+  const inClips = e => { const r = e.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2; if (x < 0 || y < 0 || x >= W || y >= H) return false;
+    for (let a = e.parentElement; a && a !== document.documentElement; a = a.parentElement) { const c = cs(a); if (/auto|scroll|hidden|clip/.test(c.overflowX + ' ' + c.overflowY)) { const q = a.getBoundingClientRect(); if (x < q.left || x >= q.right || y < q.top || y >= q.bottom) return false; } } return true; };
+  const controls = [...document.querySelectorAll(ctrlSel)].filter(e => shown(e) && inClips(e) && !e.closest('.leaflet-marker-pane') && !e.closest(CONTENT) && (fixedAnc(e) || (mapC && !mapC.contains(e) && mr && (() => { const r = e.getBoundingClientRect(); return r.left < mr.right && r.right > mr.left && r.top < mr.bottom && r.bottom > mr.top; })()) || (mapC && mapC.contains(e)) || (dlg && dlg.contains(e) && fixedAnc(e))));
   const onTop = e => { const r = e.getBoundingClientRect(); const x = Math.min(Math.max(r.left + r.width / 2, 0), W - 1), y = Math.min(Math.max(r.top + r.height / 2, 0), H - 1); const t = document.elementFromPoint(x, y); return !!t && (t === e || e.contains(t) || t.contains(e)); };
   const name = e => (e.getAttribute('aria-label') || e.textContent || e.value || e.getAttribute('title') || '').replace(/\\s+/g, ' ').trim().toLowerCase().slice(0, 40);
   // a chrome or map control that is shown but covered at its centre by another layer cannot be used (QA-80: the landscape

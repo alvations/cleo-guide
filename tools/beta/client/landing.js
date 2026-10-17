@@ -5,6 +5,11 @@
   var Cleo = window.Cleo || {};
   var out = document.getElementById('results');
   var input = document.getElementById('cleo-q');
+  // §v2.12 3a (one search per screen): the hero field is the landing's search, so the header's search icon is hidden
+  // while the field is in view and shown once it has scrolled away (it then focuses the field: search.js)
+  var hb = document.querySelector('header [data-cleo-search-open]'), form = input && (input.form || input);
+  if (hb && form && window.IntersectionObserver) new IntersectionObserver(function (es) { hb.hidden = es[0].isIntersecting; }).observe(form);
+  else if (hb) hb.hidden = false;
   if (!out || !input || !Cleo.searchIndex || !Cleo.renderHits) return;
   function clear() { input.value = ''; show(''); input.focus(); }
   function show(q) {

@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * imagery/fetch-unsplash.js — turn the Unsplash CANDIDATE manifest into credited local photos (lane: imagery).
+ * imagery/fetch-unsplash.js — PLANNER ONLY (D-51): prints the Unsplash candidate photo pages to download by hand (lane: imagery).
+ *
+ * It no longer fetches: self-hosting API-fetched Unsplash files breaks the API Guidelines' hotlinking rule (API Terms §6).
+ * Unsplash photos come only from a browser download plus a hand-written credit row, for landmarks and heroes (D-50).
+ * The notes below describe the retired fetch path and are kept for the record.
  *
  * Runs where the owner has allowed api.unsplash.com and images.unsplash.com: the owner-approved GitHub Actions
  * workflow (.github/workflows/beta-fetch-unsplash.yml, key from a repository secret) or any environment whose
@@ -172,69 +176,14 @@ async function main() {
   const todo = plan.filter(p => !p.skip);
   console.log(`fetch-unsplash: ${targets.length} target(s): ${todo.length} to try, ${plan.length - todo.length} skipped`);
   for (const p of plan) console.log(p.skip ? `  skip  ${p.t.key} — ${p.skip}` : `  try   ${p.t.key} → ${p.cands.map(c => `${c.id} (${c.confidence})`).join(', ')}`);
-  if (!key) { console.log('\nUNSPLASH_ACCESS_KEY is not set — nothing fetched (exit 0). Set it (repository secret / environment, never in the repo) where api.unsplash.com and images.unsplash.com are allowed.'); return; }
-  if (o.dry) { console.log('\n--dry-run — nothing fetched.'); return; }
-  if (!todo.length) { console.log('\nNothing to do.'); return; }
-
-  let calls = 0;
-  const api = async url => { calls++; return get(url, key); };
-  calls++; await preflight(key);
-  fs.mkdirSync(PHOTO_DIR, { recursive: true });
-  const today = new Date().toISOString().slice(0, 10);
-  const kept = [], refused = [];
-  let stoppedForBudget = false;
-  outer: for (const p of todo) {
-    let stored = false;
-    for (const c of p.cands) {
-      if (calls + 2 > o.budget) { stoppedForBudget = true; break outer; }
-      const r = await api(`${API}/photos/${encodeURIComponent(c.id)}`);
-      if (r.status === 404) { refused.push(`${p.t.key} ${c.id}: no longer on Unsplash`); continue; }
-      if (r.status === 403 && r.headers.get('x-ratelimit-remaining') === '0') { stoppedForBudget = true; console.log('  rate limit reached — stopping; the next run resumes'); break outer; }
-      if (!r.ok) die(`GET /photos/${c.id} → HTTP ${r.status}; stopping.`, 4);
-      const ph = await r.json();
-      if (ph.id !== c.id) { refused.push(`${p.t.key} ${c.id}: API id mismatch (${ph.id})`); continue; }
-      if (ph.premium || ph.plus) { refused.push(`${p.t.key} ${c.id}: Unsplash+ (paid licence)`); continue; }
-      if (p.t.type === 'landmark') {
-        const words = labelWords(p.t.label), text = apiText(ph);
-        if (words.length && !words.some(w => text.includes(w.toLowerCase()))) { refused.push(`${p.t.key} ${c.id}: the API text does not name ${p.t.label}`); continue; }
-      }
-      const dl = await api(ph.links.download_location);   // the download event the API guidelines require
-      if (!dl.ok) die(`download_location for ${c.id} → HTTP ${dl.status}; stopping.`, 4);
-      const imgUrl = `${ph.urls.raw}${ph.urls.raw.includes('?') ? '&' : '?'}w=${o.width}&fm=webp&q=75&fit=max`;
-      const img = await get(imgUrl, null, { timeout: 60000 });   // image CDN, not an API call
-      const type = img.headers.get('content-type') || '';
-      if (!img.ok || !/image\/webp/.test(type)) die(`image for ${c.id} → HTTP ${img.status} ${type}; stopping.`, 4);
-      const buf = Buffer.from(await img.arrayBuffer());
-      const file = `${fileBase(p.t)}-${o.width}.webp`;
-      fs.writeFileSync(path.join(PHOTO_DIR, file), buf);
-      const name = ph.user && ph.user.name ? ph.user.name.trim() : ph.user.username;
-      credits.credits = credits.credits.filter(x => x.file !== file);
-      credits.credits.push({
-        file,
-        ...(p.where.page ? { record: { page: p.where.page, id: p.where.id } } : { slot: p.where.slot }),
-        title: p.t.label,
-        depicts: (ph.alt_description || ph.description || p.t.label).replace(/\s+/g, ' ').trim(),
-        author: name,
-        authorUrl: withUtm(ph.user.links.html),
-        sourceUrl: withUtm(ph.links.html),
-        ...LICENCE,
-        provider: 'unsplash',
-        unsplashId: ph.id,
-        credit: `Photo by ${name} on Unsplash`,
-        modified: `resized to ${o.width} px wide, WebP`,
-        fetched: today,
-        confidence: c.confidence,
-      });
-      fs.writeFileSync(CREDITS, JSON.stringify(credits, null, 1) + '\n');   // after each photo, so a stop keeps the work
-      kept.push(`${p.t.key} ← ${c.id} by ${name} → photos/${file} (${Math.round(buf.length / 1024)} KB)`);
-      stored = true; break;
-    }
-    if (!stored && !stoppedForBudget) refused.push(`${p.t.key}: every candidate refused — keeps its motif`);
-  }
-  console.log(`\nKept ${kept.length}:`); kept.forEach(k => console.log(`  ok    ${k}`));
-  console.log(`Refused ${refused.length}:`); refused.forEach(k => console.log(`  no    ${k}`));
-  console.log(`API calls this run: ${calls}/${o.budget}.${stoppedForBudget ? ' Budget reached — run again to resume.' : ''}`);
-  if (kept.length) console.log('Now: cd tools && npm run beta && npm test');
+  // D-51 (orchestrator, 2026-10-17): this script NO LONGER FETCHES. Storing API-fetched Unsplash files breaks the API
+  // Guidelines' hotlinking rule (API Terms §6). An Unsplash photo is used only after a person downloads it in a browser from
+  // its photo page and writes the credit row by hand (landmarks and heroes only, D-50). This prints that worklist.
+  void key;
+  console.log('\nPlanner only — nothing is fetched (D-51). For each target, open the photo page, check it shows the place, download it');
+  console.log('in the browser, save it as beta/assets/img/photos/<name>-960.webp|jpg and add a CREDITS row by hand: "Photo by <name> on');
+  console.log('Unsplash", authorUrl + sourceUrl with ?utm_source=cleo_guide&utm_medium=referral, licence "Unsplash License".');
+  for (const p of todo) for (const c of p.cands) console.log(`  page  ${p.t.key} → https://unsplash.com/photos/${encodeURIComponent(c.id)}?${UTM}   (save as ${fileBase(p.t)}-960)`);
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e)));
