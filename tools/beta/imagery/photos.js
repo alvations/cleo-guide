@@ -31,7 +31,7 @@ const CREDITS = 'assets/img/CREDITS.json';
 const EXT = /\.(jpe?g|png|webp)$/i;
 const REQUIRED = ['file', 'sourceUrl', 'author', 'licence', 'licenceUrl', 'depicts'];   // + record or slot
 /** Free licences only (CC0, public domain, CC BY, CC BY-SA, any version). NC / ND are refused. */
-const LICENCE_OK = /^(CC0(?: 1\.0)?|Public domain|PD(?:-[\w.-]+)?|CC BY(?:-SA)? \d\.\d(?: [A-Z]{2,3})?|Copyrighted free use|No known copyright restrictions|No known restrictions|Unsplash License)$/i;
+const LICENCE_OK = /^(CC0(?: 1\.0)?|Public domain|PD(?:-[\w.-]+)?|CC BY(?:-SA)? \d\.\d(?: [A-Z]{2,3})?|Copyrighted free use|No known copyright restrictions|No known restrictions(?: \(LoC, published before 1930\))?|Unsplash License)$/i;
 const UNSPLASH_LICENCE_URL = 'https://unsplash.com/license';
 const FLICKR_NKCR_URL = 'https://www.flickr.com/commons/usage/';   // Flickr's "No known copyright restrictions" (The Commons) statement
 const SLOT_TYPES = ['hero', 'cover'];
@@ -117,7 +117,7 @@ function creditProblems(c) {
   }
   if (/^Anonymous \(as catalogued by/i.test(String(c.author || '')) && !(c.era === 'historic' && /^(Public domain|CC0)/i.test(String(c.licence || '')))) p.push('an "Anonymous (as catalogued by …)" credit only on a public-domain or CC0 historic row (D-52)');
   // LoC catalogue wording: only a Library of Congress historic item with a checkable year ≤ 1929 (US public domain), deed = the item page
-  if (/^No known restrictions$/i.test(String(c.licence || '').trim()) && !(c.provider === 'library-of-congress' && c.era === 'historic' && +((/\b(1[0-9]{3})\b/.exec(String(c.date || '')) || [])[1] || 9999) <= 1929 && /^https:\/\/www\.loc\.gov\/item\//.test(c.licenceUrl || ''))) p.push('"No known restrictions" only for a Library of Congress historic item dated ≤ 1929, licenceUrl = its loc.gov/item page');
+  if (/^No known restrictions(?: \(LoC, published before 1930\))?$/i.test(String(c.licence || '').trim()) && !(c.provider === 'library-of-congress' && c.era === 'historic' && +((/\b(1[0-9]{3})\b/.exec(String(c.date || '')) || [])[1] || 9999) <= 1929 && /^https:\/\/www\.loc\.gov\/item\//.test(c.licenceUrl || ''))) p.push('"No known restrictions" only for a Library of Congress historic item dated ≤ 1929, licenceUrl = its loc.gov/item page');
   const HOST = { 'library-of-congress': /^https:\/\/www\.loc\.gov\/item\//, 'the-met': /^https:\/\/www\.metmuseum\.org\/art\/collection\/search\//, smithsonian: /^https:\/\//, europeana: /^https:\/\/www\.europeana\.eu\/item\// };
   if (HOST[c.provider] && c.sourceUrl && !HOST[c.provider].test(c.sourceUrl)) p.push(`a ${c.provider} row needs its own item page as sourceUrl`);
   if (/^No known copyright restrictions$/i.test(String(c.licence || '').trim()) && (c.provider !== 'flickr' || c.licenceUrl !== FLICKR_NKCR_URL || c.flickrCommons !== true)) p.push(`"No known copyright restrictions" is a Flickr Commons statement: only from a Flickr Commons institution account (flickrCommons: true), provider flickr, licenceUrl ${FLICKR_NKCR_URL}`);
