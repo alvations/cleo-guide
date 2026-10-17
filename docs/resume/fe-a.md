@@ -36,7 +36,7 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
 - **Next:** QC-31 — fe-a.css raw colours/radii → designer tokens (--surface/--paper without fallbacks, --mask, --shade-text-strong, --r-xxs) once the designer's tokens.css lands.
 
 - **D-46 part 1 (pushed, commit "D-46 prep …"):** Atlas list-column city intro (`.at-intro`, server-rendered, desktop Atlas only, 79 px), lead-card CSS (`.pl-lead`, inert until the Atlas lane sets the class), legacy `#pg=`/`#all=1` imply Gallery, search route = source of truth (FE-B finding; test-fe-a cases).
-- **D-46 part 2 (NOT pushed — blocked):** the default flip (core.js DEFAULT/VIEWS marked edits, render DV/VIEWS order, views.js avail order, test-fe-a/test-beta/test-views default checks). Saved as `docs/resume/fe-a-d46-flip.patch` (taken before the `.dek` class fix; re-apply with `git apply --3way`, keep `class="at-dek dek"`).
+- **D-46 part 2 — DONE** (commit "QA-80 … D-46 …"). Was blocked on the DOM budget until platform 257e0b0f. Old notes: the default flip (core.js DEFAULT/VIEWS marked edits, render DV/VIEWS order, views.js avail order, test-fe-a/test-beta/test-views default checks). Saved as `docs/resume/fe-a-d46-flip.patch` (taken before the `.dek` class fix; re-apply with `git apply --3way`, keep `class="at-dek dek"`).
   - Blocker: `w2 --only dom` with Atlas default = Tokyo 3,587 / 3,543 nodes (> 3,000): Atlas stamps 59 cards at ~42 nodes. Asked FE-1/FE-2/platform to hold Atlas's initial stamping to its first page (≤ 36 cards). Platform OK for core.js edits was requested.
   - Lead card: asked FE-1 to add `.pl-lead` on the first card of their order on a cold unfiltered load (before .ms-ready).
 

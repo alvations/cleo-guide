@@ -362,16 +362,17 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     `<p class="pack-msg sm" data-pack-msg role="status" aria-live="polite" data-l-saving="${esc(pkL('saving'))}" data-l-failed="${esc(pkL('failed'))}" data-l-removed="${esc(pkL('removed'))}"></p>` +
     `<p><button type="button" class="btn btn-ghost" data-pack="remove" hidden>${esc(pkL('remove'))}</button></p></section>`;
   const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(dotJoin(heroLine))}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">${esc(tr('city.lead', { name: leadName }))}</a></p>` : ''}${heroPhoto ? tinted(heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }), heroPhoto) : ''}</div>`;
-  // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
-  // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
-  const DV = 'gallery';
-  const VIEWS = ['gallery', 'atlas'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
+  // default view: Atlas (owner decision D-46, "make atlas the default view then the list"; was Gallery since W5). The
+  // switcher reads Atlas, Gallery, Guidebook, Insights (SPEC-v3 §1.7). Precedence is unchanged: hash, stored choice,
+  // default; a legacy pager link (#pg= / #all=1) implies Gallery
+  const DV = 'atlas';
+  const VIEWS = ['atlas', 'gallery'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
   const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'sliders'] };   // i18n D-41: views, tray, masthead
   // FE-B QC-09 (DESIGN-SYSTEM §v2.11): a labelled group of four pressed-state toggles, never a <nav> (axe: no group role on
   // nav); four segments at every width, one tap per switch; data-label = the visible tooltip when only the glyph shows
   const switcher = `<div class="views" data-cleo-views role="group" aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}" data-label="${VLBL[v][0]}">${ico(VLBL[v][1])}<span class="l">${VLBL[v][0]}</span></button>`).join('')}</div>`;
   const areaChips = areas.length > 1 ? `<div class="area-chips" role="group" aria-label="${tr('city.areas.label')}" data-cleo-toolbar hidden></div>` : '';   // views.js draws the chips (page weight)
-  // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
+  // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then the default (D-46: Atlas)
   // D-46 (owner: Atlas is the default view): the city's first impression in Atlas sits at the top of the list column —
   // name, dek, "N places picked by M sources" — server-rendered and shown by CSS from first paint (no eager JS, CLS 0).
   // Shared with the Atlas lane's phone list-sheet intro (FE-1 styles html.atlas-m .at-intro)

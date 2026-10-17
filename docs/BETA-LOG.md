@@ -2250,3 +2250,15 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Dev head 77b960fa is gated green, with eager JS at 39.28 KB (headroom restored).
 - FE-A's chrome pass (853ea52c) closed six overlay rows; the phone at rest is now 16 % chrome.
 - The compaction API question is settled by budget: city pages key on html.ov-c, and shell pages keep their own small controller.
+
+## FE-A — QA-80 (High): the landscape view switch is reachable again; D-46: Atlas is the default view (2026-10-17)
+- **QA-80:** at 844×390 the switch sat under the one-bar header. Its row (`.cbar`) is a stacking context (z 45 in scroll views, fixed z 31 in phone Atlas), below the header's 46.
+  - Fix: in landscape the row makes no stacking context (`z-index:auto`). In phone Atlas, where it's `position:fixed` at height 0, it goes to z 47.
+  - The switch is icon-only (44 px segments; the label stays the accessible name) and sits between the language switch and search, covering nothing.
+  - The W8 probe asserts that every switch button and header control is topmost at its centre in all four views, and that a tap switches.
+- **D-46:**
+  - core.js `DEFAULT: 'atlas'` and `VIEWS` order (marked edits, platform's OK); render DV `atlas`; switcher order Atlas, Gallery, Guidebook, Insights; views.js avail order. Precedence is unchanged (hash → stored → default). `#pg=`/`#all=1` imply Gallery. The Gallery hero preload skips itself under Atlas.
+  - **Tests re-specified to the owner decision; none weakened.** test-fe-a: default Atlas, a stored Gallery choice wins, `#view=gallery` deep link, legacy pager links, lens keeps the view, storage blocked.
+  - Gallery-layout checks that relied on the Gallery default now name `#view=gallery` (all marked "FE-A D-46"): test-beta pager and (e) paging; test-views default rows; offline-pack's keep/remove steps; the W7/W8 probes.
+  - Measured on the flipped head: `w2 --only dom` Tokyo 2,794 (390) / 2,839 (1440), NY 2,654; eager JS 39.21 KB; npm test, validate, beta:check and both FE-A probes are green.
+- **Found while doing this** (reported to the Atlas lane): in phone Atlas with the map unavailable, "Map unavailable right now — every place is listed…" (`.ms-nomap-n`) intercepts taps on the list's "Keep offline" control.
