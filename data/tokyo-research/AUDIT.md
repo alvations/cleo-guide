@@ -424,3 +424,7 @@ Searches this session: ~75 (discovery/corroboration ~30, pins ~45).
   closed" + BAILA (Shueisha) report. Kept, flagged `— CLOSED` (geo-merge renamed), pin still UNVERIFIED (held).
 - Still held: 63 UNVERIFIED (mostly bars/cafés with neighbourhood-only addresses: Bar High Five, Punch Room, Nihao,
   Uchida, Gem by Moto, Tanimoto, Popeye, Fukagawajuku, Oku, Iseya, Sabouru, Bar Libre, Mont St. Clair, Bear Pond …).
+
+## 2026-10-17 — Category fix: performance venues out of "Castles, Palaces & History"
+
+From the designer's R4 review. **Kabuki-za** was filed under CASTLE. The same test (a theatre, hall or arena filed under castles/palaces) also catches **Ryōgoku Kokugikan** (the sumo hall) and **Yoyogi National Gymnasium** (an arena). CASTLE is removed from their research-file `g` in `SIGHTS_TOKYO_W2.json`. They keep ICON plus MUS or NATURE/FREE from the keyword pass. The Japan CATS have no performing-arts collection, so whether to add one is a design decision; it is not made here. **Tokyo Opera City** is CASTLE only by keyword ("memorial") and ONSEN only by a substring false positive ("spa" inside "space"). That comes from the tagger, not the research file, and is raised as a tagger fix (whole-word keyword matching) rather than patched per record.

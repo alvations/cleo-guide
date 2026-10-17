@@ -299,3 +299,65 @@ Same method as 2a–2d: sequential `WebSearch`, a second credible recommender pe
 **Carried forward (t2, no credible second source yet):** 230 Fifth, The Polo Bar, Tao Uptown, Peak, Le Bain, Harriet's Rooftop. A food batch (2g/2h) is drafted next.
 
 **Counts after waves 2e + 2f:** single-source t1 0 · **t2 89** · t3 77 (`--sourcecheck`: 166 single-source, 4 Yelp-only held by GATE 0).
+
+## 2026-10-17 — D-54 waves 2g–2i: tier 2, food, rooftops, Queens, Harlem and SG/MY (40 second-sourced, 1 demoted)
+
+Same method: sequential `WebSearch`, a second credible recommender per record, URL in `_source_overlay.json`. New labels: HELL GATE, SAVEUR, NBC NEW YORK. Nintendo New York and FAO Schwarz are also D-53 "no independent source" cards. Wenwen's second source is its Michelin Guide listing; its cuisine stays Taiwanese.
+
+| Place | Second source added |
+|---|---|
+| Jean-Georges | Michelin Guide |
+| Minetta Tavern | Time Out |
+| Balthazar | Time Out |
+| The Odeon | Punch + Wikipedia |
+| Buddakan | Time Out |
+| Sadelle's | NYC Tourism |
+| Tao Downtown | Time Out |
+| The Campbell | Wikipedia + Atlas Obscura |
+| Manhatta | Time Out |
+| Bar SixtyFive at Rainbow Room | Time Out + Wikipedia |
+| Ophelia | NYC Tourism |
+| Nubeluz | NYC Tourism |
+| The Plaza Hotel (Home Alone 2) | NYC Landmarks Preservation Commission (designation report LP-0265) + Wikipedia |
+| Nintendo New York | Wikipedia |
+| FAO Schwarz (The Big Piano) | NBC New York |
+| Little Pepper | Infatuation + Time Out |
+| Hunan Kitchen of Grand Sichuan | Time Out |
+| Jackson Diner | Infatuation |
+| Kabab Cafe | Infatuation + Village Voice |
+| Nepali Bhanchha Ghar | Infatuation + Hell Gate |
+| Telly's Taverna | Infatuation + Gothamist |
+| Djerdan Burek | amNY + Edible Queens |
+| Cheburechnaya | Time Out + Gothamist |
+| Ihawan | Infatuation |
+| Chao Thai | Infatuation + Hell Gate |
+| Leo's Latticini | Infatuation + amNY |
+| Eddie's Sweet Shop | Infatuation + Untapped Cities |
+| Le Baobab Gouygui | Time Out + Amsterdam News |
+| Dinosaur Bar-B-Que | Time Out + Infatuation |
+| Malecon | DNAinfo |
+| Cafe Sabarsky | Infatuation + Gayot |
+| J.G. Melon | Wikipedia + Forgotten NY |
+| Royal Crown Bakery | Saveur |
+| Tavern on the Green | Time Out + Wikipedia + Central Park Conservancy |
+| Wenwen | Michelin Guide |
+| Eim Khao Mun Kai | Time Out + DNAinfo |
+| Maxi's Noodle | Infatuation + NYC Tourism |
+| Beauty & Essex | Gayot |
+| Kuih Cafe | Atlas Obscura |
+| Kelang | Time Out + Eater NY |
+
+**Demoted (merit bar):** **Deluxe Green Bo**, t2 → t3 within Manhattan (`tier` overlay). Its one recommender is a positive Infatuation review (8.4). Time Out's review is negative on the dish we cite, which counts as evidence against, not a second recommendation. That is a split verdict from a single source, so the record is demoted rather than pruned.
+
+**Not counted:** Tasting Table listicles, Hoodline, En Primeur Club, Fine Dining Lovers, Resy's blog (a booking brand), Frommer's (a travel brand), Wanderlog/Foursquare, Fox News interviews, and coverage of a *different* location of the same brand (Gai Chicken & Rice in Midtown is not Gai Kitchen at 98 Mott St).
+
+**Flags (rule 4c / 4b):**
+- **SGD Tofu House & BBQ** (156-16A Northern Blvd, Flushing): no source confirms this branch exists. It needs a status check.
+- **New Malaysia** (48 Bowery arcade) vs **West New Malaysia** (69 Bayard): Michelin's `/new-malaysia` Bib Gourmand page now shows "West New Malaysia, 69 Bayard St", so these may be one business that moved. No sources were added to either until the status/duplicate check is done.
+- **Nepali Bhanchha Ghar:** the address is disputed. The dataset has 74-15 Roosevelt Ave; City Limits has 37th Rd between 74th and 75th.
+- **Bar SixtyFive:** one listing says "private events only". It needs a status check.
+- **Golden Lake Pavilion** (6015 Main St): Infatuation has both `/golden-lake-pavilion` and `/new-lake-pavilion` at the same address and phone, and there's no closure report. A rename is likely but no source states it, so this is **unresolved** and the name is kept.
+
+**Carried forward (t2, no credible second source yet):** The Friends Building, The Continental, LEGO Store Fifth Ave, Tiffany Fifth Ave, Nargis Cafe, Dominick's, City Island Lobster House, Rasa, Hainan Jones, L'Appartement 4F, Tao Uptown, The Polo Bar, Peak, Serra by Birreria, 230 Fifth, Refinery Rooftop, The Crown, Magic Hour, Le Bain, Harriet's Rooftop, Robert, Kiki's, Melba's, Noodle Village, Gai Kitchen, Padi D'NYC, San Jeronimo, Abey (directory listing only, so its status also needs a check), plus the SG/MY records still in progress.
+
+**Counts after waves 2g–2i:** single-source t1 0 · **t2 48** · t3 78 (+1 from the Deluxe Green Bo demotion). `--sourcecheck`: 126 single-source, 4 Yelp-only held by GATE 0.
