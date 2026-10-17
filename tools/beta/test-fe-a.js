@@ -188,9 +188,11 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     const last = d.querySelector('li.pl:not(.pg-off)');
     chk('#pg=9 shows a later page', !!last && cards.indexOf(last) === 8 * 48, last && cards.indexOf(last));
     const deep = cards[cards.length - 3], nm = w.Cleo.city.name(deep);
-    const fi = d.getElementById('cleo-filter'); fi.value = nm; fi.dispatchEvent(new w.Event('input')); await sleep(200);
+    const fi = d.getElementById('cleo-filter'); fi.value = nm; fi.dispatchEvent(new w.Event('input'));
+    for (let t = 0; t < 30 && (deep.hidden || deep.classList.contains('pg-off')); t++) await sleep(100);   // the search routes via q= (debounce + hashchange): wait for it, ≤ 3 s
     chk('search spans every page (a last-page record found by name, on page 1 of the matches)', !deep.hidden && !deep.classList.contains('pg-off'), nm);
-    fi.value = ''; fi.dispatchEvent(new w.Event('input')); await sleep(200);
+    fi.value = ''; fi.dispatchEvent(new w.Event('input'));
+    for (let t = 0; t < 30 && /(^#|&)q=/.test(w.location.hash); t++) await sleep(100);   // the cleared search leaves the route
     d.querySelector('[data-cleo-views] button[data-view="atlas"]').click(); await sleep(30);
     chk('switch → Atlas: html[data-view], the hash leaves Gallery, every card unpaged', view() === 'atlas' && !/view=gallery/.test(w.location.hash) && d.querySelectorAll('li.pl.pg-off').length === 0, w.location.hash);   // D-46: Atlas is the default, so no view= key is needed
     chk('…remembered', w.Cleo.store.get('view') === 'atlas');
