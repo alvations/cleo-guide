@@ -16,6 +16,11 @@
   const ok = v => avail.indexOf(v) >= 0;
   const isRoute = h => !h || h === '#' || h.indexOf('=') >= 0;          // #p-x / #area-X are anchors, not routes: keep the view
   let cur = ok(at(html, 'data-view')) ? at(html, 'data-view') : DEF;
+  // PERF-24 (platform, marked): after the page's first frame, a view switch paints first and its heavy work follows: a lazy
+  // view module is requested and mounted, and Atlas decorates and mounts its map, just after the switch's first paint. A page
+  // that BOOTS into a view has no interaction to protect, so it does all of it at once, as before
+  let painted = false; requestAnimationFrame(() => setTimeout(() => { painted = true; }));
+  const afterPaint = f => (painted ? requestAnimationFrame(() => setTimeout(f)) : f());
 
   // no view= → the implied view (#day= or a lens → Atlas, the unpaged list; else the default); writes keep the view
   const LENS = ((Cleo.lens && Cleo.lens.KEYS) || ['mode', 'a', 't', 'c', 'cz', 'src', 'closed', 'q']).concat(['sig', 'gap']);
@@ -76,7 +81,7 @@
       // FE-B QC-10 (SPEC §5): a user switch to a drawn view takes focus to a heading at once — a placeholder h1 named for the
       // view while its module and data load (focused below), then the module's own h1 when it is drawn (ctx.user)
       if (o.user && host && !(reg[v] && reg[v].on)) { byUser = v; host.hidden = false; host.innerHTML = '<h1 class="d2" tabindex="-1" data-cleo-pending>' + NAME[v] + '</h1>'; }
-      loadMod(v, () => { if (cur === v) mount(v); });
+      afterPaint(() => { if (cur === v) loadMod(v, () => { if (cur === v) mount(v); }); });   // PERF-24b: the placeholder h1 paints first
     }
     page();
     if (changed && !o.first) {
@@ -229,7 +234,6 @@
   const spillTo = a => { if (!spill || !tbS || !spHome) return; if (a) { if (spill.parentNode !== tbS) tbS.insertBefore(spill, tbS.firstChild); } else if (spill.parentNode !== spHome) spHome.insertBefore(spill, spHome.firstChild); };
   // fitSplit just AFTER the next paint (INP: in the frame before it, the read forced the whole new layout); 1 = and on fonts.ready
   const late = f => requestAnimationFrame(() => setTimeout(() => { fitSplit(); if (f && d.fonts) d.fonts.ready.then(fitSplit); }));
-  let painted = false; requestAnimationFrame(() => setTimeout(() => { painted = true; }));   // PERF-24: after the first frame
   function atlasIn() {
     if (!split) return;
     const m = !C.desk(); html.classList.toggle('atlas-m', m); html.classList.toggle('atlas-d', !m);
@@ -239,9 +243,10 @@
     // painted only after all of it (Atlas → Guidebook → Atlas: 2.6 s desktop at 4× CPU). They now run just after the
     // switch's first paint, the same rule as late() below; nothing else waits on them. A page that BOOTS in Atlas has no
     // interaction to protect, so it mounts at once, as before
-    const next = f => (painted ? requestAnimationFrame(() => setTimeout(f)) : f());
-    if (C.need) C.need('atlas', () => next(() => { if (cur === 'atlas' && C.msIn) { C.msIn(); late(); } }));
-    if (C.loadMap) next(() => { if (cur === 'atlas') C.loadMap(() => { fitSplit(); if (C.msArea) C.msArea(); }); });
+    // (PERF-24b) The module itself is requested after that paint too: a first switch to Atlas loads atlas.js, whose top level
+    // ends in msIn(), and its task ran before the switch's first frame (Gallery → Atlas 592 ms desktop at 4×)
+    if (C.need) afterPaint(() => C.need('atlas', () => { if (cur === 'atlas' && C.msIn) { C.msIn(); late(); } }));
+    if (C.loadMap) afterPaint(() => { if (cur === 'atlas') C.loadMap(() => { fitSplit(); if (C.msArea) C.msArea(); }); });
     // measured just AFTER the switch's first paint (the CSS fallback height is the same 108 px, so nothing moves): in the
     // frame before it, the read forced the whole new layout inside the interaction (INP); fonts.ready forces a style update too
     late(1);

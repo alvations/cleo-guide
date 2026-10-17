@@ -14,6 +14,12 @@ SG/MY 12; no photo on food is ever possible from these sources).
   USGS 1 manual), 30 refused rows kept; 22 searched-with-nothing targets in searched-gaps.tsv.
 
 **In flight:**
+- 14:20Z wave 3: remaining untouched gaps are small — tier-1 15 (Japan 6, DE/BE 9: need Pexels/Europeana keys), first-24 39 (Singapore 26: no fitting source; US 8: LoC searched, nothing). LoC yield is exhausted; the lane's remaining levers are the EUROPEANA_API_KEY (13 real-gap Rijksmuseum rows) and imagery lifting the 4 D-56 skips.
+- 14:05Z FIRST CREDITS LANDED (run #117, 303ff0105): 16 LoC photos, all tier-1 (DC 7, Philadelphia 3, Chicago 2, Cincinnati 1, Miami 1,
+  SF 1, Silicon Valley 1); 3 are in a guide's first 24 default-view cards. 12 other approved rows were skipped correctly because
+  Commons credited the same places earlier in the run. 4 wait for imagery to lift its skips (D-56): Music Hall, Findlay Market,
+  cable cars, Kennedy Center — they credit automatically on the next photo run after the lift.
+  Coverage (all lanes, head after #117): tier-1 sights 766/1052 → 865/1055; first-24 293/1153 → 481/1153.
 - 13:30Z: 32 LoC rows reviewed ok. Run #104 failed (imagery D-40a 720, fixed); #106–110 cancelled/replaced; #111 credited + gated but its
   commit step (merge origin + re-test) failed test-imagery "no credited photo for a skipped target": imagery's wave 6 had just marked
   4 of my approved targets skip (Music Hall, Findlay Market, cable cars, Kennedy Center). Fix d87852641: lib never stages/credits an

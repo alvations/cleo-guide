@@ -404,6 +404,13 @@ async function finish(page, s0, opener, close) {
     if (!lines.length) chk('labels clear: probe ran', false, String(q.stderr || '').slice(0, 300));
     lines.forEach(l => chk('OV-03 ' + l.replace(/^(PASS|FAIL)  /, '').replace(/  load .*$/, ''), /^PASS/.test(l), l.replace(/^.*?  load /, 'load ').slice(0, 300))); }
 
+  // designer's R4 check (§2.0.7 landscape): the docked side column starts with the selected place, ring on, in sync on
+  // the reader's next / previous (tools/beta/fe2/side-sync.js; Tokyo, Chinatown at 844×390)
+  if (!ONLY || ONLY.split(',').some(k => ['tokyo', 'chinatown'].includes(k))) { const q = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'fe2', 'side-sync.js')], { env: process.env, encoding: 'utf8' });
+    const lines = String(q.stdout || '').split('\n').filter(l => /^(PASS|FAIL)  side sync/.test(l));
+    if (!lines.length) chk('side sync: probe ran', false, String(q.stderr || '').slice(0, 300));
+    lines.forEach(l => chk('§2.0.7 ' + l.replace(/^(PASS|FAIL)  /, '').replace(/  \{.*$/, ''), /^PASS/.test(l), l.replace(/^.*?  \{/, '{').slice(0, 300))); }
+
   // SPEC-v3 §3.7 (R8 gap 3) map motion: each reader-started moment ≤ 300 ms (the preview grows from its pin, fades on close;
   // the phone carousel lifts in; a hovered dot grows), and no animation at all under reduced motion (tools/beta/fe2/motion.js)
   for (const rel of ['cities/tokyo.html', 'cleveland.html']) { if (ONLY && !ONLY.split(',').some(k => rel.includes(k))) continue;

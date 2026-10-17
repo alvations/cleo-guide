@@ -245,7 +245,8 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0;margin
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q,.ms-open) #cleo-filter{position:absolute!important;inset:0;width:100%;height:var(--tap);padding:0 var(--s-3) 0 var(--s-8)!important;border:1px solid var(--line-strong);color:var(--ink);cursor:text}
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q,.ms-open)>.ico{position:absolute;left:13px;top:13px;width:18px;height:18px;pointer-events:none;z-index:1}
   /* the carousel: the same cards, side by side; sections and lists step aside (display: contents) */
-  html.atlas-m[data-view=atlas] .listpane{display:flex;align-items:stretch;gap:var(--s-2);position:fixed;z-index:25;left:0;right:0;bottom:12px;height:var(--car-h);margin:0;padding:0 var(--s-4);overflow-x:auto;overflow-y:hidden;
+  /* align-items:flex-end — each card is its own height, on the band's floor: a photo-less card has no empty band at its foot (designer, R4) */
+  html.atlas-m[data-view=atlas] .listpane{display:flex;align-items:flex-end;gap:var(--s-2);position:fixed;z-index:25;left:0;right:0;bottom:12px;height:var(--car-h);margin:0;padding:0 var(--s-4);overflow-x:auto;overflow-y:hidden;
     scroll-snap-type:x mandatory;scroll-padding:0 var(--s-4);overscroll-behavior:contain;background:none;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   html.atlas-m[data-view=atlas] .listpane::-webkit-scrollbar{display:none}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane>:not(section.area){display:none}
@@ -269,7 +270,8 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0;margin
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo figcaption{grid-column:1/-1;grid-row:4;position:static!important;width:auto!important;height:auto!important;max-width:none!important;clip:auto!important;overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important;white-space:normal!important;margin:var(--s-2) 0 0!important;padding:0!important;background:none!important;font:400 var(--fs-xs)/1.3 var(--font-ui)!important;color:var(--ink-3)!important;position:relative;z-index:2}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo figcaption a{color:var(--ink-2)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-cr{display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{align-content:start}   /* every card reads from the top, whatever height the carousel grew to */
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{align-content:start}
+  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car) #cleo-grid li.pl.pl--np,html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) #cleo-grid li.pl.pl--np{height:auto;max-height:var(--car-h)}   /* a photo-less card is as tall as its text (no empty band at its foot); it sits on the band's floor */   /* every card reads from the top, whatever height the carousel grew to */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-x{top:2px;right:2px}
   /* QC-17 (with FE-C): the base line ("1.9 km from … · 23 min walk") has its own full-width row and wraps, never clips;
      the carousel grows to the tallest card on show (atlas.js fitCar). Recognition stays in the detail and the preview */
@@ -387,7 +389,7 @@ html.atlas-d[data-view=atlas] .topbar .views[data-cleo-views][hidden]{display:gr
 }
 @media (max-width:1023px) and (prefers-reduced-motion:reduce){html.atlas-m[data-view=atlas] :is(.ms-bar,.ms-toggle,.leaflet-bottom){transition:none}}
 /* OV-05: the phone credit folds to its ⓘ after the first pan or 5 s (the popover keeps the full credit with links) */
-html.atlas-m[data-view=atlas] .leaflet-control-attribution.m-attr.m-attr-c{padding:0;background:none}
+html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-left .leaflet-control-attribution.m-attr.m-attr-c{padding:0;background:none}   /* as specific as the unfolded pill rule, or its 70 % plate stays behind the ⓘ circle (designer, R4 dark) */
 html.atlas-m[data-view=atlas] .m-attr.m-attr-c .m-attr-s{display:none}
 html.atlas-m[data-view=atlas] .m-attr.m-attr-c .m-attr-i{width:24px;height:24px;margin:0;border-radius:50%;background:color-mix(in srgb,var(--surface) 80%,transparent)}
 html.atlas-m[data-view=atlas] .m-attr.m-attr-c .m-attr-i::before{content:"";position:absolute;inset:-10px}   /* the 44 px hit area */
@@ -464,7 +466,7 @@ html.atlas-m[data-view=atlas] .leaflet-container .m-list{display:none}
   html.atlas-m.ms-list[data-view=atlas] .listpane{bottom:0}
   html.atlas-m.ms-list[data-view=atlas] .ms-toggle{left:auto;right:12px;bottom:12px;transform:none;width:44px;min-width:44px;padding:0;justify-content:center}
   html.atlas-m.ms-list[data-view=atlas] .ms-toggle>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-  html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) .listpane{top:calc(var(--bar-h) + 8px);bottom:8px;left:auto;right:8px;width:320px;height:auto;flex-direction:column;overflow-x:hidden;overflow-y:auto;scroll-snap-type:y mandatory;padding:0}
+  html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) .listpane{top:calc(var(--bar-h) + 8px);bottom:8px;left:auto;right:8px;width:320px;height:auto;flex-direction:column;align-items:stretch;overflow-x:hidden;overflow-y:auto;scroll-snap-type:y mandatory;padding:0}
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:none;width:auto;height:auto;scroll-snap-align:start;scroll-margin-top:4px}
 }
 /* OV-03: a cut name (atlas.js) shows whole on hover, focus or selection */
