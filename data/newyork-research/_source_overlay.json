@@ -1,0 +1,10 @@
+{
+ "_about": "Source upgrades + name merges applied by consolidate.py AFTER the research files are read (QC: Yelp-only records, 2026-10-17). 'add' appends credible [KEY,url] pairs a record lacks; 'merge' folds an alias record into its canonical one (sources unioned, alias dropped). Every URL was found by sequential WebSearch (researchedVia WebSearch 2026-10-17). Yelp/TripAdvisor stay as measurement only, never the recommender. Records with no credible recommender are held by the build's 0-credible gate and listed in AUDIT.md.",
+ "add": {
+  "Hainan Chicken House": [["INFATUATION","https://theinfatuation.com/new-york/reviews/hainan-chicken-house"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hainan_Chicken_House"]],
+  "Ralph's Famous Italian Ices": [["NYCGO","https://www.business.nyctourism.com/places/ralphs-famous-italian-ices-staten-island/"]],
+  "Awang Kitchen": [["GAYOT","https://www.gayot.com/restaurants/awang-kitchen-elmhurst-ny-11373_1ny170411.html"]],
+  "Kinokuniya Cafe": [["UNTAPPED","https://untappedcities.com/2015/09/02/20-of-nycs-best-independent-specialty-bookstores/4/"]]
+ },
+ "merge": {"Wah Fung No 1": "Wah Fung No. 1 Fast Food"}
+}

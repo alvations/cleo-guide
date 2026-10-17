@@ -77,7 +77,7 @@ function licenceFromUri(uri) {
 
 // ---------------------------------------------------------------- options
 function args(argv, adapter) {
-  const o = { mode: null, dry: false, keys: [], min: 'med', budget: adapter.defaultBudget || 120, delay: adapter.delay || 350, allow: [], covered: false };
+  const o = { mode: null, dry: false, keys: [], min: 'med', budget: adapter.defaultBudget || 120, delay: adapter.delay || 350, allow: [], covered: false, imageTimeout: 60000 };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i], v = () => { const x = argv[++i]; if (x == null) die(`${a} needs a value`); return x; };
     if (a === '--dry-run') o.dry = true;
@@ -89,6 +89,7 @@ function args(argv, adapter) {
     else if (a === '--delay') o.delay = +v();
     else if (a === '--allow-flag') o.allow.push(v());
     else if (a === '--include-covered') o.covered = true;
+    else if (a === '--image-timeout') o.imageTimeout = +v();
     else if (a === '-h' || a === '--help') { console.log(fs.readFileSync(path.join(__dirname, 'lib.js'), 'utf8').split('*/')[0]); process.exit(0); }
     else die(`unknown option ${a} (see --help)`);
   }
@@ -159,10 +160,11 @@ function namesPlace(text, words) {
 const NOT_A_PLACE_PHOTO = /\b(watermark(ed)?|screen ?shot|press (photo|release|image)|editorial use only|all rights reserved|ai[- ]generated|generative ai|midjourney|stable diffusion|illustration|vector|clip ?art|rendering|3d render)\b/i;
 
 // ---------------------------------------------------------------- HTTP
-async function get(url, opts = {}) {
-  const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), opts.timeout || 25000);
-  try { return await fetch(url, { headers: { 'User-Agent': UA, ...(opts.headers || {}) }, signal: ctl.signal, redirect: 'follow' }); }
-  finally { clearTimeout(timer); }
+// ONE cap over headers AND body (imagery/net.js): a host that sends headers then stalls the body can no longer hang the
+// step (run #105). A body read past the cap rejects with e.timeout; callers skip that item.
+const { fetchCapped } = require('../net');
+function get(url, opts = {}) {
+  return fetchCapped(url, { headers: { 'User-Agent': UA, ...(opts.headers || {}) }, redirect: 'follow' }, opts.timeout || 25000);
 }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const inCI = () => process.env.CI === 'true' || !!process.env.GITHUB_ACTIONS;
@@ -181,7 +183,7 @@ async function preflight(adapter, key) {
   try { r = await get(adapter.preflightUrl(key), { headers: adapter.headers ? adapter.headers(key) : {}, timeout: 30000 }); }
   catch (e) {
     const why = e.cause ? e.cause.code || e.cause.message : e.message;
-    if (e.name === 'AbortError' || /abort|timeout|ETIMEDOUT|ECONNRESET|terminated/i.test(why)) throttled(why);
+    if (e.timeout || e.name === 'AbortError' || /abort|timed? ?out|ETIMEDOUT|ECONNRESET|terminated/i.test(why)) throttled(why);
     fail(why);
   }
   if (r.status === 429) throttled('HTTP 429');
@@ -341,7 +343,7 @@ async function main(adapter) {
     imgTries++;
     try {
       if (adapter.imageDelay) await sleep(adapter.imageDelay);   // hosts that count image requests against the API limit (LoC)
-      const r = await get(it.imageUrl(Math.max(...widths)), { timeout: 60000, headers: adapter.imageHeaders ? adapter.imageHeaders(key) : {} });
+      const r = await get(it.imageUrl(Math.max(...widths)), { timeout: o.imageTimeout, headers: adapter.imageHeaders ? adapter.imageHeaders(key) : {} });
       if (r.status === 429 || r.status >= 500) { stopped = true; console.log(`  image host HTTP ${r.status} — stopping; the next run resumes`); break; }
       if (!r.ok || !/^image\//.test(r.headers.get('content-type') || '')) throw new Error(`HTTP ${r.status} ${r.headers.get('content-type') || ''}`);
       buf = Buffer.from(await r.arrayBuffer());

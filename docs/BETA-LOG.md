@@ -2488,9 +2488,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 
 - **OV-41 (platform):** on phones, Atlas's list is a fixed, scrolling pane. With no map, the page's offline-pack section stayed in the page flow under that pane, where it was covered. The pack now goes at the end of the phone list (`park` into the listpane). In a simulated platform run, Keep is visible and its hit test lands on its own button.
 - **Esc from a selected place** moves focus back to that place's pin, or to the map if the pin is gone. It retries once at 260 ms, after the carousel animation.
-- **Desktop credit:** no Leaflet prefix (`setPrefix(false)`), 11/16 px, 20 px tall, per the designer's ruling. It stays full, not folded.
+- **Desktop credit:** no Leaflet prefix (`setPrefix(false)`), 12/16 px (w7 keeps credit text ≥ 12 px), 20 px tall, per the designer's ruling. It stays full, not folded.
 - **Landscape:** the list band under the bar is gone; the list is the side column. The old side.js branch in `select()` is removed.
 - **Label coverage** counts the painted pill area.
+- **QC L partial on 61954288:**
+  - **日本語 × Filters at 844×390 (7 pages):** reproduced. In landscape Atlas, Filters (fixed at right 304 px) and the views switch both float over the topbar's spacer. The language button reached under Filters on pages with long titles: on Akron its right edge was at 513 px, against Filters starting at 496. The spacer now reserves both (`flex:1 0 248px`), so the title side shrinks instead. Checked: 0 overlaps on Akron, Harrisburg, Potong Pasir, Katong, Youngstown and HCMC.
+  - **Youngstown label at 41.9 %:** already fixed by dc6cbc198 (`cutNm`), which postdates 61954288. It now measures 36.5 % of the map width at 844×390.
 - 2026-10-17 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · W8-I18N-STATES.
   - **What changed:** mapfail.js and states.js now go through Cleo.t, with new `mf.*` and `state.*` keys (swapSkip). The English is byte-identical. test-i18n gains a pseudo check.
   - **Review:** round 22 covered these strings plus FE-B's `moved.*` pages. 「{name}は移動しました」 read as if the city moved, so it is now 「{name}のガイドは移転しました」.
@@ -2529,6 +2532,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - FE-1: the L rows (日本語 × Filters on 7 pages; the 41.9 % Youngstown label). I first asked FE-1 to wire `.pl-lead`, then corrected it within minutes, because FE-A's adeabcd63 had landed.
     - Designer: desktop sign-off on real shots.
   - **Dispatched:** beta-atlas-real-shots label d46-desktop on b1c7939f.
+- **Designer (d46-desktop):**
+  - Area and Filters in the Atlas bar now wear the kind chips' style (`--ink-2` text, `--line` border, surface; only the pressed state differs), so they no longer read as disabled.
+  - The Atlas intro sits 16 px above the count line, down from about 60.
+  - The lead card's Atlas order is signed off; FE-1 checked that `.pl-lead` is the Atlas #1 and holds still through `.ms-ready`.
+- **Phone tuck:** transform only. `.leaflet-bottom` and `.ms-here` no longer animate `bottom` or `top`. The 0.0012 pan shift FE-2 saw is the credit folding on the first pointerdown; it has `hadRecentInput: true`, so CLS excludes it.
 - 2026-10-17 12:10Z · orchestrator · lane reports · session_01PCNcUkfa5S1N1BKGzZA4xx
   - **b0bc93cf5: a failed photo run keeps its discovery work** (imagery and image-sources asks). commons-discovered.json, openverse-candidates.json and both sheet folders are committed alone, after a JSON check; no build or page reads them. Photos and CREDITS still need green gates. Simulated in a scratch repo.
   - **Stage defaults** are now met, europeana, smithsonian, loc. The next stage log shows whether the two keys are set.

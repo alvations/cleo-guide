@@ -51,7 +51,7 @@ function loadPlaywright() {
   throw new Error('playwright not found');
 }
 const MAN = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'manifest.json'), 'utf8'));
-const placePages = MAN.pages.filter(p => p.counts && fs.existsSync(path.join(BETA, p.beta)));
+const placePages = MAN.pages.filter(p => p.counts && p.kind === 'city' && fs.existsSync(path.join(BETA, p.beta)));   // FE-B: kind `moved` (a pointer to the city's own folder) is not a place page
 const byBeta = {}; for (const p of placePages) byBeta[p.beta] = p;
 const total = rel => { const c = byBeta[rel].counts; return c.total != null ? c.total : (c.sights != null ? c.sights + c.food : c.P + c.F); };
 const walk = (dir, acc = []) => { for (const e of fs.readdirSync(dir, { withFileTypes: true })) { const p = path.join(dir, e.name);
