@@ -143,7 +143,7 @@ async function main() {
   const man = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'manifest.json'), 'utf8')).pages;
   const places = {}; for (const f of fs.readdirSync(path.join(BETA, 'data', 'places'))) { if (!f.endsWith('.json')) continue;
     try { const d = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'places', f), 'utf8')); if (d.beta) places[d.beta] = d; } catch (e) { /* skip */ } }
-  let pages = man.map(m => m.beta).concat(['trip.html', 'saved.html', 'how-we-choose.html', 'accessibility.html']).filter(p => fs.existsSync(path.join(BETA, p)));
+  let pages = man.map(m => m.beta).concat(['trip.html', 'saved.html', 'how-we-choose.html', 'accessibility.html', 'changes/tokyo.html', 'changes/cleveland.html', 'changes/singapore--punggol.html'])   // What changed: one shell, three samples.filter(p => fs.existsSync(path.join(BETA, p)));
   if (filt.length) pages = pages.filter(p => filt.some(k => p.includes(k)));
   const jobs = [];
   for (const p of pages) { const d = places[p]; const city = !!(d && d.places && d.places.length);
