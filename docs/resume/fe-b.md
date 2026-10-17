@@ -13,6 +13,21 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- QC S-17 rows (live r7): OV-107..110, 121, 122 claimed (dev S-17 in budget; T1 at rest 11.8 % = header + FE-A city bar);
+  OV-123 + FE-B half of OV-106/115/116/117 in ffb7881f8 (§3a: scoped header search name, city field is the search, "Search
+  all guides for q" into FE-A's [data-cleo-all-slot] on cleo:city-search, tab bar drops Search + Your list, landing header
+  search hidden, opaque shell bar). Open on FE-A: header search not drawn >= 1024 on city pages, the slot, the phone row.
+- Desktop Atlas switch: 113x36 box, its ::after does not extend the hit band (feb-switcher now hit-tests a 44 px band) —
+  FE-1's (atlas.css a6073c1f), sent.
+- Eager JS on the merged head 39.97 / 40 KB (others' bytes): no eager bytes from FE-B until platform's headroom fix.
+- One compact state site-wide: compact.js is gone; the shell tab bar and the Guidebook Contents strip style on FE-A's
+  html.ov-c (Cleo.chrome, core.js) with :focus-within to return. Shell pages 48/48 within §v2.12 budgets.
+- R8 gap #7 (FE-B half): fe-b.css line-heights on --lh tokens; the 16 px titles (.card-t, editorial rail .t, .theme-t,
+  .ccard .card-t) use the UI face (display face >= 24 px only).
+- feb-switcher.js follows OV-10/11: below 1024 outside Atlas the open sheet owns the screen; its Close must be a reachable
+  44 px control. Found: desktop Atlas switch segments 113x36 (< 44) — sent to FE-A / FE-1.
+- §3a one search per screen: proposal sent to FE-A (search.js routes header / "/" to the city field; "Search all guides
+  for q" row into a FE-A slot; tab bar loses its duplicate Search). Waiting on FE-A's yes.
 - R8 gap #5b (B-20): What changed "Status source" links are a.chg-src 44 px controls (beat `.chg a` 24 px); metrics.js
   B-20 = 0 on all 31 pages that carry one (sweep in scratch, 31/31). test-hubs guards the class + rule.
 - R8 gap #2d: landing + hub "Recommended by" use lib/model.js recommender(): research parentheticals dropped

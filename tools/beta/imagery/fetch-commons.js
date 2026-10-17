@@ -600,7 +600,9 @@ async function main() {
           if (refusedFile.has(f)) { refused.push(`${p.t.key} ${f}: refused after review (lead image of ${art})`); continue; }
           c = { file: f, confidence: 'lead', depicts: p.t.type === 'hero' ? '' : p.t.label.replace(/\s*\([^)]*\)\s*$/, '') };
         }
-        if (refusedAnywhere.has(c.file) && !(p.t.candidates || []).some(x => x.file === c.file && !x.refused)) { refused.push(`${p.t.key} ${c.file}: refused after review (for another target)`); continue; }
+        // a file refused for its own fault is refused for EVERY target, even one that vetted it later (R8 run #77: a wave-5
+        // title re-listed the Graslei photo refused on the Ghent hero for its grey sky)
+        if (refusedAnywhere.has(c.file)) { refused.push(`${p.t.key} ${c.file}: refused after review (for this or another target)`); continue; }
         const r = await inspect(p.t, c.file, c.confidence === 'lead' ? '' : c.depicts);   // a lead image has no vetted depicts
         if (r.why) { refused.push(`${p.t.key} ${c.file}: ${r.why}`); continue; }
         const st = await store(p, c, r.ok);
@@ -622,4 +624,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { accountOf, widthList, suspectFormat, DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { loadSharp, accountOf, widthList, suspectFormat, DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };

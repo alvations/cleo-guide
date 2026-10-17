@@ -829,12 +829,23 @@ html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail:focus-withi
 html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.mappill,
 html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.toolbar{display:none!important}
 /* OV-00 P2 at rest (header 52 + switch row 52 ≤ 16 %): on phones and tablets the switch row is the switch itself, no padding */
-@media (max-width:1023px){html body main[data-city]>.cbar>.cbar-in{padding-block:0}}
+@media (max-width:1023px){html body main[data-city]{--cbar-h:53px}html body main[data-city]>.cbar>.cbar-in{padding-block:0;min-height:0}}   /* OV-113: T1 at rest 52 + 53 = 10.3 % (≤ 11) */
 /* OV (platform, marked block): the "Keep <city> offline" control is in-flow page content; in the phone/tablet Atlas
    layout the full-bleed map and its bars are fixed over the page, so the control would sit under them, covered and
    unreachable (overlay audit: tools/beta/qa/overlay/platform-overlay.js). It is offered in every other view instead. */
 html.atlas-m[data-view=atlas] [data-cleo-pack]{display:none!important}
 /* /OV platform */
+/* OV-101 (T1, 768–1023 phone-style Atlas, ≤ 18 % at rest): the view switch rides in the header row, as in landscape
+   (QA-80 pattern: icon-only 44 px segments, labels kept as names, painted above the header, covering nothing), so the
+   switch row's 53 px go back to the map; the Atlas lane's chip row and peek fit the rest */
+@media (min-width:768px) and (max-width:1023px) and (min-height:500px){
+  html.atlas-m[data-view=atlas]:root{--cbar-o:0px}
+  html.atlas-m[data-view=atlas] body main[data-city]>.cbar{height:0;min-height:0;background:transparent;border:0;pointer-events:none;z-index:47}
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views]{position:fixed;top:4px;right:116px;z-index:60;width:auto;height:44px;margin:0;padding:2px;pointer-events:auto}
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button{width:44px;min-width:44px;height:40px;min-height:0;padding:0;justify-content:center}
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button>.ico{display:inline-block}
+  html.atlas-m[data-view=atlas] body main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
@@ -1354,3 +1365,30 @@ html[data-view=atlas] [data-cleo-empty]{display:none}
 /* OV ledger (OV-00 §3): a toast never covers a sheet's buttons. While a place sheet is open, toasts (base set/clear, save,
    share) rise above its action bar. */
 html.sheet-on .toast{bottom:calc(env(safe-area-inset-bottom,0px) + 112px)}   /* sheet.js sets .sheet-on (not :has on :root: QA-70) */
+/* OV-111 / OV-112 (OV-00 §1–2): the place sheet keeps one bar, its nav row (the way out: back, ‹ ›, close).
+   Nav row: 50 px (phone, tablet), 48 px (landscape or a short phone), 56 px (desktop). The action bar is the only other
+   row: on a portrait phone or tablet it sits at the bottom and slides away while the sheet scrolls down (sheetbar.js);
+   in landscape and from 1024 px it sits under the nav row and scrolls with the content (not sticky). Desktop: the dialog
+   is full height (no scrim bands above or below it) and its side column scrolls with the page. */
+html body #cleo-sheet .sheet.detail .sh-nav{min-height:50px;padding-block:3px}
+html body #cleo-sheet .sheet.detail>.close{position:sticky;top:3px;display:flex;margin:3px 10px -47px auto}   /* the close button stays with the nav bar while the sheet scrolls */
+html body #cleo-sheet .sheet .actions{padding:5px 16px calc(5px + env(safe-area-inset-bottom))}
+html body #cleo-sheet .sheet .actions .btn{min-height:44px}
+@media (max-height:720px){html body #cleo-sheet .sheet.detail .sh-nav{min-height:48px;padding-block:2px}html body #cleo-sheet .sheet.detail>.close{top:2px;margin-top:2px;margin-bottom:-46px}}
+@media (orientation:portrait) and (max-width:1023px){
+  html body #cleo-sheet .sheet .actions{transition:transform var(--dur-2,200ms) ease-out}
+  html body #cleo-sheet .sheet.detail.acts-away .actions{transform:translateY(calc(100% + 2px))}}
+@media (orientation:portrait) and (max-width:1023px) and (prefers-reduced-motion:reduce){html body #cleo-sheet .sheet .actions{transition:none}}
+@media (orientation:landscape) and (max-height:599px),(min-width:1024px){
+  html body #cleo-sheet .sheet.detail{display:flex;flex-direction:column}
+  html body #cleo-sheet .sheet.detail>*{flex:none}
+  html body #cleo-sheet .sheet.detail>.close{order:-3}
+  html body #cleo-sheet .sheet.detail>.sh-nav{order:-2}
+  html body #cleo-sheet .sheet.detail>.actions{order:-1;position:static;border-top:0;border-bottom:1px solid var(--line);padding:var(--s-2) var(--s-4)}}
+@media (min-width:1024px){
+  html body #cleo-sheet.overlay:not(.side) .sheet.detail{max-height:100vh;max-height:100dvh;height:100vh;height:100dvh;border-radius:0}
+  html body #cleo-sheet .sheet.detail .sh-nav{min-height:56px}
+  html body #cleo-sheet .sheet.exp .content>.plan{position:static}}
+/* the decorative grab handle no longer takes a row above the nav: the sheet's top edge is its opaque nav bar */
+html body #cleo-sheet .sheet.detail>.grab{position:absolute;top:4px;left:50%;transform:translateX(-50%);margin:0;z-index:7;pointer-events:none}
+@media (min-width:1024px){html body #cleo-sheet .sheet.detail>.grab{display:none}}

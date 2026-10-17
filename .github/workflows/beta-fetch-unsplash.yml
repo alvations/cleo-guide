@@ -87,7 +87,11 @@ jobs:
             echo "::warning::tools/beta/imagery/fetch-commons.js is not on this branch; skipping Commons."
           fi
 
-      - name: Fetch Unsplash photos (only with the key)
+      - name: Fetch Unsplash photos (disabled, D-51)
+        # D-51: the Unsplash API Guidelines require hotlinking; storing copies of API-fetched photos in this repo is a
+        # breach of the API Terms. Disabled until fetch-unsplash.js is reworked. Unsplash photos come only from a
+        # browser download with a hand-written credit row (the Unsplash License allows that).
+        if: ${{ false }}
         run: |
           if [ -z "$UNSPLASH_ACCESS_KEY" ]; then
             echo "UNSPLASH_ACCESS_KEY secret is not set; skipping Unsplash."

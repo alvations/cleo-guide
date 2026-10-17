@@ -45,7 +45,7 @@
   { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need) Cleo.need('base', () => C.baseSheet && C.baseSheet(c)); }; }
   // FE-C W9-1 hook: the recognition badges are drawn by recognition.js (lazy) on pages that have recognised places
   if (Cleo.need && d.querySelector('.rail-i[data-rec]')) Cleo.need('recognition');
-  { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need && (c.hasAttribute('data-rec') || c.hasAttribute('data-rec0'))) Cleo.need('recognition', () => Cleo.recog && Cleo.recog.sheet(c, icon('seal'))); }; }   // FE-C QC-23 hook: the detail's row on a deep link
+  { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need && (c.hasAttribute('data-rec') || c.hasAttribute('data-rec0'))) Cleo.need('recognition', () => Cleo.recog && Cleo.recog.sheet(c, icon('seal'))); if (Cleo.need) Cleo.need('sheetbar', () => Cleo.sheetbar && Cleo.sheetbar()); }; }   // FE-C QC-23 hook: the detail's row on a deep link; OV-111/112: sheetbar.js
   // FE-C W9-2 hook: the quiet "Status checked <d Mon>" card line is drawn by fresh.js (lazy) from each card's data-checked
   if (Cleo.need) Cleo.need('fresh');
   need.q = {};
@@ -270,15 +270,18 @@
   // on the eat-and-drink tint, under the kind glyph — an intentional face, never a blank box that reads as "not loaded"
   const dishOf = c => { if (at(c, 'data-k') !== 'f') return ''; const x = $('.pl-e .in-d', c), t = x ? x.textContent.replace(/^\s*·\s*/, '').trim() : '';
     return t ? '<span class="pl-dish">' + esc(t) + '</span>' : ''; };   // no dish or cuisine to name: a glyph-only cover (designer: the area is never a cover word)
-  const paint = () => {
+  // PERF-21 (platform): `only` = just these cards (a stamp paints its new cards, not all of them again); writes are skipped
+  // when unchanged, so a repaint does not dirty every card's style and layout
+  const put = (el, k, v) => { if (k === 'text' ? el.textContent !== v : el.getAttribute(k) !== v) { if (k === 'text') el.textContent = v; else el.setAttribute(k, v); } };
+  const paint = only => {
     const s = Cleo.saved ? Cleo.saved.all() : {}, b = been.all();
-    cards.forEach(c => {
+    (only || cards).forEach(c => {
       cover(c);
       const x = $('.pl-x', c), ref = key + '/' + pid(c); if (!x) return;
       // W7: the heart sits on the card's media, drawn by CSS (no extra nodes: DOM budget); the word stays for AT and search
       if (!x.firstChild) x.innerHTML = '<button class="pl-save heart" aria-pressed="false">' + tt('sheet.save', 'Save') + '</button>';
-      const btn = x.firstChild, o = !!s[ref], st = $('.stamp', c); x.hidden = false;
-      btn.setAttribute('aria-pressed', String(o)); btn.textContent = o ? tt('sheet.saved', 'Saved') : tt('sheet.save', 'Save'); btn.setAttribute('aria-label', o ? tt('gal.saved', 'Saved: {name}', { name: $('.pl-n', c).textContent }) : tt('gal.save', 'Save {name}', { name: $('.pl-n', c).textContent }));
+      const btn = x.firstChild, o = !!s[ref], st = $('.stamp', c); if (x.hidden) x.hidden = false;
+      put(btn, 'aria-pressed', String(o)); put(btn, 'text', o ? tt('sheet.saved', 'Saved') : tt('sheet.save', 'Save')); put(btn, 'aria-label', o ? tt('gal.saved', 'Saved: {name}', { name: $('.pl-n', c).textContent }) : tt('gal.save', 'Save {name}', { name: $('.pl-n', c).textContent }));
       if (b[ref] && !st) c.insertAdjacentHTML('beforeend', '<span class="stamp">' + esc(tt('city.stamp', 'Been there')).replace(' ', '<br>') + '</span>'); else if (!b[ref] && st) c.removeChild(st);
     });
     const mine = $('[data-cleo-mine]'), nm = Object.keys(s).filter(r => r.slice(0, r.lastIndexOf('/')) === key).length;
@@ -297,7 +300,7 @@
     $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); });
     if (got.length && Cleo.lens.on(Cleo.lens.current())) { got.forEach(c => { c.hidden = !visible(c); });
       sections.forEach(s => { if (!s.querySelector('li.pl:not([hidden])') && !s.querySelector('noscript[data-cleo-defer]')) s.hidden = true; }); }
-    paint(); });
+    if (got.length) paint(got); });   // PERF-21: only the new cards (the rest were painted when they arrived)
 
   const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been', 'rec', 'lf'];   // 'rec': FE-C W9-1 hook, 'lf': W9-9
   let P = {}, opener = null, pushed = 0, after = null;

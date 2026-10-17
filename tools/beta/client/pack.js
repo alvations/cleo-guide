@@ -35,8 +35,8 @@
   };
   var mb = function (n) { return n >= 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB'; };
   var dayOf = function (iso) { try { return new Date(iso).toLocaleDateString(document.documentElement.lang || 'en', { day: 'numeric', month: 'short', year: 'numeric' }); } catch (e) { return String(iso).slice(0, 10); } };
-  function packUi() {
-    var box = document.querySelector('[data-cleo-pack]');
+  // box: the build-rendered [data-cleo-pack] section (primary: it also refreshes a kept pack), or a copy from mount()
+  function packUi(box, primary) {
     if (!box || !('serviceWorker' in navigator) || !window.caches || !/^https?:$/.test(location.protocol)) return;
     var key = box.getAttribute('data-key'), q = function (s) { return box.querySelector(s); };
     var keep = q('[data-pack="keep"]'), rm = q('[data-pack="remove"]'), size = q('[data-pack-size]'), done = q('[data-pack-done]'), msg = q('[data-pack-msg]');
@@ -49,7 +49,7 @@
       return Cleo.pack.state(key).then(function (st) {
         paint(st);
         // a kept city refreshes itself on an online visit, so it follows deploys (PERF-13) without a tap
-        if (st && navigator.onLine !== false) Cleo.pack.save(key).then(function (r) { if (r && r.ok) Cleo.pack.state(key).then(paint); });
+        if (primary && st && navigator.onLine !== false) Cleo.pack.save(key).then(function (r) { if (r && r.ok) Cleo.pack.state(key).then(paint); });
       });
     }).catch(function () { /* no manifest (offline first visit, or not built): the control stays hidden */ });
     keep.addEventListener('click', function () {
@@ -63,7 +63,22 @@
     rm.addEventListener('click', function () {
       Cleo.pack.remove(key).then(function () { paint(null); msg.textContent = msg.getAttribute('data-l-removed'); emit('cleo:pack', { removed: key }); });
     });
+    // every copy of the control shows the same state: one kept or removed elsewhere repaints this one
+    box._cleoPaint = function () { Cleo.pack.state(key).then(paint); };
+    document.addEventListener('cleo:pack', box._cleoPaint);
   }
-  packUi();
+  /** OV-38: the same control in another place (a phone Atlas slot, where the build's section is kept off the map). Copies
+   *  the build's section (its localised strings ride on data-l attributes), renames its ids, and binds it. The copy has no
+   *  [data-cleo-pack], so the rule that hides that section on phone Atlas leaves it alone. Idempotent per host (FE-1's
+   *  Layers popover `.m-pack` calls it on every open): later calls repaint the state. Returns the copy, or null. */
+  Cleo.pack.mount = function (host) {
+    var src = document.querySelector('[data-cleo-pack]'), had = host && host.querySelector('[data-cleo-pack-copy]'); if (!src || !host) return null;
+    if (had) { if (had._cleoPaint) had._cleoPaint(); return had; }   // idempotent: a popover calls this on every open; later calls refresh
+    var x = src.cloneNode(true); x.removeAttribute('data-cleo-pack'); x.setAttribute('data-cleo-pack-copy', ''); x.hidden = true;
+    [].forEach.call(x.querySelectorAll('[id]'), function (e) { e.id += '-m'; });
+    if (x.getAttribute('aria-labelledby')) x.setAttribute('aria-labelledby', x.getAttribute('aria-labelledby') + '-m');
+    host.appendChild(x); packUi(x, false); return x;
+  };
+  packUi(document.querySelector('[data-cleo-pack]'), true);
   if (Cleo.need && Cleo.need.done) Cleo.need.done('pack');
 })();

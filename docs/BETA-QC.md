@@ -639,3 +639,36 @@ Notes on the method:
   - the widest label is up to 84 % of the map width.
 - **Not seen on r7: QA-80 / OV-100** (the landscape switch under the header) is a dev-only regression. S-17's new `controlCovered` check reproduces it on dev.
 - `npm test` under the audit's CPU load failed twice in test-fe-a, on different assertions each time (search, view switch). Alone on a quiet machine it passes 133/133. That's load-sensitive timing, not a regression.
+
+## Overlay ledger re-verify · dev c14306d9 (contains 399119259) · claimed rows
+
+`tools/beta/qa/qc-ov-verify.js` runs one targeted check per claim, measuring exactly what the claim says; chrome shares use S-17's MEASURE. Evidence is in `design/beta/eval/qc/overlay/verify-c14306d9/`.
+
+**Verified:**
+- OV-08: share card wholly on screen, 9:16, no scroll at 4 viewports.
+- OV-09: FE-A part; at 1024 the sheet covers 0 px² of the map and the selected pin is visible.
+- OV-11: the 844×390 sheet owns the top band.
+- OV-30: the Contents strip is not covered.
+- OV-31, OV-32: landscape Guidebook and Insights at 12.5 %, at rest and after a scroll.
+- OV-33: no Map pill.
+- OV-34: no Gallery toolbar in the reading views.
+- OV-35: L 12.5 %; P1 5.7 % after a scroll.
+- OV-36: the strip is away after a scroll (5.7 / 7.2 / 4.7 %).
+- OV-40: the toast is clear of the sheet's action bar at 6 viewports. Left over: at 1440 it sits over "Clear my base" for up to 4 s.
+
+**Back to open:**
+- **OV-01:** a pan doesn't reach `Cleo.chrome.compact` (FE-1's hook is missing). Called by hand, `compact()` hides the switch, but its 52 px band stays as an empty dark strip, so chrome is 31.3 % → 31.3 %.
+- **OV-12:** the base note is 117 px on phone, against ≤ 100.
+
+**QC-35 verified** (the tray reads "17 places here · checked 3 Oct · Show list").
+
+Ledger format: FE-C's OV-12 and OV-40 edits had dropped the Severity cell, which is now restored (OV-12 Low, OV-40 High). A "Format" note in the ledger says every row keeps 7 cells.
+
+**Addendum on c24dd319** (contains FE-1's f2babf91):
+- **OV-01** is now verified: chrome during a pan is 7.2 % (P2) and 5.7 % (P1), with the switch hidden; at rest it is 31.3 / 24.8 %.
+- **OV-02** verified: "Search this area" is absent at load, offered after a pan 8 px under the bar and centred, and gone on the next move.
+- **OV-05** verified: the credit is 174 px at load and 34 px after a pan.
+- **OV-06** verified: the chip row has a mask fade.
+- **OV-07** verified: chrome is back at idle and the map never resizes.
+
+`qc-ov-verify.js` gained these checks. The full dev S-17 audit runs on c24dd319.

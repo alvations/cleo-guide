@@ -31,13 +31,18 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
     ...['gallery', 'atlas', 'guidebook', 'insights'].map(v => 'cities/tokyo.html#view=' + v), 'cities/tokyo.html#p=kanda-myojin'];
   const bad = [];
   for (const u of pages) {
-    const ctx = await ctxOf(), p = await ctx.newPage();
+    const ctx = await ctxOf(), p = await ctx.newPage(), got = new Set();
+    // the 960w files this load actually FETCHED (a browser reusing an already-loaded larger candidate for a small slot
+    // fetches nothing: currentSrc alone would flag that, e.g. a deep-linked card next to its open detail photo, D-46)
+    p.on('request', q => { if (/-960\.(jpe?g|png)(\?|$)/.test(q.url())) got.add(q.url().split('?')[0]); });
     await p.goto(base + u, { waitUntil: 'load' }); await p.waitForTimeout(1500);
     await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 700) { scrollTo(0, y); await new Promise(r => setTimeout(r, 40)); } });
     // the phone Atlas carousel scrolls sideways: walk it too
     await p.evaluate(async () => { const g = document.querySelector('#cleo-grid'); if (g && g.scrollWidth > g.clientWidth + 10) for (let x = 0; x < g.scrollWidth; x += 300) { g.scrollLeft = x; await new Promise(r => setTimeout(r, 40)); } });
     await p.waitForTimeout(800);
-    const r = await p.evaluate(() => [...document.images].filter(i => /-960\.(jpe?g|png)/.test(i.currentSrc)).map(i => ({ w: Math.round(i.getBoundingClientRect().width), src: i.currentSrc.split('/').pop() })).filter(x => x.w > 0 && x.w < 200));
+    // a fetched 960w is wasted when every visible image showing it sits in a slot under 200 CSS px
+    const r = await p.evaluate(urls => urls.map(url => { const on = [...document.images].filter(i => i.currentSrc.split('?')[0] === url).map(i => Math.round(i.getBoundingClientRect().width)).filter(w => w > 0);
+      return { w: on.length ? Math.max(...on) : 0, src: url.split('/').pop() }; }).filter(x => x.w > 0 && x.w < 200), [...got]);
     r.forEach(x => bad.push(u + ' ' + x.w + 'px ' + x.src));
     await ctx.close();
   }

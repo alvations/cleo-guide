@@ -16,6 +16,8 @@
  *  base-lazy   a first load with no base never requests base.js; with a base it is requested once
  *  rec-pv      (W9-1) the Atlas map preview of a recognised place carries its badges (text: the preview is one link)
  *  rec-tap     (QA-77) badge links are ≥ 44 px tap targets (B-20) on 4 pilots × Gallery/Atlas at 390; the pill still paints 32 px
+ *  sheet-chrome (OV-111/112) the place sheet: one nav bar ≤ 50–58 px with its close button; the action bar steps aside (portrait) or
+ *              sits under the nav and scrolls (landscape, ≥ 1024)
  *  empty       (QC-05, S-05-style) #q=zzqxjv on 5 pilots × Gallery/Atlas × 390/1440: one visible state naming the search
  *              (Gallery: empty.js; Atlas: FE-1's list head), "Clear search" (works) and "Show all N", no "All N" chip pressed
  *  card        (W9-7) place (photo), closed place, day, list (Saved) and trip: a 1080×1920 PNG; its preview's alt text names
@@ -120,7 +122,7 @@ async function tabTo(page, test, n = 80) {
     await s.page.keyboard.press('Enter'); await s.page.waitForTimeout(400);
     const tov = await s.page.evaluate(() => { const t = [...document.querySelectorAll('.toast')].pop(), a = document.querySelector('#cleo-sheet .actions'); if (!t || !a) return null;
       const q = t.getBoundingClientRect(), r = a.getBoundingClientRect(); return q.bottom > r.top && q.top < r.bottom && q.right > r.left && q.left < r.right; });
-    ok(tov === false, `${tag}: OV-00 §3: the base toast does not cover the sheet's buttons`, tov);
+    ok(tov !== true, `${tag}: OV-40: no toast over the sheet (the sheet's own base fact says it)`, tov);
     const set = await s.page.evaluate(() => Cleo.base.get() && Cleo.base.get().id);
     ok(k && set === 'senso-ji', `${tag}: "Set as my base" reached and pressed by keyboard`, [k, set]);
     await s.page.screenshot({ path: path.join(SHOTS, `base-sheet-${tag}.png`) });
@@ -184,6 +186,19 @@ async function tabTo(page, test, n = 80) {
     await s.ctx.close();
   }
 
+  console.log('# sheet-chrome (OV-111 / OV-112, OV-00: the place sheet keeps one bar; its action bar steps aside)');
+  for (const [w, hh, navMax] of [[390, 844, 52], [390, 664, 50], [844, 390, 50], [768, 1024, 52], [1024, 768, 58], [1440, 900, 58]]) {
+    const s = await open(b, 'cleveland.html#view=gallery&p=soldiers-and-sailors-monument', { w, h: hh, settle: 1500 }), tag = `${w}x${hh}`;
+    const at = () => s.page.evaluate(() => { const sh = document.querySelector('#cleo-sheet .sheet.detail'), a = sh.querySelector('.actions').getBoundingClientRect(), n = sh.querySelector('.sh-nav').getBoundingClientRect(), c = sh.querySelector('.close').getBoundingClientRect();
+      return { nav: Math.round(n.height), navTop: Math.round(n.top), actTop: Math.round(a.top), actBottom: Math.round(a.bottom), sticky: getComputedStyle(sh.querySelector('.actions')).position, closeIn: c.top >= 0 && c.bottom <= n.bottom + 1, vh: innerHeight }; });
+    const r0 = await at(); await s.page.evaluate(() => { document.querySelector('#cleo-sheet .sheet').scrollTop += 600; }); await s.page.waitForTimeout(450);
+    const r1 = await at(); await s.page.evaluate(() => { document.querySelector('#cleo-sheet .sheet').scrollTop -= 120; }); await s.page.waitForTimeout(450); const r2 = await at();
+    const portrait = hh > w && w < 1024;
+    ok(r0.nav <= navMax && r0.navTop <= 1 && r1.navTop <= 1 && r1.closeIn, `${tag}: one nav bar (${r0.nav} px) at the top, the close button with it after a scroll`, [r0.nav, r1.navTop, r1.closeIn]);
+    if (portrait) ok(r0.actBottom <= r0.vh + 1 && r1.actTop >= r1.vh - 1 && r2.actBottom <= r2.vh + 1, `${tag}: the action bar is at the bottom at rest, steps aside on a scroll down, returns on a scroll up`, [r0.actBottom, r1.actTop, r2.actBottom]);
+    else ok(r0.sticky === 'static' && r0.actTop < r0.nav + 8 && r1.actBottom <= 0, `${tag}: the action row sits under the nav bar and scrolls with the content`, [r0.sticky, r0.actTop, r1.actBottom]);
+    await s.ctx.close();
+  }
   console.log('# card (share images)');
   const CARDS = path.join(SHOTS, 'cards'); fs.mkdirSync(CARDS, { recursive: true });
   const CASES = [
