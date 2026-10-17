@@ -170,7 +170,7 @@ async function main() {
     for (const vp of vps) for (const theme of themes) {
       if (!city) { jobs.push({ page: p, view: 'page', hash: '', vp, theme }); continue; }
       for (const v of views) jobs.push({ page: p, view: v, hash: v === 'sheet' ? '#view=gallery&p=' + encodeURIComponent(top) : '#view=' + v, vp, theme });
-      if (views.includes('atlas')) jobs.push({ page: p, view: 'default', hash: '', vp, theme }); } }   // D-46: the cold first screen (no hash) must be Atlas, within OV-00 at rest
+      if (views.includes('atlas') && !argv.includes('--no-default')) jobs.push({ page: p, view: 'default', hash: '', vp, theme }); } }   // D-46: the cold first screen (no hash) must be Atlas, within OV-00 at rest
   fs.mkdirSync(SHOTS, { recursive: true });
   const srv = http.createServer((req, rsp) => { let f = path.join(ROOT, decodeURIComponent(req.url.split('?')[0].split('#')[0]));
     if (!f.startsWith(ROOT)) { rsp.writeHead(403); return rsp.end(); }
