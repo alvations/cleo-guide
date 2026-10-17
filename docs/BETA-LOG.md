@@ -2567,3 +2567,8 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - In landscape the empty city bar takes no height.
   - Measured on Tokyo, Gallery and Guidebook, at 768×1024 and 844×390: no field at rest, the icon opens it, and a typed query keeps it.
 - **QC-06 (768 Atlas):** the header switch segments are 44 × 44 on a 48 px track, with the QA-82 tooltip. feb-switcher.js passes at every width.
+- **Header never overflows (designer's D-46 desktop sign-off condition):**
+  - **Fix:** in desktop Atlas, where the switch rides in the header, "Destinations" leaves the header. It stays in the menu and footer. The crumb now shrinks per segment with an ellipsis; atlas.css had held it at flex:none.
+  - **Before:** it failed on NYC, DC and HCMC at 1440, and on Potong Pasir at 1024 and 1440 (the saved ♡ was clipped).
+  - **After:** all fit at 1024, 1280 and 1440, en and ja, in Atlas and Gallery.
+  - **New check:** the w8 probe now asserts that the header's scrollWidth ≤ clientWidth and every control is in view, on those 4 pages × 3 widths × 2 languages × 2 views.

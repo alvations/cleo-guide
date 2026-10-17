@@ -933,3 +933,14 @@ html main[data-city] li.pl>.pl-cover .pl-dish.l,html .view-gallery .gc .cover .d
   html:not([data-view=atlas]) body main[data-city]>.cbar:not(:focus-within):not(:has(.spill input:not(:placeholder-shown))){min-height:0;height:0;border-bottom:0}
   html:not([data-view=atlas]) body main[data-city]>.cbar:not(:focus-within):not(:has(.spill input:not(:placeholder-shown)))>.cbar-in{min-height:0;padding:0}
 }
+/* designer (D-46 desktop sign-off condition): the header never overflows. With the view switch in desktop Atlas's header,
+   "Destinations" leaves it first (it stays in the menu and footer), then the crumb gives way per segment (ellipsis; the
+   text stays whole for assistive tech). atlas.css held the crumb at flex:none (0-4-1; these out-rank it), which pushed the saved ♡ off at 1440 */
+@media (min-width:1024px){
+  html.atlas-d[data-view=atlas] body .topbar .topnav a[href$="#destinations"]{display:none}
+  html[data-view] body .topbar .wrap>nav.crumbs{flex:0 1 auto;min-width:0}
+  html[data-view] body .topbar .wrap>nav.crumbs>:is(a.c0,.here){min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  html[data-view] body .topbar .wrap>nav.crumbs>a.c0{flex:0 3 auto}
+  html[data-view] body .topbar .wrap>nav.crumbs>.here{flex:0 1 auto}
+  html[data-view] body .topbar .wrap>nav.crumbs>.sep{flex:none}
+}
