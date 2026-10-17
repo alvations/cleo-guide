@@ -63,6 +63,15 @@ function fixture(credits, files) {
     /D-49/.test(fr({ identifies: 'x', provider: undefined, licence: 'Unsplash License', licenceUrl: 'https://unsplash.com/license', sourceUrl: 'https://unsplash.com/photos/abc' }).errors.join(' ')),
     'D-49 gate: a food photo needs an identifying source page (Commons/Flickr/Openverse) and records how it names the place; stock is refused');
 }
+{ // R8 (orchestrator): a pending row (found automatically, not yet approved on the contact sheet) is never rendered
+  const pr = fixture([Object.assign({}, good, { review: 'pending' })], ['a.png']);
+  const okr = fixture([Object.assign({}, good, { review: 'ok (run #90 sheet)' })], ['a.png']);
+  ok(pr.errors.length === 0 && !(pr.byPage.tokyo && pr.byPage.tokyo[open.id]) && pr.pending.includes('a.png') && okr.byPage.tokyo && okr.byPage.tokyo[open.id],
+    'a pending photo is never rendered (credited and kept, but dark until review = ok)');
+  const nk = Object.assign({}, good, { provider: 'flickr', licence: 'No known copyright restrictions', licenceUrl: 'https://www.flickr.com/commons/usage/', sourceUrl: 'https://www.flickr.com/photos/inst/123/', authorUrl: 'https://www.flickr.com/photos/inst/' });
+  ok(photos.creditProblems(nk).some(x => /Flickr Commons institution/.test(x)) && !photos.creditProblems(Object.assign({}, nk, { flickrCommons: true })).some(x => /Flickr Commons/.test(x)),
+    '"No known copyright restrictions" only from a Flickr Commons institution (flickrCommons: true)');
+}
 let r = fixture([good], ['a.png']);
 const ph = r.byPage.tokyo && r.byPage.tokyo[open.id];
 ok(r.errors.length === 0 && ph && ph.w === 960 && ph.h === 640, 'complete credit + file → photo with size read from the header');
@@ -300,6 +309,17 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
   ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
 }
+{ // R8 (orchestrator): a cover word is NEVER a strict fragment of a compound cuisine label (Daikaya ≠ "Chinese")
+  const { dishOf, COMPOUND } = require('../lib/dish');
+  const bad = [];
+  for (const r of rows) for (const c of (r.data.CUISINES || [])) { const w = dishOf([c.n]); if (w && w !== c.n.replace(/^★\s*/, '').split(' (')[0].trim() && COMPOUND.test(c.n)) bad.push(`${r.key} ${c.id}: "${w}" from "${c.n}"`); }
+  for (const g of fs.readdirSync(path.join(BETA, 'data/gallery'))) {
+    const gal = JSON.parse(fs.readFileSync(path.join(BETA, 'data/gallery', g), 'utf8')), row = rows.find(x => x.key === gal.key) || { data: {} };
+    const full = new Set((row.data.CUISINES || []).map(c => c.n.replace(/^★\s*/, '').split(' (')[0].trim().toLowerCase()));
+    for (const r of gal.rows || []) for (const x of r[6] || []) if (x.d && full.size && !full.has(String(x.d).toLowerCase())) bad.push(`${g} ${x.id}: "${x.d}"`);   // a word is a guide's FULL label, never a piece of one
+  }
+  ok(!bad.length && dishOf(['Chinese, Thai, Japanese & More']) === '' && dishOf(['Ramen & Tsukemen']) === 'Ramen & Tsukemen', `cover words: none is a strict fragment of a compound cuisine label, across all guides${bad.length ? ': ' + bad.slice(0, 5).join('; ') : ''}`);
+}
 { // R8 (orchestrator): a venue is a PRIMARY kind (first g tag, or k says venue/store); a secondary venue theme tag never skips a sight
   const tg = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'commons-candidates.json'), 'utf8')).targets;
   const by = k => tg.find(t => t.key === k) || {};
@@ -348,8 +368,8 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
     !ff.flickrGap('venue (a bar) — never a photo') && !ff.flickrGap('modern artwork, no US FoP') && !ff.flickrGap('Vietnam has no freedom of panorama') && !ff.flickrGap('indoor themed ride: …') && !ff.flickrGap(''),
     'fetch-flickr: only "no usable Commons photo" gaps are targets — never venues, art, Vietnam, themed rides');
   ok(ff.licenceOf('by', '2.0').licence === 'CC BY 2.0' && ff.licenceOf('by-sa', '4.0').licenceUrl === 'https://creativecommons.org/licenses/by-sa/4.0/' && ff.licenceOf('pdm').licence === 'Public domain' &&
-    ff.licenceOf('cc0').licence === 'CC0 1.0' && ff.licenceOf('nkcr').licenceUrl === 'https://www.flickr.com/commons/usage/' && ff.licenceOf('by-nc', '2.0').why && ff.licenceOf('by-nd', '4.0').why && ff.licenceOf('', '').why,
-    'fetch-flickr: CC0 / PDM / no known restrictions / CC BY / CC BY-SA kept with deed links; NC, ND and unknown refused');
+    ff.licenceOf('cc0').licence === 'CC0 1.0' && ff.licenceOf('nkcr').why && ff.licenceOf('by-nc', '2.0').why && ff.licenceOf('by-nd', '4.0').why && ff.licenceOf('', '').why,
+    'fetch-flickr: CC0 / PDM / CC BY / CC BY-SA kept with deed links; NC, ND, "no known restrictions" and unknown refused');
   const t = { label: 'Goh Chor Tua Pek Kong Temple', names: [], town: ['balestier'] };
   ok(ff.matches({ title: 'Goh Chor Tua Pek Kong Temple, Balestier', tags: [] }, Object.assign({ radius: 1.5 }, t)).ok && ff.matches({ title: 'Temple at dusk', tags: ['balestier'] }, Object.assign({ radius: 1.5 }, t)).why &&
     ff.matches({ title: 'Tua Pek Kong', tags: [] }, Object.assign({ radius: 1.5 }, t)).why && ff.matches({ title: 'Tua Pek Kong temple', tags: ['balestier'] }, Object.assign({ radius: 1.5 }, t)).ok && ff.matches({ title: 'Pek Kong shrine', tags: [], lat: 1.40, lon: 103.9 }, Object.assign({ radius: 1.5, la: 1.325, ln: 103.85 }, t)).why,
