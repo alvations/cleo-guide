@@ -14,6 +14,7 @@
 const { esc, prose, jsonInline } = require('../html');
 const RU = require('./recognition-ui');            // FE-C W9-1 hook: recognition badges (platform data only)
 const FU = require('./fresh-ui');                  // FE-C W9-2 hook: the "Follow changes" line
+const dotJoin = s => String(s).replace(/ · /g, '\u00a0· ');   // FE-C R8 #2c hook: a "·" separator binds to the word before it (no line starts with "·")
 const { TIER } = require('../model');
 const { t: tr, tn } = require('../i18n');   // platform W9-8: the offline-pack strings come from the catalogue; i18n D-41: every interface string
 /** Every catalogue string the W9-8 offline pack and the offline map line use (test-i18n renders it in `pseudo`). */
@@ -360,7 +361,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     `<p class="pack-done sm" data-pack-done data-l="${esc(pkL('saved'))}" hidden></p>` +
     `<p class="pack-msg sm" data-pack-msg role="status" aria-live="polite" data-l-saving="${esc(pkL('saving'))}" data-l-failed="${esc(pkL('failed'))}" data-l-removed="${esc(pkL('removed'))}"></p>` +
     `<p><button type="button" class="btn btn-ghost" data-pack="remove" hidden>${esc(pkL('remove'))}</button></p></section>`;
-  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">${esc(tr('city.lead', { name: leadName }))}</a></p>` : ''}${heroPhoto ? tinted(heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }), heroPhoto) : ''}</div>`;
+  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(dotJoin(heroLine))}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">${esc(tr('city.lead', { name: leadName }))}</a></p>` : ''}${heroPhoto ? tinted(heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }), heroPhoto) : ''}</div>`;
   // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
   // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
   const DV = 'gallery';
@@ -375,7 +376,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   // name, dek, "N places picked by M sources" — server-rendered and shown by CSS from first paint (no eager JS, CLS 0).
   // Shared with the Atlas lane's phone list-sheet intro (FE-1 styles html.atlas-m .at-intro)
   const atDek = m.h1Thin || heroLine || '';
-  const atIntro = `<header class="at-intro" data-cleo-intro><h2 class="at-name">${esc(name)}</h2>${atDek ? `<p class="at-dek dek">${esc(atDek)}</p>` : ''}<p class="at-n">${esc(tr('city.intro.n', { n: recs.length.toLocaleString('en-US'), m: (st.sources || srcList.length).toLocaleString('en-US') }))}</p></header>`;
+  const atIntro = `<header class="at-intro" data-cleo-intro><h2 class="at-name">${esc(name)}</h2>${atDek ? `<p class="at-dek dek">${esc(dotJoin(atDek))}</p>` : ''}<p class="at-n">${esc(tr('city.intro.n', { n: recs.length.toLocaleString('en-US'), m: (st.sources || srcList.length).toLocaleString('en-US') }))}</p></header>`;
   const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:pg|all)=/.test(h))s='gallery';else if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
     `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x);if(x==='atlas')document.documentElement.classList.add(!window.matchMedia||matchMedia('(min-width:1024px)').matches?'atlas-d':'atlas-m')})()</script>`;
 
@@ -435,6 +436,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   // ROUND-4 #3: phones keep one short line (count · areas · last checked · closed); the method sentence and its "How we
   // choose" link sit in .long (≥ 900 px), so the What-changed link is the only masthead link before the first card
   const facts = `<b>${plural(recs.length, 'place')}</b> · ${plural(st.areas || areas.length, 'area')}<span class="long">${tr('city.facts.long')}</span>${st.lastChecked ? ` · ${tr('city.facts.checked')} <time class="nw">${esc(st.lastChecked)}</time>` : ''}${st.closed ? ` · ${tr('city.facts.closed', { n: st.closed })}<span class="long">${tr('city.facts.kept')}</span>` : ''}<span class="long">${tr('city.facts.order')} <a href="#how-we-choose">${tr('page.method')}</a></span>`;   // i18n D-41
+  const factsJ = dotJoin(facts);   // FE-C R8 #2c hook
   const seg = `<div class="modes" role="group" aria-label="${tr('city.mode.label')}"><button type="button" data-mode="all" aria-pressed="true">${tr('city.mode.all')} <span class="n">${recs.length}</span></button>` +
     (nS && nF ? `<button type="button" data-mode="sights" aria-pressed="false">${tr('city.mode.sights')} <span class="n">${nS}</span></button><button type="button" data-mode="food" aria-pressed="false">${esc(tr('city.mode.food'))} <span class="n">${nF}</span></button>` : '') + '</div>';
 
@@ -449,8 +451,8 @@ ${switcher}<script>(function(h,n){var w=document.querySelector('.topbar .wrap'),
 <p class="vh" id="cleo-view-live" aria-live="polite"></p>
 <header class="masthead">${motifSvg(row.imagery && row.imagery.motif, up, { fit: 'xMaxYMax meet', style: 'position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:.42;-webkit-mask-image:linear-gradient(90deg,transparent 35%,#000 75%);mask-image:linear-gradient(90deg,transparent 35%,#000 75%)' })}
   <p class="eyebrow">${esc(country.name || m.eyebrow || '')}</p>
-  <div class="title"><h1>${esc(name)}${row.nat ? ` <span class="native">${esc(row.nat)}</span>` : ''}</h1>${m.h1Thin && m.h1Thin !== heroLine ? `<p class="dek">${esc(m.h1Thin)}</p>` : ''}</div>
-  <p class="facts">${facts}</p>
+  <div class="title"><h1>${esc(name)}${row.nat ? ` <span class="native">${esc(row.nat)}</span>` : ''}</h1>${m.h1Thin && m.h1Thin !== heroLine ? `<p class="dek">${esc(dotJoin(m.h1Thin))}</p>` : ''}</div>
+  <p class="facts">${factsJ}</p>
 ${heroHtml}
 </header>
 <nav class="rail" id="cleo-rail" aria-label="${tr('city.rail.label')}" data-cleo-rail data-view="all" hidden>

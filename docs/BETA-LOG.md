@@ -2209,6 +2209,15 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - QA files them as R8-g rows.
 - QC's S-17 overlay probe is in (9a2a10c8); the r7 audit is running (about 2.5 h).
 - D-46: FE-A's part 1 is in (678f9939). The flip waits on platform's Atlas initial-stamp budget (Tokyo is 3,587 nodes with Atlas first).
+
+## FE-A — chrome pass: OV-09, OV-10, OV-11, OV-32, OV-33, OV-34 (2026-10-16)
+- **OV-09:** from 1024 px the Atlas side sheet takes the list column, never the map, so the selected pin stays in view.
+- **OV-10 / OV-11:** outside Atlas, a modal sheet on phones and tablets owns the screen under its own back/close bar. This supersedes FE-B's QC-10 "below the switcher" rule there; phone Atlas is unchanged.
+- **OV-32:** landscape has one 48 px bar.
+- **OV-33 / OV-34:** no Map pill and no Gallery toolbar in Guidebook or Insights.
+- **Phone switch row:** 53 px, down from 61 (no row padding), so P2 at rest is 16 %.
+- **Measured** with feb-ov.js on Tokyo Insights: P1 12 → 6 %, P2 16 → 8 %, L 12 %, T2/D 7 % / 6 % (at load → after a scroll).
+- **Guidebook's Contents strip** (FE-B) still needs its OV-01 compact rule.
 - **INP, second pass** (the same perf.js, `--runs 3`): desk switch → Atlas 448 → 256 ms (256 / 248 / 264); phone switch → Atlas 200 ms (224 / 200 / 192).
   - city.js `overMap` no longer reads the map's rectangle on desktop, where the pads are fixed (it was 757 ms of forced layout inside the switch at 4× CPU, via the D-46 predicted box).
   - views.js `fitSplit` and the `fonts.ready` re-measure now run just after the switch's first paint, not in the frame before it. The CSS fallback height (bar + 52 px = 108) is the same value, so nothing moves.
@@ -2221,3 +2230,23 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Overlay ledger: 19 rows. OV-00 is set, and S-17 is graded against it. FE-C and FE-B have claimed their first fixes, and FE-A has landed OV-01's header part.
 - D-46 waits on the Atlas stamp budget (platform).
 - R8 is relayed to the owner.
+
+## 2026-10-16 23:42Z · orchestrator: red head
+
+- On 6b2faadd, the eager JS budget fails: cleveland 40.05 against 40.0 KB gzip. It's a merge race: changes that were each green alone add up to +751 B.
+- Platform owns the fix and is restoring headroom. FE-B is folding Cleo.compact into Cleo.chrome. All lanes are told: no eager bytes until green.
+- The designer confirmed the food-cover spec (6b2faadd4, §v2.7a): imagery builds it in motifs.js, FE-A places it.
+- FE-B: OV-00 shell compaction (c84fe342), R8 #5b and #2d (c41f5531).
+
+## 2026-10-16 23:58Z · orchestrator
+
+- Head is green again (a3b2c199, bab21c9f), but with zero eager-JS headroom (40.00/40.0). Platform is making ≥ 0.6 KB and adding a post-merge budget check to sync-push.
+- QA: R8-g1..g7 filed; B-03 ruled; the B-25 overlay gate is in (0e2a79f5).
+- FE-C: R8 #2e (0486bf71) and #2c (785d8641, masthead faults 70 → 0).
+- Imagery: the R8-d exceptions file; Orlando narrowed; Tree of Life refused.
+
+## 2026-10-17 00:08Z · orchestrator check-in
+
+- Dev head 77b960fa is gated green, with eager JS at 39.28 KB (headroom restored).
+- FE-A's chrome pass (853ea52c) closed six overlay rows; the phone at rest is now 16 % chrome.
+- The compaction API question is settled by budget: city pages key on html.ov-c, and shell pages keep their own small controller.
