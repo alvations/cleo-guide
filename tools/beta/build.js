@@ -132,9 +132,25 @@ else assetsV.css = sha(fs.readFileSync(cssPath));
 // Atlas lane (W7 Amendment 2): Atlas map-search CSS (tools/beta/lib/render/atlas.css) rides in the same file — one request.
 // Atlas FE-2: lib/render/atlas-nav.css (the map's interaction state) rides after it.
 const feaCss = Buffer.concat(['fe-a.css', 'atlas.css', 'atlas-nav.css', 'fe-c.css' /* FE-C W9-1 badges */].map((f, i) => Buffer.concat([Buffer.from(i ? '\n' : ''), fs.readFileSync(path.join(__dirname, 'lib', 'render', f))])));
-emit('assets/fe-a.css', feaCss); const feaV = sha(feaCss);
+// Platform (R8 gap #6, CSS weight): the lane stylesheets built here ship minified — comments dropped, whitespace runs
+// collapsed, none kept around { } ; — while quoted strings and url(…) pass through untouched. Conservative on purpose:
+// the space before ':' or '>' can be a descendant combinator, so it stays. Sources stay readable for their owners.
+const cssMin = buf => {
+  const s = buf.toString('utf8'); let o = '', i = 0;
+  while (i < s.length) {
+    const c = s[i];
+    if (c === '"' || c === "'") { let j = i + 1; while (j < s.length && s[j] !== c) j += s[j] === '\\' ? 2 : 1; o += s.slice(i, j + 1); i = j + 1; continue; }
+    if (s.startsWith('url(', i)) { const j = s.indexOf(')', i); o += s.slice(i, j + 1); i = j + 1; continue; }
+    if (s.startsWith('/*', i)) { const j = s.indexOf('*/', i + 2); i = j < 0 ? s.length : j + 2; if (!/\s$/.test(o)) o += ' '; continue; }
+    if (/\s/.test(c)) { while (i < s.length && /\s/.test(s[i])) i++; if (!/[\s{};]$/.test(o) && !/^[{};]/.test(s.slice(i))) o += ' '; continue; }
+    if (c === '{' || c === '}' || c === ';') o = o.replace(/ $/, '');
+    o += c; i++;
+  }
+  return Buffer.from(o.trim() + '\n');
+};
+emit('assets/fe-a.css', cssMin(feaCss)); const feaV = sha(cssMin(feaCss));
 // FE-B page CSS (W7): landing, hubs and static pages — tokens only; source owned by FE-B (lib/render/fe-b.css).
-const febCss = fs.readFileSync(require('./lib/render/shell').FEB_CSS_SRC); emit('assets/fe-b.css', febCss);
+const febCss = cssMin(fs.readFileSync(require('./lib/render/shell').FEB_CSS_SRC)); emit('assets/fe-b.css', febCss);
 const tokPath = path.join(BETA, 'assets', 'tokens.css');          // optional design tokens (designer, M0-01)
 if (fs.existsSync(tokPath)) assetsV.tokens = sha(fs.readFileSync(tokPath));
 emit('assets/icon.svg', fs.readFileSync(path.join(__dirname, 'static', 'icon.svg')));
