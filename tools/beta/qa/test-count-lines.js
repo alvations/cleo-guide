@@ -21,34 +21,38 @@ const chk = (ok, name, ev) => { if (!ok) fail++; console.log(`  ${ok ? 'PASS' : 
   await new Promise(res => srv.listen(0, '127.0.0.1', res)); const o = `http://127.0.0.1:${srv.address().port}`;
   let b; try { b = await pw.chromium.launch(); } catch (e) { b = await pw.chromium.launch({ executablePath: '/opt/pw-browsers/chromium' }); }
   console.log(`== every view's own count line (Tokyo: N ${N}, Must see F ${F}) ==`);
-  // until (optional): a pattern the line must reach before it is read. The Atlas lens line is "F of all N places" until the
-  // map's area pass (html.ms-on) and "F places here, of all N" after it (atlas.js QC-13); reading before the pass made this
-  // row flaky (QA, 2026-10-17: 1 in 3 runs). Still strict: a line that never reaches the pattern fails as before.
-  const read = async (hash, sel, until) => {
+  // waits until the line SAYS what is expected (a view fills its line in steps: first the total, then the lens count), up
+  // to 15 s, then reads it — a slow machine reads late, never early
+  const read = async (hash, sel, want) => {
     const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' });
     await ctx.route('**/*', r => r.request().url().startsWith(o) ? r.continue() : r.request().resourceType() === 'image' ? r.fulfill({ status: 200, contentType: 'image/png', body: PNG1 }) : r.abort());
     const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 120)));
     await p.goto(o + '/beta/' + PAGE + '#' + hash, { waitUntil: 'load' });
-    await p.waitForFunction(([s, u]) => { const e = document.querySelector(s); return e && (u ? new RegExp(u).test(e.textContent.replace(/\s+/g, ' ').trim()) : /\d/.test(e.textContent)); }, [sel, until || null], { timeout: 15000 }).catch(() => {});
+    // the line's FIRST form (as soon as it has a number) is kept too: some views fill it in steps (QC-36: Atlas reads "F of all
+    // N places" at first paint, "F places here, of all N" once the map settles) — both forms must carry the right numbers
+    await p.waitForFunction(s => { const e = document.querySelector(s); return e && /\d/.test(e.textContent); }, sel, { timeout: 15000 }).catch(() => {});
+    const first = await p.evaluate(s => { const e = document.querySelector(s); return e ? e.textContent.replace(/\s+/g, ' ').trim() : null; }, sel);
+    await p.waitForFunction(([s, w]) => { const e = document.querySelector(s), t = e && e.textContent.replace(/\s+/g, ' ').trim(); return !!t && new RegExp(w).test(t); }, [sel, want.source], { timeout: 15000 }).catch(() => {});
     const t = await p.evaluate(s => { const e = document.querySelector(s); return e ? e.textContent.replace(/\s+/g, ' ').trim() : null; }, sel);
-    await ctx.close(); return { t, errs };
+    await ctx.close(); return { t, first, errs };
   };
   // Gallery: the pager's line ("Showing 1–48 of N — all N places" / "… of F (all N places in the guide)")
-  let r = await read('view=gallery', '.g-pager .pg-line');
+  let r = await read('view=gallery', '.g-pager .pg-line', new RegExp('all ' + N + ' places'));
   chk(!!r.t && (r.t.match(/[\d,]+/g) || []).map(num).filter(x => x === N).length >= 2 && !r.errs.length, 'Gallery, no lens: the pager line names all N places', r);
-  r = await read('view=gallery&t=1', '.g-pager .pg-line');
+  r = await read('view=gallery&t=1', '.g-pager .pg-line', new RegExp('of ' + F + '\\b.*all ' + N + '\\b'));
   chk(!!r.t && new RegExp('of ' + F + '\\b').test(r.t) && new RegExp('all ' + N + '\\b').test(r.t) && !r.errs.length, 'Gallery, Must see: "… of F (all N places …)"', r);
-  r = await read('view=gallery&t=1', '#cleo-shown');
+  r = await read('view=gallery&t=1', '#cleo-shown', new RegExp('Showing ' + F + ' of ' + N + '\\b'));
   chk(!!r.t && new RegExp('Showing ' + F + ' of ' + N + '\\b').test(r.t), 'Gallery, Must see: the results line "Showing F of N places"', r);
   // Atlas: the list head ("n places here" with no lens; "F places here, of all N" with one)
-  r = await read('view=atlas', '.ms-count');
+  r = await read('view=atlas', '.ms-count', /^[\d,]+ places? here/);
   chk(!!r.t && /^[\d,]+ places? here/.test(r.t) && num(r.t.match(/[\d,]+/)[0]) <= N && !r.errs.length, 'Atlas, no lens: "n places here" (n ≤ N)', r);
-  r = await read('view=atlas&t=1', '.ms-count', '^[\\d,]+ places? here, of all ');
-  chk(!!r.t && new RegExp('^' + F + ' places? here, of all ' + N + '\\b').test(r.t), 'Atlas, Must see: "F places here, of all N"', r);
+  r = await read('view=atlas&t=1', '.ms-count', new RegExp('^' + F + ' places? here, of all ' + N + '\\b'));
+  chk(!!r.t && new RegExp('^' + F + ' places? here, of all ' + N + '\\b').test(r.t), 'Atlas, Must see, settled: "F places here, of all N"', r);
+  chk(!!r.first && (new RegExp('^' + F + ' places? here, of all ' + N + '\\b').test(r.first) || new RegExp('^' + F + ' of all ' + N + ' places').test(r.first)), 'Atlas, Must see, first paint: "F of all N places" or already settled', r.first);
   // Guidebook: "All N places" / "F of all N places match this lens"
-  r = await read('view=guidebook', 'p.count');
+  r = await read('view=guidebook', 'p.count', new RegExp('^All ' + N + ' places$'));
   chk(r.t === `All ${N} places`, 'Guidebook, no lens: "All N places"', r);
-  r = await read('view=guidebook&t=1', 'p.count');
+  r = await read('view=guidebook&t=1', 'p.count', new RegExp('^' + F + ' of all ' + N + ' places'));
   chk(!!r.t && new RegExp('^' + F + ' of all ' + N + ' places').test(r.t), 'Guidebook, Must see: "F of all N places …"', r);
   await b.close(); srv.close();
   if (fail) { console.log(`>>> FAIL — ${fail} count line(s) wrong`); process.exit(1); }
