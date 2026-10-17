@@ -130,7 +130,6 @@
   /* ---- Gallery pager (SPEC §2.3): 24 / 48 per page; lenses, search, #p= and print use the full set ---- */
   const grid = $('#cleo-grid'), size = () => (!window.matchMedia || matchMedia('(min-width: 640px)').matches ? 48 : 24);
   let pager = null;
-  if (Cleo.defer && grid) Cleo.defer.paged = () => cur === 'gallery';   // PERF-21: core.js leaves a lens's other pages unstamped
   const setPg = o => { const r = Cleo.route.parse(); delete r.p; delete r.pg; delete r.all; Object.assign(r, o); C.go(r); if (grid) grid.scrollIntoView({ block: 'start' }); };
   function page() {
     const cards = qa('li.pl'), secs = qa('section.area');
@@ -143,25 +142,16 @@
     const fine = !!(Cleo.defer && Cleo.defer.order && Cleo.defer.stampIds);
     // PERF-08 (platform): under Cleo.defer.selective a lens builds only the cards it shows (stampLens); the stubs left are
     // outside it, so the pager counts the shown cards only. "Show all" (all=1) still builds every card.
-    // PERF-21 (platform, filter INP): a lens with no text query builds only the cards on ITS current page — the lens's view
-    // order is the shown cards plus the stubs it matches (Cleo.defer.peek({lens})); counts, sections and pins already read
-    // the stubs. A text query (q) can't be judged on a stub, so it still builds every match (stampLens).
-    let lensOrd = null;
-    const L0 = lensOn && Cleo.lens ? Cleo.lens.pick(r) : null;
-    if (pend && lensOn && !all && fine && Cleo.defer.selective && Cleo.defer.lensPage && L0 && !L0.q) {
-      const ids = new Set(Cleo.defer.peek({ lens: L0 }).map(x => x.id));
-      lensOrd = () => Cleo.defer.order().filter(o => (o.el ? !o.el.hidden : ids.has(o.id)));
-    } else if (pend && lensOn && !all && fine && Cleo.defer.selective && Cleo.defer.stampLens) {
+    if (pend && lensOn && !all && fine && Cleo.defer.selective && Cleo.defer.stampLens) {
       const got = Cleo.defer.peek({ lens: Cleo.lens.pick(r) }).length ? Cleo.defer.stampLens(r) : []; pend = 0; if (got.length) { C.apply(); return; } }
     else if (pend && (all || lensOn || (!fine && (pg > 1 || deep)))) { Cleo.defer.all(); pend = 0; if (lensOn) { C.apply(); return; } }   // re-apply: new cards must meet the lens
     const h = location.hash, mp = /^#p-(.+)$/.exec(h), ma = /^#area-(.+)$/.exec(h), tid = r.p || (mp && decodeURIComponent(mp[1]));
     // Platform W7 (R6 gap #5): with no lens, any page (a deep link, page > 1, page 1) stamps only the cards it shows, placed
     // by the full view order (stamped cards + deferred stubs) — not every card (a phone #p= built 12.8k nodes).
-    let ord = lensOrd ? lensOrd() : pend && fine ? Cleo.defer.order() : null;
+    let ord = pend && fine ? Cleo.defer.order() : null;
     if (ord) {
       const i0 = tid ? ord.findIndex(o => o.id === 'p-' + tid) : -1, p0 = Math.min(i0 >= 0 ? Math.floor(i0 / per) + 1 : pg, Math.max(1, Math.ceil(ord.length / per)));
       const want = new Set(ord.slice((p0 - 1) * per, p0 * per).filter(o => !o.el).map(o => o.id));
-      if (want.size && lensOrd) { Cleo.defer.stampIds(want); C.apply(); return; }   // PERF-21: new cards meet the lens, then re-page
       if (want.size) { Cleo.defer.stampIds(want); ord = Cleo.defer.order(); }
       pend = Cleo.defer.peek().length; if (!pend) ord = null;
     }

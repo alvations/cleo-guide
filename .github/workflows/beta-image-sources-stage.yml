@@ -1,0 +1,98 @@
+# Beta image sources: STAGE candidates from the archive and stock sources for review (D-50; lane: image sources).
+#
+# Stage only — this job credits nothing and never touches beta/. Each fetcher in tools/beta/imagery/sources/ reads its
+# rows from candidates.tsv, re-checks every item with its source API (licence, author or institution, identification
+# evidence), downloads a small preview and writes review.tsv; contact.js lays the previews out as contact sheets. The
+# job commits design/beta/imagery-sources/stage/ for the orchestrator's review. Crediting is a separate, reviewed step
+# (review.js, then <source>.js --credit, then the usual rebuild and gates).
+#
+# Why Actions: the authoring sandbox cannot reach these hosts (network policy); a GitHub-hosted runner can.
+# Keys come only from repository secrets (Settings → Secrets and variables → Actions). A source whose secret is not
+# set prints its plan and exits 0. Pexels and Pixabay are not mapped until their API terms on stored copies are
+# confirmed (D-51 lesson).
+name: beta-image-sources-stage
+
+on:
+  workflow_dispatch:
+    inputs:
+      sources:
+        description: "Comma-separated sources to stage: loc, met, smithsonian, europeana"
+        required: false
+        default: loc,met
+      budget:
+        description: "API requests per source this run (1-300)"
+        required: false
+        default: "60"
+  # workflow_dispatch only registers once this file is on the default branch; until a release carries it, a push that
+  # changes the candidate list (or this file) stages with the defaults (loc,met; budget 60).
+  push:
+    branches: [claude/peaceful-goodall-i0hsrt]
+    paths:
+      - tools/beta/imagery/sources/candidates.tsv
+      - .github/workflows/beta-image-sources-stage.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: beta-image-sources
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SMITHSONIAN_API_KEY: ${{ secrets.SMITHSONIAN_API_KEY }}
+      EUROPEANA_API_KEY: ${{ secrets.EUROPEANA_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/peaceful-goodall-i0hsrt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: tools/package.json
+
+      - name: Install tools and the image encoder (sharp)
+        run: cd tools && npm install --no-audit --no-fund && npm install --no-save --no-audit --no-fund sharp
+
+      - name: Stage candidates per source
+        env:
+          SOURCES: ${{ github.event.inputs.sources || 'loc,met' }}
+          BUDGET: ${{ github.event.inputs.budget || '60' }}
+        run: |
+          [[ "$BUDGET" =~ ^[0-9]+$ && "$BUDGET" -ge 1 && "$BUDGET" -le 300 ]] || { echo "::error::budget must be 1-300"; exit 1; }
+          IFS=',' read -ra LIST <<< "$SOURCES"
+          for s in "${LIST[@]}"; do
+            s="$(echo "$s" | tr -d ' ')"
+            case "$s" in loc|met|smithsonian|europeana) ;; *) echo "::error::source '$s' is not enabled here"; exit 1;; esac
+            echo "== stage $s =="
+            node "tools/beta/imagery/sources/$s.js" --stage --budget "$BUDGET"
+          done
+
+      - name: Contact sheets
+        run: node tools/beta/imagery/sources/contact.js
+
+      - name: Check the sources lane's own tests
+        run: cd tools && node beta/imagery/sources/test-sources.js
+
+      - name: Commit the staged previews for review
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add design/beta/imagery-sources/stage
+          if git diff --cached --quiet; then echo "Nothing staged."; exit 0; fi
+          git commit -m "Beta image sources: staged candidates and contact sheets for review (Actions)"
+          # This job writes only design/beta/imagery-sources/stage/. Any merge conflict stops the job (no rebuild needed).
+          for i in 1 2 3 4 5 6; do
+            git fetch origin claude/peaceful-goodall-i0hsrt || { sleep $((5 + i * 5)); continue; }
+            if ! git merge --no-edit origin/claude/peaceful-goodall-i0hsrt; then
+              echo "::error::merge conflict:"; git diff --name-only --diff-filter=U; git merge --abort; exit 1
+            fi
+            git push origin HEAD:claude/peaceful-goodall-i0hsrt && exit 0
+            sleep $((5 + i * 5))
+          done
+          exit 1

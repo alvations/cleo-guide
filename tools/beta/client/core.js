@@ -40,25 +40,6 @@
     count: function () { return Object.keys(this.all()).length; }
   };
 
-  /* ---- list codec: the share-link grammar for saved lists and day plans (platform contract) ----
-   * refs are "<pageKey>/<placeId>"; on the wire they group by page:  tokyo:kanda-myojin,isegen;kyoto:x
-   * Place ids are [a-z0-9-] and page keys [a-z0-9/-], so ':' ',' ';' never collide. */
-  Cleo.listCodec = {
-    encode: function (refs) {
-      var by = {}, order = [];
-      refs.forEach(function (r) { var i = r.lastIndexOf('/'); var k = r.slice(0, i); if (!by[k]) { by[k] = []; order.push(k); } by[k].push(r.slice(i + 1)); });
-      return order.map(function (k) { return k + ':' + by[k].join(','); }).join(';');
-    },
-    decode: function (s) {
-      var out = [];
-      String(s || '').split(';').forEach(function (grp) {
-        var i = grp.indexOf(':'); if (i < 1) { if (grp.indexOf('/') > 0) out.push(grp); return; }
-        var k = grp.slice(0, i); grp.slice(i + 1).split(',').forEach(function (id) { if (id) out.push(k + '/' + id); });
-      });
-      return out;
-    }
-  };
-
   /* ---- hash router: k=v&k=v (RFC §4.2). KEYS is the registry of every documented route key; a key with a
    * validator drops a value it rejects — parse() never returns it, and Cleo.route.clean() rewrites the URL with
    * replaceState (no history entry, no error). Keys not in the registry pass through untouched. ---- */
@@ -267,27 +248,6 @@
   /* ---- "your guide" data (build-time, tools/beta/lib/guide.js): signature, foodOrder, days, closed ---- */
   Cleo.guide = function (key) { return Cleo.pageData(key).then(function (d) { return d.guide; }); };
 
-  /* ---- distances (day-plan legs, opt-in Near me). Always straight-line (VOICE.md rule 9). The position a
-   * caller passes in is never stored or sent anywhere by this file. ---- */
-  Cleo.geo = {
-    km: function (a, b) {                              // a, b: {la, ln} or [lat, lng]
-      var A = a.length ? { la: a[0], ln: a[1] } : a, B = b.length ? { la: b[0], ln: b[1] } : b, t = Math.PI / 180;
-      var h = Math.pow(Math.sin((B.la - A.la) * t / 2), 2) + Math.cos(A.la * t) * Math.cos(B.la * t) * Math.pow(Math.sin((B.ln - A.ln) * t / 2), 2);
-      return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h)));
-    },
-    fmt: function (km) { return km < 0.1 ? 'next door (under 0.1 km straight-line)' : (km < 10 ? km.toFixed(1) : Math.round(km)) + ' km straight-line'; },
-    /** THE walking estimate (SPEC-v3 §3.4 / §10; W9-4 trips, W9-5 base) — one function, no second copy: straight-line
-     *  metres ÷ 80 m a minute. Metres round to 10 under 1 km, one decimal of a km above. Callers state ASSUME once per view. */
-    MPM: 80, ASSUME: 'Walk times are straight-line, about 80 m a minute — an estimate, not a route',
-    walk: function (km) {
-      var T = function (k, e, v) { return Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
-      var m = km * 1000, r = Math.round(m / 10) * 10, min = Math.round(m / 80);
-      var dist = r < 1000 ? r + ' m' : (m / 1000).toFixed(1) + ' km';
-      return { m: m, min: min, dist: dist, text: dist + ' · ' + (min < 1 ? T('geo.walk.under', 'under 1 min walk') : T('geo.walk.min', '{n} min walk', { n: min })) };   // i18n D-41: Cleo.t (head snippet)
-    },
-    ll: function (el) { var v = (el && el.getAttribute('data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; }
-  };
-
   /* ---- lazy modules (FE-C W9): Cleo.need('base'|'share-card', cb) loads assets/js/<n>.js once, at the version the page
    * declares (#cleo-city info.js, or #cleo-lazy on saved.html / trip.html), so the worker's cache-first copy is never stale. ---- */
   var lz = {};
@@ -394,10 +354,6 @@
      *  deploy (2026-10-16): QA-75 (FE-A 752a77fc), QA-76 (FE-2 4aba38b3) and QC-26 (FE-2 3929ad4b) fixed and guarded —
      *  tools/beta/qa/perf08-regress.sh and test-beta's QA-75 guard. See BETA-PERF-AUDIT PERF-08. */
     selective: true,
-    /** PERF-21 switch (OFF until QA rules): under a selective lens the Gallery pager builds only the lens's current page
-     *  (views.js), and routed() leaves the lens's other pages unstamped. Desktop filter INP ≈ 480 → ≈ 105 ms (4× CPU). It
-     *  changes QA's PERF-08 outcomes (a)/(b) ("every match is a card") into "every match is a card or a stub on its page". */
-    lensPage: false,
     /** Every card in document (= view) order, stamped or not, WITHOUT stamping: [{id:'p-…', a, el|null, ns|null}].
      *  Lets the Gallery pager place a deep link on its page and stamp only that page (platform W7, R6 gap #5). */
     order: function () {
@@ -589,9 +545,7 @@
   // under a selective lens the cards it leaves unstamped are outside it: their lists' height spacers fold away and the lazy
   // observer waits; when the lens clears both come back (scrolling then builds every card, as with no lens)
   // a selective lens: its matching cards, its #p= place, and every view chunk (a view's own list must meet the lens too)
-  // PERF-21: where a pager builds the lens's own page (views.js Gallery: D.paged()), a lens with no text query leaves the
-  // rest of its matches unstamped; counts, sections and pins read them as stubs
-  var lensNow = function (lr) { if (!(D.lensPage && D.paged && D.paged() && !lr.q && lr.all !== '1')) D.stampLens(lr); if (lr.p) stampPlace(); VC.slice().forEach(function (c) { c.all(); }); };
+  var lensNow = function (lr) { D.stampLens(lr); if (lr.p) stampPlace(); VC.slice().forEach(function (c) { c.all(); }); };
   var lensed = function () { return !!D.selective && D.pending().length > 0 && Cleo.lens.on(Cleo.lens.current()); };
   var gaps = function () { var off = lensed(); [].forEach.call(document.querySelectorAll('.cleo-defer-gap[data-est]'), function (g) { g.style.display = off ? 'none' : ''; }); };
   var routed = function () { if (!D.pending().length && !VC.length) return; var q = quiet(); if (q === 'p') stampPlace();

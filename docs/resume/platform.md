@@ -28,8 +28,9 @@ plural (i18n).
 - R8 measurement kit: design/beta/eval/r8/README.md (+ r8/tools/pair.py).
 - PERF-19b (R8 gap #6, Tokyo session ≤ 4 MB; D-48): 7,773 → 3,679 KB. Every sheet open starts on the 500 w file, full srcset
   after 250 ms open (cold first deep link exempt). Probe: tools/beta/qa/sheet-photo.js. NEVER branch on human vs scripted input
-  (QA-81 guard in npm test). PERF-20: city template −50 KB raw. PERF-21: filter INP ≈ 490 ms shipped; `Cleo.defer.lensPage`
-  (≈ 105 ms) OFF until QA rules on PERF-08 (a)/(b). QC-26 count 11/36 (vs 43) is FE-1's Atlas shed() paging, red on 23bbb97d too.
+  (QA-81 guard in npm test). PERF-20: city template −50 KB raw. PERF-21: filter INP ≈ 490 ms shipped; lensPage (≈ 105 ms) parked as
+  design/beta/eval/perf/perf21-lenspage.patch until QA rules on PERF-08 (a)/(b). PERF-22: eager 39.30 KB (geo/codec are build-time
+  LEADS of their lazy users, build.js). QC-26 count 11/36 (vs 43) is FE-1's Atlas shed() paging, red on 23bbb97d too.
 - OV-38: `Cleo.pack.mount(host)` (idempotent) for FE-1's Layers popover `.m-layers-pop .m-pack`; FE-1 sends the SHA.
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).
 

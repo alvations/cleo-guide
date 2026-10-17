@@ -56,6 +56,13 @@ function fixture(credits, files) {
   fs.rmSync(d, { recursive: true, force: true });
   return res;
 }
+{ // D-49 (2026-10-17): a food place may carry a photo of THAT place — from a source page that identifies it, never stock
+  const food = tokyo.recs.find(x => !x.closed && x.kind === 'food');
+  const fr = o => fixture([Object.assign({}, good, { record: { page: 'tokyo', id: food.id } }, o)], ['a.png']);
+  ok(fr({ provider: 'wikimedia-commons', identifies: 'title names the shop' }).errors.length === 0 && /D-49/.test(fr({ provider: 'wikimedia-commons' }).errors.join(' ')) && /D-49/.test(fr({ identifies: 'x' }).errors.join(' ')) &&
+    /D-49/.test(fr({ identifies: 'x', provider: undefined, licence: 'Unsplash License', licenceUrl: 'https://unsplash.com/license', sourceUrl: 'https://unsplash.com/photos/abc' }).errors.join(' ')),
+    'D-49 gate: a food photo needs an identifying source page (Commons/Flickr/Openverse) and records how it names the place; stock is refused');
+}
 let r = fixture([good], ['a.png']);
 const ph = r.byPage.tokyo && r.byPage.tokyo[open.id];
 ok(r.errors.length === 0 && ph && ph.w === 960 && ph.h === 640, 'complete credit + file → photo with size read from the header');
@@ -222,7 +229,7 @@ for (const t of cm.targets) {
   if (t.type === 'landmark') {
     const [pg, id] = t.depicts.split('#'), row = rows.find(x => x.key === pg), rec = row && row.recs.find(x => x.id === id);
     if (!rec) cmBad.push(`${t.key}: no such record`);
-    else if (t.candidates.length && (rec.kind === 'food' || rec.closed || row.country === 'vietnam')) cmBad.push(`${t.key}: candidates on a food/closed/Vietnam record`);
+    else if (t.candidates.length && (rec.closed || row.country === 'vietnam')) cmBad.push(`${t.key}: candidates on a closed/Vietnam record`);   // D-49: food records may have candidates
   }
   if (t.type === 'hero' && /^vietnam/.test(t.depicts.replace('hub:', '')) && t.candidates.length) cmBad.push(`${t.key}: Vietnam hero candidates`);
   if (t.skip && t.candidates.some(c => !c.refused))   // refused records stay: a refused file is refused for every target
@@ -232,7 +239,7 @@ for (const t of cm.targets) {
     if (!['high', 'med'].includes(c.confidence) || !c.reason || !c.depicts || (c.refused != null && typeof c.refused !== 'string')) cmBad.push(`${t.key}: ${c.file} confidence/reason/depicts`);
   }
 }
-ok(cm.targets.length > 1000 && !cmBad.length, `commons-candidates.json: ${cm.targets.length} targets, ${cm.summary.candidates.total} candidates — real non-food, open, non-Vietnam records, Commons File: titles with confidence + reason${cmBad.length ? ': ' + cmBad.slice(0, 5).join('; ') : ''}`);
+ok(cm.targets.length > 1000 && !cmBad.length, `commons-candidates.json: ${cm.targets.length} targets, ${cm.summary.candidates.total} candidates — real open, non-Vietnam records (food allowed, D-49), Commons File: titles with confidence + reason${cmBad.length ? ': ' + cmBad.slice(0, 5).join('; ') : ''}`);
 const fc = require('./fetch-commons');
 ok(fc.licenceOf('CC BY-SA 4.0').licence === 'CC BY-SA 4.0' && fc.licenceOf('CC BY 2.0').licenceUrl === 'https://creativecommons.org/licenses/by/2.0/' && fc.licenceOf('CC0').licence === 'CC0 1.0' && fc.licenceOf('Public domain').licence === 'Public domain', 'fetch-commons: free licences normalised (CC BY-SA, CC BY, CC0, PD)');
 ok(['CC BY-NC-SA 2.0', 'CC BY-ND 4.0', 'GFDL', 'All rights reserved', ''].every(l => fc.licenceOf(l).why), 'fetch-commons: NC, ND, GFDL-only, all-rights-reserved and missing licences refused');
@@ -299,6 +306,35 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const glob = new Set(tg.flatMap(t => (t.candidates || []).filter(c => c.refused && fc2.refusalIsGlobal(c.refused)).map(c => c.file)));
   const live = tg.flatMap(t => (t.candidates || []).filter(c => !c.refused && glob.has(c.file)).map(c => `${t.key} ${c.file}`));
   ok(!live.length, `manifest: no target lists a file refused for its own fault as a live candidate${live.length ? ': ' + live.slice(0, 5).join('; ') : ''}`);
+}
+{ // R8 (2): discover-commons.js — geosearch / P18 picks must NAME the place; nothing credited before review
+  const dc = require('./discover-commons');
+  ok(dc.namingField(['Goh Chor Tua Pek Kong Temple'], 'File:Goh Chor Tua Pek Kong Temple 2.jpg', '', []) === 'title' && dc.namingField(['Peace Pagoda'], 'File:IMG_1234.jpg', 'The Peace Pagoda at dusk', []) === 'description' &&
+    dc.namingField(['Peace Pagoda'], 'File:IMG_1.jpg', '', ['Peace Pagoda (San Francisco)']) === 'category' && dc.namingField(['Peace Pagoda'], 'File:IMG_1.jpg', 'a street', ['Streets in Japantown']) === null,
+    'discover-commons: a geosearch hit counts only when its title, description or category names the place (and records which)');
+  const pg = (o) => Object.assign({ title: 'File:Peace Pagoda Japantown.jpg', categories: [{ title: 'Category:Peace Pagoda (San Francisco)' }], imageinfo: [{ mime: 'image/jpeg', width: 2000, height: 1500, user: 'U', thumburl: 'https://x/t.jpg',
+    extmetadata: { LicenseShortName: { value: 'CC BY-SA 4.0' }, LicenseUrl: { value: 'https://creativecommons.org/licenses/by-sa/4.0' }, Artist: { value: 'A. Person' } } }] }, o);
+  const tt = { label: 'Peace Pagoda', names: [], widths: [500, 720], cls: 'other' };
+  ok(dc.judgeFile(pg({}), tt, 'geosearch 12 m').pick && dc.judgeFile(pg({ title: 'File:Peace Pagoda sign.jpg' }), tt, 'geosearch 5 m').why && dc.judgeFile(pg({ title: 'File:Street.jpg', categories: [] }), tt, 'geosearch 5 m').why,
+    'discover-commons: a named, free-licensed JPEG is a pick; signage or an unnamed file is refused');
+}
+{ // R8 owner directive: fetch-openverse.js — discovery across all Openverse sources; nothing credited before review
+  const fo = require('./fetch-openverse');
+  const t = { key: 'landmark:singapore/balestier#x', label: 'Goh Chor Tua Pek Kong Temple', names: [], page: 'singapore/balestier', town: ['balestier'], widths: [500, 720] };
+  const r = (o) => fo.norm(Object.assign({ id: 'a1', title: 'Goh Chor Tua Pek Kong Temple, Balestier', tags: [], creator: 'Some Photographer', creator_url: 'https://www.flickr.com/photos/sp/', foreign_landing_url: 'https://www.flickr.com/photos/sp/123/',
+    url: 'https://live.staticflickr.com/1/123_b.jpg', width: 1024, height: 768, license: 'by', license_version: '2.0', source: 'flickr', provider: 'flickr', filetype: 'jpg' }, o));
+  const j = fo.judge(r({}), t, new Set());
+  ok(j.pick && j.pick.provider === 'flickr' && j.pick.sourceUrl === 'https://www.flickr.com/photos/sp/123/' && j.pick.authorUrl === 'https://www.flickr.com/photos/sp/' && j.pick.licence === 'CC BY 2.0' && j.pick.review === 'pending' && /^title/.test(j.pick.matched),
+    'fetch-openverse: a matching Flickr result becomes a review-pending pick with full TASL and the matched field');
+  ok(fo.judge(r({ license: 'by-nc' }), t, new Set()).why && fo.judge(r({ width: 400 }), t, new Set()).why && fo.judge(r({ title: 'Goh Chor Tua Pek Kong Temple 1932' }), t, new Set()).why &&
+    fo.judge(r({}), t, new Set(['https://www.flickr.com/photos/sp/123/'])).why && fo.judge(r({ title: 'A temple' }), t, new Set()).why,
+    'fetch-openverse: NC, too small, historic (pre-1950, D-50), already credited/refused, and unnamed results are refused');
+  ok(fo.pages(r({ source: 'wikimedia', foreign_landing_url: 'https://commons.wikimedia.org/wiki/File:X_y.jpg' })).commonsTitle === 'File:X y.jpg' && fo.pages(r({ source: 'smithsonian_x', foreign_landing_url: 'https://collections.si.edu/obj/1' })).provider === 'openverse' && fo.pages(r({ source: 'met', foreign_landing_url: 'http://x' })).why,
+    'fetch-openverse: Commons results keep their File: page, museum results their https landing page; others are refused');
+  ok(fo.ruleGap('venue (BAR) — never a photo') && !fo.ruleGap('no file found (wave 5 search)') && !fo.ruleGap(undefined), 'fetch-openverse: rule gaps stay closed; "no usable Commons photo" gaps are open to Openverse');
+  const ts = fo.targets({ classes: [], keys: [], pending: false });
+  ok(ts.length > 0 && ts.every((x, i) => i === 0 || fo.CLASSES.indexOf(ts[i - 1].cls) <= fo.CLASSES.indexOf(x.cls)) && ts.some(x => x.cls === 'food') && !ts.some(x => /^landmark:vietnam\//.test(x.key)),
+    'fetch-openverse: targets are ordered hero → priority → tier 1 → other → food (D-49), never Vietnam');
 }
 { // R8 owner directive: fetch-flickr.js fills only the stated gaps, with honest licences, matching and laundering guards
   const ff = require('./fetch-flickr');
