@@ -207,8 +207,9 @@
   }
 
   // §v2.12 3a (one search per screen): the page's own field is the search when it has one — the landing's hero, a city's
-  // field (FE-A #cleo-filter; Cleo.chrome.compact(false) shows its row first) — else the site-wide panel
-  var field = function () { var f = document.getElementById('cleo-q') || document.getElementById('cleo-filter'); if (f && f.id === 'cleo-filter' && Cleo.chrome && Cleo.chrome.compact) Cleo.chrome.compact(false); return f; };
+  // field (FE-A #cleo-filter) — else the site-wide panel
+  // (under html.ov-c the city bar comes back by FE-A's .cbar:focus-within, so focusing the field is enough)
+  var field = function () { return document.getElementById('cleo-q') || document.getElementById('cleo-filter'); };
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('[data-cleo-search-open]') : null;
     if (!a) return;
@@ -226,17 +227,7 @@
     e.preventDefault();
     if (hero) hero.focus(); else open(document.activeElement);
   });
-  // …and its last row is always "Search all guides for “q”" (FE-A's slot after the results count / empty state; their
-  // cleo:city-search {q, n} after each apply). A plain link to the landing's search, so it works without JS; with no city
-  // hits, Enter in the field runs it.
-  var slot = document.querySelector('[data-cleo-all-slot]'), allN = -1;
-  if (slot) {
-    document.addEventListener('cleo:city-search', function (e) {
-      var d = e.detail || {}, q = String(d.q || '').trim(); allN = q ? +d.n || 0 : -1;
-      slot.innerHTML = q ? '<a class="btn btn-quiet" data-cleo-all-guides href="' + esc((Cleo.root || '') + 'index.html?q=' + encodeURIComponent(q) + '#search') + '">' +
-        esc(tt('srch.allguides', 'Search all guides for “{q}”', { q: q })) + '</a>' : '';
-    });
-    var cf = document.getElementById('cleo-filter');
-    if (cf) cf.addEventListener('keydown', function (e) { var l = slot.querySelector('a[data-cleo-all-guides]'); if (e.key === 'Enter' && allN === 0 && l) { e.preventDefault(); location.href = l.href; } });
-  }
+  // …and its last row is "Search all guides for “q”" — allguides.js, loaded on the city field's first focus (not eager)
+  var cf = document.getElementById('cleo-filter');   // Cleo.need: core.js, on every page
+  if (cf) cf.addEventListener('focus', function () { Cleo.need('allguides'); }, { once: true });
 })();
