@@ -52,17 +52,30 @@ Wait for "round 4 ready at `<sha>`" from the front-end lane, the orchestrator or
 
 **Round 4 on head `7a21f2f60bffb22ce5b7c558e92b9cafba88a7fe`.** The orchestrator announced it at 13:49Z ("announced by FE-1 and
 FE-2; the designer signed off").
-- **Worktree:** `../panel-r4`. `../panel-r3` stays as the views base.
-- **Evidence chain** (running in the background): probe → `panel/R4`, views-regress → `panel/R4/views`, atlas-ms →
-  `panel/R4/ms`.
-- **Real-tile shots:** `real/round4/SHOT-SHA.txt` = `7a21f2f6`, 172 jpgs. `real/R4/` is the older `704dd37f`, so use
-  `real/round4/` unless `R4/` is re-shot on this exact SHA.
-- **Brief:** `panel/R4/PANELIST-BRIEF.txt`, with the orchestrator's method note (the card focus ring is on the card).
-  The probe counts it too.
-- **Panelist prompts:** the R3 prompts with common-r3 → common-r4, and "Prev" = the LAST section of
-  `panel/R3/panelists/<id>.md`.
-- **Next:** write `EVIDENCE.md` once the probe is done, launch the eight panelists, save each return, run the gates, write
-  `PANEL-R4.md`, then send it to the orchestrator, the designer, FE-1 and FE-2.
+
+Done this round (pushed):
+- **Worktree** `../panel-r4`.
+- **Evidence** in `panel/R4/`: the probe (rerun after fixing three phone-task artefacts; 136 shots), `views/` (no
+  regressions) and `ms/` (the front-end lane's probe: PASS, 394 checks).
+- **`EVIDENCE.md`**, which lists every probe change.
+- **`PANELIST-BRIEF.txt`**, which points at `real/R4/` (re-shot on exactly `7a21f2f6`: 172 shots).
+
+**Panelists** launched at about 15:05Z, with prompts in the scratchpad `r4prompts.json`. Agent ids (lost if the session
+stops): UX a49e3a50d97d7d7f7, FE a165071778f44ebd6, Z1 ab24ba082a21691f2, Z2 a48ad59d152f3bc0d, X1 abf35cbb60079002e,
+X2 a1e12c33f6bd86f1c, B1 a9a64c7f2da0d3a38, B2 a523b25d3a8b07481.
+
+Returns saved so far: none.
+
+**If the session stops**, re-run each missing panelist with `panel/R4/PANELIST-BRIEF.txt` (copied to the scratchpad as
+`common-r4.txt`), its persona card (the same as R3's prompts, with R2 → R3 and panel-r3 → panel-r4), and its
+`panel/R3/panelists/<id>.md` as Prev.
+
+**Next:**
+1. Save each return with `TASKS_DIR=<tasks dir> python3 design/beta/atlas/tools/save-return.py 4 <ID> <agentId>`, then
+   push.
+2. Write `PANEL-R4.md`.
+3. Send it to the orchestrator (`session_01PCNcUkfa5S1N1BKGzZA4xx`), the designer (`session_011YjA2jku166RJrUyCiQV6B`),
+   FE-1 (`session_01Cuvo7DWhwbWjLpFicvaF5E`) and FE-2 (`session_011SQNDyJMGzR5K32A4y9Udd`).
 
 ## Notes
 
