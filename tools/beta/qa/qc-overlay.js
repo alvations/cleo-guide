@@ -115,6 +115,9 @@ const MEASURE = new Function(`
   const searches = [...document.querySelectorAll('button, a[href], input, [role=button]')].filter(e => shown(e) && onTop(e) && !e.closest(CONTENT) &&
     (/search/i.test(name(e)) || e.type === 'search' || /search/i.test(e.getAttribute('placeholder') || '')));
   if (searches.length > 1) out.duplicates.push('search ×' + searches.length + ' (' + searches.map(e => (name(e) || e.getAttribute('placeholder') || '').slice(0, 24)).join(' + ') + ')');
+  // the top bar's paint (designer b2f587a8: chrome is opaque, no backdrop blur): alpha of the topmost fixed/sticky bar at the top edge
+  { const t = fixedAnc(document.elementFromPoint(W / 2, 4) || document.body); if (t) { const c = cs(t); const m = /rgba?\(([^)]+)\)/.exec(c.backgroundColor); const p = m ? m[1].split(/[ ,\/]+/).filter(Boolean) : [];
+    out.topAlpha = p.length > 3 ? +(+p[3]).toFixed(2) : p.length ? 1 : 0; out.topBlur = /blur/.test(c.backdropFilter || c.webkitBackdropFilter || ''); } }
   out.mapControl = controls.filter(e => name(e) === 'map').length; out.nearMe = controls.filter(e => /near me/.test(name(e))).length;
   out.view = document.documentElement.getAttribute('data-view') || null;
   return out;`);
@@ -213,6 +216,7 @@ async function main() {
     else if (city(r) || r.view === 'page') { const [cr, ca] = OTHER[v];
       if (L.band > cr) push('chromeRest', L.band, '≤ ' + cr + ' %', r);
       if (D && r.move !== 'none' && D.band > ca) push('chromeScroll', D.band, '≤ ' + ca + ' % after a 600 px scroll', r); }
+    if (L.topAlpha != null && (L.topAlpha < 1 || L.topBlur)) push('translucentChrome', 'top bar alpha ' + L.topAlpha + (L.topBlur ? ' + backdrop blur' : ''), 'opaque, no blur (b2f587a8)', r);
     if (r.toastLate && r.toastLate.length) push('toast', r.toastLate.join(' | '), 'leaves within 4 s', r);
     if (L.duplicates && L.duplicates.length) push('duplicates', L.duplicates.join('; '), 'one control per action', r);
     if (L.controlCollisions) push('controlCollision', L.controlCollisionSample.join('; '), 'none', r);

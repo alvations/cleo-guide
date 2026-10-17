@@ -28,7 +28,7 @@ const WHAT = {
   mapControl: 'A floating control named "Map" (reads as a view next to "Atlas")', nearMeTwice: '"Near me" offered more than once on one screen',
   toast: 'A toast or status pill is still up 4 s after load', duplicates: 'The same action offered twice on one screen',
   controlCollision: 'Fixed or floating controls overlap each other', controlOverPin: 'A fixed or floating control sits over a pin',
-  labelOverControl: 'A map label sits under or over a control', error: 'The probe could not load or measure the page' };
+  labelOverControl: 'A map label sits under or over a control', translucentChrome: 'The top bar is see-through (alpha < 1 or a backdrop blur), so content ghosts under it', error: 'The probe could not load or measure the page' };
 const pageSet = l => { const s = new Set(); l.forEach(g => g.pages.forEach(p => s.add(p))); return s; };
 const by = {}; G.forEach(g => { const k = g.kind + '|' + (g.view === 'page' ? 'page' : g.view); (by[k] = by[k] || []).push(g); });
 let L = fs.readFileSync(LEDGER, 'utf8').split('\n');
