@@ -447,6 +447,13 @@ html.atlas-m[data-view=atlas] .leaflet-container .m-list{display:none}
   html.atlas-m[data-view=atlas] .leaflet-container .m-list{display:inline-flex;width:44px;height:44px;border-radius:50%;padding:0;justify-content:center;box-shadow:var(--shadow-sm)}
   html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right{top:50%;bottom:auto!important;transform:translateY(-50%)}
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) .leaflet-bottom.leaflet-right{right:332px}
+  /* FE-C's side card (side.js, html.side-on, --side-w): it is the selection — the carousel and peek step aside, the stack moves left of it */
+  html.atlas-m.side-on[data-view=atlas]:not(.ms-list) .listpane,html.atlas-m.side-on[data-view=atlas] .ms-toggle{display:none!important}
+  html.atlas-m.side-on[data-view=atlas] .leaflet-bottom.leaflet-right{right:calc(var(--side-w,320px) + 12px)}
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) .listpane{top:calc(var(--bar-h) + 8px);bottom:8px;left:auto;right:8px;width:320px;height:auto;flex-direction:column;overflow-x:hidden;overflow-y:auto;scroll-snap-type:y mandatory;padding:0}
   html.atlas-m.ms-car[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:none;width:auto;height:auto;scroll-snap-align:start}
 }
+/* OV-03: a cut name (atlas.js) shows whole on hover, focus or selection */
+:is(.pp.sel,.pp.hot,.pp:hover,a.pp:focus-visible)>span>b[data-full]{font-size:0}
+:is(.pp.sel,.pp.hot,.pp:hover,a.pp:focus-visible)>span>b[data-full]::after{content:attr(data-full);font-size:var(--pp-fs,var(--fs-sm))}
+@media (max-width:1023px){html.atlas-m{--pp-fs:13px}}

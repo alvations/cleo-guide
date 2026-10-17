@@ -78,7 +78,10 @@
   const short = nm => nm.replace(/\s*\([^)]*\)/g, '').split(/, | — | – /)[0].trim() || nm;
   const pinHtml = (c, nm, sv) => { const cl = c.hasAttribute('data-closed');
     return '<span><svg class="ico" aria-hidden="true"><use href="#i-' + C.esc(glyph(c)) + '"/></svg>' +
-      '<b>' + C.esc(short(nm)) + (cl ? ' · Closed' : '') + '</b>' + (sv ? '<em class="pp-h" aria-hidden="true">♥</em>' : '') + '</span>'; };
+      '<b' + (cutNm(nm, cl) !== short(nm) ? ' data-full="' + C.esc(short(nm) + (cl ? ' · Closed' : '')) + '"' : '') + '>' + C.esc(cutNm(nm, cl)) + (cl ? ' · Closed' : '') + '</b>' + (sv ? '<em class="pp-h" aria-hidden="true">♥</em>' : '') + '</span>'; };
+  // OV-03: the name itself is cut to the label's cap (a CSS ellipsis would leave the whole name in the layout); the full name
+  // is the link's aria-label / title, and shows on hover, focus or selection (atlas.css b[data-full]::after)
+  const cutNm = (nm, cl) => { const t = short(nm), mx = Math.max(6, Math.floor((capW() - (desk() ? 48 : 40) - (cl ? 56 : 0)) / (desk() ? 8 : 7))); return t.length <= mx ? t : t.slice(0, mx - 1).trimEnd() + '…'; };
   const pinCls = (c, sv) => 'pp pp-' + (at(c, 'data-k') === 'f' ? 'f' : 's') + (isT1(c) ? ' pp-1' : '') + (c.hasAttribute('data-closed') ? ' pp-x' : '') + (sv ? ' pp-sv' : '');
   // the pin's accessible name (SPEC-v3 §1.2): full name, kind, [Must see], [Closed], [saved] — the kind never by colour alone
   const pinLabel = (c, nm, sv) => [nm, at(c, 'data-k') === 'f' ? 'eat and drink' : 'sight', isT1(c) && !c.hasAttribute('data-closed') && 'Must see', c.hasAttribute('data-closed') && 'Closed', sv && 'saved'].filter(Boolean).join(', ');
@@ -153,10 +156,11 @@
     { const mr = map.getContainer().getBoundingClientRect(), kept = [];
       if (me) { const q = map.latLngToContainerPoint(me); kept.push({ left: mr.left + q.x - 11, right: mr.left + q.x + 11, top: mr.top + q.y - 11, bottom: mr.top + q.y + 11 }); }
       const near = (a, b) => a.left < b.right + 4 && a.right > b.left - 4 && a.top < b.bottom + 4 && a.bottom > b.top - 4;
-      let cov = 0; const lim = (desk() ? 0.06 : innerWidth >= 768 ? 0.07 : 0.08) * sz.x * sz.y;   // OV-03 coverage: a pill past it goes back to a dot
+      let cov = 0; const lim = 0.95 * (desk() ? 0.06 : innerWidth >= 768 ? 0.07 : 0.08) * sz.x * sz.y;   // 5 % under the cap: rounding never tips it   // OV-03 coverage: a pill past it goes back to a dot
       order.forEach(id => { const k = pins[id], e = k && k.getElement(), sp = e && e.firstElementChild; if (!sp) return; const r = sp.getBoundingClientRect(); if (!r.width) return;
-        if (first(id) === 2 && (kept.some(q => near(r, q)) || cov + r.width * r.height > lim)) { map.removeLayer(k); delete pins[id]; return; }
-        cov += r.width * r.height; kept.push(r); }); }
+        const ha = (r.width + 4) * (r.height + (desk() ? 12 : 16));   // the 44 px hit area, not just the painted pill
+        if (first(id) === 2 && (kept.some(q => near(r, q)) || cov + ha > lim)) { map.removeLayer(k); delete pins[id]; return; }
+        cov += ha; kept.push(r); }); }
     // density discs (region zoom only): > 12 dots inside a 28 px cell read as one soft, unnumbered disc; a click zooms in
     if (!discL) discL = L.layerGroup().addTo(map); discL.clearLayers(); C.discs = 0;
     vis.forEach(id => { const k = C.markers[id]; if (k.options.opacity === 0) k.setStyle(C.dotStyle(rec(id))); });
@@ -335,6 +339,9 @@
       if (how === 'pin') preview(c);
       return;
     }
+    // §2.0.7 landscape: FE-C's side card (lazy side.js) is the selection — not the carousel. Only once that module ships
+    // (its version is in the page's info.js); until then the CSS side column below stands in. Its own steps and a route skip it
+    if (land() && how !== 'side' && how !== 'route' && (C.info.js || {}).side) { C.need('side', () => { if (Cleo.side && selC === c) Cleo.side.open(c, how); }); return; }
     if (how === 'swipe') {   // the card leads: light its pin and bring it into the uncovered band, gently
       const map = C.map(), k = C.markers[C.pid(c)]; if (!map || !k || again) return;
       quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.3 })); } catch (e) {}
@@ -556,6 +563,7 @@
   // OV-06 (SPEC-v3 §2.0.6): the phone chip row fades on each edge that has more chips beyond it, so it reads as scrollable
   const edge = () => { if (!bar) return; const o = bar.scrollWidth - bar.clientWidth > 2; bar.classList.toggle('ms-fl', o && bar.scrollLeft > 2); bar.classList.toggle('ms-fr', o && bar.scrollLeft < bar.scrollWidth - bar.clientWidth - 2); };
   const land = () => !!window.matchMedia && matchMedia('(max-height:499px) and (orientation:landscape)').matches;
+  C.land = land;   // the one landscape predicate (FE-C's side card keys on it too)
   C.msIn = () => {
     setTimeout(() => H.classList.add('ms-ready', 'ms-paged'), 3000);   // never hold the list longer than this, map or not
     if (!C._lq && window.matchMedia) { C._lq = 1; const q = matchMedia('(max-height:499px) and (orientation:landscape)'), f = () => { if (atlas() && !desk()) C.msIn(); }; if (q.addEventListener) q.addEventListener('change', f); }   // a rotation re-folds the bars
@@ -616,7 +624,7 @@
       map.on('click dragstart', () => tog(false));
       // OV-05 (SPEC-v3 §2.0.3): the one-line credit is there without interaction at load, and folds to its ⓘ (24 px, a 44 px
       // hit area, the full credit one tap away) on the reader's first pan or after 5 s
-      const fold = () => box.classList.add('m-attr-c'); setTimeout(fold, 5000); map.once('dragstart', fold); }
+      const fold = () => box.classList.add('m-attr-c'); setTimeout(fold, 5000); map.once('dragstart', fold); setTimeout(() => map.once('movestart', () => { if (Date.now() - C.autoAt() > 600) fold(); }), 1500); map.getContainer().addEventListener('pointerdown', fold, { once: true }); }   // any reader touch folds it too
     // the Key (a fieldset), shown in the Layers popover (OV-00 §2.0.3)
     const keyBox = () => {
       const g = d.createElement('fieldset'); g.className = 'ms-key';
