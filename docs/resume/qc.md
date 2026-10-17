@@ -50,11 +50,11 @@ never weakens a gate.
 
 ## In flight
 
-**Owner directive (top priority): overlay and chrome audit.** The ledger is `docs/BETA-OVERLAY-LEDGER.md` (QC keeps it).
-- S-17 = `tools/beta/qa/qc-overlay.js`: every page × view (atlas, gallery, guidebook, insights, sheet; page for non-city pages) × 6 viewports × light/dark. It samples an 8 px grid and classifies the topmost element; measures chrome bands and area, clear map, label coverage, widest label, overlaps and collisions, Search this area, toasts and duplicates, at load, during a pan or scroll, and at idle. It flags the worst 10 % per metric plus binary instances, and shoots the worst of each group. Output in `design/beta/eval/qc/overlay/<label>/`.
-- qc.js runs S-17 on the default view in every sweep (WARN on binary instances).
-- Full audit running: r7 (`--root` worktree `qc-b54b3745`, label `r7-b54b3745`, log `scratchpad/ov-r7.log`). Then dev, then ledger rows (OV-08+) grouped by kind × view × viewport, with owners, and a reply to the orchestrator with the row count by owner.
-- Seen in the Punggol test on dev: phone Atlas chrome bands 25.7 % (390×844), 32.5 % (390×664), 55 % (844×390), no compaction on pan, widest label 47–56 % of the map width. The tray text renders as "16places here ·checked 3 Oct· Show list" (spaces lost; check on r7, then file).
+**Owner directive: overlay audit.** `docs/BETA-OVERLAY-LEDGER.md` is QC's; it has a Severity column, which QA's B-25 gate reads.
+- The r7 audit is done: rows OV-39 to OV-61 (16 High, 7 Med); collisions held back (probe fix).
+- The dev audit is running: label `dev-339f202f`, worktree `scratchpad/qc-dev-339f202f`, log `scratchpad/ov-dev.log`, ~70 min. When it finishes, run `node tools/beta/qa/qc-overlay-ledger.js --label dev-339f202f --write`; it updates the same rows and marks the ones not reproduced. Then re-run r7 in full with the corrected collision probe, and write its collision rows with `--label r7-…-v2`.
+- After each audit, send the orchestrator the row counts by owner.
+- One heavy run at a time; `npm test` under audit load is flaky in test-fe-a. Re-run it alone to confirm.
 
 Next harness work:
 - Add a Contents-vs-lens count check to the COUNTS probe (QC-34 class) once FE-B fixes it.
