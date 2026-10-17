@@ -14,13 +14,12 @@ SG/MY 12; no photo on food is ever possible from these sources).
   USGS 1 manual), 30 refused rows kept; 22 searched-with-nothing targets in searched-gaps.tsv.
 
 **In flight:**
-- Stage workflow beta-image-sources-stage.yml (orchestrator; push trigger on candidates.tsv; dispatch API 404s). Run #1 died on an
-  unpaced LoC burst ("terminated", fixed e49656ae8: image pacing, retry, partial work exits 0); run #2 hit LoC's 1-hour block
-  (fixed 67ab53dad: a preflight timeout/429 is a throttle, warning + exit 0). Self check-in trig_01TP89biicQdixg6vx3dHaBG at
-  03:45Z re-triggers with a real candidates.tsv change; then send the orchestrator the contact-sheet paths.
-- Coverage finding (02:40Z): 40 of 41 LoC targets, all Europeana/Smithsonian/Met targets and 26 of 28 Pexels targets already have
-  a live vetted Commons candidate. Mine-only: philadelphia-zoo, raffles-hotel, esplanade. Wave 2 = post-#82 residual minus those.
-- Waiting on imagery: "a pending row never renders" in photos.js, then I add providers / stock licences / historic caption (D-52(3)).
+- Wave 2b merged (10:45Z): +66 candidates (LoC 53: Highsmith 43, HABS/HALS/HAER 9, Detroit 1; Europeana/Rijksmuseum 13), +66 searched gaps.
+  candidates.tsv = 200 candidates for 126 targets. This push re-triggers beta-image-sources-stage (met, loc).
+- The team stopped 03:39–10:2xZ (usage limit). Imagery claimed the gate edits (photos.js/recompress.js/test-imagery.js: historic caption,
+  anonymous guard, LoC pre-1930 licence string, selfHosted providers, host checks) at 03:31Z but has not landed them; I offered my
+  tested patch ("push it"). Do NOT edit those files unless imagery says so.
+- loc.js maps other NKR items to "No known restrictions (LoC, published before 1930)" (lib: historic, year ≤ 1929 only).
 
 **Next:**
 1. Send the orchestrator the CLIs + secrets and the imagery lane the gate proposals (done in this push).

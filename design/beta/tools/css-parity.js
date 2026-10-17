@@ -27,7 +27,7 @@ const OTHER = ['index.html', 'Japan/index.html', 'trip.html', 'saved.html', 'how
   const browser = await chromium.launch({ executablePath: fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined });
   let n = 0;
   for (const [w, h] of VP) for (const theme of (w === 390 && h === 844) || w === 1440 ? ['light', 'dark'] : ['light']) {
-    const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: theme, reducedMotion: 'reduce', hasTouch: w < 900, isMobile: w < 900 });
+    const ctx = await browser.newContext({ serviceWorkers: 'block', viewport: { width: w, height: h }, colorScheme: theme, reducedMotion: 'reduce', hasTouch: w < 900, isMobile: w < 900 });
     await ctx.route(/tile\.openstreetmap|arcgisonline/, r => r.abort());
     const page = await ctx.newPage();
     const urls = CITIES.flatMap(c => VIEWS.map(v => [`${c}#view=${v}`, `${c.replace(/\W+/g, '-')}-${v}`])).concat(OTHER.map(u => [u, u.replace(/\W+/g, '-')]));
