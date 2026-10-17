@@ -31,7 +31,7 @@ const CREDITS = 'assets/img/CREDITS.json';
 const EXT = /\.(jpe?g|png|webp)$/i;
 const REQUIRED = ['file', 'sourceUrl', 'author', 'licence', 'licenceUrl', 'depicts'];   // + record or slot
 /** Free licences only (CC0, public domain, CC BY, CC BY-SA, any version). NC / ND are refused. */
-const LICENCE_OK = /^(CC0(?: 1\.0)?|Public domain|PD(?:-[\w.-]+)?|CC BY(?:-SA)? \d\.\d(?: [A-Z]{2,3})?|Copyrighted free use|No known copyright restrictions|Unsplash License)$/i;
+const LICENCE_OK = /^(CC0(?: 1\.0)?|Public domain|PD(?:-[\w.-]+)?|CC BY(?:-SA)? \d\.\d(?: [A-Z]{2,3})?|Copyrighted free use|No known copyright restrictions|No known restrictions|Unsplash License)$/i;
 const UNSPLASH_LICENCE_URL = 'https://unsplash.com/license';
 const FLICKR_NKCR_URL = 'https://www.flickr.com/commons/usage/';   // Flickr's "No known copyright restrictions" (The Commons) statement
 const SLOT_TYPES = ['hero', 'cover'];
@@ -109,6 +109,17 @@ function creditProblems(c) {
     if (!c.authorUrl || !/^https:\/\/(?:www\.)?flickr\.com\/(?:photos|people)\/[^\s/]+\/?$/.test(c.authorUrl)) p.push('a Flickr row needs the author\'s flickr.com/photos/<user> profile as authorUrl');
     if (isUnsplash(c)) p.push('a Flickr row cannot carry the Unsplash License');
   }
+  // D-50 (image-sources lane proposal, landed by imagery): a historic photo carries its date and holding institution, which
+  // the caption prints; it is never a hero (a historic picture can't stand in for today's city)
+  if (c.era === 'historic') {
+    if (!String(c.date || '').trim() || !String(c.institution || '').trim()) p.push('a historic photo needs its date and holding institution (D-50)');
+    if (c.slot) p.push('a historic photo is never a hero or cover (D-50)');
+  }
+  if (/^Anonymous \(as catalogued by/i.test(String(c.author || '')) && !(c.era === 'historic' && /^(Public domain|CC0)/i.test(String(c.licence || '')))) p.push('an "Anonymous (as catalogued by …)" credit only on a public-domain or CC0 historic row (D-52)');
+  // LoC catalogue wording: only a Library of Congress historic item with a checkable year ≤ 1929 (US public domain), deed = the item page
+  if (/^No known restrictions$/i.test(String(c.licence || '').trim()) && !(c.provider === 'library-of-congress' && c.era === 'historic' && +((/\b(1[0-9]{3})\b/.exec(String(c.date || '')) || [])[1] || 9999) <= 1929 && /^https:\/\/www\.loc\.gov\/item\//.test(c.licenceUrl || ''))) p.push('"No known restrictions" only for a Library of Congress historic item dated ≤ 1929, licenceUrl = its loc.gov/item page');
+  const HOST = { 'library-of-congress': /^https:\/\/www\.loc\.gov\/item\//, 'the-met': /^https:\/\/www\.metmuseum\.org\/art\/collection\/search\//, smithsonian: /^https:\/\//, europeana: /^https:\/\/www\.europeana\.eu\/item\// };
+  if (HOST[c.provider] && c.sourceUrl && !HOST[c.provider].test(c.sourceUrl)) p.push(`a ${c.provider} row needs its own item page as sourceUrl`);
   if (/^No known copyright restrictions$/i.test(String(c.licence || '').trim()) && (c.provider !== 'flickr' || c.licenceUrl !== FLICKR_NKCR_URL || c.flickrCommons !== true)) p.push(`"No known copyright restrictions" is a Flickr Commons statement: only from a Flickr Commons institution account (flickrCommons: true), provider flickr, licenceUrl ${FLICKR_NKCR_URL}`);
   if (isUnsplash(c)) {
     if (c.licenceUrl !== UNSPLASH_LICENCE_URL) p.push(`Unsplash License needs licenceUrl ${UNSPLASH_LICENCE_URL}`);
@@ -176,8 +187,9 @@ function loadPhotos(betaDir, pages) {
     // D-49 (2026-10-17): a food place may carry a photo of THAT place (exterior, interior or a dish photographed there),
     // identified by the file's title, description, category or geotag — never generic stock
     if (rec.kind === 'food') {
-      if (isUnsplash(c) || !['wikimedia-commons', 'flickr', 'openverse'].includes(c.provider)) { errors.push(`${where}: D-49 — a food place's photo must come from a source page that identifies the place (Commons, Flickr, Openverse), never stock`); return; }
+      if (isUnsplash(c) || !['wikimedia-commons', 'flickr', 'openverse', 'library-of-congress', 'the-met', 'smithsonian', 'europeana'].includes(c.provider)) { errors.push(`${where}: D-49 — a food place's photo must come from a source page that identifies the place (Commons, Flickr, Openverse), never stock`); return; }
       if (!String(c.identifies || c.matched || '').trim()) { errors.push(`${where}: D-49 — a food place's photo must record how it identifies ${c.record.id} (identifies: the title/description/category/geotag that names it)`); return; }
+      if (c.era === 'historic') { errors.push(`${where}: D-50 — a historic photo never stands for a food place`); return; }
     }
     const buf = fs.readFileSync(path.join(dir, c.file));
     const size = (c.width && c.height) ? { w: +c.width, h: +c.height } : imageSize(buf);
@@ -209,13 +221,14 @@ function captionHtml(c, opts = {}) {
   }
   const title = c.title || c.depicts;
   const lic = `<a href="${esc(c.licenceUrl)}" rel="license noopener" target="_blank">${esc(c.licence)}</a>`;
-  if (opts.full) return `“${esc(title)}” by ${c.provider === 'flickr' && c.authorUrl && httpsUrl(c.authorUrl) ? `<a href="${esc(c.authorUrl)}" rel="noopener" target="_blank">${esc(c.author)}</a>` : esc(c.author)}, ${lic}, via <a href="${esc(c.sourceUrl)}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${c.modified ? ` — ${esc(c.modified)}` : ''}`;
+  const hist = c.era === 'historic' && c.date && c.institution;   // D-50: a historic photo's date and holding institution, in both captions
+  if (opts.full) return `“${esc(title)}” by ${c.provider === 'flickr' && c.authorUrl && httpsUrl(c.authorUrl) ? `<a href="${esc(c.authorUrl)}" rel="noopener" target="_blank">${esc(c.author)}</a>` : esc(c.author)}, ${lic}, via <a href="${esc(c.sourceUrl)}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${hist ? ` — ${esc(c.date)}, ${esc(c.institution)}` : ''}${c.modified ? ` — ${esc(c.modified)}` : ''}`;
   // CC BY / BY-SA ask only that changes be indicated: "(resized)" for the pipeline's size copies, else the note as written
   // a derivative's second creator stays named in the short line too ("derivative work by O.J.")
   const deriv = (/derivative work by ([^;]+)/i.exec(c.modified || '') || [])[1];
   const changed = !c.modified ? '' : /^resized\b/i.test(c.modified) ? ` (resized${deriv ? `; derivative work by ${esc(deriv.trim())}` : ''})` : ` (${esc(c.modified)})`;
   const who = c.provider === 'flickr' && c.authorUrl && httpsUrl(c.authorUrl) ? `<a href="${esc(c.authorUrl)}" rel="noopener" target="_blank">${esc(c.author)}</a>` : esc(c.author);   // Flickr: the author links their profile
-  return `Photo: ${who} · ${lic} · <a href="${esc(c.sourceUrl)}" aria-label="“${esc(title)}” on ${esc(hostOf(c.sourceUrl))}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${changed}`;
+  return `Photo: ${who} · ${lic} · <a href="${esc(c.sourceUrl)}" aria-label="“${esc(title)}” on ${esc(hostOf(c.sourceUrl))}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${hist ? ` · ${esc(c.date)} · ${esc(c.institution)}` : ''}${changed}`;
 }
 function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m ? m[1].replace(/^commons\.wikimedia\.org$/, 'Wikimedia Commons').replace(/^flickr\.com$/, 'Flickr') : 'source'; }
 
