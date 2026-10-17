@@ -24,6 +24,7 @@ D-46 (Atlas is the default view) and OV-00 (SPEC-v3 §2.0) for the panel's round
 Round 4 is held until D-46 lands. Dark dots are signed off (R4b). FE-2 is green on e0b79e23.
 
 ## Done (pushed)
+- 96ddfe85 stamping hold (Tokyo Atlas 2,686 nodes, 36-card page) · f2babf91 OV-07/05/02/06 (pan compaction via Cleo.chrome, credit ⓘ, Search-this-area 25 %, chip fades) · (in the gates) OV-03 labels + OV-04 §2.0.3 control stack / Layers popover with the pack host.
 - e0b79e23 INP 18.5 s → 0.45 s (.ms-paged), D-46 list at once (predict()), CLS, peek spaces · c8fd0768 INP pass 2 (256 ms).
 - ec71a4ad pre-R4: B-20 source chip 44 px (+ ellipsis, title on cut chips), QC-05 in catalogue strings (FE-C hides theirs), rev 5a phone chrome (search via the header icon, 48 px chip row, 56 px peek, "Search this area" at 160 and hidden on the first screen), kit bag/spire with spire for churches only, dark dots 45 % / 80 %. Atlas metrics on 5 pilots: B-20 0, B-03 13–14, B-08 0.
 - 03c9fc58 QC-17 · 0e8faff9 phone switcher row + chip order · 4888cd5a desktop header (#5), no rank badges, QC-05 · 0118f115 one ranked list (#2), B-21 · bbe11d60 card text 16/14 (#3) · (this push) QC-13, R7-g4 (d) checked date in the peek, (e) desktop doors; QC-04 met by FE-C.
@@ -48,7 +49,17 @@ Round 4 is held until D-46 lands. Dark dots are signed off (R4b). FE-2 is green 
 - Fixed in this push: the selected pin's label stays clear of the phone controls.
 
 ## In flight
-- Nothing unpushed except what the current commit carries.
+- The gates (validate, npm test, beta:check, atlas-ms, w2, w7) on the merged head carrying b835889f (OV-03), 0cc26628 (OV-04 §2.0.3) and a2e74bb8 (shed resume). Then push with tools/beta/sync-push.sh and claim OV-03 / OV-04 in docs/BETA-OVERLAY-LEDGER.md. Tell platform (the pack host is live), FE-2 (the labels SHA) and the orchestrator.
+- **Next:**
+  - OV-41: the Atlas-default case back in qa/offline-pack.js once platform's mount is on the head;
+  - OV-03 remainder: landscape 10 labels;
+  - landscape: §2.0.7, one 48 px bar and no peek;
+  - D-46: peek thumbnails and the phone intro;
+  - the no-photo card spec (designer, when it lands);
+  - D-43 halo;
+  - R8 gap 4;
+  - INP 232 → ≤ 200.
+- **Gotchas:** never edit a script bash is running (gates.sh). Commit beta/ with each source change (`git add -A`, not just tools/).
 
 ## Notes
 - **Ownership:**
