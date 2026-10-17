@@ -3,7 +3,7 @@
 (function () {
   'use strict';
   var Cleo = window.Cleo; if (!Cleo) return;
-  var emit = Cleo.emit;
+  var emit = Cleo.emit, tt = function (k, e) { return Cleo.t ? Cleo.t(k, e) : e; };   // i18n D-41: the VOICE.md copy from the catalogue
   Cleo.mapFallback = function (el, map) {
     try { if (map && map.remove) map.remove(); } catch (e) {}
     var art = el.getAttribute('data-art'), alt = el.getAttribute('data-art-alt') || '';
@@ -16,8 +16,8 @@
     var cap = el.querySelector('figcaption, p');
     var off = el.getAttribute('data-l-offline');   // W9-8: "Map unavailable · all N places listed" (catalogue string, rendered by the build)
     cap.innerHTML = (off ? '<strong class="map-off">' + off.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }) + '</strong><br>' : '') +
-      '<strong>The map couldn\u2019t load.</strong> The list still has every place, address and source. ' +
-      'We\u2019re showing map art from our own pins until tiles return. <button type="button" class="map-retry">Try again</button>';
+      '<strong>' + tt('mf.h', 'The map couldn’t load.') + '</strong> ' + tt('mf.p', 'The list still has every place, address and source. We’re showing map art from our own pins until tiles return.') +
+      ' <button type="button" class="map-retry">' + tt('mf.retry', 'Try again') + '</button>';   // i18n D-41
     cap.querySelector('button').addEventListener('click', function () { location.reload(); });
     el.setAttribute('data-tiles', 'failed');
     emit('cleo:tiles-failed', {});

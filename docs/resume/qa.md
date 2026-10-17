@@ -72,6 +72,8 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## Notes
 
+- 1cafc50b (my push, a merge) had test-beta red: aa8ed3958 (FE-B, Singapore/hanoi + hoi-an turned into pointers) left `beta/changes/singapore--{hanoi,hoi-an}.html` behind. FE-B's db9f8a746 prunes them; origin a027955b9 is green on validate, npm test and beta:check. Not a QA change.
+
 - QA-81 guard `tools/beta/qa/test-no-input-sniffing.js` (D-48): fails today on PERF-19 only. Platform wires it into npm test with PERF-19b; verify on the next pin.
 - D-47 (w7 storage, Layers or .m-base) is in BETA-DECISIONS; the Layers path is unexercised until FE-1's .m-layers lands.
 - Push procedure: run the gates; commit; fetch and merge origin. **If the merge changed product files** (`beta/`, `tools/beta/client`, `tools/beta/lib`), re-run validate and `npm test` and push only if both pass. Never push on a printed warning. Platform's sync-push has a post-merge budget guard (147bd3ba).

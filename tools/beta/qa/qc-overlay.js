@@ -198,10 +198,22 @@ async function main() {
       const { W, H } = r.load;
       const mb = r.load.map ? await page.locator('.leaflet-container').filter({ visible: true }).first().boundingBox().catch(() => null) : null;
       if (mb && !r.load.sheet) {   // OV-00: sample 300 ms into a 200 px pan (pointer still down), then 1.5 s after release
-        const cx = mb.x + mb.width / 2, cy = mb.y + mb.height / 2, dx = -Math.min(160, mb.width / 3), dy = -Math.min(120, mb.height / 3), k = 200 / Math.hypot(dx, dy);
-        await page.mouse.move(cx, cy); await page.mouse.down();
-        for (let i = 1; i <= 10; i++) { await page.mouse.move(cx + dx * k * i / 10, cy + dy * k * i / 10); await page.waitForTimeout(30); }
-        r.during = await page.evaluate(MEASURE); await page.mouse.up(); r.move = 'pan';
+        // start the drag on EMPTY map (not a pin or a label link, where a press does not pan): spiral out from the centre
+        const free = await page.evaluate(({ x, y, w, h }) => { for (let r = 0; r < Math.min(w, h) / 2; r += 12) for (let t = 0; t < 360; t += 30) {
+          const px = x + w / 2 + r * Math.cos(t * Math.PI / 180), py = y + h / 2 + r * Math.sin(t * Math.PI / 180); const e = document.elementFromPoint(px, py);
+          if (e && e.closest('.leaflet-container') && !e.closest('.leaflet-marker-pane, .leaflet-control-container, a, button') && (e.closest('.leaflet-tile-pane') || e.classList.contains('leaflet-container') || e.tagName === 'CANVAS' || e.closest('.leaflet-map-pane'))) return [px, py]; } return [x + w / 2, y + h / 2]; }, { x: mb.x, y: mb.y, w: mb.width, h: mb.height });
+        // a press within a canvas dot's tap tolerance selects instead of panning (dense areas): if the map has not moved by the
+        // end of the drag, release, wait, and try lower in the pane; the tries are recorded (r.panTries > 1 = dragFromDot)
+        const centre = () => page.evaluate(() => { const m = window.Cleo && Cleo.city && Cleo.city.map && Cleo.city.map(); if (!m) return null; const c = m.getCenter(); return c.lat + ',' + c.lng; }).catch(() => null);
+        const starts = [free, [mb.x + mb.width / 2, mb.y + mb.height * 0.75], [mb.x + mb.width * 0.25, mb.y + mb.height * 0.6], [mb.x + mb.width * 0.75, mb.y + mb.height * 0.4]];
+        r.panTries = 0;
+        for (const [cx, cy] of starts) { r.panTries++; const dx = -Math.min(160, mb.width / 3), dy = -Math.min(120, mb.height / 3), k = 200 / Math.hypot(dx, dy); const c0 = await centre();
+          await page.mouse.move(cx, cy); await page.mouse.down();
+          for (let i = 1; i <= 10; i++) { await page.mouse.move(cx + dx * k * i / 10, cy + dy * k * i / 10); await page.waitForTimeout(30); }
+          const moved = c0 == null || (await centre()) !== c0;
+          if (moved || r.panTries === starts.length) { r.during = await page.evaluate(MEASURE); r.panMoved = moved; await page.mouse.up(); break; }
+          await page.mouse.up(); await page.waitForTimeout(1500); }
+        r.move = 'pan';
       } else if (r.load.sheet) {
         r.move = await page.evaluate(() => { const d = [...document.querySelectorAll('[role=dialog]')].find(e => e.getBoundingClientRect().height > 80);
           const s = d && [d, ...d.querySelectorAll('*')].filter(e => e.scrollHeight > e.clientHeight + 40 && /auto|scroll/.test(getComputedStyle(e).overflowY)).sort((a, b) => b.clientHeight - a.clientHeight)[0];
@@ -248,9 +260,10 @@ async function main() {
         if (r.toastLate && r.toastLate.length) push('toast', r.toastLate.join(' / '), 'leaves within 4 s', r); return; }
       if (map) { const [cr, cp, kr, kp, lc, lv] = ATLAS[v]; const clear = x => (v === 'T2' || v === 'D' ? x.clearPane : x.clearVP);
         if (L.band > cr) push('chromeRest', L.band, '≤ ' + cr + ' %', r);
-        if (D && D.band > cp) push('chromePan', D.band, '≤ ' + cp + ' % at 300 ms into a pan', r);
+        if (r.panTries > 1) push('dragFromDot', `${r.panTries - 1} start point(s) near the centre did not pan` + (r.panMoved ? '' : '; no start panned'), 'a drag anywhere on the map pans', r);
+      if (D && r.panMoved !== false && D.band > cp) push('chromePan', D.band, '≤ ' + cp + ' % at 300 ms into a pan', r);
         if (clear(L) < kr) push('clearRest', clear(L), '≥ ' + kr + ' %', r);
-        if (D && clear(D) < kp) push('clearPan', clear(D), '≥ ' + kp + ' % during a pan', r);
+        if (D && r.panMoved !== false && clear(D) < kp) push('clearPan', clear(D), '≥ ' + kp + ' % during a pan', r);
         if (L.labels > lc) push('labelCount', L.labels, '≤ ' + lc, r);
         if (L.labelCov > lv) push('labelCov', L.labelCov, '≤ ' + lv + ' % of the map', r);
         if (PHONE[v] ? L.widestLabel > 40 : L.labelMaxPx > 220) push('labelWidth', PHONE[v] ? L.widestLabel + ' % (' + L.widestLabelText + ')' : L.labelMaxPx + ' px (' + L.widestLabelText + ')', PHONE[v] ? '≤ 40 % of the map width' : '≤ 220 px', r);

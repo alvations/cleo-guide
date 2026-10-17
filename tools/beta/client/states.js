@@ -33,8 +33,8 @@
     b.className = 'banner ' + (kind === 'offline' ? 'offline' : 'warn');
     b.setAttribute('data-cleo-banner', kind);
     b.setAttribute('role', 'status');
-    b.innerHTML = '<svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-' + ICON[kind] + '"/></svg><span>' + COPY[kind] + '</span>' +
-      '<button type="button" class="btn btn-quiet btn-icon" aria-label="Dismiss"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close"/></svg></button>';
+    b.innerHTML = '<svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-' + ICON[kind] + '"/></svg><span>' + (Cleo.t ? Cleo.t('state.' + kind, COPY[kind]) : COPY[kind]) + '</span>' +   // i18n D-41: state.offline / state.storage
+      '<button type="button" class="btn btn-quiet btn-icon" aria-label="' + (Cleo.t ? Cleo.t('state.dismiss', 'Dismiss') : 'Dismiss') + '"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close"/></svg></button>';
     b.querySelector('button').addEventListener('click', function () { b.parentNode && b.parentNode.removeChild(b); });
     slot.appendChild(b);
   }
