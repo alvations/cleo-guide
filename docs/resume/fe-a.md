@@ -8,7 +8,8 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
 
 ## Done (on origin, verified)
 - **D-49 §v2.7b no-photo card:** d6bb8367a. **D-46 desktop lead (.pl-lead, build-marked MP #1 with photo; html.cleo-lensed gate):** adeabcd63. **QA-82 + landscape rail not sticky:** 975e2bfe4. **OV-106/115–117 fold <1024 + QC-06 768 switch:** c13cc79fa (head c45c0aa94).
-- **Open:** w8 day-summary row red on base — designer's cleo.css cut bbaf111a8 dropped .day/.daysum/.stop rules; asked designer to restore. Next: T1 chrome 11.8→11 %, fe-a.css −30 KB on designer's corrected coverage (design/beta/eval/css-coverage.json, tools design/beta/tools/css-trim.py + css-parity.*), FE-1 landscape filters slot, phone sheet CLS.
+- **Since:** header never overflows 341e7734f (+768 / 日本語 31cc58b79, w8 assertion 768–1440 en/ja Atlas/Gallery); §v2.7b review fixes + "Start with" one per view f35759ca1; compact row per ruling 3d81c486c (2-line why, "· Checked" on the recby line, ≤128) + QA-83 lead 3:2 31cc58b79; D-53 recby in gallery rows bc54b1c91.
+- **Open:** fe-a.css cut — coverage sweep (designer's widened css-coverage.js) runs from worktree /tmp/claude-0/cov-wt → scratchpad cov.json; map with scratchpad fea_trim.py (rule-key mapping, KEEP_SEL/KEEP_AT protections; shipped-at-sweep copy saved); parity incl. #day=, saved reader, detail before any cut. FE-1 filters slot: obsolete (not on origin). Phone sheet CLS: check with FE-C (INP sheet rework).
 - **W8:**
   - "Start with" = the lead card: bae1b624
   - day plans: 16720bd1
