@@ -397,6 +397,31 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     chk('no js errors (empty)', !g.errs.length && !g2.errs.length, g.errs.concat(g2.errs).slice(0, 2));
   }
 
+  console.log('\n== INP (open a place ≤ 200 ms): no jump-scroll, no list redraw, the sheet in two frames, the same sheet ==');
+  {
+    const g = boot('cities/tokyo.html', { hash: '#view=gallery' }); await sleep(400); const C = g.w.Cleo.city;
+    let draws = 0; C.after.push(() => { draws++; });
+    const muts = []; new g.w.MutationObserver(ms => ms.forEach(m => { if (m.target.matches && m.target.matches('li.pl')) muts.push(m.target.id); })).observe(g.d.querySelector('.split') || g.d.body, { attributes: true, attributeFilter: ['class'], subtree: true });
+    const a = g.d.querySelector('li.pl:not([hidden]) .pl-n a'), id = a.getAttribute('href').slice(3), ev = new g.w.MouseEvent('click', { bubbles: true, cancelable: true, button: 0 });
+    a.dispatchEvent(ev);
+    chk('a card link opens its place without the browser\'s jump to the card (same #p-<id> URL, written by history)', ev.defaultPrevented && g.w.location.hash === '#p-' + id, [ev.defaultPrevented, g.w.location.hash]);
+    await sleep(30);
+    const host = g.d.getElementById('cleo-sheet');
+    chk('the sheet is open after the route, with its first screen (name, Recommended by, actions)', !host.hidden && !!host.querySelector('#sh-t') && !!host.querySelector('.sheet > .actions'));
+    chk('a place-only route redraws no list (onRoute skips apply) and touches no other card\'s class', draws === 0 && muts.every(x => x === 'p-' + id), { draws, muts: [...new Set(muts)].slice(0, 4) });
+    await sleep(150);
+    const sh = host.querySelector('.sheet'), src = [...g.d.getElementById('p-' + id).querySelectorAll('.pl-s button.src')].length;
+    chk('a frame later the rest is in place: no placeholder, the sources list complete, the action bar still a child of the sheet', !host.querySelector('[data-sh-more]') && host.querySelectorAll('.srclist li').length >= src && sh.lastElementChild.classList.contains('actions') && !!host.querySelector('.sh-body .content .plan'), [host.querySelectorAll('.srclist li').length, src]);
+    (g.d.activeElement || g.d).dispatchEvent(new g.w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await sleep(50);
+    chk('Escape closes it and focus is back on the card link', host.hidden && g.d.activeElement === a, g.d.activeElement && g.d.activeElement.outerHTML.slice(0, 60));
+    const ca = boot('cities/tokyo.html', { hash: '#view=atlas' }); await sleep(400);
+    const aa = ca.d.querySelector('li.pl .pl-n a'), ev2 = new ca.w.MouseEvent('click', { bubbles: true, cancelable: true, button: 0 }); aa.dispatchEvent(ev2);
+    chk('Atlas keeps the plain link (its own round-trip)', !ev2.defaultPrevented);
+    const css = fs.readFileSync(path.join(BETA, 'assets/fe-a.css'), 'utf8').split('}').filter(r => /html\.ov-c[^{]*(\.cbar|#cleo-rail|\.toc)/.test(r));
+    chk('compacted rows carry no pointer-events (inherited: a whole-subtree restyle on every compaction and focus change)', css.length >= 4 && css.every(r => !/pointer-events/.test(r)), css.filter(r => /pointer-events/.test(r)).slice(0, 2));
+    chk('no js errors (inp)', !g.errs.length && !ca.errs.length, g.errs.concat(ca.errs).slice(0, 2));
+  }
+
   console.log('\n== APPROX (QC-04, D-43): a low-graded pin stays on the map, labelled "Approximate pin" ==');
   {
     const bad = []; let nlow = 0;
