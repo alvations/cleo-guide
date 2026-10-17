@@ -143,7 +143,7 @@ async function open(browser, base, rel, vpName, o = {}) {
   // ctx.route() (needed to block off-origin requests) disables Chromium's HTTP/memory cache, so a URL shown twice (a
   // card and its rail copy) or revisited during the stress loop is downloaded again — a real browser would not. Bytes
   // count each URL once; the raw sum of every response stays in bytesAllResponses for reference.
-  const st = { errors: [], bytes: 0, bytesAll: 0, seen: new Set(), gz: 0, pend: [], load: null, offOrigin: 0, tileHosts: new Set(), local404: [] };
+  const st = { errors: [], bytes: 0, bytesAll: 0, seen: new Set(), gz: 0, pend: [], load: null, offOrigin: 0, tileHosts: new Set(), local404: [], byType: {}, byUrl: {} };
   const origin = new URL(base).origin;
   await ctx.route('**/*', route => {
     const u = route.request().url();
@@ -163,6 +163,8 @@ async function open(browser, base, rel, vpName, o = {}) {
     const cl = +(r.headers()['content-length'] || 0); st.bytesAll += cl;
     if (st.seen.has(r.url())) return;
     st.seen.add(r.url()); st.bytes += cl;
+    { const k = r.url().slice(origin.length).split('?')[0], x = (k.match(/\.(\w+)$/) || [, 'html'])[1].replace('jpeg', 'jpg');
+      st.byType[x] = (st.byType[x] || 0) + cl; st.byUrl[k] = cl; } // where the session bytes go (informational)
     if (!st.load && r.status() < 300) st.pend.push(r.body().then(b => { st.gz += /\.(png|jpe?g|webp|avif|gif|woff2?)$/.test(r.url().split('?')[0]) ? b.length : zlib.gzipSync(b).length; }).catch(() => {}));
   });
   let loadErr = null;
@@ -800,7 +802,7 @@ async function measure(browser, base, rel) {
       }
     } catch (e) { v.probeErr = String(e.message || e).slice(0, 200); }
     v.errorsStress = s.st.errors.length - (v.errorsLoad || 0);
-    v.errors = s.st.errors.slice(0, v.errorsLoad == null ? undefined : v.errorsLoad); v.stressErrorSample = [...new Set(s.st.errors.slice(v.errorsLoad || 0).map(e => e.slice(0, 120)))].slice(0, 3); v.local404 = s.st.local404; v.bytes = s.st.bytes; v.bytesAllResponses = s.st.bytesAll; v.initial = s.st.load; v.session = { bytes: s.st.bytes }; v.offOriginBlocked = s.st.offOrigin;
+    v.errors = s.st.errors.slice(0, v.errorsLoad == null ? undefined : v.errorsLoad); v.stressErrorSample = [...new Set(s.st.errors.slice(v.errorsLoad || 0).map(e => e.slice(0, 120)))].slice(0, 3); v.local404 = s.st.local404; v.bytes = s.st.bytes; v.bytesAllResponses = s.st.bytesAll; v.initial = s.st.load; v.session = { bytes: s.st.bytes, byType: s.st.byType, top: Object.entries(s.st.byUrl).sort((x, y) => y[1] - x[1]).slice(0, 15) }; v.offOriginBlocked = s.st.offOrigin;
     await s.ctx.close();
 
     // night theme contrast
