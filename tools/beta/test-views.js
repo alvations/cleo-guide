@@ -155,8 +155,8 @@ function boot(page, { hash = '', storage = 'ok', io = false, views = false } = {
 }
 
 (async () => {
-  // ── 3. Cleo.lens / Cleo.order / count line / route ───────────────────────────
-  console.log('\n== Cleo.lens / Cleo.order / count line (jsdom, Tokyo) ==');
+  // ── 3. Cleo.lens / Cleo.order / route (count lines: qa/test-count-lines.js) ───────────────────────────
+  console.log('\n== Cleo.lens / Cleo.order (jsdom, Tokyo; each view\'s count line: qa/test-count-lines.js) ==');
   {
     const page = 'cities/tokyo.html', j = pd('tokyo'), P = j.places, N = P.length;
     const { w, d, errs } = boot(page, { storage: 'throws' });
@@ -184,9 +184,6 @@ function boot(page, { hash = '', storage = 'ok', io = false, views = false } = {
     chk('works on Cleo.defer.peek() stubs', C.lens.match(stubs[0], { a: P[0].a, mode: P[0].kind === 'food' ? 'food' : 'sights' }), true);
     chk('Cleo.k3(card) == the JSON k3 on every card', cards.every(c => C.k3(c) === P.find(p => p.id === c.id.slice(2)).k3), true);
     chk('Cleo.order == the build\'s view order', C.order(cards).map(c => c.id.slice(2)).join(), j.order.join());
-    chk('count line, no lens', C.countLine(N, N), `All ${N} places`);
-    chk('count line, lens on', C.countLine(71, N), `71 of all ${N} places`);
-    chk('count line, long form from stats', C.countLine(N, N, j.stats), s => s.startsWith(`All ${N} places · ${j.stats.sights} sights · ${j.stats.food} eat & drink · ${j.stats.areas} areas`) && (!j.stats.closed || s.includes(`${j.stats.closed} closed, kept for the record`)));
     chk('0 JS errors', errs, e => e.length === 0);
   }
 

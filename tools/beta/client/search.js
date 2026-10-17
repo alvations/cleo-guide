@@ -94,42 +94,8 @@
     uidx[b] = getJson('data/source-urls/' + b + '.json').catch(function () { delete uidx[b]; return null; });
     return uidx[b];
   };
-  var SUGGEST = 'https://github.com/alvations/cleo-guide/issues/new?labels=source-suggestion';
-  Cleo.renderSource = function (el, idx, host, exact, url) {
-    redraw(el, function () { Cleo.renderSource(el, idx, host, exact, url); });
-    var h = host, rows = null;
-    while (h && !(rows = (idx.hosts || {})[h])) h = h.indexOf('.') > 0 && h.split('.').length > 2 ? h.slice(h.indexOf('.') + 1) : null;   // sub.example.com → example.com
-    var plural = function (n, w) { return w === 'guide' ? (n === 1 ? tt('srch.guide.n1', '1 guide') : tt('srch.guides', '{n} guides', { n: n.toLocaleString('en-US') }))
-      : n === 1 ? tt('srch.place.n1', '1 place') : tt('srch.places.n', '{n} places', { n: n.toLocaleString('en-US') }); };
-    var note = '<p class="sm muted">' + tt('srch.src.note', 'Cleo only read the link’s address; nothing was opened or fetched from it.') + '</p>';
-    if (!rows && !(exact && exact.length)) {
-      var href = SUGGEST + '&title=' + encodeURIComponent('Source suggestion: ' + host) + '&body=' + encodeURIComponent('**Source:** ' + (url || host) + '\n\n**Why it is worth reading:**\n\n---\nFiled from the beta search (paste a link).');
-      el.innerHTML = '<div class="state" data-cleo-state="no-source"><h3>' + tt('srch.src.none.h', 'No guide cites {host} yet.', { host: esc(host) }) + '</h3>' +
-        '<p>' + tt('srch.src.none.p', 'Paste a link from a source the guides name — a newspaper, a guidebook, a creator — to see the places it recommends. If this one is worth reading, suggest it: the link opens a pre-filled issue on the project’s GitHub.') + '</p>' +
-        '<p><a class="btn btn-quiet" data-cleo-suggest href="' + esc(href) + '" target="_blank" rel="noopener">' + tt('srch.src.suggest', 'Suggest this source') + '</a></p>' + note + '</div>';
-      return 0;
-    }
-    var out = '', total = 0;
-    // a specific page: the places citing exactly that URL come first
-    if (exact && exact.length) {
-      out += '<section class="grp" data-cleo-source-url><h2 class="d3">' + tt('srch.src.page', 'Recommended on this page') + ' <span class="sm muted">' + plural(exact.length, 'place') + '</span></h2><ol>' +
-        exact.map(function (r) { return '<li><a href="' + esc((Cleo.root || '') + r[0] + '#p=' + encodeURIComponent(r[2])) + '"><span>' + esc(r[3]) + '</span><span class="meta">' + esc(r[1]) + ' · ' + esc(r[5]) + '</span></a></li>'; }).join('') + '</ol></section>';
-    }
-    // the source's view (VOICE.md rule 5): "Everything <source> recommends, in N guides" — one per publisher on that site
-    if (rows) {
-      var by = {}, order = [];
-      rows.forEach(function (r) { if (!by[r[3]]) { by[r[3]] = []; order.push(r[3]); } by[r[3]].push(r); });
-      order.forEach(function (name) {
-        var g = by[name], n = g.reduce(function (t, r) { return t + r[4]; }, 0); total += n;
-        out += '<section class="grp"><h2 class="d3" data-cleo-source="' + esc(h) + '">' + tt('srch.src.all', 'Everything {source} recommends, in {guides}', { source: esc(name), guides: plural(g.length, 'guide') }) +
-          ' <span class="sm muted">' + plural(n, 'place') + '</span></h2><ol>' + g.map(function (r) {
-            return '<li><a href="' + esc((Cleo.root || '') + r[0] + '#src=' + encodeURIComponent(r[2])) + '"><span>' + esc(r[1]) + '</span><span class="meta">' + plural(r[4], 'place') + '</span></a></li>';
-          }).join('') + '</ol></section>';
-      });
-    }
-    el.innerHTML = out + note;
-    return total || exact.length;
-  };
+  // the paste-a-link view is srcview.js (lazy, FE-B D-53): loaded on the first pasted link, it replaces this stub
+  Cleo.renderSource = function () { var a = arguments; return new Promise(function (ok) { Cleo.need('srcview', function () { ok(Cleo.renderSource.apply(null, a)); }); }); };
   /** One entry point for a query: a pasted link → its source's places; anything else → the place search. */
   Cleo.query = function (el, q, onClear) {
     var host = Cleo.urlHost(q);

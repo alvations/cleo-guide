@@ -174,20 +174,9 @@
     }).map(function (x) { return x[0]; });
   };
 
-  /* ---- the count line (SPEC §2.1): "All N places" with no lens, "n of all N places" with one. With `st` (the page's
-   * computed stats, R-15) and no lens, the long form: "All N places · S sights · F eat & drink · A areas · C closed,
-   * kept for the record · status checked to D". Numbers are always passed in, never counted here. ---- */
-  Cleo.countLine = function (n, N, st) {
-    var pl = function (x, w, ws) { return x + ' ' + (x === 1 ? w : ws || w + 's'); };
-    if (n !== N) return n + ' of all ' + pl(N, 'place');
-    if (!st) return 'All ' + pl(N, 'place');
-    var parts = ['All ' + pl(N, 'place'), pl(st.sights, 'sight'), st.food + ' eat & drink'];
-    if (st.areas) parts.push(pl(st.areas, 'area'));
-    if (st.closed) parts.push(st.closed + ' closed, kept for the record');
-    if (st.lastChecked) parts.push('status checked to ' + st.lastChecked);
-    return parts.join(' · ');
-  };
-
+  /* ---- the count line (SPEC §2.1): each view draws its own (Gallery pager + results line, Atlas list head, Guidebook
+   * count); the shared Cleo.countLine had no caller left and was removed (eager JS, 2026-10-17). Their text and numbers
+   * are asserted by tools/beta/qa/test-count-lines.js. ---- */
   /* ---- share: Web Share where available, clipboard otherwise ---- */
   Cleo.share = function (title, url) {
     if (navigator.share) return navigator.share({ title: title, url: url }).catch(function () {});
@@ -257,7 +246,7 @@
     q = lz[n] = cb ? [cb] : [];
     var v = '';
     ['cleo-city', 'cleo-lazy'].forEach(function (x) { var el = document.getElementById(x), j = null; try { j = el && JSON.parse(el.textContent); } catch (e) {} j = j && (j.js || j); if (!v && j && j[n]) v = j[n]; });
-    if (!v) v = { offline: '__V_offline__', mapfail: '__V_mapfail__', pack: '__V_pack__' }[n] || '';   // build.js fills these in
+    if (!v) v = { offline: '__V_offline__', mapfail: '__V_mapfail__', pack: '__V_pack__', srcview: '__V_srcview__' }[n] || '';   // build.js fills these in (srcview: FE-B D-53)
     var s = document.createElement('script'); s.src = Cleo.root + 'assets/js/' + n + '.js' + (v ? '?v=' + v : ''); s.async = true;
     s.onload = function () { Cleo.need.done(n); };
     s.onerror = function () { delete lz[n]; };
