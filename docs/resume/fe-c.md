@@ -44,6 +44,7 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | Overlay audit (owner directive; docs/BETA-OVERLAY-LEDGER.md): tools/beta/qa/overlay/fe-c-overlay.js over all FE-C surfaces × 6 viewports × light/dark; OV-08 (share preview cut off in landscape) fixed in share-card.js + probe `card-fit`; OV-09..11 (place sheet: FE-A/FE-1) and OV-12 (base note height, awaiting OV-00) logged | 7f88a5ab2 | — |
 | R8 #5a (sheet primary-link contrast, :root .btn-primary .lbl), #2e (no Cited by + +N more on cards), #2c (masthead dotJoin + nowrap); tests sheet-contrast.js + masthead-lines.js in npm test | 21fdd6a32 / 0486bf714 / 785d8641e | — |
 | OV-12 base note compact (133→98 px phone; base.note retired, en+ja); OV-40 toasts rise above an open sheet's buttons (sheet.js hook sets html.sheet-on); probe base-keys checks both | 8e986a4f8 | — |
+| OV-111 / OV-112 (S-17 High, sheet): one nav bar + close (50/48/56 px); portrait action bar hides on scroll (client/sheetbar.js, lazy, city.js onSheet hook); landscape/desktop actions under the nav, not sticky; desktop dialog full height, .plan static; grab out of flow; probe `sheet-chrome`; qc-overlay sheet sweep 0 chrome flags | this push | — |
 
 ## Next
 
