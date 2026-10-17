@@ -2,7 +2,8 @@ import json, subprocess
 def dms(s):
     p=[float(x) for x in s.split()]; return round(p[0]+p[1]/60+p[2]/3600,6)
 U="https://whc.unesco.org/en/list/688/maps"; N="https://whc.unesco.org/en/list/870/maps"
-W="https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+W="https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"  # group article: never cited per record (its image is Kinkaku-ji); each component cites its own article
+WIKI={"Kamigamo Shrine (Kamo-wake-ikazuchi Jinja)": "https://en.wikipedia.org/wiki/Kamigamo_Shrine", "Shimogamo Shrine (Kamo-mioya Jinja)": "https://en.wikipedia.org/wiki/Shimogamo_Shrine", "Tō-ji (Kyō-ō-gokoku-ji)": "https://en.wikipedia.org/wiki/T%C5%8D-ji", "Enryaku-ji (Mount Hiei)": "https://en.wikipedia.org/wiki/Enryaku-ji", "Daigo-ji": "https://en.wikipedia.org/wiki/Daigo-ji", "Ninna-ji": "https://en.wikipedia.org/wiki/Ninna-ji", "Byōdō-in": "https://en.wikipedia.org/wiki/By%C5%8Dd%C5%8D-in", "Ujigami Shrine": "https://en.wikipedia.org/wiki/Ujigami_Shrine", "Kōzan-ji": "https://en.wikipedia.org/wiki/K%C5%8Dzan-ji", "Saihō-ji (Koke-dera, Moss Temple)": "https://en.wikipedia.org/wiki/Saih%C5%8D-ji_(Kyoto)", "Tenryū-ji": "https://en.wikipedia.org/wiki/Tenry%C5%AB-ji", "Kinkaku-ji (Rokuon-ji)": "https://en.wikipedia.org/wiki/Kinkaku-ji", "Ginkaku-ji (Jishō-ji)": "https://en.wikipedia.org/wiki/Ginkaku-ji", "Ryōan-ji": "https://en.wikipedia.org/wiki/Ry%C5%8Dan-ji", "Nishi Hongan-ji": "https://en.wikipedia.org/wiki/Nishi_Hongan-ji", "Nijō Castle": "https://en.wikipedia.org/wiki/Nij%C5%8D_Castle"}
 rows=[ # n, area, address, lat dms, lng dms, conf, w, g, t, url
 ("Kamigamo Shrine (Kamo-wake-ikazuchi Jinja)","KITA","Kamigamo, Kita-ku, Kyoto, Japan","35 3 37.9","135 45 11.6","high",
  "One of Kyoto's oldest Shinto shrines, older than the city itself, with its two sand cones (tatesuna) before the Hosodono hall; UNESCO-listed component 688-001.",["UNESCO","TEMPLE","NATURE"],1,U),
@@ -53,7 +54,7 @@ rows=[ # n, area, address, lat dms, lng dms, conf, w, g, t, url
 ]
 sights=[]; geo=[]
 for n,a,ad,la,lo,c,w,g,t,u in rows:
-    sights.append({"t":t,"a":a,"n":n,"address":ad,"w":w,"g":g,"sources":[["UNESCO",u],["WIKIPEDIA",W]] if u==U else [["UNESCO",u]]})
+    sights.append({"t":t,"a":a,"n":n,"address":ad,"w":w,"g":g,"sources":[["UNESCO",u],["WIKIPEDIA",WIKI[n]]] if u==U else [["UNESCO",u]]})
     geo.append({"n":n,"address":ad,"lat":dms(la),"lng":dms(lo),"confidence":c,
        "geoSource":f"UNESCO World Heritage Centre maps page (component coordinate {la}N {lo}E) {u}",
        "status":"open","statusSource":"UNESCO World Heritage listing (active property); "+u})

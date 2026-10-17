@@ -86,3 +86,9 @@ Next harness work:
   as `\|`.
 - Reports go to the orchestrator `session_01PCNcUkfa5S1N1BKGzZA4xx`: counts by severity and lane, the top 10, and
   any Blocker or High at once.
+
+### Checkpoint 2026-10-17 (after compaction)
+- Round-4 views run complete: ledger written; only OV-123 (search ×2, FE-B) still open. 82-page 768 Atlas re-grade on 7de1297bd running, log `scratchpad/ovFEA82.log`, label fe-a-768-all-7de1297b.
+- FE-A 768 fix verified on 7de1297bd (OV-124/125, 0/56 runs).
+- QC-36 filed: a count-line race makes npm test red under load (test-count-lines).
+- Next: re-grade FE-B search ×2 when its SHA lands; r7 re-run with the corrected probe.

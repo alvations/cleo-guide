@@ -551,6 +551,20 @@ for _k, _cs in cands.items():
 _GAP_OK = re.compile(r'no (?:commons )?(?:file|photo|honest|usable|view)|nothing usable|only (?:details|interiors|animal|bird|night|vehicles|a 19\d\d photo|photos of the old|files naming)|under 640|every (?:commons )?photo|not found|turned up|no lead image|both vetted|refused', re.I)
 _GAP_NEVER = re.compile(r'venue|food|artwork|sculpture|freedom of panorama|\bFoP\b|brand|signage|closed|vietnam|character|graffiti|mural|copyright|themed|\bride\b|crowd|casino|store\b', re.I)
 
+# the other lanes' reviewed-ok picks fill a liftable gap too (run #121: two Openverse picks were credited on stated
+# "no file" / "only interiors" gaps): Openverse ids marked ok in openverse-review.tsv, image-sources rows reviewed ok
+_LANE_OK = set()
+try:
+    _ovok = {l.split('\t')[0] for l in open(f'{S}/openverse-review.tsv', encoding='utf-8') if not l.startswith('#') and l.split('\t')[1:2] == ['ok']}
+    for _k, _ps in json.load(open('beta/assets/img/openverse-candidates.json')).get('targets', {}).items():
+        if any(_p.get('id') in _ovok for _p in (_ps.values() if isinstance(_ps, dict) else _ps)): _LANE_OK.add(_k)
+except FileNotFoundError: pass
+try:
+    _rows = [l.rstrip('\n').split('\t') for l in open(f'{S}/../sources/candidates.tsv', encoding='utf-8') if l.strip() and not l.startswith('#')]
+    _h = _rows.pop(0)
+    _LANE_OK |= {r[_h.index('target')] for r in _rows if r[_h.index('review')].startswith('ok') and not r[_h.index('refused')]}
+except FileNotFoundError: pass
+
 # W8: what a visitor sees first on each guide — the gallery's lead card, then its first rail row
 PRIO = {}
 for fn in sorted(glob.glob('beta/data/gallery/*.json')):
@@ -624,7 +638,7 @@ for key, (d, p) in recs.items():
     # secondary theme tags (Alta Vista Terrace: ICON, ARCH, SPORT), which never make a sight a venue (orchestrator, R8)
     if p['kind'] != 'food' and ((p.get('g') or [None])[0] in VENUE or re.match(r'\s*(?:[a-z]+ )?store\b', str(p.get('k') or ''), re.I)):   # D-49: food is its own subject
         t['skip'] = f"venue ({(p.get('g') or ['k'])[0]}) — never a photo"
-    elif key in SKIP and not (_GAP_OK.search(SKIP[key]) and not _GAP_NEVER.search(SKIP[key]) and any(not c.get('refused') for c in cands.get(f'landmark:{key}', []))):
+    elif key in SKIP and not (_GAP_OK.search(SKIP[key]) and not _GAP_NEVER.search(SKIP[key]) and (any(not c.get('refused') for c in cands.get(f'landmark:{key}', [])) or f'landmark:{key}' in _LANE_OK)):
         t['skip'] = SKIP[key]   # a "no usable Commons photo" gap lifts once a reviewed candidate exists (R8 discovery); rule gaps never do
     elif VENUE_NAME.search(p['n']):
         t['skip'] = f"venue ({VENUE_NAME.search(p['n']).group(1).lower()}) — never a photo (named so; W8 guard for records without a venue tag)"

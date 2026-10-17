@@ -38,8 +38,8 @@
   },
   "otherLandmarks": {
    "targets": 1386,
-   "skipped": 198,
-   "withArticle": 815
+   "skipped": 196,
+   "withArticle": 817
   },
   "candidates": {
    "total": 1823,
@@ -19033,7 +19033,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/National_Civil_War_Museum",
-   "skip": "only details/interiors (wave 5 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -23971,7 +23971,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Bay_of_Pigs_Museum",
-   "skip": "no file found (wave 5 search) — calm cover (stated, W8)",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [

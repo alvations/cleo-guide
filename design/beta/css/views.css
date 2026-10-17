@@ -92,14 +92,27 @@ html[data-view="gallery"] main > .masthead::before { display: none; }
 
 /* ---------- V3b. D-03 cover rules (Gallery): tint, edge, pin art, ringed pin, plates per breakpoint, glyph chip ---------- */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover { --ac: var(--area-c, var(--city)); container-type: size; }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .me { background: var(--city); border-color: var(--surface); box-shadow: var(--ring-glow); }
 
 /* native plate: ≤ 4 glyphs set vertically, sized from the cover's height so it never clips at 320–1440 px */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.v { font-size: var(--fs-d2); max-height: calc(100cqh - 24px); overflow: hidden; }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.i { font-size: var(--fs-d1); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.big .plate.v { font-size: var(--fs-d2); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.big .plate.i { font-size: var(--fs-d1); }
  
 @media (max-width: 639px) { :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.v { font-size: var(--fs-d2); } }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .gl { width: 44px; height: 44px; box-shadow: var(--e-1); color: color-mix(in srgb, var(--ac) 55%, var(--ink)); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .gl .ico { width: 20px; height: 20px; }
+/* photo path (imagery lane hook): the credited photo replaces tint + pin art; plate stays; credit sits on the cover */
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo { background: var(--sand); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo > img.ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo .plate { color: var(--on-photo); text-shadow: 0 1px 8px var(--shade-text); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .credit { position: absolute; left: 0; right: 0; top: calc(100% + 6px); margin: 0; padding: 0;
+  background: none; color: var(--ink-3); font-size: var(--fs-xs); line-height: var(--lh-sm); white-space: normal; overflow: visible; text-overflow: clip; }
+/* W7: the credit sits UNDER the media, never over it, never clipped */
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover:has(> .credit) { overflow: visible; margin-bottom: calc(2 * 1.4 * var(--fs-xs) + 10px); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover:has(> .credit) > img { border-radius: inherit; }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .credit a { color: inherit; }
 
 
 
@@ -111,6 +124,13 @@ html[data-view="gallery"] main > .masthead::before { display: none; }
   :root:not([data-theme="light"]) :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate { color: color-mix(in srgb, var(--ac) 55%, var(--ink)); } }
 :root[data-theme="dark"] :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover { background: color-mix(in srgb, var(--ac) 24%, var(--surface)); }
 :root[data-theme="dark"] :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate { color: color-mix(in srgb, var(--ac) 55%, var(--ink)); }
+/* ---------- V7b. Chart series by token (D-02). Fixed order; text never wears a series colour ---------- */
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .s1, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .s1 { fill: var(--series-1); background: var(--series-1); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .s2, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .s2 { fill: var(--series-2); background: var(--series-2); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .s3, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .s3 { fill: var(--series-3); background: var(--series-3); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .s6, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .s6 { fill: var(--series-6); background: var(--series-6); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .so, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .so { fill: var(--series-other); background: var(--series-other); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .area-bar { fill: var(--ac, var(--series-1)); }
 
 
 
@@ -150,11 +170,14 @@ html[data-view="gallery"] main > .masthead::before { display: none; }
 
 /* ---------- V3. D-03 data-drawn covers (.cover) — shared by Gallery cards, the experience page and "Close by" ---------- */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover{position:relative;aspect-ratio:4/3;border-radius:var(--r-m);overflow:hidden;background:color-mix(in srgb,var(--ac) 16%,var(--surface));box-shadow:inset 0 -5px 0 var(--ac)}
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .me{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--city);border:3px solid var(--surface);box-shadow:var(--ring-select)}
 
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate{position:absolute;left:14px;top:12px;color:color-mix(in srgb,var(--ac) 45%,var(--ink));line-height:1}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.v{writing-mode:vertical-rl;font:600 var(--fs-d2)/1.05 var(--font-native);letter-spacing:var(--track-eyebrow);max-height:calc(100% - 24px)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.i{font:italic 500 var(--fs-hero) var(--font-display)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .gl{position:absolute;right:12px;bottom:14px;width:36px;height:36px;display:grid;place-items:center;border-radius:var(--r-pill);background:var(--surface);color:var(--ink)}
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.big .plate.v{font-size:var(--fs-d1)}
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.big .plate.i{font-size:var(--fs-hero)}
 
 
 
@@ -182,6 +205,7 @@ html[data-view="gallery"] main > .masthead::before { display: none; }
 
 
 .view-gallery .pager .pg[aria-current]{background:var(--ink);color:var(--paper)}
+.view-gallery .mosaic .m1 .cover{aspect-ratio:16/10;border-radius:var(--r-l)}
 
 
 
@@ -198,6 +222,10 @@ html[data-view="gallery"] main > .masthead::before { display: none; }
 .view-gallery .num.sel circle{fill:var(--city);stroke:var(--surface)}
 .view-gallery .num.sel text{fill:var(--city-on)}
 .view-gallery .route{fill:none;stroke:var(--city);stroke-width:2.5;stroke-dasharray:2 5;stroke-linecap:round}
+.view-gallery .near .cover{border-radius:var(--r-m)}
+.view-gallery .near .cover .plate.i{font-size:var(--fs-d1)}
+.view-gallery .near .cover .plate.v{font-size:var(--fs-lead)}
+.view-gallery .near .cover .gl{display:none}
 
 
 
@@ -442,6 +470,8 @@ html[data-view="gallery"] .split .pl-cover::before, .vw .cover[data-comp]::befor
   -webkit-mask: none center / contain no-repeat; mask: none center / contain no-repeat;
 }
 html[data-view="gallery"] .split .pl-cover > *, .vw .cover[data-comp] > * { z-index: 1; }
+/* the ring stays at full strength */
+html[data-view="gallery"] .split .pl-cover .g-ring, .vw .cover[data-comp] .me { scale: calc(1 / var(--z)); }
 
    
 /* plate colour by tier: must-see deep and solid, worth-the-detour the area ink, deep cut an outlined initial */
@@ -452,6 +482,8 @@ html[data-view="gallery"] .split .pl[data-t="3"] > .pl-cover .pl-ini, .vw .cover
 html[data-view="gallery"] .split .pl[data-t="1"] > .pl-cover::after, .vw .cover[data-t="1"]::after {   /* must-see: a tier bar along the top edge */
   content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: var(--tc); z-index: 1; pointer-events: none; }
 html[data-view="gallery"] .split .pl[data-closed] > .pl-cover, .vw .cover.closed { --mo: var(--line-strong); --tc: var(--line-strong); --mop: .55; }
+/* vertical plate is for CJK names only: any other script on a page without a CJK lang sets horizontally */
+html[data-view="gallery"] .split .pl-cover .pl-vert:not(:lang(ja), :lang(zh), :lang(ko)), .vw .cover .plate.v:not(:lang(ja), :lang(zh), :lang(ko)) { writing-mode: horizontal-tb; }
 
 /* a vertical plate holds the left column: the small motif steps right of it */
 html[data-view="gallery"] .split .pl-cover:has(.pl-vert), .vw .cover[data-comp]:has(.plate.v) { --mx: 34%; }

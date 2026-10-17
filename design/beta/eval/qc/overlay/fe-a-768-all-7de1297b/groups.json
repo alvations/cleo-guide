@@ -1,0 +1,43 @@
+[
+ {
+  "kind": "duplicates",
+  "view": "page",
+  "vp": "768x1024",
+  "runs": 6,
+  "pages": [
+   "Singapore/hanoi.html",
+   "Singapore/hoi-an.html",
+   "trip.html"
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "worst": "search ×2 (search all guides + search)",
+  "budget": "one control per action",
+  "owner": "FE-B (search.js) + FE-A (city search) + designer",
+  "of": 32,
+  "worstPage": "Singapore/hanoi.html",
+  "worstTheme": "light",
+  "shot": "design/beta/eval/qc/overlay/fe-a-768-all-7de1297b/shots/duplicates_page_768x1024_light_Singapore-hanoi-html.jpg"
+ },
+ {
+  "kind": "chromeScroll",
+  "view": "page",
+  "vp": "768x1024",
+  "runs": 1,
+  "pages": [
+   "index.html"
+  ],
+  "themes": [
+   "dark"
+  ],
+  "worst": 10.2,
+  "budget": "≤ 6 % after a 600 px scroll",
+  "owner": "FE-B (hubs, landing, trip, saved, method)",
+  "of": 32,
+  "worstPage": "index.html",
+  "worstTheme": "dark",
+  "shot": "design/beta/eval/qc/overlay/fe-a-768-all-7de1297b/shots/chromeScroll_page_768x1024_dark_index-html.jpg"
+ }
+]
