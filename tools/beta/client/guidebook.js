@@ -316,7 +316,8 @@
       };
       pin(); on(window, 'resize', pin);
       // OV-00 rule 1: the Contents strip is a guest row — it slides up behind the header on a scroll down, back on a scroll up
-      if (C.compact) { var toc = el.querySelector('nav.toc'); if (toc) off.push(C.compact(toc, 'is-away')); }
+      var cmp = function () { var toc = host === el && el.querySelector('nav.toc'); if (toc && C.compact) off.push(C.compact(toc, 'is-away')); };
+      if (C.compact) cmp(); else if (C.need) C.need('compact', cmp);   // compact.js: lazy here (not in the eager budget)
       if (window.ResizeObserver && cbar) { var ro = new ResizeObserver(pin); ro.observe(cbar); off.push(function () { ro.disconnect(); }); }
       // the city page sets `hidden` on its cards when a lens changes; follow those attribute flips (coalesced)
       var t = 0, later = function () { if (!t) t = setTimeout(function () { t = 0; if (host === el) syncLens(el); }, 0); };

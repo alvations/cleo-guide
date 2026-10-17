@@ -22,6 +22,9 @@ for i in 1 2 3 4 5 6; do
     git add beta
     if git grep -nI -e '^<<<<<<< ' -e '^>>>>>>> ' -- ':!beta' >/dev/null 2>&1; then echo "CONFLICT MARKERS LEFT:"; git grep -nI -e '^<<<<<<< ' -e '^>>>>>>> ' -- ':!beta' | head; exit 5; fi
     (cd tools && npm run -s beta:check >/dev/null 2>&1) || { echo "BETA:CHECK FAILED"; exit 4; }
+    # the merge race (8846b138): two green commits can go over a budget together — re-check the budgets on the merged tree
+    [ ! -f tools/beta/qa/test-eager-budget.js ] || node tools/beta/qa/test-eager-budget.js || { echo "EAGER-JS BUDGET FAILED after the merge"; exit 7; }
+    [ ! -f tools/beta/qa/test-dom-budget.js ] || node tools/beta/qa/test-dom-budget.js >/dev/null 2>&1 || { echo "INITIAL-DOM BUDGET FAILED after the merge (node tools/beta/qa/test-dom-budget.js)"; exit 7; }
     git rev-parse -q --verify MERGE_HEAD >/dev/null && git commit -q --no-edit
     # a CLEAN merge can still leave beta/ stale: the rebuild above staged it, so commit it (platform, 2026-10-16)
     git diff --cached --quiet || git commit -q -m "Merge origin; beta/ regenerated" -m "$TRAILERS"
