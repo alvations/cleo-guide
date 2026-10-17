@@ -178,17 +178,18 @@ A designed cover at full photo size still reads as a blank: it takes a photo's s
 - A two-column grid: a **64 × 64 tile** on the left (`--r-m`), then the text column.
 - **The tile** is the designed mini-cover: `--cover-food` or `--cover-sight`, the city pattern (§v2.7a) and the kit glyph at 28 px in `--ink` 55 %. It carries no word.
 - **The text column**, top to bottom:
-  - the tier chip with area · kind (`.pl-e`);
+  - the eyebrow (`.pl-e`): rank · tier, then area · kind. A caveat ("Approximate pin") joins this line as plain `--ink-3` text, never a chip, so it can't add a 4th line (rev, State College 141 px). A "·" is only ever drawn between two visible items: the eyebrow is built by joining the parts that show, never "5 ·";
   - the name (`.pl-n`, UI 600, `--fs-d3`);
   - the why line clamped to 2 lines (`.pl-w`, `--fs-sm`, `--ink-2`);
-  - Recommended by (`.pl-s`), then "· Checked 2 Oct" on the same line in `--ink-3`, wrapping as a sentence only when it doesn't fit (rev, FE-A f35759ca1). The why line keeps its 2 lines: it's the reason to go, so the row gives up the separate Checked line instead.
+  - "By {source} +N" (`.pl-s`), then "· Checked 2 Oct" on the same line in `--ink-3` (rev, FE-A f35759ca1, 31cc58b79). The why line keeps its 2 lines: it's the reason to go, so the row gives up the separate Checked line instead.
+  - **The source stays legible.** It gets layout priority (`flex: 0 1 auto`, min-width about 12ch). "· Checked" gives way first: it ellipsises, and below 360 px it drops (the detail still shows it). Cards say "By"; the full "Recommended by" stays in the detail, the Atlas card and place pages, where there's room.
 - 12 px vertical padding, with a hairline (`--line`) between rows. The heart stays a 44 px target at top-right.
 
 **B. Quote card** (the cell keeps its size; the cover area is filled with the place's own words):
 - **Ground:** the cover area is `--cover-food` or `--cover-sight` plus the city pattern.
 - **Text:** the why line (`.pl-w`), clamped by CSS to 4 lines with an ellipsis. No build-time shortening, so the place's text is never edited. UI face 600 at `--fs-lead`, `--ink`, `text-wrap: pretty`, inset 16 px.
 - **Marks:** a 40 px opening quote mark in the display face, `--ink-3`, top-left. The kit glyph at 20 px in `--ink-3`, bottom-right.
-- **Below the cover:** the card no longer repeats the why line, and its "Recommended by" line names whose words they are.
+- **Below the cover:** the card no longer repeats the why line, and its "By {source} +N" line names whose words they are, with the same source-first priority as A.
 - **No why line** (rare): the §v2.7a designed cover, where the word is the place's own dish or its name, **never a bare cuisine label** ("Chinese", "Asian").
 
 **Rules:**
@@ -202,7 +203,9 @@ A designed cover at full photo size still reads as a blank: it takes a photo's s
 
 **Acceptance** (DC, Tokyo and State College, 390 and 1440, light and dark; real shots before and after):
 - In single-column lists, no photo-less card is taller than 128 px. The first phone screen of DC's Atlas list shows ≥ 4 cards (about 1.5 today).
-- In rails and grids, every photo-less cover has ≥ 20 characters of visible text: no blank tile.
+- In rails and grids, every photo-less cover has ≥ 20 characters of visible text: no blank tile (a sand plate with a small glyph is a blank tile).
+- At 390 and 1440, no source name on a card is cut below 12 characters.
+- No dangling "·" on any card.
 - Every photo card's size is unchanged.
 - The list order equals `data-rank` order.
 - No two adjacent covers share glyph and word.

@@ -302,12 +302,15 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     ({ d, w, errs } = boot(page, { hash: '#view=atlas' })); await sleep(150);
     const sv = d.querySelector('li.pl button.pl-save'); sv.click(); await sleep(10);
     chk('motion: a save that turns on gets .pop for one beat', sv.classList.contains('pop'));
-    d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await sleep(10);
-    chk('motion: a view switch adds html.view-in', d.documentElement.classList.contains('view-in'));
+    // PERF-24c: a tap paints its pressed segment first and switches the view just after that paint, so wait for the switch
+    // itself (≤ 600 ms) — also so its work never spills into the next block's timings
+    const until = async (f, ms = 600) => { const t0 = Date.now(); while (!f() && Date.now() - t0 < ms) await sleep(10); };
+    d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await until(() => d.documentElement.getAttribute('data-view') === 'gallery');
+    chk('motion: a view switch adds html.view-in', d.documentElement.getAttribute('data-view') === 'gallery' && d.documentElement.classList.contains('view-in'));
     let rm = boot(page, { hash: '#view=atlas' }); rm.w.matchMedia = q => ({ matches: /reduce|min-width/.test(q), addListener() {}, removeListener() {} }); await sleep(150);
     const sv2 = rm.d.querySelector('li.pl button.pl-save'); sv2.click(); await sleep(10);
-    rm.d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await sleep(10);
-    chk('motion: reduced motion adds no class at all', !sv2.classList.contains('pop') && !rm.d.documentElement.classList.contains('view-in'));
+    rm.d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await until(() => rm.d.documentElement.getAttribute('data-view') === 'gallery');
+    chk('motion: reduced motion adds no class at all', rm.d.documentElement.getAttribute('data-view') === 'gallery' && !sv2.classList.contains('pop') && !rm.d.documentElement.classList.contains('view-in'));
     chk('no js errors', errs.length === 0 && rm.errs.length === 0, errs.concat(rm.errs).slice(0, 2));
   }
 

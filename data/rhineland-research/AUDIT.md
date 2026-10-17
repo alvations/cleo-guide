@@ -252,3 +252,7 @@ WebSearch only. **No coordinates** — full street addresses only.
 - No coordinates emitted (per brief). Every place carries a full street address + City + Germany.
 - Run `--sourcecheck`, then geocode + **placement re-verify** (read `!3d!4d`, not `/@`), then `--statuscheck`
   before build. Watch: Vendôme leadership/star line is current as of 2026-09; Schote star is the **2026** guide.
+
+## 2026-10-17 — D-53: Konditorei Heinemann has no independent source yet
+
+A WebSearch on 2026-10-17 found only directories (Gelbe Seiten, golocal, speisekarte.de), a Prisma magazine giveaway, and an airline in-flight guide (a travel brand, not counted). There is no Rheinische Post, Wikipedia or other credible recommender. The card keeps its own-site and Königsallee sources and stays "No independent source yet". Nothing was changed.

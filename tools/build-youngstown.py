@@ -28,7 +28,14 @@ DATA = r'''const S = {
   TRULY:{k:"TRULY TRUMBULL",t:"Truly Trumbull — Trumbull County CVB",u:"https://www.exploretrumbullcounty.com/things-to-do/",l:"Truly Trumbull (Trumbull County CVB)"},
   OCW:{k:"OLD CARS WEEKLY",t:"Old Cars Weekly — TP Tools opens car museum in Canfield",u:"https://www.oldcarsweekly.com/features/tp-tools-car-museum",l:"Old Cars Weekly"},
   NHS:{k:"NILES HISTORY",t:"Niles Historical Society — Ward-Thomas House Museum",u:"https://nileshistoricalsociety.org/tours.htm",l:"Niles Historical Society"},
-  ADD:{k:"ADDED",t:"Well-known local landmarks the oddity lists skip because they are not hidden",u:"",l:"My addition — verify hours before visiting"}
+  ADD:{k:"ADDED",t:"Well-known local landmarks the oddity lists skip because they are not hidden",u:"",l:"My addition — verify hours before visiting"},
+  D53_WICKPARK_1:{k:"WIKIPEDIA",t:"Wick Park — Wick Park Historic District, NRHP 1990",u:"https://en.wikipedia.org/wiki/Wick_Park_Historic_District",l:"Wikipedia"},
+  D53_MCDONOUGHMUSEU_1:{k:"BUSINESS JOURNAL",t:"McDonough Museum of Art",u:"https://businessjournaldaily.com/four-new-exhibits-at-the-mcdonough-museum/",l:"The Business Journal"},
+  D53_DEYORPERFORMIN_1:{k:"WIKIPEDIA",t:"DeYor Performing Arts Center (Powers Auditorium) — Powers Auditorium, NRHP 1980",u:"https://en.wikipedia.org/wiki/Powers_Auditorium",l:"Wikipedia"},
+  D53_NATIONALMCKINL_1:{k:"WIKIPEDIA",t:"National McKinley Birthplace Memorial & Museum",u:"https://en.wikipedia.org/wiki/National_McKinley_Birthplace_Memorial",l:"Wikipedia"},
+  D53_NATIONALMCKINL_2:{k:"CLIO",t:"National McKinley Birthplace Memorial & Museum",u:"https://theclio.com/entry/25013",l:"Clio"},
+  D53_COVELLICENTRE_1:{k:"WIKIPEDIA",t:"Covelli Centre",u:"https://en.wikipedia.org/wiki/Covelli_Centre",l:"Wikipedia"},
+  D53_COVELLICENTRE_2:{k:"TRIBUNE CHRONICLE",t:"Covelli Centre — 20 years",u:"https://www.tribtoday.com/news/local-news/2025/10/covelli-centre-turns-20/",l:"Tribune Chronicle"}
 };
 
 const AREAS = [
@@ -60,13 +67,13 @@ const P = [
  k:"Ticketed events; the exterior is worth a look any time.",s:[["T2N",""]]},
 {t:3,a:"WK",n:"McDonough Museum of Art",ad:"525 Wick Ave",la:41.1069,ln:-80.6469,
  w:"Youngstown State's contemporary art museum, directly across Wick Avenue from the Butler. Rotating shows of new and student work. Free.",
- k:"Free. Often closed between exhibitions — check the current show.",s:[["ADD",""]]},
+ k:"Free. Often closed between exhibitions — check the current show.",s:[["ADD",""],["D53_MCDONOUGHMUSEU_1",""]]},
 {t:3,a:"WK",n:"Clarence R. Smith Mineral Museum",ad:"Moser Hall, Youngstown State University",la:41.1040,ln:-80.6440,
  w:"A quiet hidden gem for rock hounds inside YSU — fluorescent minerals, fossils and crystals, free to walk through. Small, specific, and exactly the kind of thing this guide is for.",
  k:"Free. Campus building; limited hours — check before going.",s:[["EXM",""]]},
 {t:3,a:"WK",n:"Wick Park",ad:"Fifth Ave & Park Ave, North Side",la:41.1128,ln:-80.6498,
  w:"A 34-acre 19th-century park ringed by the North Side's grand old mansions. A stroll and some architecture, not a ticket.",
- k:"Free, daylight hours. Nicer by day.",s:[["ADD",""]]},
+ k:"Free, daylight hours. Nicer by day.",s:[["ADD",""],["D53_WICKPARK_1",""]]},
 /* == MILL CREEK PARK & WEST SIDE == */
 {t:1,a:"MC",n:"Lanterman's Mill",ad:"1001 Canfield Rd, Mill Creek Park",la:41.0731,ln:-80.6809,
  w:"An 1845–46 grist mill, restored and still grinding corn, wheat and buckwheat with the creek's rushing water, beside a waterfall. The picture-book heart of Mill Creek Park.",
@@ -98,7 +105,7 @@ const P = [
 /* == DOWNTOWN == */
 {t:1,a:"DT",n:"DeYor Performing Arts Center (Powers Auditorium)",ad:"260 W Federal St",la:41.0982,ln:-80.6510,
  w:"Home of the Youngstown Symphony, behind a 1931 movie-palace facade on West Federal Street. The Valley's main stage for orchestra, ballet and touring shows.",
- k:"Ticketed performances. Lobby worth a peek on show nights.",s:[["ADD",""]]},
+ k:"Ticketed performances. Lobby worth a peek on show nights.",s:[["ADD",""],["D53_DEYORPERFORMIN_1",""]]},
 {t:2,a:"DT",n:"Tyler History Center",ad:"325 W Federal St",la:41.0987,ln:-80.6520,
  w:"The Historical Society's downtown museum of Mahoning Valley history, in a restored former department store on West Federal Street.",
  k:"Admission charged. Check open days before going.",s:[["MVHS",""]]},
@@ -110,7 +117,7 @@ const P = [
  k:"Tickets are cheap; check the season's schedule.",s:[["T2N",""]]},
 {t:3,a:"DT",n:"Covelli Centre",ad:"229 E Front St",la:41.0956,ln:-80.6468,
  w:"The downtown riverfront arena — Phantoms hockey, concerts and events, and the anchor of the eastern edge of downtown.",
- k:"Event venue; nothing to see when dark. Check the calendar.",s:[["ADD",""]]},
+ k:"Event venue; nothing to see when dark. Check the calendar.",s:[["ADD",""],["D53_COVELLICENTRE_1",""],["D53_COVELLICENTRE_2",""]]},
 {t:3,a:"DT",n:"Downtown Youngstown murals",ad:"around W Federal St & Central Square",la:41.0985,ln:-80.6500,
  w:"A growing set of large downtown murals, several honoured statewide, that have brightened the old commercial core. Walkable in an afternoon between Central Square and the arts district.",
  k:"Free, outdoors, always up. Ask at a downtown shop for the current mural map. Approximate pin.",s:[["BJ",""]]},
@@ -123,7 +130,7 @@ const P = [
  k:"Free, outdoors. In Warren, about 20 minutes north; pair with a Modern Methods beer next door.",s:[["OHMAG",""],["BJ",""]]},
 {t:1,a:"DY",n:"National McKinley Birthplace Memorial & Museum",ad:"40 N Main St, Niles, OH",la:41.1835,ln:-80.7590,
  w:"A columned memorial and museum to President William McKinley in his birthplace of Niles, a short drive north of Youngstown. Free, and grander than you expect for a small city.",
- k:"Free. In Niles, about 15 minutes away. Check museum hours.",s:[["ADD",""]]},
+ k:"Free. In Niles, about 15 minutes away. Check museum hours.",s:[["ADD",""],["D53_NATIONALMCKINL_1",""],["D53_NATIONALMCKINL_2",""]]},
 {t:2,a:"DY",n:"Canfield Fairgrounds",ad:"7265 Columbiana-Canfield Rd, Canfield, OH",la:41.0206,ln:-80.7595,
  w:"Home of the Canfield Fair, Ohio's largest county fair, over Labor Day week. The grounds are quiet off-season.",
  k:"The fair is late Aug–Labor Day. Otherwise little to see. Seasonal.",warn:1,s:[["T2N",""]]},
@@ -181,7 +188,10 @@ const FS = {
   BJ:{k:"BUSINESS JOURNAL",t:"The Business Journal — food & drink",u:"https://businessjournaldaily.com",l:"The Business Journal"},
   VIND:{k:"THE VINDICATOR",t:"History of brewing beer in Youngstown",u:"https://www.vindy.com",l:"The Vindicator"},
   OHMAG:{k:"OHIO MAGAZINE",t:"Ohio Magazine",u:"https://www.ohiomagazine.com",l:"Ohio Magazine"},
-  FADD:{k:"ADDED",t:"Local staples added from general knowledge",u:"",l:"My addition — verify before visiting"}
+  FADD:{k:"ADDED",t:"Local staples added from general knowledge",u:"",l:"My addition — verify before visiting"},
+  D53_HANDELSHOMEMAD_1:{k:"WFMJ 21",t:"Handel's Homemade Ice Cream — 80th anniversary",u:"https://www.wfmj.com/story/52935914/handels-ice-cream-and-yogurt-marking-its-80th-birthday-with-a-community-celebration",l:"WFMJ 21"},
+  D53_BIRDFISHBREWIN_1:{k:"FARM AND DAIRY",t:"Birdfish Brewing Co.",u:"https://www.farmanddairy.com/?p=568579",l:"Farm and Dairy"},
+  D53_BIRDFISHBREWIN_2:{k:"WFMJ 21",t:"Birdfish Brewing Co. — 10 years",u:"https://www.wfmj.com/story/53259637/birdfish-brewing-company-celebrates-a-decade-of-beer",l:"WFMJ 21"}
 };
 
 const CUISINES = [
@@ -212,7 +222,7 @@ const F = [
  k:"Lunch counter; go for the corned beef. Approximate pin.",s:[["HTP",""]]},
 {t:1,a:"MC",cz:["DES"],n:"Handel's Homemade Ice Cream",ad:"7485 South Ave, Boardman",la:41.0642,ln:-80.6543,
  w:"Founded here in the summer of 1945 by Alice Handel at her husband's gas station; the original South Side stand still scoops. Now 175+ stores nationwide, with its HQ in Canfield.",
- k:"Cash-friendly, seasonal lines. The original location marks Handel's roots.",s:[["HANDEL",""]]},
+ k:"Cash-friendly, seasonal lines. The original location marks Handel's roots.",s:[["HANDEL",""],["D53_HANDELSHOMEMAD_1",""]]},
 {t:2,a:"WK",cz:["IT"],n:"Golden Dawn",ad:"1245 Logan Ave",la:41.1120,ln:-80.6558,
  w:"A 1932 Brier Hill Italian-American landmark on Logan Avenue. It closed in 2017 and has since reopened — running again, tied to the neighbourhood's pizza lore.",
  k:"Reopened after 2017; confirm current hours before going.",s:[["GD",""]]},
@@ -245,7 +255,7 @@ const F = [
  k:"In Warren, ~20 min north; pair with Dave Grohl Alley.",s:[["OHMAG",""]]},
 {t:3,a:"DY",cz:["DR"],n:"Birdfish Brewing Co.",ad:"140 E Park Ave, Columbiana, OH",la:40.8880,ln:-80.6940,
  w:"A community-minded small brewery in nearby Columbiana with a dozen rotating craft beers on tap — worth the drive south.",
- k:"In Columbiana, ~25 min south. Check taproom hours. Approximate pin.",s:[["FADD",""]]},
+ k:"In Columbiana, ~25 min south. Check taproom hours. Approximate pin.",s:[["FADD",""],["D53_BIRDFISHBREWIN_1",""],["D53_BIRDFISHBREWIN_2",""]]},
 /* == MARKETS (selective: notable, permanent or popular-recurring, publicly open) == */
 {t:2,a:"MC",cz:["MKT"],n:"The Amish Market",ad:"6121 South Ave, Boardman",la:41.0340,ln:-80.6500,
  w:"A permanent indoor Amish market on South Avenue: bulk foods, baked goods, produce, meats, cheese and dairy, plus Amish furniture and a hot-food restaurant, all under one roof. A genuine fixture, not a pop-up.",

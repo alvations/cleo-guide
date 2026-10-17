@@ -2,12 +2,20 @@
  "_generated": "tools/beta/build.js (lib/recognition.js) — do not edit",
  "v": 1,
  "_doc": "Publishers left UNTYPED by the recognition rules (design/beta/RECOGNITION.md): no registry entry agrees on their key, host or domain, and no host rule applies. Typing them needs a registry entry (data/sources.json, owner), not a guess. They count against the local-favourites lens only by not qualifying.",
- "typed": 2176,
- "of": 2576,
+ "typed": 2191,
+ "of": 2600,
  "pages": [
   {
    "page": "cleveland",
    "untyped": [
+    {
+     "k": "CLEVELAND MAGAZINE",
+     "name": "Cleveland Magazine",
+     "hosts": [
+      "clevelandmagazine.com"
+     ],
+     "places": 17
+    },
     {
      "k": "BOURDAIN / TV",
      "name": "Bourdain / TV",
@@ -33,10 +41,18 @@
      "places": 1
     },
     {
-     "k": "CLEVELAND MAGAZINE",
-     "name": "Cleveland Magazine",
+     "k": "CRAIN'S CLEVELAND",
+     "name": "Crain's Cleveland Business",
      "hosts": [
-      "clevelandmagazine.com"
+      "crainscleveland.com"
+     ],
+     "places": 1
+    },
+    {
+     "k": "INQUIRER USA",
+     "name": "Inquirer USA",
+     "hosts": [
+      "usa.inquirer.net"
      ],
      "places": 1
     }
@@ -1872,7 +1888,7 @@
      "hosts": [
       "timeout.com"
      ],
-     "places": 91
+     "places": 126
     },
     {
      "k": "NYT",
@@ -1888,25 +1904,49 @@
      "hosts": [
       "iloveny.com"
      ],
-     "places": 11
+     "places": 12
     },
     {
      "k": "6SQFT",
      "name": "6SQFT",
      "hosts": [],
-     "places": 7
+     "places": 10
     },
     {
      "k": "AMNY",
      "name": "Amny",
      "hosts": [],
-     "places": 5
+     "places": 10
+    },
+    {
+     "k": "FORGOTTEN NY",
+     "name": "Forgotten NY",
+     "hosts": [],
+     "places": 8
     },
     {
      "k": "ABC7 NY",
      "name": "ABC7 NY",
      "hosts": [],
-     "places": 4
+     "places": 6
+    },
+    {
+     "k": "NYC LANDMARKS COMMISSION",
+     "name": "NYC Landmarks Commission",
+     "hosts": [],
+     "places": 6
+    },
+    {
+     "k": "HISTORIC DISTRICTS COUNCIL",
+     "name": "Historic Districts Council",
+     "hosts": [],
+     "places": 5
+    },
+    {
+     "k": "VILLAGE VOICE",
+     "name": "Village Voice",
+     "hosts": [],
+     "places": 5
     },
     {
      "k": "BROOKLYN PAPER",
@@ -1914,35 +1954,47 @@
      "hosts": [
       "brooklynpaper.com"
      ],
-     "places": 3
+     "places": 4
     },
     {
      "k": "EDIBLE QUEENS",
      "name": "Edible Queens",
      "hosts": [],
-     "places": 3
+     "places": 4
     },
     {
-     "k": "FORGOTTEN NY",
-     "name": "Forgotten NY",
+     "k": "NY LANDMARKS CONSERVANCY",
+     "name": "NY Landmarks Conservancy",
      "hosts": [],
-     "places": 3
+     "places": 4
     },
     {
-     "k": "HISTORIC DISTRICTS COUNCIL",
-     "name": "Historic Districts Council",
+     "k": "NEWS 12",
+     "name": "News 12",
      "hosts": [],
-     "places": 3
+     "places": 4
     },
     {
-     "k": "VILLAGE VOICE",
-     "name": "Village Voice",
+     "k": "AMSTERDAM NEWS",
+     "name": "Amsterdam News",
      "hosts": [],
-     "places": 3
+     "places": 2
+    },
+    {
+     "k": "CENTRAL PARK CONSERVANCY",
+     "name": "Central Park Conservancy",
+     "hosts": [],
+     "places": 2
     },
     {
      "k": "CORNER",
      "name": "Corner",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "HELL GATE",
+     "name": "Hell Gate",
      "hosts": [],
      "places": 2
     },
@@ -1961,20 +2013,20 @@
      "places": 2
     },
     {
-     "k": "NY LANDMARKS CONSERVANCY",
-     "name": "NY Landmarks Conservancy",
-     "hosts": [],
-     "places": 2
-    },
-    {
      "k": "NY1",
      "name": "NY1",
      "hosts": [],
      "places": 2
     },
     {
-     "k": "NEWS 12",
-     "name": "News 12",
+     "k": "NEW YORK SUN",
+     "name": "New York Sun",
+     "hosts": [],
+     "places": 2
+    },
+    {
+     "k": "OPEN HOUSE NEW YORK",
+     "name": "Open House New York",
      "hosts": [],
      "places": 2
     },
@@ -1991,11 +2043,23 @@
      "places": 2
     },
     {
+     "k": "THE BOWERY BOYS",
+     "name": "The Bowery Boys",
+     "hosts": [],
+     "places": 2
+    },
+    {
      "k": "THE MET",
      "name": "The Metropolitan Museum of Art (official)",
      "hosts": [
       "metmuseum.org"
      ],
+     "places": 2
+    },
+    {
+     "k": "WNYC",
+     "name": "Wnyc",
+     "hosts": [],
      "places": 2
     },
     {
@@ -2023,12 +2087,6 @@
      "places": 1
     },
     {
-     "k": "AMSTERDAM NEWS",
-     "name": "Amsterdam News",
-     "hosts": [],
-     "places": 1
-    },
-    {
      "k": "ARCHITECTURAL RECORD",
      "name": "Architectural Record",
      "hosts": [],
@@ -2043,12 +2101,6 @@
     {
      "k": "BRONX TIMES",
      "name": "Bronx Times",
-     "hosts": [],
-     "places": 1
-    },
-    {
-     "k": "CENTRAL PARK CONSERVANCY",
-     "name": "Central Park Conservancy",
      "hosts": [],
      "places": 1
     },
@@ -2115,20 +2167,20 @@
      "places": 1
     },
     {
+     "k": "NBC NEW YORK",
+     "name": "NBC New York",
+     "hosts": [],
+     "places": 1
+    },
+    {
      "k": "NYC EDC",
      "name": "NYC Edc",
      "hosts": [],
      "places": 1
     },
     {
-     "k": "NYC LANDMARKS COMMISSION",
-     "name": "NYC Landmarks Commission",
-     "hosts": [],
-     "places": 1
-    },
-    {
-     "k": "NEW YORK SUN",
-     "name": "New York Sun",
+     "k": "NATIONAL TRUST FOR HISTORIC PRESERVATION",
+     "name": "National Trust For Historic Preservation",
      "hosts": [],
      "places": 1
     },
@@ -2153,17 +2205,17 @@
      "places": 1
     },
     {
-     "k": "OPEN HOUSE NEW YORK",
-     "name": "Open House New York",
-     "hosts": [],
-     "places": 1
-    },
-    {
      "k": "PARRISH",
      "name": "Parrish Art Museum (official)",
      "hosts": [
       "parrishart.org"
      ],
+     "places": 1
+    },
+    {
+     "k": "POETS.ORG (ACADEMY OF AMERICAN POETS)",
+     "name": "Poets.org (academy OF American Poets)",
+     "hosts": [],
      "places": 1
     },
     {
@@ -2181,8 +2233,20 @@
      "places": 1
     },
     {
+     "k": "ROBERT SIETSEMA",
+     "name": "Robert Sietsema",
+     "hosts": [],
+     "places": 1
+    },
+    {
      "k": "SCOTT'S PIZZA TOURS",
      "name": "Scott's Pizza Tours",
+     "hosts": [],
+     "places": 1
+    },
+    {
+     "k": "SMITHSONIAN MAGAZINE",
+     "name": "Smithsonian Magazine",
      "hosts": [],
      "places": 1
     },
@@ -2192,12 +2256,6 @@
      "hosts": [
       "stormking.org"
      ],
-     "places": 1
-    },
-    {
-     "k": "THE BOWERY BOYS",
-     "name": "The Bowery Boys",
-     "hosts": [],
      "places": 1
     },
     {
@@ -2225,12 +2283,6 @@
     {
      "k": "WILDLIFE CONSERVATION SOCIETY",
      "name": "Wildlife Conservation Society",
-     "hosts": [],
-     "places": 1
-    },
-    {
-     "k": "WNYC",
-     "name": "Wnyc",
      "hosts": [],
      "places": 1
     },
@@ -3022,6 +3074,14 @@
       "vindy.com"
      ],
      "places": 2
+    },
+    {
+     "k": "CLIO",
+     "name": "Clio",
+     "hosts": [
+      "theclio.com"
+     ],
+     "places": 1
     },
     {
      "k": "NE OHIO FAMILY FUN",
