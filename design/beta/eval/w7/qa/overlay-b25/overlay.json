@@ -1,0 +1,625 @@
+{
+ "verdict": "FAIL",
+ "gate": "fail",
+ "budgetsSet": true,
+ "ledgerHasSeverity": true,
+ "openHighMed": [
+  "OV-01",
+  "OV-02",
+  "OV-03",
+  "OV-04",
+  "OV-05",
+  "OV-06",
+  "OV-07",
+  "OV-08",
+  "OV-09",
+  "OV-11",
+  "OV-30",
+  "OV-31",
+  "OV-32",
+  "OV-33",
+  "OV-34",
+  "OV-35",
+  "OV-36"
+ ],
+ "overBudget": [
+  "cities/tokyo.html phone light atlas: chrome while panning 25% > 8",
+  "cities/tokyo.html phone light atlas: clear map 71% < 72",
+  "cities/tokyo.html phone light atlas: clear map while panning 71% < 90",
+  "cities/tokyo.html phone light atlas: labels cover 15% > 8",
+  "cities/tokyo.html phone light atlas: widest label 63% of the map width > 40",
+  "cities/tokyo.html landscape light atlas: chrome at rest 39% > 13",
+  "cities/tokyo.html landscape light atlas: chrome while panning 39% > 13",
+  "cities/tokyo.html landscape light atlas: clear map 57% < 80",
+  "cities/tokyo.html landscape light atlas: clear map while panning 57% < 80",
+  "cities/tokyo.html landscape light atlas: labels cover 14% > 8",
+  "cities/tokyo.html tablet-land light atlas: labels cover 24% > 6",
+  "cities/tokyo.html tablet-land light atlas: widest label 246 px > 220"
+ ],
+ "searchThisAreaOnLoad": [],
+ "collisions": [
+  "cities/tokyo.html landscape light atlas: 日本語 × Gallery; 日本語 × Atlas",
+  "cities/tokyo.html tablet-land light atlas:  × All 488"
+ ],
+ "cells": [
+  {
+   "page": "cities/tokyo.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 25,
+     "topPct": 18,
+     "bottomPct": 6,
+     "midChrome": true,
+     "clearVP": 71,
+     "labelGap": 0,
+     "labelMaxPx": 246,
+     "mapPaneVisPct": 88,
+     "clearMapPct": 81,
+     "labelPct": 15,
+     "widestLabelPct": 63,
+     "labels": 8,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 25,
+     "topPct": 18,
+     "bottomPct": 6,
+     "midChrome": true,
+     "clearVP": 71,
+     "labelGap": 0,
+     "labelMaxPx": 246,
+     "mapPaneVisPct": 88,
+     "clearMapPct": 81,
+     "labelPct": 14,
+     "widestLabelPct": 63,
+     "labels": 8,
+     "labelOverlaps": 0,
+     "labelOverControl": 3,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 25,
+     "topPct": 18,
+     "bottomPct": 6,
+     "midChrome": true,
+     "clearVP": 69,
+     "labelGap": 0,
+     "labelMaxPx": 246,
+     "mapPaneVisPct": 88,
+     "clearMapPct": 78,
+     "labelPct": 16,
+     "widestLabelPct": 63,
+     "labels": 8,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": true
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 12,
+     "topPct": 12,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 7,
+     "collisionEg": [
+      "Cleo — all destinati × Gallery",
+      "Japan × Gallery",
+      "Japan × Atlas",
+      "日本語 × Atlas"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 12,
+     "topPct": 12,
+     "bottomPct": 0,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 6,
+     "topPct": 6,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 7,
+     "collisionEg": [
+      "Cleo — all destinati × Gallery",
+      "Japan × Gallery",
+      "Japan × Atlas",
+      "日本語 × Atlas"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "phone",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 21,
+     "topPct": 12,
+     "bottomPct": 9,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 390,
+     "vh": 844,
+     "chromePct": 21,
+     "topPct": 12,
+     "bottomPct": 9,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 39,
+     "topPct": 25,
+     "bottomPct": 15,
+     "midChrome": false,
+     "clearVP": 57,
+     "labelGap": 0,
+     "labelMaxPx": 264,
+     "mapPaneVisPct": 88,
+     "clearMapPct": 65,
+     "labelPct": 14,
+     "widestLabelPct": 31,
+     "labels": 7,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 2,
+     "collisionEg": [
+      "日本語 × Gallery",
+      "日本語 × Atlas"
+     ],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 39,
+     "topPct": 25,
+     "bottomPct": 15,
+     "midChrome": false,
+     "clearVP": 57,
+     "labelGap": 0,
+     "labelMaxPx": 264,
+     "mapPaneVisPct": 88,
+     "clearMapPct": 65,
+     "labelPct": 13,
+     "widestLabelPct": 31,
+     "labels": 7,
+     "labelOverlaps": 0,
+     "labelOverControl": 9,
+     "collisions": 2,
+     "collisionEg": [
+      "日本語 × Gallery",
+      "日本語 × Atlas"
+     ],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 39,
+     "topPct": 25,
+     "bottomPct": 15,
+     "midChrome": false,
+     "clearVP": 55,
+     "labelGap": 0,
+     "labelMaxPx": 218,
+     "mapPaneVisPct": 88,
+     "clearMapPct": 62,
+     "labelPct": 14,
+     "widestLabelPct": 26,
+     "labels": 8,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 2,
+     "collisionEg": [
+      "日本語 × Gallery",
+      "日本語 × Atlas"
+     ],
+     "searchThisArea": true
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 12,
+     "topPct": 12,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 12,
+     "topPct": 12,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 6,
+     "collisionEg": [
+      "Cleo — all destinati × ★ SignatureAnime, ma",
+      "Japan × ★ SignatureAnime, ma",
+      "日本語 × Your guideFor youTel",
+      "Search every place × Must see177"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 12,
+     "topPct": 12,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 12,
+     "topPct": 12,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "landscape",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 18,
+     "topPct": 0,
+     "bottomPct": 18,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 844,
+     "vh": 390,
+     "chromePct": 18,
+     "topPct": 0,
+     "bottomPct": 18,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "atlas",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "clearVP": 47,
+     "labelGap": 0,
+     "labelMaxPx": 246,
+     "mapPaneVisPct": 51,
+     "clearMapPct": 93,
+     "labelPct": 24,
+     "widestLabelPct": 41,
+     "labels": 16,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 1,
+     "collisionEg": [
+      " × All 488"
+     ],
+     "searchThisArea": false
+    },
+    "panning": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "clearVP": 47,
+     "labelGap": 0,
+     "labelMaxPx": 246,
+     "mapPaneVisPct": 51,
+     "clearMapPct": 93,
+     "labelPct": 23,
+     "widestLabelPct": 41,
+     "labels": 17,
+     "labelOverlaps": 0,
+     "labelOverControl": 4,
+     "collisions": 1,
+     "collisionEg": [
+      " × All 488"
+     ],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "clearVP": 47,
+     "labelGap": 0,
+     "labelMaxPx": 246,
+     "mapPaneVisPct": 51,
+     "clearMapPct": 93,
+     "labelPct": 23,
+     "widestLabelPct": 41,
+     "labels": 16,
+     "labelOverlaps": 0,
+     "labelOverControl": 0,
+     "collisions": 1,
+     "collisionEg": [
+      " × All 488"
+     ],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "gallery",
+   "states": {
+    "load": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "gallery",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "guidebook",
+   "states": {
+    "load": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "guidebook",
+     "sheet": false,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 7,
+     "topPct": 7,
+     "bottomPct": 0,
+     "midChrome": false,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "tablet-land",
+   "theme": "light",
+   "view": "sheet",
+   "states": {
+    "load": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    },
+    "moved": {
+     "view": "atlas",
+     "sheet": true,
+     "vw": 1024,
+     "vh": 768,
+     "chromePct": 11,
+     "topPct": 7,
+     "bottomPct": 4,
+     "midChrome": true,
+     "collisions": 0,
+     "collisionEg": [],
+     "searchThisArea": false
+    }
+   },
+   "errors": []
+  }
+ ]
+}
