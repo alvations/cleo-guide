@@ -825,3 +825,8 @@ html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.mappil
 html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.toolbar{display:none!important}
 /* OV-00 P2 at rest (header 52 + switch row 52 ≤ 16 %): on phones and tablets the switch row is the switch itself, no padding */
 @media (max-width:1023px){html body main[data-city]>.cbar>.cbar-in{padding-block:0}}
+/* OV (platform, marked block): the "Keep <city> offline" control is in-flow page content; in the phone/tablet Atlas
+   layout the full-bleed map and its bars are fixed over the page, so the control would sit under them, covered and
+   unreachable (overlay audit: tools/beta/qa/overlay/platform-overlay.js). It is offered in every other view instead. */
+html.atlas-m[data-view=atlas] [data-cleo-pack]{display:none!important}
+/* /OV platform */
