@@ -7,7 +7,8 @@ Branch: `claude/peaceful-goodall-i0hsrt`. Push: `tools/beta/sync-push.sh` (merge
 Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the orchestrator's order.
 
 ## Done (on origin, verified)
-- **D-49 §v2.7b no-photo card:** compact row (A) ≤599, quote card (B) ≥600 incl. Gallery rows (gc--np), lead card only with a photo, dish-word ruling, State College URL-as-why guard. Commit "D-49 …". Next: QA-82, FE-1 landscape filters slot, phone sheet CLS, then CSS gap #6.
+- **D-49 §v2.7b no-photo card:** d6bb8367a. **D-46 desktop lead (.pl-lead, build-marked MP #1 with photo; html.cleo-lensed gate):** adeabcd63. **QA-82 + landscape rail not sticky:** 975e2bfe4. **OV-106/115–117 fold <1024 + QC-06 768 switch:** c13cc79fa (head c45c0aa94).
+- **Open:** w8 day-summary row red on base — designer's cleo.css cut bbaf111a8 dropped .day/.daysum/.stop rules; asked designer to restore. Next: T1 chrome 11.8→11 %, fe-a.css −30 KB on designer's corrected coverage (design/beta/eval/css-coverage.json, tools design/beta/tools/css-trim.py + css-parity.*), FE-1 landscape filters slot, phone sheet CLS.
 - **W8:**
   - "Start with" = the lead card: bae1b624
   - day plans: 16720bd1
