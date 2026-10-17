@@ -14,6 +14,8 @@ SG/MY 12; no photo on food is ever possible from these sources).
   USGS 1 manual), 30 refused rows kept; 22 searched-with-nothing targets in searched-gaps.tsv.
 
 **In flight:**
+- 14:25Z Pexels feasibility written (docs/BETA-IMAGE-SOURCES-FEASIBILITY.md §10): terms allow stored resized credited copies; yield ~3–6 of 41 → recommend no for now. DORMANT until: Europeana key, the next photo run (4 D-56 LoC credits), or an orchestrator decision on Pexels.
+- 14:20Z wave 3: remaining untouched gaps are small — tier-1 15 (Japan 6, DE/BE 9: need Pexels/Europeana keys), first-24 39 (Singapore 26: no fitting source; US 8: LoC searched, nothing). LoC yield is exhausted; the lane's remaining levers are the EUROPEANA_API_KEY (13 real-gap Rijksmuseum rows) and imagery lifting the 4 D-56 skips.
 - 14:05Z FIRST CREDITS LANDED (run #117, 303ff0105): 16 LoC photos, all tier-1 (DC 7, Philadelphia 3, Chicago 2, Cincinnati 1, Miami 1,
   SF 1, Silicon Valley 1); 3 are in a guide's first 24 default-view cards. 12 other approved rows were skipped correctly because
   Commons credited the same places earlier in the run. 4 wait for imagery to lift its skips (D-56): Music Hall, Findlay Market,
