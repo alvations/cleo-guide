@@ -140,7 +140,7 @@ const pinSource = src => {
 // site ("Official site", "Official company/institution site") is evidence, not a recommender: `recommender` gives null.
 const INTERNAL_PAREN = /\s*\((?=[^)]*(?:coord|facts|notability|verif|research))[^)]*\)/gi;
 const OWN_SITE = /^official\s+(?:site|website|company|institution)\b/i;
-const publicName = n => String(n || '').replace(INTERNAL_PAREN, '').trim();
-const recommender = n => (OWN_SITE.test(publicName(n)) ? null : publicName(n) || null);
+const publicName = n => { const v = String(n || '').replace(INTERNAL_PAREN, '').trim(); return OWN_SITE.test(v) && !/^official site$/i.test(v) ? 'Official site' : v; };   // designer: fall back to "Official site"
+const recommender = n => (OWN_SITE.test(publicName(n)) ? null : publicName(n) || null);   // landing / hub "Recommended by": never a place's own site
 
 module.exports = { publicName, recommender, statusUrl, pinSource, RESEARCH, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
