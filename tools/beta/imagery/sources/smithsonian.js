@@ -21,7 +21,8 @@ function fromRecord(c, id) {
   const d = c.descriptiveNonRepeating || {}, f = c.freetext || {}, ix = c.indexedStructured || {};
   const media = ((d.online_media || {}).media || []).filter(m => m && m.type !== 'Audio' && (m.usage || {}).access === 'CC0' && m.content);
   const usage = (d.metadata_usage || {}).access;
-  const names = (f.name || []).filter(n => /photograph|artist|maker|creator|author|publisher/i.test(n.label || '')).map(n => n.content).filter(Boolean);
+  const named = (f.name || []).filter(n => /photograph|artist|maker|creator|author|publisher/i.test(n.label || '')).map(n => n.content).filter(Boolean);
+  const names = named.filter(n => !lib.ANON.test(n));
   const refused = usage !== 'CC0' ? `not CC0 (metadata_usage.access: ${usage || 'none'})` : !media.length ? 'no CC0 image in online_media' : '';
   const link = String(d.record_link || '').replace(/^http:/, 'https:');
   return {
@@ -29,7 +30,7 @@ function fromRecord(c, id) {
     sourceUrl: /^https:\/\//.test(link) ? link : `https://www.si.edu/object/${id}`,
     licence: 'CC0 1.0', licenceUrl: lib.LICENCES['CC0 1.0'], institution: `Smithsonian${d.data_source ? ` (${d.data_source})` : ''}`,
     text: [...vals(f.notes), ...vals(f.place), ...vals(ix.place), ...vals(f.topic), ...vals(f.setName), ...vals(f.objectType), ...vals(ix.geoLocation && [].concat(ix.geoLocation).map(g => JSON.stringify(g)))].join(' '),
-    refused, imageUrl: w => `${media[0].content}${media[0].content.includes('?') ? '&' : '?'}max=${w}`,
+    anonymous: !names.length && named.length > 0, refused, imageUrl: w => `${media[0].content}${media[0].content.includes('?') ? '&' : '?'}max=${w}`,
   };
 }
 

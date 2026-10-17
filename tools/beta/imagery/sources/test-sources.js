@@ -89,7 +89,15 @@ const euObj = { about: '/90402/RP_F_F06191', aggregations: [{ edmRights: { def: 
   proxies: [{ dcTitle: { en: ['Porta Nigra in Trier'] }, dcCreator: { def: ['anonymous'] } }, { dcCreator: { def: ['Johann Kühnen'] }, dcDate: { def: ['c. 1880'] } }] };
 const e1 = eu.fromObject(euObj);
 ok(!e1.refused && e1.author === 'Johann Kühnen' && e1.licence === 'Public domain' && e1.sourceUrl === 'https://www.europeana.eu/item/90402/RP_F_F06191' && e1.institution === 'Rijksmuseum via Europeana', 'Europeana record → PDM item, a named creator (not "anonymous"), provider credited');
-ok(!eu.fromObject({ ...euObj, proxies: [{ dcTitle: { en: ['x'] }, dcCreator: { def: ['anoniem'] } }] }).author, 'Europeana anonymous creator → no author (so refused)');
+const anonEu = eu.fromObject({ ...euObj, proxies: [{ dcTitle: { en: ['Porta Nigra in Trier'] }, dcCreator: { def: ['anoniem'] } }] });
+ok(!anonEu.author && anonEu.anonymous, 'Europeana anonymous creator → no author, flagged anonymous');
+const anonIt = { ...good, author: '', anonymous: true, institution: 'Rijksmuseum via Europeana' };
+ok(lib.itemProblems({ ...anonIt }, { ...row, era: 'historic', stillLooks: 'yes' }, T, A) === '', 'D-52: anonymous as catalogued, PD, historic → passes');
+const anonDone = { ...anonIt }; lib.itemProblems(anonDone, { ...row, era: 'historic', stillLooks: 'yes' }, T, A);
+ok(anonDone.author === 'Anonymous (as catalogued by Rijksmuseum via Europeana)', 'D-52: the credit reads "Anonymous (as catalogued by <institution>)"');
+ok(/anonymous/.test(lib.itemProblems({ ...anonIt }, row, T, A)), 'D-52: anonymous on a modern row → refused');
+ok(/anonymous/.test(lib.itemProblems({ ...anonIt, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/' }, { ...row, era: 'historic', stillLooks: 'yes' }, T, A)), 'D-52: anonymous on a CC BY row → refused');
+ok(/never invented/.test(lib.itemProblems({ ...good, author: '' }, { ...row, era: 'historic', stillLooks: 'yes' }, T, A)), 'D-52: an author the institution leaves blank (not catalogued anonymous) → refused');
 const m1 = { isPublicDomain: false, primaryImage: 'https://images.metmuseum.org/x.jpg', title: 'x' };
 ok(met.idOf({ itemUrl: 'https://www.metmuseum.org/art/collection/search/264242' }) === '264242', 'Met id from its URL');
 ok(pexels.idOf({ itemUrl: 'https://www.pexels.com/photo/shuri-castle-in-naha-12345678/' }) === '12345678' && pexels.slugWords('https://www.pexels.com/photo/shuri-castle-in-naha-12345678/') === 'shuri castle in naha', 'Pexels id and slug words from the URL');
@@ -123,8 +131,10 @@ ok(photos.creditProblems(stockRow).some(x => /licence/.test(x)), 'a Pexels row i
   fs.writeFileSync(path.join(box, 'candidates.tsv'), [head, mk('111', ''), mk('222', 'ok'), mk('333', 'wrong building')].join('\n') + '\n');
   const jpeg = await sharp({ create: { width: 1200, height: 800, channels: 3, background: '#7799bb' } }).jpeg().toBuffer();
   const realFetch = global.fetch, calls = [];
+  let dropped = 0;
   global.fetch = async url => {
     calls.push(String(url));
+    if (/objects\/111/.test(url) && !dropped++) throw new TypeError('terminated');   // run #1: a dropped connection is retried, not fatal
     if (/images\.metmuseum/.test(url)) return new Response(jpeg, { status: 200, headers: { 'content-type': 'image/jpeg' } });
     const id = (/objects\/(\d+)/.exec(url) || [])[1];
     return new Response(JSON.stringify({ objectID: +id, isPublicDomain: true, primaryImage: `https://images.metmuseum.org/${id}.jpg`, title: 'Jefferson Memorial, Washington', artistDisplayName: 'Theodor Horydczak', objectDate: '1943', objectURL: `https://www.metmuseum.org/art/collection/search/${id}` }), { status: 200, headers: { 'content-type': 'application/json' } });
@@ -135,7 +145,7 @@ ok(photos.creditProblems(stockRow).some(x => /licence/.test(x)), 'a Pexels row i
   const L = require('./lib'), M = require('./met');
   const log = console.log; console.log = () => {};
   try {
-    process.argv = ['node', 'met.js', '--stage', '--delay', '0'];
+    process.argv = ['node', 'met.js', '--stage', '--delay', '1'];
     const c1 = await L.main(M.adapter);
     const st = JSON.parse(fs.readFileSync(path.join(box, 'stage/met/stage.json'), 'utf8'));
     const cr1 = JSON.parse(fs.readFileSync(path.join(box, 'CREDITS.json'), 'utf8')).credits;
@@ -149,6 +159,7 @@ ok(photos.creditProblems(stockRow).some(x => /licence/.test(x)), 'a Pexels row i
     const f960 = path.join(box, 'photos', cr2[0].file), f500 = path.join(box, 'photos', cr2[0].variants[0].file);
     ok(fs.existsSync(f960) && fs.existsSync(f500) && cr2[0].width === 960 && cr2[0].variants[0].width === 500 && !photos.creditProblems(cr2[0]).length, '--credit writes 960 + 500 JPEGs and a gate-clean row');
     ok(!calls.some(u => /objects\/333/.test(u)), 'a refused review is never even read from the API');
+    ok(dropped >= 2 && calls.filter(u => /objects\/111/.test(u)).length === 2, 'a dropped connection ("terminated") is retried once and the item still staged');
   } catch (e) { console.log = log; ok(false, `end to end threw: ${e.stack}`); }
   finally {
     global.fetch = realFetch; process.argv = argv;

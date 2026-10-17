@@ -1,0 +1,108 @@
+{
+ "_generated": "tools/beta/imagery/fetch-openverse.js — discover phase; review verdicts in tools/beta/imagery/manifest/openverse-review.tsv",
+ "v": 1,
+ "targets": {
+  "hero:singapore/dempsey-hill": [],
+  "landmark:hokkaido#former-aoyama-villa-otaru-kihinkan": [],
+  "landmark:kyoto#marufukuro-former-nintendo-headquarters": [],
+  "landmark:singapore/mandai#singapore-zoo": [
+   {
+    "id": "ov-e2082135-8612-4828-8362-3de9a74ec238",
+    "openverseId": "e2082135-8612-4828-8362-3de9a74ec238",
+    "source": "flickr",
+    "provider": "flickr",
+    "title": "Mandai boardwalk - next to Singapore Zoo",
+    "creator": "GeorgeTan#5",
+    "sourceUrl": "https://www.flickr.com/photos/198109102@N06/54363566527/",
+    "authorUrl": "https://www.flickr.com/photos/198109102@N06/",
+    "licence": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "imageUrl": "https://live.staticflickr.com/65535/54363566527_ef72d6e7c8_b.jpg",
+    "thumb": "https://api.openverse.org/v1/images/e2082135-8612-4828-8362-3de9a74ec238/thumb/",
+    "width": 1024,
+    "height": 642,
+    "matched": "title+town: singapore",
+    "review": "pending",
+    "key": "landmark:singapore/mandai#singapore-zoo",
+    "cls": "priority",
+    "record": {
+     "page": "singapore/mandai",
+     "id": "singapore-zoo"
+    },
+    "widths": [
+     500,
+     720,
+     960
+    ],
+    "label": "Singapore Zoo"
+   }
+  ],
+  "landmark:singapore/punggol#coney-island-park-pulau-serangoon": [
+   {
+    "id": "ov-3301c96a-72ba-4fa7-a18f-faa9af763ef2",
+    "openverseId": "3301c96a-72ba-4fa7-a18f-faa9af763ef2",
+    "source": "flickr",
+    "provider": "flickr",
+    "title": "Coney Island / Pulau Serangoon",
+    "creator": "Jnzl's Photos",
+    "sourceUrl": "https://www.flickr.com/photos/102748040@N03/22249151646/",
+    "authorUrl": "https://www.flickr.com/photos/102748040@N03/",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "imageUrl": "https://live.staticflickr.com/625/22249151646_610590fc14_b.jpg",
+    "thumb": "https://api.openverse.org/v1/images/3301c96a-72ba-4fa7-a18f-faa9af763ef2/thumb/",
+    "width": 1024,
+    "height": 683,
+    "matched": "title+tags: coney",
+    "review": "pending",
+    "key": "landmark:singapore/punggol#coney-island-park-pulau-serangoon",
+    "cls": "priority",
+    "record": {
+     "page": "singapore/punggol",
+     "id": "coney-island-park-pulau-serangoon"
+    },
+    "widths": [
+     500,
+     720,
+     960
+    ],
+    "label": "Coney Island Park (Pulau Serangoon)"
+   },
+   {
+    "id": "ov-e3c46a69-4661-4231-8b0a-e65304e09622",
+    "openverseId": "e3c46a69-4661-4231-8b0a-e65304e09622",
+    "source": "flickr",
+    "provider": "flickr",
+    "title": "Coney Island / Pulau Serangoon",
+    "creator": "Jnzl's Photos",
+    "sourceUrl": "https://www.flickr.com/photos/102748040@N03/22088434439/",
+    "authorUrl": "https://www.flickr.com/photos/102748040@N03/",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "imageUrl": "https://live.staticflickr.com/622/22088434439_17f845481f_b.jpg",
+    "thumb": "https://api.openverse.org/v1/images/e3c46a69-4661-4231-8b0a-e65304e09622/thumb/",
+    "width": 1024,
+    "height": 683,
+    "matched": "title+tags: coney",
+    "review": "pending",
+    "key": "landmark:singapore/punggol#coney-island-park-pulau-serangoon",
+    "cls": "priority",
+    "record": {
+     "page": "singapore/punggol",
+     "id": "coney-island-park-pulau-serangoon"
+    },
+    "widths": [
+     500,
+     720,
+     960
+    ],
+    "label": "Coney Island Park (Pulau Serangoon)"
+   }
+  ],
+  "landmark:wheeling#meadowcroft-rockshelter-and-historic-village": [],
+  "landmark:wheeling#pennsylvania-trolley-museum": [],
+  "landmark:akron#massillon-museum-massmu": [],
+  "landmark:antwerp#zoo-planckendael": [],
+  "landmark:antwerp#de-ruien": []
+ }
+}

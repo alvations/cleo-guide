@@ -19,6 +19,7 @@ const PREAMBLE = [
   '# Image-sources candidate manifest (D-50). One row per (target, source, item). Edit by hand only to set `review`:',
   '#   ok = a person looked at the contact-sheet preview and it shows the place; anything else = the refusal reason.',
   '# `refused` set at research = never fetched. Columns: see tools/beta/imagery/sources/README.md.',
+  '# A push that changes this file starts the stage workflow (beta-image-sources-stage.yml): previews + contact sheet, nothing credited.',
 ];
 
 function problems(r) {
@@ -48,8 +49,12 @@ function main() {
     console.log(`candidates.tsv: ${have.length} rows, ${have.filter(r => !r.refused).length} candidates, ${bad ? `${bad} problem(s)` : 'clean'}`);
     process.exitCode = bad ? 1 : 0; return;
   }
-  const seen = new Set(have.map(key)), add = [], rejected = [];
+  const seen = new Set(have.map(key)), add = [], rejected = [], searched = [];
+  const GAPS = require('path').join(__dirname, 'searched-gaps.tsv');
+  const known = new Set(fs.existsSync(GAPS) ? fs.readFileSync(GAPS, 'utf8').split('\n').map(l => l.split('\t').slice(0, 2).join('|')) : []);
   for (const f of argv) for (const r of lib.readCandidates(f)) {
+    // "searched, nothing found" rows (no item) go to searched-gaps.tsv so the next wave skips them
+    if (!r.itemUrl && !r.itemId) { if (r.target && !known.has(`${r.target}|${r.source}`)) { known.add(`${r.target}|${r.source}`); searched.push([r.target, r.source || '?', new Date().toISOString().slice(0, 10), (r.refused || 'searched: nothing found').replace(/\s+/g, ' ')].join('\t')); } continue; }
     if (seen.has(key(r))) continue;
     const p = problems(r);
     if (p.length) { rejected.push(`${f.split('/').pop()}:${r.line} ${r.target} ${r.itemId}: ${p.join('; ')}`); continue; }
@@ -57,6 +62,8 @@ function main() {
   }
   const rows = [...have, ...add].sort((a, b) => a.target.localeCompare(b.target) || a.source.localeCompare(b.source));
   fs.writeFileSync(lib.CANDIDATES, [...PREAMBLE, HEAD, ...rows.map(line)].join('\n') + '\n');
+  if (searched.length) fs.appendFileSync(GAPS, searched.join('\n') + '\n');
+  console.log(`searched-gaps.tsv: +${searched.length} target(s) searched with nothing found`);
   console.log(`added ${add.length} (${add.filter(r => !r.refused).length} candidates); candidates.tsv now ${rows.length} rows`);
   if (rejected.length) { console.log(`rejected ${rejected.length}:`); rejected.forEach(x => console.log(`  ${x}`)); }
 }

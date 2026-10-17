@@ -22,6 +22,45 @@ feed the same gate. Nothing here is credited before contact-sheet review.
 | — | **USGS** | Public domain, but EarthExplorer imagery (Landsat, 30 m) is not a place photo, and D-50 rejected satellite. One USGS *ground* photo (Battery Weed) is listed as a manual candidate; no fetcher |
 | — | **OpenStreetMap** | Maps already use OSM tiles; the tile policy forbids pre-emptive/bulk fetching, so no static map images are baked from tiles |
 
+## Openverse first (orchestrator, 2026-10-17)
+
+Imagery owns `fetch-openverse.js` (licence filter cc0/pdm/by/by-sa). For a source Openverse indexes, the route is Openverse;
+this lane then supplies candidate finding, identification evidence and review lists only.
+
+| Source | Indexed by Openverse? (evidence) | Route |
+|---|---|---|
+| Smithsonian | **Yes** — "Smithsonian Institution" and "Smithsonian Institution Archives" in the sources list (archived openverse.org/sources, 2024-05) | Openverse for search; smithsonian.js kept for exact-record reads by id (CC0 per media item is only in the EDAN record) |
+| The Met | **Yes** — "Metropolitan Museum of Art · 387,715" (same list) | Openverse; met.js kept (no key, exact `isPublicDomain` per object) |
+| Europeana | **Yes** — "hundreds of valuable sources through a single integration with the Europeana API" (Openverse) | Openverse for the open subset; europeana.js kept for exact `edm:rights` by record (needs the key) |
+| Library of Congress | **No** — not in the 2024 list | **loc.js** (dedicated) |
+| NYPL | **Not found** in any list seen | not built (v2 API undocumented; 0 NY candidates) |
+| Pexels | **Not found** (Openverse lists StockSnap, rawpixel, WordPress Photo Directory, Flickr) | pexels.js, pending the terms check below and a yield sample |
+| Pixabay | **Not found** | not mapped (no candidates; no photo ids from search) |
+
+Sources: https://webcf.waybackmachine.org/web/20240530000914/https://openverse.org/sources ·
+https://make.wordpress.org/openverse/2022/01/25/everything-you-need-to-know-about-openverse-and-the-wordpress-photo-directory/ ·
+https://www.searchengineworld.com/review-openverse-public-domain-works-search-engine
+
+## Stock APIs: storing copies, hotlinking, attribution (D-51 lesson)
+
+- **Pexels.** API guidelines: "Whenever you are doing an API request make sure to show a prominent link to Pexels" and "Always
+  credit our photographers when possible (e.g. "Photo by John Doe on Pexels" with a link to the photo page on Pexels)"; no copying
+  of core functionality (https://python-pexels.readthedocs.io/en/stable/guidelines.html, a mirror of
+  https://www.pexels.com/api/documentation/). **No rule requiring hotlinking or forbidding stored copies was found** in any
+  result; the licence itself allows download and modification. Caveat: the official English page was never returned by search, so
+  the absence of a hotlink rule is not proven. Our credit already gives "Photo by <name> on Pexels" + a Pexels link.
+- **Pixabay.** Secondary sources agree: "requests must be cached for 24 hours", images are to be downloaded to your own server and
+  "permanent hotlinking … is not allowed", "Systematic mass downloads are not allowed" (https://www.rubydoc.info/gems/pixabay_api/0.0.1,
+  https://pkg.go.dev/github.com/fdddf/pixa, https://blog.laozhang.ai/en/posts/free-image-api). Self-hosting is the expected use.
+  Official wording not returned by search.
+- Both: the orchestrator ranks them LOW for our gaps (feasibility report); a 20-target yield sample decides. Wave 1+2 found
+  33 Pexels candidates for 26 landmarks from about 45 searches; Pixabay 0 (search returns listing pages, never photo ids).
+
+## D-52 decisions applied
+
+- Anonymous creators: allowed only on a public-domain/CC0 row with `era: historic`, where the institution itself catalogues the
+  maker as anonymous/unknown; the credit reads "Anonymous (as catalogued by <institution>)". lib.js `itemProblems`, tested.
+
 ## Matrix
 
 | Source | Licence (quoted; URL) | API | Key (Actions secret) | Rate limit | Actions? | TASL mapping | Yield for our gaps | Risks |
@@ -52,9 +91,7 @@ feed the same gate. Nothing here is credited before contact-sheet review.
 
 ## Decisions asked (orchestrator)
 
-- **Anonymous creators on public-domain historic photos.** The rule "unknown author → refused" removes most Rijksmuseum (Europeana)
-  and Smithsonian Archives prints. Proposal: allow the holding institution's own attribution ("Anonymous, Rijksmuseum") only for
-  a public-domain or CC0 item with `era: historic`. Until decided, the fetchers refuse them.
+- Anonymous creators: decided in D-52 (above).
 
 ## Bytes
 
