@@ -19,7 +19,7 @@
   // FE-C INP (open a place ≤ 200 ms): build() marks where the first screen ends; an interactive open paints the sheet up to
   // there (nav, photo, name, Recommended by, rank, why, the action bar), then the rest one frame later, in place. Below the
   // first screen and above nothing else in the scroll area, so nothing that was painted moves (CLS 0)
-  var MORE = '<!--sh-more-->', MORE1 = '<!--/sh-more-->';
+  var MORE = '<!--more-->';
   function build(c) {
     var id = C.pid(c), name = q('.pl-n', c).textContent, a = c.getAttribute('data-a'), ll = c.getAttribute('data-ll');
     var pz = String((info.prov || {})[id] || ''), pb = pz.indexOf('|'), pv = pz ? [{ h: 'high', m: 'med', l: 'low', u: 'unverified' }[pz.charAt(0)] || '', (info.pd || [])[parseInt(pz.slice(1), 10)] || '', pb > 0 ? pz.slice(pb + 1) : ''] : [], closed = c.hasAttribute('data-closed'), chk = c.getAttribute('data-checked') || '';
@@ -121,7 +121,7 @@
       /* FE-C W9-1 hook: the card's recognition badges (a closed place's hidden "Before it closed" copy) */ (q('.pl-rec', c) ? '<div class="fact">' + icon('seal') + '<div>' + q('.pl-rec', c).outerHTML.replace(' hidden>', '>') + '</div></div>' : '') +
       /* FE-C W9-7 hook: a portrait share image of this place (share-card.js, loaded on tap by core) */ '<div class="fact">' + icon('share') + '<div><button type="button" class="btn btn-ghost" data-cleo-card="place" data-id="' + esc(id) + '">' + tt('card.share.image', 'Share as an image') + '</button></div></div>' +
       (planned && !closed && ll ? '<div class="fact">' + icon('route') + '<div><button class="btn btn-ghost" data-sh="day" aria-pressed="' + !!inDay + '">' + (inDay ? tt('sheet.day.on', 'In your day ✓') : esc(tt('sheet.day.off', 'Add to your day in {area}', { area: C.label('a', a) }))) + '</button></div></div>' : '') +
-      '<p class="sm"><a href="https://github.com/alvations/cleo-guide/issues/new?title=' + encodeURIComponent('Correction: ' + name + ' (' + info.name + ')') + '"' + NT + '>' + tt('sheet.correct', 'Suggest a correction') + '</a></p></div>' + MORE1 + '</div>' +
+      '<p class="sm"><a href="https://github.com/alvations/cleo-guide/issues/new?title=' + encodeURIComponent('Correction: ' + name + ' (' + info.name + ')') + '"' + NT + '>' + tt('sheet.correct', 'Suggest a correction') + '</a></p></div>' + MORE + '</div>' +
       '</div>' + /* FE-C OV-111 hook: the body ends where the action bar starts */ '<div class="actions"><button class="btn btn-ghost" data-sh="save" aria-pressed="' + !!saved + '">' + icon('heart') + '<span>' + (saved ? tt('sheet.saved', 'Saved') : tt('sheet.save', 'Save')) + '</span></button>' +
       (ll ? '<a class="btn ' + (closed ? 'btn-ghost' : 'btn-primary') + '" href="https://www.openstreetmap.org/directions?route=%3B' + encodeURIComponent(ll) + '"' + NT + '>' + icon('directions') + '<span>' + (closed ? tt('sheet.wasat', 'Where it was') : tt('sheet.directions', 'Directions')) + '</span></a>' : '<span></span>') +
       '<button class="btn btn-ghost" data-sh="share" data-url="' + esc(url) + '">' + icon('share') + '<span>' + tt('sheet.share', 'Share') + '</span></button></div></div>';
@@ -205,8 +205,8 @@
     // modified click or a page where history can't be written keep the plain link
     var h = t.matches('li.pl .pl-n a') && t.getAttribute('href');
     if (!h || !/^#p-/.test(h) || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || d.documentElement.getAttribute('data-view') === 'atlas') return;
-    var from = location.href; try { history.pushState(null, '', h); } catch (x) { return; }
-    e.preventDefault(); setTimeout(function () { window.dispatchEvent(new HashChangeEvent('hashchange', { oldURL: from, newURL: location.href })); }, 0);
+    try { history.pushState(null, '', h); } catch (x) { return; }
+    e.preventDefault(); setTimeout(function () { window.dispatchEvent(new Event('hashchange')); });
   }, true);
   var api = Cleo.sheet = {
     isOpen: function () { return !host.hidden; },
@@ -219,7 +219,7 @@
       // W8 (R7 2d): a side panel only beside the Atlas map; elsewhere a centred dialog over a scrim
       var show = function () {
         held = !(coldP && opens === 0); opens++;   // PERF-19b (platform)
-        card = c; byNav = navs > 0; var html = build(c), k0 = html.indexOf(MORE), k1 = html.indexOf(MORE1), two = held && k0 > 0 && k1 > k0;   /* FE-C INP hook */ host.innerHTML = two ? html.slice(0, k0) + '<div data-sh-more></div>' + html.slice(k1 + MORE1.length) : html; held = false; host.hidden = false; d.documentElement.classList.add('sheet-on');   /* FE-C OV-40 hook */ host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
+        card = c; byNav = navs > 0; var pt = build(c).split(MORE), two = held && pt.length === 3;   /* FE-C INP hook */ host.innerHTML = two ? pt[0] + '<i data-sh-more></i>' + pt[2] : pt.join(''); held = false; host.hidden = false; d.documentElement.classList.add('sheet-on');   /* FE-C OV-40 hook */ host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
         if (!host.classList.contains('side')) d.body.style.overflow = 'hidden';
         // designer: ✕ (with its ring) on a keyboard open; the dialog itself, ringless, on a tap or a deep link
         var rest = function () {
@@ -231,9 +231,7 @@
         // FE-C INP hook: after the first paint, the rest of the body goes in where the placeholder sits, then focus and the
         // hooks run (so the tap's frame forces no style or layout); a sheet closed or replaced meanwhile is left alone
         if (!two) { rest(); return; }
-        var tail = html.slice(k0 + MORE.length, k1);
-        requestAnimationFrame(function () { setTimeout(function () { if (card !== c || host.hidden) return;
-          var ph = q('[data-sh-more]', host); if (ph) { ph.insertAdjacentHTML('beforebegin', tail); ph.remove(); } rest(); }, 0); });
+        requestAnimationFrame(function () { setTimeout(function () { var ph = q('[data-sh-more]', host); if (card !== c || !ph) return; ph.outerHTML = pt[1]; rest(); }); });
       };
       // W7 gap #1, the signature moment (design/beta/style/v2/MOTION.md): the tapped card media grows into the sheet's media.
       // Only on a real tap of that card (≤ 1 s ago), only where view transitions exist and motion is allowed; otherwise as before.
