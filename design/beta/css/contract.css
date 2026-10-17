@@ -252,6 +252,7 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
 .pl-n { grid-row: 2; grid-column: 1; align-self: end; padding: var(--s-2) var(--s-4) var(--s-4) var(--s-5); z-index: 1;
   font: 500 var(--fs-d3)/var(--lh-d3) var(--font-display); letter-spacing: var(--track-tight); color: var(--ink); font-size: var(--fs-lead); text-wrap: balance; }
 .pl-n a { display: block; min-height: var(--tap); text-decoration: none; }
+.pl-w a, .pl-k a, .pl-ad a { position: relative; z-index: 2; }
 
 .pl-n a::after { content: ""; position: absolute; inset: 0; z-index: 0; }                     /* whole card is the target */
 .pl-n a:focus-visible { outline: none; }
@@ -276,8 +277,11 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
   .pls .pl:not(.is-target):not(:target):not(:focus-within) .pl-w { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 }
 .pl-k { padding-top: var(--s-3); font-size:var(--fs-sm); line-height: var(--lh-sm); color: var(--ink-2); }
+/* know-before: neutral (D-06 keeps the accent for actions); FE-A's .pl-k.note (prose "Your guide's note") gets the italic voice */
+.pl-k .lbl { display: block; font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-3); margin-bottom: 2px; }
 
 .pl-k:has(.lbl) { margin: var(--s-2) var(--s-4) 0; padding: var(--s-2) var(--s-3); border-left: 3px solid var(--area-c); background: var(--sand); border-radius: var(--r-s); }
+.pl-k.note p { font: italic 400 var(--fs-body)/1.45 var(--font-display); color: var(--ink); }
 
 .pl-ad { padding-top: var(--s-2); font-size:var(--fs-meta); color: var(--ink-3); }
 .pl-s { position: relative; z-index: 2; padding-top: var(--s-2); font-size:var(--fs-meta); line-height: var(--lh-d3); color: var(--ink-2); }
@@ -338,6 +342,7 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
   font-size:var(--fs-meta); line-height: var(--lh-xs); color: var(--ink-2); text-align: center; }
 /* area silhouettes from verified pins (assets/art/<city>/<AREA>.svg) on area heads */
 .area .shape, .area-shape { float: right; width: 84px; height: 64px; object-fit: contain; margin: 0 0 var(--s-1) var(--s-3); opacity: .9; }
+.mappane .credit { font-size: var(--fs-xs); color: var(--ink-3); }
 
 @media (max-width: 1023px) {
   /* mobile/tablet: list first (M1-05). FE-A's Map toggle sets data-view="map" on .split → full-screen map. */

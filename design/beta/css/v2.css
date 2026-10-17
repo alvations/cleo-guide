@@ -196,6 +196,7 @@
 :root .sticker, :root .tier.t1:not(.lg) { display: inline-flex; align-items: center; gap: var(--s-1); background: var(--sun-wash); color: var(--on-sun-wash);
   font: 600 var(--fs-xs)/1 var(--font-ui); letter-spacing: var(--track-eyebrow); padding: var(--s-2) var(--s-3); border-radius: var(--r-pill); box-shadow: none; }
 :root .sticker .ico, :root .tier.t1:not(.lg) .ico { width: 13px; height: 13px; color: currentColor; }
+:root :is(.cover, .pl-cover) .sticker { position: absolute; top: 12px; left: 12px; z-index: 2; background: color-mix(in srgb, var(--surface) 94%, transparent); color: var(--ink); }
 
 :root .heart[aria-pressed="true"] { box-shadow: var(--ring-sun), var(--shadow-sm); }
 @media (prefers-reduced-motion: no-preference) {
@@ -220,6 +221,13 @@
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
+/* ---------- V2.17 photographs (W7 visual pass with the first credited Commons photos) ----------
+   A photo replaces the calm cover in the same rounded box: no kind glyph, no name plate on top of it (the name is
+   right below the media). Credits are quiet: a caption UNDER a standalone figure; a small surface pill on card media.
+   The city hero photo keeps the builder's ground-coloured wash (--hero-scrim → the ground), so hero text stays ink on
+   paper in light and dark; anything floating on the photo (the lead card) gets a surface of its own. */
+:root :is(.cover, .pl-cover).photo::before, :root :is(.cover, .pl-cover).photo :is(.plate, .gl, .pl-vert) { display: none !important; }
+:root :is(.cover, .pl-cover).photo > img { border-radius: inherit; }
 
 
 
@@ -228,6 +236,7 @@
 :root figure.photo:not(.hero-photo) > img { border-radius: var(--r-l); display: block; width: 100%; }
 :root figure.photo:not(.hero-photo) figcaption { position: static; background: none; color: var(--ink-3); padding: var(--s-2) 2px 0; font-size: var(--fs-xs); line-height: var(--lh-sm); text-wrap: pretty; }
 :root figure.photo figcaption a, :root .hero-credit a, :root .cover .credit a { color: inherit; text-decoration-color: var(--line-strong); }
+:root :is(.cover, .pl-cover) .credit { background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink-2); }
 
 
 

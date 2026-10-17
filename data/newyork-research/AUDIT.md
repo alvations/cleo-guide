@@ -168,3 +168,56 @@ The batch also reused Wikipedia, Time Out, 6sqft, Untapped, Atlas Obscura, HDC, 
 **Still single and carried to the next t2 batch:** The Friends Building and The Plaza (Home Alone 2), where only tour or listing pages were found, and El Museo del Barrio, where only travel brands and CUNY pages were found.
 
 **Counts after wave 2b:** single-source t1 0 · **t2 162** · t3 77.
+
+## 2026-10-17 — D-54 wave 2c: tier 2, remaining sights + the city-unique canon (pizza, hot dog, dumplings/noodles), 27 second-sourced
+
+Sequential WebSearch on 2026-10-17. Every URL is in `_source_overlay.json`.
+
+**Sights**
+
+| place | second source added |
+|---|---|
+| Cosby Show House | New York Sun |
+| Royal Tenenbaums House | Time Out + 6sqft |
+| Men in Black HQ | Wikipedia (Brooklyn–Battery Tunnel) |
+| Greenbelt Nature Center | NYC Tourism |
+| Staten Island Museum | NY Landmarks Conservancy + amNY |
+| Garibaldi-Meucci Museum | Forgotten NY |
+| Moravian Cemetery | Untapped + HDC |
+| Wolfe's Pond Park | Wikipedia + Time Out |
+| Blue Heron Park | Wikipedia + Time Out |
+| Empire Outlets | Wikipedia + amNY |
+| El Museo del Barrio | Amsterdam News + WNYC |
+
+**Canon: pizza and hot dog**
+
+| place | second source added |
+|---|---|
+| Di Fara | Brooklyn Magazine + News 12 |
+| Juliana's | Infatuation + Time Out |
+| Lombardi's | Wikipedia + Untapped |
+| Prince Street Pizza | Adam Kuban, the founder of Slice, a verifiable pizza authority |
+| Rubirosa | Time Out |
+| Scarr's | Infatuation |
+| Patsy's | Scott's Pizza Tours (Scott Wiener) |
+| Saraghina | Brooklyn Paper |
+| Zero Otto Nove | Time Out + Village Voice |
+| Nathan's Famous | NYC Tourism + NY1 |
+
+**Canon: dumplings and noodles**
+
+| place | second source added |
+|---|---|
+| Joe's Shanghai | Infatuation |
+| Tasty Hand-Pulled Noodles | Untapped + amNY |
+| Great NY Noodletown | Infatuation + **Michelin Guide** |
+| Super Taste | Village Voice + Untapped |
+| Joe's Steam Rice Roll | Edible Queens + Explore Parts Unknown |
+| Golden Diner | Time Out + ABC7 NY |
+
+**Not counted:**
+- Time Out's Deluxe Green Bo listing: the review is negative on the dish we cite.
+- Joe & Pat's: the Infatuation and Gayot reviews found are for the East Village outpost, not the Staten Island original. It is carried to the next batch.
+- The Friends Building and The Plaza (Home Alone 2): only tour or listing pages again. They are carried to the next batch.
+
+**Counts after wave 2c:** single-source t1 0 · **t2 135** · t3 77.
