@@ -300,6 +300,17 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
   ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
 }
+{ // R8 (orchestrator): a cover word is NEVER a strict fragment of a compound cuisine label (Daikaya ≠ "Chinese")
+  const { dishOf, COMPOUND } = require('../lib/dish');
+  const bad = [];
+  for (const r of rows) for (const c of (r.data.CUISINES || [])) { const w = dishOf([c.n]); if (w && w !== c.n.replace(/^★\s*/, '').split(' (')[0].trim() && COMPOUND.test(c.n)) bad.push(`${r.key} ${c.id}: "${w}" from "${c.n}"`); }
+  for (const g of fs.readdirSync(path.join(BETA, 'data/gallery'))) {
+    const gal = JSON.parse(fs.readFileSync(path.join(BETA, 'data/gallery', g), 'utf8')), row = rows.find(x => x.key === gal.key) || { data: {} };
+    const full = new Set((row.data.CUISINES || []).map(c => c.n.replace(/^★\s*/, '').split(' (')[0].trim().toLowerCase()));
+    for (const r of gal.rows || []) for (const x of r[6] || []) if (x.d && full.size && !full.has(String(x.d).toLowerCase())) bad.push(`${g} ${x.id}: "${x.d}"`);   // a word is a guide's FULL label, never a piece of one
+  }
+  ok(!bad.length && dishOf(['Chinese, Thai, Japanese & More']) === '' && dishOf(['Ramen & Tsukemen']) === 'Ramen & Tsukemen', `cover words: none is a strict fragment of a compound cuisine label, across all guides${bad.length ? ': ' + bad.slice(0, 5).join('; ') : ''}`);
+}
 { // R8 (orchestrator): a venue is a PRIMARY kind (first g tag, or k says venue/store); a secondary venue theme tag never skips a sight
   const tg = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'commons-candidates.json'), 'utf8')).targets;
   const by = k => tg.find(t => t.key === k) || {};
