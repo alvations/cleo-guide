@@ -307,6 +307,8 @@
 
 /* OV-00 §v2.12 rule 1 (FE-B shell, OV-37): the one bar that stays is ≤ 52 px on phones and 56 px from 1024 — the same
    header height FE-A gives the city pages (fe-a.css), so every page's header is one size */
+/* the one bar is opaque, no blur (designer b2f587a8; cleo.css :root .topbar mixes 96 % paper) — as on the city pages */
+html:root .topbar,html:root .topbar.on-night{background:var(--paper)}
 html:root{--bar-h:52px;--tab-h:52px}   /* + the tab bar at 52 px: P1 at rest 52 + 52 = 12.3 % (§v2.12 2); items stay 44 px */
 @media (min-width:1024px){html:root{--bar-h:56px}}
 /* OV-00 (DESIGN-SYSTEM §v2.12, FE-B shell): the tab bar is a guest bar on the one site-wide compact state (html.ov-c, FE-A's

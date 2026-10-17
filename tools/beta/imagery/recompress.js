@@ -54,9 +54,11 @@ const marked = row => String(row.modified || '').includes('recompressed');
 const isJpeg = f => /\.jpe?g$/i.test(f);
 /** A Commons file that is not a JPEG (PNG, WebP, TIFF thumbnails): converted to JPEG, since only JPEG is weight-capped (R7). */
 const notJpeg = row => filesOf(row).some(f => !isJpeg(f.file));
-const eligible = row => row.provider === 'wikimedia-commons' && (!marked(row) || notJpeg(row));
+/** Self-hosted copies the pipeline resized: Commons, and Flickr (fetch-flickr.js, R8) — weight-capped the same way. */
+const selfHosted = row => row.provider === 'wikimedia-commons' || row.provider === 'flickr';
+const eligible = row => selfHosted(row) && (!marked(row) || notJpeg(row));
 /** A row to (re)visit: not yet recompressed, not a JPEG, over a size target (targets tightened, R7), or without its dominant colour. */
-const needsWork = (row, sizeOf) => row.provider === 'wikimedia-commons' &&
+const needsWork = (row, sizeOf) => selfHosted(row) &&
   (!marked(row) || notJpeg(row) || !/^#[0-9a-f]{6}$/.test(row.color || '') || filesOf(row).some(f => { const s = sizeOf(f.file); return s != null && s > targetOf(row, classWidth(f), f.main); }));
 /** The photo's dominant colour as #rrggbb (sharp stats), for a fade-in placeholder behind the image (R7 gap 3). */
 async function dominantOf(sharp, buf) {
@@ -126,7 +128,7 @@ const NO720 = {
   'kyoto--uji-bridge-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
   'singapore--southern-ridges--haw-par-villa-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
 };
-const needs720 = (row, prio) => row.provider === 'wikimedia-commons' && row.record && !NO720[row.file] && prio.has(`${row.record.page}#${row.record.id}`) &&
+const needs720 = (row, prio) => selfHosted(row) && row.record && !NO720[row.file] && prio.has(`${row.record.page}#${row.record.id}`) &&
   filesOf(row).some(f => /-960\.jpe?g$/i.test(f.file)) && !filesOf(row).some(f => classWidth(f) >= 600 && classWidth(f) < 800);
 async function priority720(sharp, rows, dry) {
   let n = 0;
