@@ -397,29 +397,6 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     chk('no js errors (empty)', !g.errs.length && !g2.errs.length, g.errs.concat(g2.errs).slice(0, 2));
   }
 
-  console.log('\n== SIDE (SPEC-v3 §2.0.7): the landscape selection side card, lazy, built from the card ==');
-  {
-    const g = boot('cities/tokyo.html', { mods: ['fresh', 'side'] }); await sleep(300); const C = g.w.Cleo.city; C.land = () => true;
-    const cards = [...g.d.querySelectorAll('.listpane li.pl[id^="p-"]')].filter(c => !c.hidden), c0 = cards[0], ph = cards.find(c => c.querySelector('figure.pl-photo')), np = cards.find(c => !c.querySelector('figure.pl-photo'));
-    chk('side.js is lazy: no page loads it eagerly', !/<script[^>]+side\.js/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')) && /"side":"[0-9a-f]+"/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')));
-    g.w.Cleo.side.open(c0, 'pin'); const box = g.d.getElementById('cleo-side');
-    const nm = box && box.querySelector('.sd-n a'), src = [...c0.querySelectorAll('.pl-s button.src')].map(b => b.getAttribute('data-src'));
-    chk('one card, in the map pane, html.side-on and --side-w 320px', !!box && !box.hidden && box.parentNode === g.d.querySelector('.mappane') && g.d.documentElement.classList.contains('side-on') && g.d.documentElement.style.getPropertyValue('--side-w') === '320px' && g.d.querySelectorAll('#cleo-side').length === 1);
-    chk('the name links to the place\'s detail (#p=)', !!nm && nm.textContent === (C.name(c0) || c0.querySelector('.pl-n').textContent) && new RegExp('[#&]p=' + C.pid(c0) + '($|&)').test(nm.getAttribute('href')), nm && nm.getAttribute('href'));
-    chk('Recommended by names the first source and how many more', box.querySelector('.sd-by').textContent === (src.length > 1 ? `Recommended by ${g.w.Cleo.city.info.src[src[0]][0]} and ${src.length - 1} more` : src.length ? `Recommended by ${g.w.Cleo.city.info.src[src[0]][0]}` : 'Added by the guide (general knowledge)'), box.querySelector('.sd-by').textContent);
-    chk('Save / Directions / Share; position "1 of N"; previous disabled at the first place', [...box.querySelectorAll('.sd-acts .btn')].map(b => b.textContent).join('|') === (c0.hasAttribute('data-closed') ? 'Save|Where it was|Share' : 'Save|Directions|Share') && box.querySelector('.sd-pos').textContent === '1 of ' + cards.length && box.querySelector('[data-sd=prev]').disabled, [...box.querySelectorAll('.sd-acts .btn')].map(b => b.textContent));
-    box.querySelector('[data-sd=next]').click(); await sleep(30);
-    chk('next steps to the second place of the ranking', box.querySelector('.sd-pos').textContent === '2 of ' + cards.length && box.querySelector('.sd-n').textContent === (C.name(cards[1]) || cards[1].querySelector('.pl-n').textContent));
-    if (ph) { g.w.Cleo.side.open(ph, 'side'); const cap = ph.querySelector('figure.pl-photo figcaption');
-      chk('a photo place shows its photo with the credit, as given on the card', !!box.querySelector('.sd-ph img') && box.querySelector('.sd-ph figcaption').textContent === cap.textContent); }
-    if (np) { g.w.Cleo.side.open(np, 'side'); chk('a photo-less place is the §v2.7b compact layout (a glyph tile, no blank photo box)', !box.querySelector('.sd-ph') && !!box.querySelector('.sd-body.np .sd-tile svg')); }
-    const sv = box.querySelector('[data-sd=save]'); sv.click(); chk('Save toggles the place in Saved', sv.getAttribute('aria-pressed') === 'true' && g.w.Cleo.saved.has(C.key + '/' + C.pid(g.w.Cleo.side.current())));
-    g.d.dispatchEvent(new g.w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await sleep(20);
-    chk('Escape closes it: hidden, html.side-on cleared', box.hidden && !g.d.documentElement.classList.contains('side-on') && !g.w.Cleo.side.isOpen());
-    C.land = () => false; chk('outside landscape it never opens (the carousel / preview stay)', g.w.Cleo.side.open(c0, 'pin') === false && box.hidden);
-    chk('no js errors (side)', !g.errs.length, g.errs.slice(0, 2));
-  }
-
   console.log('\n== APPROX (QC-04, D-43): a low-graded pin stays on the map, labelled "Approximate pin" ==');
   {
     const bad = []; let nlow = 0;

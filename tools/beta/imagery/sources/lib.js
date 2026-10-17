@@ -8,6 +8,7 @@
  *   node tools/beta/imagery/sources/<source>.js --stage        # API-check + preview copies + contact sheet (NOT credited)
  *   node tools/beta/imagery/sources/<source>.js --credit       # credit the rows a person marked `ok` after review
  *   node tools/beta/imagery/sources/<source>.js --dry-run      # plan only, even with a key and hosts
+ *   --include-covered: also stage targets that already have a live vetted Commons candidate (skipped by default)
  *
  * Two stages, because nothing is credited before a person has looked at it (D-49, D-50):
  *   1. --stage (the default when the hosts answer): for each un-reviewed candidate row of this source in
@@ -76,7 +77,7 @@ function licenceFromUri(uri) {
 
 // ---------------------------------------------------------------- options
 function args(argv, adapter) {
-  const o = { mode: null, dry: false, keys: [], min: 'med', budget: adapter.defaultBudget || 120, delay: adapter.delay || 350, allow: [] };
+  const o = { mode: null, dry: false, keys: [], min: 'med', budget: adapter.defaultBudget || 120, delay: adapter.delay || 350, allow: [], covered: false };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i], v = () => { const x = argv[++i]; if (x == null) die(`${a} needs a value`); return x; };
     if (a === '--dry-run') o.dry = true;
@@ -87,6 +88,7 @@ function args(argv, adapter) {
     else if (a === '--min') o.min = v();
     else if (a === '--delay') o.delay = +v();
     else if (a === '--allow-flag') o.allow.push(v());
+    else if (a === '--include-covered') o.covered = true;
     else if (a === '-h' || a === '--help') { console.log(fs.readFileSync(path.join(__dirname, 'lib.js'), 'utf8').split('*/')[0]); process.exit(0); }
     else die(`unknown option ${a} (see --help)`);
   }
@@ -263,6 +265,16 @@ function creditRow(adapter, it, row, t, main, small, today) {
 }
 
 // ---------------------------------------------------------------- plan + run
+/** Targets with at least one un-refused candidate in imagery's commons-candidates.json (BOX: none). */
+let LIVE = null;
+function commonsLive() {
+  if (LIVE) return LIVE;
+  LIVE = new Set();
+  const f = path.join(BETA, 'assets/img/commons-candidates.json');
+  if (BOX || !fs.existsSync(f)) return LIVE;
+  for (const t of JSON.parse(fs.readFileSync(f, 'utf8')).targets || []) if (!t.skip && (t.candidates || []).some(c => !c.refused)) LIVE.add(t.depicts);
+  return LIVE;
+}
 function plan(adapter, o) {
   const credits = loadCredits();
   const have = new Set(credits.credits.filter(c => c.record).map(c => `${c.record.page}#${c.record.id}`));
@@ -276,7 +288,9 @@ function plan(adapter, o) {
       (!RANK[r.confidence] ? `confidence "${r.confidence}" (high or med only)` : RANK[r.confidence] < RANK[o.min] ? `below --min ${o.min}` : '') ||
       (o.mode === 'credit' && r.review !== 'ok' ? (r.review ? `review: ${r.review}` : 'not reviewed yet (contact sheet first)') : '') ||
       (o.mode === 'stage' && r.review ? `already reviewed (${r.review})` : '') ||
-      (o.mode === 'stage' && staged.has(`${r.target}|${r.itemId}`) ? 'already staged' : '');
+      (o.mode === 'stage' && staged.has(`${r.target}|${r.itemId}`) ? 'already staged' : '') ||
+      // orchestrator 2026-10-17: stage only real gaps — a target with a live vetted Commons candidate is imagery's (--include-covered overrides)
+      (o.mode === 'stage' && !o.covered && commonsLive().has(`${t.page}#${t.id}`) ? 'has a live Commons candidate (imagery)' : '');
     out.push({ r, t, skip });
   }
   return out;

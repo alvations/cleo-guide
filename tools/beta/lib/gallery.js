@@ -18,7 +18,8 @@ const phOf = r => { const p = !r.closed && PH[r.id]; return p ? [p.src, p.w, p.h
 let CZ = {}, OWN = null;                       // W8: cuisine names by id, for a food card's dish line (sentence case)
 const { dishOf: pickDish } = require('./dish');
 const dishOf = r => { const n = r.kind === 'food' ? pickDish((r.cz || []).map(id => CZ[id]).filter(Boolean)) : ''; return n ? sentence(n, OWN) : ''; };   // food covers (c): never a source or award
-const slim = r => Object.assign(Object.fromEntries(SLIM.filter(k => r[k] != null && r[k] !== '' && r[k] !== false).map(k => [k, r[k]])), phOf(r) ? { ph: phOf(r) } : {}, dishOf(r) ? { d: dishOf(r) } : {});
+// a why line that is only a URL (statecollege's legacy w = website) is no why line: it never becomes a quote cover
+const slim = r => Object.assign(Object.fromEntries(SLIM.filter(k => r[k] != null && r[k] !== '' && r[k] !== false && !(k === 'w' && /^https?:\/\/\S+$/.test(r[k]))).map(k => [k, r[k]])), phOf(r) ? { ph: phOf(r) } : {}, dishOf(r) ? { d: dishOf(r) } : {});
 const pl = n => n + (n === 1 ? ' place' : ' places');
 
 function rowsOf(j, name) {
@@ -44,7 +45,7 @@ function rowsOf(j, name) {
   const cl = (G.closed || []).map(x => ord.filter(r => r.id === x.id)[0]).filter(Boolean);
   add('Recently closed', pl(cl.length) + ' · kept for the record, newest check first', 'closed', '1', cl, 0);
   const lead = sig.filter(r => r.t === 1 && !r.closed)[0] || ord.filter(r => r.t === 1 && !r.closed)[0] || ord.filter(r => !r.closed)[0];
-  return { rows: out, lead: lead ? slim(lead) : null };
+  return { rows: out, lead: lead ? slim(lead) : null };   // "Start with" names it always; the CARD needs its photo (D-49, below)
 }
 
 module.exports = { rowsOf };

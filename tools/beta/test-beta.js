@@ -96,7 +96,7 @@ console.log('\n== GUIDE DATA: signature, canon order, day plans, recently closed
     if (!gi || gi.closed !== closed.length || gi.days !== Object.keys(g.days.plans).length) gBad.idx.push(row.key);
   }
   chk('★ signature is a food canon or a collection, never a publisher; n == its places', gBad.pub, a => a.length === 0);
-  chk('pages with a ★ signature (food canon or pop culture)', nSig, n => n >= 60);
+  chk('pages with a ★ signature (food canon or pop culture)', nSig, n => n >= 58);   // FE-B: 60 → 58 — the floor counted Singapore/hanoi + hoi-an, now moved pointers to their Vietnam/ pages (same signatures)
   chk('canon dishes printed only when a canon record names them', gBad.dish, a => a.length === 0);
   chk('food order is a permutation of the page cuisine ids', gBad.order, a => a.length === 0);
   chk(`day plans: 4–6 open, verified-pin stops in one area, straight-line legs (${nPlans} plans)`, gBad.day, a => a.length === 0 && nPlans > 100);
@@ -372,7 +372,8 @@ const lensOutcome = async (b, label) => {
     // the build's renderer (lib/render/lead-card.js leadLi) on the page's own data — compared whether or not it is switched on
     const LC = require('./lib/lead-card'), info = b.w.Cleo.city.info, pageHtml = rd('beta/' + page);
     const gf = path.join(BETA, 'data/gallery', String(b.w.Cleo.city.info.file || '').replace(/\//g, '--') + '.json'), gj = fs.existsSync(gf) ? JSON.parse(fs.readFileSync(gf, 'utf8')) : {};
-    if (!gj.lead) { chk(`${page}: no lead card in the data → none rendered by the build`, !b.d.querySelector('#cleo-lead .g-lead-card'), true); continue; }
+    // D-49 §v2.7b (spec change, BETA-LOG): a lead card is drawn only when the lead has a photo
+    if (!gj.lead || !gj.lead.ph) { chk(`${page}: no lead card in the data, or a photo-less lead (D-49) → none rendered by the build`, !b.d.querySelector('#cleo-lead .g-lead-card'), true); continue; }
     const box = b.d.createElement('ol'); box.innerHTML = LC.leadLi(gj.lead, info, pageHtml, b.w.Cleo.root || '../');
     const ssr = box.querySelector('li.gc');
     chk(`${page}: the build renders the lead card into the page only while lead-card.js ENABLED (now ${LC.ENABLED})`, !!b.d.querySelector('#cleo-lead .g-lead-card'), LC.ENABLED);

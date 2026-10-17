@@ -46,7 +46,8 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | OV-12 base note compact (133→98 px phone; base.note retired, en+ja); OV-40 toasts rise above an open sheet's buttons (sheet.js hook sets html.sheet-on); probe base-keys checks both | 8e986a4f8 | — |
 | OV-111 / OV-112 (S-17 High, sheet): one nav bar + close (50/48/56 px); portrait action bar hides on scroll (client/sheetbar.js, lazy, city.js onSheet hook); landscape/desktop actions under the nav, not sticky; desktop dialog full height, .plan static; grab out of flow; probe `sheet-chrome`; qc-overlay sheet sweep 0 chrome flags | 084192a46 | — |
 | R8 D12 card meta part 2: the card line reads "Checked <d Mon>" (`sheet.chk`, batch 7 ja 「{d}に確認」 merged) on li.pl, li.gc, a.ms-pv; nowrap; the detail keeps "Status checked". Part 1 (no "Cited by" on cards) was 0486bf714 | this push | — |
-| SPEC-v3 §2.0.7 landscape selection side card: client/side.js (lazy `Cleo.side.open/close/step/isOpen`), 320 px in .mappane, photo + credit or §v2.7b tile, area · kind, name → #p=, why, Recommended by, Checked, Save / Directions / Share, prev/next through the in-bounds ranking, Esc → pin / card / map focus; html.side-on + --side-w; test-fe-c SIDE. **Dormant until FE-1's select() hook** (proposed `Cleo.need('side', () => Cleo.side.open(c, how))` in landscape; FE-1 also moves the stack left under html.side-on, hides the chip row / carousel / List pill, adds #cleo-side to the label avoid list, optionally exposes C.unselect + C.land) | this push | — |
+| SPEC-v3 §2.0.7 side card: side.js built (a4e12f365) then RETIRED by orchestrator + designer ruling (FE-1's side column 8a60cf13e, signed off on landscape-207, stays): side.js, its CSS, render entry and SIDE tests deleted. Ported instead: card lines in FE-1's column — "Checked" flush with the name (16 px padding gone), photo card order name / kind / Recommended by / Checked / credit; probe `land` (844×390 × Tokyo/Cleveland/Chinatown: column ≤ 320, clear map 53.6 %, flush, no label under the column, Esc focus). Esc focus return + label avoid lines sent to FE-1 (theirs, atlas.js); probe `land` Esc check FAILs until FE-1 lands it | this push | — |
+| Designer fixes taken off FE-A (orchestrator 11:16Z): Insights' view-switch glyph is `chart` (was `sliders` = the Filters glyph; render/city.js sprite + VLBL); phone Atlas list "Map" is the floating pill alone (§v2.12 3): the 72 px `.split::after` band deleted and the list runs to the bottom with 72 px end padding (atlas.css, FE-1 told). P1 list mode fixed bottom chrome 72 → 0 px | this push | — |
 
 ## Next
 
@@ -91,9 +92,8 @@ Orchestrator order (2026-10-16 14:52Z):
 ## In flight
 
 Waiting on:
-- FE-1 (session_01Cuvo7DWhwbWjLpFicvaF5E): agree the side-card hook (message sent 03:2xZ); then prove at 844×390 (atlas-real-shots `--stub-tiles` + qc-overlay L), claim under the OV-100 landscape rows, SHA to the orchestrator.
+- FE-1 (session_01Cuvo7DWhwbWjLpFicvaF5E): Esc focus return in atlas.js (lines sent). Then rerun probe `land` (npm run beta:probe:fe-c) → all PASS, qc-overlay L, SHA to the orchestrator.
 - QC: re-verify OV-111/112 (1318e1f4c) with the clip-aware shown().
-- Scratch probe for the side card: scratchpad side/p.js (simulates FE-1's CSS until the hook lands).
 
 ## Notes
 

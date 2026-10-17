@@ -1,0 +1,53 @@
+  PASS  cities/tokyo.html desktop t=1: (0) lensPage is really on — matches built at load < F when F spans pages = {"builtF":48,"F":177,"pages":4}
+  PASS  cities/tokyo.html desktop t=1: (1) the counts line reads F (177) = {"line":"Showing 177 of 488 places in 13 areas. Ordered by tier, then","F":177,"builtAtLoad":74}
+  PASS  cities/tokyo.html desktop t=1: (2) paging 4 pages shows every match once, each a real card = {"seen":177,"uniq":177,"F":177,"missing":[],"extra":[],"notCard":0}
+  PASS  cities/tokyo.html desktop t=1: (3) search finds a last-page match ("Yoshimuraya") = {"id":"yoshimuraya"}
+  PASS  cities/tokyo.html desktop t=1: (4) #p=<last-page match> opens its sheet = {"id":"yoshimuraya","sheet":"Yoshimuraya (吉村家)"}
+  PASS  cities/tokyo.html desktop t=1: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cities/tokyo.html desktop t=1: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:37985/beta/data/places/tokyo.json"]
+  PASS  cities/tokyo.html desktop t=1: 0 JS errors = []
+  PASS  cities/tokyo.html desktop mode=food: (0) lensPage is really on — matches built at load < F when F spans pages = {"builtF":53,"F":225,"pages":5}
+  PASS  cities/tokyo.html desktop mode=food: (1) the counts line reads F (225) = {"line":"Showing 225 of 488 places in 13 areas. Ordered by tier, then","F":225,"builtAtLoad":83}
+  PASS  cities/tokyo.html desktop mode=food: (2) paging 5 pages shows every match once, each a real card = {"seen":225,"uniq":225,"F":225,"missing":[],"extra":[],"notCard":0}
+  PASS  cities/tokyo.html desktop mode=food: (3) search finds a last-page match ("Amazake-chaya, Hakone") = {"id":"amazake-chaya-hakone"}
+  PASS  cities/tokyo.html desktop mode=food: (4) #p=<last-page match> opens its sheet = {"id":"amazake-chaya-hakone","sheet":"Amazake-chaya, Hakone (甘酒茶屋)"}
+  PASS  cities/tokyo.html desktop mode=food: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cities/tokyo.html desktop mode=food: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:37985/beta/data/places/tokyo.json"]
+  PASS  cities/tokyo.html desktop mode=food: 0 JS errors = []
+  PASS  cleveland.html desktop t=1: (0) lensPage is really on — matches built at load < F when F spans pages = {"builtF":47,"F":47,"pages":1}
+  PASS  cleveland.html desktop t=1: (1) the counts line reads F (47) = {"line":"Showing 47 of 194 places in 4 areas. Ordered by tier, then b","F":47,"builtAtLoad":79}
+  PASS  cleveland.html desktop t=1: (2) paging 1 pages shows every match once, each a real card = {"seen":47,"uniq":47,"F":47,"missing":[],"extra":[],"notCard":0}
+  PASS  cleveland.html desktop t=1: (3) search finds a last-page match ("Tita Flora's") = {"id":"tita-floras"}
+  PASS  cleveland.html desktop t=1: (4) #p=<last-page match> opens its sheet = {"id":"tita-floras","sheet":"Tita Flora's"}
+  PASS  cleveland.html desktop t=1: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cleveland.html desktop t=1: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:37985/beta/data/places/cleveland.json"]
+  PASS  cleveland.html desktop t=1: 0 JS errors = []
+  PASS  cities/tokyo.html phone t=1: (0) lensPage is really on — matches built at load < F when F spans pages = {"builtF":24,"F":177,"pages":8}
+  PASS  cities/tokyo.html phone t=1: (1) the counts line reads F (177) = {"line":"Showing 177 of 488 places in 13 areas. Ordered by tier, then","F":177,"builtAtLoad":31}
+  PASS  cities/tokyo.html phone t=1: (2) paging 8 pages shows every match once, each a real card = {"seen":177,"uniq":177,"F":177,"missing":[],"extra":[],"notCard":0}
+  PASS  cities/tokyo.html phone t=1: (3) search finds a last-page match ("Yoshimuraya") = {"id":"yoshimuraya"}
+  PASS  cities/tokyo.html phone t=1: (4) #p=<last-page match> opens its sheet = {"id":"yoshimuraya","sheet":"Yoshimuraya (吉村家)"}
+  PASS  cities/tokyo.html phone t=1: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cities/tokyo.html phone t=1: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:37985/beta/data/places/tokyo.json"]
+  PASS  cities/tokyo.html phone t=1: 0 JS errors = []
+  PASS  cities/tokyo.html phone mode=food: (0) lensPage is really on — matches built at load < F when F spans pages = {"builtF":53,"F":225,"pages":10}
+  PASS  cities/tokyo.html phone mode=food: (1) the counts line reads F (225) = {"line":"Showing 225 of 488 places in 13 areas. Ordered by tier, then","F":225,"builtAtLoad":66}
+  PASS  cities/tokyo.html phone mode=food: (2) paging 10 pages shows every match once, each a real card = {"seen":225,"uniq":225,"F":225,"missing":[],"extra":[],"notCard":0}
+  PASS  cities/tokyo.html phone mode=food: (3) search finds a last-page match ("Amazake-chaya, Hakone") = {"id":"amazake-chaya-hakone"}
+  PASS  cities/tokyo.html phone mode=food: (4) #p=<last-page match> opens its sheet = {"id":"amazake-chaya-hakone","sheet":"Amazake-chaya, Hakone (甘酒茶屋)"}
+  PASS  cities/tokyo.html phone mode=food: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cities/tokyo.html phone mode=food: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:37985/beta/data/places/tokyo.json"]
+  PASS  cities/tokyo.html phone mode=food: 0 JS errors = []
+  PASS  cleveland.html phone t=1: (0) lensPage is really on — matches built at load < F when F spans pages = {"builtF":24,"F":47,"pages":2}
+  PASS  cleveland.html phone t=1: (1) the counts line reads F (47) = {"line":"Showing 47 of 194 places in 4 areas. Ordered by tier, then b","F":47,"builtAtLoad":38}
+  PASS  cleveland.html phone t=1: (2) paging 2 pages shows every match once, each a real card = {"seen":47,"uniq":47,"F":47,"missing":[],"extra":[],"notCard":0}
+  PASS  cleveland.html phone t=1: (3) search finds a last-page match ("Tita Flora's") = {"id":"tita-floras"}
+  PASS  cleveland.html phone t=1: (4) #p=<last-page match> opens its sheet = {"id":"tita-floras","sheet":"Tita Flora's"}
+  PASS  cleveland.html phone t=1: (5) print builds every match as a card = {"notBuilt":0}
+  PASS  cleveland.html phone t=1: (6) "Keep offline" includes the places JSON (every match) = ["http://127.0.0.1:37985/beta/data/places/cleveland.json"]
+  PASS  cleveland.html phone t=1: 0 JS errors = []
+  PASS  QC-26 cities/tokyo.html phone a=CYD: the sheet reads "1 of N" and paging the Atlas list reaches all N = {"of":43,"shownFirst":11,"reached":43}
+  PASS  QC-26 cleveland.html phone a=DT: the sheet reads "1 of N" and paging the Atlas list reaches all N = {"of":42,"shownFirst":20,"reached":42}
+  PASS  QC-26 cities/tokyo.html desktop a=CYD: the sheet reads "1 of N" and paging the Atlas list reaches all N = {"of":43,"shownFirst":36,"reached":43}
+  PASS  QC-26 cleveland.html desktop a=DT: the sheet reads "1 of N" and paging the Atlas list reaches all N = {"of":42,"shownFirst":34,"reached":42}
+>>> PASS — lensPage restatement and QC-26 lens count hold

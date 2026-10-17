@@ -253,4 +253,20 @@ A fresh independent subagent checked all 53 strings and kept 50. saved.h1 stays 
 | `lst.take` | 持ち出す | 共有・書き出し | 持ち出す reads as "take something out"; the bar is named after its actions. |
 | `lst.empty.list.p` | ここにあるカードの「リスト」から場所を追加するか、先にガイドで場所を保存してください。 | このページの各カードにある「リスト」から場所を追加するか、先にガイドで場所を保存してください。 | ここにあるカード was ambiguous in an empty list; it now names the per-card 「リスト」 menu. |
 
-**Total: 87 changes over twenty rounds.**
+## Round 21: Atlas, the default view (client/atlas.js and atlas-nav.js; 64 new `atl.*` keys, from the 2026-10-17 audit; 7 changes, applied)
+
+A fresh independent subagent checked all 63 strings (the 64th, `atl.tog.list.n` 「一覧 · {n}」, was added after the real-browser test caught the last toggle label). It confirmed that the composed count lines read well, e.g. 「488か所中36か所」.
+
+**Aligned before review:** `atl.c.all` and `atl.c.all.one` now match `sheet.all` / `gb.count.all` ({n}か所すべて), as the identical-en rule requires.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `atl.ring` | 拠点からの徒歩距離、{name} | {name}からの徒歩距離 | With the default base it read 「拠点からの徒歩距離、拠点」; the trailing 、{name} was unnatural anyway. |
+| `atl.nomap` | 現在、地図を表示できません — すべての場所はここに一覧があります。 | 現在、地図を表示できません。すべての場所をこの一覧に載せています。 | The draft's phrasing was awkward; a full stop reads better than the English-style dash. |
+| `atl.live` | 地図を動かすと検索 | 地図の移動に合わせて検索 | It read like a warning; this is a checkbox for a mode that stays on. |
+| `atl.geo.no` | このブラウザは位置情報を共有できません。 | このブラウザでは位置情報を利用できません。 | A browser doesn't "share" a location in Japanese UI; 利用できません is the standard wording. |
+| `atl.geo.here` | 現在地です — この端末にだけ表示し、保存せず、再読み込みで消えます。 | 現在地です — この端末にだけ表示され、保存されず、再読み込みで消えます。 | The active verbs had no clear subject; the passive reads naturally. |
+| `atl.skip.list` | 検索結果へ移動 | 一覧へ移動 | The default list isn't search results; 一覧 is the settled term and pairs with 地図へ移動. |
+| `atl.base.calm` | 落ち着いた地図に戻す | シンプルな地図に戻す | 落ち着いた was a literal translation; シンプルな地図 is the usual phrase for a plain base map. |
+
+**Total: 94 changes over twenty-one rounds.**

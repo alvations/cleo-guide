@@ -295,7 +295,7 @@ html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e{o
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e::before{content:none}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .pl-num{display:none}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s{order:3;color:var(--ink-2);position:relative;z-index:2}
-html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-w,.pl-k,.pl-ad){display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:not(.pl--np)>.pl-w,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-k,.pl-ad){display:none}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl.pg-off{display:none}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[hidden]{display:none}
 /* the tier as a small, tasteful sticker — only where the data grades it */
@@ -634,9 +634,9 @@ html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=
 html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{display:block;max-width:86%;margin:0;color:var(--ink);font:var(--fw-ui-strong) clamp(var(--fs-ui),9cqi,var(--fs-d2))/var(--lh-d1) var(--font-ui);letter-spacing:var(--track-tight);text-align:center;text-wrap:balance;overflow-wrap:anywhere}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover .pl-glyph,html .view-gallery .gc .cover.food .gl,html .view-gallery .gc .cover.food .gl .ico{width:24px;height:24px;color:var(--ink-2)}
 html main[data-city] li.pl[data-k=f]>.pl-cover .pl-vert{display:none}
-/* the ratified Gallery card (QA W7): no write-up / look-for / address on the card face. v2's clamp rule
+/* the ratified Gallery card (QA W7): no write-up (D-49: a photo-less card shows its why line as the quote / compact row) / look-for / address on the card face. v2's clamp rule
    (.pls .pl:not(.is-target):not(:target):not(:focus-within) .pl-w, 0-6-0) re-showed the write-up on phones, above the name */
-html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-w,.pl-k,.pl-ad){display:none!important}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:not(.pl--np)>.pl-w,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-k,.pl-ad){display:none!important}
 /* R7 gap 5: no blank band beside the desktop hero — the photo takes the height of the text column (name, line, start,
    facts) instead of a fixed 4:3 that ran ~170 px past it; never shorter than 300 px (object-fit crops, never stretches) */
 @media (min-width:1024px){
@@ -770,11 +770,12 @@ html.atlas-d[data-view=atlas] body .at-intro .at-n{grid-column:1/-1;margin:0;fon
    it does not wait for the map (.ms-ready), so the name and dek are the first thing the list column shows */
 html.atlas-d[data-view=atlas] body .split>.listpane>.at-intro{order:-3;visibility:visible;animation:none}
 /* D-46 (B-01a): on a cold, unfiltered Atlas load the lead place card spans both list columns, its media at 3:2. The Atlas
-   lane marks it (.pl-lead on the first card of its order, set while the list is still held before .ms-ready, so no shift) */
-html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead{grid-column:1/-1}
-html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>:is(.pl-cover,figure.pl-photo){aspect-ratio:3/2;height:auto}
-html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>figure.pl-photo img{width:100%;height:100%;object-fit:cover}
-html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>.pl-n{font-size:var(--fs-d2)}
+   build marks it (.pl-lead: render/city.js, atlas.js's map-priority #1, only with a photo); client/city.js sets
+   html.cleo-lensed while a lens, sort, day or Near me reorders the list */
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead{grid-column:1/-1}
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>:is(.pl-cover,figure.pl-photo){aspect-ratio:3/2;height:auto}
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>figure.pl-photo img{width:100%;height:100%;object-fit:cover}
+html.atlas-d[data-view=atlas]:not(.cleo-lensed) body .w7-cards li.pl.pl-lead>.pl-n{font-size:var(--fs-d2)}
 /* ---- OV-01 (owner directive; DESIGN-SYSTEM §v2.12, SPEC-v3 §2.0): only the header always stays ----
    The city header is 52 px on phones and 56 px from 1024. Every other sticky row is a guest: under html.ov-c
    (Cleo.chrome, views.js: a ≥ 24 px scroll down, or the Atlas lane's pan) the view-switch row and the sticky category
@@ -832,8 +833,11 @@ html:is([data-view=guidebook],[data-view=insights]) body main[data-city]>.toolba
 @media (max-width:1023px){html body main[data-city]{--cbar-h:53px}html body main[data-city]>.cbar>.cbar-in{padding-block:0;min-height:0}}   /* OV-113: T1 at rest 52 + 53 = 10.3 % (≤ 11) */
 /* OV (platform, marked block): the "Keep <city> offline" control is in-flow page content; in the phone/tablet Atlas
    layout the full-bleed map and its bars are fixed over the page, so the control would sit under them, covered and
-   unreachable (overlay audit: tools/beta/qa/overlay/platform-overlay.js). It is offered in every other view instead. */
-html.atlas-m[data-view=atlas] [data-cleo-pack]{display:none!important}
+   unreachable (overlay audit: tools/beta/qa/overlay/platform-overlay.js). It is offered in every other view instead.
+   OV-38/OV-41: while Atlas has a live map, the control lives in the map's Layers popover (FE-1, Cleo.pack.mount), on
+   phones AND desktop (one control, not two); with no map (ms-nomap: no library or no tiles) the list is the whole page
+   and its own control is the one offered. */
+html[data-view=atlas]:not(.ms-nomap) [data-cleo-pack]{display:none!important}
 /* /OV platform */
 /* OV-101 (T1, 768–1023 phone-style Atlas, ≤ 18 % at rest): the view switch rides in the header row, as in landscape
    (QA-80 pattern: icon-only 44 px segments, labels kept as names, painted above the header, covering nothing), so the
@@ -849,3 +853,63 @@ html.atlas-m[data-view=atlas] [data-cleo-pack]{display:none!important}
 /* §v2.12 3a (designer, owner OV-00): one search per screen. From 1024 the city field is the search on a city page, so the
    header's search icon is not drawn there (FE-B's search.js sends the icon and "/" to the city field below 1024) */
 @media (min-width:1024px){html body .topbar [data-cleo-search-open]{display:none}}
+
+/* ---- D-49 (owner "too many blanks"; DESIGN-SYSTEM §v2.7b): a photo is the only thing that takes a photo's space ----
+   The build marks a photo-less card li.pl.pl--np (render/city.js). It changes SHAPE, never order, and re-lays its own nodes
+   (no node is added): single-column lists get the compact row (A), multi-column grids the quote card (B). Photo cards are
+   unchanged. Consecutive photo-less covers never share a glyph (render/city.js noRepeat, imagery FOOD_GLYPH_LADDER) */
+/* B. quote card: the cover area holds the place's own words (the why line's opening, ≤ 4 lines), a display “ top-left
+   and the kit glyph at 20 px bottom-right; the why line is not repeated below. No why line → the §v2.7a designed cover */
+@media (min-width:600px){
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np:has(>.pl-w)>.pl-cover,html.atlas-d[data-view=atlas] body main[data-city] #cleo-grid.w7-cards li.pl.pl--np:has(>.pl-w)>.pl-cover,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np:has(>.pl-w)>.pl-cover{place-items:end;align-content:end;justify-content:end;padding:var(--s-3);box-sizing:border-box}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np:has(>.pl-w)>.pl-cover>:is(.pl-vert,.pl-ini,.pl-dish),html.atlas-d[data-view=atlas] body main[data-city] #cleo-grid.w7-cards li.pl.pl--np:has(>.pl-w)>.pl-cover>:is(.pl-vert,.pl-ini,.pl-dish),html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np:has(>.pl-w)>.pl-cover>:is(.pl-vert,.pl-ini,.pl-dish){display:none}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np:has(>.pl-w)>.pl-cover .pl-glyph,html.atlas-d[data-view=atlas] body main[data-city] #cleo-grid.w7-cards li.pl.pl--np:has(>.pl-w)>.pl-cover .pl-glyph,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np:has(>.pl-w)>.pl-cover .pl-glyph{width:20px;height:20px;padding:0;background:none;box-shadow:none;color:var(--ink-3)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-w,html.atlas-d[data-view=atlas] body main[data-city] #cleo-grid.w7-cards li.pl.pl--np>.pl-w,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-w{position:absolute;z-index:1;left:0;right:0;top:8px;margin:0;padding:44px var(--s-4) 0;max-height:calc(44px + 4lh);box-sizing:border-box;display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden;font:var(--fw-ui-strong) var(--fs-lead)/var(--lh-xs) var(--font-ui);letter-spacing:var(--track-tight);color:var(--ink);text-wrap:pretty;pointer-events:none;max-height:none}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-w::before,html.atlas-d[data-view=atlas] body main[data-city] #cleo-grid.w7-cards li.pl.pl--np>.pl-w::before,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-w::before{content:"\201C";position:absolute;left:var(--s-4);top:0;font:400 40px/1 var(--font-display);color:var(--ink-3)}
+}
+/* A. compact row (single-column lists, about 112 px): a 64 px glyph tile (no word), then eyebrow, name, a 2-line why and
+   Recommended by; 12 px padding and a hairline between rows; the heart keeps its 44 px target */
+@media (max-width:599px){
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np{display:grid;grid-template-columns:64px max-content minmax(0,1fr);column-gap:var(--s-3);row-gap:0;align-items:center;padding:var(--s-3) 0;border-bottom:1px solid var(--line)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>*,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>*{grid-column:2/-1;min-width:0}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-cover,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-cover{grid-column:1;grid-row:1/span 4;align-self:start;width:64px;height:64px;min-height:0;aspect-ratio:auto;margin:0;border-radius:var(--r-m)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-cover>:is(.pl-vert,.pl-ini,.pl-dish),html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-cover>:is(.pl-vert,.pl-ini,.pl-dish){display:none}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-cover .pl-glyph,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-cover .pl-glyph{width:28px;height:28px;padding:0;background:none;box-shadow:none;color:color-mix(in srgb,var(--ink) 55%,transparent)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-n,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-n{margin:0;font:var(--fw-ui-strong) var(--fs-d3)/var(--lh-d3) var(--font-ui)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-w,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-w{display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;margin:0;font-size:var(--fs-sm);line-height:var(--lh-d3);color:var(--ink-2);max-height:none}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e{grid-row:1;grid-column:2;position:static;display:flex;gap:var(--s-1);align-items:center;min-height:0;margin:0;padding:0;font:var(--fw-ui-strong) var(--fs-xs)/var(--lh-xs) var(--font-ui);color:var(--ink-3)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e :is(.pl-num,.tier.t1),html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e :is(.pl-num,.tier.t1){position:static;display:inline;min-width:0;min-height:0;height:auto;padding:0;border:0;border-radius:0;background:none;box-shadow:none;filter:none;font:inherit;color:inherit}
+  /* the tier link keeps its 44 px tap height in padding, taken back by margin (the eyebrow stays one 16 px line) */
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e .tier.t1,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e .tier.t1{display:inline-block;padding:14px 0;margin:-14px 0}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e .pl-num::after,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e .pl-num::after{content:" ·"}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e .tier .tg,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e .tier .tg{display:none}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-e .tier *,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e .tier *{font:inherit}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-chk,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-chk{grid-row:1;grid-column:3;margin:0;justify-self:start;font-size:var(--fs-xs);line-height:var(--lh-xs);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-n,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-n{grid-row:2;padding-right:var(--tap);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* consecutive rows read as one list: the hairline is the divider, not the grid's 28 px phone gap (.split .pls); each row
+     gives back half on both sides (filtered-out cards sit between rows, so a sibling selector can't pair them) */
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np{margin-block:-14px}
+  html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np{margin-block:calc(-.5 * var(--s-6))}
+  html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-e>.pl-num:not(.tier){display:none}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-n>a,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-n>a{display:inline}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-n .nat,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-n .nat{display:inline;margin-left:var(--s-1);font:400 var(--fs-sm)/1 var(--font-native,var(--font-ui));color:var(--ink-3)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-w,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-w{grid-row:3}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-s,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-s{grid-row:4;display:flex;align-items:baseline;margin:0;font-size:0;white-space:nowrap}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-s>*,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-s>*{font-size:var(--fs-xs);line-height:var(--lh-sm)}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-s>*,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-s>*{flex:none}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-s .src,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-s .src{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;line-height:inherit;padding:var(--s-3) 0;margin:calc(-1 * var(--s-3)) 0}
+  html[data-view=gallery] body main[data-city] .split li.pl.pl--np>.pl-rec,html.atlas-m.ms-list[data-view=atlas] body main[data-city] #cleo-grid li.pl.pl--np>.pl-rec{display:none}
+}
+/* D-46 lead card (SPEC-v3 §1.7) only when rank 1 has a photo */
+html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead.pl--np{grid-column:auto}
+/* B on the Gallery rows (li.gc, client/gallery.js + lib/lead-card.js mark it gc--np): the same quote card over .cover */
+html .view-gallery li.gc.gc--np:has(.gc-w) .cover{place-items:end;align-content:end;justify-content:end;padding:var(--s-3);box-sizing:border-box}
+html .view-gallery li.gc.gc--np:has(.gc-w) .cover>:is(.plate,.dish){display:none}
+html .view-gallery li.gc.gc--np:has(.gc-w) .cover .gl{width:20px;height:20px;background:none;box-shadow:none;color:var(--ink-3)}
+html .view-gallery li.gc.gc--np:has(.gc-w) .cover .gl .ico{width:20px;height:20px;stroke-width:1.6}
+html .view-gallery li.gc.gc--np .gc-w{position:absolute;z-index:1;left:0;right:0;top:8px;margin:0;padding:44px var(--s-4) 0;max-height:calc(44px + 4lh);box-sizing:border-box;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden;font:var(--fw-ui-strong) var(--fs-lead)/var(--lh-xs) var(--font-ui);letter-spacing:var(--track-tight);color:var(--ink);text-wrap:pretty;pointer-events:none}
+html .view-gallery li.gc.gc--np .gc-w::before{content:"\201C";position:absolute;left:var(--s-4);top:0;font:400 40px/1 var(--font-display);color:var(--ink-3)}
+/* designer ruling (D-49): the food cover's dish word is fixed --fs-d2 in the display face at 600, never clamped; a word that
+   won't sit in two lines (client marks it .l: > 28 characters or a 17-character word) drops to the UI face 600 at --fs-lead */
+html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{font:600 var(--fs-d2)/var(--lh-d2) var(--font-display);letter-spacing:var(--track-tight)}
+html main[data-city] li.pl>.pl-cover .pl-dish.l,html .view-gallery .gc .cover .dish.l{font:600 var(--fs-lead)/var(--lh-xs) var(--font-ui);letter-spacing:0}
