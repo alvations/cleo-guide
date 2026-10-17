@@ -54,6 +54,9 @@ jobs:
       # Openverse registered-app credentials (optional; higher rate limits). Read from the environment only.
       OPENVERSE_CLIENT_ID: ${{ secrets.OPENVERSE_CLIENT_ID }}
       OPENVERSE_CLIENT_SECRET: ${{ secrets.OPENVERSE_CLIENT_SECRET }}
+      # Image sources lane (D-50/D-52): keys only for the sources that need one; read from the environment only.
+      SMITHSONIAN_API_KEY: ${{ secrets.SMITHSONIAN_API_KEY }}
+      EUROPEANA_API_KEY: ${{ secrets.EUROPEANA_API_KEY }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -112,6 +115,16 @@ jobs:
           else
             echo "::warning::tools/beta/imagery/fetch-openverse.js is not on this branch; skipping Openverse."
           fi
+
+      - name: Image sources — credit the picks the orchestrator marked ok (D-50/D-52)
+        # Stores ONLY rows whose review column in tools/beta/imagery/sources/candidates.tsv is `ok` (set from the reviewed
+        # contact sheet by review.js). Re-reads each item, applies the licence/identity/date rules, writes TASL credit rows.
+        run: |
+          for s in loc met smithsonian europeana; do
+            f="tools/beta/imagery/sources/$s.js"
+            [ -f "$f" ] || continue
+            node "$f" --credit || { rc=$?; [ $rc -eq 3 ] && echo "::warning::$s host blocked or throttled; skipped" || exit $rc; }
+          done
 
       - name: Fetch Unsplash photos (disabled, D-51)
         # D-51: the Unsplash API Guidelines require hotlinking; storing copies of API-fetched photos in this repo is a

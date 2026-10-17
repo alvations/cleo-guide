@@ -5,6 +5,7 @@
  * The rules it states are the repository's own gates (CLAUDE.md, docs/SOURCES.md, tools/research.js).
  */
 const { esc } = require('../html');
+const path = require('path');
 const { head, siteBar, footer, styles } = require('./common');
 const { icon, site } = require('./shell');
 const { t } = require('../i18n');   // i18n D-41: the method pages' headings, labels and buttons come from the catalogue
@@ -161,6 +162,29 @@ ${footer({ depth: 0, tabbar: true, current: 'other' })}
 `;
 }
 
+/** A city page left in another country's folder (registry kind `moved`, e.g. Singapore/hanoi.html → Vietnam/hanoi.html):
+ * a pointer, so old shared links still land — the canonical is the city's own page, a visible link goes there, and it
+ * is never a second card, search entry or feed (one city, one page). */
+function movedPage(r, ctx) {
+  const depth = r.beta.split('/').length - 1, up = '../'.repeat(depth), to = up + r.movedTo;
+  const name = (r.data && r.data.meta && (r.data.meta.h1Main || r.data.meta.h1)) || path.posix.basename(r.live, '.html');
+  return `${head({ page: 'moved', title: t('moved.title', { name: esc(name) }), description: t('moved.desc', { name: esc(name) }), rel: r.movedTo, depth, assetsV: ctx.assetsV, css: styles(depth) })}
+<body class="has-tabbar">
+${siteBar({ depth, current: 'other', rel: r.beta })}
+<main id="main" class="feb"><div class="wrap section">
+<div class="state" data-cleo-state="moved" data-moved-to="${esc(r.movedTo)}">
+  ${icon('compass', 'ico lg')}
+  <h1 class="d2">${t('moved.h', { name: esc(name) })}</h1>
+  <p>${t('moved.p')}</p>
+  <p><a class="btn btn-primary" href="${esc(to)}" data-cleo-moved>${t('moved.go', { name: esc(name) })}</a></p>
+</div>
+</div></main>
+${footer({ depth, tabbar: true, current: 'other' })}
+</body>
+</html>
+`;
+}
+
 /** beta/accessibility.html (M2-12): the commitment, what is measured, the known gaps, and how to report one. */
 function accessibilityPage(reg, ctx) {
   const T = site().totals;
@@ -213,4 +237,4 @@ ${footer({ depth: 0, tabbar: true, current: 'other' })}
 /** Pages this module owns, keyed by beta-relative path. */
 const pages = (reg, ctx) => ({ 'how-we-choose.html': methodPage(reg, ctx), 'accessibility.html': accessibilityPage(reg, ctx), '404.html': notFound(reg, ctx) });
 
-module.exports = { pages, stats, TIER_SVG };
+module.exports = { pages, movedPage, stats, TIER_SVG };

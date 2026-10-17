@@ -60,6 +60,43 @@ SKIP = {
 BRAND_STORE = re.compile(r"Mandarake|Pok[eé]mon Center|Nintendo KYOTO|Animate |Jump Shop|Kiddy Land|Gashapon|Capcom Store|PARCO Character|Kotobukiya|Character Street|Super Potato|Anime Center|Characters World", re.I)
 VENUE_NAME = re.compile(r"\b(Theat(?:re|er)|Opera House|Playhouse|Ballpark|Arena|Stadium|Concert Hall)\b", re.I)
 SKIP.update({
+ 'cincinnati#columbia-tusculum-painted-ladies': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'cleveland#5th-street-arcades-and-euclid-arcade': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'columbus#topiary-park': 'modern artwork, no FoP (wave 6 search) — calm cover (stated, W8)',
+ 'dayton#huffman-prairie-flying-field': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'madison#henry-vilas-zoo': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/ang-mo-kio#ang-mo-kio-town-garden-east': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/balestier#balestier-market': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/geylang#geylang-serai-market-and-malay-heritage': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/newton-novena#tan-tock-seng-hospital-heritage-museum': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/punggol#punggol-point-park': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/upper-serangoon#serangoon-garden-estate-and-circus': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'washingtondc#korean-war-veterans-memorial': 'modern artwork, no FoP (wave 6 search) — calm cover (stated, W8)',
+ 'wheeling#kruger-street-toy-and-train-museum': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'youngstown#rose-melnick-medical-museum': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'dayton#wright-dunbar-interpretive-center': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'miami#riverwalk-fort-lauderdale': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'pittsburgh#great-allegheny-passage-pittsburgh-trailhead': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'siliconvalley#android-lawn-statues': 'modern artwork, no FoP (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/ang-mo-kio#windsor-nature-park': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/balestier#balestier-point': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/civic-district#raffles-hotel': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/marina-bay#esplanade-theatres-on-the-bay': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/newton-novena#cairnhill-conservation-area': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/punggol#waterway-point': 'venue (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/toa-payoh#church-of-the-risen-christ': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'singapore/upper-serangoon#hougang-heritage-trail': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'washingtondc#franklin-delano-roosevelt-memorial': 'modern artwork, no FoP (wave 6 search) — calm cover (stated, W8)',
+ 'wheeling#wheeling-heritage-trail': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'youngstown#ward-beecher-planetarium': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'brussels#garderobe-mannekenpis': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'cleveland#eastman-reading-garden': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'indianapolis#indiana-medical-history-museum': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'madison#circus-world-museum': 'no file found (wave 6 search) — calm cover (stated, W8)',
+ 'hokkaido#sapporo-hitsujigaoka-observation-hill': 'only a statue (no FoP in Japan) or an exhibit panel found (wave 6 search) — calm cover (stated, W8)',
+ 'philadelphia#presidents-house-site': 'only an exhibit panel found (wave 6 search) — calm cover (stated, W8)',
+})
+SKIP.update({
  'tokyo#akihabara-electric-town': 'an electronics and anime shopping district: shop signage and branding are the subject of every view — calm cover (stated, R8 venue-rule change)',
  'wheeling#oglebay-resort-and-park': 'a resort (a hotel venue) — never a photo (stated, R8 venue-rule change)',
 })
@@ -449,7 +486,7 @@ for line in open(f'{S}/cands.tsv', encoding='utf-8'):
 
 # R8 run #77: a file refused for its own fault (not a slot reason) is refused for every target that lists it, so a later
 # wave can never re-introduce it. Mirrors refusalIsGlobal in fetch-commons.js.
-_LOCAL = re.compile(r'duplicat|same file|repeats|already|place card|is the [\w ]*hero|the [\w ]+ hero is', re.I)
+_LOCAL = re.compile(r'second pick|duplicat|same file|repeats|already|place card|is the [\w ]*hero|the [\w ]+ hero is', re.I)
 _glob = {}
 for _k, _cs in cands.items():
     for _c in _cs:
@@ -457,6 +494,10 @@ for _k, _cs in cands.items():
 for _k, _cs in cands.items():
     for _c in _cs:
         if not _c.get('refused') and _c['file'] in _glob: _c['refused'] = 'refused for another target: ' + _glob[_c['file']]
+
+# mirrors fetch-flickr.js flickrGap: which stated gaps a reviewed candidate may fill
+_GAP_OK = re.compile(r'no (?:commons )?(?:file|photo|honest|usable|view)|nothing usable|only (?:details|interiors|animal|bird|night|vehicles|a 19\d\d photo|photos of the old|files naming)|under 640|every (?:commons )?photo|not found|turned up|no lead image|both vetted|refused', re.I)
+_GAP_NEVER = re.compile(r'venue|food|artwork|sculpture|freedom of panorama|\bFoP\b|brand|signage|closed|vietnam|character|graffiti|mural|copyright|themed|\bride\b|crowd|casino|store\b', re.I)
 
 # W8: what a visitor sees first on each guide — the gallery's lead card, then its first rail row
 PRIO = {}
@@ -531,8 +572,8 @@ for key, (d, p) in recs.items():
     # secondary theme tags (Alta Vista Terrace: ICON, ARCH, SPORT), which never make a sight a venue (orchestrator, R8)
     if p['kind'] != 'food' and ((p.get('g') or [None])[0] in VENUE or re.match(r'\s*(?:[a-z]+ )?store\b', str(p.get('k') or ''), re.I)):   # D-49: food is its own subject
         t['skip'] = f"venue ({(p.get('g') or ['k'])[0]}) — never a photo"
-    elif key in SKIP:
-        t['skip'] = SKIP[key]
+    elif key in SKIP and not (_GAP_OK.search(SKIP[key]) and not _GAP_NEVER.search(SKIP[key]) and any(not c.get('refused') for c in cands.get(f'landmark:{key}', []))):
+        t['skip'] = SKIP[key]   # a "no usable Commons photo" gap lifts once a reviewed candidate exists (R8 discovery); rule gaps never do
     elif VENUE_NAME.search(p['n']):
         t['skip'] = f"venue ({VENUE_NAME.search(p['n']).group(1).lower()}) — never a photo (named so; W8 guard for records without a venue tag)"
     elif BRAND_STORE.search(p['n']):

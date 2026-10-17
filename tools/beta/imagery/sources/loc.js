@@ -9,7 +9,8 @@
  *   - Carol M. Highsmith Archive ("Ms. Highsmith has stipulated that her photographs are in the public domain") → Public domain;
  *   - HABS / HAER / HALS survey photos and other U.S. Government work ("No known restrictions on images made by the
  *     U.S. Government") → Public domain;
- *   - any other "No known restrictions on publication" → "No known restrictions" (accepted only once the gate takes it);
+ *   - any other "No known restrictions on publication" → "No known restrictions", which lib.js and
+ *     the gate accept only on a historic row dated 1929 or earlier (a US publication before 1930 is public domain);
  *   - "not evaluated", "restricted", "permission", "rights status" and anything else → refused.
  * Historic rows are dated from the item (`date` / `created_published`); the caption names "Library of Congress".
  */
@@ -25,7 +26,7 @@ function rightsOf(item, creators) {
   if (/not (been )?evaluated|rights status|restricted|permission (is )?required|in copyright|copyright (is )?held|may be restricted/i.test(text) && !/no known restrictions/i.test(text)) return { refused: `rights: "${text.slice(0, 120)}"` };
   if (/highsmith/i.test(creators.join(' ')) && /public domain|no known restrictions/i.test(text)) return { licence: 'Public domain', text };
   if (/u\.?s\.? government|public domain/i.test(text)) return { licence: 'Public domain', text };
-  if (/^no known restrictions/i.test(text)) return { licence: 'No known restrictions', text };
+  if (/^no known restrictions/i.test(text)) return { licence: 'No known restrictions', text };   // lib + gate: historic, ≤ 1929 only
   return { refused: `rights not recognised: "${text.slice(0, 120)}"` };
 }
 /** Pick an image URL from the item's image_url list ("…jpg#h=…&w=…"): the smallest at least `w` wide, else the largest. */

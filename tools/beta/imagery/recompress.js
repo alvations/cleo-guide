@@ -55,7 +55,7 @@ const isJpeg = f => /\.jpe?g$/i.test(f);
 /** A Commons file that is not a JPEG (PNG, WebP, TIFF thumbnails): converted to JPEG, since only JPEG is weight-capped (R7). */
 const notJpeg = row => filesOf(row).some(f => !isJpeg(f.file));
 /** Self-hosted copies the pipeline resized: Commons, and Flickr (fetch-flickr.js, R8) — weight-capped the same way. */
-const selfHosted = row => row.provider === 'wikimedia-commons' || row.provider === 'flickr';
+const selfHosted = row => ['wikimedia-commons', 'flickr', 'openverse', 'library-of-congress', 'the-met', 'smithsonian', 'europeana'].includes(row.provider);   // + the sources lane's archives (D-52)
 const eligible = row => selfHosted(row) && (!marked(row) || notJpeg(row));
 /** A row to (re)visit: not yet recompressed, not a JPEG, over a size target (targets tightened, R7), or without its dominant colour. */
 const needsWork = (row, sizeOf) => selfHosted(row) &&
@@ -128,7 +128,7 @@ const NO720 = {
   'kyoto--uji-bridge-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
   'singapore--southern-ridges--haw-par-villa-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
 };
-const needs720 = (row, prio) => selfHosted(row) && row.record && !NO720[row.file] && prio.has(`${row.record.page}#${row.record.id}`) &&
+const needs720 = (row, prio) => selfHosted(row) && row.record && !NO720[row.file] && !row.no720 && prio.has(`${row.record.page}#${row.record.id}`) &&
   filesOf(row).some(f => /-960\.jpe?g$/i.test(f.file)) && !filesOf(row).some(f => classWidth(f) >= 600 && classWidth(f) < 800);
 async function priority720(sharp, rows, dry) {
   let n = 0;
@@ -179,8 +179,22 @@ async function main() {
       const meta = await sharp(buf).metadata();
       if (meta.format !== 'jpeg' || !isJpeg(f.file)) { const [b, a] = await convert(sharp, row, f, buf, target, meta, dry, p); before += b; after += a; files++; touched = true; continue; }
       if (marked(row) && buf.length <= target) continue;          // already recompressed and within its target
-      if ((meta.orientation || 1) !== 1) { console.log(`  skip  ${f.file}: EXIF orientation ${meta.orientation} (stripping it would turn the photo)`); continue; }
+      const lead720 = !f.main && hasLarge(row) && classWidth(f) >= 600 && classWidth(f) < 800;
+      /** A lead / first-row 720 copy that cannot meet its cap: drop it, the card keeps 500 + 960, and `no720` stops a re-add
+       *  (R8 run #96: two busy first-row photos kept 106–122 KB 720 copies and failed D-40a; no hand-kept list needed). */
+      const drop720 = why => {
+        console.log(`  drop  ${f.file}: ${why} — the card keeps 500 + 960 (no720)`);
+        if (!dry) {
+          fs.unlinkSync(p); row.variants = row.variants.filter(v => v.file !== f.file); row.no720 = true;
+          row.modified = String(row.modified || '').replace(/^resized to 500, \d+ and (\d+) px wide/, 'resized to 500 and $1 px wide');
+        }
+      };
+      if ((meta.orientation || 1) !== 1) {
+        if (lead720 && buf.length > target) { drop720(`EXIF orientation ${meta.orientation} — cannot re-encode under ${Math.round(target / KB)} KB`); continue; }
+        console.log(`  skip  ${f.file}: EXIF orientation ${meta.orientation} (stripping it would turn the photo)`); continue;
+      }
       const { out, q, w: nw, h: nh, scaled } = await encode(sharp, buf, target, meta);
+      if (lead720 && !(scaled && nw < 600) && out.length > target) { drop720(`${Math.round(out.length / KB)} KB at q${q} is over its ${Math.round(target / KB)} KB cap`); continue; }
       if (scaled && !f.main && hasLarge(row) && classWidth(f) >= 600 && classWidth(f) < 800 && nw < 600) {
         // a lead / first-row 720 copy that only fits by shrinking below 600 px is no sharper than the 500: drop it (NO720)
         console.log(`  drop  ${f.file}: a ${Math.round(target / KB)} KB copy shrinks to ${nw} px wide — the card keeps 500 + 960; add ${row.file} to NO720`);

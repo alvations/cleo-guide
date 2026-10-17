@@ -96,7 +96,7 @@ console.log('\n== GUIDE DATA: signature, canon order, day plans, recently closed
     if (!gi || gi.closed !== closed.length || gi.days !== Object.keys(g.days.plans).length) gBad.idx.push(row.key);
   }
   chk('★ signature is a food canon or a collection, never a publisher; n == its places', gBad.pub, a => a.length === 0);
-  chk('pages with a ★ signature (food canon or pop culture)', nSig, n => n >= 60);
+  chk('pages with a ★ signature (food canon or pop culture)', nSig, n => n >= 58);   // FE-B: 60 → 58 — the floor counted Singapore/hanoi + hoi-an, now moved pointers to their Vietnam/ pages (same signatures)
   chk('canon dishes printed only when a canon record names them', gBad.dish, a => a.length === 0);
   chk('food order is a permutation of the page cuisine ids', gBad.order, a => a.length === 0);
   chk(`day plans: 4–6 open, verified-pin stops in one area, straight-line legs (${nPlans} plans)`, gBad.day, a => a.length === 0 && nPlans > 100);
@@ -268,13 +268,28 @@ function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO, io = f
 const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
 // "scroll to the end": fire every watched target of every (fake) IntersectionObserver until nothing new is watched
 const scrollAll = async w => { for (let i = 0; i < 400; i++) { const hit = (w.__io || []).filter(o => o.t.size); if (!hit.length) return; hit.forEach(o => o.cb([...o.t].map(t => ({ target: t, isIntersecting: true })))); await sleep(5); } };
-// PERF-08 (QA's wording, BETA-ISSUES PERF-08): a lens shows exactly its matches and every place stays reachable —
-// (a) shown == F; (b) every food place is a card; (c) cards + stubs == total; (f) the visible lens count == F
-const lensOutcome = (b, label) => {
-  const d = b.d, F = live.F.length, dom = d.querySelectorAll('li.pl').length, stubs = b.w.Cleo.defer.peek().length;
-  const cnt = d.querySelector('#cleo-shown b'), tile = d.querySelector('button[data-mode="food"] .n, .rail-i[data-mode="food"] .n');
-  chk(`${label} (${dom} of ${total} cards built): (a) shown == F · (b) every food place is a card · (c) cards + stubs == total · (f) the visible lens count == F`,
-    [shown(d), d.querySelectorAll('li.pl[data-k="f"]').length, dom + stubs, cnt ? +cnt.textContent : null].join(), `${F},${F},${total},${F}`);
+// PERF-08 (QA's wording, BETA-ISSUES PERF-08), restated by QA for the paged lens (lensPage, PERF-21; QA 2026-10-17,
+// tools/beta/qa/lenspage-accept.js): (a) the count line == F, and paging reaches every match exactly once, each a card on
+// its page; (b) every match is a card on its page, or a stub that becomes a card when paging, search, #p= or print reaches
+// it; (c) cards + stubs == total; (f) the visible lens count == F. (c), (f) and G1 are unchanged.
+const FOOD = [...rd('beta/' + TOKYO).matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"[^>]*data-k="f"/g)].map(m => 'p-' + m[1]);
+const lensOutcome = async (b, label) => {
+  const d = b.d, w = b.w, F = live.F.length, dom = d.querySelectorAll('li.pl').length, stubs = w.Cleo.defer.peek().length;
+  const cnt = d.querySelector('#cleo-shown b'), cn = cnt ? +cnt.textContent : null;
+  // (b) before paging: every match is a card on this page, or a stub still to be built
+  const card0 = new Set([...d.querySelectorAll('li.pl')].map(c => c.id)), stub0 = new Set(w.Cleo.defer.peek().map(x => x.id));
+  const b0 = FOOD.every(id => card0.has(id) || stub0.has(id));
+  // (a) walk the pager (when the view is paged): every match exactly once, each a real card on its page, nothing else
+  const r0 = w.Cleo.route.parse(), h0 = w.location.hash, pager = d.querySelector('.g-pager:not([hidden])');
+  const pages = pager && r0.all !== '1' ? Math.max(1, Math.ceil(F / 48)) : 1, seen = new Map();
+  for (let pg = 1; pg <= pages; pg++) {
+    if (pages > 1) { const r = Object.assign({}, r0); if (pg > 1) r.pg = String(pg); else delete r.pg; w.location.hash = '#' + w.Cleo.route.href(r).split('#')[1]; await sleep(60); }
+    [...d.querySelectorAll('li.pl')].filter(c => !c.hidden && !c.classList.contains('pg-off') && !c.closest('[hidden], .pg-empty')).forEach(c => seen.set(c.id, (seen.get(c.id) || 0) + 1));
+  }
+  if (pages > 1) { w.location.hash = h0; await sleep(60); }
+  const ids = [...seen.keys()], dup = [...seen.values()].filter(n => n > 1).length, extra = ids.filter(id => FOOD.indexOf(id) < 0).length, missing = FOOD.filter(id => !seen.has(id)).length;
+  chk(`${label} (${dom} of ${total} cards built, ${pages} page(s)): (a) count line == F and paging shows every match once, each a card on its page · (b) every match a card or a stub · (c) cards + stubs == total · (f) the visible lens count == F`,
+    [FOOD.length, cn, ids.length, dup, extra, missing, b0, dom + stubs].join(), `${F},${F},${F},0,0,0,true,${total}`);
 };
 
 (async () => {
@@ -385,7 +400,7 @@ const lensOutcome = (b, label) => {
     chk('a pin on an unstamped place stamps its chunk (stampFor)', !!w.Cleo.defer.stampFor(lastId) && !!d.getElementById('p-' + lastId), true);
     d.querySelector('button[data-mode="food"]').click(); await sleep(30);
     // PERF-08: a lens builds only what it shows (Cleo.defer.selective); QA's (a)–(h) replace "any lens stamps every card"
-    lensOutcome({ w, d }, 'a lens (food mode)');
+    await lensOutcome({ w, d }, 'a lens (food mode)');
     {   // (g) with the lens on, a #p= deep link to a place OUTSIDE it stamps and shows it (filters yield)
       const sIds = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"[^>]*data-k="s"/g)].map(m => m[1]), out = sIds.find(id => !d.getElementById('p-' + id)) || sIds[sIds.length - 1];   // unbuilt if any (selective), else any sight
       w.location.hash = '#mode=food&p=' + out; await sleep(40);
@@ -405,12 +420,12 @@ const lensOutcome = (b, label) => {
     }
     {   // (e) clearing the lens and scrolling builds every card; (d) "Show all" builds every card at once
       const e1 = boot({ io: true, hash: '#view=atlas&mode=food' }); await sleep(300);
-      lensOutcome(e1, 'a lens link on load (Atlas)');
+      await lensOutcome(e1, 'a lens link on load (Atlas)');
       e1.w.location.hash = '#view=atlas'; await sleep(40); await scrollAll(e1.w);
       chk('(e) Atlas: clearing the lens, then scrolling the list: the DOM ends up == total', e1.d.querySelectorAll('li.pl').length, total);
       // the Gallery is paged (its lazy observer holds; SPEC §2.3): clearing the lens, then every page, reaches every card
       const e3 = boot({ io: true, hash: '#view=gallery&mode=food' }); await sleep(300);   // FE-A D-46: Atlas is the default; this case is the Gallery's
-      lensOutcome(e3, 'a lens link on load (Gallery)');
+      await lensOutcome(e3, 'a lens link on load (Gallery)');
       e3.w.location.hash = '#view=gallery'; await sleep(40);
       for (let k = 2; k <= Math.ceil(total / 48) + 1; k++) { e3.w.location.hash = '#view=gallery&pg=' + k; await sleep(20); }
       chk('(e) Gallery: clearing the lens, then paging to the end: the DOM ends up == total', e3.d.querySelectorAll('li.pl').length, total);
@@ -464,7 +479,7 @@ const lensOutcome = (b, label) => {
     const tm = b2.d.getElementById('p-' + mid);
     chk('a second place link (hashchange) stamps one more chunk, not the page', !!tm && !tm.hidden && b2.d.querySelectorAll('li.pl').length < total, true);
     b2.w.location.hash = '#mode=food'; await sleep(60);
-    lensOutcome(b2, '… and a lens after it');
+    await lensOutcome(b2, '… and a lens after it');
     b2.w.location.hash = '#view=atlas'; await sleep(40); await scrollAll(b2.w);
     chk('… (e) clearing it on Atlas, then scrolling the list: the DOM ends up == total', b2.d.querySelectorAll('li.pl').length, total);
     chk('no js errors (place-only stamping)', b2.errs, e => e.length === 0);

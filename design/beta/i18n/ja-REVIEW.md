@@ -241,4 +241,16 @@ A fresh independent subagent proposed a change to each of the four drafts, and a
 
 A fresh independent subagent kept 「{d}に確認」. It drops 営業状況を just as the English drops "Status". It matches `sheet.checked` (· {d}に確認) and `sheet.verified` ({d}に検証), and it reads as 10月2日に確認.
 
-**Total: 84 changes over nineteen rounds.**
+## Round 20: Your lists (FE-A's client/saved.js and render/saved.js; 53 new `saved.*` / `lst.*` keys, from the 2026-10-17 audit; 3 changes, applied)
+
+A fresh independent subagent checked all 53 strings and kept 50. saved.h1 stays マイリスト, matching the nav item `shell.saved`.
+
+**Aligned before review:** `lst.all` and `lst.empty.all` now match the reviewed `trip.all` / `trip.empty.h`, as the identical-en rule requires.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `lst.shared.k` | 共有されたリスト | あなたへの共有 | It was identical to lst.shared.name, so an unnamed shared list showed the same words twice. "Shared with you" says who. |
+| `lst.take` | 持ち出す | 共有・書き出し | 持ち出す reads as "take something out"; the bar is named after its actions. |
+| `lst.empty.list.p` | ここにあるカードの「リスト」から場所を追加するか、先にガイドで場所を保存してください。 | このページの各カードにある「リスト」から場所を追加するか、先にガイドで場所を保存してください。 | ここにあるカード was ambiguous in an empty list; it now names the per-card 「リスト」 menu. |
+
+**Total: 87 changes over twenty rounds.**
