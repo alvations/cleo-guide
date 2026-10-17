@@ -2563,3 +2563,7 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **D-53 (trust):** no rating platform or own site in "Recommended by", on every surface, with a build guard (FE-B). The data side goes to the location lane: 73 Yelp-only records (SV 67, NYC 6), the `--sourcecheck` gate re-checked, and the NYC Wah Fung duplicate.
   - **D-49 × "Start with":** one starting place per view (FE-A); Tokyo's Atlas names Kanda Myōjin while Edo-Tokyo Museum spans.
   - **Round 4** shoots once FE-A's header SHA and FE-1's L SHA are on origin.
+- **OV-106 / OV-115–117 (one search per screen below 1024):** outside Atlas, the city field folds away while empty and unfocused. It is clipped, not removed, so FE-B's header icon can still focus it, and `:focus-within` or a typed query brings it back.
+  - In landscape the empty city bar takes no height.
+  - Measured on Tokyo, Gallery and Guidebook, at 768×1024 and 844×390: no field at rest, the icon opens it, and a typed query keeps it.
+- **QC-06 (768 Atlas):** the header switch segments are 44 × 44 on a 48 px track, with the QA-82 tooltip. feb-switcher.js passes at every width.
