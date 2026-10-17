@@ -14,7 +14,13 @@ SG/MY 12; no photo on food is ever possible from these sources).
   USGS 1 manual), 30 refused rows kept; 22 searched-with-nothing targets in searched-gaps.tsv.
 
 **In flight:**
-- nothing. Wave 2 merged (+10 candidates: 3 Europe Pexels, 7 Asia Pexels; +14 searched-gaps); it stopped early on the shared 200-searches-per-turn WebSearch cap.
+- Stage workflow beta-image-sources-stage.yml (orchestrator; push trigger on candidates.tsv; dispatch API 404s). Run #1 died on an
+  unpaced LoC burst ("terminated", fixed e49656ae8: image pacing, retry, partial work exits 0); run #2 hit LoC's 1-hour block
+  (fixed 67ab53dad: a preflight timeout/429 is a throttle, warning + exit 0). Self check-in trig_01TP89biicQdixg6vx3dHaBG at
+  03:45Z re-triggers with a real candidates.tsv change; then send the orchestrator the contact-sheet paths.
+- Coverage finding (02:40Z): 40 of 41 LoC targets, all Europeana/Smithsonian/Met targets and 26 of 28 Pexels targets already have
+  a live vetted Commons candidate. Mine-only: philadelphia-zoo, raffles-hotel, esplanade. Wave 2 = post-#82 residual minus those.
+- Waiting on imagery: "a pending row never renders" in photos.js, then I add providers / stock licences / historic caption (D-52(3)).
 
 **Next:**
 1. Send the orchestrator the CLIs + secrets and the imagery lane the gate proposals (done in this push).
