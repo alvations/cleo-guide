@@ -864,7 +864,7 @@ html[data-view=atlas]:not(.ms-nomap) [data-cleo-pack]{display:none!important}
 }
 /* §v2.12 3a (designer, owner OV-00): one search per screen. From 1024 the city field is the search on a city page, so the
    header's search icon is not drawn there (FE-B's search.js sends the icon and "/" to the city field below 1024) */
-@media (min-width:1024px){html body .topbar [data-cleo-search-open]{display:none}}
+@media (min-width:1024px){html[data-cleo-page=city] body .topbar [data-cleo-search-open]{display:none}}   /* FE-B (QC r4 search ×2): city pages only — Trip and Saved have no city field, so the icon is their one search */
 
 /* ---- D-49 (owner "too many blanks"; DESIGN-SYSTEM §v2.7b): a photo is the only thing that takes a photo's space ----
    The build marks a photo-less card li.pl.pl--np (render/city.js). It changes SHAPE, never order, and re-lays its own nodes

@@ -153,16 +153,27 @@ const recommender = n => (OWN_SITE.test(publicName(n)) ? null : recName(publicNa
 //   'guide'    — ADD / FADD general knowledge (stays labelled as such, never a source);
 //   'rec'      — everything else.
 const PLATFORM = /\byelp\b|\btrip ?advisor\b|\bgoogle(?: maps| reviews| business)?\b(?! arts)|\bapple maps\b/i;
-const BOARD = /tourism|touris|toeris|\bcvb\b|convention|visit|bureau|\bcity\b|\bstad\b|\bville\b|gemeente|municipal|county|regional|\bboard\b|state (?:tourism|government|parks?)|government/i;
+const BOARD = /tourism|touris|toeris|\btravel\b|\.travel\b|\bcvb\b|convention|visit|bureau|\bcity\b|\bstad\b|\bville\b|gemeente|municipal|county|regional|\bboard\b|state (?:tourism|government|parks?)|government/i;
 const sourceRole = s => {
   const id = String((s && s.id) || ''), n = String((s && s.name) || '');
   if (id === 'guide') return 'guide';
   if (PLATFORM.test(id.replace(/-/g, ' ')) || PLATFORM.test(n)) return 'platform';
-  if (id === 'official-site' || /-official$/.test(id) || OWN_SITE.test(n) || /^official\b/i.test(n) || ((/\([^)]*\bofficial\b[^)]*\)/i.test(n) || /\bofficial (?:site|website|web ?page|page|history|homepage)\b/i.test(n)) && !BOARD.test(n))) return 'own';   /* QA-87: "(developer, official)", "X official site / history" */
+  if (id === 'official-site' || /-official$/.test(id) || OWN_SITE.test(n) || /^official\b/i.test(n) || ((/\([^)]*(?:\bofficial\b|offici[eë]e?le?|offiziell|oficial|公式)[^)]*\)/i.test(n) || /\bofficial (?:site|website|web ?page|page|history|homepage)\b/i.test(n) || OFFICIAL_ALT.test(n)) && !BOARD.test(n))) return 'own';   /* QA-87: "(developer, official)", "X official site / history" */
   return 'rec';
 };
 /** The ids a record may name after "Recommended by", authorities first (Michelin, James Beard, NPS), then the live order. */
-const recommendersOf = (src, byId) => (src || []).filter(id => byId[id] && sourceRole(byId[id]) === 'rec')
+// QA-87 (orchestrator rule 3): a source named for the place itself (its name, or its domain, is the place's own name) is that
+// place's own site even without an "official" word — e.g. "Atomium" on Atomium, kinsunrisebeach.com on Kin Sunrise Beach.
+// A board's page about the place (Visit Bruges, sapporo.travel) stays a recommender.
+const OFFICIAL_ALT = /\b(?:officieel|offici[eë]le site|offizielle? (?:seite|website)|site officiel|sitio oficial)\b|公式/i;
+const selfCore = n => String(n || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/\([^)]*\)/g, ' ').replace(/\s[—–-]+\s.*$/, '')
+  .replace(/\b(?:official|officieel|site|website|web|page|homepage|history|the|inc|llc)\b/g, ' ').replace(/[^a-z0-9]+/g, '');
+const nearName = (a, b) => a.length >= 5 && b.length >= 5 && (a === b || (a.startsWith(b) || b.startsWith(a)) && Math.min(a.length, b.length) / Math.max(a.length, b.length) >= 0.6);
+const isSelf = (s, place) => { const nm = String((s && s.name) || ''), dm = (s && s.domains) || [];
+  // a board's page about the place: a board name (outside the parenthetical), a board-only domain, or "(via <board>)"
+  if (!s || !place || BOARD.test(nm.replace(/\([^)]*\)/g, '')) || (dm.length && dm.every(d => BOARD.test(d))) || /\(via\b/i.test(nm)) return false; const pc = selfCore(place);
+  return nearName(selfCore(s.name), pc) || (s.domains || []).filter(d => !BOARD.test(d)).some(d => nearName(String(d).replace(/^www\./, '').split('.')[0].replace(/[^a-z0-9]/g, ''), pc)); };
+const recommendersOf = (src, byId, place) => (src || []).filter(id => byId[id] && sourceRole(byId[id]) === 'rec' && !isSelf(byId[id], place))
   .map((id, i) => [id, byId[id].authority ? 0 : 1, i]).sort((x, y) => x[1] - y[1] || x[2] - y[2]).map(x => x[0]);
 
-module.exports = { sourceRole, recommendersOf, recName, publicName, recommender, statusUrl, pinSource, RESEARCH, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
+module.exports = { sourceRole, recommendersOf, isSelf, recName, publicName, recommender, statusUrl, pinSource, RESEARCH, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };

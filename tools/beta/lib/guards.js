@@ -38,6 +38,14 @@ function assertCityPage(row, html, recs) {
     .filter(id => roleOf[id] !== 'rec');
   const offName = [...html.matchAll(/<p class="pl-s"[^>]*><span class="lbl">[^<]*<\/span>([\s\S]*?)<\/p>/g)].filter(m => /\(official\b|\b(?:yelp|tripadvisor)\b/i.test(m[1].replace(/<[^>]+>/g, '')));
   if (offName.length) errs.push(`"Recommended by" text reads "(official…)" or a platform: ${offName.length} card(s)`);
+  // QA-87 rule 3: no chip names the place's own site by name/domain (lib/model.js isSelf), recomputed per card
+  { const { isSelf } = require('./model'), byId = {}; ((row.sources && row.sources.list) || []).forEach(s => { byId[s.id] = s; });
+    const { decode } = require('./extract'), self = [];
+    for (const seg of html.split(/<li class="pl[ "]/).slice(1)) {
+      const nm = /<h3 class="pl-n"><a [^>]*>([\s\S]*?)<\/a><\/h3>/.exec(seg), ln = /<p class="pl-s"[^>]*><span class="lbl">[^<]*<\/span>([\s\S]*?)<\/p>/.exec(seg);
+      if (nm && ln) for (const x of ln[1].matchAll(/data-src="([^"]+)"/g)) if (isSelf(byId[x[1]], decode(nm[1].replace(/<[^>]+>/g, '')))) self.push(x[1]);
+    }
+    if (self.length) errs.push(`"Recommended by" names the place's own site: ${[...new Set(self)].slice(0, 4).join(', ')}`); }
   // QA-87: general knowledge ("Added by the guide", ADD / FADD) is never after the label either
   const gk = [...html.matchAll(/<p class="pl-s"[^>]*><span class="lbl">[^<]*<\/span>([\s\S]*?)<\/p>/g)].filter(m => /class="added"|data-src="guide"/.test(m[1]));
   if (gk.length) errs.push(`"Recommended by" is followed by general knowledge ("Added by the guide"): ${gk.length} card(s)`);

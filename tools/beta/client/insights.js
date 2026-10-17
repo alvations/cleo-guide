@@ -274,7 +274,11 @@
       stacked(kRows, ks, tt('city.tray.area', 'Area'), function (a, k, n, lab) { var o = k ? kq(k) : {}; if (a) o.a = a; return exact('mix')(o, n, lab); }, 'mix', true),
       note('mix', T.pop == null ? tt('ins.mix.nopop', 'This city has no pop-culture collection in its data, so the third segment is absent rather than zero-filled.') : tt('ins.mix.pop', 'Pop culture = places in the city’s pop-culture collections; a place counts in one segment only.')));
     // 2 · who recommends each area
-    var ss = I.src.top.map(function (s, i) { return { id: s, name: srcName[s] || s, c: SER[i] }; }).concat([{ id: '_o', name: tt('ins.other', 'Other sources'), c: OTHER }]);
+    // D-53 (orchestrator): "Added by the guide" stays its own series, after the ranked recommenders, in a neutral swatch — never ranked, never merged
+    var ranked = I.src.top.filter(function (s) { return s !== 'guide'; }), gk = I.src.top.indexOf('guide') >= 0;
+    var ss = ranked.map(function (s, i) { return { id: s, name: srcName[s] || s, c: SER[i] }; })
+      .concat(gk ? [{ id: 'guide', name: tt('ins.src.guide', 'Added by the guide (general knowledge) — not a recommendation'), c: 'var(--ink-3)' }] : [])
+      .concat([{ id: '_o', name: tt('ins.other', 'Other sources'), c: OTHER }]);
     var c2 = card('src', tt('ins.src.t', 'Who recommends each area'), tt('ins.src.s', 'Citations per area by source: the {top} most-cited sources, then all others. A place named by three sources counts three times ({c} citations over {n} places).', { top: I.src.top.length, c: T.citations, n: N }),
       stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.src.perArea[a.id] }; }), ss, tt('city.tray.area', 'Area'), function (a, s, n, lab) { if (s === '_o') return plain('src')(); var o = { a: a }; if (s) o.src = s; return exact('src')(o, n, lab); }, 'src', true),
       note('src', tt('ins.src.note', '{n} sources in all. “Added by the guide” marks general-knowledge additions and is never relabelled as sourced.', { n: I.src.all })));
