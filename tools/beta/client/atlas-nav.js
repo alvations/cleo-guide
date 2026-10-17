@@ -308,6 +308,11 @@
   { const om = C.overMap; let pad0 = null; const cp = o => ({ paddingTopLeft: o.paddingTopLeft.slice(), paddingBottomRight: o.paddingBottomRight.slice() });
     if (om) C.overMap = () => { const ph = !desktop() && H.classList.contains('atlas-m'), lst = ph && H.classList.contains('ms-list');
       if (lst && pad0) return cp(pad0); const o = om(); if (ph && !lst) pad0 = cp(o); return o; }; }
+  // §2.0.7 (designer 3793b1d15, "List: the way back is the switch's Atlas icon"): in phone list mode the switch's Atlas
+  // segment, already pressed, goes back to the map — the only way back in landscape (no Map pill there); one history step,
+  // as the pill and Escape do, so Back and the round trip stay coherent. Focus stays on the segment.
+  on(d, 'click', e => { const b = e.target.closest && e.target.closest('[data-cleo-views] button[data-view="atlas"]');
+    if (!b || !atlas() || desktop() || !H.classList.contains('ms-list') || !C.listMode) return; C.listMode(false, true); }, true);
   // OV-00 "Near me once": in Atlas the list head's Near me door takes the map's own reading (the dot, the map on the reader,
   // nearest first, walking times); pressed again it clears, as before (foryou.js C.near)
   on(d, 'click', e => { const b = e.target.closest && e.target.closest('[data-cleo-near]'); if (!b || !atlas() || !C.map() || !C.locate || C.dist) return;
