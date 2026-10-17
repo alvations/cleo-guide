@@ -18,7 +18,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { buildRegistry, ROOT } = require('./lib/registry');
 const { rowsOf: galleryRows } = require('./lib/gallery');
-const { normalise, nativeOf, publicName } = require('./lib/model');
+const { normalise, nativeOf, publicName, sourceRole, recommendersOf } = require('./lib/model');
 const stats = require('./lib/stats');
 const { pageSources, siteSources } = require('./lib/sources');
 const art = require('./lib/art');
@@ -58,6 +58,11 @@ for (const r of cityRows) {
   if (r.recs.length !== r.counts.P + r.counts.F) errors.push(`${r.live}: model ${r.recs.length} != live ${r.counts.P + r.counts.F}`);
   r.sources = pageSources(r, r.recs);             // stamps rec.src (publisher ids) — M1-10
   r.sources.list.forEach(s => { if (s && s.name) s.name = publicName(s.name); });   // FE-B R8 gap #2d: display names (registry stays verbatim)
+  // FE-B D-53 (trust): each source's role and each record's real recommenders (lib/model.js sourceRole / recommendersOf) —
+  // a rating platform, the place's own site or the guide's general knowledge is never "Recommended by". `recby` rides on
+  // the record (page JSON → every client surface) beside `src`, which keeps every source visible.
+  { const byId = {}; r.sources.list.forEach(s => { s.role = sourceRole(s); byId[s.id] = s; });
+    r.recs.forEach(x => { x.recby = recommendersOf(x.src, byId); }); }
   r.recog = recognition.pageRecognition(r, r.recs, r.sources.list, ROOT);   // W9-1/W9-9: badges + local favourites from source keys only
   r.stats = stats.pageStats(r, r.recs);           // every number the page prints — M1-20
   // D-39 (QA-65): a record whose own prose quotes a price or rating carries `pq` (the research date) on the record
@@ -87,6 +92,12 @@ reg.stats = stats.siteStats(reg);
 if (process.env.CLEO_BETA_SELFTEST_DROP) {
   const victim = cityRows.find(r => r.gen === 'new');
   if (victim) victim.recs = victim.recs.slice(1);
+}
+// FE-B D-53 self-test (test-beta.js): seed one record whose "Recommended by" names a rating platform — the guard must refuse.
+if (process.env.CLEO_BETA_SELFTEST_RECBY) {
+  const victim = cityRows.find(r => r.gen === 'new' && r.recs.length);
+  if (victim) { victim.sources.list.push({ id: 'yelp', name: 'Yelp', url: 'https://example.invalid/', role: 'rec' });
+    victim.recs[0].src = (victim.recs[0].src || []).concat('yelp'); victim.recs[0].recby = ['yelp']; }
 }
 
 if (args.has('--list')) {
@@ -462,6 +473,10 @@ for (const [rel, body] of out) {
   }
   if (!args.has('--check')) for (const k of keys) { const d = path.join(BETA, 'assets/art', k); if (fs.existsSync(d) && !fs.readdirSync(d).length) fs.rmdirSync(d); }
 }
+// FE-B D-53 (rule 3, holding state): REPORT the cards with no independent recommender per city, so the count trends to 0
+// as the location lane sources or drops them (never a failure; the guard above fails only a wrong "Recommended by")
+{ const nr = cityRows.map(r => [r.key, r.recs.filter(x => x.recby && !x.recby.length && !(x.src || []).includes('guide')).length]).filter(x => x[1]).sort((a, b) => b[1] - a[1]);
+  console.log(`  D-53: ${nr.reduce((t, x) => t + x[1], 0)} cards with no independent source yet${nr.length ? ' — ' + nr.map(x => x[0] + ' ' + x[1]).join(', ') : ''}`); }
 const summary = `${generated.length} pages, ${cityRows.length} place pages indexed, ${totalLive} places (beta == live)`;
 if (args.has('--check')) {
   if (stale) { console.error(`>>> FAIL — ${stale} beta file(s) differ from a fresh build; run \`npm run beta\`.`); process.exit(1); }

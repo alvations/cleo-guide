@@ -141,6 +141,28 @@ const pinSource = src => {
 const INTERNAL_PAREN = /\s*\((?=[^)]*(?:coord|facts|notability|verif|research))[^)]*\)/gi;
 const OWN_SITE = /^official\s+(?:site|website|company|institution)\b/i;
 const publicName = n => { const v = String(n || '').replace(INTERNAL_PAREN, '').trim(); return OWN_SITE.test(v) && !/^official site$/i.test(v) ? 'Official site' : v; };   // designer: fall back to "Official site"
-const recommender = n => (OWN_SITE.test(publicName(n)) ? null : publicName(n) || null);   // landing / hub "Recommended by": never a place's own site
+// FE-B D-53: a recommender's chip name — a board's "(official CVB)" / "(official tourism)" tail is dropped after "Recommended by"
+const recName = n => String(n || '').replace(/\s*\(official\b[^)]*\)/ig, '').trim() || String(n || '');
+const recommender = n => (OWN_SITE.test(publicName(n)) ? null : recName(publicName(n)) || null);   // landing / hub "Recommended by": never a place's own site
 
-module.exports = { publicName, recommender, statusUrl, pinSource, RESEARCH, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
+// FE-B D-53 (trust, CLAUDE.md "Yelp/TripAdvisor are never the recommender"): who may be named after "Recommended by".
+// One helper for every surface. A source's role:
+//   'platform' — a rating platform that measures, never recommends (Yelp, Tripadvisor, Google Maps / reviews, Apple Maps);
+//   'own'      — the place's own site in any form (official-site, *-official, "Official …", "<Name> (official)" unless that
+//                name is a tourism / city / regional board, which IS an independent recommender);
+//   'guide'    — ADD / FADD general knowledge (stays labelled as such, never a source);
+//   'rec'      — everything else.
+const PLATFORM = /\byelp\b|\btrip ?advisor\b|\bgoogle(?: maps| reviews| business)?\b(?! arts)|\bapple maps\b/i;
+const BOARD = /tourism|touris|toeris|\bcvb\b|convention|visit|bureau|\bcity\b|\bstad\b|\bville\b|gemeente|municipal|county|regional|\bboard\b|state (?:tourism|government|parks?)|government/i;
+const sourceRole = s => {
+  const id = String((s && s.id) || ''), n = String((s && s.name) || '');
+  if (id === 'guide') return 'guide';
+  if (PLATFORM.test(id.replace(/-/g, ' ')) || PLATFORM.test(n)) return 'platform';
+  if (id === 'official-site' || /-official$/.test(id) || OWN_SITE.test(n) || /^official\b/i.test(n) || (/\(official\b[^)]*\)/i.test(n) && !BOARD.test(n))) return 'own';
+  return 'rec';
+};
+/** The ids a record may name after "Recommended by", authorities first (Michelin, James Beard, NPS), then the live order. */
+const recommendersOf = (src, byId) => (src || []).filter(id => byId[id] && sourceRole(byId[id]) === 'rec')
+  .map((id, i) => [id, byId[id].authority ? 0 : 1, i]).sort((x, y) => x[1] - y[1] || x[2] - y[2]).map(x => x[0]);
+
+module.exports = { sourceRole, recommendersOf, recName, publicName, recommender, statusUrl, pinSource, RESEARCH, sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
