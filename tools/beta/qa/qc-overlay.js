@@ -121,7 +121,10 @@ const MEASURE = new Function(`
   out.duplicates = Object.entries(by).filter(([, l]) => l.length > 1).map(([k, l]) => k + ' ×' + l.length).slice(0, 6);
   const searches = [...document.querySelectorAll('button, a[href], input, [role=button]')].filter(e => shown(e) && onTop(e) && !e.closest(CONTENT) &&
     (/search/i.test(name(e)) || e.type === 'search' || /search/i.test(e.getAttribute('placeholder') || '')));
-  if (searches.length > 1) out.duplicates.push('search ×' + searches.length + ' (' + searches.map(e => (name(e) || e.getAttribute('placeholder') || '').slice(0, 24)).join(' + ') + ')');
+  // orchestrator ruling (02:15Z): a field and its own submit button inside one form (or one role=search) are ONE search
+  // control; separate entry points on one screen (header search + hero search) count separately
+  const entry = [...new Map(searches.map(e => [e.closest('form, [role=search]') || e, e])).values()];
+  if (entry.length > 1) out.duplicates.push('search ×' + entry.length + ' (' + entry.map(e => (name(e) || e.getAttribute('placeholder') || '').slice(0, 24)).join(' + ') + ')');
   // the top bar's paint (designer b2f587a8: chrome is opaque, no backdrop blur): alpha of the topmost fixed/sticky bar at the top edge
   { const t = fixedAnc(document.elementFromPoint(W / 2, 4) || document.body); if (t) { const c = cs(t); const m = /rgba?\(([^)]+)\)/.exec(c.backgroundColor); const p = m ? m[1].split(/[ ,\/]+/).filter(Boolean) : [];
     out.topAlpha = p.length > 3 ? +(+p[3]).toFixed(2) : p.length ? 1 : 0; out.topBlur = /blur/.test(c.backdropFilter || c.webkitBackdropFilter || ''); } }

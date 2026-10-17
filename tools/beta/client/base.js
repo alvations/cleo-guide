@@ -14,7 +14,9 @@
   if (!B || !Cleo.geo || !Cleo.geo.walk || B.ll) return;
   var C = Cleo.city || null, data = {}, ready = {}, waiters = [], busy = false;
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
-  var toast = function (m) { if (Cleo.emit) Cleo.emit('cleo:toast', m); };
+  // OV-40 (QC): no toast while a place sheet with the base fact is open: its fact shows the new state ("Your base ✓ ·
+  // Clear my base") and its status line announces it, so a toast would only sit over the sheet's controls
+  var toast = function (m) { if (d.querySelector('#cleo-sheet:not([hidden]) [data-cleo-base-fact]')) return; if (Cleo.emit) Cleo.emit('cleo:toast', m); };
   var short = function (p) { var n = String(p.n).replace(/\s+[—–-]+\s*CLOSED\b.*$/, ''), nat = p.nat && n.slice(-p.nat.length - 2) === '(' + p.nat + ')' ? p.nat : ''; return nat ? n.slice(0, -nat.length - 2).trim() : n; };
   var isClosed = function (p) { return !!p.closed || /\bclosed\b/i.test((p.pv || {}).status || '') || / [—–-]+ CLOSED\b/.test(p.n); };
   /** Can this place be a base? '' when yes, otherwise the reason. */
@@ -116,7 +118,7 @@
     else { var at = [d.getElementById('cleo-lead'), d.getElementById('cleo-view'), d.querySelector('main .split')].filter(vis)[0] || (main && main.querySelector('section.area'));
       if (at && at.previousSibling !== el) at.parentNode.insertBefore(el, at); else if (!at && main && !el.parentNode) main.appendChild(el); }
     var on = C && C.S && C.S.sort === 'base';
-    var h = '<p><span class="eyebrow">' + esc(Cleo.t('base.yours', 'Your base')) + '</span> <b>' + esc(short(b.p)) + '</b>. ' + esc(Cleo.t('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route')) + '.</p><p class="base-acts">' +
+    var h = '<p><span class="eyebrow">' + esc(Cleo.t('base.yours', 'Your base')) + '</span> <b class="bn" title="' + esc(short(b.p)) + '">' + esc(short(b.p)) + '</b>. ' + esc(Cleo.t('geo.assume', 'Walk times are straight-line, about 80 m a minute — an estimate, not a route')) + '.</p><p class="base-acts">' +
       (C ? '<button type="button" class="btn btn-ghost" data-cleo-base="sort" aria-pressed="' + on + '">' + esc(on ? Cleo.t('base.sort.on', 'Nearest to my base ✓') : Cleo.t('city.sort.base', 'Nearest to my base')) + '</button>' : '') +
       '<button type="button" class="btn btn-quiet" data-cleo-base="clear">' + esc(Cleo.t('base.clear', 'Clear my base')) + '</button></p>';
     if (el._h !== h) { el.innerHTML = h; el._h = h; }
@@ -173,6 +175,10 @@
   css.textContent = '.pl .pl-base{order:99;grid-column:1/-1}.pl-base,.gc-base,.ge-base,.ms-pv-base{white-space:normal;overflow-wrap:anywhere;min-width:0;max-width:100%}.pl-base,.gc-base,.ge-base{margin:4px 0 0;font:500 var(--fs-sm)/1.35 var(--font-ui);color:var(--ink-2)}.ms-pv-base{display:block;margin-top:2px;font-size:var(--fs-sm);color:var(--ink-2)}' +
     // OV-12 (OV-00): the note is in-flow and compact: one sentence (the card lines already show the distance), tight leading
     '.base-note{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:center;margin:6px 0;padding:6px 10px;border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface);font-size:var(--fs-sm);line-height:var(--lh-xs,1.35);color:var(--ink-2)}' +
+    // OV-12 (QC: 117 px with a long name): the sentence is 12 px and two lines at most; a long base name is cut with an
+    // ellipsis (its full name in the title, and on every card line), so the note stays ≤ 100 px on a phone
+    '.base-note>p:first-child{font-size:var(--fs-xs);line-height:var(--lh-xs,1.35);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}' +
+    '.base-note .bn{display:inline-block;max-width:9.5em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}' +
     '.base-note p{margin:0}.base-note b{color:var(--ink)}.base-acts{display:flex;flex-wrap:wrap;gap:var(--s-2)}.base-acts .btn{min-height:var(--tap)}.base-acts .btn[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}.ms-head .base-note{margin:6px 0 0}';
   d.head.appendChild(css);
 
