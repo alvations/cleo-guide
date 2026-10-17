@@ -2567,3 +2567,10 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - In landscape the empty city bar takes no height.
   - Measured on Tokyo, Gallery and Guidebook, at 768×1024 and 844×390: no field at rest, the icon opens it, and a typed query keeps it.
 - **QC-06 (768 Atlas):** the header switch segments are 44 × 44 on a 48 px track, with the QA-82 tooltip. feb-switcher.js passes at every width.
+- 2026-10-17 12:45Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Head f3983b4a3:** validate and beta:check pass (8,691 places, beta == live). The full npm test is running, with its log kept whole; the result goes in the next entry.
+  - **Photo run #111:** gates passed at 12:40Z, and the commit step is running. It is the first photo run to reach a commit since about 03:30.
+  - **CSS cut bbaf111a8 regressed day plans and the saved heart.** The designer is asked to revert it whole. The orchestrator's own revert was blocked by the auto-mode classifier (another lane's commit on the shared branch), so the owning lane does it. The interim pin is blocked until then.
+  - **QA-83 (Low, FE-A):** the lead photo renders 4:3, not 3:2.
+  - **Owner action:** the EUROPEANA_API_KEY Actions secret.
+  - **Round 4** waits on FE-A's NYC header fix and FE-1's phone search/drag fixes.
