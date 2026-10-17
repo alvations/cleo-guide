@@ -48,7 +48,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     env:
       UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       # Openverse registered-app credentials (optional; higher rate limits). Read from the environment only.
@@ -79,12 +79,25 @@ jobs:
         run: cd tools && npm install --no-save --no-audit --no-fund sharp
 
       - name: Fetch Wikimedia Commons photos (no key needed)
-        # Push-triggered runs use the default scope (priority); wider scopes only by hand (workflow_dispatch),
-        # so no stray run can pull hundreds of photos.
+        # Push-triggered runs use the default scope (priority); wider scopes only by hand: workflow_dispatch, or a
+        # committed sweep request (tools/beta/imagery/sweep.json: {"id", "scope", "budget"}). The request exists because
+        # GitHub keeps one pending run per concurrency group: run #108 (all/1500, dispatched) was cancelled while it waited,
+        # by the next push-triggered run. Whichever run starts next serves an unserved request once, and its id is written
+        # to design/beta/imagery-runs/sweep-served.txt so later runs fall back to priority/300.
         env:
           SCOPE: ${{ github.event.inputs.scope || 'priority' }}
           BUDGET: ${{ github.event.inputs.budget || '300' }}
+          EVENT: ${{ github.event_name }}
         run: |
+          REQ=tools/beta/imagery/sweep.json SERVED=design/beta/imagery-runs/sweep-served.txt
+          if [ "$EVENT" = push ] && [ -f "$REQ" ]; then
+            id=$(node -p "String(require('./$REQ').id || '')")
+            if [ -n "$id" ] && [ "$id" != "$(cat "$SERVED" 2>/dev/null)" ]; then
+              SCOPE=$(node -p "String(require('./$REQ').scope)"); BUDGET=$(node -p "String(require('./$REQ').budget)")
+              echo "Serving sweep request $id: scope $SCOPE, budget $BUDGET"
+              mkdir -p "$(dirname "$SERVED")" && printf '%s\n' "$id" > "$SERVED"
+            fi
+          fi
           case "$SCOPE" in heroes|priority|pilots|all) ;; *) echo "::error::unknown scope '$SCOPE'"; exit 1;; esac
           [[ "$BUDGET" =~ ^[0-9]+$ && "$BUDGET" -ge 1 && "$BUDGET" -le 1500 ]] || { echo "::error::budget must be 1-1500"; exit 1; }
           if [ -f tools/beta/imagery/fetch-commons.js ]; then
@@ -156,7 +169,7 @@ jobs:
         # Lanes rebuild and gate their own source changes before they push (CLAUDE.md, beta:check).
         id: changed
         run: |
-          if [ -n "$(git status --porcelain -- beta/assets/img design/beta/imagery-runs/openverse design/beta/imagery-runs/commons-discovered)" ]; then echo "any=1" >> "$GITHUB_OUTPUT"; else echo "any=0" >> "$GITHUB_OUTPUT"; echo "No new photos or credits; skipping the rebuild."; fi
+          if [ -n "$(git status --porcelain -- beta/assets/img design/beta/imagery-runs/openverse design/beta/imagery-runs/commons-discovered design/beta/imagery-runs/sweep-served.txt)" ]; then echo "any=1" >> "$GITHUB_OUTPUT"; else echo "any=0" >> "$GITHUB_OUTPUT"; echo "No new photos or credits; skipping the rebuild."; fi
 
       - name: Rebuild the beta and run the gates
         if: steps.changed.outputs.any == '1'
@@ -175,6 +188,7 @@ jobs:
           git add beta
           [ -d design/beta/imagery-runs/openverse ] && git add design/beta/imagery-runs/openverse
           [ -d design/beta/imagery-runs/commons-discovered ] && git add design/beta/imagery-runs/commons-discovered
+          [ -f design/beta/imagery-runs/sweep-served.txt ] && git add design/beta/imagery-runs/sweep-served.txt
           if git diff --cached --quiet; then
             echo "No new photos."
             exit 0
