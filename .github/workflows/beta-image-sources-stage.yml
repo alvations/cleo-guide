@@ -16,20 +16,20 @@ on:
   workflow_dispatch:
     inputs:
       sources:
-        description: "Comma-separated sources to stage: loc, met, smithsonian, europeana"
+        description: "Comma-separated sources to stage: met, loc, smithsonian, europeana"
         required: false
-        default: loc,met
+        default: met,loc
       budget:
         description: "API requests per source this run (1-300)"
         required: false
         default: "60"
   # workflow_dispatch only registers once this file is on the default branch; until a release carries it, a push that
-  # changes the candidate list (or this file) stages with the defaults (loc,met; budget 60).
+  # changes the candidate list stages with the defaults (met first, then the rate-limited loc; budget 60). Editing
+  # this file does not trigger a run (a burst can extend LoC's one-hour block).
   push:
     branches: [claude/peaceful-goodall-i0hsrt]
     paths:
       - tools/beta/imagery/sources/candidates.tsv
-      - .github/workflows/beta-image-sources-stage.yml
 
 permissions:
   contents: write
@@ -61,7 +61,7 @@ jobs:
 
       - name: Stage candidates per source
         env:
-          SOURCES: ${{ github.event.inputs.sources || 'loc,met' }}
+          SOURCES: ${{ github.event.inputs.sources || 'met,loc' }}
           BUDGET: ${{ github.event.inputs.budget || '60' }}
         run: |
           [[ "$BUDGET" =~ ^[0-9]+$ && "$BUDGET" -ge 1 && "$BUDGET" -le 300 ]] || { echo "::error::budget must be 1-300"; exit 1; }
