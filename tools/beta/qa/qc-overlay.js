@@ -47,6 +47,9 @@ const MEASURE = new Function(`
   const dlg = [...document.querySelectorAll('[role=dialog]')].find(e => shown(e) && e.getBoundingClientRect().height > 80) || null;
   const scrolls = document.documentElement.scrollHeight > H + 2;
   const cache = new Map();
+  // on a page that does not scroll (Atlas), a pane that scrolls on its own (the desktop list column) is content, not chrome (FE-1, 10:41Z)
+  const scrollers = [...document.querySelectorAll('*')].filter(e => /auto|scroll/.test(getComputedStyle(e).overflowY) && e.clientHeight >= H * 0.25 && e.scrollHeight > e.clientHeight + 24 && e !== document.documentElement && e !== document.body);   // a pane, not a strip that overflows by a few px
+  const inScroller = e => scrollers.some(s => s.contains(e));
   const frameW = e => (dlg && dlg.contains(e) ? dlg.getBoundingClientRect().width : W);
   const fixedAnc = e => { const stop = dlg && dlg.contains(e) ? dlg : document.body;   // inside a sheet, its own bars only (not the backdrop container)
     for (let a = e; a && a !== stop && a !== document.body && a !== document.documentElement; a = a.parentElement) { const p = cs(a).position;
@@ -63,17 +66,18 @@ const MEASURE = new Function(`
       else if (e.closest('.leaflet-control-container, .leaflet-control, .leaflet-top, .leaflet-bottom')) k = 'overlay';
       else if (e === mapC || e.closest('.leaflet-map-pane')) k = 'map';
       else k = 'overlay';
-    } else { const f = fixedAnc(e); k = f ? 'chrome' : (!scrolls && !e.closest(CONTENT) ? 'chrome' : 'content'); }
+    } else { const f = fixedAnc(e); k = f ? 'chrome' : (!scrolls && !e.closest(CONTENT) && !inScroller(e) ? 'chrome' : 'content'); }
     cache.set(e, k); return k; };
   const n = {}, rows = [], inMap = { all: 0, map: 0, pin: 0, label: 0, overlay: 0, other: 0 }; const dr = dlg ? dlg.getBoundingClientRect() : null;
-  for (let y = STEP / 2; y < H; y += STEP) { const row = { chrome: 0, all: 0 };
+  const VY = 4;   // rows every 4 px, so a band's edge is exact to 4 px (columns stay STEP apart)
+  for (let y = VY / 2; y < H; y += VY) { const row = { chrome: 0, all: 0 };
     for (let x = STEP / 2; x < W; x += STEP) {
       let k = classify(document.elementFromPoint(x, y));
       if (mr && x >= mr.left && x < mr.right && y >= mr.top && y < mr.bottom && !(k === 'sheet' || k === 'sheet-chrome')) {
         inMap.all++; if (k === 'map' || k === 'pin' || k === 'label' || k === 'overlay') inMap[k]++; else { inMap.other++; k = 'overlay'; } }
       n[k] = (n[k] || 0) + 1; if (k === 'backdrop') continue; row.all++; if (k === 'chrome' || k === 'overlay' || k === 'sheet-chrome') row.chrome++; }
     if (!dr || (y >= dr.top && y < dr.bottom)) rows.push(row); }
-  const tot = rows.reduce((s, r) => s + r.all, 0) || 1, RH = H / STEP;   // bands stay a % of the viewport height
+  const tot = rows.reduce((s, r) => s + r.all, 0) || 1, RH = H / VY;   // bands stay a % of the viewport height
   let top = 0; while (top < rows.length && rows[top].chrome / rows[top].all >= 0.5) top++;
   let bot = 0; while (bot < rows.length - top && rows[rows.length - 1 - bot].chrome / rows[rows.length - 1 - bot].all >= 0.5) bot++;
   const pct = x => Math.round(x * 1000) / 10;
@@ -127,7 +131,9 @@ const MEASURE = new Function(`
   // links such as a card's "How we choose" are not chrome); two search fields count even when their scopes differ
   const by = {}; controls.forEach(e => { const k = name(e); if (k && k.length > 1 && !/^\\d+$/.test(k)) (by[k] = by[k] || []).push(e); });
   out.duplicates = Object.entries(by).filter(([, l]) => l.length > 1).map(([k, l]) => k + ' ×' + l.length).slice(0, 6);
-  const searches = [...document.querySelectorAll('button, a[href], input, [role=button]')].filter(e => shown(e) && onTop(e) && !e.closest(CONTENT) &&
+  // an entry point is a field or a control that opens search; a results list's "Search all guides" row ([data-cleo-all-slot])
+  // and its "clear search" are part of the results (orchestrator ruling, 10:40Z)
+  const searches = [...document.querySelectorAll('button, a[href], input, [role=button]')].filter(e => shown(e) && onTop(e) && !e.closest(CONTENT) && !e.closest('[data-cleo-all-slot]') && !/\bclear\b/i.test(name(e)) &&
     (/search/i.test(name(e)) || e.type === 'search' || /search/i.test(e.getAttribute('placeholder') || '')));
   // orchestrator ruling (02:15Z): a field and its own submit button inside one form (or one role=search) are ONE search
   // control; separate entry points on one screen (header search + hero search) count separately
@@ -234,7 +240,8 @@ async function main() {
       if (PHONE[v] ? L.widestLabel > 40 : L.labelMaxPx > 220) push('labelWidth', PHONE[v] ? L.widestLabel + ' % (' + L.widestLabelText + ')' : L.labelMaxPx + ' px (' + L.widestLabelText + ')', PHONE[v] ? '≤ 40 % of the map width' : '≤ 220 px', r);
       if (L.labelGap) push('labelGap', L.labelGap + ' pairs < 4 px', '≥ 4 px apart', r);
       if (L.searchHere) push('searchHereOnLoad', 'shown at load', 'absent at load', r);
-      if (r.idle && r.idle.attrW > 60) push('attribution', r.idle.attrW + ' px wide 1.5 s after a pan', 'collapses to ⓘ on the first pan or after 5 s', r);
+      if (PHONE[v] && r.idle && r.idle.attrW > 60) push('attribution',   // SPEC-v3 §2.0.3 (b7df8c3f): the desktop credit stays full, T2 / D exempt
+        r.idle.attrW + ' px wide 1.5 s after a pan', 'collapses to ⓘ on the first pan or after 5 s', r);
       if (PHONE[v] && L.mapControl) push('mapControl', 'a control named "Map"', 'none on phone', r);
       if (PHONE[v] && L.nearMe > 1) push('nearMeTwice', L.nearMe, 'once per screen', r); }
     else if (city(r) || r.view === 'page') { const [cr, ca] = OTHER[v];

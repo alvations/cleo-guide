@@ -10,6 +10,7 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
 
 ## Done
 
+- f03865bf: `w7-photos.js` Flickr duplicate key falls back to the photo id in sourceUrl (fetch-openverse writes no `flickrId`); tested with imagery's example row; imagery told.
 - 03f4f402: the W7 full pass (QA-45…59, `tools/beta/qa/w7.js`, `w7-photos.js`, the B-07 map-search path in `metrics.js`).
 - Register work:
   - 5f6088a8: register built;
