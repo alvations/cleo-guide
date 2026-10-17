@@ -1,7 +1,7 @@
 {
  "_generated": "tools/beta/imagery/discover-commons.js — review verdicts in tools/beta/imagery/manifest/discover-review.tsv",
  "v": 1,
- "n": 148,
+ "n": 277,
  "targets": {
   "hero:singapore/dempsey-hill": [],
   "landmark:hokkaido#former-aoyama-villa-otaru-kihinkan": [
@@ -2560,6 +2560,2255 @@
     "depicts": "Haines House (Alliance, OH)",
     "id": "cm-148",
     "key": "landmark:akron#haines-house-underground-railroad-museum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:indianapolis#hinkle-fieldhouse": [
+   {
+    "file": "File:Hinkle panorama inside.JPG",
+    "how": "geosearch 34 m",
+    "field": "description",
+    "licence": "Public domain",
+    "author": "JKBrooks85",
+    "width": 5330,
+    "height": 2207,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Hinkle_panorama_inside.JPG/330px-Hinkle_panorama_inside.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Hinkle panorama inside",
+    "id": "cm-149",
+    "key": "landmark:indianapolis#hinkle-fieldhouse",
+    "cls": "tier1",
+    "review": "pending"
+   }
+  ],
+  "landmark:orlando#winter-garden-downtown-historic-district": [
+   {
+    "file": "File:Winter Garden Downtown Dist Bldg01.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 2.5",
+    "author": "( Ebyabe )",
+    "width": 3264,
+    "height": 2448,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Winter_Garden_Downtown_Dist_Bldg01.jpg/330px-Winter_Garden_Downtown_Dist_Bldg01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Winter Garden Downtown Dist Bldg01",
+    "id": "cm-150",
+    "key": "landmark:orlando#winter-garden-downtown-historic-district",
+    "cls": "tier1",
+    "review": "pending"
+   }
+  ],
+  "landmark:akron#stark-county-courthouse": [
+   {
+    "file": "File:Stark County Courthouse.jpg",
+    "how": "geosearch 20 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "Brenda Gottsabend",
+    "width": 2711,
+    "height": 3827,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Stark_County_Courthouse.jpg/330px-Stark_County_Courthouse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Stark County Courthouse",
+    "id": "cm-151",
+    "key": "landmark:akron#stark-county-courthouse",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:akron#west-branch-state-park": [
+   {
+    "file": "File:West Branch State Park.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 2.0",
+    "author": "Mike Steele",
+    "width": 5472,
+    "height": 3648,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/West_Branch_State_Park.jpg/330px-West_Branch_State_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "West Branch State Park",
+    "id": "cm-152",
+    "key": "landmark:akron#west-branch-state-park",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:akron#kenmore-boulevard-historic-district": [],
+  "landmark:akron#summit-lake-nature-center-and-summit-lake-trail": [],
+  "landmark:akron#e-j-thomas-performing-arts-hall": [
+   {
+    "file": "File:AkronArtsHall.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "sleepydre / Threeblur0",
+    "width": 3296,
+    "height": 2472,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/AkronArtsHall.jpg/330px-AkronArtsHall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "AkronArtsHall",
+    "id": "cm-153",
+    "key": "landmark:akron#e-j-thomas-performing-arts-hall",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:akron#western-reserve-academy": [],
+  "landmark:akron#cooperrider-kent-bog-state-nature-preserve": [
+   {
+    "file": "File:Tom S. Cooperrider-Kent Bog State Nature Preserve boardwalk.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Bisnicks",
+    "width": 2448,
+    "height": 3264,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Tom_S._Cooperrider-Kent_Bog_State_Nature_Preserve_boardwalk.jpg/330px-Tom_S._Cooperrider-Kent_Bog_State_Nature_Preserve_boardwalk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Tom S. Cooperrider-Kent Bog State Nature Preserve boardwalk",
+    "id": "cm-154",
+    "key": "landmark:akron#cooperrider-kent-bog-state-nature-preserve",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:akron#firestone-metro-park": [],
+  "landmark:akron#canton-classic-car-museum": [
+   {
+    "file": "File:Canton Classic Car Museum parking lot mural (2023).jpg",
+    "how": "geosearch 40 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Engineerchange",
+    "width": 7728,
+    "height": 5152,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Canton_Classic_Car_Museum_parking_lot_mural_%282023%29.jpg/330px-Canton_Classic_Car_Museum_parking_lot_mural_%282023%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Canton Classic Car Museum parking lot mural (2023)",
+    "id": "cm-155",
+    "key": "landmark:akron#canton-classic-car-museum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:akron#jackson-bog-state-nature-preserve": [],
+  "landmark:antwerp#sint-carolus-borromeuskerk": [
+   {
+    "file": "File:Carolus borromeus interior 20.jpg",
+    "how": "geosearch 10 m",
+    "field": "category",
+    "licence": "CC BY-SA 3.0",
+    "author": "Ad Meskens",
+    "width": 2736,
+    "height": 3081,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Carolus_borromeus_interior_20.jpg/330px-Carolus_borromeus_interior_20.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Carolus borromeus interior 20",
+    "id": "cm-156",
+    "key": "landmark:antwerp#sint-carolus-borromeuskerk",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#sint-annatunnel-voetgangerstunnel": [
+   {
+    "file": "File:Sint-Annatunnel Antwerpen (1).jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Quatrostein",
+    "width": 1728,
+    "height": 2304,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Sint-Annatunnel_Antwerpen_%281%29.jpg/330px-Sint-Annatunnel_Antwerpen_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Sint-Annatunnel Antwerpen (1)",
+    "id": "cm-157",
+    "key": "landmark:antwerp#sint-annatunnel-voetgangerstunnel",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#momu-modemuseum": [],
+  "landmark:antwerp#diva-museum-voor-diamant-juwelen-en-zilver": [],
+  "landmark:antwerp#museum-mayer-van-den-bergh": [
+   {
+    "file": "File:LangeGasthuisstraat19front.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Berthgmn",
+    "width": 3456,
+    "height": 4608,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/LangeGasthuisstraat19front.jpg/330px-LangeGasthuisstraat19front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "LangeGasthuisstraat19front",
+    "id": "cm-158",
+    "key": "landmark:antwerp#museum-mayer-van-den-bergh",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#het-snijders-and-rockoxhuis": [],
+  "landmark:antwerp#red-star-line-museum": [
+   {
+    "file": "File:Red Star Line Museum.jpg",
+    "how": "geosearch 0 m",
+    "field": "title",
+    "licence": "CC0 1.0",
+    "author": "DimiTalen",
+    "width": 4000,
+    "height": 5129,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Red_Star_Line_Museum.jpg/330px-Red_Star_Line_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Red Star Line Museum",
+    "id": "cm-159",
+    "key": "landmark:antwerp#red-star-line-museum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#zoo-antwerpen": [
+   {
+    "file": "File:Antwerpen Zoo Entrance 1.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "DRG-fan",
+    "width": 6168,
+    "height": 4112,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Antwerpen_Zoo_Entrance_1.jpg/330px-Antwerpen_Zoo_Entrance_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Antwerpen Zoo Entrance 1",
+    "id": "cm-160",
+    "key": "landmark:antwerp#zoo-antwerpen",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#havenhuis-port-house-zaha-hadid": [],
+  "landmark:antwerp#paleis-op-de-meir": [
+   {
+    "file": "File:Front entrance to Paleis op de Meir in Antwerp.jpg",
+    "how": "geosearch 24 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Vasyatka1",
+    "width": 6000,
+    "height": 4000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Front_entrance_to_Paleis_op_de_Meir_in_Antwerp.jpg/330px-Front_entrance_to_Paleis_op_de_Meir_in_Antwerp.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Front entrance to Paleis op de Meir in Antwerp",
+    "id": "cm-161",
+    "key": "landmark:antwerp#paleis-op-de-meir",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#museum-vleeshuis-klank-van-de-stad": [],
+  "landmark:antwerp#vlaeykensgang": [
+   {
+    "file": "File:Antwerpen - Vlaeykensgang.jpg",
+    "how": "geosearch 21 m",
+    "field": "title",
+    "licence": "CC BY 2.0",
+    "author": "Fred Romero from Paris, France",
+    "width": 5184,
+    "height": 3456,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Antwerpen_-_Vlaeykensgang.jpg/330px-Antwerpen_-_Vlaeykensgang.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Antwerpen - Vlaeykensgang",
+    "id": "cm-162",
+    "key": "landmark:antwerp#vlaeykensgang",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#zurenborg-and-cogels-osylei": [],
+  "landmark:antwerp#handelsbeurs": [
+   {
+    "file": "File:Handelsbeurs Building - cloister.jpg",
+    "how": "geosearch 30 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Msemmett",
+    "width": 3500,
+    "height": 2629,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Handelsbeurs_Building_-_cloister.jpg/330px-Handelsbeurs_Building_-_cloister.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Handelsbeurs Building - cloister",
+    "id": "cm-163",
+    "key": "landmark:antwerp#handelsbeurs",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#sint-andrieskerk": [
+   {
+    "file": "File:Sint-Andries Netje.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Torsade de Pointes",
+    "width": 1224,
+    "height": 1632,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Sint-Andries_Netje.JPG/330px-Sint-Andries_Netje.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Sint-Andries Netje",
+    "id": "cm-164",
+    "key": "landmark:antwerp#sint-andrieskerk",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#het-eilandje": [],
+  "landmark:antwerp#provinciaal-groendomein-rivierenhof": [],
+  "landmark:antwerp#grenspark-kalmthoutse-heide": [
+   {
+    "file": "File:Kalmthoutse heide.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Tbc",
+    "width": 2272,
+    "height": 1704,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Kalmthoutse_heide.jpg/330px-Kalmthoutse_heide.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Kalmthoutse heide",
+    "id": "cm-165",
+    "key": "landmark:antwerp#grenspark-kalmthoutse-heide",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#arboretum-kalmthout": [
+   {
+    "file": "File:0 Kalmthout - Arboretum 110801 (1).jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Jean-Pol GRANDMONT",
+    "width": 3756,
+    "height": 2504,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/0_Kalmthout_-_Arboretum_110801_%281%29.jpg/330px-0_Kalmthout_-_Arboretum_110801_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "0 Kalmthout - Arboretum 110801 (1)",
+    "id": "cm-166",
+    "key": "landmark:antwerp#arboretum-kalmthout",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#grote-markt-and-stadhuis-mechelen": [],
+  "landmark:antwerp#groot-begijnhof-mechelen": [],
+  "landmark:antwerp#speelgoedmuseum-mechelen": [],
+  "landmark:antwerp#museum-hof-van-busleyden": [
+   {
+    "file": "File:Sleek - Flickr - Rob Oo.jpg",
+    "how": "geosearch 25 m",
+    "field": "description",
+    "licence": "CC BY 2.0",
+    "author": "Rob Oo from NL",
+    "width": 5035,
+    "height": 3358,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Sleek_-_Flickr_-_Rob_Oo.jpg/330px-Sleek_-_Flickr_-_Rob_Oo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Sleek - Flickr - Rob Oo",
+    "id": "cm-167",
+    "key": "landmark:antwerp#museum-hof-van-busleyden",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#boottocht-op-de-binnendijle": [],
+  "landmark:antwerp#sint-gummaruskerk": [
+   {
+    "file": "File:Lier, Gummaruskerk foto1 2009-08-30 13.48.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Michielverbeek",
+    "width": 2589,
+    "height": 3452,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Lier%2C_Gummaruskerk_foto1_2009-08-30_13.48.JPG/330px-Lier%2C_Gummaruskerk_foto1_2009-08-30_13.48.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Lier, Gummaruskerk foto1 2009-08-30 13.48",
+    "id": "cm-168",
+    "key": "landmark:antwerp#sint-gummaruskerk",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#kasteel-sorghvliedt": [
+   {
+    "file": "File:Hoboken Sorghvliedt 6.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC0 1.0",
+    "author": "Torsade de Pointes",
+    "width": 4580,
+    "height": 2602,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Hoboken_Sorghvliedt_6.jpg/330px-Hoboken_Sorghvliedt_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Hoboken Sorghvliedt 6",
+    "id": "cm-169",
+    "key": "landmark:antwerp#kasteel-sorghvliedt",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#fort-liefkenshoek": [
+   {
+    "file": "File:Fort Liefkenshoek R02.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 3.0",
+    "author": "Marc Ryckaert ( MJJR )",
+    "width": 3476,
+    "height": 1611,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Fort_Liefkenshoek_R02.jpg/330px-Fort_Liefkenshoek_R02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Fort Liefkenshoek R02",
+    "id": "cm-170",
+    "key": "landmark:antwerp#fort-liefkenshoek",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#onze-lieve-vrouw-over-de-dijlekerk": [
+   {
+    "file": "File:Mechelen OLV over de Dijle Maria met kind 1.jpg",
+    "how": "geosearch 10 m",
+    "field": "category",
+    "licence": "CC BY 4.0",
+    "author": "Renée Kools",
+    "width": 3024,
+    "height": 4032,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Mechelen_OLV_over_de_Dijle_Maria_met_kind_1.jpg/330px-Mechelen_OLV_over_de_Dijle_Maria_met_kind_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Mechelen OLV over de Dijle Maria met kind 1",
+    "id": "cm-171",
+    "key": "landmark:antwerp#onze-lieve-vrouw-over-de-dijlekerk",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#sint-janskerk-mechelen": [
+   {
+    "file": "File:Mechelen St. Jan.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Chris06",
+    "width": 2304,
+    "height": 1728,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Mechelen_St._Jan.JPG/330px-Mechelen_St._Jan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Mechelen St. Jan",
+    "id": "cm-172",
+    "key": "landmark:antwerp#sint-janskerk-mechelen",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#technopolis": [
+   {
+    "file": "File:Technopolis (Belgium) - 10.jpg",
+    "how": "geosearch 1 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Sophie P.",
+    "width": 4032,
+    "height": 3024,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Technopolis_%28Belgium%29_-_10.jpg/330px-Technopolis_%28Belgium%29_-_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Technopolis (Belgium) - 10",
+    "id": "cm-173",
+    "key": "landmark:antwerp#technopolis",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#brusselpoort-mechelen": [
+   {
+    "file": "File:Mechelen-Brusselpoort (2).jpg",
+    "how": "geosearch 33 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Romaine",
+    "width": 2988,
+    "height": 5312,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Mechelen-Brusselpoort_%282%29.jpg/330px-Mechelen-Brusselpoort_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Mechelen-Brusselpoort (2)",
+    "id": "cm-174",
+    "key": "landmark:antwerp#brusselpoort-mechelen",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#vlinderpaleis-justitiepaleis": [
+   {
+    "file": "File:Antwerpen - Rechtbank van eerste aanleg Antwerpen.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 2.0",
+    "author": "Fred Romero from Paris, France",
+    "width": 5184,
+    "height": 3456,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Antwerpen_-_Rechtbank_van_eerste_aanleg_Antwerpen.jpg/330px-Antwerpen_-_Rechtbank_van_eerste_aanleg_Antwerpen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Antwerpen - Rechtbank van eerste aanleg Antwerpen",
+    "id": "cm-175",
+    "key": "landmark:antwerp#vlinderpaleis-justitiepaleis",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#park-spoor-noord": [
+   {
+    "file": "File:Park Spoor Noord Antwerpen April 2016.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Lsjm",
+    "width": 4608,
+    "height": 3456,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Park_Spoor_Noord_Antwerpen_April_2016.jpg/330px-Park_Spoor_Noord_Antwerpen_April_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Park Spoor Noord Antwerpen April 2016",
+    "id": "cm-176",
+    "key": "landmark:antwerp#park-spoor-noord",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#felixarchief-sint-felixpakhuis": [],
+  "landmark:antwerp#chinatown-and-chinese-poort": [],
+  "landmark:antwerp#stadspark": [
+   {
+    "file": "File:Urban park.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Orrling",
+    "width": 4608,
+    "height": 3456,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Urban_park.jpg/330px-Urban_park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Urban park",
+    "id": "cm-177",
+    "key": "landmark:antwerp#stadspark",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:antwerp#sint-annastrand-sint-anneke": [
+   {
+    "file": "File:Sint-Annastrand.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Lodevermeiren",
+    "width": 1182,
+    "height": 665,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Sint-Annastrand.jpg/330px-Sint-Annastrand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Sint-Annastrand",
+    "id": "cm-178",
+    "key": "landmark:antwerp#sint-annastrand-sint-anneke",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#concertgebouw-brugge": [
+   {
+    "file": "File:Teatre de Bruges - 20220626 191908.jpg",
+    "how": "geosearch 28 m",
+    "field": "category",
+    "licence": "CC BY-SA 4.0",
+    "author": "Pere prlpz",
+    "width": 4128,
+    "height": 3096,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Teatre_de_Bruges_-_20220626_191908.jpg/330px-Teatre_de_Bruges_-_20220626_191908.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Teatre de Bruges - 20220626 191908",
+    "id": "cm-179",
+    "key": "landmark:bruges#concertgebouw-brugge",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#choco-story-chocolademuseum": [],
+  "landmark:bruges#frietmuseum": [
+   {
+    "file": "File:'Frietmuseum (Fries Museum) located in the Gothic Saaihalle (former Wool Hall) at Vlamingstraat 33' by Tania Dey.JPG",
+    "how": "geosearch 8 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "Tania Dey",
+    "width": 3000,
+    "height": 4000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/%27Frietmuseum_%28Fries_Museum%29_located_in_the_Gothic_Saaihalle_%28former_Wool_Hall%29_at_Vlamingstraat_33%27_by_Tania_Dey.JPG/330px-%27Frietmuseum_%28Fries_Museum%29_located_in_the_Gothic_Saaihalle_%28former_Wool_Hall%29_at_Vlamingstraat_33%27_by_Tania_Dey.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "'Frietmuseum (Fries Museum) located in the Gothic Saaihalle (former Wool Hall) at Vlamingstraat 33' by Tania Dey",
+    "id": "cm-180",
+    "key": "landmark:bruges#frietmuseum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#middeleeuwse-stadspoorten": [],
+  "landmark:bruges#onze-lieve-vrouw-ter-potterie": [
+   {
+    "file": "File:Onze-Lieve-Vrouw van de Potterie Kirche Innen 2.jpg",
+    "how": "geosearch 3 m",
+    "field": "category",
+    "licence": "CC BY-SA 4.0",
+    "author": "Ricardalovesmonuments",
+    "width": 16320,
+    "height": 12240,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Onze-Lieve-Vrouw_van_de_Potterie_Kirche_Innen_2.jpg/330px-Onze-Lieve-Vrouw_van_de_Potterie_Kirche_Innen_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Onze-Lieve-Vrouw van de Potterie Kirche Innen 2",
+    "id": "cm-181",
+    "key": "landmark:bruges#onze-lieve-vrouw-ter-potterie",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#volkskundemuseum": [
+   {
+    "file": "File:Brügge-Volkskundemuseum DSC0357.jpg",
+    "how": "geosearch 20 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Rainer Halama",
+    "width": 6000,
+    "height": 4000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Br%C3%BCgge-Volkskundemuseum_DSC0357.jpg/330px-Br%C3%BCgge-Volkskundemuseum_DSC0357.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Brügge-Volkskundemuseum DSC0357",
+    "id": "cm-182",
+    "key": "landmark:bruges#volkskundemuseum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#kantcentrum-lace-centre": [],
+  "landmark:bruges#onze-lieve-vrouw-hemelvaartkerk-damme": [
+   {
+    "file": "File:Damme kerk R02.jpg",
+    "how": "geosearch 21 m",
+    "field": "category",
+    "licence": "CC BY 3.0",
+    "author": "Marc Ryckaert ( MJJR )",
+    "width": 2045,
+    "height": 2716,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Damme_kerk_R02.jpg/330px-Damme_kerk_R02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Damme kerk R02",
+    "id": "cm-183",
+    "key": "landmark:bruges#onze-lieve-vrouw-hemelvaartkerk-damme",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#damse-vaart": [
+   {
+    "file": "File:0 Damme - Houve d'Oude Schaapskooi (1).JPG",
+    "how": "geosearch 19 m",
+    "field": "description",
+    "licence": "CC BY-SA 3.0",
+    "author": "Jean-Pol GRANDMONT",
+    "width": 4912,
+    "height": 3274,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/0_Damme_-_Houve_d%27Oude_Schaapskooi_%281%29.JPG/330px-0_Damme_-_Houve_d%27Oude_Schaapskooi_%281%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "0 Damme - Houve d'Oude Schaapskooi (1)",
+    "id": "cm-184",
+    "key": "landmark:bruges#damse-vaart",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#fort-napoleon": [
+   {
+    "file": "File:Fort Napoleon R01.jpg",
+    "how": "geosearch 30 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "Marc Ryckaert ( MJJR )",
+    "width": 4433,
+    "height": 1894,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Fort_Napoleon_R01.jpg/330px-Fort_Napoleon_R01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Fort Napoleon R01",
+    "id": "cm-185",
+    "key": "landmark:bruges#fort-napoleon",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#zeilschip-mercator": [],
+  "landmark:bruges#ijslandvaarder-amandine": [],
+  "landmark:bruges#grand-casino-knokke-magritte-muurschildering": [],
+  "landmark:bruges#seafront-zeebrugge": [
+   {
+    "file": "File:Seafront (Zeebrugge) 25-06-2019 15-26-17.jpg",
+    "how": "geosearch 27 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Paul Hermans",
+    "width": 3985,
+    "height": 5664,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Seafront_%28Zeebrugge%29_25-06-2019_15-26-17.jpg/330px-Seafront_%28Zeebrugge%29_25-06-2019_15-26-17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Seafront (Zeebrugge) 25-06-2019 15-26-17",
+    "id": "cm-186",
+    "key": "landmark:bruges#seafront-zeebrugge",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#permekemuseum": [
+   {
+    "file": "File:Jabbeke - Huis Permeke.jpg",
+    "how": "geosearch 30 m",
+    "field": "description",
+    "licence": "CC BY-SA 3.0",
+    "author": "flamenc",
+    "width": 2592,
+    "height": 2590,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Jabbeke_-_Huis_Permeke.jpg/330px-Jabbeke_-_Huis_Permeke.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Jabbeke - Huis Permeke",
+    "id": "cm-187",
+    "key": "landmark:bruges#permekemuseum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#belle-epoque-centrum-blankenberge": [],
+  "landmark:bruges#kusttram": [],
+  "landmark:bruges#huyse-de-grote-sterre-and-uilenspiegelmuseum": [],
+  "landmark:bruges#pier-and-sea-life-blankenberge": [],
+  "landmark:bruges#lissewege-het-witte-polderdorp": [
+   {
+    "file": "File:Lissewege Pastorie R01.jpg",
+    "how": "geosearch 25 m",
+    "field": "title",
+    "licence": "CC BY 3.0",
+    "author": "Marc Ryckaert ( MJJR )",
+    "width": 2574,
+    "height": 3430,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Lissewege_Pastorie_R01.jpg/330px-Lissewege_Pastorie_R01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Lissewege Pastorie R01",
+    "id": "cm-188",
+    "key": "landmark:bruges#lissewege-het-witte-polderdorp",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#koninklijke-and-venetiaanse-gaanderijen-thermae-palace": [],
+  "landmark:bruges#kunstgalerijen-het-zoute-knokke": [],
+  "landmark:bruges#schellemolen-damme": [
+   {
+    "file": "File:Schellemolen.jpg",
+    "how": "geosearch 18 m",
+    "field": "description",
+    "licence": "Public domain",
+    "author": "Stefflater",
+    "width": 3648,
+    "height": 2736,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Schellemolen.jpg/330px-Schellemolen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Schellemolen",
+    "id": "cm-189",
+    "key": "landmark:bruges#schellemolen-damme",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#sint-janshospitaal-damme": [],
+  "landmark:bruges#sint-petrus-en-pauluskerk-oostende": [
+   {
+    "file": "File:Église saint-Pierre et Paul.JPG",
+    "how": "geosearch 8 m",
+    "field": "category",
+    "licence": "CC BY-SA 3.0",
+    "author": "M0tty",
+    "width": 2304,
+    "height": 3999,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/%C3%89glise_saint-Pierre_et_Paul.JPG/330px-%C3%89glise_saint-Pierre_et_Paul.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Église saint-Pierre et Paul",
+    "id": "cm-190",
+    "key": "landmark:bruges#sint-petrus-en-pauluskerk-oostende",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#grote-markt-veurne": [
+   {
+    "file": "File:Veurne Markt R01.jpg",
+    "how": "geosearch 4 m",
+    "field": "category",
+    "licence": "CC BY-SA 3.0",
+    "author": "Marc Ryckaert",
+    "width": 4263,
+    "height": 2112,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Veurne_Markt_R01.jpg/330px-Veurne_Markt_R01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Veurne Markt R01",
+    "id": "cm-191",
+    "key": "landmark:bruges#grote-markt-veurne",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#dumontwijk-de-panne": [],
+  "landmark:bruges#westfront-nieuwpoort-and-koning-albert-i-monument": [],
+  "landmark:bruges#plopsaland-de-panne": [
+   {
+    "file": "File:Plopsaland De Panne - The Ride to Happiness by Tomorrowland (A62).JPG",
+    "how": "geosearch 40 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "Jérémy-Günther-Heinz Jähnick",
+    "width": 3888,
+    "height": 4954,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Plopsaland_De_Panne_-_The_Ride_to_Happiness_by_Tomorrowland_%28A62%29.JPG/330px-Plopsaland_De_Panne_-_The_Ride_to_Happiness_by_Tomorrowland_%28A62%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Plopsaland De Panne - The Ride to Happiness by Tomorrowland (A62)",
+    "id": "cm-192",
+    "key": "landmark:bruges#plopsaland-de-panne",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#sint-sebastiaansgilde": [
+   {
+    "file": "File:Sint-Sebastiaansgilde (Brugge) Blick durchs Fenste.jpg",
+    "how": "geosearch 13 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Ricardalovesmonuments",
+    "width": 12000,
+    "height": 9000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Sint-Sebastiaansgilde_%28Brugge%29_Blick_durchs_Fenste.jpg/330px-Sint-Sebastiaansgilde_%28Brugge%29_Blick_durchs_Fenste.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Sint-Sebastiaansgilde (Brugge) Blick durchs Fenste",
+    "id": "cm-193",
+    "key": "landmark:bruges#sint-sebastiaansgilde",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:bruges#bonifaciusbrug": [],
+  "landmark:bruges#historium-brugge": [],
+  "landmark:bruges#godshuizen-armenhuisjes": [],
+  "landmark:brussels#garderobe-mannekenpis": [
+   {
+    "file": "File:Garderobe Mannekenpis (Brussels).jpg",
+    "how": "geosearch 7 m",
+    "field": "title",
+    "licence": "CC0 1.0",
+    "author": "Benoît Prieur",
+    "width": 3580,
+    "height": 2095,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Garderobe_Mannekenpis_%28Brussels%29.jpg/330px-Garderobe_Mannekenpis_%28Brussels%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Garderobe Mannekenpis (Brussels)",
+    "id": "cm-194",
+    "key": "landmark:brussels#garderobe-mannekenpis",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#parcours-bd-comic-book-route": [
+   {
+    "file": "File:Grafiti Wall Art Brussels.JPG",
+    "how": "geosearch 19 m",
+    "field": "category",
+    "licence": "CC0 1.0",
+    "author": "Holger Burkhardt",
+    "width": 3648,
+    "height": 5472,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Grafiti_Wall_Art_Brussels.JPG/330px-Grafiti_Wall_Art_Brussels.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Grafiti Wall Art Brussels",
+    "id": "cm-195",
+    "key": "landmark:brussels#parcours-bd-comic-book-route",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#hotel-solvay": [
+   {
+    "file": "File:Avenue Louise 224 Louizalaan Brussels 2012-08.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Zinneke",
+    "width": 3456,
+    "height": 5184,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Avenue_Louise_224_Louizalaan_Brussels_2012-08.jpg/330px-Avenue_Louise_224_Louizalaan_Brussels_2012-08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Avenue Louise 224 Louizalaan Brussels 2012-08",
+    "id": "cm-196",
+    "key": "landmark:brussels#hotel-solvay",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#hotel-van-eetvelde": [
+   {
+    "file": "File:Wijk van de Squares, Brussel, Belgium - panoramio (1).jpg",
+    "how": "geosearch 7 m",
+    "field": "category",
+    "licence": "CC BY 3.0",
+    "author": "Istvan Vizi",
+    "width": 1920,
+    "height": 2560,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Wijk_van_de_Squares%2C_Brussel%2C_Belgium_-_panoramio_%281%29.jpg/330px-Wijk_van_de_Squares%2C_Brussel%2C_Belgium_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Wijk van de Squares, Brussel, Belgium - panoramio (1)",
+    "id": "cm-197",
+    "key": "landmark:brussels#hotel-van-eetvelde",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#maison-saint-cyr": [
+   {
+    "file": "File:Bruxelles - Maison Saint-Cyr (2).jpg",
+    "how": "geosearch 8 m",
+    "field": "title",
+    "licence": "CC BY 2.0",
+    "author": "Fred Romero from Paris, France",
+    "width": 5184,
+    "height": 3456,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Bruxelles_-_Maison_Saint-Cyr_%282%29.jpg/330px-Bruxelles_-_Maison_Saint-Cyr_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Bruxelles - Maison Saint-Cyr (2)",
+    "id": "cm-198",
+    "key": "landmark:brussels#maison-saint-cyr",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#war-heritage-institute-musee-royal-de-larmee": [],
+  "landmark:brussels#etangs-dixelles": [],
+  "landmark:brussels#place-flagey-and-flagey-batiment": [],
+  "landmark:brussels#matonge-quartier": [
+   {
+    "file": "File:Bruxelles Matonge en Couleurs 2009 002.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Varech",
+    "width": 2494,
+    "height": 1866,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Bruxelles_Matonge_en_Couleurs_2009_002.jpg/330px-Bruxelles_Matonge_en_Couleurs_2009_002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Bruxelles Matonge en Couleurs 2009 002",
+    "id": "cm-199",
+    "key": "landmark:brussels#matonge-quartier",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#parlamentarium": [
+   {
+    "file": "File:Parlamentarium - Parlement européen - Je suis Nice.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "LeJC",
+    "width": 5312,
+    "height": 2988,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Parlamentarium_-_Parlement_europ%C3%A9en_-_Je_suis_Nice.jpg/330px-Parlamentarium_-_Parlement_europ%C3%A9en_-_Je_suis_Nice.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Parlamentarium - Parlement européen - Je suis Nice",
+    "id": "cm-200",
+    "key": "landmark:brussels#parlamentarium",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#house-of-european-history": [
+   {
+    "file": "File:1643 Retratos plenipotenciarios paz de Westfalia.jpg",
+    "how": "geosearch 7 m",
+    "field": "category",
+    "licence": "CC BY-SA 4.0",
+    "author": "Hispalois",
+    "width": 2448,
+    "height": 3264,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/1643_Retratos_plenipotenciarios_paz_de_Westfalia.jpg/330px-1643_Retratos_plenipotenciarios_paz_de_Westfalia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "1643 Retratos plenipotenciarios paz de Westfalia",
+    "id": "cm-201",
+    "key": "landmark:brussels#house-of-european-history",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#design-museum-brussels": [
+   {
+    "file": "File:ADAM Brussels Design Museum.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 2.0",
+    "author": "Tom P",
+    "width": 4985,
+    "height": 3323,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/ADAM_Brussels_Design_Museum.jpg/330px-ADAM_Brussels_Design_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "ADAM Brussels Design Museum",
+    "id": "cm-202",
+    "key": "landmark:brussels#design-museum-brussels",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#mini-europe": [
+   {
+    "file": "File:MiniE Sacre-coeur2.jpg",
+    "how": "geosearch 16 m",
+    "field": "description",
+    "licence": "Public domain",
+    "author": "Karelj",
+    "width": 800,
+    "height": 600,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/MiniE_Sacre-coeur2.jpg/330px-MiniE_Sacre-coeur2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "MiniE Sacre-coeur2",
+    "id": "cm-203",
+    "key": "landmark:brussels#mini-europe",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#eglise-sainte-catherine-and-marche-aux-poissons": [
+   {
+    "file": "File:ID2043-0075-0-Brussel, Sint-Katelijnekerk-PM 50734.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "PMRMaeyaert",
+    "width": 850,
+    "height": 1095,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/ID2043-0075-0-Brussel%2C_Sint-Katelijnekerk-PM_50734.jpg/330px-ID2043-0075-0-Brussel%2C_Sint-Katelijnekerk-PM_50734.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "ID2043-0075-0-Brussel, Sint-Katelijnekerk-PM 50734",
+    "id": "cm-204",
+    "key": "landmark:brussels#eglise-sainte-catherine-and-marche-aux-poissons",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#belvue-museum": [
+   {
+    "file": "File:Koningswijk, 1000 Brussel, Belgium - panoramio - lviatour.jpg",
+    "how": "geosearch 39 m",
+    "field": "category",
+    "licence": "CC BY 3.0",
+    "author": "lviatour",
+    "width": 2860,
+    "height": 4304,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Koningswijk%2C_1000_Brussel%2C_Belgium_-_panoramio_-_lviatour.jpg/330px-Koningswijk%2C_1000_Brussel%2C_Belgium_-_panoramio_-_lviatour.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Koningswijk, 1000 Brussel, Belgium - panoramio - lviatour",
+    "id": "cm-205",
+    "key": "landmark:brussels#belvue-museum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#coudenberg-ancien-palais-de-bruxelles": [
+   {
+    "file": "File:Buildings along the Coudenberg, Brussels, Belgium.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC0 1.0",
+    "author": "Julian Lupyan",
+    "width": 5963,
+    "height": 3635,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Buildings_along_the_Coudenberg%2C_Brussels%2C_Belgium.jpg/330px-Buildings_along_the_Coudenberg%2C_Brussels%2C_Belgium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Buildings along the Coudenberg, Brussels, Belgium",
+    "id": "cm-206",
+    "key": "landmark:brussels#coudenberg-ancien-palais-de-bruxelles",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#palais-royal-de-bruxelles": [
+   {
+    "file": "File:Royal Palace of Brussels (8132643014).jpg",
+    "how": "geosearch 38 m",
+    "field": "description",
+    "licence": "CC BY 2.0",
+    "author": "Michal Osmenda from Brussels, Belgium",
+    "width": 3264,
+    "height": 2448,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Royal_Palace_of_Brussels_%288132643014%29.jpg/330px-Royal_Palace_of_Brussels_%288132643014%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Royal Palace of Brussels (8132643014)",
+    "id": "cm-207",
+    "key": "landmark:brussels#palais-royal-de-bruxelles",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#parc-de-bruxelles-parc-royal": [
+   {
+    "file": "File:Warandepark--Brussel-centrum.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Michaelkmd",
+    "width": 1280,
+    "height": 960,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Warandepark--Brussel-centrum.jpg/330px-Warandepark--Brussel-centrum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Warandepark--Brussel-centrum",
+    "id": "cm-208",
+    "key": "landmark:brussels#parc-de-bruxelles-parc-royal",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#theatre-royal-de-la-monnaie": [],
+  "landmark:brussels#choco-story-brussels": [],
+  "landmark:cincinnati#cincinnati-music-hall": [
+   {
+    "file": "File:Cincinnati-Music-Hall-entrance.jpg",
+    "how": "geosearch 19 m",
+    "field": "title",
+    "licence": "Public domain",
+    "author": "Wholtone",
+    "width": 1500,
+    "height": 2000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Cincinnati-Music-Hall-entrance.jpg/330px-Cincinnati-Music-Hall-entrance.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Cincinnati-Music-Hall-entrance",
+    "id": "cm-209",
+    "key": "landmark:cincinnati#cincinnati-music-hall",
+    "cls": "tier1",
+    "review": "pending"
+   }
+  ],
+  "landmark:cincinnati#findlay-market": [
+   {
+    "file": "File:Findlay Market Cincinnati.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Lanskeith17",
+    "width": 2828,
+    "height": 1500,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Findlay_Market_Cincinnati.JPG/330px-Findlay_Market_Cincinnati.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Findlay Market Cincinnati",
+    "id": "cm-210",
+    "key": "landmark:cincinnati#findlay-market",
+    "cls": "tier1",
+    "review": "pending"
+   }
+  ],
+  "landmark:erie#meadville-market-house": [],
+  "landmark:philadelphia#reading-terminal-market": [
+   {
+    "file": "File:12th Arch.jpg",
+    "how": "geosearch 1 m",
+    "field": "description",
+    "licence": "CC BY-SA 3.0",
+    "author": "Bruce Andersen",
+    "width": 1621,
+    "height": 1080,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/12th_Arch.jpg/330px-12th_Arch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "12th Arch",
+    "id": "cm-211",
+    "key": "landmark:philadelphia#reading-terminal-market",
+    "cls": "tier1",
+    "review": "pending"
+   }
+  ],
+  "landmark:sanfrancisco#cable-cars-powell-hyde-and-powell-mason": [
+   {
+    "file": "File:San Francisco Cable Cars Market Street Terminus.jpg",
+    "how": "geosearch 25 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Stu339",
+    "width": 958,
+    "height": 1278,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/San_Francisco_Cable_Cars_Market_Street_Terminus.jpg/330px-San_Francisco_Cable_Cars_Market_Street_Terminus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "San Francisco Cable Cars Market Street Terminus",
+    "id": "cm-212",
+    "key": "landmark:sanfrancisco#cable-cars-powell-hyde-and-powell-mason",
+    "cls": "tier1",
+    "review": "pending"
+   }
+  ],
+  "landmark:washingtondc#john-f-kennedy-center-for-the-performing-arts": [
+   {
+    "file": "File:Norm Lewis Performs During the 2016 Our Ocean Concert at the Kennedy Center for Performing Arts (29609582932).jpg",
+    "how": "geosearch 14 m",
+    "field": "category",
+    "licence": "Public domain",
+    "author": "U.S. Department of State from United States",
+    "width": 4928,
+    "height": 3280,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Norm_Lewis_Performs_During_the_2016_Our_Ocean_Concert_at_the_Kennedy_Center_for_Performing_Arts_%2829609582932%29.jpg/330px-Norm_Lewis_Performs_During_the_2016_Our_Ocean_Concert_at_the_Kennedy_Center_for_Performing_Arts_%2829609582932%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Norm Lewis Performs During the 2016 Our Ocean Concert at the Kennedy Center for Performing Arts (29609582932)",
+    "id": "cm-213",
+    "key": "landmark:washingtondc#john-f-kennedy-center-for-the-performing-arts",
+    "cls": "tier1",
+    "review": "pending"
+   }
+  ],
+  "landmark:washingtondc#eastern-market": [
+   {
+    "file": "File:Eastern Market at night.jpg",
+    "how": "geosearch 0 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "Ser Amantio di Nicolao",
+    "width": 2560,
+    "height": 1920,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Eastern_Market_at_night.jpg/330px-Eastern_Market_at_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Eastern Market at night",
+    "id": "cm-214",
+    "key": "landmark:washingtondc#eastern-market",
+    "cls": "tier1",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#villa-empain-fondation-boghossian": [
+   {
+    "file": "File:La villa Empain-Brussels.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Aldeko",
+    "width": 2250,
+    "height": 1500,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/La_villa_Empain-Brussels.jpg/330px-La_villa_Empain-Brussels.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "La villa Empain-Brussels",
+    "id": "cm-215",
+    "key": "landmark:brussels#villa-empain-fondation-boghossian",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#porte-de-hal-hallepoort": [
+   {
+    "file": "File:Tour de la Porte de Hal dans son jardin 01.jpg",
+    "how": "geosearch 11 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "Bentuan",
+    "width": 1024,
+    "height": 768,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Tour_de_la_Porte_de_Hal_dans_son_jardin_01.jpg/330px-Tour_de_la_Porte_de_Hal_dans_son_jardin_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Tour de la Porte de Hal dans son jardin 01",
+    "id": "cm-216",
+    "key": "landmark:brussels#porte-de-hal-hallepoort",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#maison-derasme": [
+   {
+    "file": "File:Maison d'Érasme.jpg",
+    "how": "geosearch 29 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Anne Jea.",
+    "width": 4896,
+    "height": 3672,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Maison_d%27%C3%89rasme.jpg/330px-Maison_d%27%C3%89rasme.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Maison d'Érasme",
+    "id": "cm-217",
+    "key": "landmark:brussels#maison-derasme",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#beguinage-danderlecht": [],
+  "landmark:brussels#musee-rene-magritte-jette": [
+   {
+    "file": "File:Museum voor Abstracte Kunst-René Magritte Museum.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Victoria Berreau",
+    "width": 1181,
+    "height": 1459,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Museum_voor_Abstracte_Kunst-Ren%C3%A9_Magritte_Museum.jpg/330px-Museum_voor_Abstracte_Kunst-Ren%C3%A9_Magritte_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Museum voor Abstracte Kunst-René Magritte Museum",
+    "id": "cm-218",
+    "key": "landmark:brussels#musee-rene-magritte-jette",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#musee-and-jardins-van-buuren": [],
+  "landmark:brussels#wiels": [
+   {
+    "file": "File:Wiels Brussel 01.JPG",
+    "how": "geosearch 35 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "Ad Meskens",
+    "width": 3252,
+    "height": 2244,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Wiels_Brussel_01.JPG/330px-Wiels_Brussel_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Wiels Brussel 01",
+    "id": "cm-219",
+    "key": "landmark:brussels#wiels",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#pavillon-chinois-and-tour-japonaise": [],
+  "landmark:brussels#bois-de-la-cambre": [
+   {
+    "file": "File:Le bois de la Cambre et le lac.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "GdML",
+    "width": 4288,
+    "height": 2848,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Le_bois_de_la_Cambre_et_le_lac.JPG/330px-Le_bois_de_la_Cambre_et_le_lac.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Le bois de la Cambre et le lac",
+    "id": "cm-220",
+    "key": "landmark:brussels#bois-de-la-cambre",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#foret-de-soignes-zonienwoud": [
+   {
+    "file": "File:Brussels Zonienwoud.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 3.0",
+    "author": "Donarreiskoffer",
+    "width": 3072,
+    "height": 2304,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Brussels_Zonienwoud.jpg/330px-Brussels_Zonienwoud.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Brussels Zonienwoud",
+    "id": "cm-221",
+    "key": "landmark:brussels#foret-de-soignes-zonienwoud",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#eglise-royale-sainte-marie": [
+   {
+    "file": "File:Koninklijke Sint-Mariakerk Schaarbeek 2011 09 01 02.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Marcvandersmissen",
+    "width": 4000,
+    "height": 3000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Koninklijke_Sint-Mariakerk_Schaarbeek_2011_09_01_02.jpg/330px-Koninklijke_Sint-Mariakerk_Schaarbeek_2011_09_01_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Koninklijke Sint-Mariakerk Schaarbeek 2011 09 01 02",
+    "id": "cm-222",
+    "key": "landmark:brussels#eglise-royale-sainte-marie",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#parc-josaphat": [
+   {
+    "file": "File:Parc Josaphat - Schaerbeek - Brussels.jpg",
+    "how": "geosearch 3 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Horst J. Meuter",
+    "width": 4096,
+    "height": 3072,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Parc_Josaphat_-_Schaerbeek_-_Brussels.jpg/330px-Parc_Josaphat_-_Schaerbeek_-_Brussels.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Parc Josaphat - Schaerbeek - Brussels",
+    "id": "cm-223",
+    "key": "landmark:brussels#parc-josaphat",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#maison-autrique": [
+   {
+    "file": "File:Bruxelles - Schaerbeek - Chaussée de Haecht 266 - Maison Autrique (2).jpg",
+    "how": "geosearch 24 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "Lumixbx",
+    "width": 2736,
+    "height": 3648,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Bruxelles_-_Schaerbeek_-_Chauss%C3%A9e_de_Haecht_266_-_Maison_Autrique_%282%29.jpg/330px-Bruxelles_-_Schaerbeek_-_Chauss%C3%A9e_de_Haecht_266_-_Maison_Autrique_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Bruxelles - Schaerbeek - Chaussée de Haecht 266 - Maison Autrique (2)",
+    "id": "cm-224",
+    "key": "landmark:brussels#maison-autrique",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#halles-de-schaerbeek": [
+   {
+    "file": "File:Halles de Schaerbeek 01.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Ben2",
+    "width": 2560,
+    "height": 1920,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Halles_de_Schaerbeek_01.JPG/330px-Halles_de_Schaerbeek_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Halles de Schaerbeek 01",
+    "id": "cm-225",
+    "key": "landmark:brussels#halles-de-schaerbeek",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#maison-cauchie": [
+   {
+    "file": "File:Maison Cauchie 01.jpg",
+    "how": "geosearch 24 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Gryffindor",
+    "width": 2448,
+    "height": 3264,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Maison_Cauchie_01.jpg/330px-Maison_Cauchie_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Maison Cauchie 01",
+    "id": "cm-226",
+    "key": "landmark:brussels#maison-cauchie",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#hotel-de-ville-de-saint-gilles": [
+   {
+    "file": "File:Hôtel de ville de Saint-Gilles - centre 01.JPG",
+    "how": "geosearch 28 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "M0tty",
+    "width": 5119,
+    "height": 3400,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/H%C3%B4tel_de_ville_de_Saint-Gilles_-_centre_01.JPG/330px-H%C3%B4tel_de_ville_de_Saint-Gilles_-_centre_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Hôtel de ville de Saint-Gilles - centre 01",
+    "id": "cm-227",
+    "key": "landmark:brussels#hotel-de-ville-de-saint-gilles",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:brussels#quartier-turc-de-la-chaussee-de-haecht": [],
+  "landmark:chicago#andys-jazz-club": [],
+  "landmark:chicago#washington-park": [
+   {
+    "file": "File:Washington Park Chicago.jpg",
+    "how": "geosearch 0 m",
+    "field": "title",
+    "licence": "CC BY 4.0",
+    "author": "Kidfly182",
+    "width": 1080,
+    "height": 608,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Washington_Park_Chicago.jpg/330px-Washington_Park_Chicago.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Washington Park Chicago",
+    "id": "cm-228",
+    "key": "landmark:chicago#washington-park",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#charles-gates-dawes-house": [
+   {
+    "file": "File:Charles Gates Dawes House (7160476075).jpg",
+    "how": "geosearch 9 m",
+    "field": "title",
+    "licence": "CC BY-SA 2.0",
+    "author": "Teemu008 from Palatine, Illinois",
+    "width": 3648,
+    "height": 2736,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Charles_Gates_Dawes_House_%287160476075%29.jpg/330px-Charles_Gates_Dawes_House_%287160476075%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Charles Gates Dawes House (7160476075)",
+    "id": "cm-229",
+    "key": "landmark:chicago#charles-gates-dawes-house",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#pilsen-historic-district": [
+   {
+    "file": "File:Pilsen Historic District Chicago IL.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Andrew Jameson",
+    "width": 3127,
+    "height": 1781,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Pilsen_Historic_District_Chicago_IL.jpg/330px-Pilsen_Historic_District_Chicago_IL.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Pilsen Historic District Chicago IL",
+    "id": "cm-230",
+    "key": "landmark:chicago#pilsen-historic-district",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#garfield-park-fieldhouse-gold-dome": [
+   {
+    "file": "File:Garfield Park Fieldhouse 001.jpg",
+    "how": "geosearch 0 m",
+    "field": "title",
+    "licence": "CC BY 4.0",
+    "author": "Kidfly182",
+    "width": 1080,
+    "height": 1349,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Garfield_Park_Fieldhouse_001.jpg/330px-Garfield_Park_Fieldhouse_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Garfield Park Fieldhouse 001",
+    "id": "cm-231",
+    "key": "landmark:chicago#garfield-park-fieldhouse-gold-dome",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#holy-cross-church-back-of-the-yards": [
+   {
+    "file": "File:Holy Cross Church, Back of the Yards.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 2.0",
+    "author": "Zol87 from Chicago, IL USA",
+    "width": 2304,
+    "height": 3072,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Holy_Cross_Church%2C_Back_of_the_Yards.jpg/330px-Holy_Cross_Church%2C_Back_of_the_Yards.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Holy Cross Church, Back of the Yards",
+    "id": "cm-232",
+    "key": "landmark:chicago#holy-cross-church-back-of-the-yards",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#greenstone-church-pullman": [],
+  "landmark:chicago#old-town-school-of-folk-music": [
+   {
+    "file": "File:Frank Hamilton teaching at Old Town.jpg",
+    "how": "geosearch 27 m",
+    "field": "description",
+    "licence": "CC BY-SA 4.0",
+    "author": "Dannygutters",
+    "width": 1752,
+    "height": 1261,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Frank_Hamilton_teaching_at_Old_Town.jpg/330px-Frank_Hamilton_teaching_at_Old_Town.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Frank Hamilton teaching at Old Town",
+    "id": "cm-233",
+    "key": "landmark:chicago#old-town-school-of-folk-music",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#couch-tomb": [],
+  "landmark:chicago#arthur-heurtley-house": [
+   {
+    "file": "File:Oak Park Il Heurtley House4.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 2.5",
+    "author": "IvoShandor",
+    "width": 2048,
+    "height": 1536,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Oak_Park_Il_Heurtley_House4.jpg/330px-Oak_Park_Il_Heurtley_House4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Oak Park Il Heurtley House4",
+    "id": "cm-234",
+    "key": "landmark:chicago#arthur-heurtley-house",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#sherman-park": [
+   {
+    "file": "File:Sherman Park.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Zol87 from Chicago, IL, USA",
+    "width": 2592,
+    "height": 1944,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Sherman_Park.jpg/330px-Sherman_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Sherman Park",
+    "id": "cm-235",
+    "key": "landmark:chicago#sherman-park",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#davis-square-park": [
+   {
+    "file": "File:Davis Square 1.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Thshriver",
+    "width": 3504,
+    "height": 2336,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Davis_Square_1.JPG/330px-Davis_Square_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Davis Square 1",
+    "id": "cm-236",
+    "key": "landmark:chicago#davis-square-park",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#bubbly-creek": [
+   {
+    "file": "File:Bubbly Creek headwaters-Racine Avenue Pump Station JPG.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "USGS Illinois Water Science Center",
+    "width": 2048,
+    "height": 1536,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Bubbly_Creek_headwaters-Racine_Avenue_Pump_Station_JPG.jpg/330px-Bubbly_Creek_headwaters-Racine_Avenue_Pump_Station_JPG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Bubbly Creek headwaters-Racine Avenue Pump Station JPG",
+    "id": "cm-237",
+    "key": "landmark:chicago#bubbly-creek",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#burr-oak-cemetery": [
+   {
+    "file": "File:Burr Oak Cemetery Main Entrance 2.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "MrHarman ( MrHarman )",
+    "width": 2139,
+    "height": 1536,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Burr_Oak_Cemetery_Main_Entrance_2.jpg/330px-Burr_Oak_Cemetery_Main_Entrance_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Burr Oak Cemetery Main Entrance 2",
+    "id": "cm-238",
+    "key": "landmark:chicago#burr-oak-cemetery",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#walter-burley-griffin-place-district": [],
+  "landmark:chicago#st-nicholas-ukrainian-catholic-cathedral": [
+   {
+    "file": "File:Church in Ukrainian Village.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "DiscoverWithDima",
+    "width": 1712,
+    "height": 2288,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Church_in_Ukrainian_Village.JPG/330px-Church_in_Ukrainian_Village.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Church in Ukrainian Village",
+    "id": "cm-239",
+    "key": "landmark:chicago#st-nicholas-ukrainian-catholic-cathedral",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#national-museum-of-puerto-rican-arts-and-culture": [],
+  "landmark:chicago#the-robey-northwest-tower": [
+   {
+    "file": "File:Northwest Tower Chicago.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Zagalejo",
+    "width": 2311,
+    "height": 3975,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Northwest_Tower_Chicago.JPG/330px-Northwest_Tower_Chicago.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Northwest Tower Chicago",
+    "id": "cm-240",
+    "key": "landmark:chicago#the-robey-northwest-tower",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#st-stanislaus-kostka-church": [
+   {
+    "file": "File:St. Stanislaus Kostka Church Chicago.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 2.0",
+    "author": "David Wilson",
+    "width": 3000,
+    "height": 4000,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/St._Stanislaus_Kostka_Church_Chicago.jpg/330px-St._Stanislaus_Kostka_Church_Chicago.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "St. Stanislaus Kostka Church Chicago",
+    "id": "cm-241",
+    "key": "landmark:chicago#st-stanislaus-kostka-church",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#wicker-park-district": [
+   {
+    "file": "File:Wicker Park Historic District 2.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Thshriver",
+    "width": 3504,
+    "height": 2336,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Wicker_Park_Historic_District_2.JPG/330px-Wicker_Park_Historic_District_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Wicker Park Historic District 2",
+    "id": "cm-242",
+    "key": "landmark:chicago#wicker-park-district",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#essanay-studios": [
+   {
+    "file": "File:Essanay.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Amerique",
+    "width": 1326,
+    "height": 1136,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Essanay.jpg/330px-Essanay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Essanay",
+    "id": "cm-243",
+    "key": "landmark:chicago#essanay-studios",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#francis-j-dewes-house": [
+   {
+    "file": "File:Dewes House.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "Public domain",
+    "author": "Smallbones",
+    "width": 2693,
+    "height": 3591,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Dewes_House.JPG/330px-Dewes_House.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Dewes House",
+    "id": "cm-244",
+    "key": "landmark:chicago#francis-j-dewes-house",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#bohemian-national-cemetery": [
+   {
+    "file": "File:Bohemian National Cemetery.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 3.0",
+    "author": "54499054@N00 (Flickr)",
+    "width": 1024,
+    "height": 768,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Bohemian_National_Cemetery.jpg/330px-Bohemian_National_Cemetery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Bohemian National Cemetery",
+    "id": "cm-245",
+    "key": "landmark:chicago#bohemian-national-cemetery",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#avery-coonley-house-frank-lloyd-wright": [
+   {
+    "file": "File:Avery Coonley House (5978120479).jpg",
+    "how": "geosearch 21 m",
+    "field": "title",
+    "licence": "CC BY-SA 2.0",
+    "author": "Teemu008 from Palatine, Illinois",
+    "width": 3648,
+    "height": 2736,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Avery_Coonley_House_%285978120479%29.jpg/330px-Avery_Coonley_House_%285978120479%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Avery Coonley House (5978120479)",
+    "id": "cm-246",
+    "key": "landmark:chicago#avery-coonley-house-frank-lloyd-wright",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#ward-w-willits-house-frank-lloyd-wright": [
+   {
+    "file": "File:Willits House.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 2.5",
+    "author": "JeremyA",
+    "width": 1023,
+    "height": 640,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Willits_House.jpg/330px-Willits_House.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Willits House",
+    "id": "cm-247",
+    "key": "landmark:chicago#ward-w-willits-house-frank-lloyd-wright",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#richard-h-driehaus-museum": [],
+  "landmark:chicago#pui-tak-center": [
+   {
+    "file": "File:Pui Tak Center in Chinatown on Wentworth Ave.jpg",
+    "how": "geosearch 16 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Shirley Kou",
+    "width": 4032,
+    "height": 1960,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Pui_Tak_Center_in_Chinatown_on_Wentworth_Ave.jpg/330px-Pui_Tak_Center_in_Chinatown_on_Wentworth_Ave.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Pui Tak Center in Chinatown on Wentworth Ave",
+    "id": "cm-248",
+    "key": "landmark:chicago#pui-tak-center",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#quinn-chapel-a-m-e-church": [
+   {
+    "file": "File:Quinn Chapel of the A.M.E. Church (10564193663).jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 2.0",
+    "author": "Teemu008 from Palatine, Illinois",
+    "width": 2736,
+    "height": 3648,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Quinn_Chapel_of_the_A.M.E._Church_%2810564193663%29.jpg/330px-Quinn_Chapel_of_the_A.M.E._Church_%2810564193663%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Quinn Chapel of the A.M.E. Church (10564193663)",
+    "id": "cm-249",
+    "key": "landmark:chicago#quinn-chapel-a-m-e-church",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#ebenezer-missionary-baptist-church": [
+   {
+    "file": "File:The Ebenezer Missionary Baptist Church.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Jim Roberts",
+    "width": 5661,
+    "height": 3779,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/The_Ebenezer_Missionary_Baptist_Church.jpg/330px-The_Ebenezer_Missionary_Baptist_Church.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "The Ebenezer Missionary Baptist Church",
+    "id": "cm-250",
+    "key": "landmark:chicago#ebenezer-missionary-baptist-church",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#edgewater-beach-apartments": [
+   {
+    "file": "File:Edgewater Beach, Chicago.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Alanscottwalker",
+    "width": 3648,
+    "height": 2736,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Edgewater_Beach%2C_Chicago.jpg/330px-Edgewater_Beach%2C_Chicago.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Edgewater Beach, Chicago",
+    "id": "cm-251",
+    "key": "landmark:chicago#edgewater-beach-apartments",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#bryn-mawr-avenue-historic-district": [
+   {
+    "file": "File:Edgewater Beach Apartments 060325.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 2.5",
+    "author": "JeremyA",
+    "width": 1024,
+    "height": 768,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Edgewater_Beach_Apartments_060325.jpg/330px-Edgewater_Beach_Apartments_060325.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Edgewater Beach Apartments 060325",
+    "id": "cm-252",
+    "key": "landmark:chicago#bryn-mawr-avenue-historic-district",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#givins-beverly-castle-beverly-unitarian-church": [],
+  "landmark:chicago#calumet-park-and-beach": [
+   {
+    "file": "File:Calumet Park Fieldhouse.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Zol87 from Chicago, IL, USA",
+    "width": 2592,
+    "height": 1944,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Calumet_Park_Fieldhouse.jpg/330px-Calumet_Park_Fieldhouse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Calumet Park Fieldhouse",
+    "id": "cm-253",
+    "key": "landmark:chicago#calumet-park-and-beach",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#old-st-patricks-church": [
+   {
+    "file": "File:St. Patricks Roman Catholic Church (6038511515).jpg",
+    "how": "geosearch 31 m",
+    "field": "category",
+    "licence": "CC BY-SA 2.0",
+    "author": "Teemu008 from Palatine, Illinois",
+    "width": 3648,
+    "height": 2736,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/St._Patricks_Roman_Catholic_Church_%286038511515%29.jpg/330px-St._Patricks_Roman_Catholic_Church_%286038511515%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "St. Patricks Roman Catholic Church (6038511515)",
+    "id": "cm-254",
+    "key": "landmark:chicago#old-st-patricks-church",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#marquette-building": [
+   {
+    "file": "File:Marquette Building (6039062516).jpg",
+    "how": "geosearch 38 m",
+    "field": "title",
+    "licence": "CC BY-SA 2.0",
+    "author": "Teemu008 from Palatine, Illinois",
+    "width": 2736,
+    "height": 3648,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Marquette_Building_%286039062516%29.jpg/330px-Marquette_Building_%286039062516%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Marquette Building (6039062516)",
+    "id": "cm-255",
+    "key": "landmark:chicago#marquette-building",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#carbide-and-carbon-building": [
+   {
+    "file": "File:Carbide & Carbon Building (7185086785).jpg",
+    "how": "geosearch 4 m",
+    "field": "title",
+    "licence": "CC BY-SA 2.0",
+    "author": "Teemu008 from Palatine, Illinois",
+    "width": 1509,
+    "height": 3648,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Carbide_%26_Carbon_Building_%287185086785%29.jpg/330px-Carbide_%26_Carbon_Building_%287185086785%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Carbide & Carbon Building (7185086785)",
+    "id": "cm-256",
+    "key": "landmark:chicago#carbide-and-carbon-building",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#clarke-house-museum": [],
+  "landmark:chicago#second-presbyterian-church": [
+   {
+    "file": "File:Second Presbyterian Church of Chicago (pic 1).JPG",
+    "how": "geosearch 1 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "Setiawan Soekamtoputra",
+    "width": 3456,
+    "height": 5184,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Second_Presbyterian_Church_of_Chicago_%28pic_1%29.JPG/330px-Second_Presbyterian_Church_of_Chicago_%28pic_1%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Second Presbyterian Church of Chicago (pic 1)",
+    "id": "cm-257",
+    "key": "landmark:chicago#second-presbyterian-church",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#chicago-temple-sky-chapel": [
+   {
+    "file": "File:Skyscrapers (7371293030).jpg",
+    "how": "geosearch 30 m",
+    "field": "category",
+    "licence": "CC BY-SA 2.0",
+    "author": "Caitriana Nicholson from 北京 ~ Beijing, 中国 ~ China",
+    "width": 1200,
+    "height": 1600,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Skyscrapers_%287371293030%29.jpg/330px-Skyscrapers_%287371293030%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Skyscrapers (7371293030)",
+    "id": "cm-258",
+    "key": "landmark:chicago#chicago-temple-sky-chapel",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#villa-district": [
+   {
+    "file": "File:Villa Historic District 3.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Thshriver",
+    "width": 3504,
+    "height": 2336,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Villa_Historic_District_3.JPG/330px-Villa_Historic_District_3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Villa Historic District 3",
+    "id": "cm-259",
+    "key": "landmark:chicago#villa-district",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#intuit-art-museum": [],
+  "landmark:chicago#ukrainian-village-district": [
+   {
+    "file": "File:Ukrainian Village Street Scene - Chicago - Illinois - USA.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Adam Jones, Ph.D.",
+    "width": 3456,
+    "height": 2304,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Ukrainian_Village_Street_Scene_-_Chicago_-_Illinois_-_USA.jpg/330px-Ukrainian_Village_Street_Scene_-_Chicago_-_Illinois_-_USA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Ukrainian Village Street Scene - Chicago - Illinois - USA",
+    "id": "cm-260",
+    "key": "landmark:chicago#ukrainian-village-district",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#block-museum-of-art-northwestern": [
+   {
+    "file": "File:NU Block Museum of Art.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Paradoxsociety",
+    "width": 2576,
+    "height": 1932,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/NU_Block_Museum_of_Art.JPG/330px-NU_Block_Museum_of_Art.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "NU Block Museum of Art",
+    "id": "cm-261",
+    "key": "landmark:chicago#block-museum-of-art-northwestern",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#oak-park-conservatory": [
+   {
+    "file": "File:Oak Park Il Conservatory1.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 2.5",
+    "author": "IvoShandor",
+    "width": 2048,
+    "height": 1536,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Oak_Park_Il_Conservatory1.jpg/330px-Oak_Park_Il_Conservatory1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Oak Park Il Conservatory1",
+    "id": "cm-262",
+    "key": "landmark:chicago#oak-park-conservatory",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#jackson-boulevard-district": [
+   {
+    "file": "File:West Jackson Boulevard District A Chicago IL.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Andrew Jameson",
+    "width": 3872,
+    "height": 2190,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/West_Jackson_Boulevard_District_A_Chicago_IL.jpg/330px-West_Jackson_Boulevard_District_A_Chicago_IL.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "West Jackson Boulevard District A Chicago IL",
+    "id": "cm-263",
+    "key": "landmark:chicago#jackson-boulevard-district",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#austin-town-hall": [
+   {
+    "file": "File:Austin Town Hall.jpg",
+    "how": "geosearch 13 m",
+    "field": "title",
+    "licence": "CC BY-SA 2.0",
+    "author": "Zol87 from Chicago, IL, USA",
+    "width": 2592,
+    "height": 1944,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Austin_Town_Hall.jpg/330px-Austin_Town_Hall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Austin Town Hall",
+    "id": "cm-264",
+    "key": "landmark:chicago#austin-town-hall",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#argyle-street-asia-on-argyle": [
+   {
+    "file": "File:Argyle CTA 061007.jpg",
+    "how": "geosearch 15 m",
+    "field": "category",
+    "licence": "CC BY-SA 2.5",
+    "author": "JeremyA",
+    "width": 1023,
+    "height": 758,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Argyle_CTA_061007.jpg/330px-Argyle_CTA_061007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Argyle CTA 061007",
+    "id": "cm-265",
+    "key": "landmark:chicago#argyle-street-asia-on-argyle",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#graceland-cemetery": [
+   {
+    "file": "File:Graceland Cemetery.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 2.0",
+    "author": "Michael Lazarev ( Asmadeus )",
+    "width": 1024,
+    "height": 683,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Graceland_Cemetery.jpg/330px-Graceland_Cemetery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Graceland Cemetery",
+    "id": "cm-266",
+    "key": "landmark:chicago#graceland-cemetery",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#soldier-field": [
+   {
+    "file": "File:Soldier Field Chicago aerial view.jpg",
+    "how": "geosearch 3 m",
+    "field": "title",
+    "licence": "Public domain",
+    "author": "Dale Fisher, U.S. Army Corps of Engineers",
+    "width": 1500,
+    "height": 1194,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Soldier_Field_Chicago_aerial_view.jpg/330px-Soldier_Field_Chicago_aerial_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Soldier Field Chicago aerial view",
+    "id": "cm-267",
+    "key": "landmark:chicago#soldier-field",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#rockefeller-memorial-chapel": [
+   {
+    "file": "File:University of Chicago July 2013 06 (Rockefeller Memorial Chapel).jpg",
+    "how": "geosearch 17 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Michael Barera",
+    "width": 3072,
+    "height": 2304,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/University_of_Chicago_July_2013_06_%28Rockefeller_Memorial_Chapel%29.jpg/330px-University_of_Chicago_July_2013_06_%28Rockefeller_Memorial_Chapel%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "University of Chicago July 2013 06 (Rockefeller Memorial Chapel)",
+    "id": "cm-268",
+    "key": "landmark:chicago#rockefeller-memorial-chapel",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#south-shore-cultural-center": [
+   {
+    "file": "File:South Shore Cultural Center.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 4.0",
+    "author": "Zol87 from Chicago, IL, USA",
+    "width": 2592,
+    "height": 1944,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/South_Shore_Cultural_Center.jpg/330px-South_Shore_Cultural_Center.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "South Shore Cultural Center",
+    "id": "cm-269",
+    "key": "landmark:chicago#south-shore-cultural-center",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#glessner-house": [
+   {
+    "file": "File:Glessner House Courtyard Ivy.jpg",
+    "how": "geosearch 10 m",
+    "field": "title",
+    "licence": "CC BY-SA 4.0",
+    "author": "Shruti Kansara",
+    "width": 3024,
+    "height": 4032,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Glessner_House_Courtyard_Ivy.jpg/330px-Glessner_House_Courtyard_Ivy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Glessner House Courtyard Ivy",
+    "id": "cm-270",
+    "key": "landmark:chicago#glessner-house",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#monadnock-building": [
+   {
+    "file": "File:Monadnock.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 2.5",
+    "author": "David K. Staub",
+    "width": 1659,
+    "height": 2552,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Monadnock.jpg/330px-Monadnock.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Monadnock",
+    "id": "cm-271",
+    "key": "landmark:chicago#monadnock-building",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#chicago-union-station": [
+   {
+    "file": "File:Chicago union station hall.jpg",
+    "how": "geosearch 6 m",
+    "field": "title",
+    "licence": "CC BY-SA 3.0",
+    "author": "Velvet",
+    "width": 3087,
+    "height": 1492,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Chicago_union_station_hall.jpg/330px-Chicago_union_station_hall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Chicago union station hall",
+    "id": "cm-272",
+    "key": "landmark:chicago#chicago-union-station",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#harley-davidson-museum": [
+   {
+    "file": "File:Harley-Davidson Museum 0057.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0 US",
+    "author": "Dori",
+    "width": 3468,
+    "height": 2308,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Harley-Davidson_Museum_0057.jpg/330px-Harley-Davidson_Museum_0057.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Harley-Davidson Museum 0057",
+    "id": "cm-273",
+    "key": "landmark:chicago#harley-davidson-museum",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#illinois-centennial-monument": [
+   {
+    "file": "File:Illinois Centennial Memorial Column.jpg",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY 2.5",
+    "author": "Loganresident",
+    "width": 3456,
+    "height": 2304,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Illinois_Centennial_Memorial_Column.jpg/330px-Illinois_Centennial_Memorial_Column.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Illinois Centennial Memorial Column",
+    "id": "cm-274",
+    "key": "landmark:chicago#illinois-centennial-monument",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#polish-museum-of-america": [
+   {
+    "file": "File:20070822 Polish Museum.JPG",
+    "how": "P18",
+    "field": "wikidata P18",
+    "licence": "CC BY-SA 3.0",
+    "author": "Antonio Vernon",
+    "width": 3072,
+    "height": 2304,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/20070822_Polish_Museum.JPG/330px-20070822_Polish_Museum.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "20070822 Polish Museum",
+    "id": "cm-275",
+    "key": "landmark:chicago#polish-museum-of-america",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#aragon-ballroom": [
+   {
+    "file": "File:NIN @ Aragon, Chicago 10 27 2018 (46252906524).jpg",
+    "how": "geosearch 3 m",
+    "field": "category",
+    "licence": "CC BY-SA 2.0",
+    "author": "swimfinfan from Chicago",
+    "width": 4032,
+    "height": 3024,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/NIN_%40_Aragon%2C_Chicago_10_27_2018_%2846252906524%29.jpg/330px-NIN_%40_Aragon%2C_Chicago_10_27_2018_%2846252906524%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "NIN @ Aragon, Chicago 10 27 2018 (46252906524)",
+    "id": "cm-276",
+    "key": "landmark:chicago#aragon-ballroom",
+    "cls": "other",
+    "review": "pending"
+   }
+  ],
+  "landmark:chicago#fountain-of-time": [
+   {
+    "file": "File:Fountain of Time July 2013 1.jpg",
+    "how": "geosearch 39 m",
+    "field": "title",
+    "licence": "Public domain",
+    "author": "Lorado Taft",
+    "width": 3072,
+    "height": 2304,
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Fountain_of_Time_July_2013_1.jpg/330px-Fountain_of_Time_July_2013_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "depicts": "Fountain of Time July 2013 1",
+    "id": "cm-277",
+    "key": "landmark:chicago#fountain-of-time",
     "cls": "other",
     "review": "pending"
    }

@@ -411,13 +411,14 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
   }
   // designer (D-46 desktop sign-off): the header never overflows. The longest crumbs, Atlas (switch in the header) and
   // Gallery, en and ja, at 1024 / 1280 / 1440: .topbar scrollWidth ≤ clientWidth and every visible control inside the viewport
-  for (const w of [1024, 1280, 1440]) for (const pg of ['cities/newyork.html', 'cities/washingtondc.html', 'Singapore/potong-pasir-macpherson.html', 'Vietnam/ho-chi-minh-city.html']) for (const lang of ['en', 'ja']) for (const view of ['atlas', 'gallery']) {
+  // 768 (QC S-17: at T1 the Atlas switch is fixed over the header row; Akron / Harrisburg's 日本語 sat under it)
+  for (const w of [768, 1024, 1280, 1440]) for (const pg of ['cities/newyork.html', 'cities/washingtondc.html', 'Singapore/potong-pasir-macpherson.html', 'Vietnam/ho-chi-minh-city.html'].concat(w === 768 ? ['cities/akron.html', 'cities/harrisburg.html'] : [])) for (const lang of ['en', 'ja']) for (const view of ['atlas', 'gallery']) {
     const ctx = await ctxFor(b, w, 'light', 900), page = await ctx.newPage(); await page.goto(BASE + 'beta/' + pg + '#view=' + view, { waitUntil: 'load' }); await page.waitForTimeout(900);
-    if (lang === 'ja') { await page.click('[data-cleo-locale=ja]'); await page.waitForTimeout(1000); }
+    if (lang === 'ja') { await page.evaluate(() => document.querySelector('[data-cleo-locale=ja]').click()); await page.waitForTimeout(1000); }
     const r = await page.evaluate(() => { const tb = document.querySelector('.topbar'), wr = tb.querySelector('.wrap');
-      const out = [...tb.querySelectorAll('a,button')].filter(e => e.offsetParent && getComputedStyle(e).visibility !== 'hidden').filter(e => { const r = e.getBoundingClientRect(); return r.right > innerWidth + 0.5 || r.left < -0.5; }).map(e => (e.getAttribute('aria-label') || e.textContent.trim()).slice(0, 20));
+      const out = [...tb.querySelectorAll('a,button')].filter(e => e.offsetParent && getComputedStyle(e).visibility !== 'hidden').filter(e => { const r = e.getBoundingClientRect(); if (r.right > innerWidth + 0.5 || r.left < -0.5) return true; const h = document.elementFromPoint(Math.min(r.left + r.width / 2, innerWidth - 1), r.top + r.height / 2); return !!h && !e.contains(h) && !h.contains(e); }).map(e => (e.getAttribute('aria-label') || e.textContent.trim()).slice(0, 20));
       return { fits: wr.scrollWidth <= wr.clientWidth && tb.scrollWidth <= tb.clientWidth, out }; });
-    ok(r.fits && !r.out.length, `@${w} ${lang} ${view} ${pg}: the header fits (no overflow, every control in view)`, r);
+    ok(r.fits && !r.out.length, `@${w} ${lang} ${view} ${pg}: the header fits (no overflow, every control in view and on top)`, r);
     await ctx.close();
   }
   await b.close();

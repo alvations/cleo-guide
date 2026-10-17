@@ -48,18 +48,19 @@
     var closed = /\bclosed\b/i.test((p.pv || {}).status || '') || / [—–-]+ CLOSED\b/.test(p.n);
     var nat = p.nat && p.n.slice(-p.nat.length - 2) === '(' + p.nat + ')' ? p.nat : '', base = nat ? p.n.slice(0, -nat.length - 2).trim() : p.n;
     var g = Array.from(nat || ''), area = D.ar[p.a] || '', col = /^#/.test(D.col[p.a] || '') ? D.col[p.a] : 'var(--city)';
-    var srcs = (p.src || []).filter(function (x) { return x !== 'guide'; }).map(function (x) { return D.src[x] || x; });
+    // FE-C D-53 hook (FE-B's contract): only real recommenders (recby), by their public names; none → "No independent source yet", its kind, no tier
+    var srcs = (p.recby || (p.src || []).filter(function (x) { return x !== 'guide'; })).map(function (x) { return String(D.src[x] || x).replace(/\s*\(official\b[^)]*\)/ig, '').trim(); }), nr = !srcs.length && (p.src || []).indexOf('guide') < 0;
     var href = D.href + '#p=' + encodeURIComponent(id), saved = Cleo.saved.has(ref), b = !!been()[ref], pos = ll(p);
     var inL = lists().map(function (l) { return '<label><input type="checkbox" data-sl="' + esc(l.id) + '" data-ref="' + esc(ref) + '"' + (l.r.indexOf(ref) >= 0 ? ' checked' : '') + '>' + esc(l.n) + '</label>'; }).join('');
     var eye = closed ? ((p.pv || {}).checked ? tt('lst.closed.c', 'Closed since it was saved — kept for the record, checked {d}', { d: esc(p.pv.checked) }) : tt('lst.closed', 'Closed since it was saved — kept for the record'))
-      : '<span class="tier t' + p.t + '">' + ['', tt('tier.1', 'Must see'), tt('tier.2', 'Worth the detour'), tt('tier.3', 'Deep cut')][p.t] + '</span> <span class="in">· ' + esc(area) + ' · ' + esc(D.name) + '</span>';
+      : (nr ? '<span class="kind">' + (p.kind === 'food' ? tt('card.kind.food', 'Eat & drink') : tt('card.kind.sight', 'Sight')) : '<span class="tier t' + p.t + '">' + ['', tt('tier.1', 'Must see'), tt('tier.2', 'Worth the detour'), tt('tier.3', 'Deep cut')][p.t]) + '</span> <span class="in">· ' + esc(area) + ' · ' + esc(D.name) + '</span>';
     return '<li class="pl' + (closed ? ' pl--closed' : '') + '" id="sv-' + esc(k.replace(/\//g, '--') + '-' + id) + '" data-t="' + p.t + '"' + (closed ? ' data-closed' : '') + ' style="--area:' + esc(col) + '">' +
       '<div class="pl-cover" aria-hidden="true">' + (g.length && g.length <= 7 ? '<span class="pl-vert' + (g.length > 4 ? ' long' : '') + '">' + esc(g.join('')) + '</span>'
         : '<span class="pl-ini">' + esc((base.replace(/^(The|La|Le|El|Il)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '</span>') + '</div>' +
       '<p class="pl-e"><span class="pl-num" aria-label="' + tt('lst.num', 'Number {n} on the map', { n: i + 1 }) + '">' + (i + 1) + '</span> ' + eye + '</p>' +
       '<h3 class="pl-n"><a href="' + esc(href) + '">' + esc(base) + (nat ? ' <span class="nat">(' + esc(nat) + ')</span>' : '') + '</a></h3>' +
       (p.w ? '<p class="pl-w">' + esc(p.w) + '</p>' : '') +
-      '<p class="pl-s"><span class="lbl">' + tt('card.recby', 'Recommended by') + '</span> <span>' + (srcs.length ? esc(srcs.slice(0, 3).join(', ')) + (srcs.length > 3 ? ' +' + (srcs.length - 3) : '') : tt('city.card.added', 'Added by the guide (general knowledge)')) + '</span></p>' +
+      (nr ? '<p class="pl-s pl-norec"><span class="norec">' + tt('card.norec', 'No independent source yet') + '</span></p>' : '<p class="pl-s"><span class="lbl">' + tt('card.recby', 'Recommended by') + '</span> <span>' + (srcs.length ? esc(srcs.slice(0, 3).join(', ')) + (srcs.length > 3 ? ' +' + (srcs.length - 3) : '') : tt('city.card.added', 'Added by the guide (general knowledge)')) + '</span></p>') +
       (S.shared ? '' : '<p class="pl-x"><button type="button" class="pl-save" data-sv="save" data-ref="' + esc(ref) + '" aria-pressed="' + saved + '" aria-label="' + (saved ? tt('gal.saved', 'Saved: {name}', { name: esc(base) }) : tt('gal.save', 'Save {name}', { name: esc(base) })) + '">' + (saved ? tt('sheet.saved', 'Saved') : tt('sheet.save', 'Save')) + '</button></p>') +
       '<div class="sv-x">' + (S.shared ? '' :
         '<details><summary class="btn btn-ghost">' + ico('list') + tt('lst.lists', 'Lists') + '</summary><div class="pop">' + (inL || '<span class="sm">' + tt('lst.nolists', 'No named lists yet — make one with “New list”.') + '</span>') + '</div></details>' +
