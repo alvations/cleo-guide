@@ -148,7 +148,8 @@ function licenceOf(code, ver) {
   const c = String(code || '').toLowerCase(), v = String(ver || '').trim();
   if (c === 'cc0') return { licence: 'CC0 1.0', licenceUrl: 'https://creativecommons.org/publicdomain/zero/1.0/' };
   if (c === 'pdm') return { licence: 'Public domain', licenceUrl: 'https://creativecommons.org/publicdomain/mark/1.0/' };
-  if (c === 'nkcr') return { licence: 'No known copyright restrictions', licenceUrl: NKCR_URL };
+  // "No known copyright restrictions" is not requested: the gate takes it only from a Flickr Commons institution
+  // (flickrCommons: true), which this fetcher cannot verify (orchestrator, R8)
   if ((c === 'by' || c === 'by-sa') && /^\d\.\d$/.test(v)) return { licence: `CC ${c.toUpperCase()} ${v}`, licenceUrl: `https://creativecommons.org/licenses/${c}/${v}/` };
   return { why: `licence ${c || '?'} ${v} is not CC0 / PDM / no known restrictions / CC BY / CC BY-SA` };
 }
@@ -242,7 +243,7 @@ async function main() {
     const name = x.t.label.replace(/\([^)]*\)/g, ' ').replace(/\s*[—–]\s*guide hero\b.*$/i, '').replace(/\s+/g, ' ').trim();
     const q = (fold(name).includes(x.t.town[0] || '\u0000') ? name : `${name} ${x.t.town[0] || ''}`).trim();
     if (key) {
-      const j = await api({ method: 'flickr.photos.search', text: q, license: '4,5,7,9,10,11,12', content_type: 1, media: 'photos', sort: 'relevance', safe_search: 1, per_page: o.perTarget,
+      const j = await api({ method: 'flickr.photos.search', text: q, license: '4,5,9,10,11,12', content_type: 1, media: 'photos', sort: 'relevance', safe_search: 1, per_page: o.perTarget,
         extras: 'license,owner_name,path_alias,tags,description,geo,url_l,url_c,url_o' });
       return ((j.photos && j.photos.photo) || []).map(fromFlickr);
     }
