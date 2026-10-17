@@ -300,6 +300,10 @@
       n.textContent = 'Nearest first, from where you are. ' + ((G && G.ASSUME) || 'Walk times are straight-line, about 80 m a minute — an estimate, not a route') + '. Your location stays on this device and is gone when you reload.'; }
     else if (n) n.remove();
   };
+  // OV-00 "Near me once": in Atlas the list head's Near me door takes the map's own reading (the dot, the map on the reader,
+  // nearest first, walking times); pressed again it clears, as before (foryou.js C.near)
+  on(d, 'click', e => { const b = e.target.closest && e.target.closest('[data-cleo-near]'); if (!b || !atlas() || !C.map() || !C.locate || C.dist) return;
+    e.preventDefault(); e.stopPropagation(); if (Cleo.defer && Cleo.defer.all) Cleo.defer.all(); C.locate(b); }, true);
   C.after.unshift(flat); C.after.push(dists); on(d, 'cleo:stamped', () => setTimeout(() => { if (C.dist) { flat(); dists(); } }, 0));
 
   /* ---- the walking ring from your base (W9-5, with FE-C's Cleo.base): 5, 10 or 15 minutes ---- */

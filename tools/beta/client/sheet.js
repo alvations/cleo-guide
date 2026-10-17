@@ -175,8 +175,17 @@
     if (t && !q('.cap-t', cap)) cap.insertAdjacentHTML('afterbegin', '<span class="cap-t">' + esc(t.getAttribute('title')) + '</span> · ');
     if (im) { var mw = Math.max.apply(0, (im.getAttribute('srcset') || '').split(',').map(function (z) { return parseInt((/\s(\d+)w\s*$/.exec(z) || [])[1], 10) || 0; }).concat([+im.getAttribute('width') || 0]));
       im.setAttribute('sizes', '(min-width: 1024px) min(1024px, 88vw), 100vw'); im.setAttribute('loading', 'eager');
+      if (held) ['srcset', 'src'].forEach(function (k) { if (im.hasAttribute(k)) { im.setAttribute('data-h' + k, im.getAttribute(k)); im.removeAttribute(k); } });   // PERF-19 (platform)
       if (mw) { im.style.maxWidth = mw + 'px'; x.style.setProperty('--ph-max', mw + 'px'); } }
     return x.outerHTML; };
+  // PERF-19 (platform, marked): a sheet opened by script with no user gesture (a route change, a deep-link sweep) holds
+  // its full-size photo until it has stayed open 250 ms, so a run of sheets replaced at machine speed does not fetch
+  // every 960 w file. A tap or key in the last second, the page's own first deep link, or a browser without the
+  // userActivation API (and so jsdom): loads at once, as before.
+  var held = false, opens = 0, gest = 0, unhold = function (c) { setTimeout(function () { if (card !== c || host.hidden) return;
+    [].forEach.call(host.querySelectorAll('img[data-hsrc], img[data-hsrcset]'), function (im) { ['srcset', 'src'].forEach(function (k) { var v = im.getAttribute('data-h' + k); if (v != null) { im.setAttribute(k, v); im.removeAttribute('data-h' + k); } }); }); }, 250); };
+  ['pointerdown', 'keydown'].forEach(function (t) { d.addEventListener(t, function () { gest = Date.now(); }, true); });
+  // /platform
   var grow = null, opener = null, tap = null;   // tap: the link or button just activated (mouse, touch or Enter), the sheet's opener
   d.addEventListener('click', function (e) {
     var o = e.target.closest && e.target.closest('a[href], button'); if (o && !host.contains(o)) tap = [o, Date.now(), e.detail === 0];   // [2]: activated by keyboard (a key's click has detail 0)
@@ -189,15 +198,16 @@
     open: function (c) {
       // QC-07: remember the control that opened the sheet (a row card, a grid card, a pin, a search hit), so Esc / Close
       // returns focus to it, not to some other card for the same place; a stepped-through sheet keeps the first opener
-      var ae = tap && Date.now() - tap[1] < 1500 && tap[0].isConnected ? tap[0] : d.activeElement, kb = !!(tap && Date.now() - tap[1] < 1500 && tap[2]); tap = null;
+      var ae = tap && Date.now() - tap[1] < 1500 && tap[0].isConnected ? tap[0] : d.activeElement, kb = !!(tap && Date.now() - tap[1] < 1500 && tap[2]), user = !!(tap && Date.now() - tap[1] < 1500); tap = null;
       if (host.hidden && ae && ae !== d.body && !host.contains(ae)) opener = ae;
       if (Cleo.tray) Cleo.tray.close(true);
       // W8 (R7 2d): a side panel only beside the Atlas map; elsewhere a centred dialog over a scrim
       var show = function () {
-        card = c; byNav = navs > 0; host.innerHTML = build(c); host.hidden = false; host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
+        held = opens++ > 0 && !user && !!navigator.userActivation && Date.now() - gest > 1000;   // PERF-19 (platform)
+        card = c; byNav = navs > 0; host.innerHTML = build(c); held = false; host.hidden = false; d.documentElement.classList.add('sheet-on');   /* FE-C OV-40 hook */ host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
         if (!host.classList.contains('side')) d.body.style.overflow = 'hidden';
         // designer: ✕ (with its ring) on a keyboard open; the dialog itself, ringless, on a tap or a deep link
-        (kb ? q('[data-sh="x"]', host) : q('.sheet', host)).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c);
+        (kb ? q('[data-sh="x"]', host) : q('.sheet', host)).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c); if (q('img[data-hsrc], img[data-hsrcset]', host)) unhold(c);
       };
       // W7 gap #1, the signature moment (design/beta/style/v2/MOTION.md): the tapped card media grows into the sheet's media.
       // Only on a real tap of that card (≤ 1 s ago), only where view transitions exist and motion is allowed; otherwise as before.
@@ -211,7 +221,7 @@
     },
     close: function (fromRoute) {
       if (host.hidden) return;
-      host.hidden = true; host.innerHTML = ''; d.body.style.overflow = '';
+      host.hidden = true; host.innerHTML = ''; d.body.style.overflow = ''; d.documentElement.classList.remove('sheet-on');   // FE-C OV-40 hook: toasts clear the sheet's buttons
       var back = card, op = opener; card = null; opener = null;
       if (op && op.isConnected && op.getClientRects().length && op.focus) op.focus({ preventScroll: true });
       else if (back) { var l = q('.pl-n a', back); if (l && l.focus) l.focus({ preventScroll: true }); }

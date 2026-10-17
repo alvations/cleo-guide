@@ -616,3 +616,26 @@ Evidence is in `design/beta/eval/qc/dev-cceabd64/`.
 S-17 is `tools/beta/qa/qc-overlay.js` (9a2a10c8). It measures the ledger's §1–6 (`docs/BETA-OVERLAY-LEDGER.md`, which QC keeps). The method is in the file header: an 8 px point grid classified by the topmost element, at load, during a pan or scroll, and at idle. Every page × view × 6 viewports × light/dark is 5,172 runs per SHA. qc.js runs S-17 on the default view in every sweep. The full audits of r7 b54b3745 and dev are running; their ledger rows (OV-08+) follow.
 
 **QC-35 (Med, Atlas FE-1)**, found in the Punggol test on dev 9a2a10c8: the phone Atlas peek tray renders "17places here ·checked 3 Oct· Show list". Rev 5a's `.ms-toggle>span{display:flex}` (648aa9c3) makes the count, the new `.ms-chk` date (dfd5e652) and the text flex items, and the whitespace between them collapses. r7 shows "17 places here · Show list". Evidence: `design/beta/eval/qc/overlay/qc-35-tray-{dev,r7}.png`.
+
+## S-17 audit · live r7 (`beta-deploy-r7` @ b54b3745) · graded against OV-00 (bb2af873)
+
+`qc-overlay.js --root <r7 worktree>` covered every page × view × 6 viewports × light/dark: 5,172 runs, 0 errors, 128 failing groups. Outputs are in `design/beta/eval/qc/overlay/r7-b54b3745/` (`summary.md`, `groups.json`, `s17.json.gz`, 128 shots of the worst run per group). Ledger rows OV-101 to OV-123 come from `qc-overlay-ledger.js --label r7-b54b3745 --skip controlCollision`: 23 rows, 16 High and 7 Med.
+
+| Metric (r7, all pages) | median / p90 / max | Budget (P1 phone) |
+|---|---|---|
+| Atlas chrome at rest, % of height | 28.6 / 59.4 / 59.4 (landscape 59 %) | ≤ 25 (L ≤ 13) |
+| Atlas clear map, % of viewport, labels excluded | 58.5 / 75.9 / 75.9 | ≥ 72 |
+| Atlas label coverage, % of map | 9.5 / 22.7 / 36.6 | ≤ 8 |
+| Atlas widest label, % of map width | 38.9 / 65.3 / 84.2 | ≤ 40 |
+| Sheet chrome at rest | 27.7 / 41.1 / 60.7 | ≤ 13 |
+
+Notes on the method:
+- **Control collisions are not in these rows.** The r7 run counted the bounding box of an inline link that wraps (a photo credit in the sheet) as a collision. The probe now tests collisions per line box (`getClientRects`); collisions are re-measured on dev and in a re-run of r7.
+- **The grader treats rule budgets ("collapses to ⓘ … after 5 s") as rules, Med**, not as numbers.
+- **The live-site worst cases match the owner's screenshot:**
+  - Atlas chrome is 28.6 % on P1, 36.1 % on P2 and 59.4 % in landscape;
+  - nothing hides during a pan (all 168 Atlas runs per viewport);
+  - the map credit stays 170 px wide on phones and 458 px on desktop after a pan;
+  - the widest label is up to 84 % of the map width.
+- **Not seen on r7: QA-80 / OV-100** (the landscape switch under the header) is a dev-only regression. S-17's new `controlCovered` check reproduces it on dev.
+- `npm test` under the audit's CPU load failed twice in test-fe-a, on different assertions each time (search, view switch). Alone on a quiet machine it passes 133/133. That's load-sensitive timing, not a regression.

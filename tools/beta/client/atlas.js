@@ -556,7 +556,7 @@
   const locate = b => {
     const map = C.map(), live = $('#cleo-view-live'), say = t => { if (live) live.textContent = t; b.title = t; };
     if (!map) return;
-    if (me) { C.fly(me); return; }
+    if (me) { if (!(C.onLocate && C.onLocate(me))) C.fly(me); return; }   // a second press (after Near me was cleared) sorts again
     if (!navigator.geolocation) { say('This browser can’t share a location.'); return; }
     b.classList.add('busy');
     navigator.geolocation.getCurrentPosition(p => {
@@ -569,6 +569,7 @@
     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
   };
 
+  C.locate = locate;   // atlas-nav.js: the list head's Near me door runs this same reading (OV-00: Near me once)
   C.atlasTools = (L, el) => {
     const map = C.map(); if (!map) return;
     const dk = desk();

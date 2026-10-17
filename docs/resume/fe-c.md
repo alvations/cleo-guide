@@ -42,6 +42,8 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | W9-2 (b2): the line is real text with `data-nosearch` (platform f03b03cf) on li.pl, li.gc, a.ms-pv; attr() rendering dropped; test-fe-c: Cleveland #q=aug shows only cards matching by their own text (181 lines read "… Aug"), #q=8月 none; eager JS unchanged (39.97/40 KB, fresh.js lazy) | 86b7558e4 | — |
 | QC-05 one state per view: Atlas uses FE-1's list-head state (ec71a4ad, my city.empty.* keys), so `html[data-view=atlas] [data-cleo-empty]{display:none}`; probe `empty` checks FE-1's head in Atlas (opens the phone list) | 70ddc1c9e | — |
 | Overlay audit (owner directive; docs/BETA-OVERLAY-LEDGER.md): tools/beta/qa/overlay/fe-c-overlay.js over all FE-C surfaces × 6 viewports × light/dark; OV-08 (share preview cut off in landscape) fixed in share-card.js + probe `card-fit`; OV-09..11 (place sheet: FE-A/FE-1) and OV-12 (base note height, awaiting OV-00) logged | 7f88a5ab2 | — |
+| R8 #5a (sheet primary-link contrast, :root .btn-primary .lbl), #2e (no Cited by + +N more on cards), #2c (masthead dotJoin + nowrap); tests sheet-contrast.js + masthead-lines.js in npm test | 21fdd6a32 / 0486bf714 / 785d8641e | — |
+| OV-12 base note compact (133→98 px phone; base.note retired, en+ja); OV-40 toasts rise above an open sheet's buttons (sheet.js hook sets html.sheet-on); probe base-keys checks both | 8e986a4f8 | — |
 
 ## Next
 
