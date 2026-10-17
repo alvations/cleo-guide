@@ -14,6 +14,7 @@ SG/MY 12; no photo on food is ever possible from these sources).
   USGS 1 manual), 30 refused rows kept; 22 searched-with-nothing targets in searched-gaps.tsv.
 
 **In flight:**
+- Stage run #3 committed 71379343b: 45 LoC previews (3 sheets) + review.tsv; my pre-screen review-suggested.tsv (46d7c580e): 21 ok / 8 second / 16 refuse. Waiting for the orchestrator's verdicts → review.js → loc.js --credit (needs a credit step in the workflow, asked). ~60 LoC candidates still unstaged (budget 60/run); the next candidates.tsv push stages them.
 - Wave 2b merged (10:45Z): +66 candidates (LoC 53: Highsmith 43, HABS/HALS/HAER 9, Detroit 1; Europeana/Rijksmuseum 13), +66 searched gaps.
   candidates.tsv = 200 candidates for 126 targets. This push re-triggers beta-image-sources-stage (met, loc).
 - The team stopped 03:39–10:2xZ (usage limit). Imagery claimed the gate edits (photos.js/recompress.js/test-imagery.js: historic caption,

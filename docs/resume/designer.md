@@ -103,6 +103,12 @@ Current rows:
       - build-css strips whitespace after ':' and ',', taking cleo.css to 194.8 KB (it was 200.2 KB, over the budget).
     - **D12/D13 notes:** sent to the orchestrator.
 19. **Food covers, DESIGN-SYSTEM §v2.7a:** the city pattern on `--cover-food`, a large bleeding glyph, the dish word at 24 px, and the native name. Imagery builds it in motifs.js and FE-A places it. The spec goes to imagery after their wave 5a review. Credit lines are one line under a card. QC has been told about the opaque bars.
+20. **2026-10-17:**
+    - **D-49 no-photo cards** (§v2.7b) are being built by FE-A and FE-1.
+    - **Landscape:** §2.0.7 is signed off on real `landscape-207`.
+    - **D-46:** phone signed off. Desktop is waiting on the rank-1 lead card (FE-A).
+    - **CSS #6:** the first trim failed parity, because the service worker served cached CSS so the coverage was under-counted. The tools are fixed (1726b7fd8, 0805a2351) and the full re-sweep is running. **Next:** css-trim.py --coverage design/beta/eval/css-coverage.json, rebuild, css-parity before/after (zero unexplained diffs), gates, push, then send FE-A the fe-a.css coverage.
+    - **Constellation:** move beta/assets/constellation.css → design/beta/css/ (it's a source, linked by no page).
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight
