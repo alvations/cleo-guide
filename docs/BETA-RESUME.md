@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-17 00:08Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-17 01:10Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -31,10 +31,13 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 ## Deploy gate (now)
 
 - **r7 is DEPLOYED (21:33Z).** PR alvations/cleo-guide#9 merged `b54b3745` into `claude/cleveland-page-creation-pant4l` (merge `4382a187`), and the Pages build started at 21:33Z. QA YES at 943d1ce8 under D-45 (QA-79 waived); QC PASS at 7c5ea616. beta-deploy-r7 was merged back into the dev branch with `-s ours` (beef84ec), since every ported change is already on dev. The changelog entry is in docs/BETA-CHANGELOG.md.
-- **Next:**
-  1. **The R8 independent evaluator is running:** session_01KmzDV95S6cTa7gLfep3bsq, launched 21:36Z. It measures b54b3745 against R7 badcc20d with the r8 kit, writes design/beta/eval/ROUND-8.md and reports to the orchestrator. Never tell it a target.
-  2. **PERF-08 flip: GO sent to platform at 21:37Z** (beta:perf before, the flip, perf08-regress.sh, beta:perf after). The SHA goes to QA.
-  3. The next release pin from the dev head once Atlas rev 5 reaches panel R4. QA verifies QA-79's fix there.
+- **Next:** the r8 pin from the dev head once five things hold:
+  1. D-46 is flipped (FE-A);
+  2. QA-80 is fixed (FE-A);
+  3. INP is ≤ 200 ms (desktop is now 232);
+  4. no High/Med OV row is still open;
+  5. panel R4 has scored.
+  Then QA re-signs, QC makes its final pass, and we cut `beta-deploy-r8`. R8 scored 90.7 (ROUND-8.md); its gaps are routed.
 - **History:**
   - 530dc83b NO;
   - 3ba696e8 NO;
@@ -45,10 +48,10 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 | What | State | Next |
 |---|---|---|
+| **Check-in 01:10Z** | Dev head 399119259 gated green (validate, npm test alone, beta:check, dom 12/12). **Photo runs #71–#74 red at the gates step.** The cause was hidden because run-tests' `process.exit(1)` dropped piped output; 9a453fa7e uses exitCode. Two real causes: (a) test-beta, `cities/sanfrancisco.html` 832 KB raw with wave 5c photos, over the 820 ceiling (dev is 815 without them) → **platform cuts ≥ 30 KB from the city template; the ceiling is not raised**; imagery holds re-dispatch; (b) test-dom-budget said FAIL instead of SKIP with no Playwright (w2 throws "playwright not found") → fixed by the orchestrator. **QC's S-17 audit of live r7 landed** (43eeee68a, 5,172 runs, +16 High +7 Med): open High/Med is 28 open + 13 claimed. By owner: FE-1 12, FE-B 11, FE-A 5 (+6 claimed), FE-C 2 (+1 claimed). Every lane has its row list; QC verifies the claims and posts a dev-head count | Platform's trim SHA → re-dispatch the photo run (scope priority); lanes clear OV rows; FE-A QA-80 then D-46 |
 | Check-in 00:08Z | Dev head 77b960fa is gated green, and **eager JS reads 39.28 KB on Cleveland** (≈ 0.7 KB headroom, after the platform and FE-A trims). FE-A's chrome pass 853ea52c (OV-09/10/11/32/33/34 claimed; P2 at rest 16 %). **Compaction decision:** city pages key on `html.ov-c` (FE-A's Cleo.chrome); shell pages keep FE-B's small controller; nothing moves into core.js. QA's B-25 gate is in; QC is adding Severity to the ledger | D-46 flip after FE-1's stamping hold; FE-1 OV-00 Atlas; the r8 pin when the conditions hold |
 | Check-in 23:20Z | Dev head fb730533 is gated green (validate, npm test alone, beta:check, w2 dom 12/12). **INP:** FE-1's e0b79e23 takes the desktop switch → Atlas from 18.5 s to 0.45 s at 4× CPU, against a ≤ 200 ms target; FE-1 continues on the forced layouts. **Overlay ledger:** 19 OV rows; OV-00 is set (bb2af873); the one-search rule (98a39437); FE-C OV-08 claimed; FE-B OV-30/31 claimed; FE-A OV-01, its header part, landed (1d652d65); QC's S-17 is graded against OV-00 (92094c78), and the r7 audit is running. **R8 axe fix:** FE-C is landing `.btn .lbl` inherit. **D-46:** waits on platform's Atlas initial-stamp budget, after which FE-A flips | r8 pin needs: D-46 flipped, INP ≤ 200 ms, no open High/Med OV rows, panel R4 scored |
 | **Owner directive: overlay and chrome audit (22:45Z)** | The owner's live Punggol Atlas phone screenshot shows fixed layers that don't move with the map and take up most of the space. The ledger is **docs/BETA-OVERLAY-LEDGER.md** (d880d025), seeded OV-01..07. Routed: the designer (OV-00 budgets and auto-compact rules, first); QC (the S-17 probe, a full-site audit of live and dev, keeping the ledger); FE-1/FE-2 (OV-02..07 on the Atlas map); FE-A (OV-01 header, switch and chips, Gallery sticky bars, landscape); FE-B (Guidebook and Insights); FE-C (sheet, trip, saved, toasts, pack banner); QA (B-25 gate on pins) | OV-00, then the S-17 audit, then fixes claimed per row. r8 ships only with no open High/Med OV rows |
-| Check-in 22:37Z | Dev head d8369d2f is gated green (validate, npm test alone, beta:check, w2 dom 12/12). **PERF-08 re-landed** at 447d97c5 (selective = true, perf08-regress green); platform reports INP before and after. FE-2 is coalescing the round-trip scroll snapshots (5491ea13) as a first INP step. QC P-32 (unthrottled): Gallery→Atlas ~1 s. QA's B-01a (52245d25) reads phone clear map 74 %; FE-1 lands the 52 px header. The R8 evaluator's metrics sweep is at 54/180 | INP fix head → QC P-32/P-33 plus the platform guard. Then FE-A's D-46 flip, the R4 re-shoot, and the r8 pin |
 | **INP regression on dev (22:07Z, top priority)** | Platform's beta:perf on b61fda89 (PERF-08 OFF): desktop switch → Atlas **21,016 ms** (was 672–792), desktop filter 1,344 (was ~824), phone filter 1,136 (was ~544); the phone switch is fine (296). Suspect 797258c2 (Atlas §2.3, one list ranked by map priority), or 648aa9c3 / 82f3d199. **Not in the live r7.** | FE-1/FE-2 fix (target ≤ 200 ms). Platform bisects and adds an INP guard to perf08-regress.sh or npm test. The PERF-08 flip lands only if it doesn't worsen INP. Blocks the r8 pin and D-46 |
 | Atlas panel R4 | Real shots R4b on ffbb225a committed (3b50e631) for the designer's dark-dot re-sign. FE-1's pre-R4 items are done (B-20 0 on 5 pilots, QC-05 one state, chip overflow), and the preview says "Approximate pin" (0a4e5751). The designer declined a third dot state | **Hold "round 4 ready"** until the dark-dot re-sign and D-46 (FE-A's default flip plus FE-1's first-screen points). Then the final R4 re-shoot on that head, then the panel (session_01EKzwLjqF1Z1gwXWgbrrr2S) with the focus-ring method note |
 | **D-46 Atlas default (owner, 21:45Z)** | Owner: "make atlas the default view then the list". The order is Atlas, Gallery, Guidebook, Insights; precedence stays hash → stored → default. Assigned: FE-A leads (core.js DEFAULT, city.js VIEWS and viewHead, hero preload, test-fe-a); platform (atlas.js boot and budgets, before/after perf); FE-1/FE-2 (the list never waits on the map, the phone first screen, CLS 0); QA and QC (re-point their default-view harnesses, an Atlas first-screen criterion); designer (SPEC, first impression, switcher sign-off) | Ships in the next release with Atlas rev 5. Panel R4 then scores Atlas as the default |
