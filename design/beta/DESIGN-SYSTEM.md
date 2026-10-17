@@ -174,19 +174,19 @@ A designed cover at full photo size still reads as a blank: it takes a photo's s
 | **Single-column lists:** phone Atlas list sheet, phone Gallery lists, search results, saved, trip | unchanged | **A. compact row** |
 | **Rails and multi-column grids:** Gallery rails, the desktop and tablet Atlas list, Gallery grids | unchanged | **B. quote card** (same cell, so rows stay aligned and order holds) |
 
-**A. Compact row** (about 112 px tall, against about 370 px for a photo card at 390):
+**A. Compact row** (at most 128 px tall, against about 370 px for a photo card at 390):
 - A two-column grid: a **64 × 64 tile** on the left (`--r-m`), then the text column.
 - **The tile** is the designed mini-cover: `--cover-food` or `--cover-sight`, the city pattern (§v2.7a) and the kit glyph at 28 px in `--ink` 55 %. It carries no word.
 - **The text column**, top to bottom:
   - the tier chip with area · kind (`.pl-e`);
   - the name (`.pl-n`, UI 600, `--fs-d3`);
   - the why line clamped to 2 lines (`.pl-w`, `--fs-sm`, `--ink-2`);
-  - Recommended by (`.pl-s`).
+  - Recommended by (`.pl-s`), then "· Checked 2 Oct" on the same line in `--ink-3`, wrapping as a sentence only when it doesn't fit (rev, FE-A f35759ca1). The why line keeps its 2 lines: it's the reason to go, so the row gives up the separate Checked line instead.
 - 12 px vertical padding, with a hairline (`--line`) between rows. The heart stays a 44 px target at top-right.
 
 **B. Quote card** (the cell keeps its size; the cover area is filled with the place's own words):
 - **Ground:** the cover area is `--cover-food` or `--cover-sight` plus the city pattern.
-- **Text:** the **first sentence of the why line** (`.pl-w`, cut at the first sentence end, ≤ 140 characters, ending in "…" if cut). UI face 600 at `--fs-lead`, `--ink`, at most 4 lines, `text-wrap: pretty`, inset 16 px.
+- **Text:** the why line (`.pl-w`), clamped by CSS to 4 lines with an ellipsis. No build-time shortening, so the place's text is never edited. UI face 600 at `--fs-lead`, `--ink`, `text-wrap: pretty`, inset 16 px.
 - **Marks:** a 40 px opening quote mark in the display face, `--ink-3`, top-left. The kit glyph at 20 px in `--ink-3`, bottom-right.
 - **Below the cover:** the card no longer repeats the why line, and its "Recommended by" line names whose words they are.
 - **No why line** (rare): the §v2.7a designed cover, where the word is the place's own dish or its name, **never a bare cuisine label** ("Chinese", "Asian").
@@ -201,7 +201,7 @@ A designed cover at full photo size still reads as a blank: it takes a photo's s
 - AA: text on the covers is ≥ 15:1 in both themes, and the glyph is decorative (`aria-hidden`).
 
 **Acceptance** (DC, Tokyo and State College, 390 and 1440, light and dark; real shots before and after):
-- In single-column lists, no photo-less card is taller than 120 px. The first phone screen of DC's Atlas list shows ≥ 4 cards (about 1.5 today).
+- In single-column lists, no photo-less card is taller than 128 px. The first phone screen of DC's Atlas list shows ≥ 4 cards (about 1.5 today).
 - In rails and grids, every photo-less cover has ≥ 20 characters of visible text: no blank tile.
 - Every photo card's size is unchanged.
 - The list order equals `data-rank` order.
