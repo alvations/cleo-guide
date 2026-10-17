@@ -2952,18 +2952,20 @@
    "candidates": []
   },
   {
-   "key": "landmark:okinawa#pokemon-center-okinawa-aeon-mall-okinawa-rycom",
+   "key": "landmark:okinawa#poke-lid-arcanine-tenbusu-plaza-kokusai-dori",
    "type": "landmark",
-   "depicts": "okinawa#pokemon-center-okinawa-aeon-mall-okinawa-rycom",
-   "label": "Pokémon Center Okinawa, Aeon Mall Okinawa Rycom (ポケモンセンターオキナワ)",
+   "depicts": "okinawa#poke-lid-arcanine-tenbusu-plaza-kokusai-dori",
+   "label": "Poké Lid — Arcanine, Tenbusu Plaza, Kokusai-dōri (ポケふた ウインディ てんぶす広場)",
    "names": [
-    "Pokémon Center Okinawa, Aeon Mall Okinawa Rycom",
-    "Pokémon Center Okinawa",
-    "Aeon Mall Okinawa Rycom",
-    "ポケモンセンターオキナワ"
+    "Poké Lid — Arcanine, Tenbusu Plaza, Kokusai-dōri",
+    "Poké Lid",
+    "Arcanine",
+    "Tenbusu Plaza",
+    "Kokusai-dōri",
+    "ポケふた ウインディ てんぶす広場"
    ],
    "pilot": false,
-   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
+   "skip": "Poké Lid manhole cover: copyrighted character artwork, and Japan has no freedom of panorama for art (W8 gap stated)",
    "priority": "lead",
    "candidates": []
   },
@@ -3243,22 +3245,6 @@
    "candidates": []
   },
   {
-   "key": "landmark:singapore/malacca#a-famosa-and-dutch-square-jonker-street",
-   "type": "landmark",
-   "depicts": "singapore/malacca#a-famosa-and-dutch-square-jonker-street",
-   "label": "A Famosa & Dutch Square (Jonker Street)",
-   "names": [
-    "A Famosa & Dutch Square",
-    "A Famosa",
-    "Dutch Square"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/A_Famosa",
-   "priority": "lead",
-   "wikiLead": true,
-   "candidates": []
-  },
-  {
    "key": "landmark:singapore/mandai#singapore-zoo",
    "type": "landmark",
    "depicts": "singapore/mandai#singapore-zoo",
@@ -3372,32 +3358,6 @@
    "priority": "lead",
    "wikiLead": true,
    "candidates": []
-  },
-  {
-   "key": "landmark:singapore/punggol#coney-island-park-pulau-serangoon",
-   "type": "landmark",
-   "depicts": "singapore/punggol#coney-island-park-pulau-serangoon",
-   "label": "Coney Island Park (Pulau Serangoon)",
-   "names": [
-    "Coney Island Park",
-    "Coney Island, Singapore"
-   ],
-   "pilot": false,
-   "article": "https://en.wikipedia.org/wiki/Coney_Island,_Singapore",
-   "skip": "candidate wave 1: no Commons file of Coney Island Park, Singapore turned up — calm cover (stated)",
-   "priority": "lead",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:Entrance to Pulau Serangoon from Punggol Promenade Nature Walk.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Entrance_to_Pulau_Serangoon_from_Punggol_Promenade_Nature_Walk.jpg",
-     "depicts": "(discovered)",
-     "confidence": "med",
-     "reason": "discover-commons P18, names it in wikidata P18 (cm-5, reviewed 2026-10-17)",
-     "refused": "refused by contact-sheet review (cm-5): an empty road to a gate, not the park"
-    }
-   ]
   },
   {
    "key": "landmark:singapore/siem-reap#angkor-wat",
@@ -4336,24 +4296,6 @@
    "candidates": []
   },
   {
-   "key": "landmark:okinawa#poke-lid-arcanine-tenbusu-plaza-kokusai-dori",
-   "type": "landmark",
-   "depicts": "okinawa#poke-lid-arcanine-tenbusu-plaza-kokusai-dori",
-   "label": "Poké Lid — Arcanine, Tenbusu Plaza, Kokusai-dōri (ポケふた ウインディ てんぶす広場)",
-   "names": [
-    "Poké Lid — Arcanine, Tenbusu Plaza, Kokusai-dōri",
-    "Poké Lid",
-    "Arcanine",
-    "Tenbusu Plaza",
-    "Kokusai-dōri",
-    "ポケふた ウインディ てんぶす広場"
-   ],
-   "pilot": false,
-   "skip": "Poké Lid manhole cover: copyrighted character artwork, and Japan has no freedom of panorama for art (W8 gap stated)",
-   "priority": "row",
-   "candidates": []
-  },
-  {
    "key": "landmark:okinawa#poke-lid-growlithe-over-mihama-fireworks-depot-island-boardw",
    "type": "landmark",
    "depicts": "okinawa#poke-lid-growlithe-over-mihama-fireworks-depot-island-boardw",
@@ -4421,6 +4363,22 @@
    ],
    "pilot": false,
    "skip": "Poké Lid manhole cover: copyrighted character artwork, and Japan has no freedom of panorama for art (W8 gap stated)",
+   "priority": "row",
+   "candidates": []
+  },
+  {
+   "key": "landmark:okinawa#pokemon-center-okinawa-aeon-mall-okinawa-rycom",
+   "type": "landmark",
+   "depicts": "okinawa#pokemon-center-okinawa-aeon-mall-okinawa-rycom",
+   "label": "Pokémon Center Okinawa, Aeon Mall Okinawa Rycom (ポケモンセンターオキナワ)",
+   "names": [
+    "Pokémon Center Okinawa, Aeon Mall Okinawa Rycom",
+    "Pokémon Center Okinawa",
+    "Aeon Mall Okinawa Rycom",
+    "ポケモンセンターオキナワ"
+   ],
+   "pilot": false,
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "priority": "row",
    "candidates": []
   },
@@ -7799,10 +7757,13 @@
    "names": [
     "9/11 Memorial & Museum",
     "9/11 Memorial",
+    "National September 11 Memorial & Museum",
     "September 11 Memorial",
     "911 Memorial"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/National_September_11_Memorial_%26_Museum",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -8364,6 +8325,8 @@
     "Freshkills Park"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/Freshkills_Park",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -8588,6 +8551,8 @@
     "ChineseScholarGarden"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/New_York_Chinese_Scholar%27s_Garden",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -8610,6 +8575,8 @@
     "World's Fair"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/New_York_State_Pavilion",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -8805,6 +8772,7 @@
     "Smorgasburg"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/Smorgasburg",
    "skip": "venue (wave 6 search) — calm cover (stated, W8)",
    "candidates": []
   },
@@ -8905,6 +8873,7 @@
     "Saint George Theatre"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/St._George_Theatre",
    "skip": "venue (theatre) — never a photo",
    "candidates": []
   },
@@ -8936,9 +8905,11 @@
    "depicts": "newyork#staten-island-boat-graveyard",
    "label": "Staten Island Boat Graveyard",
    "names": [
-    "Staten Island Boat Graveyard"
+    "Staten Island Boat Graveyard",
+    "Arthur Kill"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/Arthur_Kill",
    "skip": "not searched this wave",
    "candidates": []
   },
@@ -8953,6 +8924,8 @@
     "Saint George Terminal"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/St._George_Terminal",
+   "wikiLead": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -9147,6 +9120,7 @@
     "Yankee Stadium"
    ],
    "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/Yankee_Stadium",
    "skip": "venue (stadium) — never a photo",
    "candidates": []
   },
@@ -35703,6 +35677,21 @@
    ]
   },
   {
+   "key": "landmark:singapore/malacca#a-famosa-and-dutch-square-jonker-street",
+   "type": "landmark",
+   "depicts": "singapore/malacca#a-famosa-and-dutch-square-jonker-street",
+   "label": "A Famosa & Dutch Square (Jonker Street)",
+   "names": [
+    "A Famosa & Dutch Square",
+    "A Famosa",
+    "Dutch Square"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/A_Famosa",
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
    "key": "landmark:singapore/mandai#river-wonders",
    "type": "landmark",
    "depicts": "singapore/mandai#river-wonders",
@@ -36131,6 +36120,31 @@
      "depicts": "Entrance of St Andrew's Village",
      "confidence": "high",
      "reason": "candidate wave 6 (R8 gap #1c, 2026-10-17): title names Saint Andrew's Village (result page title)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/punggol#coney-island-park-pulau-serangoon",
+   "type": "landmark",
+   "depicts": "singapore/punggol#coney-island-park-pulau-serangoon",
+   "label": "Coney Island Park (Pulau Serangoon)",
+   "names": [
+    "Coney Island Park",
+    "Coney Island, Singapore"
+   ],
+   "pilot": false,
+   "article": "https://en.wikipedia.org/wiki/Coney_Island,_Singapore",
+   "skip": "candidate wave 1: no Commons file of Coney Island Park, Singapore turned up — calm cover (stated)",
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Entrance to Pulau Serangoon from Punggol Promenade Nature Walk.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Entrance_to_Pulau_Serangoon_from_Punggol_Promenade_Nature_Walk.jpg",
+     "depicts": "(discovered)",
+     "confidence": "med",
+     "reason": "discover-commons P18, names it in wikidata P18 (cm-5, reviewed 2026-10-17)",
+     "refused": "refused by contact-sheet review (cm-5): an empty road to a gate, not the park"
     }
    ]
   },
