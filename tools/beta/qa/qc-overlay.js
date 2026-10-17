@@ -200,10 +200,11 @@ async function main() {
     fs.readFile(f, (err, buf) => { if (err) { rsp.writeHead(404); return rsp.end(); } rsp.writeHead(200, { 'Content-Type': MIME[path.extname(f)] || 'application/octet-stream' }); rsp.end(buf); }); }).listen(0, '127.0.0.1');
   await new Promise(r => srv.on('listening', r));
   const base = `http://127.0.0.1:${srv.address().port}/`;
-  const browser = await chromium.launch();
+  let browser = await chromium.launch();   // relaunched if it dies mid-audit (a lost context once killed a 1,500-run pass)
+  const live = async () => { if (!browser.isConnected()) browser = await chromium.launch(); return browser; };
   const results = []; let done = 0;
   const run = async (j, shot) => {
-    const ctx = await browser.newContext(ctxOpts(j.vp, j.theme));
+    const ctx = await (await live()).newContext(ctxOpts(j.vp, j.theme));
     await ctx.route('**/*', route => { const u = route.request().url(); if (u.startsWith(base)) return route.continue();
       if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u)) return route.fulfill({ status: 200, contentType: 'image/png', body: PNG1 }); return route.abort(); });
     const page = await ctx.newPage(); const r = { ...j };
@@ -241,18 +242,18 @@ async function main() {
       await page.waitForTimeout(1500); r.idle = await page.evaluate(MEASURE);
       if (r.idle.toasts && r.idle.toasts.length) { await page.waitForTimeout(1500); r.toastLate = (await page.evaluate(MEASURE)).toasts; }   // still up ≥ 4 s after load
     } catch (e) { r.error = e.message.slice(0, 160); }
-    await ctx.close(); return r;
+    await ctx.close().catch(() => {}); return r;
   };
   // the release-gating views first (orchestrator 11:15Z): the cold first screen and Atlas, then the sheet, the landing and
   // other pages, Guidebook; a graded partial (summary.partial.md, groups.partial.json) every 500 runs
   const PRI = { default: 0, atlas: 1, sheet: 2, page: 3, guidebook: 4, gallery: 5, insights: 6 }; jobs.sort((a, b) => PRI[a.view] - PRI[b.view]);
   const queue = jobs.slice();
-  await Promise.all(Array.from({ length: JOBS }, async () => { while (queue.length) { const j = queue.shift(); const r = await run(j); results.push(r);
+  await Promise.all(Array.from({ length: JOBS }, async () => { while (queue.length) { const j = queue.shift(); const r = await run(j).catch(e => ({ ...j, error: 'run: ' + String(e.message || e).slice(0, 160) })); results.push(r);
     if (++done % 50 === 0) console.log(`  ${done}/${jobs.length}`); if (done % 500 === 0) { try { writeOut(grade(), false); } catch (e) { console.log('partial: ' + e.message); } } } }));
   const gl = grade();
   let s = 0; for (const x of gl) { if (s >= NSHOTS) break; const w = x.worst.r; const name = [x.worst.kind, w.view, w.vp, w.theme, w.page.replace(/[^a-z0-9]+/gi, '-')].join('_');
-    await run({ ...w }, name); x.shot = path.relative(OUTROOT, path.join(SHOTS, name + '.jpg')); s++; }
-  await browser.close(); srv.close();
+    await run({ ...w }, name).catch(() => {}); x.shot = path.relative(OUTROOT, path.join(SHOTS, name + '.jpg')); s++; }
+  await browser.close().catch(() => {}); srv.close();
   writeOut(gl, true);
   function grade() {
     // OV-00 budgets (designer, bb2af873: SPEC-v3 §2.0 for Atlas, DESIGN-SYSTEM §v2.12 for every other view)
