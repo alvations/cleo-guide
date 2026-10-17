@@ -258,8 +258,8 @@ console.log('\n== VOICE: urgency lint on FE-B pages ==');
 }
 
 // ── 4. states, in jsdom ────────────────────────────────────────────────────
-async function load(rel, { url, storageThrows = false, fetchFails = false, seed = null } = {}) {
-  const html = rd(rel).replace(/<script src="([^"]+)"( defer)?><\/script>/g, (m, src) => {
+async function load(rel, { url, storageThrows = false, fetchFails = false, seed = null, inject = '' } = {}) {
+  const html = rd(rel).replace('</main>', inject + '</main>').replace(/<script src="([^"]+)"( defer)?><\/script>/g, (m, src) => {
     const p = path.join(BETA, path.posix.dirname(rel), src.split('?')[0]);
     return fs.existsSync(p) ? `<script>${fs.readFileSync(p, 'utf8').replace(/<\/script/g, '<\\/script')}</script>` : '';
   });
@@ -280,6 +280,31 @@ async function load(rel, { url, storageThrows = false, fetchFails = false, seed 
 }
 
 (async () => {
+  console.log('\n== §v2.12 3a: one search per screen ==');
+  {
+    // static: the header search names its scope; the landing's is hidden (its hero is the search); the tab bar has no
+    // second Search or Your list (the header carries both)
+    const tok = doc(rd('cities/tokyo.html')).querySelector('header [data-cleo-search-open]'), mt = doc(rd('how-we-choose.html'));
+    chk('header search names its scope: "Search Tokyo" on Tokyo, "Search all guides" on the method page', [tok && tok.getAttribute('aria-label'), mt.querySelector('header [data-cleo-search-open]').getAttribute('aria-label')], a => a[0] === 'Search Tokyo' && a[1] === 'Search all guides');
+    chk('landing: the header search is hidden (the hero field is the one search)', doc(rd('index.html')).querySelector('header [data-cleo-search-open]').hasAttribute('hidden'), true);
+    chk('tab bar: no Search and no Your list (the header has them)', manifest.generated.filter(r => { const tb = doc(rd(r)).querySelector('nav.tabbar'); return tb && (tb.querySelector('[data-cleo-search-open]') || tb.querySelector('a[href$="saved.html"]')); }), a => a.length === 0);
+    // behaviour: with a city field on the page, the header button and "/" go to it; FE-A's cleo:city-search fills the
+    // "Search all guides for “q”" row (a plain link); with 0 hits Enter in the field runs it
+    const { w, d, errors } = await load('how-we-choose.html', { inject: '<input id="cleo-filter" type="search"><div data-cleo-all-slot></div>' });
+    d.querySelector('header [data-cleo-search-open]').dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true }));
+    const viaBtn = d.activeElement && d.activeElement.id; d.activeElement.blur();
+    d.body.dispatchEvent(new w.KeyboardEvent('keydown', { key: '/', bubbles: true, cancelable: true }));
+    const viaSlash = d.activeElement && d.activeElement.id;
+    d.dispatchEvent(new w.CustomEvent('cleo:city-search', { detail: { q: 'ramen', n: 0 } }));
+    const a = d.querySelector('[data-cleo-all-slot] a[data-cleo-all-guides]');
+    const ev = new w.KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }); let nav = null;
+    try { d.getElementById('cleo-filter').dispatchEvent(ev); } catch (e) { nav = String(e); }
+    chk('city field is the one search: header button + "/" focus it; "Search all guides for “ramen”" row; Enter with 0 hits runs it',
+      [viaBtn, viaSlash, a && a.textContent, a && a.getAttribute('href'), ev.defaultPrevented, errors.length],
+      v => v[0] === 'cleo-filter' && v[1] === 'cleo-filter' && v[2] === 'Search all guides for “ramen”' && /index\.html\?q=ramen#search$/.test(v[3]) && v[4] === true && v[5] === 0);
+    d.dispatchEvent(new w.CustomEvent('cleo:city-search', { detail: { q: '', n: 0 } }));
+    chk('no query → no "Search all guides" row', d.querySelector('[data-cleo-all-slot]').innerHTML, '');
+  }
   console.log('\n== STATES (jsdom): copy per VOICE.md ==');
   const total = cityPages.reduce((s, p) => s + count(p), 0).toLocaleString('en-US');
   {
