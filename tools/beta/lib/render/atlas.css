@@ -238,12 +238,12 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   /* rev 5a §2.2: no search chip in the row — the header's search icon is the phone search (B-03: 14 controls). In Atlas
      that icon opens FE-A's in-page search (atlas.js) as a full-width 44 px row over the chip row; empty and unfocused it
      folds to nothing (1 px, transparent, no hit area), so focus never lands on an invisible box */
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill{position:fixed;z-index:31;left:var(--s-3);top:var(--row-top);width:1px;height:1px;min-height:0;min-width:0;padding:0;overflow:hidden;opacity:0;clip-path:inset(50%);box-shadow:var(--e-2)}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill{position:fixed;z-index:31;left:var(--s-3);top:var(--row-top);width:1px;height:1px;min-height:0;min-width:0;padding:0;overflow:hidden;opacity:0;clip-path:inset(50%);visibility:hidden;box-shadow:var(--e-2)}   /* QC b1c7939f: at rest it is not drawn, hit or tabbed to — the header's search icon is the one search (it sets .ms-open, then focuses) */
   html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill :is(#cleo-filter,.hint,.ico){width:1px;height:1px;min-height:0;padding:0;border:0}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q){right:var(--s-3);width:auto;height:var(--tap);opacity:1;clip-path:none;overflow:visible}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q) .hint{display:none}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q) #cleo-filter{position:absolute!important;inset:0;width:100%;height:var(--tap);padding:0 var(--s-3) 0 var(--s-8)!important;border:1px solid var(--line-strong);color:var(--ink);cursor:text}
-  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q)>.ico{position:absolute;left:13px;top:13px;width:18px;height:18px;pointer-events:none;z-index:1}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q,.ms-open){right:var(--s-3);width:auto;height:var(--tap);opacity:1;clip-path:none;overflow:visible;visibility:visible}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q,.ms-open) .hint{display:none}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q,.ms-open) #cleo-filter{position:absolute!important;inset:0;width:100%;height:var(--tap);padding:0 var(--s-3) 0 var(--s-8)!important;border:1px solid var(--line-strong);color:var(--ink);cursor:text}
+  html.atlas-m[data-view=atlas] main[data-city] .ms-bar .toolbar>.spill:is(:focus-within,.has-q,.ms-open)>.ico{position:absolute;left:13px;top:13px;width:18px;height:18px;pointer-events:none;z-index:1}
   /* the carousel: the same cards, side by side; sections and lists step aside (display: contents) */
   html.atlas-m[data-view=atlas] .listpane{display:flex;align-items:stretch;gap:var(--s-2);position:fixed;z-index:25;left:0;right:0;bottom:12px;height:var(--car-h);margin:0;padding:0 var(--s-4);overflow-x:auto;overflow-y:hidden;
     scroll-snap-type:x mandatory;scroll-padding:0 var(--s-4);overscroll-behavior:contain;background:none;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -337,7 +337,7 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
   html.atlas-m[data-view=atlas] .topbar .crumbs>a:last-of-type::before{content:"‹";position:absolute;inset:0;display:grid;place-items:center;text-indent:0;font:400 28px/1 var(--font-ui)}
   html.atlas-m[data-view=atlas] .topbar .crumbs .here{font:600 var(--fs-lead)/1.2 var(--font-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   html.atlas-m[data-view=atlas] .topbar .brand{display:none}   /* phones: back + the city name (SPEC-v3 §2.2) */
-  html.atlas-m[data-view=atlas] .nopin{bottom:calc(var(--car-h) + 80px);right:auto;left:12px}
+  html.atlas-m[data-view=atlas] .mappane>.nopin{top:auto;bottom:calc(var(--car-h) + 108px);right:auto;left:12px}   /* QC b1c7939f: fe-c.css puts it at top 60, under the chip row; it sits above the credit instead */
   html.atlas-m[data-view=atlas] #cleo-poi{display:none!important}
 }
 @media (min-width:600px) and (max-width:1023px){html.atlas-m.ms-list[data-view=atlas] .listpane .pls{grid-template-columns:repeat(2,minmax(0,1fr))}}
