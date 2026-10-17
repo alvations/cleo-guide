@@ -2637,3 +2637,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **FE-C:** open a place at 200 / 240 ms.
   - **FE-B:** D-53 part 2, plus a lazy srcview (eager headroom 0.94 KB).
 - **FE-B D-53 on the Gallery rows:** gallery.js already read `r.recby`, but lib/gallery.js never sent it, so the row cards named every source. The gallery JSON now carries `recby` where it differs from src minus guide (299 of 2,800 row cards; 31 show "No independent source yet").
+- 2026-10-17 14:50Z · orchestrator · check-in · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Gates:** all green on the head.
+  - **Interim blockers cleared:** QA-85, FE-A 768, QA-87 (QA re-scan pending).
+  - **Still open:** the Insights series relabel (orchestrator ruling); QC's views pass; the live-vs-dev INP pairs; QC-36 count-line race.
+  - **Photo runs #121 and #122 failed on test-imagery;** imagery is root-causing.
+  - **Image sources:** Pexels declined for now (3–6 of 41 gaps; terms would allow it); the lane is dormant until the Europeana key.
+  - **D-56** is applied to 29 venue skips, with lifts by name only (k=venue pattern kept).
+  - **Designer:** two more cut misses fixed (34 rules at 844×390); the sweep now forces every area to render.
+  - **FE-C:** open a place accepted (harness overhead traced); perf.js moves to CDP dispatch.
