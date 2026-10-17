@@ -34,6 +34,12 @@ plural (i18n).
 - PERF-23 CSS: build minifies fe-a/fe-b (test-css-min.js proves rules identical); city CSS 338.9 KB; cuts for designer/FE-A in
   design/beta/eval/perf/css-gap6.md (probe: tools/beta/qa/css-coverage.js --all). Lazy sheet.js proposal: docs/BETA-LAZY-SHEET.md
   (do NOT implement before the r8 pin unless eager headroom < 0.3 KB).
+- PERF-24 (c5205b60): Atlas round-trip INP 1,072/2,576 → 448/680 ms (msIn + map mount after the switch's first paint, views.js);
+  perf.js starts in the Gallery (filter row was silently skipped since D-46). Filter 144/160 ✅; switches 250–310, open a place
+  352/512 still > 200 → next INP items. OV-41 platform half: pack hidden in Atlas only while the map is live (popover holds it).
+  OV-41 closed with FE-1 (8984b094): offline-pack's Atlas-default case (real tap, cover named) is in npm test.
+- CSS coverage: probe blocks the SW (designer's blind spot not ours); added hover / 844×390 / landing query / saved reader →
+  re-run and correct design/beta/eval/perf/css-gap6.md before anyone cuts.
 - OV-38: `Cleo.pack.mount(host)` in FE-1's Layers popover `.m-layers-pop .m-pack`: verified (phone + desktop, keep syncs,
   overlay + pack probes PASS). Desktop also shows the page's own section (FE-1/designer's call).
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).

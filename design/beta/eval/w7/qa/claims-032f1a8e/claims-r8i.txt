@@ -1,0 +1,72 @@
+
+# FE-A adeabcd63 — D-46 desktop lead card
+  PASS  Tokyo desktop cold load opens in Atlas = "atlas"
+  PASS  Tokyo: exactly one li.pl-lead, Edo-Tokyo Museum, with a photo = {"n":1,"id":"p-edo-tokyo-museum","np":false}
+  FAIL  Tokyo: the lead spans the grid (1/-1) at 3:2 = {"span":"1/-1","wFrac":1,"ratio":1.33}
+  PASS  Tokyo desktop: load CLS 0 (≤ 0.001) = 0
+  PASS  Tokyo desktop: 0 JS errors = []
+  PASS  Tokyo desktop lens #t=1: html.cleo-lensed and the lead is a normal card = {"lensed":true,"n":1,"wFrac":0.48,"span":"auto/auto"}
+  PASS  Tokyo desktop lens #t=1: 0 JS errors = []
+  PASS  Tokyo desktop sort #sort=az: html.cleo-lensed and the lead is a normal card = {"lensed":true,"n":0,"wFrac":null,"span":null}
+  PASS  Tokyo desktop sort #sort=az: 0 JS errors = []
+  PASS  Tokyo desktop Your day (door): html.cleo-lensed and the lead is a normal card = {"lensed":true,"n":1,"wFrac":0,"span":"auto/auto"}
+  PASS  Tokyo desktop Your day (door): 0 JS errors = []
+  PASS  Tokyo desktop Near me (door): html.cleo-lensed and the lead is a normal card = {"lensed":true,"n":0,"wFrac":null,"span":null}
+  PASS  Tokyo desktop Near me (door): 0 JS errors = []
+  PASS  Chicago desktop (first Atlas card photo-less): no li.pl-lead = {"lead":0,"first":"p-lou-malnatis-pizzeria-river-north","firstNp":true,"cls":0.0001}
+  PASS  Chicago desktop: load CLS 0 (≤ 0.001) = 0.0001
+
+# FE-A d6bb8367a — §v2.7b no-photo cards
+  PASS  every page: ≤ 1 lead card and never a photo-less one (32 leads on 96 pages) = []
+  PASS  no why line is a bare URL (State College guard), every page = []
+  PASS  cities/tokyo.html phone Gallery: row A — grid, 64 px tile, why ≤ 2 lines (8 sampled) = [{"id":"p-akihabara-electric-town","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-isegen","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-virtu-four-seasons-hotel-tokyo-at-otemachi","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"}]
+  PASS  cities/tokyo.html phone Gallery: 0 JS errors = []
+  PASS  cities/tokyo.html phone Atlas list: row A — grid, 64 px tile, why ≤ 2 lines (8 sampled) = [{"id":"p-akihabara-electric-town","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-tsukiji-hongan-ji","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-pokemon-cafe-tokyo-nihonbashi","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"}]
+  PASS  cities/tokyo.html phone Atlas list: 0 JS errors = []
+  PASS  cities/tokyo.html desktop Gallery: card B — the why line is the cover quote (“), ≤ 4 lines (8 sampled) = [{"id":"p-akihabara-electric-town","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-isegen","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-virtu-four-seasons-hotel-tokyo-at-otemachi","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"}]
+  PASS  cities/tokyo.html desktop Gallery: 0 JS errors = []
+  PASS  cities/tokyo.html desktop Atlas: card B — the why line is the cover quote (“), ≤ 4 lines (8 sampled) = [{"id":"p-akihabara-electric-town","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-tsukiji-hongan-ji","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-pokemon-cafe-tokyo-nihonbashi","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"}]
+  PASS  cities/tokyo.html desktop Atlas: 0 JS errors = []
+  PASS  cities/washingtondc.html phone Gallery: row A — grid, 64 px tile, why ≤ 2 lines (8 sampled) = [{"id":"p-thomas-jefferson-memorial","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-national-world-war-ii-memorial","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-vietnam-veterans-memorial","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"}]
+  PASS  cities/washingtondc.html phone Gallery: 0 JS errors = []
+  PASS  cities/washingtondc.html phone Atlas list: row A — grid, 64 px tile, why ≤ 2 lines (8 sampled) = [{"id":"p-thomas-jefferson-memorial","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-national-world-war-ii-memorial","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-vietnam-veterans-memorial","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"}]
+  PASS  cities/washingtondc.html phone Atlas list: 0 JS errors = []
+  PASS  cities/washingtondc.html desktop Gallery: card B — the why line is the cover quote (“), ≤ 4 lines (8 sampled) = [{"id":"p-thomas-jefferson-memorial","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-national-world-war-ii-memorial","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-vietnam-veterans-memorial","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"}]
+  PASS  cities/washingtondc.html desktop Gallery: 0 JS errors = []
+  PASS  cities/washingtondc.html desktop Atlas: card B — the why line is the cover quote (“), ≤ 4 lines (8 sampled) = [{"id":"p-thomas-jefferson-memorial","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-national-world-war-ii-memorial","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-vietnam-veterans-memorial","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"}]
+  PASS  cities/washingtondc.html desktop Atlas: 0 JS errors = []
+  PASS  cities/statecollege.html phone Gallery: row A — grid, 64 px tile, why ≤ 2 lines (8 sampled) = [{"id":"p-palmer-museum-of-art","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-nittany-lion-shrine","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-beaver-stadium-and-penn-state-all-sports-museum","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"}]
+  PASS  cities/statecollege.html phone Gallery: 0 JS errors = []
+  PASS  cities/statecollege.html phone Atlas list: row A — grid, 64 px tile, why ≤ 2 lines (8 sampled) = [{"id":"p-palmer-museum-of-art","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-nittany-lion-shrine","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"},{"id":"p-beaver-stadium-and-penn-state-all-sports-museum","disp":"grid","col1":"64px","whyLines":2,"clamp":"2"}]
+  PASS  cities/statecollege.html phone Atlas list: 0 JS errors = []
+  PASS  cities/statecollege.html desktop Gallery: card B — the why line is the cover quote (“), ≤ 4 lines (8 sampled) = [{"id":"p-palmer-museum-of-art","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-nittany-lion-shrine","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-beaver-stadium-and-penn-state-all-sports-museum","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"}]
+  PASS  cities/statecollege.html desktop Gallery: 0 JS errors = []
+  PASS  cities/statecollege.html desktop Atlas: card B — the why line is the cover quote (“), ≤ 4 lines (8 sampled) = [{"id":"p-palmer-museum-of-art","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-nittany-lion-shrine","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"},{"id":"p-beaver-stadium-and-penn-state-all-sports-museum","pos":"absolute","quote":"\"“\"","lines":4,"clamp":"4"}]
+  PASS  cities/statecollege.html desktop Atlas: 0 JS errors = []
+
+# FE-C f21d3bd97 — Insights glyph; phone Atlas list Map pill, no 72 px band
+  PASS  Tokyo: the Insights segment uses the chart glyph; the chart symbol is in the sprite and Filters keeps sliders = {"ins":true,"sprite":true}
+  PASS  Tokyo phone Atlas list (light): list mode, a floating Map pill, no 72 px ::after band = {"list":true,"after":{"content":"none","h":"auto","bt":"0px","disp":"inline"},"pill":{"top":786,"h":44,"w":99,"pos":"fixed"},"vh":844}
+  PASS  Tokyo phone Atlas list (light): scrolled to the end, the list's last content clears the pill = {"scroller":"listpane w7-cards","lastBottom":748,"tail":["P.ms-pager g-pager -120","SECTION.howto 748"],"pillTop":786,"vh":844}
+  PASS  Tokyo phone Atlas list (light): 0 JS errors = []
+  PASS  Tokyo phone Atlas list (dark): list mode, a floating Map pill, no 72 px ::after band = {"list":true,"after":{"content":"none","h":"auto","bt":"0px","disp":"inline"},"pill":{"top":786,"h":44,"w":99,"pos":"fixed"},"vh":844}
+  PASS  Tokyo phone Atlas list (dark): scrolled to the end, the list's last content clears the pill = {"scroller":"listpane w7-cards","lastBottom":748,"tail":["P.ms-pager g-pager -120","SECTION.howto 748"],"pillTop":786,"vh":844}
+  PASS  Tokyo phone Atlas list (dark): 0 JS errors = []
+
+# FE-A 975e2bfe4 — QA-82 at 844 × 390
+  PASS  Tokyo 844×390 Atlas (light): 4 segments, each 44 × 44 and topmost at its centre = [{"l":"Atlas","w":44,"h":44,"top":true},{"l":"Gallery","w":44,"h":44,"top":true},{"l":"Guidebook","w":44,"h":44,"top":true},{"l":"Insights","w":44,"h":44,"top":true}]
+  PASS  Tokyo 844×390 Atlas (light): a keyboard-focused segment shows its name as a tooltip (visible, in the viewport) = {"name":"Atlas","w":45,"h":24,"top":52,"right":587,"clip":"auto","vis":"visible"}
+  PASS  Tokyo 844×390 Atlas (light): a hovered segment shows its name = {"name":"Guidebook","w":79,"h":24}
+  PASS  Tokyo 844×390 Atlas (light): the "last checked" link is hidden and never takes focus (120 Tabs) = {"lc":{"vis":"hidden"},"hiddenFocused":false}
+  PASS  Tokyo 844×390 Atlas (light): 0 JS errors = []
+  PASS  Tokyo 844×390 Gallery (light): the rail is not sticky and "Keep Tokyo offline" hit-tests clean at 3 points = {"keep":true,"railPos":"relative","railTop":-5224,"railBottom":-5118,"keepTop":173,"hits":[true,true,true]}
+  PASS  Tokyo 844×390 Gallery (light): 0 JS errors = []
+  PASS  Tokyo 844×390 Atlas (dark): 4 segments, each 44 × 44 and topmost at its centre = [{"l":"Atlas","w":44,"h":44,"top":true},{"l":"Gallery","w":44,"h":44,"top":true},{"l":"Guidebook","w":44,"h":44,"top":true},{"l":"Insights","w":44,"h":44,"top":true}]
+  PASS  Tokyo 844×390 Atlas (dark): a keyboard-focused segment shows its name as a tooltip (visible, in the viewport) = {"name":"Atlas","w":45,"h":24,"top":52,"right":587,"clip":"auto","vis":"visible"}
+  PASS  Tokyo 844×390 Atlas (dark): a hovered segment shows its name = {"name":"Guidebook","w":79,"h":24}
+  PASS  Tokyo 844×390 Atlas (dark): the "last checked" link is hidden and never takes focus (120 Tabs) = {"lc":{"vis":"hidden"},"hiddenFocused":false}
+  PASS  Tokyo 844×390 Atlas (dark): 0 JS errors = []
+  PASS  Tokyo 844×390 Gallery (dark): the rail is not sticky and "Keep Tokyo offline" hit-tests clean at 3 points = {"keep":true,"railPos":"relative","railTop":-5224,"railBottom":-5118,"keepTop":173,"hits":[true,true,true]}
+  PASS  Tokyo 844×390 Gallery (dark): 0 JS errors = []
+
+>>> 61/62 PASS, 1 FAIL
