@@ -44,6 +44,27 @@ plural (i18n).
   overlay + pack probes PASS). Desktop also shows the page's own section (FE-1/designer's call).
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).
 
+## Handoff (2026-10-17, end of session; last platform push 9cd09473)
+
+State: everything pushed, gate green, eager 38.6 / 40. Open items, in order:
+1. **Guidebook paging prototype** (orchestrator asked): measured on dev — a switch to Guidebook adds ≈ 1,029 elements
+   (its own lazy chapters) to a 2,633-element Atlas page; list cards stay at 36 (+452 stubs). The switch cost is one style
+   recalc of the whole DOM when html[data-view] flips, so paging must cut the GUIDEBOOK's own nodes (chapter bodies / their
+   place rows), not the list cards. Not started.
+2. **Switch INP:** FE-1 is doing the "yield before show()" change in views.js under my conditions (boot unchanged,
+   same path for every input, tests get waits not looser asserts, perf08-regress). After it lands: batch the later-frame
+   forced restyles (late(), late(1)+fonts.ready, loadMap callback, invalidateSize) into one measured read.
+3. **D-55 interim pin:** r7 vs dev INP pairs (perf.js --input cdp, same box, back to back) — dev better on every row; sent.
+   r8 proper still needs ≤ 200 on the switches and the round trip.
+4. **CSS gap #6:** design/beta/eval/perf/css-gap6.md (3rd run, cleo.css 160.2 KB, fe-a 159.8 KB; city page ≈ 332.6 KB vs 250).
+   The designer re-cuts only when my list and their widened sweep agree; re-run `css-coverage.js --all` on request.
+5. **test-count-lines:** waits for each line's final form; Atlas lens asserts both forms (QC-36). When FE-1 makes the Atlas
+   wording stable from first paint, tighten to one phrasing. QA-88 proposed the same wait (no conflict).
+6. **Lazy sheet.js:** docs/BETA-LAZY-SHEET.md, after the r8 pin.
+7. **Verify FE-1's PERF-24c (72ec46eb)** (orchestrator): the round trip reported at ~50 ms desktop / 50–100 ms phone. Add a
+   "view complete" column to perf.js mark() (tap → the new view's first card/heading painted, no [data-cleo-pending]); run
+   r7 (b54b3745 worktree) vs dev back to back with --input cdp; accept if view-complete ≤ ~300 ms phone / ≤ ~400 ms desktop.
+
 ## Next
 
 0. Pushing: `cd tools && npm run checkpoint -- -m "<msg + trailers>" <paths…>` then `npm run checkpoint -- --verify`
