@@ -2237,7 +2237,7 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - Measured at 390 on Tokyo, Cleveland and Chinatown: header 0–52, switcher row 52–104, chip row 104–152, peek 788–844, so **75.4 %** clear map.
   - All four header controls stay 44 px tall.
 - **DOM budget (FE-A, w2 [dom] ≤ 3,000 with Atlas as the default):**
-  - Once the map-area page is chosen, an off-page card goes back into a deferred `noscript` chunk, undecorated, exactly as a never-stamped card waits. Core's peek / stampIds / stamp-all treat it like any other. city.js `C.forget` swaps the card for a stub, so its pin, counts and lens keep working. The selected, targeted or focused card always stays.
+  - Once the map-area page is chosen, an off-page card goes back into a deferred `noscript` chunk, undecorated, exactly as a never-stamped card waits. Core's peek / stampIds / stamp-all treat it like any other. atlas.js drops it from city.js's `cards` / `byId` and gives it a stub (`C.stubs`), so its pin, counts and lens keep working. The selected, targeted or focused card always stays.
   - Atlas no longer decorates off-page cards.
   - Not done: views.js holding lazy stamping in Atlas until that first page. It would stop the list stamping on scroll whenever atlas.js doesn't run (test-beta (e), rule 4), and shedding already returns those cards.
   - Measured 2.5 s after load: Tokyo 3,484 → **2,856** (1440) and **2,811** (390); New York 2,717 / 2,653; Cleveland 2,305 / 2,197. That leaves room for FE-A's intro (~6 nodes).
@@ -2250,3 +2250,6 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Platform owns the fix and is restoring headroom. FE-B is folding Cleo.compact into Cleo.chrome. All lanes are told: no eager bytes until green.
 - The designer confirmed the food-cover spec (6b2faadd4, §v2.7a): imagery builds it in motifs.js, FE-A places it.
 - FE-B: OV-00 shell compaction (c84fe342), R8 #5b and #2d (c41f5531).
+- **With platform's core.js Atlas-boot change merged, and the Atlas page at PER = 36** (measured 2.5 s after `#view=atlas`): Tokyo **2,686** (1440) / **2,637** (390) nodes, 36 cards; New York 2,572 / 2,515.
+- **INP, third pass** (perf.js `--runs 3`, Tokyo 4× CPU): desk switch → Atlas **232 ms** (296 / 224 / 232); phone 200 ms; Guidebook 176 / 168 ms. Platform's `atlas-switch-inp.js` (every card built, 1× CPU): **80 ms**, against 2,672 on b61fda89.
+  - Eager JS: city.js exposes only `C.stubs` (the forget step lives in lazy atlas.js), and predict() asks `Cleo.lens.on` instead of a city.js LENS export (an area link now waits for the first map pass). Cleveland's eager JS is 40.00 KB gzip against the 40.0 KB budget: it passes with no headroom.

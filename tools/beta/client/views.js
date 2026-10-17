@@ -214,15 +214,17 @@
   // switcher and the toolbar), so the pill rides in the toolbar there and comes home on leaving
   const spill = $('[data-cleo-search]'), spHome = spill && spill.parentNode, tbS = $('[data-cleo-toolbar]');
   const spillTo = a => { if (!spill || !tbS || !spHome) return; if (a) { if (spill.parentNode !== tbS) tbS.insertBefore(spill, tbS.firstChild); } else if (spill.parentNode !== spHome) spHome.insertBefore(spill, spHome.firstChild); };
+  // fitSplit just AFTER the next paint (INP: in the frame before it, the read forced the whole new layout); 1 = and on fonts.ready
+  const late = f => requestAnimationFrame(() => setTimeout(() => { fitSplit(); if (f && d.fonts) d.fonts.ready.then(fitSplit); }));
   function atlasIn() {
     if (!split) return;
     const m = !C.desk(); html.classList.toggle('atlas-m', m); html.classList.toggle('atlas-d', !m);
     spillTo(m);
-    if (C.need) C.need('atlas', () => { if (cur === 'atlas' && C.msIn) { C.msIn(); requestAnimationFrame(() => setTimeout(fitSplit, 0)); } });   // after the paint (INP)
+    if (C.need) C.need('atlas', () => { if (cur === 'atlas' && C.msIn) { C.msIn(); late(); } });
     if (C.loadMap) C.loadMap(() => { fitSplit(); if (C.msArea) C.msArea(); });
     // measured just AFTER the switch's first paint (the CSS fallback height is the same 108 px, so nothing moves): in the
     // frame before it, the read forced the whole new layout inside the interaction (INP); fonts.ready forces a style update too
-    requestAnimationFrame(() => setTimeout(() => { fitSplit(); if (d.fonts && d.fonts.ready) d.fonts.ready.then(fitSplit); }, 0));
+    late(1);
     nopin();
   }
   function atlasOut() {
