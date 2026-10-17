@@ -358,6 +358,19 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk(`≤ 1 lead per city page and never a photo-less card (${n} leads)`, bad.length === 0 && n > 0, bad.slice(0, 4));
   }
 
+  console.log('# orchestrator ruling: one starting place per view (Gallery: its first card; Atlas: no Gallery line, its lead = .pl-lead)');
+  {
+    const css = fs.readFileSync(path.join(__dirname, 'lib/render/fe-a.css'), 'utf8');
+    chk('the "Start with" line (.g-hero-x) is drawn only in the Gallery view', /html:not\(\[data-view=gallery\]\) main\[data-city\]>\.masthead \.g-hero-x\{display:none\}/.test(css));
+    for (const [pg, file] of [['cities/tokyo.html', 'tokyo'], ['Singapore/punggol.html', 'singapore--punggol'], ['Singapore/potong-pasir-macpherson.html', 'singapore--potong-pasir-macpherson']]) {
+      const h = fs.readFileSync(path.join(BETA, pg), 'utf8'), g = JSON.parse(fs.readFileSync(path.join(BETA, 'data/gallery', file + '.json'), 'utf8'));
+      const link = (/class="g-start"><a href="#p-([^"]+)"/.exec(h) || [])[1], first = ((g.rows[0] || [])[6] || []).filter(r => !r.closed)[0];
+      chk(`${pg}: the Gallery "Start with" names the Gallery's first card`, !!first && link === first.id, [link, first && first.id]);
+      const lead = (/<li class="pl[^"]*\bpl-lead\b[^"]*" id="p-([^"]+)"/.exec(h) || [])[1];
+      chk(`${pg}: the Atlas lead (if any) is a photo card and the Atlas first card by map priority (.pl-lead, test above)`, !lead || !new RegExp('<li class="pl[^"]*pl--np[^"]*pl-lead').test(h), lead || 'none');
+    }
+  }
+
   console.log('# W8: "Start with" names the lead card (R6 gap #8), every place page');
   {
     const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []);

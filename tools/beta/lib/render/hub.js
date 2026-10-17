@@ -28,7 +28,7 @@ const { site, icon } = require('./shell');
 const imagery = require('../../imagery');                          // imagery lane: credited photos (optional helpers)
 const { captionHtml } = require('../../imagery/photos');
 const { fmt, sumStats } = require('../stats');
-const { recommender } = require('../model');                        // R8 gap #2d: public source names
+const { recommender, sourceRole } = require('../model');                        // R8 gap #2d: public source names
 const { t, tn } = require('../i18n');                // W5 gap #7: every hub/tile string comes from the catalogue
 const { sentence, ownWords } = require('../casing');  // W8 owner rule: sentence case for data labels
 const { CANON, fold } = require('../guide');         // dish synonyms (dedup of the hub "Known for" line)
@@ -103,7 +103,7 @@ function facts(row) {
 /** Named publishers behind a page, most places first (the guide's own additions are not a source). Computed by lib/sources.js. */
 function recommenders(row) {
   // R8 gap #2d: public names only — no research parentheticals, and a place's own site is never "Recommended by"
-  const list = ((row.sources && row.sources.list) || []).filter(s => s.id !== 'guide' && s.name).map(s => recommender(s.name)).filter(Boolean);
+  const list = ((row.sources && row.sources.list) || []).filter(s => s.id !== 'guide' && s.name && sourceRole(s) === 'rec').map(s => recommender(s.name)).filter(Boolean);   // D-53: never a platform or the place's own site
   return { names: list.slice(0, 2), n: list.length };
 }
 

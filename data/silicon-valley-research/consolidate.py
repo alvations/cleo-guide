@@ -110,10 +110,14 @@ def canon(k): return ALIAS.get(k,k)
 # ---- build unified records (generic: any research file in this dir) ----
 import glob
 EXCLUDE=set()   # places confirmed permanently CLOSED / not visitable during geocoding — never re-add
+# REJECTED (orchestrator 2026-10-17): no credible recommender after 3 re-sourcing waves (2026-08-14 x2, 2026-10-17).
+# Pruned from the dataset, not deleted: each is listed with its reason in AUDIT.md ("Rejected — no credible recommender").
+# A record re-enters only when a credible source is added to its research file AND its name is removed here.
+REJECTED=set(json.load(open(os.path.join(D,"_rejected_no_credible.json"))))
 sights=[]; food=[]; srcmeta={}; seen_names=set()
 def _take(x, bucket):
     n=x.get("n")
-    if not n or n in seen_names or n in EXCLUDE: return
+    if not n or n in seen_names or n in EXCLUDE or n in REJECTED: return
     seen_names.add(n); bucket.append(x)
 for path in sorted(glob.glob(os.path.join(D,"*.json"))):
     base=os.path.basename(path)

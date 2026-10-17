@@ -106,7 +106,12 @@
   // FE-C W9-5 hook: "Nearest to my base" (sort=base) sorts like Near me, by km from your base (base.js: C.baseKm)
   const byBase = () => S.sort === 'base' && !!C.baseKm, nearOn = () => (S.sort === 'near' && !!C.dist) || byBase();
   const far = x => byBase() ? C.baseKm(x) : C.dist && C.dist[pid(x)] != null ? C.dist[pid(x)] : 1e9;
+  // FE-C INP hook (open a place): what the list was last drawn for. A route that only opens or changes the place (#p=) leaves
+  // every lens, sort and ranking as it was, so onRoute need not redraw 488 cards before the sheet paints
+  let drawn = [];
+  const drawFor = () => [JSON.stringify(S), C.rank, C.dist, C.why, cards.length], same = () => drawFor().every((x, i) => x === drawn[i]);
   const apply = () => {
+    drawn = drawFor();
     if (Cleo.defer && (C.rank || S.day || S.sort)) Cleo.defer.all();   // a reorder must see every card (M3-06)
     // PERF-08 (platform): under Cleo.defer.selective a lens stamps only what it shows, so the unstamped stubs count too —
     // as shown when no lens is on (they are simply not built yet), as the lens decides when one is
@@ -228,7 +233,10 @@
     S.q = r.q || ''; if (fi && fi.value !== S.q) fi.value = S.q;   // no q= in the route, no search (FE-B finding)
     const tg = r.p && byId[r.p];
     if (tg && !visible(tg)) { S.mode = 'all'; LENS.forEach(k => { S[k] = ''; }); S.q = ''; if (fi) fi.value = ''; }
-    apply();
+    // FE-C INP hook: a tapped card is on screen already, so the page doesn't scroll to it (a scroll would also compact the
+    // chrome: a whole-page restyle behind the sheet); read before any write, so it forces nothing new
+    const tr0 = tg && !tg.hidden ? tg.getBoundingClientRect() : null, onScreen = !!tr0 && tr0.height > 0 && tr0.top < innerHeight && tr0.bottom > 0;
+    if (!(tg && same())) apply();
     $$('li.pl.is-target').forEach(c => { if (c !== tg) c.classList.remove('is-target'); });
     const mob = !desk() && (C.view || d.documentElement.getAttribute('data-view')) === 'atlas', fa = r.map && r.map !== '1' ? r.map : S.a;
     if (split) { if (mob) split.setAttribute('data-view', 'map'); else split.removeAttribute('data-view'); }
@@ -240,7 +248,7 @@
       tg.classList.add('is-target');
       if (r.p !== lastP || !(Cleo.sheet && Cleo.sheet.isOpen())) {
         // Atlas hosts the detail over a map that stays put (atlas-nav.js, SPEC-v3 §3.2): no page scroll, no fly
-        if (!(C.placeOpen && C.placeOpen(tg, map && markers[r.p]))) { tg.scrollIntoView({ block: 'center' }); keepInView(tg); if (map && markers[r.p]) fly(markers[r.p].getLatLng()); }
+        if (!(C.placeOpen && C.placeOpen(tg, map && markers[r.p]))) { if (!onScreen) { tg.scrollIntoView({ block: 'center' }); keepInView(tg); } if (map && markers[r.p]) fly(markers[r.p].getLatLng()); }
         if (C.select && C.view === 'atlas') C.select(tg, 'route');   // selected + labelled on the map (SPEC-v3 §1.4)
         if (Cleo.sheet) Cleo.sheet.open(tg); else { const l = $('.pl-n a', tg); if (l && l.focus) l.focus({ preventScroll: true }); }
       }

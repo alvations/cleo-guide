@@ -65,13 +65,15 @@
     if (id === 'guide') return tt('sheet.added', 'Added by the guide');
     var s = M.src[id]; return s ? String(s.name).split(/\s+[·—(]\s*/)[0].slice(0, 34) : id;
   };
+  /* FE-B D-53: real recommenders only (build stamps `recby`; a platform or own site never shows), plus "Added by the guide" */
+  var recIds = function (p) { var s = p.src || []; return p.recby ? p.recby.concat(s.indexOf('guide') >= 0 ? ['guide'] : []) : s; };
   var hoods = function (n) {
     var m = /\(([^)]*)\)/.exec(n || ''); if (m) return m[1];
     var parts = String(n || '').split(/\s+[—–]\s+/); return parts.length > 1 ? parts.slice(1).join(' — ') : '';
   };
   var mostCited = function (lst, skipGuide) {
     var c = {}, best = null;
-    lst.forEach(function (x) { (x.p.src || []).forEach(function (s) { if (skipGuide && s === 'guide') return; c[s] = (c[s] || 0) + 1; }); });
+    lst.forEach(function (x) { recIds(x.p).forEach(function (s) { if (skipGuide && s === 'guide') return; c[s] = (c[s] || 0) + 1; }); });
     Object.keys(c).forEach(function (s) { if (!best || c[s] > c[best]) best = s; });
     return best ? [best, c[best]] : null;
   };
@@ -93,11 +95,14 @@
 
   function entry(M, x) {
     var p = x.p, ref = M.d.key + '/' + p.id;
-    var tier = x.open ? '<span class="tier t' + p.t + '"><i class="tg t' + p.t + '" aria-hidden="true"></i>' + TIER[p.t] + '</span>'
-      : '<span class="flag closed">' + tt('gal.closed', 'Closed · kept for the record') + '</span>';
-    var rec = (p.src || []).map(function (s) {
+    var ids = recIds(p), noRec = !ids.length;
+    var tier = !x.open ? '<span class="flag closed">' + tt('gal.closed', 'Closed · kept for the record') + '</span>'
+      : noRec ? '<span class="kind">' + tt(p.kind === 'food' ? 'card.kind.food' : 'card.kind.sight', p.kind === 'food' ? 'Eat & drink' : 'Sight') + '</span>'
+      : '<span class="tier t' + p.t + '"><i class="tg t' + p.t + '" aria-hidden="true"></i>' + TIER[p.t] + '</span>';
+    var rec = ids.map(function (s) {
       return '<button type="button" class="src' + (s === 'guide' ? ' added' : '') + '" data-src="' + esc(s) + '">' + esc(srcShort(M, s)) + '</button>';
     }).join('<span class="sep">, </span>');
+    var own = null; if (noRec) (p.src || []).some(function (s) { var o = M.src[s]; var u = o && o.role === 'own' && ((o.entries || [])[0] || {}).url; if (u && /^https?:\/\//.test(u)) own = u; return !!own; });
     return '<li class="ge" id="gb-' + esc(p.id) + '" data-id="' + esc(p.id) + '" data-a="' + esc(p.a) + '" data-k3="' + x.k3 + '" data-rank="' + x.rank + '"' + (x.open ? '' : ' data-closed') + '>' +
       '<h4><span class="rk" title="' + esc(tt('sheet.rank', 'No. {k} of {n} in {area}', { k: x.rank, n: x.of, area: shortArea((M.d.areas.filter(function (a) { return a.id === p.a; })[0] || {}).n || p.a) })) + '">' + x.rank + '</span><a href="#p=' + encodeURIComponent(p.id) + '" data-cleo-entry>' + esc(x.name) +
       (p.nat ? ' <span class="nat"' + (M.lang ? ' lang="' + M.lang + '"' : '') + '>' + esc(p.nat) + '</span>' : '') + '</a></h4>' +
@@ -105,7 +110,9 @@
       (p.w ? '<p class="ge-w">' + esc(p.w) + '</p>' : '') + (p.k ? '<p class="gk">' + tt('sheet.look', 'Look for:') + ' ' + esc(p.k) + '</p>' : '') +
       // D-39 (proposed): prose that quotes a price or a rating is labelled as a dated quote, never edited (`pq` from build)
       (p.pq ? '<p class="gq sm muted">' + esc(tt('sheet.quoted', 'Prices, ratings and times are quoted from the source at the time of research ({d}).', { d: p.pq })) + '</p>' : '') +
-      '<p class="recby"><span>' + tt('card.recby', 'Recommended by') + '</span> ' + rec + '</p>' +
+      (noRec ? '<p class="recby norec"><span class="norec">' + tt('card.norec', 'No independent source yet') + '</span>' +
+        (own ? ' · <a class="own" href="' + esc(own) + '" rel="noopener">' + tt('card.official', 'Official site') + '</a>' : '') + '</p>'
+        : '<p class="recby"><span>' + tt('card.recby', 'Recommended by') + '</span> ' + rec + '</p>') +
       '<button type="button" class="heart ge-save" data-cleo-ref="' + esc(ref) + '" aria-pressed="false" aria-label="' + esc(tt('gal.save', 'Save {name}', { name: x.name })) + '">' + tt('sheet.save', 'Save') + '</button></li>';
   }
 
