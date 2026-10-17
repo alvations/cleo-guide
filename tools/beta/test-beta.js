@@ -375,7 +375,7 @@ const lensOutcome = (b, label) => {
     const html = rd('beta/' + TOKYO);
     const liveTags = (html.replace(/<noscript data-cleo-defer[\s\S]*?<\/noscript>/g, '').match(/<li class="pl[ "]/g) || []).length;
     chk('Tokyo ships ≤ 24 live cards, the rest in <noscript data-cleo-defer> (still in the HTML)', [liveTags, (html.match(/<li class="pl[ "]/g) || []).length].join(), `24,${total}`);
-    const { w, d, errs } = boot({ io: true });
+    const { w, d, errs } = boot({ io: true, hash: '#view=gallery' });   // FE-A D-46: Atlas is the default view; this checks the Gallery pager
     await sleep(300);
     // platform W7: the paged Gallery stamps exactly its first page (24 on a phone; jsdom has no matchMedia → 48), no more
     chk('with JS: the cards built are exactly Gallery page 1 (jsdom: 48 per page)', d.querySelectorAll('li.pl').length, 48);
@@ -409,10 +409,10 @@ const lensOutcome = (b, label) => {
       e1.w.location.hash = '#view=atlas'; await sleep(40); await scrollAll(e1.w);
       chk('(e) Atlas: clearing the lens, then scrolling the list: the DOM ends up == total', e1.d.querySelectorAll('li.pl').length, total);
       // the Gallery is paged (its lazy observer holds; SPEC §2.3): clearing the lens, then every page, reaches every card
-      const e3 = boot({ io: true, hash: '#mode=food' }); await sleep(300);
+      const e3 = boot({ io: true, hash: '#view=gallery&mode=food' }); await sleep(300);   // FE-A D-46: Atlas is the default; this case is the Gallery's
       lensOutcome(e3, 'a lens link on load (Gallery)');
-      e3.w.location.hash = '#'; await sleep(40);
-      for (let k = 2; k <= Math.ceil(total / 48) + 1; k++) { e3.w.location.hash = '#pg=' + k; await sleep(20); }
+      e3.w.location.hash = '#view=gallery'; await sleep(40);
+      for (let k = 2; k <= Math.ceil(total / 48) + 1; k++) { e3.w.location.hash = '#view=gallery&pg=' + k; await sleep(20); }
       chk('(e) Gallery: clearing the lens, then paging to the end: the DOM ends up == total', e3.d.querySelectorAll('li.pl').length, total);
       const e2 = boot({ io: true, hash: '#mode=food' }); await sleep(300);
       e2.d.querySelector('[data-cleo-all]').click(); await sleep(40);

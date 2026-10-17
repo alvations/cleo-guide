@@ -23,8 +23,8 @@ const SAVE = ['senso-ji', 'ueno-park', 'kappabashi-dogu-gai', 'ameya-yokocho', '
 let fails = 0;
 const ok = (c, msg, v) => { if (!c) fails++; console.log(`  ${c ? 'PASS' : 'FAIL'}  ${msg}${v !== undefined ? ' = ' + JSON.stringify(v) : ''}`); };
 
-async function ctxFor(b, w, scheme) {
-  const ctx = await b.newContext({ viewport: { width: w, height: 844 }, isMobile: w < 500, hasTouch: w < 500, serviceWorkers: 'block', colorScheme: scheme || 'light' });
+async function ctxFor(b, w, scheme, h) {
+  const ctx = await b.newContext({ viewport: { width: w, height: h || 844 }, isMobile: w < 500, hasTouch: w < 500, serviceWorkers: 'block', colorScheme: scheme || 'light' });
   await ctx.route('**/*', r => { const u = r.request().url();
     if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u)) return r.fulfill({ status: 200, contentType: 'image/png', body: TILE });
     if (!u.startsWith(BASE)) return r.abort('blockedbyclient');
@@ -50,9 +50,16 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
   for (const w of [390, 1440]) {
     console.log(`# Your day @${w}: build from saved → reorder / remove → share → print → reopen`);
     const ctx = await ctxFor(b, w), page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(e.message));
-    await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(900);
+    if (w < 500) {   // D-46: phone Atlas (the default) offers the same "Plan a day from these" in its list mode
+      await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(900);
+      await page.evaluate(ids => Cleo.saved.add(ids.map(x => 'tokyo/' + x)), SAVE); await page.evaluate(() => { location.hash = '#mine=1'; }); await page.waitForTimeout(700);
+      await page.evaluate(() => { const t = document.querySelector('button.ms-toggle'); if (t) t.click(); }); await page.waitForTimeout(700);
+      ok(await page.evaluate(() => { const x = document.querySelector('[data-cleo-dayfrom]'); return !!x && x.getClientRects().length > 0; }), `@${w} phone Atlas list: "Your list" offers "Plan a day from these"`);
+      await page.evaluate(() => { try { localStorage.clear(); } catch (e) {} });
+    }
+    await page.goto(BASE + 'beta/cities/tokyo.html#view=gallery', { waitUntil: 'load' }); await page.waitForTimeout(900);   // D-46: the flow as built in the Gallery
     await page.evaluate(ids => Cleo.saved.add(ids.map(x => 'tokyo/' + x)), SAVE);   // the same store the hearts write
-    await page.evaluate(() => { location.hash = '#mine=1'; }); await page.waitForTimeout(700);
+    await page.evaluate(() => { location.hash = '#view=gallery&mine=1'; }); await page.waitForTimeout(700);
     await page.focus('#cleo-lens h2').catch(() => {}); await page.evaluate(() => { const h = document.querySelector('#cleo-lens h2'); if (h) { h.tabIndex = -1; h.focus(); } });
     ok(await tabTo(page, '[data-cleo-dayfrom]'), `@${w} "Your list" offers "Plan a day from these", reached by Tab`);
     await page.keyboard.press('Enter'); await page.waitForTimeout(900);
@@ -107,7 +114,7 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
   for (const w of [390, 1440]) {
     const ctx = await ctxFor(b, w);
     for (const [u, id] of [['cities/tokyo.html', 'kanda-myojin'], ['cities/tokyo.html', 'asukayama-park'], ['cleveland.html', 'terminal-tower-observation-deck'], ['cleveland.html', 'west-side-market'], ['cleveland.html', 'heinens-downtown'], ['cities/newyork.html', 'katzs-delicatessen']]) {
-      const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u + '#p=' + id, { waitUntil: 'load' }); await page.waitForTimeout(1500);
+      const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u + '#view=gallery&p=' + id, { waitUntil: 'load' }); await page.waitForTimeout(1500);   // D-46: the centred dialog is the Gallery's (Atlas uses the side sheet)
       const r = await page.evaluate(() => { const h = document.getElementById('cleo-sheet'), sh = h.querySelector('.sheet'), im = h.querySelector('.hero-plate img');
         const fw = im ? +((/-(\d+)\.(?:jpe?g|webp)$/.exec(im.currentSrc) || [])[1] || 0) : 0;
         const over = [...h.querySelectorAll('.content *')].filter(e => e.getClientRects().length && e.getBoundingClientRect().right > sh.getBoundingClientRect().right + 1).map(e => e.className || e.tagName).slice(0, 3);
@@ -130,7 +137,7 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
   console.log('# polish (R7 gap 2a/b/c/e): credits fit their boxes, bars opaque, placeholder whole, no upscaled photo');
   for (const w of [390, 1440]) for (const scheme of ['light', 'dark']) {
     const ctx = await ctxFor(b, w, scheme);
-    for (const u of ['cleveland.html', 'cities/tokyo.html', 'cities/tokyo.html#all=1', 'cities/tokyo.html#view=atlas', 'cities/tokyo.html#day=TAITO', 'Singapore/chinatown.html']) {
+    for (const u of ['cleveland.html#view=gallery', 'cities/tokyo.html#view=gallery', 'cities/tokyo.html#all=1', 'cities/tokyo.html', 'cities/tokyo.html#day=TAITO', 'Singapore/chinatown.html#view=gallery']) {   // D-46: a bare URL is Atlas
       const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u, { waitUntil: 'load' }); await page.waitForTimeout(1300);
       await page.evaluate(async () => { for (let y = 0; y < 3000; y += 600) { scrollTo(0, y); await new Promise(r => setTimeout(r, 80)); } scrollTo(0, 400); });
       await page.waitForTimeout(400);
@@ -161,7 +168,7 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
       ok(!r.bars.length, `${tag}: top bar / city bar / tab bar fully opaque`, r.bars);
       ok(!r.ph, `${tag}: the search placeholder fits unclipped`, r.ph);
       ok(!r.up.length, `${tag}: no photo shown wider than its file`, r.up.slice(0, 3));
-      if (!/view=atlas|day=/.test(u)) ok(!widows.length, `${tag}: no single-word last line in the dek or the stat line`, widows);
+      if (/view=gallery|all=1/.test(u)) ok(!widows.length, `${tag}: no single-word last line in the dek or the stat line`, widows);
       await page.close();
     }
     await ctx.close();
@@ -175,7 +182,7 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
       const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname));
       if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
       return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
-    const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);
+    const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html#view=gallery', { waitUntil: 'load' }); await page.waitForTimeout(1500);
     const ph = await page.evaluate(() => { const f = document.querySelector('main figure.photo[style*="--ph"]'); if (!f) return null; const b = getComputedStyle(f, '::before');
       return { ph: f.style.getPropertyValue('--ph'), bg: b.backgroundColor, dur: parseFloat(b.transitionDuration) * 1000, inn: f.classList.contains('in'), op: b.opacity, fade: document.documentElement.classList.contains('ph-fade') }; });
     const hex = c => '#' + (c.match(/\d+/g) || []).slice(0, 3).map(x => (+x).toString(16).padStart(2, '0')).join('');
@@ -198,18 +205,18 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     await ctx.route('**/*', r => { const u = r.request().url(); if (!u.startsWith(BASE)) return r.abort('blockedbyclient');
       const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname)); if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
       return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
-    const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(600);
+    const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html#view=gallery', { waitUntil: 'load' }); await page.waitForTimeout(600);
     const c = await page.evaluate(() => { const f = document.querySelector('main figure.photo[style*="--ph"]'); return f ? getComputedStyle(f, '::before').content : 'no photo'; });
     ok(c === 'none' || c === 'normal', 'without JS no placeholder ever covers a photo', c); await ctx.close(); }
   console.log('# QC-06: every visible view-switcher segment is ≥ 44 px tall, at every width');
   for (const w of [390, 768, 1024, 1440]) {
-    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(900);
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html#view=gallery', { waitUntil: 'load' }); await page.waitForTimeout(900);
     const hs = await page.evaluate(() => [...document.querySelectorAll('[data-cleo-views] button')].filter(e => e.getClientRects().length).map(e => Math.round(e.getBoundingClientRect().height)));
     ok(hs.length && hs.every(h => h >= 44), `@${w}: ${hs.length} switcher segment(s) ≥ 44 px`, hs); await ctx.close();
   }
   console.log('# QC-08: best food near X in three taps; the first card on screen is inside the lens');
   for (const w of [390, 1440]) {
-    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1300);
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html#view=gallery', { waitUntil: 'load' }); await page.waitForTimeout(1300);
     await page.click('button[data-mode="food"]'); await page.waitForTimeout(500);
     const chip = await page.$('.toolbar .area-chips button[data-cleo-area="TAITO"]'), vis = !!chip && await chip.isVisible();
     ok(vis, `@${w}: an area chip is one tap away in Gallery (no tray)`);
@@ -222,7 +229,7 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
   }
   console.log('# QA-69: the phone Gallery\'s "Show map" pill is visible at load and at rest (the first screen\'s way to the map)');
   { const ctx = await ctxFor(b, 390);
-    for (const u of ['cleveland.html', 'cities/tokyo.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html']) {
+    for (const u of ['cleveland.html#view=gallery', 'cities/tokyo.html#view=gallery', 'cities/newyork.html#view=gallery', 'Singapore/chinatown.html#view=gallery', 'cities/wheeling.html#view=gallery']) {   // D-46: Gallery explicitly
       const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u, { waitUntil: 'load' }); await page.waitForTimeout(1500);
       const at = async () => page.evaluate(() => { const p = document.querySelector('[data-cleo-mappill]'); if (!p) return 'none'; const c = getComputedStyle(p), r = p.getBoundingClientRect();
         return !p.hidden && c.display !== 'none' && c.visibility === 'visible' && +c.opacity > 0.9 && r.bottom <= innerHeight && r.top >= 0 ? 'visible' : [c.display, c.visibility, c.opacity, Math.round(r.top)].join(' '); });
@@ -233,7 +240,7 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
   console.log('# QA-67: the desktop detail media fits its photo — no sand band beside it');
   { const ctx = await ctxFor(b, 1440);
     for (const id of ['kanda-myojin', 'imperial-palace-east-gardens', 'ueno-park', 'koishikawa-korakuen']) {
-      const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html#p=' + id, { waitUntil: 'load' }); await page.waitForTimeout(1500);
+      const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html#view=gallery&p=' + id, { waitUntil: 'load' }); await page.waitForTimeout(1500);
       const r = await page.evaluate(() => { const h = document.querySelector('#cleo-sheet .hero-plate.has-photo'), i = h && h.querySelector('img'); if (!i) return null;
         const hw = Math.round(h.getBoundingClientRect().width), iw = Math.round(i.getBoundingClientRect().width), fw = +((/-(\d+)\.(?:jpe?g|webp)$/.exec(i.currentSrc) || [])[1] || 0);
         return { cls: h.className.replace(/\s+/g, ' '), hw, iw, fw, bg: getComputedStyle(h).backgroundColor, band: getComputedStyle(i).boxShadow.slice(0, 60) }; });
@@ -265,7 +272,7 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
   }
   console.log('# QC-07: Esc returns focus to the control that opened the sheet');
   for (const w of [390, 1440]) {
-    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html#view=gallery', { waitUntil: 'load' }); await page.waitForTimeout(1500);
     for (const sel of ['.g-rows li.gc .gc-a', '#cleo-lead li.gc .gc-a', 'li.pl:not(.pg-off) .pl-n a']) {
       const tag = await page.evaluate(s => { const e = [...document.querySelectorAll(s)].find(x => x.getClientRects().length); if (!e) return null; e.scrollIntoView({ block: 'center' }); e.setAttribute('data-qc07', '1'); e.focus(); return e.getAttribute('href'); }, sel);
       if (!tag) { console.log(`  (skip @${w} ${sel}: none visible)`); continue; }
@@ -280,11 +287,11 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
   }
   console.log('# QA-72 / QA-59b / QA-73 / QA-55: the detail link wraps, one number, the short crumb, Guidebook prose at 16 px');
   {
-    const ctx = await ctxFor(b, 390), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/newyork.html', { waitUntil: 'load' }); await page.waitForTimeout(1300);
+    const ctx = await ctxFor(b, 390), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/newyork.html#view=gallery', { waitUntil: 'load' }); await page.waitForTimeout(1300);
     const ids = await page.evaluate(() => [...document.querySelectorAll('li.pl[id]')].slice(0, 40).map(l => l.id.replace(/^p-/, '')));
     let worst = null, checked = 0, chev = 0, short = 0, nav = [];
     for (const id of ids) {
-      await page.evaluate(i => { location.hash = 'p=' + i; }, id); await page.waitForTimeout(450);
+      await page.evaluate(i => { location.hash = 'view=gallery&p=' + i; }, id); await page.waitForTimeout(450);
       const r = await page.evaluate(() => {
         const sh = document.querySelector('#cleo-sheet .sheet'), a = document.querySelector('#cleo-sheet .primary-link:not([hidden])');
         const n0 = document.querySelector('#cleo-sheet .sh-nav'), nc = n0 && n0.cloneNode(true); if (nc) nc.querySelectorAll('.vh').forEach(e => e.remove()); const navT = nc ? nc.textContent.replace(/\s+/g, ' ') : '';   // what is seen: the screen-reader position is .vh
@@ -306,14 +313,14 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     const fs = await page.evaluate(() => [...document.querySelectorAll('.gfacts,.gsig')].filter(e => e.getClientRects().length).map(e => parseFloat(getComputedStyle(e).fontSize)));
     ok(fs.length && fs.every(x => x >= 16), 'QA-55 @390: Guidebook .gfacts and .gsig at ≥ 16 px', fs);
     await ctx.close();
-    const c2 = await ctxFor(b, 1440), p2 = await c2.newPage(); await p2.goto(BASE + 'beta/cities/newyork.html', { waitUntil: 'load' }); await p2.waitForTimeout(900);
+    const c2 = await ctxFor(b, 1440), p2 = await c2.newPage(); await p2.goto(BASE + 'beta/cities/newyork.html#view=gallery', { waitUntil: 'load' }); await p2.waitForTimeout(900);
     const cr2 = await p2.evaluate(() => { const a = document.querySelector('.topbar .crumbs a.c0'); return a ? a.innerText.trim() : null; });
     ok(cr2 === 'United States', 'QA-73 @1440: the desktop crumb keeps the full name', cr2);
     await c2.close();
   }
   console.log('# designer nit: a tap opens the detail with focus on the dialog (no ring); a keyboard open focuses ✕');
   for (const w of [390, 1440]) {
-    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1300);
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html#view=gallery', { waitUntil: 'load' }); await page.waitForTimeout(1300);
     await page.locator('li.pl .pl-n a').first().scrollIntoViewIfNeeded(); await page.locator('li.pl .pl-n a').first().click(); await page.waitForTimeout(700);
     const t = await page.evaluate(() => { const a = document.activeElement; return { sheet: !!a && a.matches('#cleo-sheet .sheet'), ring: !!a && (a.matches(':focus-visible') && getComputedStyle(a).outlineStyle !== 'none') }; });
     await page.keyboard.press('Tab'); const inside = await page.evaluate(() => document.getElementById('cleo-sheet').contains(document.activeElement));
@@ -386,6 +393,21 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
       }
       await ctx.close();
     }
+  }
+  console.log('# QA-80: at 844×390 (one landscape bar) every view-switch button and header control is the topmost thing at its centre, and a tap switches');
+  {
+    const ctx = await ctxFor(b, 844, 'light', 390), page = await ctx.newPage();
+    for (const v of ['atlas', 'gallery', 'guidebook', 'insights']) {
+      await page.goto(BASE + 'beta/cities/tokyo.html#view=' + v, { waitUntil: 'load' }); await page.waitForTimeout(1500);
+      const hits = await page.evaluate(() => [...document.querySelectorAll('[data-cleo-views] button, header.topbar button, header.topbar a')].filter(e => { const r = e.getBoundingClientRect(); return r.width && r.height && r.top < 60; })
+        .map(e => { const r = e.getBoundingClientRect(), t = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return [e.getAttribute('data-view') || e.textContent.trim().slice(0, 10), !!t && e.contains(t)]; }));
+      const bad = hits.filter(h => !h[1]);
+      ok(hits.filter(h => ['atlas', 'gallery', 'guidebook', 'insights'].includes(h[0])).length >= 4 && !bad.length, `@844×390 ${v}: every switch button and header control is reachable`, bad);
+    }
+    const r = await page.evaluate(() => { const bt = document.querySelector('[data-cleo-views] button[data-view="gallery"]').getBoundingClientRect(); return [bt.left + bt.width / 2, bt.top + bt.height / 2]; });
+    await page.mouse.click(r[0], r[1]); await page.waitForTimeout(500);
+    ok(await page.evaluate(() => document.documentElement.getAttribute('data-view')) === 'gallery', '@844×390: a tap on the Gallery segment switches the view');
+    await ctx.close();
   }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');

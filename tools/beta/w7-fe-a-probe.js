@@ -42,14 +42,14 @@ const CLIP = () => [...document.querySelectorAll('figcaption, .gc-cred, .hero-cr
 (async () => {
   let b; try { b = await chromium.launch(); } catch (e) { b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' }); }
   console.log('# credits');
-  for (const [url, w] of [['cities/tokyo.html', 390], ['cities/tokyo.html', 1440], ['cities/tokyo.html#all=1', 1440], ['cleveland.html', 390], ['cities/tokyo.html#p=kanda-myojin', 390], ['cities/tokyo.html#p=kanda-myojin', 1440]]) {
+  for (const [url, w] of [['cities/tokyo.html#view=gallery', 390], ['cities/tokyo.html#view=gallery', 1440], ['cities/tokyo.html#all=1', 1440], ['cleveland.html#view=gallery', 390], ['cities/tokyo.html#view=gallery&p=kanda-myojin', 390], ['cities/tokyo.html#view=gallery&p=kanda-myojin', 1440], ['cities/tokyo.html', 1440]]) {   // D-46: Gallery explicitly; the bare URL is Atlas
     const s = await open(b, url, { w });
     await s.page.evaluate(async () => { for (let y = 0; y < 6000; y += 700) { scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); } });
     const n = await s.page.evaluate(() => document.querySelectorAll('figcaption, .gc-cred').length), bad = await s.page.evaluate(CLIP);
     ok(n > 0 && !bad.length, `${url} @${w}: ${n} credits, none ellipsised, clamped or cut`, bad.slice(0, 3)); await s.ctx.close();
   }
   console.log('# nodes (phone #p= deep link)');
-  for (const url of ['cities/tokyo.html#p=kanda-myojin', 'cities/tokyo.html#p=isegen', 'cities/newyork.html#p=katzs-delicatessen']) {
+  for (const url of ['cities/tokyo.html#view=gallery&p=kanda-myojin', 'cities/tokyo.html#view=gallery&p=isegen', 'cities/newyork.html#view=gallery&p=katzs-delicatessen']) {   // D-46: a bare #p= opens Atlas; this is the Gallery's
     const s = await open(b, url, { settle: 50 }); const seen = [];
     for (let i = 0; i < 7; i++) { seen.push(await s.page.evaluate(() => document.querySelectorAll('*').length)); await s.page.waitForTimeout(500); }
     ok(Math.max(...seen) <= 3000, `${url}: ≤ 3,000 nodes for 3 s`, seen);
@@ -63,7 +63,7 @@ const CLIP = () => [...document.querySelectorAll('figcaption, .gc-cred, .hero-cr
   console.log('# sheet "n of N"');
   // SPEC-v3 §3.6 (rev 4/5), PANEL-R3 #2 (designer, 2026-10-16) supersedes the R6/W7 visible "k of 488": the detail shows ONE
   // number, "No. k of n in {area}"; the view position is kept for assistive tech only (visually hidden), still the whole view
-  for (const w of [390, 1440]) { const s = await open(b, 'cities/tokyo.html#p=isegen', { w }); const t = await s.page.evaluate(() => { const h = document.getElementById('cleo-sheet'), p = h.querySelector('[data-sh-pos]');
+  for (const w of [390, 1440]) { const s = await open(b, 'cities/tokyo.html#view=gallery&p=isegen', { w }); const t = await s.page.evaluate(() => { const h = document.getElementById('cleo-sheet'), p = h.querySelector('[data-sh-pos]');
       return { sr: p ? p.textContent : '', srHidden: !!p && (p.getBoundingClientRect().width <= 1 || getComputedStyle(p).clip !== 'auto'), vis: h.querySelector('.sheet').innerText.replace(p ? p.innerText : '\u0000', '') }; });   // innerText keeps clipped text: drop the assistive-only span
     ok(/^\d+ of 488\b/.test(t.sr) && t.srHidden, `@${w} Tokyo far #p=: the assistive-tech position counts the whole view (… of 488) and is not shown`, t.sr);
     ok(!/\b\d+ of 488\b/.test(t.vis) && !/\bpin \d+/i.test(t.vis) && (t.vis.match(/No\. \d+ of \d+ in /g) || []).length === 1, `@${w} one visible number: no "k of N", no "pin N", exactly one "No. k of n in {area}"`, (t.vis.match(/No\. \d+ of \d+ in [^\n]*/g) || []).concat((t.vis.match(/\b(pin \d+|\d+ of 488)/gi) || [])));
@@ -83,7 +83,7 @@ const CLIP = () => [...document.querySelectorAll('figcaption, .gc-cred, .hero-cr
     const gcs = [...document.querySelectorAll('li.gc')].filter(vis).slice(0, 12);
     for (const g of gcs) { const t = (g.querySelector('.pl-e') || {}).textContent || ''; if (!g.classList.contains('gc--closed') && !/·/.test(t)) bad.areaMissing.push(g.getAttribute('data-id')); }
     return { cards: cards.length, rails: gcs.length, bad }; };
-  for (const [url, w] of [['cities/tokyo.html#all=1', 1440], ['cities/tokyo.html#all=1', 390], ['cities/tokyo.html', 1440], ['cities/tokyo.html#view=atlas', 1440], ['cleveland.html#view=atlas', 1440]]) {
+  for (const [url, w] of [['cities/tokyo.html#all=1', 1440], ['cities/tokyo.html#all=1', 390], ['cities/tokyo.html#view=gallery', 1440], ['cities/tokyo.html#view=atlas', 1440], ['cleveland.html#view=atlas', 1440]]) {
     const s = await open(b, url, { w, settle: 1800 });
     await s.page.evaluate(async () => { for (let y = 0; y < 3000; y += 700) { scrollTo(0, y); await new Promise(r => setTimeout(r, 80)); } scrollTo(0, 0); });
     const r = await s.page.evaluate(FACE);
@@ -94,7 +94,7 @@ const CLIP = () => [...document.querySelectorAll('figcaption, .gc-cred, .hero-cr
   }
   console.log('# motion (card → sheet grow)');
   for (const rm of ['no-preference', 'reduce']) for (const w of [390, 1440]) {
-    const s = await open(b, 'cities/tokyo.html', { w, rm });
+    const s = await open(b, 'cities/tokyo.html#view=gallery', { w, rm });
     await s.page.evaluate(() => { window.__vt = 0; const o = document.startViewTransition; if (o) document.startViewTransition = function (f) { window.__vt++; return o.call(document, f); }; });
     await s.page.locator('.g-rows li.gc .gc-a').first().click(); await s.page.waitForTimeout(400);
     const r = await s.page.evaluate(() => ({ open: !document.getElementById('cleo-sheet').hidden, vt: window.__vt, anims: document.getAnimations().length,
