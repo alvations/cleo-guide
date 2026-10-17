@@ -14,6 +14,7 @@ SG/MY 12; no photo on food is ever possible from these sources).
   USGS 1 manual), 30 refused rows kept; 22 searched-with-nothing targets in searched-gaps.tsv.
 
 **In flight:**
+- Wave 2 research (3 agents: LoC US, Pexels/Europeana Europe, Pexels Asia) on the first-24 default-view gaps (first-cards.js: 240 non-food gaps, 496 food) + unsearched US tier-1; rows go through add-candidates.js.
 - nothing (stock rows merged: 26 Pexels candidates, 19 landmarks; Pixabay search returned no photo pages).
 
 **Next:**
