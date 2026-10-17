@@ -2253,3 +2253,16 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **With platform's core.js Atlas-boot change merged, and the Atlas page at PER = 36** (measured 2.5 s after `#view=atlas`): Tokyo **2,686** (1440) / **2,637** (390) nodes, 36 cards; New York 2,572 / 2,515.
 - **INP, third pass** (perf.js `--runs 3`, Tokyo 4× CPU): desk switch → Atlas **232 ms** (296 / 224 / 232); phone 200 ms; Guidebook 176 / 168 ms. Platform's `atlas-switch-inp.js` (every card built, 1× CPU): **80 ms**, against 2,672 on b61fda89.
   - Eager JS: city.js exposes only `C.stubs` (the forget step lives in lazy atlas.js), and predict() asks `Cleo.lens.on` instead of a city.js LENS export (an area link now waits for the first map pass). Cleveland's eager JS is 40.00 KB gzip against the 40.0 KB budget: it passes with no headroom.
+
+## 2026-10-16 23:58Z · orchestrator
+
+- Head is green again (a3b2c199, bab21c9f), but with zero eager-JS headroom (40.00/40.0). Platform is making ≥ 0.6 KB and adding a post-merge budget check to sync-push.
+- QA: R8-g1..g7 filed; B-03 ruled; the B-25 overlay gate is in (0e2a79f5).
+- FE-C: R8 #2e (0486bf71) and #2c (785d8641, masthead faults 70 → 0).
+- Imagery: the R8-d exceptions file; Orlando narrowed; Tree of Life refused.
+
+## 2026-10-17 00:08Z · orchestrator check-in
+
+- Dev head 77b960fa is gated green, with eager JS at 39.28 KB (headroom restored).
+- FE-A's chrome pass (853ea52c) closed six overlay rows; the phone at rest is now 16 % chrome.
+- The compaction API question is settled by budget: city pages key on html.ov-c, and shell pages keep their own small controller.

@@ -31,7 +31,7 @@ function build({ reg, cityRows, emit, errors, sha, betaDir }) {
   const ver = {};
   for (const [rel, body] of Object.entries(files)) { emit(rel, body); ver[rel] = `${rel}?v=${sha(body)}`; }
   const v = m => ({ night: ver[m.night], ink: ver[m.ink], why: m.why });
-  for (const r of cityRows) r.imagery = { motif: v(index.pages[r.key]), photos: {} };
+  for (const r of cityRows) r.imagery = { motif: v(index.pages[r.key]), photos: {}, food: index.pages[r.key].food };   // food: §v2.7a cover ground (foodStyle)
   for (const c of reg.countries) if (index.countries[c.key]) c.imagery = { motif: v(index.countries[c.key]) };
   const collections = Object.fromEntries(Object.entries(index.collections).map(([k, m]) => [k, v(m)]));
   const themes = Object.fromEntries(Object.entries(index.themes || {}).map(([k, m]) => [k, Object.assign(v(m), { subject: m.subject })]));
@@ -122,4 +122,15 @@ function photoFor(row, rec) {
   return row.imagery.photos[rec.id] || null;
 }
 
-module.exports = { build, motifSvg, motifOf, MOTIF_KIND, MOTIF_THEME, photoFor, heroFor, figureHtml: photos.figureHtml, heroHtml: photos.heroHtml, heroPreload: photos.heroPreload, heroCreditHtml: photos.heroCreditHtml, collectionKind };
+/**
+ * §v2.7a designed food covers: the inline style FE-A puts on the city's <main> (or the row) so every no-photo food cover
+ * can paint the city's ground: `background: var(--food-ground), var(--cover-food)` (dark theme: --food-ground-dark).
+ * Data URIs only, so it adds no request and a relative-URL base never matters. '' when the row has no motif.
+ */
+function foodStyle(row) {
+  const f = row && row.imagery && row.imagery.food;
+  return f ? `--food-ground:${f.light};--food-ground-dark:${f.dark}` : '';
+}
+const { foodGlyphs, FOOD_GLYPH_LADDER } = require('./motifs');
+
+module.exports = { foodStyle, foodGlyphs, FOOD_GLYPH_LADDER, build, motifSvg, motifOf, MOTIF_KIND, MOTIF_THEME, photoFor, heroFor, figureHtml: photos.figureHtml, heroHtml: photos.heroHtml, heroPreload: photos.heroPreload, heroCreditHtml: photos.heroCreditHtml, collectionKind };

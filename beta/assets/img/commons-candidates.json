@@ -38,16 +38,16 @@
   },
   "otherLandmarks": {
    "targets": 1151,
-   "skipped": 262,
-   "withArticle": 612
+   "skipped": 266,
+   "withArticle": 610
   },
   "candidates": {
-   "total": 675,
-   "high": 637,
-   "med": 38,
+   "total": 827,
+   "high": 781,
+   "med": 46,
    "low": 0
   },
-  "targetsWithHigh": 332,
+  "targetsWithHigh": 413,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -8617,7 +8617,24 @@
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Aachener_Dom",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Aachener Dom, Aachen.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachener_Dom,_Aachen.jpg",
+     "depicts": "Aachen Cathedral exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Aachener Dom"
+    },
+    {
+     "file": "File:Aachener Dom.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachener_Dom.jpg",
+     "depicts": "Aachen Cathedral exterior, 2004",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Aachener Dom"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#aachener-rathaus-and-kronungssaal",
@@ -8656,6 +8673,7 @@
     "Boekhandel Dominicanen"
    ],
    "pilot": false,
+   "skip": "venue (bookshop) (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -8682,7 +8700,24 @@
     "Buntsandsteinroute Nideggen"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Buntsandsteinfelsen unterhalb der Burg Nideggen.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Buntsandsteinfelsen_unterhalb_der_Burg_Nideggen.jpg",
+     "depicts": "Red sandstone cliffs below Nideggen castle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Buntsandsteinfelsen at Nideggen; from Category:Nideggen listing"
+    },
+    {
+     "file": "File:Buntsandsteinfelsen Hochkoppel Kreuzau Untermaubach DSC 1111.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Buntsandsteinfelsen_Hochkoppel_Kreuzau_Untermaubach_DSC_1111.JPG",
+     "depicts": "Red sandstone rocks (Hochkoppel) in the Rur valley reserve",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Buntsandsteinfelsen in same Rurtal reserve, but at Untermaubach not Nideggen"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#burg-monschau",
@@ -8723,7 +8758,24 @@
     "Burg Reinhardstein"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Burg Reinhardstein, Belgié.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Burg_Reinhardstein,_Belgi%C3%A9.jpg",
+     "depicts": "Reinhardstein castle exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Burg Reinhardstein"
+    },
+    {
+     "file": "File:Belgium, Reinhardstein.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Belgium,_Reinhardstein.JPG",
+     "depicts": "Reinhardstein castle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Reinhardstein"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#burg-rode",
@@ -8734,7 +8786,24 @@
     "Burg Rode"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Herzogenrath, Burg Rode.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Herzogenrath,_Burg_Rode.jpg",
+     "depicts": "Burg Rode castle exterior, 2021",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Burg Rode"
+    },
+    {
+     "file": "File:Burcht Rode.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Burcht_Rode.JPG",
+     "depicts": "Burg Rode castle exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Burcht Rode; used on Burg Rode article"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#burg-stolberg",
@@ -8759,7 +8828,17 @@
     "Carolus Thermen Bad Aachen"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Eingang Carolus Thermen in Aachen - Passstraße.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Eingang_Carolus_Thermen_in_Aachen_-_Passstra%C3%9Fe.jpg",
+     "depicts": "Carolus Thermen entrance, Passstraße",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Carolus Thermen; from Category:Carolus Thermen listing"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#centre-charlemagne-neues-stadtmuseum",
@@ -8784,7 +8863,17 @@
     "Domschatzkammer Aachen"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Aachen, Domschatzkammer, Haupteingang -- 2022 -- 5109.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen,_Domschatzkammer,_Haupteingang_--_2022_--_5109.jpg",
+     "depicts": "Cathedral Treasury main entrance, exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Domschatzkammer; listed in Category:Exterior of Aachen Cathedral Treasury (title from listing)"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#dreilagerbachtalsperre",
@@ -8795,7 +8884,24 @@
     "Dreilägerbachtalsperre"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Dreilägerbach-Talsperre.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dreil%C3%A4gerbach-Talsperre.jpg",
+     "depicts": "Dreilägerbach reservoir",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Dreilägerbach-Talsperre"
+    },
+    {
+     "file": "File:CP Dreilaegerbachtalsperre.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:CP_Dreilaegerbachtalsperre.jpg",
+     "depicts": "Oblique aerial view of Dreilägerbach reservoir",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Dreilägerbachtalsperre; from Category:Aerial photographs of the Städteregion Aachen listing"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#drielandenpunt-vaalserberg",
@@ -8809,7 +8915,24 @@
    "pilot": false,
    "article": "https://nl.wikipedia.org/wiki/Drielandenpunt_(Vaals)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hoogste punt van Nederland. Drielandenpunt (Vaals) 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hoogste_punt_van_Nederland._Drielandenpunt_(Vaals)_01.jpg",
+     "depicts": "Highest point of the Netherlands at the Drielandenpunt",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Drielandenpunt (Vaals)"
+    },
+    {
+     "file": "File:Boudewijntoren Drielandenpunt Vaals.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Boudewijntoren_Drielandenpunt_Vaals.JPG",
+     "depicts": "Baudouin Tower at the Drielandenpunt",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Drielandenpunt Vaals"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#elisenbrunnen",
@@ -8822,7 +8945,24 @@
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Elisenbrunnen",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Elisenbrunnen, Aachen.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Elisenbrunnen,_Aachen.jpg",
+     "depicts": "Elisenbrunnen colonnade",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Elisenbrunnen"
+    },
+    {
+     "file": "File:Aachen Elisenbrunnen Rotunde 2014.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen_Elisenbrunnen_Rotunde_2014.jpg",
+     "depicts": "Elisenbrunnen rotunda",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Elisenbrunnen; from Category:Elisenbrunnen listing"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#energeticon",
@@ -8849,7 +8989,17 @@
     "Werthplatz"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Eupen Kirche St. Nikolaus (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Eupen_Kirche_St._Nikolaus_(1).jpg",
+     "depicts": "St. Nikolaus church on Eupen Marktplatz",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names St. Nikolaus church, which stands on the Marktplatz; from Category:St. Nikolaus (Eupen) listing; may not show square itself"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#grotten-noord-sint-pietersberg",
@@ -8860,7 +9010,17 @@
     "Grotten Noord"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Noordelijk Gangenstelsel - Path.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Noordelijk_Gangenstelsel_-_Path.jpg",
+     "depicts": "Passage inside the Northern Caves (cave interior is the place)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Noordelijk Gangenstelsel (= Grotten Noord); from Category:Noordelijk Gangenstelsel listing"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#historische-altstadt-monschau",
@@ -8871,7 +9031,24 @@
     "Historische Altstadt Monschau"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Monschau Germany General-views-of-Monschau-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Monschau_Germany_General-views-of-Monschau-01.jpg",
+     "depicts": "Half-timbered old town houses under the castle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Monschau general view"
+    },
+    {
+     "file": "File:Monschau 0600.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Monschau_0600.jpg",
+     "depicts": "Monschau old town with slate roofs and castle ruin",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Monschau"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#historischer-ortskern-kornelimunster",
@@ -8882,7 +9059,24 @@
     "Historischer Ortskern Kornelimünster"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Benediktusplatz-Kornelimuenster.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Benediktusplatz-Kornelimuenster.jpg",
+     "depicts": "Benediktusplatz, Kornelimünster village centre",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Benediktusplatz Kornelimünster; from Category:Cultural heritage monuments in Kornelimünster listing"
+    },
+    {
+     "file": "File:Kornelimünster Benediktusplatz 8 10 12 14.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kornelim%C3%BCnster_Benediktusplatz_8_10_12_14.JPG",
+     "depicts": "Historic houses on Benediktusplatz",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kornelimünster Benediktusplatz"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#hohes-venn-hautes-fagnes-moorland-reserve-and-boardwalks",
@@ -8913,7 +9107,24 @@
     "Jugendstil-Wasserkraftwerk Heimbach"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kraftwerk Heimbach - Duitsland.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kraftwerk_Heimbach_-_Duitsland.jpg",
+     "depicts": "Heimbach Art Nouveau power station exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kraftwerk Heimbach"
+    },
+    {
+     "file": "File:Heimbach Jugendstilkraftwerk.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Heimbach_Jugendstilkraftwerk.jpg",
+     "depicts": "Heimbach Art Nouveau power station",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Heimbach Jugendstilkraftwerk; from Category:Heimbach Art Nouveau power plant listing"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#kasteelruine-and-fluweelengrot-valkenburg",
@@ -8926,7 +9137,24 @@
     "Fluweelengrot Valkenburg"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Valkenburg, Kasteelruïne, overzicht02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Valkenburg,_Kasteelru%C3%AFne,_overzicht02.jpg",
+     "depicts": "Valkenburg castle ruin overview",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kasteelruïne Valkenburg"
+    },
+    {
+     "file": "File:Valkenburg Castle ruins, Valkenburg, the Netherlands.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Valkenburg_Castle_ruins,_Valkenburg,_the_Netherlands.jpg",
+     "depicts": "Valkenburg castle ruins",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Valkenburg Castle ruins"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#leopold-hoesch-museum-duren",
@@ -8940,7 +9168,24 @@
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Leopold-Hoesch-Museum",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Dueren leopold-hoesch-museum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dueren_leopold-hoesch-museum.jpg",
+     "depicts": "Leopold-Hoesch-Museum building, 2006",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Leopold-Hoesch-Museum"
+    },
+    {
+     "file": "File:Leopold-Hoesch-Museum in 2022.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Leopold-Hoesch-Museum_in_2022.jpg",
+     "depicts": "Leopold-Hoesch-Museum building, 2022",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Leopold-Hoesch-Museum; from category listing"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#ludwig-forum-fur-internationale-kunst",
@@ -8951,7 +9196,17 @@
     "Ludwig Forum für Internationale Kunst"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Ludwig Forum Aachen 2017.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ludwig_Forum_Aachen_2017.jpg",
+     "depicts": "Ludwig Forum building exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Ludwig Forum; used on Wikipedia articles"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#museum-vieille-montagne-mvm-kelmis",
@@ -8966,7 +9221,17 @@
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Museum_Vieille_Montagne",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kelmis-Direktionsgebäudes der Société anonyme des Mines et Fonderies de Zinc de la Vieille Montagne (3).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kelmis-Direktionsgeb%C3%A4udes_der_Soci%C3%A9t%C3%A9_anonyme_des_Mines_et_Fonderies_de_Zinc_de_la_Vieille_Montagne_(3).jpg",
+     "depicts": "Vieille Montagne directorate building housing the museum",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Vieille Montagne building in Kelmis; file in Category:Museum Vieille Montagne"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#nationalpark-eifel",
@@ -8977,7 +9242,24 @@
     "Nationalpark Eifel"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nationalpark Eifel (21).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nationalpark_Eifel_(21).JPG",
+     "depicts": "Landscape in Eifel National Park (Nordeifel)",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Nationalpark Eifel"
+    },
+    {
+     "file": "File:Eiffel National Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Eiffel_National_Park.jpg",
+     "depicts": "Eifel National Park landscape",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Eifel National Park (misspelt); content not described"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#netherlands-american-cemetery",
@@ -8988,7 +9270,24 @@
     "Netherlands American Cemetery"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Margraten Netherlands American Cemetery and Memorial.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Margraten_Netherlands_American_Cemetery_and_Memorial.jpg",
+     "depicts": "Netherlands American Cemetery, Margraten",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Netherlands American Cemetery"
+    },
+    {
+     "file": "File:Netherlands American Cemetery and Memorial20070505.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Netherlands_American_Cemetery_and_Memorial20070505.JPG",
+     "depicts": "Netherlands American Cemetery, 2007",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Netherlands American Cemetery"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#ns-dokumentation-vogelsang-bestimmung-herrenmensch",
@@ -9043,7 +9342,24 @@
     "Rotes Haus"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Rotes Haus, Monschau (2025).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rotes_Haus,_Monschau_(2025).jpg",
+     "depicts": "Rotes Haus exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rotes Haus Monschau"
+    },
+    {
+     "file": "File:0 Monschau - Rotes Haus ou maison Scheibler (1).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:0_Monschau_-_Rotes_Haus_ou_maison_Scheibler_(1).JPG",
+     "depicts": "Rotes Haus (Scheibler house) exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rotes Haus / maison Scheibler"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#rurtalsperre-schwammenauel-and-rursee",
@@ -9055,7 +9371,24 @@
     "Rurtalsperre Schwammenauel"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:CP Rurtalsperre-Luft.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:CP_Rurtalsperre-Luft.jpg",
+     "depicts": "Oblique aerial view of Schwammenauel dam and Rursee",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rurtalsperre; oblique aerial, not orthophoto"
+    },
+    {
+     "file": "File:Rursee-Aachen Rurberg.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rursee-Aachen_Rurberg.JPG",
+     "depicts": "Rursee lake at Rurberg",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rursee"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#signal-de-botrange",
@@ -9066,7 +9399,24 @@
     "Signal de Botrange"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Signal de Botrange - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Signal_de_Botrange_-_panoramio.jpg",
+     "depicts": "Signal de Botrange summit tower",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Signal de Botrange"
+    },
+    {
+     "file": "File:SignalDeBotrange6mTower.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:SignalDeBotrange6mTower.jpg",
+     "depicts": "Signal de Botrange 6 m tower",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Signal de Botrange"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#sint-servaasbasiliek",
@@ -9077,7 +9427,17 @@
     "Sint-Servaasbasiliek"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:00 2197 Sint-Servaasbasiliek (Maastricht).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:00_2197_Sint-Servaasbasiliek_(Maastricht).jpg",
+     "depicts": "Basilica of Saint Servatius exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Sint-Servaasbasiliek"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#sint-servaasbrug",
@@ -9088,7 +9448,24 @@
     "Sint Servaasbrug"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sint Servaasbrug Maastricht.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sint_Servaasbrug_Maastricht.jpg",
+     "depicts": "Sint Servaasbrug over the Maas, panorama",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Sint Servaasbrug"
+    },
+    {
+     "file": "File:Sint Servaasbrug, Maastricht.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sint_Servaasbrug,_Maastricht.jpg",
+     "depicts": "Sint Servaasbrug over the Maas",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Sint Servaasbrug; from Category:Sint-Servaasbrug (Maastricht) listing"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#st-nikolaus-kirche-eupen",
@@ -9115,7 +9492,24 @@
     "Sport-/Ferienpark Worriken"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Stausee Bütgenbach 2015.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Stausee_B%C3%BCtgenbach_2015.jpg",
+     "depicts": "Bütgenbach reservoir",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Stausee Bütgenbach; from Category:Stausee Bütgenbach listing"
+    },
+    {
+     "file": "File:Bütgenbach, Staumauer, 2011-09 CN-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:B%C3%BCtgenbach,_Staumauer,_2011-09_CN-01.jpg",
+     "depicts": "Bütgenbach dam wall",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Bütgenbach dam"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#suermondt-ludwig-museum",
@@ -9126,7 +9520,17 @@
     "Suermondt-Ludwig-Museum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Aachen - Suermondt-Ludwig-Museum, Wilhelmstraße 18 - panoramio, refreshed.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen_-_Suermondt-Ludwig-Museum,_Wilhelmstra%C3%9Fe_18_-_panoramio,_refreshed.jpg",
+     "depicts": "Suermondt-Ludwig-Museum building, Wilhelmstraße",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Suermondt-Ludwig-Museum"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#topfereimuseum-in-der-burg-raeren",
@@ -9140,7 +9544,24 @@
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/T%C3%B6pferei_von_Raeren",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:RAEREN - Burg Raeren (1).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:RAEREN_-_Burg_Raeren_(1).JPG",
+     "depicts": "Burg Raeren moated castle exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Burg Raeren"
+    },
+    {
+     "file": "File:Raeren Toepfermuseum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Raeren_Toepfermuseum.jpg",
+     "depicts": "Entrance to the pottery museum in Burg Raeren",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Raeren Töpfermuseum"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#vogelsang-ip",
@@ -9151,7 +9572,17 @@
     "Vogelsang IP"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:NS-Ordensburg Vogelsang - Gesamtansicht, Luftaufnahme-0183.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:NS-Ordensburg_Vogelsang_-_Gesamtansicht,_Luftaufnahme-0183.jpg",
+     "depicts": "Oblique aerial overall view of Vogelsang complex, 2020",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Vogelsang; oblique aerial overview (not orthophoto)"
+    }
+   ]
   },
   {
    "key": "landmark:aachen#vrijthof",
@@ -14352,7 +14783,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Bamboo_Forest_(Kyoto)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:2021 Sagano Bamboo forest in Arashiyama, Kyoto, Japan.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:2021_Sagano_Bamboo_forest_in_Arashiyama,_Kyoto,_Japan.jpg",
+     "depicts": "Sagano bamboo grove path",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Sagano Bamboo forest Arashiyama"
+    },
+    {
+     "file": "File:Sagano Bamboo forest, Arashiyama, Kyoto.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sagano_Bamboo_forest,_Arashiyama,_Kyoto.jpg",
+     "depicts": "Sagano bamboo grove",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Sagano Bamboo forest Arashiyama"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#byodo-in",
@@ -14366,7 +14814,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Byodoin Phoenix Hall Uji 2009.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Byodoin_Phoenix_Hall_Uji_2009.jpg",
+     "depicts": "Phoenix Hall of Byōdō-in across the pond",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Byodoin Phoenix Hall"
+    },
+    {
+     "file": "File:Phoenix Hall, Byodo-in, November 2016 -01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Phoenix_Hall,_Byodo-in,_November_2016_-01.jpg",
+     "depicts": "Phoenix Hall of Byōdō-in, 2016",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Byodo-in Phoenix Hall"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#chion-in",
@@ -14377,7 +14842,24 @@
     "Chion-in"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:170216 Chionin Kyoto Japan01.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:170216_Chionin_Kyoto_Japan01.JPG",
+     "depicts": "Sanmon gate of Chion-in",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Chion-in"
+    },
+    {
+     "file": "File:Chion-in Temple Kyoto Japan.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chion-in_Temple_Kyoto_Japan.jpg",
+     "depicts": "Chion-in temple",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Chion-in"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#daigo-ji",
@@ -14391,7 +14873,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:DaigojiPagoda3242.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:DaigojiPagoda3242.jpg",
+     "depicts": "Five-storied pagoda of Daigo-ji",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Daigoji pagoda"
+    },
+    {
+     "file": "File:Daigoji Kyoto01s5s4110.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Daigoji_Kyoto01s5s4110.jpg",
+     "depicts": "Daigo-ji temple, Kyoto",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Daigoji"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#daitoku-ji",
@@ -14432,7 +14931,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Enryakuji Konponchudo04n4272.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konponchudo04n4272.jpg",
+     "depicts": "Konpon Chūdō main hall of Enryaku-ji",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Enryakuji Konponchudo"
+    },
+    {
+     "file": "File:Enryakuji Konpon cyudo1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konpon_cyudo1.jpg",
+     "depicts": "Konpon Chūdō of Enryaku-ji, 2008",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Enryakuji Konpon Chudo"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#fushimi-inari-taisha",
@@ -14457,7 +14973,24 @@
     "Gekkeikan Okura Sake Museum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gekkeikan Okura Sake Museum02s4592.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gekkeikan_Okura_Sake_Museum02s4592.jpg",
+     "depicts": "Gekkeikan Okura Sake Museum and Okura residence exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Gekkeikan Okura Sake Museum"
+    },
+    {
+     "file": "File:Gekkeikan Okura Sake Museum03st3200.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gekkeikan_Okura_Sake_Museum03st3200.jpg",
+     "depicts": "Gekkeikan Okura Sake Museum exterior, Fushimi",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Gekkeikan Okura Sake Museum"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#ginkaku-ji-jisho-ji",
@@ -14471,7 +15004,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Silberner Pavillion, Ginkaku-ji, Kyoto.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Silberner_Pavillion,_Ginkaku-ji,_Kyoto.jpg",
+     "depicts": "Silver Pavilion of Ginkaku-ji",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Ginkaku-ji"
+    },
+    {
+     "file": "File:Ginkaku-ji after being restored in 2008.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ginkaku-ji_after_being_restored_in_2008.jpg",
+     "depicts": "Ginkaku-ji pavilion after 2008 restoration",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Ginkaku-ji"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#gion-and-hanamikoji",
@@ -14550,7 +15100,7 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E4%BF%9D%E6%B4%A5%E5%B3%A1",
-   "wikiLead": true,
+   "skip": "no file found (only boat-as-subject or dusk shots) (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -14579,7 +15129,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_National_Treasures_of_Japan_(temples)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Tahōtō - Ishiyamadera - Otsu, Shiga - DSC07517.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tah%C5%8Dt%C5%8D_-_Ishiyamadera_-_Otsu,_Shiga_-_DSC07517.JPG",
+     "depicts": "Tahōtō pagoda of Ishiyama-dera",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Ishiyamadera"
+    },
+    {
+     "file": "File:Ishiyamadera45n4272.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ishiyamadera45n4272.jpg",
+     "depicts": "Main Hall of Ishiyama-dera",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Ishiyamadera"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#jingo-ji",
@@ -14606,7 +15173,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kyoto Kamigamo Shrine.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kyoto_Kamigamo_Shrine.jpg",
+     "depicts": "Kamigamo Shrine grounds",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kamigamo Shrine"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#kasuga-taisha",
@@ -14617,7 +15194,24 @@
     "Kasuga Taisha"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kasuga-taisha shrine in Nara 07.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kasuga-taisha_shrine_in_Nara_07.jpg",
+     "depicts": "Kasuga Taisha shrine",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kasuga-taisha"
+    },
+    {
+     "file": "File:Kasuga Grand Shrine.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kasuga_Grand_Shrine.JPG",
+     "depicts": "Kasuga Grand Shrine",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kasuga Grand Shrine"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#katsura-imperial-villa",
@@ -14631,7 +15225,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_Places_of_Scenic_Beauty_of_Japan_(Kyoto)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Katsura Rikyu (3264753682).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Katsura_Rikyu_(3264753682).jpg",
+     "depicts": "Katsura Imperial Villa garden in autumn",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Katsura Rikyu"
+    },
+    {
+     "file": "File:Katsura Villa, Kyoto Tenbashi.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Katsura_Villa,_Kyoto_Tenbashi.jpg",
+     "depicts": "Tenbashi bridge in the Katsura Villa garden",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Katsura Villa"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#kennin-ji",
@@ -14656,7 +15267,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kifune_Shrine",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:貴船神社 Kibune Jinja (KYOTO-JAPAN) (4951368080).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E8%B2%B4%E8%88%B9%E7%A5%9E%E7%A4%BE_Kibune_Jinja_(KYOTO-JAPAN)_(4951368080).jpg",
+     "depicts": "Lantern-lined steps up to Kifune Shrine",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kibune Jinja Kyoto"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#kinkaku-ji-rokuon-ji",
@@ -14694,7 +15315,24 @@
     "Kiyomizu-dera"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kiyomizu-dera, Kyoto, November 2016 -01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-01.jpg",
+     "depicts": "Kiyomizu-dera main hall and stage, autumn",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kiyomizu-dera; former Picture of the Day"
+    },
+    {
+     "file": "File:Kiyomizu-dera.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera.jpg",
+     "depicts": "Main hall of Kiyomizu-dera",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kiyomizu-dera"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#kodai-ji",
@@ -14718,7 +15356,24 @@
     "Kōfuku-ji"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Five-storied Pagoda, Kofuku-ji - Nara, Japan - DSC07497.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Five-storied_Pagoda,_Kofuku-ji_-_Nara,_Japan_-_DSC07497.jpg",
+     "depicts": "Five-storied pagoda of Kōfuku-ji",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kofuku-ji"
+    },
+    {
+     "file": "File:Kofukuji12st5s3200.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kofukuji12st5s3200.jpg",
+     "depicts": "Five-storied pagoda and Tōkondō of Kōfuku-ji",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kofukuji"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#kurama-dera",
@@ -14771,7 +15426,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/List_of_National_Treasures_of_Japan_(temples)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mii-dera Otsu Shiga pref01s5s4592.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mii-dera_Otsu_Shiga_pref01s5s4592.jpg",
+     "depicts": "Golden Hall (Kondō) of Mii-dera",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Mii-dera"
+    },
+    {
+     "file": "File:Mii-dera Onjo-ji (Otsu Shiga) Temple hdsr S5 jm01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mii-dera_Onjo-ji_(Otsu_Shiga)_Temple_hdsr_S5_jm01.jpg",
+     "depicts": "Jūhachi-myōjin-sha shrine hall at Mii-dera Chū-in",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Mii-dera Onjo-ji"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#miyama-kayabuki-no-sato-kitamura",
@@ -14785,7 +15457,24 @@
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%82%84%E3%81%B6%E3%81%8D%E3%81%AE%E9%87%8C%E3%83%BB%E5%8C%97%E6%9D%91",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kayabukinosato01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kayabukinosato01.jpg",
+     "depicts": "Thatched farmhouses of Kayabuki-no-Sato",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kayabukinosato; from Category:Kayabukinosato-Kitamura listing"
+    },
+    {
+     "file": "File:かやぶきの里・北村 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E3%81%8B%E3%82%84%E3%81%B6%E3%81%8D%E3%81%AE%E9%87%8C%E3%83%BB%E5%8C%97%E6%9D%91_01.jpg",
+     "depicts": "Thatched village of Kitamura",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names かやぶきの里・北村; from Category:Kayabukinosato-Kitamura listing"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#myoshin-ji",
@@ -14839,7 +15528,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nijo Castle 2017.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nijo_Castle_2017.jpg",
+     "depicts": "Ninomaru Palace carriage entrance, Nijō Castle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Nijo Castle"
+    },
+    {
+     "file": "File:Nijo Castle.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nijo_Castle.jpg",
+     "depicts": "Nijō Castle",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Nijo Castle"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#nishi-hongan-ji",
@@ -14853,7 +15559,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:170216 Nishi Honganji Kyoto Japan03s4.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:170216_Nishi_Honganji_Kyoto_Japan03s4.jpg",
+     "depicts": "Nishi Hongan-ji temple halls",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Nishi Honganji"
+    },
+    {
+     "file": "File:Kyoto, nishi-hoganji, 01.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kyoto,_nishi-hoganji,_01.JPG",
+     "depicts": "Nishi Hongan-ji, Kyoto",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Nishi Hongan-ji (misspelt); content not described"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#nishiki-market",
@@ -14908,7 +15631,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kare-sansui zen garden, Ryōan-ji, Kyoto 20190416 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kare-sansui_zen_garden,_Ry%C5%8Dan-ji,_Kyoto_20190416_1.jpg",
+     "depicts": "Ryōan-ji dry rock garden",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Ryōan-ji"
+    },
+    {
+     "file": "File:RyoanJi-Dry garden.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:RyoanJi-Dry_garden.jpg",
+     "depicts": "Ryōan-ji dry rock garden",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names RyoanJi; former Picture of the Day"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#saiho-ji-koke-dera-moss-temple",
@@ -14922,7 +15662,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Saihouji-kokedera01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Saihouji-kokedera01.jpg",
+     "depicts": "Moss garden pond at Saihō-ji",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Saihoji kokedera"
+    },
+    {
+     "file": "File:Saihō-ji (Nishikyo Kyoto) hdsr Garden S5 16.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Saih%C5%8D-ji_(Nishikyo_Kyoto)_hdsr_Garden_S5_16.jpg",
+     "depicts": "Moss garden and woodland at Saihō-ji, 2024",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Saihō-ji garden"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#sanjusangen-do",
@@ -14948,7 +15705,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Sanzen-in",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sanzenin.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sanzenin.jpg",
+     "depicts": "Sanzen-in temple, Ōhara",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Sanzen-in"
+    },
+    {
+     "file": "File:Sanzen'in Kyoto2023.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sanzen'in_Kyoto2023.jpg",
+     "depicts": "Sanzen-in temple, Ōhara, 2023",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Sanzen-in; from Category:Sanzen'in listing"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#shimogamo-shrine-kamo-mioya-jinja",
@@ -14962,7 +15736,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Shimogamo Shrine, Kyoto.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Shimogamo_Shrine,_Kyoto.jpg",
+     "depicts": "Shimogamo Shrine, Kyoto",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Shimogamo Shrine"
+    },
+    {
+     "file": "File:Kamomioya-jinja romon.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kamomioya-jinja_romon.jpg",
+     "depicts": "Rōmon tower gate of Shimogamo (Kamo-mioya) Shrine",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kamomioya-jinja"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#tenryu-ji",
@@ -14976,7 +15767,24 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Tenryu-ji, Sogenchi Teien (Garden) -2 (November 2008) - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tenryu-ji,_Sogenchi_Teien_(Garden)_-2_(November_2008)_-_panoramio.jpg",
+     "depicts": "Sōgenchi pond garden at Tenryū-ji in autumn",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Tenryu-ji Sogenchi garden"
+    },
+    {
+     "file": "File:Tenryuji Kyoto.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tenryuji_Kyoto.jpg",
+     "depicts": "Tenryū-ji temple, Kyoto",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Tenryuji"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#to-ji-kyo-o-gokoku-ji",
@@ -15001,7 +15809,24 @@
     "Tōdai-ji"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Daibutsu-den in Todaiji Nara01bs3200.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Daibutsu-den_in_Todaiji_Nara01bs3200.jpg",
+     "depicts": "Daibutsuden (Great Buddha Hall) exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Todaiji Daibutsu-den"
+    },
+    {
+     "file": "File:Todai-ji.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Todai-ji.jpg",
+     "depicts": "Daibutsuden of Tōdai-ji exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Todai-ji"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#tofuku-ji",
@@ -15012,7 +15837,24 @@
     "Tōfuku-ji"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Tofukuji Tsutenkyo.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tofukuji_Tsutenkyo.jpg",
+     "depicts": "Tsūten-kyō bridge at Tōfuku-ji",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Tofukuji; from Category:Tsuten Bridge, Tofukuji listing"
+    },
+    {
+     "file": "File:Tsuten-kyo bridge.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tsuten-kyo_bridge.JPG",
+     "depicts": "Tsūten-kyō bridge at Tōfuku-ji in autumn",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Tsuten-kyo (Tōfuku-ji's bridge) but not the temple; in Category:Tsuten Bridge, Tofukuji"
+    }
+   ]
   },
   {
    "key": "landmark:kyoto#togetsukyo-bridge",
@@ -15037,7 +15879,24 @@
     "Yasaka Shrine"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nishiromon Gate, Yasaka Shrine, Kyoto, West view 20190416 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nishiromon_Gate,_Yasaka_Shrine,_Kyoto,_West_view_20190416_1.jpg",
+     "depicts": "Nishiromon west gate of Yasaka Shrine",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Yasaka Shrine"
+    },
+    {
+     "file": "File:Yasaka-Jinja Shrine, Kyoto, Japan (48923326768).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Yasaka-Jinja_Shrine,_Kyoto,_Japan_(48923326768).jpg",
+     "depicts": "Yasaka Shrine, Kyoto",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Yasaka-Jinja Kyoto"
+    }
+   ]
   },
   {
    "key": "landmark:liege#abbaye-de-stavelot",
@@ -18650,8 +19509,19 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Tree_of_Life_(Disney)",
-   "wikiLead": true,
-   "candidates": []
+   "skip": "its distinctive content is the carved animal relief: sculpture, which the US gives no freedom of panorama — calm cover (stated, R8, orchestrator ruling 2026-10-16)",
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Tree of Life, Disney's Animal Kingdom.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tree_of_Life,_Disney's_Animal_Kingdom.jpg",
+     "depicts": "(fetched)",
+     "confidence": "high",
+     "reason": "R8 review",
+     "refused": "refused by orchestrator ruling (R8, 2026-10-16): the carved animal relief is sculpture; the US has no freedom of panorama for sculpture (artwork rule)"
+    }
+   ]
   },
   {
    "key": "landmark:orlando#tron-lightcycle-run",
@@ -20398,7 +21268,24 @@
     "Abtei Michaelsberg"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Abtei Michaelsberg.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Abtei_Michaelsberg.jpg",
+     "depicts": "Michaelsberg Abbey on its hill above Siegburg",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Abtei Michaelsberg; from Category:Michaelsberg Abbey listing"
+    },
+    {
+     "file": "File:Siegburg Abtei von O1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Siegburg_Abtei_von_O1.jpg",
+     "depicts": "Siegburg abbey seen from the east",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Siegburg Abtei; from Category:Michaelsberg Abbey listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#alter-zoll",
@@ -20470,7 +21357,24 @@
     "Beethoven-Haus"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Beethovenhaus (Bonn) jm01858.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Beethovenhaus_(Bonn)_jm01858.jpg",
+     "depicts": "Beethoven-Haus facade, Bonngasse 20",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Beethovenhaus Bonn"
+    },
+    {
+     "file": "File:2013-08-27 Beethoven-Haus, Bonngasse 20, Bonn IMG 5191.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:2013-08-27_Beethoven-Haus,_Bonngasse_20,_Bonn_IMG_5191.jpg",
+     "depicts": "Beethoven-Haus facade, Bonngasse 20",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Beethoven-Haus"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#belgisches-viertel",
@@ -20535,7 +21439,24 @@
     "Drachenfel"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Burgruine Drachenfels Mai 2011.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Burgruine_Drachenfels_Mai_2011.jpg",
+     "depicts": "Drachenfels castle ruin",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Burgruine Drachenfels; from Category:Burg Drachenfels (Siebengebirge) listing"
+    },
+    {
+     "file": "File:Drachenfelsruine.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Drachenfelsruine.jpg",
+     "depicts": "Drachenfels castle ruin",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Drachenfels ruin; from Category:Burg Drachenfels (Siebengebirge) listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#ehrenfeld",
@@ -20558,7 +21479,24 @@
     "Freizeitpark Rheinaue"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Rheinaue Post Tower Langer Eugen.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rheinaue_Post_Tower_Langer_Eugen.jpg",
+     "depicts": "Rheinaue park with Post Tower and Langer Eugen behind",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rheinaue"
+    },
+    {
+     "file": "File:Bonn Rheinaue 2.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bonn_Rheinaue_2.jpg",
+     "depicts": "Rheinaue park, Bonn",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Bonn Rheinaue"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#gro-st-martin",
@@ -20570,7 +21508,24 @@
     "Groß Saint Martin"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Groß-St.-Martin-Köln.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gro%C3%9F-St.-Martin-K%C3%B6ln.JPG",
+     "depicts": "Groß St. Martin church exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Groß St. Martin"
+    },
+    {
+     "file": "File:Köln - Martinsviertel und Groß St. Martin.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:K%C3%B6ln_-_Martinsviertel_und_Gro%C3%9F_St._Martin.jpg",
+     "depicts": "Groß St. Martin rising over the Martinsviertel",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Groß St. Martin"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#haus-der-geschichte",
@@ -20620,7 +21575,24 @@
     "Hohenzollernbrücke"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hohenzollernbrücke Köln von oben.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hohenzollernbr%C3%BCcke_K%C3%B6ln_von_oben.jpg",
+     "depicts": "Hohenzollern Bridge over the Rhine seen from above",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hohenzollernbrücke"
+    },
+    {
+     "file": "File:00 7344 Köln - Hohenzollernbrücke.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:00_7344_K%C3%B6ln_-_Hohenzollernbr%C3%BCcke.jpg",
+     "depicts": "Hohenzollern Bridge, Cologne",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hohenzollernbrücke"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#japanischer-garten-leverkusen",
@@ -20631,7 +21603,17 @@
     "Japanischer Garten Leverkusen"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Japanischer Garten Leverkusen.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Japanischer_Garten_Leverkusen.jpg",
+     "depicts": "Japanese Garden, Leverkusen",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Japanischer Garten Leverkusen; from Category:Japanischer Garten Leverkusen listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#k20-kunstsammlung-nordrhein-westfalen",
@@ -20643,7 +21625,24 @@
     "Kunstsammlung Nordrhein-Westfalen"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:K20 - Gebäude der Kunstsammlung Nordrhein-Westfalen, Düsseldorf-5635.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:K20_-_Geb%C3%A4ude_der_Kunstsammlung_Nordrhein-Westfalen,_D%C3%BCsseldorf-5635.jpg",
+     "depicts": "K20 museum building on Grabbeplatz",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names K20 Kunstsammlung NRW building"
+    },
+    {
+     "file": "File:K20 November 2015.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:K20_November_2015.jpg",
+     "depicts": "K20 museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names K20; from Category:K20 listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#kaiserpfalz-kaiserswerth",
@@ -20654,7 +21653,17 @@
     "Kaiserpfalz Kaiserswerth"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kaiserswerth Kaiserpfalz.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kaiserswerth_Kaiserpfalz.jpg",
+     "depicts": "Ruins of the Kaiserpfalz on the Rhine at Kaiserswerth",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kaiserswerth Kaiserpfalz"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#kloster-knechtsteden",
@@ -20665,7 +21674,24 @@
     "Kloster Knechtsteden"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Dormagen - Knechtsteden - Kloster - Klosterfriedhof + Basilika 02 ies.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dormagen_-_Knechtsteden_-_Kloster_-_Klosterfriedhof_%2B_Basilika_02_ies.jpg",
+     "depicts": "Knechtsteden abbey basilica behind the monastery cemetery",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kloster Knechtsteden basilica"
+    },
+    {
+     "file": "File:Kloster Knechtsteden1.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kloster_Knechtsteden1.JPG",
+     "depicts": "Knechtsteden abbey",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kloster Knechtsteden"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#klosterruine-heisterbach",
@@ -20702,7 +21728,24 @@
     "Kölner Dom"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kölner Dom - Westfassade 2022 ohne Gerüst-0968.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968.jpg",
+     "depicts": "Cologne Cathedral west facade without scaffolding, 2022",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kölner Dom"
+    },
+    {
+     "file": "File:Kölner Dom Westfassade 2011 (2573-75).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:K%C3%B6lner_Dom_Westfassade_2011_(2573-75).jpg",
+     "depicts": "Cologne Cathedral west facade, 2011",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kölner Dom"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#kolumba",
@@ -20713,7 +21756,24 @@
     "Kolumba"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kolumba.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kolumba.jpg",
+     "depicts": "Kolumba museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kolumba; described as the archdiocesan museum"
+    },
+    {
+     "file": "File:Koeln museum kolumba dischhaus (cropped).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Koeln_museum_kolumba_dischhaus_(cropped).jpg",
+     "depicts": "Kolumba museum building by Zumthor",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names museum Kolumba Köln"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#konigsallee-die-ko",
@@ -20738,7 +21798,24 @@
     "Kranhäuser"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kranhäuser 20110425.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kranh%C3%A4user_20110425.JPG",
+     "depicts": "Crane houses at the Rheinauhafen",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kranhäuser"
+    },
+    {
+     "file": "File:Kranhäuser 2015-08-02.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kranh%C3%A4user_2015-08-02.JPG",
+     "depicts": "Crane houses at the Rheinauhafen, 2015",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kranhäuser; from Category:Kranhaus, Rheinauhafen Cologne listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#kurfurstliches-schloss-and-hofgarten",
@@ -20752,7 +21829,24 @@
     "Kurfürstliches Schlos"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bonn - Hofgarten (Bonn).JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bonn_-_Hofgarten_(Bonn).JPG",
+     "depicts": "Hofgarten lawn in front of the Electoral Palace",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Hofgarten Bonn; used on Kurfürstliches Schloss Bonn category page"
+    },
+    {
+     "file": "File:Bonn Kurfürstliches Schloss (51794766655).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bonn_Kurf%C3%BCrstliches_Schloss_(51794766655).jpg",
+     "depicts": "Electoral Palace, Bonn",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Kurfürstliches Schloss Bonn; from Category:Kurfürstliches Schloss Bonn listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#langen-foundation",
@@ -20788,7 +21882,24 @@
     "Max Ernst Museum Brühl des LVR"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Max Ernst Museum Brühl des LVR-0901.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Max_Ernst_Museum_Br%C3%BChl_des_LVR-0901.jpg",
+     "depicts": "Max Ernst Museum building, 2022",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Max Ernst Museum Brühl des LVR"
+    },
+    {
+     "file": "File:Max Ernst Museum, Brühl.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Max_Ernst_Museum,_Br%C3%BChl.jpg",
+     "depicts": "Max Ernst Museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Max Ernst Museum Brühl; from Category:Max-Ernst-Museum Brühl listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#museum-insel-hombroich",
@@ -20799,6 +21910,7 @@
     "Museum Insel Hombroich"
    ],
    "pilot": false,
+   "skip": "the only Commons photo found shows an Erwin Heerich pavilion, a modern artwork (wave 5 search) — calm cover (stated, W8)",
    "candidates": []
   },
   {
@@ -20826,7 +21938,17 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Museum_Kunstpalast",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Düsseldorf - Ehrenhof + Inselstraße + Museum Kunstpalast 01 ies.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:D%C3%BCsseldorf_-_Ehrenhof_%2B_Inselstra%C3%9Fe_%2B_Museum_Kunstpalast_01_ies.jpg",
+     "depicts": "Ehrenhof courtyard and Museum Kunstpalast building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Museum Kunstpalast"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#museum-ludwig",
@@ -20837,7 +21959,24 @@
     "Museum Ludwig"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Museum Ludwig Köln - Südansicht.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Museum_Ludwig_K%C3%B6ln_-_S%C3%BCdansicht.jpg",
+     "depicts": "Museum Ludwig south view",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Museum Ludwig Köln"
+    },
+    {
+     "file": "File:Museum Ludwig 001.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Museum_Ludwig_001.jpg",
+     "depicts": "Museum Ludwig seen from the cathedral side",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Museum Ludwig"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#neuer-zollhof-gehry-bauten-im-medienhafen",
@@ -20848,7 +21987,24 @@
     "Neuer Zollhof im MedienHafen"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gehry buildings Duesseldorf Neuer Zollhof 3 2 1 Unterbilk Duesseldorf Germany 02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gehry_buildings_Duesseldorf_Neuer_Zollhof_3_2_1_Unterbilk_Duesseldorf_Germany_02.jpg",
+     "depicts": "All three Gehry buildings of Neuer Zollhof",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Neuer Zollhof"
+    },
+    {
+     "file": "File:Der Neue Zollhof, Düsseldorf 2022.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Der_Neue_Zollhof,_D%C3%BCsseldorf_2022.jpg",
+     "depicts": "Neuer Zollhof Gehry buildings, 2022",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Neue Zollhof"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#ns-dokumentationszentrum-el-de-haus",
@@ -20906,7 +22062,24 @@
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Rheinturm_D%C3%BCsseldorf",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Düsseldorf, Rheinturm -- 2025 -- 2564.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:D%C3%BCsseldorf,_Rheinturm_--_2025_--_2564.jpg",
+     "depicts": "Rheinturm TV tower",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rheinturm"
+    },
+    {
+     "file": "File:Düsseldorf, Rheinturm -- 2015 -- 8182-6.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:D%C3%BCsseldorf,_Rheinturm_--_2015_--_8182-6.jpg",
+     "depicts": "Rheinturm seen from the Parlamentsufer",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rheinturm"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#rheinuferpromenade",
@@ -20917,7 +22090,24 @@
     "Rheinuferpromenade"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Düsseldorf, Rheinuferpromenade -- 2025 -- 2566.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:D%C3%BCsseldorf,_Rheinuferpromenade_--_2025_--_2566.jpg",
+     "depicts": "Rhine promenade looking south to Rheinturm",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rheinuferpromenade"
+    },
+    {
+     "file": "File:Düsseldorfer Altstadt - Rheinuferpromenade - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:D%C3%BCsseldorfer_Altstadt_-_Rheinuferpromenade_-_panoramio.jpg",
+     "depicts": "Altstadt Rhine promenade",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Rheinuferpromenade; from Category:Rheinuferpromenade listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#romisch-germanisches-museum",
@@ -20928,7 +22118,24 @@
     "Römisch-Germanisches Museum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Römisch-Germanisches Museum Köln (2514-16).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:R%C3%B6misch-Germanisches_Museum_K%C3%B6ln_(2514-16).jpg",
+     "depicts": "Römisch-Germanisches Museum exterior on Roncalliplatz",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Römisch-Germanisches Museum"
+    },
+    {
+     "file": "File:Römisch-Germanisches Museum Köln - Eingangsbereich-3525.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:R%C3%B6misch-Germanisches_Museum_K%C3%B6ln_-_Eingangsbereich-3525.jpg",
+     "depicts": "Entrance area of the Römisch-Germanisches Museum",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Römisch-Germanisches Museum"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#schloss-benrath",
@@ -20939,7 +22146,24 @@
     "Schloss Benrath"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Schloss Benrath Südseite.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Schloss_Benrath_S%C3%BCdseite.jpg",
+     "depicts": "Schloss Benrath south side",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Schloss Benrath; from Category:Schloss Benrath listing"
+    },
+    {
+     "file": "File:Benrath Palace in Düsseldorf-Benrath.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Benrath_Palace_in_D%C3%BCsseldorf-Benrath.jpg",
+     "depicts": "Benrath Palace exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Benrath Palace; from Category:Schloss Benrath listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#schloss-bensberg",
@@ -20976,7 +22200,24 @@
     "Schloss Dyck"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Außenansicht von Schloss Dyck, Jüchen.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Au%C3%9Fenansicht_von_Schloss_Dyck,_J%C3%BCchen.jpg",
+     "depicts": "Schloss Dyck facade reflected in the moat",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Schloss Dyck"
+    },
+    {
+     "file": "File:Schloss Dyck Wassergraben Jüchen NRW.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Schloss_Dyck_Wassergraben_J%C3%BCchen_NRW.jpg",
+     "depicts": "Schloss Dyck with its moat",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Schloss Dyck; from Category:Schloss Dyck listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#schlosser-augustusburg-and-falkenlust-unesco-welterbe",
@@ -20989,7 +22230,24 @@
     "Falkenlust"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Brühl Germany Schloss-Augustusburg-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Br%C3%BChl_Germany_Schloss-Augustusburg-01.jpg",
+     "depicts": "Augustusburg Palace south facade reflected in garden basin",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Schloss Augustusburg"
+    },
+    {
+     "file": "File:Schloss Falkenlust, Brühl.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Schloss_Falkenlust,_Br%C3%BChl.JPG",
+     "depicts": "Falkenlust hunting lodge exterior",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Schloss Falkenlust"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#schokoladenmuseum",
@@ -21000,7 +22258,24 @@
     "Schokoladenmuseum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Köln, Schokoladenmuseum -- 2014 -- 1818.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:K%C3%B6ln,_Schokoladenmuseum_--_2014_--_1818.jpg",
+     "depicts": "Chocolate Museum building on the Rheinauhafen",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Schokoladenmuseum Köln"
+    },
+    {
+     "file": "File:Schokoladenmuseum Köln.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Schokoladenmuseum_K%C3%B6ln.jpg",
+     "depicts": "Chocolate Museum building",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Schokoladenmuseum Köln; from Category:Imhoff-Schokoladenmuseum listing"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#st-gereon",
@@ -21027,7 +22302,17 @@
     "Saint Maria im Kapitol"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Köln st maria im kapitol dreikonchenanlage 251204.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:K%C3%B6ln_st_maria_im_kapitol_dreikonchenanlage_251204.jpg",
+     "depicts": "Trefoil (three-apse) east end of St. Maria im Kapitol",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names St. Maria im Kapitol; small 2005 file, exterior vs. interior not confirmed by description"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#wallraf-richartz-museum-and-fondation-corboud",
@@ -21040,7 +22325,24 @@
     "Fondation Corboud"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Wallraf-Richartz-museum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Wallraf-Richartz-museum.jpg",
+     "depicts": "Wallraf-Richartz-Museum building, 2024",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Wallraf-Richartz-Museum"
+    },
+    {
+     "file": "File:Koeln wallraff richartz mus.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Koeln_wallraff_richartz_mus.jpg",
+     "depicts": "Wallraf-Richartz-Museum building, 2006",
+     "confidence": "high",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Wallraf-Richartz museum Köln"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#zollfeste-zons",
@@ -21051,7 +22353,24 @@
     "Zollfeste Zons"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Zons, Juddeturm 2008 a.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Zons,_Juddeturm_2008_a.JPG",
+     "depicts": "Juddeturm tower of the Zons fortifications",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names Zons Juddeturm, part of the Zollfeste, not the whole"
+    },
+    {
+     "file": "File:Zons TurmKroetschen.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Zons_TurmKroetschen.JPG",
+     "depicts": "Krötschenturm tower of the Zons town wall",
+     "confidence": "med",
+     "reason": "candidate wave 5 (R8 gap #1, 2026-10-16): title names a Zons wall tower, part of the Zollfeste"
+    }
+   ]
   },
   {
    "key": "landmark:saarland#beilstein-and-burg-metternich",

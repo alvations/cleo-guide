@@ -315,8 +315,7 @@
         el.style.setProperty('--gb-toc-top', Math.round(top) + 'px');
       };
       pin(); on(window, 'resize', pin);
-      // OV-00 rule 1: the Contents strip is a guest row — it slides up behind the header on a scroll down, back on a scroll up
-      if (C.compact) { var toc = el.querySelector('nav.toc'); if (toc) off.push(C.compact(toc, 'is-away')); }
+      // OV-00 rule 1: the Contents strip is a guest row on FE-A's shared state (html.ov-c, Cleo.chrome) — CSS only, fe-a.css
       if (window.ResizeObserver && cbar) { var ro = new ResizeObserver(pin); ro.observe(cbar); off.push(function () { ro.disconnect(); }); }
       // the city page sets `hidden` on its cards when a lens changes; follow those attribute flips (coalesced)
       var t = 0, later = function () { if (!t) t = setTimeout(function () { t = 0; if (host === el) syncLens(el); }, 0); };

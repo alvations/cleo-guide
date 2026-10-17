@@ -13,7 +13,7 @@
  *   Q-04  honesty   the views' visible text after mounting (sheet open), on top of the offline gate in npm test
  *                   (beta/qa/test-honesty.js): no price / rating / booking / hours wording outside the stated-gap line.
  * A view that no lane has registered yet reports PENDING (not FAIL), so the harness runs from day one and tightens as
- * views land. Usage: cd tools && node beta/qa/views.js [--only nocdn,links,honesty] [--pilots tokyo,cleveland]
+ * views land. Usage: cd tools && node beta/qa/views.js [--only nocdn,links,default,honesty] [--pilots tokyo,cleveland]
  * Output: qa/beta-w3/views.json (+ screenshots in qa/beta-w3/).
  */
 'use strict';
@@ -162,7 +162,7 @@ async function links() {
     const d = pageJson(rel);
     const pid = d.places.find(p => !/closed/i.test(p.n)).id, area = d.areas[0].id, q = String(d.places[0].n).split(/\s+/)[0];
     const LENSES = [{}, { a: area }, { t: 1 }, { q }];
-    for (const vp of ['mobile', 'desktop']) for (const v of VIEWS) {
+    if (want('links')) for (const vp of ['mobile', 'desktop']) for (const v of VIEWS) {
       for (const L of LENSES) for (const withP of [false, true]) {
         const o = Object.assign({ view: v }, L, withP ? { p: pid } : {});
         const hash = '#' + Object.keys(o).map(k => k + '=' + encodeURIComponent(o[k])).join('&');
@@ -186,7 +186,7 @@ async function links() {
       }
     }
     // a switch is one history entry: gallery → atlas → Back → Forward
-    for (const vp of ['mobile', 'desktop']) {
+    if (want('links')) for (const vp of ['mobile', 'desktop']) {
       const { ctx, page, st } = await open(rel, vp, { hash: '#view=gallery' });
       if (!(await switchTo(page, 'atlas'))) { check('links', `${rel} ${vp} Back/Forward across a switch`, null, 'no switcher yet'); await ctx.close(); continue; }
       const a = (await page.evaluate(STATE)).view;
@@ -195,13 +195,14 @@ async function links() {
       check('links', `${rel} ${vp} Back/Forward across a switch`, a === 'atlas' && b === 'gallery' && c === 'atlas' && !st.errors.length, { a, b, c, err: st.errors.slice(0, 2) });
       await ctx.close();
     }
-    // D-46 precedence: the view= hash, then the reader's stored choice, then the default (Atlas); the switcher in D-46 order
-    for (const vp of ['mobile', 'desktop']) {
+    // D-46 precedence: the view= hash, then the reader's stored choice, then the default (Atlas); the switcher in D-46 order.
+    // Its own group ('default'), so `--only links` stays the QA-75 link set that perf08-regress.sh gates on
+    if (want('default')) for (const vp of ['mobile', 'desktop']) {
       for (const [pref, want] of [[null, DEFAULT_VIEW], ['guidebook', 'guidebook']]) {
         const { ctx, page, st } = await open(rel, vp, pref ? { pref } : {});
         const s = await page.evaluate(STATE);
         const order = await page.evaluate(() => [...document.querySelectorAll('[data-cleo-views] [data-view]')].map(b => b.getAttribute('data-view')).filter((v, i, a) => a.indexOf(v) === i));
-        check('links', `${rel} ${vp}: no hash, ${pref ? 'stored ' + pref : 'nothing stored'} → ${want}${pref ? '' : '; switcher order ' + SWITCH_ORDER.join(', ')}`,
+        check('default', `${rel} ${vp}: no hash, ${pref ? 'stored ' + pref : 'nothing stored'} → ${want}${pref ? '' : '; switcher order ' + SWITCH_ORDER.join(', ')}`,
           s.view === want && (pref || order.join() === SWITCH_ORDER.join()) && !st.errors.length, { view: s.view, order, err: st.errors.slice(0, 2) });
         await ctx.close();
       }
@@ -237,7 +238,7 @@ async function honesty() {
   const srv = await serve(); base = 'http://127.0.0.1:' + srv.address().port + '/';
   try { R.head = require('child_process').execSync('git rev-parse --short HEAD', { cwd: ROOT }).toString().trim(); } catch (e) { /* no git */ }
   if (want('nocdn')) await nocdn();
-  if (want('links')) await links();
+  if (want('links') || want('default')) await links();   // 'default' = the D-46 precedence rows only
   if (want('honesty')) await honesty();
   await browser.close(); srv.close();
   const n = s => R.checks.filter(c => c.status === s).length;

@@ -356,6 +356,14 @@ async function finish(page, s0, opener, close) {
     if (!lines.length) chk(`rings ${rel}: probe ran`, false, String(q.stderr || '').slice(0, 300));
     lines.forEach(l => chk('R3 #9/#14 ' + l.replace(/^(PASS|FAIL)  /, '').replace(/  \{.*$/, ''), /^PASS/.test(l), l.replace(/^.*?  \{/, '{').slice(0, 300))); }
 
+  // SPEC-v3 §3.7 (R8 gap 3) map motion: each reader-started moment ≤ 300 ms (the preview grows from its pin, fades on close;
+  // the phone carousel lifts in; a hovered dot grows), and no animation at all under reduced motion (tools/beta/fe2/motion.js)
+  for (const rel of ['cities/tokyo.html', 'cleveland.html']) { if (ONLY && !ONLY.split(',').some(k => rel.includes(k))) continue;
+    const q = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'fe2', 'motion.js'), rel], { env: process.env, encoding: 'utf8' });
+    const lines = String(q.stdout || '').split('\n').filter(l => /^(PASS|FAIL)  motion/.test(l));
+    if (!lines.length) chk(`motion ${rel}: probe ran`, false, String(q.stderr || '').slice(0, 300));
+    lines.forEach(l => chk('§3.7 ' + l.replace(/^(PASS|FAIL)  /, '').replace(/  \{.*$/, ''), /^PASS/.test(l), l.replace(/^.*?  \{/, '{').slice(0, 300))); }
+
   // D-46 (Atlas is the default city view): with no hash at all the page lands in Atlas, and everything above still holds
   // from a bare URL. Runs when the page's own default view (#cleo-city "dv") is Atlas; until then it says it was skipped.
   for (const [key, url] of PAGES) {

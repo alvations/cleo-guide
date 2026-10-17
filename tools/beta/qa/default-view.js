@@ -10,5 +10,6 @@ const SWITCH_ORDER = DEFAULT_VIEW === 'atlas' ? ['atlas', 'gallery', 'guidebook'
 // SPEC-v3 §1.7 first-screen art (QA-ratified 2026-10-16): 'warn' until the parts land, then 'fail'
 //   PEEK_PHOTO: ≥ 1 place photo on the 390 first screen (FE-1's peek thumbnails)
 //   DESKTOP_INTRO: the city name, its dek and the lead place's photo above the fold of the list column (FE-A)
-const GATES = { PEEK_PHOTO: process.env.QA_GATE_PEEK_PHOTO || 'warn', DESKTOP_INTRO: process.env.QA_GATE_DESKTOP_INTRO || 'warn' };
+//   OVERLAY: B-25 (tools/beta/qa/overlay.js; docs/BETA-OVERLAY-LEDGER.md) — 'fail' since OV-00 was set (bb2af8732)
+const GATES = { PEEK_PHOTO: process.env.QA_GATE_PEEK_PHOTO || 'warn', DESKTOP_INTRO: process.env.QA_GATE_DESKTOP_INTRO || 'warn', OVERLAY: process.env.QA_GATE_OVERLAY || 'fail' };
 module.exports = { DEFAULT_VIEW, SWITCH_ORDER, GATES };
