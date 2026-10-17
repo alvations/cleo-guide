@@ -30,15 +30,27 @@ const page0 = process.argv[2] || 'cities/tokyo.html', view0 = process.argv[3] ||
     const open1 = await p.evaluate(() => !!(window.Cleo && Cleo.sheet && Cleo.sheet.isOpen()));
     const s1 = await st();
     const covered = s1.segs.filter(x => !x.hit).map(x => x.v);
+    // OV-10 / OV-11 (DESIGN-SYSTEM §v2.12, FE-A fe-a.css): outside Atlas, below 1024 px, an open sheet OWNS the screen under its
+    // own back / close bar — the switch is meant to be covered then. The sheet's Close must be a reachable 44 px control;
+    // after it, one tap on the switch switches. Phone Atlas keeps its map band, so the switch stays reachable over a sheet.
+    const modal = view0 !== 'atlas' && w < 1024;
+    let closeOk = true;
+    if (modal && open1) {
+      closeOk = await p.evaluate(() => { const x = document.querySelector('#cleo-sheet:not([hidden]) [data-sh="x"]'); if (!x) return false; const r = x.getBoundingClientRect(), h = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+        return r.width >= 44 && r.height >= 44 && r.top >= 0 && !!h && x.contains(h); });
+      const xb = await (await p.$('#cleo-sheet [data-sh="x"]')).boundingBox(); await p.mouse.click(xb.x + xb.width / 2, xb.y + xb.height / 2);
+      await p.waitForFunction(() => !(window.Cleo && Cleo.sheet && Cleo.sheet.isOpen()), null, { timeout: 2000 }).catch(() => {});
+      await p.waitForFunction(() => document.getAnimations().every(a => a.playState !== 'running'), null, { timeout: 2000 }).catch(() => {});
+    }
     const gb = await p.$('[data-cleo-views] button[data-view="guidebook"]'); const bb = await gb.boundingBox();
     await p.mouse.click(bb.x + bb.width / 2, bb.y + bb.height / 2); await p.waitForTimeout(1200);
     const after = await p.evaluate(() => ({ view: document.documentElement.getAttribute('data-view'), sheet: !!(window.Cleo && Cleo.sheet && Cleo.sheet.isOpen()), focus: document.activeElement && document.activeElement.tagName, hash: location.hash }));
-    const ok = s0.tag === 'DIV' && s0.role === 'group' && s0.label === 'View' && s0.pressed.length === 1 && !small.length && open1 && (w >= 640 || (!covered.length && after.view === 'guidebook' && !after.sheet && /^H[12]$/.test(after.focus))) && !errs.length;
+    const ok = s0.tag === 'DIV' && s0.role === 'group' && s0.label === 'View' && s0.pressed.length === 1 && !small.length && open1 && (modal ? closeOk && after.view === 'guidebook' && !after.sheet && /^H[12]$/.test(after.focus) : (w >= 640 || (!covered.length && after.view === 'guidebook' && !after.sheet && /^H[12]$/.test(after.focus)))) && !errs.length;
     if (!ok) bad++;
-    console.log(`${ok ? 'PASS' : 'FAIL'} ${view0} ${w}px@${dpr}x ${how}${rm ? ' reduced-motion' : ''}  ${JSON.stringify({ segs: s0.segs.map(x => `${x.v} ${x.w}x${x.h}`), small, sheetOpen: open1, covered, after, errs })}`);
+    console.log(`${ok ? 'PASS' : 'FAIL'} ${view0} ${w}px${modal ? ' (modal sheet: Close ' + (closeOk ? 'ok' : 'MISSING') + ')' : ''}@${dpr}x ${how}${rm ? ' reduced-motion' : ''}  ${JSON.stringify({ segs: s0.segs.map(x => `${x.v} ${x.w}x${x.h}`), small, sheetOpen: open1, covered, after, errs })}`);
     await p.close();
   }
   await b.close();
-  console.log(bad ? `>>> FAIL — ${bad} width(s)` : '>>> PASS — switcher: 4 segments >= 44 px, group role, reachable with a sheet open, 1 tap per switch');
+  console.log(bad ? `>>> FAIL — ${bad} width(s)` : '>>> PASS — switcher: 4 segments >= 44 px, group role; with a sheet open it is reachable (Atlas) or the modal sheet has a 44 px Close (OV-10/11); 1 tap per switch');
   process.exit(bad ? 1 : 0);
 })();

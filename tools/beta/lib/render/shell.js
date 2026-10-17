@@ -176,8 +176,7 @@ function footer({ depth, liveRel, notes = [], tabbar = false, current }) {
 </div></footer>
 ${tabbar ? tabBar({ depth, current }) : ''}
 <script src="${up}assets/js/states.js?v=${v('states.js')}" defer></script>
-<script src="${up}assets/js/search.js?v=${v('search.js')}" defer></script>${tabbar ? `
-<script src="${up}assets/js/compact.js?v=${v('compact.js')}" defer></script>` : ''}`;
+<script src="${up}assets/js/search.js?v=${v('search.js')}" defer></script>`;
 }
 
 module.exports = { FEB_CSS_SRC, febV, localeSwitch, siteBar, footer, tabBar, styles, setSite, site, trail, icon, MARK, LIVE_BASE };

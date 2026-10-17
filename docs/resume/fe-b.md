@@ -13,6 +13,14 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- One compact state site-wide: compact.js is gone; the shell tab bar and the Guidebook Contents strip style on FE-A's
+  html.ov-c (Cleo.chrome, core.js) with :focus-within to return. Shell pages 48/48 within §v2.12 budgets.
+- R8 gap #7 (FE-B half): fe-b.css line-heights on --lh tokens; the 16 px titles (.card-t, editorial rail .t, .theme-t,
+  .ccard .card-t) use the UI face (display face >= 24 px only).
+- feb-switcher.js follows OV-10/11: below 1024 outside Atlas the open sheet owns the screen; its Close must be a reachable
+  44 px control. Found: desktop Atlas switch segments 113x36 (< 44) — sent to FE-A / FE-1.
+- §3a one search per screen: proposal sent to FE-A (search.js routes header / "/" to the city field; "Search all guides
+  for q" row into a FE-A slot; tab bar loses its duplicate Search). Waiting on FE-A's yes.
 - R8 gap #5b (B-20): What changed "Status source" links are a.chg-src 44 px controls (beat `.chg a` 24 px); metrics.js
   B-20 = 0 on all 31 pages that carry one (sweep in scratch, 31/31). test-hubs guards the class + rule.
 - R8 gap #2d: landing + hub "Recommended by" use lib/model.js recommender(): research parentheticals dropped
