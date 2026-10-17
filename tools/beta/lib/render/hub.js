@@ -150,7 +150,7 @@ function cityTile(row, i, { up = '', views = false, reg = null, dense = false, a
   const canon = !sig && f.canon.length ? `<span class="canon">${f.canon.map(c => `<span>${esc(c)}</span>`).join('')}</span>` : '';
   // "Recommended by": the most-citing source by name, then "+ n more" — one form on every screen, never clipped
   const rb = f.recby.n ? `<span class="recby"><span>${esc(t('card.recby'))} <b>${esc(f.recby.names[0])}</b>${f.recby.n > 1 ? ` ${esc(t('card.recby.more', { n: fmt(f.recby.n - 1) }))}` : ''}</span></span>` : '';
-  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"${fyAttr(row)}><a href="${up}${esc(row.beta)}" class="tile card c-${i % 4}">
+  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"${fyAttr(row)}><a href="${up}${esc(row.beta)}" class="tile card c-${i % 4}${ph ? '' : ' np'}">
 <span class="card-media">${ph ? photoImg(ph, up, { sizes: dense ? SIZES.dense : SIZES.hub })   /* a credited photo fills the slot: no cover markup under it */
   : `<span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('pin', 'gl ico')}<span class="cover-n">${esc(f.name)}</span>${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}</span>`}${star}</span>
 <span class="card-body txt"><h3 class="card-t">${esc(f.name)}</h3>
