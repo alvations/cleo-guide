@@ -487,6 +487,7 @@ ${areaChips}
 ${atIntro}
 <div class="lens" id="cleo-lens" aria-live="polite" hidden></div>
 <p class="shown" id="cleo-shown" aria-live="polite"></p>
+<div data-cleo-all-slot></div>
 ${cardsHtml}
 <section class="howto" id="how-we-choose" aria-labelledby="hwc-h"><h2 class="d2" id="hwc-h">${tr('page.method')}</h2>
 <p>${tr('city.how.p')}</p>
