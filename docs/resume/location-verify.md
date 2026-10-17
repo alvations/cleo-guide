@@ -60,6 +60,10 @@ Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` 
       bruges 2, miami-fl 2, cleveland-oh 1, pittsburgh-pa 1, washington-dc 1, state-college-pa 1, antwerp 1, brussels 1.
       These are registry `confidence: low` counts from 2026-10-16. Singapore's 4 are covered by step 1.
    4. Then saarland, rhineland, aachen, with scope `unverified,low,status`.
+   4b. **Roy's Station Coffee & Tea (silicon-valley-ca), next wake.** Run Singapore with `nominatim_max` = remaining − 10. Then run
+      `names=Roy's Station Coffee & Tea`, `sources=nominatim,overpass,official,census`, `nominatim_max=10`.
+      The 2026-10-17 run with no Nominatim found no candidate (docs/geoverify/recheck/…roys-station…). It has a registry stub;
+      it passes the ≥2-credible gate (SJPL + Rafu); the orchestrator accepts.
    5. **After Singapore's REQUEST on the next wake:** the D-44 status follow-ups. Use WebSearch only, one search each:
       - Oriental Delight (Antwerp): keep it closed. Rewrite statusSource as "Listings show it closed (Foursquare 'Now Closed'; TripAdvisor closed); no permanent-closure report found", and drop the worklist wording. No search needed.
       - De Vagant: search once for a reopening. Flip it to open only on news or the bar's own site or socials; an aggregator comment doesn't count.
@@ -119,9 +123,10 @@ The gate counted Yelp as 0 all along. The problem was that **build-newyork.py ha
 - **Roy's Station passes on 2 credible sources but has no pin yet**, a location-verify candidate.
 - 18 prune candidates.
 
-**Open for the orchestrator:**
-- (a) the NYC full ≥2 gate, which would drop 311 places;
-- (b) prune or keep holding SV's 62.
+**Decided by the orchestrator:**
+- (a) NYC keeps GATE 0 and runs **D-54 second-source waves** (t1 → t2 → canon → rest). Wave 1 is done (6b6aae69): single-source t1 = 0, t2 207, t3 77. Next: wave 2, t2.
+- (b) SV's 62 are pruned with an audit trail (`_rejected_no_credible.json`).
+- Hainan Chicken House → t1.
 
 ## In flight
 
