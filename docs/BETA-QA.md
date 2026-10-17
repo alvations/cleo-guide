@@ -1516,3 +1516,13 @@ Evidence: `design/beta/eval/w7/qa/lenspage-accept/`.
 - Results on dev 3793b1d1: foryou/day/near/sig/doors 18/18 (near + doors), a11y 40/40.
 
 **w7 storage on the Layers path (FE-1 0b9c331e0, `.m-base` gone):** 12/12 on dev 3793b1d1, Tokyo and Wheeling × phone and desktop, including layersPersist (aria-checked and satellite tiles after a reload).
+
+### Correction · the lensPage acceptance (2026-10-17) · QA
+
+**My 47/47 on c6ab9bac did not test lensPage.** Platform pointed out that PERF-22 (e1edded3) had parked the lensPage code off the eager path, so setting `Cleo.defer.lensPage = true` at runtime was a no-op. The run measured stamp-every-match, not the paged build. QA should have caught this: none of the six rows checked that the flag changed what was built.
+
+**Fix:** `lenspage-accept.js` row **(0)** now requires the flag to be really on. When F spans more than one page, fewer than F matches may be built at load.
+- On today's dev it correctly **FAILs**: Tokyo t=1 177 of 177 built over 4 pages; food 225 of 225 over 5 pages.
+- Platform re-ran the probe with the real patch applied, and every row passed (e.g. Cleveland t=1: 38 built at load, paging reaches 47/47).
+
+**Status:** the acceptance holds only for the real implementation. QA re-verifies it independently on platform's flip SHA, where row (0) must pass, before PERF-08's lensPage rows count as verified.
